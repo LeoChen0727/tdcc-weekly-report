@@ -1,12 +1,12 @@
 # Stock Theme Taxonomy
 
-- generated_at: 2026-05-30 21:52:42 Asia/Taipei
+- generated_at: 2026-05-30 22:16:27 Asia/Taipei
 - total_rows: 2369
-- mainstream_count: 398
-- non_mainstream_count: 117
-- unknown_count: 1854
+- mainstream_count: 400
+- non_mainstream_count: 116
+- unknown_count: 1853
 - manual_override_count: 5
-- authorized_seed_count: 128
+- authorized_seed_count: 130
 
 ## Authorized Seed Preview
 |   stock_id | stock_name   | industry                | primary_theme    | secondary_themes                        | structural_theme_bucket                | taxonomy_source   |
@@ -25,6 +25,8 @@
 |       1609 | 大亞         | 電器電纜                | 重電電網         |                                         | power_grid_theme                       | authorized_seed   |
 |       1612 | 宏泰         | 電器電纜                | 重電電網         |                                         | power_grid_theme                       | authorized_seed   |
 |       1618 | 合機         | 電器電纜                | 重電電網         |                                         | power_grid_theme                       | authorized_seed   |
+|       1717 | 長興         | 化學工業                | 特化材料         | 特化化學;電子材料                       | specialty_material_theme               | authorized_seed   |
+|       1727 | 中華化       |                         | 特化材料         | 特化化學;電子材料                       | specialty_material_theme               | authorized_seed   |
 |       1802 | 台玻         | 玻璃陶瓷                | 玻纖布           | PCB_CCL_ABF材料                         | glass_fiber_ccl_theme                  | authorized_seed   |
 |       1815 | 富喬         | 電子零組件業            | 玻纖布           | PCB_CCL_ABF材料                         | glass_fiber_ccl_theme                  | authorized_seed   |
 |       2049 | 上銀         | 電機機械                | 機器人           | 自動化                                  | robotics_precision_motion_theme        | manual_override   |
@@ -129,8 +131,6 @@
 |       6640 | 均華         |                         | 半導體設備_CoWoS |                                         | semiconductor_equipment_material_theme | authorized_seed   |
 |       6669 | 緯穎         | 電腦及週邊設備業        | AI伺服器         |                                         | ai_server_ipc_theme                    | authorized_seed   |
 |       6715 | 嘉基         |                         | 低軌衛星         |                                         | low_earth_orbit_satellite_theme        | authorized_seed   |
-|       6805 | 富世達       | 電子零組件業            | 散熱液冷         | 機器人自動化                            | thermal_solution_theme                 | authorized_seed   |
-|       6862 | 三集瑞-KY    | 電子零組件業            | 被動元件         | 電感                                    | passive_component_theme                | manual_override   |
 
 ## Mainstream Sample
 |   stock_id | stock_name   | industry         | primary_theme               | secondary_themes   |
@@ -154,6 +154,8 @@
 |       1612 | 宏泰         | 電器電纜         | 重電電網                    |                    |
 |       1616 | 億泰         | 電器電纜         | 重電電網_電器電纜待細分     |                    |
 |       1618 | 合機         | 電器電纜         | 重電電網                    |                    |
+|       1717 | 長興         | 化學工業         | 特化材料                    | 特化化學;電子材料  |
+|       1727 | 中華化       |                  | 特化材料                    | 特化化學;電子材料  |
 |       1802 | 台玻         | 玻璃陶瓷         | 玻纖布                      | PCB_CCL_ABF材料    |
 |       1815 | 富喬         | 電子零組件業     | 玻纖布                      | PCB_CCL_ABF材料    |
 |       2049 | 上銀         | 電機機械         | 機器人                      | 自動化             |
@@ -163,8 +165,6 @@
 |       2301 | 光寶科       | 電腦及週邊設備業 | AI_PC_電腦週邊待細分        |                    |
 |       2302 | 麗正         | 半導體業         | 半導體業_待細分             |                    |
 |       2305 | 全友         | 電腦及週邊設備業 | AI_PC_電腦週邊待細分        |                    |
-|       2308 | 台達電       |                  | 電源_BBU                    | 車用電子           |
-|       2312 | 金寶         | 其他電子業       | AI供應鏈_其他電子待細分     |                    |
 
 ## Non-Mainstream Sample
 |   stock_id | stock_name   | industry   | primary_theme   | secondary_themes   |
@@ -191,7 +191,6 @@
 |       1710 | 東聯         | 化學工業   | 化學工業        |                    |
 |       1711 | 永光         | 化學工業   | 化學工業        |                    |
 |       1714 | 和桐         | 化學工業   | 化學工業        |                    |
-|       1717 | 長興         | 化學工業   | 化學工業        |                    |
 |       1718 | 中纖         | 化學工業   | 化學工業        |                    |
 |       1721 | 三晃         | 化學工業   | 化學工業        |                    |
 |       1722 | 台肥         | 化學工業   | 化學工業        |                    |
@@ -199,6 +198,7 @@
 |       1789 | 神隆         | 生技醫療業 | 生技醫療業      |                    |
 |       1808 | 潤隆         | 建材營造   | 建材營造        |                    |
 |       1810 | 和成         | 玻璃陶瓷   | 玻璃陶瓷        |                    |
+|       1904 | 正隆         | 造紙工業   | 造紙工業        |                    |
 
 ## Needs Review
 |   stock_id | stock_name       | industry   | primary_theme   | theme_mainstream_label   | taxonomy_source   |

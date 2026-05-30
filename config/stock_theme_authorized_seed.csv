@@ -1,4 +1,4 @@
-stock_id,stock_name,theme_mainstream_label,primary_theme,secondary_themes,structural_theme_bucket,concept_tags,notes
+﻿stock_id,stock_name,theme_mainstream_label,primary_theme,secondary_themes,structural_theme_bucket,concept_tags,notes
 1303,南亞,core_mainstream,玻纖布,PCB_CCL_ABF材料,glass_fiber_ccl_theme,玻纖布;PCB_CCL_ABF材料,user_authorized_seed_20260530
 1503,士電,core_mainstream,重電電網,,power_grid_theme,重電電網,user_authorized_seed_20260530
 1513,中興電,core_mainstream,重電電網,,power_grid_theme,重電電網,user_authorized_seed_20260530
@@ -129,3 +129,5 @@ stock_id,stock_name,theme_mainstream_label,primary_theme,secondary_themes,struct
 8299,群聯,core_mainstream,記憶體儲存,,memory_hbm_theme,記憶體儲存,user_authorized_seed_20260530
 8358,金居,core_mainstream,PCB_CCL_ABF材料,,pcb_ccl_theme,PCB_CCL_ABF材料,user_authorized_seed_20260530
 8996,高力,core_mainstream,散熱液冷,,thermal_solution_theme,散熱液冷,user_authorized_seed_20260530
+1717,長興,core_mainstream,特化材料,特化化學;電子材料,specialty_material_theme,特化材料;特化化學;電子材料,user_authorized_specialty_theme_20260530
+1727,中華化,core_mainstream,特化材料,特化化學;電子材料,specialty_material_theme,特化材料;特化化學;電子材料,user_authorized_specialty_theme_20260530

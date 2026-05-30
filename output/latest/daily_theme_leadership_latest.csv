@@ -7,7 +7,7 @@ CPO光通訊,2,0,0,0,0,0,0,2,0,0,2,0,0,0,0,1.25,0.0,2345,智邦,True,8,14.4,0.0,
 玻璃陶瓷,2,0,0,0,0,0,0,0,0,0,2,0,0,0,0,1.19,0.0,1810,和成,True,8,13.9,0.0,emerging_theme,emerging_theme,non_mainstream_theme,non_mainstream_flow_active
 食品工業,3,0,0,0,0,0,1,1,0,0,0,3,0,0,0,1.09,0.0,1210,大成,True,17,10.1,36.0,emerging_theme,emerging_theme,non_mainstream_theme,non_mainstream_flow_active
 AI供應鏈_其他電子待細分,26,0,1,0,0,2,2,11,1,0,12,14,3,0,0,1.35,0.0,6215,和椿,True,100,100.0,100.0,mainstream_follow_through,mainstream_follow_through,core_mainstream_theme,core_mainstream_supported
-化學工業,20,0,3,0,0,2,6,9,1,0,10,10,5,0,0,1.05,0.0,1718,中纖,True,100,100.0,100.0,mainstream_follow_through,mainstream_follow_through,non_mainstream_theme,non_mainstream_flow_active
+化學工業,19,0,3,0,0,2,6,9,1,0,10,9,5,0,0,1.08,0.0,1718,中纖,True,100,100.0,100.0,mainstream_follow_through,mainstream_follow_through,non_mainstream_theme,non_mainstream_flow_active
 建材營造,30,1,5,0,0,3,8,22,7,5,12,13,1,0,0,1.42,0.0,5522,遠雄,True,100,100.0,100.0,mainstream_follow_through,mainstream_follow_through,non_mainstream_theme,non_mainstream_flow_active
 網通_低軌衛星待細分,24,1,2,1,1,5,8,6,0,3,7,14,4,0,0,1.22,0.0,2332,友訊,True,100,100.0,100.0,mainstream_follow_through,mainstream_follow_through,core_mainstream_theme,core_mainstream_supported
 金融保險,55,1,13,1,1,12,29,44,0,9,24,22,3,0,1,2.12,0.0,2850,新產,True,100,100.0,100.0,mainstream_follow_through,mainstream_follow_through,non_mainstream_theme,non_mainstream_flow_active
@@ -20,7 +20,7 @@ PCB_CCL_ABF材料,14,0,1,0,0,1,2,8,0,0,8,6,1,1,0,1.25,0.0,8039,台虹,True,78,81
 半導體設備_CoWoS,7,0,1,0,0,0,0,4,1,0,5,2,0,0,0,0.59,0.0,2404,漢唐,True,32,37.6,24.0,mainstream_follow_through,mainstream_follow_through,core_mainstream_theme,core_mainstream_supported
 重電電網_電器電纜待細分,3,0,1,0,0,2,2,0,0,0,1,2,0,0,0,1.73,0.0,1608,華榮,True,42,32.9,24.0,mainstream_follow_through,mainstream_follow_through,core_mainstream_theme,core_mainstream_supported
 橡膠工業,6,0,0,0,0,0,1,2,1,2,0,4,0,0,0,1.09,0.0,2105,正新,True,29,32.7,48.0,mainstream_follow_through,mainstream_follow_through,non_mainstream_theme,non_mainstream_flow_active
-non_mainstream,4,0,0,0,0,0,3,0,0,0,0,0,2,0,0,0.96,0.0,0050,元大台灣50,True,31,27.1,0.0,mainstream_follow_through,mainstream_follow_through,core_mainstream_theme,core_mainstream_supported
+theme_unknown,6,0,0,0,0,0,3,0,0,0,0,2,2,0,0,0.87,0.0,0050,元大台灣50,True,39,31.5,24.0,mainstream_follow_through,mainstream_follow_through,non_mainstream_theme,non_mainstream_flow_active
 造紙工業,3,0,0,0,0,0,1,0,0,0,1,2,0,0,0,0.54,0.0,1904,正隆,True,17,13.4,24.0,mainstream_follow_through,mainstream_follow_through,non_mainstream_theme,non_mainstream_flow_active
 紡織纖維,12,2,2,2,2,5,7,5,0,0,9,3,2,0,1,1.67,0.0,1447,力鵬,True,100,100.0,46.0,mainstream_leader,mainstream_leader,non_mainstream_theme,non_mainstream_flow_active
 航運業,19,2,3,0,0,2,8,11,1,5,9,5,4,0,0,1.95,0.0,2618,長榮航,True,100,100.0,60.0,mainstream_leader,mainstream_leader,non_mainstream_theme,non_mainstream_flow_active
@@ -34,7 +34,7 @@ AI伺服器,22,1,3,4,4,6,13,15,1,4,3,15,13,0,1,2.23,0.0,2317,鴻海,True,100,100
 半導體業_待細分,84,0,1,4,4,13,13,26,1,5,34,45,15,2,9,1.36,0.0,2363,矽統,True,100,100.0,100.0,mainstream_overheated,mainstream_overheated,core_mainstream_theme,core_mainstream_overheated
 機器人自動化_電機機械待細分,21,0,0,0,0,3,5,5,0,0,6,15,4,0,1,1.79,0.0,4566,時碩工業,True,100,100.0,100.0,mainstream_overheated,mainstream_overheated,core_mainstream_theme,core_mainstream_overheated
 汽車工業,27,0,3,6,6,12,14,14,2,2,11,14,1,0,10,3.91,0.0,6605,帝寶,True,100,100.0,100.0,mainstream_overheated,mainstream_overheated,non_mainstream_theme,non_mainstream_overheated
-電子通路_IC通路待細分,24,0,2,1,1,2,7,16,2,2,11,11,6,0,4,1.0,0.0,8070,長華*,True,100,100.0,100.0,mainstream_overheated,mainstream_overheated,non_mainstream_theme,non_mainstream_overheated
+電子通路_IC通路待細分,24,0,2,1,1,2,7,16,2,2,11,11,6,0,4,1.0,0.0,8070,長華*,True,100,100.0,100.0,mainstream_overheated,mainstream_overheated,core_mainstream_theme,core_mainstream_overheated
 電子零組件_待細分,72,0,7,1,1,9,18,20,0,6,30,36,12,0,5,1.17,0.0,1471,首利,True,100,100.0,100.0,mainstream_overheated,mainstream_overheated,core_mainstream_theme,core_mainstream_overheated
 記憶體儲存,12,0,0,2,2,0,4,8,0,2,2,8,6,0,3,0.92,0.0,2344,華邦電,True,88,100.0,100.0,mainstream_overheated,mainstream_overheated,core_mainstream_theme,core_mainstream_overheated
 被動元件,6,0,0,2,2,3,4,0,0,0,3,2,1,0,4,2.08,0.0,2375,凱美,True,88,74.0,64.0,mainstream_overheated,mainstream_overheated,core_mainstream_theme,core_mainstream_overheated
@@ -43,7 +43,7 @@ AI伺服器,22,1,3,4,4,6,13,15,1,4,3,15,13,0,1,2.23,0.0,2317,鴻海,True,100,100
 生技醫療業,10,0,0,0,0,0,2,4,0,3,3,4,0,0,1,1.22,0.0,1789,神隆,True,50,65.3,58.0,mainstream_overheated,mainstream_overheated,non_mainstream_theme,non_mainstream_overheated
 低軌衛星,8,0,0,1,1,0,2,2,0,2,3,3,1,0,2,0.49,0.0,4916,事欣科,True,52,61.6,56.0,mainstream_overheated,mainstream_overheated,core_mainstream_theme,core_mainstream_overheated
 機器人自動化,7,0,0,1,1,1,2,6,0,0,4,3,0,0,1,0.91,0.0,2464,盟立,True,56,46.8,46.0,mainstream_overheated,mainstream_overheated,core_mainstream_theme,core_mainstream_overheated
-power discrete/diodes,2,0,0,1,1,1,1,0,0,1,1,0,0,0,2,1.16,0.0,2481,強茂,True,31,30.3,20.0,mainstream_overheated,mainstream_overheated,non_mainstream_theme,non_mainstream_overheated
+power discrete/diodes,2,0,0,1,1,1,1,0,0,1,1,0,0,0,2,1.16,0.0,2481,強茂,True,31,30.3,20.0,mainstream_overheated,mainstream_overheated,core_mainstream_theme,core_mainstream_overheated
 存託憑證,2,0,0,0,0,1,1,0,0,0,0,2,0,0,1,1.76,0.0,9105,泰金寶-DR,True,21,17.6,34.0,mainstream_overheated,mainstream_overheated,non_mainstream_theme,non_mainstream_overheated
 數位雲端_AI服務待細分,1,0,0,1,1,1,1,0,0,0,1,0,0,0,1,3.33,0.0,8454,富邦媒,True,27,37.5,10.0,single_name_signal,single_name_signal,core_mainstream_theme,core_mainstream_watch
 水泥工業,1,0,1,0,0,1,1,0,0,1,0,0,0,0,0,1.66,0.0,1101,台泥,True,21,24.8,0.0,single_name_signal,single_name_signal,non_mainstream_theme,non_mainstream_single_name
@@ -52,5 +52,5 @@ power discrete/diodes,2,0,0,1,1,1,1,0,0,1,1,0,0,0,2,1.16,0.0,2481,強茂,True,31
 consumer electronics,1,0,0,0,0,0,1,0,0,1,0,0,0,0,1,1.12,0.0,3481,群創,True,9,13.9,10.0,single_name_signal,single_name_signal,non_mainstream_theme,non_mainstream_single_name
 PCB/CCL,1,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0.65,0.0,2355,敬鵬,True,4,10.2,10.0,single_name_signal,single_name_signal,core_mainstream_theme,core_mainstream_watch
 油電燃氣業,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0.0,0.0,6505,台塑化,True,4,7.2,12.0,single_name_signal,single_name_signal,non_mainstream_theme,non_mainstream_single_name
-memory,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0.0,0.0,5351,鈺創,False,4,2.2,12.0,single_name_signal,single_name_signal,non_mainstream_theme,non_mainstream_single_name
-theme_unknown,2,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0.58,0.0,9136,巨騰-DR,False,8,4.4,24.0,weak_theme,weak_theme,non_mainstream_theme,non_mainstream_weak
+memory,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0.0,0.0,5351,鈺創,False,4,2.2,12.0,single_name_signal,single_name_signal,core_mainstream_theme,core_mainstream_watch
+特化材料,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0.63,0.0,1717,長興,False,4,2.2,12.0,single_name_signal,single_name_signal,core_mainstream_theme,core_mainstream_watch

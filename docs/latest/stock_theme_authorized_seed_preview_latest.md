@@ -1,7 +1,7 @@
 # Stock Theme Authorized Seed Preview
 
-- generated_at: 2026-05-30 21:52:42 Asia/Taipei
-- rows: 133
+- generated_at: 2026-05-30 22:16:27 Asia/Taipei
+- rows: 135
 - purpose: user-authorized market theme seed integrated with existing manual/default taxonomy.
 
 |   stock_id | stock_name   | primary_theme    | secondary_themes                        | structural_theme_bucket                | theme_mainstream_label   | taxonomy_source   |
@@ -78,6 +78,8 @@
 |       5474 | 聰泰         | 機器人自動化     |                                         | robotics_optics_sensor_theme           | core_mainstream          | authorized_seed   |
 |       6166 | 凌華         | 機器人自動化     | 軍工無人機                              | robotics_ipc_edge_ai_theme             | core_mainstream          | authorized_seed   |
 |       6922 | 宸曜         | 機器人自動化     |                                         | robotics_ipc_edge_ai_theme             | core_mainstream          | authorized_seed   |
+|       1717 | 長興         | 特化材料         | 特化化學;電子材料                       | specialty_material_theme               | core_mainstream          | authorized_seed   |
+|       1727 | 中華化       | 特化材料         | 特化化學;電子材料                       | specialty_material_theme               | core_mainstream          | authorized_seed   |
 |       1303 | 南亞         | 玻纖布           | PCB_CCL_ABF材料                         | glass_fiber_ccl_theme                  | core_mainstream          | authorized_seed   |
 |       1802 | 台玻         | 玻纖布           | PCB_CCL_ABF材料                         | glass_fiber_ccl_theme                  | core_mainstream          | authorized_seed   |
 |       1815 | 富喬         | 玻纖布           | PCB_CCL_ABF材料                         | glass_fiber_ccl_theme                  | core_mainstream          | authorized_seed   |

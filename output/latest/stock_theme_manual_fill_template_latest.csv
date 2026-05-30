@@ -332,7 +332,7 @@
 1712,興農,,,,,,
 1713,國化,,,,,,
 1714,和桐,化學工業,非主流,化學工業,,,provisional_industry_mapping
-1717,長興,化學工業,非主流,化學工業,,,provisional_industry_mapping
+1717,長興,化學工業,主流,特化材料,特化化學,電子材料,user_authorized_specialty_theme_20260530
 1718,中纖,化學工業,非主流,化學工業,,,provisional_industry_mapping
 1720,生達,,,,,,
 1721,三晃,化學工業,非主流,化學工業,,,provisional_industry_mapping
@@ -340,7 +340,7 @@
 1723,中碳,,,,,,
 1725,元禎,,,,,,
 1726,永記,,,,,,
-1727,中華化,,,,,,
+1727,中華化,,主流,特化材料,特化化學,電子材料,user_authorized_specialty_theme_20260530
 1730,花仙子,,,,,,
 1731,美吾華,,,,,,
 1732,毛寶,,,,,,

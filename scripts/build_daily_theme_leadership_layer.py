@@ -84,6 +84,8 @@ CORE_MAINSTREAM_THEME_KEYWORDS = {
     "軍工",
     "無人機",
     "車用電子",
+    "特化",
+    "特化材料",
 }
 NON_MAINSTREAM_THEME_KEYWORDS = {
     "金融",
@@ -211,6 +213,20 @@ def theme_structural_status(theme_name: Any) -> str:
     if any(token.lower() in text.lower() for token in NON_MAINSTREAM_THEME_KEYWORDS):
         return "non_mainstream_theme"
     return "non_mainstream_theme"
+
+
+def theme_structural_status_from_frame(theme_name: Any, frame: pd.DataFrame) -> str:
+    labels = set(frame.get("taxonomy_theme_mainstream_label", pd.Series(dtype=str)).fillna("").astype(str))
+    labels.update(frame.get("theme_mainstream_label", pd.Series(dtype=str)).fillna("").astype(str))
+    statuses = set(frame.get("taxonomy_theme_structural_status", pd.Series(dtype=str)).fillna("").astype(str))
+    statuses.update(frame.get("theme_structural_status", pd.Series(dtype=str)).fillna("").astype(str))
+    buckets = set(frame.get("taxonomy_structural_theme_bucket", pd.Series(dtype=str)).fillna("").astype(str))
+    buckets.update(frame.get("structural_theme_bucket", pd.Series(dtype=str)).fillna("").astype(str))
+    if "core_mainstream" in labels or "core_mainstream_theme" in statuses or bool(buckets & CORE_MAINSTREAM_THEME_KEYWORDS):
+        return "core_mainstream_theme"
+    if "non_mainstream" in labels or "non_mainstream_theme" in statuses:
+        return "non_mainstream_theme"
+    return theme_structural_status(theme_name)
 
 
 def theme_mainstream_label(flow_status: Any, structural_status: Any) -> str:
@@ -482,7 +498,7 @@ def build_theme_metrics(candidates: pd.DataFrame) -> pd.DataFrame:
         )
         metrics["theme_final_status"] = theme_status(metrics)
         metrics["theme_market_flow_status"] = metrics["theme_final_status"]
-        metrics["theme_structural_status"] = theme_structural_status(theme_name)
+        metrics["theme_structural_status"] = theme_structural_status_from_frame(theme_name, frame)
         metrics["theme_mainstream_label"] = theme_mainstream_label(
             metrics["theme_market_flow_status"],
             metrics["theme_structural_status"],

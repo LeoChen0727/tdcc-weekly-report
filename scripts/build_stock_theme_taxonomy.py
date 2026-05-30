@@ -163,6 +163,7 @@ CORE_BUCKETS = {
     "defense_drone_theme",
     "network_switch_theme",
     "automotive_electronics_theme",
+    "specialty_material_theme",
 }
 
 
