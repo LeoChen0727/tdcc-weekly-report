@@ -48,7 +48,7 @@ class DailyThemeLeadershipLayerTest(unittest.TestCase):
         )
         self.assertIn(theme.iloc[0]["theme_final_status"], {"mainstream_leader", "mainstream_follow_through"})
         leader = enriched[enriched["stock_id"].eq("2001")].iloc[0]
-        self.assertEqual(leader["candidate_line_group"], "two_line_overlap")
+        self.assertIn(leader["candidate_line_group"], {"mainstream_leader_stock", "mainstream_follow_through_stock"})
         self.assertEqual(leader["two_line_overlap_flag"], "True")
 
     def test_mainstream_only_candidate(self) -> None:
@@ -83,7 +83,7 @@ class DailyThemeLeadershipLayerTest(unittest.TestCase):
         stale = enriched.iloc[0]
         self.assertEqual(stale["candidate_source_type"], "latent_watch_candidate")
         self.assertEqual(stale["candidate_line_group"], "individual_revenue_low_response_watch")
-        self.assertIn("不是主流資金線", stale["theme_leadership_note"])
+        self.assertIn("依原模型條件與分數排序", stale["theme_leadership_note"])
 
     def test_weak_theme_candidate(self) -> None:
         enriched, _, _ = self.build(
@@ -96,17 +96,18 @@ class DailyThemeLeadershipLayerTest(unittest.TestCase):
         self.assertTrue(enriched["candidate_source_type"].eq("risk_downgraded_candidate").all())
         self.assertTrue(enriched["candidate_line_group"].eq("risk").all())
 
-    def test_two_line_overlap_priority(self) -> None:
+    def test_overlap_flag_does_not_create_separate_priority_bucket(self) -> None:
         enriched, _, two_line = self.build(
             [
-                row(stock_id="2501", stock_name="Leader", industry="memory", category="true_breakout", decision_priority="A_priority_watch", true_breakout="True", volume_ratio="2.4"),
-                row(stock_id="2502", stock_name="Overlap", industry="memory", category="range_rebound", decision_priority="A_priority_watch", warrant_flow_signal="call_inflow", distance_to_previous_60d_high_pct="-1", volume_ratio="1.4"),
-                row(stock_id="2503", stock_name="Breadth", industry="memory", category="pattern", decision_priority="B_confirm_needed", tdcc_status="strong_accumulation", volume_ratio="1.3"),
+                row(stock_id="2501", stock_name="Leader", industry="AI server", category="true_breakout", decision_priority="A_priority_watch", true_breakout="True", volume_ratio="2.4"),
+                row(stock_id="2502", stock_name="Overlap", industry="AI server", category="range_rebound", decision_priority="A_priority_watch", warrant_flow_signal="call_inflow", distance_to_previous_60d_high_pct="-1", volume_ratio="1.4"),
+                row(stock_id="2503", stock_name="Breadth", industry="AI server", category="pattern", decision_priority="B_confirm_needed", tdcc_status="strong_accumulation", volume_ratio="1.3"),
             ]
         )
         overlap = enriched[enriched["stock_id"].eq("2502")].iloc[0]
-        self.assertEqual(overlap["candidate_line_group"], "two_line_overlap")
-        self.assertEqual(two_line.iloc[0]["candidate_line_group"], "two_line_overlap")
+        self.assertEqual(overlap["two_line_overlap_flag"], "True")
+        self.assertNotEqual(overlap["candidate_line_group"], "two_line_overlap")
+        self.assertNotIn("two_line_overlap", set(two_line["candidate_line_group"]))
 
 
 if __name__ == "__main__":

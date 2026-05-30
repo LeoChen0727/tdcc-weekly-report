@@ -494,17 +494,15 @@ def candidate_line_group(row: pd.Series) -> tuple[str, str, bool, str]:
     cat = category_of(row)
 
     if risk:
-        return "risk_downgraded_candidate", "risk", False, "降級 / 鈍化 / 風險清單"
-    if overlap:
-        return "mainstream_theme_candidate", "two_line_overlap", True, "雙重確認優先股"
+        return "risk_downgraded_candidate", "risk", overlap, "降級 / 鈍化 / 風險清單"
     if theme_status_value in MAINSTREAM_STATUSES and structural_status != "core_mainstream_theme":
-        return "individual_quality_candidate", "non_mainstream_flow_watch", False, "非主流輪動觀察"
+        return "individual_quality_candidate", "non_mainstream_flow_watch", overlap, "非主流輪動觀察"
     if theme_status_value == "mainstream_leader":
-        return "mainstream_theme_candidate", "mainstream_leader_stock", False, "主流領漲股"
+        return "mainstream_theme_candidate", "mainstream_leader_stock", overlap, "主流領漲股"
     if theme_status_value == "mainstream_follow_through":
-        return "mainstream_theme_candidate", "mainstream_follow_through_stock", False, "主流補漲股"
+        return "mainstream_theme_candidate", "mainstream_follow_through_stock", overlap, "主流補漲股"
     if theme_status_value == "emerging_theme":
-        return "mainstream_theme_candidate", "emerging_theme_watch", False, "新興族群觀察股"
+        return "mainstream_theme_candidate", "emerging_theme_watch", overlap, "新興族群觀察股"
     if has_confirmed_event(row):
         return "event_driven_candidate", "individual_fundamental_catalyst_watch", False, "基本面改善但尚未發動股"
     if cat == "revenue_breakout_low_response":
@@ -523,16 +521,15 @@ def candidate_line_group(row: pd.Series) -> tuple[str, str, bool, str]:
 def theme_note(row: pd.Series) -> str:
     status = first_text(row, ["theme_final_status"])
     source, line_group, overlap, line = candidate_line_group(row)
-    if overlap:
-        return "同時有主流族群支持與個股條件，屬雙重確認優先觀察。"
+    overlap_note = "；同時有族群支持與個股條件，但只作標籤，不改分數、不另成優先 bucket" if overlap else ""
     if source == "mainstream_theme_candidate":
-        return f"{status}；列入{line}，但仍需看個股量價、TDCC、權證確認。"
+        return f"{status}；列入{line}{overlap_note}，仍依原模型分數排序。"
     if source == "latent_watch_candidate":
-        return f"{status}；列入{line}，不是主流資金線優先股，需等待突破或資金確認。"
+        return f"{status}；列入{line}{overlap_note}，依原模型條件與分數排序。"
     if source == "event_driven_candidate":
-        return f"{status}；有催化標籤，需確認利多是否已反應與 EPS/毛利品質。"
+        return f"{status}；有催化標籤{overlap_note}，需確認利多是否已反應與 EPS/毛利品質。"
     if source == "risk_downgraded_candidate":
-        return f"{status}；列入風險或鈍化清單，不應放在主流資金線前段。"
+        return f"{status}；列入風險或鈍化清單{overlap_note}，保留模型命中並揭露風險。"
     return f"{status}；列入{line}。"
 
 
@@ -637,19 +634,20 @@ def build_two_line_view(enriched: pd.DataFrame) -> pd.DataFrame:
     ).fillna(9)
     out["_decision_score"] = pd.to_numeric(out["decision_score"], errors="coerce").fillna(0)
     group_order = {
-        "two_line_overlap": 1,
-        "mainstream_leader_stock": 2,
-        "mainstream_follow_through_stock": 3,
-        "emerging_theme_watch": 4,
-        "individual_revenue_low_response_watch": 5,
-        "individual_fundamental_catalyst_watch": 6,
-        "individual_tdcc_latent_watch": 7,
-        "non_mainstream_flow_watch": 8,
-        "individual_single_name_signal": 9,
-        "individual_pattern_watch": 10,
-        "risk": 20,
+        "mainstream_leader_stock": 1,
+        "mainstream_follow_through_stock": 2,
+        "emerging_theme_watch": 3,
+        "individual_revenue_low_response_watch": 4,
+        "individual_fundamental_catalyst_watch": 5,
+        "individual_tdcc_latent_watch": 6,
+        "non_mainstream_flow_watch": 7,
+        "individual_single_name_signal": 8,
+        "individual_pattern_watch": 9,
+        "individual_quality_watch": 10,
+        "individual_watch": 11,
+        "risk": 99,
     }
-    out["_line_order"] = out["candidate_line_group"].map(group_order).fillna(15)
+    out["_line_order"] = out["candidate_line_group"].map(group_order).fillna(50)
     out = out.sort_values(["_line_order", "_priority_order", "_decision_score"], ascending=[True, True, False])
     return out.drop(columns=["_priority_order", "_decision_score", "_line_order"])
 
@@ -733,14 +731,11 @@ def write_markdown(theme_df: pd.DataFrame, two_line: pd.DataFrame, main_date: st
         f"- generated_at: `{now_text()}`",
         f"- signal_date: `{main_date}`",
         "- rule: Do not mix mainstream-theme candidates and individual-quality candidates into one total ranking.",
+        "- rule: two_line_overlap_flag is informational only; it does not create a separate ranking bucket, score change, or veto.",
         "",
-        "## Three-Layer Priority",
+        "## Candidate Lines",
         "",
-        "### 1. 雙重確認優先股",
-        "",
-        markdown_table(two_line[two_line["candidate_line_group"].eq("two_line_overlap")], candidate_cols, 40),
-        "",
-        "### 2. 主流資金股",
+        "### 1. 主流資金股",
         "",
         markdown_table(
             two_line[two_line["candidate_line_group"].isin(["mainstream_leader_stock", "mainstream_follow_through_stock", "emerging_theme_watch"])],
@@ -748,7 +743,7 @@ def write_markdown(theme_df: pd.DataFrame, two_line: pd.DataFrame, main_date: st
             60,
         ),
         "",
-        "### 3. 個股條件股 / 潛伏觀察股",
+        "### 2. 個股條件股 / 潛伏觀察股",
         "",
         markdown_table(
             two_line[
@@ -769,6 +764,10 @@ def write_markdown(theme_df: pd.DataFrame, two_line: pd.DataFrame, main_date: st
             80,
         ),
         "",
+        "### 3. 族群 + 個股條件交集標籤",
+        "",
+        markdown_table(two_line[two_line["two_line_overlap_flag"].eq("True")], candidate_cols, 80),
+        "",
         "## 降級 / 鈍化 / 風險清單",
         "",
         markdown_table(two_line[two_line["candidate_line_group"].eq("risk")], candidate_cols, 80),
@@ -778,7 +777,7 @@ def write_markdown(theme_df: pd.DataFrame, two_line: pd.DataFrame, main_date: st
         "- 主流資金線 and 個股條件線 can both be useful, but they answer different questions.",
         "- single_name_signal is not bad by itself; it means the theme has not broadened yet.",
         "- stale_signal can remain in the latent-watch line, but it must carry confirmation conditions.",
-        "- two_line_overlap_flag=True is the cleanest daily priority bucket because both theme support and stock quality are present.",
+        "- two_line_overlap_flag=True means theme support and stock quality are both present, but it must not override model score or act as a veto/ranking bucket.",
         "",
     ]
     TWO_LINE_VIEW_MD.write_text("\n".join(lines) + "\n", encoding="utf-8")
