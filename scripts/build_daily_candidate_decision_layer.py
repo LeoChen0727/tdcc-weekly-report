@@ -118,6 +118,10 @@ DECISION_COLUMNS = [
     "structural_theme_bucket",
     "theme_structural_status",
     "theme_mainstream_label",
+    "industry_mainstream_label",
+    "effective_mainstream_label",
+    "mainstream_conflict_flag",
+    "mainstream_conflict_note",
     "theme_taxonomy_source",
     "theme_taxonomy_confidence",
     "theme_taxonomy_note",
@@ -164,6 +168,7 @@ CORE_AI_STRUCTURAL_THEME_BUCKETS = {
     "robotics_automation_theme",
     "robotics_ipc_edge_ai_theme",
     "robotics_optics_sensor_theme",
+    "specialty_material_theme",
 }
 
 # Daily candidate rows already passed an upstream model condition.  Risk flags
@@ -232,6 +237,10 @@ def apply_authoritative_taxonomy(candidates: pd.DataFrame) -> pd.DataFrame:
         "structural_theme_bucket",
         "theme_structural_status",
         "theme_mainstream_label",
+        "industry_mainstream_label",
+        "effective_mainstream_label",
+        "mainstream_conflict_flag",
+        "mainstream_conflict_note",
         "taxonomy_source",
         "confidence",
         "notes",
@@ -243,6 +252,10 @@ def apply_authoritative_taxonomy(candidates: pd.DataFrame) -> pd.DataFrame:
             "structural_theme_bucket": "taxonomy_structural_theme_bucket",
             "theme_structural_status": "taxonomy_theme_structural_status",
             "theme_mainstream_label": "taxonomy_theme_mainstream_label",
+            "industry_mainstream_label": "taxonomy_industry_mainstream_label",
+            "effective_mainstream_label": "taxonomy_effective_mainstream_label",
+            "mainstream_conflict_flag": "taxonomy_mainstream_conflict_flag",
+            "mainstream_conflict_note": "taxonomy_mainstream_conflict_note",
             "confidence": "taxonomy_confidence",
             "notes": "taxonomy_notes",
         }
@@ -254,6 +267,10 @@ def apply_authoritative_taxonomy(candidates: pd.DataFrame) -> pd.DataFrame:
         ("structural_theme_bucket", "taxonomy_structural_theme_bucket"),
         ("theme_structural_status", "taxonomy_theme_structural_status"),
         ("theme_mainstream_label", "taxonomy_theme_mainstream_label"),
+        ("industry_mainstream_label", "taxonomy_industry_mainstream_label"),
+        ("effective_mainstream_label", "taxonomy_effective_mainstream_label"),
+        ("mainstream_conflict_flag", "taxonomy_mainstream_conflict_flag"),
+        ("mainstream_conflict_note", "taxonomy_mainstream_conflict_note"),
     ]:
         if target not in out.columns:
             out[target] = ""
@@ -453,13 +470,30 @@ def structural_theme_bucket_of(row: pd.Series) -> str:
 
 def is_core_ai_theme(row: pd.Series) -> bool:
     bucket = structural_theme_bucket_of(row)
-    return bucket in CORE_AI_STRUCTURAL_THEME_BUCKETS
+    mainstream_label = first_text(
+        row,
+        [
+            "taxonomy_effective_mainstream_label",
+            "effective_mainstream_label",
+            "taxonomy_theme_mainstream_label",
+            "theme_mainstream_label",
+        ],
+    ).lower()
+    return bucket in CORE_AI_STRUCTURAL_THEME_BUCKETS or mainstream_label == "core_mainstream"
 
 
 def is_non_mainstream_theme(row: pd.Series) -> bool:
     bucket = structural_theme_bucket_of(row)
     structural_status = first_text(row, ["taxonomy_theme_structural_status", "theme_structural_status"]).lower()
-    mainstream_label = first_text(row, ["taxonomy_theme_mainstream_label", "theme_mainstream_label"]).lower()
+    mainstream_label = first_text(
+        row,
+        [
+            "taxonomy_effective_mainstream_label",
+            "effective_mainstream_label",
+            "taxonomy_theme_mainstream_label",
+            "theme_mainstream_label",
+        ],
+    ).lower()
     line_group = first_text(row, ["candidate_line_group"]).lower()
     return (
         structural_status in {"non_mainstream_theme", "theme_mapping_missing"}
@@ -818,6 +852,10 @@ def build_decision(candidates: pd.DataFrame, main_date: str) -> pd.DataFrame:
             "structural_theme_bucket": first_text(row, ["taxonomy_structural_theme_bucket", "structural_theme_bucket"]),
             "theme_structural_status": first_text(row, ["taxonomy_theme_structural_status", "theme_structural_status"]),
             "theme_mainstream_label": first_text(row, ["taxonomy_theme_mainstream_label", "theme_mainstream_label"]),
+            "industry_mainstream_label": first_text(row, ["taxonomy_industry_mainstream_label", "industry_mainstream_label"]),
+            "effective_mainstream_label": first_text(row, ["taxonomy_effective_mainstream_label", "effective_mainstream_label"]),
+            "mainstream_conflict_flag": first_text(row, ["taxonomy_mainstream_conflict_flag", "mainstream_conflict_flag"]),
+            "mainstream_conflict_note": first_text(row, ["taxonomy_mainstream_conflict_note", "mainstream_conflict_note"]),
             "theme_taxonomy_source": first_text(row, ["taxonomy_source", "theme_taxonomy_source"]),
             "theme_taxonomy_confidence": first_text(row, ["taxonomy_confidence", "theme_taxonomy_confidence"]),
             "theme_taxonomy_note": first_text(row, ["taxonomy_notes", "theme_taxonomy_note"]),
@@ -901,6 +939,10 @@ def rewrite_all_candidates(candidates: pd.DataFrame, decision: pd.DataFrame) -> 
         "structural_theme_bucket",
         "theme_structural_status",
         "theme_mainstream_label",
+        "industry_mainstream_label",
+        "effective_mainstream_label",
+        "mainstream_conflict_flag",
+        "mainstream_conflict_note",
         "theme_taxonomy_source",
         "theme_taxonomy_confidence",
         "theme_taxonomy_note",

@@ -216,7 +216,9 @@ def theme_structural_status(theme_name: Any) -> str:
 
 
 def theme_structural_status_from_frame(theme_name: Any, frame: pd.DataFrame) -> str:
-    labels = set(frame.get("taxonomy_theme_mainstream_label", pd.Series(dtype=str)).fillna("").astype(str))
+    labels = set(frame.get("taxonomy_effective_mainstream_label", pd.Series(dtype=str)).fillna("").astype(str))
+    labels.update(frame.get("effective_mainstream_label", pd.Series(dtype=str)).fillna("").astype(str))
+    labels.update(frame.get("taxonomy_theme_mainstream_label", pd.Series(dtype=str)).fillna("").astype(str))
     labels.update(frame.get("theme_mainstream_label", pd.Series(dtype=str)).fillna("").astype(str))
     statuses = set(frame.get("taxonomy_theme_structural_status", pd.Series(dtype=str)).fillna("").astype(str))
     statuses.update(frame.get("theme_structural_status", pd.Series(dtype=str)).fillna("").astype(str))

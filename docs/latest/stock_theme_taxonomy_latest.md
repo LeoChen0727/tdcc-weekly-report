@@ -1,9 +1,12 @@
 # Stock Theme Taxonomy
 
-- generated_at: 2026-05-30 22:16:27 Asia/Taipei
+- generated_at: 2026-05-30 22:39:20 Asia/Taipei
 - total_rows: 2369
 - mainstream_count: 400
 - non_mainstream_count: 116
+- effective_mainstream_count: 400
+- effective_non_mainstream_count: 116
+- mainstream_conflict_count: 4
 - unknown_count: 1853
 - manual_override_count: 5
 - authorized_seed_count: 130
@@ -133,72 +136,80 @@
 |       6715 | 嘉基         |                         | 低軌衛星         |                                         | low_earth_orbit_satellite_theme        | authorized_seed   |
 
 ## Mainstream Sample
-|   stock_id | stock_name   | industry         | primary_theme               | secondary_themes   |
-|-----------:|:-------------|:-----------------|:----------------------------|:-------------------|
-|       1303 | 南亞         | 塑膠工業         | 玻纖布                      | PCB_CCL_ABF材料    |
-|       1471 | 首利         | 電子零組件業     | 電子零組件_待細分           |                    |
-|       1503 | 士電         |                  | 重電電網                    |                    |
-|       1504 | 東元         | 電機機械         | 機器人自動化_電機機械待細分 |                    |
-|       1513 | 中興電       | 電機機械         | 重電電網                    |                    |
-|       1514 | 亞力         | 電機機械         | 重電電網                    |                    |
-|       1519 | 華城         | 電機機械         | 重電電網                    |                    |
-|       1528 | 恩德         | 電機機械         | 重電電網                    |                    |
-|       1530 | 亞崴         | 電機機械         | 機器人自動化_電機機械待細分 |                    |
-|       1536 | 和大         | 汽車工業         | 車用電子                    |                    |
-|       1560 | 中砂         |                  | 半導體設備_CoWoS            |                    |
-|       1590 | 亞德客-KY    | 電機機械         | 機器人                      | 自動化             |
-|       1597 | 直得         | 電機機械         | 機器人自動化                |                    |
-|       1605 | 華新         | 電器電纜         | 重電電網                    |                    |
-|       1608 | 華榮         | 電器電纜         | 重電電網_電器電纜待細分     |                    |
-|       1609 | 大亞         | 電器電纜         | 重電電網                    |                    |
-|       1612 | 宏泰         | 電器電纜         | 重電電網                    |                    |
-|       1616 | 億泰         | 電器電纜         | 重電電網_電器電纜待細分     |                    |
-|       1618 | 合機         | 電器電纜         | 重電電網                    |                    |
-|       1717 | 長興         | 化學工業         | 特化材料                    | 特化化學;電子材料  |
-|       1727 | 中華化       |                  | 特化材料                    | 特化化學;電子材料  |
-|       1802 | 台玻         | 玻璃陶瓷         | 玻纖布                      | PCB_CCL_ABF材料    |
-|       1815 | 富喬         | 電子零組件業     | 玻纖布                      | PCB_CCL_ABF材料    |
-|       2049 | 上銀         | 電機機械         | 機器人                      | 自動化             |
-|       2061 | 風青         | 電器電纜         | 重電電網_電器電纜待細分     |                    |
-|       2231 | 為升         |                  | 車用電子                    |                    |
-|       2233 | 宇隆         |                  | 機器人自動化                |                    |
-|       2301 | 光寶科       | 電腦及週邊設備業 | AI_PC_電腦週邊待細分        |                    |
-|       2302 | 麗正         | 半導體業         | 半導體業_待細分             |                    |
-|       2305 | 全友         | 電腦及週邊設備業 | AI_PC_電腦週邊待細分        |                    |
+|   stock_id | stock_name   | industry         | primary_theme               | secondary_themes   | industry_mainstream_label   | theme_mainstream_label   | effective_mainstream_label   |
+|-----------:|:-------------|:-----------------|:----------------------------|:-------------------|:----------------------------|:-------------------------|:-----------------------------|
+|       1303 | 南亞         | 塑膠工業         | 玻纖布                      | PCB_CCL_ABF材料    | non_mainstream              | core_mainstream          | core_mainstream              |
+|       1471 | 首利         | 電子零組件業     | 電子零組件_待細分           |                    | core_mainstream             | core_mainstream          | core_mainstream              |
+|       1503 | 士電         |                  | 重電電網                    |                    | theme_unknown               | core_mainstream          | core_mainstream              |
+|       1504 | 東元         | 電機機械         | 機器人自動化_電機機械待細分 |                    | core_mainstream             | core_mainstream          | core_mainstream              |
+|       1513 | 中興電       | 電機機械         | 重電電網                    |                    | core_mainstream             | core_mainstream          | core_mainstream              |
+|       1514 | 亞力         | 電機機械         | 重電電網                    |                    | core_mainstream             | core_mainstream          | core_mainstream              |
+|       1519 | 華城         | 電機機械         | 重電電網                    |                    | core_mainstream             | core_mainstream          | core_mainstream              |
+|       1528 | 恩德         | 電機機械         | 重電電網                    |                    | core_mainstream             | core_mainstream          | core_mainstream              |
+|       1530 | 亞崴         | 電機機械         | 機器人自動化_電機機械待細分 |                    | core_mainstream             | core_mainstream          | core_mainstream              |
+|       1536 | 和大         | 汽車工業         | 車用電子                    |                    | theme_unknown               | core_mainstream          | core_mainstream              |
+|       1560 | 中砂         |                  | 半導體設備_CoWoS            |                    | theme_unknown               | core_mainstream          | core_mainstream              |
+|       1590 | 亞德客-KY    | 電機機械         | 機器人                      | 自動化             | core_mainstream             | core_mainstream          | core_mainstream              |
+|       1597 | 直得         | 電機機械         | 機器人自動化                |                    | core_mainstream             | core_mainstream          | core_mainstream              |
+|       1605 | 華新         | 電器電纜         | 重電電網                    |                    | core_mainstream             | core_mainstream          | core_mainstream              |
+|       1608 | 華榮         | 電器電纜         | 重電電網_電器電纜待細分     |                    | core_mainstream             | core_mainstream          | core_mainstream              |
+|       1609 | 大亞         | 電器電纜         | 重電電網                    |                    | core_mainstream             | core_mainstream          | core_mainstream              |
+|       1612 | 宏泰         | 電器電纜         | 重電電網                    |                    | core_mainstream             | core_mainstream          | core_mainstream              |
+|       1616 | 億泰         | 電器電纜         | 重電電網_電器電纜待細分     |                    | core_mainstream             | core_mainstream          | core_mainstream              |
+|       1618 | 合機         | 電器電纜         | 重電電網                    |                    | core_mainstream             | core_mainstream          | core_mainstream              |
+|       1717 | 長興         | 化學工業         | 特化材料                    | 特化化學;電子材料  | non_mainstream              | core_mainstream          | core_mainstream              |
+|       1727 | 中華化       |                  | 特化材料                    | 特化化學;電子材料  | theme_unknown               | core_mainstream          | core_mainstream              |
+|       1802 | 台玻         | 玻璃陶瓷         | 玻纖布                      | PCB_CCL_ABF材料    | non_mainstream              | core_mainstream          | core_mainstream              |
+|       1815 | 富喬         | 電子零組件業     | 玻纖布                      | PCB_CCL_ABF材料    | core_mainstream             | core_mainstream          | core_mainstream              |
+|       2049 | 上銀         | 電機機械         | 機器人                      | 自動化             | core_mainstream             | core_mainstream          | core_mainstream              |
+|       2061 | 風青         | 電器電纜         | 重電電網_電器電纜待細分     |                    | core_mainstream             | core_mainstream          | core_mainstream              |
+|       2231 | 為升         |                  | 車用電子                    |                    | theme_unknown               | core_mainstream          | core_mainstream              |
+|       2233 | 宇隆         |                  | 機器人自動化                |                    | theme_unknown               | core_mainstream          | core_mainstream              |
+|       2301 | 光寶科       | 電腦及週邊設備業 | AI_PC_電腦週邊待細分        |                    | core_mainstream             | core_mainstream          | core_mainstream              |
+|       2302 | 麗正         | 半導體業         | 半導體_設備材料待細分       |                    | core_mainstream             | core_mainstream          | core_mainstream              |
+|       2305 | 全友         | 電腦及週邊設備業 | AI_PC_電腦週邊待細分        |                    | core_mainstream             | core_mainstream          | core_mainstream              |
 
 ## Non-Mainstream Sample
-|   stock_id | stock_name   | industry   | primary_theme   | secondary_themes   |
-|-----------:|:-------------|:-----------|:----------------|:-------------------|
-|       1101 | 台泥         | 水泥工業   | 水泥工業        |                    |
-|       1210 | 大成         | 食品工業   | 食品工業        |                    |
-|       1215 | 卜蜂         | 食品工業   | 食品工業        |                    |
-|       1301 | 台塑         | 塑膠工業   | 塑膠工業        |                    |
-|       1304 | 台聚         | 塑膠工業   | 塑膠工業        |                    |
-|       1305 | 華夏         | 塑膠工業   | 塑膠工業        |                    |
-|       1312 | 國喬         | 塑膠工業   | 塑膠工業        |                    |
-|       1313 | 聯成         | 塑膠工業   | 塑膠工業        |                    |
-|       1316 | 上曜         | 建材營造   | 建材營造        |                    |
-|       1326 | 台化         | 塑膠工業   | 塑膠工業        |                    |
-|       1402 | 遠東新       | 紡織纖維   | 紡織纖維        |                    |
-|       1409 | 新纖         | 紡織纖維   | 紡織纖維        |                    |
-|       1434 | 福懋         | 紡織纖維   | 紡織纖維        |                    |
-|       1440 | 南紡         | 紡織纖維   | 紡織纖維        |                    |
-|       1444 | 力麗         | 紡織纖維   | 紡織纖維        |                    |
-|       1447 | 力鵬         | 紡織纖維   | 紡織纖維        |                    |
-|       1449 | 佳和         | 紡織纖維   | 紡織纖維        |                    |
-|       1476 | 儒鴻         | 紡織纖維   | 紡織纖維        |                    |
-|       1708 | 東鹼         | 化學工業   | 化學工業        |                    |
-|       1710 | 東聯         | 化學工業   | 化學工業        |                    |
-|       1711 | 永光         | 化學工業   | 化學工業        |                    |
-|       1714 | 和桐         | 化學工業   | 化學工業        |                    |
-|       1718 | 中纖         | 化學工業   | 化學工業        |                    |
-|       1721 | 三晃         | 化學工業   | 化學工業        |                    |
-|       1722 | 台肥         | 化學工業   | 化學工業        |                    |
-|       1773 | 勝一         | 化學工業   | 化學工業        |                    |
-|       1789 | 神隆         | 生技醫療業 | 生技醫療業      |                    |
-|       1808 | 潤隆         | 建材營造   | 建材營造        |                    |
-|       1810 | 和成         | 玻璃陶瓷   | 玻璃陶瓷        |                    |
-|       1904 | 正隆         | 造紙工業   | 造紙工業        |                    |
+|   stock_id | stock_name   | industry   | primary_theme   | secondary_themes   | industry_mainstream_label   | theme_mainstream_label   | effective_mainstream_label   |
+|-----------:|:-------------|:-----------|:----------------|:-------------------|:----------------------------|:-------------------------|:-----------------------------|
+|       1101 | 台泥         | 水泥工業   | 水泥工業        |                    | non_mainstream              | non_mainstream           | non_mainstream               |
+|       1210 | 大成         | 食品工業   | 食品工業        |                    | non_mainstream              | non_mainstream           | non_mainstream               |
+|       1215 | 卜蜂         | 食品工業   | 食品工業        |                    | non_mainstream              | non_mainstream           | non_mainstream               |
+|       1301 | 台塑         | 塑膠工業   | 塑膠工業        |                    | non_mainstream              | non_mainstream           | non_mainstream               |
+|       1304 | 台聚         | 塑膠工業   | 塑膠工業        |                    | non_mainstream              | non_mainstream           | non_mainstream               |
+|       1305 | 華夏         | 塑膠工業   | 塑膠工業        |                    | non_mainstream              | non_mainstream           | non_mainstream               |
+|       1312 | 國喬         | 塑膠工業   | 塑膠工業        |                    | non_mainstream              | non_mainstream           | non_mainstream               |
+|       1313 | 聯成         | 塑膠工業   | 塑膠工業        |                    | non_mainstream              | non_mainstream           | non_mainstream               |
+|       1316 | 上曜         | 建材營造   | 建材營造        |                    | non_mainstream              | non_mainstream           | non_mainstream               |
+|       1326 | 台化         | 塑膠工業   | 塑膠工業        |                    | non_mainstream              | non_mainstream           | non_mainstream               |
+|       1402 | 遠東新       | 紡織纖維   | 紡織纖維        |                    | non_mainstream              | non_mainstream           | non_mainstream               |
+|       1409 | 新纖         | 紡織纖維   | 紡織纖維        |                    | non_mainstream              | non_mainstream           | non_mainstream               |
+|       1434 | 福懋         | 紡織纖維   | 紡織纖維        |                    | non_mainstream              | non_mainstream           | non_mainstream               |
+|       1440 | 南紡         | 紡織纖維   | 紡織纖維        |                    | non_mainstream              | non_mainstream           | non_mainstream               |
+|       1444 | 力麗         | 紡織纖維   | 紡織纖維        |                    | non_mainstream              | non_mainstream           | non_mainstream               |
+|       1447 | 力鵬         | 紡織纖維   | 紡織纖維        |                    | non_mainstream              | non_mainstream           | non_mainstream               |
+|       1449 | 佳和         | 紡織纖維   | 紡織纖維        |                    | non_mainstream              | non_mainstream           | non_mainstream               |
+|       1476 | 儒鴻         | 紡織纖維   | 紡織纖維        |                    | non_mainstream              | non_mainstream           | non_mainstream               |
+|       1708 | 東鹼         | 化學工業   | 化學工業        |                    | non_mainstream              | non_mainstream           | non_mainstream               |
+|       1710 | 東聯         | 化學工業   | 化學工業        |                    | non_mainstream              | non_mainstream           | non_mainstream               |
+|       1711 | 永光         | 化學工業   | 化學工業        |                    | non_mainstream              | non_mainstream           | non_mainstream               |
+|       1714 | 和桐         | 化學工業   | 化學工業        |                    | non_mainstream              | non_mainstream           | non_mainstream               |
+|       1718 | 中纖         | 化學工業   | 化學工業        |                    | non_mainstream              | non_mainstream           | non_mainstream               |
+|       1721 | 三晃         | 化學工業   | 化學工業        |                    | non_mainstream              | non_mainstream           | non_mainstream               |
+|       1722 | 台肥         | 化學工業   | 化學工業        |                    | non_mainstream              | non_mainstream           | non_mainstream               |
+|       1773 | 勝一         | 化學工業   | 化學工業        |                    | non_mainstream              | non_mainstream           | non_mainstream               |
+|       1789 | 神隆         | 生技醫療業 | 生技醫療業      |                    | non_mainstream              | non_mainstream           | non_mainstream               |
+|       1808 | 潤隆         | 建材營造   | 建材營造        |                    | non_mainstream              | non_mainstream           | non_mainstream               |
+|       1810 | 和成         | 玻璃陶瓷   | 玻璃陶瓷        |                    | non_mainstream              | non_mainstream           | non_mainstream               |
+|       1904 | 正隆         | 造紙工業   | 造紙工業        |                    | non_mainstream              | non_mainstream           | non_mainstream               |
+
+## Dual Industry / Theme Identity
+|   stock_id | stock_name   | industry   | primary_theme   | industry_mainstream_label   | theme_mainstream_label   | effective_mainstream_label   | mainstream_conflict_note                                                     |
+|-----------:|:-------------|:-----------|:----------------|:----------------------------|:-------------------------|:-----------------------------|:-----------------------------------------------------------------------------|
+|       1303 | 南亞         | 塑膠工業   | 玻纖布          | non_mainstream              | core_mainstream          | core_mainstream              | industry=non_mainstream;theme=core_mainstream;report_routing=core_mainstream |
+|       1717 | 長興         | 化學工業   | 特化材料        | non_mainstream              | core_mainstream          | core_mainstream              | industry=non_mainstream;theme=core_mainstream;report_routing=core_mainstream |
+|       1802 | 台玻         | 玻璃陶瓷   | 玻纖布          | non_mainstream              | core_mainstream          | core_mainstream              | industry=non_mainstream;theme=core_mainstream;report_routing=core_mainstream |
+|       2634 | 漢翔         | 航運業     | 軍工無人機      | non_mainstream              | core_mainstream          | core_mainstream              | industry=non_mainstream;theme=core_mainstream;report_routing=core_mainstream |
 
 ## Needs Review
 |   stock_id | stock_name       | industry   | primary_theme   | theme_mainstream_label   | taxonomy_source   |

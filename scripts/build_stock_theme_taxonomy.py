@@ -186,7 +186,41 @@ NON_MAINSTREAM_INDUSTRY_KEYWORDS = [
     "貿易百貨",
 ]
 
+NON_MAINSTREAM_INDUSTRY_KEYWORDS.extend(
+    [
+        "塑膠",
+        "化學",
+        "紡織",
+        "航運",
+        "金融",
+        "鋼鐵",
+        "食品",
+        "觀光",
+        "營建",
+    ]
+)
+
 PROVISIONAL_INDUSTRY_RULES = [
+    ("半導體", "半導體_設備材料待細分", "semiconductor_general_theme", "core_mainstream"),
+    ("電子零組件", "電子零組件_待細分", "electronic_component_general_theme", "core_mainstream"),
+    ("電子通路", "電子通路_IC通路待細分", "electronics_channel_general_theme", "core_mainstream"),
+    ("通信網路", "網通_低軌衛星待細分", "networking_general_theme", "core_mainstream"),
+    ("光電", "光電_CPO光通訊待細分", "optoelectronics_general_theme", "core_mainstream"),
+    ("電機機械", "機器人自動化_電機機械待細分", "robotics_precision_motion_theme", "core_mainstream"),
+    ("電器電纜", "重電電網_電器電纜待細分", "power_grid_theme", "core_mainstream"),
+    ("電腦及週邊", "AI_PC_電腦週邊待細分", "computer_peripheral_general_theme", "core_mainstream"),
+    ("其他電子", "AI伺服器_其他電子待細分", "other_electronics_general_theme", "core_mainstream"),
+    ("資訊服務", "資訊服務_AI應用待細分", "information_service_general_theme", "core_mainstream"),
+    ("數位雲端", "數位雲端_AI應用待細分", "digital_cloud_general_theme", "core_mainstream"),
+    ("塑膠", "塑膠工業", "non_mainstream_theme", "non_mainstream"),
+    ("化學", "化學工業", "non_mainstream_theme", "non_mainstream"),
+    ("紡織", "紡織纖維", "non_mainstream_theme", "non_mainstream"),
+    ("航運", "航運業", "non_mainstream_theme", "non_mainstream"),
+    ("金融", "金融保險", "non_mainstream_theme", "non_mainstream"),
+    ("鋼鐵", "鋼鐵工業", "non_mainstream_theme", "non_mainstream"),
+    ("食品", "食品工業", "non_mainstream_theme", "non_mainstream"),
+    ("觀光", "觀光餐旅", "non_mainstream_theme", "non_mainstream"),
+    ("營建", "建材營造", "non_mainstream_theme", "non_mainstream"),
     ("半導體", "半導體業_待細分", "semiconductor_general_theme", "core_mainstream"),
     ("電子零組件", "電子零組件_待細分", "electronic_component_general_theme", "core_mainstream"),
     ("電腦及週邊", "AI_PC_電腦週邊待細分", "computer_peripheral_general_theme", "core_mainstream"),
@@ -276,6 +310,36 @@ def infer_mainstream_label(bucket: str, industry: str, manual_value: str = "") -
     if bucket == "non_mainstream_theme" or any(keyword in industry for keyword in NON_MAINSTREAM_INDUSTRY_KEYWORDS):
         return "non_mainstream"
     return "theme_unknown"
+
+
+def infer_industry_mainstream_label(industry: str) -> str:
+    """Classify the official industry only, without theme overrides."""
+    text = compact_text(industry)
+    provisional = provisional_industry_rule(text)
+    if provisional:
+        return provisional[2]
+    if any(keyword in text for keyword in NON_MAINSTREAM_INDUSTRY_KEYWORDS):
+        return "non_mainstream"
+    return "theme_unknown"
+
+
+def effective_mainstream_label(theme_label: str, industry_label: str) -> str:
+    """Report routing uses theme first, then industry only as fallback."""
+    theme = normalize_mainstream(theme_label)
+    industry = normalize_mainstream(industry_label)
+    if theme in {"core_mainstream", "non_mainstream"}:
+        return theme
+    if industry in {"core_mainstream", "non_mainstream"}:
+        return industry
+    return "theme_unknown"
+
+
+def mainstream_conflict_note(industry_label: str, theme_label: str, effective_label: str) -> tuple[str, str]:
+    industry = normalize_mainstream(industry_label)
+    theme = normalize_mainstream(theme_label)
+    if industry in {"core_mainstream", "non_mainstream"} and theme in {"core_mainstream", "non_mainstream"} and industry != theme:
+        return "True", f"industry={industry};theme={theme};report_routing={effective_label}"
+    return "False", ""
 
 
 def load_universe() -> pd.DataFrame:
@@ -474,6 +538,9 @@ def build_taxonomy() -> pd.DataFrame:
             industry,
             row.get("manual_theme_mainstream_label", "") or row.get("authorized_theme_mainstream_label", ""),
         )
+        industry_mainstream = infer_industry_mainstream_label(industry)
+        effective_mainstream = effective_mainstream_label(mainstream, industry_mainstream)
+        conflict_flag, conflict_note = mainstream_conflict_note(industry_mainstream, mainstream, effective_mainstream)
         if any(compact_text(row.get(col, "")) for col in ["manual_primary_theme", "manual_theme_mainstream_label", "manual_theme_2", "manual_theme_3"]):
             source = "manual_override"
         elif any(compact_text(row.get(col, "")) for col in ["authorized_primary_theme", "authorized_theme_mainstream_label", "authorized_structural_theme_bucket"]):
@@ -488,6 +555,7 @@ def build_taxonomy() -> pd.DataFrame:
                 row.get("authorized_notes", ""),
                 row.get("manual_notes", ""),
                 "provisional_industry_mapping" if source == "provisional_industry_theme" else "",
+                "dual_industry_theme_identity" if conflict_flag == "True" else "",
             )
         )
         status = (
@@ -506,6 +574,10 @@ def build_taxonomy() -> pd.DataFrame:
                 "structural_theme_bucket": bucket,
                 "theme_structural_status": status,
                 "theme_mainstream_label": mainstream,
+                "industry_mainstream_label": industry_mainstream,
+                "effective_mainstream_label": effective_mainstream,
+                "mainstream_conflict_flag": conflict_flag,
+                "mainstream_conflict_note": conflict_note,
                 "taxonomy_source": source,
                 "confidence": confidence,
                 "concept_tags": concept_tags,
@@ -517,22 +589,21 @@ def build_taxonomy() -> pd.DataFrame:
 
 
 def build_template(taxonomy: pd.DataFrame, rows_per_sheet: int = 500) -> pd.DataFrame:
+    label_map = {"core_mainstream": "??", "non_mainstream": "???", "theme_unknown": ""}
     template = pd.DataFrame(
         {
-            "股票代號": taxonomy["stock_id"],
-            "股票名稱": taxonomy["stock_name"],
-            "目前產業": taxonomy["industry"],
-            "主流/非主流": taxonomy["theme_mainstream_label"].map(
-                {
-                    "core_mainstream": "主流",
-                    "non_mainstream": "非主流",
-                    "theme_unknown": "",
-                }
-            ).fillna(""),
-            "主要族群1": taxonomy["primary_theme"],
-            "族群2": taxonomy["secondary_themes"].map(lambda x: split_themes(x)[0] if split_themes(x) else ""),
-            "族群3": taxonomy["secondary_themes"].map(lambda x: split_themes(x)[1] if len(split_themes(x)) > 1 else ""),
-            "備註": taxonomy["notes"],
+            "????": taxonomy["stock_id"],
+            "????": taxonomy["stock_name"],
+            "????": taxonomy["industry"],
+            "??/???": taxonomy["effective_mainstream_label"].map(label_map).fillna(""),
+            "????1": taxonomy["primary_theme"],
+            "??2": taxonomy["secondary_themes"].map(lambda x: split_themes(x)[0] if split_themes(x) else ""),
+            "??3": taxonomy["secondary_themes"].map(lambda x: split_themes(x)[1] if len(split_themes(x)) > 1 else ""),
+            "?????": taxonomy["industry_mainstream_label"].map(label_map).fillna(""),
+            "????": taxonomy["theme_mainstream_label"].map(label_map).fillna(""),
+            "??????": taxonomy["effective_mainstream_label"].map(label_map).fillna(""),
+            "????": taxonomy["mainstream_conflict_flag"].map({"True": "?", "False": ""}).fillna(""),
+            "??": taxonomy["notes"],
         }
     )
     write_csv(template, TEMPLATE_CSV)
@@ -542,25 +613,25 @@ def build_template(taxonomy: pd.DataFrame, rows_per_sheet: int = 500) -> pd.Data
     with pd.ExcelWriter(TEMPLATE_XLSX, engine="openpyxl") as writer:
         instructions = pd.DataFrame(
             [
-                {"欄位": "主流/非主流", "填寫方式": "填「主流」或「非主流」。不確定可留空，程式會沿用預設。"},
-                {"欄位": "主要族群1", "填寫方式": "填最重要市場族群，例如：機器人、低軌衛星、被動元件、光通訊、PCB、玻纖布。留空則沿用預設。"},
-                {"欄位": "族群2/族群3", "填寫方式": "同一股票有多個題材時再填，例如：PCB + 低軌衛星。"},
-                {"欄位": "備註", "填寫方式": "可寫資料來源或不確定原因。"},
+                {"??": "??/???", "??": "?????????????????????????????"},
+                {"??": "????1", "??": "????????????????????????????????"},
+                {"??": "??2/??3", "??": "???????????????????"},
+                {"??": "?????/????/??????/????", "??": "??????????????????????????????"},
+                {"??": "??", "??": "??????????????"},
             ]
         )
-        instructions.to_excel(writer, index=False, sheet_name="填寫說明")
+        instructions.to_excel(writer, index=False, sheet_name="instructions")
         for start in range(0, len(template), rows_per_sheet):
-            sheet = f"股票{start + 1:04d}-{min(start + rows_per_sheet, len(template)):04d}"
+            sheet = f"stocks_{start + 1:04d}_{min(start + rows_per_sheet, len(template)):04d}"
             template.iloc[start : start + rows_per_sheet].to_excel(writer, index=False, sheet_name=sheet)
         workbook = writer.book
         for ws in workbook.worksheets:
             ws.freeze_panes = "A2"
             for col in ws.columns:
                 letter = col[0].column_letter
-                ws.column_dimensions[letter].width = 18 if letter not in {"E", "F", "G", "H"} else 24
+                ws.column_dimensions[letter].width = 18 if letter not in {"E", "F", "G", "H", "I", "J", "K", "L"} else 24
     DOCS_TEMPLATE_XLSX.write_bytes(TEMPLATE_XLSX.read_bytes())
     return template
-
 
 def markdown_table(df: pd.DataFrame, cols: list[str], limit: int = 40) -> str:
     show = df.loc[:, [col for col in cols if col in df.columns]].head(limit).fillna("")
@@ -576,6 +647,9 @@ def validate(taxonomy: pd.DataFrame) -> dict[str, Any]:
         "total_rows": total,
         "mainstream_count": int((taxonomy["theme_mainstream_label"] == "core_mainstream").sum()) if total else 0,
         "non_mainstream_count": int((taxonomy["theme_mainstream_label"] == "non_mainstream").sum()) if total else 0,
+        "effective_mainstream_count": int((taxonomy["effective_mainstream_label"] == "core_mainstream").sum()) if total else 0,
+        "effective_non_mainstream_count": int((taxonomy["effective_mainstream_label"] == "non_mainstream").sum()) if total else 0,
+        "mainstream_conflict_count": int((taxonomy["mainstream_conflict_flag"] == "True").sum()) if total else 0,
         "unknown_count": int((taxonomy["theme_mainstream_label"] == "theme_unknown").sum()) if total else 0,
         "manual_override_count": int((taxonomy["taxonomy_source"] == "manual_override").sum()) if total else 0,
         "authorized_seed_count": int((taxonomy["taxonomy_source"] == "authorized_seed").sum()) if total else 0,
@@ -606,6 +680,9 @@ def write_outputs(taxonomy: pd.DataFrame, template: pd.DataFrame) -> None:
         f"- total_rows: {counts['total_rows']}",
         f"- mainstream_count: {counts['mainstream_count']}",
         f"- non_mainstream_count: {counts['non_mainstream_count']}",
+        f"- effective_mainstream_count: {counts['effective_mainstream_count']}",
+        f"- effective_non_mainstream_count: {counts['effective_non_mainstream_count']}",
+        f"- mainstream_conflict_count: {counts['mainstream_conflict_count']}",
         f"- unknown_count: {counts['unknown_count']}",
         f"- manual_override_count: {counts['manual_override_count']}",
         f"- authorized_seed_count: {counts['authorized_seed_count']}",
@@ -614,10 +691,13 @@ def write_outputs(taxonomy: pd.DataFrame, template: pd.DataFrame) -> None:
         markdown_table(taxonomy[taxonomy["taxonomy_source"].isin(["manual_override", "authorized_seed"])], ["stock_id", "stock_name", "industry", "primary_theme", "secondary_themes", "structural_theme_bucket", "taxonomy_source"], 120),
         "",
         "## Mainstream Sample",
-        markdown_table(taxonomy[taxonomy["theme_mainstream_label"].eq("core_mainstream")], ["stock_id", "stock_name", "industry", "primary_theme", "secondary_themes"], 30),
+        markdown_table(taxonomy[taxonomy["effective_mainstream_label"].eq("core_mainstream")], ["stock_id", "stock_name", "industry", "primary_theme", "secondary_themes", "industry_mainstream_label", "theme_mainstream_label", "effective_mainstream_label"], 30),
         "",
         "## Non-Mainstream Sample",
-        markdown_table(taxonomy[taxonomy["theme_mainstream_label"].eq("non_mainstream")], ["stock_id", "stock_name", "industry", "primary_theme", "secondary_themes"], 30),
+        markdown_table(taxonomy[taxonomy["effective_mainstream_label"].eq("non_mainstream")], ["stock_id", "stock_name", "industry", "primary_theme", "secondary_themes", "industry_mainstream_label", "theme_mainstream_label", "effective_mainstream_label"], 30),
+        "",
+        "## Dual Industry / Theme Identity",
+        markdown_table(taxonomy[taxonomy["mainstream_conflict_flag"].eq("True")], ["stock_id", "stock_name", "industry", "primary_theme", "industry_mainstream_label", "theme_mainstream_label", "effective_mainstream_label", "mainstream_conflict_note"], 80),
         "",
         "## Needs Review",
         markdown_table(review, ["stock_id", "stock_name", "industry", "primary_theme", "theme_mainstream_label", "taxonomy_source"], 60),
@@ -639,6 +719,9 @@ def write_outputs(taxonomy: pd.DataFrame, template: pd.DataFrame) -> None:
         f"- total_rows: {counts['total_rows']}",
         f"- mainstream_count: {counts['mainstream_count']}",
         f"- non_mainstream_count: {counts['non_mainstream_count']}",
+        f"- effective_mainstream_count: {counts['effective_mainstream_count']}",
+        f"- effective_non_mainstream_count: {counts['effective_non_mainstream_count']}",
+        f"- mainstream_conflict_count: {counts['mainstream_conflict_count']}",
         f"- unknown_count: {counts['unknown_count']}",
         f"- duplicate_stock_ids: {counts['duplicate_stock_ids']}",
         f"- missing_stock_name_count: {counts['missing_stock_name_count']}",
@@ -660,6 +743,10 @@ def write_outputs(taxonomy: pd.DataFrame, template: pd.DataFrame) -> None:
         "secondary_themes",
         "structural_theme_bucket",
         "theme_mainstream_label",
+        "industry_mainstream_label",
+        "effective_mainstream_label",
+        "mainstream_conflict_flag",
+        "mainstream_conflict_note",
         "taxonomy_source",
         "concept_tags",
         "notes",
@@ -674,7 +761,7 @@ def write_outputs(taxonomy: pd.DataFrame, template: pd.DataFrame) -> None:
         f"- rows: {len(preview)}",
         "- purpose: user-authorized market theme seed integrated with existing manual/default taxonomy.",
         "",
-        markdown_table(preview, ["stock_id", "stock_name", "primary_theme", "secondary_themes", "structural_theme_bucket", "theme_mainstream_label", "taxonomy_source"], 140),
+        markdown_table(preview, ["stock_id", "stock_name", "primary_theme", "secondary_themes", "structural_theme_bucket", "industry_mainstream_label", "theme_mainstream_label", "effective_mainstream_label", "mainstream_conflict_flag", "taxonomy_source"], 140),
         "",
     ]
     preview_text = "\n".join(preview_lines)

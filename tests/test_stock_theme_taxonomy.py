@@ -44,6 +44,17 @@ class StockThemeTaxonomyTests(unittest.TestCase):
         self.assertEqual(bucket, "non_mainstream_theme")
         self.assertEqual(taxonomy.infer_mainstream_label(bucket, "金融保險業"), "non_mainstream")
 
+    def test_dual_industry_and_theme_identity(self) -> None:
+        industry_label = taxonomy.infer_industry_mainstream_label("塑膠工業")
+        theme_label = taxonomy.infer_mainstream_label("glass_fiber_ccl_theme", "塑膠工業")
+        effective = taxonomy.effective_mainstream_label(theme_label, industry_label)
+        flag, note = taxonomy.mainstream_conflict_note(industry_label, theme_label, effective)
+        self.assertEqual(industry_label, "non_mainstream")
+        self.assertEqual(theme_label, "core_mainstream")
+        self.assertEqual(effective, "core_mainstream")
+        self.assertEqual(flag, "True")
+        self.assertIn("report_routing=core_mainstream", note)
+
     def test_blank_theme_keeps_default_theme(self) -> None:
         row = pd.Series(
             {
