@@ -33,10 +33,11 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
+          git pull --rebase --autostash origin main || true
           git add data/ output/
           git add docs/latest/stock_price_history_manifest.csv || true
           git add docs/latest/stock_price_history_manifest.json || true
           git add docs/latest/stock_price_history_manifest.md || true
           git add scripts/build_stock_price_history.py || true
           git commit -m "Backfill official daily price data" || echo "No changes to commit"
-          git push
+          bash scripts/ci_push_with_retry.sh main 5
