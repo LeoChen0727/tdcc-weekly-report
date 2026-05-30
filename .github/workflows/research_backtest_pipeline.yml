@@ -1,9 +1,6 @@
 name: Research Backtest Pipeline
 
 on:
-  schedule:
-    # Every Sunday 20:30 Asia/Taipei; the job gates to even ISO weeks below.
-    - cron: "30 12 * * 0"
   workflow_dispatch:
     inputs:
       run_market_timing:
@@ -68,38 +65,23 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Check biweekly schedule
-        id: biweekly
-        shell: bash
-        run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            echo "run=true" >> "$GITHUB_OUTPUT"
-          elif [ $((10#$(date -u +%V) % 2)) -eq 0 ]; then
-            echo "run=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "run=false" >> "$GITHUB_OUTPUT"
-            echo "Skipping this weekly tick; biweekly research runs on even ISO weeks."
-          fi
-
       - name: Install dependencies
-        if: ${{ steps.biweekly.outputs.run == 'true' }}
         run: |
           python -m pip install --upgrade pip
           pip install pandas requests tabulate matplotlib pillow openpyxl lxml html5lib beautifulsoup4 reportlab pypdf
 
       - name: Build market timing technical backtest
-        if: ${{ steps.biweekly.outputs.run == 'true' && (github.event_name == 'schedule' || github.event.inputs.run_market_timing == 'true') }}
+        if: ${{ github.event.inputs.run_market_timing == 'true' }}
         run: |
           python scripts/update_market_index_history.py
           python scripts/build_market_timing_technical_backtest.py
 
       - name: Build TDCC overheated short-term edge
-        if: ${{ steps.biweekly.outputs.run == 'true' }}
         run: |
           python scripts/build_tdcc_overheated_short_term_edge.py
 
       - name: Build TDCC normalized signal performance and effectiveness
-        if: ${{ steps.biweekly.outputs.run == 'true' && (github.event_name == 'schedule' || github.event.inputs.run_tdcc_signal_performance == 'true') }}
+        if: ${{ github.event.inputs.run_tdcc_signal_performance == 'true' }}
         run: |
           python scripts/build_tdcc_signal_structures.py --full-history --price-metrics-limit 0
           python scripts/update_tdcc_normalized_signal_performance.py
@@ -108,7 +90,7 @@ jobs:
           python scripts/validate_tdcc_chatgpt_tracking_outputs.py
 
       - name: Build weekly surge parameter research
-        if: ${{ steps.biweekly.outputs.run == 'true' && (github.event_name == 'schedule' || github.event.inputs.run_weekly_surge == 'true') }}
+        if: ${{ github.event.inputs.run_weekly_surge == 'true' }}
         run: |
           python scripts/research_weekly_20pct_surge_volume.py
           python scripts/research_weekly_surge_theme_segments.py
@@ -119,46 +101,44 @@ jobs:
           python scripts/build_weekly_surge_strict_parameter_candidates.py
 
       - name: Build explosive volume up research
-        if: ${{ steps.biweekly.outputs.run == 'true' && (github.event_name == 'schedule' || github.event.inputs.run_explosive_volume == 'true') }}
+        if: ${{ github.event.inputs.run_explosive_volume == 'true' }}
         run: |
           python scripts/research_explosive_volume_up.py
 
       - name: Build short-term specialty packet
-        if: ${{ steps.biweekly.outputs.run == 'true' }}
         run: |
           python scripts/build_daily_short_term_specialty_packet.py
 
       - name: Build volume breakout watch backtest
-        if: ${{ steps.biweekly.outputs.run == 'true' && (github.event_name == 'schedule' || github.event.inputs.run_volume_breakout == 'true') }}
+        if: ${{ github.event.inputs.run_volume_breakout == 'true' }}
         run: |
           python scripts/build_volume_breakout_watch.py
           python scripts/validate_volume_breakout_watch.py
 
       - name: Build surge precondition model
-        if: ${{ steps.biweekly.outputs.run == 'true' && (github.event_name == 'schedule' || github.event.inputs.run_surge_model == 'true') }}
+        if: ${{ github.event.inputs.run_surge_model == 'true' }}
         run: |
           python scripts/build_surge_precondition_model.py
           python scripts/validate_surge_precondition_model.py
 
       - name: Update daily candidate signal performance
-        if: ${{ steps.biweekly.outputs.run == 'true' && (github.event_name == 'schedule' || github.event.inputs.run_signal_performance == 'true') }}
+        if: ${{ github.event.inputs.run_signal_performance == 'true' }}
         run: |
           python scripts/update_daily_candidate_signal_performance.py
           python scripts/generate_daily_signal_performance_report.py
           python scripts/validate_daily_signal_performance.py
 
       - name: Update catalyst performance tracking
-        if: ${{ steps.biweekly.outputs.run == 'true' && (github.event_name == 'schedule' || github.event.inputs.run_catalyst_performance == 'true') }}
+        if: ${{ github.event.inputs.run_catalyst_performance == 'true' }}
         run: |
           python scripts/update_catalyst_performance.py
 
       - name: Build MSCI Taiwan rebalance event backtest
-        if: ${{ steps.biweekly.outputs.run == 'true' && (github.event_name == 'schedule' || github.event.inputs.run_msci_rebalance == 'true') }}
+        if: ${{ github.event.inputs.run_msci_rebalance == 'true' }}
         run: |
           python scripts/build_msci_taiwan_rebalance_backtest.py
 
       - name: Rebuild ChatGPT route files
-        if: ${{ steps.biweekly.outputs.run == 'true' }}
         run: |
           python scripts/build_chatgpt_indicator_usage_guide.py
           python build_chatgpt_daily_report_packet.py
@@ -166,7 +146,6 @@ jobs:
           python publish_chatgpt_report_readme_and_check.py
 
       - name: Commit research and backtest outputs
-        if: ${{ steps.biweekly.outputs.run == 'true' }}
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"

@@ -92,6 +92,7 @@ Daily report generation and research/backfill jobs must remain separated.
 - `daily_full_pipeline.yml` is for daily report-critical data, packets, rule files, and PDF artifacts.
 - Heavy research, long backtests, parameter grids, raw URL health sweeps, and TDCC historical backfill must not be required for a normal daily run.
 - Research/backtest refreshes belong in `research_backtest_pipeline.yml` or a dedicated manual workflow.
+- Research/backtest cadence must not be hidden behind an internal date gate inside the workflow. If the workflow appears to run, it must actually run the requested research steps. Biweekly cadence should be controlled by an external scheduler such as Apps Script, or by an explicit manual dispatch.
 - TDCC history backfill belongs in `tdcc_history_backfill.yml` and must use bounded request and rebuild windows unless explicitly running a full research rebuild.
 - Daily reports may consume the latest available research outputs as specialty sections, but stale or missing research outputs must not block daily report generation.
 - If a daily report uses a research output, it must preserve `sample_status`, `tuning_status`, and `reporting_priority_only` limits.

@@ -130,3 +130,40 @@ function triggerTdccWeeklyReport() {
   Utilities.sleep(5000);
   logLatestWorkflowRuns_("tdcc_weekly.yml");
 }
+
+function triggerResearchBacktestPipeline() {
+  dispatchWorkflow_("research_backtest_pipeline.yml", {
+    run_market_timing: "true",
+    run_weekly_surge: "true",
+    run_explosive_volume: "true",
+    run_surge_model: "true",
+    run_signal_performance: "true",
+    run_volume_breakout: "true",
+    run_catalyst_performance: "true",
+    run_msci_rebalance: "true",
+    run_tdcc_signal_performance: "true",
+  });
+  Utilities.sleep(5000);
+  logLatestWorkflowRuns_("research_backtest_pipeline.yml");
+}
+
+function installBiweeklyResearchBacktestTrigger() {
+  removeTriggersForFunction_("triggerResearchBacktestPipeline");
+  ScriptApp.newTrigger("triggerResearchBacktestPipeline")
+    .timeBased()
+    .everyWeeks(2)
+    .onWeekDay(ScriptApp.WeekDay.SUNDAY)
+    .atHour(20)
+    .nearMinute(30)
+    .inTimezone("Asia/Taipei")
+    .create();
+  Logger.log("Installed biweekly research backtest trigger: Sunday 20:30 Asia/Taipei, every 2 weeks.");
+}
+
+function removeTriggersForFunction_(functionName) {
+  ScriptApp.getProjectTriggers().forEach(function (trigger) {
+    if (trigger.getHandlerFunction() === functionName) {
+      ScriptApp.deleteTrigger(trigger);
+    }
+  });
+}
