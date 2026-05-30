@@ -17,6 +17,28 @@ class StockThemeTaxonomyTests(unittest.TestCase):
         self.assertEqual(bucket, "robotics_precision_motion_theme")
         self.assertEqual(taxonomy.infer_mainstream_label(bucket, "電機機械"), "core_mainstream")
 
+    def test_authorized_theme_buckets_are_core_mainstream(self) -> None:
+        cases = [
+            ("重電電網", "", "power_grid_theme"),
+            ("軍工無人機", "", "defense_drone_theme"),
+            ("網通交換器", "", "network_switch_theme"),
+            ("車用電子", "", "automotive_electronics_theme"),
+        ]
+        for primary, secondary, expected in cases:
+            with self.subTest(primary=primary):
+                bucket = taxonomy.infer_bucket(primary, secondary, "")
+                self.assertEqual(bucket, expected)
+                self.assertEqual(taxonomy.infer_mainstream_label(bucket, ""), "core_mainstream")
+
+    def test_authorized_seed_contains_multi_theme_stocks(self) -> None:
+        seed = taxonomy.load_authorized_seed()
+        huatung = seed[seed["stock_id"].eq("2313")].iloc[0]
+        qiqi = seed[seed["stock_id"].eq("6285")].iloc[0]
+        self.assertEqual(huatung["primary_theme"], "PCB_CCL_ABF材料")
+        self.assertIn("低軌衛星", huatung["secondary_themes"])
+        self.assertEqual(qiqi["primary_theme"], "低軌衛星")
+        self.assertIn("網通交換器", qiqi["secondary_themes"])
+
     def test_non_mainstream_industry_fallback(self) -> None:
         bucket = taxonomy.infer_bucket("", "", "金融保險業")
         self.assertEqual(bucket, "non_mainstream_theme")

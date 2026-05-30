@@ -1,16 +1,14 @@
 {
-  "generated_at": "2026-05-30 15:29:10 Asia/Taipei",
-  "total_rows": 2126,
-  "mainstream_count": 26,
-  "non_mainstream_count": 101,
-  "unknown_count": 1999,
+  "generated_at": "2026-05-30 21:07:43 Asia/Taipei",
+  "total_rows": 2369,
+  "mainstream_count": 141,
+  "non_mainstream_count": 99,
+  "unknown_count": 2129,
   "manual_override_count": 5,
-  "default_theme_map_count": 28,
-  "industry_default_count": 2093,
+  "authorized_seed_count": 124,
+  "default_theme_map_count": 17,
+  "industry_default_count": 2223,
   "duplicate_stock_ids": 0,
   "missing_stock_name_count": 0,
-  "missing_primary_theme_count": 1632,
-  "rows": 2126,
-  "invalid_mainstream_labels": [],
-  "validation_passed": true
+  "missing_primary_theme_count": 1825
 }

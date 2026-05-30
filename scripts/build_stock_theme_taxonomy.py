@@ -23,11 +23,14 @@ from tracking_utils import (
 
 
 CONFIG_THEME_MAP = Path("config/stock_theme_map.csv")
+AUTHORIZED_SEED = Path("config/stock_theme_authorized_seed.csv")
 MANUAL_OVERRIDE = Path("config/stock_theme_taxonomy_manual.csv")
 ALL_CANDIDATES = LATEST_DIR / "all_candidates_latest.csv"
 
 TAXONOMY_CSV = LATEST_DIR / "stock_theme_taxonomy_latest.csv"
 TAXONOMY_MD = LATEST_DIR / "stock_theme_taxonomy_latest.md"
+AUTHORIZED_PREVIEW_CSV = LATEST_DIR / "stock_theme_authorized_seed_preview_latest.csv"
+AUTHORIZED_PREVIEW_MD = LATEST_DIR / "stock_theme_authorized_seed_preview_latest.md"
 TEMPLATE_XLSX = LATEST_DIR / "stock_theme_manual_fill_template_latest.xlsx"
 TEMPLATE_CSV = LATEST_DIR / "stock_theme_manual_fill_template_latest.csv"
 VALIDATION_JSON = LATEST_DIR / "stock_theme_taxonomy_validation_latest.json"
@@ -35,6 +38,8 @@ VALIDATION_MD = LATEST_DIR / "stock_theme_taxonomy_validation_latest.md"
 
 DOCS_TAXONOMY_CSV = DOCS_LATEST_DIR / "stock_theme_taxonomy_latest.csv"
 DOCS_TAXONOMY_MD = DOCS_LATEST_DIR / "stock_theme_taxonomy_latest.md"
+DOCS_AUTHORIZED_PREVIEW_CSV = DOCS_LATEST_DIR / "stock_theme_authorized_seed_preview_latest.csv"
+DOCS_AUTHORIZED_PREVIEW_MD = DOCS_LATEST_DIR / "stock_theme_authorized_seed_preview_latest.md"
 DOCS_TEMPLATE_XLSX = DOCS_LATEST_DIR / "stock_theme_manual_fill_template_latest.xlsx"
 DOCS_TEMPLATE_CSV = DOCS_LATEST_DIR / "stock_theme_manual_fill_template_latest.csv"
 DOCS_VALIDATION_JSON = DOCS_LATEST_DIR / "stock_theme_taxonomy_validation_latest.json"
@@ -70,6 +75,7 @@ STRUCTURAL_BUCKET_BY_THEME_KEYWORD = {
     "CPO": "network_optical_datacenter_theme",
     "optical": "network_optical_datacenter_theme",
     "datacenter": "network_optical_datacenter_theme",
+    "網通交換器": "network_switch_theme",
     "網通": "network_optical_datacenter_theme",
     "玻纖": "glass_fiber_ccl_theme",
     "glass fiber": "glass_fiber_ccl_theme",
@@ -92,6 +98,9 @@ STRUCTURAL_BUCKET_BY_THEME_KEYWORD = {
     "thermal": "thermal_solution_theme",
     "電源": "power_supply_theme",
     "power supply": "power_supply_theme",
+    "BBU": "power_supply_theme",
+    "重電": "power_grid_theme",
+    "電網": "power_grid_theme",
     "記憶體": "memory_hbm_theme",
     "memory": "memory_hbm_theme",
     "hbm": "memory_hbm_theme",
@@ -115,6 +124,13 @@ STRUCTURAL_BUCKET_BY_THEME_KEYWORD = {
     "interface": "high_speed_interconnect_theme",
     "MOSFET": "power_supply_theme",
     "diode": "power_supply_theme",
+    "軍工": "defense_drone_theme",
+    "無人機": "defense_drone_theme",
+    "drone": "defense_drone_theme",
+    "交換器": "network_switch_theme",
+    "switch": "network_switch_theme",
+    "車用": "automotive_electronics_theme",
+    "automotive": "automotive_electronics_theme",
 }
 
 
@@ -132,6 +148,7 @@ CORE_BUCKETS = {
     "high_speed_interconnect_theme",
     "thermal_solution_theme",
     "power_supply_theme",
+    "power_grid_theme",
     "pcb_ccl_theme",
     "glass_fiber_ccl_theme",
     "fpc_flexible_pcb_theme",
@@ -140,6 +157,9 @@ CORE_BUCKETS = {
     "robotics_automation_theme",
     "robotics_ipc_edge_ai_theme",
     "robotics_optics_sensor_theme",
+    "defense_drone_theme",
+    "network_switch_theme",
+    "automotive_electronics_theme",
 }
 
 
@@ -258,6 +278,15 @@ def load_default_map() -> pd.DataFrame:
     return df
 
 
+def load_authorized_seed() -> pd.DataFrame:
+    df = read_csv(AUTHORIZED_SEED, dtype=str, keep_default_na=False)
+    if df.empty:
+        return pd.DataFrame(columns=["stock_id"])
+    if "stock_id" in df.columns:
+        df["stock_id"] = df["stock_id"].map(normalize_code)
+    return df
+
+
 def load_manual() -> pd.DataFrame:
     df = read_csv(MANUAL_OVERRIDE, dtype=str, keep_default_na=False)
     if df.empty:
@@ -284,7 +313,31 @@ def load_manual() -> pd.DataFrame:
 def build_taxonomy() -> pd.DataFrame:
     universe = load_universe()
     default_map = load_default_map()
+    authorized = load_authorized_seed()
     manual = load_manual()
+
+    seed_sources = []
+    for source_df in [default_map, authorized, manual]:
+        if not source_df.empty and "stock_id" in source_df.columns:
+            cols = [col for col in ["stock_id", "stock_name", "industry"] if col in source_df.columns]
+            seed_sources.append(source_df[cols].copy())
+    if seed_sources:
+        seeded_universe = pd.concat([universe, *seed_sources], ignore_index=True)
+        seeded_universe["stock_id"] = seeded_universe["stock_id"].map(normalize_code)
+        for col in ["stock_name", "industry", "market"]:
+            if col not in seeded_universe.columns:
+                seeded_universe[col] = ""
+        universe = (
+            seeded_universe.sort_values(["stock_id", "stock_name", "industry"])
+            .groupby("stock_id", as_index=False)
+            .agg(
+                {
+                    "stock_name": lambda s: next((compact_text(x) for x in s if compact_text(x)), ""),
+                    "industry": lambda s: next((compact_text(x) for x in s if compact_text(x)), ""),
+                    "market": lambda s: next((compact_text(x) for x in s if compact_text(x)), ""),
+                }
+            )
+        )
 
     out = universe.copy()
     if not default_map.empty:
@@ -294,6 +347,29 @@ def build_taxonomy() -> pd.DataFrame:
             if col in default_map.columns
         ]
         out = out.merge(default_map[default_cols].add_prefix("default_"), left_on="stock_id", right_on="default_stock_id", how="left")
+    if not authorized.empty:
+        authorized_cols = [
+            col
+            for col in [
+                "stock_id",
+                "stock_name",
+                "industry",
+                "theme_mainstream_label",
+                "primary_theme",
+                "secondary_themes",
+                "structural_theme_bucket",
+                "theme_structural_status",
+                "concept_tags",
+                "notes",
+            ]
+            if col in authorized.columns
+        ]
+        out = out.merge(
+            authorized[authorized_cols].add_prefix("authorized_"),
+            left_on="stock_id",
+            right_on="authorized_stock_id",
+            how="left",
+        )
     if not manual.empty:
         manual_cols = [
             col
@@ -316,24 +392,50 @@ def build_taxonomy() -> pd.DataFrame:
     rows: list[dict[str, str]] = []
     for _, row in out.iterrows():
         stock_id = normalize_code(row.get("stock_id", ""))
-        stock_name = compact_text(row.get("manual_stock_name", "")) or compact_text(row.get("stock_name", "")) or compact_text(row.get("default_stock_name", ""))
+        stock_name = (
+            compact_text(row.get("manual_stock_name", ""))
+            or compact_text(row.get("authorized_stock_name", ""))
+            or compact_text(row.get("stock_name", ""))
+            or compact_text(row.get("default_stock_name", ""))
+        )
         industry = compact_text(row.get("manual_industry", "")) or compact_text(row.get("industry", "")) or compact_text(row.get("default_industry", ""))
         manual_primary = compact_text(row.get("manual_primary_theme", ""))
+        authorized_primary = compact_text(row.get("authorized_primary_theme", ""))
         default_primary = compact_text(row.get("default_primary_theme", ""))
-        primary = manual_primary or default_primary or industry
+        primary = manual_primary or authorized_primary or default_primary or industry
         secondary_list = split_themes(
             row.get("manual_theme_2", ""),
             row.get("manual_theme_3", ""),
             row.get("manual_secondary_themes", ""),
+            row.get("authorized_secondary_themes", ""),
             row.get("default_secondary_themes", ""),
         )
         secondary = ";".join([item for item in secondary_list if item != primary])
-        bucket = infer_bucket(primary, secondary, industry, row.get("manual_structural_theme_bucket", ""))
-        mainstream = infer_mainstream_label(bucket, industry, row.get("manual_theme_mainstream_label", ""))
-        source = "manual_override" if any(compact_text(row.get(col, "")) for col in ["manual_primary_theme", "manual_theme_mainstream_label", "manual_theme_2", "manual_theme_3"]) else ("default_theme_map" if default_primary else "industry_default")
-        confidence = "high" if source == "manual_override" else ("medium" if source == "default_theme_map" else "low")
-        notes = compact_text(row.get("manual_notes", ""))
-        status = "market_theme" if bucket in CORE_BUCKETS else ("non_mainstream_theme" if mainstream == "non_mainstream" else "needs_manual_review")
+        bucket = infer_bucket(
+            primary,
+            secondary,
+            industry,
+            row.get("manual_structural_theme_bucket", "") or row.get("authorized_structural_theme_bucket", ""),
+        )
+        mainstream = infer_mainstream_label(
+            bucket,
+            industry,
+            row.get("manual_theme_mainstream_label", "") or row.get("authorized_theme_mainstream_label", ""),
+        )
+        if any(compact_text(row.get(col, "")) for col in ["manual_primary_theme", "manual_theme_mainstream_label", "manual_theme_2", "manual_theme_3"]):
+            source = "manual_override"
+        elif any(compact_text(row.get(col, "")) for col in ["authorized_primary_theme", "authorized_theme_mainstream_label", "authorized_structural_theme_bucket"]):
+            source = "authorized_seed"
+        else:
+            source = "default_theme_map" if default_primary else "industry_default"
+        confidence = "high" if source in {"manual_override", "authorized_seed"} else ("medium" if source == "default_theme_map" else "low")
+        notes = ";".join(split_themes(row.get("authorized_notes", ""), row.get("manual_notes", "")))
+        status = (
+            compact_text(row.get("manual_theme_structural_status", ""))
+            or compact_text(row.get("authorized_theme_structural_status", ""))
+            or ("market_theme" if bucket in CORE_BUCKETS else ("non_mainstream_theme" if mainstream == "non_mainstream" else "needs_manual_review"))
+        )
+        concept_tags = ";".join(split_themes(row.get("authorized_concept_tags", ""), row.get("default_concept_tags", "")))
         rows.append(
             {
                 "stock_id": stock_id,
@@ -346,7 +448,7 @@ def build_taxonomy() -> pd.DataFrame:
                 "theme_mainstream_label": mainstream,
                 "taxonomy_source": source,
                 "confidence": confidence,
-                "concept_tags": compact_text(row.get("default_concept_tags", "")),
+                "concept_tags": concept_tags,
                 "notes": notes,
                 "updated_at": now_text(),
             }
@@ -416,6 +518,7 @@ def validate(taxonomy: pd.DataFrame) -> dict[str, Any]:
         "non_mainstream_count": int((taxonomy["theme_mainstream_label"] == "non_mainstream").sum()) if total else 0,
         "unknown_count": int((taxonomy["theme_mainstream_label"] == "theme_unknown").sum()) if total else 0,
         "manual_override_count": int((taxonomy["taxonomy_source"] == "manual_override").sum()) if total else 0,
+        "authorized_seed_count": int((taxonomy["taxonomy_source"] == "authorized_seed").sum()) if total else 0,
         "default_theme_map_count": int((taxonomy["taxonomy_source"] == "default_theme_map").sum()) if total else 0,
         "industry_default_count": int((taxonomy["taxonomy_source"] == "industry_default").sum()) if total else 0,
         "duplicate_stock_ids": int(taxonomy["stock_id"].duplicated().sum()) if total else 0,
@@ -444,6 +547,10 @@ def write_outputs(taxonomy: pd.DataFrame, template: pd.DataFrame) -> None:
         f"- non_mainstream_count: {counts['non_mainstream_count']}",
         f"- unknown_count: {counts['unknown_count']}",
         f"- manual_override_count: {counts['manual_override_count']}",
+        f"- authorized_seed_count: {counts['authorized_seed_count']}",
+        "",
+        "## Authorized Seed Preview",
+        markdown_table(taxonomy[taxonomy["taxonomy_source"].isin(["manual_override", "authorized_seed"])], ["stock_id", "stock_name", "industry", "primary_theme", "secondary_themes", "structural_theme_bucket", "taxonomy_source"], 120),
         "",
         "## Mainstream Sample",
         markdown_table(taxonomy[taxonomy["theme_mainstream_label"].eq("core_mainstream")], ["stock_id", "stock_name", "industry", "primary_theme", "secondary_themes"], 30),
@@ -482,6 +589,36 @@ def write_outputs(taxonomy: pd.DataFrame, template: pd.DataFrame) -> None:
     validation_text = "\n".join(validation_md)
     VALIDATION_MD.write_text(validation_text, encoding="utf-8", newline="\n")
     DOCS_VALIDATION_MD.write_text(validation_text, encoding="utf-8", newline="\n")
+
+    preview = taxonomy[taxonomy["taxonomy_source"].isin(["manual_override", "authorized_seed"])].copy()
+    preview_cols = [
+        "stock_id",
+        "stock_name",
+        "industry",
+        "primary_theme",
+        "secondary_themes",
+        "structural_theme_bucket",
+        "theme_mainstream_label",
+        "taxonomy_source",
+        "concept_tags",
+        "notes",
+    ]
+    preview = preview.loc[:, [col for col in preview_cols if col in preview.columns]].sort_values(["primary_theme", "stock_id"])
+    write_csv(preview, AUTHORIZED_PREVIEW_CSV)
+    write_csv(preview, DOCS_AUTHORIZED_PREVIEW_CSV)
+    preview_lines = [
+        "# Stock Theme Authorized Seed Preview",
+        "",
+        f"- generated_at: {now_text()}",
+        f"- rows: {len(preview)}",
+        "- purpose: user-authorized market theme seed integrated with existing manual/default taxonomy.",
+        "",
+        markdown_table(preview, ["stock_id", "stock_name", "primary_theme", "secondary_themes", "structural_theme_bucket", "theme_mainstream_label", "taxonomy_source"], 140),
+        "",
+    ]
+    preview_text = "\n".join(preview_lines)
+    AUTHORIZED_PREVIEW_MD.write_text(preview_text, encoding="utf-8", newline="\n")
+    DOCS_AUTHORIZED_PREVIEW_MD.write_text(preview_text, encoding="utf-8", newline="\n")
 
 
 def main() -> int:
