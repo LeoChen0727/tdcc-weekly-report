@@ -1,6 +1,6 @@
 # Market Risk Dashboard
 
-- generated_at: `2026-05-29 19:30:10 Asia/Taipei`
+- generated_at: `2026-05-30 23:39:28 Asia/Taipei`
 - data_date: `20260529`
 - market_regime: `strong_bull`
 - risk_level: `high_risk`
@@ -24,7 +24,7 @@ This report uses official market index data already stored in the repo plus TAIF
 | index | close | 5d | 20d | MA20 | MA60 | regime |
 | --- | --- | --- | --- | --- | --- | --- |
 | TWSE | 44,732.94 | +5.83% | +14.92% | True | True | strong_bull |
-| TPEx | 432.48 | +5.53% | +12.99% | True | True | strong_bull |
+| TPEx | 443.64 | +4.82% | +15.36% | True | True | strong_bull |
 
 ## Futures / Options Positioning
 
@@ -41,14 +41,14 @@ This report uses official market index data already stored in the repo plus TAIF
 
 ## Upcoming Macro Event Calendar
 
-- 20260528 US_GDP: GDP (Second Estimate) and Corporate Profits, 1st Quarter 2026 (days=-1, importance=medium)
-- 20260528 US_PCE_personal_income: Personal Income and Outlays, April 2026 (days=-1, importance=high)
-- 20260609 US_trade: U.S. International Trade in Goods and Services, Annual Update (days=11, importance=medium)
-- 20260609 US_trade: U.S. International Trade in Goods and Services, April 2026 (days=11, importance=medium)
-- 20260617 FOMC: FOMC decision (June 16-17, 2026) (days=19, importance=high)
-- 20260625 US_PCE_personal_income: GDP (Third Estimate), Industries, Corporate Profits, State GDP, and State Personal Income, 1st Quarter 2026 (days=27, importance=high)
-- 20260625 US_PCE_personal_income: Personal Income and Outlays, May 2026 (days=27, importance=high)
-- 20260707 US_trade: U.S. International Trade in Goods and Services, May 2026 (days=39, importance=medium)
+- 20260528 US_GDP: GDP (Second Estimate) and Corporate Profits, 1st Quarter 2026 (days=-2, importance=medium)
+- 20260528 US_PCE_personal_income: Personal Income and Outlays, April 2026 (days=-2, importance=high)
+- 20260609 US_trade: U.S. International Trade in Goods and Services, Annual Update (days=10, importance=medium)
+- 20260609 US_trade: U.S. International Trade in Goods and Services, April 2026 (days=10, importance=medium)
+- 20260617 FOMC: FOMC decision (June 16-17, 2026) (days=18, importance=high)
+- 20260625 US_PCE_personal_income: GDP (Third Estimate), Industries, Corporate Profits, State GDP, and State Personal Income, 1st Quarter 2026 (days=26, importance=high)
+- 20260625 US_PCE_personal_income: Personal Income and Outlays, May 2026 (days=26, importance=high)
+- 20260707 US_trade: U.S. International Trade in Goods and Services, May 2026 (days=38, importance=medium)
 
 ## Six-Month Technical Charts
 
@@ -64,7 +64,7 @@ Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available wi
 ## Technical / Pattern Notes
 
 - TWSE / TAIEX: strong_bull; close 44,732.94; 6M range 27,342.53-44,732.94; distance from 6M high +0.00%; above MA20=True, above MA60=True.
-- TPEx / OTC: strong_bull; close 432.48; 6M range 259.13-440.19; distance from 6M high -1.75%; above MA20=True, above MA60=True.
+- TPEx / OTC: strong_bull; close 443.64; 6M range 259.13-443.64; distance from 6M high +0.00%; above MA20=True, above MA60=True.
 
 ## Retail Mini-TAIEX Futures Proxy
 

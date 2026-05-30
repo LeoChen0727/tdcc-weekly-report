@@ -42,7 +42,7 @@ stock_id,stock_name,industry,primary_theme,secondary_themes,structural_theme_buc
 2467,志聖,電子零組件業,半導體設備_CoWoS,,semiconductor_equipment_material_theme,core_mainstream,core_mainstream,core_mainstream,False,,mainstream,True,False,False,mainstream_section,authorized_seed,半導體設備_CoWoS,user_authorized_seed_20260530
 3131,弘塑,semiconductor equipment,半導體設備_CoWoS,semiconductor equipment,semiconductor_equipment_material_theme,core_mainstream,theme_unknown,core_mainstream,False,,mainstream,True,False,False,mainstream_section,authorized_seed,半導體設備_CoWoS;wet process;semiconductor equipment,user_authorized_seed_20260530
 3167,大量,,半導體設備_CoWoS,,semiconductor_equipment_material_theme,core_mainstream,theme_unknown,core_mainstream,False,,mainstream,True,False,False,mainstream_section,authorized_seed,半導體設備_CoWoS,user_authorized_seed_20260530
-3583,辛耘,,半導體設備_CoWoS,,semiconductor_equipment_material_theme,core_mainstream,theme_unknown,core_mainstream,False,,mainstream,True,False,False,mainstream_section,authorized_seed,半導體設備_CoWoS,user_authorized_seed_20260530
+3583,辛耘,半導體業,半導體設備_CoWoS,,semiconductor_equipment_material_theme,core_mainstream,core_mainstream,core_mainstream,False,,mainstream,True,False,False,mainstream_section,authorized_seed,半導體設備_CoWoS,user_authorized_seed_20260530
 6187,萬潤,,半導體設備_CoWoS,,semiconductor_equipment_material_theme,core_mainstream,theme_unknown,core_mainstream,False,,mainstream,True,False,False,mainstream_section,authorized_seed,半導體設備_CoWoS,user_authorized_seed_20260530
 6196,帆宣,,半導體設備_CoWoS,,semiconductor_equipment_material_theme,core_mainstream,theme_unknown,core_mainstream,False,,mainstream,True,False,False,mainstream_section,authorized_seed,半導體設備_CoWoS,user_authorized_seed_20260530
 6223,旺矽,半導體業,半導體設備_CoWoS,,semiconductor_equipment_material_theme,core_mainstream,core_mainstream,core_mainstream,False,,mainstream,True,False,False,mainstream_section,authorized_seed,半導體設備_CoWoS,user_authorized_seed_20260530
@@ -50,7 +50,7 @@ stock_id,stock_name,industry,primary_theme,secondary_themes,structural_theme_buc
 6640,均華,,半導體設備_CoWoS,,semiconductor_equipment_material_theme,core_mainstream,theme_unknown,core_mainstream,False,,mainstream,True,False,False,mainstream_section,authorized_seed,半導體設備_CoWoS,user_authorized_seed_20260530
 8028,昇陽半導體,semiconductor,半導體設備_CoWoS,wafer reclaim,semiconductor_equipment_material_theme,core_mainstream,theme_unknown,core_mainstream,False,,mainstream,True,False,False,mainstream_section,authorized_seed,半導體設備_CoWoS;wafer reclaim;semiconductor materials,user_authorized_seed_20260530
 2354,鴻準,其他電子業,散熱液冷,,thermal_solution_theme,core_mainstream,core_mainstream,core_mainstream,False,,mainstream,True,False,False,mainstream_section,authorized_seed,散熱液冷,user_authorized_seed_20260530
-2421,建準,電子零組件業,散熱液冷,,thermal_solution_theme,core_mainstream,core_mainstream,core_mainstream,False,,mainstream,True,False,False,mainstream_section,authorized_seed,散熱液冷,user_authorized_seed_20260530
+2421,建準,,散熱液冷,,thermal_solution_theme,core_mainstream,theme_unknown,core_mainstream,False,,mainstream,True,False,False,mainstream_section,authorized_seed,散熱液冷,user_authorized_seed_20260530
 3017,奇鋐,電腦及週邊設備業,散熱液冷,,thermal_solution_theme,core_mainstream,core_mainstream,core_mainstream,False,,mainstream,True,False,False,mainstream_section,authorized_seed,散熱液冷,user_authorized_seed_20260530
 3324,雙鴻,其他電子業,散熱液冷,,thermal_solution_theme,core_mainstream,core_mainstream,core_mainstream,False,,mainstream,True,False,False,mainstream_section,authorized_seed,散熱液冷,user_authorized_seed_20260530
 3540,曜越,,散熱液冷,,thermal_solution_theme,core_mainstream,theme_unknown,core_mainstream,False,,mainstream,True,False,False,mainstream_section,authorized_seed,散熱液冷,user_authorized_seed_20260530
@@ -65,7 +65,7 @@ stock_id,stock_name,industry,primary_theme,secondary_themes,structural_theme_buc
 2233,宇隆,,機器人自動化,,robotics_precision_motion_theme,core_mainstream,theme_unknown,core_mainstream,False,,mainstream,True,False,False,mainstream_section,authorized_seed,機器人自動化,user_authorized_seed_20260530
 2359,所羅門,其他電子業,機器人自動化,,robotics_automation_theme,core_mainstream,core_mainstream,core_mainstream,False,,mainstream,True,False,False,mainstream_section,authorized_seed,機器人自動化,user_authorized_seed_20260530
 2417,圓剛,電腦及週邊設備業,機器人自動化,軍工無人機,robotics_ipc_edge_ai_theme,core_mainstream,core_mainstream,core_mainstream,False,,mainstream,True,False,False,mainstream_section,authorized_seed,機器人自動化;軍工無人機,user_authorized_seed_20260530
-2464,盟立,其他電子業,機器人自動化,,robotics_automation_theme,core_mainstream,core_mainstream,core_mainstream,False,,mainstream,True,False,False,mainstream_section,authorized_seed,機器人自動化,user_authorized_seed_20260530
+2464,盟立,,機器人自動化,,robotics_automation_theme,core_mainstream,theme_unknown,core_mainstream,False,,mainstream,True,False,False,mainstream_section,authorized_seed,機器人自動化,user_authorized_seed_20260530
 3455,由田,,機器人自動化,,robotics_optics_sensor_theme,core_mainstream,theme_unknown,core_mainstream,False,,mainstream,True,False,False,mainstream_section,authorized_seed,機器人自動化;機器視覺,user_authorized_seed_20260530
 4583,台灣精銳,,機器人自動化,,robotics_precision_motion_theme,core_mainstream,theme_unknown,core_mainstream,False,,mainstream,True,False,False,mainstream_section,authorized_seed,機器人自動化,user_authorized_seed_20260530
 5474,聰泰,,機器人自動化,,robotics_optics_sensor_theme,core_mainstream,theme_unknown,core_mainstream,False,,mainstream,True,False,False,mainstream_section,authorized_seed,機器人自動化;機器視覺,user_authorized_seed_20260530
@@ -104,7 +104,7 @@ stock_id,stock_name,industry,primary_theme,secondary_themes,structural_theme_buc
 3006,晶豪科,semiconductor,記憶體儲存,DRAM IC,memory_hbm_theme,core_mainstream,theme_unknown,core_mainstream,False,,mainstream,True,False,False,mainstream_section,authorized_seed,記憶體儲存;memory;DRAM,user_authorized_seed_20260530
 3260,威剛,,記憶體儲存,,memory_hbm_theme,core_mainstream,theme_unknown,core_mainstream,False,,mainstream,True,False,False,mainstream_section,authorized_seed,記憶體儲存,user_authorized_seed_20260530
 6239,力成,半導體業,記憶體儲存,,memory_hbm_theme,core_mainstream,core_mainstream,core_mainstream,False,,mainstream,True,False,False,mainstream_section,authorized_seed,記憶體儲存,user_authorized_seed_20260530
-8150,南茂,半導體業,記憶體儲存,,memory_hbm_theme,core_mainstream,core_mainstream,core_mainstream,False,,mainstream,True,False,False,mainstream_section,authorized_seed,記憶體儲存,user_authorized_seed_20260530
+8150,南茂,,記憶體儲存,,memory_hbm_theme,core_mainstream,theme_unknown,core_mainstream,False,,mainstream,True,False,False,mainstream_section,authorized_seed,記憶體儲存,user_authorized_seed_20260530
 8271,宇瞻,半導體業,記憶體儲存,,memory_hbm_theme,core_mainstream,core_mainstream,core_mainstream,False,,mainstream,True,False,False,mainstream_section,authorized_seed,記憶體儲存,user_authorized_seed_20260530
 8299,群聯,,記憶體儲存,,memory_hbm_theme,core_mainstream,theme_unknown,core_mainstream,False,,mainstream,True,False,False,mainstream_section,authorized_seed,記憶體儲存,user_authorized_seed_20260530
 1536,和大,汽車工業,車用電子,,automotive_electronics_theme,core_mainstream,theme_unknown,core_mainstream,False,,mainstream,True,False,False,mainstream_section,authorized_seed,車用電子,user_authorized_seed_20260530
