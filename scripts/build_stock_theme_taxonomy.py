@@ -185,6 +185,41 @@ NON_MAINSTREAM_INDUSTRY_KEYWORDS = [
     "貿易百貨",
 ]
 
+PROVISIONAL_INDUSTRY_RULES = [
+    ("半導體", "半導體業_待細分", "semiconductor_general_theme", "core_mainstream"),
+    ("電子零組件", "電子零組件_待細分", "electronic_component_general_theme", "core_mainstream"),
+    ("電腦及週邊", "AI_PC_電腦週邊待細分", "computer_peripheral_general_theme", "core_mainstream"),
+    ("其他電子", "AI供應鏈_其他電子待細分", "other_electronics_general_theme", "core_mainstream"),
+    ("通信網路", "網通_低軌衛星待細分", "networking_general_theme", "core_mainstream"),
+    ("光電", "光電_CPO光通訊待細分", "optoelectronics_general_theme", "core_mainstream"),
+    ("電子通路", "電子通路_IC通路待細分", "electronics_channel_general_theme", "core_mainstream"),
+    ("資訊服務", "資訊服務_AI軟體待細分", "information_service_general_theme", "core_mainstream"),
+    ("數位雲端", "數位雲端_AI服務待細分", "digital_cloud_general_theme", "core_mainstream"),
+    ("電機機械", "機器人自動化_電機機械待細分", "robotics_precision_motion_theme", "core_mainstream"),
+    ("電器電纜", "重電電網_電器電纜待細分", "power_grid_theme", "core_mainstream"),
+    ("金融", "金融保險", "non_mainstream_theme", "non_mainstream"),
+    ("紡織", "紡織纖維", "non_mainstream_theme", "non_mainstream"),
+    ("鋼鐵", "鋼鐵工業", "non_mainstream_theme", "non_mainstream"),
+    ("建材營造", "建材營造", "non_mainstream_theme", "non_mainstream"),
+    ("航運", "航運業", "non_mainstream_theme", "non_mainstream"),
+    ("化學", "化學工業", "non_mainstream_theme", "non_mainstream"),
+    ("塑膠", "塑膠工業", "non_mainstream_theme", "non_mainstream"),
+    ("水泥", "水泥工業", "non_mainstream_theme", "non_mainstream"),
+    ("玻璃陶瓷", "玻璃陶瓷", "non_mainstream_theme", "non_mainstream"),
+    ("橡膠", "橡膠工業", "non_mainstream_theme", "non_mainstream"),
+    ("食品", "食品工業", "non_mainstream_theme", "non_mainstream"),
+    ("觀光", "觀光餐旅", "non_mainstream_theme", "non_mainstream"),
+    ("造紙", "造紙工業", "non_mainstream_theme", "non_mainstream"),
+    ("貿易百貨", "貿易百貨", "non_mainstream_theme", "non_mainstream"),
+    ("生技醫療", "生技醫療業", "non_mainstream_theme", "non_mainstream"),
+    ("油電燃氣", "油電燃氣業", "non_mainstream_theme", "non_mainstream"),
+    ("存託憑證", "存託憑證", "non_mainstream_theme", "non_mainstream"),
+    ("運動休閒", "運動休閒", "non_mainstream_theme", "non_mainstream"),
+    ("綠能環保", "綠能環保", "non_mainstream_theme", "non_mainstream"),
+]
+
+CORE_BUCKETS.update({bucket for _, _, bucket, label in PROVISIONAL_INDUSTRY_RULES if label == "core_mainstream"})
+
 
 def compact_text(value: Any) -> str:
     return safe_str(value).replace("\ufeff", "").strip()
@@ -208,6 +243,14 @@ def normalize_mainstream(value: Any) -> str:
     return MAINSTREAM_VALUES.get(text, text if text in {"core_mainstream", "non_mainstream", "theme_unknown"} else "")
 
 
+def provisional_industry_rule(industry: str) -> tuple[str, str, str] | None:
+    text = compact_text(industry)
+    for keyword, primary_theme, bucket, mainstream_label in PROVISIONAL_INDUSTRY_RULES:
+        if keyword in text:
+            return primary_theme, bucket, mainstream_label
+    return None
+
+
 def infer_bucket(primary_theme: str, secondary_themes: str, industry: str, fallback: str = "") -> str:
     if compact_text(fallback):
         return compact_text(fallback)
@@ -215,6 +258,9 @@ def infer_bucket(primary_theme: str, secondary_themes: str, industry: str, fallb
     for keyword, bucket in STRUCTURAL_BUCKET_BY_THEME_KEYWORD.items():
         if keyword in haystack:
             return bucket
+    provisional = provisional_industry_rule(industry)
+    if provisional:
+        return provisional[1]
     if any(keyword in industry for keyword in NON_MAINSTREAM_INDUSTRY_KEYWORDS):
         return "non_mainstream_theme"
     return ""
@@ -405,7 +451,9 @@ def build_taxonomy() -> pd.DataFrame:
         manual_primary = compact_text(row.get("manual_primary_theme", ""))
         authorized_primary = compact_text(row.get("authorized_primary_theme", ""))
         default_primary = compact_text(row.get("default_primary_theme", ""))
-        primary = manual_primary or authorized_primary or default_primary or industry
+        provisional = provisional_industry_rule(industry)
+        provisional_primary = provisional[0] if provisional else ""
+        primary = manual_primary or authorized_primary or default_primary or provisional_primary or industry
         secondary_list = split_themes(
             row.get("manual_theme_2", ""),
             row.get("manual_theme_3", ""),
@@ -429,10 +477,18 @@ def build_taxonomy() -> pd.DataFrame:
             source = "manual_override"
         elif any(compact_text(row.get(col, "")) for col in ["authorized_primary_theme", "authorized_theme_mainstream_label", "authorized_structural_theme_bucket"]):
             source = "authorized_seed"
+        elif provisional:
+            source = "provisional_industry_theme"
         else:
             source = "default_theme_map" if default_primary else "industry_default"
         confidence = "high" if source in {"manual_override", "authorized_seed"} else ("medium" if source == "default_theme_map" else "low")
-        notes = ";".join(split_themes(row.get("authorized_notes", ""), row.get("manual_notes", "")))
+        notes = ";".join(
+            split_themes(
+                row.get("authorized_notes", ""),
+                row.get("manual_notes", ""),
+                "provisional_industry_mapping" if source == "provisional_industry_theme" else "",
+            )
+        )
         status = (
             compact_text(row.get("manual_theme_structural_status", ""))
             or compact_text(row.get("authorized_theme_structural_status", ""))
@@ -522,6 +578,7 @@ def validate(taxonomy: pd.DataFrame) -> dict[str, Any]:
         "unknown_count": int((taxonomy["theme_mainstream_label"] == "theme_unknown").sum()) if total else 0,
         "manual_override_count": int((taxonomy["taxonomy_source"] == "manual_override").sum()) if total else 0,
         "authorized_seed_count": int((taxonomy["taxonomy_source"] == "authorized_seed").sum()) if total else 0,
+        "provisional_industry_theme_count": int((taxonomy["taxonomy_source"] == "provisional_industry_theme").sum()) if total else 0,
         "default_theme_map_count": int((taxonomy["taxonomy_source"] == "default_theme_map").sum()) if total else 0,
         "industry_default_count": int((taxonomy["taxonomy_source"] == "industry_default").sum()) if total else 0,
         "duplicate_stock_ids": int(taxonomy["stock_id"].duplicated().sum()) if total else 0,
