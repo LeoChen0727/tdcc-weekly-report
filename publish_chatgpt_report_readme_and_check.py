@@ -189,6 +189,12 @@ DAILY_CANDIDATE_MODEL_LAYER_VALIDATION_JSON = LATEST_DIR / "daily_candidate_mode
 DAILY_CANDIDATE_MODEL_LAYER_VALIDATION_MD = LATEST_DIR / "daily_candidate_model_layer_validation_latest.md"
 DAILY_CANDIDATE_GROUP_ROTATION_CSV = LATEST_DIR / "daily_candidate_group_rotation_latest.csv"
 DAILY_CANDIDATE_GROUP_ROTATION_MD = LATEST_DIR / "daily_candidate_group_rotation_latest.md"
+STOCK_THEME_TAXONOMY_CSV = LATEST_DIR / "stock_theme_taxonomy_latest.csv"
+STOCK_THEME_TAXONOMY_MD = LATEST_DIR / "stock_theme_taxonomy_latest.md"
+STOCK_THEME_TEMPLATE_XLSX = LATEST_DIR / "stock_theme_manual_fill_template_latest.xlsx"
+STOCK_THEME_TEMPLATE_CSV = LATEST_DIR / "stock_theme_manual_fill_template_latest.csv"
+STOCK_THEME_VALIDATION_JSON = LATEST_DIR / "stock_theme_taxonomy_validation_latest.json"
+STOCK_THEME_VALIDATION_MD = LATEST_DIR / "stock_theme_taxonomy_validation_latest.md"
 NON_REVENUE_MOMENTUM_MD = LATEST_DIR / "non_revenue_momentum_watch_latest.md"
 NON_REVENUE_MOMENTUM_CSV = LATEST_DIR / "non_revenue_momentum_watch_latest.csv"
 MARKET_ABNORMAL_STATUS_MD = LATEST_DIR / "market_abnormal_status_latest.md"
@@ -691,6 +697,18 @@ def build_readme(
         f"daily_candidate_group_rotation_md_raw_url={raw_url('main', DAILY_CANDIDATE_GROUP_ROTATION_MD)}",
         f"daily_candidate_group_rotation_csv_pages_url={pages_url('latest/daily_candidate_group_rotation_latest.csv')}",
         f"daily_candidate_group_rotation_md_pages_url={pages_url('latest/daily_candidate_group_rotation_latest.md')}",
+        f"stock_theme_taxonomy_csv_raw_url={raw_url('main', STOCK_THEME_TAXONOMY_CSV)}",
+        f"stock_theme_taxonomy_md_raw_url={raw_url('main', STOCK_THEME_TAXONOMY_MD)}",
+        f"stock_theme_taxonomy_csv_pages_url={pages_url('latest/stock_theme_taxonomy_latest.csv')}",
+        f"stock_theme_taxonomy_md_pages_url={pages_url('latest/stock_theme_taxonomy_latest.md')}",
+        f"stock_theme_manual_fill_template_xlsx_raw_url={raw_url('main', STOCK_THEME_TEMPLATE_XLSX)}",
+        f"stock_theme_manual_fill_template_csv_raw_url={raw_url('main', STOCK_THEME_TEMPLATE_CSV)}",
+        f"stock_theme_manual_fill_template_xlsx_pages_url={pages_url('latest/stock_theme_manual_fill_template_latest.xlsx')}",
+        f"stock_theme_manual_fill_template_csv_pages_url={pages_url('latest/stock_theme_manual_fill_template_latest.csv')}",
+        f"stock_theme_taxonomy_validation_json_raw_url={raw_url('main', STOCK_THEME_VALIDATION_JSON)}",
+        f"stock_theme_taxonomy_validation_md_raw_url={raw_url('main', STOCK_THEME_VALIDATION_MD)}",
+        f"stock_theme_taxonomy_validation_json_pages_url={pages_url('latest/stock_theme_taxonomy_validation_latest.json')}",
+        f"stock_theme_taxonomy_validation_md_pages_url={pages_url('latest/stock_theme_taxonomy_validation_latest.md')}",
         f"daily_candidate_model_layer_validation_json_raw_url={raw_url('main', DAILY_CANDIDATE_MODEL_LAYER_VALIDATION_JSON)}",
         f"daily_candidate_model_layer_validation_md_raw_url={raw_url('main', DAILY_CANDIDATE_MODEL_LAYER_VALIDATION_MD)}",
         f"daily_candidate_model_layer_validation_json_pages_url={pages_url('latest/daily_candidate_model_layer_validation_latest.json')}",
@@ -1575,6 +1593,18 @@ def main() -> int:
         "daily_candidate_group_rotation_md_raw_url": raw_url("main", DAILY_CANDIDATE_GROUP_ROTATION_MD),
         "daily_candidate_group_rotation_csv_pages_url": pages_url("latest/daily_candidate_group_rotation_latest.csv"),
         "daily_candidate_group_rotation_md_pages_url": pages_url("latest/daily_candidate_group_rotation_latest.md"),
+        "stock_theme_taxonomy_csv_raw_url": raw_url("main", STOCK_THEME_TAXONOMY_CSV),
+        "stock_theme_taxonomy_md_raw_url": raw_url("main", STOCK_THEME_TAXONOMY_MD),
+        "stock_theme_taxonomy_csv_pages_url": pages_url("latest/stock_theme_taxonomy_latest.csv"),
+        "stock_theme_taxonomy_md_pages_url": pages_url("latest/stock_theme_taxonomy_latest.md"),
+        "stock_theme_manual_fill_template_xlsx_raw_url": raw_url("main", STOCK_THEME_TEMPLATE_XLSX),
+        "stock_theme_manual_fill_template_csv_raw_url": raw_url("main", STOCK_THEME_TEMPLATE_CSV),
+        "stock_theme_manual_fill_template_xlsx_pages_url": pages_url("latest/stock_theme_manual_fill_template_latest.xlsx"),
+        "stock_theme_manual_fill_template_csv_pages_url": pages_url("latest/stock_theme_manual_fill_template_latest.csv"),
+        "stock_theme_taxonomy_validation_json_raw_url": raw_url("main", STOCK_THEME_VALIDATION_JSON),
+        "stock_theme_taxonomy_validation_md_raw_url": raw_url("main", STOCK_THEME_VALIDATION_MD),
+        "stock_theme_taxonomy_validation_json_pages_url": pages_url("latest/stock_theme_taxonomy_validation_latest.json"),
+        "stock_theme_taxonomy_validation_md_pages_url": pages_url("latest/stock_theme_taxonomy_validation_latest.md"),
         "daily_candidate_model_layer_validation_json_raw_url": raw_url("main", DAILY_CANDIDATE_MODEL_LAYER_VALIDATION_JSON),
         "daily_candidate_model_layer_validation_md_raw_url": raw_url("main", DAILY_CANDIDATE_MODEL_LAYER_VALIDATION_MD),
         "daily_candidate_model_layer_validation_json_pages_url": pages_url("latest/daily_candidate_model_layer_validation_latest.json"),

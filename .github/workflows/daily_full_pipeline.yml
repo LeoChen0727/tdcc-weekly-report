@@ -262,6 +262,11 @@ jobs:
           python scripts/build_candidate_repeat_appearance.py
           python scripts/validate_candidate_repeat_appearance.py
 
+      - name: Build stock theme taxonomy
+        run: |
+          python scripts/build_stock_theme_taxonomy.py
+          python scripts/validate_stock_theme_taxonomy.py
+
       - name: Build daily candidate decision layer
         run: |
           python scripts/build_daily_candidate_decision_layer.py

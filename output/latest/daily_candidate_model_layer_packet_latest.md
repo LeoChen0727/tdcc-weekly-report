@@ -1,6 +1,6 @@
 # DAILY CANDIDATE MODEL LAYER PACKET
 
-- generated_at: `2026-05-30 15:06:57 Asia/Taipei`
+- generated_at: `2026-05-30 15:29:26 Asia/Taipei`
 - signal_date: `20260529`
 - contract: model main condition met means the stock enters that model candidate list.
 - scoring: risk, TDCC, warrant, revenue, position, and structure adjust rank inside the model; mainstream/non-mainstream only splits reports.
@@ -30,27 +30,35 @@
 
 | model_id                            | model_name_zh              | report_bucket   |   count |
 |:------------------------------------|:---------------------------|:----------------|--------:|
-| near_high_neckline_challenge        | 接近前高/頸線挑戰模型      | mainstream      |      26 |
-| near_high_neckline_challenge        | 接近前高/頸線挑戰模型      | non_mainstream  |      38 |
-| platform_strengthening              | 平台整理轉強模型           | mainstream      |      10 |
-| platform_strengthening              | 平台整理轉強模型           | non_mainstream  |      26 |
-| price_pullback_23ema                | 股價回檔模型               | mainstream      |     226 |
-| price_pullback_23ema                | 股價回檔模型               | non_mainstream  |     178 |
-| pullback_short_reclaim              | 回檔後短線轉強模型         | mainstream      |      46 |
-| pullback_short_reclaim              | 回檔後短線轉強模型         | non_mainstream  |      28 |
-| revenue_unreacted_range             | 營收爆發但股價尚未反應模型 | mainstream      |     145 |
-| revenue_unreacted_range             | 營收爆發但股價尚未反應模型 | non_mainstream  |     133 |
+| near_high_neckline_challenge        | 接近前高/頸線挑戰模型      | mainstream      |       1 |
+| near_high_neckline_challenge        | 接近前高/頸線挑戰模型      | non_mainstream  |      24 |
+| near_high_neckline_challenge        | 接近前高/頸線挑戰模型      | unclassified    |      39 |
+| platform_strengthening              | 平台整理轉強模型           | mainstream      |       1 |
+| platform_strengthening              | 平台整理轉強模型           | non_mainstream  |      21 |
+| platform_strengthening              | 平台整理轉強模型           | unclassified    |      14 |
+| price_pullback_23ema                | 股價回檔模型               | mainstream      |      10 |
+| price_pullback_23ema                | 股價回檔模型               | non_mainstream  |     126 |
+| price_pullback_23ema                | 股價回檔模型               | unclassified    |     268 |
+| pullback_short_reclaim              | 回檔後短線轉強模型         | mainstream      |       1 |
+| pullback_short_reclaim              | 回檔後短線轉強模型         | non_mainstream  |      17 |
+| pullback_short_reclaim              | 回檔後短線轉強模型         | unclassified    |      56 |
+| revenue_unreacted_range             | 營收爆發但股價尚未反應模型 | mainstream      |       9 |
+| revenue_unreacted_range             | 營收爆發但股價尚未反應模型 | non_mainstream  |      99 |
+| revenue_unreacted_range             | 營收爆發但股價尚未反應模型 | unclassified    |     170 |
 | short_term_surge_d5_d10             | 短線急漲D+5/D+10模型       | unclassified    |      96 |
 | tdcc_short_term_continuation_d5_d10 | TDCC短線延續模型 D+5/D+10  | unclassified    |      75 |
-| tdcc_stealth_accumulation           | TDCC潛伏吸籌模型           | mainstream      |     116 |
-| tdcc_stealth_accumulation           | TDCC潛伏吸籌模型           | non_mainstream  |     111 |
-| volume_range_breakout               | 帶量突破模型               | mainstream      |      64 |
-| volume_range_breakout               | 帶量突破模型               | non_mainstream  |      62 |
-| w_bottom_right_side                 | W底右側模型                | mainstream      |      72 |
-| w_bottom_right_side                 | W底右側模型                | non_mainstream  |      36 |
+| tdcc_stealth_accumulation           | TDCC潛伏吸籌模型           | mainstream      |       7 |
+| tdcc_stealth_accumulation           | TDCC潛伏吸籌模型           | non_mainstream  |      87 |
+| tdcc_stealth_accumulation           | TDCC潛伏吸籌模型           | unclassified    |     133 |
+| volume_range_breakout               | 帶量突破模型               | mainstream      |       3 |
+| volume_range_breakout               | 帶量突破模型               | non_mainstream  |      37 |
+| volume_range_breakout               | 帶量突破模型               | unclassified    |      86 |
+| w_bottom_right_side                 | W底右側模型                | mainstream      |       5 |
+| w_bottom_right_side                 | W底右側模型                | non_mainstream  |      18 |
+| w_bottom_right_side                 | W底右側模型                | unclassified    |      85 |
 
 ## Group Rotation
 
 |   signal_date | theme    |   stock_count |   volume_expansion_3x_count |   volume_expansion_ratio | leader_1   | leader_2   | leader_3   | interpretation                       |
 |--------------:|:---------|--------------:|----------------------------:|-------------------------:|:-----------|:-----------|:-----------|:-------------------------------------|
-|      20260529 | 汽車工業 |            28 |                          12 |                   0.4286 | 1568 倉佑  | 1524 耿鼎  | 1563 巧新  | 族群資金輪動觀察；不是個股買進模型。 |
+|      20260529 | 汽車工業 |            29 |                          12 |                   0.4138 | 1568 倉佑  | 1524 耿鼎  | 1563 巧新  | 族群資金輪動觀察；不是個股買進模型。 |
