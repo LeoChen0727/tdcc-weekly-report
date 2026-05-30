@@ -33,6 +33,10 @@ def write_csv(df: pd.DataFrame, path: Path) -> None:
 
 def add_technical_features(df: pd.DataFrame) -> pd.DataFrame:
     out = df.sort_values(["stock_id", "date"]).copy()
+    numeric_cols = ["open", "high", "low", "close", "volume"]
+    for col in numeric_cols:
+        if col in out.columns:
+            out[col] = pd.to_numeric(out[col], errors="coerce")
     groups = out.groupby("stock_id", group_keys=False)
     out["return_5d_pct"] = groups["close"].pct_change(5) * 100
     out["return_10d_pct"] = groups["close"].pct_change(10) * 100
@@ -64,12 +68,12 @@ def add_technical_features(df: pd.DataFrame) -> pd.DataFrame:
 
     low9 = groups["low"].transform(lambda s: s.rolling(9, min_periods=9).min())
     high9 = groups["high"].transform(lambda s: s.rolling(9, min_periods=9).max())
-    out["rsv9"] = (out["close"] - low9) / (high9 - low9).replace(0, pd.NA) * 100
+    out["rsv9"] = pd.to_numeric((out["close"] - low9) / (high9 - low9).replace(0, pd.NA) * 100, errors="coerce")
     out["k_value"] = out.groupby("stock_id", group_keys=False)["rsv9"].transform(
-        lambda s: s.ewm(alpha=1 / 3, adjust=False, min_periods=3).mean()
+        lambda s: pd.to_numeric(s, errors="coerce").ewm(alpha=1 / 3, adjust=False, min_periods=3).mean()
     )
     out["d_value"] = out.groupby("stock_id", group_keys=False)["k_value"].transform(
-        lambda s: s.ewm(alpha=1 / 3, adjust=False, min_periods=3).mean()
+        lambda s: pd.to_numeric(s, errors="coerce").ewm(alpha=1 / 3, adjust=False, min_periods=3).mean()
     )
     out["kd_bullish_not_overheated"] = (out["k_value"] > out["d_value"]) & (out["k_value"] < 80)
     out["kd_overheated"] = out["k_value"] >= 80
