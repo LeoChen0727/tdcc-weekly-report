@@ -1,6 +1,6 @@
 # DAILY CANDIDATE MODEL LAYER PACKET
 
-- generated_at: `2026-05-31 00:49:13 Asia/Taipei`
+- generated_at: `2026-05-31 00:56:49 Asia/Taipei`
 - signal_date: `20260530`
 - contract: model main condition met means the stock enters that model candidate list.
 - scoring: risk, TDCC, warrant, revenue, position, and structure adjust rank inside the model; mainstream/non-mainstream only splits reports.
@@ -44,6 +44,8 @@
 | tdcc_short_term_continuation_d5_d10 | TDCC短線延續模型 D+5/D+10  | unclassified    |      70 |
 | tdcc_stealth_accumulation           | TDCC潛伏吸籌模型           | mainstream      |      94 |
 | tdcc_stealth_accumulation           | TDCC潛伏吸籌模型           | non_mainstream  |      58 |
+| volume_breakout_range               | 帶量突破模型               | mainstream      |      39 |
+| volume_breakout_range               | 帶量突破模型               | non_mainstream  |      20 |
 | volume_range_breakout               | 帶量突破模型               | mainstream      |      69 |
 | volume_range_breakout               | 帶量突破模型               | non_mainstream  |      43 |
 | w_bottom_right_side                 | W底右側模型                | mainstream      |       9 |

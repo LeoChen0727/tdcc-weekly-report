@@ -23,6 +23,7 @@ from tracking_utils import (  # noqa: E402
 
 
 ALL_CANDIDATES = LATEST_DIR / "all_candidates_latest.csv"
+VOLUME_BREAKOUT_WATCH = LATEST_DIR / "volume_breakout_watch_latest.csv"
 TDCC_EDGE_CANDIDATES = LATEST_DIR / "tdcc_overheated_short_term_edge_candidates_latest.csv"
 WEEKLY_SURGE_CANDIDATES = LATEST_DIR / "weekly_surge_strict_parameter_candidates_latest.csv"
 MODEL_PARAMETER_RECOMMENDATIONS = LATEST_DIR / "daily_model_parameter_recommendations_latest.csv"
@@ -821,6 +822,125 @@ def build_signals(candidates: pd.DataFrame, specs: list[ModelSpec], signal_date:
     return out.drop(columns=["_bucket_order", "_decision_score_num"])
 
 
+def candidate_lookup(candidates: pd.DataFrame) -> dict[str, pd.Series]:
+    lookup: dict[str, pd.Series] = {}
+    if candidates.empty:
+        return lookup
+    for _, row in candidates.iterrows():
+        stock_id = normalize_code(text(row, "stock_id", "ticker"))
+        if stock_id and stock_id not in lookup:
+            lookup[stock_id] = row
+    return lookup
+
+
+def external_report_bucket(volume_row: pd.Series, candidate_row: pd.Series | None) -> str:
+    if candidate_row is not None:
+        buckets = report_buckets(candidate_row)
+        if buckets:
+            return buckets[0]
+    group = text(volume_row, "theme_group", "effective_mainstream_label").lower()
+    if "core_mainstream" in group or "mainstream" in group:
+        return "mainstream"
+    if "non_mainstream" in group:
+        return "non_mainstream"
+    return "unclassified"
+
+
+def append_volume_breakout_signals(signals: pd.DataFrame, candidates: pd.DataFrame, signal_date: str) -> pd.DataFrame:
+    df = read_csv(VOLUME_BREAKOUT_WATCH, dtype=str, keep_default_na=False)
+    if df.empty:
+        return signals
+    lookup = candidate_lookup(candidates)
+    rows: list[dict[str, Any]] = []
+    valid_statuses = {"selected", "selected_but_routed_to_other_category"}
+    valid_types = {
+        "range_breakout_volume",
+        "platform_volume_breakout",
+        "neckline_volume_breakout",
+        "strict_high_breakout",
+        "strict_60d_volume_breakout",
+    }
+    for idx, row in df.iterrows():
+        breakout_type = text(row, "volume_breakout_type", "breakout_type").lower()
+        selection_status = text(row, "selection_status").lower()
+        if breakout_type not in valid_types or selection_status not in valid_statuses:
+            continue
+        stock_id = normalize_code(text(row, "stock_id"))
+        if not stock_id:
+            continue
+        candidate_row = lookup.get(stock_id)
+        source = candidate_row if candidate_row is not None else row
+        score = to_number(row.get("volume_breakout_score", ""))
+        if math.isnan(score):
+            score = 50
+        risks: list[str] = []
+        if flag(row, "false_breakout_risk_calc") or flag(row, "false_breakout_risk"):
+            risks.append("false_breakout_risk")
+        if flag(row, "overheated_breakout"):
+            risks.append("overheated_breakout")
+        priority = text(row, "volume_breakout_priority")
+        if priority.startswith("D_"):
+            risks.append(priority)
+        notes = text(row, "volume_breakout_notes")
+        comps = [f"type={breakout_type}", f"volume_score={row.get('volume_breakout_score','')}".strip()]
+        if notes:
+            comps.append(notes)
+        rows.append(
+            {
+                "signal_date": signal_date or text(row, "signal_date", "date"),
+                "source_row_index": f"volume_breakout:{idx}",
+                "stock_id": stock_id,
+                "stock_name": text(row, "stock_name"),
+                "industry": text(source, "industry"),
+                "primary_theme": primary_theme(source),
+                "effective_primary_theme": primary_theme(source),
+                "secondary_themes": text(source, "secondary_themes", "taxonomy_secondary_themes"),
+                "effective_structural_theme_bucket": effective_structural_theme_bucket(source),
+                "effective_mainstream_label": effective_mainstream_label(source),
+                "report_line_memberships": text(source, "report_line_memberships", "taxonomy_report_line_memberships"),
+                "mainstream_report_eligible": text(source, "mainstream_report_eligible", "taxonomy_mainstream_report_eligible"),
+                "non_mainstream_report_eligible": text(source, "non_mainstream_report_eligible", "taxonomy_non_mainstream_report_eligible"),
+                "dual_report_membership_flag": text(source, "dual_report_membership_flag", "taxonomy_dual_report_membership_flag"),
+                "report_bucket": external_report_bucket(row, candidate_row),
+                "model_id": "volume_breakout_range",
+                "model_name_zh": "帶量突破模型",
+                "model_group": "pdf_core_model",
+                "main_condition_met": "True",
+                "entry_basis": "signal_date_next_open",
+                "model_score": round(clamp(score), 1),
+                "score_components": " | ".join([c for c in comps if c]),
+                "risk_penalty_tags": " | ".join(dict.fromkeys(risks)),
+                "original_category": category(source),
+                "decision_priority": text(row, "decision_priority") or text(source, "decision_priority"),
+                "decision_score": text(row, "decision_score") or text(source, "decision_score"),
+                "tdcc_status": text(row, "tdcc_status") or tdcc_status(source),
+                "warrant_flow_signal": text(row, "warrant_flow_signal") or warrant_signal(source),
+                "volume_ratio": num(row, "volume_ratio"),
+                "return_5d": num(row, "return_5d", "return_5d_pct"),
+                "return_20d": num(row, "return_20d", "return_20d_pct"),
+                "next_confirmation": text(row, "next_volume_breakout_confirmation") or text(source, "next_confirmation"),
+                "model_main_conditions": "Volume ratio and confirmed range/platform/neckline/high breakout.",
+                "model_add_score_items": "Higher volume ratio, stronger breakout quality, longer base, TDCC, warrant, revenue, lower position.",
+                "model_forbidden_veto": "Do not veto only because the stock was routed to another category or looks overheated; risk is ranking/operation guidance.",
+                "model_operation_guidance": "Signal date next open is the entry basis; use breakout zone and 23EMA/platform as failure lines.",
+                "selection_semantics": "volume_breakout_condition_met_from_dedicated_table",
+            }
+        )
+    if not rows:
+        return signals
+    extra = pd.DataFrame(rows)
+    out = pd.concat([signals, extra], ignore_index=True, sort=False) if not signals.empty else extra
+    out["_bucket_order"] = out["report_bucket"].map({"mainstream": 1, "non_mainstream": 2, "unclassified": 3}).fillna(9)
+    out["_score_num"] = pd.to_numeric(out.get("model_score", ""), errors="coerce").fillna(0)
+    out = out.sort_values(
+        ["model_id", "_bucket_order", "_score_num", "stock_id", "source_row_index"],
+        ascending=[True, True, False, True, True],
+    ).reset_index(drop=True)
+    out = out.drop_duplicates(["model_id", "report_bucket", "stock_id"], keep="first").reset_index(drop=True)
+    out["model_rank"] = out.groupby(["model_id", "report_bucket"], dropna=False).cumcount() + 1
+    return out.drop(columns=["_bucket_order", "_score_num"])
+
+
 def append_tdcc_short_term(signals: pd.DataFrame, signal_date: str) -> pd.DataFrame:
     rows: list[dict[str, Any]] = []
     df = read_csv(TDCC_EDGE_CANDIDATES, dtype=str, keep_default_na=False)
@@ -1051,6 +1171,7 @@ def main() -> int:
     )
 
     signals = build_signals(candidates, specs, signal_date)
+    signals = append_volume_breakout_signals(signals, candidates, signal_date)
     signals = append_tdcc_short_term(signals, signal_date)
     signals = attach_model_recommendations(signals, recommendations)
     write_csv(signals, SIGNALS_CSV)
