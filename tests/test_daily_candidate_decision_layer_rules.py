@@ -31,6 +31,9 @@ def make_row(**overrides: object) -> pd.Series:
         "revenue_good_eps_unconfirmed_flag": "",
         "tdcc_judgement": "strong_accumulation",
         "revaluation_priority": "A_優先追蹤",
+        "structural_theme_bucket": "ai_server_ipc_theme",
+        "theme_structural_status": "core_mainstream_theme",
+        "theme_mainstream_label": "core_mainstream_supported",
     }
     base.update(overrides)
     return pd.Series(base)
@@ -102,6 +105,67 @@ class DailyCandidateDecisionLayerRuleTest(unittest.TestCase):
         self.assertEqual(result["decision_priority"], "B_confirm_needed")
         self.assertIn("反覆上榜但尚未突破", result["why_downgraded"])
         self.assertIn("權證資金未確認", result["why_downgraded"])
+
+    def test_non_mainstream_is_display_group_not_score_cap(self) -> None:
+        result = evaluate_row(
+            make_row(
+                category="true_breakout",
+                pattern_stage="breakout_confirmed",
+                true_breakout="True",
+                volume_ratio="2.0",
+                structural_theme_bucket="",
+                theme_structural_status="non_mainstream_theme",
+                theme_mainstream_label="non_mainstream_flow_active",
+            )
+        )
+        self.assertEqual(result["decision_priority"], "A_priority_watch")
+        self.assertEqual(result["risk_handling_bucket"], "normal")
+        self.assertEqual(result["theme_group"], "non_mainstream")
+        self.assertEqual(result["display_section"], "non_mainstream_selected_priority")
+        self.assertNotIn("non_ai_non_mainstream_cap", result["downgrade_flags"])
+
+    def test_missing_taxonomy_is_unknown_not_non_mainstream(self) -> None:
+        result = evaluate_row(
+            make_row(
+                structural_theme_bucket="",
+                theme_structural_status="",
+                theme_mainstream_label="",
+                candidate_line_group="",
+            )
+        )
+        self.assertEqual(result["theme_group"], "theme_unknown")
+
+    def test_selected_risk_rows_are_ranked_not_no_buy_vetoed(self) -> None:
+        result = evaluate_row(
+            make_row(
+                category="true_breakout",
+                pattern_stage="breakout_confirmed",
+                true_breakout="True",
+                volume_ratio="2.2",
+                tdcc_judgement="distribution_warning",
+                return_20d="85",
+                already_priced_in="True",
+            )
+        )
+        self.assertIn(result["decision_priority"], {"A_priority_watch", "B_confirm_needed", "C_watch_only"})
+        self.assertNotEqual(result["trade_decision"], "no_buy")
+        self.assertNotEqual(result["display_section"], "risk_no_buy")
+        self.assertIn(result["risk_handling_bucket"], {"high_momentum_risk_follow", "risk_watch"})
+
+    def test_taxonomy_suffix_override_prevents_robotics_non_mainstream_cap(self) -> None:
+        result = evaluate_row(
+            make_row(
+                category="revenue_pullback",
+                structural_theme_bucket="",
+                theme_structural_status="non_mainstream_theme",
+                theme_mainstream_label="non_mainstream_overheated",
+                taxonomy_structural_theme_bucket_y="robotics_automation_theme",
+                taxonomy_theme_structural_status_y="core_mainstream_theme",
+                taxonomy_theme_mainstream_label_y="mainstream_growth_theme",
+            )
+        )
+        self.assertEqual(result["theme_group"], "core_mainstream")
+        self.assertNotIn("non_ai_non_mainstream_cap", result["downgrade_flags"])
 
 
 if __name__ == "__main__":

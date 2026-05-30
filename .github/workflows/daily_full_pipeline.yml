@@ -286,6 +286,11 @@ jobs:
         run: |
           python scripts/build_non_revenue_momentum_watch.py
 
+      - name: Build daily candidate model layer
+        run: |
+          python scripts/build_daily_candidate_model_layer.py
+          python scripts/validate_daily_candidate_model_layer.py
+
       - name: Update daily theme status history
         run: |
           python scripts/update_daily_theme_status_history.py
@@ -366,6 +371,15 @@ jobs:
           cp output/latest/daily_theme_status_history_latest.csv docs/latest/daily_theme_status_history_latest.csv || true
           cp output/latest/daily_theme_status_history_latest.md docs/latest/daily_theme_status_history_latest.md || true
           cp output/latest/daily_short_term_specialty_packet_latest.md docs/latest/daily_short_term_specialty_packet_latest.md || true
+          cp output/latest/daily_candidate_model_parameters_latest.csv docs/latest/daily_candidate_model_parameters_latest.csv || true
+          cp output/latest/daily_candidate_model_parameters_latest.md docs/latest/daily_candidate_model_parameters_latest.md || true
+          cp output/latest/daily_candidate_model_signals_latest.csv docs/latest/daily_candidate_model_signals_latest.csv || true
+          cp output/latest/daily_candidate_model_signals_latest.md docs/latest/daily_candidate_model_signals_latest.md || true
+          cp output/latest/daily_candidate_model_layer_packet_latest.md docs/latest/daily_candidate_model_layer_packet_latest.md || true
+          cp output/latest/daily_candidate_model_layer_validation_latest.json docs/latest/daily_candidate_model_layer_validation_latest.json || true
+          cp output/latest/daily_candidate_model_layer_validation_latest.md docs/latest/daily_candidate_model_layer_validation_latest.md || true
+          cp output/latest/daily_candidate_group_rotation_latest.csv docs/latest/daily_candidate_group_rotation_latest.csv || true
+          cp output/latest/daily_candidate_group_rotation_latest.md docs/latest/daily_candidate_group_rotation_latest.md || true
           cp output/latest/non_revenue_momentum_watch_latest.csv docs/latest/non_revenue_momentum_watch_latest.csv || true
           cp output/latest/non_revenue_momentum_watch_latest.md docs/latest/non_revenue_momentum_watch_latest.md || true
           cp output/latest/market_abnormal_status_latest.csv docs/latest/market_abnormal_status_latest.csv || true

@@ -102,6 +102,8 @@ EVENT_CATALYST_LOG = Path("data/event_catalysts/event_catalyst_log.csv")
 COMPANY_EVENT_CALENDAR = Path("data/company_calendar/company_event_calendar.csv")
 MACRO_EVENT_CALENDAR = Path("data/macro_events/macro_event_calendar.csv")
 UPCOMING_CATALYST_CALENDAR = LATEST_DIR / "upcoming_catalyst_calendar_latest.csv"
+THEME_EVENT_WATCH_CSV = LATEST_DIR / "theme_event_watch_latest.csv"
+THEME_EVENT_WATCH_MD = LATEST_DIR / "theme_event_watch_latest.md"
 UPCOMING_MACRO_EVENT_CALENDAR = LATEST_DIR / "upcoming_macro_event_calendar_latest.csv"
 CALENDAR_DATA_SOURCE_STATUS_MD = LATEST_DIR / "calendar_data_source_status_latest.md"
 EVENT_CALENDAR_VALIDATION_MD = LATEST_DIR / "event_calendar_validation_latest.md"
@@ -178,6 +180,15 @@ TDCC_OVERHEATED_EDGE_MD = LATEST_DIR / "tdcc_overheated_short_term_edge_latest.m
 TDCC_OVERHEATED_EDGE_CSV = LATEST_DIR / "tdcc_overheated_short_term_edge_latest.csv"
 TDCC_OVERHEATED_EDGE_CANDIDATES_CSV = LATEST_DIR / "tdcc_overheated_short_term_edge_candidates_latest.csv"
 DAILY_SHORT_TERM_SPECIALTY_PACKET_MD = LATEST_DIR / "daily_short_term_specialty_packet_latest.md"
+DAILY_CANDIDATE_MODEL_PARAMETERS_CSV = LATEST_DIR / "daily_candidate_model_parameters_latest.csv"
+DAILY_CANDIDATE_MODEL_PARAMETERS_MD = LATEST_DIR / "daily_candidate_model_parameters_latest.md"
+DAILY_CANDIDATE_MODEL_SIGNALS_CSV = LATEST_DIR / "daily_candidate_model_signals_latest.csv"
+DAILY_CANDIDATE_MODEL_SIGNALS_MD = LATEST_DIR / "daily_candidate_model_signals_latest.md"
+DAILY_CANDIDATE_MODEL_LAYER_PACKET_MD = LATEST_DIR / "daily_candidate_model_layer_packet_latest.md"
+DAILY_CANDIDATE_MODEL_LAYER_VALIDATION_JSON = LATEST_DIR / "daily_candidate_model_layer_validation_latest.json"
+DAILY_CANDIDATE_MODEL_LAYER_VALIDATION_MD = LATEST_DIR / "daily_candidate_model_layer_validation_latest.md"
+DAILY_CANDIDATE_GROUP_ROTATION_CSV = LATEST_DIR / "daily_candidate_group_rotation_latest.csv"
+DAILY_CANDIDATE_GROUP_ROTATION_MD = LATEST_DIR / "daily_candidate_group_rotation_latest.md"
 NON_REVENUE_MOMENTUM_MD = LATEST_DIR / "non_revenue_momentum_watch_latest.md"
 NON_REVENUE_MOMENTUM_CSV = LATEST_DIR / "non_revenue_momentum_watch_latest.csv"
 MARKET_ABNORMAL_STATUS_MD = LATEST_DIR / "market_abnormal_status_latest.md"
@@ -610,6 +621,8 @@ def build_readme(
         f"company_event_calendar_raw_url={company_event_calendar_raw_url}",
         f"macro_event_calendar_raw_url={macro_event_calendar_raw_url}",
         f"upcoming_catalyst_calendar_raw_url={upcoming_catalyst_calendar_raw_url}",
+        f"theme_event_watch_csv_raw_url={raw_url('main', THEME_EVENT_WATCH_CSV)}",
+        f"theme_event_watch_md_raw_url={raw_url('main', THEME_EVENT_WATCH_MD)}",
         f"upcoming_macro_event_calendar_raw_url={upcoming_macro_event_calendar_raw_url}",
         f"calendar_data_source_status_raw_url={calendar_data_source_status_raw_url}",
         f"event_calendar_validation_raw_url={event_calendar_validation_raw_url}",
@@ -664,6 +677,24 @@ def build_readme(
         f"explosive_volume_up_backtest_md_pages_url={pages_url('latest/explosive_volume_up_backtest_latest.md')}",
         f"daily_short_term_specialty_packet_raw_url={raw_url('main', DAILY_SHORT_TERM_SPECIALTY_PACKET_MD)}",
         f"daily_short_term_specialty_packet_pages_url={pages_url('latest/daily_short_term_specialty_packet_latest.md')}",
+        f"daily_candidate_model_layer_packet_raw_url={raw_url('main', DAILY_CANDIDATE_MODEL_LAYER_PACKET_MD)}",
+        f"daily_candidate_model_layer_packet_pages_url={pages_url('latest/daily_candidate_model_layer_packet_latest.md')}",
+        f"daily_candidate_model_parameters_csv_raw_url={raw_url('main', DAILY_CANDIDATE_MODEL_PARAMETERS_CSV)}",
+        f"daily_candidate_model_parameters_md_raw_url={raw_url('main', DAILY_CANDIDATE_MODEL_PARAMETERS_MD)}",
+        f"daily_candidate_model_parameters_csv_pages_url={pages_url('latest/daily_candidate_model_parameters_latest.csv')}",
+        f"daily_candidate_model_parameters_md_pages_url={pages_url('latest/daily_candidate_model_parameters_latest.md')}",
+        f"daily_candidate_model_signals_csv_raw_url={raw_url('main', DAILY_CANDIDATE_MODEL_SIGNALS_CSV)}",
+        f"daily_candidate_model_signals_md_raw_url={raw_url('main', DAILY_CANDIDATE_MODEL_SIGNALS_MD)}",
+        f"daily_candidate_model_signals_csv_pages_url={pages_url('latest/daily_candidate_model_signals_latest.csv')}",
+        f"daily_candidate_model_signals_md_pages_url={pages_url('latest/daily_candidate_model_signals_latest.md')}",
+        f"daily_candidate_group_rotation_csv_raw_url={raw_url('main', DAILY_CANDIDATE_GROUP_ROTATION_CSV)}",
+        f"daily_candidate_group_rotation_md_raw_url={raw_url('main', DAILY_CANDIDATE_GROUP_ROTATION_MD)}",
+        f"daily_candidate_group_rotation_csv_pages_url={pages_url('latest/daily_candidate_group_rotation_latest.csv')}",
+        f"daily_candidate_group_rotation_md_pages_url={pages_url('latest/daily_candidate_group_rotation_latest.md')}",
+        f"daily_candidate_model_layer_validation_json_raw_url={raw_url('main', DAILY_CANDIDATE_MODEL_LAYER_VALIDATION_JSON)}",
+        f"daily_candidate_model_layer_validation_md_raw_url={raw_url('main', DAILY_CANDIDATE_MODEL_LAYER_VALIDATION_MD)}",
+        f"daily_candidate_model_layer_validation_json_pages_url={pages_url('latest/daily_candidate_model_layer_validation_latest.json')}",
+        f"daily_candidate_model_layer_validation_md_pages_url={pages_url('latest/daily_candidate_model_layer_validation_latest.md')}",
         f"non_revenue_momentum_watch_md_raw_url={raw_url('main', NON_REVENUE_MOMENTUM_MD)}",
         f"non_revenue_momentum_watch_csv_raw_url={raw_url('main', NON_REVENUE_MOMENTUM_CSV)}",
         f"non_revenue_momentum_watch_md_pages_url={pages_url('latest/non_revenue_momentum_watch_latest.md')}",
@@ -1092,6 +1123,22 @@ def sync_docs_files() -> None:
             DAILY_SHORT_TERM_SPECIALTY_PACKET_MD.read_text(encoding="utf-8", errors="replace"),
             encoding="utf-8",
         )
+    for src in [
+        DAILY_CANDIDATE_MODEL_PARAMETERS_CSV,
+        DAILY_CANDIDATE_MODEL_PARAMETERS_MD,
+        DAILY_CANDIDATE_MODEL_SIGNALS_CSV,
+        DAILY_CANDIDATE_MODEL_SIGNALS_MD,
+        DAILY_CANDIDATE_MODEL_LAYER_PACKET_MD,
+        DAILY_CANDIDATE_MODEL_LAYER_VALIDATION_JSON,
+        DAILY_CANDIDATE_MODEL_LAYER_VALIDATION_MD,
+        DAILY_CANDIDATE_GROUP_ROTATION_CSV,
+        DAILY_CANDIDATE_GROUP_ROTATION_MD,
+    ]:
+        if src.exists():
+            (DOCS_LATEST_DIR / src.name).write_text(
+                src.read_text(encoding="utf-8", errors="replace"),
+                encoding="utf-8",
+            )
     if NON_REVENUE_MOMENTUM_MD.exists():
         (DOCS_LATEST_DIR / NON_REVENUE_MOMENTUM_MD.name).write_text(
             NON_REVENUE_MOMENTUM_MD.read_text(encoding="utf-8", errors="replace"),
@@ -1514,6 +1561,24 @@ def main() -> int:
         "explosive_volume_up_backtest_md_pages_url": pages_url("latest/explosive_volume_up_backtest_latest.md"),
         "daily_short_term_specialty_packet_raw_url": raw_url("main", DAILY_SHORT_TERM_SPECIALTY_PACKET_MD),
         "daily_short_term_specialty_packet_pages_url": pages_url("latest/daily_short_term_specialty_packet_latest.md"),
+        "daily_candidate_model_layer_packet_raw_url": raw_url("main", DAILY_CANDIDATE_MODEL_LAYER_PACKET_MD),
+        "daily_candidate_model_layer_packet_pages_url": pages_url("latest/daily_candidate_model_layer_packet_latest.md"),
+        "daily_candidate_model_parameters_csv_raw_url": raw_url("main", DAILY_CANDIDATE_MODEL_PARAMETERS_CSV),
+        "daily_candidate_model_parameters_md_raw_url": raw_url("main", DAILY_CANDIDATE_MODEL_PARAMETERS_MD),
+        "daily_candidate_model_parameters_csv_pages_url": pages_url("latest/daily_candidate_model_parameters_latest.csv"),
+        "daily_candidate_model_parameters_md_pages_url": pages_url("latest/daily_candidate_model_parameters_latest.md"),
+        "daily_candidate_model_signals_csv_raw_url": raw_url("main", DAILY_CANDIDATE_MODEL_SIGNALS_CSV),
+        "daily_candidate_model_signals_md_raw_url": raw_url("main", DAILY_CANDIDATE_MODEL_SIGNALS_MD),
+        "daily_candidate_model_signals_csv_pages_url": pages_url("latest/daily_candidate_model_signals_latest.csv"),
+        "daily_candidate_model_signals_md_pages_url": pages_url("latest/daily_candidate_model_signals_latest.md"),
+        "daily_candidate_group_rotation_csv_raw_url": raw_url("main", DAILY_CANDIDATE_GROUP_ROTATION_CSV),
+        "daily_candidate_group_rotation_md_raw_url": raw_url("main", DAILY_CANDIDATE_GROUP_ROTATION_MD),
+        "daily_candidate_group_rotation_csv_pages_url": pages_url("latest/daily_candidate_group_rotation_latest.csv"),
+        "daily_candidate_group_rotation_md_pages_url": pages_url("latest/daily_candidate_group_rotation_latest.md"),
+        "daily_candidate_model_layer_validation_json_raw_url": raw_url("main", DAILY_CANDIDATE_MODEL_LAYER_VALIDATION_JSON),
+        "daily_candidate_model_layer_validation_md_raw_url": raw_url("main", DAILY_CANDIDATE_MODEL_LAYER_VALIDATION_MD),
+        "daily_candidate_model_layer_validation_json_pages_url": pages_url("latest/daily_candidate_model_layer_validation_latest.json"),
+        "daily_candidate_model_layer_validation_md_pages_url": pages_url("latest/daily_candidate_model_layer_validation_latest.md"),
         "non_revenue_momentum_watch_md_raw_url": raw_url("main", NON_REVENUE_MOMENTUM_MD),
         "non_revenue_momentum_watch_csv_raw_url": raw_url("main", NON_REVENUE_MOMENTUM_CSV),
         "non_revenue_momentum_watch_md_pages_url": pages_url("latest/non_revenue_momentum_watch_latest.md"),

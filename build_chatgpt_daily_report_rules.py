@@ -67,6 +67,15 @@ TASK READ ORDER
   5. daily candidate packets, CSVs, structured tables, theme layers, TDCC/warrant/volume/catalyst/validation files
   6. stock price data and 180-day windows only when drawing or interpreting stock charts
 - Source priority is: repo structured raw data / packet / CSV / feature panel / event log / Markdown > repo PDF > external data.
+- Daily stock selection must read the independent model layer when available:
+  daily_candidate_model_layer_packet_latest.md
+  daily_candidate_model_parameters_latest.md/csv
+  daily_candidate_model_signals_latest.md/csv
+  daily_candidate_group_rotation_latest.md/csv
+- Model logic is controlled by the program side. If a stock meets a model's main conditions, it enters that model. Do not add a second ChatGPT-side buy/not-buy gate after selection.
+- Risk fields, TDCC, warrant, revenue, position, structure, and event tags are score/rank/annotation inputs. They should not create a second ChatGPT-side buy/not-buy veto after a model has selected a stock.
+- Mainstream and non-mainstream are report splits and comparison groups only. They must not cap score, veto a model signal, or remove a stock from the model list.
+- Do not hard-code the number of models in the PDF. Render all program-side model rows available that day. Curated PDFs show the top rows per model/bucket; full PDFs keep the complete model list.
 - If repo PDF, memory, temporary interpretation, and program-side fields conflict, program-side structured data / packet / CSV fields win.
 
 READING RULES
@@ -119,9 +128,9 @@ This structure applies only to the daily full-market candidate stock report. It 
 
 三、族群性分析 / 今日族群輪動
 - Identify the strongest sector/theme clusters.
-- Separate mainstream growth themes from defensive or traditional industries.
-- Do not classify telecom or high-dividend defensive names as mainstream growth themes.
-- Mainstream growth themes include AI server, PCB/CCL, passive components, semiconductor equipment/materials, HBM/memory, CPO/optical communication, robotics, defense, and similar growth themes.
+- Separate core AI/electronics/semiconductor growth themes from defensive or traditional industries.
+- Do not classify telecom, high-dividend defensive names, financials, shipping, steel, textile, construction, chemicals, or generic traditional cyclicals as mainstream growth themes unless the program-side taxonomy explicitly maps them to a current core market theme.
+- Core mainstream growth themes include AI server, AI PC, PCB/CCL, glass fiber/CCL, passive components, semiconductor equipment/materials, HBM/memory, ABF/substrate, CPO/optical communication, low-earth-orbit satellite, high-speed interconnect, power/thermal, and robotics/automation.
 - Discuss whether the day shows sector rotation, continuation, or scattered false breakouts.
 
 四、分類解讀
@@ -212,8 +221,8 @@ SPECIALTY SECTION RULES
   - volume_attack_theme_layer_latest.md/csv and volume_attack_theme_stocks_latest.md/csv
   - non_revenue_momentum_watch_latest.md/csv
 - D+5 and D+10 tables from short-term specialty files must be shown separately.
-- For `weekly_surge_strict_parameter_search_latest.md/csv`, do not write `周線急漲`. Display it as `隔日開盤買進後 D+5 / D+10 盤中觸及 +10% 研究`.
-- Its win rate is `D+1 open to D+N high >= +10%` touch-rate. It is not close-to-close return and not D+N close win rate.
+- For `weekly_surge_strict_parameter_search_latest.md/csv`, do not write `週線急漲`, `周線急漲嚴格參數`, `最佳歷史D+5勝率`, or `最佳歷史D+10勝率`. Display it as `隔日開盤買進後 D+1 至 D+10 盤中觸及 +10% 研究`.
+- `best_dN_touch_rate_pct` is `D+1 open to D+N high >= +10%` touch-rate. It is not close-to-close return and not D+N close win rate. Legacy `best_dN_hit_rate_pct` fields must be interpreted the same way.
 - Explosive-volume-up research must be interpreted by price-position first: bottom/low-zone volume reversal, low-to-mid reclaim, near-high attack, and high-zone extension/chase. Do not mix bottom reversal with high-zone distribution/chase. Theme/mainstream status is a second filter, not a replacement for price-position filtering.
 - Explosive-volume-up signal timing is after the signal-day close. Entry statistics use next trading day open. `high_hit_rate` means the post-entry holding-window high reached the target; it is not an intraday entry rule.
 - Stricter explosive-volume-up quality requires a red candle with meaningful real body and limited upper shadow. Prefer `strict_red_close_near_high` first, then `relaxed_red_small_upper_shadow`; long-upper-shadow or failed-close rows are lower quality even if volume is large.
@@ -232,7 +241,9 @@ NON-REVENUE MOMENTUM SPECIALTY
 - This section is for stocks where price, volume, theme, TDCC, or warrant flow moves before revenue, EPS, or gross margin confirmation.
 - It is not a seventh core category and must not change core model weights.
 - Show non_revenue_momentum_type, revenue_confirmation_status, theme_final_status, theme_volume_attack_status, volume_breakout_type, volume_ratio, tdcc_status, warrant_flow_signal, and next_confirmation when available.
+- A_theme_first_momentum_revenue_not_primary means a core theme has price/volume support but monthly revenue is not the first screening layer; validate with order/spec upgrade, theme breadth, TDCC, warrant flow, and price-volume follow-through.
 - A_fund_flow_confirmed_revenue_unconfirmed means funds/price/theme are already confirming, but EPS/gross margin/revenue confirmation is still required.
+- B_theme_first_watch_revenue_not_primary means a core theme is moving before revenue confirmation, but price/volume confirmation is still incomplete.
 - B_turnaround_theme_watch means theme or fund flow is improving, but price confirmation is incomplete.
 - C_hot_money_watch means short-term hot money or technical movement exists, but fundamentals are not confirmed.
 - D_overheated_or_failed_risk means overheated, failed breakout, TDCC distribution, or other risk warning exists; do not promote to the main attack list.
@@ -255,13 +266,18 @@ MAINSTREAM / VOLUME ATTACK THEME STATUS RULES
 - For the two-line daily candidate view, read `daily_candidate_two_line_view_latest.md/csv` and show `theme_final_status`, `theme_structural_status`, `market_theme_group`, `theme_group_source`, `structural_theme_bucket`, and `theme_mainstream_label` in every table.
 - For volume-attack / early-mainstream sections, read `volume_attack_theme_layer_latest.md/csv` and `volume_attack_theme_stocks_latest.md/csv`.
 - Volume-attack tables must include `theme_final_status`, `theme_structural_status`, `market_theme_group`, `theme_group_source`, `structural_theme_bucket`, `theme_mainstream_label`, and `theme_volume_attack_status`; do not show only the generic theme name.
+- 族群出量 / volume spread tables must use `theme_spread_decision`, `leader_stock_id`, `second_stock_id`, and `third_stock_id` from `volume_attack_theme_layer_latest.csv`. Do not infer 龍頭 / 老二 / 老三 manually from memory, industry, or chart impression.
 - `theme_final_status` / `theme_market_flow_status` is today's breadth/flow state. `theme_structural_status` is the broad structural bucket. `structural_theme_bucket` is the finer market theme bucket and may cross industry classifications. `market_theme_group` is the primary report/backtest grouping and must prefer `structural_theme_bucket`, then `theme_name`, then `industry`; `theme_group_source` records that source.
-- Only `theme_structural_status=core_mainstream_theme` may enter the mainstream capital line.
-- Industry and theme can overlap. Example: 華通 can remain PCB and 啟碁 can remain networking, while both may carry `structural_theme_bucket=low_earth_orbit_satellite_theme`. 南亞 can remain plastics and 台玻 can remain glass/ceramics, while both may carry `structural_theme_bucket=glass_fiber_ccl_theme`.
+- Read `stock_theme_taxonomy_latest.csv/md` and `stock_theme_taxonomy_review_latest.csv/md` before routing stocks into mainstream/non-mainstream lines.
+- Only stocks with an explicit `structural_theme_bucket` in the core AI/electronics/robotics/semiconductor theme list may enter the mainstream capital line. `theme_structural_status=core_mainstream_theme` without a specific bucket is not enough.
+- If `stock_theme_taxonomy_review_latest.csv` marks a stock as `industry_core_needs_market_theme`, treat it as taxonomy incomplete. It can be observed, but cannot enter the mainstream attack list until mapped.
+- Industry and theme can overlap. Example: 華通 can remain PCB and 啟碁 can remain networking, while both may carry `structural_theme_bucket=low_earth_orbit_satellite_theme`. 南亞 can remain plastics and 台玻 can remain glass/ceramics, while both may carry `structural_theme_bucket=glass_fiber_ccl_theme`. 大銀微系統, 上銀 and 亞德客-KY should map to robotics / precision motion or robotics automation when available. 佳能 and 亞光 should map to robotics / optical sensing or machine vision when available. 三集瑞-KY, 國巨 and 凱美 should map to passive components when available.
 - For grouping and ranking sections, use `market_theme_group` before raw industry. Legacy exchange industry is secondary context only and must not override a structural AI-era theme bucket.
 - Core mainstream theme buckets include low-earth-orbit satellite, glass fiber / CCL, PCB/CCL, CPO / silicon photonics, optical communication, networking, advanced packaging, semiconductor equipment, semiconductor materials, semiconductors, passive components, memory/HBM, AI server, power/thermal, connectors/cables, consumer electronics, and robotics/automation.
 - Textile, financial, steel, shipping, construction, chemical, plastic and similar cyclical/traditional groups are `non_mainstream_theme` even when daily flow is strong.
-- `confirmed_volume_theme` and `early_mainstream_candidate` may be placed in the volume-attack theme line only when `theme_structural_status=core_mainstream_theme`.
+- Mainstream / non-mainstream is a report-section field, not a score penalty and not a buy veto. Use program-side `theme_group`, `display_section`, and `section_rank` to compare rows inside their own sections.
+- Do not downgrade a stock only because it is non-mainstream. Downgrades must come from actual risk fields such as TDCC distribution, stale signal, overheat, false breakout, missing confirmation, disposition/attention, or other execution-risk flags.
+- `confirmed_volume_theme` and `early_mainstream_candidate` may be placed in the volume-attack theme line only when the stock has an explicit core `structural_theme_bucket`.
 - `single_stock_volume_attack`, `non_mainstream_volume_watch`, `weak_or_non_mainstream_volume_watch`, `overheated_volume_theme`, and `failed_volume_theme` must be separated from the mainstream-funding front section.
 - If these status fields are missing, write `theme_status_missing` and do not guess mainstream/non-mainstream from memory.
 
@@ -270,7 +286,8 @@ FUNDAMENTAL / EVENT CATALYST LAYER RULES
 - Keep every stock in its original six-category bucket; use catalyst fields only for labels, upgrades, downgrades, and follow-up tracking.
 - Read fundamental_catalyst_layer_raw_url and the catalyst fields in all_candidates when available.
 - Key fields include theme_strength_score, catalyst_strength_score, catalyst_tags, fundamental_catalyst_score, fundamental_catalyst_tags, event_catalyst_tags, event_calendar_tags, event_proximity_score, nearest_event_date, nearest_event_type, price_reaction_level, similar_to_shihsinko_flag, revenue_good_eps_unconfirmed_flag, low_reaction_after_catalyst, and already_reacted_to_catalyst.
-- Read theme_event_calendar_raw_url, company_theme_mapping_raw_url, company_event_calendar_raw_url, macro_event_calendar_raw_url, upcoming_catalyst_calendar_raw_url, upcoming_macro_event_calendar_raw_url, quarterly_catalyst_raw_url, event_catalyst_log_raw_url, catalyst_summary_raw_url, and catalyst_performance_raw_url when available.
+- Read theme_event_calendar_raw_url, theme_event_watch_csv_raw_url, theme_event_watch_md_raw_url, company_theme_mapping_raw_url, company_event_calendar_raw_url, macro_event_calendar_raw_url, upcoming_catalyst_calendar_raw_url, upcoming_macro_event_calendar_raw_url, quarterly_catalyst_raw_url, event_catalyst_log_raw_url, catalyst_summary_raw_url, and catalyst_performance_raw_url when available.
+- theme_event_watch is a PDF event-tag/context source. It must be shown when relevant, but it is not a standalone buy model and must not force a stock upgrade without price, volume, TDCC, revenue, or model confirmation.
 - Read catalyst_needs_review_csv_raw_url or catalyst_needs_review_md_raw_url when available.
 - Items in catalyst_needs_review are not confirmed catalyst evidence. Rows with model_effect_allowed=False cannot affect score, rank, upgrade, downgrade, or similar_to_shihsinko_flag. Rows with pdf_effect_allowed=False cannot be used as formal PDF recommendation reasons.
 - Company theme mapping is background only. A theme label alone is not a confirmed catalyst.
@@ -322,7 +339,7 @@ CURATED DAILY RECOMMENDATION PDF CONTRACT
 - The first page must be a compact table with 1-2 representative stocks from each program-side core category.
 - First-page table columns must include: category, stock, rating/decision_priority, score/decision_score, selected reason from why_selected, and risk/next confirmation from why_downgraded/risk_tags/downgrade_flags/next_confirmation.
 - After the first page, each core category must include 3-5 representative stocks when available.
-- Each representative stock must be an operation card/page, not just a row. It must include: stock id/name, category, mainstream/non-mainstream status, rating, score, rank, TDCC, warrant, why_selected, why_downgraded/risk_tags/downgrade_flags/must_not_overstate/repeated_but_no_breakout/needs_eps_confirmation/revenue_good_eps_unconfirmed, technical state, conditional buy trigger, take-profit/reduce/exit trigger, no-buy condition, next confirmation with trigger+action, and K-line chart.
+- Each representative stock must be an operation card/page, not just a row. It must include: stock id/name, category, mainstream/non-mainstream status, rating, score, rank, TDCC, warrant, why_selected, why_downgraded/risk_tags/downgrade_flags/must_not_overstate/repeated_but_no_breakout/needs_eps_confirmation/revenue_good_eps_unconfirmed, technical state, conditional entry trigger, take-profit/reduce/exit trigger, do-not-chase or invalidation condition, next confirmation with trigger+action, and K-line chart.
 - K-line charts must use repo price data / 180-day windows when available. Charts must show price, volume, 23EMA as the primary line, MA20/MA60 as supporting lines, prior high/platform/support/resistance, breakout zone, and failure line when applicable.
 - The chart must be on the same page as the stock explanation or directly adjacent. Do not put all charts in a detached appendix.
 - Include a back-section `降級 / 鈍化 / 風險清單`; it is a risk summary, not a recommendation table.

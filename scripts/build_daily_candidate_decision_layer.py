@@ -26,6 +26,7 @@ from tracking_utils import (  # noqa: E402
 ALL_CANDIDATES = LATEST_DIR / "all_candidates_latest.csv"
 ALL_CANDIDATES_XLSX = LATEST_DIR / "all_candidates_latest.xlsx"
 ALL_CANDIDATES_MD = LATEST_DIR / "all_candidates_latest.md"
+STOCK_THEME_TAXONOMY = LATEST_DIR / "stock_theme_taxonomy_latest.csv"
 
 REGRESSION_2484_MD = LATEST_DIR / "daily_candidate_regression_2484_latest.md"
 REGRESSION_2484_CSV = LATEST_DIR / "daily_candidate_regression_2484_latest.csv"
@@ -83,7 +84,15 @@ DECISION_COLUMNS = [
     "decision_score",
     "decision_rank_in_category",
     "decision_rank_overall_for_display",
+    "section_rank",
     "highlight_tag",
+    "trade_decision",
+    "theme_group",
+    "display_section",
+    "risk_handling_bucket",
+    "risk_handling_label",
+    "momentum_risk_follow",
+    "hard_exclusion_flag",
     "downgrade_flags",
     "risk_tags",
     "tdcc_status",
@@ -104,6 +113,16 @@ DECISION_COLUMNS = [
     "price_reaction_level",
     "already_priced_in",
     "catalyst_overheated",
+    "primary_theme",
+    "secondary_themes",
+    "structural_theme_bucket",
+    "theme_structural_status",
+    "theme_mainstream_label",
+    "theme_taxonomy_source",
+    "theme_taxonomy_confidence",
+    "theme_taxonomy_note",
+    "theme_final_status",
+    "candidate_line_group",
 ]
 
 BULLISH_WARRANT_SIGNALS = {"call_inflow", "call_strong_inflow", "call_put_bullish"}
@@ -123,6 +142,47 @@ CONFIRMED_CATALYST_TAGS = {
     "technology_validation",
 }
 
+CORE_AI_STRUCTURAL_THEME_BUCKETS = {
+    "ai_server_ipc_theme",
+    "ai_pc_consumer_theme",
+    "ai_server_mechanical_theme",
+    "ai_chip_testing_theme",
+    "asic_advanced_process_theme",
+    "semiconductor_equipment_material_theme",
+    "advanced_packaging_theme",
+    "memory_hbm_theme",
+    "network_optical_datacenter_theme",
+    "low_earth_orbit_satellite_theme",
+    "high_speed_interconnect_theme",
+    "thermal_solution_theme",
+    "power_supply_theme",
+    "pcb_ccl_theme",
+    "glass_fiber_ccl_theme",
+    "fpc_flexible_pcb_theme",
+    "passive_component_theme",
+    "robotics_precision_motion_theme",
+    "robotics_automation_theme",
+    "robotics_ipc_edge_ai_theme",
+    "robotics_optics_sensor_theme",
+}
+
+# Daily candidate rows already passed an upstream model condition.  Risk flags
+# should change rank, section, and operating notes, not turn a selected model
+# row into a contradictory "not buy" row.  True failed-breakout models should be
+# emitted by their own risk/watch model instead of being vetoed here.
+HARD_EXCLUSION_FLAGS: set[str] = set()
+
+HIGH_MOMENTUM_RISK_FLAGS = {
+    "continued_overheated",
+    "already_priced_in",
+    "catalyst_overheated",
+    "price_reaction_priced_in",
+    "price_reaction_overheated",
+    "return_20d_gt_30",
+    "distance_ma20_gt_20",
+    "short_term_volume_overheat",
+}
+
 
 def truthy(value: Any) -> bool:
     return safe_str(value).lower() in {"true", "1", "yes", "y", "t"}
@@ -139,11 +199,71 @@ def num(row: pd.Series, names: list[str]) -> float:
 
 def first_text(row: pd.Series, names: list[str]) -> str:
     for name in names:
-        if name in row.index:
-            text = safe_str(row.get(name, ""))
+        for candidate_name in (name, f"{name}_y", f"{name}_x"):
+            if candidate_name not in row.index:
+                continue
+            text = safe_str(row.get(candidate_name, ""))
             if text:
                 return text
     return ""
+
+
+def apply_authoritative_taxonomy(candidates: pd.DataFrame) -> pd.DataFrame:
+    taxonomy = read_csv(STOCK_THEME_TAXONOMY, dtype=str, keep_default_na=False)
+    if candidates.empty or taxonomy.empty or "stock_id" not in candidates.columns or "stock_id" not in taxonomy.columns:
+        return candidates
+
+    out = candidates.copy()
+    out["stock_id"] = out["stock_id"].map(normalize_code)
+    drop_cols = [
+        col
+        for col in out.columns
+        if col.startswith("taxonomy_") or col in {"theme_taxonomy_source", "theme_taxonomy_confidence", "theme_taxonomy_note"}
+    ]
+    if drop_cols:
+        out = out.drop(columns=drop_cols)
+
+    tax = taxonomy.copy()
+    tax["stock_id"] = tax["stock_id"].map(normalize_code)
+    tax_cols = [
+        "stock_id",
+        "primary_theme",
+        "secondary_themes",
+        "structural_theme_bucket",
+        "theme_structural_status",
+        "theme_mainstream_label",
+        "taxonomy_source",
+        "confidence",
+        "notes",
+    ]
+    tax = tax[[col for col in tax_cols if col in tax.columns]].rename(
+        columns={
+            "primary_theme": "taxonomy_primary_theme",
+            "secondary_themes": "taxonomy_secondary_themes",
+            "structural_theme_bucket": "taxonomy_structural_theme_bucket",
+            "theme_structural_status": "taxonomy_theme_structural_status",
+            "theme_mainstream_label": "taxonomy_theme_mainstream_label",
+            "confidence": "taxonomy_confidence",
+            "notes": "taxonomy_notes",
+        }
+    )
+    out = out.merge(tax, on="stock_id", how="left")
+    for target, source in [
+        ("primary_theme", "taxonomy_primary_theme"),
+        ("secondary_themes", "taxonomy_secondary_themes"),
+        ("structural_theme_bucket", "taxonomy_structural_theme_bucket"),
+        ("theme_structural_status", "taxonomy_theme_structural_status"),
+        ("theme_mainstream_label", "taxonomy_theme_mainstream_label"),
+    ]:
+        if target not in out.columns:
+            out[target] = ""
+        if source in out.columns:
+            values = out[source].fillna("").astype(str)
+            out[target] = values.where(values.str.strip().ne(""), out[target].fillna("").astype(str))
+    out["theme_taxonomy_source"] = out.get("taxonomy_source", "")
+    out["theme_taxonomy_confidence"] = out.get("taxonomy_confidence", "")
+    out["theme_taxonomy_note"] = out.get("taxonomy_notes", "")
+    return out
 
 
 def category_of(row: pd.Series) -> str:
@@ -327,6 +447,82 @@ def has_attack_confirmation(row: pd.Series, category: str, stage: str) -> bool:
     )
 
 
+def structural_theme_bucket_of(row: pd.Series) -> str:
+    return first_text(row, ["taxonomy_structural_theme_bucket", "structural_theme_bucket"]).lower()
+
+
+def is_core_ai_theme(row: pd.Series) -> bool:
+    bucket = structural_theme_bucket_of(row)
+    return bucket in CORE_AI_STRUCTURAL_THEME_BUCKETS
+
+
+def is_non_mainstream_theme(row: pd.Series) -> bool:
+    bucket = structural_theme_bucket_of(row)
+    structural_status = first_text(row, ["taxonomy_theme_structural_status", "theme_structural_status"]).lower()
+    mainstream_label = first_text(row, ["taxonomy_theme_mainstream_label", "theme_mainstream_label"]).lower()
+    line_group = first_text(row, ["candidate_line_group"]).lower()
+    return (
+        structural_status in {"non_mainstream_theme", "theme_mapping_missing"}
+        or mainstream_label.startswith("non_mainstream")
+        or line_group in {"non_mainstream_flow_watch"}
+    )
+
+
+def theme_group_for(row: pd.Series) -> str:
+    if is_core_ai_theme(row):
+        return "core_mainstream"
+    if is_non_mainstream_theme(row):
+        return "non_mainstream"
+    return "theme_unknown"
+
+
+def risk_handling_for(
+    downgrade_flags: list[str],
+    attack_confirmed: bool,
+    core_ai_theme: bool,
+    non_mainstream_theme: bool,
+) -> tuple[str, str, bool, bool]:
+    flags = set(downgrade_flags)
+    hard_exclusion = bool(flags.intersection(HARD_EXCLUSION_FLAGS))
+    if hard_exclusion:
+        return "hard_exclusion", "模型外排除", False, True
+
+
+    high_momentum_flags = bool(flags.intersection(HIGH_MOMENTUM_RISK_FLAGS))
+    tdcc_distribution_with_attack = "tdcc_distribution_warning" in flags and attack_confirmed
+    if high_momentum_flags or tdcc_distribution_with_attack:
+        return "high_momentum_risk_follow", "高動能風險追蹤", True, False
+
+    if flags:
+        return "risk_watch", "降級觀察", False, False
+
+    return "normal", "一般候選", False, False
+
+
+def trade_decision_for(priority: str, risk_handling_bucket: str, momentum_risk_follow: bool, hard_exclusion: bool) -> str:
+    if hard_exclusion or priority == "D_risk_downgrade":
+        return "ranked_risk_candidate"
+    if momentum_risk_follow:
+        return "short_term_risk_follow"
+    if priority == "A_priority_watch":
+        return "selected_priority"
+    if priority == "B_confirm_needed":
+        return "selected_confirm"
+    return "selected_watch"
+
+
+def display_section_for(theme_group: str, trade_decision: str) -> str:
+    if trade_decision == "ranked_risk_candidate":
+        return f"{theme_group}_risk_ranked"
+    if trade_decision == "short_term_risk_follow":
+        return f"{theme_group}_short_term_risk_follow"
+    if trade_decision == "selected_priority":
+        return f"{theme_group}_selected_priority"
+    if trade_decision == "selected_confirm":
+        return f"{theme_group}_selected_confirm"
+    return f"{theme_group}_selected_watch"
+
+
 def cap_priority(priority: str, max_priority: str) -> str:
     if PRIORITY_SORT.get(priority, 9) < PRIORITY_SORT.get(max_priority, 9):
         return max_priority
@@ -370,8 +566,18 @@ def build_reasons(row: pd.Series, pattern_category: str, pattern_route: str, tdc
     return reasons[:8]
 
 
-def next_confirmation_for(row: pd.Series, pattern_category: str, priority: str, downgrade_flags: list[str]) -> str:
+def next_confirmation_for(
+    row: pd.Series,
+    pattern_category: str,
+    priority: str,
+    downgrade_flags: list[str],
+    risk_handling_bucket: str = "",
+) -> str:
     stage = first_text(row, ["pattern_stage", "pattern"]).lower()
+    if risk_handling_bucket == "hard_exclusion":
+        return "??????????TDCC ?????????????????"
+    if risk_handling_bucket == "high_momentum_risk_follow":
+        return "??????????????????????????????????? D+5/D+10 ???"
     if "tdcc_distribution_warning" in downgrade_flags:
         return "先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。"
     if "revenue_no_warrant_stale_no_breakout" in downgrade_flags:
@@ -406,6 +612,8 @@ def evaluate_row(row: pd.Series) -> dict[str, Any]:
     no_warrant = is_no_warrant(row)
     price_breakout_confirmed = has_price_breakout_confirmation(row, category, stage)
     attack_confirmed = has_attack_confirmation(row, category, stage)
+    core_ai_theme = is_core_ai_theme(row)
+    non_mainstream_theme = is_non_mainstream_theme(row)
     revenue_low_response = is_revenue_low_response(row, category)
     revenue_eps_unconfirmed = has_revenue_good_eps_unconfirmed(row)
     eps_or_margin_confirmed = has_eps_or_margin_confirmation(row)
@@ -492,17 +700,16 @@ def evaluate_row(row: pd.Series) -> dict[str, Any]:
 
     decision_score = max(0, min(100, round(decision_score, 1)))
 
-    severe_flags = {
-        "tdcc_distribution_warning",
-        "continued_overheated",
-        "return_20d_gt_30",
-        "distance_ma20_gt_20",
-        "short_term_volume_overheat",
-        "false_breakout_risk",
-    }
-    has_severe = bool(severe_flags.intersection(downgrade_flags))
-    if has_severe:
+    risk_handling_bucket, risk_handling_label, momentum_risk_follow, hard_exclusion_flag = risk_handling_for(
+        downgrade_flags=downgrade_flags,
+        attack_confirmed=attack_confirmed,
+        core_ai_theme=core_ai_theme,
+        non_mainstream_theme=non_mainstream_theme,
+    )
+    if hard_exclusion_flag:
         priority = "D_risk_downgrade" if decision_score < 62 else "C_watch_only"
+    elif risk_handling_bucket == "high_momentum_risk_follow":
+        priority = "C_watch_only" if decision_score < 76 else "B_confirm_needed"
     elif decision_score >= 82:
         priority = "A_priority_watch"
     elif decision_score >= 68:
@@ -522,6 +729,10 @@ def evaluate_row(row: pd.Series) -> dict[str, Any]:
         priority = "B_confirm_needed"
         decision_score = min(decision_score, 81.0)
 
+    theme_group = theme_group_for(row)
+    trade_decision = trade_decision_for(priority, risk_handling_bucket, momentum_risk_follow, hard_exclusion_flag)
+    display_section = display_section_for(theme_group, trade_decision)
+
     priority_label = {
         "A_priority_watch": "最優先追蹤",
         "B_confirm_needed": "可等確認",
@@ -529,7 +740,11 @@ def evaluate_row(row: pd.Series) -> dict[str, Any]:
         "D_risk_downgrade": "暫避降級 / 只保留觀察",
     }[priority]
 
-    if priority == "A_priority_watch":
+    if hard_exclusion_flag:
+        highlight = "hard_exclusion"
+    elif momentum_risk_follow:
+        highlight = "high_momentum_risk_follow"
+    elif priority == "A_priority_watch":
         highlight = "priority_candidate"
     elif stage in {"breakout_confirmed", "neckline_breakout", "platform_breakout"}:
         highlight = "breakout_but_check_risk"
@@ -542,7 +757,7 @@ def evaluate_row(row: pd.Series) -> dict[str, Any]:
 
     why_selected = "；".join(build_reasons(row, pattern_category, pattern_route, tdcc_status))
     why_downgraded = "；".join(risk_tags) if risk_tags else ""
-    next_confirmation = next_confirmation_for(row, pattern_category, priority, downgrade_flags)
+    next_confirmation = next_confirmation_for(row, pattern_category, priority, downgrade_flags, risk_handling_bucket)
 
     return {
         "pattern_mapped_category": pattern_category,
@@ -551,6 +766,13 @@ def evaluate_row(row: pd.Series) -> dict[str, Any]:
         "decision_priority_label": priority_label,
         "decision_score": decision_score,
         "highlight_tag": highlight,
+        "trade_decision": trade_decision,
+        "theme_group": theme_group,
+        "display_section": display_section,
+        "risk_handling_bucket": risk_handling_bucket,
+        "risk_handling_label": risk_handling_label,
+        "momentum_risk_follow": "True" if momentum_risk_follow else "False",
+        "hard_exclusion_flag": "True" if hard_exclusion_flag else "False",
         "downgrade_flags": "|".join(dict.fromkeys(downgrade_flags)),
         "risk_tags": "|".join(dict.fromkeys(risk_tags)),
         "tdcc_status": tdcc_status,
@@ -559,7 +781,7 @@ def evaluate_row(row: pd.Series) -> dict[str, Any]:
         "why_selected": why_selected,
         "why_downgraded": why_downgraded,
         "next_confirmation": next_confirmation,
-        "must_not_overstate": "True" if priority in {"C_watch_only", "D_risk_downgrade"} or bool(downgrade_flags) else "False",
+        "must_not_overstate": "True" if priority in {"C_watch_only", "D_risk_downgrade"} or bool(downgrade_flags) or momentum_risk_follow or hard_exclusion_flag else "False",
     }
 
 
@@ -591,6 +813,16 @@ def build_decision(candidates: pd.DataFrame, main_date: str) -> pd.DataFrame:
             "price_reaction_level": first_text(row, ["price_reaction_level"]),
             "already_priced_in": "True" if truthy(row.get("already_priced_in", "")) else "False",
             "catalyst_overheated": "True" if truthy(row.get("catalyst_overheated", "")) else "False",
+            "primary_theme": first_text(row, ["taxonomy_primary_theme", "primary_theme"]),
+            "secondary_themes": first_text(row, ["taxonomy_secondary_themes", "secondary_themes"]),
+            "structural_theme_bucket": first_text(row, ["taxonomy_structural_theme_bucket", "structural_theme_bucket"]),
+            "theme_structural_status": first_text(row, ["taxonomy_theme_structural_status", "theme_structural_status"]),
+            "theme_mainstream_label": first_text(row, ["taxonomy_theme_mainstream_label", "theme_mainstream_label"]),
+            "theme_taxonomy_source": first_text(row, ["taxonomy_source", "theme_taxonomy_source"]),
+            "theme_taxonomy_confidence": first_text(row, ["taxonomy_confidence", "theme_taxonomy_confidence"]),
+            "theme_taxonomy_note": first_text(row, ["taxonomy_notes", "theme_taxonomy_note"]),
+            "theme_final_status": first_text(row, ["theme_final_status"]),
+            "candidate_line_group": first_text(row, ["candidate_line_group"]),
             "_source_index": idx,
             "_category_order": CATEGORY_ORDER.get(category, 999),
         }
@@ -611,6 +843,14 @@ def build_decision(candidates: pd.DataFrame, main_date: str) -> pd.DataFrame:
     decision["decision_rank_in_category"] = (
         decision.groupby("original_category", dropna=False).cumcount() + 1
     )
+    section_sorted = decision.sort_values(
+        ["display_section", "_priority_order", "decision_score", "stock_id", "_source_index"],
+        ascending=[True, True, False, True, True],
+    )
+    decision["section_rank"] = 0
+    decision.loc[section_sorted.index, "section_rank"] = (
+        section_sorted.groupby("display_section", dropna=False).cumcount() + 1
+    ).astype(int)
 
     for col in DECISION_COLUMNS:
         if col not in decision.columns:
@@ -638,7 +878,15 @@ def rewrite_all_candidates(candidates: pd.DataFrame, decision: pd.DataFrame) -> 
         "decision_score",
         "decision_rank_in_category",
         "decision_rank_overall_for_display",
+        "section_rank",
         "highlight_tag",
+        "trade_decision",
+        "theme_group",
+        "display_section",
+        "risk_handling_bucket",
+        "risk_handling_label",
+        "momentum_risk_follow",
+        "hard_exclusion_flag",
         "downgrade_flags",
         "risk_tags",
         "tdcc_status",
@@ -648,6 +896,14 @@ def rewrite_all_candidates(candidates: pd.DataFrame, decision: pd.DataFrame) -> 
         "why_downgraded",
         "next_confirmation",
         "must_not_overstate",
+        "primary_theme",
+        "secondary_themes",
+        "structural_theme_bucket",
+        "theme_structural_status",
+        "theme_mainstream_label",
+        "theme_taxonomy_source",
+        "theme_taxonomy_confidence",
+        "theme_taxonomy_note",
     ]
     for col in merge_cols:
         if col != "_source_index" and col in out.columns:
@@ -730,9 +986,9 @@ def write_markdown(decision: pd.DataFrame, main_date: str) -> None:
         "## How ChatGPT Should Use This",
         "",
         "- Use this decision layer before relying on memory or free-form re-ranking.",
-        "- Do not mix category scores into one investment ranking; `decision_rank_overall_for_display` is only a display order.",
-        "- If `decision_priority` is `D_risk_downgrade`, explain the risk and do not present it as top priority.",
-        "- If TDCC is `distribution_warning`, repeat label is stale/overheated, or overheat flags are present, downgrade even when the breakout pattern is strong.",
+        "- Do not mix category scores into one investment ranking; `decision_rank_overall_for_display` is only a display order. Use `display_section` and `section_rank` to compare mainstream and non-mainstream rows separately.",
+        "- If `decision_priority` is `D_risk_downgrade`, explain the risk and rank it lower inside its own section.",
+        "- If TDCC is `distribution_warning`, repeat label is stale/overheated, or overheat flags are present, treat them as score/rank penalties and operating risks, not as a second buy/not-buy veto.",
         "",
         "## Pattern Mapping Rules",
         "",
@@ -773,6 +1029,7 @@ def write_markdown(decision: pd.DataFrame, main_date: str) -> None:
         "decision_score",
         "tdcc_status",
         "repeat_appear_label",
+        "risk_handling_bucket",
         "downgrade_flags",
         "next_confirmation",
     ]
@@ -793,6 +1050,12 @@ def write_markdown(decision: pd.DataFrame, main_date: str) -> None:
     risk = risk[risk["downgrade_flags"].astype(str).ne("")]
     lines.extend(["", "## Risk Downgrade Watchlist", ""])
     lines.append(render_table(risk, display_cols, limit=40))
+
+    momentum_risk = decision[decision["risk_handling_bucket"].eq("high_momentum_risk_follow")].copy()
+    lines.extend(["", "## High Momentum Risk Follow Watchlist", ""])
+    lines.append("These rows are selected signals with high momentum risk. Keep them visible, rank them conservatively, and verify the short-term continuation with D+5/D+10 evidence.")
+    lines.append("")
+    lines.append(render_table(momentum_risk, display_cols, limit=40))
     lines.append("")
     DECISION_MD.write_text("\n".join(lines), encoding="utf-8")
 
@@ -811,7 +1074,9 @@ def write_packet(decision: pd.DataFrame, main_date: str) -> None:
         "- This packet is the program-side decision layer. Prefer it over conversation memory.",
         "- Category scores remain category-local; do not compare them as one universal model score.",
         "- `decision_priority` is a reporting and tracking priority, not a buy/sell instruction.",
-        "- Strong breakout patterns must still be downgraded when TDCC distribution, stale repeat appearance, or overheat flags appear.",
+        "- Risk handling is split into hard_exclusion, high_momentum_risk_follow, risk_watch, and normal. Mainstream/non-mainstream is a display section, not a score cap.",
+        "- TDCC distribution, continued overheat, and short-term overheat are rank and risk modifiers. If momentum remains strong, keep it in high_momentum_risk_follow and verify with D+5/D+10 evidence.",
+        "- Mainstream and non-mainstream candidates must be shown in separate sections and compared within their own section_rank; do not use theme group alone to downgrade score or veto selection.",
         "- For 2484 regression: 20260520-20260521 platform_right_side, 20260522 neckline_breakout, 20260525 breakout_confirmed.",
         "- For 8069 regression: 20260507 early right-side watch, 20260508 neckline_challenge, 20260512 strict volume-confirmed breakout.",
         "",
@@ -838,6 +1103,7 @@ def write_packet(decision: pd.DataFrame, main_date: str) -> None:
         "decision_score",
         "tdcc_status",
         "repeat_appear_label",
+        "risk_handling_bucket",
         "downgrade_flags",
         "next_confirmation",
     ]
@@ -850,6 +1116,12 @@ def write_packet(decision: pd.DataFrame, main_date: str) -> None:
         part = decision[decision["decision_priority"].eq(priority)].copy()
         lines.extend(["", f"## {title}", ""])
         lines.append(render_table(part, top_cols, limit=35))
+
+    momentum_risk = decision[decision["risk_handling_bucket"].eq("high_momentum_risk_follow")].copy()
+    lines.extend(["", "## High Momentum Risk Follow", ""])
+    lines.append("Not a front-line buy list. Keep these rows visible for short-term D+5/D+10 validation instead of deleting them as generic overheat risk.")
+    lines.append("")
+    lines.append(render_table(momentum_risk, top_cols, limit=40))
 
     case_2484 = decision[decision["stock_id"].eq("2484")].copy()
     lines.extend(["", "## 2484 Latest Decision", ""])
@@ -869,6 +1141,7 @@ def main() -> int:
     candidates = read_csv(ALL_CANDIDATES, dtype=str, keep_default_na=False)
     if candidates.empty:
         raise RuntimeError(f"missing or empty {ALL_CANDIDATES}")
+    candidates = apply_authoritative_taxonomy(candidates)
 
     main_date, notes = resolve_candidate_signal_date(candidates, preferred_date)
     for note in notes:

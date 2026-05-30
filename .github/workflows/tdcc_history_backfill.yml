@@ -45,7 +45,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pandas requests lxml html5lib tabulate
+          pip install pandas requests lxml html5lib tabulate matplotlib
 
       - name: Backfill TDCC history
         run: |
