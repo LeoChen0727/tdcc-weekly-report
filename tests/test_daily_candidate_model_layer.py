@@ -12,6 +12,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 from build_daily_candidate_model_layer import (  # noqa: E402
     attach_model_recommendations,
     build_parameter_table,
+    build_signals,
     build_specs,
     cond_pullback,
     cond_tdcc_stealth,
@@ -179,6 +180,56 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         self.assertEqual(out.loc[0, "recommended_usage"], "promote_to_pdf_core")
         self.assertEqual(out.loc[0, "recommended_close_exit_horizon"], "D+10")
         self.assertEqual(out.loc[0, "best_close_win_rate_pct"], "76.71")
+
+    def test_model_signals_dedupe_same_stock_same_model_bucket(self) -> None:
+        rows = [
+            make_row(
+                source_row_index="a",
+                stock_id="9999",
+                category="range_rebound",
+                decision_score="10",
+                report_line_memberships="mainstream",
+                mainstream_report_eligible="True",
+            ),
+            make_row(
+                source_row_index="b",
+                stock_id="9999",
+                category="pattern",
+                decision_score="99",
+                report_line_memberships="mainstream",
+                mainstream_report_eligible="True",
+            ),
+        ]
+        out = build_signals(pd.DataFrame(rows), build_specs(), "20260530")
+        dup_count = out.duplicated(["model_id", "report_bucket", "stock_id"]).sum()
+        self.assertEqual(dup_count, 0)
+
+    def test_dual_report_membership_expands_without_score_change(self) -> None:
+        row = make_row(
+            stock_id="1303",
+            report_line_memberships="mainstream,non_mainstream",
+            mainstream_report_eligible="True",
+            non_mainstream_report_eligible="True",
+            dual_report_membership_flag="True",
+        )
+        out = build_signals(pd.DataFrame([row]), build_specs(), "20260530")
+        model_rows = out[out["model_id"] == "volume_range_breakout"]
+        self.assertEqual(set(model_rows["report_bucket"]), {"mainstream", "non_mainstream"})
+        self.assertEqual(model_rows["model_score"].nunique(), 1)
+
+    def test_output_has_effective_theme_fields_and_clean_guidance(self) -> None:
+        row = make_row(
+            stock_id="9998",
+            next_confirmation="???????????????????? D+5/D+10 ???",
+            effective_primary_theme="機器人自動化",
+            structural_theme_bucket="robotics_automation_theme",
+            mainstream_report_eligible="True",
+        )
+        out = build_signals(pd.DataFrame([row]), build_specs(), "20260530")
+        self.assertIn("effective_primary_theme", out.columns)
+        self.assertIn("effective_structural_theme_bucket", out.columns)
+        self.assertIn("model_operation_guidance", out.columns)
+        self.assertFalse(out["next_confirmation"].astype(str).str.contains(r"\?\?\?", regex=True).any())
 
 
 if __name__ == "__main__":

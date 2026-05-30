@@ -90,6 +90,7 @@ class ModelSpec:
     main_conditions_zh: str
     add_score_zh: str
     forbidden_veto_zh: str
+    operation_guidance_zh: str
     condition_func: Callable[[pd.Series], bool]
     score_func: Callable[[pd.Series], tuple[float, list[str], list[str]]]
 
@@ -152,22 +153,70 @@ def warrant_signal(row: pd.Series) -> str:
 
 def report_bucket(row: pd.Series) -> str:
     # Mainstream/non-mainstream is a report split only. It must not change score.
+    buckets = report_buckets(row)
+    return buckets[0] if buckets else "unclassified"
+
+
+def report_buckets(row: pd.Series) -> list[str]:
+    # A dual-membership stock can appear in both reports. This is a report split,
+    # not a score cap, veto, or model condition.
+    mainstream_eligible = truthy(text(row, "mainstream_report_eligible", "taxonomy_mainstream_report_eligible"))
+    non_mainstream_eligible = truthy(text(row, "non_mainstream_report_eligible", "taxonomy_non_mainstream_report_eligible"))
+    memberships_raw = text(row, "report_line_memberships", "taxonomy_report_line_memberships").lower()
+    membership_tokens = {token.strip() for token in memberships_raw.replace(";", ",").replace("|", ",").split(",") if token.strip()}
+    buckets: list[str] = []
+    if mainstream_eligible or "mainstream" in membership_tokens:
+        buckets.append("mainstream")
+    if non_mainstream_eligible or "non_mainstream" in membership_tokens or "non-mainstream" in membership_tokens:
+        buckets.append("non_mainstream")
+    if buckets:
+        return list(dict.fromkeys(buckets))
+
     bucket = text(row, "structural_theme_bucket", "taxonomy_structural_theme_bucket").lower()
     status = text(row, "theme_structural_status", "taxonomy_theme_structural_status").lower()
     group = text(row, "theme_group").lower()
     if bucket in CORE_AI_BUCKETS or status.startswith("core_mainstream") or group == "core_mainstream":
-        return "mainstream"
+        return ["mainstream"]
     if status.startswith("non_mainstream") or group == "non_mainstream":
-        return "non_mainstream"
-    return "unclassified"
+        return ["non_mainstream"]
+    return ["unclassified"]
 
 
 def primary_theme(row: pd.Series) -> str:
     return (
-        text(row, "primary_theme", "taxonomy_primary_theme")
+        text(row, "effective_primary_theme", "primary_theme", "taxonomy_primary_theme")
         or text(row, "細分族群", "theme_name", "industry")
         or "未分類"
     )
+
+
+def effective_structural_theme_bucket(row: pd.Series) -> str:
+    return text(
+        row,
+        "effective_structural_theme_bucket",
+        "structural_theme_bucket",
+        "taxonomy_structural_theme_bucket",
+    )
+
+
+def effective_mainstream_label(row: pd.Series) -> str:
+    return text(row, "effective_mainstream_label", "taxonomy_effective_mainstream_label", "theme_mainstream_label")
+
+
+def is_suspicious_text(value: str) -> bool:
+    value = safe_str(value)
+    if not value:
+        return True
+    question_marks = value.count("?")
+    replacement_marks = value.count("\ufffd")
+    return question_marks >= 6 or replacement_marks >= 2
+
+
+def clean_next_confirmation(row: pd.Series, spec: ModelSpec) -> str:
+    raw = text(row, "next_confirmation")
+    if is_suspicious_text(raw):
+        return spec.operation_guidance_zh
+    return raw
 
 
 def revenue_yoy(row: pd.Series) -> float:
@@ -409,6 +458,7 @@ def build_specs() -> list[ModelSpec]:
             "量比 >= 1.5 且突破盤整區間/平台/頸線/波段高點。",
             "突破前高/平台、收盤站上突破區、量比越高、盤整結構越乾淨、TDCC/權證/營收越好加分。",
             "不以漲幅過大、中位爆量、高位爆量直接否決；風險只扣分排序。",
+            "隔日開盤為進場原點；觀察收盤是否守住突破區，跌回突破區或爆量長上影則降風險。",
             cond_volume_breakout,
             score_volume_breakout,
         ),
@@ -420,6 +470,7 @@ def build_specs() -> list[ModelSpec]:
             "股價回到23EMA或平台附近，且23EMA斜率代理為正。",
             "營收YoY/累計YoY、未跌破23EMA、TDCC增加、族群定義、量縮回檔、權證偏多加分。",
             "不因尚未突破而否決，因本模型本來就是回檔找買點。",
+            "隔日開盤為進場原點；回測23EMA或平台不破才續看，跌破後1到3日站不回則降級。",
             cond_pullback,
             score_pullback,
         ),
@@ -431,6 +482,7 @@ def build_specs() -> list[ModelSpec]:
             "營收YoY或累計YoY強，且股價仍在近20/23日區間上下5%內。",
             "接近平台突破、TDCC溫和增加、EPS/毛利確認、新聞或轉型題材加分。",
             "不可只因尚未突破就否決。",
+            "隔日開盤為進場原點；等待營收題材轉成量價或籌碼確認，跌破盤整下緣則退出觀察。",
             cond_revenue_unreacted,
             model_score_common,
         ),
@@ -442,6 +494,7 @@ def build_specs() -> list[ModelSpec]:
             "W底成立且右側低點墊高。",
             "第二段攻擊量大於第一段、紅K比例提高、TDCC改善、接近頸線加分。",
             "不與嚴格突破混成同一條件。",
+            "隔日開盤為進場原點；右側低點不可跌破，接近頸線後需放量確認。",
             cond_w_bottom_right,
             model_score_common,
         ),
@@ -453,6 +506,7 @@ def build_specs() -> list[ModelSpec]:
             "距前高/頸線0%到5%，量能開始放大，均線轉正。",
             "越接近頸線、TDCC/權證越好、成交量溫和放大加分。",
             "用途是提前抓突破前1到5日，不要求已突破。",
+            "隔日開盤為進場原點；若放量突破前高/頸線且收盤不跌回，優先度提高。",
             cond_neckline_challenge,
             model_score_common,
         ),
@@ -464,6 +518,7 @@ def build_specs() -> list[ModelSpec]:
             "盤整區間形成、波動收斂、接近上緣、量能回升且出現帶量實體紅K。",
             "盤整時間長、回測不破、TDCC溫和增加加分。",
             "不以未突破60日高點否決。",
+            "隔日開盤為進場原點；守住平台上緣或回測不破才續看，跌回區間內則降級。",
             cond_platform_strength,
             model_score_common,
         ),
@@ -475,6 +530,7 @@ def build_specs() -> list[ModelSpec]:
             "前面有漲勢，回檔未破結構，重新站回23EMA或短均結構轉強。",
             "回檔量縮、再攻量增、MACD/KD轉強、TDCC/權證加分。",
             "不以還沒創高否決。",
+            "隔日開盤為進場原點；重新站回23EMA後不可快速跌回，量價續強才保留。",
             cond_pullback_short_strength,
             model_score_common,
         ),
@@ -486,6 +542,7 @@ def build_specs() -> list[ModelSpec]:
             "TDCC連續或溫和增加，股價尚未大漲，且股價仍在近20/23日區間上下10%內；優先tdcc_leading_price。",
             "高級距同步增加、族群擴散、TDCC/權證正向加分。",
             "排除price_leading_tdcc與overheated_after_tdcc，不混入過熱模型。",
+            "隔日開盤為進場原點；等待價格開始反應且TDCC未轉弱，若股價先過熱則改列短線/風險觀察。",
             cond_tdcc_stealth,
             model_score_common,
         ),
@@ -502,6 +559,7 @@ def build_parameter_table(specs: list[ModelSpec]) -> pd.DataFrame:
             "main_conditions": spec.main_conditions_zh,
             "add_score_items": spec.add_score_zh,
             "forbidden_veto": spec.forbidden_veto_zh,
+            "operation_guidance": spec.operation_guidance_zh,
             "parameter_status": "initial_program_rule_pending_backtest_optimization",
         }
         for spec in specs
@@ -516,6 +574,7 @@ def build_parameter_table(specs: list[ModelSpec]) -> pd.DataFrame:
                 "main_conditions": "all_thresholds_overheated或phase_overheated_after_tdcc，搭配MACD/KD/Bollinger與1W/2W漲幅條件。",
                 "add_score_items": "D+1到D+10 next-open close/high統計、樣本數、相對報酬、market regime分層。",
                 "forbidden_veto": "不是低位買進模型，不可混入TDCC潛伏吸籌。",
+                "operation_guidance": "隔日開盤為進場原點；依D+1到D+10收盤/最高價統計做短線延續檢查。",
                 "parameter_status": "research_reporting_only",
             },
             {
@@ -526,6 +585,7 @@ def build_parameter_table(specs: list[ModelSpec]) -> pd.DataFrame:
                 "main_conditions": "5日或10日漲幅達標、量能擴張、技術動能強。",
                 "add_score_items": "D+1到D+20 close/high統計、處置/注意標籤、TDCC與市場狀態分層。",
                 "forbidden_veto": "不得稱為周線K；必須標清楚單位與進場原點。",
+                "operation_guidance": "隔日開盤為進場原點；依D+1到D+20收盤/最高價統計檢查短線延續。",
                 "parameter_status": "research_reporting_only",
             },
             {
@@ -536,6 +596,7 @@ def build_parameter_table(specs: list[ModelSpec]) -> pd.DataFrame:
                 "main_conditions": "有族群標籤，且同族群超過1/3股票量比>=3。",
                 "add_score_items": "族群出量比例、出量股票數、龍頭/老二/老三擴散狀態。",
                 "forbidden_veto": "不是個股買進模型，只列族群。",
+                "operation_guidance": "只判斷族群資金是否擴散，不直接產生個股買進結論。",
                 "parameter_status": "initial_program_rule_pending_backtest_optimization",
             },
             {
@@ -546,6 +607,7 @@ def build_parameter_table(specs: list[ModelSpec]) -> pd.DataFrame:
                 "main_conditions": "月均量3倍/5倍/10倍、實體紅K、上影線小、收盤接近日高，另分低位爆量。",
                 "add_score_items": "位階、主流族群、TDCC、市場狀態。",
                 "forbidden_veto": "尚未納入精華PDF核心模型，需先回測參數。",
+                "operation_guidance": "研究用；用隔日開盤為原點回測，不作當日PDF核心推薦。",
                 "parameter_status": "research_backtest_required",
             },
             {
@@ -556,6 +618,7 @@ def build_parameter_table(specs: list[ModelSpec]) -> pd.DataFrame:
                 "main_conditions": "歷史5日內高低點漲幅>=20%的樣本反推前一天與第一天條件。",
                 "add_score_items": "量能、技術、TDCC、族群、market regime辨別度。",
                 "forbidden_veto": "研究模型，不直接當每日PDF核心入選模型。",
+                "operation_guidance": "研究用；先找前兆，再用全市場資料測辨別度。",
                 "parameter_status": "research_backtest_required",
             },
             {
@@ -566,6 +629,7 @@ def build_parameter_table(specs: list[ModelSpec]) -> pd.DataFrame:
                 "main_conditions": "處置、注意、分盤等交易事件。",
                 "add_score_items": "檢查是否影響隔日開盤進場與D+5/D+10勝率。",
                 "forbidden_veto": "不是買進模型，只做事件/風險標籤。",
+                "operation_guidance": "事件標籤；只影響風險提示與回測分層。",
                 "parameter_status": "daily_snapshot_accumulation_required",
             },
             {
@@ -576,6 +640,7 @@ def build_parameter_table(specs: list[ModelSpec]) -> pd.DataFrame:
                 "main_conditions": "MSCI新增或剔除。",
                 "add_score_items": "1W/2W/3W/4W收盤報酬統計。",
                 "forbidden_veto": "不是一般買進模型，先當事件標籤。",
+                "operation_guidance": "事件標籤；以生效日後隔天開盤為原點做事件回測。",
                 "parameter_status": "event_dataset_required",
             },
         ]
@@ -649,46 +714,60 @@ def build_signals(candidates: pd.DataFrame, specs: list[ModelSpec], signal_date:
                 continue
             raw_score, comps, risks = spec.score_func(row)
             score = round(clamp(raw_score), 1)
-            rows.append(
-                {
-                    "signal_date": signal_date or text(row, "signal_date", "date"),
-                    "source_row_index": idx,
-                    "stock_id": stock_id,
-                    "stock_name": text(row, "stock_name", "name"),
-                    "industry": text(row, "industry"),
-                    "primary_theme": primary_theme(row),
-                    "secondary_themes": text(row, "secondary_themes", "taxonomy_secondary_themes"),
-                    "report_bucket": report_bucket(row),
-                    "model_id": spec.model_id,
-                    "model_name_zh": spec.model_name_zh,
-                    "model_group": spec.pdf_visibility,
-                    "main_condition_met": "True",
-                    "entry_basis": spec.entry_basis,
-                    "model_score": score,
-                    "score_components": " | ".join(comps),
-                    "risk_penalty_tags": " | ".join(dict.fromkeys(risks)),
-                    "original_category": category(row),
-                    "decision_priority": text(row, "decision_priority"),
-                    "decision_score": text(row, "decision_score"),
-                    "tdcc_status": tdcc_status(row),
-                    "warrant_flow_signal": warrant_signal(row),
-                    "volume_ratio": num(row, "volume_ratio"),
-                    "return_5d": num(row, "return_5d", "return_5d_pct"),
-                    "return_20d": num(row, "return_20d", "return_20d_pct"),
-                    "next_confirmation": text(row, "next_confirmation"),
-                    "selection_semantics": "model_condition_met_rank_by_score_no_theme_veto",
-                }
-            )
+            for bucket in report_buckets(row):
+                rows.append(
+                    {
+                        "signal_date": signal_date or text(row, "signal_date", "date"),
+                        "source_row_index": idx,
+                        "stock_id": stock_id,
+                        "stock_name": text(row, "stock_name", "name"),
+                        "industry": text(row, "industry"),
+                        "primary_theme": primary_theme(row),
+                        "effective_primary_theme": primary_theme(row),
+                        "secondary_themes": text(row, "secondary_themes", "taxonomy_secondary_themes"),
+                        "effective_structural_theme_bucket": effective_structural_theme_bucket(row),
+                        "effective_mainstream_label": effective_mainstream_label(row),
+                        "report_line_memberships": text(row, "report_line_memberships", "taxonomy_report_line_memberships"),
+                        "mainstream_report_eligible": text(row, "mainstream_report_eligible", "taxonomy_mainstream_report_eligible"),
+                        "non_mainstream_report_eligible": text(row, "non_mainstream_report_eligible", "taxonomy_non_mainstream_report_eligible"),
+                        "dual_report_membership_flag": text(row, "dual_report_membership_flag", "taxonomy_dual_report_membership_flag"),
+                        "report_bucket": bucket,
+                        "model_id": spec.model_id,
+                        "model_name_zh": spec.model_name_zh,
+                        "model_group": spec.pdf_visibility,
+                        "main_condition_met": "True",
+                        "entry_basis": spec.entry_basis,
+                        "model_score": score,
+                        "score_components": " | ".join(comps),
+                        "risk_penalty_tags": " | ".join(dict.fromkeys(risks)),
+                        "original_category": category(row),
+                        "decision_priority": text(row, "decision_priority"),
+                        "decision_score": text(row, "decision_score"),
+                        "tdcc_status": tdcc_status(row),
+                        "warrant_flow_signal": warrant_signal(row),
+                        "volume_ratio": num(row, "volume_ratio"),
+                        "return_5d": num(row, "return_5d", "return_5d_pct"),
+                        "return_20d": num(row, "return_20d", "return_20d_pct"),
+                        "next_confirmation": clean_next_confirmation(row, spec),
+                        "model_main_conditions": spec.main_conditions_zh,
+                        "model_add_score_items": spec.add_score_zh,
+                        "model_forbidden_veto": spec.forbidden_veto_zh,
+                        "model_operation_guidance": spec.operation_guidance_zh,
+                        "selection_semantics": "model_condition_met_rank_by_score_no_theme_veto",
+                    }
+                )
     out = pd.DataFrame(rows)
     if out.empty:
         return out
     out["_bucket_order"] = out["report_bucket"].map({"mainstream": 1, "non_mainstream": 2, "unclassified": 3}).fillna(9)
+    out["_decision_score_num"] = pd.to_numeric(out.get("decision_score", ""), errors="coerce").fillna(0)
     out = out.sort_values(
-        ["model_id", "_bucket_order", "model_score", "stock_id", "source_row_index"],
-        ascending=[True, True, False, True, True],
+        ["model_id", "_bucket_order", "model_score", "_decision_score_num", "stock_id", "source_row_index"],
+        ascending=[True, True, False, False, True, True],
     ).reset_index(drop=True)
+    out = out.drop_duplicates(["model_id", "report_bucket", "stock_id"], keep="first").reset_index(drop=True)
     out["model_rank"] = out.groupby(["model_id", "report_bucket"], dropna=False).cumcount() + 1
-    return out.drop(columns=["_bucket_order"])
+    return out.drop(columns=["_bucket_order", "_decision_score_num"])
 
 
 def append_tdcc_short_term(signals: pd.DataFrame, signal_date: str) -> pd.DataFrame:
@@ -707,7 +786,14 @@ def append_tdcc_short_term(signals: pd.DataFrame, signal_date: str) -> pd.DataFr
                     "stock_name": text(row, "stock_name"),
                     "industry": "",
                     "primary_theme": text(row, "theme"),
+                    "effective_primary_theme": text(row, "theme"),
                     "secondary_themes": "",
+                    "effective_structural_theme_bucket": "",
+                    "effective_mainstream_label": "",
+                    "report_line_memberships": "",
+                    "mainstream_report_eligible": "",
+                    "non_mainstream_report_eligible": "",
+                    "dual_report_membership_flag": "",
                     "report_bucket": "unclassified",
                     "model_id": "tdcc_short_term_continuation_d5_d10",
                     "model_name_zh": "TDCC短線延續模型 D+5/D+10",
@@ -726,6 +812,10 @@ def append_tdcc_short_term(signals: pd.DataFrame, signal_date: str) -> pd.DataFr
                     "return_5d": "",
                     "return_20d": "",
                     "next_confirmation": "短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。",
+                    "model_main_conditions": "all_thresholds_overheated或phase_overheated_after_tdcc，搭配MACD/KD/Bollinger與1W/2W漲幅條件。",
+                    "model_add_score_items": "D+1到D+10 next-open close/high統計、樣本數、相對報酬、market regime分層。",
+                    "model_forbidden_veto": "不是低位買進模型，不可混入TDCC潛伏吸籌。",
+                    "model_operation_guidance": "隔日開盤為進場原點；依D+1到D+10收盤/最高價統計做短線延續檢查。",
                     "selection_semantics": "specialty_condition_met_rank_by_backtest_stats",
                 }
             )
@@ -743,7 +833,14 @@ def append_tdcc_short_term(signals: pd.DataFrame, signal_date: str) -> pd.DataFr
                     "stock_name": text(row, "stock_name"),
                     "industry": "",
                     "primary_theme": text(row, "theme"),
+                    "effective_primary_theme": text(row, "theme"),
                     "secondary_themes": "",
+                    "effective_structural_theme_bucket": "",
+                    "effective_mainstream_label": "",
+                    "report_line_memberships": "",
+                    "mainstream_report_eligible": "",
+                    "non_mainstream_report_eligible": "",
+                    "dual_report_membership_flag": "",
                     "report_bucket": "unclassified",
                     "model_id": "short_term_surge_d5_d10",
                     "model_name_zh": "短線急漲D+5/D+10模型",
@@ -762,6 +859,10 @@ def append_tdcc_short_term(signals: pd.DataFrame, signal_date: str) -> pd.DataFr
                     "return_5d": text(row, "return_5d_pct"),
                     "return_20d": text(row, "return_20d_pct"),
                     "next_confirmation": "短線急漲研究專項；用隔日開盤為進場原點，分D+1到D+20檢查。",
+                    "model_main_conditions": "5日或10日漲幅達標、量能擴張、技術動能強。",
+                    "model_add_score_items": "D+1到D+20 close/high統計、處置/注意標籤、TDCC與市場狀態分層。",
+                    "model_forbidden_veto": "不得稱為周線K；必須標清楚單位與進場原點。",
+                    "model_operation_guidance": "隔日開盤為進場原點；依D+1到D+20收盤/最高價統計檢查短線延續。",
                     "selection_semantics": "specialty_condition_met_rank_by_backtest_stats",
                 }
             )
@@ -770,6 +871,7 @@ def append_tdcc_short_term(signals: pd.DataFrame, signal_date: str) -> pd.DataFr
     extra = pd.DataFrame(rows)
     combined = pd.concat([signals, extra], ignore_index=True) if not signals.empty else extra
     combined = combined.sort_values(["model_id", "model_score", "stock_id"], ascending=[True, False, True]).reset_index(drop=True)
+    combined = combined.drop_duplicates(["model_id", "report_bucket", "stock_id"], keep="first").reset_index(drop=True)
     combined["model_rank"] = combined.groupby(["model_id", "report_bucket"], dropna=False).cumcount() + 1
     return combined
 

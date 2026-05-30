@@ -46,8 +46,14 @@ REQUIRED_SIGNAL_COLUMNS = {
     "model_name_zh",
     "main_condition_met",
     "entry_basis",
+    "effective_primary_theme",
+    "effective_structural_theme_bucket",
+    "effective_mainstream_label",
     "model_score",
     "model_rank",
+    "model_main_conditions",
+    "model_add_score_items",
+    "model_operation_guidance",
     "selection_semantics",
     "recommended_usage",
     "recommended_close_exit_horizon",
@@ -98,6 +104,13 @@ def validate() -> dict[str, object]:
         score = pd.to_numeric(signals.get("model_score", ""), errors="coerce")
         if score.notna().any() and ((score < 0) | (score > 100)).any():
             errors.append("model_score must be between 0 and 100")
+        dup_count = int(signals.duplicated(["model_id", "report_bucket", "stock_id"]).sum())
+        if dup_count:
+            errors.append(f"duplicate_model_bucket_stock_rows: {dup_count}")
+        text_cols = ["model_name_zh", "next_confirmation", "model_operation_guidance"]
+        for col in text_cols:
+            if col in signals.columns and signals[col].astype(str).str.contains(r"\?\?\?|\ufffd", regex=True).any():
+                errors.append(f"suspicious_unreadable_text_in_signal_column: {col}")
 
     if not rotation.empty and "volume_expansion_ratio" in rotation.columns:
         ratio = pd.to_numeric(rotation["volume_expansion_ratio"], errors="coerce")
