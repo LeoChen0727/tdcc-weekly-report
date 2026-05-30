@@ -1,6 +1,6 @@
 # TDCC 訊號績效追蹤報告
 
-- 產生時間：`2026-05-30 12:43:03 Asia/Taipei`
+- 產生時間：`2026-05-30 13:07:38 Asia/Taipei`
 - 最新 TDCC signal 批次日期：`20260529`
 - signal log：`output/history/tdcc_signals/tdcc_signal_log.csv`
 - performance csv：`output/history/tdcc_signals/tdcc_signal_performance.csv`
@@ -116,24 +116,24 @@
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260515 | 6285 | 啟碁 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 260.00 | 286.00 | +10.00% | partial_10d |
 | 20260515 | 4127 | 天良 | weekly_change_top20 | over_800 | 39.10 | 43.00 | +9.97% | partial_10d |
-| 20260515 | 3624 | 光頡 | weekly_change_top20 | over_1000 | 76.20 | 83.80 | +9.97% | partial_10d |
-| 20260515 | 3624 | 光頡 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 76.20 | 83.80 | +9.97% | partial_10d |
-| 20260515 | 3624 | 光頡 | weekly_change_top20 | over_400 | 76.20 | 83.80 | +9.97% | partial_10d |
 | 20260515 | 3624 | 光頡 | weekly_change_top20 | over_800 | 76.20 | 83.80 | +9.97% | partial_10d |
+| 20260515 | 3624 | 光頡 | weekly_change_top20 | over_1000 | 76.20 | 83.80 | +9.97% | partial_10d |
 | 20260515 | 3624 | 光頡 | weekly_change_top20 | over_600 | 76.20 | 83.80 | +9.97% | partial_10d |
+| 20260515 | 3624 | 光頡 | weekly_change_top20 | over_400 | 76.20 | 83.80 | +9.97% | partial_10d |
+| 20260515 | 3624 | 光頡 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 76.20 | 83.80 | +9.97% | partial_10d |
 | 20260515 | 2355 | 敬鵬 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 52.50 | 57.70 | +9.90% | partial_10d |
-| 20260515 | 2481 | 強茂 | weekly_change_top20 | over_800 | 117.50 | 129.00 | +9.79% | partial_10d |
 | 20260515 | 2481 | 強茂 | weekly_change_top20 | over_1000 | 117.50 | 129.00 | +9.79% | partial_10d |
-| 20260515 | 2481 | 強茂 | weekly_change_top20 | over_400 | 117.50 | 129.00 | +9.79% | partial_10d |
-| 20260515 | 2481 | 強茂 | weekly_change_top20 | over_600 | 117.50 | 129.00 | +9.79% | partial_10d |
 | 20260515 | 2481 | 強茂 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 117.50 | 129.00 | +9.79% | partial_10d |
+| 20260515 | 2481 | 強茂 | weekly_change_top20 | over_400 | 117.50 | 129.00 | +9.79% | partial_10d |
+| 20260515 | 2481 | 強茂 | weekly_change_top20 | over_800 | 117.50 | 129.00 | +9.79% | partial_10d |
+| 20260515 | 2481 | 強茂 | weekly_change_top20 | over_600 | 117.50 | 129.00 | +9.79% | partial_10d |
 | 20260515 | 8042 | 金山電 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 98.10 | 107.50 | +9.58% | partial_10d |
 | 20260515 | 2438 | 翔耀 | weekly_change_top20 | over_800 | 20.65 | 22.20 | +7.51% | partial_10d |
 | 20260515 | 2438 | 翔耀 | weekly_change_top20 | over_600 | 20.65 | 22.20 | +7.51% | partial_10d |
 | 20260515 | 2438 | 翔耀 | weekly_change_top20 | over_400 | 20.65 | 22.20 | +7.51% | partial_10d |
 | 20260515 | 3481 | 群創 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 36.10 | 38.70 | +7.20% | partial_10d |
-| 20260515 | 6173 | 信昌電 | weekly_change_top20 | over_400 | 155.00 | 166.00 | +7.10% | partial_10d |
 | 20260515 | 6173 | 信昌電 | consecutive_2w_all_thresholds | all_400_600_800_1000 | 155.00 | 166.00 | +7.10% | partial_10d |
+| 20260515 | 6173 | 信昌電 | weekly_change_top20 | over_400 | 155.00 | 166.00 | +7.10% | partial_10d |
 
 ## 2.2 D+2 表現排行
 

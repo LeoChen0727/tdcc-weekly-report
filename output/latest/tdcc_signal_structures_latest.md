@@ -1,7 +1,8 @@
 # TDCC Normalized Signal Structures
 
-- generated_at: `2026-05-30 12:48:59 Asia/Taipei`
-- processed_snapshot_window: `latest_26_dates`
+- generated_at: `2026-05-30 13:08:27 Asia/Taipei`
+- processed_snapshot_window: `latest_8_dates`
+- price_metrics_limit: `500`
 - snapshot_rows: `6012`
 - normalized_rows: `6012`
 - theme_breadth_rows: `67`
@@ -12,7 +13,7 @@
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260402 | other | 58 | 34 | 20 | 10 | synchronized_accumulation | A | A | 1217,1323,1402,1410,1443,1452,1455,1460 |
 | 20260410 | other | 56 | 30 | 17 | 10 | synchronized_accumulation | A | A | 1323,1409,1410,1414,1438,1452,1460,1467 |
-| 20260417 | other | 60 | 32 | 13 | 10 | synchronized_accumulation | A | A | 1233,1304,1305,1323,1409,1443,1447,1452 |
+| 20260417 | other | 60 | 32 | 0 | 10 | synchronized_accumulation | A | A | 1233,1304,1305,1323,1409,1443,1447,1452 |
 | 20260424 | other | 58 | 35 | 16 | 10 | synchronized_accumulation | A | A | 1438,1452,1455,1460,1474,1535,1614,1617 |
 | 20260508 | PCB/CCL | 3 | 2 | 0 | 10 | mixed_divergence | B | B | 2355,5464,5439 |
 | 20260430 | other | 63 | 38 | 18 | 10 | synchronized_accumulation | A | A | 1233,1304,1308,1323,1325,1402,1409,1410 |
@@ -65,50 +66,37 @@
 
 | tdcc_consecutive_up_weeks | tdcc_price_phase | signal_count |
 | --- | --- | --- |
-| 25 | tdcc_leading_price | 2 |
-| 25 | tdcc_price_divergence | 2 |
-| 17 | tdcc_leading_price | 1 |
-| 16 | tdcc_leading_price | 1 |
-| 15 | tdcc_leading_price | 1 |
-| 14 | tdcc_price_divergence | 1 |
-| 13 | tdcc_price_divergence | 2 |
-| 11 | tdcc_leading_price | 1 |
-| 10 | tdcc_leading_price | 1 |
-| 9 | insufficient_price_context | 1 |
-| 9 | tdcc_leading_price | 1 |
-| 8 | tdcc_price_divergence | 4 |
-| 8 | tdcc_leading_price | 1 |
-| 7 | tdcc_leading_price | 3 |
-| 7 | tdcc_price_divergence | 2 |
-| 7 | insufficient_price_context | 1 |
+| 7 | tdcc_leading_price | 10 |
+| 7 | tdcc_price_divergence | 8 |
+| 7 | insufficient_price_context | 7 |
+| 6 | insufficient_price_context | 3 |
 | 6 | tdcc_leading_price | 3 |
-| 6 | insufficient_price_context | 2 |
-| 6 | tdcc_price_divergence | 2 |
 | 6 | failed_after_tdcc | 1 |
-| 5 | tdcc_price_divergence | 7 |
+| 6 | tdcc_price_divergence | 1 |
+| 5 | insufficient_price_context | 4 |
+| 5 | tdcc_price_divergence | 3 |
 | 5 | tdcc_leading_price | 2 |
 | 5 | overheated_after_tdcc | 1 |
-| 4 | tdcc_leading_price | 103 |
-| 4 | tdcc_price_divergence | 101 |
-| 4 | insufficient_price_context | 38 |
-| 4 | overheated_after_tdcc | 17 |
-| 4 | price_leading_tdcc | 14 |
-| 4 | tdcc_price_confirmed | 10 |
-| 4 | failed_after_tdcc | 7 |
-| 3 | tdcc_leading_price | 69 |
-| 3 | tdcc_price_divergence | 38 |
-| 3 | insufficient_price_context | 27 |
-| 3 | overheated_after_tdcc | 17 |
-| 3 | price_leading_tdcc | 11 |
-| 3 | failed_after_tdcc | 3 |
-| 3 | tdcc_price_confirmed | 3 |
-| 2 | tdcc_leading_price | 92 |
-| 2 | tdcc_price_divergence | 64 |
-| 2 | insufficient_price_context | 49 |
-| 2 | overheated_after_tdcc | 30 |
-| 2 | price_leading_tdcc | 18 |
-| 2 | failed_after_tdcc | 8 |
-| 2 | tdcc_price_confirmed | 6 |
-| 1 | insufficient_price_context | 373 |
-| 1 | overheated_after_tdcc | 39 |
-| 1 | price_leading_tdcc | 37 |
+| 4 | insufficient_price_context | 145 |
+| 4 | tdcc_leading_price | 61 |
+| 4 | tdcc_price_divergence | 54 |
+| 4 | overheated_after_tdcc | 10 |
+| 4 | price_leading_tdcc | 10 |
+| 4 | failed_after_tdcc | 5 |
+| 4 | tdcc_price_confirmed | 5 |
+| 3 | insufficient_price_context | 104 |
+| 3 | tdcc_leading_price | 27 |
+| 3 | tdcc_price_divergence | 20 |
+| 3 | overheated_after_tdcc | 10 |
+| 3 | price_leading_tdcc | 5 |
+| 3 | tdcc_price_confirmed | 2 |
+| 2 | insufficient_price_context | 183 |
+| 2 | tdcc_leading_price | 31 |
+| 2 | tdcc_price_divergence | 20 |
+| 2 | overheated_after_tdcc | 19 |
+| 2 | price_leading_tdcc | 10 |
+| 2 | failed_after_tdcc | 2 |
+| 2 | tdcc_price_confirmed | 2 |
+| 1 | insufficient_price_context | 420 |
+| 1 | overheated_after_tdcc | 15 |
+| 1 | price_leading_tdcc | 14 |

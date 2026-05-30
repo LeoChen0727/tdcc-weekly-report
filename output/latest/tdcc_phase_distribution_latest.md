@@ -1,6 +1,6 @@
 # TDCC Phase Distribution
 
-- generated_at: 2026-05-30 12:49:26 Asia/Taipei
+- generated_at: 2026-05-30 13:08:58 Asia/Taipei
 - latest_signal_count: 1217
 - phase_mature_d5_count: 81
 - phase_mature_d10_count: 41
@@ -10,129 +10,110 @@
 
 | tdcc_price_phase | sample_count | pct_of_total |
 | --- | --- | --- |
-| insufficient_price_context | 491.0 | 40.35 |
-| tdcc_leading_price | 281.0 | 23.09 |
-| tdcc_price_divergence | 223.0 | 18.32 |
-| overheated_after_tdcc | 104.0 | 8.55 |
-| price_leading_tdcc | 80.0 | 6.57 |
-| failed_after_tdcc | 19.0 | 1.56 |
-| tdcc_price_confirmed | 19.0 | 1.56 |
+| insufficient_price_context | 866.0 | 71.16 |
+| tdcc_leading_price | 134.0 | 11.01 |
+| tdcc_price_divergence | 106.0 | 8.71 |
+| overheated_after_tdcc | 55.0 | 4.52 |
+| price_leading_tdcc | 39.0 | 3.20 |
+| tdcc_price_confirmed | 9.0 | 0.74 |
+| failed_after_tdcc | 8.0 | 0.66 |
 
 ## 連續週數 x Phase
 
 | tdcc_consecutive_up_weeks | tdcc_price_phase | signal_count |
 | --- | --- | --- |
-| 1 | insufficient_price_context | 373.0 |
-| 1 | overheated_after_tdcc | 39.0 |
-| 1 | price_leading_tdcc | 37.0 |
-| 10 | tdcc_leading_price | 1.0 |
-| 11 | tdcc_leading_price | 1.0 |
-| 13 | tdcc_price_divergence | 2.0 |
-| 14 | tdcc_price_divergence | 1.0 |
-| 15 | tdcc_leading_price | 1.0 |
-| 16 | tdcc_leading_price | 1.0 |
-| 17 | tdcc_leading_price | 1.0 |
-| 2 | failed_after_tdcc | 8.0 |
-| 2 | insufficient_price_context | 49.0 |
-| 2 | overheated_after_tdcc | 30.0 |
-| 2 | price_leading_tdcc | 18.0 |
-| 2 | tdcc_leading_price | 92.0 |
-| 2 | tdcc_price_confirmed | 6.0 |
-| 2 | tdcc_price_divergence | 64.0 |
-| 25 | tdcc_leading_price | 2.0 |
-| 25 | tdcc_price_divergence | 2.0 |
-| 3 | failed_after_tdcc | 3.0 |
-| 3 | insufficient_price_context | 27.0 |
-| 3 | overheated_after_tdcc | 17.0 |
-| 3 | price_leading_tdcc | 11.0 |
-| 3 | tdcc_leading_price | 69.0 |
-| 3 | tdcc_price_confirmed | 3.0 |
-| 3 | tdcc_price_divergence | 38.0 |
-| 4 | failed_after_tdcc | 7.0 |
-| 4 | insufficient_price_context | 38.0 |
-| 4 | overheated_after_tdcc | 17.0 |
-| 4 | price_leading_tdcc | 14.0 |
-| 4 | tdcc_leading_price | 103.0 |
-| 4 | tdcc_price_confirmed | 10.0 |
-| 4 | tdcc_price_divergence | 101.0 |
+| 1 | insufficient_price_context | 420.0 |
+| 1 | overheated_after_tdcc | 15.0 |
+| 1 | price_leading_tdcc | 14.0 |
+| 2 | failed_after_tdcc | 2.0 |
+| 2 | insufficient_price_context | 183.0 |
+| 2 | overheated_after_tdcc | 19.0 |
+| 2 | price_leading_tdcc | 10.0 |
+| 2 | tdcc_leading_price | 31.0 |
+| 2 | tdcc_price_confirmed | 2.0 |
+| 2 | tdcc_price_divergence | 20.0 |
+| 3 | insufficient_price_context | 104.0 |
+| 3 | overheated_after_tdcc | 10.0 |
+| 3 | price_leading_tdcc | 5.0 |
+| 3 | tdcc_leading_price | 27.0 |
+| 3 | tdcc_price_confirmed | 2.0 |
+| 3 | tdcc_price_divergence | 20.0 |
+| 4 | failed_after_tdcc | 5.0 |
+| 4 | insufficient_price_context | 145.0 |
+| 4 | overheated_after_tdcc | 10.0 |
+| 4 | price_leading_tdcc | 10.0 |
+| 4 | tdcc_leading_price | 61.0 |
+| 4 | tdcc_price_confirmed | 5.0 |
+| 4 | tdcc_price_divergence | 54.0 |
+| 5 | insufficient_price_context | 4.0 |
 | 5 | overheated_after_tdcc | 1.0 |
 | 5 | tdcc_leading_price | 2.0 |
-| 5 | tdcc_price_divergence | 7.0 |
+| 5 | tdcc_price_divergence | 3.0 |
 | 6 | failed_after_tdcc | 1.0 |
-| 6 | insufficient_price_context | 2.0 |
+| 6 | insufficient_price_context | 3.0 |
 | 6 | tdcc_leading_price | 3.0 |
-| 6 | tdcc_price_divergence | 2.0 |
-| 7 | insufficient_price_context | 1.0 |
-| 7 | tdcc_leading_price | 3.0 |
-| 7 | tdcc_price_divergence | 2.0 |
-| 8 | tdcc_leading_price | 1.0 |
-| 8 | tdcc_price_divergence | 4.0 |
-| 9 | insufficient_price_context | 1.0 |
-| 9 | tdcc_leading_price | 1.0 |
+| 6 | tdcc_price_divergence | 1.0 |
+| 7 | insufficient_price_context | 7.0 |
+| 7 | tdcc_leading_price | 10.0 |
+| 7 | tdcc_price_divergence | 8.0 |
 
 ## TDCC 條件 x Phase
 
 | condition_name | tdcc_price_phase | signal_count |
 | --- | --- | --- |
-| all_thresholds_up | insufficient_price_context | 169.0 |
-| all_thresholds_up | tdcc_leading_price | 138.0 |
-| all_thresholds_up | tdcc_price_divergence | 110.0 |
+| all_thresholds_up | insufficient_price_context | 179.0 |
+| all_thresholds_up | tdcc_leading_price | 134.0 |
+| all_thresholds_up | tdcc_price_divergence | 106.0 |
 | all_thresholds_up | overheated_after_tdcc | 55.0 |
-| all_thresholds_up | price_leading_tdcc | 40.0 |
-| all_thresholds_up | failed_after_tdcc | 9.0 |
+| all_thresholds_up | price_leading_tdcc | 39.0 |
 | all_thresholds_up | tdcc_price_confirmed | 9.0 |
-| high_thresholds_up | insufficient_price_context | 213.0 |
-| high_thresholds_up | tdcc_leading_price | 181.0 |
-| high_thresholds_up | tdcc_price_divergence | 142.0 |
-| high_thresholds_up | overheated_after_tdcc | 60.0 |
-| high_thresholds_up | price_leading_tdcc | 50.0 |
-| high_thresholds_up | failed_after_tdcc | 11.0 |
-| high_thresholds_up | tdcc_price_confirmed | 10.0 |
-| over_800_or_above | insufficient_price_context | 327.0 |
-| over_800_or_above | tdcc_leading_price | 231.0 |
-| over_800_or_above | tdcc_price_divergence | 175.0 |
-| over_800_or_above | overheated_after_tdcc | 78.0 |
-| over_800_or_above | price_leading_tdcc | 65.0 |
-| over_800_or_above | failed_after_tdcc | 15.0 |
-| over_800_or_above | tdcc_price_confirmed | 15.0 |
-| over_1000_only | insufficient_price_context | 50.0 |
-| over_1000_only | tdcc_leading_price | 19.0 |
-| over_1000_only | tdcc_price_divergence | 10.0 |
-| over_1000_only | overheated_after_tdcc | 9.0 |
-| over_1000_only | price_leading_tdcc | 2.0 |
-| over_1000_only | tdcc_price_confirmed | 1.0 |
-| consecutive_2w | tdcc_leading_price | 281.0 |
-| consecutive_2w | tdcc_price_divergence | 223.0 |
-| consecutive_2w | insufficient_price_context | 118.0 |
-| consecutive_2w | overheated_after_tdcc | 65.0 |
-| consecutive_2w | price_leading_tdcc | 43.0 |
-| consecutive_2w | failed_after_tdcc | 19.0 |
-| consecutive_2w | tdcc_price_confirmed | 19.0 |
-| consecutive_3w | tdcc_leading_price | 189.0 |
-| consecutive_3w | tdcc_price_divergence | 159.0 |
-| consecutive_3w | insufficient_price_context | 69.0 |
-| consecutive_3w | overheated_after_tdcc | 35.0 |
-| consecutive_3w | price_leading_tdcc | 25.0 |
-| consecutive_3w | tdcc_price_confirmed | 13.0 |
-| consecutive_3w | failed_after_tdcc | 11.0 |
-| quiet_accumulation | tdcc_leading_price | 106.0 |
-| quiet_accumulation | tdcc_price_divergence | 98.0 |
-| quiet_accumulation | insufficient_price_context | 28.0 |
-| quiet_accumulation | failed_after_tdcc | 7.0 |
-| quiet_accumulation | price_leading_tdcc | 3.0 |
+| all_thresholds_up | failed_after_tdcc | 8.0 |
+| high_thresholds_up | insufficient_price_context | 316.0 |
+| high_thresholds_up | tdcc_leading_price | 134.0 |
+| high_thresholds_up | tdcc_price_divergence | 106.0 |
+| high_thresholds_up | overheated_after_tdcc | 55.0 |
+| high_thresholds_up | price_leading_tdcc | 39.0 |
+| high_thresholds_up | tdcc_price_confirmed | 9.0 |
+| high_thresholds_up | failed_after_tdcc | 8.0 |
+| over_800_or_above | insufficient_price_context | 555.0 |
+| over_800_or_above | tdcc_leading_price | 134.0 |
+| over_800_or_above | tdcc_price_divergence | 106.0 |
+| over_800_or_above | overheated_after_tdcc | 55.0 |
+| over_800_or_above | price_leading_tdcc | 39.0 |
+| over_800_or_above | tdcc_price_confirmed | 9.0 |
+| over_800_or_above | failed_after_tdcc | 8.0 |
+| over_1000_only | insufficient_price_context | 91.0 |
+| consecutive_2w | insufficient_price_context | 446.0 |
+| consecutive_2w | tdcc_leading_price | 134.0 |
+| consecutive_2w | tdcc_price_divergence | 106.0 |
+| consecutive_2w | overheated_after_tdcc | 40.0 |
+| consecutive_2w | price_leading_tdcc | 25.0 |
+| consecutive_2w | tdcc_price_confirmed | 9.0 |
+| consecutive_2w | failed_after_tdcc | 8.0 |
+| consecutive_3w | insufficient_price_context | 263.0 |
+| consecutive_3w | tdcc_leading_price | 103.0 |
+| consecutive_3w | tdcc_price_divergence | 86.0 |
+| consecutive_3w | overheated_after_tdcc | 21.0 |
+| consecutive_3w | price_leading_tdcc | 15.0 |
+| consecutive_3w | tdcc_price_confirmed | 7.0 |
+| consecutive_3w | failed_after_tdcc | 6.0 |
+| quiet_accumulation | insufficient_price_context | 91.0 |
+| quiet_accumulation | tdcc_leading_price | 86.0 |
+| quiet_accumulation | tdcc_price_divergence | 76.0 |
+| quiet_accumulation | failed_after_tdcc | 5.0 |
+| quiet_accumulation | price_leading_tdcc | 2.0 |
 | quiet_accumulation | tdcc_price_confirmed | 1.0 |
 | early_breakout | tdcc_leading_price | 2.0 |
 | early_breakout | insufficient_price_context | 1.0 |
-| strong_momentum | insufficient_price_context | 42.0 |
-| strong_momentum | price_leading_tdcc | 25.0 |
-| strong_momentum | tdcc_leading_price | 10.0 |
-| strong_momentum | tdcc_price_confirmed | 7.0 |
-| strong_momentum | tdcc_price_divergence | 4.0 |
+| strong_momentum | insufficient_price_context | 26.0 |
+| strong_momentum | price_leading_tdcc | 15.0 |
+| strong_momentum | tdcc_leading_price | 6.0 |
+| strong_momentum | tdcc_price_confirmed | 4.0 |
+| strong_momentum | tdcc_price_divergence | 2.0 |
 | strong_momentum | overheated_after_tdcc | 1.0 |
-| overheated | overheated_after_tdcc | 104.0 |
-| overheated | insufficient_price_context | 34.0 |
-| overheated | price_leading_tdcc | 29.0 |
-| overheated | tdcc_leading_price | 6.0 |
+| overheated | overheated_after_tdcc | 55.0 |
+| overheated | price_leading_tdcc | 17.0 |
+| overheated | insufficient_price_context | 9.0 |
 
 ## Phase 後續成熟績效
 
@@ -141,9 +122,9 @@
 | tdcc_price_phase | mature_sample_d5 | avg_ret_d5 | avg_relative_ret_d5 | mature_sample_d10 | avg_ret_d10 | avg_relative_ret_d10 | mature_sample_d20 | avg_ret_d20 | avg_relative_ret_d20 | avg_mfe_d10 | avg_mae_d10 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | failed_after_tdcc | 0.0 |  |  | 0.0 |  |  | 0.0 |  |  |  |  |
-| insufficient_price_context | 11.0 | 13.80 | 10.44 | 9.0 | 20.05 | 11.05 | 0.0 |  |  | 29.87 | -3.55 |
-| overheated_after_tdcc | 42.0 | 8.41 | 6.26 | 18.0 | 22.85 | 13.31 | 0.0 |  |  | 29.50 | -6.79 |
-| price_leading_tdcc | 18.0 | 6.17 | 3.62 | 8.0 | 13.39 | 10.33 | 0.0 |  |  | 21.08 | -7.07 |
+| insufficient_price_context | 17.0 | 8.52 | 6.22 | 11.0 | 18.69 | 8.67 | 0.0 |  |  | 27.23 | -5.27 |
+| overheated_after_tdcc | 39.0 | 9.05 | 7.27 | 16.0 | 24.13 | 15.66 | 0.0 |  |  | 31.28 | -6.01 |
+| price_leading_tdcc | 16.0 | 7.13 | 4.93 | 8.0 | 13.39 | 10.33 | 0.0 |  |  | 21.08 | -7.07 |
 | tdcc_leading_price | 6.0 | 4.11 | 0.78 | 5.0 | 3.11 | 4.43 | 0.0 |  |  | 11.62 | -5.94 |
-| tdcc_price_confirmed | 3.0 | 2.10 |  | 0.0 |  |  | 0.0 |  |  |  |  |
+| tdcc_price_confirmed | 2.0 | 5.29 |  | 0.0 |  |  | 0.0 |  |  |  |  |
 | tdcc_price_divergence | 1.0 | -1.74 | -4.68 | 1.0 | 19.34 |  | 0.0 |  |  | 19.34 | -11.15 |
