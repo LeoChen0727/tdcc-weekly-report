@@ -1,6 +1,6 @@
 # 官方每日價格資料抓取狀態
 
-- 產生時間：`2026-05-30 05:29:33 Asia/Taipei`
+- 產生時間：`2026-05-30 23:29:42 Asia/Taipei`
 - target_date：`20260530`
 - saved_price_date：`20260530`
 - is_target_date：`True`
