@@ -142,6 +142,7 @@ function triggerResearchBacktestPipeline() {
     run_catalyst_performance: "true",
     run_msci_rebalance: "true",
     run_tdcc_signal_performance: "true",
+    run_model_parameter_research: "true",
   });
   Utilities.sleep(5000);
   logLatestWorkflowRuns_("research_backtest_pipeline.yml");

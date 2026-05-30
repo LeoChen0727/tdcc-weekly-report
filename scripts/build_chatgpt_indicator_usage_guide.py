@@ -128,6 +128,8 @@ def build_guide() -> str:
     daily_model_signals = read_csv(LATEST_DIR / "daily_candidate_model_signals_latest.csv")
     daily_model_packet = LATEST_DIR / "daily_candidate_model_layer_packet_latest.md"
     daily_group_rotation = read_csv(LATEST_DIR / "daily_candidate_group_rotation_latest.csv")
+    daily_model_research = read_csv(LATEST_DIR / "daily_model_parameter_research_latest.csv")
+    daily_model_research_detail = read_csv(LATEST_DIR / "daily_model_parameter_research_horizon_detail_latest.csv")
     non_revenue_momentum = read_csv(LATEST_DIR / "non_revenue_momentum_watch_latest.csv")
     msci_rebalance = read_csv(LATEST_DIR / "msci_taiwan_rebalance_backtest_latest.csv")
 
@@ -191,6 +193,13 @@ def build_guide() -> str:
             "theme, stock_count, volume_expansion_3x_count, volume_expansion_ratio, leader_1/2/3",
             f"rows={len(daily_group_rotation)}",
             "Theme-flow section only. It is not an individual stock buy model.",
+        ],
+        [
+            "Daily model parameter research",
+            "output/latest/daily_model_parameter_research_latest.csv",
+            "model_id, parameter_set_id, entry_basis, selected_stock_days, best_horizon_by_avg_return, best_d1_to_d10_close_win_rate_pct, sample_status",
+            f"rows={len(daily_model_research)} / details={len(daily_model_research_detail)} / {count_values(daily_model_research, 'sample_status')}",
+            "Research/backtest layer only. Entry is next trading day open; D+1-D+10 close/high endpoints are in the horizon detail table. Use to tune future parameters, not as PDF-side veto logic.",
         ],
         [
             "Daily short-term specialty packet",
@@ -400,6 +409,8 @@ def build_guide() -> str:
     lines.append("- Do not hard-code the number of models. Render the model rows present in `daily_candidate_model_parameters_latest.csv` and the matching candidates in `daily_candidate_model_signals_latest.csv`.")
     lines.append("- Mainstream/non-mainstream is a report split and comparison group only. It must not cap score, veto a signal, or remove a stock from a model list.")
     lines.append("- Use `model_score`, `model_rank`, `score_components`, `risk_penalty_tags`, and `report_bucket` for per-model ranking. Curated PDFs should show top rows per model/bucket; full PDFs should keep the complete model list.")
+    lines.append("- Use `daily_model_parameter_research_latest.csv` and `daily_model_parameter_research_horizon_detail_latest.csv` only as model-parameter evidence. The backtest entry basis is signal-date next open; close-return and high-return endpoints are separate for D+1 through D+10.")
+    lines.append("- Do not promote research-only rules to a PDF core section until the program-side model parameter file explicitly promotes them.")
     lines.append("- If the model layer is missing, fall back to `daily_candidate_decision_chatgpt_packet_latest.md` or `daily_candidate_decision_latest.csv` and explicitly mark model-layer data unavailable.")
     lines.append("- Also read `daily_short_term_specialty_packet_latest.md`; it is the mandatory source for standalone D+1-D+10 short-term specialty summary plus D+5/D+10 detail sections.")
     lines.append("- Use `decision_priority` as the primary reporting priority: `A_priority_watch`, `B_confirm_needed`, `C_watch_only`, `D_risk_downgrade`.")

@@ -43,6 +43,8 @@ The normal daily pipeline must be able to finish without long research jobs.
 - Long research outputs are refreshed by `research_backtest_pipeline.yml`.
 - TDCC historical data is backfilled by `tdcc_history_backfill.yml`.
 - Daily report logic must keep these research sections separate from the six core candidate categories and must not alter core weights unless the backtest rules later mark them mature.
+- `daily_model_parameter_research_latest.csv/md` and `daily_model_parameter_research_horizon_detail_latest.csv/md` are the formal evidence tables for model parameter tuning. They use signal-date next trading day open as entry and report D+1 through D+10 close-return and high-return endpoints separately.
+- These parameter research tables are not PDF-side selection rules. They can support future promotion of parameter sets into `daily_candidate_model_parameters_latest.csv`, but ChatGPT must not promote a research-only row by itself.
 
 ## Program-Side Fields Are Binding
 
@@ -104,6 +106,7 @@ Specialty sections are allowed and required when their program-side files or fie
 Required specialty sections when data exists:
 
 - `daily_short_term_specialty_packet_latest.md`: standalone D+5 / D+10 short-term specialty.
+- `daily_model_parameter_research_latest.md/csv` and `daily_model_parameter_research_horizon_detail_latest.md/csv`: standalone model-parameter research and tuning evidence. Use for backtest discussion and parameter review, not as a hard-coded PDF model list unless the program-side model layer promotes the rule.
 - `market_abnormal_status_latest.md/csv`: official TWSE/TPEx disposition, attention, periodic-trading, altered-trading, managed-stock, and suspension flags.
 - `msci_taiwan_rebalance_backtest_latest.md/csv` and `msci_taiwan_rebalance_events_latest.csv`: MSCI Taiwan addition/deletion event-tag research. Use first trading day after effective date open as the entry basis and D+5/D+10/D+15/D+20 close as exits. Treat this like disposition/attention data: an event tag and research overlay, not a standalone buy/sell signal or core ranking category.
 - `tdcc_overheated_short_term_edge_latest.md/csv`: standalone TDCC overheated short-term edge.

@@ -14,7 +14,10 @@ DATA_DIR.mkdir(parents=True, exist_ok=True)
 OUTPUT_DIR.mkdir(exist_ok=True)
 
 
-LOOKBACK_DAYS = 180
+# Keep enough price history for 180D chart windows plus D+20 model validation.
+# This is intentionally larger than the daily report window; it is used by the
+# manual backfill workflow, not the daily pipeline.
+LOOKBACK_DAYS = 420
 
 MIN_TWSE_ROWS = 700
 MIN_TPEX_ROWS = 500

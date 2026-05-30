@@ -23,8 +23,10 @@ Last updated: 2026-05-28
 | workflow | purpose | normal trigger |
 |---|---|---|
 | `.github/workflows/daily_full_pipeline.yml` | daily report-critical artifacts, packets, rules, and PDFs | manual daily run; heavy options default off |
-| `.github/workflows/research_backtest_pipeline.yml` | long backtests, weekly surge parameter research, surge model, signal performance reports | manual research refresh |
+| `.github/workflows/research_backtest_pipeline.yml` | long backtests, weekly surge parameter research, surge model, signal performance reports | manual dispatch or external biweekly Apps Script trigger |
 | `.github/workflows/tdcc_history_backfill.yml` | TDCC historical data backfill and bounded derived-output rebuild | manual backfill |
+
+Research/backtest workflows must not contain hidden internal date gates. If a workflow run is created, it should run the selected research steps. Biweekly cadence belongs to the external scheduler, not to an in-workflow skip step.
 
 ## Conflict Handling
 
