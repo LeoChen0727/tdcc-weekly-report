@@ -1,32 +1,43 @@
 # TDCC Weekly Run Status
 
-- 執行時間：`2026-05-23 17:54:52 Asia/Taipei`
-- GitHub run：https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/26329717502
-- commit：`8f23f31ed8b19545b931ae0b04d0429efb6a33ad`
+- generated_at: `2026-05-30 12:49:27 Asia/Taipei`
+- github_run: https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/26674744889
+- commit: `76c4cf9d21a9b47c3b15f89c5858fa79e2df8565`
 
-## 檔案狀態
+## Outputs
 
-| 檔案 | 是否存在 | 行數 | 最後修改時間 |
-|---|---:|---:|---|
-| `output/latest/tdcc_weekly_report_latest.md` | ✅ | 146 | 2026-05-23 17:54:39 Asia/Taipei |
-| `output/latest/tdcc_holder_ratio_latest.csv` | ✅ | 1972 | 2026-05-23 17:54:39 Asia/Taipei |
-| `output/latest/tdcc_signal_performance_latest.md` | ✅ | 391 | 2026-05-23 17:54:52 Asia/Taipei |
-| `output/history/tdcc_signals/tdcc_signal_log.csv` | ✅ | 201 | 2026-05-23 17:54:40 Asia/Taipei |
-| `output/history/tdcc_signals/tdcc_signal_performance.csv` | ✅ | 201 | 2026-05-23 17:54:52 Asia/Taipei |
+| file | exists | lines |
+|---|---:|---:|
+| `output/latest/tdcc_weekly_report_latest.md` | yes | 146 |
+| `output/latest/tdcc_holder_ratio_latest.csv` | yes | 1973 |
+| `output/latest/tdcc_signal_performance_latest.md` | yes | 457 |
+| `output/latest/tdcc_signal_structures_latest.md` | yes | 114 |
+| `output/latest/tdcc_stock_history_manifest.csv` | yes | 1973 |
+| `output/latest/tdcc_history_backfill_manifest_latest.md` | yes | 52 |
+| `output/latest/tdcc_pre_move_accumulation_latest.md` | yes | 169 |
+| `output/latest/tdcc_signal_effectiveness_latest.md` | yes | 259 |
+| `output/latest/tdcc_strength_ranking_top_latest.md` | yes | 61 |
+| `output/latest/tdcc_strength_ranking_top_latest.csv` | yes | 51 |
+| `output/latest/tdcc_pre_move_abm_top_latest.md` | yes | 62 |
+| `output/latest/tdcc_pre_move_abm_top_latest.csv` | yes | 51 |
+| `output/latest/tdcc_phase_distribution_latest.md` | yes | 149 |
+| `output/latest/tdcc_phase_distribution_latest.csv` | yes | 121 |
+| `output/latest/tdcc_top_risk_list_latest.md` | yes | 79 |
+| `output/latest/tdcc_top_risk_list_latest.csv` | yes | 61 |
+| `output/latest/tdcc_chatgpt_tracking_packet_latest.md` | yes | 525 |
+| `output/latest/tdcc_chatgpt_tracking_validation_latest.md` | yes | 14 |
+| `output/latest/tdcc_chatgpt_tracking_validation_latest.json` | yes | 5 |
+| `output/history/tdcc_signals/tdcc_signal_log.csv` | yes | 301 |
+| `output/history/tdcc_signals/tdcc_signal_performance.csv` | yes | 301 |
+| `output/history/tdcc_signals/tdcc_signal_snapshot.csv` | yes | 6013 |
+| `output/history/tdcc_signals/tdcc_normalized_signal_log.csv` | yes | 6013 |
+| `output/history/tdcc_signals/theme_breadth_history.csv` | yes | 68 |
+| `output/history/tdcc_signals/tdcc_pre_move_accumulation_history.csv` | yes | 2413 |
+| `output/history/tdcc_signals/tdcc_signal_factor_stats_monthly.csv` | yes | 37 |
 
-## Git 變更摘要
+## Notes
 
-```text
- M README.md
- M output/history/tdcc_signals/tdcc_signal_log.csv
- M output/history/tdcc_signals/tdcc_signal_performance.csv
- M output/latest/tdcc_signal_performance_latest.md
- M output/latest/tdcc_weekly_run_status.md
- M output/tdcc_signal_performance_latest.md
-```
-
-## 說明
-
-- 這個檔案用來確認 TDCC Weekly Report workflow 是否有實際執行。
-- 如果 TDCC 官方資料日期沒有變，週報主檔內容可能不會更新，但本 status 檔仍會更新。
-- 若 signal tracker 成功，應看到 tdcc_signal_log.csv、tdcc_signal_performance.csv、tdcc_signal_performance_latest.md。
+- Normalized signal files dedupe by one stock per TDCC week.
+- ABM ranking is separated from TDCC strength ranking.
+- TDCC performance/effectiveness backtests are maintained by research_backtest_pipeline.yml.
+- Pending D+N performance is not treated as positive or negative.
