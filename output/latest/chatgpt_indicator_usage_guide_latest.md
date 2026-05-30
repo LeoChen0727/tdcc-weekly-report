@@ -1,6 +1,6 @@
 # ChatGPT Indicator Usage Guide
 
-- generated_at: `2026-05-30 12:32:45 UTC`
+- generated_at: `2026-05-30 20:42:50 台北標準時間`
 - main_price_date: `20260529`
 - purpose: Use program-side classifications first. ChatGPT should explain and synthesize, not re-rank from memory.
 - rule: If memory, PDF, or ad-hoc interpretation conflicts with program-side fields, use the structured program-side fields.
@@ -29,7 +29,7 @@
 ## Program-Side Classification Coverage
 | layer | file | classification fields | current buckets | ChatGPT use |
 | --- | --- | --- | --- | --- |
-| Independent daily candidate models | output/latest/daily_candidate_model_layer_packet_latest.md | daily_candidate_model_parameters, daily_candidate_model_signals, model_rank, report_bucket, selection_semantics | models=15 / signals=1488 / packet=ready | Main condition met means selected into that model. Score/risk ranks inside the model. Mainstream/non-mainstream is a report split, not a score cap or veto. |
+| Independent daily candidate models | output/latest/daily_candidate_model_layer_packet_latest.md | daily_candidate_model_parameters, daily_candidate_model_signals, model_rank, report_bucket, selection_semantics | models=15 / signals=1507 / packet=ready | Main condition met means selected into that model. Score/risk ranks inside the model. Mainstream/non-mainstream is a report split, not a score cap or veto. |
 | Group fund rotation | output/latest/daily_candidate_group_rotation_latest.csv | theme, stock_count, volume_expansion_3x_count, volume_expansion_ratio, leader_1/2/3 | rows=1 | Theme-flow section only. It is not an individual stock buy model. |
 | Daily model parameter research | output/latest/daily_model_parameter_research_latest.csv | model_id, parameter_set_id, entry_basis, selected_stock_days, best_horizon_by_avg_return, best_d1_to_d10_close_win_rate_pct, sample_status | rows=74 / details=814 / ok_first_pass=74 | Research/backtest layer only. Entry is next trading day open; D+1-D+10 close/high endpoints are in the horizon detail table. Use to tune future parameters, not as PDF-side veto logic. |
 | Daily model parameter recommendations | output/latest/daily_model_parameter_recommendations_latest.csv | model_id, parameter_set_id, recommended_usage, recommended_close_exit_horizon, best_close_win_rate_pct, model_revision_note | rows=74 / intraday_target_watch=56; research_only=14; promote_to_pdf_core=2; score_component_only=2 | Program-side conversion from backtest to reporting usage. Use this for whether a parameter is core, secondary, intraday-target only, or research-only. |

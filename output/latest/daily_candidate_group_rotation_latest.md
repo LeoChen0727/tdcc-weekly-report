@@ -1,6 +1,6 @@
 # Daily Candidate Group Rotation
 
-- generated_at: `2026-05-30 15:29:26 Asia/Taipei`
+- generated_at: `2026-05-30 20:40:50 Asia/Taipei`
 
 - This is theme flow detection, not a stock buy model.
 - Condition: same theme has at least one third of listed candidate rows with volume ratio >= 3x.

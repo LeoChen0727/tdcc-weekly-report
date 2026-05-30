@@ -49,6 +49,11 @@ REQUIRED_SIGNAL_COLUMNS = {
     "model_score",
     "model_rank",
     "selection_semantics",
+    "recommended_usage",
+    "recommended_close_exit_horizon",
+    "best_close_win_rate_pct",
+    "best_avg_close_return_pct",
+    "model_revision_note",
 }
 
 

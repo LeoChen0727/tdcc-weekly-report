@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from build_daily_candidate_model_layer import (  # noqa: E402
+    attach_model_recommendations,
     build_parameter_table,
     build_specs,
     cond_pullback,
@@ -145,6 +146,39 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         self.assertEqual(model_score_common(mainstream)[0], model_score_common(non_mainstream)[0])
         self.assertEqual(report_bucket(mainstream), "mainstream")
         self.assertEqual(report_bucket(non_mainstream), "non_mainstream")
+
+    def test_model_recommendations_are_attached_to_signals(self) -> None:
+        signals = pd.DataFrame(
+            [
+                {
+                    "model_id": "tdcc_short_term_continuation_d5_d10",
+                    "stock_id": "9999",
+                    "model_score": 80,
+                }
+            ]
+        )
+        recs = pd.DataFrame(
+            [
+                {
+                    "model_id": "tdcc_short_term_continuation_d5_d10",
+                    "recommended_usage": "promote_to_pdf_core",
+                    "recommended_close_exit_horizon": "D+10",
+                    "best_close_win_rate_pct": "76.71",
+                    "best_avg_close_return_pct": "15.56",
+                    "recommended_high_exit_horizon": "D+10",
+                    "best_avg_high_return_pct": "21.3",
+                    "best_high_5pct_hit_rate_pct": "70.0",
+                    "recommended_sample_size": "161",
+                    "recommended_unique_stocks": "107",
+                    "recommended_sample_status": "ok_first_pass",
+                    "model_revision_note": "Promote to specialty table.",
+                }
+            ]
+        )
+        out = attach_model_recommendations(signals, recs)
+        self.assertEqual(out.loc[0, "recommended_usage"], "promote_to_pdf_core")
+        self.assertEqual(out.loc[0, "recommended_close_exit_horizon"], "D+10")
+        self.assertEqual(out.loc[0, "best_close_win_rate_pct"], "76.71")
 
 
 if __name__ == "__main__":

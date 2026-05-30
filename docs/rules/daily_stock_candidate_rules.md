@@ -45,7 +45,7 @@ The normal daily pipeline must be able to finish without long research jobs.
 - Daily report logic must keep these research sections separate from the six core candidate categories and must not alter core weights unless the backtest rules later mark them mature.
 - `daily_model_parameter_research_latest.csv/md` and `daily_model_parameter_research_horizon_detail_latest.csv/md` are the formal evidence tables for model parameter tuning. They use signal-date next trading day open as entry and report D+1 through D+10 close-return and high-return endpoints separately.
 - `daily_model_parameter_recommendations_latest.csv/md` is the program-side interpretation layer for these backtests. It may mark a parameter as `promote_to_pdf_core`, `pdf_secondary_watch`, `score_component_only`, `intraday_target_watch`, or `research_only`.
-- These parameter research and recommendation tables are not PDF-side selection rules. They can support future promotion of parameter sets into `daily_candidate_model_parameters_latest.csv`, but ChatGPT must not promote a research-only row by itself.
+- These parameter research and recommendation tables are not PDF-side selection rules. The program-side model layer attaches the current recommendation fields into `daily_candidate_model_parameters_latest.csv` and `daily_candidate_model_signals_latest.csv`; ChatGPT must read those fields and must not promote a research-only row by itself.
 
 ## Program-Side Fields Are Binding
 
@@ -108,7 +108,7 @@ Required specialty sections when data exists:
 
 - `daily_short_term_specialty_packet_latest.md`: standalone D+5 / D+10 short-term specialty.
 - `daily_model_parameter_research_latest.md/csv` and `daily_model_parameter_research_horizon_detail_latest.md/csv`: standalone model-parameter research and tuning evidence. Use for backtest discussion and parameter review, not as a hard-coded PDF model list unless the program-side model layer promotes the rule.
-- `daily_model_parameter_recommendations_latest.md/csv`: program-side model-parameter usage recommendation. Use this file to decide whether a backtested parameter is ready for PDF core display, secondary watch, score component only, intraday-target watch, or research-only status.
+- `daily_model_parameter_recommendations_latest.md/csv`: program-side model-parameter usage recommendation. The same recommendation fields are also joined into `daily_candidate_model_signals_latest.csv`. Use these fields to decide whether a backtested parameter is ready for PDF core display, secondary watch, score component only, intraday-target watch, or research-only status.
 - `market_abnormal_status_latest.md/csv`: official TWSE/TPEx disposition, attention, periodic-trading, altered-trading, managed-stock, and suspension flags.
 - `msci_taiwan_rebalance_backtest_latest.md/csv` and `msci_taiwan_rebalance_events_latest.csv`: MSCI Taiwan addition/deletion event-tag research. Use first trading day after effective date open as the entry basis and D+5/D+10/D+15/D+20 close as exits. Treat this like disposition/attention data: an event tag and research overlay, not a standalone buy/sell signal or core ranking category.
 - `tdcc_overheated_short_term_edge_latest.md/csv`: standalone TDCC overheated short-term edge.

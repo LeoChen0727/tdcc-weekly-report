@@ -25,6 +25,7 @@ from tracking_utils import (  # noqa: E402
 ALL_CANDIDATES = LATEST_DIR / "all_candidates_latest.csv"
 TDCC_EDGE_CANDIDATES = LATEST_DIR / "tdcc_overheated_short_term_edge_candidates_latest.csv"
 WEEKLY_SURGE_CANDIDATES = LATEST_DIR / "weekly_surge_strict_parameter_candidates_latest.csv"
+MODEL_PARAMETER_RECOMMENDATIONS = LATEST_DIR / "daily_model_parameter_recommendations_latest.csv"
 
 PARAMETERS_CSV = LATEST_DIR / "daily_candidate_model_parameters_latest.csv"
 PARAMETERS_MD = LATEST_DIR / "daily_candidate_model_parameters_latest.md"
@@ -35,6 +36,21 @@ ROTATION_MD = LATEST_DIR / "daily_candidate_group_rotation_latest.md"
 PACKET_MD = LATEST_DIR / "daily_candidate_model_layer_packet_latest.md"
 VALIDATION_JSON = LATEST_DIR / "daily_candidate_model_layer_validation_latest.json"
 VALIDATION_MD = LATEST_DIR / "daily_candidate_model_layer_validation_latest.md"
+
+
+RECOMMENDATION_COLUMNS = [
+    "recommended_usage",
+    "recommended_close_exit_horizon",
+    "best_close_win_rate_pct",
+    "best_avg_close_return_pct",
+    "recommended_high_exit_horizon",
+    "best_avg_high_return_pct",
+    "best_high_5pct_hit_rate_pct",
+    "recommended_sample_size",
+    "recommended_unique_stocks",
+    "recommended_sample_status",
+    "model_revision_note",
+]
 
 
 CORE_AI_BUCKETS = {
@@ -567,6 +583,59 @@ def build_parameter_table(specs: list[ModelSpec]) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
+def load_model_recommendations() -> pd.DataFrame:
+    recs = read_csv(MODEL_PARAMETER_RECOMMENDATIONS, dtype=str, keep_default_na=False)
+    if recs.empty or "model_id" not in recs.columns:
+        return pd.DataFrame(columns=["model_id", *RECOMMENDATION_COLUMNS])
+
+    work = recs.copy()
+    usage_order = {
+        "promote_to_pdf_core": 1,
+        "pdf_secondary_watch": 2,
+        "score_component_only": 3,
+        "intraday_target_watch": 4,
+        "research_only": 9,
+    }
+    work["_usage_order"] = work.get("recommended_usage", "").map(usage_order).fillna(8)
+    work["_avg_close"] = pd.to_numeric(work.get("best_avg_close_return_pct", ""), errors="coerce").fillna(-999)
+    work["_win_close"] = pd.to_numeric(work.get("best_close_win_rate_pct", ""), errors="coerce").fillna(-999)
+    work["_sample"] = pd.to_numeric(work.get("selected_stock_days", ""), errors="coerce").fillna(0)
+    work = work.sort_values(
+        ["model_id", "_usage_order", "_avg_close", "_win_close", "_sample"],
+        ascending=[True, True, False, False, False],
+    )
+    best = work.groupby("model_id", as_index=False).head(1).copy()
+    rename = {
+        "selected_stock_days": "recommended_sample_size",
+        "selected_unique_stocks": "recommended_unique_stocks",
+        "sample_status": "recommended_sample_status",
+    }
+    best = best.rename(columns=rename)
+    keep = ["model_id", *RECOMMENDATION_COLUMNS]
+    for col in keep:
+        if col not in best.columns:
+            best[col] = ""
+    return best[keep].reset_index(drop=True)
+
+
+def attach_model_recommendations(signals: pd.DataFrame, recommendations: pd.DataFrame) -> pd.DataFrame:
+    if signals.empty:
+        for col in RECOMMENDATION_COLUMNS:
+            signals[col] = ""
+        return signals
+    if recommendations.empty:
+        out = signals.copy()
+        for col in RECOMMENDATION_COLUMNS:
+            out[col] = ""
+        return out
+    out = signals.merge(recommendations, on="model_id", how="left")
+    for col in RECOMMENDATION_COLUMNS:
+        if col not in out.columns:
+            out[col] = ""
+        out[col] = out[col].fillna("")
+    return out
+
+
 def build_signals(candidates: pd.DataFrame, specs: list[ModelSpec], signal_date: str) -> pd.DataFrame:
     rows: list[dict[str, Any]] = []
     if candidates.empty:
@@ -772,7 +841,19 @@ def write_packet(params: pd.DataFrame, signals: pd.DataFrame, rotation: pd.DataF
         "",
         "## Model Parameters",
         "",
-        params[["model_id", "model_name_zh", "pdf_visibility", "entry_basis", "main_conditions"]].to_markdown(index=False),
+        params[
+            [
+                "model_id",
+                "model_name_zh",
+                "pdf_visibility",
+                "entry_basis",
+                "recommended_usage",
+                "recommended_close_exit_horizon",
+                "best_close_win_rate_pct",
+                "best_avg_close_return_pct",
+                "main_conditions",
+            ]
+        ].to_markdown(index=False),
         "",
         "## Signal Counts",
         "",
@@ -795,7 +876,14 @@ def main() -> int:
     signal_date = main_price_date_from_freshness()
     candidates = read_csv(ALL_CANDIDATES, dtype=str, keep_default_na=False)
     specs = build_specs()
+    recommendations = load_model_recommendations()
     params = build_parameter_table(specs)
+    if not recommendations.empty:
+        params = params.merge(recommendations, on="model_id", how="left")
+        for col in RECOMMENDATION_COLUMNS:
+            if col not in params.columns:
+                params[col] = ""
+            params[col] = params[col].fillna("")
     write_csv(params, PARAMETERS_CSV)
     write_md_table(
         PARAMETERS_MD,
@@ -811,6 +899,7 @@ def main() -> int:
 
     signals = build_signals(candidates, specs, signal_date)
     signals = append_tdcc_short_term(signals, signal_date)
+    signals = attach_model_recommendations(signals, recommendations)
     write_csv(signals, SIGNALS_CSV)
     write_md_table(
         SIGNALS_MD,
