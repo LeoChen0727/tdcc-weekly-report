@@ -35,6 +35,10 @@ on:
         description: "Run MSCI Taiwan rebalance event backtest"
         required: false
         default: "true"
+      run_tdcc_signal_performance:
+        description: "Run TDCC normalized signal performance/effectiveness backtest"
+        required: false
+        default: "true"
 
 permissions:
   contents: write
@@ -75,6 +79,15 @@ jobs:
       - name: Build TDCC overheated short-term edge
         run: |
           python scripts/build_tdcc_overheated_short_term_edge.py
+
+      - name: Build TDCC normalized signal performance and effectiveness
+        if: ${{ github.event.inputs.run_tdcc_signal_performance == 'true' }}
+        run: |
+          python scripts/build_tdcc_signal_structures.py
+          python scripts/update_tdcc_normalized_signal_performance.py
+          python scripts/build_tdcc_signal_effectiveness_report.py
+          python scripts/build_tdcc_chatgpt_tracking_outputs.py
+          python scripts/validate_tdcc_chatgpt_tracking_outputs.py
 
       - name: Build weekly surge parameter research
         if: ${{ github.event.inputs.run_weekly_surge == 'true' }}
@@ -142,6 +155,7 @@ jobs:
           git add output/history/surge_model/ || true
           git add output/history/market_timing/ || true
           git add output/history/daily_signals/ || true
+          git add output/history/tdcc_signals/ || true
           git add output/history/catalyst_performance/ || true
           git add output/history/msci_index_reviews/ || true
           git add data/msci_index_reviews/ || true
@@ -152,6 +166,9 @@ jobs:
           git add output/latest/tdcc_overheated_short_term_edge_latest.csv || true
           git add output/latest/tdcc_overheated_short_term_edge_latest.md || true
           git add output/latest/tdcc_overheated_short_term_edge_candidates_latest.csv || true
+          git add output/latest/tdcc_signal_effectiveness_latest.csv output/latest/tdcc_signal_effectiveness_latest.md || true
+          git add output/latest/tdcc_chatgpt_tracking_packet_latest.md output/latest/tdcc_chatgpt_tracking_validation_latest.* || true
+          git add output/latest/tdcc_strength_ranking_top_latest.* output/latest/tdcc_pre_move_abm_top_latest.* output/latest/tdcc_phase_distribution_latest.* output/latest/tdcc_top_risk_list_latest.* || true
           git add output/latest/daily_short_term_specialty_packet_latest.md || true
           git add output/history/volume_breakout/ || true
           git add output/latest/volume_breakout_*.csv output/latest/volume_breakout_*.md || true
@@ -171,6 +188,7 @@ jobs:
           git add docs/latest/ || true
           git add scripts/build_market_timing_technical_backtest.py || true
           git add scripts/build_tdcc_overheated_short_term_edge.py || true
+          git add scripts/build_tdcc_signal_structures.py scripts/update_tdcc_normalized_signal_performance.py scripts/build_tdcc_signal_effectiveness_report.py scripts/build_tdcc_chatgpt_tracking_outputs.py scripts/validate_tdcc_chatgpt_tracking_outputs.py || true
           git add scripts/build_daily_short_term_specialty_packet.py || true
           git add scripts/build_volume_breakout_watch.py || true
           git add scripts/validate_volume_breakout_watch.py || true

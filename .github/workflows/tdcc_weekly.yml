@@ -24,7 +24,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pandas requests lxml html5lib tabulate
+          pip install pandas requests lxml html5lib tabulate matplotlib
 
       - name: Run TDCC weekly report
         run: |
@@ -45,14 +45,6 @@ jobs:
       - name: Build TDCC pre-move accumulation report
         run: |
           python scripts/build_tdcc_pre_move_accumulation.py
-
-      - name: Update normalized TDCC signal performance
-        run: |
-          python scripts/update_tdcc_normalized_signal_performance.py
-
-      - name: Build TDCC signal effectiveness report
-        run: |
-          python scripts/build_tdcc_signal_effectiveness_report.py
 
       - name: Build TDCC ChatGPT tracking outputs
         run: |
@@ -121,6 +113,7 @@ jobs:
             echo ""
             echo "- Normalized signal files dedupe by one stock per TDCC week."
             echo "- ABM ranking is separated from TDCC strength ranking."
+            echo "- TDCC performance/effectiveness backtests are maintained by research_backtest_pipeline.yml."
             echo "- Pending D+N performance is not treated as positive or negative."
           } > output/latest/tdcc_weekly_run_status.md
 
@@ -129,7 +122,7 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add output/ data/ config/stock_theme_map.csv docs/tdcc_signal_tracking.md docs/tdcc_pre_move_accumulation.md || true
-          git add scripts/tracking_utils.py scripts/build_tdcc_signal_structures.py scripts/build_tdcc_stock_history.py scripts/tdcc_stock_history_utils.py scripts/build_tdcc_pre_move_accumulation.py scripts/build_tdcc_signal_effectiveness_report.py scripts/build_tdcc_chatgpt_tracking_outputs.py scripts/validate_tdcc_chatgpt_tracking_outputs.py scripts/update_tdcc_normalized_signal_performance.py scripts/backfill_tdcc_history.py || true
+          git add scripts/tracking_utils.py scripts/build_tdcc_signal_structures.py scripts/build_tdcc_stock_history.py scripts/tdcc_stock_history_utils.py scripts/build_tdcc_pre_move_accumulation.py scripts/build_tdcc_chatgpt_tracking_outputs.py scripts/validate_tdcc_chatgpt_tracking_outputs.py scripts/backfill_tdcc_history.py || true
           git status --short
           git commit -m "Update TDCC weekly report, ABM, and signal effectiveness" || echo "No changes to commit"
           git push
