@@ -128,8 +128,26 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             distance_to_neckline_pct="-2.0",
             w_bottom_low_position_pct="22",
             w_bottom_base_width_pct="18",
+            attack1_gain_pct="5.0",
+            attack2_gain_pct="9.0",
+            volume_ratio_2_vs_1="1.6",
+            red_body_ratio_2_vs_1="1.2",
         )
         self.assertTrue(cond_w_bottom_right(clean_w))
+
+        higher_position_clean_w = make_row(
+            category="pattern",
+            pattern_stage="near_neckline",
+            second_low_gap_pct="1.5",
+            distance_to_neckline_pct="-2.0",
+            w_bottom_low_position_pct="58",
+            w_bottom_base_width_pct="18",
+            attack1_gain_pct="5.0",
+            attack2_gain_pct="9.0",
+            volume_ratio_2_vs_1="1.6",
+            red_body_ratio_2_vs_1="1.2",
+        )
+        self.assertTrue(cond_w_bottom_right(higher_position_clean_w))
 
         slight_undercut = make_row(
             category="pattern",
@@ -138,6 +156,9 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             distance_to_neckline_pct="-2.0",
             w_bottom_low_position_pct="22",
             w_bottom_base_width_pct="18",
+            attack1_gain_pct="5.0",
+            attack2_gain_pct="9.0",
+            volume_ratio_2_vs_1="1.6",
         )
         self.assertFalse(cond_w_bottom_right(slight_undercut))
 
@@ -148,8 +169,25 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             distance_to_neckline_pct="-2.0",
             w_bottom_low_position_pct="22",
             w_bottom_base_width_pct="18",
+            attack1_gain_pct="5.0",
+            attack2_gain_pct="9.0",
+            volume_ratio_2_vs_1="1.6",
         )
         self.assertFalse(cond_w_bottom_right(right_low_too_high))
+
+        weak_second_attack = make_row(
+            category="pattern",
+            pattern_stage="near_neckline",
+            second_low_gap_pct="1.5",
+            distance_to_neckline_pct="-2.0",
+            w_bottom_low_position_pct="22",
+            w_bottom_base_width_pct="18",
+            attack1_gain_pct="8.0",
+            attack2_gain_pct="9.0",
+            volume_ratio_2_vs_1="1.8",
+            red_body_ratio_2_vs_1="2.0",
+        )
+        self.assertFalse(cond_w_bottom_right(weak_second_attack))
 
         high_level_pullback = make_row(
             category="pattern",
@@ -160,6 +198,9 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             w_bottom_base_width_pct="18",
             return_20d_pct="42",
             distance_to_previous_60d_high_pct="-0.5",
+            attack1_gain_pct="5.0",
+            attack2_gain_pct="9.0",
+            volume_ratio_2_vs_1="1.6",
         )
         self.assertFalse(cond_w_bottom_right(high_level_pullback))
 
@@ -172,6 +213,9 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             w_bottom_base_width_pct="",
             platform_width_pct="",
             short_platform_width_pct="",
+            attack1_gain_pct="5.0",
+            attack2_gain_pct="9.0",
+            volume_ratio_2_vs_1="1.6",
         )
         self.assertFalse(cond_w_bottom_right(no_base_context))
 
@@ -182,6 +226,9 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             distance_to_neckline_pct="1.0",
             w_bottom_low_position_pct="22",
             w_bottom_base_width_pct="18",
+            attack1_gain_pct="5.0",
+            attack2_gain_pct="9.0",
+            volume_ratio_2_vs_1="1.6",
         )
         self.assertFalse(cond_w_bottom_right(already_broken))
 

@@ -422,6 +422,10 @@ def score_w_bottom(row: pd.Series) -> tuple[float, list[str], list[str]]:
     second_low_gap = num(row, "second_low_gap_pct")
     neckline_distance = num(row, "distance_to_neckline_pct")
     vol = num(row, "volume_ratio")
+    attack1 = num(row, "attack1_gain_pct")
+    attack2 = num(row, "attack2_gain_pct")
+    vol2_vs_1 = num(row, "volume_ratio_2_vs_1")
+    red_body2_vs_1 = num(row, "red_body_ratio_2_vs_1")
     context = detected_w_bottom_context(row)
     if context.get("available"):
         low_pos = context.get("w_bottom_low_position_pct")
@@ -433,6 +437,14 @@ def score_w_bottom(row: pd.Series) -> tuple[float, list[str], list[str]]:
             comps.append(f"W neckline distance:{neck_dist:.1f}%")
         if isinstance(base_width, (int, float)) and not math.isnan(base_width):
             comps.append(f"pre-W base width:{base_width:.1f}%")
+        if math.isnan(attack1):
+            attack1 = float(context.get("attack1_gain_pct", math.nan))
+        if math.isnan(attack2):
+            attack2 = float(context.get("attack2_gain_pct", math.nan))
+        if math.isnan(vol2_vs_1):
+            vol2_vs_1 = float(context.get("volume_ratio_2_vs_1", math.nan))
+        if math.isnan(red_body2_vs_1):
+            red_body2_vs_1 = float(context.get("red_body_ratio_2_vs_1", math.nan))
     if not math.isnan(second_low_gap):
         if 0 <= second_low_gap <= 4:
             score += 8
@@ -457,6 +469,19 @@ def score_w_bottom(row: pd.Series) -> tuple[float, list[str], list[str]]:
         add = min(5, (vol - 1.0) * 2)
         score += add
         comps.append(f"right-side volume support +{add:.1f}")
+    if not math.isnan(attack1) and not math.isnan(attack2):
+        if attack2 >= attack1 + 3 and attack2 >= attack1 * 1.25:
+            score += 7
+            comps.append("second attack materially stronger +7")
+        else:
+            score -= 10
+            risks.append("weak_second_attack_not_true_w_bottom")
+    if not math.isnan(vol2_vs_1) and vol2_vs_1 >= 1.5:
+        score += 4
+        comps.append("second attack volume expansion +4")
+    if not math.isnan(red_body2_vs_1) and red_body2_vs_1 >= 1.5:
+        score += 3
+        comps.append("second attack red-body improvement +3")
     return score, comps, risks
 
 
@@ -490,7 +515,6 @@ def explicit_w_bottom_context_ok(row: pd.Series) -> bool:
     if math.isnan(base_width):
         base_width = num(row, "platform_width_pct", "short_platform_width_pct")
 
-    low_position_ok = not math.isnan(low_position) and low_position <= 40.0
     base_ok = not math.isnan(base_width) and base_width <= 35.0
 
     ret20 = num(row, "return_20d", "return_20d_pct")
@@ -504,7 +528,39 @@ def explicit_w_bottom_context_ok(row: pd.Series) -> bool:
     if not math.isnan(high_distance) and high_distance >= -1:
         not_extended = False
 
-    return (low_position_ok or base_ok) and not_extended
+    return base_ok and not_extended
+
+
+def w_bottom_attack_confirmation_ok(row: pd.Series, context: dict[str, float | str | bool] | None = None) -> bool:
+    """Require a real right-side attack, not just two nearby lows in a range.
+
+    A common false positive is low-level consolidation: two local lows appear
+    close in height, but the second advance is not materially stronger than
+    the first. For the W-bottom model, the second leg must show a visible
+    price push and at least one volume/body confirmation.
+    """
+    attack1 = num(row, "attack1_gain_pct")
+    attack2 = num(row, "attack2_gain_pct")
+    vol2_vs_1 = num(row, "volume_ratio_2_vs_1")
+    red_body2_vs_1 = num(row, "red_body_ratio_2_vs_1")
+
+    if context:
+        if math.isnan(attack1):
+            attack1 = float(context.get("attack1_gain_pct", math.nan))
+        if math.isnan(attack2):
+            attack2 = float(context.get("attack2_gain_pct", math.nan))
+        if math.isnan(vol2_vs_1):
+            vol2_vs_1 = float(context.get("volume_ratio_2_vs_1", math.nan))
+        if math.isnan(red_body2_vs_1):
+            red_body2_vs_1 = float(context.get("red_body_ratio_2_vs_1", math.nan))
+
+    if math.isnan(attack1) or math.isnan(attack2):
+        return False
+
+    price_leg_ok = attack2 >= 6.0 and attack2 >= attack1 + 3.0 and attack2 >= attack1 * 1.25
+    volume_ok = not math.isnan(vol2_vs_1) and vol2_vs_1 >= 1.5
+    body_ok = not math.isnan(red_body2_vs_1) and red_body2_vs_1 >= 1.2
+    return price_leg_ok and volume_ok and body_ok
 
 
 def detected_w_bottom_context(row: pd.Series) -> dict[str, float | str | bool]:
@@ -583,8 +639,29 @@ def detected_w_bottom_context(row: pd.Series) -> dict[str, float | str | bool]:
 
             current_to_neckline = (current_close / neckline - 1) * 100
             close_position = (current_close - low_120) / range_span * 100
+            attack1_gain = (neckline / low_left - 1) * 100
+            attack2_gain = (current_close / low_right - 1) * 100
+            attack1_slice = df.iloc[left : min(right, left + 8)]
+            attack2_slice = df.iloc[right : min(len(df), right + 8)]
+            vol2_vs_1 = math.nan
+            red_body2_vs_1 = math.nan
+            if "volume" in df.columns and len(attack1_slice) >= 3 and len(attack2_slice) >= 3:
+                vol1 = float(attack1_slice["volume"].mean())
+                vol2 = float(attack2_slice["volume"].mean())
+                if vol1 > 0:
+                    vol2_vs_1 = vol2 / vol1
+            if len(attack1_slice) >= 3 and len(attack2_slice) >= 3:
+                red1 = int((attack1_slice["close"] > attack1_slice["open"]).sum())
+                red2 = int((attack2_slice["close"] > attack2_slice["open"]).sum())
+                if red1 > 0:
+                    red_body2_vs_1 = red2 / red1
+                elif red2 > 0:
+                    red_body2_vs_1 = float("inf")
             not_extended = -5 <= current_to_neckline <= 5 and close_position <= 65
-            context_ok = lows_in_lower_base and pre_base_ok and not_extended
+            # Low position is a score/ranking feature, not an absolute gate.
+            # The W label itself is controlled by geometry, base quality,
+            # neckline proximity, and right-side attack confirmation.
+            context_ok = pre_base_ok and not_extended
             candidate: dict[str, float | str | bool] = {
                 "available": True,
                 "context_ok": context_ok,
@@ -594,6 +671,11 @@ def detected_w_bottom_context(row: pd.Series) -> dict[str, float | str | bool]:
                 "pre_base_width_pct": pre_width,
                 "pre_base_return_pct": pre_return,
                 "close_position_pct": close_position,
+                "lows_in_lower_base": lows_in_lower_base,
+                "attack1_gain_pct": attack1_gain,
+                "attack2_gain_pct": attack2_gain,
+                "volume_ratio_2_vs_1": vol2_vs_1,
+                "red_body_ratio_2_vs_1": red_body2_vs_1,
                 "left_low_date": str(df["date"].iloc[left]),
                 "right_low_date": str(df["date"].iloc[right]),
             }
@@ -625,10 +707,11 @@ def double_bottom_structure_ok(row: pd.Series) -> bool:
         return False
 
     price_context = detected_w_bottom_context(row)
+    attack_ok = w_bottom_attack_confirmation_ok(row, price_context if price_context.get("available") else None)
     if price_context.get("available"):
-        return bool(price_context.get("context_ok"))
+        return bool(price_context.get("context_ok")) and attack_ok
 
-    return explicit_w_bottom_context_ok(row)
+    return explicit_w_bottom_context_ok(row) and attack_ok
 
 
 def cond_w_bottom_right(row: pd.Series) -> bool:
