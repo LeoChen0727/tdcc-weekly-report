@@ -1060,10 +1060,19 @@ def summarize_backtest(events: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
+def ensure_watch_schema(df: pd.DataFrame) -> pd.DataFrame:
+    out = df.copy()
+    for col in WATCH_COLUMNS:
+        if col not in out.columns:
+            out[col] = ""
+    extra_cols = [col for col in out.columns if col not in WATCH_COLUMNS]
+    return out[WATCH_COLUMNS + extra_cols]
+
+
 def write_csv(df: pd.DataFrame, path: Path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    if path == WATCH_CSV and df.empty:
-        df = pd.DataFrame(columns=WATCH_COLUMNS)
+    if path == WATCH_CSV:
+        df = ensure_watch_schema(df)
     df.to_csv(path, index=False, encoding="utf-8", lineterminator="\n")
 
 
