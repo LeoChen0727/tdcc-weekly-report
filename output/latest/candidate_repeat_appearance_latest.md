@@ -1,6 +1,6 @@
 # Candidate Repeat Appearance Latest
 
-- generated_at: `2026-05-31 18:26:12 Asia/Taipei`
+- generated_at: `2026-05-31 20:45:59 Asia/Taipei`
 - signal_date: `20260531`
 - history_available_days: `9`
 - source_signal_log: `output/history/daily_signals/daily_candidate_signal_log.csv`
@@ -80,7 +80,7 @@
 |       2376 | 技嘉           |                                      9 |                                       2 |                 5 |                  9 |                  9 | range_rebound                                                        | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
 |       2377 | 微星           |                                      9 |                                       9 |                 5 |                  9 |                  9 | pattern                                                              | stale_signal             | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。            |
 |       2379 | 瑞昱           |                                      9 |                                       9 |                 5 |                  9 |                  9 | pattern                                                              | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
-|       2382 | 廣達           |                                      9 |                                       9 |                 5 |                  9 |                  9 | pattern|range_rebound|revenue_breakout_low_response|revenue_pullback | stale_signal             | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。            |
+|       2382 | 廣達           |                                      9 |                                       9 |                 5 |                  9 |                  9 | pattern|range_rebound|revenue_breakout_low_response|revenue_pullback | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
 |       2383 | 台光電          |                                      9 |                                       6 |                 5 |                  9 |                  9 | pattern|revenue_pullback                                             | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
 |       2385 | 群光           |                                      9 |                                       9 |                 5 |                  9 |                  9 | pattern                                                              | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
 |       2388 | 威盛           |                                      9 |                                       7 |                 5 |                  9 |                  9 | pattern|revenue_pullback                                             | stale_signal             | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。            |

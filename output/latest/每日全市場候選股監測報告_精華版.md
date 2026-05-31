@@ -1,7 +1,7 @@
 # 每日全市場候選股監測報告 - 精華版
 
 - 主資料日期：`20260531`
-- 產生時間：`2026-05-31 18:28:25 Asia/Taipei`
+- 產生時間：`2026-05-31 20:48:34 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
 - 判斷說明：完整候選清單與官方價格資料日期一致，可以產出正式每日報告
 - 權證資料日期：`20260529`
@@ -19,7 +19,6 @@
 | 分類 | 檔數 |
 |---|---:|
 | 區間內轉強 / 挑戰前高觀察 | 139 |
-| 營收爆發低反應股 | 23 |
 | 營收成長股價回檔 | 130 |
 | 型態觀察 | 397 |
 
@@ -29,18 +28,18 @@
 
 | 股票 | 原始分類 | 催化標籤 / 反應程度 | TDCC |
 |---|---|---|---|
-| 2374 佳能 | 營收爆發低反應股 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mo... | 大戶溫和增加 |
-| 4934 太極 | 營收爆發低反應股 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mo... | 大戶溫和增加 |
-| 5388 中磊 | 營收爆發低反應股 | score 28 / theme 69.2/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mon... | 大戶溫和增加 |
-| 2347 聯強 | 營收爆發低反應股 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mo... | 大戶同步增加 |
-| 6215 和椿 | 營收爆發低反應股 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mo... | 大戶同步增加 |
-| 3702 大聯大 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mo... | 大戶溫和增加 |
-| 4576 大銀微系統 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mo... | 大戶溫和增加 |
-| 4949 有成精密 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mo... | 大戶溫和增加 |
-| 6861 睿生光電 | 營收成長股價回檔 | score 28 / theme 71.5/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mon... | 大戶溫和增加 |
-| 6994 富威電力 | 營收成長股價回檔 | score 28 / theme 66.8/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mon... | 大戶溫和增加 |
-| 1590 亞德客-KY | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mo... | 大戶同步增加 |
-| 1708 東鹼 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mo... | 大戶溫和增加 |
+| 2383 台光電 | 營收成長股價回檔 | score 28 / theme 79.6/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mon... | 大戶溫和增加 |
+| 2374 佳能 | 營收成長股價回檔 | score 28 / theme 90.2/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mon... | 大戶溫和增加 |
+| 2347 聯強 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mo... | 大戶溫和增加 |
+| 2345 智邦 | 營收成長股價回檔 | score 28 / theme 25.8/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mon... | 大戶溫和增加 |
+| 1714 和桐 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mo... | 大戶溫和增加 |
+| 1597 直得 | 營收成長股價回檔 | score 28 / theme 38.2/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mon... | 大戶溫和增加 |
+| 1449 佳和 | 營收成長股價回檔 | score 28 / theme 97.6/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mon... | 大戶溫和增加 |
+| 2101 南港 | 營收成長股價回檔 | score 28 / theme 24.7/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mon... | 大戶同步增加 |
+| 3019 亞光 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mo... | 大戶同步增加 |
+| 6209 今國光 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mo... | 大戶溫和增加 |
+| 2485 兆赫 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mo... | 大戶溫和增加 |
+| 4934 太極 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mo... | 大戶溫和增加 |
 
 ## 精華候選股
 
@@ -107,73 +106,6 @@
 - 摘要：區間轉強 / 距前高-1.79% / 大戶溫和增加 / call_put_bullish / 3.0
 - 完整原因：近幾週其中一項大戶級距增加；call_put_bullish；認購成交金額明顯大於認售，且認購資金明顯升溫；區間內轉強；量比1.16x；月營收YoY 24.8%；累計YoY 17.8%；TDCC近幾週大戶溫和增加
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
-
-## 營收爆發低反應股
-
-### 6215 和椿
-- 族群：主流成長題材
-- 分數 / 排名：22.0 / 1.0
-- 優先級：A_優先追蹤
-- 連續上榜：訊號鈍化；近5日 5；近10日 9；多分類 pattern|revenue_breakout_low_response|revenue_pullback
-- TDCC：大戶同步增加
-- 權證：
-- 財報 / 事件催化：score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthly_revenue_expect...
-- 摘要：A 優先追蹤 / 營收強 / 近期加速 / 低反應 / 貼近均線
-- 完整原因：A_優先追蹤；近幾週400張與1000張同步累積；no_signal；權證金流未見明顯高於近期平均的變化；單月營收YoY 80%~100%；累計營收YoY>=50%；單月YoY高於累計YoY，近期加速；近3日漲幅低於5%，股價低反應；近5日漲幅低於8%；股價貼近20MA/23EMA；尚未突破前60日高點；站上20MA/23EMA；接近前高但未大幅過熱；TDCC近幾週400張與1000張同步累積；主流成長題材；TDCC近幾週400張與10...
-- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
-- 候選資料備援圖表：`output/latest/charts/revenue_breakout_low_response/6215_和椿_revenue_breakout_low_response_20260531.png`
-
-### 2347 聯強
-- 族群：主流成長題材
-- 分數 / 排名：22.0 / 2.0
-- 優先級：A_優先追蹤
-- 連續上榜：反覆上榜未突破；近5日 5；近10日 9；多分類 pattern|revenue_breakout_low_response|revenue_pullback
-- TDCC：大戶同步增加
-- 權證：
-- 財報 / 事件催化：score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthly_revenue_expect...
-- 摘要：A 優先追蹤 / 營收強 / 近期加速 / 低反應 / 貼近均線
-- 完整原因：A_優先追蹤；近幾週400張與1000張同步累積；no_signal；權證金流未見明顯高於近期平均的變化；單月營收YoY 80%~100%；累計營收YoY>=30%；單月YoY大幅高於累計YoY，近期明顯加速；近3日漲幅低於5%，股價低反應；近5日漲幅低於8%；股價貼近20MA/23EMA；尚未突破前60日高點；站上20MA/23EMA；接近前高但未大幅過熱；TDCC近幾週400張與1000張同步累積；主流成長題材；TDCC近幾週400...
-- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
-- 候選資料備援圖表：`output/latest/charts/revenue_breakout_low_response/2347_聯強_revenue_breakout_low_response_20260531.png`
-
-### 1808 潤隆
-- 族群：一般產業
-- 分數 / 排名：22.0 / 8.0
-- 優先級：B_可觀察
-- 連續上榜：反覆上榜未突破；近5日 5；近10日 9；多分類 range_rebound|revenue_breakout_low_response|revenue_pullback
-- TDCC：大戶同步增加
-- 權證：
-- 財報 / 事件催化：score 15 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthly_revenue_expect...
-- 摘要：B 可觀察 / 營收強 / 低反應 / 貼近均線 / 站上均線
-- 完整原因：B_可觀察；近幾週400張與1000張同步累積；單月營收YoY>=150%；累計營收YoY>=50%；近3日漲幅低於5%，股價低反應；近5日漲幅低於8%；股價貼近20MA/23EMA；尚未突破前60日高點；仍在平台整理區；站上20MA/23EMA；接近前高但未大幅過熱；TDCC近幾週400張與1000張同步累積；一般產業；TDCC近幾週400張與1000張同步累積；營建/交屋認列型營收需基本面確認
-- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
-- 候選資料備援圖表：`output/latest/charts/revenue_breakout_low_response/1808_潤隆_revenue_breakout_low_response_20260531.png`
-
-### 2542 興富發
-- 族群：一般產業
-- 分數 / 排名：22.0 / 9.0
-- 優先級：B_可觀察
-- 連續上榜：反覆上榜未突破；近5日 5；近10日 9；多分類 pattern|revenue_breakout_low_response|revenue_pullback
-- TDCC：大戶同步增加
-- 權證：
-- 財報 / 事件催化：score 15 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthly_revenue_expect...
-- 摘要：B 可觀察 / 營收強 / 近期加速 / 低反應 / 貼近均線
-- 完整原因：B_可觀察；近幾週400張與1000張同步累積；no_signal；權證金流未見明顯高於近期平均的變化；單月營收YoY>=150%；累計營收YoY>=50%；單月YoY大幅高於累計YoY，近期明顯加速；近3日漲幅低於5%，股價低反應；近5日漲幅低於8%；股價貼近20MA/23EMA；尚未突破前60日高點；站上20MA/23EMA；接近前高但未大幅過熱；TDCC近幾週400張與1000張同步累積；一般產業；TDCC近幾週400張與1000...
-- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
-- 候選資料備援圖表：`output/latest/charts/revenue_breakout_low_response/2542_興富發_revenue_breakout_low_response_20260531.png`
-
-### 2404 漢唐
-- 族群：主流成長題材
-- 分數 / 排名：21.0 / 3.0
-- 優先級：A_優先追蹤
-- 連續上榜：訊號鈍化；近5日 5；近10日 9；多分類 pattern|revenue_breakout_low_response|revenue_pullback
-- TDCC：大戶同步增加
-- 權證：
-- 財報 / 事件催化：score 18 / theme 50.0/5 / revenue_good_eps_unconfirmed;monthly_revenue_calendar;calendar_monthly_revenue_expected_window;mainstream_growth /...
-- 摘要：A 優先追蹤 / 營收強 / 低反應 / 貼近均線 / 站上均線
-- 完整原因：A_優先追蹤；近幾週400張與1000張同步累積；no_signal；權證金流未見明顯高於近期平均的變化；單月營收YoY>=100%；累計營收YoY>=50%；近3日漲幅低於5%，股價低反應；近5日漲幅低於8%；股價貼近20MA/23EMA；尚未突破前60日高點；站上20MA/23EMA；TDCC近幾週400張與1000張同步累積；主流成長題材；TDCC近幾週400張與1000張同步累積
-- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
-- 候選資料備援圖表：`output/latest/charts/revenue_breakout_low_response/2404_漢唐_revenue_breakout_low_response_20260531.png`
 
 ## 營收成長股價回檔
 
@@ -276,7 +208,7 @@
 - 連續上榜：連續 3 日；近5日 4；近10日 5；多分類 pattern
 - TDCC：
 - 權證：call_strong_inflow / 2.0
-- 財報 / 事件催化：score 0 / theme 43.7/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window / monthly_revenue_calendar;calendar_monthly_reven...
+- 財報 / 事件催化：score 0 / theme 17.1/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window / monthly_revenue_calendar;calendar_monthly_reven...
 - 摘要：pattern_watch / call_strong_inflow / 2.0
 - 完整原因：call_strong_inflow；認購權證成交金額明顯升溫；量比0.98x
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）

@@ -1,6 +1,6 @@
 # 全市場權證資料分析與追蹤
 
-- generated_at: `2026-05-31 18:28:25 Asia/Taipei`
+- generated_at: `2026-05-31 20:48:33 Asia/Taipei`
 - data_date: `20260529`
 - raw_rows: `29730`
 - stock_level_rows: `455`
@@ -42,7 +42,7 @@
 | 2303 | 聯電 | 58680740.0 | 275 |  |  |  |
 | 6285 | 啟碁 | 55330280.0 | 215 |  |  |  |
 | 2409 | 友達 | 53018940.0 | 187 |  |  |  |
-| 8112 | 至上 | 51393400.0 | 159 | pattern,range_rebound,revenue_breakout_low_response,revenue_pullback |  |  |
+| 8112 | 至上 | 51393400.0 | 159 | pattern,range_rebound,revenue_pullback |  |  |
 
 ## 四、認售成交金額前20名標的
 
@@ -79,7 +79,7 @@
 | 2451 | 創見 | 43635.67 | 35344890.0 | 810.0 | pattern,revenue_pullback |  |
 | 6805 | 富世達 | 15511.59 | 44983610.0 | 2900.0 | range_rebound,revenue_pullback |  |
 | 6139 | 亞翔 | 12398.54 | 24797080.0 | 2000.0 | pattern,revenue_pullback |  |
-| 8112 | 至上 | 10596.58 | 51393400.0 | 4850.0 | pattern,range_rebound,revenue_breakout_low_response,revenue_pullback |  |
+| 8112 | 至上 | 10596.58 | 51393400.0 | 4850.0 | pattern,range_rebound,revenue_pullback |  |
 | 2472 | 立隆電 | 7771.05 | 39166070.0 | 5040.0 |  |  |
 | 1514 | 亞力 | 7325.94 | 7985270.0 | 1090.0 | pattern,revenue_pullback |  |
 | 2474 | 可成 | 6987.61 | 20124320.0 | 2880.0 | pattern |  |
@@ -105,7 +105,7 @@
 | stock_id | stock_name | candidate_category | tdcc_status | call_turnover | put_turnover | sub_theme |
 | --- | --- | --- | --- | --- | --- | --- |
 | 2317 | 鴻海 | pattern |  | 298877460.0 | 920810.0 |  |
-| 8112 | 至上 | pattern,range_rebound,revenue_breakout_low_response,revenue_pullback |  | 51393400.0 | 4850.0 |  |
+| 8112 | 至上 | pattern,range_rebound,revenue_pullback |  | 51393400.0 | 4850.0 |  |
 | 6805 | 富世達 | range_rebound,revenue_pullback |  | 44983610.0 | 2900.0 |  |
 | 2451 | 創見 | pattern,revenue_pullback |  | 35344890.0 | 810.0 |  |
 | 2329 | 華泰 | pattern |  | 28010250.0 | 29770.0 |  |
@@ -125,7 +125,7 @@
 | 1605 | 華新 | pattern,range_rebound |  | 26065200.0 | 0.0 |  |
 | 3706 | 神達 | pattern,range_rebound,revenue_pullback |  | 24168350.0 | 0.0 |  |
 | 1504 | 東元 | pattern,range_rebound |  | 20698960.0 | 0.0 |  |
-| 2374 | 佳能 | pattern,range_rebound,revenue_breakout_low_response,revenue_pullback |  | 20199940.0 | 0.0 |  |
+| 2374 | 佳能 | pattern,range_rebound,revenue_pullback |  | 20199940.0 | 0.0 |  |
 | 4938 | 和碩 | pattern,range_rebound |  | 15729980.0 | 0.0 |  |
 | 3013 | 晟銘電 | pattern,range_rebound |  | 12467800.0 | 0.0 |  |
 | 0052 | 富邦科技 | pattern |  | 10781250.0 | 0.0 |  |
@@ -194,4 +194,4 @@
 | 2303 | 聯電 | 58680740.0 | 275 |  |  |
 | 6285 | 啟碁 | 55330280.0 | 215 |  |  |
 | 2409 | 友達 | 53018940.0 | 187 |  |  |
-| 8112 | 至上 | 51393400.0 | 159 | pattern,range_rebound,revenue_breakout_low_response,revenue_pullback |  |
+| 8112 | 至上 | 51393400.0 | 159 | pattern,range_rebound,revenue_pullback |  |
