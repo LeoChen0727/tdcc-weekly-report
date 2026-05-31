@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from datetime import datetime
+import importlib.util
 from pathlib import Path
 from typing import Any
 from zoneinfo import ZoneInfo
@@ -20,6 +21,7 @@ from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.cidfonts import UnicodeCIDFont
 from reportlab.platypus import (
     KeepTogether,
+    Image as PdfImage,
     PageBreak,
     Paragraph,
     SimpleDocTemplate,
@@ -51,6 +53,9 @@ WEEKLY_SURGE_STRICT_SEARCH_CSV = LATEST_DIR / "weekly_surge_strict_parameter_sea
 WEEKLY_SURGE_STRICT_CANDIDATES_CSV = LATEST_DIR / "weekly_surge_strict_parameter_candidates_latest.csv"
 NON_REVENUE_MOMENTUM_CSV = LATEST_DIR / "non_revenue_momentum_watch_latest.csv"
 MARKET_ABNORMAL_STATUS_CSV = LATEST_DIR / "market_abnormal_status_latest.csv"
+PDF_KLINE_CHART_STATUS_CSV = LATEST_DIR / "pdf_kline_chart_status_latest.csv"
+PDF_KLINE_DIR = LATEST_DIR / "charts" / "pdf_kline"
+_ARTIFACTS_MODULE: Any | None = None
 
 CURATED_PDF = LATEST_DIR / "daily_market_curated_report_latest.pdf"
 FULL_TABLE_PDF = LATEST_DIR / "daily_market_full_table_report_latest.pdf"
@@ -340,6 +345,81 @@ def load_candidates() -> pd.DataFrame:
     df["priority_label"] = df.apply(priority_label, axis=1)
     df["sort_score"] = df.apply(sort_score, axis=1)
     return df
+
+
+def load_pdf_kline_chart_map() -> dict[tuple[str, str], Path]:
+    """Return K-line chart paths keyed by (stock_id, category), with stock fallback."""
+    if not PDF_KLINE_CHART_STATUS_CSV.exists():
+        return {}
+    try:
+        df = pd.read_csv(PDF_KLINE_CHART_STATUS_CSV, dtype=str, keep_default_na=False)
+    except Exception:
+        return {}
+    chart_map: dict[tuple[str, str], Path] = {}
+    for _, row in df.iterrows():
+        stock_id = safe_str(row.get("stock_id", ""))
+        if not stock_id:
+            continue
+        image_path = Path(safe_str(row.get("image_path", "")))
+        if not image_path.exists():
+            continue
+        category = safe_str(row.get("category", ""))
+        if category:
+            chart_map[(stock_id, category)] = image_path
+        chart_map.setdefault((stock_id, ""), image_path)
+    if PDF_KLINE_DIR.exists():
+        for image_path in sorted(PDF_KLINE_DIR.glob("*.png")):
+            stock_id = image_path.name.split("_", 1)[0]
+            if stock_id:
+                chart_map.setdefault((stock_id, ""), image_path)
+    return chart_map
+
+
+def chart_path_for_row(row: pd.Series, chart_map: dict[tuple[str, str], Path]) -> Path | None:
+    stock_id = safe_str(row.get("stock_id", ""))
+    if not stock_id:
+        return None
+    category = safe_str(row.get("category_key", "")) or safe_str(row.get("category", ""))
+    return chart_map.get((stock_id, category)) or chart_map.get((stock_id, ""))
+
+
+def load_artifacts_module() -> Any | None:
+    global _ARTIFACTS_MODULE
+    if _ARTIFACTS_MODULE is not None:
+        return _ARTIFACTS_MODULE
+    artifact_path = Path(__file__).resolve().parents[1] / "build_daily_market_report_artifacts.py"
+    if not artifact_path.exists():
+        return None
+    spec = importlib.util.spec_from_file_location("daily_market_report_artifacts", artifact_path)
+    if spec is None or spec.loader is None:
+        return None
+    artifacts = importlib.util.module_from_spec(spec)
+    try:
+        spec.loader.exec_module(artifacts)
+    except Exception:
+        return None
+    _ARTIFACTS_MODULE = artifacts
+    return artifacts
+
+
+def redraw_pdf_kline_chart_for_row(row: pd.Series) -> Path | None:
+    """Create a K-line chart for curated PDF rows not covered by the artifact chart status."""
+    artifacts = load_artifacts_module()
+    if artifacts is None:
+        return None
+
+    chart_row = row.copy()
+    category = safe_str(chart_row.get("category", "")) or safe_str(chart_row.get("category_key", ""))
+    if category:
+        chart_row["category"] = category
+    try:
+        price_df, source, _warning = artifacts.select_price_history_for_row(chart_row)
+        if price_df.empty:
+            return None
+        chart_path = artifacts.draw_pdf_kline_chart(chart_row, price_df, source)
+    except Exception:
+        return None
+    return chart_path if chart_path.exists() else None
 
 
 def load_first_csv_row(path: Path) -> dict[str, Any]:
@@ -1755,7 +1835,12 @@ def make_table(rows: list[list[Any]], style_map: dict[str, ParagraphStyle], widt
     return table
 
 
-def stock_card(row: pd.Series, style_map: dict[str, ParagraphStyle], warrant_flow_date: str) -> KeepTogether:
+def stock_card(
+    row: pd.Series,
+    style_map: dict[str, ParagraphStyle],
+    warrant_flow_date: str,
+    chart_map: dict[tuple[str, str], Path] | None = None,
+) -> KeepTogether:
     title = f"{stock_text(row)}｜{CATEGORY_LABEL.get(safe_str(row.get('category_key')), '')}"
     rows = [
         [title, f"{row['priority_label']}｜{score_rank_text(row)}"],
@@ -1787,7 +1872,21 @@ def stock_card(row: pd.Series, style_map: dict[str, ParagraphStyle], warrant_flo
             ]
         )
     )
-    return KeepTogether([table, Spacer(1, 0.22 * cm)])
+    parts: list[Any] = [table]
+    chart_path = chart_path_for_row(row, chart_map or {})
+    if chart_path is None:
+        chart_path = redraw_pdf_kline_chart_for_row(row)
+    if chart_path is not None:
+        parts.extend(
+            [
+                Spacer(1, 0.12 * cm),
+                PdfImage(str(chart_path), width=16.6 * cm, height=8.2 * cm),
+                Spacer(1, 0.22 * cm),
+            ]
+        )
+    else:
+        parts.append(Spacer(1, 0.22 * cm))
+    return KeepTogether(parts)
 
 
 def build_curated_pdf(df: pd.DataFrame, freshness: dict[str, Any], main_date: str, path: Path) -> None:
@@ -1807,6 +1906,7 @@ def build_curated_pdf(df: pd.DataFrame, freshness: dict[str, Any], main_date: st
     conclusion = market_conclusion(df)
     selected = selected_by_category(df)
     watch = top_watchlist(selected)
+    chart_map = load_pdf_kline_chart_map()
 
     story.append(Spacer(1, 1.0 * cm))
     story.append(para("每日全市場候選股監測報告", style_map["title"]))
@@ -1871,7 +1971,7 @@ def build_curated_pdf(df: pd.DataFrame, freshness: dict[str, Any], main_date: st
             story.append(para("本分類今日沒有符合精華版條件的標的。", style_map["normal"]))
             continue
         for _, row in part.iterrows():
-            story.append(stock_card(row, style_map, warrant_flow_date))
+            story.append(stock_card(row, style_map, warrant_flow_date, chart_map))
 
     doc.build(story)
 
