@@ -1145,17 +1145,23 @@ signal_date,report_bucket,stock_id,stock_name,model_id,model_name_zh,model_group
 20260530,unclassified,2497,怡利電,volume_range_breakout,帶量突破模型,pdf_core_model,44.2,9,汽車工業,tdcc_distribution_penalty,隔日開盤為進場原點；觀察收盤是否守住突破區，跌回突破區或爆量長上影則降風險。
 20260530,unclassified,6605,帝寶,volume_range_breakout,帶量突破模型,pdf_core_model,79.0,2,汽車工業,,隔日開盤為進場原點；觀察收盤是否守住突破區，跌回突破區或爆量長上影則降風險。
 20260530,mainstream,1514,亞力,w_bottom_right_side,W底右側模型,pdf_core_model,58.0,7,重電電網,tdcc_distribution_penalty,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260530,mainstream,1609,大亞,w_bottom_right_side,W底右側模型,pdf_core_model,61.0,2,重電電網,tdcc_distribution_penalty,隔日開盤為進場原點；右側低點不可跌破，接近頸線後需放量確認。
 20260530,mainstream,2344,華邦電,w_bottom_right_side,W底右側模型,pdf_core_model,58.0,8,記憶體儲存,tdcc_distribution_penalty,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
 20260530,mainstream,2353,宏碁,w_bottom_right_side,W底右側模型,pdf_core_model,74.0,1,AI_PC_電腦週邊待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260530,mainstream,2365,昆盈,w_bottom_right_side,W底右側模型,pdf_core_model,74.0,2,AI_PC_電腦週邊待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260530,mainstream,3045,台灣大,w_bottom_right_side,W底右側模型,pdf_core_model,74.0,3,網通_低軌衛星待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260530,mainstream,3596,智易,w_bottom_right_side,W底右側模型,pdf_core_model,74.0,4,低軌衛星,,等待量價、TDCC、相對強弱至少一項轉強。
+20260530,mainstream,2365,昆盈,w_bottom_right_side,W底右側模型,pdf_core_model,74.0,1,AI_PC_電腦週邊待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260530,mainstream,3045,台灣大,w_bottom_right_side,W底右側模型,pdf_core_model,74.0,1,網通_低軌衛星待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260530,mainstream,3596,智易,w_bottom_right_side,W底右側模型,pdf_core_model,74.0,2,低軌衛星,,等待量價、TDCC、相對強弱至少一項轉強。
+20260530,mainstream,3694,海華,w_bottom_right_side,W底右側模型,pdf_core_model,50.0,5,網通_低軌衛星待細分,tdcc_distribution_penalty,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
 20260530,mainstream,6282,康舒,w_bottom_right_side,W底右側模型,pdf_core_model,74.0,5,電子零組件_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260530,mainstream,6854,錼創科技-KY創,w_bottom_right_side,W底右側模型,pdf_core_model,50.0,3,半導體_設備材料待細分,tdcc_distribution_penalty,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
 20260530,mainstream,8147,正淩,w_bottom_right_side,W底右側模型,pdf_core_model,58.0,9,電子零組件_待細分,tdcc_distribution_penalty,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
-20260530,mainstream,8374,羅昇,w_bottom_right_side,W底右側模型,pdf_core_model,74.0,6,機器人自動化_電機機械待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260530,non_mainstream,1710,東聯,w_bottom_right_side,W底右側模型,pdf_core_model,64.0,2,化學工業,tdcc_distribution_penalty,隔日開盤為進場原點；右側低點不可跌破，接近頸線後需放量確認。
+20260530,mainstream,8374,羅昇,w_bottom_right_side,W底右側模型,pdf_core_model,74.0,3,機器人自動化_電機機械待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260530,non_mainstream,1710,東聯,w_bottom_right_side,W底右側模型,pdf_core_model,64.0,1,化學工業,tdcc_distribution_penalty,隔日開盤為進場原點；右側低點不可跌破，接近頸線後需放量確認。
 20260530,non_mainstream,2103,台橡,w_bottom_right_side,W底右側模型,pdf_core_model,58.0,3,橡膠工業,tdcc_distribution_penalty,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260530,non_mainstream,2108,南帝,w_bottom_right_side,W底右側模型,pdf_core_model,50.0,5,橡膠工業,tdcc_distribution_penalty,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
 20260530,non_mainstream,2515,中工,w_bottom_right_side,W底右側模型,pdf_core_model,58.0,4,建材營造,tdcc_distribution_penalty,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260530,non_mainstream,2606,裕民,w_bottom_right_side,W底右側模型,pdf_core_model,69.0,1,航運業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260530,non_mainstream,2645,長榮航太,w_bottom_right_side,W底右側模型,pdf_core_model,64.0,3,航運業,,等待量價、TDCC、相對強弱至少一項轉強。
 20260530,non_mainstream,2883,凱基金,w_bottom_right_side,W底右側模型,pdf_core_model,58.0,5,金融保險,tdcc_distribution_penalty,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
 20260530,non_mainstream,9914,美利達,w_bottom_right_side,W底右側模型,pdf_core_model,74.0,1,運動休閒,,等待量價、TDCC、相對強弱至少一項轉強。
 20260530,non_mainstream,9939,宏全,w_bottom_right_side,W底右側模型,pdf_core_model,58.0,6,其他,tdcc_distribution_penalty,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。

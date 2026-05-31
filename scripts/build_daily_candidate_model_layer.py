@@ -3,6 +3,7 @@ from __future__ import annotations
 import math
 import sys
 from dataclasses import dataclass
+from functools import lru_cache
 from pathlib import Path
 from typing import Any, Callable
 
@@ -29,6 +30,7 @@ WEEKLY_SURGE_CANDIDATES = LATEST_DIR / "weekly_surge_strict_parameter_candidates
 MODEL_PARAMETER_RECOMMENDATIONS = LATEST_DIR / "daily_model_parameter_recommendations_latest.csv"
 MODEL_HISTORY_DIR = Path("output/history/daily_candidate_models")
 MODEL_SIGNAL_LOG_CSV = MODEL_HISTORY_DIR / "daily_candidate_model_signal_log.csv"
+STOCK_PRICE_HISTORY_DIR = Path("data/stock_price_history")
 
 PARAMETERS_CSV = LATEST_DIR / "daily_candidate_model_parameters_latest.csv"
 PARAMETERS_MD = LATEST_DIR / "daily_candidate_model_parameters_latest.md"
@@ -122,6 +124,30 @@ def num(row: pd.Series, *names: str) -> float:
                 if not math.isnan(value):
                     return float(value)
     return math.nan
+
+
+@lru_cache(maxsize=4096)
+def price_history_for_stock(stock_id: str) -> pd.DataFrame:
+    code = normalize_code(stock_id)
+    if not code:
+        return pd.DataFrame()
+    path = STOCK_PRICE_HISTORY_DIR / f"{code}.csv"
+    if not path.exists():
+        return pd.DataFrame()
+    try:
+        df = pd.read_csv(path, dtype={"stock_id": str})
+    except Exception:
+        return pd.DataFrame()
+    required = {"date", "open", "high", "low", "close"}
+    if not required.issubset(df.columns):
+        return pd.DataFrame()
+    df = df.copy()
+    df["date"] = df["date"].astype(str)
+    for col in ["open", "high", "low", "close", "volume"]:
+        if col in df.columns:
+            df[col] = pd.to_numeric(df[col], errors="coerce")
+    df = df.dropna(subset=["date", "high", "low", "close"]).sort_values("date")
+    return df
 
 
 def truthy(value: Any) -> bool:
@@ -396,6 +422,17 @@ def score_w_bottom(row: pd.Series) -> tuple[float, list[str], list[str]]:
     second_low_gap = num(row, "second_low_gap_pct")
     neckline_distance = num(row, "distance_to_neckline_pct")
     vol = num(row, "volume_ratio")
+    context = detected_w_bottom_context(row)
+    if context.get("available"):
+        low_pos = context.get("w_bottom_low_position_pct")
+        neck_dist = context.get("neckline_distance_pct")
+        base_width = context.get("pre_base_width_pct")
+        if isinstance(low_pos, (int, float)):
+            comps.append(f"W low position:{low_pos:.1f}%")
+        if isinstance(neck_dist, (int, float)):
+            comps.append(f"W neckline distance:{neck_dist:.1f}%")
+        if isinstance(base_width, (int, float)) and not math.isnan(base_width):
+            comps.append(f"pre-W base width:{base_width:.1f}%")
     if not math.isnan(second_low_gap):
         if 0 <= second_low_gap <= 4:
             score += 8
@@ -446,6 +483,128 @@ def cond_revenue_unreacted(row: pd.Series) -> bool:
     return strong_revenue(row) and in_recent_range(row, 5)
 
 
+def explicit_w_bottom_context_ok(row: pd.Series) -> bool:
+    """Validate that a W-bottom is a low/base structure, not a high-level pullback."""
+    low_position = num(row, "w_bottom_low_position_pct", "double_bottom_low_position_pct")
+    base_width = num(row, "w_bottom_base_width_pct", "double_bottom_base_width_pct")
+    if math.isnan(base_width):
+        base_width = num(row, "platform_width_pct", "short_platform_width_pct")
+
+    low_position_ok = not math.isnan(low_position) and low_position <= 40.0
+    base_ok = not math.isnan(base_width) and base_width <= 35.0
+
+    ret20 = num(row, "return_20d", "return_20d_pct")
+    ret60 = num(row, "return_60d", "return_60d_pct")
+    high_distance = num(row, "distance_to_previous_60d_high_pct", "distance_to_high_60_pct")
+    not_extended = True
+    if not math.isnan(ret20) and ret20 > 35:
+        not_extended = False
+    if not math.isnan(ret60) and ret60 > 70:
+        not_extended = False
+    if not math.isnan(high_distance) and high_distance >= -1:
+        not_extended = False
+
+    return (low_position_ok or base_ok) and not_extended
+
+
+def detected_w_bottom_context(row: pd.Series) -> dict[str, float | str | bool]:
+    """Infer current W-bottom context from price history.
+
+    This is intentionally conservative. Broad upstream pattern flags are not
+    enough: the two lows must be close in height, formed in the lower part of
+    the recent range, preceded by a base-like stretch, and the latest price
+    must not already be far above the neckline.
+    """
+    stock_id = text(row, "stock_id")
+    df = price_history_for_stock(stock_id)
+    if df.empty or len(df) < 80:
+        return {"available": False}
+
+    date = text(row, "signal_date", "as_of_date", "date")
+    if date:
+        dated = df[df["date"] <= date]
+        if len(dated) >= 80:
+            df = dated
+    df = df.tail(120).reset_index(drop=True)
+    if len(df) < 80:
+        return {"available": False}
+
+    high_120 = float(df["high"].max())
+    low_120 = float(df["low"].min())
+    if high_120 <= low_120:
+        return {"available": False}
+    range_span = high_120 - low_120
+    current_close = float(df["close"].iloc[-1])
+
+    troughs: list[int] = []
+    for idx in range(3, len(df) - 3):
+        local = df["low"].iloc[idx - 3 : idx + 4]
+        if float(df["low"].iloc[idx]) <= float(local.min()) * 1.002:
+            troughs.append(idx)
+
+    best: dict[str, float | str | bool] | None = None
+    for left in troughs:
+        for right in troughs:
+            if right <= left:
+                continue
+            separation = right - left
+            if separation < 8 or separation > 60:
+                continue
+            low_left = float(df["low"].iloc[left])
+            low_right = float(df["low"].iloc[right])
+            second_low_gap = (low_right / low_left - 1) * 100
+            if second_low_gap < 0 or second_low_gap > 4:
+                continue
+            neckline = float(df["high"].iloc[left : right + 1].max())
+            if neckline <= min(low_left, low_right):
+                continue
+            depth = (neckline / min(low_left, low_right) - 1) * 100
+            if depth < 8:
+                continue
+
+            low_left_position = (low_left - low_120) / range_span * 100
+            low_right_position = (low_right - low_120) / range_span * 100
+            lows_in_lower_base = low_left_position <= 35 and low_right_position <= 35
+
+            pre_base = df.iloc[max(0, left - 30) : left]
+            pre_base_ok = False
+            pre_width = math.nan
+            pre_return = math.nan
+            if len(pre_base) >= 8:
+                pre_low = float(pre_base["low"].min())
+                pre_high = float(pre_base["high"].max())
+                if pre_low > 0:
+                    pre_width = (pre_high / pre_low - 1) * 100
+                first_close = float(pre_base["close"].iloc[0])
+                last_close = float(pre_base["close"].iloc[-1])
+                if first_close > 0:
+                    pre_return = (last_close / first_close - 1) * 100
+                pre_base_ok = (math.isnan(pre_width) or pre_width <= 35) and (math.isnan(pre_return) or abs(pre_return) <= 25)
+
+            current_to_neckline = (current_close / neckline - 1) * 100
+            close_position = (current_close - low_120) / range_span * 100
+            not_extended = -5 <= current_to_neckline <= 5 and close_position <= 65
+            context_ok = lows_in_lower_base and pre_base_ok and not_extended
+            candidate: dict[str, float | str | bool] = {
+                "available": True,
+                "context_ok": context_ok,
+                "second_low_gap_pct": second_low_gap,
+                "neckline_distance_pct": current_to_neckline,
+                "w_bottom_low_position_pct": max(low_left_position, low_right_position),
+                "pre_base_width_pct": pre_width,
+                "pre_base_return_pct": pre_return,
+                "close_position_pct": close_position,
+                "left_low_date": str(df["date"].iloc[left]),
+                "right_low_date": str(df["date"].iloc[right]),
+            }
+            if best is None or abs(float(candidate["neckline_distance_pct"])) < abs(float(best["neckline_distance_pct"])):
+                best = candidate
+
+    if best is None:
+        return {"available": True, "context_ok": False}
+    return best
+
+
 def double_bottom_structure_ok(row: pd.Series) -> bool:
     """Require actual double-bottom geometry, not only a broad pattern flag."""
     if text(row, "category", "original_category").lower() != "pattern":
@@ -457,12 +616,19 @@ def double_bottom_structure_ok(row: pd.Series) -> bool:
     neckline_distance = num(row, "distance_to_neckline_pct")
     if math.isnan(second_low_gap) or math.isnan(neckline_distance):
         return False
-    # W-bottom right side means the second low is higher and price is still
-    # challenging the neckline from below. Confirmed breakouts belong to other
-    # breakout models, not this early right-side model.
+    # W-bottom right side means two similar troughs in a low/base context. If
+    # the right low is far higher than the left low, it is usually a pullback
+    # after a prior advance, not a bottoming W.
     second_low_ok = 0.0 <= second_low_gap <= 4.0
-    neckline_ok = -3.0 <= neckline_distance < 0.0
-    return second_low_ok and neckline_ok
+    neckline_ok = -5.0 <= neckline_distance <= 1.0
+    if not (second_low_ok and neckline_ok):
+        return False
+
+    price_context = detected_w_bottom_context(row)
+    if price_context.get("available"):
+        return bool(price_context.get("context_ok"))
+
+    return explicit_w_bottom_context_ok(row)
 
 
 def cond_w_bottom_right(row: pd.Series) -> bool:

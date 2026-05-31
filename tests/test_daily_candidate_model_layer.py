@@ -126,6 +126,8 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             w_bottom_right_side_flag="",
             second_low_gap_pct="1.5",
             distance_to_neckline_pct="-2.0",
+            w_bottom_low_position_pct="22",
+            w_bottom_base_width_pct="18",
         )
         self.assertTrue(cond_w_bottom_right(clean_w))
 
@@ -134,14 +136,52 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             pattern_stage="near_neckline",
             second_low_gap_pct="-0.5",
             distance_to_neckline_pct="-2.0",
+            w_bottom_low_position_pct="22",
+            w_bottom_base_width_pct="18",
         )
         self.assertFalse(cond_w_bottom_right(slight_undercut))
+
+        right_low_too_high = make_row(
+            category="pattern",
+            pattern_stage="near_neckline",
+            second_low_gap_pct="12.0",
+            distance_to_neckline_pct="-2.0",
+            w_bottom_low_position_pct="22",
+            w_bottom_base_width_pct="18",
+        )
+        self.assertFalse(cond_w_bottom_right(right_low_too_high))
+
+        high_level_pullback = make_row(
+            category="pattern",
+            pattern_stage="near_neckline",
+            second_low_gap_pct="1.5",
+            distance_to_neckline_pct="-2.0",
+            w_bottom_low_position_pct="62",
+            w_bottom_base_width_pct="18",
+            return_20d_pct="42",
+            distance_to_previous_60d_high_pct="-0.5",
+        )
+        self.assertFalse(cond_w_bottom_right(high_level_pullback))
+
+        no_base_context = make_row(
+            category="pattern",
+            pattern_stage="near_neckline",
+            second_low_gap_pct="1.5",
+            distance_to_neckline_pct="-2.0",
+            w_bottom_low_position_pct="",
+            w_bottom_base_width_pct="",
+            platform_width_pct="",
+            short_platform_width_pct="",
+        )
+        self.assertFalse(cond_w_bottom_right(no_base_context))
 
         already_broken = make_row(
             category="pattern",
             pattern_stage="breakout_confirmed",
             second_low_gap_pct="1.5",
             distance_to_neckline_pct="1.0",
+            w_bottom_low_position_pct="22",
+            w_bottom_base_width_pct="18",
         )
         self.assertFalse(cond_w_bottom_right(already_broken))
 

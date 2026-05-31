@@ -1,6 +1,6 @@
 # DAILY CANDIDATE MODEL LAYER PACKET
 
-- generated_at: `2026-05-31 11:24:52 Asia/Taipei`
+- generated_at: `2026-05-31 11:51:50 Asia/Taipei`
 - signal_date: `20260530`
 - contract: model main condition met means the stock enters that model candidate list.
 - scoring: risk, TDCC, warrant, revenue, position, and structure adjust rank inside the model; mainstream/non-mainstream only splits reports.
@@ -55,9 +55,8 @@
 | volume_range_breakout               | 帶量突破模型               | mainstream      |      69 |
 | volume_range_breakout               | 帶量突破模型               | non_mainstream  |      34 |
 | volume_range_breakout               | 帶量突破模型               | unclassified    |       9 |
-| w_bottom_right_side                 | W底右側模型                | mainstream      |       9 |
-| w_bottom_right_side                 | W底右側模型                | non_mainstream  |       5 |
-| w_bottom_right_side                 | W底右側模型                | unclassified    |       1 |
+| w_bottom_right_side                 | W底右側模型                | mainstream      |       3 |
+| w_bottom_right_side                 | W底右側模型                | non_mainstream  |       1 |
 
 ## Front Page Unique Representatives
 
@@ -121,8 +120,8 @@
 |                      56 | mainstream      |       3715 | 定穎投控     | 電子零組件_待細分           | 股價回檔模型            |                  84   |                 3 | 股價回檔模型 | 營收爆發但股價尚未反應模型 | TDCC潛伏吸籌模型                                                        | new_model_signal           |                             1 |                               | 等待量價、TDCC、相對強弱至少一項轉強。                                    |
 |                      57 | mainstream      |       3257 | 虹冠電       | 半導體_設備材料待細分       | 股價回檔模型            |                  83.8 |                 2 | 股價回檔模型 | 帶量突破模型                                                                                         | new_model_signal           |                             1 |                               | 隔日開盤為進場原點；回測23EMA或平台不破才續看，跌破後1到3日站不回則降級。 |
 |                      58 | mainstream      |       1605 | 華新         | 重電電網                    | 股價回檔模型            |                  83.6 |                 3 | 股價回檔模型 | 帶量突破模型 | TDCC潛伏吸籌模型                                                                      | new_model_signal           |                             1 |                               | 確認放量站上頸線/平台壓力，且收盤靠近高點。                               |
-|                      59 | mainstream      |       3596 | 智易         | 低軌衛星                    | 股價回檔模型            |                  83   |                 4 | 股價回檔模型 | W底右側模型 | 回檔後短線轉強模型 | TDCC潛伏吸籌模型                                                  | new_model_signal           |                             1 |                               | 等待量價、TDCC、相對強弱至少一項轉強。                                    |
-|                      60 | mainstream      |       2498 | 宏達電       | 網通_低軌衛星待細分         | 股價回檔模型            |                  83   |                 3 | 股價回檔模型 | 回檔後短線轉強模型 | TDCC潛伏吸籌模型                                                                | new_model_signal           |                             1 |                               | 等待量價、TDCC、相對強弱至少一項轉強。                                    |
+|                      59 | mainstream      |       2498 | 宏達電       | 網通_低軌衛星待細分         | 股價回檔模型            |                  83   |                 3 | 股價回檔模型 | 回檔後短線轉強模型 | TDCC潛伏吸籌模型                                                                | new_model_signal           |                             1 |                               | 等待量價、TDCC、相對強弱至少一項轉強。                                    |
+|                      60 | mainstream      |       3041 | 揚智         | 半導體_設備材料待細分       | 股價回檔模型            |                  83   |                 3 | 股價回檔模型 | 回檔後短線轉強模型 | TDCC潛伏吸籌模型                                                                | new_model_signal           |                             1 |                               | 等待量價、TDCC、相對強弱至少一項轉強。                                    |
 
 ## Same Model Repeat Table
 
