@@ -1336,7 +1336,7 @@ def append_volume_breakout_signals(signals: pd.DataFrame, candidates: pd.DataFra
         return signals
     lookup = candidate_lookup(candidates)
     rows: list[dict[str, Any]] = []
-    valid_statuses = {"selected", "selected_but_routed_to_other_category"}
+    valid_statuses = {"selected", "selected_but_routed_to_other_category", "not_selected_by_candidate_model"}
     valid_types = {
         "range_breakout_volume",
         "platform_volume_breakout",
@@ -1386,7 +1386,7 @@ def append_volume_breakout_signals(signals: pd.DataFrame, candidates: pd.DataFra
                 "non_mainstream_report_eligible": text(source, "non_mainstream_report_eligible", "taxonomy_non_mainstream_report_eligible"),
                 "dual_report_membership_flag": text(source, "dual_report_membership_flag", "taxonomy_dual_report_membership_flag"),
                 "report_bucket": external_report_bucket(row, candidate_row),
-                "model_id": "volume_breakout_range",
+                "model_id": "volume_range_breakout",
                 "model_name_zh": "帶量突破模型",
                 "model_group": "pdf_core_model",
                 "main_condition_met": "True",

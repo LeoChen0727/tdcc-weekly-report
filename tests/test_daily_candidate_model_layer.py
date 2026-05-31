@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -9,6 +10,7 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
+import build_daily_candidate_model_layer as model_layer  # noqa: E402
 from build_daily_candidate_model_layer import (  # noqa: E402
     annotate_frontpage_uniqueness,
     attach_model_recommendations,
@@ -88,6 +90,41 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             distance_to_previous_60d_high_pct="-8",
         )
         self.assertTrue(cond_volume_breakout(row))
+
+    def test_dedicated_volume_breakout_table_is_independent_from_candidate_model(self) -> None:
+        source = pd.DataFrame(
+            [
+                {
+                    "signal_date": "20260530",
+                    "stock_id": "1617",
+                    "stock_name": "榮星",
+                    "volume_breakout_type": "platform_volume_breakout",
+                    "selection_status": "not_selected_by_candidate_model",
+                    "volume_breakout_score": "88",
+                    "volume_breakout_priority": "B_confirm_needed",
+                    "volume_breakout_notes": "close_above_previous_20d_high|volume_ratio_ge_2",
+                    "volume_ratio": "3.17",
+                    "return_5d": "7.0",
+                    "return_20d": "6.3",
+                    "next_volume_breakout_confirmation": "confirm close above MA20/EMA23",
+                }
+            ]
+        )
+        original_path = model_layer.VOLUME_BREAKOUT_WATCH
+        with tempfile.TemporaryDirectory() as tmpdir:
+            temp_path = Path(tmpdir) / "volume_breakout_watch_latest.csv"
+            source.to_csv(temp_path, index=False, encoding="utf-8-sig")
+            model_layer.VOLUME_BREAKOUT_WATCH = temp_path
+            try:
+                out = model_layer.append_volume_breakout_signals(pd.DataFrame(), pd.DataFrame(), "20260530")
+            finally:
+                model_layer.VOLUME_BREAKOUT_WATCH = original_path
+
+        self.assertEqual(len(out), 1)
+        row = out.iloc[0]
+        self.assertEqual(row["stock_id"], "1617")
+        self.assertEqual(row["model_id"], "volume_range_breakout")
+        self.assertEqual(row["model_name_zh"], "帶量突破模型")
 
     def test_pullback_model_does_not_require_breakout(self) -> None:
         row = make_row(
