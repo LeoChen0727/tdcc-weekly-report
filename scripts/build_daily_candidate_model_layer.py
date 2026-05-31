@@ -1076,7 +1076,9 @@ def annotate_frontpage_uniqueness(signals: pd.DataFrame) -> pd.DataFrame:
 
     Full model signals intentionally keep one row per stock per model. The front
     page needs a separate uniqueness contract so a multi-model hit does not look
-    like three different recommendations.
+    like three different recommendations. Same-model repeat appearances are also
+    intentionally excluded from the front-page table; they are persistence
+    signals, not score penalties, and belong in daily_candidate_same_model_repeat.
     """
 
     if signals.empty:
@@ -1091,7 +1093,11 @@ def annotate_frontpage_uniqueness(signals: pd.DataFrame) -> pd.DataFrame:
     out["_score_num"] = pd.to_numeric(out.get("model_score", ""), errors="coerce").fillna(-999)
     out["_rank_num"] = pd.to_numeric(out.get("model_rank", ""), errors="coerce").fillna(999999)
 
-    core_mask = out.get("model_group", "").astype(str).eq("pdf_core_model")
+    repeat_status = out.get("same_model_repeat_status", pd.Series("", index=out.index)).astype(str)
+    repeat_mask = repeat_status.eq("repeated_same_model_signal")
+    out.loc[repeat_mask, "frontpage_duplicate_reason"] = "same_model_repeat_moved_to_persistence_table"
+
+    core_mask = out.get("model_group", "").astype(str).eq("pdf_core_model") & ~repeat_mask
     core = out[core_mask].sort_values(
         ["report_bucket", "stock_id", "_score_num", "_rank_num", "model_id"],
         ascending=[True, True, False, True, True],
@@ -1110,6 +1116,8 @@ def build_frontpage_unique(signals: pd.DataFrame) -> pd.DataFrame:
         return pd.DataFrame()
 
     work = signals[signals.get("model_group", "").astype(str).eq("pdf_core_model")].copy()
+    if "same_model_repeat_status" in work.columns:
+        work = work[work["same_model_repeat_status"].astype(str).ne("repeated_same_model_signal")].copy()
     if work.empty:
         return pd.DataFrame()
     work["_score_num"] = pd.to_numeric(work.get("model_score", ""), errors="coerce").fillna(-999)
@@ -1750,8 +1758,8 @@ def write_packet(
         "- contract: model main condition met means the stock enters that model candidate list.",
         "- scoring: risk, TDCC, warrant, revenue, position, and structure adjust rank inside the model; mainstream/non-mainstream only splits reports.",
         "- PDF rule: do not hard-code model count; render model sections from `daily_candidate_model_signals_for_report_latest.csv` and parameters from `daily_candidate_model_parameters_latest.md`.",
-        "- Front-page rule: use `daily_candidate_frontpage_unique_latest.csv/md` for first-page representatives; do not repeat the same stock three times because it hit multiple models.",
-        "- Repeat rule: same-stock same-model repeat appearances are not score penalties. Use `daily_candidate_same_model_repeat_latest.csv/md` as a separate persistence table.",
+        "- Front-page rule: use `daily_candidate_frontpage_unique_latest.csv/md` for first-page representatives. This table contains new same-model signals only; repeated same-model appearances are intentionally excluded.",
+        "- Repeat rule: same-stock same-model repeat appearances are not score penalties. Use `daily_candidate_same_model_repeat_latest.csv/md` as a separate persistence table. Revenue pullback or unreacted-revenue names can reasonably persist; volume-breakout repeats should be reviewed for breakout hold/failure quality.",
         "",
         "## Model Parameters",
         "",

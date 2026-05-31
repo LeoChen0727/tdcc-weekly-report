@@ -538,8 +538,12 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         self.assertEqual(len(repeat), 1)
         self.assertEqual(repeat.iloc[0]["stock_id"], "2347")
 
+        annotated = annotate_frontpage_uniqueness(annotated)
         frontpage = build_frontpage_unique(annotated)
         self.assertEqual(frontpage.iloc[0]["stock_id"], "9999")
+        self.assertNotIn("2347", set(frontpage["stock_id"].astype(str)))
+        repeat_reason = annotated.loc[annotated["stock_id"].eq("2347"), "frontpage_duplicate_reason"].iloc[0]
+        self.assertEqual(repeat_reason, "same_model_repeat_moved_to_persistence_table")
 
     def test_dual_report_membership_expands_without_score_change(self) -> None:
         row = make_row(
