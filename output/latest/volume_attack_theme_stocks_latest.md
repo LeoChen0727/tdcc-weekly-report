@@ -1,7 +1,7 @@
 # Volume Attack Theme Stocks
 
-- generated_at: `2026-05-31 18:06:49 Asia/Taipei`
-- signal_date: `20260530`
+- generated_at: `2026-05-31 18:27:00 Asia/Taipei`
+- signal_date: `20260531`
 - rule: Every volume attack stock row carries explicit mainstream/non-mainstream status.
 
 |   stock_id | stock_name   | theme_name     | theme_final_status        | theme_structural_status   | theme_mainstream_label     | theme_volume_attack_status   | volume_breakout_type          | volume_breakout_priority   | selection_status                      | candidate_source_type         |   volume_ratio | tdcc_status          | warrant_flow_signal   | next_volume_breakout_confirmation                                                                                                          |

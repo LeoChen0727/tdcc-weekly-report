@@ -1,7 +1,7 @@
 # ChatGPT Indicator Usage Guide
 
-- generated_at: `2026-05-31 10:09:27 UTC`
-- main_price_date: `20260530`
+- generated_at: `2026-05-31 10:29:06 UTC`
+- main_price_date: `20260531`
 - purpose: Use program-side classifications first. ChatGPT should explain and synthesize, not re-rank from memory.
 - rule: If memory, PDF, or ad-hoc interpretation conflicts with program-side fields, use the structured program-side fields.
 
@@ -31,7 +31,7 @@
 | --- | --- | --- | --- | --- |
 | Independent daily candidate models | output/latest/daily_candidate_model_layer_packet_latest.md | daily_candidate_model_parameters, daily_candidate_model_signals, daily_candidate_frontpage_unique, model_rank, report_bucket, selection_semantics | models=15 / raw_signals=1124 / report_signals=1124 / frontpage_unique=405 / packet=ready | Main condition met means selected into that model. Score/risk ranks inside the model. Use model_signals_for_report for PDF model sections and frontpage_unique for first-page representatives. |
 | Daily candidate front-page unique representatives | output/latest/daily_candidate_frontpage_unique_latest.csv | frontpage_unique_rank, report_bucket, stock_id, primary_model_id, model_hit_count, model_hits | rows=405 / mainstream=232; non_mainstream=124; unclassified=49 | First-page PDF table only. A stock can hit multiple models, but the first page should show it once per report bucket and use model_hits to explain overlap. |
-| Daily candidate same-model repeat | output/latest/daily_candidate_same_model_repeat_latest.csv | same_model_consecutive_days, same_model_appear_count_5d, same_model_appear_count_10d, same_model_repeat_status | rows=0 / missing | Persistence table only. Same-stock same-model repeat is not a score penalty or veto; curated/front-page tables may prefer new_model_signal and list repeated names separately. |
+| Daily candidate same-model repeat | output/latest/daily_candidate_same_model_repeat_latest.csv | same_model_consecutive_days, same_model_appear_count_5d, same_model_appear_count_10d, same_model_repeat_status | rows=846 / mainstream=517; non_mainstream=329 | Persistence table only. Same-stock same-model repeat is not a score penalty or veto; curated/front-page tables may prefer new_model_signal and list repeated names separately. |
 | Group fund rotation | output/latest/daily_candidate_group_rotation_latest.csv | theme, stock_count, volume_expansion_3x_count, volume_expansion_ratio, leader_1/2/3 | rows=0 | Theme-flow section only. It is not an individual stock buy model. |
 | Daily model parameter research | output/latest/daily_model_parameter_research_latest.csv | model_id, parameter_set_id, entry_basis, selected_stock_days, best_horizon_by_avg_return, best_d1_to_d10_close_win_rate_pct, sample_status | rows=74 / details=814 / ok_first_pass=74 | Research/backtest layer only. Entry is next trading day open; D+1-D+10 close/high endpoints are in the horizon detail table. Use to tune future parameters, not as PDF-side veto logic. |
 | Daily model parameter recommendations | output/latest/daily_model_parameter_recommendations_latest.csv | model_id, parameter_set_id, recommended_usage, recommended_close_exit_horizon, best_close_win_rate_pct, model_revision_note | rows=74 / intraday_target_watch=56; research_only=14; promote_to_pdf_core=2; score_component_only=2 | Program-side conversion from backtest to reporting usage. Use this for whether a parameter is core, secondary, intraday-target only, or research-only. |

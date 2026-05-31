@@ -1,7 +1,7 @@
 # Daily Candidate Decision Layer Validation
 
 - status: `pass`
-- main_price_date: `20260530`
+- main_price_date: `20260531`
 - decision_rows: `689`
 - decision_md_lines: `287`
 - decision_packet_lines: `222`
@@ -13,4 +13,4 @@
 
 ## Warnings
 
-- main_price_date=20260530 not in decision signal_date values=['20260531']
+- none

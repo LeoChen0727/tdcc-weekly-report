@@ -1,12 +1,10 @@
 {
   "status": "pass",
-  "main_price_date": "20260530",
+  "main_price_date": "20260531",
   "decision_rows": 689,
   "decision_md_lines": 287,
   "decision_packet_lines": 222,
   "regression_2484_status": "pass",
   "errors": [],
-  "warnings": [
-    "main_price_date=20260530 not in decision signal_date values=['20260531']"
-  ]
+  "warnings": []
 }

@@ -1,6 +1,6 @@
 # Candidate Repeat Appearance Validation
 
-- generated_at: `2026-05-31 18:05:51 Asia/Taipei`
+- generated_at: `2026-05-31 18:26:15 Asia/Taipei`
 - status: `pass`
 - main_price_date: `20260531`
 - history_available_days: `9`
@@ -31,4 +31,4 @@
 - none
 
 ## Warnings
-- preferred_date=20260530 differs from signal_date=20260531; using signal_date
+- none

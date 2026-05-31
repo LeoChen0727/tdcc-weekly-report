@@ -1,7 +1,7 @@
 # Volume Attack Theme Layer
 
-- generated_at: `2026-05-31 18:06:49 Asia/Taipei`
-- signal_date: `20260530`
+- generated_at: `2026-05-31 18:27:00 Asia/Taipei`
+- signal_date: `20260531`
 - source_watch: `output/latest/volume_breakout_watch_latest.csv`
 - source_theme: `output/latest/daily_theme_leadership_latest.csv`
 - rule: Volume-attack sections must show `theme_final_status`, `theme_structural_status`, `theme_mainstream_label`, and `theme_volume_attack_status`; do not show only the theme name.

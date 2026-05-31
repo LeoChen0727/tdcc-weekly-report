@@ -1,6 +1,6 @@
 # Candidate Repeat Appearance Latest
 
-- generated_at: `2026-05-31 18:05:47 Asia/Taipei`
+- generated_at: `2026-05-31 18:26:12 Asia/Taipei`
 - signal_date: `20260531`
 - history_available_days: `9`
 - source_signal_log: `output/history/daily_signals/daily_candidate_signal_log.csv`

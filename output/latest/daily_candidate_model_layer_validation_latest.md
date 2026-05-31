@@ -4,9 +4,9 @@
 - parameter_rows: `15`
 - raw_signal_rows: `1124`
 - signal_rows: `1124`
-- same_model_repeat_rows: `0`
+- same_model_repeat_rows: `846`
 - rotation_rows: `0`
-- packet_lines: `131`
+- packet_lines: `212`
 
 ## Errors
 
