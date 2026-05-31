@@ -549,7 +549,7 @@ def classify_watch(df: pd.DataFrame) -> pd.DataFrame:
         elif priority == "C_watch_only":
             next_confirmation = "broad recall only: wait for platform/neckline breakout, stronger volume, and benchmark-relative strength"
         else:
-            next_confirmation = "risk first: avoid chasing until heat/TDCC/repeat risk improves"
+            next_confirmation = "selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
 
         d.update(
             {
@@ -942,6 +942,32 @@ def build_latest_frame_fast(max_workers: int | None = None) -> pd.DataFrame:
     return pd.DataFrame(latest_rows)
 
 
+def filter_latest_to_effective_signal_date(latest: pd.DataFrame, main_date: str) -> tuple[pd.DataFrame, str]:
+    """Filter latest price-derived signals without dropping all rows on non-trading main dates.
+
+    READ_ME_FIRST/main_price_date can point at a report/calendar date while
+    individual stock price history is only updated through the latest trading
+    day.  If no signal exists exactly on main_date, use the newest signal_date
+    not later than main_date.  This keeps real breakout signals, such as a
+    Friday price event when the report date is Saturday, from disappearing.
+    """
+    if latest.empty or "signal_date" not in latest.columns:
+        return latest, main_date
+    out = latest.copy()
+    out["signal_date"] = out["signal_date"].map(normalize_date)
+    available = sorted(d for d in out["signal_date"].dropna().unique().tolist() if d)
+    if not available:
+        return out.iloc[0:0].copy(), main_date
+    if main_date and main_date in available:
+        effective_date = main_date
+    elif main_date:
+        eligible = [d for d in available if d <= main_date]
+        effective_date = eligible[-1] if eligible else available[-1]
+    else:
+        effective_date = available[-1]
+    return out[out["signal_date"] == effective_date].copy(), effective_date
+
+
 def append_latest_events_to_history(events: pd.DataFrame, latest: pd.DataFrame) -> pd.DataFrame:
     if latest.empty:
         return events
@@ -1279,18 +1305,19 @@ def main() -> int:
 
     if args.latest_only:
         latest = build_latest_frame_fast()
-        if main_date and not latest.empty:
-            latest = latest[latest["signal_date"] == main_date].copy()
+        latest, effective_date = filter_latest_to_effective_signal_date(latest, main_date)
         watch = merge_context(latest)
         summary = latest_only_summary()
 
         write_csv(watch, WATCH_CSV)
-        write_watch_md(watch, main_date)
-        write_packet(watch, summary, main_date)
+        write_watch_md(watch, effective_date)
+        write_packet(watch, summary, effective_date)
 
         print(f"Saved: {WATCH_CSV} rows={len(watch)}")
         print(f"Saved: {WATCH_MD}")
         print(f"Saved: {PACKET_MD}")
+        if effective_date != main_date:
+            print(f"Using effective volume signal date {effective_date} for main_price_date {main_date}")
         if summary.empty:
             print("Skipped backtest refresh: --latest-only and no existing backtest summary found")
         else:
@@ -1304,8 +1331,7 @@ def main() -> int:
         events = append_latest_events_to_history(events, latest)
     else:
         latest, events = build_latest_and_event_frames()
-    if main_date and not latest.empty:
-        latest = latest[latest["signal_date"] == main_date].copy()
+    latest, effective_date = filter_latest_to_effective_signal_date(latest, main_date)
     watch = merge_context(latest)
     if not events.empty and "volume_breakout_type" in events.columns:
         if "volume_watch_scope" not in events.columns:
@@ -1318,9 +1344,9 @@ def main() -> int:
     write_csv(watch, WATCH_CSV)
     write_csv(events, EVENT_LOG_CSV)
     write_csv(summary, BACKTEST_CSV)
-    write_watch_md(watch, main_date)
-    write_backtest_md(summary, events, main_date)
-    write_packet(watch, summary, main_date)
+    write_watch_md(watch, effective_date)
+    write_backtest_md(summary, events, effective_date)
+    write_packet(watch, summary, effective_date)
 
     print(f"Saved: {WATCH_CSV} rows={len(watch)}")
     print(f"Saved: {WATCH_MD}")
