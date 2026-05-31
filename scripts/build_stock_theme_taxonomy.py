@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+from urllib.request import urlopen
 from pathlib import Path
 from typing import Any
 
@@ -26,6 +27,8 @@ CONFIG_THEME_MAP = Path("config/stock_theme_map.csv")
 AUTHORIZED_SEED = Path("config/stock_theme_authorized_seed.csv")
 MANUAL_OVERRIDE = Path("config/stock_theme_taxonomy_manual.csv")
 ALL_CANDIDATES = LATEST_DIR / "all_candidates_latest.csv"
+COMPANY_INDUSTRY_SNAPSHOT = LATEST_DIR / "company_industry_snapshot_latest.csv"
+DOCS_COMPANY_INDUSTRY_SNAPSHOT = DOCS_LATEST_DIR / "company_industry_snapshot_latest.csv"
 
 TAXONOMY_CSV = LATEST_DIR / "stock_theme_taxonomy_latest.csv"
 TAXONOMY_MD = LATEST_DIR / "stock_theme_taxonomy_latest.md"
@@ -44,6 +47,47 @@ DOCS_TEMPLATE_XLSX = DOCS_LATEST_DIR / "stock_theme_manual_fill_template_latest.
 DOCS_TEMPLATE_CSV = DOCS_LATEST_DIR / "stock_theme_manual_fill_template_latest.csv"
 DOCS_VALIDATION_JSON = DOCS_LATEST_DIR / "stock_theme_taxonomy_validation_latest.json"
 DOCS_VALIDATION_MD = DOCS_LATEST_DIR / "stock_theme_taxonomy_validation_latest.md"
+
+TWSE_COMPANY_INFO_URL = "https://openapi.twse.com.tw/v1/opendata/t187ap03_L"
+TPEX_COMPANY_INFO_URL = "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap03_O"
+
+INDUSTRY_CODE_MAP = {
+    "01": "水泥工業",
+    "02": "食品工業",
+    "03": "塑膠工業",
+    "04": "紡織纖維",
+    "05": "電機機械",
+    "06": "電器電纜",
+    "08": "玻璃陶瓷",
+    "09": "造紙工業",
+    "10": "鋼鐵工業",
+    "11": "橡膠工業",
+    "12": "汽車工業",
+    "14": "建材營造",
+    "15": "航運業",
+    "16": "觀光餐旅",
+    "17": "金融保險業",
+    "18": "貿易百貨",
+    "20": "其他業",
+    "21": "化學工業",
+    "22": "生技醫療業",
+    "23": "油電燃氣業",
+    "24": "半導體業",
+    "25": "電腦及週邊設備業",
+    "26": "光電業",
+    "27": "通信網路業",
+    "28": "電子零組件業",
+    "29": "電子通路業",
+    "30": "資訊服務業",
+    "31": "其他電子業",
+    "32": "文化創意業",
+    "33": "農業科技",
+    "34": "電子商務",
+    "35": "綠能環保",
+    "36": "數位雲端",
+    "37": "運動休閒",
+    "38": "居家生活",
+}
 
 
 MAINSTREAM_VALUES = {
@@ -255,6 +299,345 @@ PROVISIONAL_INDUSTRY_RULES = [
 
 CORE_BUCKETS.update({bucket for _, _, bucket, label in PROVISIONAL_INDUSTRY_RULES if label == "core_mainstream"})
 
+# Clean UTF-8 taxonomy overrides.  The historical block above is kept for
+# compatibility, but current pipeline decisions must be driven by readable
+# Chinese labels and official listed-company industry fallback rules.
+MAINSTREAM_VALUES = {
+    "主流": "core_mainstream",
+    "核心主流": "core_mainstream",
+    "核心題材": "core_mainstream",
+    "AI主流": "core_mainstream",
+    "mainstream": "core_mainstream",
+    "core_mainstream": "core_mainstream",
+    "非主流": "non_mainstream",
+    "傳產": "non_mainstream",
+    "non_mainstream": "non_mainstream",
+    "待分類": "theme_unknown",
+    "未分類": "theme_unknown",
+    "theme_unknown": "theme_unknown",
+    "": "",
+}
+
+STRUCTURAL_BUCKET_BY_THEME_KEYWORD = {
+    "AI伺服器": "ai_server_ipc_theme",
+    "伺服器": "ai_server_ipc_theme",
+    "AI server": "ai_server_ipc_theme",
+    "IPC": "ai_server_ipc_theme",
+    "工業電腦": "ai_server_ipc_theme",
+    "AI PC": "ai_pc_consumer_theme",
+    "AIPC": "ai_pc_consumer_theme",
+    "PCB": "pcb_ccl_theme",
+    "CCL": "pcb_ccl_theme",
+    "ABF": "pcb_ccl_theme",
+    "玻纖布": "glass_fiber_ccl_theme",
+    "被動元件": "passive_component_theme",
+    "MLCC": "passive_component_theme",
+    "電感": "passive_component_theme",
+    "電容": "passive_component_theme",
+    "電阻": "passive_component_theme",
+    "散熱": "thermal_solution_theme",
+    "液冷": "thermal_solution_theme",
+    "電源": "power_supply_theme",
+    "BBU": "power_supply_theme",
+    "重電": "power_grid_theme",
+    "電網": "power_grid_theme",
+    "低軌衛星": "low_earth_orbit_satellite_theme",
+    "衛星": "low_earth_orbit_satellite_theme",
+    "CPO": "network_optical_datacenter_theme",
+    "光通訊": "network_optical_datacenter_theme",
+    "網通": "network_optical_datacenter_theme",
+    "交換器": "network_switch_theme",
+    "記憶體": "memory_hbm_theme",
+    "儲存": "memory_hbm_theme",
+    "HBM": "memory_hbm_theme",
+    "半導體設備": "semiconductor_equipment_material_theme",
+    "半導體材料": "semiconductor_equipment_material_theme",
+    "CoWoS": "advanced_packaging_theme",
+    "先進封裝": "advanced_packaging_theme",
+    "矽智財": "asic_advanced_process_theme",
+    "ASIC": "asic_advanced_process_theme",
+    "機器人": "robotics_precision_motion_theme",
+    "自動化": "robotics_automation_theme",
+    "精密傳動": "robotics_precision_motion_theme",
+    "機器視覺": "robotics_optics_sensor_theme",
+    "軍工": "defense_drone_theme",
+    "無人機": "defense_drone_theme",
+    "車用": "automotive_electronics_theme",
+    "特化": "specialty_material_theme",
+    "特殊材料": "specialty_material_theme",
+}
+
+CORE_BUCKETS = {
+    "ai_server_ipc_theme",
+    "ai_pc_consumer_theme",
+    "ai_server_mechanical_theme",
+    "ai_chip_testing_theme",
+    "asic_advanced_process_theme",
+    "semiconductor_equipment_material_theme",
+    "advanced_packaging_theme",
+    "memory_hbm_theme",
+    "network_optical_datacenter_theme",
+    "low_earth_orbit_satellite_theme",
+    "high_speed_interconnect_theme",
+    "thermal_solution_theme",
+    "power_supply_theme",
+    "power_grid_theme",
+    "pcb_ccl_theme",
+    "glass_fiber_ccl_theme",
+    "fpc_flexible_pcb_theme",
+    "passive_component_theme",
+    "robotics_precision_motion_theme",
+    "robotics_automation_theme",
+    "robotics_ipc_edge_ai_theme",
+    "robotics_optics_sensor_theme",
+    "defense_drone_theme",
+    "network_switch_theme",
+    "automotive_electronics_theme",
+    "specialty_material_theme",
+    "semiconductor_general_theme",
+    "electronic_component_general_theme",
+    "electronics_channel_general_theme",
+    "networking_general_theme",
+    "optoelectronics_general_theme",
+    "computer_peripheral_general_theme",
+    "other_electronics_general_theme",
+    "information_service_general_theme",
+    "digital_cloud_general_theme",
+}
+
+NON_MAINSTREAM_INDUSTRY_KEYWORDS = [
+    "金融保險",
+    "航運",
+    "紡織",
+    "成衣",
+    "營建",
+    "建材營造",
+    "鋼鐵",
+    "化學",
+    "塑膠",
+    "橡膠",
+    "玻璃陶瓷",
+    "食品",
+    "觀光",
+    "貿易百貨",
+    "水泥",
+    "造紙",
+    "油電燃氣",
+    "生技醫療",
+    "農業",
+    "運動休閒",
+    "居家生活",
+    "文化創意",
+    "綠能環保",
+    "其他",
+]
+
+PROVISIONAL_INDUSTRY_RULES = [
+    ("半導體業", "半導體業_待細分", "semiconductor_general_theme", "core_mainstream"),
+    ("電子零組件業", "電子零組件業_待細分", "electronic_component_general_theme", "core_mainstream"),
+    ("電子通路業", "電子通路業_待細分", "electronics_channel_general_theme", "core_mainstream"),
+    ("通信網路業", "通信網路業_待細分", "networking_general_theme", "core_mainstream"),
+    ("光電業", "光電業_待細分", "optoelectronics_general_theme", "core_mainstream"),
+    ("電腦及週邊設備業", "電腦及週邊設備業_待細分", "computer_peripheral_general_theme", "core_mainstream"),
+    ("其他電子業", "其他電子業_待細分", "other_electronics_general_theme", "core_mainstream"),
+    ("資訊服務業", "資訊服務業_待細分", "information_service_general_theme", "core_mainstream"),
+    ("數位雲端", "數位雲端_待細分", "digital_cloud_general_theme", "core_mainstream"),
+    ("電機機械", "機器人自動化_電機機械待細分", "robotics_precision_motion_theme", "core_mainstream"),
+    ("電器電纜", "重電電網_電器電纜待細分", "power_grid_theme", "core_mainstream"),
+    ("金融保險", "金融保險業", "non_mainstream_theme", "non_mainstream"),
+    ("航運", "航運業", "non_mainstream_theme", "non_mainstream"),
+    ("紡織", "紡織纖維", "non_mainstream_theme", "non_mainstream"),
+    ("成衣", "成衣服飾", "non_mainstream_theme", "non_mainstream"),
+    ("建材營造", "建材營造", "non_mainstream_theme", "non_mainstream"),
+    ("營建", "建材營造", "non_mainstream_theme", "non_mainstream"),
+    ("鋼鐵", "鋼鐵工業", "non_mainstream_theme", "non_mainstream"),
+    ("化學", "化學工業", "non_mainstream_theme", "non_mainstream"),
+    ("塑膠", "塑膠工業", "non_mainstream_theme", "non_mainstream"),
+    ("橡膠", "橡膠工業", "non_mainstream_theme", "non_mainstream"),
+    ("食品", "食品工業", "non_mainstream_theme", "non_mainstream"),
+    ("觀光", "觀光餐旅", "non_mainstream_theme", "non_mainstream"),
+    ("貿易百貨", "貿易百貨", "non_mainstream_theme", "non_mainstream"),
+    ("玻璃陶瓷", "玻璃陶瓷", "non_mainstream_theme", "non_mainstream"),
+    ("水泥", "水泥工業", "non_mainstream_theme", "non_mainstream"),
+    ("造紙", "造紙工業", "non_mainstream_theme", "non_mainstream"),
+    ("油電燃氣", "油電燃氣業", "non_mainstream_theme", "non_mainstream"),
+    ("生技醫療", "生技醫療業", "non_mainstream_theme", "non_mainstream"),
+]
+
+CORE_BUCKETS.update({bucket for _, _, bucket, label in PROVISIONAL_INDUSTRY_RULES if label == "core_mainstream"})
+
+# Final ASCII-safe UTF-8 rule overrides.  These use unicode escapes so this file
+# remains stable even when edited from tools with a non-UTF-8 console codepage.
+MAINSTREAM_VALUES = {
+    "\u4e3b\u6d41": "core_mainstream",
+    "\u6838\u5fc3\u4e3b\u6d41": "core_mainstream",
+    "\u6838\u5fc3\u984c\u6750": "core_mainstream",
+    "AI\u4e3b\u6d41": "core_mainstream",
+    "mainstream": "core_mainstream",
+    "core_mainstream": "core_mainstream",
+    "\u975e\u4e3b\u6d41": "non_mainstream",
+    "\u50b3\u7522": "non_mainstream",
+    "non_mainstream": "non_mainstream",
+    "\u5f85\u5206\u985e": "theme_unknown",
+    "\u672a\u5206\u985e": "theme_unknown",
+    "theme_unknown": "theme_unknown",
+    "": "",
+}
+
+STRUCTURAL_BUCKET_BY_THEME_KEYWORD = {
+    "AI\u4f3a\u670d\u5668": "ai_server_ipc_theme",
+    "\u4f3a\u670d\u5668": "ai_server_ipc_theme",
+    "AI server": "ai_server_ipc_theme",
+    "IPC": "ai_server_ipc_theme",
+    "\u5de5\u696d\u96fb\u8166": "ai_server_ipc_theme",
+    "AI PC": "ai_pc_consumer_theme",
+    "AIPC": "ai_pc_consumer_theme",
+    "PCB": "pcb_ccl_theme",
+    "CCL": "pcb_ccl_theme",
+    "ABF": "pcb_ccl_theme",
+    "\u73bb\u7e96\u5e03": "glass_fiber_ccl_theme",
+    "\u88ab\u52d5\u5143\u4ef6": "passive_component_theme",
+    "MLCC": "passive_component_theme",
+    "\u96fb\u611f": "passive_component_theme",
+    "\u96fb\u5bb9": "passive_component_theme",
+    "\u96fb\u963b": "passive_component_theme",
+    "\u6563\u71b1": "thermal_solution_theme",
+    "\u6db2\u51b7": "thermal_solution_theme",
+    "\u96fb\u6e90": "power_supply_theme",
+    "BBU": "power_supply_theme",
+    "\u91cd\u96fb": "power_grid_theme",
+    "\u96fb\u7db2": "power_grid_theme",
+    "\u4f4e\u8ecc\u885b\u661f": "low_earth_orbit_satellite_theme",
+    "\u885b\u661f": "low_earth_orbit_satellite_theme",
+    "CPO": "network_optical_datacenter_theme",
+    "\u5149\u901a\u8a0a": "network_optical_datacenter_theme",
+    "\u7db2\u901a": "network_optical_datacenter_theme",
+    "\u4ea4\u63db\u5668": "network_switch_theme",
+    "\u8a18\u61b6\u9ad4": "memory_hbm_theme",
+    "\u5132\u5b58": "memory_hbm_theme",
+    "HBM": "memory_hbm_theme",
+    "\u534a\u5c0e\u9ad4\u8a2d\u5099": "semiconductor_equipment_material_theme",
+    "\u534a\u5c0e\u9ad4\u6750\u6599": "semiconductor_equipment_material_theme",
+    "CoWoS": "advanced_packaging_theme",
+    "\u5148\u9032\u5c01\u88dd": "advanced_packaging_theme",
+    "\u77fd\u667a\u8ca1": "asic_advanced_process_theme",
+    "ASIC": "asic_advanced_process_theme",
+    "\u6a5f\u5668\u4eba": "robotics_precision_motion_theme",
+    "\u81ea\u52d5\u5316": "robotics_automation_theme",
+    "\u7cbe\u5bc6\u50b3\u52d5": "robotics_precision_motion_theme",
+    "\u6a5f\u5668\u8996\u89ba": "robotics_optics_sensor_theme",
+    "\u8ecd\u5de5": "defense_drone_theme",
+    "\u7121\u4eba\u6a5f": "defense_drone_theme",
+    "\u8eca\u7528": "automotive_electronics_theme",
+    "\u7279\u5316": "specialty_material_theme",
+    "\u7279\u6b8a\u6750\u6599": "specialty_material_theme",
+}
+
+CORE_BUCKETS = {
+    "ai_server_ipc_theme",
+    "ai_pc_consumer_theme",
+    "ai_server_mechanical_theme",
+    "ai_chip_testing_theme",
+    "asic_advanced_process_theme",
+    "semiconductor_equipment_material_theme",
+    "advanced_packaging_theme",
+    "memory_hbm_theme",
+    "network_optical_datacenter_theme",
+    "low_earth_orbit_satellite_theme",
+    "high_speed_interconnect_theme",
+    "thermal_solution_theme",
+    "power_supply_theme",
+    "power_grid_theme",
+    "pcb_ccl_theme",
+    "glass_fiber_ccl_theme",
+    "fpc_flexible_pcb_theme",
+    "passive_component_theme",
+    "robotics_precision_motion_theme",
+    "robotics_automation_theme",
+    "robotics_ipc_edge_ai_theme",
+    "robotics_optics_sensor_theme",
+    "defense_drone_theme",
+    "network_switch_theme",
+    "automotive_electronics_theme",
+    "specialty_material_theme",
+    "semiconductor_general_theme",
+    "electronic_component_general_theme",
+    "electronics_channel_general_theme",
+    "networking_general_theme",
+    "optoelectronics_general_theme",
+    "computer_peripheral_general_theme",
+    "other_electronics_general_theme",
+    "information_service_general_theme",
+    "digital_cloud_general_theme",
+}
+
+NON_MAINSTREAM_INDUSTRY_KEYWORDS = [
+    "\u91d1\u878d\u4fdd\u96aa",
+    "\u822a\u904b",
+    "\u7d21\u7e54",
+    "\u6210\u8863",
+    "\u71df\u5efa",
+    "\u5efa\u6750\u71df\u9020",
+    "\u92fc\u9435",
+    "\u5316\u5b78",
+    "\u5851\u81a0",
+    "\u6a61\u81a0",
+    "\u73bb\u7483\u9676\u74f7",
+    "\u98df\u54c1",
+    "\u89c0\u5149",
+    "\u8cbf\u6613\u767e\u8ca8",
+    "\u6c34\u6ce5",
+    "\u9020\u7d19",
+    "\u6cb9\u96fb\u71c3\u6c23",
+    "\u751f\u6280\u91ab\u7642",
+    "\u8fb2\u696d",
+    "\u904b\u52d5\u4f11\u9592",
+    "\u5c45\u5bb6\u751f\u6d3b",
+    "\u6587\u5316\u5275\u610f",
+    "\u7da0\u80fd\u74b0\u4fdd",
+    "\u5176\u4ed6",
+]
+
+PROVISIONAL_INDUSTRY_RULES = [
+    ("semiconductor", "\u534a\u5c0e\u9ad4\u696d_\u5f85\u7d30\u5206", "semiconductor_general_theme", "core_mainstream"),
+    ("power discrete", "\u534a\u5c0e\u9ad4\u696d_\u529f\u7387\u5143\u4ef6\u5f85\u7d30\u5206", "semiconductor_general_theme", "core_mainstream"),
+    ("diodes", "\u534a\u5c0e\u9ad4\u696d_\u529f\u7387\u5143\u4ef6\u5f85\u7d30\u5206", "semiconductor_general_theme", "core_mainstream"),
+    ("\u534a\u5c0e\u9ad4\u696d", "\u534a\u5c0e\u9ad4\u696d_\u5f85\u7d30\u5206", "semiconductor_general_theme", "core_mainstream"),
+    ("\u96fb\u5b50\u96f6\u7d44\u4ef6\u696d", "\u96fb\u5b50\u96f6\u7d44\u4ef6\u696d_\u5f85\u7d30\u5206", "electronic_component_general_theme", "core_mainstream"),
+    ("\u96fb\u5b50\u901a\u8def\u696d", "\u96fb\u5b50\u901a\u8def\u696d_\u5f85\u7d30\u5206", "electronics_channel_general_theme", "core_mainstream"),
+    ("\u901a\u4fe1\u7db2\u8def\u696d", "\u901a\u4fe1\u7db2\u8def\u696d_\u5f85\u7d30\u5206", "networking_general_theme", "core_mainstream"),
+    ("\u5149\u96fb\u696d", "\u5149\u96fb\u696d_\u5f85\u7d30\u5206", "optoelectronics_general_theme", "core_mainstream"),
+    ("\u96fb\u8166\u53ca\u9031\u908a\u8a2d\u5099\u696d", "\u96fb\u8166\u53ca\u9031\u908a\u8a2d\u5099\u696d_\u5f85\u7d30\u5206", "computer_peripheral_general_theme", "core_mainstream"),
+    ("\u5176\u4ed6\u96fb\u5b50\u696d", "\u5176\u4ed6\u96fb\u5b50\u696d_\u5f85\u7d30\u5206", "other_electronics_general_theme", "core_mainstream"),
+    ("\u8cc7\u8a0a\u670d\u52d9\u696d", "\u8cc7\u8a0a\u670d\u52d9\u696d_\u5f85\u7d30\u5206", "information_service_general_theme", "core_mainstream"),
+    ("\u6578\u4f4d\u96f2\u7aef", "\u6578\u4f4d\u96f2\u7aef_\u5f85\u7d30\u5206", "digital_cloud_general_theme", "core_mainstream"),
+    ("\u96fb\u6a5f\u6a5f\u68b0", "\u6a5f\u5668\u4eba\u81ea\u52d5\u5316_\u96fb\u6a5f\u6a5f\u68b0\u5f85\u7d30\u5206", "robotics_precision_motion_theme", "core_mainstream"),
+    ("\u96fb\u5668\u96fb\u7e9c", "\u91cd\u96fb\u96fb\u7db2_\u96fb\u5668\u96fb\u7e9c\u5f85\u7d30\u5206", "power_grid_theme", "core_mainstream"),
+    ("\u91d1\u878d\u696d", "\u91d1\u878d\u696d", "non_mainstream_theme", "non_mainstream"),
+    ("\u91d1\u878d\u4fdd\u96aa", "\u91d1\u878d\u4fdd\u96aa\u696d", "non_mainstream_theme", "non_mainstream"),
+    ("\u6c7d\u8eca\u5de5\u696d", "\u6c7d\u8eca\u5de5\u696d", "non_mainstream_theme", "non_mainstream"),
+    ("\u822a\u904b", "\u822a\u904b\u696d", "non_mainstream_theme", "non_mainstream"),
+    ("\u7d21\u7e54", "\u7d21\u7e54\u7e96\u7dad", "non_mainstream_theme", "non_mainstream"),
+    ("\u6210\u8863", "\u6210\u8863\u670d\u98fe", "non_mainstream_theme", "non_mainstream"),
+    ("\u5efa\u6750\u71df\u9020", "\u5efa\u6750\u71df\u9020", "non_mainstream_theme", "non_mainstream"),
+    ("\u71df\u5efa", "\u5efa\u6750\u71df\u9020", "non_mainstream_theme", "non_mainstream"),
+    ("\u92fc\u9435", "\u92fc\u9435\u5de5\u696d", "non_mainstream_theme", "non_mainstream"),
+    ("\u5316\u5b78", "\u5316\u5b78\u5de5\u696d", "non_mainstream_theme", "non_mainstream"),
+    ("\u5851\u81a0", "\u5851\u81a0\u5de5\u696d", "non_mainstream_theme", "non_mainstream"),
+    ("\u6a61\u81a0", "\u6a61\u81a0\u5de5\u696d", "non_mainstream_theme", "non_mainstream"),
+    ("\u98df\u54c1", "\u98df\u54c1\u5de5\u696d", "non_mainstream_theme", "non_mainstream"),
+    ("\u89c0\u5149", "\u89c0\u5149\u9910\u65c5", "non_mainstream_theme", "non_mainstream"),
+    ("\u8cbf\u6613\u767e\u8ca8", "\u8cbf\u6613\u767e\u8ca8", "non_mainstream_theme", "non_mainstream"),
+    ("\u73bb\u7483\u9676\u74f7", "\u73bb\u7483\u9676\u74f7", "non_mainstream_theme", "non_mainstream"),
+    ("\u6c34\u6ce5", "\u6c34\u6ce5\u5de5\u696d", "non_mainstream_theme", "non_mainstream"),
+    ("\u9020\u7d19", "\u9020\u7d19\u5de5\u696d", "non_mainstream_theme", "non_mainstream"),
+    ("\u6cb9\u96fb\u71c3\u6c23", "\u6cb9\u96fb\u71c3\u6c23\u696d", "non_mainstream_theme", "non_mainstream"),
+    ("\u751f\u6280\u91ab\u7642", "\u751f\u6280\u91ab\u7642\u696d", "non_mainstream_theme", "non_mainstream"),
+    ("91", "DR_or_foreign_listing", "non_mainstream_theme", "non_mainstream"),
+]
+
+CORE_BUCKETS.update({bucket for _, _, bucket, label in PROVISIONAL_INDUSTRY_RULES if label == "core_mainstream"})
+
 
 def compact_text(value: Any) -> str:
     return safe_str(value).replace("\ufeff", "").strip()
@@ -289,6 +672,20 @@ def provisional_industry_rule(industry: str) -> tuple[str, str, str] | None:
 def infer_bucket(primary_theme: str, secondary_themes: str, industry: str, fallback: str = "") -> str:
     if compact_text(fallback):
         return compact_text(fallback)
+    theme_text = f"{primary_theme};{secondary_themes}"
+    # Specific market themes must win over broad industry/generic tags.  For
+    # example, 富喬/台玻/南亞 may also carry PCB/CCL or plastics context, but
+    # the actionable theme here is glass fiber; passive components likewise
+    # must not be diluted into generic electronic components.
+    priority_rules = [
+        (["ETF_or_index_product", "etf_or_index_product"], "non_mainstream_theme"),
+        (["玻纖布", "glass fiber"], "glass_fiber_ccl_theme"),
+        (["被動元件", "passive components", "capacitors", "capacitor", "MLCC", "電感", "電容", "電阻"], "passive_component_theme"),
+    ]
+    theme_lower = theme_text.lower()
+    for keywords, bucket in priority_rules:
+        if any(keyword.lower() in theme_lower for keyword in keywords):
+            return bucket
     haystack = f"{primary_theme};{secondary_themes};{industry}"
     for keyword, bucket in STRUCTURAL_BUCKET_BY_THEME_KEYWORD.items():
         if keyword in haystack:
@@ -381,8 +778,97 @@ def report_membership_fields(industry_label: str, theme_label: str, effective_la
     }
 
 
+def decode_industry_code(value: str) -> str:
+    code = compact_text(value)
+    if not code:
+        return ""
+    code = code.zfill(2) if code.isdigit() and len(code) <= 2 else code
+    return INDUSTRY_CODE_MAP.get(code, code)
+
+
+def fetch_json_records(url: str) -> list[dict[str, Any]]:
+    with urlopen(url, timeout=20) as response:
+        data = response.read().decode("utf-8")
+    records = json.loads(data)
+    return records if isinstance(records, list) else []
+
+
+def load_official_company_industry() -> pd.DataFrame:
+    """Load official TWSE/TPEx industry metadata.
+
+    This is a best-effort enrichment layer.  If the network is unavailable,
+    fall back to the last generated snapshot so taxonomy does not collapse
+    into unclassified buckets.
+    """
+    rows: list[dict[str, str]] = []
+    sources = [
+        (
+            "TWSE",
+            TWSE_COMPANY_INFO_URL,
+            {
+                "code": "公司代號",
+                "name": "公司簡稱",
+                "industry_code": "產業別",
+            },
+        ),
+        (
+            "TPEX",
+            TPEX_COMPANY_INFO_URL,
+            {
+                "code": "SecuritiesCompanyCode",
+                "name": "CompanyAbbreviation",
+                "industry_code": "SecuritiesIndustryCode",
+            },
+        ),
+    ]
+    for market, url, fields in sources:
+        try:
+            records = fetch_json_records(url)
+        except Exception as exc:
+            print(f"WARNING: failed to fetch official company industry {market}: {exc}")
+            continue
+        for item in records:
+            code = normalize_code(item.get(fields["code"], ""))
+            if not code:
+                continue
+            industry = decode_industry_code(item.get(fields["industry_code"], ""))
+            rows.append(
+                {
+                    "stock_id": code,
+                    "stock_name": compact_text(item.get(fields["name"], "")),
+                    "industry": industry,
+                    "market": market,
+                    "industry_source": f"official_{market.lower()}",
+                }
+            )
+
+    if not rows and COMPANY_INDUSTRY_SNAPSHOT.exists():
+        return read_csv(COMPANY_INDUSTRY_SNAPSHOT, dtype=str, keep_default_na=False)
+
+    out = pd.DataFrame(rows)
+    if out.empty:
+        return pd.DataFrame(columns=["stock_id", "stock_name", "industry", "market", "industry_source"])
+    out = out.drop_duplicates("stock_id", keep="first").sort_values("stock_id").reset_index(drop=True)
+    write_csv(out, COMPANY_INDUSTRY_SNAPSHOT)
+    DOCS_LATEST_DIR.mkdir(parents=True, exist_ok=True)
+    write_csv(out, DOCS_COMPANY_INDUSTRY_SNAPSHOT)
+    return out
+
+
 def load_universe() -> pd.DataFrame:
     rows: dict[str, dict[str, str]] = {}
+
+    official = load_official_company_industry()
+    if not official.empty:
+        for _, row in official.iterrows():
+            code = normalize_code(row.get("stock_id", ""))
+            if not code:
+                continue
+            rows.setdefault(code, {"stock_id": code})
+            rows[code]["stock_name"] = compact_text(row.get("stock_name", "")) or rows[code].get("stock_name", "")
+            rows[code]["industry"] = compact_text(row.get("industry", "")) or rows[code].get("industry", "")
+            rows[code]["market"] = compact_text(row.get("market", "")) or rows[code].get("market", "")
+            rows[code]["industry_source"] = compact_text(row.get("industry_source", "")) or rows[code].get("industry_source", "")
 
     candidates = read_csv(ALL_CANDIDATES, dtype=str, keep_default_na=False)
     if not candidates.empty:
@@ -412,6 +898,8 @@ def load_universe() -> pd.DataFrame:
     for col in ["stock_name", "industry", "market"]:
         if col not in universe.columns:
             universe[col] = ""
+    if "industry_source" not in universe.columns:
+        universe["industry_source"] = ""
     return universe.sort_values("stock_id").reset_index(drop=True)
 
 
@@ -457,6 +945,18 @@ def load_manual() -> pd.DataFrame:
         "族群3": "theme_3",
         "備註": "notes",
     }
+    rename.update(
+        {
+            "\u80a1\u7968\u4ee3\u865f": "stock_id",
+            "\u80a1\u7968\u540d\u7a31": "stock_name",
+            "\u4e0a\u5e02\u6ac3\u7522\u696d": "industry",
+            "\u4e3b\u6d41/\u975e\u4e3b\u6d41": "theme_mainstream_label",
+            "\u65cf\u7fa41": "primary_theme",
+            "\u65cf\u7fa42": "theme_2",
+            "\u65cf\u7fa43": "theme_3",
+            "\u5099\u8a3b": "notes",
+        }
+    )
     df = df.rename(columns={k: v for k, v in rename.items() if k in df.columns})
     if "stock_id" in df.columns:
         df["stock_id"] = df["stock_id"].map(normalize_code)
@@ -480,6 +980,8 @@ def build_taxonomy() -> pd.DataFrame:
         for col in ["stock_name", "industry", "market"]:
             if col not in seeded_universe.columns:
                 seeded_universe[col] = ""
+        if "industry_source" not in seeded_universe.columns:
+            seeded_universe["industry_source"] = ""
         universe = (
             seeded_universe.sort_values(["stock_id", "stock_name", "industry"])
             .groupby("stock_id", as_index=False)
@@ -488,6 +990,7 @@ def build_taxonomy() -> pd.DataFrame:
                     "stock_name": lambda s: next((compact_text(x) for x in s if compact_text(x)), ""),
                     "industry": lambda s: next((compact_text(x) for x in s if compact_text(x)), ""),
                     "market": lambda s: next((compact_text(x) for x in s if compact_text(x)), ""),
+                    "industry_source": lambda s: next((compact_text(x) for x in s if compact_text(x)), ""),
                 }
             )
         )
@@ -557,6 +1060,9 @@ def build_taxonomy() -> pd.DataFrame:
         default_primary = compact_text(row.get("default_primary_theme", ""))
         provisional = provisional_industry_rule(industry)
         provisional_primary = provisional[0] if provisional else ""
+        if stock_id.startswith("00") and not provisional:
+            provisional = ("ETF_or_index_product", "non_mainstream_theme", "non_mainstream")
+            provisional_primary = provisional[0]
         primary = manual_primary or authorized_primary or default_primary or provisional_primary or industry
         secondary_list = split_themes(
             row.get("manual_theme_2", ""),
@@ -609,6 +1115,7 @@ def build_taxonomy() -> pd.DataFrame:
                 "stock_id": stock_id,
                 "stock_name": stock_name,
                 "industry": industry,
+                "industry_source": compact_text(row.get("industry_source", "")),
                 "primary_theme": primary,
                 "secondary_themes": secondary,
                 "structural_theme_bucket": bucket,
@@ -676,6 +1183,69 @@ def build_template(taxonomy: pd.DataFrame, rows_per_sheet: int = 500) -> pd.Data
                 ws.column_dimensions[letter].width = 18 if letter not in {"E", "F", "G", "H", "I", "J", "K", "L"} else 24
     DOCS_TEMPLATE_XLSX.write_bytes(TEMPLATE_XLSX.read_bytes())
     return template
+
+
+def build_template(taxonomy: pd.DataFrame, rows_per_sheet: int = 500) -> pd.DataFrame:
+    """Build the user-fillable taxonomy workbook with simple readable columns."""
+    label_map = {"core_mainstream": "\u4e3b\u6d41", "non_mainstream": "\u975e\u4e3b\u6d41", "theme_unknown": ""}
+    template = pd.DataFrame(
+        {
+            "\u80a1\u7968\u4ee3\u865f": taxonomy["stock_id"],
+            "\u80a1\u7968\u540d\u7a31": taxonomy["stock_name"],
+            "\u4e0a\u5e02\u6ac3\u7522\u696d": taxonomy["industry"],
+            "\u4e3b\u6d41/\u975e\u4e3b\u6d41": taxonomy["effective_mainstream_label"].map(label_map).fillna(""),
+            "\u65cf\u7fa41": taxonomy["primary_theme"],
+            "\u65cf\u7fa42": taxonomy["secondary_themes"].map(lambda x: split_themes(x)[0] if split_themes(x) else ""),
+            "\u65cf\u7fa43": taxonomy["secondary_themes"].map(lambda x: split_themes(x)[1] if len(split_themes(x)) > 1 else ""),
+            "\u7522\u696d\u9810\u8a2d": taxonomy["industry_mainstream_label"].map(label_map).fillna(""),
+            "\u984c\u6750\u9810\u8a2d": taxonomy["theme_mainstream_label"].map(label_map).fillna(""),
+            "\u6700\u7d42\u5206\u6d41": taxonomy["effective_mainstream_label"].map(label_map).fillna(""),
+            "\u96d9\u91cd\u8eab\u5206": taxonomy["mainstream_conflict_flag"].map({"True": "\u662f", "False": ""}).fillna(""),
+            "report_line_memberships": taxonomy["report_line_memberships"],
+            "mainstream_report_eligible": taxonomy["mainstream_report_eligible"],
+            "non_mainstream_report_eligible": taxonomy["non_mainstream_report_eligible"],
+            "\u5099\u8a3b": taxonomy["notes"],
+        }
+    )
+    write_csv(template, TEMPLATE_CSV)
+    DOCS_LATEST_DIR.mkdir(parents=True, exist_ok=True)
+    write_csv(template, DOCS_TEMPLATE_CSV)
+
+    with pd.ExcelWriter(TEMPLATE_XLSX, engine="openpyxl") as writer:
+        instructions = pd.DataFrame(
+            [
+                {
+                    "\u6b04\u4f4d": "\u4e3b\u6d41/\u975e\u4e3b\u6d41",
+                    "\u586b\u5beb\u65b9\u5f0f": "\u586b\u4e3b\u6d41\u3001\u975e\u4e3b\u6d41\u6216\u7559\u7a7a\u3002\u7559\u7a7a\u6642\u7a0b\u5f0f\u4f7f\u7528\u65e2\u6709\u984c\u6750\u8207\u7522\u696d\u9810\u8a2d\u3002",
+                },
+                {
+                    "\u6b04\u4f4d": "\u65cf\u7fa41",
+                    "\u586b\u5beb\u65b9\u5f0f": "\u586b\u6700\u91cd\u8981\u65cf\u7fa4\uff0c\u4f8b\u5982\u6a5f\u5668\u4eba\u81ea\u52d5\u5316\u3001\u73bb\u7e96\u5e03\u3001\u4f4e\u8ecc\u885b\u661f\u3001\u88ab\u52d5\u5143\u4ef6\u3002",
+                },
+                {
+                    "\u6b04\u4f4d": "\u65cf\u7fa42/\u65cf\u7fa43",
+                    "\u586b\u5beb\u65b9\u5f0f": "\u540c\u4e00\u80a1\u7968\u6709\u591a\u500b\u65cf\u7fa4\u6642\u518d\u586b\u3002",
+                },
+                {
+                    "\u6b04\u4f4d": "\u7522\u696d\u9810\u8a2d/\u984c\u6750\u9810\u8a2d/\u6700\u7d42\u5206\u6d41/\u96d9\u91cd\u8eab\u5206",
+                    "\u586b\u5beb\u65b9\u5f0f": "\u7a0b\u5f0f\u53c3\u8003\u6b04\uff0c\u901a\u5e38\u4e0d\u7528\u6539\u3002",
+                },
+                {"\u6b04\u4f4d": "\u5099\u8a3b", "\u586b\u5beb\u65b9\u5f0f": "\u9700\u8981\u8aaa\u660e\u4f86\u6e90\u6216\u4f8b\u5916\u6642\u586b\u3002"},
+            ]
+        )
+        instructions.to_excel(writer, index=False, sheet_name="instructions")
+        for start in range(0, len(template), rows_per_sheet):
+            sheet = f"stocks_{start + 1:04d}_{min(start + rows_per_sheet, len(template)):04d}"
+            template.iloc[start : start + rows_per_sheet].to_excel(writer, index=False, sheet_name=sheet)
+        workbook = writer.book
+        for ws in workbook.worksheets:
+            ws.freeze_panes = "A2"
+            for col in ws.columns:
+                letter = col[0].column_letter
+                ws.column_dimensions[letter].width = 16 if letter in {"A", "B", "C", "D"} else 22
+    DOCS_TEMPLATE_XLSX.write_bytes(TEMPLATE_XLSX.read_bytes())
+    return template
+
 
 def markdown_table(df: pd.DataFrame, cols: list[str], limit: int = 40) -> str:
     show = df.loc[:, [col for col in cols if col in df.columns]].head(limit).fillna("")

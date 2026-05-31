@@ -11,18 +11,23 @@ class StockThemeTaxonomyTests(unittest.TestCase):
     def test_manual_mainstream_normalization(self) -> None:
         self.assertEqual(taxonomy.normalize_mainstream("主流"), "core_mainstream")
         self.assertEqual(taxonomy.normalize_mainstream("非主流"), "non_mainstream")
+        self.assertEqual(taxonomy.normalize_mainstream("未分類"), "theme_unknown")
 
-    def test_robotics_bucket_is_core_mainstream(self) -> None:
-        bucket = taxonomy.infer_bucket("機器人", "自動化", "電機機械")
-        self.assertEqual(bucket, "robotics_precision_motion_theme")
-        self.assertEqual(taxonomy.infer_mainstream_label(bucket, "電機機械"), "core_mainstream")
+    def test_official_industry_fallbacks(self) -> None:
+        self.assertEqual(taxonomy.infer_industry_mainstream_label("半導體業"), "core_mainstream")
+        self.assertEqual(taxonomy.infer_industry_mainstream_label("電機機械"), "core_mainstream")
+        self.assertEqual(taxonomy.infer_industry_mainstream_label("電器電纜"), "core_mainstream")
+        self.assertEqual(taxonomy.infer_industry_mainstream_label("金融保險業"), "non_mainstream")
+        self.assertEqual(taxonomy.infer_industry_mainstream_label("塑膠工業"), "non_mainstream")
 
-    def test_authorized_theme_buckets_are_core_mainstream(self) -> None:
+    def test_theme_keywords_are_core_mainstream(self) -> None:
         cases = [
-            ("重電電網", "", "power_grid_theme"),
-            ("軍工無人機", "", "defense_drone_theme"),
-            ("網通交換器", "", "network_switch_theme"),
-            ("車用電子", "", "automotive_electronics_theme"),
+            ("機器人自動化", "", "robotics_precision_motion_theme"),
+            ("玻纖布", "PCB_CCL_ABF材料", "glass_fiber_ccl_theme"),
+            ("被動元件", "", "passive_component_theme"),
+            ("低軌衛星", "", "low_earth_orbit_satellite_theme"),
+            ("CPO光通訊", "網通交換器", "network_optical_datacenter_theme"),
+            ("AI伺服器", "", "ai_server_ipc_theme"),
         ]
         for primary, secondary, expected in cases:
             with self.subTest(primary=primary):
@@ -30,46 +35,33 @@ class StockThemeTaxonomyTests(unittest.TestCase):
                 self.assertEqual(bucket, expected)
                 self.assertEqual(taxonomy.infer_mainstream_label(bucket, ""), "core_mainstream")
 
-    def test_authorized_seed_contains_multi_theme_stocks(self) -> None:
+    def test_authorized_seed_contains_user_theme_stocks(self) -> None:
         seed = taxonomy.load_authorized_seed()
         huatung = seed[seed["stock_id"].eq("2313")].iloc[0]
         qiqi = seed[seed["stock_id"].eq("6285")].iloc[0]
+        hiwin = seed[seed["stock_id"].eq("2049")].iloc[0]
         self.assertEqual(huatung["primary_theme"], "PCB_CCL_ABF材料")
         self.assertIn("低軌衛星", huatung["secondary_themes"])
         self.assertEqual(qiqi["primary_theme"], "低軌衛星")
         self.assertIn("網通交換器", qiqi["secondary_themes"])
-
-    def test_non_mainstream_industry_fallback(self) -> None:
-        bucket = taxonomy.infer_bucket("", "", "金融保險業")
-        self.assertEqual(bucket, "non_mainstream_theme")
-        self.assertEqual(taxonomy.infer_mainstream_label(bucket, "金融保險業"), "non_mainstream")
+        self.assertEqual(hiwin["primary_theme"], "機器人自動化")
 
     def test_dual_industry_and_theme_identity(self) -> None:
         industry_label = taxonomy.infer_industry_mainstream_label("塑膠工業")
         theme_label = taxonomy.infer_mainstream_label("glass_fiber_ccl_theme", "塑膠工業")
         effective = taxonomy.effective_mainstream_label(theme_label, industry_label)
         flag, note = taxonomy.mainstream_conflict_note(industry_label, theme_label, effective)
+        membership = taxonomy.report_membership_fields(industry_label, theme_label, effective)
+
         self.assertEqual(industry_label, "non_mainstream")
         self.assertEqual(theme_label, "core_mainstream")
         self.assertEqual(effective, "core_mainstream")
         self.assertEqual(flag, "True")
         self.assertIn("report_routing=core_mainstream", note)
+        self.assertEqual(membership["report_line_memberships"], "mainstream|non_mainstream")
+        self.assertEqual(membership["dual_report_membership_flag"], "True")
 
-    def test_report_membership_dual_and_single_route_cases(self) -> None:
-        dual = taxonomy.report_membership_fields("non_mainstream", "core_mainstream", "core_mainstream")
-        core = taxonomy.report_membership_fields("core_mainstream", "theme_unknown", "core_mainstream")
-        non = taxonomy.report_membership_fields("non_mainstream", "theme_unknown", "non_mainstream")
-        unknown = taxonomy.report_membership_fields("theme_unknown", "theme_unknown", "theme_unknown")
-
-        self.assertEqual(dual["report_line_memberships"], "mainstream|non_mainstream")
-        self.assertEqual(dual["mainstream_report_eligible"], "True")
-        self.assertEqual(dual["non_mainstream_report_eligible"], "True")
-        self.assertEqual(dual["dual_report_membership_flag"], "True")
-        self.assertEqual(core["report_line_memberships"], "mainstream")
-        self.assertEqual(non["report_line_memberships"], "non_mainstream")
-        self.assertEqual(unknown["report_line_memberships"], "theme_unknown")
-
-    def test_blank_theme_keeps_default_theme(self) -> None:
+    def test_blank_manual_theme_keeps_default_theme(self) -> None:
         row = pd.Series(
             {
                 "stock_id": "2375",
@@ -96,27 +88,38 @@ class StockThemeTaxonomyTests(unittest.TestCase):
                 "stock_id": ["2049"],
                 "stock_name": ["上銀"],
                 "industry": ["電機機械"],
-                "primary_theme": ["機器人"],
-                "secondary_themes": ["自動化"],
+                "primary_theme": ["機器人自動化"],
+                "secondary_themes": [""],
+                "industry_mainstream_label": ["core_mainstream"],
                 "theme_mainstream_label": ["core_mainstream"],
+                "effective_mainstream_label": ["core_mainstream"],
+                "mainstream_conflict_flag": ["False"],
+                "report_line_memberships": ["mainstream"],
+                "mainstream_report_eligible": ["True"],
+                "non_mainstream_report_eligible": ["False"],
                 "notes": [""],
             }
         )
-        template = pd.DataFrame(
-            {
-                "股票代號": source["stock_id"],
-                "股票名稱": source["stock_name"],
-                "目前產業": source["industry"],
-                "主流/非主流": ["主流"],
-                "主要族群1": source["primary_theme"],
-                "族群2": ["自動化"],
-                "族群3": [""],
-                "備註": source["notes"],
-            }
-        )
+        template = taxonomy.build_template(source, rows_per_sheet=500)
         self.assertEqual(
             list(template.columns),
-            ["股票代號", "股票名稱", "目前產業", "主流/非主流", "主要族群1", "族群2", "族群3", "備註"],
+            [
+                "股票代號",
+                "股票名稱",
+                "上市櫃產業",
+                "主流/非主流",
+                "族群1",
+                "族群2",
+                "族群3",
+                "產業預設",
+                "題材預設",
+                "最終分流",
+                "雙重身分",
+                "report_line_memberships",
+                "mainstream_report_eligible",
+                "non_mainstream_report_eligible",
+                "備註",
+            ],
         )
 
 

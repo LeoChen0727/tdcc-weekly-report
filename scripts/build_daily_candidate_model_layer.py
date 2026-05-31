@@ -438,14 +438,10 @@ def score_w_bottom(row: pd.Series) -> tuple[float, list[str], list[str]]:
             comps.append(f"W neckline distance:{neck_dist:.1f}%")
         if isinstance(base_width, (int, float)) and not math.isnan(base_width):
             comps.append(f"pre-W base width:{base_width:.1f}%")
-        if math.isnan(attack1):
-            attack1 = float(context.get("attack1_gain_pct", math.nan))
-        if math.isnan(attack2):
-            attack2 = float(context.get("attack2_gain_pct", math.nan))
-        if math.isnan(vol2_vs_1):
-            vol2_vs_1 = float(context.get("volume_ratio_2_vs_1", math.nan))
-        if math.isnan(red_body2_vs_1):
-            red_body2_vs_1 = float(context.get("red_body_ratio_2_vs_1", math.nan))
+        attack1 = float(context.get("attack1_gain_pct", math.nan))
+        attack2 = float(context.get("attack2_gain_pct", math.nan))
+        vol2_vs_1 = float(context.get("volume_ratio_2_vs_1", math.nan))
+        red_body2_vs_1 = float(context.get("red_body_ratio_2_vs_1", math.nan))
     if not math.isnan(second_low_gap):
         if 0 <= second_low_gap <= 4:
             score += 8
@@ -555,14 +551,13 @@ def w_bottom_attack_confirmation_ok(row: pd.Series, context: dict[str, float | s
     red_body2_vs_1 = num(row, "red_body_ratio_2_vs_1")
 
     if context:
-        if math.isnan(attack1):
-            attack1 = float(context.get("attack1_gain_pct", math.nan))
-        if math.isnan(attack2):
-            attack2 = float(context.get("attack2_gain_pct", math.nan))
-        if math.isnan(vol2_vs_1):
-            vol2_vs_1 = float(context.get("volume_ratio_2_vs_1", math.nan))
-        if math.isnan(red_body2_vs_1):
-            red_body2_vs_1 = float(context.get("red_body_ratio_2_vs_1", math.nan))
+        # When price history is available, trust the detected two legs rather
+        # than broad upstream pattern columns.  Otherwise a low-base or
+        # post-rally pullback can inherit stale explicit W metrics and pass.
+        attack1 = float(context.get("attack1_gain_pct", math.nan))
+        attack2 = float(context.get("attack2_gain_pct", math.nan))
+        vol2_vs_1 = float(context.get("volume_ratio_2_vs_1", math.nan))
+        red_body2_vs_1 = float(context.get("red_body_ratio_2_vs_1", math.nan))
 
     if math.isnan(attack1) or math.isnan(attack2):
         return False
@@ -616,16 +611,33 @@ def detected_w_bottom_context(row: pd.Series) -> dict[str, float | str | bool]:
             separation = right - left
             if separation < 8 or separation > 60:
                 continue
+            # The setup is intended to catch a current right-side W-bottom
+            # candidate. Very old right troughs are stale base history and
+            # should not keep a stock in the W-bottom model today.
+            right_age = len(df) - 1 - right
+            if right_age > 45:
+                continue
             low_left = float(df["low"].iloc[left])
             low_right = float(df["low"].iloc[right])
             second_low_gap = (low_right / low_left - 1) * 100
             if second_low_gap < 0 or second_low_gap > 4:
                 continue
-            neckline = float(df["high"].iloc[left : right + 1].max())
+            middle = df.iloc[left : right + 1]
+            neckline_idx = int(middle["high"].idxmax())
+            # A real W needs a rebound between the two troughs. If the highest
+            # point is sitting on either trough edge, this is usually a drift,
+            # low-base, or post-rally pullback rather than a double bottom.
+            if neckline_idx <= left + 1 or neckline_idx >= right - 1:
+                continue
+            neckline = float(df["high"].iloc[neckline_idx])
             if neckline <= min(low_left, low_right):
                 continue
             depth = (neckline / min(low_left, low_right) - 1) * 100
             if depth < 8:
+                continue
+            depth_left = (neckline / low_left - 1) * 100
+            depth_right = (neckline / low_right - 1) * 100
+            if min(depth_left, depth_right) < 6:
                 continue
 
             low_left_position = (low_left - low_120) / range_span * 100
@@ -684,10 +696,14 @@ def detected_w_bottom_context(row: pd.Series) -> dict[str, float | str | bool]:
                 "lows_in_lower_base": lows_in_lower_base,
                 "attack1_gain_pct": attack1_gain,
                 "attack2_gain_pct": attack2_gain,
+                "depth_left_pct": depth_left,
+                "depth_right_pct": depth_right,
                 "volume_ratio_2_vs_1": vol2_vs_1,
                 "red_body_ratio_2_vs_1": red_body2_vs_1,
                 "left_low_date": str(df["date"].iloc[left]),
+                "neckline_date": str(df["date"].iloc[neckline_idx]),
                 "right_low_date": str(df["date"].iloc[right]),
+                "right_low_age_days": right_age,
             }
             if best is None:
                 best = candidate
@@ -1649,16 +1665,30 @@ def build_report_ready_model_signals(signals: pd.DataFrame) -> pd.DataFrame:
     return out.drop(columns=["_bucket_order", "_score_num"], errors="ignore")
 
 
+ROTATION_COLUMNS = [
+    "signal_date",
+    "theme",
+    "stock_count",
+    "volume_expansion_3x_count",
+    "volume_expansion_ratio",
+    "leader_1",
+    "leader_2",
+    "leader_3",
+    "interpretation",
+]
+
+
 def build_rotation(candidates: pd.DataFrame, signal_date: str) -> pd.DataFrame:
     if candidates.empty:
-        return pd.DataFrame()
+        return pd.DataFrame(columns=ROTATION_COLUMNS)
     work = candidates.copy()
     work["primary_theme"] = work.apply(primary_theme, axis=1)
     work["volume_ratio_num"] = pd.to_numeric(work.get("volume_ratio", ""), errors="coerce")
     work["is_volume_expansion_3x"] = work["volume_ratio_num"] >= 3
     rows: list[dict[str, Any]] = []
     for theme, part in work.groupby("primary_theme", dropna=False):
-        if not safe_str(theme) or theme == "未分類":
+        theme_text = safe_str(theme)
+        if not theme_text or theme_text in {"未分類", "theme_unknown", "unclassified"}:
             continue
         total = len(part)
         if total < 2:
@@ -1688,7 +1718,7 @@ def build_rotation(candidates: pd.DataFrame, signal_date: str) -> pd.DataFrame:
         )
     out = pd.DataFrame(rows)
     if out.empty:
-        return out
+        return pd.DataFrame(columns=ROTATION_COLUMNS)
     return out.sort_values(["volume_expansion_ratio", "volume_expansion_3x_count", "theme"], ascending=[False, False, True]).reset_index(drop=True)
 
 
