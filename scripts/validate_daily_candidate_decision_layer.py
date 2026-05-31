@@ -33,6 +33,14 @@ REQUIRED_COLUMNS = [
     "repeat_appear_label",
     "downgrade_flags",
     "next_confirmation",
+    "action_rating",
+    "action_rating_label_zh",
+    "entry_style",
+    "position_sizing",
+    "entry_prerequisites",
+    "post_entry_watch_items",
+    "confidence_level",
+    "thesis_state",
     "must_not_overstate",
 ]
 
@@ -64,6 +72,37 @@ def validate() -> tuple[dict[str, object], list[str]]:
             invalid = sorted({safe_str(x) for x in df["decision_priority"].tolist() if safe_str(x) and safe_str(x) not in valid})
             if invalid:
                 errors.append(f"invalid_decision_priority: {invalid}")
+        if "action_rating" in df.columns:
+            valid_actions = {
+                "buy_now",
+                "scale_in",
+                "starter_position",
+                "wait_pullback",
+                "wait_reclaim",
+                "hold_only",
+                "take_profit",
+                "reduce",
+                "avoid",
+            }
+            invalid_actions = sorted(
+                {safe_str(x) for x in df["action_rating"].tolist() if safe_str(x) and safe_str(x) not in valid_actions}
+            )
+            if invalid_actions:
+                errors.append(f"invalid_action_rating: {invalid_actions}")
+        if {"action_rating", "entry_prerequisites", "post_entry_watch_items"}.issubset(df.columns):
+            recommended = df["action_rating"].isin(["buy_now", "scale_in", "starter_position"])
+            if recommended.any():
+                missing_entry = recommended & df["entry_prerequisites"].astype(str).eq("")
+                missing_watch = recommended & df["post_entry_watch_items"].astype(str).eq("")
+                if missing_entry.any():
+                    errors.append(f"missing_entry_prerequisites_for_action_rows={int(missing_entry.sum())}")
+                if missing_watch.any():
+                    errors.append(f"missing_post_entry_watch_items_for_action_rows={int(missing_watch.sum())}")
+                misplaced_post_entry = recommended & df["entry_prerequisites"].astype(str).str.contains(
+                    "next_monthly_revenue|next_tdcc_update", na=False
+                )
+                if misplaced_post_entry.any():
+                    errors.append("post-entry monitoring items must not appear in entry_prerequisites")
         if {
             "original_category",
             "repeat_appear_label",

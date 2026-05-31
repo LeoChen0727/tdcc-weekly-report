@@ -25,6 +25,8 @@ rules_master_priority_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc
 rules_master_priority_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/rules/master_priority_rules.md
 rules_daily_stock_candidate_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/rules/daily_stock_candidate_rules.md
 rules_daily_stock_candidate_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/rules/daily_stock_candidate_rules.md
+rules_single_stock_report_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/rules/single_stock_report_rules.md
+rules_single_stock_report_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/rules/single_stock_report_rules.md
 rules_astrology_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/rules/astrology_rules.md
 rules_astrology_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/rules/astrology_rules.md
 astrology_task_rule=calendar_date_task_read_astrology_rules_do_not_use_daily_market_report_format
@@ -327,8 +329,9 @@ RULES:
 1d. report_ready=True and fixed_pdf_validation_status=pass mean repo artifacts are available/validated; they do not mean ChatGPT has delivered the requested PDFs.
 2. Read rules_master_priority_pages_url or rules_master_priority_raw_url before any generated task rules.
 2a. Read rules_daily_stock_candidate_pages_url or rules_daily_stock_candidate_raw_url for the daily full-market candidate task.
-2b. Read rules_astrology_pages_url or rules_astrology_raw_url for Zi Wei / Ba Zi calendar-date tasks; main_price_date is only auxiliary market-data status for those tasks.
-2c. For astrology / Zi Wei / Ba Zi tasks, do not use CHATGPT_DAILY_REPORT_RULES.txt, rules_pages_url, rules_raw_url, or the daily market 'data status' opening format.
+2b. Read rules_single_stock_report_pages_url or rules_single_stock_report_raw_url for single-stock report tasks.
+2c. Read rules_astrology_pages_url or rules_astrology_raw_url for Zi Wei / Ba Zi calendar-date tasks; main_price_date is only auxiliary market-data status for those tasks.
+2d. For astrology / Zi Wei / Ba Zi tasks, do not use CHATGPT_DAILY_REPORT_RULES.txt, rules_pages_url, rules_raw_url, or the daily market 'data status' opening format.
 2d. Read rules_pages_url or rules_raw_url only after the master and task-specific rule files, and only for daily market candidate tasks.
 3. Read preferred_chatgpt_url for the packet.
 4. If preferred_chatgpt_url fails, follow read_order.

@@ -10,6 +10,8 @@ import shutil
 
 import pandas as pd
 
+from action_decision_utils import compute_action_decision
+
 
 OWNER_REPO = "LeoChen0727/tdcc-weekly-report"
 RAW_PREFIX = f"https://raw.githubusercontent.com/{OWNER_REPO}/main"
@@ -114,6 +116,17 @@ def row_kv_text(row: pd.Series, columns: list[str]) -> str:
         value = safe_str(row[col]).replace("\n", " ").replace("\r", " ")
         parts.append(f"{col}={value}")
     return "|".join(parts)
+
+
+def pipe_items(value: Any) -> list[str]:
+    text = safe_str(value)
+    if not text:
+        return ["none"]
+    return [part.strip() for part in text.split("|") if part.strip()] or ["none"]
+
+
+def bullet_lines(value: Any) -> list[str]:
+    return [f"- {item}" for item in pipe_items(value)]
 
 
 def html_escape(value: Any) -> str:
@@ -385,6 +398,26 @@ def build_packet(
 
     latest_price = price_df.iloc[-1].to_dict() if not price_df.empty else {}
     latest_tdcc = tdcc_df.iloc[-1].to_dict() if not tdcc_df.empty else {}
+    action_source: dict[str, Any] = {}
+    if not candidate_df.empty:
+        action_source.update(candidate_df.iloc[-1].to_dict())
+    action_source.update(
+        {
+            "stock_id": stock_id,
+            "stock_name": stock_name,
+            "distance_to_ema23_pct": pick_value(latest_price, ["distance_to_ema23_pct"]),
+            "distance_to_ma20_pct": pick_value(latest_price, ["distance_to_ma20_pct"]),
+            "return_5d": pick_value(latest_price, ["return_5d"]),
+            "return_20d": pick_value(latest_price, ["return_20d"]),
+            "volume_ratio": pick_value(latest_price, ["volume_ratio"]),
+            "tdcc_status": pick_value(latest_tdcc, ["tdcc_status", "tdcc_judgement", "tdcc_accumulation_signal"]),
+        }
+    )
+    if tdcc_status == "insufficient_tdcc_history":
+        action_source["downgrade_flags"] = "|".join(
+            [safe_str(action_source.get("downgrade_flags", "")), "insufficient_tdcc_history"]
+        ).strip("|")
+    action_decision = compute_action_decision(action_source)
 
     price_window_df = select_columns(
         price_df,
@@ -500,6 +533,31 @@ def build_packet(
         "- If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.",
         "- External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.",
         "",
+        "## ACTION_DECISION",
+        f"- action_rating: {action_decision['action_rating']}",
+        f"- action_rating_label_zh: {action_decision['action_rating_label_zh']}",
+        f"- confidence_level: {action_decision['confidence_level']}",
+        f"- thesis_state: {action_decision['thesis_state']}",
+        f"- entry_style: {action_decision['entry_style']}",
+        f"- position_sizing: {action_decision['position_sizing']}",
+        "",
+        "### management_plan",
+        *bullet_lines(action_decision["management_plan"]),
+        "",
+        "### entry_prerequisites",
+        *bullet_lines(action_decision["entry_prerequisites"]),
+        "",
+        "### post_entry_watch_items",
+        *bullet_lines(action_decision["post_entry_watch_items"]),
+        "",
+        "### downgrade_reason",
+        *bullet_lines(action_decision["downgrade_reason"]),
+        "",
+        "### chatgpt_instruction",
+        "- Open the report with action_rating_label_zh as the program-side action conclusion.",
+        "- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.",
+        "- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.",
+        "",
         "## Latest Price Snapshot",
         f"- date: {pick_value(latest_price, ['date', 'trade_date'])}",
         f"- open: {numeric_text(pick_value(latest_price, ['open']))}",
@@ -611,7 +669,9 @@ def build_packet(
         [
             "",
             "## Interpretation Guardrails",
-            "- This packet supports analysis; it is not a buy/sell recommendation by itself.",
+            "- ACTION_DECISION is the program-side action guidance for single-stock trading language.",
+            "- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.",
+            "- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.",
             "- For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.",
             "- For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.",
             "- Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.",
@@ -636,6 +696,12 @@ def build_packet(
         "has_warrant_context": not warrant_stock_df.empty,
         "has_individual_md": report_md.exists(),
         "has_sell_strategy_summary": sell_summary.exists(),
+        "action_rating": action_decision["action_rating"],
+        "action_rating_label_zh": action_decision["action_rating_label_zh"],
+        "entry_style": action_decision["entry_style"],
+        "position_sizing": action_decision["position_sizing"],
+        "confidence_level": action_decision["confidence_level"],
+        "thesis_state": action_decision["thesis_state"],
         "packet_lines": line_count,
         "packet_raw_url": raw_url(packet_path),
         "packet_pages_url": pages_url_for(docs_packet_path),

@@ -85,6 +85,16 @@ Do not mix task types:
 
 Daily candidate reports are not holdings management. Holdings reports are not full-market ranking reports. Market reports are not stock recommendation lists.
 
+## Program-Side Action Decisions
+
+When program-side packets or CSVs provide `action_rating`, `action_rating_label_zh`, `entry_style`, `position_sizing`, `management_plan`, `entry_prerequisites`, `post_entry_watch_items`, `downgrade_reason`, `confidence_level`, or `thesis_state`, these fields are the primary source for trading-language output.
+
+- `entry_prerequisites` are the conditions required before the first tranche. They should already be satisfied or explicitly listed as missing.
+- `post_entry_watch_items` are post-entry management checks such as next monthly revenue, next TDCC update, sector follow-through, and warrant overheat checks.
+- Do not convert all `post_entry_watch_items` into buy-before blockers.
+- If `action_rating` is `buy_now`, `scale_in`, or `starter_position`, do not rewrite it as `wait_pullback`, `wait_reclaim`, or generic "wait for confirmation" unless current repo price, volume, TDCC, or fundamental data directly contradicts the action decision.
+- If downgrading a program-side action, state the original `action_rating`, the downgraded action, and the concrete contradictory data or `downgrade_reason`.
+
 ## Pipeline Runtime Separation
 
 Daily report generation and research/backfill jobs must remain separated.

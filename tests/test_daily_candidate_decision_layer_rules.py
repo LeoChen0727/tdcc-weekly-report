@@ -164,6 +164,48 @@ class DailyCandidateDecisionLayerRuleTest(unittest.TestCase):
         self.assertEqual(result["theme_group"], "core_mainstream")
         self.assertNotIn("non_ai_non_mainstream_cap", result["downgrade_flags"])
 
+    def test_action_rating_allows_first_tranche_when_model_recommended_structure_intact(self) -> None:
+        result = evaluate_row(
+            make_row(
+                category="true_breakout",
+                pattern_stage="breakout_confirmed",
+                true_breakout="True",
+                volume_ratio="2.0",
+                distance_to_ma20_pct="2",
+                return_20d="8",
+            )
+        )
+        self.assertIn(result["action_rating"], {"buy_now", "scale_in", "starter_position"})
+        self.assertIn(result["action_rating_label_zh"], {"建議買進", "可分批買進", "可小量試單"})
+        self.assertIn("model_recommended", result["entry_prerequisites"])
+        self.assertIn("next_monthly_revenue", result["post_entry_watch_items"])
+        self.assertNotIn("next_monthly_revenue", result["entry_prerequisites"])
+
+    def test_action_rating_wait_reclaim_when_structure_is_broken(self) -> None:
+        result = evaluate_row(
+            make_row(
+                category="range_rebound",
+                score="75",
+                risk_tags="below_23ema_not_reclaimed",
+                distance_to_ma20_pct="-7",
+            )
+        )
+        self.assertEqual(result["action_rating"], "wait_reclaim")
+        self.assertIn("below_23ema_not_reclaimed", result["downgrade_reason"])
+
+    def test_tdcc_distribution_is_downgrade_reason_not_implicit_wait_confirm(self) -> None:
+        result = evaluate_row(
+            make_row(
+                category="true_breakout",
+                pattern_stage="breakout_confirmed",
+                true_breakout="True",
+                volume_ratio="2.5",
+                tdcc_judgement="distribution_warning",
+            )
+        )
+        self.assertIn("tdcc_distribution_warning", result["downgrade_reason"])
+        self.assertIn("action_rating", result)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -65,8 +65,38 @@ Use program-side fields first:
 - `volume_breakout_priority`
 - `sample_status`
 - `tuning_status`
+- `action_rating`
+- `action_rating_label_zh`
+- `entry_style`
+- `position_sizing`
+- `management_plan`
+- `entry_prerequisites`
+- `post_entry_watch_items`
+- `downgrade_reason`
+- `confidence_level`
+- `thesis_state`
 
 Do not reorder or upgrade stocks by memory when these fields exist.
+
+## Program-Side Action Rating
+
+`action_rating` is the program-side trading-language field. The report must use `action_rating_label_zh` instead of inventing a more conservative conclusion.
+
+Allowed action ratings:
+
+- `buy_now`: 建議買進
+- `scale_in`: 可分批買進
+- `starter_position`: 可小量試單
+- `wait_pullback`: 等待回檔
+- `wait_reclaim`: 等待站回
+- `hold_only`: 已持有續抱
+- `take_profit`: 停利
+- `reduce`: 減碼
+- `avoid`: 不建議買進 / 避開
+
+`entry_prerequisites` are first-tranche requirements. `post_entry_watch_items` are post-entry management checks. Do not treat all post-entry watch items as buy-before blockers.
+
+If `action_rating` is `buy_now`, `scale_in`, or `starter_position`, the report must not rewrite it as `wait_pullback`, `wait_reclaim`, or generic "wait for confirmation" unless current repo price, volume, TDCC, or fundamental data directly contradicts the program-side action decision. If the report downgrades the action, it must show the original action, downgraded action, and concrete reason.
 
 ## Independent Model Selection Contract
 

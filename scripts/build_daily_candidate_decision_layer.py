@@ -21,6 +21,7 @@ from tracking_utils import (  # noqa: E402
     to_number,
     write_csv,
 )
+from action_decision_utils import ACTION_COLUMNS, compute_action_decision  # noqa: E402
 
 
 ALL_CANDIDATES = LATEST_DIR / "all_candidates_latest.csv"
@@ -102,6 +103,7 @@ DECISION_COLUMNS = [
     "why_selected",
     "why_downgraded",
     "next_confirmation",
+    *ACTION_COLUMNS,
     "must_not_overstate",
     "close",
     "volume_ratio",
@@ -792,7 +794,7 @@ def evaluate_row(row: pd.Series) -> dict[str, Any]:
     why_downgraded = "；".join(risk_tags) if risk_tags else ""
     next_confirmation = next_confirmation_for(row, pattern_category, priority, downgrade_flags, risk_handling_bucket)
 
-    return {
+    result = {
         "pattern_mapped_category": pattern_category,
         "pattern_route": pattern_route,
         "decision_priority": priority,
@@ -816,6 +818,23 @@ def evaluate_row(row: pd.Series) -> dict[str, Any]:
         "next_confirmation": next_confirmation,
         "must_not_overstate": "True" if priority in {"C_watch_only", "D_risk_downgrade"} or bool(downgrade_flags) or momentum_risk_follow or hard_exclusion_flag else "False",
     }
+    action_context = row.to_dict()
+    action_context.update(result)
+    action_context.update(
+        {
+            "original_category": category,
+            "pattern_stage": stage,
+            "volume_ratio": volume_ratio,
+            "return_5d": num(row, ["return_5d", "return_5d_pct"]),
+            "return_20d": num(row, ["return_20d", "return_20d_pct"]),
+            "distance_to_ma20_pct": num(row, ["distance_to_ma20_pct", "gap_ma20_pct"]),
+            "warrant_flow_signal": first_text(row, ["warrant_flow_signal", "warrant_status"]),
+            "raw_risk_tags": first_text(row, ["risk_tags"]),
+            "raw_downgrade_flags": first_text(row, ["downgrade_flags"]),
+        }
+    )
+    result.update(compute_action_decision(action_context))
+    return result
 
 
 def build_decision(candidates: pd.DataFrame, main_date: str) -> pd.DataFrame:
@@ -937,6 +956,7 @@ def rewrite_all_candidates(candidates: pd.DataFrame, decision: pd.DataFrame) -> 
         "why_selected",
         "why_downgraded",
         "next_confirmation",
+        *ACTION_COLUMNS,
         "must_not_overstate",
         "primary_theme",
         "secondary_themes",
@@ -1040,6 +1060,8 @@ def write_markdown(decision: pd.DataFrame, main_date: str) -> None:
         "- Do not mix category scores into one investment ranking; `decision_rank_overall_for_display` is only a display order. Use `display_section` and `section_rank` to compare mainstream and non-mainstream rows separately.",
         "- If `decision_priority` is `D_risk_downgrade`, explain the risk and rank it lower inside its own section.",
         "- If TDCC is `distribution_warning`, repeat label is stale/overheated, or overheat flags are present, treat them as score/rank penalties and operating risks, not as a second buy/not-buy veto.",
+        "- Use `action_rating` and `action_rating_label_zh` as the program-side trading-language source. Do not downgrade buy_now / scale_in / starter_position unless current repo data contradicts the action decision.",
+        "- `entry_prerequisites` are conditions already needed for the first tranche. `post_entry_watch_items` are post-entry management checks; do not turn them into buy-before requirements.",
         "",
         "## Pattern Mapping Rules",
         "",
@@ -1081,7 +1103,13 @@ def write_markdown(decision: pd.DataFrame, main_date: str) -> None:
         "tdcc_status",
         "repeat_appear_label",
         "risk_handling_bucket",
+        "action_rating_label_zh",
+        "entry_style",
+        "position_sizing",
+        "confidence_level",
+        "thesis_state",
         "downgrade_flags",
+        "downgrade_reason",
         "next_confirmation",
     ]
 
@@ -1125,6 +1153,8 @@ def write_packet(decision: pd.DataFrame, main_date: str) -> None:
         "- This packet is the program-side decision layer. Prefer it over conversation memory.",
         "- Category scores remain category-local; do not compare them as one universal model score.",
         "- `decision_priority` is a reporting and tracking priority, not a buy/sell instruction.",
+        "- `action_rating` is the program-side action guidance for trading language. If it is buy_now / scale_in / starter_position, do not rewrite it as wait_confirm unless current price, TDCC, or volume data directly contradicts it.",
+        "- `entry_prerequisites` are first-tranche requirements. `post_entry_watch_items` are management checks after entry, not reasons to block the first tranche.",
         "- Risk handling is split into hard_exclusion, high_momentum_risk_follow, risk_watch, and normal. Mainstream/non-mainstream is a display section, not a score cap.",
         "- TDCC distribution, continued overheat, and short-term overheat are rank and risk modifiers. If momentum remains strong, keep it in high_momentum_risk_follow and verify with D+5/D+10 evidence.",
         "- Mainstream and non-mainstream candidates must be shown in separate sections and compared within their own section_rank; do not use theme group alone to downgrade score or veto selection.",
@@ -1155,7 +1185,16 @@ def write_packet(decision: pd.DataFrame, main_date: str) -> None:
         "tdcc_status",
         "repeat_appear_label",
         "risk_handling_bucket",
+        "action_rating_label_zh",
+        "action_rating",
+        "entry_style",
+        "position_sizing",
+        "confidence_level",
+        "thesis_state",
+        "entry_prerequisites",
+        "post_entry_watch_items",
         "downgrade_flags",
+        "downgrade_reason",
         "next_confirmation",
     ]
     for priority, title in [
