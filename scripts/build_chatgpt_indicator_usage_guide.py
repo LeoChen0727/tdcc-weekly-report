@@ -126,6 +126,7 @@ def build_guide() -> str:
     short_term_specialty_packet = LATEST_DIR / "daily_short_term_specialty_packet_latest.md"
     daily_model_parameters = read_csv(LATEST_DIR / "daily_candidate_model_parameters_latest.csv")
     daily_model_signals = read_csv(LATEST_DIR / "daily_candidate_model_signals_latest.csv")
+    daily_model_report_signals = read_csv(LATEST_DIR / "daily_candidate_model_signals_for_report_latest.csv")
     daily_model_frontpage_unique = read_csv(LATEST_DIR / "daily_candidate_frontpage_unique_latest.csv")
     daily_model_same_repeat = read_csv(LATEST_DIR / "daily_candidate_same_model_repeat_latest.csv")
     daily_model_packet = LATEST_DIR / "daily_candidate_model_layer_packet_latest.md"
@@ -187,8 +188,8 @@ def build_guide() -> str:
             "Independent daily candidate models",
             "output/latest/daily_candidate_model_layer_packet_latest.md",
             "daily_candidate_model_parameters, daily_candidate_model_signals, daily_candidate_frontpage_unique, model_rank, report_bucket, selection_semantics",
-            f"models={len(daily_model_parameters)} / signals={len(daily_model_signals)} / frontpage_unique={len(daily_model_frontpage_unique)} / packet={file_status(daily_model_packet)}",
-            "Main condition met means selected into that model. Score/risk ranks inside the model. Use frontpage_unique for first-page representatives so multi-model hits do not repeat.",
+            f"models={len(daily_model_parameters)} / raw_signals={len(daily_model_signals)} / report_signals={len(daily_model_report_signals)} / frontpage_unique={len(daily_model_frontpage_unique)} / packet={file_status(daily_model_packet)}",
+            "Main condition met means selected into that model. Score/risk ranks inside the model. Use model_signals_for_report for PDF model sections and frontpage_unique for first-page representatives.",
         ],
         [
             "Daily candidate front-page unique representatives",
@@ -428,11 +429,12 @@ def build_guide() -> str:
     lines.append("## Task-Specific Rules")
     lines.append("")
     lines.append("### Daily candidate report")
-    lines.append("- Start from `daily_candidate_model_layer_packet_latest.md`, `daily_candidate_model_parameters_latest.md/csv`, and `daily_candidate_model_signals_latest.md/csv` when they exist. These are the program-side independent model source.")
-    lines.append("- For the first page of curated PDFs, use `daily_candidate_frontpage_unique_latest.csv/md`; do not repeat the same stock multiple times just because it hit multiple models. Full PDFs should still keep all rows from `daily_candidate_model_signals_latest.csv`.")
+    lines.append("- Start from `daily_candidate_model_layer_packet_latest.md`, `daily_candidate_model_parameters_latest.md/csv`, and `daily_candidate_model_signals_for_report_latest.md/csv` for report/PDF sections. Raw research rows remain in `daily_candidate_model_signals_latest.md/csv`.")
+    lines.append("- For PDF model sections, use `daily_candidate_model_signals_for_report_latest.csv/md`. It has one row per report line + displayed model + stock, with merged source columns when the same stock hit the same model through multiple source categories.")
+    lines.append("- For the first page of curated PDFs, use `daily_candidate_frontpage_unique_latest.csv/md`; do not repeat the same stock multiple times just because it hit multiple models. Raw research rows remain in `daily_candidate_model_signals_latest.csv`.")
     lines.append("- If a stock appears in the same model across multiple days, do not subtract score for that fact. Use `daily_candidate_same_model_repeat_latest.csv/md` as a separate repeated-signal table; front-page summaries can prioritize `new_model_signal` rows and place repeated same-model rows in a separate section.")
     lines.append("- A model main condition being met means the stock enters that model. Do not add a second ChatGPT-side buy/not-buy gate after selection; use risk fields only as score/rank/annotation unless the program-side model marks a hard exclusion.")
-    lines.append("- Do not hard-code the number of models. Render the model rows present in `daily_candidate_model_parameters_latest.csv` and the matching candidates in `daily_candidate_model_signals_latest.csv`.")
+    lines.append("- Do not hard-code the number of models. Render the model rows present in `daily_candidate_model_parameters_latest.csv` and the matching candidates in `daily_candidate_model_signals_for_report_latest.csv`.")
     lines.append("- Mainstream/non-mainstream is a report split and comparison group only. It must not cap score, veto a signal, or remove a stock from a model list.")
     lines.append("- Use `model_score`, `model_rank`, `score_components`, `risk_penalty_tags`, and `report_bucket` for per-model ranking. Curated PDFs should show top rows per model/bucket; full PDFs should keep the complete model list.")
     lines.append("- Use `daily_model_parameter_research_latest.csv` and `daily_model_parameter_research_horizon_detail_latest.csv` only as model-parameter evidence. The backtest entry basis is signal-date next open; close-return and high-return endpoints are separate for D+1 through D+10.")

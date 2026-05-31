@@ -34,6 +34,8 @@ PARAMETERS_CSV = LATEST_DIR / "daily_candidate_model_parameters_latest.csv"
 PARAMETERS_MD = LATEST_DIR / "daily_candidate_model_parameters_latest.md"
 SIGNALS_CSV = LATEST_DIR / "daily_candidate_model_signals_latest.csv"
 SIGNALS_MD = LATEST_DIR / "daily_candidate_model_signals_latest.md"
+REPORT_SIGNALS_CSV = LATEST_DIR / "daily_candidate_model_signals_for_report_latest.csv"
+REPORT_SIGNALS_MD = LATEST_DIR / "daily_candidate_model_signals_for_report_latest.md"
 FRONTPAGE_UNIQUE_CSV = LATEST_DIR / "daily_candidate_frontpage_unique_latest.csv"
 FRONTPAGE_UNIQUE_MD = LATEST_DIR / "daily_candidate_frontpage_unique_latest.md"
 MODEL_REPEAT_CSV = LATEST_DIR / "daily_candidate_same_model_repeat_latest.csv"
@@ -1280,6 +1282,67 @@ def append_tdcc_short_term(signals: pd.DataFrame, signal_date: str) -> pd.DataFr
     return combined
 
 
+def build_report_ready_model_signals(signals: pd.DataFrame) -> pd.DataFrame:
+    """Collapse duplicate source rows for report rendering.
+
+    Raw model signals may carry several source rows for the same stock and the
+    same displayed model, especially when one stock enters from several original
+    categories. Reports should show that as one row with merged source context,
+    not as repeated stock rows inside the same model table.
+    """
+    if signals.empty:
+        return signals.copy()
+
+    work = signals.copy()
+    for col in [
+        "signal_date",
+        "report_bucket",
+        "model_name_zh",
+        "model_id",
+        "stock_id",
+        "model_score",
+        "model_rank",
+        "original_category",
+        "source_row_index",
+        "next_confirmation",
+        "score_components",
+        "risk_penalty_tags",
+    ]:
+        if col not in work.columns:
+            work[col] = ""
+
+    work["_rank_num"] = pd.to_numeric(work["model_rank"], errors="coerce").fillna(999999)
+    work["_score_num"] = pd.to_numeric(work["model_score"], errors="coerce").fillna(-999999)
+    work = work.sort_values(
+        ["report_bucket", "model_name_zh", "stock_id", "_rank_num", "_score_num"],
+        ascending=[True, True, True, True, False],
+    )
+
+    grouped_rows: list[dict[str, Any]] = []
+    for (_, _, _), part in work.groupby(["report_bucket", "model_name_zh", "stock_id"], dropna=False, sort=False):
+        best = part.iloc[0].copy()
+        row = best.to_dict()
+        row["merged_same_model_source_count"] = len(part)
+        row["merged_model_ids"] = _join_unique(part["model_id"])
+        row["merged_source_row_indices"] = _join_unique(part["source_row_index"])
+        row["merged_source_categories"] = _join_unique(part["original_category"])
+        row["merged_next_confirmations"] = _join_unique(part["next_confirmation"])
+        row["merged_score_components"] = _join_unique(part["score_components"])
+        row["merged_risk_penalty_tags"] = _join_unique(part["risk_penalty_tags"])
+        row["report_model_key"] = safe_str(best.get("model_name_zh")) or safe_str(best.get("model_id"))
+        grouped_rows.append(row)
+
+    out = pd.DataFrame(grouped_rows).drop(columns=["_rank_num", "_score_num"], errors="ignore")
+    out["_bucket_order"] = out["report_bucket"].map({"mainstream": 1, "non_mainstream": 2, "unclassified": 3}).fillna(9)
+    out["_score_num"] = pd.to_numeric(out["model_score"], errors="coerce").fillna(0)
+    out = out.sort_values(
+        ["report_bucket", "model_name_zh", "_score_num", "stock_id"],
+        ascending=[True, True, False, True],
+    ).reset_index(drop=True)
+    out["model_rank"] = out.groupby(["report_bucket", "model_name_zh"], dropna=False).cumcount() + 1
+    return out.drop(columns=["_bucket_order", "_score_num"], errors="ignore")
+
+
 def build_rotation(candidates: pd.DataFrame, signal_date: str) -> pd.DataFrame:
     if candidates.empty:
         return pd.DataFrame()
@@ -1350,7 +1413,7 @@ def write_packet(
         f"- signal_date: `{signal_date}`",
         "- contract: model main condition met means the stock enters that model candidate list.",
         "- scoring: risk, TDCC, warrant, revenue, position, and structure adjust rank inside the model; mainstream/non-mainstream only splits reports.",
-        "- PDF rule: do not hard-code model count; render models from `daily_candidate_model_signals_latest.csv` and parameters from `daily_candidate_model_parameters_latest.md`.",
+        "- PDF rule: do not hard-code model count; render model sections from `daily_candidate_model_signals_for_report_latest.csv` and parameters from `daily_candidate_model_parameters_latest.md`.",
         "- Front-page rule: use `daily_candidate_frontpage_unique_latest.csv/md` for first-page representatives; do not repeat the same stock three times because it hit multiple models.",
         "- Repeat rule: same-stock same-model repeat appearances are not score penalties. Use `daily_candidate_same_model_repeat_latest.csv/md` as a separate persistence table.",
         "",
@@ -1457,10 +1520,11 @@ def main() -> int:
     signals = append_volume_breakout_signals(signals, candidates, signal_date)
     signals = append_tdcc_short_term(signals, signal_date)
     signals = attach_model_recommendations(signals, recommendations)
-    model_log = update_model_signal_log(signals)
-    signals, same_model_repeat = attach_same_model_repeat(signals, model_log)
-    signals = annotate_frontpage_uniqueness(signals)
-    frontpage_unique = build_frontpage_unique(signals)
+    report_signals = build_report_ready_model_signals(signals)
+    model_log = update_model_signal_log(report_signals)
+    report_signals, same_model_repeat = attach_same_model_repeat(report_signals, model_log)
+    report_signals = annotate_frontpage_uniqueness(report_signals)
+    frontpage_unique = build_frontpage_unique(report_signals)
     write_csv(signals, SIGNALS_CSV)
     write_md_table(
         SIGNALS_MD,
@@ -1470,6 +1534,18 @@ def main() -> int:
             "- One stock can appear in multiple models.",
             "- `model_rank` ranks within model and report bucket.",
             "- `selection_semantics` explicitly prevents selected rows from being rewritten as contradictory no-buy rows.",
+        ],
+        limit=300,
+    )
+    write_csv(report_signals, REPORT_SIGNALS_CSV)
+    write_md_table(
+        REPORT_SIGNALS_MD,
+        "Daily Candidate Model Signals For Report",
+        report_signals,
+        [
+            "- Use this table for PDF model sections.",
+            "- Contract: one row per report bucket + displayed model + stock.",
+            "- If one stock hit the same displayed model through several source categories, merged_* columns preserve that context.",
         ],
         limit=300,
     )
@@ -1510,11 +1586,13 @@ def main() -> int:
         ],
         limit=80,
     )
-    write_packet(params, signals, frontpage_unique, same_model_repeat, rotation, signal_date)
+    write_packet(params, report_signals, frontpage_unique, same_model_repeat, rotation, signal_date)
     print(f"Saved: {PARAMETERS_CSV}")
     print(f"Saved: {PARAMETERS_MD}")
     print(f"Saved: {SIGNALS_CSV} rows={len(signals)}")
     print(f"Saved: {SIGNALS_MD}")
+    print(f"Saved: {REPORT_SIGNALS_CSV} rows={len(report_signals)}")
+    print(f"Saved: {REPORT_SIGNALS_MD}")
     print(f"Saved: {FRONTPAGE_UNIQUE_CSV} rows={len(frontpage_unique)}")
     print(f"Saved: {FRONTPAGE_UNIQUE_MD}")
     print(f"Saved: {MODEL_SIGNAL_LOG_CSV} rows={len(model_log)}")

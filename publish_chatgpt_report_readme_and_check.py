@@ -184,6 +184,8 @@ DAILY_CANDIDATE_MODEL_PARAMETERS_CSV = LATEST_DIR / "daily_candidate_model_param
 DAILY_CANDIDATE_MODEL_PARAMETERS_MD = LATEST_DIR / "daily_candidate_model_parameters_latest.md"
 DAILY_CANDIDATE_MODEL_SIGNALS_CSV = LATEST_DIR / "daily_candidate_model_signals_latest.csv"
 DAILY_CANDIDATE_MODEL_SIGNALS_MD = LATEST_DIR / "daily_candidate_model_signals_latest.md"
+DAILY_CANDIDATE_MODEL_REPORT_SIGNALS_CSV = LATEST_DIR / "daily_candidate_model_signals_for_report_latest.csv"
+DAILY_CANDIDATE_MODEL_REPORT_SIGNALS_MD = LATEST_DIR / "daily_candidate_model_signals_for_report_latest.md"
 DAILY_CANDIDATE_MODEL_LAYER_PACKET_MD = LATEST_DIR / "daily_candidate_model_layer_packet_latest.md"
 DAILY_CANDIDATE_MODEL_LAYER_VALIDATION_JSON = LATEST_DIR / "daily_candidate_model_layer_validation_latest.json"
 DAILY_CANDIDATE_MODEL_LAYER_VALIDATION_MD = LATEST_DIR / "daily_candidate_model_layer_validation_latest.md"
@@ -699,6 +701,10 @@ def build_readme(
         f"daily_candidate_model_signals_md_raw_url={raw_url('main', DAILY_CANDIDATE_MODEL_SIGNALS_MD)}",
         f"daily_candidate_model_signals_csv_pages_url={pages_url('latest/daily_candidate_model_signals_latest.csv')}",
         f"daily_candidate_model_signals_md_pages_url={pages_url('latest/daily_candidate_model_signals_latest.md')}",
+        f"daily_candidate_model_signals_for_report_csv_raw_url={raw_url('main', DAILY_CANDIDATE_MODEL_REPORT_SIGNALS_CSV)}",
+        f"daily_candidate_model_signals_for_report_md_raw_url={raw_url('main', DAILY_CANDIDATE_MODEL_REPORT_SIGNALS_MD)}",
+        f"daily_candidate_model_signals_for_report_csv_pages_url={pages_url('latest/daily_candidate_model_signals_for_report_latest.csv')}",
+        f"daily_candidate_model_signals_for_report_md_pages_url={pages_url('latest/daily_candidate_model_signals_for_report_latest.md')}",
         f"daily_candidate_group_rotation_csv_raw_url={raw_url('main', DAILY_CANDIDATE_GROUP_ROTATION_CSV)}",
         f"daily_candidate_group_rotation_md_raw_url={raw_url('main', DAILY_CANDIDATE_GROUP_ROTATION_MD)}",
         f"daily_candidate_group_rotation_csv_pages_url={pages_url('latest/daily_candidate_group_rotation_latest.csv')}",
@@ -1164,6 +1170,8 @@ def sync_docs_files() -> None:
         DAILY_CANDIDATE_MODEL_PARAMETERS_MD,
         DAILY_CANDIDATE_MODEL_SIGNALS_CSV,
         DAILY_CANDIDATE_MODEL_SIGNALS_MD,
+        DAILY_CANDIDATE_MODEL_REPORT_SIGNALS_CSV,
+        DAILY_CANDIDATE_MODEL_REPORT_SIGNALS_MD,
         DAILY_CANDIDATE_MODEL_LAYER_PACKET_MD,
         DAILY_CANDIDATE_MODEL_LAYER_VALIDATION_JSON,
         DAILY_CANDIDATE_MODEL_LAYER_VALIDATION_MD,
@@ -1611,6 +1619,10 @@ def main() -> int:
         "daily_candidate_model_signals_md_raw_url": raw_url("main", DAILY_CANDIDATE_MODEL_SIGNALS_MD),
         "daily_candidate_model_signals_csv_pages_url": pages_url("latest/daily_candidate_model_signals_latest.csv"),
         "daily_candidate_model_signals_md_pages_url": pages_url("latest/daily_candidate_model_signals_latest.md"),
+        "daily_candidate_model_signals_for_report_csv_raw_url": raw_url("main", DAILY_CANDIDATE_MODEL_REPORT_SIGNALS_CSV),
+        "daily_candidate_model_signals_for_report_md_raw_url": raw_url("main", DAILY_CANDIDATE_MODEL_REPORT_SIGNALS_MD),
+        "daily_candidate_model_signals_for_report_csv_pages_url": pages_url("latest/daily_candidate_model_signals_for_report_latest.csv"),
+        "daily_candidate_model_signals_for_report_md_pages_url": pages_url("latest/daily_candidate_model_signals_for_report_latest.md"),
         "daily_candidate_group_rotation_csv_raw_url": raw_url("main", DAILY_CANDIDATE_GROUP_ROTATION_CSV),
         "daily_candidate_group_rotation_md_raw_url": raw_url("main", DAILY_CANDIDATE_GROUP_ROTATION_MD),
         "daily_candidate_group_rotation_csv_pages_url": pages_url("latest/daily_candidate_group_rotation_latest.csv"),

@@ -384,6 +384,8 @@ jobs:
           cp output/latest/daily_candidate_model_parameters_latest.md docs/latest/daily_candidate_model_parameters_latest.md || true
           cp output/latest/daily_candidate_model_signals_latest.csv docs/latest/daily_candidate_model_signals_latest.csv || true
           cp output/latest/daily_candidate_model_signals_latest.md docs/latest/daily_candidate_model_signals_latest.md || true
+          cp output/latest/daily_candidate_model_signals_for_report_latest.csv docs/latest/daily_candidate_model_signals_for_report_latest.csv || true
+          cp output/latest/daily_candidate_model_signals_for_report_latest.md docs/latest/daily_candidate_model_signals_for_report_latest.md || true
           cp output/latest/daily_candidate_frontpage_unique_latest.csv docs/latest/daily_candidate_frontpage_unique_latest.csv || true
           cp output/latest/daily_candidate_frontpage_unique_latest.md docs/latest/daily_candidate_frontpage_unique_latest.md || true
           cp output/latest/daily_candidate_same_model_repeat_latest.csv docs/latest/daily_candidate_same_model_repeat_latest.csv || true

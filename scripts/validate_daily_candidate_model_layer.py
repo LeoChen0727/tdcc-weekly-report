@@ -13,6 +13,7 @@ from tracking_utils import LATEST_DIR, read_csv, safe_str  # noqa: E402
 
 PARAMETERS_CSV = LATEST_DIR / "daily_candidate_model_parameters_latest.csv"
 SIGNALS_CSV = LATEST_DIR / "daily_candidate_model_signals_latest.csv"
+REPORT_SIGNALS_CSV = LATEST_DIR / "daily_candidate_model_signals_for_report_latest.csv"
 ROTATION_CSV = LATEST_DIR / "daily_candidate_group_rotation_latest.csv"
 REPEAT_CSV = LATEST_DIR / "daily_candidate_same_model_repeat_latest.csv"
 PACKET_MD = LATEST_DIR / "daily_candidate_model_layer_packet_latest.md"
@@ -79,7 +80,8 @@ def validate() -> dict[str, object]:
     warnings: list[str] = []
 
     params = read_csv(PARAMETERS_CSV, dtype=str, keep_default_na=False)
-    signals = read_csv(SIGNALS_CSV, dtype=str, keep_default_na=False)
+    raw_signals = read_csv(SIGNALS_CSV, dtype=str, keep_default_na=False)
+    signals = read_csv(REPORT_SIGNALS_CSV, dtype=str, keep_default_na=False)
     rotation = read_csv(ROTATION_CSV, dtype=str, keep_default_na=False)
     repeat = read_csv(REPEAT_CSV, dtype=str, keep_default_na=False)
 
@@ -93,7 +95,7 @@ def validate() -> dict[str, object]:
             errors.append("parameter rows must include readable main_conditions")
 
     if signals.empty:
-        warnings.append("model signal table is empty for current date")
+        warnings.append("report-ready model signal table is empty for current date")
     else:
         missing_cols = sorted(REQUIRED_SIGNAL_COLUMNS - set(signals.columns))
         if missing_cols:
@@ -110,9 +112,9 @@ def validate() -> dict[str, object]:
         score = pd.to_numeric(signals.get("model_score", ""), errors="coerce")
         if score.notna().any() and ((score < 0) | (score > 100)).any():
             errors.append("model_score must be between 0 and 100")
-        dup_count = int(signals.duplicated(["model_id", "report_bucket", "stock_id"]).sum())
+        dup_count = int(signals.duplicated(["report_bucket", "model_name_zh", "stock_id"]).sum())
         if dup_count:
-            errors.append(f"duplicate_model_bucket_stock_rows: {dup_count}")
+            errors.append(f"duplicate_report_model_bucket_stock_rows: {dup_count}")
         repeat_status_values = set(signals.get("same_model_repeat_status", pd.Series(dtype=str)).astype(str))
         invalid_repeat_status = sorted(repeat_status_values - {"", "new_model_signal", "repeated_same_model_signal"})
         if invalid_repeat_status:
@@ -133,6 +135,7 @@ def validate() -> dict[str, object]:
     result = {
         "status": "pass" if not errors else "fail",
         "parameter_rows": 0 if params.empty else int(len(params)),
+        "raw_signal_rows": 0 if raw_signals.empty else int(len(raw_signals)),
         "signal_rows": 0 if signals.empty else int(len(signals)),
         "same_model_repeat_rows": 0 if repeat.empty else int(len(repeat)),
         "rotation_rows": 0 if rotation.empty else int(len(rotation)),
@@ -150,6 +153,7 @@ def write_report(result: dict[str, object]) -> None:
         "",
         f"- status: `{result['status']}`",
         f"- parameter_rows: `{result['parameter_rows']}`",
+        f"- raw_signal_rows: `{result['raw_signal_rows']}`",
         f"- signal_rows: `{result['signal_rows']}`",
         f"- same_model_repeat_rows: `{result['same_model_repeat_rows']}`",
         f"- rotation_rows: `{result['rotation_rows']}`",

@@ -15,6 +15,7 @@ from build_daily_candidate_model_layer import (  # noqa: E402
     attach_same_model_repeat,
     build_parameter_table,
     build_frontpage_unique,
+    build_report_ready_model_signals,
     build_signals,
     build_specs,
     cond_pullback,
@@ -254,6 +255,52 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         out = build_signals(pd.DataFrame(rows), build_specs(), "20260530")
         dup_count = out.duplicated(["model_id", "report_bucket", "stock_id"]).sum()
         self.assertEqual(dup_count, 0)
+
+    def test_report_ready_signals_merge_same_display_model_same_stock(self) -> None:
+        signals = pd.DataFrame(
+            [
+                {
+                    "signal_date": "20260530",
+                    "report_bucket": "mainstream",
+                    "stock_id": "2374",
+                    "stock_name": "CANON",
+                    "model_id": "volume_breakout_range",
+                    "model_name_zh": "帶量突破模型",
+                    "model_score": "80",
+                    "model_rank": "2",
+                    "original_category": "range_rebound",
+                    "source_row_index": "46",
+                    "next_confirmation": "A",
+                    "score_components": "volume",
+                    "risk_penalty_tags": "",
+                },
+                {
+                    "signal_date": "20260530",
+                    "report_bucket": "mainstream",
+                    "stock_id": "2374",
+                    "stock_name": "CANON",
+                    "model_id": "volume_range_breakout",
+                    "model_name_zh": "帶量突破模型",
+                    "model_score": "90",
+                    "model_rank": "1",
+                    "original_category": "revenue_pullback",
+                    "source_row_index": "175",
+                    "next_confirmation": "B",
+                    "score_components": "range",
+                    "risk_penalty_tags": "risk_a",
+                },
+            ]
+        )
+        out = build_report_ready_model_signals(signals)
+        self.assertEqual(len(out), 1)
+        row = out.iloc[0]
+        self.assertEqual(row["model_id"], "volume_range_breakout")
+        self.assertEqual(row["model_rank"], 1)
+        self.assertEqual(row["merged_same_model_source_count"], 2)
+        self.assertIn("volume_breakout_range", row["merged_model_ids"])
+        self.assertIn("volume_range_breakout", row["merged_model_ids"])
+        self.assertIn("range_rebound", row["merged_source_categories"])
+        self.assertIn("revenue_pullback", row["merged_source_categories"])
 
     def test_frontpage_unique_keeps_one_row_per_stock_but_preserves_model_hits(self) -> None:
         signals = pd.DataFrame(

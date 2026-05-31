@@ -35,6 +35,51 @@ RAW_PREFIX = "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/m
 
 HORIZONS = [1, 3, 5, 10, 20]
 
+WATCH_COLUMNS = [
+    "volume_breakout_rank",
+    "signal_date",
+    "stock_id",
+    "stock_name",
+    "market",
+    "close",
+    "open",
+    "high",
+    "low",
+    "volume",
+    "volume_ratio",
+    "return_1d",
+    "return_5d",
+    "return_20d",
+    "distance_to_ma20_pct",
+    "distance_to_ma60_pct",
+    "distance_to_previous_20d_high_pct",
+    "distance_to_previous_60d_high_pct",
+    "ma20",
+    "ma60",
+    "ema23",
+    "previous_20d_high",
+    "previous_60d_high",
+    "volume_breakout_type",
+    "volume_watch_scope",
+    "volume_breakout_score",
+    "volume_breakout_notes",
+    "false_breakout_risk_calc",
+    "overheated_breakout",
+    "industry",
+    "category",
+    "pattern_stage",
+    "decision_priority",
+    "decision_score",
+    "tdcc_status",
+    "repeat_appear_label",
+    "warrant_flow_signal",
+    "volume_breakout_priority",
+    "selection_status",
+    "not_selected_reason",
+    "risk_flags",
+    "next_volume_breakout_confirmation",
+]
+
 
 def now_text() -> str:
     return datetime.now(ZoneInfo("Asia/Taipei")).strftime("%Y-%m-%d %H:%M:%S Asia/Taipei")
@@ -991,6 +1036,8 @@ def summarize_backtest(events: pd.DataFrame) -> pd.DataFrame:
 
 def write_csv(df: pd.DataFrame, path: Path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
+    if path == WATCH_CSV and df.empty:
+        df = pd.DataFrame(columns=WATCH_COLUMNS)
     df.to_csv(path, index=False, encoding="utf-8", lineterminator="\n")
 
 
