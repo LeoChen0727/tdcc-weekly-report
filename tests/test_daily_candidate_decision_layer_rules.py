@@ -40,19 +40,17 @@ def make_row(**overrides: object) -> pd.Series:
 
 
 class DailyCandidateDecisionLayerRuleTest(unittest.TestCase):
-    def test_revenue_low_response_stale_no_warrant_no_breakout(self) -> None:
+    def test_revenue_low_response_repeat_no_warrant_no_breakout_is_not_repeat_penalty(self) -> None:
         result = evaluate_row(
             make_row(
                 repeat_appear_label="stale_signal",
                 warrant_flow_signal="no_signal",
-                revenue_good_eps_unconfirmed_flag="True",
+                revenue_good_eps_unconfirmed_flag="",
             )
         )
-        self.assertEqual(result["decision_priority"], "B_confirm_needed")
-        self.assertIn("反覆上榜但尚未突破", result["why_downgraded"])
-        self.assertIn("權證資金未確認", result["why_downgraded"])
-        self.assertIn("營收成長尚未由 EPS / 毛利", result["why_downgraded"])
-        self.assertIn("等待放量突破平台 / 前高", result["next_confirmation"])
+        self.assertNotIn("stale_no_warrant_no_breakout", result["downgrade_flags"])
+        self.assertNotIn("revenue_no_warrant_stale_no_breakout", result["downgrade_flags"])
+        self.assertNotIn("反覆上榜", result["why_downgraded"])
 
     def test_revenue_low_response_with_true_breakout(self) -> None:
         result = evaluate_row(
@@ -92,7 +90,7 @@ class DailyCandidateDecisionLayerRuleTest(unittest.TestCase):
         self.assertIn(result["decision_priority"], {"A_priority_watch", "B_confirm_needed"})
         self.assertNotIn("stale_no_warrant_no_breakout", result["downgrade_flags"])
 
-    def test_stale_signal_no_breakout_no_warrant(self) -> None:
+    def test_stale_signal_no_breakout_no_warrant_does_not_cap_priority(self) -> None:
         result = evaluate_row(
             make_row(
                 category="range_rebound",
@@ -102,9 +100,8 @@ class DailyCandidateDecisionLayerRuleTest(unittest.TestCase):
                 distance_to_previous_60d_high_pct="-4",
             )
         )
-        self.assertEqual(result["decision_priority"], "B_confirm_needed")
-        self.assertIn("反覆上榜但尚未突破", result["why_downgraded"])
-        self.assertIn("權證資金未確認", result["why_downgraded"])
+        self.assertNotIn("stale_no_warrant_no_breakout", result["downgrade_flags"])
+        self.assertNotIn("反覆上榜", result["why_downgraded"])
 
     def test_non_mainstream_is_display_group_not_score_cap(self) -> None:
         result = evaluate_row(

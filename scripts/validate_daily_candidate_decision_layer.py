@@ -71,14 +71,12 @@ def validate() -> tuple[dict[str, object], list[str]]:
             "downgrade_flags",
             "decision_priority",
         }.issubset(df.columns):
-            stale_revenue = df[
-                df["original_category"].astype(str).eq("revenue_breakout_low_response")
-                & df["repeat_appear_label"].astype(str).isin(["stale_signal", "反覆上榜未突破"])
-                & df["warrant_flow_signal"].astype(str).isin(["", "no_signal", "none", "nan", "null"])
-                & df["downgrade_flags"].astype(str).str.contains("revenue_no_warrant_stale_no_breakout", na=False)
-            ]
-            if stale_revenue["decision_priority"].astype(str).eq("A_priority_watch").any():
-                errors.append("stale revenue low-response candidates without warrant/breakout must not be A_priority_watch")
+            stale_revenue_flag = df["downgrade_flags"].astype(str).str.contains(
+                "revenue_no_warrant_stale_no_breakout|stale_no_warrant_no_breakout",
+                na=False,
+            )
+            if stale_revenue_flag.any():
+                errors.append("repeat/stale appearance must be tracked separately, not as a direct decision downgrade flag")
 
         case_2484 = df[df.get("stock_id", pd.Series(dtype=str)).astype(str).eq("2484")]
         if not case_2484.empty:
@@ -88,8 +86,8 @@ def validate() -> tuple[dict[str, object], list[str]]:
             priority_series = case_2484["decision_priority"].astype(str) if "decision_priority" in case_2484.columns else pd.Series("", index=case_2484.index)
             risky = case_2484[
                 tdcc_series.eq("distribution_warning")
-                | repeat_series.isin(["stale_signal", "continued_overheated"])
-                | downgrade_series.str.contains("overheated|priced_in|distribution|stale", case=False, na=False)
+                | repeat_series.isin(["continued_overheated"])
+                | downgrade_series.str.contains("overheated|priced_in|distribution", case=False, na=False)
             ]
             if not risky.empty and priority_series.loc[risky.index].isin(["A_priority_watch"]).any():
                 errors.append("2484 risky latest row must not be A_priority_watch")

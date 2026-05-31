@@ -711,34 +711,17 @@ def evaluate_row(row: pd.Series) -> dict[str, Any]:
         downgrade_flags.append("tdcc_distribution_warning")
         risk_tags.append("TDCC 大戶轉弱")
         decision_score -= 20
-    if repeat_label == "stale_signal":
-        downgrade_flags.append("stale_signal")
-        risk_tags.append("反覆上榜鈍化")
-        decision_score -= 4
-    elif repeat_label == "continued_overheated":
+    if repeat_label == "continued_overheated":
         downgrade_flags.append("continued_overheated")
         risk_tags.append("連續上榜但過熱")
         decision_score -= 18
-    elif repeat_label == "repeated_but_no_breakout":
-        downgrade_flags.append("repeated_but_no_breakout")
-        risk_tags.append("反覆上榜未突破")
-        decision_score -= 4
     elif repeat_label == "continued_2_3d":
         decision_score += 4
-
-    if stale_repeat and not price_breakout_confirmed and no_warrant:
-        downgrade_flags.append("stale_no_warrant_no_breakout")
-        risk_tags.append("反覆上榜但尚未突破，且權證資金未確認，訊號可能鈍化。")
-        decision_score -= 3
 
     if revenue_low_response and revenue_eps_unconfirmed and not eps_or_margin_confirmed and not attack_confirmed:
         downgrade_flags.append("revenue_eps_unconfirmed_no_attack")
         risk_tags.append("營收成長尚未由 EPS / 毛利或正式催化確認，需等待獲利品質或量價突破。")
         decision_score -= 3
-
-    if revenue_low_response and no_warrant and stale_repeat and not price_breakout_confirmed:
-        downgrade_flags.append("revenue_no_warrant_stale_no_breakout")
-        decision_score -= 2
 
     if overheat_flags:
         downgrade_flags.extend(overheat_flags)
@@ -771,11 +754,7 @@ def evaluate_row(row: pd.Series) -> dict[str, Any]:
     else:
         priority = "C_watch_only"
 
-    if stale_repeat and not price_breakout_confirmed and no_warrant:
-        priority = downgrade_original_priority_once(row, priority, default_cap="B_confirm_needed")
     if revenue_low_response and revenue_eps_unconfirmed and not eps_or_margin_confirmed and not attack_confirmed:
-        priority = cap_priority(priority, "B_confirm_needed")
-    if revenue_low_response and no_warrant and stale_repeat and not price_breakout_confirmed:
         priority = cap_priority(priority, "B_confirm_needed")
     if priority == "A_priority_watch" and not attack_confirmed:
         downgrade_flags.append("missing_attack_confirmation")

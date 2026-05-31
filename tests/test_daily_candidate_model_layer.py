@@ -12,6 +12,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 from build_daily_candidate_model_layer import (  # noqa: E402
     annotate_frontpage_uniqueness,
     attach_model_recommendations,
+    attach_same_model_repeat,
     build_parameter_table,
     build_frontpage_unique,
     build_signals,
@@ -309,6 +310,57 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         self.assertEqual(row["model_hit_count"], 2)
         self.assertIn("區間內轉強", row["model_hits"])
         self.assertIn("營收爆發尚未反應", row["model_hits"])
+
+    def test_same_model_repeat_is_separate_and_frontpage_prefers_new_signals(self) -> None:
+        signals = pd.DataFrame(
+            [
+                {
+                    "signal_date": "20260530",
+                    "report_bucket": "mainstream",
+                    "stock_id": "2347",
+                    "stock_name": "OLD",
+                    "model_id": "price_pullback_23ema",
+                    "model_name_zh": "股價回檔",
+                    "model_group": "pdf_core_model",
+                    "model_score": "99",
+                    "model_rank": "1",
+                    "effective_primary_theme": "AI",
+                    "risk_penalty_tags": "",
+                },
+                {
+                    "signal_date": "20260530",
+                    "report_bucket": "mainstream",
+                    "stock_id": "9999",
+                    "stock_name": "NEW",
+                    "model_id": "price_pullback_23ema",
+                    "model_name_zh": "股價回檔",
+                    "model_group": "pdf_core_model",
+                    "model_score": "70",
+                    "model_rank": "2",
+                    "effective_primary_theme": "AI",
+                    "risk_penalty_tags": "",
+                },
+            ]
+        )
+        model_log = pd.DataFrame(
+            [
+                {"signal_date": "20260529", "report_bucket": "mainstream", "stock_id": "2347", "model_id": "price_pullback_23ema"},
+                {"signal_date": "20260530", "report_bucket": "mainstream", "stock_id": "2347", "model_id": "price_pullback_23ema"},
+                {"signal_date": "20260530", "report_bucket": "mainstream", "stock_id": "9999", "model_id": "price_pullback_23ema"},
+            ]
+        )
+
+        annotated, repeat = attach_same_model_repeat(signals, model_log)
+        old = annotated[annotated["stock_id"] == "2347"].iloc[0]
+        new = annotated[annotated["stock_id"] == "9999"].iloc[0]
+        self.assertEqual(old["same_model_consecutive_days"], 2)
+        self.assertEqual(old["same_model_repeat_status"], "repeated_same_model_signal")
+        self.assertEqual(new["same_model_repeat_status"], "new_model_signal")
+        self.assertEqual(len(repeat), 1)
+        self.assertEqual(repeat.iloc[0]["stock_id"], "2347")
+
+        frontpage = build_frontpage_unique(annotated)
+        self.assertEqual(frontpage.iloc[0]["stock_id"], "9999")
 
     def test_dual_report_membership_expands_without_score_change(self) -> None:
         row = make_row(

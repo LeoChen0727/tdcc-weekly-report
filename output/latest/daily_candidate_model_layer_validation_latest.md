@@ -3,8 +3,9 @@
 - status: `pass`
 - parameter_rows: `15`
 - signal_rows: `1107`
+- same_model_repeat_rows: `0`
 - rotation_rows: `1`
-- packet_lines: `125`
+- packet_lines: `139`
 
 ## Errors
 

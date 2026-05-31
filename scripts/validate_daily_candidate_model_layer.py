@@ -14,6 +14,7 @@ from tracking_utils import LATEST_DIR, read_csv, safe_str  # noqa: E402
 PARAMETERS_CSV = LATEST_DIR / "daily_candidate_model_parameters_latest.csv"
 SIGNALS_CSV = LATEST_DIR / "daily_candidate_model_signals_latest.csv"
 ROTATION_CSV = LATEST_DIR / "daily_candidate_group_rotation_latest.csv"
+REPEAT_CSV = LATEST_DIR / "daily_candidate_same_model_repeat_latest.csv"
 PACKET_MD = LATEST_DIR / "daily_candidate_model_layer_packet_latest.md"
 VALIDATION_JSON = LATEST_DIR / "daily_candidate_model_layer_validation_latest.json"
 VALIDATION_MD = LATEST_DIR / "daily_candidate_model_layer_validation_latest.md"
@@ -60,6 +61,10 @@ REQUIRED_SIGNAL_COLUMNS = {
     "best_close_win_rate_pct",
     "best_avg_close_return_pct",
     "model_revision_note",
+    "same_model_repeat_status",
+    "same_model_consecutive_days",
+    "same_model_appear_count_5d",
+    "same_model_appear_count_10d",
 }
 
 
@@ -76,6 +81,7 @@ def validate() -> dict[str, object]:
     params = read_csv(PARAMETERS_CSV, dtype=str, keep_default_na=False)
     signals = read_csv(SIGNALS_CSV, dtype=str, keep_default_na=False)
     rotation = read_csv(ROTATION_CSV, dtype=str, keep_default_na=False)
+    repeat = read_csv(REPEAT_CSV, dtype=str, keep_default_na=False)
 
     if params.empty:
         errors.append(f"missing_or_empty: {PARAMETERS_CSV}")
@@ -107,6 +113,10 @@ def validate() -> dict[str, object]:
         dup_count = int(signals.duplicated(["model_id", "report_bucket", "stock_id"]).sum())
         if dup_count:
             errors.append(f"duplicate_model_bucket_stock_rows: {dup_count}")
+        repeat_status_values = set(signals.get("same_model_repeat_status", pd.Series(dtype=str)).astype(str))
+        invalid_repeat_status = sorted(repeat_status_values - {"", "new_model_signal", "repeated_same_model_signal"})
+        if invalid_repeat_status:
+            errors.append(f"invalid_same_model_repeat_status: {invalid_repeat_status}")
         text_cols = ["model_name_zh", "next_confirmation", "model_operation_guidance"]
         for col in text_cols:
             if col in signals.columns and signals[col].astype(str).str.contains(r"\?\?\?|\ufffd", regex=True).any():
@@ -124,6 +134,7 @@ def validate() -> dict[str, object]:
         "status": "pass" if not errors else "fail",
         "parameter_rows": 0 if params.empty else int(len(params)),
         "signal_rows": 0 if signals.empty else int(len(signals)),
+        "same_model_repeat_rows": 0 if repeat.empty else int(len(repeat)),
         "rotation_rows": 0 if rotation.empty else int(len(rotation)),
         "packet_lines": line_count(PACKET_MD),
         "errors": errors,
@@ -140,6 +151,7 @@ def write_report(result: dict[str, object]) -> None:
         f"- status: `{result['status']}`",
         f"- parameter_rows: `{result['parameter_rows']}`",
         f"- signal_rows: `{result['signal_rows']}`",
+        f"- same_model_repeat_rows: `{result['same_model_repeat_rows']}`",
         f"- rotation_rows: `{result['rotation_rows']}`",
         f"- packet_lines: `{result['packet_lines']}`",
         "",

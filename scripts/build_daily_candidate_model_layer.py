@@ -27,6 +27,8 @@ VOLUME_BREAKOUT_WATCH = LATEST_DIR / "volume_breakout_watch_latest.csv"
 TDCC_EDGE_CANDIDATES = LATEST_DIR / "tdcc_overheated_short_term_edge_candidates_latest.csv"
 WEEKLY_SURGE_CANDIDATES = LATEST_DIR / "weekly_surge_strict_parameter_candidates_latest.csv"
 MODEL_PARAMETER_RECOMMENDATIONS = LATEST_DIR / "daily_model_parameter_recommendations_latest.csv"
+MODEL_HISTORY_DIR = Path("output/history/daily_candidate_models")
+MODEL_SIGNAL_LOG_CSV = MODEL_HISTORY_DIR / "daily_candidate_model_signal_log.csv"
 
 PARAMETERS_CSV = LATEST_DIR / "daily_candidate_model_parameters_latest.csv"
 PARAMETERS_MD = LATEST_DIR / "daily_candidate_model_parameters_latest.md"
@@ -34,6 +36,8 @@ SIGNALS_CSV = LATEST_DIR / "daily_candidate_model_signals_latest.csv"
 SIGNALS_MD = LATEST_DIR / "daily_candidate_model_signals_latest.md"
 FRONTPAGE_UNIQUE_CSV = LATEST_DIR / "daily_candidate_frontpage_unique_latest.csv"
 FRONTPAGE_UNIQUE_MD = LATEST_DIR / "daily_candidate_frontpage_unique_latest.md"
+MODEL_REPEAT_CSV = LATEST_DIR / "daily_candidate_same_model_repeat_latest.csv"
+MODEL_REPEAT_MD = LATEST_DIR / "daily_candidate_same_model_repeat_latest.md"
 ROTATION_CSV = LATEST_DIR / "daily_candidate_group_rotation_latest.csv"
 ROTATION_MD = LATEST_DIR / "daily_candidate_group_rotation_latest.md"
 PACKET_MD = LATEST_DIR / "daily_candidate_model_layer_packet_latest.md"
@@ -832,6 +836,10 @@ def build_frontpage_unique(signals: pd.DataFrame) -> pd.DataFrame:
                 "model_hit_count": len(part),
                 "model_hits": _join_unique(part["model_name_zh"]),
                 "model_hit_ids": _join_unique(part["model_id"]),
+                "same_model_repeat_status": text(top, "same_model_repeat_status"),
+                "same_model_consecutive_days": top.get("same_model_consecutive_days", ""),
+                "same_model_appear_count_5d": top.get("same_model_appear_count_5d", ""),
+                "same_model_appear_count_10d": top.get("same_model_appear_count_10d", ""),
                 "tdcc_status": text(top, "tdcc_status"),
                 "warrant_flow_signal": text(top, "warrant_flow_signal"),
                 "volume_ratio": top.get("volume_ratio", ""),
@@ -846,13 +854,137 @@ def build_frontpage_unique(signals: pd.DataFrame) -> pd.DataFrame:
     if out.empty:
         return out
     out["_bucket_order"] = out["report_bucket"].map({"mainstream": 1, "non_mainstream": 2, "unclassified": 3}).fillna(9)
+    out["_fresh_order"] = out["same_model_repeat_status"].map({"new_model_signal": 0, "repeated_same_model_signal": 1}).fillna(2)
     out["_score_num"] = pd.to_numeric(out.get("primary_model_score", ""), errors="coerce").fillna(-999)
     out = out.sort_values(
-        ["_bucket_order", "_score_num", "model_hit_count", "stock_id"],
-        ascending=[True, False, False, True],
+        ["_bucket_order", "_fresh_order", "_score_num", "model_hit_count", "stock_id"],
+        ascending=[True, True, False, False, True],
     ).reset_index(drop=True)
     out["frontpage_unique_rank"] = out.groupby("report_bucket", dropna=False).cumcount() + 1
-    return out.drop(columns=["_bucket_order", "_score_num"])
+    return out.drop(columns=["_bucket_order", "_fresh_order", "_score_num"])
+
+
+def snapshot_model_signals(signals: pd.DataFrame) -> pd.DataFrame:
+    cols = [
+        "signal_date",
+        "report_bucket",
+        "stock_id",
+        "stock_name",
+        "model_id",
+        "model_name_zh",
+        "model_group",
+        "model_score",
+        "model_rank",
+        "effective_primary_theme",
+        "risk_penalty_tags",
+        "next_confirmation",
+    ]
+    if signals.empty:
+        return pd.DataFrame(columns=cols)
+    out = signals.copy()
+    for col in cols:
+        if col not in out.columns:
+            out[col] = ""
+    return out[cols].drop_duplicates(["signal_date", "report_bucket", "stock_id", "model_id"], keep="first")
+
+
+def update_model_signal_log(signals: pd.DataFrame) -> pd.DataFrame:
+    MODEL_HISTORY_DIR.mkdir(parents=True, exist_ok=True)
+    current = snapshot_model_signals(signals)
+    history = read_csv(MODEL_SIGNAL_LOG_CSV, dtype=str, keep_default_na=False)
+    if history.empty:
+        merged = current
+    else:
+        merged = pd.concat([history, current], ignore_index=True, sort=False)
+        merged = merged.drop_duplicates(["signal_date", "report_bucket", "stock_id", "model_id"], keep="last")
+    if not merged.empty:
+        merged = merged.sort_values(["signal_date", "model_id", "report_bucket", "stock_id"]).reset_index(drop=True)
+    write_csv(merged, MODEL_SIGNAL_LOG_CSV)
+    return merged
+
+
+def _window_count(dates: set[str], ordered_dates: list[str], current_date: str, window: int) -> int:
+    if current_date not in ordered_dates:
+        return 0
+    idx = ordered_dates.index(current_date)
+    window_dates = ordered_dates[max(0, idx - window + 1) : idx + 1]
+    return sum(1 for date in window_dates if date in dates)
+
+
+def _consecutive_count(dates: set[str], ordered_dates: list[str], current_date: str) -> int:
+    if current_date not in ordered_dates:
+        return 0
+    count = 0
+    idx = ordered_dates.index(current_date)
+    for date in reversed(ordered_dates[: idx + 1]):
+        if date not in dates:
+            break
+        count += 1
+    return count
+
+
+def attach_same_model_repeat(signals: pd.DataFrame, model_log: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
+    if signals.empty:
+        out = signals.copy()
+        out["same_model_consecutive_days"] = ""
+        out["same_model_appear_count_5d"] = ""
+        out["same_model_appear_count_10d"] = ""
+        out["same_model_repeat_status"] = ""
+        return out, pd.DataFrame()
+
+    out = signals.copy()
+    if model_log.empty:
+        out["same_model_consecutive_days"] = 1
+        out["same_model_appear_count_5d"] = 1
+        out["same_model_appear_count_10d"] = 1
+        out["same_model_repeat_status"] = "new_model_signal"
+        return out, pd.DataFrame()
+
+    log = model_log.copy()
+    for col in ["signal_date", "report_bucket", "stock_id", "model_id"]:
+        if col not in log.columns:
+            log[col] = ""
+    log["signal_date"] = log["signal_date"].astype(str)
+    ordered_dates = sorted(date for date in log["signal_date"].unique().tolist() if date)
+    grouped_dates: dict[tuple[str, str, str], set[str]] = {}
+    for key, part in log.groupby(["report_bucket", "stock_id", "model_id"], dropna=False):
+        grouped_dates[(safe_str(key[0]), safe_str(key[1]), safe_str(key[2]))] = set(part["signal_date"].astype(str))
+
+    consecutive: list[int] = []
+    count_5d: list[int] = []
+    count_10d: list[int] = []
+    status: list[str] = []
+    for _, row in out.iterrows():
+        current_date = safe_str(row.get("signal_date", ""))
+        key = (safe_str(row.get("report_bucket", "")), safe_str(row.get("stock_id", "")), safe_str(row.get("model_id", "")))
+        dates = grouped_dates.get(key, set())
+        consec = _consecutive_count(dates, ordered_dates, current_date)
+        c5 = _window_count(dates, ordered_dates, current_date, 5)
+        c10 = _window_count(dates, ordered_dates, current_date, 10)
+        consecutive.append(consec)
+        count_5d.append(c5)
+        count_10d.append(c10)
+        status.append("repeated_same_model_signal" if consec >= 2 else "new_model_signal")
+    out["same_model_consecutive_days"] = consecutive
+    out["same_model_appear_count_5d"] = count_5d
+    out["same_model_appear_count_10d"] = count_10d
+    out["same_model_repeat_status"] = status
+
+    repeat = out[
+        (out["model_group"].astype(str).eq("pdf_core_model"))
+        & (pd.to_numeric(out["same_model_consecutive_days"], errors="coerce").fillna(0) >= 2)
+    ].copy()
+    if not repeat.empty:
+        repeat["_consec"] = pd.to_numeric(repeat["same_model_consecutive_days"], errors="coerce").fillna(0)
+        repeat["_count10"] = pd.to_numeric(repeat["same_model_appear_count_10d"], errors="coerce").fillna(0)
+        repeat["_score"] = pd.to_numeric(repeat["model_score"], errors="coerce").fillna(0)
+        repeat = repeat.sort_values(
+            ["report_bucket", "_consec", "_count10", "_score", "stock_id"],
+            ascending=[True, False, False, False, True],
+        ).reset_index(drop=True)
+        repeat["same_model_repeat_rank"] = repeat.groupby(["report_bucket", "model_id"], dropna=False).cumcount() + 1
+        repeat = repeat.drop(columns=["_consec", "_count10", "_score"])
+    return out, repeat
 
 
 def build_signals(candidates: pd.DataFrame, specs: list[ModelSpec], signal_date: str) -> pd.DataFrame:
@@ -914,14 +1046,13 @@ def build_signals(candidates: pd.DataFrame, specs: list[ModelSpec], signal_date:
     if out.empty:
         return out
     out["_bucket_order"] = out["report_bucket"].map({"mainstream": 1, "non_mainstream": 2, "unclassified": 3}).fillna(9)
-    out["_decision_score_num"] = pd.to_numeric(out.get("decision_score", ""), errors="coerce").fillna(0)
     out = out.sort_values(
-        ["model_id", "_bucket_order", "model_score", "_decision_score_num", "stock_id", "source_row_index"],
-        ascending=[True, True, False, False, True, True],
+        ["model_id", "_bucket_order", "model_score", "stock_id", "source_row_index"],
+        ascending=[True, True, False, True, True],
     ).reset_index(drop=True)
     out = out.drop_duplicates(["model_id", "report_bucket", "stock_id"], keep="first").reset_index(drop=True)
     out["model_rank"] = out.groupby(["model_id", "report_bucket"], dropna=False).cumcount() + 1
-    return out.drop(columns=["_bucket_order", "_decision_score_num"])
+    return out.drop(columns=["_bucket_order"])
 
 
 def candidate_lookup(candidates: pd.DataFrame) -> dict[str, pd.Series]:
@@ -1208,6 +1339,7 @@ def write_packet(
     params: pd.DataFrame,
     signals: pd.DataFrame,
     frontpage_unique: pd.DataFrame,
+    same_model_repeat: pd.DataFrame,
     rotation: pd.DataFrame,
     signal_date: str,
 ) -> None:
@@ -1220,6 +1352,7 @@ def write_packet(
         "- scoring: risk, TDCC, warrant, revenue, position, and structure adjust rank inside the model; mainstream/non-mainstream only splits reports.",
         "- PDF rule: do not hard-code model count; render models from `daily_candidate_model_signals_latest.csv` and parameters from `daily_candidate_model_parameters_latest.md`.",
         "- Front-page rule: use `daily_candidate_frontpage_unique_latest.csv/md` for first-page representatives; do not repeat the same stock three times because it hit multiple models.",
+        "- Repeat rule: same-stock same-model repeat appearances are not score penalties. Use `daily_candidate_same_model_repeat_latest.csv/md` as a separate persistence table.",
         "",
         "## Model Parameters",
         "",
@@ -1259,11 +1392,33 @@ def write_packet(
             "primary_model_score",
             "model_hit_count",
             "model_hits",
+            "same_model_repeat_status",
+            "same_model_consecutive_days",
             "risk_penalty_tags",
             "next_confirmation",
         ]
         available_cols = [col for col in cols if col in frontpage_unique.columns]
         lines.append(frontpage_unique[available_cols].head(60).to_markdown(index=False))
+    lines.extend(["", "## Same Model Repeat Table", ""])
+    if same_model_repeat.empty:
+        lines.append("_No same-model repeat rows yet._")
+    else:
+        cols = [
+            "same_model_repeat_rank",
+            "report_bucket",
+            "model_id",
+            "model_name_zh",
+            "stock_id",
+            "stock_name",
+            "same_model_consecutive_days",
+            "same_model_appear_count_5d",
+            "same_model_appear_count_10d",
+            "model_score",
+            "effective_primary_theme",
+            "next_confirmation",
+        ]
+        available_cols = [col for col in cols if col in same_model_repeat.columns]
+        lines.append(same_model_repeat[available_cols].head(80).to_markdown(index=False))
     lines.extend(["", "## Group Rotation", ""])
     if rotation.empty:
         lines.append("_No group rotation rows._")
@@ -1302,6 +1457,8 @@ def main() -> int:
     signals = append_volume_breakout_signals(signals, candidates, signal_date)
     signals = append_tdcc_short_term(signals, signal_date)
     signals = attach_model_recommendations(signals, recommendations)
+    model_log = update_model_signal_log(signals)
+    signals, same_model_repeat = attach_same_model_repeat(signals, model_log)
     signals = annotate_frontpage_uniqueness(signals)
     frontpage_unique = build_frontpage_unique(signals)
     write_csv(signals, SIGNALS_CSV)
@@ -1328,6 +1485,18 @@ def main() -> int:
         ],
         limit=120,
     )
+    write_csv(same_model_repeat, MODEL_REPEAT_CSV)
+    write_md_table(
+        MODEL_REPEAT_MD,
+        "Daily Candidate Same Model Repeat Table",
+        same_model_repeat,
+        [
+            "- Same-stock same-model repeat appearances are persistence information, not score penalties.",
+            "- Main curated tables can prefer new model signals; use this table to rank repeated same-model signals separately.",
+            "- Counts are based on accumulated `output/history/daily_candidate_models/daily_candidate_model_signal_log.csv` snapshots.",
+        ],
+        limit=160,
+    )
 
     rotation = build_rotation(candidates, signal_date)
     write_csv(rotation, ROTATION_CSV)
@@ -1341,13 +1510,16 @@ def main() -> int:
         ],
         limit=80,
     )
-    write_packet(params, signals, frontpage_unique, rotation, signal_date)
+    write_packet(params, signals, frontpage_unique, same_model_repeat, rotation, signal_date)
     print(f"Saved: {PARAMETERS_CSV}")
     print(f"Saved: {PARAMETERS_MD}")
     print(f"Saved: {SIGNALS_CSV} rows={len(signals)}")
     print(f"Saved: {SIGNALS_MD}")
     print(f"Saved: {FRONTPAGE_UNIQUE_CSV} rows={len(frontpage_unique)}")
     print(f"Saved: {FRONTPAGE_UNIQUE_MD}")
+    print(f"Saved: {MODEL_SIGNAL_LOG_CSV} rows={len(model_log)}")
+    print(f"Saved: {MODEL_REPEAT_CSV} rows={len(same_model_repeat)}")
+    print(f"Saved: {MODEL_REPEAT_MD}")
     print(f"Saved: {ROTATION_CSV} rows={len(rotation)}")
     print(f"Saved: {ROTATION_MD}")
     print(f"Saved: {PACKET_MD}")

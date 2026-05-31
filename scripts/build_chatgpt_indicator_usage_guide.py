@@ -127,6 +127,7 @@ def build_guide() -> str:
     daily_model_parameters = read_csv(LATEST_DIR / "daily_candidate_model_parameters_latest.csv")
     daily_model_signals = read_csv(LATEST_DIR / "daily_candidate_model_signals_latest.csv")
     daily_model_frontpage_unique = read_csv(LATEST_DIR / "daily_candidate_frontpage_unique_latest.csv")
+    daily_model_same_repeat = read_csv(LATEST_DIR / "daily_candidate_same_model_repeat_latest.csv")
     daily_model_packet = LATEST_DIR / "daily_candidate_model_layer_packet_latest.md"
     daily_group_rotation = read_csv(LATEST_DIR / "daily_candidate_group_rotation_latest.csv")
     daily_model_research = read_csv(LATEST_DIR / "daily_model_parameter_research_latest.csv")
@@ -195,6 +196,13 @@ def build_guide() -> str:
             "frontpage_unique_rank, report_bucket, stock_id, primary_model_id, model_hit_count, model_hits",
             f"rows={len(daily_model_frontpage_unique)} / {count_values(daily_model_frontpage_unique, 'report_bucket')}",
             "First-page PDF table only. A stock can hit multiple models, but the first page should show it once per report bucket and use model_hits to explain overlap.",
+        ],
+        [
+            "Daily candidate same-model repeat",
+            "output/latest/daily_candidate_same_model_repeat_latest.csv",
+            "same_model_consecutive_days, same_model_appear_count_5d, same_model_appear_count_10d, same_model_repeat_status",
+            f"rows={len(daily_model_same_repeat)} / {count_values(daily_model_same_repeat, 'report_bucket')}",
+            "Persistence table only. Same-stock same-model repeat is not a score penalty or veto; curated/front-page tables may prefer new_model_signal and list repeated names separately.",
         ],
         [
             "Group fund rotation",
@@ -422,6 +430,7 @@ def build_guide() -> str:
     lines.append("### Daily candidate report")
     lines.append("- Start from `daily_candidate_model_layer_packet_latest.md`, `daily_candidate_model_parameters_latest.md/csv`, and `daily_candidate_model_signals_latest.md/csv` when they exist. These are the program-side independent model source.")
     lines.append("- For the first page of curated PDFs, use `daily_candidate_frontpage_unique_latest.csv/md`; do not repeat the same stock multiple times just because it hit multiple models. Full PDFs should still keep all rows from `daily_candidate_model_signals_latest.csv`.")
+    lines.append("- If a stock appears in the same model across multiple days, do not subtract score for that fact. Use `daily_candidate_same_model_repeat_latest.csv/md` as a separate repeated-signal table; front-page summaries can prioritize `new_model_signal` rows and place repeated same-model rows in a separate section.")
     lines.append("- A model main condition being met means the stock enters that model. Do not add a second ChatGPT-side buy/not-buy gate after selection; use risk fields only as score/rank/annotation unless the program-side model marks a hard exclusion.")
     lines.append("- Do not hard-code the number of models. Render the model rows present in `daily_candidate_model_parameters_latest.csv` and the matching candidates in `daily_candidate_model_signals_latest.csv`.")
     lines.append("- Mainstream/non-mainstream is a report split and comparison group only. It must not cap score, veto a signal, or remove a stock from a model list.")
