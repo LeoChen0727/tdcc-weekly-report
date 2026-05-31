@@ -111,6 +111,8 @@ class StockThemeTaxonomyTests(unittest.TestCase):
                 "族群1",
                 "族群2",
                 "族群3",
+                "族群4",
+                "族群5",
                 "產業預設",
                 "題材預設",
                 "最終分流",
@@ -121,6 +123,23 @@ class StockThemeTaxonomyTests(unittest.TestCase):
                 "備註",
             ],
         )
+
+    def test_manual_both_routes_to_both_reports(self) -> None:
+        industry_label = taxonomy.infer_industry_mainstream_label("金融保險業")
+        theme_label = taxonomy.normalize_mainstream("都有")
+        effective = taxonomy.effective_mainstream_label(theme_label, industry_label)
+        flag, note = taxonomy.mainstream_conflict_note(industry_label, theme_label, effective)
+        membership = taxonomy.report_membership_fields(industry_label, theme_label, effective)
+
+        self.assertEqual(industry_label, "non_mainstream")
+        self.assertEqual(theme_label, "both")
+        self.assertEqual(effective, "both")
+        self.assertEqual(flag, "True")
+        self.assertIn("report_routing=both", note)
+        self.assertEqual(membership["report_line_memberships"], "mainstream|non_mainstream")
+        self.assertEqual(membership["mainstream_report_eligible"], "True")
+        self.assertEqual(membership["non_mainstream_report_eligible"], "True")
+        self.assertEqual(membership["dual_report_membership_flag"], "True")
 
 
 if __name__ == "__main__":

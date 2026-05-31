@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-31 20:46:11 Asia/Taipei",
+  "generated_at": "2026-05-31 21:36:04 Asia/Taipei",
   "total_rows": 2375,
   "mainstream_count": 1070,
   "non_mainstream_count": 1055,
@@ -17,8 +17,5 @@
   "industry_default_count": 476,
   "duplicate_stock_ids": 0,
   "missing_stock_name_count": 0,
-  "missing_primary_theme_count": 245,
-  "rows": 2375,
-  "invalid_mainstream_labels": [],
-  "validation_passed": true
+  "missing_primary_theme_count": 245
 }

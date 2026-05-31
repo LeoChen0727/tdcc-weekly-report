@@ -478,6 +478,12 @@ MAINSTREAM_VALUES = {
     "\u975e\u4e3b\u6d41": "non_mainstream",
     "\u50b3\u7522": "non_mainstream",
     "non_mainstream": "non_mainstream",
+    "\u90fd\u6709": "both",
+    "\u96d9\u91cd": "both",
+    "\u4e3b\u6d41+\u975e\u4e3b\u6d41": "both",
+    "\u4e3b\u6d41|\u975e\u4e3b\u6d41": "both",
+    "mainstream|non_mainstream": "both",
+    "both": "both",
     "\u5f85\u5206\u985e": "theme_unknown",
     "\u672a\u5206\u985e": "theme_unknown",
     "theme_unknown": "theme_unknown",
@@ -658,7 +664,7 @@ def split_themes(*values: Any) -> list[str]:
 
 def normalize_mainstream(value: Any) -> str:
     text = compact_text(value)
-    return MAINSTREAM_VALUES.get(text, text if text in {"core_mainstream", "non_mainstream", "theme_unknown"} else "")
+    return MAINSTREAM_VALUES.get(text, text if text in {"core_mainstream", "non_mainstream", "theme_unknown", "both"} else "")
 
 
 def provisional_industry_rule(industry: str) -> tuple[str, str, str] | None:
@@ -724,6 +730,8 @@ def effective_mainstream_label(theme_label: str, industry_label: str) -> str:
     """Report routing uses theme first, then industry only as fallback."""
     theme = normalize_mainstream(theme_label)
     industry = normalize_mainstream(industry_label)
+    if theme == "both":
+        return "both"
     if theme in {"core_mainstream", "non_mainstream"}:
         return theme
     if industry in {"core_mainstream", "non_mainstream"}:
@@ -734,6 +742,8 @@ def effective_mainstream_label(theme_label: str, industry_label: str) -> str:
 def mainstream_conflict_note(industry_label: str, theme_label: str, effective_label: str) -> tuple[str, str]:
     industry = normalize_mainstream(industry_label)
     theme = normalize_mainstream(theme_label)
+    if theme == "both":
+        return "True", f"manual_both;industry={industry or 'unknown'};theme=both;report_routing=both"
     if industry in {"core_mainstream", "non_mainstream"} and theme in {"core_mainstream", "non_mainstream"} and industry != theme:
         return "True", f"industry={industry};theme={theme};report_routing={effective_label}"
     return "False", ""
@@ -752,6 +762,8 @@ def report_membership_fields(industry_label: str, theme_label: str, effective_la
         "effective": normalize_mainstream(effective_label),
     }
     memberships: list[str] = []
+    if "both" in labels.values():
+        memberships.extend(["mainstream", "non_mainstream"])
     if "core_mainstream" in labels.values():
         memberships.append("mainstream")
     if "non_mainstream" in labels.values():
@@ -1187,7 +1199,7 @@ def build_template(taxonomy: pd.DataFrame, rows_per_sheet: int = 500) -> pd.Data
 
 def build_template(taxonomy: pd.DataFrame, rows_per_sheet: int = 500) -> pd.DataFrame:
     """Build the user-fillable taxonomy workbook with simple readable columns."""
-    label_map = {"core_mainstream": "\u4e3b\u6d41", "non_mainstream": "\u975e\u4e3b\u6d41", "theme_unknown": ""}
+    label_map = {"core_mainstream": "\u4e3b\u6d41", "non_mainstream": "\u975e\u4e3b\u6d41", "both": "\u90fd\u6709", "theme_unknown": ""}
     template = pd.DataFrame(
         {
             "\u80a1\u7968\u4ee3\u865f": taxonomy["stock_id"],
@@ -1197,6 +1209,8 @@ def build_template(taxonomy: pd.DataFrame, rows_per_sheet: int = 500) -> pd.Data
             "\u65cf\u7fa41": taxonomy["primary_theme"],
             "\u65cf\u7fa42": taxonomy["secondary_themes"].map(lambda x: split_themes(x)[0] if split_themes(x) else ""),
             "\u65cf\u7fa43": taxonomy["secondary_themes"].map(lambda x: split_themes(x)[1] if len(split_themes(x)) > 1 else ""),
+            "\u65cf\u7fa44": taxonomy["secondary_themes"].map(lambda x: split_themes(x)[2] if len(split_themes(x)) > 2 else ""),
+            "\u65cf\u7fa45": taxonomy["secondary_themes"].map(lambda x: split_themes(x)[3] if len(split_themes(x)) > 3 else ""),
             "\u7522\u696d\u9810\u8a2d": taxonomy["industry_mainstream_label"].map(label_map).fillna(""),
             "\u984c\u6750\u9810\u8a2d": taxonomy["theme_mainstream_label"].map(label_map).fillna(""),
             "\u6700\u7d42\u5206\u6d41": taxonomy["effective_mainstream_label"].map(label_map).fillna(""),
@@ -1216,14 +1230,14 @@ def build_template(taxonomy: pd.DataFrame, rows_per_sheet: int = 500) -> pd.Data
             [
                 {
                     "\u6b04\u4f4d": "\u4e3b\u6d41/\u975e\u4e3b\u6d41",
-                    "\u586b\u5beb\u65b9\u5f0f": "\u586b\u4e3b\u6d41\u3001\u975e\u4e3b\u6d41\u6216\u7559\u7a7a\u3002\u7559\u7a7a\u6642\u7a0b\u5f0f\u4f7f\u7528\u65e2\u6709\u984c\u6750\u8207\u7522\u696d\u9810\u8a2d\u3002",
+                    "\u586b\u5beb\u65b9\u5f0f": "\u586b\u4e3b\u6d41\u3001\u975e\u4e3b\u6d41\u3001\u90fd\u6709\u6216\u7559\u7a7a\u3002\u7559\u7a7a\u6642\u7a0b\u5f0f\u4f7f\u7528\u65e2\u6709\u984c\u6750\u8207\u7522\u696d\u9810\u8a2d\u3002",
                 },
                 {
                     "\u6b04\u4f4d": "\u65cf\u7fa41",
                     "\u586b\u5beb\u65b9\u5f0f": "\u586b\u6700\u91cd\u8981\u65cf\u7fa4\uff0c\u4f8b\u5982\u6a5f\u5668\u4eba\u81ea\u52d5\u5316\u3001\u73bb\u7e96\u5e03\u3001\u4f4e\u8ecc\u885b\u661f\u3001\u88ab\u52d5\u5143\u4ef6\u3002",
                 },
                 {
-                    "\u6b04\u4f4d": "\u65cf\u7fa42/\u65cf\u7fa43",
+                    "\u6b04\u4f4d": "\u65cf\u7fa42/\u65cf\u7fa43/\u65cf\u7fa44/\u65cf\u7fa45",
                     "\u586b\u5beb\u65b9\u5f0f": "\u540c\u4e00\u80a1\u7968\u6709\u591a\u500b\u65cf\u7fa4\u6642\u518d\u586b\u3002",
                 },
                 {
