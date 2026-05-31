@@ -28,6 +28,7 @@ VOLUME_BREAKOUT_WATCH = LATEST_DIR / "volume_breakout_watch_latest.csv"
 TDCC_EDGE_CANDIDATES = LATEST_DIR / "tdcc_overheated_short_term_edge_candidates_latest.csv"
 WEEKLY_SURGE_CANDIDATES = LATEST_DIR / "weekly_surge_strict_parameter_candidates_latest.csv"
 MODEL_PARAMETER_RECOMMENDATIONS = LATEST_DIR / "daily_model_parameter_recommendations_latest.csv"
+STOCK_THEME_TAXONOMY = LATEST_DIR / "stock_theme_taxonomy_latest.csv"
 MODEL_HISTORY_DIR = Path("output/history/daily_candidate_models")
 MODEL_SIGNAL_LOG_CSV = MODEL_HISTORY_DIR / "daily_candidate_model_signal_log.csv"
 STOCK_PRICE_HISTORY_DIR = Path("data/stock_price_history")
@@ -473,13 +474,22 @@ def score_w_bottom(row: pd.Series) -> tuple[float, list[str], list[str]]:
         if attack2 >= attack1 + 3 and attack2 >= attack1 * 1.25:
             score += 7
             comps.append("second attack materially stronger +7")
+        elif attack2 >= attack1 * 0.9:
+            score += 2
+            comps.append("second attack comparable to first +2")
         else:
-            score -= 10
-            risks.append("weak_second_attack_not_true_w_bottom")
-    if not math.isnan(vol2_vs_1) and vol2_vs_1 >= 1.5:
-        score += 4
-        comps.append("second attack volume expansion +4")
-    if not math.isnan(red_body2_vs_1) and red_body2_vs_1 >= 1.5:
+            score -= 4
+            risks.append("second_attack_weaker_watch")
+    if not math.isnan(vol2_vs_1):
+        if vol2_vs_1 >= 1.5:
+            score += 4
+            comps.append("second attack volume expansion +4")
+        elif vol2_vs_1 >= 1.2:
+            score += 2
+            comps.append("second attack volume mildly higher +2")
+        elif vol2_vs_1 < 0.8:
+            risks.append("second_attack_volume_not_confirmed")
+    if not math.isnan(red_body2_vs_1) and red_body2_vs_1 >= 1.2:
         score += 3
         comps.append("second attack red-body improvement +3")
     return score, comps, risks
@@ -532,12 +542,12 @@ def explicit_w_bottom_context_ok(row: pd.Series) -> bool:
 
 
 def w_bottom_attack_confirmation_ok(row: pd.Series, context: dict[str, float | str | bool] | None = None) -> bool:
-    """Require a real right-side attack, not just two nearby lows in a range.
+    """Require a real right-side attack, without making strength a hard veto.
 
-    A common false positive is low-level consolidation: two local lows appear
-    close in height, but the second advance is not materially stronger than
-    the first. For the W-bottom model, the second leg must show a visible
-    price push and at least one volume/body confirmation.
+    The W-bottom label should be controlled by geometry, base quality and
+    neckline proximity. Second-leg strength is a ranking feature: a second
+    attack that is only comparable to the first is still a valid W candidate,
+    but receives a lower score than a clearly stronger second leg.
     """
     attack1 = num(row, "attack1_gain_pct")
     attack2 = num(row, "attack2_gain_pct")
@@ -557,10 +567,10 @@ def w_bottom_attack_confirmation_ok(row: pd.Series, context: dict[str, float | s
     if math.isnan(attack1) or math.isnan(attack2):
         return False
 
-    price_leg_ok = attack2 >= 6.0 and attack2 >= attack1 + 3.0 and attack2 >= attack1 * 1.25
-    volume_ok = not math.isnan(vol2_vs_1) and vol2_vs_1 >= 1.5
-    body_ok = not math.isnan(red_body2_vs_1) and red_body2_vs_1 >= 1.2
-    return price_leg_ok and volume_ok and body_ok
+    price_leg_ok = attack2 >= 6.0 and attack2 >= attack1 * 0.85
+    volume_ok = not math.isnan(vol2_vs_1) and vol2_vs_1 >= 1.2
+    body_ok = not math.isnan(red_body2_vs_1) and red_body2_vs_1 >= 1.0
+    return price_leg_ok and (volume_ok or body_ok)
 
 
 def detected_w_bottom_context(row: pd.Series) -> dict[str, float | str | bool]:
@@ -679,8 +689,31 @@ def detected_w_bottom_context(row: pd.Series) -> dict[str, float | str | bool]:
                 "left_low_date": str(df["date"].iloc[left]),
                 "right_low_date": str(df["date"].iloc[right]),
             }
-            if best is None or abs(float(candidate["neckline_distance_pct"])) < abs(float(best["neckline_distance_pct"])):
+            if best is None:
                 best = candidate
+            else:
+                candidate_distance = abs(float(candidate["neckline_distance_pct"]))
+                best_distance = abs(float(best["neckline_distance_pct"]))
+                candidate_volume = float(candidate.get("volume_ratio_2_vs_1", math.nan))
+                best_volume = float(best.get("volume_ratio_2_vs_1", math.nan))
+                candidate_right = right
+                best_date = str(best.get("right_low_date", ""))
+                best_right_matches = df.index[df["date"].astype(str).eq(best_date)].tolist()
+                best_right = int(best_right_matches[0]) if best_right_matches else -1
+                # Prefer the more recent right trough when neckline distance is
+                # effectively the same. This avoids choosing an early pullback
+                # inside the middle of the W instead of the actual right low.
+                if (
+                    candidate_distance < best_distance - 0.25
+                    or (abs(candidate_distance - best_distance) <= 0.25 and candidate_right > best_right)
+                    or (
+                        abs(candidate_distance - best_distance) <= 0.25
+                        and candidate_right == best_right
+                        and not math.isnan(candidate_volume)
+                        and (math.isnan(best_volume) or candidate_volume > best_volume)
+                    )
+                ):
+                    best = candidate
 
     if best is None:
         return {"available": True, "context_ok": False}
@@ -689,13 +722,17 @@ def detected_w_bottom_context(row: pd.Series) -> dict[str, float | str | bool]:
 
 def double_bottom_structure_ok(row: pd.Series) -> bool:
     """Require actual double-bottom geometry, not only a broad pattern flag."""
-    if text(row, "category", "original_category").lower() != "pattern":
-        return False
     current_stage = stage(row)
     if current_stage in {"breakout_confirmed", "platform_breakout", "neckline_breakout"}:
         return False
     second_low_gap = num(row, "second_low_gap_pct")
     neckline_distance = num(row, "distance_to_neckline_pct")
+
+    price_context = detected_w_bottom_context(row)
+    if math.isnan(second_low_gap) and price_context.get("available"):
+        second_low_gap = float(price_context.get("second_low_gap_pct", math.nan))
+    if math.isnan(neckline_distance) and price_context.get("available"):
+        neckline_distance = float(price_context.get("neckline_distance_pct", math.nan))
     if math.isnan(second_low_gap) or math.isnan(neckline_distance):
         return False
     # W-bottom right side means two similar troughs in a low/base context. If
@@ -706,7 +743,6 @@ def double_bottom_structure_ok(row: pd.Series) -> bool:
     if not (second_low_ok and neckline_ok):
         return False
 
-    price_context = detected_w_bottom_context(row)
     attack_ok = w_bottom_attack_confirmation_ok(row, price_context if price_context.get("available") else None)
     if price_context.get("available"):
         return bool(price_context.get("context_ok")) and attack_ok
@@ -1317,6 +1353,23 @@ def candidate_lookup(candidates: pd.DataFrame) -> dict[str, pd.Series]:
     return lookup
 
 
+@lru_cache(maxsize=1)
+def taxonomy_lookup() -> dict[str, pd.Series]:
+    df = read_csv(STOCK_THEME_TAXONOMY, dtype=str, keep_default_na=False)
+    lookup: dict[str, pd.Series] = {}
+    if df.empty:
+        return lookup
+    for _, row in df.iterrows():
+        stock_id = normalize_code(text(row, "stock_id"))
+        if stock_id and stock_id not in lookup:
+            lookup[stock_id] = row
+    return lookup
+
+
+def taxonomy_or_source(stock_id: str, fallback: pd.Series) -> pd.Series:
+    return taxonomy_lookup().get(normalize_code(stock_id), fallback)
+
+
 def external_report_bucket(volume_row: pd.Series, candidate_row: pd.Series | None) -> str:
     if candidate_row is not None:
         buckets = report_buckets(candidate_row)
@@ -1353,7 +1406,7 @@ def append_volume_breakout_signals(signals: pd.DataFrame, candidates: pd.DataFra
         if not stock_id:
             continue
         candidate_row = lookup.get(stock_id)
-        source = candidate_row if candidate_row is not None else row
+        source = candidate_row if candidate_row is not None else taxonomy_or_source(stock_id, row)
         score = to_number(row.get("volume_breakout_score", ""))
         if math.isnan(score):
             score = 50
@@ -1385,7 +1438,7 @@ def append_volume_breakout_signals(signals: pd.DataFrame, candidates: pd.DataFra
                 "mainstream_report_eligible": text(source, "mainstream_report_eligible", "taxonomy_mainstream_report_eligible"),
                 "non_mainstream_report_eligible": text(source, "non_mainstream_report_eligible", "taxonomy_non_mainstream_report_eligible"),
                 "dual_report_membership_flag": text(source, "dual_report_membership_flag", "taxonomy_dual_report_membership_flag"),
-                "report_bucket": external_report_bucket(row, candidate_row),
+                "report_bucket": external_report_bucket(row, source),
                 "model_id": "volume_range_breakout",
                 "model_name_zh": "帶量突破模型",
                 "model_group": "pdf_core_model",
@@ -1430,6 +1483,8 @@ def append_tdcc_short_term(signals: pd.DataFrame, signal_date: str) -> pd.DataFr
     df = read_csv(TDCC_EDGE_CANDIDATES, dtype=str, keep_default_na=False)
     if not df.empty:
         for idx, row in df.iterrows():
+            stock_id = normalize_code(text(row, "stock_id"))
+            source = taxonomy_or_source(stock_id, row)
             d10 = to_number(row.get("d10_win_rate_pct", ""))
             d5 = to_number(row.get("d5_win_rate_pct", ""))
             score = 50 + (0 if math.isnan(d10) else d10 * 0.35) + (0 if math.isnan(d5) else d5 * 0.15)
@@ -1437,19 +1492,19 @@ def append_tdcc_short_term(signals: pd.DataFrame, signal_date: str) -> pd.DataFr
                 {
                     "signal_date": text(row, "signal_date") or signal_date,
                     "source_row_index": f"tdcc_edge:{idx}",
-                    "stock_id": normalize_code(text(row, "stock_id")),
+                    "stock_id": stock_id,
                     "stock_name": text(row, "stock_name"),
-                    "industry": "",
-                    "primary_theme": text(row, "theme"),
-                    "effective_primary_theme": text(row, "theme"),
-                    "secondary_themes": "",
-                    "effective_structural_theme_bucket": "",
-                    "effective_mainstream_label": "",
-                    "report_line_memberships": "",
-                    "mainstream_report_eligible": "",
-                    "non_mainstream_report_eligible": "",
-                    "dual_report_membership_flag": "",
-                    "report_bucket": "unclassified",
+                    "industry": text(source, "industry"),
+                    "primary_theme": primary_theme(source) or text(row, "theme"),
+                    "effective_primary_theme": primary_theme(source) or text(row, "theme"),
+                    "secondary_themes": text(source, "secondary_themes", "taxonomy_secondary_themes"),
+                    "effective_structural_theme_bucket": effective_structural_theme_bucket(source),
+                    "effective_mainstream_label": effective_mainstream_label(source),
+                    "report_line_memberships": text(source, "report_line_memberships", "taxonomy_report_line_memberships"),
+                    "mainstream_report_eligible": text(source, "mainstream_report_eligible", "taxonomy_mainstream_report_eligible"),
+                    "non_mainstream_report_eligible": text(source, "non_mainstream_report_eligible", "taxonomy_non_mainstream_report_eligible"),
+                    "dual_report_membership_flag": text(source, "dual_report_membership_flag", "taxonomy_dual_report_membership_flag"),
+                    "report_bucket": report_bucket(source),
                     "model_id": "tdcc_short_term_continuation_d5_d10",
                     "model_name_zh": "TDCC短線延續模型 D+5/D+10",
                     "model_group": "pdf_specialty_section",
@@ -1477,6 +1532,8 @@ def append_tdcc_short_term(signals: pd.DataFrame, signal_date: str) -> pd.DataFr
     surge = read_csv(WEEKLY_SURGE_CANDIDATES, dtype=str, keep_default_na=False)
     if not surge.empty:
         for idx, row in surge.iterrows():
+            stock_id = normalize_code(text(row, "stock_id"))
+            source = taxonomy_or_source(stock_id, row)
             d10 = to_number(row.get("best_d10_hit_rate_pct", ""))
             d5 = to_number(row.get("best_d5_hit_rate_pct", ""))
             score = 50 + (0 if math.isnan(d10) else d10 * 0.35) + (0 if math.isnan(d5) else d5 * 0.15)
@@ -1484,19 +1541,19 @@ def append_tdcc_short_term(signals: pd.DataFrame, signal_date: str) -> pd.DataFr
                 {
                     "signal_date": text(row, "date") or signal_date,
                     "source_row_index": f"short_surge:{idx}",
-                    "stock_id": normalize_code(text(row, "stock_id")),
+                    "stock_id": stock_id,
                     "stock_name": text(row, "stock_name"),
-                    "industry": "",
-                    "primary_theme": text(row, "theme"),
-                    "effective_primary_theme": text(row, "theme"),
-                    "secondary_themes": "",
-                    "effective_structural_theme_bucket": "",
-                    "effective_mainstream_label": "",
-                    "report_line_memberships": "",
-                    "mainstream_report_eligible": "",
-                    "non_mainstream_report_eligible": "",
-                    "dual_report_membership_flag": "",
-                    "report_bucket": "unclassified",
+                    "industry": text(source, "industry"),
+                    "primary_theme": primary_theme(source) or text(row, "theme"),
+                    "effective_primary_theme": primary_theme(source) or text(row, "theme"),
+                    "secondary_themes": text(source, "secondary_themes", "taxonomy_secondary_themes"),
+                    "effective_structural_theme_bucket": effective_structural_theme_bucket(source),
+                    "effective_mainstream_label": effective_mainstream_label(source),
+                    "report_line_memberships": text(source, "report_line_memberships", "taxonomy_report_line_memberships"),
+                    "mainstream_report_eligible": text(source, "mainstream_report_eligible", "taxonomy_mainstream_report_eligible"),
+                    "non_mainstream_report_eligible": text(source, "non_mainstream_report_eligible", "taxonomy_non_mainstream_report_eligible"),
+                    "dual_report_membership_flag": text(source, "dual_report_membership_flag", "taxonomy_dual_report_membership_flag"),
+                    "report_bucket": report_bucket(source),
                     "model_id": "short_term_surge_d5_d10",
                     "model_name_zh": "短線急漲D+5/D+10模型",
                     "model_group": "pdf_specialty_section",

@@ -4,3 +4,4 @@ stock_id,stock_name,industry,theme_mainstream_label,primary_theme,theme_2,theme_
 2374,佳能,光電業,core_mainstream,機器人,機器視覺,,user_confirmed_robotics_theme
 4576,大銀微系統,電機機械,core_mainstream,機器人,精密傳動,,user_confirmed_robotics_theme
 6862,三集瑞-KY,電子零組件業,core_mainstream,被動元件,電感,,user_confirmed_passive_component_theme
+1617,榮星,電器電纜,,,,,industry_fallback_from_listed_company_classification_needed

@@ -224,7 +224,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             volume_ratio_2_vs_1="1.8",
             red_body_ratio_2_vs_1="2.0",
         )
-        self.assertFalse(cond_w_bottom_right(weak_second_attack))
+        self.assertTrue(cond_w_bottom_right(weak_second_attack))
 
         high_level_pullback = make_row(
             category="pattern",
@@ -268,6 +268,14 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             volume_ratio_2_vs_1="1.6",
         )
         self.assertFalse(cond_w_bottom_right(already_broken))
+
+        range_rebound_with_detected_w = make_row(
+            stock_id="1618",
+            category="range_rebound",
+            pattern_stage="neckline_challenge",
+            signal_date="20260529",
+        )
+        self.assertTrue(cond_w_bottom_right(range_rebound_with_detected_w))
 
     def test_risk_penalty_does_not_cancel_model_entry(self) -> None:
         row = make_row(
