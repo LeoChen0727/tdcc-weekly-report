@@ -211,6 +211,15 @@ def load_all_daily_prices() -> pd.DataFrame:
     return df.sort_values(["stock_id", "date"]).reset_index(drop=True)
 
 
+def load_latest_trading_daily_prices() -> pd.DataFrame:
+    """Load the newest daily price file that has usable trading rows."""
+    for path in sorted(DATA_DAILY_PRICE_DIR.glob("*.csv"), reverse=True):
+        normalized = normalize_daily_price_file(path)
+        if not normalized.empty:
+            return normalized
+    return pd.DataFrame(columns=BASE_COLUMNS)
+
+
 def drop_stale_duplicate_dates(df: pd.DataFrame, same_threshold: float = 0.98, min_common_rows: int = 500) -> pd.DataFrame:
     """Drop synthetic date snapshots that duplicate the previous trading day.
 
@@ -379,6 +388,198 @@ def build_history_files(limit_stock_ids: set[str] | None = None) -> pd.DataFrame
     return manifest
 
 
+def build_manifest_from_existing() -> pd.DataFrame:
+    manifest_rows: list[dict[str, Any]] = []
+    for file_path in sorted(STOCK_HISTORY_DIR.glob("*.csv")):
+        try:
+            history = pd.read_csv(file_path, dtype=str).fillna("")
+        except Exception as exc:
+            print(f"Skip manifest row {file_path}: read failed: {exc}")
+            continue
+        if history.empty or "date" not in history.columns:
+            continue
+        latest = history.iloc[-1]
+        stock_id = normalize_stock_id(latest.get("stock_id") or file_path.stem)
+        manifest_rows.append(
+            {
+                "stock_id": stock_id,
+                "stock_name": safe_str(latest.get("stock_name", "")),
+                "market": safe_str(latest.get("market", "")),
+                "rows": len(history),
+                "start_date": safe_str(history["date"].iloc[0]),
+                "end_date": safe_str(history["date"].iloc[-1]),
+                "latest_close": latest.get("close", ""),
+                "latest_volume": latest.get("volume", ""),
+                "file_path": file_path.as_posix(),
+                "raw_url": raw_url(file_path),
+            }
+        )
+
+    manifest = pd.DataFrame(manifest_rows)
+    if not manifest.empty:
+        manifest = manifest.sort_values(["stock_id"]).reset_index(drop=True)
+    LATEST_DIR.mkdir(parents=True, exist_ok=True)
+    DOCS_LATEST_DIR.mkdir(parents=True, exist_ok=True)
+    manifest.to_csv(MANIFEST_CSV, index=False, encoding="utf-8", lineterminator="\n")
+    MANIFEST_JSON.write_text(
+        json.dumps(
+            {
+                "generated_at": now_text(),
+                "status": "generated_from_existing_history",
+                "stock_count": int(len(manifest)),
+                "daily_price_file_count": int(len(list(DATA_DAILY_PRICE_DIR.glob("*.csv")))),
+                "manifest_csv": MANIFEST_CSV.as_posix(),
+                "manifest_raw_url": raw_url(MANIFEST_CSV),
+                "manifest_pages_url": pages_url(DOCS_MANIFEST_CSV),
+                "history_dir": STOCK_HISTORY_DIR.as_posix(),
+            },
+            ensure_ascii=False,
+            indent=2,
+        ),
+        encoding="utf-8",
+    )
+    write_manifest_md(manifest)
+    shutil.copyfile(MANIFEST_CSV, DOCS_MANIFEST_CSV)
+    shutil.copyfile(MANIFEST_JSON, DOCS_MANIFEST_JSON)
+    shutil.copyfile(MANIFEST_MD, DOCS_MANIFEST_MD)
+    return manifest
+
+
+def write_manifest_files(manifest: pd.DataFrame, status: str) -> pd.DataFrame:
+    if not manifest.empty:
+        manifest = manifest.sort_values(["stock_id"]).reset_index(drop=True)
+    LATEST_DIR.mkdir(parents=True, exist_ok=True)
+    DOCS_LATEST_DIR.mkdir(parents=True, exist_ok=True)
+    manifest.to_csv(MANIFEST_CSV, index=False, encoding="utf-8", lineterminator="\n")
+    MANIFEST_JSON.write_text(
+        json.dumps(
+            {
+                "generated_at": now_text(),
+                "status": status,
+                "stock_count": int(len(manifest)),
+                "daily_price_file_count": int(len(list(DATA_DAILY_PRICE_DIR.glob("*.csv")))),
+                "manifest_csv": MANIFEST_CSV.as_posix(),
+                "manifest_raw_url": raw_url(MANIFEST_CSV),
+                "manifest_pages_url": pages_url(DOCS_MANIFEST_CSV),
+                "history_dir": STOCK_HISTORY_DIR.as_posix(),
+            },
+            ensure_ascii=False,
+            indent=2,
+        ),
+        encoding="utf-8",
+    )
+    write_manifest_md(manifest)
+    shutil.copyfile(MANIFEST_CSV, DOCS_MANIFEST_CSV)
+    shutil.copyfile(MANIFEST_JSON, DOCS_MANIFEST_JSON)
+    shutil.copyfile(MANIFEST_MD, DOCS_MANIFEST_MD)
+    return manifest
+
+
+def build_history_files_incremental_latest(limit_stock_ids: set[str] | None = None) -> pd.DataFrame:
+    """Append/replace the newest trading daily file instead of rebuilding all history."""
+    STOCK_HISTORY_DIR.mkdir(parents=True, exist_ok=True)
+    latest_prices = load_latest_trading_daily_prices()
+    if latest_prices.empty:
+        raise SystemExit("No non-weekend daily price data found under data/daily_price")
+
+    manifest = pd.read_csv(MANIFEST_CSV, dtype=str).fillna("") if MANIFEST_CSV.exists() else pd.DataFrame()
+    manifest_rows: dict[str, dict[str, Any]] = {}
+    if not manifest.empty and "stock_id" in manifest.columns:
+        for _, row in manifest.iterrows():
+            stock_id = normalize_stock_id(row.get("stock_id"))
+            if stock_id:
+                manifest_rows[stock_id] = row.to_dict()
+    existing_history_count = len(list(STOCK_HISTORY_DIR.glob("*.csv")))
+    if not limit_stock_ids and existing_history_count and len(manifest_rows) < existing_history_count * 0.8:
+        print(
+            "Existing manifest is incomplete for incremental update; "
+            "rebuilding manifest from existing stock histories once."
+        )
+        manifest = build_manifest_from_existing()
+        manifest_rows = {}
+        for _, row in manifest.iterrows():
+            stock_id = normalize_stock_id(row.get("stock_id"))
+            if stock_id:
+                manifest_rows[stock_id] = row.to_dict()
+
+    touched = 0
+    skipped = 0
+    for stock_id, latest_df in latest_prices.groupby("stock_id", sort=True):
+        stock_id = normalize_stock_id(stock_id)
+        if limit_stock_ids and stock_id not in limit_stock_ids:
+            continue
+        latest_row = latest_df.sort_values("date").iloc[-1]
+        latest_date = safe_str(latest_row.get("date"))
+        file_path = STOCK_HISTORY_DIR / f"{stock_id}.csv"
+        manifest_row = manifest_rows.get(stock_id, {})
+        if (
+            not limit_stock_ids
+            and file_path.exists()
+            and safe_str(manifest_row.get("end_date")) == latest_date
+        ):
+            skipped += 1
+            continue
+        if file_path.exists():
+            try:
+                existing = pd.read_csv(file_path, dtype=str).fillna("")
+            except Exception as exc:
+                print(f"Rebuild {stock_id} from latest row only because existing read failed: {exc}")
+                existing = pd.DataFrame(columns=BASE_COLUMNS)
+        else:
+            existing = pd.DataFrame(columns=BASE_COLUMNS)
+
+        if limit_stock_ids and not existing.empty and "date" in existing.columns and safe_str(existing["date"].iloc[-1]) == latest_date:
+            existing_latest = existing.iloc[-1]
+            unchanged = True
+            for col in ["open", "high", "low", "close", "volume", "trading_value"]:
+                old_value = pd.to_numeric(pd.Series([existing_latest.get(col, "")]), errors="coerce").iloc[0]
+                new_value = pd.to_numeric(pd.Series([latest_row.get(col, "")]), errors="coerce").iloc[0]
+                if pd.isna(old_value) and pd.isna(new_value):
+                    continue
+                if pd.isna(old_value) or pd.isna(new_value) or abs(float(old_value) - float(new_value)) > 1e-9:
+                    unchanged = False
+                    break
+            if unchanged:
+                skipped += 1
+                continue
+
+        base_existing = existing[[c for c in BASE_COLUMNS if c in existing.columns]].copy()
+        for col in BASE_COLUMNS:
+            if col not in base_existing.columns:
+                base_existing[col] = math.nan if col in NUMERIC_COLUMNS else ""
+
+        combined = pd.concat([base_existing[BASE_COLUMNS], latest_df[BASE_COLUMNS]], ignore_index=True, sort=False)
+        combined["date"] = combined["date"].map(safe_str)
+        combined = combined[combined["date"].ne("")]
+        for col in NUMERIC_COLUMNS:
+            combined[col] = pd.to_numeric(combined[col], errors="coerce")
+        combined = combined.sort_values(["stock_id", "date"]).drop_duplicates(["stock_id", "date"], keep="last")
+        history = round_numeric_columns(add_indicators(combined))
+        history.to_csv(file_path, index=False, encoding="utf-8", lineterminator="\n")
+        latest_history = history.iloc[-1]
+        manifest_rows[stock_id] = {
+            "stock_id": stock_id,
+            "stock_name": safe_str(latest_history.get("stock_name", "")),
+            "market": safe_str(latest_history.get("market", "")),
+            "rows": len(history),
+            "start_date": safe_str(history["date"].iloc[0]),
+            "end_date": safe_str(history["date"].iloc[-1]),
+            "latest_close": latest_history.get("close", ""),
+            "latest_volume": latest_history.get("volume", ""),
+            "file_path": file_path.as_posix(),
+            "raw_url": raw_url(file_path),
+        }
+        touched += 1
+
+    if manifest_rows:
+        manifest = pd.DataFrame(manifest_rows.values())
+        manifest = write_manifest_files(manifest, "incremental_latest")
+    else:
+        manifest = build_manifest_from_existing()
+    print(f"Incremental latest update touched {touched} stock history files; skipped unchanged {skipped}")
+    return manifest
+
+
 def write_manifest_md(manifest: pd.DataFrame) -> None:
     top = manifest.sort_values(["rows", "stock_id"], ascending=[False, True]).head(30)
     lines = [
@@ -417,13 +618,21 @@ def parse_args() -> argparse.Namespace:
         default=None,
         help="Optional stock id to build. Can be repeated. Default: build every stock.",
     )
+    parser.add_argument(
+        "--incremental-latest",
+        action="store_true",
+        help="Update from the newest trading daily-price file only. Use for daily pipeline; default remains full rebuild.",
+    )
     return parser.parse_args()
 
 
 def main() -> int:
     args = parse_args()
     limit = {normalize_stock_id(x) for x in args.stock_id} if args.stock_id else None
-    manifest = build_history_files(limit)
+    if args.incremental_latest:
+        manifest = build_history_files_incremental_latest(limit)
+    else:
+        manifest = build_history_files(limit)
     print(f"Saved {len(manifest)} stock history files under {STOCK_HISTORY_DIR}")
     print(f"Saved manifest: {MANIFEST_CSV}")
     return 0

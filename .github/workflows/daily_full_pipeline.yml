@@ -77,7 +77,7 @@ jobs:
 
       - name: Build per-stock price history
         run: |
-          python scripts/build_stock_price_history.py
+          python scripts/build_stock_price_history.py --incremental-latest
 
       - name: Run daily stock monitor
         run: |
