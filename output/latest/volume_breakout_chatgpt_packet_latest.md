@@ -1,13 +1,13 @@
 # VOLUME BREAKOUT CHATGPT PACKET
 
 ## Metadata
-- generated_at: `2026-05-31 12:12:08 Asia/Taipei`
+- generated_at: `2026-05-31 18:06:47 Asia/Taipei`
 - main_price_date: `20260529`
 - watch_rows: `315`
 - strict_60d_volume_breakout_count: `35`
 - broad_recall_watch_count: `96`
-- selected_but_routed_to_other_category_count: `162`
-- not_selected_by_candidate_model_count: `153`
+- selected_but_routed_to_other_category_count: `163`
+- not_selected_by_candidate_model_count: `152`
 - watch_csv_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/volume_breakout_watch_latest.csv
 - watch_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/volume_breakout_watch_latest.md
 - backtest_csv_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/volume_breakout_backtest_latest.csv
@@ -24,18 +24,18 @@
 
 | volume_breakout_rank | stock_id | stock_name | volume_breakout_type | volume_watch_scope | volume_breakout_priority | selection_status | category | pattern_stage | decision_priority | tdcc_status | repeat_appear_label | volume_ratio | return_5d | return_20d | risk_flags | next_volume_breakout_confirmation |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | 2362 | 藍天 | strict_60d_volume_breakout | strict_breakout | A_valid_breakout_watch | selected_but_routed_to_other_category | range_rebound | neckline_challenge | A_priority_watch | strong_accumulation | continued_2_3d | 4.4863 | 7.8335 | 14.4156 |  | next day holds breakout area; volume does not collapse; TDCC not distribution_warning |
+| 1 | 2362 | 藍天 | strict_60d_volume_breakout | strict_breakout | A_valid_breakout_watch | selected_but_routed_to_other_category | range_rebound | neckline_challenge | A_priority_watch | strong_accumulation | repeated_but_no_breakout | 4.4863 | 7.8335 | 14.4156 |  | next day holds breakout area; volume does not collapse; TDCC not distribution_warning |
 | 2 | 2850 | 新產 | strict_60d_volume_breakout | strict_breakout | A_valid_breakout_watch | selected_but_routed_to_other_category | revenue_pullback |  | B_confirm_needed | mild_accumulation | continued_2_3d | 3.5426 | 6.5934 | 9.3985 |  | next day holds breakout area; volume does not collapse; TDCC not distribution_warning |
-| 3 | 1447 | 力鵬 | strict_60d_volume_breakout | strict_breakout | A_valid_breakout_watch | selected_but_routed_to_other_category | range_rebound | neckline_challenge | C_watch_only | mild_accumulation | repeated_but_no_breakout | 1.8391 | 3.5 | 24.4489 |  | next day holds breakout area; volume does not collapse; TDCC not distribution_warning |
+| 3 | 1447 | 力鵬 | strict_60d_volume_breakout | strict_breakout | A_valid_breakout_watch | selected_but_routed_to_other_category | range_rebound | neckline_challenge | B_confirm_needed | mild_accumulation | repeated_but_no_breakout | 1.8391 | 3.5 | 24.4489 |  | next day holds breakout area; volume does not collapse; TDCC not distribution_warning |
 | 4 | 1605 | 華新 | strict_60d_volume_breakout | strict_breakout | A_valid_breakout_watch | selected_but_routed_to_other_category | range_rebound | neckline_challenge | B_confirm_needed | mild_accumulation | repeated_but_no_breakout | 1.807 | 6.1644 | 28.524 |  | next day holds breakout area; volume does not collapse; TDCC not distribution_warning |
 | 5 | 2405 | 輔信 | platform_volume_breakout | confirmed_attack | A_valid_breakout_watch | selected_but_routed_to_other_category | range_rebound | neckline_challenge | B_confirm_needed | mild_accumulation | repeated_but_no_breakout | 4.8109 | 6.6465 | 18.0602 |  | next day holds breakout area; volume does not collapse; TDCC not distribution_warning |
 | 6 | 2206 | 三陽工業 | platform_volume_breakout | confirmed_attack | A_valid_breakout_watch | selected_but_routed_to_other_category | pattern | 接近突破型 | B_confirm_needed | mild_accumulation | repeated_but_no_breakout | 2.0938 | 0.8319 | 9.1892 |  | next day holds breakout area; volume does not collapse; TDCC not distribution_warning |
 | 7 | 2601 | 益航 | platform_volume_breakout | confirmed_attack | A_valid_breakout_watch | selected_but_routed_to_other_category | range_rebound | neckline_challenge | A_priority_watch | mild_accumulation | continued_2_3d | 1.8611 | 4.175 | 4.5908 |  | next day holds breakout area; volume does not collapse; TDCC not distribution_warning |
 | 8 | 2597 | 潤弘 | platform_volume_breakout | confirmed_attack | A_valid_breakout_watch | selected_but_routed_to_other_category | range_rebound | neckline_challenge | A_priority_watch | mild_accumulation | continued_2_3d | 1.7659 | 1.5291 | 5.7325 |  | next day holds breakout area; volume does not collapse; TDCC not distribution_warning |
 | 9 | 8070 | 長華* | neckline_volume_breakout | confirmed_attack | A_valid_breakout_watch | selected_but_routed_to_other_category | range_rebound | neckline_challenge | A_priority_watch | strong_accumulation | repeated_but_no_breakout | 2.0312 | 16.9265 | 9.4891 |  | next day holds breakout area; volume does not collapse; TDCC not distribution_warning |
-| 10 | 2610 | 華航 | neckline_volume_breakout | confirmed_attack | A_valid_breakout_watch | selected_but_routed_to_other_category | range_rebound | neckline_challenge | A_priority_watch | mild_accumulation | continued_2_3d | 6.8362 | 2.965 | 6.7039 |  | next day holds breakout area; volume does not collapse; TDCC not distribution_warning |
+| 10 | 2610 | 華航 | neckline_volume_breakout | confirmed_attack | A_valid_breakout_watch | selected_but_routed_to_other_category | range_rebound | neckline_challenge | B_confirm_needed | mild_accumulation | repeated_but_no_breakout | 6.8362 | 2.965 | 6.7039 |  | next day holds breakout area; volume does not collapse; TDCC not distribution_warning |
 | 11 | 5876 | 上海商銀 | neckline_volume_breakout | confirmed_attack | A_valid_breakout_watch | selected_but_routed_to_other_category | range_rebound |  | B_confirm_needed | mild_accumulation | continued_2_3d | 1.9764 | -0.7491 | 1.7926 |  | next day holds breakout area; volume does not collapse; TDCC not distribution_warning |
-| 12 | 5522 | 遠雄 | neckline_volume_breakout | confirmed_attack | A_valid_breakout_watch | selected_but_routed_to_other_category | range_rebound | neckline_challenge | A_priority_watch | mild_accumulation | continued_2_3d | 1.9298 | 4.6043 | 5.6686 |  | next day holds breakout area; volume does not collapse; TDCC not distribution_warning |
+| 12 | 5522 | 遠雄 | neckline_volume_breakout | confirmed_attack | A_valid_breakout_watch | selected_but_routed_to_other_category | range_rebound | neckline_challenge | B_confirm_needed | mild_accumulation | repeated_but_no_breakout | 1.9298 | 4.6043 | 5.6686 |  | next day holds breakout area; volume does not collapse; TDCC not distribution_warning |
 | 13 | 2882 | 國泰金 | neckline_volume_breakout | confirmed_attack | A_valid_breakout_watch | selected_but_routed_to_other_category | range_rebound | neckline_challenge | B_confirm_needed | mild_accumulation | repeated_but_no_breakout | 1.724 | 7.5282 | 11.0104 |  | next day holds breakout area; volume does not collapse; TDCC not distribution_warning |
 | 14 | 2883 | 凱基金 | neckline_volume_breakout | confirmed_attack | A_valid_breakout_watch | selected_but_routed_to_other_category | range_rebound | neckline_challenge | A_priority_watch | strong_accumulation | repeated_but_no_breakout | 1.6007 | 3.6866 | 4.6512 |  | next day holds breakout area; volume does not collapse; TDCC not distribution_warning |
 | 15 | 4306 | 炎洲 | neckline_volume_breakout | confirmed_attack | A_valid_breakout_watch | selected_but_routed_to_other_category | range_rebound | neckline_challenge | B_confirm_needed | mild_accumulation | repeated_but_no_breakout | 1.524 | 0.0 | 6.4394 |  | next day holds breakout area; volume does not collapse; TDCC not distribution_warning |

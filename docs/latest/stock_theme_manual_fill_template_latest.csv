@@ -319,7 +319,7 @@
 ,,,,,,,theme_unknown,False,False,
 ,,,,,,,theme_unknown,False,False,
 ,??,重電電網_電器電纜待細分,,,??,??,mainstream,True,False,provisional_industry_mapping
-,,,,,,,theme_unknown,False,False,
+,??,重電電網_電器電纜待細分,,,??,??,mainstream,True,False,industry_fallback_from_listed_company_classification_needed;provisional_industry_mapping
 ,??,重電電網,,,??,??,mainstream,True,False,user_authorized_seed_20260530
 ,,,,,,,theme_unknown,False,False,
 ,,,,,,,theme_unknown,False,False,
@@ -335,7 +335,7 @@
 ?,??,特化材料,特化化學,電子材料,???,??,mainstream|non_mainstream,True,True,user_authorized_specialty_theme_20260530;dual_industry_theme_identity
 ,???,化學工業,,,???,???,non_mainstream,False,True,provisional_industry_mapping
 ,,,,,,,theme_unknown,False,False,
-,???,化學工業,,,???,???,non_mainstream,False,True,provisional_industry_mapping
+,,,,,,,theme_unknown,False,False,
 ,???,化學工業,,,???,???,non_mainstream,False,True,provisional_industry_mapping
 ,,,,,,,theme_unknown,False,False,
 ,,,,,,,theme_unknown,False,False,
@@ -481,7 +481,7 @@
 ,??,電子通路_IC通路待細分,,,??,??,mainstream,True,False,provisional_industry_mapping
 ,,,,,,,theme_unknown,False,False,
 ,??,光電_CPO光通訊待細分,,,??,??,mainstream,True,False,provisional_industry_mapping
-,,,,,,,theme_unknown,False,False,
+,??,半導體_設備材料待細分,,,??,??,mainstream,True,False,provisional_industry_mapping
 ,??,AI_PC_電腦週邊待細分,,,??,??,mainstream,True,False,provisional_industry_mapping
 ,??,AI_PC_電腦週邊待細分,,,??,??,mainstream,True,False,provisional_industry_mapping
 ,??,散熱液冷,,,??,??,mainstream,True,False,user_authorized_seed_20260530
@@ -534,7 +534,7 @@
 ,,,,,,,theme_unknown,False,False,
 ,,,,,,,theme_unknown,False,False,
 ,,,,,,,theme_unknown,False,False,
-,,,,,,,theme_unknown,False,False,
+,??,光電_CPO光通訊待細分,,,??,??,mainstream,True,False,provisional_industry_mapping
 ,,,,,,,theme_unknown,False,False,
 ,??,被動元件,,,??,??,mainstream,True,False,user_authorized_seed_20260530
 ,,,,,,,theme_unknown,False,False,
@@ -1005,7 +1005,7 @@
 ,,,,,,,theme_unknown,False,False,
 ,,,,,,,theme_unknown,False,False,
 ,,,,,,,theme_unknown,False,False,
-,??,半導體_設備材料待細分,,,??,??,mainstream,True,False,provisional_industry_mapping
+,,,,,,,theme_unknown,False,False,
 ,??,AI伺服器_其他電子待細分,,,??,??,mainstream,True,False,provisional_industry_mapping
 ,,,,,,,theme_unknown,False,False,
 ,??,電源_BBU,車用電子,,,??,mainstream,True,False,user_authorized_seed_20260530
@@ -1034,7 +1034,7 @@
 ,,,,,,,theme_unknown,False,False,
 ,,,,,,,theme_unknown,False,False,
 ,,,,,,,theme_unknown,False,False,
-,??,半導體_設備材料待細分,,,??,??,mainstream,True,False,provisional_industry_mapping
+,,,,,,,theme_unknown,False,False,
 ,??,AI_PC_電腦週邊待細分,,,??,??,mainstream,True,False,provisional_industry_mapping
 ,,,,,,,theme_unknown,False,False,
 ,??,光電_CPO光通訊待細分,,,??,??,mainstream,True,False,provisional_industry_mapping
@@ -1464,7 +1464,7 @@
 ,??,網通_低軌衛星待細分,,,??,??,mainstream,True,False,provisional_industry_mapping
 ,,,,,,,theme_unknown,False,False,
 ,,,,,,,theme_unknown,False,False,
-,??,機器人自動化,軍工無人機,,,??,mainstream,True,False,user_authorized_seed_20260530
+,??,機器人自動化,軍工無人機,,??,??,mainstream,True,False,user_authorized_seed_20260530
 ,,,,,,,theme_unknown,False,False,
 ,??,光電_CPO光通訊待細分,,,??,??,mainstream,True,False,provisional_industry_mapping
 ,,,,,,,theme_unknown,False,False,
@@ -2206,7 +2206,7 @@
 ,,,,,,,theme_unknown,False,False,
 ,??,電子零組件_待細分,,,??,??,mainstream,True,False,provisional_industry_mapping
 ,??,光電_CPO光通訊待細分,,,??,??,mainstream,True,False,provisional_industry_mapping
-,,,,,,,theme_unknown,False,False,
+,??,光電_CPO光通訊待細分,,,??,??,mainstream,True,False,provisional_industry_mapping
 ,,,,,,,theme_unknown,False,False,
 ,??,電子零組件_待細分,,,??,??,mainstream,True,False,provisional_industry_mapping
 ,??,半導體_設備材料待細分,,,??,??,mainstream,True,False,provisional_industry_mapping

@@ -1,8 +1,8 @@
 # DAILY SHORT-TERM SPECIALTY PACKET
 
 ## Metadata
-- generated_at: `2026-05-30 15:39:29 UTC`
-- main_price_date: `20260529`
+- generated_at: `2026-05-31 10:08:32 UTC`
+- main_price_date: `20260530`
 - purpose: Force daily reports to include short-term specialty sections that are not part of the fixed six candidate categories.
 - market_abnormal_status_path: `output/latest/market_abnormal_status_latest.csv`
 

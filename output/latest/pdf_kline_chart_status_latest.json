@@ -15,7 +15,7 @@
   },
   "charts": [
     {
-      "date": "20260530",
+      "date": "20260531",
       "stock_id": "1301",
       "stock_name": "台塑",
       "category": "range_rebound",
@@ -31,7 +31,7 @@
       "note": "來源：日價資料重畫；data/daily_price；180 日"
     },
     {
-      "date": "20260530",
+      "date": "20260531",
       "stock_id": "2324",
       "stock_name": "仁寶",
       "category": "range_rebound",
@@ -47,7 +47,7 @@
       "note": "來源：日價資料重畫；data/daily_price；180 日"
     },
     {
-      "date": "20260530",
+      "date": "20260531",
       "stock_id": "2352",
       "stock_name": "佳世達",
       "category": "range_rebound",
@@ -63,7 +63,7 @@
       "note": "來源：日價資料重畫；data/daily_price；180 日"
     },
     {
-      "date": "20260530",
+      "date": "20260531",
       "stock_id": "2354",
       "stock_name": "鴻準",
       "category": "range_rebound",
@@ -79,7 +79,7 @@
       "note": "來源：日價資料重畫；data/daily_price；180 日"
     },
     {
-      "date": "20260530",
+      "date": "20260531",
       "stock_id": "3406",
       "stock_name": "玉晶光",
       "category": "range_rebound",
@@ -95,7 +95,7 @@
       "note": "來源：日價資料重畫；data/daily_price；180 日"
     },
     {
-      "date": "20260530",
+      "date": "20260531",
       "stock_id": "6215",
       "stock_name": "和椿",
       "category": "revenue_breakout_low_response",
@@ -111,7 +111,7 @@
       "note": "來源：日價資料重畫；data/daily_price；180 日"
     },
     {
-      "date": "20260530",
+      "date": "20260531",
       "stock_id": "2347",
       "stock_name": "聯強",
       "category": "revenue_breakout_low_response",
@@ -127,7 +127,7 @@
       "note": "來源：日價資料重畫；data/daily_price；180 日"
     },
     {
-      "date": "20260530",
+      "date": "20260531",
       "stock_id": "1808",
       "stock_name": "潤隆",
       "category": "revenue_breakout_low_response",
@@ -143,7 +143,7 @@
       "note": "來源：日價資料重畫；data/daily_price；180 日"
     },
     {
-      "date": "20260530",
+      "date": "20260531",
       "stock_id": "2542",
       "stock_name": "興富發",
       "category": "revenue_breakout_low_response",
@@ -159,7 +159,7 @@
       "note": "來源：日價資料重畫；data/daily_price；180 日"
     },
     {
-      "date": "20260530",
+      "date": "20260531",
       "stock_id": "2404",
       "stock_name": "漢唐",
       "category": "revenue_breakout_low_response",
@@ -175,7 +175,55 @@
       "note": "來源：日價資料重畫；data/daily_price；180 日"
     },
     {
-      "date": "20260530",
+      "date": "20260531",
+      "stock_id": "2241",
+      "stock_name": "艾姆勒",
+      "category": "revenue_pullback",
+      "category_cn": "營收成長股價回檔",
+      "chart_status": "redrawn_from_local_price_data",
+      "source_type": "local_price_redraw",
+      "chart_days": "180",
+      "image_path": "output/latest/charts/pdf_kline/2241_艾姆勒_revenue_pullback_180d.png",
+      "price_source": "data/daily_price",
+      "price_data_path": "data/daily_price",
+      "candidate_chart_path": "",
+      "candidate_chart_url": "",
+      "note": "來源：日價資料重畫；data/daily_price；180 日"
+    },
+    {
+      "date": "20260531",
+      "stock_id": "2515",
+      "stock_name": "中工",
+      "category": "revenue_pullback",
+      "category_cn": "營收成長股價回檔",
+      "chart_status": "redrawn_from_local_price_data",
+      "source_type": "local_price_redraw",
+      "chart_days": "180",
+      "image_path": "output/latest/charts/pdf_kline/2515_中工_revenue_pullback_180d.png",
+      "price_source": "data/daily_price",
+      "price_data_path": "data/daily_price",
+      "candidate_chart_path": "",
+      "candidate_chart_url": "",
+      "note": "來源：日價資料重畫；data/daily_price；180 日"
+    },
+    {
+      "date": "20260531",
+      "stock_id": "3055",
+      "stock_name": "蔚華科",
+      "category": "revenue_pullback",
+      "category_cn": "營收成長股價回檔",
+      "chart_status": "redrawn_from_local_price_data",
+      "source_type": "local_price_redraw",
+      "chart_days": "180",
+      "image_path": "output/latest/charts/pdf_kline/3055_蔚華科_revenue_pullback_180d.png",
+      "price_source": "data/daily_price",
+      "price_data_path": "data/daily_price",
+      "candidate_chart_path": "",
+      "candidate_chart_url": "",
+      "note": "來源：日價資料重畫；data/daily_price；180 日"
+    },
+    {
+      "date": "20260531",
       "stock_id": "6177",
       "stock_name": "達麗",
       "category": "revenue_pullback",
@@ -191,23 +239,7 @@
       "note": "來源：日價資料重畫；data/daily_price；180 日"
     },
     {
-      "date": "20260530",
-      "stock_id": "2368",
-      "stock_name": "金像電",
-      "category": "revenue_pullback",
-      "category_cn": "營收成長股價回檔",
-      "chart_status": "redrawn_from_local_price_data",
-      "source_type": "local_price_redraw",
-      "chart_days": "180",
-      "image_path": "output/latest/charts/pdf_kline/2368_金像電_revenue_pullback_180d.png",
-      "price_source": "data/daily_price",
-      "price_data_path": "data/daily_price",
-      "candidate_chart_path": "",
-      "candidate_chart_url": "",
-      "note": "來源：日價資料重畫；data/daily_price；180 日"
-    },
-    {
-      "date": "20260530",
+      "date": "20260531",
       "stock_id": "2388",
       "stock_name": "威盛",
       "category": "revenue_pullback",
@@ -223,39 +255,7 @@
       "note": "來源：日價資料重畫；data/daily_price；180 日"
     },
     {
-      "date": "20260530",
-      "stock_id": "8046",
-      "stock_name": "南電",
-      "category": "revenue_pullback",
-      "category_cn": "營收成長股價回檔",
-      "chart_status": "redrawn_from_local_price_data",
-      "source_type": "local_price_redraw",
-      "chart_days": "180",
-      "image_path": "output/latest/charts/pdf_kline/8046_南電_revenue_pullback_180d.png",
-      "price_source": "data/daily_price",
-      "price_data_path": "data/daily_price",
-      "candidate_chart_path": "",
-      "candidate_chart_url": "",
-      "note": "來源：日價資料重畫；data/daily_price；180 日"
-    },
-    {
-      "date": "20260530",
-      "stock_id": "2451",
-      "stock_name": "創見",
-      "category": "revenue_pullback",
-      "category_cn": "營收成長股價回檔",
-      "chart_status": "redrawn_from_local_price_data",
-      "source_type": "local_price_redraw",
-      "chart_days": "180",
-      "image_path": "output/latest/charts/pdf_kline/2451_創見_revenue_pullback_180d.png",
-      "price_source": "data/daily_price",
-      "price_data_path": "data/daily_price",
-      "candidate_chart_path": "",
-      "candidate_chart_url": "",
-      "note": "來源：日價資料重畫；data/daily_price；180 日"
-    },
-    {
-      "date": "20260530",
+      "date": "20260531",
       "stock_id": "2451",
       "stock_name": "創見",
       "category": "pattern",
@@ -271,7 +271,7 @@
       "note": "來源：日價資料重畫；data/daily_price；180 日"
     },
     {
-      "date": "20260530",
+      "date": "20260531",
       "stock_id": "2474",
       "stock_name": "可成",
       "category": "pattern",
@@ -287,7 +287,7 @@
       "note": "來源：日價資料重畫；data/daily_price；180 日"
     },
     {
-      "date": "20260530",
+      "date": "20260531",
       "stock_id": "0052",
       "stock_name": "富邦科技",
       "category": "pattern",
@@ -300,10 +300,10 @@
       "price_data_path": "data/daily_price",
       "candidate_chart_path": "",
       "candidate_chart_url": "",
-      "note": "來源：日價資料重畫；data/daily_price；135 日"
+      "note": "來源：日價資料重畫；data/daily_price；136 日"
     },
     {
-      "date": "20260530",
+      "date": "20260531",
       "stock_id": "1710",
       "stock_name": "東聯",
       "category": "pattern",
@@ -319,15 +319,15 @@
       "note": "來源：日價資料重畫；data/daily_price；180 日"
     },
     {
-      "date": "20260530",
-      "stock_id": "3030",
-      "stock_name": "德律",
+      "date": "20260531",
+      "stock_id": "3005",
+      "stock_name": "神基",
       "category": "pattern",
       "category_cn": "型態觀察",
       "chart_status": "redrawn_from_local_price_data",
       "source_type": "local_price_redraw",
       "chart_days": "180",
-      "image_path": "output/latest/charts/pdf_kline/3030_德律_pattern_180d.png",
+      "image_path": "output/latest/charts/pdf_kline/3005_神基_pattern_180d.png",
       "price_source": "data/daily_price",
       "price_data_path": "data/daily_price",
       "candidate_chart_path": "",

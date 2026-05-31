@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-30 23:40:05 Asia/Taipei",
-  "main_price_date": "20260530",
+  "generated_at": "2026-05-31 18:09:27 Asia/Taipei",
+  "main_price_date": "20260531",
   "report_ready": "True",
   "repo_artifacts_are_sources_not_final_chatgpt_deliverables": true,
   "report_ready_is_not_chatgpt_pdf_done": true,
@@ -89,10 +89,10 @@
   "latest_packet_path": "output/latest/chatgpt_daily_report_packet_latest.txt",
   "latest_packet_raw_url_main": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/chatgpt_daily_report_packet_latest.txt",
   "legacy_latest_packet_path": "output/latest/CHATGPT_DAILY_REPORT_PACKET.txt",
-  "history_packet_path": "output/history/reports/20260530_CHATGPT_DAILY_REPORT_PACKET.txt",
-  "history_packet_raw_url_main": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260530_CHATGPT_DAILY_REPORT_PACKET.txt",
-  "dated_summary_md_path": "output/history/reports/20260530_daily_market_summary.md",
-  "dated_full_md_path": "output/history/reports/20260530_daily_market_full.md",
-  "dated_summary_pdf_path": "output/history/reports/20260530_daily_market_summary.pdf",
-  "dated_full_pdf_path": "output/history/reports/20260530_daily_market_full.pdf"
+  "history_packet_path": "output/history/reports/20260531_CHATGPT_DAILY_REPORT_PACKET.txt",
+  "history_packet_raw_url_main": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260531_CHATGPT_DAILY_REPORT_PACKET.txt",
+  "dated_summary_md_path": "output/history/reports/20260531_daily_market_summary.md",
+  "dated_full_md_path": "output/history/reports/20260531_daily_market_full.md",
+  "dated_summary_pdf_path": "output/history/reports/20260531_daily_market_summary.pdf",
+  "dated_full_pdf_path": "output/history/reports/20260531_daily_market_full.pdf"
 }

@@ -1,6 +1,6 @@
 # Stock Theme Authorized Seed Preview
 
-- generated_at: 2026-05-30 23:36:46 Asia/Taipei
+- generated_at: 2026-05-31 18:05:55 Asia/Taipei
 - rows: 135
 - purpose: user-authorized market theme seed integrated with existing manual/default taxonomy.
 
@@ -76,7 +76,7 @@
 |       3455 | 由田           | 機器人自動化          |                               | robotics_optics_sensor_theme           | theme_unknown               | core_mainstream          | core_mainstream              | mainstream                | True                         | False                            | False                         | authorized_seed   |
 |       4583 | 台灣精銳         | 機器人自動化          |                               | robotics_precision_motion_theme        | theme_unknown               | core_mainstream          | core_mainstream              | mainstream                | True                         | False                            | False                         | authorized_seed   |
 |       5474 | 聰泰           | 機器人自動化          |                               | robotics_optics_sensor_theme           | theme_unknown               | core_mainstream          | core_mainstream              | mainstream                | True                         | False                            | False                         | authorized_seed   |
-|       6166 | 凌華           | 機器人自動化          | 軍工無人機                         | robotics_ipc_edge_ai_theme             | theme_unknown               | core_mainstream          | core_mainstream              | mainstream                | True                         | False                            | False                         | authorized_seed   |
+|       6166 | 凌華           | 機器人自動化          | 軍工無人機                         | robotics_ipc_edge_ai_theme             | core_mainstream             | core_mainstream          | core_mainstream              | mainstream                | True                         | False                            | False                         | authorized_seed   |
 |       6922 | 宸曜           | 機器人自動化          |                               | robotics_ipc_edge_ai_theme             | theme_unknown               | core_mainstream          | core_mainstream              | mainstream                | True                         | False                            | False                         | authorized_seed   |
 |       1717 | 長興           | 特化材料            | 特化化學;電子材料                     | specialty_material_theme               | non_mainstream              | core_mainstream          | core_mainstream              | mainstream|non_mainstream | True                         | True                             | True                          | authorized_seed   |
 |       1727 | 中華化          | 特化材料            | 特化化學;電子材料                     | specialty_material_theme               | theme_unknown               | core_mainstream          | core_mainstream              | mainstream                | True                         | False                            | False                         | authorized_seed   |

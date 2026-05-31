@@ -1,16 +1,16 @@
 # Stock Theme Taxonomy
 
-- generated_at: 2026-05-30 23:36:46 Asia/Taipei
+- generated_at: 2026-05-31 18:05:55 Asia/Taipei
 - total_rows: 2369
-- mainstream_count: 395
-- non_mainstream_count: 117
-- effective_mainstream_count: 395
-- effective_non_mainstream_count: 117
+- mainstream_count: 397
+- non_mainstream_count: 116
+- effective_mainstream_count: 397
+- effective_non_mainstream_count: 116
 - mainstream_conflict_count: 4
 - dual_report_membership_count: 4
-- mainstream_report_eligible_count: 395
-- non_mainstream_report_eligible_count: 121
-- unknown_count: 1857
+- mainstream_report_eligible_count: 397
+- non_mainstream_report_eligible_count: 120
+- unknown_count: 1856
 - manual_override_count: 5
 - authorized_seed_count: 130
 
@@ -116,7 +116,7 @@
 |       5474 | 聰泰           |                         | 機器人自動化          |                               | robotics_optics_sensor_theme           | authorized_seed   |
 |       5475 | 德宏           |                         | 玻纖布             | PCB_CCL_ABF材料                 | glass_fiber_ccl_theme                  | authorized_seed   |
 |       6121 | 新普           |                         | 電源_BBU          |                               | power_supply_theme                     | authorized_seed   |
-|       6166 | 凌華           |                         | 機器人自動化          | 軍工無人機                         | robotics_ipc_edge_ai_theme             | authorized_seed   |
+|       6166 | 凌華           | 電腦及週邊設備業                | 機器人自動化          | 軍工無人機                         | robotics_ipc_edge_ai_theme             | authorized_seed   |
 |       6173 | 信昌電          | electronic components   | 被動元件            | ceramic powder                | passive_component_theme                | authorized_seed   |
 |       6187 | 萬潤           |                         | 半導體設備_CoWoS     |                               | semiconductor_equipment_material_theme | authorized_seed   |
 |       6190 | 萬泰科          |                         | 低軌衛星            |                               | low_earth_orbit_satellite_theme        | authorized_seed   |
@@ -159,6 +159,7 @@
 |       1609 | 大亞           | 電器電纜       | 重電電網            |                    | core_mainstream             | core_mainstream          | core_mainstream              |
 |       1612 | 宏泰           | 電器電纜       | 重電電網            |                    | core_mainstream             | core_mainstream          | core_mainstream              |
 |       1616 | 億泰           | 電器電纜       | 重電電網_電器電纜待細分    |                    | core_mainstream             | core_mainstream          | core_mainstream              |
+|       1617 | 榮星           | 電器電纜       | 重電電網_電器電纜待細分    |                    | core_mainstream             | core_mainstream          | core_mainstream              |
 |       1618 | 合機           | 電器電纜       | 重電電網            |                    | core_mainstream             | core_mainstream          | core_mainstream              |
 |       1717 | 長興           | 化學工業       | 特化材料            | 特化化學;電子材料          | non_mainstream              | core_mainstream          | core_mainstream              |
 |       1727 | 中華化          |            | 特化材料            | 特化化學;電子材料          | theme_unknown               | core_mainstream          | core_mainstream              |
@@ -170,7 +171,6 @@
 |       2233 | 宇隆           |            | 機器人自動化          |                    | theme_unknown               | core_mainstream          | core_mainstream              |
 |       2301 | 光寶科          | 電腦及週邊設備業   | AI_PC_電腦週邊待細分   |                    | core_mainstream             | core_mainstream          | core_mainstream              |
 |       2302 | 麗正           | 半導體業       | 半導體_設備材料待細分     |                    | core_mainstream             | core_mainstream          | core_mainstream              |
-|       2305 | 全友           | 電腦及週邊設備業   | AI_PC_電腦週邊待細分   |                    | core_mainstream             | core_mainstream          | core_mainstream              |
 
 ## Non-Mainstream Sample
 |   stock_id | stock_name   | industry   | primary_theme   | secondary_themes   | industry_mainstream_label   | theme_mainstream_label   | effective_mainstream_label   |
@@ -198,13 +198,13 @@
 |       1711 | 永光           | 化學工業       | 化學工業            |                    | non_mainstream              | non_mainstream           | non_mainstream               |
 |       1714 | 和桐           | 化學工業       | 化學工業            |                    | non_mainstream              | non_mainstream           | non_mainstream               |
 |       1718 | 中纖           | 化學工業       | 化學工業            |                    | non_mainstream              | non_mainstream           | non_mainstream               |
-|       1721 | 三晃           | 化學工業       | 化學工業            |                    | non_mainstream              | non_mainstream           | non_mainstream               |
 |       1722 | 台肥           | 化學工業       | 化學工業            |                    | non_mainstream              | non_mainstream           | non_mainstream               |
 |       1773 | 勝一           | 化學工業       | 化學工業            |                    | non_mainstream              | non_mainstream           | non_mainstream               |
 |       1789 | 神隆           | 生技醫療業      | 生技醫療業           |                    | non_mainstream              | non_mainstream           | non_mainstream               |
 |       1808 | 潤隆           | 建材營造       | 建材營造            |                    | non_mainstream              | non_mainstream           | non_mainstream               |
 |       1809 | 中釉           | 玻璃陶瓷       | 玻璃陶瓷            |                    | non_mainstream              | non_mainstream           | non_mainstream               |
 |       1810 | 和成           | 玻璃陶瓷       | 玻璃陶瓷            |                    | non_mainstream              | non_mainstream           | non_mainstream               |
+|       1904 | 正隆           | 造紙工業       | 造紙工業            |                    | non_mainstream              | non_mainstream           | non_mainstream               |
 
 ## Dual Industry / Theme Identity
 |   stock_id | stock_name   | industry   | primary_theme   | industry_mainstream_label   | theme_mainstream_label   | effective_mainstream_label   | report_line_memberships   | mainstream_report_eligible   | non_mainstream_report_eligible   | mainstream_conflict_note                                                     |

@@ -1,6 +1,6 @@
 CHATGPT DAILY MARKET REPORT RULES
 
-generated_at=2026-05-30 23:40:05 Asia/Taipei
+generated_at=2026-05-31 18:09:27 Asia/Taipei
 rules_version=2026-05-28-daily-candidate-pdf-contract-v2
 
 PURPOSE
@@ -57,8 +57,6 @@ TASK READ ORDER
 - Risk fields, TDCC, warrant, revenue, position, structure, and event tags are score/rank/annotation inputs. They should not create a second ChatGPT-side buy/not-buy veto after a model has selected a stock.
 - Mainstream and non-mainstream are report splits and comparison groups only. They must not cap score, veto a model signal, or remove a stock from the model list.
 - Do not hard-code the number of models in the PDF. Render all program-side model rows available that day. Curated PDFs show the top rows per model/bucket; full PDFs keep the complete model list.
-- If program-side fields include action_rating / action_rating_label_zh, use them as the trading-language source. Do not rewrite buy_now / scale_in / starter_position as wait_pullback, wait_reclaim, or generic "wait for confirmation" unless current repo price, volume, TDCC, or fundamental data directly contradicts the action decision.
-- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry management checks. Do not turn next_monthly_revenue, next_tdcc_update, sector follow-through, event follow-through, or warrant overheat checks into buy-before blockers unless the program-side packet lists them in entry_prerequisites.
 - If repo PDF, memory, temporary interpretation, and program-side fields conflict, program-side structured data / packet / CSV fields win.
 
 READING RULES
