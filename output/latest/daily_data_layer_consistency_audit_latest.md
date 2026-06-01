@@ -2,9 +2,9 @@
 
 - status: `pass`
 - main_price_date: `20260529`
-- readme_main_price_date: `20260529`
-- readme_index_main_price_date: `20260529`
-- model_signal_rows: `773`
+- readme_main_price_date: ``
+- readme_index_main_price_date: ``
+- model_signal_rows: `769`
 - volume_watch_rows: `315`
 - volume_theme_other_rows: `0`
 - group_rotation_rows: `14`
@@ -27,12 +27,8 @@
 ```json
 {
   "main_price_date": "20260529",
-  "readme_main_price_date": "20260529",
-  "readme_report_ready": "True",
-  "readme_index_main_price_date": "20260529",
-  "readme_index_report_ready": "True",
-  "model_signal_rows": 773,
-  "raw_model_signal_rows": 773,
+  "model_signal_rows": 769,
+  "raw_model_signal_rows": 769,
   "volume_watch_rows": 315,
   "volume_theme_stock_rows": 315,
   "group_rotation_rows": 14,

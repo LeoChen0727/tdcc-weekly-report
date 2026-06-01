@@ -667,6 +667,68 @@ def normalize_mainstream(value: Any) -> str:
     return MAINSTREAM_VALUES.get(text, text if text in {"core_mainstream", "non_mainstream", "theme_unknown", "both"} else "")
 
 
+THEME_DISPLAY_MAP = {
+    "AI server supply chain": "AI伺服器",
+    "industrial computer": "工業電腦",
+    "computer peripherals": "電腦及週邊設備業",
+    "electronic components": "電子零組件業",
+    "passive components": "被動元件",
+    "capacitors": "電容",
+    "capacitor": "電容",
+    "resistors": "電阻",
+    "resistor": "電阻",
+    "inductors": "電感",
+    "inductor": "電感",
+    "ceramic powder": "陶瓷粉末",
+    "MLCC": "MLCC",
+    "power discrete/diodes": "功率元件/二極體",
+    "diodes": "二極體",
+    "diode": "二極體",
+    "MOSFET": "MOSFET",
+    "semiconductor": "半導體業",
+    "semiconductor equipment": "半導體設備",
+    "semiconductor equipment/materials": "半導體設備材料",
+    "semiconductor materials": "半導體材料",
+    "IC distribution": "IC通路",
+    "electronic distributors": "電子通路業",
+    "foundry": "晶圓代工",
+    "memory": "記憶體",
+    "DRAM IC": "DRAM IC",
+    "DRAM and flash": "DRAM/Flash",
+    "IC design": "IC設計",
+    "PCB/CCL": "PCB_CCL_ABF材料",
+    "PCB": "PCB",
+    "optical communication/CPO": "CPO光通訊",
+    "optical components": "光通訊元件",
+    "optical communication": "光通訊",
+    "networking": "網通",
+    "network equipment": "網通設備",
+    "communications": "通信網路業",
+    "wafer reclaim": "晶圓再生",
+    "wet process": "濕製程設備",
+    "automation equipment": "自動化設備",
+    "consumer electronics": "消費性電子",
+    "panel": "面板",
+    "other electronics": "其他電子業",
+    "solder materials": "焊錫材料",
+    "electronic materials": "電子材料",
+    "AI伺服器": "AI伺服器",
+    "被動元件": "被動元件",
+    "矽智財_ASIC": "矽智財_ASIC",
+}
+
+
+def display_theme(value: Any) -> str:
+    text = compact_text(value)
+    if not text:
+        return ""
+    return THEME_DISPLAY_MAP.get(text, text)
+
+
+def display_theme_list(value: Any) -> str:
+    return ";".join(display_theme(item) for item in split_themes(value))
+
+
 def provisional_industry_rule(industry: str) -> tuple[str, str, str] | None:
     text = compact_text(industry)
     for keyword, primary_theme, bucket, mainstream_label in PROVISIONAL_INDUSTRY_RULES:
@@ -1176,6 +1238,13 @@ def build_taxonomy() -> pd.DataFrame:
             or ("market_theme" if bucket in CORE_BUCKETS else ("non_mainstream_theme" if mainstream == "non_mainstream" else "needs_manual_review"))
         )
         concept_tags = ";".join(split_themes(row.get("authorized_concept_tags", ""), row.get("default_concept_tags", "")))
+        industry = display_theme(industry)
+        basic_theme = display_theme(basic_theme)
+        primary = display_theme(primary)
+        secondary = display_theme_list(secondary)
+        hot_primary = display_theme(hot_primary)
+        hot_secondary = display_theme_list(hot_secondary)
+        concept_tags = display_theme_list(concept_tags)
         rows.append(
             {
                 "stock_id": stock_id,

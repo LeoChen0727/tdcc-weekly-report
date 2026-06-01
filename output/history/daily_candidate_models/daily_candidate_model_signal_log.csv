@@ -417,7 +417,7 @@ signal_date,report_bucket,stock_id,stock_name,model_id,model_name_zh,model_group
 20260529,mainstream,2428,興勤,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,15,被動元件,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
 20260529,mainstream,2441,超豐,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,16,半導體業_待細分,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
 20260529,mainstream,2454,聯發科,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,17,半導體業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260529,mainstream,2481,強茂,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,18,power discrete/diodes,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260529,mainstream,2481,強茂,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,18,功率元件/二極體,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
 20260529,mainstream,2484,希華,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,19,被動元件,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
 20260529,mainstream,2493,揚博,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,20,電子零組件業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
 20260529,mainstream,2495,普安,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,21,電腦及週邊設備業_待細分,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
@@ -432,7 +432,7 @@ signal_date,report_bucket,stock_id,stock_name,model_id,model_name_zh,model_group
 20260529,mainstream,3532,台勝科,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,30,半導體業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
 20260529,mainstream,3537,堡達,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,31,電子零組件業_待細分,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
 20260529,mainstream,3556,禾瑞亞,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,32,半導體業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260529,mainstream,3624,光頡,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,33,passive components,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260529,mainstream,3624,光頡,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,33,被動元件,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
 20260529,mainstream,3673,TPK-KY,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,34,光電業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
 20260529,mainstream,4542,科嶠,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,99.3,61,電子零組件業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
 20260529,mainstream,4555,氣立,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,35,機器人自動化_電機機械待細分,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
@@ -459,7 +459,7 @@ signal_date,report_bucket,stock_id,stock_name,model_id,model_name_zh,model_group
 20260529,mainstream,8163,達方,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,53,電腦及週邊設備業_待細分,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
 20260529,mainstream,8182,加高,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,54,電子零組件業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
 20260529,mainstream,8255,朋程,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,55,機器人自動化_電機機械待細分,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260529,mainstream,8261,富鼎,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,56,power discrete/diodes,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260529,mainstream,8261,富鼎,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,56,功率元件/二極體,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
 20260529,mainstream,8289,泰藝,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,57,電子零組件業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
 20260529,mainstream,8358,金居,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,58,PCB_CCL_ABF材料,kd_overheated,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
 20260529,mainstream,8454,富邦媒,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,59,數位雲端_待細分,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
@@ -471,123 +471,119 @@ signal_date,report_bucket,stock_id,stock_name,model_id,model_name_zh,model_group
 20260529,non_mainstream,8473,山林水,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,99.8,5,綠能環保,kd_overheated|bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
 20260529,mainstream,1590,亞德客-KY,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,65.5,9,機器人,,等待量價、TDCC、相對強弱至少一項轉強。
 20260529,mainstream,1597,直得,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,66.5,8,機器人自動化,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,2323,中環,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,53,光電業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,2323,中環,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,50,光電業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
 20260529,mainstream,2328,廣宇,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,65.1,11,電子零組件業_待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260529,mainstream,2342,茂矽,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,54,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,2342,茂矽,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,51,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
 20260529,mainstream,2345,智邦,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,65.0,12,CPO光通訊,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,2347,聯強,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,22,電子通路業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,2352,佳世達,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.5,17,電腦及週邊設備業_待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260529,mainstream,2359,所羅門,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,55,機器人自動化,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,2363,矽統,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,23,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,2365,昆盈,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.3,52,電腦及週邊設備業_待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260529,mainstream,2367,燿華,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.6,16,PCB_CCL_ABF材料,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260529,mainstream,2368,金像電,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.3,20,PCB_CCL_ABF材料,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,2347,聯強,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,20,電子通路業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,2352,佳世達,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.5,16,電腦及週邊設備業_待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260529,mainstream,2359,所羅門,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,52,機器人自動化,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,2363,矽統,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,21,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,2365,昆盈,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.3,49,電腦及週邊設備業_待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260529,mainstream,2367,燿華,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.6,15,PCB_CCL_ABF材料,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260529,mainstream,2368,金像電,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.3,18,PCB_CCL_ABF材料,,等待量價、TDCC、相對強弱至少一項轉強。
 20260529,mainstream,2374,佳能,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.4,1,機器人,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,2379,瑞昱,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,59.7,51,半導體業_待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260529,mainstream,2379,瑞昱,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,59.7,48,半導體業_待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
 20260529,mainstream,2382,廣達,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,69.5,5,AI伺服器,,等待量價、TDCC、相對強弱至少一項轉強。
 20260529,mainstream,2383,台光電,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,65.5,10,PCB_CCL_ABF材料,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,2385,群光,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,24,電子零組件業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,2404,漢唐,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,25,半導體設備_CoWoS,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,2406,國碩,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,26,光電業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,2385,群光,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,22,電子零組件業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,2404,漢唐,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,23,半導體設備_CoWoS,,等待量價、TDCC、相對強弱至少一項轉強。
 20260529,mainstream,2451,創見,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,70.0,4,記憶體儲存,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,2455,全新,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,27,低軌衛星,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,2457,飛宏,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.5,18,電子零組件業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,2465,麗臺,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,28,電腦及週邊設備業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,2467,志聖,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,29,半導體設備_CoWoS,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,2476,鉅祥,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,30,電子零組件業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,2485,兆赫,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,31,通信網路業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,2498,宏達電,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,56,通信網路業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,3003,健和興,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,32,電子零組件業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,3019,亞光,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,57,車用電子,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260529,mainstream,3022,威強電,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.2,21,電腦及週邊設備業_待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260529,mainstream,3024,憶聲,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,58,光電業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,3028,增你強,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,33,電子通路業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,2455,全新,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,24,低軌衛星,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,2457,飛宏,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.5,17,電子零組件業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,2465,麗臺,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,25,電腦及週邊設備業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,2467,志聖,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,26,半導體設備_CoWoS,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,2476,鉅祥,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,27,電子零組件業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,2485,兆赫,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,28,通信網路業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,2498,宏達電,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,53,通信網路業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,3003,健和興,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,29,電子零組件業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,3019,亞光,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,54,車用電子,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260529,mainstream,3022,威強電,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.2,19,電腦及週邊設備業_待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260529,mainstream,3024,憶聲,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,55,光電業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,3028,增你強,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,30,電子通路業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
 20260529,mainstream,3030,德律,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,70.7,2,其他電子業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,3031,佰鴻,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,59,光電業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,3034,聯詠,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,34,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,3041,揚智,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,60,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,3044,健鼎,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,35,PCB_CCL_ABF材料,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,3047,訊舟,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,61,通信網路業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,3059,華晶科,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,62,光電業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,3138,耀登,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,36,通信網路業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,3229,晟鈦,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,65.0,13,電子零組件業_待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260529,mainstream,3312,弘憶股,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,63,電子通路業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,3356,奇偶,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,64,光電業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,3406,玉晶光,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,65.0,14,車用電子,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260529,mainstream,3518,柏騰,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,65,其他電子業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,3533,嘉澤,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,66,電子零組件業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,3545,敦泰,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,37,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,3550,聯穎,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,38,電子零組件業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,3591,艾笛森,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,67,光電業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,3596,智易,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,68,低軌衛星,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,3645,達邁,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,69,電子零組件業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,3661,世芯-KY,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,70,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,3702,大聯大,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,39,電子通路業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,3715,定穎投控,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,40,電子零組件業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,4526,東台,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,71,機器人自動化_電機機械待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,4576,大銀微系統,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,41,機器人,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,3031,佰鴻,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,56,光電業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,3034,聯詠,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,31,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,3041,揚智,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,57,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,3044,健鼎,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,32,PCB_CCL_ABF材料,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,3047,訊舟,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,58,通信網路業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,3059,華晶科,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,59,光電業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,3138,耀登,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,33,通信網路業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,3312,弘憶股,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,60,電子通路業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,3356,奇偶,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,61,光電業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,3406,玉晶光,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,65.0,13,車用電子,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260529,mainstream,3518,柏騰,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,62,其他電子業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,3533,嘉澤,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,63,電子零組件業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,3545,敦泰,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,34,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,3550,聯穎,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,35,電子零組件業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,3591,艾笛森,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,64,光電業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,3596,智易,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,65,低軌衛星,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,3645,達邁,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,66,電子零組件業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,3661,世芯-KY,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,67,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,3702,大聯大,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,36,電子通路業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,3715,定穎投控,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,37,電子零組件業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,4526,東台,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,68,機器人自動化_電機機械待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,4576,大銀微系統,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,38,機器人,,等待量價、TDCC、相對強弱至少一項轉強。
 20260529,mainstream,4934,太極,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,69.0,6,光電業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,4949,有成精密,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,42,光電業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,4952,凌通,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,72,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,4949,有成精密,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,39,光電業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,4952,凌通,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,69,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
 20260529,mainstream,5388,中磊,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,69.0,7,網通交換器,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,6133,金橋,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,73,電子零組件業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,6202,盛群,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,74,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,6209,今國光,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,43,光電業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,6133,金橋,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,70,電子零組件業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,6202,盛群,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,71,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,6209,今國光,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,40,光電業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
 20260529,mainstream,6214,精誠,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,70.3,3,資訊服務業_待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260529,mainstream,6215,和椿,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,44,其他電子業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,6226,光鼎,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,75,光電業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,6414,樺漢,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,76,電腦及週邊設備業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,6438,迅得,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,65.0,15,其他電子業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,6672,騰輝電子-KY,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.5,19,電子零組件業_待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260529,mainstream,6830,汎銓,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,45,其他電子業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,6962,奕力-KY,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,77,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,8021,尖點,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,46,其他電子業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,8210,勤誠,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,47,電腦及週邊設備業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,8213,志超,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,78,電子零組件業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,8215,明基材,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,48,光電業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,8249,菱光,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,49,電子零組件業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,mainstream,8374,羅昇,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,50,機器人自動化_電機機械待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,6215,和椿,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,41,其他電子業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,6226,光鼎,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,72,光電業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,6414,樺漢,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,73,電腦及週邊設備業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,6438,迅得,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,65.0,14,其他電子業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,6830,汎銓,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,42,其他電子業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,6962,奕力-KY,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,74,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,8021,尖點,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,43,其他電子業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,8210,勤誠,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,44,電腦及週邊設備業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,8213,志超,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,75,電子零組件業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,8215,明基材,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,45,光電業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,8249,菱光,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,46,電子零組件業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,mainstream,8374,羅昇,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,47,機器人自動化_電機機械待細分,,等待量價、TDCC、相對強弱至少一項轉強。
 20260529,non_mainstream,1316,上曜,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,69.0,7,建材營造,,等待量價、TDCC、相對強弱至少一項轉強。
 20260529,non_mainstream,1449,佳和,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,66.2,15,紡織纖維,,等待量價、TDCC、相對強弱至少一項轉強。
 20260529,non_mainstream,1708,東鹼,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,70.0,5,化學工業,,等待量價、TDCC、相對強弱至少一項轉強。
 20260529,non_mainstream,1714,和桐,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,69.0,8,化學工業,,等待量價、TDCC、相對強弱至少一項轉強。
 20260529,non_mainstream,1808,潤隆,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,70.8,4,建材營造,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,non_mainstream,1810,和成,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.8,33,玻璃陶瓷,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260529,non_mainstream,1904,正隆,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,37,造紙工業,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,non_mainstream,2009,第一銅,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,24,鋼鐵工業,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,non_mainstream,2014,中鴻,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.2,36,鋼鐵工業,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,non_mainstream,2027,大成鋼,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,25,鋼鐵工業,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,non_mainstream,2031,新光鋼,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.6,34,鋼鐵工業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260529,non_mainstream,1810,和成,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.8,32,玻璃陶瓷,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260529,non_mainstream,1904,正隆,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,36,造紙工業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,non_mainstream,2009,第一銅,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,23,鋼鐵工業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,non_mainstream,2014,中鴻,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.2,35,鋼鐵工業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,non_mainstream,2027,大成鋼,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,24,鋼鐵工業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,non_mainstream,2031,新光鋼,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.6,33,鋼鐵工業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
 20260529,non_mainstream,2101,南港,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,69.0,9,橡膠工業,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,non_mainstream,2201,裕隆,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.5,35,汽車工業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260529,non_mainstream,2204,中華,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,51.2,41,汽車工業,false_breakout_risk_penalty,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260529,non_mainstream,2201,裕隆,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.5,34,汽車工業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260529,non_mainstream,2204,中華,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,51.2,40,汽車工業,false_breakout_risk_penalty,確認放量站上頸線/平台壓力，且收盤靠近高點。
 20260529,non_mainstream,2241,艾姆勒,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,69.6,6,汽車工業,,等待量價、TDCC、相對強弱至少一項轉強。
 20260529,non_mainstream,2442,新美齊,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,71.4,3,建材營造,,等待量價、TDCC、相對強弱至少一項轉強。
 20260529,non_mainstream,2542,興富發,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,69.0,10,建材營造,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,non_mainstream,2603,長榮,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,59.5,31,航運業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260529,non_mainstream,2606,裕民,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,26,航運業,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,non_mainstream,2615,萬海,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,38,航運業,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,non_mainstream,2637,慧洋-KY,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.8,20,航運業,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,non_mainstream,2645,長榮航太,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,59.8,30,航運業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260529,non_mainstream,2603,長榮,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,59.5,30,航運業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260529,non_mainstream,2606,裕民,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,25,航運業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,non_mainstream,2615,萬海,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,37,航運業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,non_mainstream,2637,慧洋-KY,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.8,19,航運業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,non_mainstream,2645,長榮航太,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,59.8,29,航運業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
 20260529,non_mainstream,2646,星宇航空,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,65.8,16,航運業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260529,non_mainstream,2731,雄獅,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,65.6,18,觀光餐旅,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260529,non_mainstream,2851,中再保,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,27,金融保險業,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,non_mainstream,2867,三商壽,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,65.4,19,金融保險業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,non_mainstream,2731,雄獅,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,65.6,17,觀光餐旅,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260529,non_mainstream,2851,中再保,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,26,金融保險業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,non_mainstream,2867,三商壽,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,65.4,18,金融保險業,,等待量價、TDCC、相對強弱至少一項轉強。
 20260529,non_mainstream,2882,國泰金,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,66.8,13,金融保險業,,等待量價、TDCC、相對強弱至少一項轉強。
 20260529,non_mainstream,2883,凱基金,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,66.6,14,金融保險業,,等待量價、TDCC、相對強弱至少一項轉強。
 20260529,non_mainstream,2891,中信金,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,67.5,11,金融保險業,,等待量價、TDCC、相對強弱至少一項轉強。
 20260529,non_mainstream,2892,第一金,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,67.4,12,金融保險業,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,non_mainstream,2897,王道銀行,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.1,23,金融保險業,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,non_mainstream,4142,國光生,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,28,生技醫療業,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,non_mainstream,4306,炎洲,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,59.4,32,塑膠工業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260529,non_mainstream,4739,康普,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.8,21,化學工業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260529,non_mainstream,2897,王道銀行,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.1,22,金融保險業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,non_mainstream,4142,國光生,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,27,生技醫療業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,non_mainstream,4306,炎洲,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,59.4,31,塑膠工業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260529,non_mainstream,4739,康普,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.8,20,化學工業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
 20260529,non_mainstream,4764,雙鍵,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,74.4,1,化學工業,,等待量價、TDCC、相對強弱至少一項轉強。
 20260529,non_mainstream,5522,遠雄,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.4,2,建材營造,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,non_mainstream,6861,睿生光電,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.8,22,生技醫療業,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,non_mainstream,6994,富威電力,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,65.7,17,綠能環保,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,non_mainstream,9914,美利達,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,39,運動休閒,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,non_mainstream,9939,宏全,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,40,其他,,等待量價、TDCC、相對強弱至少一項轉強。
-20260529,non_mainstream,9958,世紀鋼,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,29,鋼鐵工業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,non_mainstream,6861,睿生光電,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.8,21,生技醫療業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,non_mainstream,9914,美利達,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,38,運動休閒,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,non_mainstream,9939,宏全,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,39,其他,,等待量價、TDCC、相對強弱至少一項轉強。
+20260529,non_mainstream,9958,世紀鋼,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,28,鋼鐵工業,,等待量價、TDCC、相對強弱至少一項轉強。
 20260529,mainstream,1303,南亞,volume_range_breakout,帶量突破模型,pdf_core_model,79.0,25,玻纖布,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
 20260529,mainstream,1471,首利,volume_range_breakout,帶量突破模型,pdf_core_model,69.6,47,電子零組件業_待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
 20260529,mainstream,1504,東元,volume_range_breakout,帶量突破模型,pdf_core_model,63.0,77,機器人自動化_電機機械待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。

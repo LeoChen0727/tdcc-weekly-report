@@ -1,11 +1,11 @@
 {
   "status": "pass",
   "parameter_rows": 15,
-  "raw_signal_rows": 773,
-  "signal_rows": 773,
+  "raw_signal_rows": 769,
+  "signal_rows": 769,
   "same_model_repeat_rows": 0,
-  "rotation_rows": 10,
-  "packet_lines": 137,
+  "rotation_rows": 14,
+  "packet_lines": 141,
   "errors": [],
   "warnings": []
 }

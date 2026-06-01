@@ -756,11 +756,14 @@ def near_neckline_or_prior_high(row: pd.Series) -> bool:
 
 def already_confirmed_breakout(row: pd.Series) -> bool:
     cat = category(row).lower()
-    stage = text(row, "pattern_stage").lower()
+    stage_raw = text(row, "pattern_stage")
+    stage = stage_raw.lower()
     breakout_type = text(row, "volume_breakout_type", "breakout_type").lower()
     if cat in {"true_breakout", "strict_breakout"}:
         return True
     if stage in {"breakout_confirmed", "platform_breakout", "neckline_breakout"}:
+        return True
+    if any(marker in stage_raw for marker in ["已突破", "突破確認", "平台突破", "頸線突破"]):
         return True
     if breakout_type in {
         "range_breakout_volume",
@@ -1254,6 +1257,7 @@ def cond_pullback_short_strength(row: pd.Series) -> bool:
 def cond_tdcc_stealth(row: pd.Series) -> bool:
     phase = text(row, "tdcc_price_phase").lower()
     vol = num(row, "volume_ratio")
+    ret5 = num(row, "return_5d", "return_5d_pct")
     ret20 = num(row, "return_20d", "return_20d_pct")
     if phase in {"price_leading_tdcc", "overheated_after_tdcc"}:
         return False
@@ -1262,8 +1266,9 @@ def cond_tdcc_stealth(row: pd.Series) -> bool:
     if not math.isnan(vol) and vol >= 2.5:
         return False
     phase_ok = phase == "tdcc_leading_price" or (not phase and tdcc_positive(row))
+    short_not_attacked = math.isnan(ret5) or ret5 < 8
     not_rallied = math.isnan(ret20) or ret20 < 20
-    return phase_ok and not_rallied and in_recent_range(row, 10)
+    return phase_ok and short_not_attacked and not_rallied and in_recent_range(row, 10)
 
 
 def build_specs() -> list[ModelSpec]:
