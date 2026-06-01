@@ -1,7 +1,7 @@
 # TDCC CHATGPT TRACKING PACKET
 
 ## Metadata
-- generated_at: 2026-06-01 18:58:53 Asia/Taipei
+- generated_at: 2026-06-01 19:33:16 Asia/Taipei
 - main_price_date: 20260529
 - latest_tdcc_signal_date: 20260529
 - source_files: tdcc_signal_snapshot.csv, tdcc_normalized_signal_log.csv, tdcc_signal_performance.csv, tdcc_pre_move_accumulation_latest.csv, tdcc_signal_effectiveness_latest.md
