@@ -8,6 +8,8 @@ from typing import Any
 import pandas as pd
 
 from build_daily_candidate_model_layer import (
+    build_signals,
+    build_specs,
     cond_pullback,
     cond_w_bottom_right,
 )
@@ -91,6 +93,26 @@ def stock_set(df: pd.DataFrame, model_id: str | None = None) -> set[str]:
     if "stock_id" not in source.columns:
         return set()
     return {normalize_code(v) for v in source["stock_id"].astype(str) if normalize_code(v)}
+
+
+def model_key_set(df: pd.DataFrame, model_ids: set[str] | None = None) -> set[tuple[str, str, str]]:
+    required = {"report_bucket", "model_id", "stock_id"}
+    if df.empty or not required.issubset(df.columns):
+        return set()
+    source = df
+    if model_ids is not None:
+        source = source[source["model_id"].astype(str).isin(model_ids)]
+    return {
+        (
+            safe_str(row.get("report_bucket", "")).strip(),
+            safe_str(row.get("model_id", "")).strip(),
+            normalize_code(row.get("stock_id", "")),
+        )
+        for _, row in source.iterrows()
+        if safe_str(row.get("report_bucket", "")).strip()
+        and safe_str(row.get("model_id", "")).strip()
+        and normalize_code(row.get("stock_id", ""))
+    }
 
 
 def index_candidates(df: pd.DataFrame) -> dict[str, pd.Series]:
@@ -399,6 +421,26 @@ def audit() -> dict[str, Any]:
         warnings.append(f"selected condition warnings truncated: {len(selected_warnings) - 200} more")
 
     raw_volume_stocks = stock_set(raw_signals, "volume_range_breakout")
+    if not candidates.empty and not raw_signals.empty:
+        specs = build_specs()
+        spec_ids = {spec.model_id for spec in specs}
+        expected_core = build_signals(candidates, specs, main_date)
+        expected_core_keys = model_key_set(expected_core)
+        actual_core_keys = model_key_set(raw_signals, spec_ids)
+        missing_core = sorted(expected_core_keys - actual_core_keys)
+        unexpected_core = sorted(actual_core_keys - expected_core_keys)
+        details["expected_core_model_signal_rows"] = int(len(expected_core))
+        details["actual_core_model_signal_rows"] = int(
+            len(raw_signals[raw_signals["model_id"].astype(str).isin(spec_ids)])
+        )
+        details["missing_core_model_condition_hits"] = ["/".join(x) for x in missing_core[:100]]
+        details["extra_core_model_rows_from_external_sources"] = ["/".join(x) for x in unexpected_core[:100]]
+        if missing_core:
+            errors.append(
+                "core model condition hits missing from daily_candidate_model_signals_latest.csv: "
+                f"{['/'.join(x) for x in missing_core[:20]]}"
+            )
+
     expected_volume = set()
     if not volume.empty:
         for _, row in volume.iterrows():
