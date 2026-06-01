@@ -1,6 +1,6 @@
 # Stock Price History Manifest
 
-- generated_at: `2026-06-01 21:00:05 Asia/Taipei`
+- generated_at: `2026-06-01 21:22:09 Asia/Taipei`
 - stock_count: `2368`
 - history_dir: `data/stock_price_history/`
 - manifest_csv: `output/latest/stock_price_history_manifest.csv`
@@ -25,6 +25,7 @@
 | 4590 | 富田-創 | 77 | 20260129 | 20260601 | `data/stock_price_history/4590.csv` |
 | 6934 | 心誠鎂 | 75 | 20260202 | 20260601 | `data/stock_price_history/6934.csv` |
 | 7823 | 奧義賽博-KY創 | 72 | 20260205 | 20260601 | `data/stock_price_history/7823.csv` |
+| 006201 | 元大富櫃50 | 7 | 20260522 | 20260601 | `data/stock_price_history/006201.csv` |
 | 006203 | 元大MSCI台灣 | 7 | 20260522 | 20260601 | `data/stock_price_history/006203.csv` |
 | 006204 | 永豐臺灣加權 | 7 | 20260522 | 20260601 | `data/stock_price_history/006204.csv` |
 | 006205 | 富邦上証 | 7 | 20260522 | 20260601 | `data/stock_price_history/006205.csv` |
@@ -46,4 +47,3 @@
 | 00690 | 兆豐藍籌30 | 7 | 20260522 | 20260601 | `data/stock_price_history/00690.csv` |
 | 00692 | 富邦公司治理 | 7 | 20260522 | 20260601 | `data/stock_price_history/00692.csv` |
 | 00700 | 富邦恒生國企 | 7 | 20260522 | 20260601 | `data/stock_price_history/00700.csv` |
-| 00701 | 國泰股利精選30 | 7 | 20260522 | 20260601 | `data/stock_price_history/00701.csv` |
