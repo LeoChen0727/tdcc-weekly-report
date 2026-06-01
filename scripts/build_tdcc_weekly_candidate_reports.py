@@ -25,6 +25,7 @@ from tracking_utils import (  # noqa: E402
 
 
 DAILY_MODEL_SIGNALS = LATEST_DIR / "daily_candidate_model_signals_for_report_latest.csv"
+DAILY_DECISION = LATEST_DIR / "daily_candidate_decision_latest.csv"
 
 WEEKLY_INCREASE_CSV = LATEST_DIR / "tdcc_weekly_increase_ranking_latest.csv"
 WEEKLY_INCREASE_MD = LATEST_DIR / "tdcc_weekly_increase_ranking_latest.md"
@@ -87,7 +88,9 @@ MODEL_CROSS_COLUMNS = [
     "model_id",
     "model_name_zh",
     "display_rank",
+    "tdcc_model_rank_in_list",
     "model_score",
+    "model_source",
     "source_hit_labels_zh",
     "why_selected_zh",
     "risk_tags_zh",
@@ -273,14 +276,90 @@ def write_rank_md(path: Path, title: str, df: pd.DataFrame, purpose: str) -> Non
 def rank_lookup(df: pd.DataFrame, list_type: str, score_col: str) -> pd.DataFrame:
     if df.empty:
         return pd.DataFrame(columns=["stock_id", "tdcc_rank", "tdcc_score", "tdcc_list_type"])
-    out = df[["stock_id", "rank", score_col]].copy()
+    base_cols = [
+        "stock_id",
+        "rank",
+        score_col,
+        "signal_date",
+        "stock_name",
+        "theme",
+        "tdcc_phase_group_zh",
+        "risk_bucket",
+    ]
+    cols = [c for c in base_cols if c in df.columns]
+    out = df[cols].copy()
     out = out.rename(columns={"rank": "tdcc_rank", score_col: "tdcc_score"})
     out["tdcc_list_type"] = list_type
     return out
 
 
-def build_model_cross(weekly: pd.DataFrame, consecutive: pd.DataFrame) -> pd.DataFrame:
+def build_decision_model_fallback() -> pd.DataFrame:
+    """Daily decision fallback for stocks not covered by the model-signal table.
+
+    The TDCC weekly report first selects stocks by TDCC behavior, then asks where
+    those stocks sit in the daily recommendation logic. Some daily candidates
+    still only exist in daily_candidate_decision_latest.csv. Treat those rows as
+    decision-layer model rows so TDCC-selected names such as pattern-watch stocks
+    do not disappear from the cross summary.
+    """
+    decision = read_csv(DAILY_DECISION, dtype=str)
+    if decision.empty:
+        return pd.DataFrame()
+
+    category = decision.get("original_category", pd.Series("", index=decision.index)).astype(str)
+    category = category.mask(category.eq(""), "uncategorized")
+    category_zh = decision.get("original_category_cn", pd.Series("", index=decision.index)).astype(str)
+    category_label = category_zh.mask(category_zh.eq(""), category)
+    category_label = category_label.mask(category_label.eq(""), "每日決策層")
+    rank = decision.get("decision_rank_in_category", decision.get("section_rank", ""))
+    if isinstance(rank, str):
+        rank = pd.Series(rank, index=decision.index)
+    rank = pd.Series(rank, index=decision.index).astype(str)
+    missing_rank = rank.eq("") | rank.str.lower().eq("nan")
+    if "decision_rank_overall_for_display" in decision.columns:
+        rank = rank.mask(missing_rank, decision["decision_rank_overall_for_display"].astype(str))
+    fallback = pd.DataFrame(
+        {
+            "stock_id": decision.get("stock_id", ""),
+            "stock_name": decision.get("stock_name", ""),
+            "model_id": "daily_decision_" + category,
+            "model_name_zh": category_label,
+            "display_rank": rank,
+            "model_score": decision.get("decision_score", ""),
+            "model_source": "daily_candidate_decision",
+            "source_hit_labels_zh": category_label,
+            "why_selected_zh": decision.get("why_selected", ""),
+            "risk_tags_zh": decision.get("risk_tags", ""),
+            "next_confirmation_zh": decision.get("next_confirmation", ""),
+        }
+    )
+    fallback["model_name_zh"] = fallback["model_name_zh"].astype(str) + "（決策層）"
+    return fallback
+
+
+def load_daily_model_rows() -> pd.DataFrame:
     models = read_csv(DAILY_MODEL_SIGNALS, dtype=str)
+    fallback = build_decision_model_fallback()
+    if models.empty and fallback.empty:
+        return pd.DataFrame()
+    if models.empty:
+        combined = fallback
+    elif fallback.empty:
+        combined = models
+    else:
+        model_keys = set(zip(models["stock_id"].astype(str), models["model_id"].astype(str)))
+        fb = fallback[
+            ~fallback.apply(lambda r: (safe_str(r.get("stock_id")), safe_str(r.get("model_id"))) in model_keys, axis=1)
+        ]
+        combined = pd.concat([models, fb], ignore_index=True, sort=False)
+    if "model_source" not in combined.columns:
+        combined["model_source"] = ""
+    combined["model_source"] = combined["model_source"].replace("", pd.NA).fillna("daily_candidate_model_signal")
+    return combined
+
+
+def build_model_cross(weekly: pd.DataFrame, consecutive: pd.DataFrame) -> pd.DataFrame:
+    models = load_daily_model_rows()
     if models.empty:
         return pd.DataFrame(columns=MODEL_CROSS_COLUMNS)
 
@@ -299,13 +378,26 @@ def build_model_cross(weekly: pd.DataFrame, consecutive: pd.DataFrame) -> pd.Dat
     if merged.empty:
         return pd.DataFrame(columns=MODEL_CROSS_COLUMNS)
 
+    for column in ["signal_date", "stock_name", "theme", "tdcc_phase_group_zh", "risk_bucket"]:
+        tdcc_column = f"{column}_tdcc"
+        if tdcc_column not in merged.columns:
+            continue
+        if column not in merged.columns:
+            merged[column] = merged[tdcc_column]
+        else:
+            current = merged[column].astype(str)
+            missing = current.eq("") | current.str.lower().eq("nan")
+            merged[column] = merged[column].mask(missing, merged[tdcc_column])
+
     merged["display_rank_num"] = pd.to_numeric(merged.get("display_rank", ""), errors="coerce").fillna(9999)
     merged["model_score_num"] = pd.to_numeric(merged.get("model_score", ""), errors="coerce").fillna(-9999)
     merged = merged.sort_values(
-        ["tdcc_list_type", "model_id", "display_rank_num", "model_score_num", "stock_id"],
-        ascending=[True, True, True, False, True],
+        ["tdcc_list_type", "model_id", "model_score_num", "display_rank_num", "stock_id"],
+        ascending=[True, True, False, True, True],
     )
-    merged = merged.groupby(["tdcc_list_type", "model_id"], group_keys=False).head(3)
+    merged["tdcc_model_rank_in_list"] = (
+        merged.groupby(["tdcc_list_type", "model_id"], dropna=False).cumcount() + 1
+    )
     return format_output(merged, MODEL_CROSS_COLUMNS)
 
 
@@ -346,6 +438,9 @@ def write_report_md(
         if not cross.empty
         else pd.DataFrame(columns=MODEL_CROSS_COLUMNS)
     )
+    if highlight and not cross.empty:
+        weekly_cross = weekly_cross.groupby("model_id", group_keys=False).head(3)
+        consecutive_cross = consecutive_cross.groupby("model_id", group_keys=False).head(3)
     lines = [
         f"# {title}",
         "",
