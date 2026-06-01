@@ -4,7 +4,7 @@
 - main_price_date: `20260601`
 - readme_main_price_date: ``
 - readme_index_main_price_date: ``
-- model_signal_rows: `885`
+- model_signal_rows: `913`
 - volume_watch_rows: `2`
 - volume_theme_other_rows: `0`
 - group_rotation_rows: `11`
@@ -28,8 +28,8 @@
 {
   "main_price_date": "20260601",
   "effective_model_signal_date": "20260601",
-  "model_signal_rows": 885,
-  "raw_model_signal_rows": 885,
+  "model_signal_rows": 913,
+  "raw_model_signal_rows": 913,
   "volume_watch_rows": 2,
   "volume_theme_stock_rows": 2,
   "group_rotation_rows": 11,

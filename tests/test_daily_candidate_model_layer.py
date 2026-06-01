@@ -201,6 +201,8 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         clean_w = make_row(
             category="pattern",
             pattern_stage="near_neckline",
+            volume_breakout_type="",
+            close_above_range_high="",
             w_bottom_flag="",
             w_bottom_right_side_flag="",
             second_low_gap_pct="1.5",
@@ -217,6 +219,8 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         higher_position_clean_w = make_row(
             category="pattern",
             pattern_stage="near_neckline",
+            volume_breakout_type="",
+            close_above_range_high="",
             second_low_gap_pct="1.5",
             distance_to_neckline_pct="-2.0",
             w_bottom_low_position_pct="58",
@@ -257,6 +261,8 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         weak_second_attack = make_row(
             category="pattern",
             pattern_stage="near_neckline",
+            volume_breakout_type="",
+            close_above_range_high="",
             second_low_gap_pct="1.5",
             distance_to_neckline_pct="-2.0",
             w_bottom_low_position_pct="22",
@@ -316,6 +322,8 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             category="range_rebound",
             pattern_stage="neckline_challenge",
             signal_date="20260529",
+            volume_breakout_type="",
+            close_above_range_high="",
         )
         self.assertTrue(cond_w_bottom_right(range_rebound_with_detected_w))
 

@@ -623,6 +623,38 @@ def primary_theme(row: pd.Series) -> str:
     return "未分類族群"
 
 
+def has_hot_theme(row: pd.Series) -> bool:
+    """Hot theme tags are the required gate for the hot-theme pullback model.
+
+    Basic theme exists for every stock and is not enough for this model.
+    A stock qualifies only when taxonomy provides at least one hot theme tag.
+    """
+    explicit = text(row, "has_hot_theme", "taxonomy_has_hot_theme").lower()
+    if explicit in {"true", "1", "yes", "y"}:
+        return True
+    hot_fields = [
+        "hot_primary_theme",
+        "taxonomy_hot_primary_theme",
+        "hot_secondary_themes",
+        "taxonomy_hot_secondary_themes",
+    ]
+    return any(bool(text(row, field).strip()) for field in hot_fields)
+
+
+def hot_theme_label(row: pd.Series) -> str:
+    labels: list[str] = []
+    for field in [
+        "hot_primary_theme",
+        "taxonomy_hot_primary_theme",
+        "hot_secondary_themes",
+        "taxonomy_hot_secondary_themes",
+    ]:
+        for tag in split_tags(text(row, field)):
+            if tag and tag not in labels:
+                labels.append(tag)
+    return " | ".join(labels)
+
+
 def effective_structural_theme_bucket(row: pd.Series) -> str:
     return text(
         row,
@@ -860,6 +892,27 @@ def score_pullback(row: pd.Series) -> tuple[float, list[str], list[str]]:
     return score, comps, risks
 
 
+def score_hot_theme_pullback(row: pd.Series) -> tuple[float, list[str], list[str]]:
+    score, comps, risks = model_score_common(row)
+    labels = hot_theme_label(row)
+    score += 12
+    comps.append(f"hot theme tag +12:{labels or 'present'}")
+    if near_ema23_or_support(row):
+        score += 10
+        comps.append("near 23EMA/support +10")
+    if ema23_slope_proxy_up(row):
+        score += 6
+        comps.append("EMA23 slope proxy up +6")
+    if flag(row, "pullback_entry_zone_flag"):
+        score += 5
+        comps.append("pullback entry zone +5")
+    vol = num(row, "volume_ratio")
+    if not math.isnan(vol) and vol < 1.2:
+        score += 3
+        comps.append("pullback volume not chasing +3")
+    return score, comps, risks
+
+
 def score_w_bottom(row: pd.Series) -> tuple[float, list[str], list[str]]:
     score, comps, risks = model_score_common(row)
     second_low_gap = num(row, "second_low_gap_pct")
@@ -950,6 +1003,13 @@ def cond_volume_breakout(row: pd.Series) -> bool:
 
 def cond_pullback(row: pd.Series) -> bool:
     return near_ema23_or_support(row) and ema23_slope_proxy_up(row)
+
+
+def cond_hot_theme_pullback(row: pd.Series) -> bool:
+    # Key distinction from price_pullback_23ema:
+    # hot theme tag + pullback near 23EMA/support is sufficient.
+    # Revenue is only an add-score component, never a gate.
+    return has_hot_theme(row) and near_ema23_or_support(row)
 
 
 def cond_revenue_unreacted(row: pd.Series) -> bool:
@@ -1298,6 +1358,18 @@ def build_specs() -> list[ModelSpec]:
             "回測23EMA或平台不破可建立部位；跌破23EMA後站不回或放量破平台需退出/降風險。",
             cond_pullback,
             score_pullback,
+        ),
+        ModelSpec(
+            "hot_theme_pullback",
+            "熱門族群回檔模型",
+            "pdf_core_model",
+            "signal_date_next_open",
+            "具備熱門族群標籤，且股價回到23EMA或支撐附近。營收不是必要條件。",
+            "熱門族群標籤、接近23EMA/支撐、23EMA斜率向上、回檔量縮、TDCC正向、權證偏多、營收強可加分。",
+            "不可因營收尚未確認或尚未突破而否決；營收只作加減分，風險只作排名與操作管理。",
+            "用來抓熱門題材股回檔買點；先看23EMA/支撐是否守住，再用TDCC、權證、量價與營收作排序。",
+            cond_hot_theme_pullback,
+            score_hot_theme_pullback,
         ),
         ModelSpec(
             "revenue_unreacted_range",
@@ -1864,6 +1936,39 @@ def taxonomy_lookup() -> dict[str, pd.Series]:
 
 def taxonomy_or_source(stock_id: str, fallback: pd.Series) -> pd.Series:
     return taxonomy_lookup().get(normalize_code(stock_id), fallback)
+
+
+def enrich_candidates_with_taxonomy(candidates: pd.DataFrame) -> pd.DataFrame:
+    """Attach taxonomy fields before model gates run.
+
+    all_candidates is a market-signal table and may not carry every taxonomy
+    field.  Model gates that depend on hot themes must join taxonomy here; the
+    PDF layer must not infer this later.
+    """
+    if candidates.empty or "stock_id" not in candidates.columns:
+        return candidates
+    taxonomy = read_csv(STOCK_THEME_TAXONOMY, dtype=str, keep_default_na=False)
+    if taxonomy.empty or "stock_id" not in taxonomy.columns:
+        return candidates
+
+    left = candidates.copy()
+    left["_taxonomy_join_stock_id"] = left["stock_id"].map(normalize_code)
+
+    tax = taxonomy.copy()
+    tax["_taxonomy_join_stock_id"] = tax["stock_id"].map(normalize_code)
+    tax = tax[tax["_taxonomy_join_stock_id"].astype(str).ne("")]
+    tax = tax.drop_duplicates("_taxonomy_join_stock_id", keep="first")
+
+    rename: dict[str, str] = {}
+    for col in tax.columns:
+        if col in {"stock_id", "_taxonomy_join_stock_id"}:
+            continue
+        if col in left.columns:
+            rename[col] = f"taxonomy_{col}"
+    tax = tax.rename(columns=rename).drop(columns=["stock_id"], errors="ignore")
+
+    out = left.merge(tax, on="_taxonomy_join_stock_id", how="left")
+    return out.drop(columns=["_taxonomy_join_stock_id"], errors="ignore")
 
 
 def external_report_bucket(volume_row: pd.Series, candidate_row: pd.Series | None) -> str:
@@ -2553,6 +2658,7 @@ def main() -> int:
     LATEST_DIR.mkdir(parents=True, exist_ok=True)
     preferred_date = main_price_date_from_freshness()
     candidates = read_csv(ALL_CANDIDATES, dtype=str, keep_default_na=False)
+    candidates = enrich_candidates_with_taxonomy(candidates)
     signal_date, date_notes = resolve_candidate_signal_date(candidates, preferred_date)
     if not signal_date:
         signal_date = preferred_date
