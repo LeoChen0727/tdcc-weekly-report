@@ -596,7 +596,7 @@
 2506,太設,建材營造,建材營造,非主流,,,,,,provisional_industry_mapping
 2509,全坤建,建材營造,建材營造,非主流,,,,,,provisional_industry_mapping
 2511,太子,建材營造,建材營造,非主流,,,,,,provisional_industry_mapping
-2514,龍邦,其他業,其他業,非主流,,,,,,
+2514,龍邦,其他,其他,非主流,,,,,,
 2515,中工,建材營造,建材營造,非主流,,,,,,provisional_industry_mapping
 2516,新建,建材營造,建材營造,非主流,,,,,,provisional_industry_mapping
 2520,冠德,建材營造,建材營造,非主流,,,,,,provisional_industry_mapping
@@ -630,7 +630,7 @@
 2611,志信,航運業,航運業,非主流,,,,,,provisional_industry_mapping
 2612,中航,航運業,航運業,非主流,,,,,,provisional_industry_mapping
 2613,中櫃,航運業,航運業,非主流,,,,,,provisional_industry_mapping
-2614,東森,其他業,其他業,非主流,,,,,,
+2614,東森,其他,其他,非主流,,,,,,
 2615,萬海,航運業,航運業,非主流,,,,,,provisional_industry_mapping
 2616,山隆,油電燃氣業,油電燃氣業,非主流,,,,,,provisional_industry_mapping
 2617,台航,航運業,航運業,非主流,,,,,,provisional_industry_mapping
@@ -1657,7 +1657,7 @@
 6589,台康生技,生技醫療業,生技醫療業,非主流,,,,,,provisional_industry_mapping
 6590,普鴻,資訊服務業,資訊服務業,主流,,,,,,provisional_industry_mapping
 6591,動力-KY,電腦及週邊設備業,電腦及週邊設備業,主流,,,,,,provisional_industry_mapping
-6592,和潤企業,其他業,其他業,非主流,,,,,,
+6592,和潤企業,其他,其他,非主流,,,,,,
 6593,台灣銘板,資訊服務業,資訊服務業,主流,,,,,,provisional_industry_mapping
 6596,寬宏藝術,文化創意業,文化創意業,非主流,,,,,,
 6597,立誠,電子零組件業,電子零組件業,主流,,,,,,provisional_industry_mapping
@@ -2160,7 +2160,7 @@
 8027,鈦昇,電機機械,電機機械,主流,,,,,,provisional_industry_mapping
 8028,昇陽半導體,半導體業,半導體業,主流,半導體設備_CoWoS,晶圓再生,,,,user_authorized_seed_20260530
 8032,光菱,電子通路業,電子通路業,主流,,,,,,provisional_industry_mapping
-8033,雷虎,其他,其他,都有,軍工無人機,,,,,user_authorized_seed_20260530;dual_industry_theme_identity
+8033,雷虎,其他業,其他業,都有,軍工無人機,,,,,user_authorized_seed_20260530;dual_industry_theme_identity
 8034,榮群,通信網路業,通信網路業,主流,,,,,,provisional_industry_mapping
 8038,長園科,電子零組件業,電子零組件業,主流,,,,,,provisional_industry_mapping
 8039,台虹,電子零組件業,電子零組件業,主流,PCB_CCL_ABF材料,,,,,user_authorized_seed_20260530
@@ -2358,10 +2358,10 @@
 9934,成霖,居家生活,居家生活,非主流,,,,,,
 9935,慶豐富,居家生活,居家生活,非主流,,,,,,
 9937,全國,油電燃氣業,油電燃氣業,非主流,,,,,,provisional_industry_mapping
-9938,百和,其他業,其他業,非主流,,,,,,
+9938,百和,其他,其他,非主流,,,,,,
 9939,宏全,其他,其他,非主流,,,,,,
 9940,信義,其他業,其他業,非主流,,,,,,
-9941,裕融,其他業,其他業,非主流,,,,,,
+9941,裕融,其他,其他,非主流,,,,,,
 9942,茂順,其他業,其他業,非主流,,,,,,
 9943,好樂迪,觀光餐旅,觀光餐旅,非主流,,,,,,provisional_industry_mapping
 9944,新麗,其他業,其他業,非主流,,,,,,

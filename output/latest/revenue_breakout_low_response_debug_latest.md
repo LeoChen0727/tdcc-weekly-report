@@ -1,187 +1,46 @@
 # 營收爆發低反應股 Debug Report
 
-- 產生時間：`2026-05-31 23:46:18 Asia/Taipei`
+- 產生時間：`2026-06-01 22:15:55 Asia/Taipei`
 
 ## 診斷統計
 
 | item | value |
 |---|---:|
-| raw_revenue_rows | 1957 |
-| standardized_revenue_rows | 1957 |
-| price_rows | 563407 |
+| raw_revenue_rows | 0 |
+| standardized_revenue_rows | 0 |
+| price_rows | 569318 |
 | tdcc_rows | 1972 |
 | tdcc_trend_rows | 1972 |
 | tdcc_strong_accumulation_count | 470 |
 | tdcc_mild_accumulation_count | 736 |
 | tdcc_distribution_warning_count | 618 |
-| revenue_condition_pass | 263 |
-| price_metrics_pass | 261 |
-| low_response_pass | 64 |
-| already_priced_in_excluded | 22 |
-| overheat_pass | 42 |
-| score_pass | 42 |
-| theme_priority_pass | 23 |
-| final_rows | 23 |
+| revenue_condition_pass | 0 |
+| price_metrics_pass | 0 |
+| low_response_pass | 0 |
+| already_priced_in_excluded | 0 |
+| overheat_pass | 0 |
+| score_pass | 0 |
+| theme_priority_pass | 0 |
+| final_rows | 0 |
 
 ## 營收欄位狀態
 
-- revenue_schema_status：`ok`
+- revenue_schema_status：`raw_revenue_empty`
 
 ### selected_revenue_columns
 
 | field | selected column |
 |---|---|
-| code_col | `ticker` |
-| name_col | `name` |
-| industry_col | `industry` |
-| date_col | `revenue_period` |
-| latest_revenue_col | `monthly_revenue` |
-| latest_yoy_col | `revenue_yoy_pct` |
-| cumulative_yoy_col | `cumulative_yoy_pct` |
 
 ### raw_revenue_columns
 
-- `ticker`
-- `name`
-- `industry`
-- `revenue_period`
-- `monthly_revenue`
-- `revenue_yoy_pct`
-- `cumulative_yoy_pct`
-- `market`
 
 ## 主要刷掉原因
 
 | reason | count |
 |---|---:|
-| fail_revenue_condition | 1694 |
-| fail_low_response_condition | 197 |
-| fail_already_priced_in | 22 |
-| fail_defensive_or_traditional_excluded | 15 |
-| fail_non_mainstream_score_lt_11 | 4 |
-| missing_or_insufficient_price_metrics | 2 |
+| price_or_revenue_empty | 1 |
 
 ## 樣本資料
 
-| stock_id | stock_name | industry | theme_group | revaluation_priority | latest_revenue_yoy | cumulative_revenue_yoy | return_5d | return_20d | return_60d | return_120d | off_60d_low_pct | off_120d_low_pct | already_priced_in | priced_in_reason | tdcc_accumulation_signal | tdcc_400_change_sum | tdcc_1000_change_sum | tdcc_400_up_weeks | tdcc_1000_up_weeks | distance_to_ma20_pct | distance_to_ema23_pct | distance_to_high_60_pct | score | reason |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1256 | 鮮活果汁-KY | 食品工業 | defensive_or_traditional |  | 56.2052104978021 | 55.43333917479604 | 11.99 | 24.55 | 21.6 | 50.0 | 43.71 | 54.51 | False |  | mild_accumulation | 0.01 | 0.0 | 1 | 0 | 11.25 | 12.23 | -3.29 |  | fail_low_response_condition |
-| 1316 | 上曜 | 建材營造 | neutral | B_可觀察 | 115.49336601749948 | 135.29308413677992 | -2.88 | -10.22 | -22.31 | -33.77 | 1.0 | 1.0 | False |  | mild_accumulation | 0.06 | 0.32 | 2 | 1 | -5.81 | -5.77 | -23.77 | 15 | selected |
-| 1522 | 堤維西 | 汽車工業 | neutral |  | 53.32455951906706 | 40.255746624286246 | 17.32 | 8.99 | -18.42 | -29.78 | 21.02 | 21.02 | False |  | distribution_warning | -0.87 | -0.16 | 1 | 2 | 13.37 | 12.39 | -18.61 |  | fail_low_response_condition |
-| 1533 | 車王電 | 汽車工業 | neutral | D_降級_TDCC轉弱 | 72.76557971014493 | 65.36186986942351 | -0.26 | 17.42 | 29.82 | 24.2 | 33.62 | 33.62 | False |  | distribution_warning | -0.06 | -0.03 | 0 | 0 | 6.01 | 6.1 | -7.3 | 11 | selected |
-| 1597 | 直得 | 電機機械 | cyclical_turnaround |  | 70.9672402492807 | 42.206256661754686 | -1.64 | 4.05 | 135.91 | 145.57 | 166.67 | 166.67 | True | 近60日漲幅>40%；距60日低點反彈>50%；近120日漲幅>70%；距120日低點反彈>80% | distribution_warning | -4.98 | -6.8 | 1 | 0 | -2.33 | 3.16 | -18.55 |  | fail_already_priced_in |
-| 1714 | 和桐 | 化學工業 | cyclical_turnaround | B_可觀察 | 71.71403036691967 | 47.62349772985901 | -1.76 | 2.59 | -2.56 | 16.56 | 5.56 | 19.35 | False |  | mild_accumulation | 0.91 | 1.26 | 1 | 1 | -1.31 | -1.11 | -10.8 | 17 | selected |
-| 1762 | 中化生 | 生技醫療業 | defensive_or_traditional |  | 75.98113638501123 | 84.08413462437495 | 2.9 | 33.96 | 45.71 | 57.46 | 46.8 | 61.36 | True | 近20日漲幅>25%；近60日漲幅>40% | strong_accumulation | 0.2 | 0.19 | 2 | 2 | 3.86 | 6.84 | -4.41 |  | fail_low_response_condition |
-| 1808 | 潤隆 | 建材營造 | neutral | B_可觀察 | 6493.744863214747 | 11655.629597709994 | 2.97 | 4.24 | 0.17 | -10.74 | 5.17 | 5.17 | False |  | strong_accumulation | 0.46 | 0.18 | 3 | 2 | 2.25 | 1.63 | -8.53 | 22 | selected |
-| 2022 | 聚亨 | 鋼鐵工業 | cyclical_turnaround |  | 58.72797685088429 | 58.303086049163085 | 1.19 | -4.0 | -13.02 | -7.47 | 2.67 | 2.67 | False |  | strong_accumulation | 0.24 | 0.4 | 2 | 3 | -1.83 | -2.65 | -22.81 |  | fail_low_response_condition |
-| 2025 | 千興 | 鋼鐵工業 | cyclical_turnaround |  | 112.02365239427697 | 101.64282906158348 | -4.03 | 8.68 | 5.31 | 29.77 | 14.98 | 31.49 | False |  | mild_accumulation | 0.74 | 0.78 | 1 | 1 | -0.5 | -0.28 | -11.52 |  | fail_low_response_condition |
-| 2059 | 川湖 | 電子零組件業 | mainstream_growth |  | 79.13810010482361 | 48.90681620491181 | -0.49 | 22.34 | 52.56 | 40.5 | 73.16 | 76.17 | True | 近60日漲幅>40%；距60日低點反彈>50% | mild_accumulation | 1.09 | -0.39 | 2 | 1 | 2.09 | 6.93 | -9.8 |  | fail_low_response_condition |
-| 2072 | 世紀風電 | 綠能環保 | neutral |  | 78.33000624034136 | 50.54423965195399 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | missing_or_insufficient_price_metrics |
-| 2101 | 南港 | 橡膠工業 | cyclical_turnaround | B_可觀察 | 150.64504386931364 | 158.89980066771645 | -2.12 | -10.3 | -12.77 | -20.4 | 1.86 | 1.86 | False |  | mild_accumulation | 0.04 | -0.13 | 2 | 2 | -4.66 | -4.67 | -21.64 | 18 | selected |
-| 2208 | 台船 | 航運業 | cyclical_turnaround | D_降級_TDCC轉弱 | 132.18748539427372 | 40.98484977823417 | -4.31 | -12.78 | -19.68 | -18.58 | 0.0 | 0.0 | False |  | distribution_warning | -1.1 | -1.51 | 0 | 0 | -6.92 | -6.48 | -21.11 | 12 | selected |
-| 2241 | 艾姆勒 | 汽車工業 | neutral | D_僅留完整清單 | 65.61372467388287 | 34.04444901386247 | -8.72 | 10.74 | 14.98 | -4.56 | 27.96 | 27.96 | False |  | strong_accumulation | 5.87 | 1.78 | 2 | 2 | -0.06 | -0.2 | -13.52 | 14 | selected |
-| 2248 | 華勝-KY | 汽車工業 | neutral |  | 58.99419597132127 | 37.279628771534725 | 0.92 | 0.0 | 13.37 | 10.2 | 14.79 | 19.52 | False |  | distribution_warning | -0.8 | 0.0 | 0 | 0 | 0.55 | 0.73 | -11.27 |  | fail_low_response_condition |
-| 2305 | 全友 | 電腦及週邊設備業 | mainstream_growth |  | 81.07437391238557 | 58.26494269000799 | 26.6 | 42.09 | 88.14 | 123.47 | 102.55 | 128.85 | True | 近20日漲幅>25%；近60日漲幅>40%；距60日低點反彈>50%；近120日漲幅>70%；距120日低點反彈>80% | mild_accumulation | -0.21 | 0.18 | 2 | 2 | 28.49 | 24.94 | -4.8 |  | fail_low_response_condition |
-| 2314 | 台揚 | 通信網路業 | mainstream_growth |  | 89.93139019999026 | 64.86611212397447 | -0.63 | 13.77 | -18.86 | -33.76 | 38.94 | 38.94 | False |  | distribution_warning | -2.49 | -4.0 | 1 | 0 | 9.56 | 4.63 | -29.28 |  | fail_low_response_condition |
-| 2316 | 楠梓電 | 電子零組件業 | mainstream_growth |  | 74.29425507406266 | 29.66893190701796 | 9.77 | 42.8 | 79.83 | 43.4 | 98.94 | 98.94 | True | 近20日漲幅>25%；近60日漲幅>40%；距60日低點反彈>50%；距120日低點反彈>80% | mild_accumulation | 0.83 | -2.37 | 2 | 1 | 17.4 | 16.19 | -10.37 |  | fail_low_response_condition |
-| 2337 | 旺宏 | 半導體業 | mainstream_growth |  | 153.71283899759698 | 93.45563776655904 | 11.37 | 3.74 | 54.88 | 394.07 | 87.5 | 422.76 | True | 近60日漲幅>40%；距60日低點反彈>50%；近120日漲幅>70%；距120日低點反彈>80% | distribution_warning | -2.28 | -2.49 | 1 | 1 | 6.36 | 8.45 | -6.72 |  | fail_low_response_condition |
-| 2344 | 華邦電 | 半導體業 | mainstream_growth |  | 182.2232686329836 | 114.45152253341396 | 26.4 | 59.92 | 41.07 | 177.68 | 88.54 | 194.23 | True | 近20日漲幅>25%；近60日漲幅>40%；距60日低點反彈>50%；近120日漲幅>70%；距120日低點反彈>80% | strong_accumulation | 5.7 | 5.52 | 2 | 2 | 24.75 | 25.91 | 0.0 |  | fail_low_response_condition |
-| 2345 | 智邦 | 通信網路業 | mainstream_growth |  | 53.86862868005451 | 61.04008779861957 | -1.62 | -2.61 | 71.13 | 135.92 | 82.71 | 155.52 | True | 近60日漲幅>40%；距60日低點反彈>50%；近120日漲幅>70%；距120日低點反彈>80% | distribution_warning | -0.5 | -0.11 | 1 | 2 | -2.65 | 0.44 | -9.83 |  | fail_already_priced_in |
-| 2347 | 聯強 | 電子通路業 | mainstream_growth | A_優先追蹤 | 83.27774880652615 | 49.7322802816284 | 2.14 | 4.5 | 22.54 | 38.55 | 28.21 | 49.91 | False |  | strong_accumulation | 0.2 | 0.05 | 2 | 2 | 2.17 | 2.5 | -2.61 | 22 | selected |
-| 2353 | 宏碁 | 電腦及週邊設備業 | mainstream_growth |  | 68.39241034251229 | 29.65214150981726 | 19.12 | 26.85 | 31.84 | 29.17 | 37.23 | 40.8 | True | 近20日漲幅>25% | strong_accumulation | 1.48 | 1.55 | 3 | 3 | 19.78 | 18.08 | 0.0 |  | fail_low_response_condition |
-| 2360 | 致茂 | 其他電子業 | mainstream_growth |  | 128.89343838145112 | 86.02762799824309 | 11.01 | 12.75 | 79.36 | 210.73 | 103.23 | 246.15 | True | 近60日漲幅>40%；距60日低點反彈>50%；近120日漲幅>70%；距120日低點反彈>80% | strong_accumulation | 0.55 | 1.24 | 3 | 3 | 8.0 | 9.63 | -9.84 |  | fail_low_response_condition |
-| 2363 | 矽統 | 半導體業 | mainstream_growth | A_優先追蹤 | 87.15138632062427 | 113.29446010652936 | 0.3 | 19.89 | 33.0 | 37.23 | 46.55 | 46.55 | False |  | strong_accumulation | 3.53 | 4.42 | 2 | 3 | 6.01 | 7.22 | -7.08 | 21 | selected |
-| 2368 | 金像電 | 電子零組件業 | mainstream_growth |  | 58.40832442393109 | 60.83836546918864 | -0.75 | -10.81 | 79.35 | 110.53 | 83.33 | 129.57 | True | 近60日漲幅>40%；距60日低點反彈>50%；近120日漲幅>70%；距120日低點反彈>80% | mild_accumulation | 0.07 | 1.08 | 1 | 3 | -2.22 | -0.36 | -13.16 |  | fail_already_priced_in |
-| 2374 | 佳能 | 光電業 | mainstream_growth | A_優先追蹤 | 62.53280267892302 | 73.20495684221454 | -0.24 | 2.72 | 14.29 | 3.48 | 28.2 | 28.2 | False |  | mild_accumulation | 1.68 | 1.2 | 3 | 1 | 2.52 | 3.77 | -3.03 | 19 | selected |
-| 2376 | 技嘉 | 電腦及週邊設備業 | mainstream_growth |  | 73.65790531628242 | 64.15425901107987 | 14.73 | 32.38 | 69.72 | 49.8 | 79.18 | 79.18 | True | 近20日漲幅>25%；近60日漲幅>40%；距60日低點反彈>50% | strong_accumulation | 0.58 | 0.18 | 2 | 2 | 14.31 | 16.21 | -0.27 |  | fail_low_response_condition |
-| 2382 | 廣達 | 電腦及週邊設備業 | mainstream_growth | D_降級_TDCC轉弱 | 120.71254202479236 | 79.6425126685901 | 7.28 | 5.61 | 17.1 | 20.43 | 24.63 | 30.38 | False |  | distribution_warning | -1.24 | -1.39 | 1 | 0 | 5.54 | 6.76 | -3.83 | 17 | selected |
-| 2383 | 台光電 | 電子零組件業 | mainstream_growth |  | 93.61728577894678 | 62.73574575073765 | 2.3 | 8.25 | 116.49 | 242.47 | 140.94 | 264.41 | True | 近60日漲幅>40%；距60日低點反彈>50%；近120日漲幅>70%；距120日低點反彈>80% | mild_accumulation | -0.25 | 0.07 | 1 | 1 | 4.14 | 6.6 | -9.14 |  | fail_already_priced_in |
-| 2388 | 威盛 | 半導體業 | mainstream_growth |  | 84.78597634196018 | 22.360190669372724 | -12.61 | -3.75 | 67.54 | 49.9 | 79.67 | 79.67 | True | 近60日漲幅>40%；距60日低點反彈>50% | distribution_warning | -0.23 | -0.41 | 1 | 1 | -2.4 | -0.73 | -15.77 |  | fail_already_priced_in |
-| 2404 | 漢唐 | 其他電子業 | mainstream_growth | A_優先追蹤 | 102.22569068277646 | 82.88490710977096 | 0.0 | 18.22 | 5.0 | 46.02 | 40.68 | 50.59 | False |  | strong_accumulation | 5.25 | 3.89 | 3 | 3 | 6.09 | 5.25 | -14.13 | 21 | selected |
-| 2406 | 國碩 | 光電業 | mainstream_growth |  | 143.2900222907499 | 161.27555347120483 | 8.82 | 5.66 | 8.82 | 59.95 | 22.74 | 73.18 | False |  | distribution_warning | -0.58 | -0.14 | 1 | 2 | 5.21 | 5.36 | -11.64 |  | fail_low_response_condition |
-| 2408 | 南亞科 | 半導體業 | mainstream_growth |  | 717.3347932872048 | 623.5846473576565 | 11.76 | 35.28 | 34.76 | 137.67 | 74.81 | 143.51 | True | 近20日漲幅>25%；距60日低點反彈>50%；近120日漲幅>70%；距120日低點反彈>80% | strong_accumulation | 0.19 | 0.07 | 2 | 2 | 13.77 | 17.79 | -1.7 |  | fail_low_response_condition |
-| 2424 | 隴華 | 通信網路業 | mainstream_growth |  | 150.7809903622466 | -26.41191544789116 | -14.38 | -37.34 | -61.89 | -62.12 | 2.04 | 2.04 | False |  | distribution_warning | -0.88 | -2.35 | 0 | 0 | -29.54 | -28.4 | -62.52 |  | fail_low_response_condition |
-| 2425 | 承啟 | 電腦及週邊設備業 | mainstream_growth |  | 87.78233369635424 | 75.58506270870245 | 2.59 | 10.39 | 33.33 | 24.69 | 41.83 | 41.83 | False |  | strong_accumulation | 0.94 | 0.63 | 2 | 2 | 5.02 | 5.9 | -3.78 |  | fail_low_response_condition |
-| 2432 | 倚天酷碁-創 | 電腦及週邊設備業 | mainstream_growth |  | 130.07770836507694 | 45.61010923954572 | 0.76 | -5.54 | 12.55 | -0.56 | 10.44 | 14.25 | False |  | mild_accumulation | 0.07 | 0.0 | 3 | 0 | -0.5 | -0.82 | -12.13 |  | fail_low_response_condition |
-| 2442 | 新美齊 | 建材營造 | neutral | B_可觀察 | 168.44142686485915 | 550.3124746524734 | 0.81 | 0.81 | -3.37 | -24.34 | 4.19 | 4.19 | False |  | mild_accumulation | -0.74 | 0.18 | 1 | 1 | 0.77 | 0.13 | -15.42 | 20 | selected |
-| 2451 | 創見 | 半導體業 | mainstream_growth |  | 594.4309428523752 | 419.72339242497657 | 6.79 | 19.43 | 58.31 | 76.04 | 70.28 | 101.19 | True | 近60日漲幅>40%；距60日低點反彈>50%；近120日漲幅>70%；距120日低點反彈>80% | distribution_warning | -0.76 | -1.84 | 2 | 1 | 5.04 | 9.02 | -6.11 |  | fail_already_priced_in |
-| 2460 | 建通 | 電子零組件業 | mainstream_growth |  | 57.62140485913217 | 60.96249952274371 | -0.46 | -4.71 | 24.62 | 98.77 | 43.36 | 90.59 | True | 近120日漲幅>70%；距120日低點反彈>80% | distribution_warning | -0.26 | -0.36 | 2 | 1 | -0.2 | -0.72 | -21.36 |  | fail_low_response_condition |
-| 2465 | 麗臺 | 電腦及週邊設備業 | mainstream_growth |  | 175.797836656721 | 114.62777854736004 | -3.61 | -7.49 | 63.31 | 48.39 | 72.68 | 72.68 | True | 近60日漲幅>40%；距60日低點反彈>50% | mild_accumulation | 2.2 | 1.5 | 2 | 1 | -0.2 | 2.84 | -11.73 |  | fail_already_priced_in |
-| 2467 | 志聖 | 電子零組件業 | mainstream_growth |  | 86.98160791241624 | 76.55198946300291 | 2.65 | 8.41 | 54.75 | 213.42 | 93.74 | 212.63 | True | 近60日漲幅>40%；距60日低點反彈>50%；近120日漲幅>70%；距120日低點反彈>80% | mild_accumulation | 1.57 | -0.47 | 2 | 2 | 2.64 | 3.75 | -10.55 |  | fail_already_priced_in |
-| 2506 | 太設 | 建材營造 | neutral |  | 182.9282692118469 | 24.4950641596528 | -0.23 | -1.03 | -2.59 | -9.8 | 2.85 | 2.85 | False |  | strong_accumulation | 0.38 | 0.1 | 3 | 3 | -0.01 | -0.43 | -4.84 |  | fail_low_response_condition |
-| 2537 | 聯上發 | 建材營造 | neutral |  | 5302.611940298508 | 306.8870026872911 | -1.25 | -7.8 | -7.8 | -12.9 | 0.75 | 0.75 | False |  | strong_accumulation | 1.2 | 1.2 | 2 | 2 | -3.64 | -3.54 | -13.7 |  | fail_low_response_condition |
-| 2542 | 興富發 | 建材營造 | neutral | B_可觀察 | 4077.658799321493 | 1725.2218547108523 | -2.89 | 5.67 | 14.31 | 9.67 | 24.48 | 24.48 | False |  | strong_accumulation | 1.04 | 0.94 | 2 | 3 | -1.11 | 0.5 | -6.36 | 22 | selected |
-| 2545 | 皇翔 | 建材營造 | neutral |  | 102.09031492521602 | 53.11675313058128 | -1.76 | -4.6 | -2.55 | -7.75 | 2.4 | 2.4 | False |  | mild_accumulation | -0.06 | 0.24 | 2 | 1 | -3.08 | -2.02 | -7.16 |  | fail_low_response_condition |
-| 2548 | 華固 | 建材營造 | neutral | D_降級_TDCC轉弱 | 28465.962511157395 | 34773.574080324 | -3.24 | -1.24 | 4.82 | 15.46 | 9.63 | 18.91 | False |  | distribution_warning | -0.97 | -0.36 | 0 | 1 | -3.49 | -3.2 | -9.81 | 15 | selected |
-| 2611 | 志信 | 航運業 | cyclical_turnaround |  | 119.47429042961028 | 112.7116208532482 | 0.39 | -2.99 | -12.75 | -13.62 | 3.17 | 3.17 | False |  | strong_accumulation | 0.45 | 0.74 | 2 | 2 | -0.74 | -1.54 | -15.31 |  | fail_low_response_condition |
-| 2816 | 旺旺保 | 金融保險業 | defensive_or_traditional |  | 78.73621403925392 | 29.40789362443229 | 5.16 | 8.49 | 7.95 | 8.49 | 11.64 | 15.81 | False |  | strong_accumulation | 0.45 | 0.05 | 2 | 3 | 4.73 | 4.36 | 0.0 |  | fail_low_response_condition |
-| 2855 | 統一證 | 金融保險業 | defensive_or_traditional |  | 1002.1406834015808 | 365.76888748391855 | 16.56 | 21.48 | 56.77 | 91.92 | 66.67 | 99.58 | True | 近60日漲幅>40%；距60日低點反彈>50%；近120日漲幅>70%；距120日低點反彈>80% | distribution_warning | -0.61 | -0.49 | 0 | 0 | 14.58 | 16.36 | 0.0 |  | fail_low_response_condition |
-| 2881 | 富邦金 | 金融保險業 | defensive_or_traditional |  | 219.78523407605732 | 402.5871994932322 | 15.67 | 19.31 | 21.55 | 17.15 | 31.74 | 31.74 | False |  | strong_accumulation | 0.8 | 0.82 | 3 | 3 | 12.28 | 11.95 | -1.79 |  | fail_low_response_condition |
-| 2885 | 元大金 | 金融保險業 | defensive_or_traditional |  | 324.89668645555184 | 112.85581098417563 | 8.17 | 7.58 | 31.42 | 63.29 | 38.93 | 67.18 | False |  | distribution_warning | -0.07 | -0.02 | 1 | 1 | 6.27 | 7.46 | -1.0 |  | fail_low_response_condition |
-| 2905 | 三商 | 貿易百貨 | defensive_or_traditional |  | 352.9548403037368 | 50.7749326018759 | 0.37 | 1.86 | -13.56 | -12.46 | 4.98 | 4.98 | False |  | mild_accumulation | -0.01 | 0.07 | 0 | 2 | 1.84 | 0.66 | -13.29 |  | fail_low_response_condition |
-| 2923 | 鼎固-KY | 建材營造 | neutral |  | 160.8459070607583 | 155.54497022876842 | 19.35 | 14.54 | 13.53 | 26.42 | 50.15 | 50.15 | True | 距60日低點反彈>50% | distribution_warning | -0.05 | 0.0 | 0 | 0 | 9.34 | 11.17 | -14.24 |  | fail_low_response_condition |
-| 3006 | 晶豪科 | 半導體業 | mainstream_growth |  | 349.21497789414195 | 202.476438292242 | 3.79 | 35.44 | 66.55 | 210.84 | 86.74 | 223.92 | True | 近20日漲幅>25%；近60日漲幅>40%；距60日低點反彈>50%；近120日漲幅>70%；距120日低點反彈>80% | strong_accumulation | 3.82 | 1.61 | 2 | 2 | 7.61 | 11.09 | -5.56 |  | fail_low_response_condition |
-| 3017 | 奇鋐 | 電腦及週邊設備業 | mainstream_growth |  | 71.62015931637609 | 99.34392209738031 | 4.72 | -1.48 | 46.43 | 91.04 | 60.06 | 110.67 | True | 近60日漲幅>40%；距60日低點反彈>50%；近120日漲幅>70%；距120日低點反彈>80% | distribution_warning | -0.27 | -0.58 | 0 | 1 | 5.59 | 4.45 | -11.46 |  | fail_already_priced_in |
-| 3025 | 星通 | 通信網路業 | mainstream_growth |  | 76.4536478332419 | 47.60130160519188 | 4.93 | 18.44 | 31.39 | 60.04 | 39.25 | 45.51 | False |  | mild_accumulation | -1.19 | 3.15 | 1 | 1 | 11.22 | 9.05 | -12.35 |  | fail_low_response_condition |
-| 3028 | 增你強 | 電子通路業 | mainstream_growth |  | 106.27092931541586 | 98.74948929988273 | -0.97 | 17.1 | 51.49 | 124.21 | 71.76 | 132.52 | True | 近60日漲幅>40%；距60日低點反彈>50%；近120日漲幅>70%；距120日低點反彈>80% | distribution_warning | -2.61 | -1.69 | 0 | 0 | 2.0 | 4.93 | -7.7 |  | fail_already_priced_in |
-| 3030 | 德律 | 其他電子業 | mainstream_growth |  | 62.50975349591595 | 35.380676159918806 | -3.46 | -2.17 | 62.65 | 163.84 | 83.67 | 165.57 | True | 近60日漲幅>40%；距60日低點反彈>50%；近120日漲幅>70%；距120日低點反彈>80% | distribution_warning | -0.81 | -1.42 | 1 | 0 | 1.09 | 4.38 | -11.48 |  | fail_already_priced_in |
-| 3036 | 文曄 | 電子通路業 | mainstream_growth |  | 78.6962053513493 | 92.9596666703437 | -0.17 | 38.04 | 36.73 | 103.17 | 46.45 | 115.3 | True | 近20日漲幅>25%；近120日漲幅>70%；距120日低點反彈>80% | strong_accumulation | 0.14 | 0.41 | 2 | 2 | 5.41 | 6.78 | -6.33 |  | fail_already_priced_in |
-| 3046 | 建碁 | 電腦及週邊設備業 | mainstream_growth |  | 93.60030832533867 | 16.579981523230785 | 8.99 | 18.17 | 21.76 | 22.27 | 33.64 | 33.64 | False |  | mild_accumulation | 0.52 | 0.0 | 2 | 0 | 11.17 | 11.2 | -2.68 |  | fail_low_response_condition |
-| 3054 | 立萬利 | 食品工業 | defensive_or_traditional |  | 2134.025974025974 | 903.0331796401772 | -1.18 | -0.45 | 63.13 | 181.26 | 54.27 | 189.18 | True | 近60日漲幅>40%；距60日低點反彈>50%；近120日漲幅>70%；距120日低點反彈>80% | mild_accumulation | 0.02 | 0.0 | 1 | 0 | -2.37 | -1.85 | -30.42 |  | fail_low_response_condition |
-| 3055 | 蔚華科 | 電子通路業 | mainstream_growth |  | 336.3079796617205 | 120.32617467953756 | -8.47 | 37.06 | 70.35 | 69.01 | 94.24 | 94.24 | True | 近20日漲幅>25%；近60日漲幅>40%；距60日低點反彈>50%；距120日低點反彈>80% | distribution_warning | -0.33 | -3.38 | 1 | 0 | -0.57 | 3.35 | -14.29 |  | fail_already_priced_in |
-| 3135 | 凌航 | 半導體業 | mainstream_growth |  | 607.8314481446032 | 296.8515627103815 | 23.17 | 59.82 | 131.56 | 343.78 | 160.5 | 365.18 | True | 近20日漲幅>25%；近60日漲幅>40%；距60日低點反彈>50%；近120日漲幅>70%；距120日低點反彈>80% | strong_accumulation | 5.86 | 2.78 | 2 | 2 | 24.58 | 28.1 | -2.07 |  | fail_low_response_condition |
-| 3167 | 大量 | 電機機械 | cyclical_turnaround |  | 114.23072625004656 | 125.40997222581112 | -4.33 | 3.25 | 188.04 | 304.58 | 203.44 | 309.79 | True | 近60日漲幅>40%；距60日低點反彈>50%；近120日漲幅>70%；距120日低點反彈>80% | mild_accumulation | -0.44 | 0.94 | 2 | 1 | 1.79 | 3.13 | -13.02 |  | fail_low_response_condition |
-| 3209 | 全科 | 電子通路業 | mainstream_growth |  | 83.84991757028762 | 32.35486967199371 | -2.44 | 40.67 | 115.58 | 128.19 | 126.49 | 142.74 | True | 近20日漲幅>25%；近60日漲幅>40%；距60日低點反彈>50%；近120日漲幅>70%；距120日低點反彈>80% | strong_accumulation | 1.87 | 1.92 | 2 | 2 | 7.36 | 9.0 | -9.08 |  | fail_already_priced_in |
-| 3229 | 晟鈦 | 電子零組件業 | mainstream_growth |  | 56.26505643863285 | 48.80373503533387 | 25.0 | 15.25 | 147.5 | 225.66 | 179.66 | 230.0 | True | 近60日漲幅>40%；距60日低點反彈>50%；近120日漲幅>70%；距120日低點反彈>80% | mild_accumulation | 0.21 | 0.0 | 2 | 0 | 17.78 | 20.79 | -1.79 |  | fail_low_response_condition |
-| 3231 | 緯創 | 電腦及週邊設備業 | mainstream_growth |  | 111.98927364274992 | 135.2700931903602 | 9.69 | 11.62 | 23.35 | 8.93 | 29.39 | 29.39 | False |  | strong_accumulation | 0.3 | 0.27 | 2 | 2 | 11.21 | 10.98 | 0.0 |  | fail_low_response_condition |
-| 3266 | 昇陽 | 建材營造 | neutral |  | 78.53183930035529 | 96.24488270368444 | 3.63 | -4.81 | -7.55 | -6.55 | 7.98 | 7.98 | False |  | mild_accumulation | -0.17 | 0.13 | 1 | 3 | 0.23 | -0.11 | -9.51 |  | fail_low_response_condition |
-| 3305 | 昇貿 | 其他電子業 | mainstream_growth |  | 60.16717903418358 | 60.03667972061005 | 7.88 | 41.89 | 47.2 | 63.72 | 65.62 | 66.67 | True | 近20日漲幅>25%；近60日漲幅>40%；距60日低點反彈>50% | strong_accumulation | 6.0 | 6.12 | 2 | 3 | 13.45 | 12.85 | -7.08 |  | fail_low_response_condition |
-| 3416 | 融程電 | 電腦及週邊設備業 | mainstream_growth |  | 56.33450576009668 | 27.274509505356043 | 0.27 | 16.51 | 27.87 | 23.57 | 37.45 | 37.45 | False |  | mild_accumulation | -0.29 | 0.01 | 1 | 1 | 4.99 | 5.49 | -6.38 |  | fail_low_response_condition |
-| 3443 | 創意 | 半導體業 | mainstream_growth |  | 156.85087929178133 | 81.0355514911027 | -9.14 | -3.41 | 98.3 | 118.74 | 118.22 | 137.06 | True | 近60日漲幅>40%；距60日低點反彈>50%；近120日漲幅>70%；距120日低點反彈>80% | distribution_warning | -1.98 | -1.79 | 1 | 1 | -7.9 | -2.04 | -21.51 |  | fail_already_priced_in |
-| 3528 | 安馳 | 電子通路業 | mainstream_growth |  | 83.23758160377125 | 97.76781501517576 | 25.27 | 41.74 | 73.82 | 75.11 | 93.26 | 93.26 | True | 近20日漲幅>25%；近60日漲幅>40%；距60日低點反彈>50%；近120日漲幅>70%；距120日低點反彈>80% | mild_accumulation | 4.17 | 0.02 | 2 | 1 | 29.73 | 28.85 | -4.08 |  | fail_low_response_condition |
-| 4739 | 康普 | 化學工業 | cyclical_turnaround |  | 96.2350108447434 | 115.45585350897274 | 6.93 | 17.78 | 51.47 | 58.13 | 67.44 | 75.04 | True | 近60日漲幅>40%；距60日低點反彈>50% | strong_accumulation | 3.18 | 2.77 | 2 | 3 | 9.92 | 10.51 | -0.46 |  | fail_low_response_condition |
-| 4916 | 事欣科 | 電腦及週邊設備業 | mainstream_growth |  | 50.22139699381079 | 30.082092728365648 | 14.45 | 72.81 | 84.73 | 137.34 | 111.47 | 144.57 | True | 近20日漲幅>25%；近60日漲幅>40%；距60日低點反彈>50%；近120日漲幅>70%；距120日低點反彈>80% | strong_accumulation | 9.68 | 9.94 | 2 | 2 | 33.94 | 29.94 | 0.0 |  | fail_low_response_condition |
-| 4934 | 太極 | 光電業 | mainstream_growth | A_優先追蹤 | 108.38868033496968 | 125.75129312187408 | -0.86 | -2.27 | -8.49 | 38.0 | 15.0 | 40.82 | False |  | mild_accumulation | 0.32 | -0.1 | 3 | 0 | -1.64 | -0.01 | -17.07 | 19 | selected |
-| 4967 | 十銓 | 半導體業 | mainstream_growth |  | 78.61369654620938 | 70.71720149020462 | 2.03 | -4.5 | 45.65 | 114.79 | 61.88 | 119.92 | True | 近60日漲幅>40%；距60日低點反彈>50%；近120日漲幅>70%；距120日低點反彈>80% | distribution_warning | -5.57 | -4.64 | 0 | 0 | -0.37 | 2.24 | -14.55 |  | fail_already_priced_in |
-| 5215 | 科嘉-KY | 電腦及週邊設備業 | mainstream_growth |  | 72.73453168813967 | 40.2037645186312 | 7.57 | 30.32 | 29.46 | 32.97 | 35.92 | 45.19 | True | 近20日漲幅>25% | mild_accumulation | 0.45 | -0.2 | 2 | 0 | 10.87 | 11.09 | -3.73 |  | fail_low_response_condition |
-| 5284 | jpp-KY | 其他 | neutral |  | 54.65432151998965 | 47.78147443327516 | 10.12 | 23.53 | 78.11 | 59.26 | 79.52 | 80.6 | True | 近60日漲幅>40%；距60日低點反彈>50%；距120日低點反彈>80% | strong_accumulation | 1.92 | 4.35 | 2 | 3 | 14.46 | 14.91 | -5.94 |  | fail_low_response_condition |
-| 5388 | 中磊 | 通信網路業 | mainstream_growth | A_優先追蹤 | 65.52682741578477 | 51.66798309925093 | 1.88 | 9.47 | 10.31 | 4.08 | 15.75 | 15.75 | False |  | mild_accumulation | 1.28 | -0.16 | 2 | 2 | 4.65 | 4.59 | -2.8 | 21 | selected |
-| 5522 | 遠雄 | 建材營造 | neutral | B_可觀察 | 743.3062171016306 | 795.9274284289337 | 4.6 | 5.21 | 8.83 | 19.38 | 14.49 | 25.56 | False |  | mild_accumulation | 0.02 | -0.14 | 1 | 2 | 2.99 | 2.98 | -2.55 | 21 | selected |
-| 5525 | 順天 | 建材營造 | neutral |  | 1375.7984438680992 | 1302.5511357042951 | -2.53 | -8.44 | -16.73 | -25.79 | 3.42 | 3.42 | False |  | strong_accumulation | 0.24 | 0.05 | 3 | 3 | -5.06 | -5.12 | -21.08 |  | fail_low_response_condition |
-| 6005 | 群益證 | 金融保險業 | defensive_or_traditional |  | 301.60050253861493 | 128.81886706959793 | 20.69 | 29.63 | 27.06 | 52.48 | 42.07 | 61.43 | True | 近20日漲幅>25% | mild_accumulation | 0.73 | 1.0 | 1 | 2 | 19.41 | 19.43 | 0.0 |  | fail_low_response_condition |
-| 6139 | 亞翔 | 其他電子業 | mainstream_growth |  | 70.59242292002638 | 68.32733199576585 | 1.95 | 13.46 | 44.92 | 75.39 | 64.19 | 78.59 | True | 近60日漲幅>40%；距60日低點反彈>50%；近120日漲幅>70% | distribution_warning | -0.05 | -1.03 | 1 | 1 | 5.39 | 5.42 | -8.09 |  | fail_already_priced_in |
-| 6152 | 百一 | 通信網路業 | mainstream_growth |  | 116.93180458964852 | 18.057297737695265 | -4.97 | 9.29 | -19.69 | 84.56 | 14.18 | 87.5 | True | 近120日漲幅>70%；距120日低點反彈>80% | mild_accumulation | -0.52 | 0.61 | 1 | 2 | 0.79 | -0.37 | -28.67 |  | fail_already_priced_in |
-| 6166 | 凌華 | 電腦及週邊設備業 | mainstream_growth |  | 63.164454428616175 | 37.58576900316765 | 3.94 | 67.94 | 114.29 | 113.59 | 132.8 | 132.8 | True | 近20日漲幅>25%；近60日漲幅>40%；距60日低點反彈>50%；近120日漲幅>70%；距120日低點反彈>80% | mild_accumulation | 0.13 | -1.19 | 2 | 0 | 15.72 | 17.29 | -8.97 |  | fail_low_response_condition |
-| 6177 | 達麗 | 建材營造 | neutral | D_降級_TDCC轉弱 | 264.8258137419728 | 633.4822945856635 | -4.18 | -6.61 | -8.42 | -11.3 | 2.05 | 2.05 | False |  | distribution_warning | -1.09 | -1.33 | 0 | 0 | -5.18 | -4.31 | -15.54 | 14 | selected |
-| 6209 | 今國光 | 光電業 | mainstream_growth |  | 66.88098236522453 | 52.50809987028574 | -4.78 | 18.92 | 46.94 | 37.54 | 69.5 | 69.5 | True | 近60日漲幅>40%；距60日低點反彈>50% | distribution_warning | -4.86 | -7.49 | 1 | 1 | 8.22 | 8.11 | -10.12 |  | fail_already_priced_in |
-| 6215 | 和椿 | 其他電子業 | mainstream_growth | A_優先追蹤 | 86.85261874392444 | 66.23020669829987 | -5.2 | 9.91 | 20.28 | 19.16 | 36.95 | 36.95 | False |  | strong_accumulation | 4.23 | 2.98 | 3 | 2 | 1.84 | 2.94 | -7.61 | 22 | selected |
-| 6426 | 統新 | 通信網路業 | mainstream_growth |  | 76.49244300662184 | 61.90792705834754 | -0.37 | 8.98 | 88.69 | 284.17 | 120.66 | 282.52 | True | 近60日漲幅>40%；距60日低點反彈>50%；近120日漲幅>70%；距120日低點反彈>80% | strong_accumulation | 2.01 | 2.68 | 3 | 2 | 1.39 | 4.2 | -9.18 |  | fail_low_response_condition |
-| 6446 | 藥華藥 | 生技醫療業 | defensive_or_traditional |  | 68.34595682594261 | 60.268154565481694 | 14.81 | 43.74 | 34.98 | 77.82 | 60.9 | 99.14 | True | 近20日漲幅>25%；距60日低點反彈>50%；近120日漲幅>70%；距120日低點反彈>80% | strong_accumulation | 1.58 | 2.16 | 3 | 2 | 17.34 | 17.51 | -0.43 |  | fail_low_response_condition |
-| 6515 | 穎崴 | 半導體業 | mainstream_growth |  | 50.51274485049632 | 34.35824836559721 | -0.4 | -13.82 | 81.47 | 215.09 | 84.56 | 250.81 | True | 近60日漲幅>40%；距60日低點反彈>50%；近120日漲幅>70%；距120日低點反彈>80% | distribution_warning | -2.29 | -0.45 | 0 | 1 | -8.6 | -6.82 | -24.59 |  | fail_low_response_condition |
-| 6531 | 愛普* | 半導體業 | mainstream_growth |  | 92.87778739857193 | 109.07996893571725 | 23.57 | 27.27 | 170.15 | 185.71 | 203.96 | 219.46 | True | 近20日漲幅>25%；近60日漲幅>40%；距60日低點反彈>50%；近120日漲幅>70%；距120日低點反彈>80% | distribution_warning | -1.32 | -7.76 | 1 | 0 | 16.95 | 21.4 | -0.83 |  | fail_low_response_condition |
-| 6541 | 泰福-KY | 生技醫療業 | defensive_or_traditional |  | 914.8854069223572 | 275.97151367822784 | 1.04 | -2.13 | -12.95 | -27.37 | 4.56 | 4.56 | False |  | mild_accumulation | 0.38 | -0.47 | 3 | 0 | 0.44 | 0.12 | -14.94 |  | fail_low_response_condition |
-| 6657 | 華安 | 生技醫療業 | defensive_or_traditional |  | 89.90610328638498 | 34.22818791946309 | -4.34 | -7.66 | -18.82 | -16.18 | 1.31 | 1.31 | False |  | mild_accumulation | 0.67 | 0.0 | 2 | 0 | -2.73 | -3.65 | -22.26 |  | fail_low_response_condition |
-| 6691 | 洋基工程 | 其他電子業 | mainstream_growth |  | 66.70054461276516 | 73.74071161548827 | 3.5 | 1.72 | 0.0 | 33.74 | 17.12 | 37.42 | False |  | mild_accumulation | -0.45 | 0.16 | 1 | 1 | 1.61 | 1.68 | -6.61 |  | fail_low_response_condition |
-| 6805 | 富世達 | 電子零組件業 | mainstream_growth | D_降級_TDCC轉弱 | 59.0506505428733 | 78.47048569813265 | 7.52 | -3.26 | 12.54 | 23.72 | 17.33 | 54.4 | False |  | distribution_warning | -3.95 | -6.04 | 0 | 0 | 6.18 | 5.47 | -15.16 | 12 | selected |
-| 6885 | 全福生技 | 生技醫療業 | defensive_or_traditional |  | 2152.9411764705883 | 2578.358208955224 | -7.59 | -12.66 | -20.69 | -29.35 | 0.98 | 0.98 | False |  | mild_accumulation | 1.23 | -0.01 | 3 | 1 | -5.98 | -6.41 | -21.29 |  | fail_low_response_condition |
-| 6901 | 鑽石投資 | 其他 | neutral |  | 331.0770222733691 | 129.05790884244232 | -11.43 | -8.82 | -22.01 | -25.75 | 2.9 | 2.9 | False |  | distribution_warning | -0.51 | -0.61 | 0 | 0 | -8.01 | -7.63 | -23.22 |  | fail_low_response_condition |
-| 6934 | 心誠鎂 | 生技醫療業 | defensive_or_traditional |  | 546.6284074605452 | -8.724233983286908 | -3.78 | -8.54 | -19.23 |  | 5.57 |  | False |  | mild_accumulation | 0.25 | 0.0 | 2 | 0 | -2.33 | -3.97 | -26.1 |  | fail_low_response_condition |
-| 6949 | 沛爾生醫-創 | 生技醫療業 | defensive_or_traditional |  | 107.90762771168647 | -29.12783208304917 | -3.59 | -17.2 | 9.14 | 69.29 | 26.97 | 109.08 | True | 距120日低點反彈>80% | strong_accumulation | 0.38 | 1.66 | 2 | 2 | -5.04 | -5.98 | -30.57 |  | fail_low_response_condition |
-| 6952 | 大武山 | 其他 | neutral |  | 53.75729646697389 | 41.20225039748869 | -0.68 | -2.41 | -12.26 | -14.42 | 1.96 | 1.96 | False |  | mild_accumulation | 0.06 | 0.06 | 1 | 1 | -1.12 | -1.61 | -14.72 |  | fail_low_response_condition |
-| 6957 | 裕慶-KY | 其他 | neutral |  | 53.31255357930569 | 34.466647133509134 | 4.05 | 4.37 | -2.62 | -21.6 | 9.87 | 9.87 | False |  | strong_accumulation | 0.75 | 0.02 | 2 | 2 | 3.74 | 3.32 | -3.47 |  | fail_low_response_condition |
-| 7610 | 聯友金屬-創 | 綠能環保 | neutral |  | 345.323186054649 | 425.22423145865633 | 18.0 | 102.33 | 411.27 | 1325.12 | 459.77 | 1367.66 | True | 近20日漲幅>25%；近60日漲幅>40%；距60日低點反彈>50%；近120日漲幅>70%；距120日低點反彈>80% | mild_accumulation | 1.61 | 1.6 | 2 | 1 | 38.81 | 38.93 | 0.0 |  | fail_low_response_condition |
-| 7631 | 聚賢研發-創 | 其他電子業 | mainstream_growth |  | 68.76129016183084 | 90.7375655253423 | -0.79 | -1.57 | 10.62 | 0.0 | 17.92 | 17.92 | False |  | strong_accumulation | 0.03 | 0.03 | 2 | 2 | -0.32 | -0.26 | -16.67 |  | fail_low_response_condition |
-| 7740 | 熙特爾-創 | 綠能環保 | neutral | D_降級_TDCC轉弱 | 2905.180718592785 | 1476.0023495403216 | 1.37 | 2.78 | -1.86 | 24.16 | 17.83 | 34.06 | False |  | distribution_warning | -3.55 | -3.9 | 0 | 1 | 7.54 | 5.39 | -9.98 | 13 | selected |
-| 7750 | 新代 | 電機機械 | cyclical_turnaround |  | 94.8739387573844 | 63.768704057004605 | 0.0 | -10.49 | 79.03 | 226.95 | 104.27 | 229.2 | True | 近60日漲幅>40%；距60日低點反彈>50%；近120日漲幅>70%；距120日低點反彈>80% | distribution_warning | -1.72 | -3.23 | 1 | 0 | -6.41 | -1.24 | -22.15 |  | fail_low_response_condition |
-| 7765 | 中華資安 | 數位雲端 | neutral |  | 75.03168748308813 | 28.436327862661106 | -0.6 | 11.24 | -1.59 | -12.85 | 14.06 | 14.06 | False |  | distribution_warning | -1.01 | -0.02 | 0 | 0 | 0.65 | 1.89 | -3.32 |  | fail_low_response_condition |
-| 7769 | 鴻勁 | 半導體業 | mainstream_growth |  | 111.83182996542342 | 89.0289902118116 | 6.86 | 47.5 | 94.58 | 180.95 | 139.42 | 196.59 | True | 近20日漲幅>25%；近60日漲幅>40%；距60日低點反彈>50%；近120日漲幅>70%；距120日低點反彈>80% | distribution_warning | -0.25 | -0.19 | 1 | 1 | 15.61 | 18.73 | -2.42 |  | fail_low_response_condition |
-| 7786 | 東方風能 | 綠能環保 | neutral |  | 52.31364457664033 | 53.1385367449244 | 0.0 | -11.9 | -23.05 | -26.63 | 3.95 | 3.95 | False |  | mild_accumulation | 0.21 | -0.38 | 1 | 1 | -4.88 | -4.15 | -23.79 |  | fail_low_response_condition |
-| 7822 | 倍利科 | 半導體業 | mainstream_growth |  | 77.97234335979724 | 110.5923011120616 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | missing_or_insufficient_price_metrics |
-| 8021 | 尖點 | 其他電子業 | mainstream_growth |  | 63.17741148386335 | 54.210191135482056 | 6.64 | 5.51 | 94.81 | 237.08 | 112.77 | 246.15 | True | 近60日漲幅>40%；距60日低點反彈>50%；近120日漲幅>70%；距120日低點反彈>80% | distribution_warning | -2.32 | -0.64 | 2 | 2 | 5.08 | 7.24 | -9.46 |  | fail_already_priced_in |
-| 8045 | 達運光電 | 通信網路業 | mainstream_growth |  | 95.94130842373109 | 60.08779268099978 | -8.08 | -12.12 | -18.52 | -14.62 | 3.12 | 3.12 | False |  | distribution_warning | -2.09 | -0.09 | 0 | 0 | -7.12 | -6.72 | -24.57 |  | fail_low_response_condition |
-| 8112 | 至上 | 電子通路業 | mainstream_growth | D_降級_TDCC轉弱 | 55.95920366319202 | 111.08875431756188 | 2.78 | 4.48 | 25.85 | 31.26 | 39.53 | 40.63 | False |  | distribution_warning | -7.65 | -7.95 | 0 | 0 | 4.05 | 4.25 | -9.5 | 13 | selected |
-| 8271 | 宇瞻 | 半導體業 | mainstream_growth |  | 360.8214661098714 | 276.8939909009716 | 9.35 | 5.82 | 111.64 | 153.62 | 120.18 | 175.22 | True | 近60日漲幅>40%；距60日低點反彈>50%；近120日漲幅>70%；距120日低點反彈>80% | distribution_warning | -5.18 | -4.98 | 1 | 0 | 3.62 | 7.98 | -9.41 |  | fail_low_response_condition |
-| 8374 | 羅昇 | 電機機械 | cyclical_turnaround |  | 62.72965373270798 | 37.07159439027231 | -2.75 | 17.78 | 35.9 | 36.25 | 64.6 | 64.6 | True | 距60日低點反彈>50% | mild_accumulation | 0.05 | 0.0 | 2 | 0 | 5.21 | 6.57 | -10.55 |  | fail_already_priced_in |
-| 8488 | 吉源-KY | 其他 | neutral |  | 67.98570321422744 | 58.45035507875949 | 0.51 | -2.94 | -1.0 | -4.35 | 3.99 | 3.99 | False |  | mild_accumulation | 0.01 | 0.0 | 1 | 1 | -0.53 | -0.33 | -13.54 |  | fail_low_response_condition |
-| 8499 | 鼎炫-KY | 其他電子業 | mainstream_growth |  | 95.50083046241792 | 80.38349880973118 | 1.42 | 23.94 | 17.58 | 24.18 | 34.59 | 34.59 | False |  | neutral | 0.0 | 0.0 | 0 | 0 | 7.5 | 7.29 | -5.59 |  | fail_low_response_condition |
-| 8926 | 台汽電 | 油電燃氣業 | defensive_or_traditional |  | 532.8072071332866 | 574.6994590229478 | 9.36 | 40.06 | 44.47 | 59.71 | 55.43 | 66.92 | True | 近20日漲幅>25%；近60日漲幅>40%；距60日低點反彈>50% | mild_accumulation | -0.41 | 0.3 | 2 | 2 | 13.21 | 12.96 | -8.14 |  | fail_low_response_condition |
+沒有樣本資料。

@@ -2,9 +2,9 @@
 
 - status: `pass`
 - main_price_date: `20260529`
-- decision_rows: `748`
-- decision_md_lines: `339`
-- decision_packet_lines: `228`
+- decision_rows: `851`
+- decision_md_lines: `315`
+- decision_packet_lines: `240`
 - regression_2484_status: `pass`
 
 ## Errors
@@ -13,4 +13,4 @@
 
 ## Warnings
 
-- none
+- main_price_date=20260529 not in decision signal_date values=['20260601']

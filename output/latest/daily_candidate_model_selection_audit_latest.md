@@ -2,12 +2,12 @@
 
 - status: `pass`
 - main_price_date: `20260529`
-- all_candidates_rows: `748`
-- raw_model_signal_rows: `769`
-- report_model_signal_rows: `769`
+- all_candidates_rows: `851`
+- raw_model_signal_rows: `885`
+- report_model_signal_rows: `885`
 - selected_condition_error_count: `0`
 - selected_condition_warning_count: `0`
-- expected_volume_breakout_stock_count: `175`
+- expected_volume_breakout_stock_count: `172`
 - expected_tdcc_short_stock_count: `70`
 
 ## Errors
@@ -16,7 +16,9 @@
 
 ## Warnings
 
-- none
+- freshness main_price_date=20260529 differs from candidate signal_date=20260601; auditing candidate-model internal consistency against candidate signal_date
+- volume_watch signal_date mismatch: expected 20260601, got ['20260529']; stale auxiliary table ignored for date gating
+- tdcc_short_edge signal_date mismatch: expected 20260601, got ['20260529']; stale auxiliary table ignored for date gating
 
 ## Review Details
 

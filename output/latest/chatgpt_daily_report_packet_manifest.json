@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-31 20:49:21 Asia/Taipei",
-  "main_price_date": "20260531",
+  "generated_at": "2026-06-01 22:26:56 Asia/Taipei",
+  "main_price_date": "20260601",
   "report_ready": "True",
   "repo_artifacts_are_sources_not_final_chatgpt_deliverables": true,
   "report_ready_is_not_chatgpt_pdf_done": true,
@@ -13,8 +13,8 @@
   ],
   "summary_pdf_kline_policy": "local_price_redraw_first",
   "summary_pdf_kline_status": "generated",
-  "summary_pdf_kline_total_charts": 15,
-  "summary_pdf_kline_local_price_redraw_count": 15,
+  "summary_pdf_kline_total_charts": 25,
+  "summary_pdf_kline_local_price_redraw_count": 25,
   "summary_pdf_kline_chart_path_fallback_count": 0,
   "summary_pdf_kline_missing_count": 0,
   "summary_pdf_kline_status_md_path": "output/latest/pdf_kline_chart_status_latest.md",
@@ -89,10 +89,10 @@
   "latest_packet_path": "output/latest/chatgpt_daily_report_packet_latest.txt",
   "latest_packet_raw_url_main": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/chatgpt_daily_report_packet_latest.txt",
   "legacy_latest_packet_path": "output/latest/CHATGPT_DAILY_REPORT_PACKET.txt",
-  "history_packet_path": "output/history/reports/20260531_CHATGPT_DAILY_REPORT_PACKET.txt",
-  "history_packet_raw_url_main": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260531_CHATGPT_DAILY_REPORT_PACKET.txt",
-  "dated_summary_md_path": "output/history/reports/20260531_daily_market_summary.md",
-  "dated_full_md_path": "output/history/reports/20260531_daily_market_full.md",
-  "dated_summary_pdf_path": "output/history/reports/20260531_daily_market_summary.pdf",
-  "dated_full_pdf_path": "output/history/reports/20260531_daily_market_full.pdf"
+  "history_packet_path": "output/history/reports/20260601_CHATGPT_DAILY_REPORT_PACKET.txt",
+  "history_packet_raw_url_main": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260601_CHATGPT_DAILY_REPORT_PACKET.txt",
+  "dated_summary_md_path": "output/history/reports/20260601_daily_market_summary.md",
+  "dated_full_md_path": "output/history/reports/20260601_daily_market_full.md",
+  "dated_summary_pdf_path": "output/history/reports/20260601_daily_market_summary.pdf",
+  "dated_full_pdf_path": "output/history/reports/20260601_daily_market_full.pdf"
 }
