@@ -117,6 +117,22 @@ If the PDF needs a curated version, show the top rows per model and per report b
 
 PDF tables must surface risk and confirmation fields so the selected stock is not presented as risk-free. The wording should be "selected by model, ranked with risk/score adjustments", not "selected but cannot buy".
 
+PDF tables must prefer program-side Chinese display columns when present:
+
+- `model_name_zh`
+- `source_category_zh`
+- `report_bucket_zh`
+- `effective_primary_theme_zh`
+- `effective_structural_theme_bucket_zh`
+- `tdcc_status_zh`
+- `warrant_flow_signal_zh`
+- `risk_tags_zh`
+- `score_components_zh`
+- `merged_source_categories_zh`
+- `merged_risk_penalty_tags_zh`
+
+Do not print raw English slug columns in investor-facing PDF tables when a `_zh` display column exists. If a required Chinese display value is missing, print `欄位尚未完成` rather than the raw slug.
+
 ## Core Categories And Specialty Sections
 
 The core daily candidate categories are controlled by the program-side output. ChatGPT must not invent, delete, rename, or merge core categories by memory.

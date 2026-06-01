@@ -217,6 +217,12 @@ def append_history(latest: pd.DataFrame) -> pd.DataFrame:
         for col in OUTPUT_COLUMNS:
             if col not in old.columns:
                 old[col] = ""
+        current_dates = set(latest.get("signal_date", pd.Series(dtype=str)).astype(str).tolist())
+        current_dates.discard("")
+        if current_dates and "signal_date" in old.columns:
+            max_current_date = max(current_dates)
+            old = old[old["signal_date"].astype(str) <= max_current_date].copy()
+            old = old[~old["signal_date"].astype(str).isin(current_dates)].copy()
         combined = pd.concat([old[OUTPUT_COLUMNS], latest[OUTPUT_COLUMNS]], ignore_index=True)
         combined = combined.drop_duplicates(subset=["signal_date", "stock_id"], keep="last")
     if not combined.empty:

@@ -17,6 +17,7 @@ from tracking_utils import (  # noqa: E402
     normalize_code,
     now_text,
     read_csv,
+    resolve_candidate_signal_date,
     safe_str,
     to_number,
     write_csv,
@@ -32,6 +33,7 @@ STOCK_THEME_TAXONOMY = LATEST_DIR / "stock_theme_taxonomy_latest.csv"
 MODEL_HISTORY_DIR = Path("output/history/daily_candidate_models")
 MODEL_SIGNAL_LOG_CSV = MODEL_HISTORY_DIR / "daily_candidate_model_signal_log.csv"
 STOCK_PRICE_HISTORY_DIR = Path("data/stock_price_history")
+TDCC_STOCK_HISTORY_DIR = Path("data/tdcc_stock_history")
 
 PARAMETERS_CSV = LATEST_DIR / "daily_candidate_model_parameters_latest.csv"
 PARAMETERS_MD = LATEST_DIR / "daily_candidate_model_parameters_latest.md"
@@ -93,6 +95,164 @@ BULLISH_WARRANT = {"call_inflow", "call_strong_inflow", "call_put_bullish"}
 POSITIVE_TDCC = {"strong_accumulation", "mild_accumulation"}
 
 
+CATEGORY_ZH = {
+    "true_breakout": "嚴格突破",
+    "range_rebound": "區間內轉強 / 挑戰前高觀察",
+    "revenue_breakout_low_response": "營收爆發但股價尚未反應",
+    "revenue_pullback": "營收成長股價回檔",
+    "pullback_rebound": "回檔後短線轉強",
+    "pattern": "型態觀察",
+    "volume_breakout": "帶量突破",
+    "short_term_specialty": "短線專項",
+}
+
+REPORT_BUCKET_ZH = {
+    "mainstream": "主流",
+    "non_mainstream": "非主流",
+    "unclassified": "未分類",
+    "research_only": "研究用",
+}
+
+TDCC_STATUS_ZH = {
+    "strong_accumulation": "大戶強累積",
+    "mild_accumulation": "大戶溫和增加",
+    "neutral": "中性",
+    "distribution_warning": "大戶轉弱警示",
+    "tdcc_leading_price": "TDCC領先股價",
+    "tdcc_price_confirmed": "TDCC與股價初步確認",
+    "price_leading_tdcc": "股價領先TDCC",
+    "overheated_after_tdcc": "TDCC後股價過熱",
+    "tdcc_price_divergence": "TDCC與股價背離",
+    "insufficient_tdcc_history": "TDCC歷史不足",
+    "insufficient_price_context": "價格脈絡不足",
+    "neutral_or_unclear": "訊號不明",
+}
+
+WARRANT_SIGNAL_ZH = {
+    "call_strong_inflow": "認購強流入",
+    "call_inflow": "認購流入",
+    "call_put_bullish": "認購 / 認售偏多",
+    "put_inflow": "認售流入",
+    "put_strong_inflow": "認售強流入",
+    "put_call_bearish": "認售 / 認購偏空",
+    "no_signal": "無明確權證訊號",
+}
+
+RISK_TAG_ZH = {
+    "false_breakout_risk": "假突破風險",
+    "tdcc_distribution_warning": "TDCC轉弱警示",
+    "continued_overheated": "連續過熱",
+    "overheated_breakout": "短線過熱突破",
+    "overextended": "乖離過大",
+    "high_level_volume_risk": "高位放量風險",
+    "repeated_but_no_breakout": "反覆上榜但尚未突破",
+    "needs_eps_confirmation": "需EPS / 毛利確認",
+    "revenue_good_eps_unconfirmed": "營收好但獲利品質待確認",
+    "must_not_overstate": "不可過度解讀",
+    "warrant_overheat": "權證過熱",
+    "benchmark_weak": "弱於大盤 / benchmark",
+    "insufficient_tdcc_history": "TDCC歷史不足",
+    "insufficient_price_data": "價格資料不足",
+}
+
+STRUCTURAL_BUCKET_ZH = {
+    "ai_server_ipc_theme": "AI伺服器 / 工業電腦",
+    "ai_pc_consumer_theme": "AI PC / 消費電子",
+    "ai_server_mechanical_theme": "AI伺服器機構件",
+    "ai_chip_testing_theme": "AI晶片測試",
+    "asic_advanced_process_theme": "矽智財 / ASIC",
+    "semiconductor_equipment_material_theme": "半導體設備 / 材料",
+    "advanced_packaging_theme": "先進封裝",
+    "memory_hbm_theme": "記憶體 / HBM / 儲存",
+    "network_optical_datacenter_theme": "網通 / 光通訊 / 資料中心",
+    "low_earth_orbit_satellite_theme": "低軌衛星",
+    "high_speed_interconnect_theme": "高速傳輸 / 連接器",
+    "thermal_solution_theme": "散熱 / 液冷",
+    "power_supply_theme": "電源 / BBU",
+    "pcb_ccl_theme": "PCB / CCL / ABF材料",
+    "glass_fiber_ccl_theme": "玻纖布 / CCL",
+    "fpc_flexible_pcb_theme": "軟板 / FPC",
+    "passive_component_theme": "被動元件",
+    "robotics_precision_motion_theme": "機器人 / 精密傳動",
+    "robotics_automation_theme": "機器人 / 自動化",
+    "robotics_ipc_edge_ai_theme": "機器人 / 邊緣AI",
+    "robotics_optics_sensor_theme": "機器人 / 光學感測",
+    "automotive_electronics_theme": "車用電子",
+    "electrical_cable_grid_theme": "重電 / 電線電纜",
+    "electronic_component_general_theme": "電子零組件",
+    "other_electronics_general_theme": "其他電子",
+    "computer_peripheral_general_theme": "電腦及週邊",
+    "optoelectronics_general_theme": "光電",
+    "information_service_general_theme": "資訊服務",
+    "communications_network_general_theme": "通信網路",
+}
+
+SCORE_COMPONENT_ZH_REPLACEMENTS = {
+    "base=50": "基礎分=50",
+    "type=neckline_volume_breakout": "類型=頸線帶量突破",
+    "type=strict_60d_volume_breakout": "類型=60日高點帶量突破",
+    "type=平台_volume_breakout": "類型=平台帶量突破",
+    "volume_score=": "量能分數=",
+    "close_above_previous_20d_high": "收盤站上20日前高",
+    "close_above_previous_60d_high": "收盤站上60日前高",
+    "near_previous_60d_high_with_volume": "接近60日前高且放量",
+    "not_close_near_high": "收盤未靠近日高",
+    "five_day_momentum": "5日動能強",
+    "long_upper_shadow_risk": "長上影風險",
+    "far_above_ma20": "乖離MA20過大",
+    "twenty_day_overheated": "20日漲幅過熱",
+    "量比_ge_2": "量比>=2",
+    "volume_ratio_ge_2": "量比>=2",
+    "volume_ratio": "量比",
+    "range_breakout": "盤整突破",
+    "TDCC positive": "TDCC正向",
+    "warrant bullish": "權證偏多",
+    "revenue strong": "營收強",
+    "lower position": "位階較低",
+    "platform": "平台",
+    "near high": "接近前高",
+    "theme": "族群",
+    "mainstream": "主流",
+    "risk penalty": "風險扣分",
+    "best D+5": "最佳D+5",
+    "best D+10": "最佳D+10",
+    "D+10 win": "D+10勝率",
+    "D+10 rel": "D+10相對報酬",
+    "D+5 win": "D+5勝率",
+    "phase_overheated": "TDCC過熱階段",
+    "all_thresholds": "四級距同步過熱",
+    "TDCC streak": "TDCC連續週數",
+    "MACD hist >0": "MACD柱狀體>0",
+    "MACD hist <=0": "MACD柱狀體<=0",
+    "KD bullish not overheated": "KD多方未過熱",
+    "KD overheated": "KD過熱",
+    "1W return 10-30": "1週漲幅10-30",
+    "1W return >30": "1週漲幅>30",
+    "2W return 20-50": "2週漲幅20-50",
+    "2W return >60": "2週漲幅>60",
+    "BB width not extreme": "布林寬度不極端",
+    "BB width extreme": "布林寬度極端",
+    "near 23EMA/平台": "接近23EMA / 平台",
+    "EMA23 slope proxy up": "23EMA斜率向上",
+    "pullback entry zone": "回檔買點區",
+    "pullback not volume-chasing": "非追量買點",
+    "W low position": "W底位階",
+    "W neckline distance": "距頸線",
+    "pre-W base width": "W底前盤整寬度",
+    "right-side volume support": "右側量能支撐",
+    "second attack comparable to first": "第二段攻擊接近第一段",
+    "second attack volume expansion": "第二段攻擊量能放大",
+    "second attack red-body improvement": "第二段紅K比例改善",
+    "1w": "1週",
+    "2w": "2週",
+    "3w": "3週",
+    "4w": "4週",
+    "strong_bull": "強多市場",
+    "correction": "修正市場",
+    "high_risk": "高風險市場",
+}
+
+
 @dataclass(frozen=True)
 class ModelSpec:
     model_id: str
@@ -125,6 +285,219 @@ def num(row: pd.Series, *names: str) -> float:
                 if not math.isnan(value):
                     return float(value)
     return math.nan
+
+
+def has_cjk(value: str) -> bool:
+    return any("\u4e00" <= ch <= "\u9fff" for ch in safe_str(value))
+
+
+def zh_or_pending(value: Any, mapping: dict[str, str] | None = None) -> str:
+    raw = safe_str(value)
+    if not raw:
+        return ""
+    if mapping and raw in mapping:
+        return mapping[raw]
+    if has_cjk(raw) and "_" not in raw:
+        return raw
+    return "欄位尚未完成"
+
+
+def split_tags(value: Any) -> list[str]:
+    raw = safe_str(value)
+    if not raw:
+        return []
+    for sep in [";", ",", "/", "、"]:
+        raw = raw.replace(sep, "|")
+    return [part.strip() for part in raw.split("|") if part.strip()]
+
+
+def zh_tag_list(value: Any, mapping: dict[str, str]) -> str:
+    tags = split_tags(value)
+    if not tags:
+        return ""
+    translated = []
+    for tag in tags:
+        translated.append(mapping.get(tag, tag if has_cjk(tag) and "_" not in tag else "欄位尚未完成"))
+    return " | ".join(dict.fromkeys(translated))
+
+
+def zh_text_or_pending(value: Any) -> str:
+    raw = safe_str(value)
+    if raw and has_cjk(raw):
+        return raw
+    return "欄位尚未完成 / 暫用現有資料"
+
+
+def score_components_zh(value: Any) -> str:
+    raw = safe_str(value)
+    if not raw:
+        return ""
+    out = raw
+    for src, dst in SCORE_COMPONENT_ZH_REPLACEMENTS.items():
+        out = out.replace(src, dst)
+    return out
+
+
+def column_or_default(df: pd.DataFrame, name: str, default: str = "") -> pd.Series:
+    if name in df.columns:
+        return df[name].astype(str)
+    return pd.Series([default] * len(df), index=df.index, dtype=str)
+
+
+def apply_display_columns(df: pd.DataFrame) -> pd.DataFrame:
+    if df.empty:
+        return df.copy()
+    out = df.copy()
+
+    def preserve_existing_display(name: str, candidate: pd.Series) -> pd.Series:
+        existing = column_or_default(out, name)
+        usable = existing.astype(str).str.strip().ne("") & ~existing.astype(str).str.contains("欄位尚未完成", na=False)
+        return existing.where(usable, candidate)
+
+    out["report_bucket_zh"] = column_or_default(out, "report_bucket").map(REPORT_BUCKET_ZH).fillna("欄位尚未完成")
+    source_category_zh = column_or_default(out, "original_category").map(CATEGORY_ZH)
+    source_category_zh = source_category_zh.mask(source_category_zh.isna() | source_category_zh.eq(""), out.get("model_name_zh", ""))
+    out["source_category_zh"] = source_category_zh.replace("", "欄位尚未完成").fillna("欄位尚未完成")
+    primary = column_or_default(out, "effective_primary_theme")
+    out["effective_primary_theme_zh"] = primary.map(lambda value: value if has_cjk(value) else zh_or_pending(value, STRUCTURAL_BUCKET_ZH))
+    structural = column_or_default(out, "effective_structural_theme_bucket")
+    out["effective_structural_theme_bucket_zh"] = structural.map(lambda value: zh_or_pending(value, STRUCTURAL_BUCKET_ZH))
+    out["tdcc_status_zh"] = column_or_default(out, "tdcc_status").map(lambda value: zh_or_pending(value, TDCC_STATUS_ZH))
+    out["warrant_flow_signal_zh"] = column_or_default(out, "warrant_flow_signal").map(lambda value: zh_or_pending(value, WARRANT_SIGNAL_ZH))
+    out["risk_tags_zh"] = preserve_existing_display("risk_tags_zh", column_or_default(out, "risk_penalty_tags").map(lambda value: zh_tag_list(value, RISK_TAG_ZH)))
+    out["downgrade_flags_zh"] = preserve_existing_display("downgrade_flags_zh", column_or_default(out, "downgrade_flags").map(lambda value: zh_tag_list(value, RISK_TAG_ZH)))
+    out["next_confirmation_zh"] = preserve_existing_display("next_confirmation_zh", column_or_default(out, "next_confirmation").map(zh_text_or_pending))
+    out["recommended_usage_zh"] = preserve_existing_display("recommended_usage_zh", column_or_default(out, "recommended_usage").map(zh_text_or_pending))
+    out["why_selected_zh"] = preserve_existing_display("why_selected_zh", column_or_default(out, "why_selected").map(zh_text_or_pending))
+    out["score_components_zh"] = column_or_default(out, "score_components").map(score_components_zh)
+    if "merged_source_categories" in out.columns:
+        out["merged_source_categories_zh"] = out["merged_source_categories"].map(lambda value: zh_tag_list(value, CATEGORY_ZH))
+        out["source_hit_labels_zh"] = preserve_existing_display("source_hit_labels_zh", out["merged_source_categories_zh"])
+    if "merged_risk_penalty_tags" in out.columns:
+        out["merged_risk_penalty_tags_zh"] = out["merged_risk_penalty_tags"].map(lambda value: zh_tag_list(value, RISK_TAG_ZH))
+        out["risk_tags_zh"] = out["merged_risk_penalty_tags_zh"].where(out["merged_risk_penalty_tags_zh"].astype(str).ne(""), out["risk_tags_zh"])
+    display_defaults = {
+        "risk_tags_zh": "未見重大風險標籤",
+        "downgrade_flags_zh": "無明確降級旗標",
+        "source_hit_labels_zh": "模型主條件",
+        "next_confirmation_zh": "依量價、支撐壓力與籌碼變化追蹤",
+        "recommended_usage_zh": "模型條件成立，依支撐壓力與風控管理",
+        "why_selected_zh": "依模型主條件入選",
+        "effective_primary_theme_zh": "未分類族群 / 暫用產業分類",
+        "effective_structural_theme_bucket_zh": "未分類族群 / 暫用產業分類",
+    }
+    for col, default in display_defaults.items():
+        text = column_or_default(out, col).astype(str).str.strip()
+        out[col] = column_or_default(out, col).where(text.ne(""), default)
+    return out
+
+
+def tdcc_direction_from_changes(changes: list[float]) -> str:
+    valid = [value for value in changes if not math.isnan(value)]
+    if not valid:
+        return "中性"
+    positives = sum(1 for value in valid if value > 0)
+    negatives = sum(1 for value in valid if value < 0)
+    total = sum(valid)
+    if positives >= 4 and total > 0:
+        return "強正向"
+    if positives >= 2 and total > 0:
+        return "正向"
+    if negatives >= 4 and total < 0:
+        return "強負向"
+    if negatives >= 2 and total < 0:
+        return "負向"
+    return "中性"
+
+
+@lru_cache(maxsize=4096)
+def latest_tdcc_summary(stock_id: str) -> dict[str, Any]:
+    code = normalize_code(stock_id)
+    path = TDCC_STOCK_HISTORY_DIR / f"{code}.csv"
+    empty = {
+        "tdcc_direction_zh": "中性",
+        "tdcc_400_change": "",
+        "tdcc_600_change": "",
+        "tdcc_800_change": "",
+        "tdcc_1000_change": "",
+        "tdcc_big_holder_summary_zh": "TDCC資料不足 / 暫用現有資料",
+        "tdcc_grade_change_summary_zh": "TDCC級距變化資料不足",
+        "tdcc_risk_text_zh": "僅能觀察，不可單獨作為買進理由",
+    }
+    if not path.exists():
+        return empty
+    try:
+        df = pd.read_csv(path, dtype={"stock_id": str})
+    except Exception:
+        return empty
+    if df.empty:
+        return empty
+    df = df.sort_values("as_of_date")
+    latest = df.iloc[-1]
+    changes: list[float] = []
+    labels: list[str] = []
+    result = dict(empty)
+    for threshold in ["400", "600", "800", "1000"]:
+        col = f"over_{threshold}_change_1w"
+        value = to_number(latest.get(col, math.nan))
+        changes.append(value)
+        result[f"tdcc_{threshold}_change"] = "" if math.isnan(value) else round(value, 4)
+        if not math.isnan(value):
+            direction = "增加" if value > 0 else "減少" if value < 0 else "持平"
+            labels.append(f">{threshold}張{direction}{value:.2f}pct")
+    direction = tdcc_direction_from_changes(changes)
+    result["tdcc_direction_zh"] = direction
+    result["tdcc_grade_change_summary_zh"] = "；".join(labels) if labels else "TDCC級距變化資料不足"
+    if direction in {"強正向", "正向"}:
+        result["tdcc_big_holder_summary_zh"] = f"大戶籌碼{direction}，但仍需搭配價格與量價確認。"
+        result["tdcc_risk_text_zh"] = "TDCC為加分項，不可單獨作為買進理由。"
+    elif direction in {"強負向", "負向"}:
+        result["tdcc_big_holder_summary_zh"] = f"大戶籌碼{direction}，需降低追價與過度解讀。"
+        result["tdcc_risk_text_zh"] = "TDCC轉弱，若價格同步跌破支撐需降級。"
+    else:
+        result["tdcc_big_holder_summary_zh"] = "大戶籌碼中性，需看價格、量能與族群。"
+        result["tdcc_risk_text_zh"] = "籌碼未形成明確方向。"
+    return result
+
+
+def attach_report_contract_columns(df: pd.DataFrame) -> pd.DataFrame:
+    if df.empty:
+        return df.copy()
+    out = df.copy()
+    out["report_line"] = column_or_default(out, "report_bucket")
+    out["display_rank"] = column_or_default(out, "model_rank")
+    out["source_hit_count"] = column_or_default(out, "merged_same_model_source_count", "1")
+    out["source_hit_labels"] = column_or_default(out, "merged_source_categories")
+    out["source_row_indices"] = column_or_default(out, "merged_source_row_indices")
+    out["why_selected"] = column_or_default(out, "score_components")
+    out["risk_tags"] = column_or_default(out, "merged_risk_penalty_tags")
+    out["risk_tags"] = out["risk_tags"].where(out["risk_tags"].astype(str).ne(""), column_or_default(out, "risk_penalty_tags"))
+    out["downgrade_flags"] = column_or_default(out, "risk_tags")
+    out["recommended_usage_zh"] = column_or_default(out, "model_operation_guidance").map(zh_text_or_pending)
+    out["why_selected_zh"] = column_or_default(out, "score_components_zh").map(zh_text_or_pending)
+    out["next_confirmation_zh"] = column_or_default(out, "merged_next_confirmations").map(zh_text_or_pending)
+    out["source_hit_labels_zh"] = column_or_default(out, "merged_source_categories_zh").map(zh_text_or_pending)
+    out["downgrade_flags_zh"] = column_or_default(out, "merged_risk_penalty_tags_zh").map(lambda v: zh_text_or_pending(v) if safe_str(v) else "")
+
+    tdcc_rows = [latest_tdcc_summary(stock_id) for stock_id in column_or_default(out, "stock_id")]
+    tdcc_df = pd.DataFrame(tdcc_rows, index=out.index)
+    for col in tdcc_df.columns:
+        out[col] = tdcc_df[col]
+    text_defaults = {
+        "risk_tags_zh": "未見重大風險標籤",
+        "downgrade_flags_zh": "無明確降級旗標",
+        "source_hit_labels_zh": "模型主條件",
+        "next_confirmation_zh": "依量價、支撐壓力與籌碼變化追蹤",
+        "recommended_usage_zh": "模型條件成立，依支撐壓力與風控管理",
+        "why_selected_zh": "依模型主條件入選",
+    }
+    for col, default in text_defaults.items():
+        if col not in out.columns:
+            out[col] = default
+        else:
+            text = out[col].astype(str).str.strip()
+            out[col] = out[col].where(text.ne(""), default)
+    return out
 
 
 @lru_cache(maxsize=4096)
@@ -190,7 +563,7 @@ def warrant_signal(row: pd.Series) -> str:
 def report_bucket(row: pd.Series) -> str:
     # Mainstream/non-mainstream is a report split only. It must not change score.
     buckets = report_buckets(row)
-    return buckets[0] if buckets else "unclassified"
+    return buckets[0] if buckets else "non_mainstream"
 
 
 def report_buckets(row: pd.Series) -> list[str]:
@@ -215,15 +588,39 @@ def report_buckets(row: pd.Series) -> list[str]:
         return ["mainstream"]
     if status.startswith("non_mainstream") or group == "non_mainstream":
         return ["non_mainstream"]
-    return ["unclassified"]
+    # No third report bucket. If taxonomy is incomplete, keep the stock visible
+    # in the non-mainstream report and let taxonomy validation flag the source.
+    return ["non_mainstream"]
+
+
+def report_line_memberships_value(row: pd.Series) -> str:
+    return "|".join(report_buckets(row))
+
+
+def mainstream_report_eligible_value(row: pd.Series) -> str:
+    return "True" if "mainstream" in report_buckets(row) else "False"
+
+
+def non_mainstream_report_eligible_value(row: pd.Series) -> str:
+    return "True" if "non_mainstream" in report_buckets(row) else "False"
+
+
+def dual_report_membership_flag_value(row: pd.Series) -> str:
+    buckets = report_buckets(row)
+    return "True" if "mainstream" in buckets and "non_mainstream" in buckets else "False"
 
 
 def primary_theme(row: pd.Series) -> str:
-    return (
-        text(row, "effective_primary_theme", "primary_theme", "taxonomy_primary_theme")
-        or text(row, "細分族群", "theme_name", "industry")
-        or "未分類"
-    )
+    candidates = [
+        text(row, "effective_primary_theme", "primary_theme", "taxonomy_primary_theme"),
+        text(row, "basic_theme", "taxonomy_basic_theme"),
+        text(row, "細分族群", "theme_name", "industry"),
+    ]
+    for value in candidates:
+        value = safe_str(value).strip()
+        if value and value.lower() not in {"theme_unknown", "unclassified", "unknown", "other"}:
+            return value
+    return "未分類族群"
 
 
 def effective_structural_theme_bucket(row: pd.Series) -> str:
@@ -236,7 +633,10 @@ def effective_structural_theme_bucket(row: pd.Series) -> str:
 
 
 def effective_mainstream_label(row: pd.Series) -> str:
-    return text(row, "effective_mainstream_label", "taxonomy_effective_mainstream_label", "theme_mainstream_label")
+    value = text(row, "effective_mainstream_label", "taxonomy_effective_mainstream_label", "theme_mainstream_label").lower()
+    if value in {"core_mainstream", "non_mainstream", "both"}:
+        return value
+    return "non_mainstream"
 
 
 def is_suspicious_text(value: str) -> bool:
@@ -313,6 +713,18 @@ def near_ema23_or_platform(row: pd.Series) -> bool:
     return low * 0.97 <= close <= high * 1.03
 
 
+def near_ema23_or_support(row: pd.Series) -> bool:
+    """Pullback entry should be near 23EMA or support, not near range high."""
+    dist_ema = num(row, "distance_to_ema23_pct", "distance_23ema_pct", "gap_ema23_pct")
+    if not math.isnan(dist_ema) and -2.5 <= dist_ema <= 5:
+        return True
+    close = close_price(row)
+    low = num(row, "platform_low", "short_platform_low", "previous_20d_low", "low_20")
+    if math.isnan(close) or math.isnan(low) or low <= 0:
+        return False
+    return -2.0 <= (close / low - 1) * 100 <= 8.0
+
+
 def ema23_slope_proxy_up(row: pd.Series) -> bool:
     if flag(row, "ma5_turning_up_flag") or flag(row, "ma10_turning_up_flag"):
         return True
@@ -340,6 +752,33 @@ def near_range_high(row: pd.Series, pct: float = 5) -> bool:
 def near_neckline_or_prior_high(row: pd.Series) -> bool:
     dist = num(row, "neckline_distance_pct", "distance_to_previous_high_pct", "distance_to_previous_60d_high_pct")
     return not math.isnan(dist) and 0 <= dist <= 5
+
+
+def already_confirmed_breakout(row: pd.Series) -> bool:
+    cat = category(row).lower()
+    stage = text(row, "pattern_stage").lower()
+    breakout_type = text(row, "volume_breakout_type", "breakout_type").lower()
+    if cat in {"true_breakout", "strict_breakout"}:
+        return True
+    if stage in {"breakout_confirmed", "platform_breakout", "neckline_breakout"}:
+        return True
+    if breakout_type in {
+        "range_breakout_volume",
+        "platform_volume_breakout",
+        "neckline_volume_breakout",
+        "strict_high_breakout",
+        "strict_60d_volume_breakout",
+        "true_breakout",
+        "breakout",
+    }:
+        return True
+    return (
+        flag(row, "platform_breakout_flag")
+        or flag(row, "neckline_breakout_flag")
+        or flag(row, "volume_confirmed_breakout")
+        or flag(row, "close_above_range_high")
+        or flag(row, "close_above_previous_20d_high")
+    )
 
 
 def tdcc_positive(row: pd.Series) -> bool:
@@ -507,11 +946,21 @@ def cond_volume_breakout(row: pd.Series) -> bool:
 
 
 def cond_pullback(row: pd.Series) -> bool:
-    return near_ema23_or_platform(row) and ema23_slope_proxy_up(row)
+    return near_ema23_or_support(row) and ema23_slope_proxy_up(row)
 
 
 def cond_revenue_unreacted(row: pd.Series) -> bool:
-    return strong_revenue(row) and in_recent_range(row, 5)
+    vol = num(row, "volume_ratio")
+    ret5 = num(row, "return_5d", "return_5d_pct")
+    ret20 = num(row, "return_20d", "return_20d_pct")
+    active_attack = cond_volume_breakout(row) or flag(row, "volume_confirmed_breakout")
+    if not math.isnan(vol) and vol >= 2.5:
+        active_attack = True
+    if not math.isnan(ret5) and ret5 >= 8:
+        active_attack = True
+    if not math.isnan(ret20) and ret20 >= 20:
+        active_attack = True
+    return strong_revenue(row) and in_recent_range(row, 5) and not active_attack
 
 
 def explicit_w_bottom_context_ok(row: pd.Series) -> bool:
@@ -771,11 +1220,15 @@ def cond_w_bottom_right(row: pd.Series) -> bool:
 
 
 def cond_neckline_challenge(row: pd.Series) -> bool:
+    if already_confirmed_breakout(row):
+        return False
     vol = num(row, "volume_ratio")
     return near_neckline_or_prior_high(row) and not math.isnan(vol) and vol >= 1.2 and ema23_slope_proxy_up(row)
 
 
 def cond_platform_strength(row: pd.Series) -> bool:
+    if already_confirmed_breakout(row):
+        return False
     width = num(row, "platform_width_pct", "short_platform_width_pct")
     vol = num(row, "volume_ratio")
     return (
@@ -800,26 +1253,30 @@ def cond_pullback_short_strength(row: pd.Series) -> bool:
 
 def cond_tdcc_stealth(row: pd.Series) -> bool:
     phase = text(row, "tdcc_price_phase").lower()
+    vol = num(row, "volume_ratio")
     ret20 = num(row, "return_20d", "return_20d_pct")
     if phase in {"price_leading_tdcc", "overheated_after_tdcc"}:
         return False
-    phase_ok = phase == "tdcc_leading_price" or tdcc_positive(row)
+    if cond_volume_breakout(row) or flag(row, "volume_confirmed_breakout"):
+        return False
+    if not math.isnan(vol) and vol >= 2.5:
+        return False
+    phase_ok = phase == "tdcc_leading_price" or (not phase and tdcc_positive(row))
     not_rallied = math.isnan(ret20) or ret20 < 20
     return phase_ok and not_rallied and in_recent_range(row, 10)
 
 
 def build_specs() -> list[ModelSpec]:
-    common_add = "TDCC正向、權證偏多、營收較佳、位階較低可加分；主流/非主流只分報告，不扣分。"
     return [
         ModelSpec(
             "volume_range_breakout",
             "帶量突破模型",
             "pdf_core_model",
             "signal_date_next_open",
-            "量比 >= 1.5 且突破盤整區間/平台/頸線/波段高點。",
-            "突破前高/平台、收盤站上突破區、量比越高、盤整結構越乾淨、TDCC/權證/營收越好加分。",
-            "不以漲幅過大、中位爆量、高位爆量直接否決；風險只扣分排序。",
-            "隔日開盤為進場原點；觀察收盤是否守住突破區，跌回突破區或爆量長上影則降風險。",
+            "量比 >= 1.5，且股價有效突破近期盤整區間 / 平台上緣 / 壓力區。",
+            "突破前高或平台、收盤站上突破區、量比越高、盤整時間越久、TDCC越好、營收越好、位階越低可加分。",
+            "不得用漲幅過大、中位爆量、高位爆量直接否決；風險只作排名與操作提醒。",
+            "以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。",
             cond_volume_breakout,
             score_volume_breakout,
         ),
@@ -828,10 +1285,10 @@ def build_specs() -> list[ModelSpec]:
             "股價回檔模型",
             "pdf_core_model",
             "signal_date_next_open",
-            "股價回到23EMA或平台附近，且23EMA斜率代理為正。",
-            "營收YoY/累計YoY、未跌破23EMA、TDCC增加、族群定義、量縮回檔、權證偏多加分。",
-            "不因尚未突破而否決，因本模型本來就是回檔找買點。",
-            "隔日開盤為進場原點；回測23EMA或平台不破才續看，跌破後1到3日站不回則降級。",
+            "股價回到23EMA或平台附近，且23EMA斜率向上。",
+            "營收YoY或累計YoY強、未跌破23EMA、TDCC增加、有族群定義、回檔量縮、權證偏多可加分。",
+            "不得因尚未突破直接否決；本模型目的就是在回檔區找買點。",
+            "回測23EMA或平台不破可建立部位；跌破23EMA後站不回或放量破平台需退出/降風險。",
             cond_pullback,
             score_pullback,
         ),
@@ -840,10 +1297,10 @@ def build_specs() -> list[ModelSpec]:
             "營收爆發但股價尚未反應模型",
             "pdf_core_model",
             "signal_date_next_open",
-            "營收YoY或累計YoY強，且股價仍在近20/23日區間上下5%內。",
-            "接近平台突破、TDCC溫和增加、EPS/毛利確認、新聞或轉型題材加分。",
-            "不可只因尚未突破就否決。",
-            "隔日開盤為進場原點；等待營收題材轉成量價或籌碼確認，跌破盤整下緣則退出觀察。",
+            "營收YoY或累計YoY強，且目前股價位於23日盤整區間內。",
+            "接近平台突破、TDCC溫和增加、EPS/毛利確認、新聞利多或轉型題材可加分。",
+            "不得只因尚未突破否決；但營收未經獲利品質確認時應降低排名或標示風險。",
+            "用來尋找營收已改善但價格尚未完全反應的股票；突破平台或量價轉強是後續加碼/確認條件。",
             cond_revenue_unreacted,
             model_score_common,
         ),
@@ -852,22 +1309,22 @@ def build_specs() -> list[ModelSpec]:
             "W底右側模型",
             "pdf_core_model",
             "signal_date_next_open",
-            "W底成立且右側低點墊高。",
-            "第二段攻擊量大於第一段、紅K比例提高、TDCC改善、接近頸線加分。",
-            "不與嚴格突破混成同一條件。",
-            "隔日開盤為進場原點；右側低點不可跌破，接近頸線後需放量確認。",
+            "W底幾何成立，右側低點墊高但不能高太多，且接近頸線。",
+            "第二段攻擊量大於第一段、第二段紅K比例提高、TDCC改善、接近頸線、低位階可加分。",
+            "已確認突破或左低右高過大者不可歸為W底；那更像趨勢回檔或突破後整理。",
+            "用於提前觀察頸線突破前的右側型態；突破頸線且量價確認後才升級為突破類。",
             cond_w_bottom_right,
             score_w_bottom,
         ),
         ModelSpec(
             "near_high_neckline_challenge",
-            "接近前高/頸線挑戰模型",
+            "接近前高 / 頸線挑戰模型",
             "pdf_core_model",
             "signal_date_next_open",
-            "距前高/頸線0%到5%，量能開始放大，均線轉正。",
-            "越接近頸線、TDCC/權證越好、成交量溫和放大加分。",
-            "用途是提前抓突破前1到5日，不要求已突破。",
-            "隔日開盤為進場原點；若放量突破前高/頸線且收盤不跌回，優先度提高。",
+            "距前高或頸線0%到5%，量能開始放大，均線轉正。",
+            "提前1到5日抓突破前觀察；TDCC、權證、族群、量能擴張可加分。",
+            "已有效突破者不應留在本模型，應移至帶量突破或嚴格突破。",
+            "用於觀察即將挑戰壓力的股票；若隔日突破且收盤站上，轉入突破模型。",
             cond_neckline_challenge,
             model_score_common,
         ),
@@ -876,10 +1333,10 @@ def build_specs() -> list[ModelSpec]:
             "平台整理轉強模型",
             "pdf_core_model",
             "signal_date_next_open",
-            "盤整區間形成、波動收斂、接近上緣、量能回升且出現帶量實體紅K。",
-            "盤整時間長、回測不破、TDCC溫和增加加分。",
-            "不以未突破60日高點否決。",
-            "隔日開盤為進場原點；守住平台上緣或回測不破才續看，跌回區間內則降級。",
+            "盤整區間形成、波動收斂、接近上緣、量能回升，且出現帶量實體紅K。",
+            "盤整時間長、回測不破、TDCC溫和增加、族群同步轉強可加分。",
+            "已明確突破者不應留在平台整理轉強，應改歸帶量突破。",
+            "用於平台內轉強觀察；突破上緣後才轉入突破模型。",
             cond_platform_strength,
             model_score_common,
         ),
@@ -888,10 +1345,10 @@ def build_specs() -> list[ModelSpec]:
             "回檔後短線轉強模型",
             "pdf_core_model",
             "signal_date_next_open",
-            "前面有漲勢，回檔未破結構，重新站回23EMA或短均結構轉強。",
-            "回檔量縮、再攻量增、MACD/KD轉強、TDCC/權證加分。",
-            "不以還沒創高否決。",
-            "隔日開盤為進場原點；重新站回23EMA後不可快速跌回，量價續強才保留。",
+            "前面有漲勢，回檔未破結構，重新站回23EMA。",
+            "回檔量縮、再攻量增、MACD/KD轉強、TDCC或權證支持可加分。",
+            "結構已破壞者不得納入。",
+            "用於抓回檔後恢復動能的股票；若再跌破23EMA且站不回需退出/降風險。",
             cond_pullback_short_strength,
             model_score_common,
         ),
@@ -900,15 +1357,14 @@ def build_specs() -> list[ModelSpec]:
             "TDCC潛伏吸籌模型",
             "pdf_core_model",
             "signal_date_next_open",
-            "TDCC連續或溫和增加，股價尚未大漲，且股價仍在近20/23日區間上下10%內；優先tdcc_leading_price。",
-            "高級距同步增加、族群擴散、TDCC/權證正向加分。",
-            "排除price_leading_tdcc與overheated_after_tdcc，不混入過熱模型。",
-            "隔日開盤為進場原點；等待價格開始反應且TDCC未轉弱，若股價先過熱則改列短線/風險觀察。",
+            "TDCC連續增加，股價尚未大漲，股價位於近期盤整區間，且屬tdcc_leading_price或近似狀態。",
+            "高級距同步增加、族群也有擴散、TDCC與股價開始確認可加分。",
+            "price_leading_tdcc與overheated_after_tdcc不可混入潛伏吸籌模型。",
+            "用於突破前尋找籌碼先行但價格尚未完全反應的股票；帶量突破後應轉入突破模型。",
             cond_tdcc_stealth,
             model_score_common,
         ),
     ]
-
 
 def build_parameter_table(specs: list[ModelSpec]) -> pd.DataFrame:
     rows = [
@@ -941,7 +1397,7 @@ def build_parameter_table(specs: list[ModelSpec]) -> pd.DataFrame:
             {
                 "model_id": "short_term_surge_d5_d10",
                 "model_name_zh": "短線急漲D+5/D+10模型",
-                "pdf_visibility": "pdf_specialty_section",
+                "pdf_visibility": "research_only_not_pdf_core",
                 "entry_basis": "signal_date_next_open",
                 "main_conditions": "5日或10日漲幅達標、量能擴張、技術動能強。",
                 "add_score_items": "D+1到D+20 close/high統計、處置/注意標籤、TDCC與市場狀態分層。",
@@ -954,10 +1410,10 @@ def build_parameter_table(specs: list[ModelSpec]) -> pd.DataFrame:
                 "model_name_zh": "族群資金輪動模型",
                 "pdf_visibility": "pdf_end_section_theme_only",
                 "entry_basis": "not_stock_entry_signal",
-                "main_conditions": "有族群標籤，且同族群超過1/3股票量比>=3。",
-                "add_score_items": "族群出量比例、出量股票數、龍頭/老二/老三擴散狀態。",
-                "forbidden_veto": "不是個股買進模型，只列族群。",
-                "operation_guidance": "只判斷族群資金是否擴散，不直接產生個股買進結論。",
+                "main_conditions": "有基本族群或熱門族群標籤，且同族群超過1/3股票量比>=3。",
+                "add_score_items": "族群出量比例、出量股票數、15-30日緩慢增量、龍頭/老二/老三擴散狀態。",
+                "forbidden_veto": "不適用；這是族群資金流向預判，不是個股買進模型。",
+                "operation_guidance": "只判斷族群資金是否擴散；同時保留基本族群與熱門族群兩種視角。",
                 "parameter_status": "initial_program_rule_pending_backtest_optimization",
             },
             {
@@ -1006,7 +1462,10 @@ def build_parameter_table(specs: list[ModelSpec]) -> pd.DataFrame:
             },
         ]
     )
-    return pd.DataFrame(rows)
+    out = pd.DataFrame(rows)
+    if not out.empty:
+        out.loc[out["model_id"].eq("short_term_surge_d5_d10"), "pdf_visibility"] = "research_only_not_pdf_core"
+    return out
 
 
 def load_model_recommendations() -> pd.DataFrame:
@@ -1206,6 +1665,12 @@ def update_model_signal_log(signals: pd.DataFrame) -> pd.DataFrame:
     if history.empty:
         merged = current
     else:
+        current_dates = set(current.get("signal_date", pd.Series(dtype=str)).astype(str).tolist())
+        current_dates.discard("")
+        if current_dates and "signal_date" in history.columns:
+            max_current_date = max(current_dates)
+            history = history[history["signal_date"].astype(str) <= max_current_date].copy()
+            history = history[~history["signal_date"].astype(str).isin(current_dates)].copy()
         merged = pd.concat([history, current], ignore_index=True, sort=False)
         merged = merged.drop_duplicates(["signal_date", "report_bucket", "stock_id", "model_id"], keep="last")
     if not merged.empty:
@@ -1324,10 +1789,10 @@ def build_signals(candidates: pd.DataFrame, specs: list[ModelSpec], signal_date:
                         "secondary_themes": text(row, "secondary_themes", "taxonomy_secondary_themes"),
                         "effective_structural_theme_bucket": effective_structural_theme_bucket(row),
                         "effective_mainstream_label": effective_mainstream_label(row),
-                        "report_line_memberships": text(row, "report_line_memberships", "taxonomy_report_line_memberships"),
-                        "mainstream_report_eligible": text(row, "mainstream_report_eligible", "taxonomy_mainstream_report_eligible"),
-                        "non_mainstream_report_eligible": text(row, "non_mainstream_report_eligible", "taxonomy_non_mainstream_report_eligible"),
-                        "dual_report_membership_flag": text(row, "dual_report_membership_flag", "taxonomy_dual_report_membership_flag"),
+                        "report_line_memberships": report_line_memberships_value(row),
+                        "mainstream_report_eligible": mainstream_report_eligible_value(row),
+                        "non_mainstream_report_eligible": non_mainstream_report_eligible_value(row),
+                        "dual_report_membership_flag": dual_report_membership_flag_value(row),
                         "report_bucket": bucket,
                         "model_id": spec.model_id,
                         "model_name_zh": spec.model_name_zh,
@@ -1404,7 +1869,7 @@ def external_report_bucket(volume_row: pd.Series, candidate_row: pd.Series | Non
         return "mainstream"
     if "non_mainstream" in group:
         return "non_mainstream"
-    return "unclassified"
+    return "non_mainstream"
 
 
 def append_volume_breakout_signals(signals: pd.DataFrame, candidates: pd.DataFrame, signal_date: str) -> pd.DataFrame:
@@ -1458,10 +1923,10 @@ def append_volume_breakout_signals(signals: pd.DataFrame, candidates: pd.DataFra
                 "secondary_themes": text(source, "secondary_themes", "taxonomy_secondary_themes"),
                 "effective_structural_theme_bucket": effective_structural_theme_bucket(source),
                 "effective_mainstream_label": effective_mainstream_label(source),
-                "report_line_memberships": text(source, "report_line_memberships", "taxonomy_report_line_memberships"),
-                "mainstream_report_eligible": text(source, "mainstream_report_eligible", "taxonomy_mainstream_report_eligible"),
-                "non_mainstream_report_eligible": text(source, "non_mainstream_report_eligible", "taxonomy_non_mainstream_report_eligible"),
-                "dual_report_membership_flag": text(source, "dual_report_membership_flag", "taxonomy_dual_report_membership_flag"),
+                "report_line_memberships": report_line_memberships_value(source),
+                "mainstream_report_eligible": mainstream_report_eligible_value(source),
+                "non_mainstream_report_eligible": non_mainstream_report_eligible_value(source),
+                "dual_report_membership_flag": dual_report_membership_flag_value(source),
                 "report_bucket": external_report_bucket(row, source),
                 "model_id": "volume_range_breakout",
                 "model_name_zh": "帶量突破模型",
@@ -1503,15 +1968,118 @@ def append_volume_breakout_signals(signals: pd.DataFrame, candidates: pd.DataFra
 
 
 def append_tdcc_short_term(signals: pd.DataFrame, signal_date: str) -> pd.DataFrame:
+    def tdcc_short_term_score(row: pd.Series, source: pd.Series) -> tuple[float, list[str], list[str]]:
+        score = 50.0
+        parts: list[str] = ["base=50"]
+        risks: list[str] = []
+
+        d10_win = to_number(row.get("d10_win_rate_pct", ""))
+        d10_rel = to_number(row.get("d10_avg_relative_return_pct", ""))
+        d5_win = to_number(row.get("d5_win_rate_pct", ""))
+        if not math.isnan(d10_win):
+            add = max(0.0, (d10_win - 50.0) * 0.25)
+            score += add
+            parts.append(f"D+10 win {d10_win:.1f}% +{add:.1f}")
+        if not math.isnan(d10_rel):
+            add = max(-8.0, min(12.0, d10_rel * 0.7))
+            score += add
+            parts.append(f"D+10 rel {d10_rel:.1f}% {add:+.1f}")
+        if not math.isnan(d5_win):
+            add = max(0.0, (d5_win - 50.0) * 0.10)
+            score += add
+            parts.append(f"D+5 win {d5_win:.1f}% +{add:.1f}")
+
+        rule_id = text(row, "rule_id")
+        if "all_thresholds" in rule_id:
+            score += 8
+            parts.append("all_thresholds +8")
+        elif "phase_overheated" in rule_id:
+            score += 4
+            parts.append("phase_overheated +4")
+
+        weeks = num(row, "tdcc_consecutive_up_weeks")
+        if not math.isnan(weeks):
+            if 1 <= weeks <= 3:
+                score += 6
+                parts.append(f"TDCC streak {weeks:.0f}w +6")
+            elif weeks >= 4:
+                score += 3
+                parts.append(f"TDCC streak {weeks:.0f}w +3")
+
+        macd_hist = num(row, "macd_hist")
+        if not math.isnan(macd_hist):
+            if macd_hist > 0:
+                add = 8 if macd_hist >= 5 else 6
+                score += add
+                parts.append(f"MACD hist >0 +{add}")
+            else:
+                score -= 6
+                risks.append("macd_hist_not_positive")
+                parts.append("MACD hist <=0 -6")
+
+        k_value = num(row, "k_value")
+        d_value = num(row, "d_value")
+        if not math.isnan(k_value) and not math.isnan(d_value):
+            if k_value > d_value and k_value < 85:
+                score += 6
+                parts.append("KD bullish not overheated +6")
+            elif k_value >= 90:
+                score -= 5
+                risks.append("kd_overheated")
+                parts.append("KD overheated -5")
+
+        ret_1w = num(row, "price_ret_1w")
+        if not math.isnan(ret_1w):
+            if 10 <= ret_1w <= 30:
+                score += 8
+                parts.append("1W return 10-30 +8")
+            elif ret_1w > 30:
+                score -= 8
+                risks.append("one_week_return_too_extended")
+                parts.append("1W return >30 -8")
+
+        ret_2w = num(row, "price_ret_2w")
+        if not math.isnan(ret_2w):
+            if 20 <= ret_2w <= 50:
+                score += 8
+                parts.append("2W return 20-50 +8")
+            elif ret_2w > 60:
+                score -= 8
+                risks.append("two_week_return_too_extended")
+                parts.append("2W return >60 -8")
+
+        bb_pct = num(row, "bb_width_percentile_120d")
+        if not math.isnan(bb_pct):
+            if bb_pct <= 80:
+                score += 4
+                parts.append("BB width not extreme +4")
+            elif bb_pct >= 95:
+                score -= 3
+                risks.append("bb_width_extreme")
+                parts.append("BB width extreme -3")
+
+        if report_bucket(source) == "mainstream":
+            score += 4
+            parts.append("mainstream +4")
+
+        regime = text(row, "market_regime")
+        if regime == "strong_bull":
+            score += 3
+            parts.append("strong_bull +3")
+        elif regime in {"correction", "high_risk"}:
+            score -= 4
+            risks.append(f"market_regime_{regime}")
+            parts.append(f"{regime} -4")
+
+        return round(clamp(score), 1), parts, risks
+
     rows: list[dict[str, Any]] = []
     df = read_csv(TDCC_EDGE_CANDIDATES, dtype=str, keep_default_na=False)
     if not df.empty:
         for idx, row in df.iterrows():
             stock_id = normalize_code(text(row, "stock_id"))
             source = taxonomy_or_source(stock_id, row)
-            d10 = to_number(row.get("d10_win_rate_pct", ""))
-            d5 = to_number(row.get("d5_win_rate_pct", ""))
-            score = 50 + (0 if math.isnan(d10) else d10 * 0.35) + (0 if math.isnan(d5) else d5 * 0.15)
+            score, score_parts, risk_tags = tdcc_short_term_score(row, source)
             rows.append(
                 {
                     "signal_date": text(row, "signal_date") or signal_date,
@@ -1524,19 +2092,19 @@ def append_tdcc_short_term(signals: pd.DataFrame, signal_date: str) -> pd.DataFr
                     "secondary_themes": text(source, "secondary_themes", "taxonomy_secondary_themes"),
                     "effective_structural_theme_bucket": effective_structural_theme_bucket(source),
                     "effective_mainstream_label": effective_mainstream_label(source),
-                    "report_line_memberships": text(source, "report_line_memberships", "taxonomy_report_line_memberships"),
-                    "mainstream_report_eligible": text(source, "mainstream_report_eligible", "taxonomy_mainstream_report_eligible"),
-                    "non_mainstream_report_eligible": text(source, "non_mainstream_report_eligible", "taxonomy_non_mainstream_report_eligible"),
-                    "dual_report_membership_flag": text(source, "dual_report_membership_flag", "taxonomy_dual_report_membership_flag"),
+                    "report_line_memberships": report_line_memberships_value(source),
+                    "mainstream_report_eligible": mainstream_report_eligible_value(source),
+                    "non_mainstream_report_eligible": non_mainstream_report_eligible_value(source),
+                    "dual_report_membership_flag": dual_report_membership_flag_value(source),
                     "report_bucket": report_bucket(source),
                     "model_id": "tdcc_short_term_continuation_d5_d10",
                     "model_name_zh": "TDCC短線延續模型 D+5/D+10",
                     "model_group": "pdf_specialty_section",
                     "main_condition_met": "True",
                     "entry_basis": "signal_date_next_open",
-                    "model_score": round(clamp(score), 1),
-                    "score_components": f"D+5 win={row.get('d5_win_rate_pct','')} / D+10 win={row.get('d10_win_rate_pct','')}",
-                    "risk_penalty_tags": "",
+                    "model_score": score,
+                    "score_components": " | ".join(score_parts),
+                    "risk_penalty_tags": "|".join(risk_tags),
                     "original_category": "short_term_specialty",
                     "decision_priority": "",
                     "decision_score": "",
@@ -1550,10 +2118,12 @@ def append_tdcc_short_term(signals: pd.DataFrame, signal_date: str) -> pd.DataFr
                     "model_add_score_items": "D+1到D+10 next-open close/high統計、樣本數、相對報酬、market regime分層。",
                     "model_forbidden_veto": "不是低位買進模型，不可混入TDCC潛伏吸籌。",
                     "model_operation_guidance": "隔日開盤為進場原點；依D+1到D+10收盤/最高價統計做短線延續檢查。",
-                    "selection_semantics": "specialty_condition_met_rank_by_backtest_stats",
+                    "selection_semantics": "specialty_condition_met_rank_by_tdcc_short_term_score",
                 }
             )
-    surge = read_csv(WEEKLY_SURGE_CANDIDATES, dtype=str, keep_default_na=False)
+    # Short-term surge is a research/backtest model. It is intentionally kept
+    # out of the daily PDF candidate signal table until its parameters mature.
+    surge = pd.DataFrame()
     if not surge.empty:
         for idx, row in surge.iterrows():
             stock_id = normalize_code(text(row, "stock_id"))
@@ -1573,14 +2143,14 @@ def append_tdcc_short_term(signals: pd.DataFrame, signal_date: str) -> pd.DataFr
                     "secondary_themes": text(source, "secondary_themes", "taxonomy_secondary_themes"),
                     "effective_structural_theme_bucket": effective_structural_theme_bucket(source),
                     "effective_mainstream_label": effective_mainstream_label(source),
-                    "report_line_memberships": text(source, "report_line_memberships", "taxonomy_report_line_memberships"),
-                    "mainstream_report_eligible": text(source, "mainstream_report_eligible", "taxonomy_mainstream_report_eligible"),
-                    "non_mainstream_report_eligible": text(source, "non_mainstream_report_eligible", "taxonomy_non_mainstream_report_eligible"),
-                    "dual_report_membership_flag": text(source, "dual_report_membership_flag", "taxonomy_dual_report_membership_flag"),
+                    "report_line_memberships": report_line_memberships_value(source),
+                    "mainstream_report_eligible": mainstream_report_eligible_value(source),
+                    "non_mainstream_report_eligible": non_mainstream_report_eligible_value(source),
+                    "dual_report_membership_flag": dual_report_membership_flag_value(source),
                     "report_bucket": report_bucket(source),
                     "model_id": "short_term_surge_d5_d10",
                     "model_name_zh": "短線急漲D+5/D+10模型",
-                    "model_group": "pdf_specialty_section",
+                    "model_group": "research_only_not_pdf_core",
                     "main_condition_met": "True",
                     "entry_basis": "signal_date_next_open",
                     "model_score": round(clamp(score), 1),
@@ -1673,61 +2243,199 @@ def build_report_ready_model_signals(signals: pd.DataFrame) -> pd.DataFrame:
     return out.drop(columns=["_bucket_order", "_score_num"], errors="ignore")
 
 
+
 ROTATION_COLUMNS = [
     "signal_date",
+    "rotation_model_id",
+    "rotation_model_name",
     "theme",
     "stock_count",
     "volume_expansion_3x_count",
+    "volume_expansion_1_5x_count",
     "volume_expansion_ratio",
+    "slow_inflow_count",
+    "slow_inflow_ratio",
+    "median_volume_ratio",
+    "median_return_15d",
+    "median_return_30d",
     "leader_1",
     "leader_2",
     "leader_3",
+    "diffusion_status_zh",
+    "interpretation_zh",
     "interpretation",
 ]
 
 
 def build_rotation(candidates: pd.DataFrame, signal_date: str) -> pd.DataFrame:
-    if candidates.empty:
+    taxonomy = read_csv(STOCK_THEME_TAXONOMY, dtype={"stock_id": str})
+    if taxonomy.empty:
         return pd.DataFrame(columns=ROTATION_COLUMNS)
-    work = candidates.copy()
-    work["primary_theme"] = work.apply(primary_theme, axis=1)
-    work["volume_ratio_num"] = pd.to_numeric(work.get("volume_ratio", ""), errors="coerce")
+
+    def rotation_themes(item: pd.Series) -> list[str]:
+        """Return all usable group labels for fund-rotation detection.
+
+        A stock can participate in its basic listed-company industry group and
+        in one or more market-theme groups.  Using only primary_theme hides
+        cases like wire/cable stocks that are part of a broader slow-inflow
+        group but also have a narrower provisional hot theme.
+        """
+        values: list[str] = []
+        for key in (
+            "hot_primary_theme",
+            "primary_theme",
+            "basic_theme",
+            "industry",
+        ):
+            value = safe_str(item.get(key))
+            if value:
+                values.append(value)
+        for key in ("hot_secondary_themes", "secondary_themes"):
+            values.extend(split_tags(safe_str(item.get(key))))
+
+        cleaned: list[str] = []
+        seen: set[str] = set()
+        skip = {"other", "theme_unknown", "unclassified", "needs_manual_review"}
+        for value in values:
+            theme = safe_str(value)
+            if not theme or theme in skip or theme in seen:
+                continue
+            seen.add(theme)
+            cleaned.append(theme)
+        return cleaned
+
+    # Group rotation must evaluate the whole taxonomy universe, not only rows
+    # that already passed another candidate model. This catches slow theme inflow
+    # before all members become individual candidates.
+    rows_for_group: list[dict[str, Any]] = []
+    for _, item in taxonomy.iterrows():
+        stock_id = normalize_code(item.get("stock_id", ""))
+        if not stock_id:
+            continue
+        hist = price_history_for_stock(stock_id)
+        if hist.empty:
+            continue
+        hist = hist[hist["date"].astype(str) <= signal_date].copy()
+        if len(hist) < 35:
+            continue
+        latest = hist.iloc[-1]
+        close = float(latest.get("close", math.nan))
+        vol = float(latest.get("volume", math.nan))
+        vol_ma20 = float(latest.get("volume_ma20", math.nan))
+        if math.isnan(vol_ma20) or vol_ma20 <= 0:
+            vol_ma20 = float(hist["volume"].tail(20).mean())
+        volume_ratio_num = vol / vol_ma20 if vol_ma20 and not math.isnan(vol) else math.nan
+
+        recent15 = hist.tail(15)
+        prev20 = hist.iloc[max(0, len(hist) - 35) : max(0, len(hist) - 15)]
+        recent15_vol = float(recent15["volume"].mean()) if len(recent15) else math.nan
+        prev20_vol = float(prev20["volume"].mean()) if len(prev20) else math.nan
+        slow_volume_ratio = recent15_vol / prev20_vol if prev20_vol and not math.isnan(recent15_vol) else math.nan
+        close_15_ago = float(hist["close"].iloc[-16]) if len(hist) >= 16 else math.nan
+        close_30_ago = float(hist["close"].iloc[-31]) if len(hist) >= 31 else math.nan
+        return_15d = (close / close_15_ago - 1) * 100 if close_15_ago and not math.isnan(close) else math.nan
+        return_30d = (close / close_30_ago - 1) * 100 if close_30_ago and not math.isnan(close) else math.nan
+
+        for theme in rotation_themes(item):
+            rows_for_group.append(
+                {
+                    "stock_id": stock_id,
+                    "stock_name": safe_str(item.get("stock_name")),
+                    "theme": theme,
+                    "volume_ratio_num": volume_ratio_num,
+                    "slow_volume_ratio": slow_volume_ratio,
+                    "return_15d": return_15d,
+                    "return_30d": return_30d,
+                }
+            )
+
+    work = pd.DataFrame(rows_for_group)
+    if work.empty:
+        return pd.DataFrame(columns=ROTATION_COLUMNS)
+    work = work.drop_duplicates(["stock_id", "theme"]).reset_index(drop=True)
     work["is_volume_expansion_3x"] = work["volume_ratio_num"] >= 3
+    work["is_volume_expansion_1_5x"] = work["volume_ratio_num"] >= 1.5
+    work["is_slow_inflow"] = (
+        (work["slow_volume_ratio"] >= 1.15)
+        & (work["return_15d"].fillna(0) >= 0)
+        & (work["return_30d"].fillna(0) >= -5)
+    )
+
     rows: list[dict[str, Any]] = []
-    for theme, part in work.groupby("primary_theme", dropna=False):
+    for theme, part in work.groupby("theme", dropna=False):
         theme_text = safe_str(theme)
-        if not theme_text or theme_text in {"未分類", "theme_unknown", "unclassified"}:
+        if not theme_text or theme_text in {"other", "theme_unknown", "unclassified"}:
             continue
         total = len(part)
         if total < 2:
             continue
         expansion = int(part["is_volume_expansion_3x"].sum())
+        expansion_15 = int(part["is_volume_expansion_1_5x"].sum())
         ratio = expansion / total if total else 0
-        if ratio < 1 / 3:
+        slow_count = int(part["is_slow_inflow"].sum())
+        slow_ratio = slow_count / total if total else 0
+        median_volume_ratio = float(part["volume_ratio_num"].median(skipna=True))
+        median_return_15d = float(part["return_15d"].median(skipna=True))
+        median_return_30d = float(part["return_30d"].median(skipna=True))
+
+        launch_ok = ratio >= 1 / 3
+        slow_ok = total >= 3 and slow_ratio >= 1 / 3 and expansion_15 >= max(1, math.ceil(total * 0.2))
+        if not launch_ok and not slow_ok:
             continue
-        leaders = (
-            part.sort_values("volume_ratio_num", ascending=False)
-            .head(3)[["stock_id", "stock_name", "volume_ratio_num"]]
-            .fillna("")
-            .to_dict("records")
-        )
-        rows.append(
-            {
-                "signal_date": signal_date,
-                "theme": theme,
-                "stock_count": total,
-                "volume_expansion_3x_count": expansion,
-                "volume_expansion_ratio": round(ratio, 4),
-                "leader_1": f"{leaders[0].get('stock_id','')} {leaders[0].get('stock_name','')}" if len(leaders) > 0 else "",
-                "leader_2": f"{leaders[1].get('stock_id','')} {leaders[1].get('stock_name','')}" if len(leaders) > 1 else "",
-                "leader_3": f"{leaders[2].get('stock_id','')} {leaders[2].get('stock_name','')}" if len(leaders) > 2 else "",
-                "interpretation": "族群資金輪動觀察；不是個股買進模型。",
-            }
-        )
+
+        def add_row(model_id: str, model_name: str, diffusion_status: str, interpretation: str) -> None:
+            leaders = (
+                part.sort_values("volume_ratio_num", ascending=False)
+                .head(3)[["stock_id", "stock_name", "volume_ratio_num"]]
+                .fillna("")
+                .to_dict("records")
+            )
+            rows.append(
+                {
+                    "signal_date": signal_date,
+                    "rotation_model_id": model_id,
+                    "rotation_model_name": model_name,
+                    "theme": theme,
+                    "stock_count": total,
+                    "volume_expansion_3x_count": expansion,
+                    "volume_expansion_1_5x_count": expansion_15,
+                    "volume_expansion_ratio": round(ratio, 4),
+                    "slow_inflow_count": slow_count,
+                    "slow_inflow_ratio": round(slow_ratio, 4),
+                    "median_volume_ratio": round(median_volume_ratio, 4) if not math.isnan(median_volume_ratio) else "",
+                    "median_return_15d": round(median_return_15d, 4) if not math.isnan(median_return_15d) else "",
+                    "median_return_30d": round(median_return_30d, 4) if not math.isnan(median_return_30d) else "",
+                    "leader_1": f"{leaders[0].get('stock_id','')} {leaders[0].get('stock_name','')}" if len(leaders) > 0 else "",
+                    "leader_2": f"{leaders[1].get('stock_id','')} {leaders[1].get('stock_name','')}" if len(leaders) > 1 else "",
+                    "leader_3": f"{leaders[2].get('stock_id','')} {leaders[2].get('stock_name','')}" if len(leaders) > 2 else "",
+                    "diffusion_status_zh": diffusion_status,
+                    "interpretation_zh": interpretation,
+                    "interpretation": interpretation,
+                }
+            )
+
+        if launch_ok:
+            add_row(
+                "group_fund_rotation_launch",
+                "\u65cf\u7fa4\u8cc7\u91d1\u767c\u52d5\u578b",
+                "\u540c\u6b65\u51fa\u91cf",
+                "\u540c\u65cf\u7fa4\u8d85\u904e\u4e09\u5206\u4e4b\u4e00\u6210\u54e1\u91cf\u6bd4\u5927\u65bc\u7b49\u65bc3\uff0c\u5c6c\u65bc\u8cc7\u91d1\u540c\u6b65\u767c\u52d5\u89c0\u5bdf\u3002",
+            )
+        if slow_ok:
+            add_row(
+                "group_slow_inflow_rotation",
+                "\u65cf\u7fa4\u6162\u901f\u8cc7\u91d1\u9032\u5165\u578b",
+                "\u6162\u901f\u9032\u5834",
+                "15\u65e5\u91cf\u80fd\u76f8\u5c0d\u524d\u6bb5\u653e\u5927\u4e14\u65cf\u7fa4\u5167\u591a\u6a94\u6b63\u5831\u916c\uff0c\u5c6c\u65bc\u8cc7\u91d1\u7de9\u6162\u9032\u5834\u89c0\u5bdf\uff1b\u9700\u7b49\u500b\u80a1\u6a21\u578b\u89f8\u767c\u624d\u80fd\u6210\u70ba\u9032\u5834\u4f9d\u64da\u3002",
+            )
+
     out = pd.DataFrame(rows)
     if out.empty:
         return pd.DataFrame(columns=ROTATION_COLUMNS)
-    return out.sort_values(["volume_expansion_ratio", "volume_expansion_3x_count", "theme"], ascending=[False, False, True]).reset_index(drop=True)
+    return out.sort_values(
+        ["rotation_model_id", "volume_expansion_ratio", "slow_inflow_ratio", "volume_expansion_3x_count", "theme"],
+        ascending=[True, False, False, False, True],
+    ).reset_index(drop=True)
 
 
 def write_md_table(path: Path, title: str, df: pd.DataFrame, intro: list[str] | None = None, limit: int = 80) -> None:
@@ -1791,17 +2499,17 @@ def write_packet(
     else:
         cols = [
             "frontpage_unique_rank",
-            "report_bucket",
+            "report_bucket_zh",
             "stock_id",
             "stock_name",
-            "effective_primary_theme",
+            "effective_primary_theme_zh",
             "primary_model_name_zh",
             "primary_model_score",
             "model_hit_count",
             "model_hits",
             "same_model_repeat_status",
             "same_model_consecutive_days",
-            "risk_penalty_tags",
+            "risk_tags_zh",
             "next_confirmation",
         ]
         available_cols = [col for col in cols if col in frontpage_unique.columns]
@@ -1812,7 +2520,7 @@ def write_packet(
     else:
         cols = [
             "same_model_repeat_rank",
-            "report_bucket",
+            "report_bucket_zh",
             "model_id",
             "model_name_zh",
             "stock_id",
@@ -1821,7 +2529,7 @@ def write_packet(
             "same_model_appear_count_5d",
             "same_model_appear_count_10d",
             "model_score",
-            "effective_primary_theme",
+            "effective_primary_theme_zh",
             "next_confirmation",
         ]
         available_cols = [col for col in cols if col in same_model_repeat.columns]
@@ -1836,8 +2544,13 @@ def write_packet(
 
 def main() -> int:
     LATEST_DIR.mkdir(parents=True, exist_ok=True)
-    signal_date = main_price_date_from_freshness()
+    preferred_date = main_price_date_from_freshness()
     candidates = read_csv(ALL_CANDIDATES, dtype=str, keep_default_na=False)
+    signal_date, date_notes = resolve_candidate_signal_date(candidates, preferred_date)
+    if not signal_date:
+        signal_date = preferred_date
+    for note in date_notes:
+        print(f"date_note: {note}")
     specs = build_specs()
     recommendations = load_model_recommendations()
     params = build_parameter_table(specs)
@@ -1864,11 +2577,17 @@ def main() -> int:
     signals = append_volume_breakout_signals(signals, candidates, signal_date)
     signals = append_tdcc_short_term(signals, signal_date)
     signals = attach_model_recommendations(signals, recommendations)
+    signals = apply_display_columns(signals)
     report_signals = build_report_ready_model_signals(signals)
     model_log = update_model_signal_log(report_signals)
     report_signals, same_model_repeat = attach_same_model_repeat(report_signals, model_log)
     report_signals = annotate_frontpage_uniqueness(report_signals)
+    report_signals = apply_display_columns(report_signals)
+    report_signals = attach_report_contract_columns(report_signals)
+    report_signals = apply_display_columns(report_signals)
+    same_model_repeat = apply_display_columns(same_model_repeat)
     frontpage_unique = build_frontpage_unique(report_signals)
+    frontpage_unique = apply_display_columns(frontpage_unique)
     write_csv(signals, SIGNALS_CSV)
     write_md_table(
         SIGNALS_MD,

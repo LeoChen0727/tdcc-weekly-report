@@ -1,0 +1,53 @@
+{
+  "status": "pass",
+  "errors": [],
+  "warnings": [],
+  "details": {
+    "main_price_date": "20260529",
+    "readme_main_price_date": "20260529",
+    "readme_report_ready": "True",
+    "readme_index_main_price_date": "20260529",
+    "readme_index_report_ready": "True",
+    "model_signal_rows": 773,
+    "raw_model_signal_rows": 773,
+    "volume_watch_rows": 315,
+    "volume_theme_stock_rows": 315,
+    "group_rotation_rows": 14,
+    "taxonomy_rows": 2375,
+    "taxonomy_template_csv_rows": 2375,
+    "taxonomy_template_xlsx_rows": 2375,
+    "docs_taxonomy_template_csv_rows": 2375,
+    "docs_taxonomy_template_xlsx_rows": 2375,
+    "missing_required_model_columns": [],
+    "blank_required_model_columns": {},
+    "model_signal_dates": [
+      "20260529"
+    ],
+    "same_model_report_duplicates": 0,
+    "model_signal_unreadable_text": {},
+    "missing_model_display_columns": [],
+    "model_signal_display_unreadable_text": {},
+    "model_signal_display_raw_slug_rows": {},
+    "model_signal_third_bucket_rows": {},
+    "model_signal_main_condition_not_true_rows": 0,
+    "raw_model_signal_dates": [
+      "20260529"
+    ],
+    "missing_volume_columns": [],
+    "volume_signal_dates": [
+      "20260529"
+    ],
+    "volume_theme_other_rows": 0,
+    "group_rotation_invalid_models": [],
+    "group_rotation_slow_rows": 14,
+    "group_rotation_launch_rows": 0,
+    "missing_required_taxonomy_columns": [],
+    "taxonomy_unresolved_basic_theme_rows": 0,
+    "taxonomy_unresolved_primary_theme_rows": 0,
+    "taxonomy_third_bucket_rows": {},
+    "taxonomy_blank_required_columns": {},
+    "taxonomy_sanity_errors": [],
+    "taxonomy_template_missing_columns": [],
+    "docs_taxonomy_template_missing_columns": []
+  }
+}

@@ -77,6 +77,9 @@ TASK READ ORDER
 - Mainstream and non-mainstream are report splits and comparison groups only. They must not cap score, veto a model signal, or remove a stock from the model list.
 - Do not hard-code the number of models in the PDF. Render all program-side model rows available that day. Curated PDFs show the top rows per model/bucket; full PDFs keep the complete model list.
 - If repo PDF, memory, temporary interpretation, and program-side fields conflict, program-side structured data / packet / CSV fields win.
+- PDF tables must prefer program-side Chinese display columns when present:
+  model_name_zh, source_category_zh, report_bucket_zh, effective_primary_theme_zh, effective_structural_theme_bucket_zh, tdcc_status_zh, warrant_flow_signal_zh, risk_tags_zh, score_components_zh, merged_source_categories_zh, merged_risk_penalty_tags_zh.
+- Do not print raw English slug columns in investor-facing PDF tables when a *_zh display column exists. If a required Chinese display value is missing, print `欄位尚未完成` rather than the raw slug.
 
 READING RULES
 - First read READ_ME_FIRST_DAILY_REPORT.txt.

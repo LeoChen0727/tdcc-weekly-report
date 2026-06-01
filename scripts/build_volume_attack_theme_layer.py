@@ -24,6 +24,7 @@ VOLUME_WATCH_CSV = LATEST_DIR / "volume_breakout_watch_latest.csv"
 ALL_CANDIDATES_CSV = LATEST_DIR / "all_candidates_latest.csv"
 THEME_LEADERSHIP_CSV = LATEST_DIR / "daily_theme_leadership_latest.csv"
 TWO_LINE_VIEW_CSV = LATEST_DIR / "daily_candidate_two_line_view_latest.csv"
+STOCK_THEME_TAXONOMY_CSV = LATEST_DIR / "stock_theme_taxonomy_latest.csv"
 
 THEME_LAYER_CSV = LATEST_DIR / "volume_attack_theme_layer_latest.csv"
 THEME_LAYER_MD = LATEST_DIR / "volume_attack_theme_layer_latest.md"
@@ -38,7 +39,19 @@ DOCS_STOCK_LAYER_MD = DOCS_LATEST_DIR / STOCK_LAYER_MD.name
 MAINSTREAM_STATUSES = {"mainstream_leader", "mainstream_follow_through", "emerging_theme"}
 RISK_THEME_STATUSES = {"weak_theme", "mainstream_overheated"}
 GENERIC_THEME_VALUES = {"", "other", "unknown", "nan", "none", "mainstream_growth", "unclassified", "twse", "tpex"}
-THEME_NAME_COLUMNS = ["theme_name", "蝝啣??黎", "sub_theme", "sector", "industry", "concept", "theme_group"]
+THEME_NAME_COLUMNS = [
+    "theme_name",
+    "primary_theme",
+    "hot_primary_theme",
+    "effective_primary_theme",
+    "basic_theme",
+    "????",
+    "sub_theme",
+    "sector",
+    "industry",
+    "concept",
+    "theme_group",
+]
 
 SELECTED_TYPES = {"strict_60d_volume_breakout", "platform_volume_breakout", "neckline_volume_breakout"}
 WATCH_TYPES = {
@@ -165,13 +178,20 @@ def build_lookup_by_stock(df: pd.DataFrame) -> dict[str, dict[str, Any]]:
     return lookup
 
 
-def enrich_stocks(watch: pd.DataFrame, theme_df: pd.DataFrame, two_line: pd.DataFrame, candidates: pd.DataFrame) -> pd.DataFrame:
+def enrich_stocks(
+    watch: pd.DataFrame,
+    theme_df: pd.DataFrame,
+    two_line: pd.DataFrame,
+    candidates: pd.DataFrame,
+    taxonomy: pd.DataFrame,
+) -> pd.DataFrame:
     if watch.empty:
         return pd.DataFrame()
 
     theme_lookup = build_lookup_by_theme(theme_df)
     two_line_lookup = build_lookup_by_stock(two_line)
     candidate_lookup = build_lookup_by_stock(candidates)
+    taxonomy_lookup = build_lookup_by_stock(taxonomy)
     rows: list[dict[str, Any]] = []
 
     for _, row in watch.iterrows():
@@ -181,11 +201,22 @@ def enrich_stocks(watch: pd.DataFrame, theme_df: pd.DataFrame, two_line: pd.Data
         theme_info = theme_lookup.get(theme_name, {})
         stock_info = two_line_lookup.get(stock_id, {})
         candidate_info = candidate_lookup.get(stock_id, {})
+        taxonomy_info = taxonomy_lookup.get(stock_id, {})
 
+        if theme_name == "other":
+            taxonomy_theme = theme_name_of(pd.Series(taxonomy_info)) if taxonomy_info else ""
+            if taxonomy_theme and taxonomy_theme != "other":
+                theme_name = taxonomy_theme
+                theme_info = theme_lookup.get(theme_name, {})
         if theme_name == "other":
             candidate_theme = theme_name_of(pd.Series(candidate_info)) if candidate_info else ""
             if candidate_theme and candidate_theme != "other":
                 theme_name = candidate_theme
+                theme_info = theme_lookup.get(theme_name, {})
+        if not theme_info and taxonomy_info:
+            taxonomy_theme = theme_name_of(pd.Series(taxonomy_info))
+            if taxonomy_theme and taxonomy_theme != "other":
+                theme_name = taxonomy_theme
                 theme_info = theme_lookup.get(theme_name, {})
         if not theme_info and stock_info:
             stock_theme = theme_name_of(pd.Series(stock_info))
@@ -206,12 +237,15 @@ def enrich_stocks(watch: pd.DataFrame, theme_df: pd.DataFrame, two_line: pd.Data
         )
         theme_structural_status = normalize_status(
             theme_info.get("theme_structural_status")
+            or taxonomy_info.get("theme_structural_status")
             or stock_info.get("theme_structural_status")
             or candidate_info.get("theme_structural_status")
             or source.get("theme_structural_status")
         )
         theme_mainstream_label = normalize_status(
             theme_info.get("theme_mainstream_label")
+            or taxonomy_info.get("theme_mainstream_label")
+            or taxonomy_info.get("effective_mainstream_label")
             or stock_info.get("theme_mainstream_label")
             or candidate_info.get("theme_mainstream_label")
             or source.get("theme_mainstream_label")
@@ -515,12 +549,13 @@ def main() -> int:
     candidates = read_csv(ALL_CANDIDATES_CSV, dtype=str, keep_default_na=False)
     theme_df = read_csv(THEME_LEADERSHIP_CSV, dtype=str, keep_default_na=False)
     two_line = read_csv(TWO_LINE_VIEW_CSV, dtype=str, keep_default_na=False)
+    taxonomy = read_csv(STOCK_THEME_TAXONOMY_CSV, dtype=str, keep_default_na=False)
 
     if watch.empty:
         stock_layer = pd.DataFrame()
         theme_layer = pd.DataFrame()
     else:
-        stock_layer = enrich_stocks(watch, theme_df, two_line, candidates)
+        stock_layer = enrich_stocks(watch, theme_df, two_line, candidates, taxonomy)
         theme_layer = build_theme_layer(stock_layer)
         stock_layer = apply_theme_status_to_stocks(stock_layer, theme_layer)
 

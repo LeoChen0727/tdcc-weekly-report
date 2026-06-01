@@ -675,6 +675,33 @@ def provisional_industry_rule(industry: str) -> tuple[str, str, str] | None:
     return None
 
 
+MISSING_INDUSTRY_FALLBACKS: dict[str, tuple[str, str, str, str]] = {
+    # A few valid listed/TPEX names can miss the upstream industry snapshot.
+    # Keep them explicit so the daily reports do not leak an unclassified bucket.
+    "0200": ("\u6307\u6578/ETF/ETN\u5546\u54c1", "\u6307\u6578/ETF/ETN\u5546\u54c1", "non_mainstream_theme", "non_mainstream"),
+    "2809": ("\u91d1\u878d\u4fdd\u96aa\u696d", "\u91d1\u878d\u4fdd\u96aa\u696d", "non_mainstream_theme", "non_mainstream"),
+    "2888": ("\u91d1\u878d\u4fdd\u96aa\u696d", "\u91d1\u878d\u4fdd\u96aa\u696d", "non_mainstream_theme", "non_mainstream"),
+    "3454": ("\u5149\u96fb\u696d", "\u5b89\u63a7/\u667a\u6167\u5f71\u50cf", "non_mainstream_theme", "non_mainstream"),
+    "4987": ("\u96fb\u8166\u53ca\u9031\u908a\u8a2d\u5099\u696d", "\u96fb\u8166\u53ca\u9031\u908a\u8a2d\u5099\u696d", "non_mainstream_theme", "non_mainstream"),
+    "6288": ("\u6c7d\u8eca\u5de5\u696d", "\u6c7d\u8eca\u96f6\u7d44\u4ef6", "non_mainstream_theme", "non_mainstream"),
+    "6747": ("\u751f\u6280\u91ab\u7642\u696d", "\u751f\u6280\u91ab\u7642\u696d", "non_mainstream_theme", "non_mainstream"),
+}
+
+
+def missing_industry_fallback(stock_id: str, stock_name: str) -> tuple[str, str, str, str] | None:
+    code = normalize_code(stock_id)
+    name = compact_text(stock_name)
+    if code in MISSING_INDUSTRY_FALLBACKS:
+        return MISSING_INDUSTRY_FALLBACKS[code]
+    if code.startswith("00"):
+        theme = "\u6307\u6578/ETF/ETN\u5546\u54c1"
+        return theme, theme, "non_mainstream_theme", "non_mainstream"
+    if code.startswith("7") or any(token in name for token in ["\u8cfc", "\u552e", "\u725b", "\u718a"]):
+        theme = "\u6b0a\u8b49/\u884d\u751f\u5546\u54c1"
+        return theme, theme, "non_mainstream_theme", "non_mainstream"
+    return None
+
+
 def infer_bucket(primary_theme: str, secondary_themes: str, industry: str, fallback: str = "") -> str:
     if compact_text(fallback):
         return compact_text(fallback)
@@ -727,7 +754,13 @@ def infer_industry_mainstream_label(industry: str) -> str:
 
 
 def effective_mainstream_label(theme_label: str, industry_label: str) -> str:
-    """Report routing uses theme first, then industry only as fallback."""
+    """Report routing uses theme first, then industry only as fallback.
+
+    Anything still unresolved is routed to non-mainstream instead of a third
+    "unknown" report bucket. Manual review can still improve the theme labels,
+    but the daily reports must not drop these stocks from both mainstream and
+    non-mainstream views.
+    """
     theme = normalize_mainstream(theme_label)
     industry = normalize_mainstream(industry_label)
     if theme == "both":
@@ -736,7 +769,7 @@ def effective_mainstream_label(theme_label: str, industry_label: str) -> str:
         return theme
     if industry in {"core_mainstream", "non_mainstream"}:
         return industry
-    return "theme_unknown"
+    return "non_mainstream"
 
 
 def mainstream_conflict_note(industry_label: str, theme_label: str, effective_label: str) -> tuple[str, str]:
@@ -769,7 +802,7 @@ def report_membership_fields(industry_label: str, theme_label: str, effective_la
     if "non_mainstream" in labels.values():
         memberships.append("non_mainstream")
     if not memberships:
-        memberships.append("theme_unknown")
+        memberships.append("non_mainstream")
     memberships = list(dict.fromkeys(memberships))
     mainstream = "mainstream" in memberships
     non_mainstream = "non_mainstream" in memberships
@@ -780,7 +813,7 @@ def report_membership_fields(industry_label: str, theme_label: str, effective_la
     elif non_mainstream:
         note = "non_mainstream_section"
     else:
-        note = "theme_unknown_section"
+        note = "non_mainstream_section"
     return {
         "report_line_memberships": "|".join(memberships),
         "mainstream_report_eligible": "True" if mainstream else "False",
@@ -962,7 +995,14 @@ def load_manual() -> pd.DataFrame:
             "\u80a1\u7968\u4ee3\u865f": "stock_id",
             "\u80a1\u7968\u540d\u7a31": "stock_name",
             "\u4e0a\u5e02\u6ac3\u7522\u696d": "industry",
+            "\u57fa\u672c\u65cf\u7fa4": "basic_theme",
+            "\u57fa\u790e\u65cf\u7fa4": "basic_theme",
             "\u4e3b\u6d41/\u975e\u4e3b\u6d41": "theme_mainstream_label",
+            "\u71b1\u9580\u65cf\u7fa41": "primary_theme",
+            "\u71b1\u9580\u65cf\u7fa42": "theme_2",
+            "\u71b1\u9580\u65cf\u7fa43": "theme_3",
+            "\u71b1\u9580\u65cf\u7fa44": "theme_4",
+            "\u71b1\u9580\u65cf\u7fa45": "theme_5",
             "\u65cf\u7fa41": "primary_theme",
             "\u65cf\u7fa42": "theme_2",
             "\u65cf\u7fa43": "theme_3",
@@ -1022,6 +1062,7 @@ def build_taxonomy() -> pd.DataFrame:
                 "stock_id",
                 "stock_name",
                 "industry",
+                "basic_theme",
                 "theme_mainstream_label",
                 "primary_theme",
                 "secondary_themes",
@@ -1049,6 +1090,8 @@ def build_taxonomy() -> pd.DataFrame:
                 "primary_theme",
                 "theme_2",
                 "theme_3",
+                "theme_4",
+                "theme_5",
                 "secondary_themes",
                 "structural_theme_bucket",
                 "notes",
@@ -1067,23 +1110,34 @@ def build_taxonomy() -> pd.DataFrame:
             or compact_text(row.get("default_stock_name", ""))
         )
         industry = compact_text(row.get("manual_industry", "")) or compact_text(row.get("industry", "")) or compact_text(row.get("default_industry", ""))
+        manual_basic = compact_text(row.get("manual_basic_theme", ""))
         manual_primary = compact_text(row.get("manual_primary_theme", ""))
         authorized_primary = compact_text(row.get("authorized_primary_theme", ""))
         default_primary = compact_text(row.get("default_primary_theme", ""))
         provisional = provisional_industry_rule(industry)
         provisional_primary = provisional[0] if provisional else ""
-        if stock_id.startswith("00") and not provisional:
-            provisional = ("ETF_or_index_product", "non_mainstream_theme", "non_mainstream")
+        missing_fallback = missing_industry_fallback(stock_id, stock_name) if not industry else None
+        if missing_fallback and not provisional:
+            fallback_basic, fallback_primary, fallback_bucket, fallback_mainstream = missing_fallback
+            industry = industry or fallback_basic
+            provisional = (fallback_primary, fallback_bucket, fallback_mainstream)
             provisional_primary = provisional[0]
         primary = manual_primary or authorized_primary or default_primary or provisional_primary or industry
+        basic_theme = manual_basic or industry or provisional_primary or primary or "\u666e\u901a\u80a1_\u5f85\u88dc\u5b98\u65b9\u7522\u696d"
         secondary_list = split_themes(
             row.get("manual_theme_2", ""),
             row.get("manual_theme_3", ""),
+            row.get("manual_theme_4", ""),
+            row.get("manual_theme_5", ""),
             row.get("manual_secondary_themes", ""),
             row.get("authorized_secondary_themes", ""),
             row.get("default_secondary_themes", ""),
         )
         secondary = ";".join([item for item in secondary_list if item != primary])
+        hot_theme_list = split_themes(manual_primary or authorized_primary or default_primary, secondary)
+        hot_primary = hot_theme_list[0] if hot_theme_list else ""
+        hot_secondary = ";".join(hot_theme_list[1:]) if len(hot_theme_list) > 1 else ""
+        has_hot_theme = "True" if hot_theme_list else "False"
         bucket = infer_bucket(
             primary,
             secondary,
@@ -1099,12 +1153,12 @@ def build_taxonomy() -> pd.DataFrame:
         effective_mainstream = effective_mainstream_label(mainstream, industry_mainstream)
         conflict_flag, conflict_note = mainstream_conflict_note(industry_mainstream, mainstream, effective_mainstream)
         membership = report_membership_fields(industry_mainstream, mainstream, effective_mainstream)
-        if any(compact_text(row.get(col, "")) for col in ["manual_primary_theme", "manual_theme_mainstream_label", "manual_theme_2", "manual_theme_3"]):
+        if any(compact_text(row.get(col, "")) for col in ["manual_basic_theme", "manual_primary_theme", "manual_theme_mainstream_label", "manual_theme_2", "manual_theme_3", "manual_theme_4", "manual_theme_5"]):
             source = "manual_override"
         elif any(compact_text(row.get(col, "")) for col in ["authorized_primary_theme", "authorized_theme_mainstream_label", "authorized_structural_theme_bucket"]):
             source = "authorized_seed"
         elif provisional:
-            source = "provisional_industry_theme"
+            source = "missing_industry_fallback" if missing_fallback else "provisional_industry_theme"
         else:
             source = "default_theme_map" if default_primary else "industry_default"
         confidence = "high" if source in {"manual_override", "authorized_seed"} else ("medium" if source == "default_theme_map" else "low")
@@ -1128,6 +1182,10 @@ def build_taxonomy() -> pd.DataFrame:
                 "stock_name": stock_name,
                 "industry": industry,
                 "industry_source": compact_text(row.get("industry_source", "")),
+                "basic_theme": basic_theme,
+                "hot_primary_theme": hot_primary,
+                "hot_secondary_themes": hot_secondary,
+                "has_hot_theme": has_hot_theme,
                 "primary_theme": primary,
                 "secondary_themes": secondary,
                 "structural_theme_bucket": bucket,
@@ -1149,75 +1207,31 @@ def build_taxonomy() -> pd.DataFrame:
 
 
 def build_template(taxonomy: pd.DataFrame, rows_per_sheet: int = 500) -> pd.DataFrame:
-    label_map = {"core_mainstream": "??", "non_mainstream": "???", "theme_unknown": ""}
-    template = pd.DataFrame(
-        {
-            "????": taxonomy["stock_id"],
-            "????": taxonomy["stock_name"],
-            "????": taxonomy["industry"],
-            "??/???": taxonomy["effective_mainstream_label"].map(label_map).fillna(""),
-            "????1": taxonomy["primary_theme"],
-            "??2": taxonomy["secondary_themes"].map(lambda x: split_themes(x)[0] if split_themes(x) else ""),
-            "??3": taxonomy["secondary_themes"].map(lambda x: split_themes(x)[1] if len(split_themes(x)) > 1 else ""),
-            "?????": taxonomy["industry_mainstream_label"].map(label_map).fillna(""),
-            "????": taxonomy["theme_mainstream_label"].map(label_map).fillna(""),
-            "??????": taxonomy["effective_mainstream_label"].map(label_map).fillna(""),
-            "????": taxonomy["mainstream_conflict_flag"].map({"True": "?", "False": ""}).fillna(""),
-            "report_line_memberships": taxonomy["report_line_memberships"],
-            "mainstream_report_eligible": taxonomy["mainstream_report_eligible"],
-            "non_mainstream_report_eligible": taxonomy["non_mainstream_report_eligible"],
-            "??": taxonomy["notes"],
-        }
-    )
-    write_csv(template, TEMPLATE_CSV)
-    DOCS_LATEST_DIR.mkdir(parents=True, exist_ok=True)
-    write_csv(template, DOCS_TEMPLATE_CSV)
-
-    with pd.ExcelWriter(TEMPLATE_XLSX, engine="openpyxl") as writer:
-        instructions = pd.DataFrame(
-            [
-                {"??": "??/???", "??": "?????????????????????????????"},
-                {"??": "????1", "??": "????????????????????????????????"},
-                {"??": "??2/??3", "??": "???????????????????"},
-                {"??": "?????/????/??????/????", "??": "??????????????????????????????"},
-                {"??": "??", "??": "??????????????"},
-            ]
-        )
-        instructions.to_excel(writer, index=False, sheet_name="instructions")
-        for start in range(0, len(template), rows_per_sheet):
-            sheet = f"stocks_{start + 1:04d}_{min(start + rows_per_sheet, len(template)):04d}"
-            template.iloc[start : start + rows_per_sheet].to_excel(writer, index=False, sheet_name=sheet)
-        workbook = writer.book
-        for ws in workbook.worksheets:
-            ws.freeze_panes = "A2"
-            for col in ws.columns:
-                letter = col[0].column_letter
-                ws.column_dimensions[letter].width = 18 if letter not in {"E", "F", "G", "H", "I", "J", "K", "L"} else 24
-    DOCS_TEMPLATE_XLSX.write_bytes(TEMPLATE_XLSX.read_bytes())
-    return template
-
-
-def build_template(taxonomy: pd.DataFrame, rows_per_sheet: int = 500) -> pd.DataFrame:
     """Build the user-fillable taxonomy workbook with simple readable columns."""
     label_map = {"core_mainstream": "\u4e3b\u6d41", "non_mainstream": "\u975e\u4e3b\u6d41", "both": "\u90fd\u6709", "theme_unknown": ""}
+    basic_theme = taxonomy["basic_theme"] if "basic_theme" in taxonomy.columns else taxonomy.get("industry", pd.Series([""] * len(taxonomy)))
+    hot_primary = taxonomy["hot_primary_theme"] if "hot_primary_theme" in taxonomy.columns else taxonomy.get("primary_theme", pd.Series([""] * len(taxonomy)))
+    hot_secondary_source = (
+        taxonomy["hot_secondary_themes"]
+        if "hot_secondary_themes" in taxonomy.columns
+        else taxonomy.get("secondary_themes", pd.Series([""] * len(taxonomy)))
+    )
+    hot_secondary = hot_secondary_source.map(split_themes)
+    mainstream_display = taxonomy["effective_mainstream_label"].map(label_map).fillna("")
+    if "dual_report_membership_flag" in taxonomy.columns:
+        mainstream_display = mainstream_display.mask(taxonomy["dual_report_membership_flag"].astype(str).eq("True"), "都有")
     template = pd.DataFrame(
         {
             "\u80a1\u7968\u4ee3\u865f": taxonomy["stock_id"],
             "\u80a1\u7968\u540d\u7a31": taxonomy["stock_name"],
             "\u4e0a\u5e02\u6ac3\u7522\u696d": taxonomy["industry"],
-            "\u4e3b\u6d41/\u975e\u4e3b\u6d41": taxonomy["effective_mainstream_label"].map(label_map).fillna(""),
-            "\u65cf\u7fa41": taxonomy["primary_theme"],
-            "\u65cf\u7fa42": taxonomy["secondary_themes"].map(lambda x: split_themes(x)[0] if split_themes(x) else ""),
-            "\u65cf\u7fa43": taxonomy["secondary_themes"].map(lambda x: split_themes(x)[1] if len(split_themes(x)) > 1 else ""),
-            "\u65cf\u7fa44": taxonomy["secondary_themes"].map(lambda x: split_themes(x)[2] if len(split_themes(x)) > 2 else ""),
-            "\u65cf\u7fa45": taxonomy["secondary_themes"].map(lambda x: split_themes(x)[3] if len(split_themes(x)) > 3 else ""),
-            "\u7522\u696d\u9810\u8a2d": taxonomy["industry_mainstream_label"].map(label_map).fillna(""),
-            "\u984c\u6750\u9810\u8a2d": taxonomy["theme_mainstream_label"].map(label_map).fillna(""),
-            "\u6700\u7d42\u5206\u6d41": taxonomy["effective_mainstream_label"].map(label_map).fillna(""),
-            "\u96d9\u91cd\u8eab\u5206": taxonomy["mainstream_conflict_flag"].map({"True": "\u662f", "False": ""}).fillna(""),
-            "report_line_memberships": taxonomy["report_line_memberships"],
-            "mainstream_report_eligible": taxonomy["mainstream_report_eligible"],
-            "non_mainstream_report_eligible": taxonomy["non_mainstream_report_eligible"],
+            "\u57fa\u672c\u65cf\u7fa4": basic_theme,
+            "\u4e3b\u6d41/\u975e\u4e3b\u6d41": mainstream_display,
+            "\u71b1\u9580\u65cf\u7fa41": hot_primary,
+            "\u71b1\u9580\u65cf\u7fa42": hot_secondary.map(lambda x: x[0] if len(x) > 0 else ""),
+            "\u71b1\u9580\u65cf\u7fa43": hot_secondary.map(lambda x: x[1] if len(x) > 1 else ""),
+            "\u71b1\u9580\u65cf\u7fa44": hot_secondary.map(lambda x: x[2] if len(x) > 2 else ""),
+            "\u71b1\u9580\u65cf\u7fa45": hot_secondary.map(lambda x: x[3] if len(x) > 3 else ""),
             "\u5099\u8a3b": taxonomy["notes"],
         }
     )
@@ -1233,18 +1247,17 @@ def build_template(taxonomy: pd.DataFrame, rows_per_sheet: int = 500) -> pd.Data
                     "\u586b\u5beb\u65b9\u5f0f": "\u586b\u4e3b\u6d41\u3001\u975e\u4e3b\u6d41\u3001\u90fd\u6709\u6216\u7559\u7a7a\u3002\u7559\u7a7a\u6642\u7a0b\u5f0f\u4f7f\u7528\u65e2\u6709\u984c\u6750\u8207\u7522\u696d\u9810\u8a2d\u3002",
                 },
                 {
-                    "\u6b04\u4f4d": "\u65cf\u7fa41",
-                    "\u586b\u5beb\u65b9\u5f0f": "\u586b\u6700\u91cd\u8981\u65cf\u7fa4\uff0c\u4f8b\u5982\u6a5f\u5668\u4eba\u81ea\u52d5\u5316\u3001\u73bb\u7e96\u5e03\u3001\u4f4e\u8ecc\u885b\u661f\u3001\u88ab\u52d5\u5143\u4ef6\u3002",
+                    "\u6b04\u4f4d": "\u57fa\u672c\u65cf\u7fa4",
+                    "\u586b\u5beb\u65b9\u5f0f": "\u6bcf\u6a94\u80a1\u7968\u90fd\u61c9\u6709\u4e00\u500b\u5e38\u614b\u5206\u985e\uff0c\u4f8b\u5982\u96fb\u6a5f\u6a5f\u68b0\u3001\u901a\u4fe1\u7db2\u8def\u3001\u5851\u81a0\u3001\u91d1\u878d\u4fdd\u96aa\u3002",
                 },
                 {
-                    "\u6b04\u4f4d": "\u65cf\u7fa42/\u65cf\u7fa43/\u65cf\u7fa44/\u65cf\u7fa45",
-                    "\u586b\u5beb\u65b9\u5f0f": "\u540c\u4e00\u80a1\u7968\u6709\u591a\u500b\u65cf\u7fa4\u6642\u518d\u586b\u3002",
+                    "\u6b04\u4f4d": "\u71b1\u9580\u65cf\u7fa41\uff5e\u71b1\u9580\u65cf\u7fa45",
+                    "\u586b\u5beb\u65b9\u5f0f": "\u53ea\u586b\u8cc7\u91d1\u984c\u6750\u6216\u4f60\u8981\u7d0d\u5165\u71b1\u9580\u65cf\u7fa4\u6a21\u578b\u7684\u6a19\u7c64\uff0c\u4f8b\u5982\u6a5f\u5668\u4eba\u81ea\u52d5\u5316\u3001\u73bb\u7e96\u5e03\u3001\u4f4e\u8ecc\u885b\u661f\u3001\u88ab\u52d5\u5143\u4ef6\u3002\u7559\u7a7a\u6642\u4e0d\u9032\u5165\u71b1\u9580\u65cf\u7fa4\u56de\u6a94\u6a21\u578b\u3002",
                 },
                 {
-                    "\u6b04\u4f4d": "\u7522\u696d\u9810\u8a2d/\u984c\u6750\u9810\u8a2d/\u6700\u7d42\u5206\u6d41/\u96d9\u91cd\u8eab\u5206",
-                    "\u586b\u5beb\u65b9\u5f0f": "\u7a0b\u5f0f\u53c3\u8003\u6b04\uff0c\u901a\u5e38\u4e0d\u7528\u6539\u3002",
+                    "\u6b04\u4f4d": "\u5099\u8a3b",
+                    "\u586b\u5beb\u65b9\u5f0f": "\u9700\u8981\u8aaa\u660e\u4f86\u6e90\u6216\u4f8b\u5916\u6642\u586b\u3002",
                 },
-                {"\u6b04\u4f4d": "\u5099\u8a3b", "\u586b\u5beb\u65b9\u5f0f": "\u9700\u8981\u8aaa\u660e\u4f86\u6e90\u6216\u4f8b\u5916\u6642\u586b\u3002"},
             ]
         )
         instructions.to_excel(writer, index=False, sheet_name="instructions")
@@ -1256,7 +1269,7 @@ def build_template(taxonomy: pd.DataFrame, rows_per_sheet: int = 500) -> pd.Data
             ws.freeze_panes = "A2"
             for col in ws.columns:
                 letter = col[0].column_letter
-                ws.column_dimensions[letter].width = 16 if letter in {"A", "B", "C", "D"} else 22
+                ws.column_dimensions[letter].width = 16 if letter in {"A", "B", "C", "D", "E"} else 22
     DOCS_TEMPLATE_XLSX.write_bytes(TEMPLATE_XLSX.read_bytes())
     return template
 

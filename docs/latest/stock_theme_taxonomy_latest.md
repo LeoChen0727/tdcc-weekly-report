@@ -1,16 +1,16 @@
 # Stock Theme Taxonomy
 
-- generated_at: 2026-05-31 21:36:04 Asia/Taipei
+- generated_at: 2026-06-01 12:59:56 Asia/Taipei
 - total_rows: 2375
-- mainstream_count: 1070
-- non_mainstream_count: 1055
-- effective_mainstream_count: 1070
-- effective_non_mainstream_count: 1055
+- mainstream_count: 1072
+- non_mainstream_count: 908
+- effective_mainstream_count: 1072
+- effective_non_mainstream_count: 1303
 - mainstream_conflict_count: 9
 - dual_report_membership_count: 9
-- mainstream_report_eligible_count: 1070
-- non_mainstream_report_eligible_count: 1064
-- unknown_count: 250
+- mainstream_report_eligible_count: 1072
+- non_mainstream_report_eligible_count: 1312
+- unknown_count: 395
 - manual_override_count: 5
 - authorized_seed_count: 130
 
@@ -173,38 +173,38 @@
 |       1580 | 新麥         | 電機機械         | 機器人自動化_電機機械待細分 |                    | core_mainstream             | core_mainstream          | core_mainstream              |
 
 ## Non-Mainstream Sample
-|   stock_id | stock_name       | industry   | primary_theme        | secondary_themes   | industry_mainstream_label   | theme_mainstream_label   | effective_mainstream_label   |
-|-----------:|:-----------------|:-----------|:---------------------|:-------------------|:----------------------------|:-------------------------|:-----------------------------|
-|       0050 | 元大台灣50       |            | ETF_or_index_product |                    | theme_unknown               | non_mainstream           | non_mainstream               |
-|       0051 | 元大中型100      |            | ETF_or_index_product |                    | theme_unknown               | non_mainstream           | non_mainstream               |
-|       0052 | 富邦科技         |            | ETF_or_index_product |                    | theme_unknown               | non_mainstream           | non_mainstream               |
-|       0053 | 元大電子         |            | ETF_or_index_product |                    | theme_unknown               | non_mainstream           | non_mainstream               |
-|       0055 | 元大MSCI金融     |            | ETF_or_index_product |                    | theme_unknown               | non_mainstream           | non_mainstream               |
-|       0056 | 元大高股息       |            | ETF_or_index_product |                    | theme_unknown               | non_mainstream           | non_mainstream               |
-|       0057 | 富邦摩台         |            | ETF_or_index_product |                    | theme_unknown               | non_mainstream           | non_mainstream               |
-|       0061 | 元大寶滬深       |            | ETF_or_index_product |                    | theme_unknown               | non_mainstream           | non_mainstream               |
-|     006201 | 元大富櫃50       |            | ETF_or_index_product |                    | theme_unknown               | non_mainstream           | non_mainstream               |
-|     006203 | 元大MSCI台灣     |            | ETF_or_index_product |                    | theme_unknown               | non_mainstream           | non_mainstream               |
-|     006204 | 永豐臺灣加權     |            | ETF_or_index_product |                    | theme_unknown               | non_mainstream           | non_mainstream               |
-|     006205 | 富邦上証         |            | ETF_or_index_product |                    | theme_unknown               | non_mainstream           | non_mainstream               |
-|     006206 | 元大上證50       |            | ETF_or_index_product |                    | theme_unknown               | non_mainstream           | non_mainstream               |
-|     006207 | 復華滬深         |            | ETF_or_index_product |                    | theme_unknown               | non_mainstream           | non_mainstream               |
-|     006208 | 富邦台50         |            | ETF_or_index_product |                    | theme_unknown               | non_mainstream           | non_mainstream               |
-|      00636 | 國泰中國A50      |            | ETF_or_index_product |                    | theme_unknown               | non_mainstream           | non_mainstream               |
-|      00639 | 富邦深100        |            | ETF_or_index_product |                    | theme_unknown               | non_mainstream           | non_mainstream               |
-|      00643 | 群益深証中小     |            | ETF_or_index_product |                    | theme_unknown               | non_mainstream           | non_mainstream               |
-|      00645 | 富邦日本         |            | ETF_or_index_product |                    | theme_unknown               | non_mainstream           | non_mainstream               |
-|      00646 | 元大S&P500       |            | ETF_or_index_product |                    | theme_unknown               | non_mainstream           | non_mainstream               |
-|      00652 | 富邦印度         |            | ETF_or_index_product |                    | theme_unknown               | non_mainstream           | non_mainstream               |
-|      00657 | 國泰日經225      |            | ETF_or_index_product |                    | theme_unknown               | non_mainstream           | non_mainstream               |
-|      00660 | 元大歐洲50       |            | ETF_or_index_product |                    | theme_unknown               | non_mainstream           | non_mainstream               |
-|      00661 | 元大日經225      |            | ETF_or_index_product |                    | theme_unknown               | non_mainstream           | non_mainstream               |
-|      00662 | 富邦NASDAQ       |            | ETF_or_index_product |                    | theme_unknown               | non_mainstream           | non_mainstream               |
-|      00668 | 國泰美國道瓊     |            | ETF_or_index_product |                    | theme_unknown               | non_mainstream           | non_mainstream               |
-|      00678 | 群益那斯達克生技 |            | ETF_or_index_product |                    | theme_unknown               | non_mainstream           | non_mainstream               |
-|      00690 | 兆豐藍籌30       |            | ETF_or_index_product |                    | theme_unknown               | non_mainstream           | non_mainstream               |
-|      00692 | 富邦公司治理     |            | ETF_or_index_product |                    | theme_unknown               | non_mainstream           | non_mainstream               |
-|      00700 | 富邦恒生國企     |            | ETF_or_index_product |                    | theme_unknown               | non_mainstream           | non_mainstream               |
+|   stock_id | stock_name       | industry         | primary_theme    | secondary_themes   | industry_mainstream_label   | theme_mainstream_label   | effective_mainstream_label   |
+|-----------:|:-----------------|:-----------------|:-----------------|:-------------------|:----------------------------|:-------------------------|:-----------------------------|
+|       0050 | 元大台灣50       | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 |                    | theme_unknown               | theme_unknown            | non_mainstream               |
+|       0051 | 元大中型100      | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 |                    | theme_unknown               | theme_unknown            | non_mainstream               |
+|       0052 | 富邦科技         | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 |                    | theme_unknown               | theme_unknown            | non_mainstream               |
+|       0053 | 元大電子         | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 |                    | theme_unknown               | theme_unknown            | non_mainstream               |
+|       0055 | 元大MSCI金融     | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 |                    | theme_unknown               | theme_unknown            | non_mainstream               |
+|       0056 | 元大高股息       | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 |                    | theme_unknown               | theme_unknown            | non_mainstream               |
+|       0057 | 富邦摩台         | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 |                    | theme_unknown               | theme_unknown            | non_mainstream               |
+|       0061 | 元大寶滬深       | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 |                    | theme_unknown               | theme_unknown            | non_mainstream               |
+|     006201 | 元大富櫃50       | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 |                    | theme_unknown               | theme_unknown            | non_mainstream               |
+|     006203 | 元大MSCI台灣     | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 |                    | theme_unknown               | theme_unknown            | non_mainstream               |
+|     006204 | 永豐臺灣加權     | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 |                    | theme_unknown               | theme_unknown            | non_mainstream               |
+|     006205 | 富邦上証         | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 |                    | theme_unknown               | theme_unknown            | non_mainstream               |
+|     006206 | 元大上證50       | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 |                    | theme_unknown               | theme_unknown            | non_mainstream               |
+|     006207 | 復華滬深         | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 |                    | theme_unknown               | theme_unknown            | non_mainstream               |
+|     006208 | 富邦台50         | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 |                    | theme_unknown               | theme_unknown            | non_mainstream               |
+|      00636 | 國泰中國A50      | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 |                    | theme_unknown               | theme_unknown            | non_mainstream               |
+|      00639 | 富邦深100        | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 |                    | theme_unknown               | theme_unknown            | non_mainstream               |
+|      00643 | 群益深証中小     | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 |                    | theme_unknown               | theme_unknown            | non_mainstream               |
+|      00645 | 富邦日本         | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 |                    | theme_unknown               | theme_unknown            | non_mainstream               |
+|      00646 | 元大S&P500       | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 |                    | theme_unknown               | theme_unknown            | non_mainstream               |
+|      00652 | 富邦印度         | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 |                    | theme_unknown               | theme_unknown            | non_mainstream               |
+|      00657 | 國泰日經225      | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 |                    | theme_unknown               | theme_unknown            | non_mainstream               |
+|      00660 | 元大歐洲50       | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 |                    | theme_unknown               | theme_unknown            | non_mainstream               |
+|      00661 | 元大日經225      | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 |                    | theme_unknown               | theme_unknown            | non_mainstream               |
+|      00662 | 富邦NASDAQ       | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 |                    | theme_unknown               | theme_unknown            | non_mainstream               |
+|      00668 | 國泰美國道瓊     | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 |                    | theme_unknown               | theme_unknown            | non_mainstream               |
+|      00678 | 群益那斯達克生技 | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 |                    | theme_unknown               | theme_unknown            | non_mainstream               |
+|      00690 | 兆豐藍籌30       | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 |                    | theme_unknown               | theme_unknown            | non_mainstream               |
+|      00692 | 富邦公司治理     | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 |                    | theme_unknown               | theme_unknown            | non_mainstream               |
+|      00700 | 富邦恒生國企     | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 |                    | theme_unknown               | theme_unknown            | non_mainstream               |
 
 ## Dual Industry / Theme Identity
 |   stock_id | stock_name   | industry   | primary_theme   | industry_mainstream_label   | theme_mainstream_label   | effective_mainstream_label   | report_line_memberships   | mainstream_report_eligible   | non_mainstream_report_eligible   | mainstream_conflict_note                                                     |
@@ -220,68 +220,68 @@
 |       8033 | 雷虎         | 其他       | 軍工無人機      | non_mainstream              | core_mainstream          | core_mainstream              | mainstream|non_mainstream | True                         | True                             | industry=non_mainstream;theme=core_mainstream;report_routing=core_mainstream |
 
 ## Needs Review
-|   stock_id | stock_name       | industry                | primary_theme        | theme_mainstream_label   | taxonomy_source   |
-|-----------:|:-----------------|:------------------------|:---------------------|:-------------------------|:------------------|
-|       0200 | 兆豐半導體氣候N  |                         |                      | theme_unknown            | industry_default  |
-|       2809 | 京城銀           |                         |                      | theme_unknown            | industry_default  |
-|       2888 | 新光金           |                         |                      | theme_unknown            | industry_default  |
-|       3033 | 威健             | electronic distributors | semiconductor        | theme_unknown            | default_theme_map |
-|       3048 | 益登             | electronic distributors | semiconductor        | theme_unknown            | default_theme_map |
-|       3305 | 昇貿             | electronic materials    | other electronics    | theme_unknown            | default_theme_map |
-|       3454 | 晶睿             |                         |                      | theme_unknown            | industry_default  |
-|       3481 | 群創             | optoelectronics         | consumer electronics | theme_unknown            | default_theme_map |
-|       4987 | 科誠             |                         |                      | theme_unknown            | industry_default  |
-|       6288 | 聯嘉             |                         |                      | theme_unknown            | industry_default  |
-|       6747 | 亨泰光           |                         |                      | theme_unknown            | industry_default  |
-|       7000 | 系統電永豐58購01 |                         |                      | theme_unknown            | industry_default  |
-|       7001 | 華景電統一61購01 |                         |                      | theme_unknown            | industry_default  |
-|       7002 | 鏵友益統一6A購01 |                         |                      | theme_unknown            | industry_default  |
-|       7003 | 系微凱基57購01   |                         |                      | theme_unknown            | industry_default  |
-|       7004 | 聖暉*兆豐56購01  |                         |                      | theme_unknown            | industry_default  |
-|       7005 | 原相元大5A購01   |                         |                      | theme_unknown            | industry_default  |
-|       7006 | 營邦統一6A購01   |                         |                      | theme_unknown            | industry_default  |
-|       7007 | 竑騰統一5C購01   |                         |                      | theme_unknown            | industry_default  |
-|       7008 | 力旺統一6A購01   |                         |                      | theme_unknown            | industry_default  |
-|       7009 | 閎康兆豐56購01   |                         |                      | theme_unknown            | industry_default  |
-|       7010 | 營邦元大5A購01   |                         |                      | theme_unknown            | industry_default  |
-|       7011 | 擎亞元大56購01   |                         |                      | theme_unknown            | industry_default  |
-|       7012 | 三聯群益59購01   |                         |                      | theme_unknown            | industry_default  |
-|       7013 | 中光電凱基5A購01 |                         |                      | theme_unknown            | industry_default  |
-|       7014 | M31元富56購01    |                         |                      | theme_unknown            | industry_default  |
-|       7015 | 閎康國票56購01   |                         |                      | theme_unknown            | industry_default  |
-|       7016 | 訊聯統一6B購01   |                         |                      | theme_unknown            | industry_default  |
-|       7017 | 神盾永豐56購01   |                         |                      | theme_unknown            | industry_default  |
-|       7018 | 聖暉*國票56購02  |                         |                      | theme_unknown            | industry_default  |
-|       7019 | 金益鼎群益56購02 |                         |                      | theme_unknown            | industry_default  |
-|       7020 | 新應材凱基57購03 |                         |                      | theme_unknown            | industry_default  |
-|       7021 | 立碁凱基58購01   |                         |                      | theme_unknown            | industry_default  |
-|       7022 | 華電網元大56購01 |                         |                      | theme_unknown            | industry_default  |
-|       7023 | 新普國票57購01   |                         |                      | theme_unknown            | industry_default  |
-|       7024 | 高技元大59購01   |                         |                      | theme_unknown            | industry_default  |
-|       7025 | FH中5G元大58購01 |                         |                      | theme_unknown            | industry_default  |
-|       7026 | 高技凱基57購02   |                         |                      | theme_unknown            | industry_default  |
-|       7027 | 宜鼎凱基58購03   |                         |                      | theme_unknown            | industry_default  |
-|       7028 | 榮剛永豐57購01   |                         |                      | theme_unknown            | industry_default  |
-|       7029 | 順達永豐57購01   |                         |                      | theme_unknown            | industry_default  |
-|       7030 | 台燿永豐57購03   |                         |                      | theme_unknown            | industry_default  |
-|       7031 | 雙鴻國泰57購03   |                         |                      | theme_unknown            | industry_default  |
-|       7032 | 雙鴻群益57購04   |                         |                      | theme_unknown            | industry_default  |
-|       7033 | 順達元富61購01   |                         |                      | theme_unknown            | industry_default  |
-|       7034 | 台星科群益59購01 |                         |                      | theme_unknown            | industry_default  |
-|       7035 | 世禾國票59購01   |                         |                      | theme_unknown            | industry_default  |
-|       7036 | 宜鼎群益58購01   |                         |                      | theme_unknown            | industry_default  |
-|       7037 | 鉅橡群益57購01   |                         |                      | theme_unknown            | industry_default  |
-|       7038 | 佶優國票58購01   |                         |                      | theme_unknown            | industry_default  |
-|       7039 | 金益鼎凱基57購02 |                         |                      | theme_unknown            | industry_default  |
-|       7040 | 信昌電統一64購01 |                         |                      | theme_unknown            | industry_default  |
-|       7041 | 璟德永豐57購01   |                         |                      | theme_unknown            | industry_default  |
-|       7042 | 聖暉*統一67購01  |                         |                      | theme_unknown            | industry_default  |
-|       7043 | 廣運元大57購03   |                         |                      | theme_unknown            | industry_default  |
-|       7044 | 精材元大61購03   |                         |                      | theme_unknown            | industry_default  |
-|       7045 | 合晶元大57購06   |                         |                      | theme_unknown            | industry_default  |
-|       7046 | 中美晶元大58購01 |                         |                      | theme_unknown            | industry_default  |
-|       7047 | 信驊群益58購01   |                         |                      | theme_unknown            | industry_default  |
-|       7048 | 長科*統一61購01  |                         |                      | theme_unknown            | industry_default  |
+|   stock_id | stock_name       | industry         | primary_theme    | theme_mainstream_label   | taxonomy_source           |
+|-----------:|:-----------------|:-----------------|:-----------------|:-------------------------|:--------------------------|
+|       0050 | 元大台灣50       | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|       0051 | 元大中型100      | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|       0052 | 富邦科技         | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|       0053 | 元大電子         | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|       0055 | 元大MSCI金融     | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|       0056 | 元大高股息       | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|       0057 | 富邦摩台         | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|       0061 | 元大寶滬深       | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|     006201 | 元大富櫃50       | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|     006203 | 元大MSCI台灣     | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|     006204 | 永豐臺灣加權     | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|     006205 | 富邦上証         | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|     006206 | 元大上證50       | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|     006207 | 復華滬深         | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|     006208 | 富邦台50         | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|      00636 | 國泰中國A50      | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|      00639 | 富邦深100        | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|      00643 | 群益深証中小     | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|      00645 | 富邦日本         | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|      00646 | 元大S&P500       | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|      00652 | 富邦印度         | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|      00657 | 國泰日經225      | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|      00660 | 元大歐洲50       | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|      00661 | 元大日經225      | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|      00662 | 富邦NASDAQ       | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|      00668 | 國泰美國道瓊     | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|      00678 | 群益那斯達克生技 | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|      00690 | 兆豐藍籌30       | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|      00692 | 富邦公司治理     | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|      00700 | 富邦恒生國企     | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|      00701 | 國泰股利精選30   | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|      00702 | 國泰標普低波高息 | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|      00703 | 台新MSCI中國     | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|      00709 | 富邦歐洲         | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|      00712 | 復華富時不動產   | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|      00713 | 元大台灣高息低波 | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|      00714 | 群益道瓊美國地產 | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|      00717 | 富邦美國特別股   | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|      00728 | 第一金工業30     | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|      00730 | 富邦臺灣優質高息 | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|      00731 | 復華富時高息低波 | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|      00733 | 富邦臺灣中小     | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|      00735 | 國泰臺韓科技     | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|      00736 | 國泰新興市場     | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|      00737 | 國泰AI機器人     | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|      00739 | 元大MSCI A股     | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|      00752 | 中信中國50       | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|      00757 | 統一FANG+        | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|      00762 | 元大全球AI       | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|      00770 | 國泰北美科技     | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|      00771 | 元大US高息特別股 | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|      00783 | 富邦中証500      | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|      00830 | 國泰費城半導體   | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|      00850 | 元大臺灣ESG永續  | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|      00851 | 台新全球AI       | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|      00858 | 永豐美國500大    | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|      00861 | 元大全球未來通訊 | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|      00875 | 國泰網路資安     | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|      00876 | 元大全球5G       | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
+|      00877 | 復華中國5G       | 指數/ETF/ETN商品 | 指數/ETF/ETN商品 | theme_unknown            | missing_industry_fallback |
 
 ## Manual Fill Template
 - output/latest/stock_theme_manual_fill_template_latest.xlsx

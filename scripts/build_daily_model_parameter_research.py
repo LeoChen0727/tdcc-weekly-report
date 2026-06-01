@@ -373,7 +373,7 @@ def rule_specs() -> list[RuleSpec]:
                 "Short-term surge D+5/D+10",
                 "ret5_10_30_vol5_ge1_5_macd",
                 "5d return 10-30% + 5d average volume ratio >= 1.5 + MACD hist > 0",
-                "pdf_specialty_section",
+                "research_only_not_pdf_core",
                 lambda d: (
                     between(d["return_5d_pct"], 10, 30)
                     & (d["start_5d_avg_volume_ratio_vs_prev20"] >= 1.5)

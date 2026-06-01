@@ -30,19 +30,28 @@ COLUMN_ALIASES = {
     u(r"\u4e0a\u5e02\u6ac3\u7522\u696d"): "industry",
     u(r"\u7522\u696d"): "industry",
     "industry": "industry",
+    u(r"\u57fa\u672c\u65cf\u7fa4"): "basic_theme",
+    u(r"\u57fa\u790e\u65cf\u7fa4"): "basic_theme",
+    "basic_theme": "basic_theme",
     u(r"\u4e3b\u6d41/\u975e\u4e3b\u6d41"): "theme_mainstream_label",
     u(r"\u4e3b\u6d41\u975e\u4e3b\u6d41"): "theme_mainstream_label",
     u(r"\u5206\u6d41"): "theme_mainstream_label",
     "theme_mainstream_label": "theme_mainstream_label",
+    u(r"\u71b1\u9580\u65cf\u7fa4"): "primary_theme",
+    u(r"\u71b1\u9580\u65cf\u7fa41"): "primary_theme",
     u(r"\u65cf\u7fa4"): "primary_theme",
     u(r"\u65cf\u7fa41"): "primary_theme",
     "primary_theme": "primary_theme",
+    u(r"\u71b1\u9580\u65cf\u7fa42"): "theme_2",
     u(r"\u65cf\u7fa42"): "theme_2",
     "theme_2": "theme_2",
+    u(r"\u71b1\u9580\u65cf\u7fa43"): "theme_3",
     u(r"\u65cf\u7fa43"): "theme_3",
     "theme_3": "theme_3",
+    u(r"\u71b1\u9580\u65cf\u7fa44"): "theme_4",
     u(r"\u65cf\u7fa44"): "theme_4",
     "theme_4": "theme_4",
+    u(r"\u71b1\u9580\u65cf\u7fa45"): "theme_5",
     u(r"\u65cf\u7fa45"): "theme_5",
     "theme_5": "theme_5",
     u(r"\u5099\u8a3b"): "notes",
@@ -95,6 +104,7 @@ def normalize_input(df: pd.DataFrame) -> pd.DataFrame:
     for col in [
         "stock_name",
         "industry",
+        "basic_theme",
         "theme_mainstream_label",
         "primary_theme",
         "theme_2",
@@ -111,6 +121,7 @@ def normalize_input(df: pd.DataFrame) -> pd.DataFrame:
             "stock_id",
             "stock_name",
             "industry",
+            "basic_theme",
             "theme_mainstream_label",
             "primary_theme",
             "theme_2",
@@ -123,17 +134,12 @@ def normalize_input(df: pd.DataFrame) -> pd.DataFrame:
     out["stock_id"] = out["stock_id"].map(normalize_code)
     out = out[out["stock_id"].ne("")]
 
-    for col in ["stock_name", "industry", "primary_theme", "theme_2", "theme_3", "theme_4", "theme_5", "notes"]:
+    for col in ["stock_name", "industry", "basic_theme", "primary_theme", "theme_2", "theme_3", "theme_4", "theme_5", "notes"]:
         out[col] = out[col].map(safe_str)
 
-    out["theme_3"] = out[["theme_3", "theme_4", "theme_5"]].apply(
-        lambda row: ";".join([safe_str(v) for v in row if safe_str(v)]),
-        axis=1,
-    )
-    out = out.drop(columns=["theme_4", "theme_5"])
     out["theme_mainstream_label"] = out["theme_mainstream_label"].map(lambda x: MAINSTREAM_MAP.get(safe_str(x), safe_str(x)))
 
-    useful_cols = ["theme_mainstream_label", "primary_theme", "theme_2", "theme_3", "notes"]
+    useful_cols = ["basic_theme", "theme_mainstream_label", "primary_theme", "theme_2", "theme_3", "theme_4", "theme_5", "notes"]
     mask = out[useful_cols].apply(lambda row: any(safe_str(v) for v in row), axis=1)
     out = out[mask].drop_duplicates("stock_id", keep="last").sort_values("stock_id").reset_index(drop=True)
     return out

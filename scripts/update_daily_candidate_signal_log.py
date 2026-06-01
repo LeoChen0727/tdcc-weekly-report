@@ -307,7 +307,18 @@ def main() -> int:
         if col not in out.columns:
             out[col] = ""
     out = out[OUTPUT_COLUMNS]
-    combined = append_update_csv(out, SIGNAL_LOG, ["signal_id"], ["signal_date", "category", "stock_id"])
+    old = pd.DataFrame()
+    if SIGNAL_LOG.exists():
+        old = pd.read_csv(SIGNAL_LOG, dtype=str, keep_default_na=False)
+    if not old.empty and "signal_date" in old.columns:
+        old = old[old["signal_date"].astype(str) <= main_date].copy()
+        old = old[old["signal_date"].astype(str) != main_date].copy()
+        combined = pd.concat([old, out], ignore_index=True, sort=False)
+        combined = combined.drop_duplicates(subset=["signal_id"], keep="last")
+        combined = combined.sort_values(["signal_date", "category", "stock_id"]).reset_index(drop=True)
+        write_csv(combined, SIGNAL_LOG)
+    else:
+        combined = append_update_csv(out, SIGNAL_LOG, ["signal_id"], ["signal_date", "category", "stock_id"])
     write_csv(combined, SIGNAL_LOG_ALIAS)
     print(f"Saved: {SIGNAL_LOG}, rows={len(combined)}, appended_or_updated={len(out)}")
     print(f"Saved: {SIGNAL_LOG_ALIAS}, rows={len(combined)}")

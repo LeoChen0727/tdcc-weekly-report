@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -43,14 +44,41 @@ REQUIRED_SIGNAL_COLUMNS = {
     "signal_date",
     "stock_id",
     "stock_name",
+    "report_line",
     "report_bucket",
+    "report_bucket_zh",
     "model_id",
     "model_name_zh",
+    "display_rank",
     "main_condition_met",
     "entry_basis",
     "effective_primary_theme",
+    "source_category_zh",
+    "effective_primary_theme_zh",
     "effective_structural_theme_bucket",
+    "effective_structural_theme_bucket_zh",
     "effective_mainstream_label",
+    "tdcc_status_zh",
+    "warrant_flow_signal_zh",
+    "risk_tags_zh",
+    "downgrade_flags_zh",
+    "next_confirmation_zh",
+    "recommended_usage_zh",
+    "why_selected",
+    "why_selected_zh",
+    "source_hit_count",
+    "source_hit_labels",
+    "source_hit_labels_zh",
+    "source_row_indices",
+    "mainstream_report_eligible",
+    "non_mainstream_report_eligible",
+    "dual_report_membership_flag",
+    "report_line_memberships",
+    "tdcc_direction_zh",
+    "tdcc_big_holder_summary_zh",
+    "tdcc_grade_change_summary_zh",
+    "tdcc_risk_text_zh",
+    "score_components_zh",
     "model_score",
     "model_rank",
     "model_main_conditions",
@@ -67,6 +95,29 @@ REQUIRED_SIGNAL_COLUMNS = {
     "same_model_appear_count_5d",
     "same_model_appear_count_10d",
 }
+
+DISPLAY_COLUMNS = [
+    "report_bucket_zh",
+    "source_category_zh",
+    "effective_primary_theme_zh",
+    "effective_structural_theme_bucket_zh",
+    "tdcc_status_zh",
+    "warrant_flow_signal_zh",
+    "risk_tags_zh",
+    "downgrade_flags_zh",
+    "next_confirmation_zh",
+    "recommended_usage_zh",
+    "why_selected_zh",
+    "source_hit_labels_zh",
+    "tdcc_direction_zh",
+    "tdcc_big_holder_summary_zh",
+    "tdcc_grade_change_summary_zh",
+    "tdcc_risk_text_zh",
+    "score_components_zh",
+]
+
+CRITICAL_DISPLAY_COLUMNS = ["report_bucket_zh", "source_category_zh", "model_name_zh"]
+RAW_SLUG_PATTERN = re.compile(r"(^|[\s|/、,;])([a-z]+(?:_[a-z0-9]+){1,})(?=$|[\s|/、,;])")
 
 
 def line_count(path: Path) -> int:
@@ -123,11 +174,42 @@ def validate() -> dict[str, object]:
         for col in text_cols:
             if col in signals.columns and signals[col].astype(str).str.contains(r"\?\?\?|\ufffd", regex=True).any():
                 errors.append(f"suspicious_unreadable_text_in_signal_column: {col}")
+        for col in DISPLAY_COLUMNS:
+            if col not in signals.columns:
+                continue
+            values = signals[col].astype(str)
+            if values.str.contains(r"\?\?\?|\ufffd", regex=True).any():
+                errors.append(f"suspicious_unreadable_text_in_display_column: {col}")
+            if values.map(lambda value: bool(RAW_SLUG_PATTERN.search(value))).any():
+                errors.append(f"raw_slug_leaked_in_display_column: {col}")
+        pending_display_value = "\u6b04\u4f4d\u5c1a\u672a\u5b8c\u6210"
+        for col in CRITICAL_DISPLAY_COLUMNS:
+            if col in signals.columns and signals[col].astype(str).eq(pending_display_value).any():
+                errors.append(f"critical_display_column_pending: {col}")
 
-    if not rotation.empty and "volume_expansion_ratio" in rotation.columns:
-        ratio = pd.to_numeric(rotation["volume_expansion_ratio"], errors="coerce")
-        if ratio.notna().any() and (ratio < 1 / 3 - 0.0001).any():
-            errors.append("group rotation rows must satisfy volume_expansion_ratio >= 1/3")
+    if not rotation.empty:
+        rotation_model = rotation.get("rotation_model_id", pd.Series([""] * len(rotation))).astype(str)
+        volume_ratio = pd.to_numeric(rotation.get("volume_expansion_ratio", ""), errors="coerce")
+        slow_ratio = pd.to_numeric(rotation.get("slow_inflow_ratio", ""), errors="coerce")
+        count_15 = pd.to_numeric(rotation.get("volume_expansion_1_5x_count", ""), errors="coerce").fillna(0)
+
+        launch_rows = rotation_model.eq("group_fund_rotation_launch")
+        if launch_rows.any() and (volume_ratio[launch_rows] < 1 / 3 - 0.0001).any():
+            errors.append("group_fund_rotation_launch rows must satisfy volume_expansion_ratio >= 1/3")
+
+        slow_rows = rotation_model.eq("group_slow_inflow_rotation")
+        if slow_rows.any():
+            bad_slow = slow_rows & ((slow_ratio < 1 / 3 - 0.0001) | (count_15 <= 0))
+            if bad_slow.any():
+                errors.append(
+                    "group_slow_inflow_rotation rows must satisfy slow_inflow_ratio >= 1/3 "
+                    "and include at least one 1.5x volume expansion stock"
+                )
+
+        valid_rotation_models = {"group_fund_rotation_launch", "group_slow_inflow_rotation"}
+        bad_rotation_models = sorted(set(rotation_model) - valid_rotation_models)
+        if bad_rotation_models:
+            errors.append(f"invalid_rotation_model_id: {bad_rotation_models}")
 
     if line_count(PACKET_MD) <= 10:
         errors.append(f"packet_missing_or_too_short: {PACKET_MD}")

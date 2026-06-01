@@ -53,14 +53,24 @@ WEEKLY_SURGE_STRICT_SEARCH_CSV = LATEST_DIR / "weekly_surge_strict_parameter_sea
 WEEKLY_SURGE_STRICT_CANDIDATES_CSV = LATEST_DIR / "weekly_surge_strict_parameter_candidates_latest.csv"
 NON_REVENUE_MOMENTUM_CSV = LATEST_DIR / "non_revenue_momentum_watch_latest.csv"
 MARKET_ABNORMAL_STATUS_CSV = LATEST_DIR / "market_abnormal_status_latest.csv"
+MODEL_REPORT_SIGNALS_CSV = LATEST_DIR / "daily_candidate_model_signals_for_report_latest.csv"
+TECHNICAL_SNAPSHOT_CSV = LATEST_DIR / "individual_stock_technical_snapshot_latest.csv"
 PDF_KLINE_CHART_STATUS_CSV = LATEST_DIR / "pdf_kline_chart_status_latest.csv"
 PDF_KLINE_DIR = LATEST_DIR / "charts" / "pdf_kline"
 _ARTIFACTS_MODULE: Any | None = None
 
 CURATED_PDF = LATEST_DIR / "daily_market_curated_report_latest.pdf"
 FULL_TABLE_PDF = LATEST_DIR / "daily_market_full_table_report_latest.pdf"
+MAINSTREAM_CURATED_PDF = LATEST_DIR / "mainstream_daily_recommendation_highlight_latest.pdf"
+MAINSTREAM_FULL_PDF = LATEST_DIR / "mainstream_full_candidate_list_latest.pdf"
+NON_MAINSTREAM_CURATED_PDF = LATEST_DIR / "non_mainstream_daily_recommendation_highlight_latest.pdf"
+NON_MAINSTREAM_FULL_PDF = LATEST_DIR / "non_mainstream_full_candidate_list_latest.pdf"
 DOCS_CURATED_PDF = DOCS_LATEST_DIR / CURATED_PDF.name
 DOCS_FULL_TABLE_PDF = DOCS_LATEST_DIR / FULL_TABLE_PDF.name
+DOCS_MAINSTREAM_CURATED_PDF = DOCS_LATEST_DIR / MAINSTREAM_CURATED_PDF.name
+DOCS_MAINSTREAM_FULL_PDF = DOCS_LATEST_DIR / MAINSTREAM_FULL_PDF.name
+DOCS_NON_MAINSTREAM_CURATED_PDF = DOCS_LATEST_DIR / NON_MAINSTREAM_CURATED_PDF.name
+DOCS_NON_MAINSTREAM_FULL_PDF = DOCS_LATEST_DIR / NON_MAINSTREAM_FULL_PDF.name
 MANIFEST_JSON = LATEST_DIR / "daily_market_pdf_report_manifest_latest.json"
 MANIFEST_MD = LATEST_DIR / "daily_market_pdf_report_manifest_latest.md"
 
@@ -159,6 +169,15 @@ def safe_int(value: Any, default: int = 0) -> int:
     if math.isnan(num):
         return default
     return int(num)
+
+
+def read_csv_safe(path: Path, **kwargs: Any) -> pd.DataFrame:
+    if not path.exists():
+        return pd.DataFrame()
+    try:
+        return pd.read_csv(path, **kwargs)
+    except Exception:
+        return pd.DataFrame()
 
 
 def clean_text(text: Any, limit: int | None = None) -> str:
@@ -2208,19 +2227,233 @@ def build_full_table_pdf(df: pd.DataFrame, freshness: dict[str, Any], main_date:
     doc.build(story)
 
 
+def load_model_report_signals() -> pd.DataFrame:
+    df = read_csv_safe(MODEL_REPORT_SIGNALS_CSV, dtype=str, keep_default_na=False)
+    if df.empty:
+        return df
+    for col in ["report_line", "model_id", "stock_id", "model_name_zh", "display_rank", "model_score"]:
+        if col not in df.columns:
+            df[col] = ""
+    df["_rank_num"] = pd.to_numeric(df["display_rank"], errors="coerce").fillna(999999)
+    df["_score_num"] = pd.to_numeric(df["model_score"], errors="coerce").fillna(-999999)
+    df = df.sort_values(["report_line", "model_id", "stock_id", "_rank_num", "_score_num"], ascending=[True, True, True, True, False])
+    df = df.drop_duplicates(["report_line", "model_id", "stock_id"], keep="first")
+    df = df.sort_values(["report_line", "model_name_zh", "_rank_num", "_score_num"], ascending=[True, True, True, False])
+    return df.drop(columns=["_rank_num", "_score_num"], errors="ignore").reset_index(drop=True)
+
+
+def load_technical_snapshot() -> dict[str, pd.Series]:
+    df = read_csv_safe(TECHNICAL_SNAPSHOT_CSV, dtype={"stock_id": str}, keep_default_na=False)
+    if df.empty or "stock_id" not in df.columns:
+        return {}
+    return {safe_str(row.get("stock_id")): row for _, row in df.iterrows()}
+
+
+def display_text(*values: Any, fallback: str = "") -> str:
+    for value in values:
+        text = safe_str(value).strip()
+        if not text:
+            continue
+        if "欄位尚未完成" in text or text in {"nan", "None"}:
+            continue
+        return text
+    return fallback
+
+
+def best_rows_by_model(df: pd.DataFrame, limit: int | None = None) -> pd.DataFrame:
+    if df.empty:
+        return df
+    work = df.copy()
+    work["_rank_num"] = pd.to_numeric(work.get("display_rank", ""), errors="coerce").fillna(999999)
+    work["_score_num"] = pd.to_numeric(work.get("model_score", ""), errors="coerce").fillna(-999999)
+    work = work.sort_values(["model_name_zh", "_rank_num", "_score_num"], ascending=[True, True, False])
+    if limit is None:
+        out = work
+    else:
+        out = work.groupby("model_name_zh", dropna=False, group_keys=False).head(limit)
+    return out.drop(columns=["_rank_num", "_score_num"], errors="ignore")
+
+
+def first_page_rows(df: pd.DataFrame) -> list[list[Any]]:
+    rows = [["模型", "第一名標的", "模型分數", "入選原因", "風險 / 操作提醒"]]
+    if df.empty:
+        rows.append(["資料不足", "無", "", "PDF-ready model signal table 尚未產生", "資料不足 / 僅能觀察"])
+        return rows
+    first = best_rows_by_model(df, 1)
+    for _, row in first.iterrows():
+        rows.append(
+            [
+                clean_text(row.get("model_name_zh", "欄位尚未完成"), 22),
+                f"{safe_str(row.get('stock_id'))} {safe_str(row.get('stock_name'))}",
+                clean_text(row.get("model_score", ""), 10),
+                clean_text(display_text(row.get("why_selected_zh", ""), row.get("score_components_zh", ""), fallback="依模型主條件入選"), 70),
+                clean_text(display_text(row.get("risk_tags_zh", ""), row.get("next_confirmation_zh", ""), row.get("recommended_usage_zh", ""), fallback="依支撐、壓力與量價管理"), 70),
+            ]
+        )
+    return rows
+
+
+def model_signal_card(
+    row: pd.Series,
+    style_map: dict[str, ParagraphStyle],
+    tech_map: dict[str, pd.Series],
+    chart_map: dict[tuple[str, str], Path],
+    include_chart: bool,
+) -> KeepTogether:
+    stock_id = safe_str(row.get("stock_id"))
+    tech = tech_map.get(stock_id, pd.Series(dtype=object))
+    title = f"{stock_id} {safe_str(row.get('stock_name'))} / {safe_str(row.get('model_name_zh'))}"
+    current_position = display_text(tech.get("price_position_summary_zh"), fallback="使用現有價格資料判斷位置。")
+    technical = display_text(tech.get("technical_summary_zh"), fallback="使用現有技術 snapshot 判斷動能。")
+    sr = display_text(tech.get("support_resistance_summary_zh"), fallback="依近期高低點與23EMA控管支撐壓力。")
+    buy = display_text(tech.get("buy_condition_text_zh"), row.get("recommended_usage_zh"), fallback="依模型主條件與支撐壓力執行。")
+    take_profit = display_text(tech.get("take_profit_text_zh"), fallback="接近壓力且量價失敗時分批停利。")
+    exit_text = display_text(tech.get("exit_condition_text_zh"), fallback="跌破支撐且站不回時退出或降風險。")
+    risk = display_text(row.get("risk_tags_zh"), row.get("tdcc_risk_text_zh"), fallback="依量價、TDCC與風險標籤管理。")
+    tdcc = display_text(row.get("tdcc_big_holder_summary_zh"), row.get("tdcc_status_zh"), fallback="TDCC資料不足，僅能輔助觀察。")
+    rows = [
+        ["操作結論", display_text(row.get("recommended_usage_zh"), fallback="模型條件成立，依下列支撐壓力與風控管理。")],
+        ["目前位置", current_position],
+        ["技術狀態", technical],
+        ["支撐 / 壓力", sr],
+        ["買進條件", buy],
+        ["停利 / 退出", f"{take_profit}；{exit_text}"],
+        ["主要風險", risk],
+        ["TDCC / 權證 / 營收補充", f"{tdcc}；{display_text(row.get('warrant_flow_signal_zh'), fallback='權證無明確訊號')}；來源：{display_text(row.get('source_hit_labels_zh'), fallback='使用模型來源欄位')}"],
+    ]
+    table_rows = [[para(title, style_map["curated_cell"]), para(f"分數 {safe_str(row.get('model_score'))} / 排名 {safe_str(row.get('display_rank'))}", style_map["curated_cell"])]]
+    table_rows.extend([[para(k, style_map["label"]), para(v, style_map["curated_cell"])] for k, v in rows])
+    table = Table(table_rows, colWidths=[4.0 * cm, 12.8 * cm])
+    table.setStyle(
+        TableStyle(
+            [
+                ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#EAF2F8")),
+                ("GRID", (0, 0), (-1, -1), 0.25, colors.HexColor("#CFD8E3")),
+                ("VALIGN", (0, 0), (-1, -1), "TOP"),
+                ("LEFTPADDING", (0, 0), (-1, -1), 6),
+                ("RIGHTPADDING", (0, 0), (-1, -1), 6),
+                ("TOPPADDING", (0, 0), (-1, -1), 5),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), 5),
+            ]
+        )
+    )
+    parts: list[Any] = [table]
+    if include_chart:
+        chart_row = row.copy()
+        chart_row["category"] = safe_str(row.get("original_category")) or safe_str(row.get("source_hit_labels"))
+        chart_path = chart_map.get((stock_id, "")) or redraw_pdf_kline_chart_for_row(chart_row)
+        if chart_path is not None and chart_path.exists():
+            parts.extend([Spacer(1, 0.12 * cm), PdfImage(str(chart_path), width=16.6 * cm, height=8.2 * cm)])
+    parts.append(Spacer(1, 0.22 * cm))
+    return KeepTogether(parts)
+
+
+def model_detail_rows(df: pd.DataFrame) -> list[list[Any]]:
+    rows = [["模型", "排名", "股票", "分數", "入選原因", "風險 / 操作提醒"]]
+    if df.empty:
+        rows.append(["資料不足", "", "", "", "PDF-ready model signal table 尚未產生", "資料不足 / 僅能觀察"])
+        return rows
+    for _, row in df.iterrows():
+        rows.append(
+            [
+                clean_text(row.get("model_name_zh", ""), 18),
+                clean_text(row.get("display_rank", ""), 8),
+                f"{safe_str(row.get('stock_id'))} {safe_str(row.get('stock_name'))}",
+                clean_text(row.get("model_score", ""), 8),
+                clean_text(display_text(row.get("why_selected_zh", ""), row.get("score_components_zh", ""), fallback="依模型主條件入選"), 65),
+                clean_text(display_text(row.get("risk_tags_zh", ""), row.get("next_confirmation_zh", ""), row.get("recommended_usage_zh", ""), fallback="依支撐壓力管理"), 65),
+            ]
+        )
+    return rows
+
+
+def append_group_rotation_section(story: list[Any], style_map: dict[str, ParagraphStyle]) -> None:
+    rotation = read_csv_safe(LATEST_DIR / "daily_candidate_group_rotation_latest.csv", dtype=str, keep_default_na=False)
+    if rotation.empty:
+        return
+    story.append(PageBreak())
+    story.append(para("族群資金輪動觀察", style_map["h1"]))
+    story.append(para("此段用於預判資金流向，不是個股買進模型。條件為同族群超過三分之一股票量比達 3 倍以上。", style_map["normal"]))
+    rows = [["族群", "股票數", "3倍量檔數", "擴散比例", "龍頭 / 老二 / 老三", "解讀"]]
+    for _, row in rotation.head(20).iterrows():
+        rows.append(
+            [
+                clean_text(row.get("theme", ""), 18),
+                clean_text(row.get("stock_count", ""), 8),
+                clean_text(row.get("volume_expansion_3x_count", ""), 8),
+                clean_text(row.get("volume_expansion_ratio", ""), 8),
+                " / ".join([safe_str(row.get("leader_1")), safe_str(row.get("leader_2")), safe_str(row.get("leader_3"))]).strip(" /"),
+                clean_text(row.get("interpretation_zh", "") or row.get("interpretation", "") or "觀察資金是否由龍頭擴散", 70),
+            ]
+        )
+    story.append(make_table(rows, style_map, [2.5 * cm, 1.6 * cm, 1.8 * cm, 1.8 * cm, 4.1 * cm, 6.0 * cm]))
+
+
+def build_model_line_pdf(report_line: str, full: bool, main_date: str, path: Path) -> None:
+    style_map = styles()
+    signals = load_model_report_signals()
+    tech_map = load_technical_snapshot()
+    chart_map = load_pdf_kline_chart_map()
+    part = signals[signals.get("report_line", "").astype(str).eq(report_line)].copy() if not signals.empty else signals
+    title_prefix = "主流股" if report_line == "mainstream" else "非主流股"
+    title = f"{title_prefix}{'完整候選清單' if full else '每日推薦精華'}"
+    doc = SimpleDocTemplate(
+        str(path),
+        pagesize=A4,
+        leftMargin=1.5 * cm,
+        rightMargin=1.5 * cm,
+        topMargin=1.2 * cm,
+        bottomMargin=1.2 * cm,
+    )
+    story: list[Any] = []
+    story.append(para(f"{main_date} {title}", style_map["title"]))
+    story.append(para("資料來源：repo PDF-ready model signal table；不同模型不混成單一排名。", style_map["subtitle"]))
+    story.append(para("各模型第一名摘要", style_map["h1"]))
+    story.append(make_table(first_page_rows(part), style_map, [3.2 * cm, 3.2 * cm, 1.8 * cm, 5.1 * cm, 5.1 * cm]))
+    story.append(PageBreak())
+    if full:
+        story.append(para("完整模型候選清單", style_map["h1"]))
+        for model_name, group in best_rows_by_model(part, None).groupby("model_name_zh", dropna=False):
+            story.append(para(safe_str(model_name) or "模型欄位尚未完成", style_map["h2"]))
+            story.append(make_table(model_detail_rows(group), style_map, [2.6 * cm, 1.2 * cm, 2.5 * cm, 1.4 * cm, 5.0 * cm, 5.6 * cm]))
+            story.append(Spacer(1, 0.3 * cm))
+    else:
+        story.append(para("各模型代表股操作卡", style_map["h1"]))
+        for model_name, group in best_rows_by_model(part, 5).groupby("model_name_zh", dropna=False):
+            story.append(para(safe_str(model_name) or "模型欄位尚未完成", style_map["h2"]))
+            for _, row in group.iterrows():
+                story.append(model_signal_card(row, style_map, tech_map, chart_map, include_chart=True))
+    append_group_rotation_section(story, style_map)
+    doc.build(story)
+
+
 def copy_outputs(main_date: str) -> dict[str, str]:
     DOCS_LATEST_DIR.mkdir(parents=True, exist_ok=True)
     HISTORY_REPORT_DIR.mkdir(parents=True, exist_ok=True)
     shutil.copyfile(CURATED_PDF, DOCS_CURATED_PDF)
     shutil.copyfile(FULL_TABLE_PDF, DOCS_FULL_TABLE_PDF)
+    model_pdf_pairs = [
+        (MAINSTREAM_CURATED_PDF, DOCS_MAINSTREAM_CURATED_PDF, f"{main_date}_mainstream_daily_recommendation_highlight.pdf", "history_mainstream_curated_pdf"),
+        (MAINSTREAM_FULL_PDF, DOCS_MAINSTREAM_FULL_PDF, f"{main_date}_mainstream_full_candidate_list.pdf", "history_mainstream_full_pdf"),
+        (NON_MAINSTREAM_CURATED_PDF, DOCS_NON_MAINSTREAM_CURATED_PDF, f"{main_date}_non_mainstream_daily_recommendation_highlight.pdf", "history_non_mainstream_curated_pdf"),
+        (NON_MAINSTREAM_FULL_PDF, DOCS_NON_MAINSTREAM_FULL_PDF, f"{main_date}_non_mainstream_full_candidate_list.pdf", "history_non_mainstream_full_pdf"),
+    ]
     history_curated = HISTORY_REPORT_DIR / f"{main_date}_daily_market_curated_report.pdf"
     history_full = HISTORY_REPORT_DIR / f"{main_date}_daily_market_full_table_report.pdf"
     shutil.copyfile(CURATED_PDF, history_curated)
     shutil.copyfile(FULL_TABLE_PDF, history_full)
-    return {
+    result = {
         "history_curated_pdf": history_curated.as_posix(),
         "history_full_table_pdf": history_full.as_posix(),
     }
+    for src, docs_dst, history_name, key in model_pdf_pairs:
+        if not src.exists():
+            continue
+        shutil.copyfile(src, docs_dst)
+        history_path = HISTORY_REPORT_DIR / history_name
+        shutil.copyfile(src, history_path)
+        result[key] = history_path.as_posix()
+    return result
 
 
 def write_manifest(main_date: str, freshness: dict[str, Any], history_paths: dict[str, str]) -> None:
@@ -2244,6 +2477,40 @@ def write_manifest(main_date: str, freshness: dict[str, Any], history_paths: dic
             "raw_url": raw_url(FULL_TABLE_PDF),
             "history_path": history_paths.get("history_full_table_pdf", ""),
         },
+        "model_line_pdfs": {
+            "mainstream_curated": {
+                "status": "generated" if MAINSTREAM_CURATED_PDF.exists() else "missing",
+                "file_path": MAINSTREAM_CURATED_PDF.as_posix(),
+                "docs_path": DOCS_MAINSTREAM_CURATED_PDF.as_posix(),
+                "pages_url": pages_url(DOCS_MAINSTREAM_CURATED_PDF),
+                "raw_url": raw_url(MAINSTREAM_CURATED_PDF),
+                "history_path": history_paths.get("history_mainstream_curated_pdf", ""),
+            },
+            "mainstream_full": {
+                "status": "generated" if MAINSTREAM_FULL_PDF.exists() else "missing",
+                "file_path": MAINSTREAM_FULL_PDF.as_posix(),
+                "docs_path": DOCS_MAINSTREAM_FULL_PDF.as_posix(),
+                "pages_url": pages_url(DOCS_MAINSTREAM_FULL_PDF),
+                "raw_url": raw_url(MAINSTREAM_FULL_PDF),
+                "history_path": history_paths.get("history_mainstream_full_pdf", ""),
+            },
+            "non_mainstream_curated": {
+                "status": "generated" if NON_MAINSTREAM_CURATED_PDF.exists() else "missing",
+                "file_path": NON_MAINSTREAM_CURATED_PDF.as_posix(),
+                "docs_path": DOCS_NON_MAINSTREAM_CURATED_PDF.as_posix(),
+                "pages_url": pages_url(DOCS_NON_MAINSTREAM_CURATED_PDF),
+                "raw_url": raw_url(NON_MAINSTREAM_CURATED_PDF),
+                "history_path": history_paths.get("history_non_mainstream_curated_pdf", ""),
+            },
+            "non_mainstream_full": {
+                "status": "generated" if NON_MAINSTREAM_FULL_PDF.exists() else "missing",
+                "file_path": NON_MAINSTREAM_FULL_PDF.as_posix(),
+                "docs_path": DOCS_NON_MAINSTREAM_FULL_PDF.as_posix(),
+                "pages_url": pages_url(DOCS_NON_MAINSTREAM_FULL_PDF),
+                "raw_url": raw_url(NON_MAINSTREAM_FULL_PDF),
+                "history_path": history_paths.get("history_non_mainstream_full_pdf", ""),
+            },
+        },
     }
     MANIFEST_JSON.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
     lines = [
@@ -2263,6 +2530,12 @@ def write_manifest(main_date: str, freshness: dict[str, Any], history_paths: dic
         f"- raw_url: {manifest['full_table_pdf']['raw_url']}",
         f"- file_path: `{manifest['full_table_pdf']['file_path']}`",
         "",
+        "## Model-Line PDFs",
+        f"- mainstream_curated_pages_url: {manifest['model_line_pdfs']['mainstream_curated']['pages_url']}",
+        f"- mainstream_full_pages_url: {manifest['model_line_pdfs']['mainstream_full']['pages_url']}",
+        f"- non_mainstream_curated_pages_url: {manifest['model_line_pdfs']['non_mainstream_curated']['pages_url']}",
+        f"- non_mainstream_full_pages_url: {manifest['model_line_pdfs']['non_mainstream_full']['pages_url']}",
+        "",
     ]
     MANIFEST_MD.write_text("\n".join(lines), encoding="utf-8")
 
@@ -2277,6 +2550,10 @@ def main() -> int:
 
     build_curated_pdf(df, freshness, main_date, CURATED_PDF)
     build_full_table_pdf(df, freshness, main_date, FULL_TABLE_PDF)
+    build_model_line_pdf("mainstream", False, main_date, MAINSTREAM_CURATED_PDF)
+    build_model_line_pdf("mainstream", True, main_date, MAINSTREAM_FULL_PDF)
+    build_model_line_pdf("non_mainstream", False, main_date, NON_MAINSTREAM_CURATED_PDF)
+    build_model_line_pdf("non_mainstream", True, main_date, NON_MAINSTREAM_FULL_PDF)
     history_paths = copy_outputs(main_date)
     write_manifest(main_date, freshness, history_paths)
 
@@ -2284,6 +2561,10 @@ def main() -> int:
     print(f"Saved: {DOCS_CURATED_PDF}")
     print(f"Saved: {FULL_TABLE_PDF}")
     print(f"Saved: {DOCS_FULL_TABLE_PDF}")
+    print(f"Saved: {MAINSTREAM_CURATED_PDF}")
+    print(f"Saved: {MAINSTREAM_FULL_PDF}")
+    print(f"Saved: {NON_MAINSTREAM_CURATED_PDF}")
+    print(f"Saved: {NON_MAINSTREAM_FULL_PDF}")
     print(f"Saved: {MANIFEST_JSON}")
     return 0
 

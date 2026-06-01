@@ -20,12 +20,16 @@ from build_daily_candidate_model_layer import (  # noqa: E402
     build_report_ready_model_signals,
     build_signals,
     build_specs,
+    cond_neckline_challenge,
+    cond_platform_strength,
     cond_pullback,
+    cond_revenue_unreacted,
     cond_tdcc_stealth,
     cond_volume_breakout,
     cond_w_bottom_right,
     model_score_common,
     report_bucket,
+    update_model_signal_log,
 )
 
 
@@ -75,6 +79,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         params = build_parameter_table(build_specs()).set_index("model_id")
         self.assertEqual(params.loc["volume_range_breakout", "pdf_visibility"], "pdf_core_model")
         self.assertEqual(params.loc["tdcc_short_term_continuation_d5_d10", "pdf_visibility"], "pdf_specialty_section")
+        self.assertEqual(params.loc["short_term_surge_d5_d10", "pdf_visibility"], "research_only_not_pdf_core")
         self.assertEqual(params.loc["explosive_volume_red_candle", "pdf_visibility"], "research_only_not_pdf_core")
         self.assertEqual(params.loc["disposition_attention_event_tag", "pdf_visibility"], "pdf_risk_tag_only")
 
@@ -134,6 +139,43 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             ema23_slope_pct="0.3",
         )
         self.assertTrue(cond_pullback(row))
+
+    def test_pre_breakout_models_exclude_confirmed_breakouts(self) -> None:
+        breakout = make_row(
+            category="true_breakout",
+            volume_breakout_type="neckline_volume_breakout",
+            platform_breakout_flag="True",
+            neckline_breakout_flag="True",
+            volume_confirmed_breakout="True",
+            close_above_range_high="True",
+            distance_to_previous_high_pct="1.0",
+            platform_base_flag="True",
+            platform_width_pct="10",
+            volume_ratio="3.5",
+            ema23_slope_pct="0.5",
+            close="105",
+            open="100",
+        )
+        self.assertFalse(cond_neckline_challenge(breakout))
+        self.assertFalse(cond_platform_strength(breakout))
+        self.assertTrue(cond_volume_breakout(breakout))
+
+    def test_platform_strengthening_is_platform_inside_not_breakout(self) -> None:
+        row = make_row(
+            category="range_rebound",
+            volume_breakout_type="",
+            platform_breakout_flag="False",
+            neckline_breakout_flag="False",
+            volume_confirmed_breakout="False",
+            close_above_range_high="False",
+            platform_base_flag="True",
+            platform_width_pct="9",
+            platform_high="105",
+            close="103",
+            open="100",
+            volume_ratio="1.8",
+        )
+        self.assertTrue(cond_platform_strength(row))
 
     def test_w_bottom_requires_double_bottom_geometry_not_generic_pattern_flag(self) -> None:
         broad_flag = make_row(
@@ -305,6 +347,8 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
 
     def test_tdcc_stealth_excludes_late_and_overheated_phases(self) -> None:
         base = make_row(
+            volume_ratio="1.0",
+            volume_breakout_type="",
             tdcc_price_phase="tdcc_leading_price",
             return_20d="5",
             close="100",
@@ -318,6 +362,76 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         overheated["tdcc_price_phase"] = "overheated_after_tdcc"
         self.assertFalse(cond_tdcc_stealth(late))
         self.assertFalse(cond_tdcc_stealth(overheated))
+
+    def test_active_volume_attack_is_not_stealth_or_unreacted_story(self) -> None:
+        row = make_row(
+            volume_ratio="3.98",
+            volume_breakout_type="",
+            volume_confirmed_breakout="True",
+            latest_revenue_yoy="93",
+            cumulative_yoy_pct="16",
+            return_5d="8.18",
+            return_20d="17.22",
+            close="58.2",
+            high_20="59.8",
+            low_20="49",
+            tdcc_price_phase="tdcc_leading_price",
+        )
+        self.assertTrue(cond_volume_breakout(row))
+        self.assertFalse(cond_revenue_unreacted(row))
+        self.assertFalse(cond_tdcc_stealth(row))
+
+    def test_model_signal_log_replaces_current_date_snapshot(self) -> None:
+        current = pd.DataFrame(
+            [
+                {
+                    "signal_date": "20260531",
+                    "report_bucket": "mainstream",
+                    "stock_id": "3046",
+                    "stock_name": "建碁",
+                    "model_id": "volume_range_breakout",
+                    "model_name_zh": "帶量突破模型",
+                    "model_group": "pdf_core_model",
+                    "model_score": "75.9",
+                    "model_rank": "1",
+                }
+            ]
+        )
+        old_history = pd.DataFrame(
+            [
+                {
+                    "signal_date": "20260530",
+                    "report_bucket": "mainstream",
+                    "stock_id": "3046",
+                    "stock_name": "建碁",
+                    "model_id": "price_pullback_23ema",
+                },
+                {
+                    "signal_date": "20260531",
+                    "report_bucket": "mainstream",
+                    "stock_id": "3046",
+                    "stock_name": "建碁",
+                    "model_id": "tdcc_stealth_accumulation",
+                },
+            ]
+        )
+        original_dir = model_layer.MODEL_HISTORY_DIR
+        original_csv = model_layer.MODEL_SIGNAL_LOG_CSV
+        with tempfile.TemporaryDirectory() as tmpdir:
+            temp_dir = Path(tmpdir)
+            temp_csv = temp_dir / "daily_candidate_model_signal_log.csv"
+            old_history.to_csv(temp_csv, index=False, encoding="utf-8-sig")
+            model_layer.MODEL_HISTORY_DIR = temp_dir
+            model_layer.MODEL_SIGNAL_LOG_CSV = temp_csv
+            try:
+                out = update_model_signal_log(current)
+            finally:
+                model_layer.MODEL_HISTORY_DIR = original_dir
+                model_layer.MODEL_SIGNAL_LOG_CSV = original_csv
+
+        current_day = out[out["signal_date"].astype(str).eq("20260531")]
+        self.assertEqual(set(current_day["model_id"]), {"volume_range_breakout"})
+        self.assertIn("price_pullback_23ema", set(out["model_id"]))
 
     def test_mainstream_bucket_does_not_change_score(self) -> None:
         mainstream = make_row(

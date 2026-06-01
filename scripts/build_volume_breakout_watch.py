@@ -46,6 +46,7 @@ WATCH_COLUMNS = [
     "high",
     "low",
     "volume",
+    "volume_ma20",
     "volume_ratio",
     "return_1d",
     "return_5d",
@@ -59,6 +60,15 @@ WATCH_COLUMNS = [
     "ema23",
     "previous_20d_high",
     "previous_60d_high",
+    "previous_20d_low",
+    "previous_60d_low",
+    "range_window",
+    "range_high",
+    "range_low",
+    "range_width_pct",
+    "range_breakout_pct",
+    "close_above_range_high",
+    "high_above_range_high",
     "volume_breakout_type",
     "volume_watch_scope",
     "volume_breakout_score",
@@ -379,6 +389,7 @@ def build_latest_price_signal_frame() -> pd.DataFrame:
                 "high": row.get("high"),
                 "low": row.get("low"),
                 "volume": row.get("volume"),
+                "volume_ma20": row.get("volume_ma20"),
                 "volume_ratio": row.get("volume_ratio"),
                 "return_1d": row.get("return_1d"),
                 "return_5d": row.get("return_5d"),
@@ -392,6 +403,8 @@ def build_latest_price_signal_frame() -> pd.DataFrame:
                 "ema23": row.get("ema23"),
                 "previous_20d_high": row.get("previous_20d_high_calc"),
                 "previous_60d_high": row.get("previous_60d_high_calc"),
+                "previous_20d_low": row.get("previous_20d_low_calc"),
+                "previous_60d_low": row.get("previous_60d_low_calc"),
                 "volume_breakout_type": signal.event_type,
                 "volume_watch_scope": signal.scope,
                 "volume_breakout_score": signal.score,
@@ -742,6 +755,8 @@ def _process_price_history_path(path: Path) -> tuple[list[dict[str, Any]], list[
                 "ema23": latest_row.get("ema23"),
                 "previous_20d_high": latest_row.get("previous_20d_high_calc"),
                 "previous_60d_high": latest_row.get("previous_60d_high_calc"),
+                "previous_20d_low": latest_row.get("previous_20d_low_calc"),
+                "previous_60d_low": latest_row.get("previous_60d_low_calc"),
                 "volume_breakout_type": latest_signal.event_type,
                 "volume_watch_scope": latest_signal.scope,
                 "volume_breakout_score": latest_signal.score,
@@ -922,6 +937,8 @@ def _process_latest_path(path: Path) -> list[dict[str, Any]]:
             "ema23": row.get("ema23"),
             "previous_20d_high": row.get("previous_20d_high_calc"),
             "previous_60d_high": row.get("previous_60d_high_calc"),
+            "previous_20d_low": row.get("previous_20d_low_calc"),
+            "previous_60d_low": row.get("previous_60d_low_calc"),
             "volume_breakout_type": signal.event_type,
             "volume_watch_scope": signal.scope,
             "volume_breakout_score": signal.score,
@@ -1062,6 +1079,29 @@ def summarize_backtest(events: pd.DataFrame) -> pd.DataFrame:
 
 def ensure_watch_schema(df: pd.DataFrame) -> pd.DataFrame:
     out = df.copy()
+    def numeric_series(col: str) -> pd.Series:
+        if col in out.columns:
+            return pd.to_numeric(out[col], errors="coerce")
+        return pd.Series([pd.NA] * len(out), index=out.index, dtype="Float64")
+
+    if "range_window" not in out.columns:
+        out["range_window"] = "20"
+    if "range_high" not in out.columns:
+        out["range_high"] = out.get("previous_20d_high", "")
+    if "range_low" not in out.columns:
+        out["range_low"] = out.get("previous_20d_low", "")
+    high = numeric_series("range_high")
+    low = numeric_series("range_low")
+    close = numeric_series("close")
+    intraday_high = numeric_series("high")
+    if "range_width_pct" not in out.columns:
+        out["range_width_pct"] = ((high - low) / low.replace(0, pd.NA) * 100.0).round(4)
+    if "range_breakout_pct" not in out.columns:
+        out["range_breakout_pct"] = ((close / high.replace(0, pd.NA) - 1.0) * 100.0).round(4)
+    if "close_above_range_high" not in out.columns:
+        out["close_above_range_high"] = close.gt(high).map({True: "True", False: "False"})
+    if "high_above_range_high" not in out.columns:
+        out["high_above_range_high"] = intraday_high.gt(high).map({True: "True", False: "False"})
     for col in WATCH_COLUMNS:
         if col not in out.columns:
             out[col] = ""

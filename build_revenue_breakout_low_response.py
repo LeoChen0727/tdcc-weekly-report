@@ -12,6 +12,7 @@ from tdcc_trend_utils import load_tdcc_history_trend, tdcc_trend_to_map
 
 
 DATA_PRICE_DIR = Path("data/daily_price")
+STOCK_PRICE_HISTORY_DIR = Path("data/stock_price_history")
 LATEST_DIR = Path("output/latest")
 
 OUTPUT_CSV = LATEST_DIR / "revenue_breakout_low_response_latest.csv"
@@ -74,6 +75,26 @@ def safe_float(value, default=math.nan) -> float:
         return float(value)
     except Exception:
         return default
+
+
+def latest_stock_price_history_date() -> str:
+    dates: list[str] = []
+    if not STOCK_PRICE_HISTORY_DIR.exists():
+        return ""
+
+    for path in STOCK_PRICE_HISTORY_DIR.glob("*.csv"):
+        try:
+            df = pd.read_csv(path, dtype=str, usecols=["date"])
+        except Exception:
+            continue
+        if df.empty:
+            continue
+        series = df["date"].astype(str).str.replace(r"[^0-9]", "", regex=True)
+        series = series[series.str.len() == 8]
+        if not series.empty:
+            dates.append(str(series.max()))
+
+    return max(dates) if dates else ""
 
 
 def pick_first_existing_column(df: pd.DataFrame, candidates: list[str]) -> str | None:
@@ -159,6 +180,7 @@ def calc_revaluation_priority(score: int, theme_group: str, warnings: list[str])
 
 def load_daily_price_history() -> pd.DataFrame:
     frames = []
+    latest_actual_date = latest_stock_price_history_date()
 
     for path in sorted(DATA_PRICE_DIR.glob("*.csv")):
         try:
@@ -213,6 +235,8 @@ def load_daily_price_history() -> pd.DataFrame:
 
         df = df.dropna(subset=["date", "stock_id", "open", "high", "low", "close"])
         df = df[df["stock_id"].str.match(r"^[0-9]{4}$", na=False)].copy()
+        if latest_actual_date:
+            df = df[df["date"] <= latest_actual_date].copy()
 
         frames.append(
             df[

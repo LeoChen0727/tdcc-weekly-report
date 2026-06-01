@@ -300,6 +300,10 @@ jobs:
           python scripts/build_daily_candidate_model_layer.py
           python scripts/validate_daily_candidate_model_layer.py
 
+      - name: Build individual stock technical snapshot
+        run: |
+          python scripts/build_individual_stock_technical_snapshot.py
+
       - name: Update daily theme status history
         run: |
           python scripts/update_daily_theme_status_history.py
@@ -307,6 +311,10 @@ jobs:
       - name: Build data freshness status
         run: |
           python build_data_freshness_latest.py
+
+      - name: Audit daily data layer consistency
+        run: |
+          python scripts/audit_daily_data_layer_consistency.py
 
       - name: Update market benchmark history
         run: |
@@ -368,6 +376,10 @@ jobs:
           cp output/latest/pdf_kline_chart_status_latest.md docs/latest/pdf_kline_chart_status_latest.md || true
           cp output/latest/daily_market_curated_report_latest.pdf docs/latest/daily_market_curated_report_latest.pdf || true
           cp output/latest/daily_market_full_table_report_latest.pdf docs/latest/daily_market_full_table_report_latest.pdf || true
+          cp output/latest/mainstream_daily_recommendation_highlight_latest.pdf docs/latest/mainstream_daily_recommendation_highlight_latest.pdf || true
+          cp output/latest/mainstream_full_candidate_list_latest.pdf docs/latest/mainstream_full_candidate_list_latest.pdf || true
+          cp output/latest/non_mainstream_daily_recommendation_highlight_latest.pdf docs/latest/non_mainstream_daily_recommendation_highlight_latest.pdf || true
+          cp output/latest/non_mainstream_full_candidate_list_latest.pdf docs/latest/non_mainstream_full_candidate_list_latest.pdf || true
           cp output/latest/daily_market_report_validation_latest.md docs/latest/daily_market_report_validation_latest.md || true
           cp output/latest/warrant_market_report_latest.pdf docs/latest/warrant_market_report_latest.pdf || true
           cp output/latest/catalyst_summary_latest.md docs/latest/catalyst_summary_latest.md || true
@@ -395,6 +407,8 @@ jobs:
           cp output/latest/daily_candidate_model_layer_validation_latest.md docs/latest/daily_candidate_model_layer_validation_latest.md || true
           cp output/latest/daily_candidate_group_rotation_latest.csv docs/latest/daily_candidate_group_rotation_latest.csv || true
           cp output/latest/daily_candidate_group_rotation_latest.md docs/latest/daily_candidate_group_rotation_latest.md || true
+          cp output/latest/individual_stock_technical_snapshot_latest.csv docs/latest/individual_stock_technical_snapshot_latest.csv || true
+          cp output/latest/individual_stock_technical_snapshot_latest.md docs/latest/individual_stock_technical_snapshot_latest.md || true
           cp output/latest/non_revenue_momentum_watch_latest.csv docs/latest/non_revenue_momentum_watch_latest.csv || true
           cp output/latest/non_revenue_momentum_watch_latest.md docs/latest/non_revenue_momentum_watch_latest.md || true
           cp output/latest/market_abnormal_status_latest.csv docs/latest/market_abnormal_status_latest.csv || true
@@ -459,6 +473,7 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
           python publish_chatgpt_report_readme_and_check.py
+          python scripts/audit_daily_data_layer_consistency.py --include-readme
 
       - name: Commit readme and publish check
         run: |
@@ -471,6 +486,7 @@ jobs:
           git add output/latest/READ_ME_FIRST_DAILY_REPORT*.txt || true
           git add output/latest/READ_ME_FIRST_DAILY_REPORT_INDEX.* || true
           git add output/latest/report_publish_check_latest.* || true
+          git add output/latest/daily_data_layer_consistency_audit_latest.* || true
           git add output/latest/raw_data_fetch_status_latest.* || true
           git add output/latest/individual_stock_* || true
           git add output/latest/pdf_kline_chart_status_latest.* || true

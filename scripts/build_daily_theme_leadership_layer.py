@@ -541,56 +541,67 @@ def is_risk_downgraded(row: pd.Series, theme_status_value: str) -> bool:
 
 
 def candidate_line_group(row: pd.Series) -> tuple[str, str, bool, str]:
+    """Assign report line labels without overriding the model's primary signal.
+
+    This layer is a presentation/routing helper. It must not convert an active
+    breakout into a TDCC/revenue latent-watch line just because TDCC or revenue
+    support is also present.
+    """
     theme_status_value = first_text(row, ["theme_final_status"])
     structural_status = first_text(row, ["theme_structural_status"]) or theme_structural_status(first_text(row, ["theme_name"]))
     priority = decision_priority_of(row)
+    cat = category_of(row)
     theme_supported = theme_status_value in MAINSTREAM_STATUSES and structural_status == "core_mainstream_theme"
     individual_quality = is_individual_quality(row)
-    risk = is_risk_downgraded(row, theme_status_value)
     attack = is_true_breakout(row) or is_volume_breakout(row) or is_near_high(row)
     tdcc_or_warrant = tdcc_status_of(row) in {"strong_accumulation", "mild_accumulation"} or warrant_signal_of(row) in BULLISH_WARRANT_SIGNALS
     overlap = bool(theme_supported and priority in {"A_priority_watch", "B_confirm_needed"} and (attack or tdcc_or_warrant))
-    cat = category_of(row)
+    risk = is_risk_downgraded(row, theme_status_value)
 
+    # Primary price/volume signals come first. Risk tags remain attached to the
+    # row, but they do not rewrite the row into TDCC/revenue/watch buckets.
+    if is_true_breakout(row) or is_volume_breakout(row):
+        return "mainstream_theme_candidate" if theme_supported else "individual_quality_candidate", "breakout_attack_stock", overlap, "帶量突破 / 嚴格突破"
+    if cat in {"range_rebound", "near_high", "neckline_challenge"} or is_near_high(row):
+        return "mainstream_theme_candidate" if theme_supported else "individual_quality_candidate", "range_near_high_watch", overlap, "區間轉強 / 前高挑戰"
     if risk:
-        return "risk_downgraded_candidate", "risk", overlap, "降級 / 鈍化 / 風險清單"
+        return "risk_downgraded_candidate", "risk", overlap, "?? / ?? / ??"
+    if cat == "revenue_pullback":
+        return "latent_watch_candidate", "individual_revenue_pullback_watch", False, "營收成長股價回檔"
+    if cat == "revenue_breakout_low_response":
+        return "latent_watch_candidate", "individual_revenue_low_response_watch", False, "營收爆發股價尚未反應"
+    if cat == "pattern":
+        return "latent_watch_candidate", "individual_pattern_watch", False, "型態觀察"
+    if has_confirmed_event(row):
+        return "event_driven_candidate", "individual_fundamental_catalyst_watch", False, "事件 / 基本面催化觀察"
+    if tdcc_status_of(row) in {"strong_accumulation", "mild_accumulation"}:
+        return "latent_watch_candidate", "individual_tdcc_latent_watch", False, "TDCC 潛伏觀察股"
+    if risk:
+        return "risk_downgraded_candidate", "risk", overlap, "降級 / 鈍化 / 風險"
     if theme_status_value in MAINSTREAM_STATUSES and structural_status != "core_mainstream_theme":
-        return "individual_quality_candidate", "non_mainstream_flow_watch", overlap, "非主流輪動觀察"
+        return "individual_quality_candidate", "non_mainstream_flow_watch", overlap, "非主流資金觀察"
     if theme_status_value == "mainstream_leader":
         return "mainstream_theme_candidate", "mainstream_leader_stock", overlap, "主流領漲股"
     if theme_status_value == "mainstream_follow_through":
-        return "mainstream_theme_candidate", "mainstream_follow_through_stock", overlap, "主流補漲股"
+        return "mainstream_theme_candidate", "mainstream_follow_through_stock", overlap, "主流續強股"
     if theme_status_value == "emerging_theme":
-        return "mainstream_theme_candidate", "emerging_theme_watch", overlap, "新興族群觀察股"
-    if has_confirmed_event(row):
-        return "event_driven_candidate", "individual_fundamental_catalyst_watch", False, "基本面改善但尚未發動股"
-    if cat == "revenue_breakout_low_response":
-        return "latent_watch_candidate", "individual_revenue_low_response_watch", False, "營收低反應觀察股"
-    if tdcc_status_of(row) in {"strong_accumulation", "mild_accumulation"}:
-        return "latent_watch_candidate", "individual_tdcc_latent_watch", False, "TDCC 潛伏觀察股"
+        return "mainstream_theme_candidate", "emerging_theme_watch", overlap, "新興族群觀察"
     if theme_status_value == "single_name_signal":
-        return "individual_quality_candidate", "individual_single_name_signal", False, "單一個股強訊號"
-    if cat == "pattern":
-        return "latent_watch_candidate", "individual_pattern_watch", False, "型態觀察股"
+        return "individual_quality_candidate", "individual_single_name_signal", False, "單一個股訊號"
     if individual_quality:
-        return "individual_quality_candidate", "individual_quality_watch", False, "個股條件股"
-    return "individual_quality_candidate", "individual_watch", False, "個股條件股"
+        return "individual_quality_candidate", "individual_quality_watch", False, "個股條件觀察"
+    return "individual_quality_candidate", "individual_watch", False, "個股觀察"
 
 
 def theme_note(row: pd.Series) -> str:
     status = first_text(row, ["theme_final_status"])
     source, line_group, overlap, line = candidate_line_group(row)
-    overlap_note = "；同時有族群支持與個股條件，但只作標籤，不改分數、不另成優先 bucket" if overlap else ""
-    if source == "mainstream_theme_candidate":
-        return f"{status}；列入{line}{overlap_note}，仍依原模型分數排序。"
-    if source == "latent_watch_candidate":
-        return f"{status}；列入{line}{overlap_note}，依原模型條件與分數排序。"
-    if source == "event_driven_candidate":
-        return f"{status}；有催化標籤{overlap_note}，需確認利多是否已反應與 EPS/毛利品質。"
+    bits = [status or "theme_status_missing", line]
+    if overlap:
+        bits.append("族群與個股條件同時命中")
     if source == "risk_downgraded_candidate":
-        return f"{status}；列入風險或鈍化清單{overlap_note}，保留模型命中並揭露風險。"
-    return f"{status}；列入{line}。"
-
+        bits.append("保留風險標籤，不覆蓋主模型")
+    return "\uFF1B".join([bit for bit in bits if bit])
 
 def enrich_candidates(candidates: pd.DataFrame, theme_df: pd.DataFrame) -> pd.DataFrame:
     out = candidates.copy()

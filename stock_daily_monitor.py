@@ -20,6 +20,7 @@ import requests
 TAIPEI = ZoneInfo("Asia/Taipei")
 
 DATA_DIR = Path("data/daily_price")
+STOCK_PRICE_HISTORY_DIR = Path("data/stock_price_history")
 OUTPUT_DIR = Path("output")
 LATEST_DIR = OUTPUT_DIR / "latest"
 HISTORY_DIR = OUTPUT_DIR / "history"
@@ -217,6 +218,24 @@ def get_official_fetch_saved_date() -> str:
     return ""
 
 
+def latest_stock_price_history_date() -> str:
+    dates: list[str] = []
+    if not STOCK_PRICE_HISTORY_DIR.exists():
+        return ""
+    for path in STOCK_PRICE_HISTORY_DIR.glob("*.csv"):
+        try:
+            df = pd.read_csv(path, dtype=str, usecols=["date"])
+        except Exception:
+            continue
+        if df.empty:
+            continue
+        series = df["date"].map(normalize_date)
+        series = series[series.astype(str).str.len().eq(8)]
+        if not series.empty:
+            dates.append(str(series.max()))
+    return max(dates) if dates else ""
+
+
 # ============================================================
 # Price data loading
 # ============================================================
@@ -370,6 +389,17 @@ def load_official_price_history() -> pd.DataFrame:
 
     data = data.drop_duplicates(["ticker", "date"], keep="last")
     data = data.sort_values(["ticker", "date"]).reset_index(drop=True)
+
+    actual_history_date = latest_stock_price_history_date()
+    if actual_history_date:
+        future_mask = data["date"].astype(str) > actual_history_date
+        if future_mask.any():
+            dropped_dates = sorted(data.loc[future_mask, "date"].astype(str).unique().tolist())
+            print(
+                "Drop daily price rows newer than stock price history latest trade date "
+                f"{actual_history_date}: {dropped_dates}"
+            )
+            data = data.loc[~future_mask].copy()
 
     latest_date = data["date"].max() if not data.empty else ""
     official_fetch_date = get_official_fetch_saved_date()

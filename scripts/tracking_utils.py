@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from datetime import datetime
+from functools import lru_cache
 from pathlib import Path
 from zoneinfo import ZoneInfo
 import math
@@ -160,16 +161,39 @@ def append_update_csv(
 
 def latest_price_date() -> str:
     dates: list[str] = []
-    freshness = read_csv(LATEST_DIR / "data_freshness_latest.csv", dtype=str)
-    if not freshness.empty and "main_price_date" in freshness.columns:
-        date = normalize_date(freshness.iloc[0].get("main_price_date", ""))
-        if date:
-            return date
+    actual = latest_stock_price_history_date()
+    if actual:
+        return actual
     for path in DAILY_PRICE_DIR.glob("*.csv"):
         date = normalize_date(path.stem)
         if date:
             dates.append(date)
     return max(dates) if dates else now_taipei().strftime("%Y%m%d")
+
+
+@lru_cache(maxsize=1)
+def latest_stock_price_history_date() -> str:
+    """Return the newest real stock-history trade date.
+
+    Daily price fetches can create weekend/report-date CSVs that repeat the
+    previous trading day's prices. Per-stock histories are the safer guardrail
+    because they are only appended with accepted trading rows.
+    """
+    dates: list[str] = []
+    if not STOCK_PRICE_HISTORY_DIR.exists():
+        return ""
+    for path in STOCK_PRICE_HISTORY_DIR.glob("*.csv"):
+        try:
+            df = pd.read_csv(path, dtype=str, usecols=["date"])
+        except Exception:
+            continue
+        if df.empty:
+            continue
+        series = df["date"].map(normalize_date)
+        series = series[series.astype(str).str.len().eq(8)]
+        if not series.empty:
+            dates.append(str(series.max()))
+    return max(dates) if dates else ""
 
 
 def resolve_candidate_signal_date(candidates: pd.DataFrame, preferred_date: str = "") -> tuple[str, list[str]]:
@@ -195,10 +219,14 @@ def resolve_candidate_signal_date(candidates: pd.DataFrame, preferred_date: str 
         if len(signal_dates) == 1:
             resolved = next(iter(signal_dates))
             if preferred and resolved != preferred:
-                notes.append(f"preferred_date={preferred} differs from signal_date={resolved}; using signal_date")
+                notes.append(f"preferred_date={preferred} differs from signal_date={resolved}; using preferred_date")
+                return preferred, notes
             return resolved, notes
         if signal_dates:
             resolved = max(signal_dates)
+            if preferred and preferred != resolved:
+                notes.append(f"multiple signal_date values={sorted(signal_dates)}; using preferred_date={preferred}")
+                return preferred, notes
             notes.append(f"multiple signal_date values={sorted(signal_dates)}; using latest={resolved}")
             return resolved, notes
 
@@ -224,12 +252,15 @@ def resolve_candidate_signal_date(candidates: pd.DataFrame, preferred_date: str 
 
 
 def main_price_date_from_freshness() -> str:
+    actual_price_date = latest_stock_price_history_date()
     freshness = read_csv(LATEST_DIR / "data_freshness_latest.csv", dtype=str)
     if not freshness.empty:
         for col in ["main_price_date", "all_candidates_date", "official_price_fetch_date"]:
             if col in freshness.columns:
                 date = normalize_date(freshness.iloc[0].get(col, ""))
                 if date:
+                    if actual_price_date and date > actual_price_date:
+                        return actual_price_date
                     return date
     return latest_price_date()
 

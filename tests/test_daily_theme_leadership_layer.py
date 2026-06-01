@@ -48,7 +48,7 @@ class DailyThemeLeadershipLayerTest(unittest.TestCase):
         )
         self.assertIn(theme.iloc[0]["theme_final_status"], {"mainstream_leader", "mainstream_follow_through"})
         leader = enriched[enriched["stock_id"].eq("2001")].iloc[0]
-        self.assertIn(leader["candidate_line_group"], {"mainstream_leader_stock", "mainstream_follow_through_stock"})
+        self.assertEqual(leader["candidate_line_group"], "breakout_attack_stock")
         self.assertEqual(leader["two_line_overlap_flag"], "True")
 
     def test_mainstream_only_candidate(self) -> None:
@@ -61,7 +61,7 @@ class DailyThemeLeadershipLayerTest(unittest.TestCase):
         )
         unconfirmed = enriched[enriched["stock_id"].eq("2102")].iloc[0]
         self.assertEqual(unconfirmed["candidate_source_type"], "mainstream_theme_candidate")
-        self.assertIn(unconfirmed["candidate_line_group"], {"mainstream_leader_stock", "mainstream_follow_through_stock", "emerging_theme_watch"})
+        self.assertEqual(unconfirmed["candidate_line_group"], "range_near_high_watch")
 
     def test_individual_quality_non_mainstream(self) -> None:
         enriched, _, _ = self.build(
@@ -83,7 +83,7 @@ class DailyThemeLeadershipLayerTest(unittest.TestCase):
         stale = enriched.iloc[0]
         self.assertEqual(stale["candidate_source_type"], "latent_watch_candidate")
         self.assertEqual(stale["candidate_line_group"], "individual_revenue_low_response_watch")
-        self.assertIn("依原模型條件與分數排序", stale["theme_leadership_note"])
+        self.assertIn("\u71df\u6536\u7206\u767c\u80a1\u50f9\u5c1a\u672a\u53cd\u61c9", stale["theme_leadership_note"])
 
     def test_weak_theme_candidate(self) -> None:
         enriched, _, _ = self.build(
