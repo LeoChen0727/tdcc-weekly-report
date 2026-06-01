@@ -219,8 +219,10 @@ def resolve_candidate_signal_date(candidates: pd.DataFrame, preferred_date: str 
         if len(signal_dates) == 1:
             resolved = next(iter(signal_dates))
             if preferred and resolved != preferred:
-                notes.append(f"preferred_date={preferred} differs from signal_date={resolved}; using preferred_date")
-                return preferred, notes
+                notes.append(
+                    f"preferred_date={preferred} differs from candidate signal_date={resolved}; "
+                    "using candidate signal_date"
+                )
             return resolved, notes
         if signal_dates:
             resolved = max(signal_dates)
@@ -255,9 +257,15 @@ def main_price_date_from_freshness() -> str:
     actual_price_date = latest_stock_price_history_date()
     freshness = read_csv(LATEST_DIR / "data_freshness_latest.csv", dtype=str)
     if not freshness.empty:
+        row = freshness.iloc[0]
+        report_ready = str(row.get("report_ready", "")).strip().lower() in {"true", "1", "yes", "y"}
+        all_candidates_date = normalize_date(row.get("all_candidates_date", ""))
+        main_price_date = normalize_date(row.get("main_price_date", ""))
+        if all_candidates_date and main_price_date and all_candidates_date != main_price_date and not report_ready:
+            return all_candidates_date
         for col in ["main_price_date", "all_candidates_date", "official_price_fetch_date"]:
             if col in freshness.columns:
-                date = normalize_date(freshness.iloc[0].get(col, ""))
+                date = normalize_date(row.get(col, ""))
                 if date:
                     if actual_price_date and date > actual_price_date:
                         return actual_price_date

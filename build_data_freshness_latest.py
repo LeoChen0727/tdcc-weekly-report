@@ -169,7 +169,12 @@ def determine_main_price_date(
     official_fetch_date: str,
     actual_price_date: str,
 ) -> str:
-    for date in (actual_price_date, all_candidates_date, official_fetch_date, stock_monitor_date):
+    # The daily report's effective date must follow the candidate table that
+    # drives model/PDF outputs. Price history can be newer when the official
+    # fetch has landed but candidate source files have not been rebuilt yet;
+    # exposing that newer date as main_price_date makes downstream audits compare
+    # different data layers and produces false failures.
+    for date in (all_candidates_date, stock_monitor_date, actual_price_date, official_fetch_date):
         if date:
             return cap_to_actual_trading_date(date, actual_price_date)
     return ""

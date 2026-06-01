@@ -190,8 +190,9 @@ def audit(include_readme: bool = False) -> dict[str, object]:
     warnings: list[str] = []
     details: dict[str, object] = {}
 
-    main_date = main_price_date_from_freshness()
-    details["main_price_date"] = main_date
+    freshness_main_date = main_price_date_from_freshness()
+    main_date = freshness_main_date
+    details["main_price_date"] = freshness_main_date
 
     if include_readme:
         readme_kv = _read_key_value_file(README_TXT)
@@ -223,6 +224,22 @@ def audit(include_readme: bool = False) -> dict[str, object]:
     taxonomy = _safe_read(TAXONOMY)
     taxonomy_template_csv = _safe_read(TAXONOMY_TEMPLATE_CSV)
     docs_taxonomy_template_csv = _safe_read(DOCS_TAXONOMY_TEMPLATE_CSV)
+
+    model_signal_dates_for_expected = sorted(
+        {
+            safe_str(value)
+            for value in signals.get("signal_date", pd.Series(dtype=str)).astype(str).tolist()
+            if safe_str(value)
+        }
+    )
+    if len(model_signal_dates_for_expected) == 1:
+        main_date = model_signal_dates_for_expected[0]
+    details["effective_model_signal_date"] = main_date
+    if freshness_main_date and main_date and freshness_main_date != main_date:
+        warnings.append(
+            f"freshness main_price_date={freshness_main_date} differs from model signal_date={main_date}; "
+            "auditing report data layer consistency against model signal_date"
+        )
 
     details["model_signal_rows"] = len(signals)
     details["raw_model_signal_rows"] = len(raw_signals)

@@ -13,7 +13,7 @@ from build_daily_candidate_model_layer import (
     cond_pullback,
     cond_w_bottom_right,
 )
-from tracking_utils import LATEST_DIR, main_price_date_from_freshness, read_csv, safe_str
+from tracking_utils import LATEST_DIR, main_price_date_from_freshness, read_csv, resolve_candidate_signal_date, safe_str
 
 
 ALL_CANDIDATES = LATEST_DIR / "all_candidates_latest.csv"
@@ -328,15 +328,25 @@ def audit() -> dict[str, Any]:
     warnings: list[str] = []
     details: dict[str, Any] = {}
 
-    main_date = main_price_date_from_freshness()
     candidates = read(ALL_CANDIDATES)
     raw_signals = read(MODEL_SIGNALS)
     report_signals = read(REPORT_SIGNALS)
     volume = read(VOLUME_WATCH)
     tdcc_edge = read(TDCC_SHORT_EDGE)
     taxonomy = read(TAXONOMY)
+    freshness_main_date = main_price_date_from_freshness()
+    main_date, date_notes = resolve_candidate_signal_date(candidates, freshness_main_date)
+    if not main_date:
+        main_date = freshness_main_date
 
-    details["main_price_date"] = main_date
+    details["main_price_date"] = freshness_main_date
+    details["effective_candidate_signal_date"] = main_date
+    details["date_notes"] = date_notes
+    if freshness_main_date and main_date and freshness_main_date != main_date:
+        warnings.append(
+            f"freshness main_price_date={freshness_main_date} differs from candidate signal_date={main_date}; "
+            "auditing candidate-model internal consistency against candidate signal_date"
+        )
     details["all_candidates_rows"] = int(len(candidates))
     details["raw_model_signal_rows"] = int(len(raw_signals))
     details["report_model_signal_rows"] = int(len(report_signals))
