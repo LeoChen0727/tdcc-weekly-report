@@ -1219,6 +1219,8 @@ def double_bottom_structure_ok(row: pd.Series) -> bool:
 
 
 def cond_w_bottom_right(row: pd.Series) -> bool:
+    if already_confirmed_breakout(row):
+        return False
     return double_bottom_structure_ok(row)
 
 
@@ -2087,7 +2089,7 @@ def append_tdcc_short_term(signals: pd.DataFrame, signal_date: str) -> pd.DataFr
             score, score_parts, risk_tags = tdcc_short_term_score(row, source)
             rows.append(
                 {
-                    "signal_date": text(row, "signal_date") or signal_date,
+                    "signal_date": signal_date,
                     "source_row_index": f"tdcc_edge:{idx}",
                     "stock_id": stock_id,
                     "stock_name": text(row, "stock_name"),

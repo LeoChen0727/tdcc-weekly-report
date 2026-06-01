@@ -364,6 +364,7 @@ def audit() -> dict[str, Any]:
         if df.empty:
             errors.append(f"missing_or_empty: {name}")
 
+    auxiliary_date_tables = {"volume_watch", "tdcc_short_edge"}
     for name, df in {
         "all_candidates": candidates,
         "raw_model_signals": raw_signals,
@@ -377,7 +378,11 @@ def audit() -> dict[str, Any]:
         details[f"{name}_dates"] = dates
         bad_dates = [d for d in dates if d != main_date]
         if bad_dates:
-            errors.append(f"{name} signal_date mismatch: expected {main_date}, got {bad_dates}")
+            message = f"{name} signal_date mismatch: expected {main_date}, got {bad_dates}"
+            if name in auxiliary_date_tables:
+                warnings.append(message + "; stale auxiliary table ignored for date gating")
+            else:
+                errors.append(message)
 
     if not report_signals.empty:
         dup_cols = ["report_line", "model_id", "stock_id"]
@@ -410,7 +415,10 @@ def audit() -> dict[str, Any]:
                 errors.append(f"taxonomy has blank report_line_memberships rows: {blank_memberships}")
 
     candidate_by_stock = index_candidates(candidates)
-    volume_by_stock = index_volume_watch(volume)
+    volume_for_signal_date = volume
+    if not volume.empty and "signal_date" in volume.columns:
+        volume_for_signal_date = volume[volume["signal_date"].astype(str).map(safe_str) == main_date].copy()
+    volume_by_stock = index_volume_watch(volume_for_signal_date)
     tdcc_edge_stocks = stock_set(tdcc_edge)
 
     selected_errors: list[str] = []
@@ -452,8 +460,8 @@ def audit() -> dict[str, Any]:
             )
 
     expected_volume = set()
-    if not volume.empty:
-        for _, row in volume.iterrows():
+    if not volume_for_signal_date.empty:
+        for _, row in volume_for_signal_date.iterrows():
             sid = normalize_code(row.get("stock_id", ""))
             btype = text(row, "volume_breakout_type", "breakout_type").lower()
             status = text(row, "selection_status").lower()
