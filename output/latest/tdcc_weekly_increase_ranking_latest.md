@@ -1,6 +1,6 @@
 # TDCC Weekly Increase Ranking
 
-- generated_at: 2026-06-01 20:25:03 Asia/Taipei
+- generated_at: 2026-06-01 20:30:08 Asia/Taipei
 - purpose: 找出本週大戶持股比例突然增加的股票，單週即可上榜。
 - scoring_note: 分數同時考慮 400/600/800/1000 本週增幅、四級距同步、高級距同步、連續週數與族群狀態；這是 TDCC 週報排序，不是單獨買進建議。
 

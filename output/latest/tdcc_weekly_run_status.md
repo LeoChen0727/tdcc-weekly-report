@@ -1,8 +1,8 @@
 # TDCC Weekly Run Status
 
-- generated_at: `2026-06-01 19:33:23 Asia/Taipei`
-- github_run: https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/26751945490
-- commit: `7484750e3190a47b6350cc5203668eef36e084cd`
+- generated_at: `2026-06-01 20:30:10 Asia/Taipei`
+- github_run: https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/26754790211
+- commit: `5e3bfb663da7064ad993203e952a553eee2be6b6`
 
 ## Outputs
 
@@ -24,13 +24,17 @@
 | `output/latest/tdcc_phase_distribution_latest.csv` | yes | 102 |
 | `output/latest/tdcc_top_risk_list_latest.md` | yes | 79 |
 | `output/latest/tdcc_top_risk_list_latest.csv` | yes | 61 |
-| `output/latest/tdcc_chatgpt_tracking_packet_latest.md` | yes | 501 |
+| `output/latest/tdcc_chatgpt_tracking_packet_latest.md` | yes | 506 |
 | `output/latest/tdcc_weekly_increase_ranking_latest.md` | yes | 978 |
 | `output/latest/tdcc_weekly_increase_ranking_latest.csv` | yes | 971 |
 | `output/latest/tdcc_consecutive_accumulation_ranking_latest.md` | yes | 776 |
 | `output/latest/tdcc_consecutive_accumulation_ranking_latest.csv` | yes | 769 |
 | `output/latest/tdcc_weekly_model_cross_summary_latest.md` | yes | 1566 |
 | `output/latest/tdcc_weekly_model_cross_summary_latest.csv` | yes | 1552 |
+| `output/latest/tdcc_weekly_candidate_highlight_for_report_latest.md` | yes | 126 |
+| `output/latest/tdcc_weekly_candidate_highlight_for_report_latest.csv` | yes | 101 |
+| `output/latest/tdcc_weekly_candidate_full_for_report_latest.md` | yes | 3315 |
+| `output/latest/tdcc_weekly_candidate_full_for_report_latest.csv` | yes | 3290 |
 | `output/latest/tdcc_weekly_candidate_highlight_latest.md` | yes | 125 |
 | `output/latest/tdcc_weekly_candidate_full_latest.md` | yes | 3314 |
 | `output/latest/tdcc_chatgpt_tracking_validation_latest.md` | yes | 14 |
