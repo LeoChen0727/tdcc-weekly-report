@@ -101,6 +101,10 @@ jobs:
               output/latest/tdcc_consecutive_accumulation_ranking_latest.csv \
               output/latest/tdcc_weekly_model_cross_summary_latest.md \
               output/latest/tdcc_weekly_model_cross_summary_latest.csv \
+              output/latest/tdcc_weekly_candidate_highlight_for_report_latest.md \
+              output/latest/tdcc_weekly_candidate_highlight_for_report_latest.csv \
+              output/latest/tdcc_weekly_candidate_full_for_report_latest.md \
+              output/latest/tdcc_weekly_candidate_full_for_report_latest.csv \
               output/latest/tdcc_weekly_candidate_highlight_latest.md \
               output/latest/tdcc_weekly_candidate_full_latest.md \
               output/latest/tdcc_chatgpt_tracking_validation_latest.md \

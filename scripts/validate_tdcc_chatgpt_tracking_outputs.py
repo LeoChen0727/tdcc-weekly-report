@@ -22,6 +22,10 @@ CONSECUTIVE_MD = LATEST_DIR / "tdcc_consecutive_accumulation_ranking_latest.md"
 CONSECUTIVE_CSV = LATEST_DIR / "tdcc_consecutive_accumulation_ranking_latest.csv"
 MODEL_CROSS_MD = LATEST_DIR / "tdcc_weekly_model_cross_summary_latest.md"
 MODEL_CROSS_CSV = LATEST_DIR / "tdcc_weekly_model_cross_summary_latest.csv"
+WEEKLY_HIGHLIGHT_FOR_REPORT_MD = LATEST_DIR / "tdcc_weekly_candidate_highlight_for_report_latest.md"
+WEEKLY_HIGHLIGHT_FOR_REPORT_CSV = LATEST_DIR / "tdcc_weekly_candidate_highlight_for_report_latest.csv"
+WEEKLY_FULL_FOR_REPORT_MD = LATEST_DIR / "tdcc_weekly_candidate_full_for_report_latest.md"
+WEEKLY_FULL_FOR_REPORT_CSV = LATEST_DIR / "tdcc_weekly_candidate_full_for_report_latest.csv"
 WEEKLY_HIGHLIGHT_MD = LATEST_DIR / "tdcc_weekly_candidate_highlight_latest.md"
 WEEKLY_FULL_MD = LATEST_DIR / "tdcc_weekly_candidate_full_latest.md"
 README_TXT = LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT.txt"
@@ -67,6 +71,10 @@ def main() -> None:
         CONSECUTIVE_CSV,
         MODEL_CROSS_MD,
         MODEL_CROSS_CSV,
+        WEEKLY_HIGHLIGHT_FOR_REPORT_MD,
+        WEEKLY_HIGHLIGHT_FOR_REPORT_CSV,
+        WEEKLY_FULL_FOR_REPORT_MD,
+        WEEKLY_FULL_FOR_REPORT_CSV,
         WEEKLY_HIGHLIGHT_MD,
         WEEKLY_FULL_MD,
     ]:
@@ -160,6 +168,29 @@ def main() -> None:
         "TDCC weekly model cross summary",
         errors,
     )
+    report_ready_required = [
+        "report_kind",
+        "section_id",
+        "section_name_zh",
+        "section_rank",
+        "tdcc_list_type",
+        "stock_id",
+        "stock_name",
+        "report_usage_zh",
+        "operation_note_zh",
+    ]
+    highlight_report = read_csv(WEEKLY_HIGHLIGHT_FOR_REPORT_CSV)
+    require_columns(highlight_report, report_ready_required, "TDCC weekly highlight report-ready table", errors)
+    full_report = read_csv(WEEKLY_FULL_FOR_REPORT_CSV)
+    require_columns(full_report, report_ready_required, "TDCC weekly full report-ready table", errors)
+    if not highlight_report.empty and "report_kind" in highlight_report.columns:
+        bad = sorted(set(highlight_report["report_kind"].dropna().astype(str)) - {"highlight"})
+        if bad:
+            errors.append(f"highlight report-ready table has invalid report_kind values: {', '.join(bad)}")
+    if not full_report.empty and "report_kind" in full_report.columns:
+        bad = sorted(set(full_report["report_kind"].dropna().astype(str)) - {"full"})
+        if bad:
+            errors.append(f"full report-ready table has invalid report_kind values: {', '.join(bad)}")
 
     if not strength.empty and "theme" in strength.columns:
         other_pct = strength["theme"].astype(str).str.lower().isin(["", "other", "nan", "none"]).mean() * 100
@@ -185,6 +216,10 @@ def main() -> None:
         "tdcc_consecutive_accumulation_ranking_md_raw_url",
         "tdcc_weekly_model_cross_summary_csv_raw_url",
         "tdcc_weekly_model_cross_summary_md_raw_url",
+        "tdcc_weekly_candidate_highlight_for_report_csv_raw_url",
+        "tdcc_weekly_candidate_highlight_for_report_md_raw_url",
+        "tdcc_weekly_candidate_full_for_report_csv_raw_url",
+        "tdcc_weekly_candidate_full_for_report_md_raw_url",
         "tdcc_weekly_candidate_highlight_md_raw_url",
         "tdcc_weekly_candidate_full_md_raw_url",
     ]:

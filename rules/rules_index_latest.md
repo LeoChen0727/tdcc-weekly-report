@@ -1,6 +1,6 @@
 # TDCC Weekly Report Rules Index
 
-Last updated: 2026-05-28
+Last updated: 2026-06-01
 
 ## Priority
 
@@ -17,6 +17,7 @@ Last updated: 2026-05-28
 | `rules/master_priority_rules.md` | all tdcc-weekly-report tasks | 1 |
 | `rules/daily_stock_candidate_rules.md` | daily full-market candidate report | 2 |
 | `rules/single_stock_report_rules.md` | single-stock report and individual packet interpretation | 2 |
+| `rules/tdcc_weekly_rules.md` | TDCC weekly large-holder flow report | 2 |
 | `rules/astrology_rules.md` | Zi Wei / Ba Zi calendar-date strategy report | 2 |
 
 ## Workflow Split

@@ -33,9 +33,14 @@ CONSECUTIVE_CSV = LATEST_DIR / "tdcc_consecutive_accumulation_ranking_latest.csv
 CONSECUTIVE_MD = LATEST_DIR / "tdcc_consecutive_accumulation_ranking_latest.md"
 MODEL_CROSS_CSV = LATEST_DIR / "tdcc_weekly_model_cross_summary_latest.csv"
 MODEL_CROSS_MD = LATEST_DIR / "tdcc_weekly_model_cross_summary_latest.md"
+HIGHLIGHT_FOR_REPORT_CSV = LATEST_DIR / "tdcc_weekly_candidate_highlight_for_report_latest.csv"
+HIGHLIGHT_FOR_REPORT_MD = LATEST_DIR / "tdcc_weekly_candidate_highlight_for_report_latest.md"
+FULL_FOR_REPORT_CSV = LATEST_DIR / "tdcc_weekly_candidate_full_for_report_latest.csv"
+FULL_FOR_REPORT_MD = LATEST_DIR / "tdcc_weekly_candidate_full_for_report_latest.md"
 HIGHLIGHT_MD = LATEST_DIR / "tdcc_weekly_candidate_highlight_latest.md"
 FULL_MD = LATEST_DIR / "tdcc_weekly_candidate_full_latest.md"
 TRACKING_PACKET_MD = LATEST_DIR / "tdcc_chatgpt_tracking_packet_latest.md"
+TDCC_WEEKLY_RULES = Path("rules/tdcc_weekly_rules.md")
 
 README_PATHS = [
     LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT.txt",
@@ -95,6 +100,32 @@ MODEL_CROSS_COLUMNS = [
     "why_selected_zh",
     "risk_tags_zh",
     "next_confirmation_zh",
+]
+
+REPORT_COLUMNS = [
+    "report_kind",
+    "section_id",
+    "section_name_zh",
+    "section_rank",
+    "tdcc_list_type",
+    "tdcc_rank",
+    "signal_date",
+    "stock_id",
+    "stock_name",
+    "theme",
+    "tdcc_phase_group_zh",
+    "risk_bucket",
+    "tdcc_score",
+    "model_id",
+    "model_name_zh",
+    "tdcc_model_rank_in_list",
+    "model_score",
+    "model_source",
+    "why_selected_zh",
+    "risk_tags_zh",
+    "next_confirmation_zh",
+    "report_usage_zh",
+    "operation_note_zh",
 ]
 
 
@@ -222,10 +253,113 @@ def format_output(df: pd.DataFrame, columns: list[str]) -> pd.DataFrame:
         "relative_return_vs_benchmark",
         "tdcc_score",
         "model_score",
+        "section_rank",
     }
     for col in numeric_cols & set(out.columns):
         out[col] = out[col].map(lambda v: fmt(v, 2))
     return out[columns]
+
+
+def report_usage_for_list(list_type: Any) -> str:
+    mapping = {
+        "weekly_increase": "當週大戶增幅觀察：找本週大戶突然增加，偏短線籌碼變化。",
+        "consecutive_accumulation": "連續累積觀察：找兩週以上穩定增加，偏中期籌碼累積。",
+    }
+    return mapping.get(safe_str(list_type), "TDCC 籌碼候選觀察。")
+
+
+def operation_note(row: pd.Series) -> str:
+    phase = safe_str(row.get("tdcc_phase_group_zh"))
+    risk = safe_str(row.get("risk_bucket"))
+    next_confirmation = safe_str(row.get("next_confirmation_zh"))
+    if "股價領先" in phase or "overheated" in risk or "late" in risk:
+        base = "股價已領先或有追高風險，需用每日模型確認量價是否續強。"
+    elif "潛伏" in phase:
+        base = "偏潛伏吸籌觀察，重點看量價是否開始確認。"
+    elif "背離" in phase or "divergent" in risk:
+        base = "列為背離或失效觀察，不可只因 TDCC 增加升級。"
+    elif "不足" in phase:
+        base = "資料不足，只能觀察。"
+    else:
+        base = "以 TDCC 作籌碼背景，仍需搭配每日模型與價格結構。"
+    if next_confirmation:
+        return f"{base} 下一確認：{next_confirmation}"
+    return base
+
+
+def build_report_rows(weekly: pd.DataFrame, consecutive: pd.DataFrame, cross: pd.DataFrame, highlight: bool) -> pd.DataFrame:
+    frames: list[pd.DataFrame] = []
+
+    def add_rank_section(df: pd.DataFrame, section_id: str, section_name: str, list_type: str) -> None:
+        if df.empty:
+            return
+        part = df.head(5).copy() if highlight else df.copy()
+        part["report_kind"] = "highlight" if highlight else "full"
+        part["section_id"] = section_id
+        part["section_name_zh"] = section_name
+        part["section_rank"] = range(1, len(part) + 1)
+        part["tdcc_list_type"] = list_type
+        part["tdcc_rank"] = part.get("rank", "")
+        part["tdcc_score"] = part.get(
+            "tdcc_weekly_increase_score" if list_type == "weekly_increase" else "tdcc_consecutive_accumulation_score",
+            "",
+        )
+        part["model_id"] = ""
+        part["model_name_zh"] = ""
+        part["tdcc_model_rank_in_list"] = ""
+        part["model_score"] = ""
+        part["model_source"] = "tdcc_ranking"
+        part["why_selected_zh"] = part.get("ranking_note_zh", "")
+        part["risk_tags_zh"] = part.get("risk_bucket", "")
+        part["next_confirmation_zh"] = "後續交叉每日模型、價格結構與量價確認。"
+        part["report_usage_zh"] = report_usage_for_list(list_type)
+        part["operation_note_zh"] = part.apply(operation_note, axis=1)
+        frames.append(format_output(part, REPORT_COLUMNS))
+
+    def add_cross_section(df: pd.DataFrame, list_type: str, section_id: str, section_name: str) -> None:
+        if df.empty:
+            return
+        part = df[df["tdcc_list_type"].astype(str).eq(list_type)].copy()
+        if part.empty:
+            return
+        if highlight:
+            part = part.groupby("model_id", group_keys=False).head(3).copy()
+        part["report_kind"] = "highlight" if highlight else "full"
+        part["section_id"] = section_id
+        part["section_name_zh"] = section_name
+        part["section_rank"] = part.groupby("model_id", dropna=False).cumcount() + 1
+        part["report_usage_zh"] = part["tdcc_list_type"].map(report_usage_for_list)
+        part["operation_note_zh"] = part.apply(operation_note, axis=1)
+        frames.append(format_output(part, REPORT_COLUMNS))
+
+    add_rank_section(weekly, "weekly_increase_top", "當週增幅榜", "weekly_increase")
+    add_rank_section(consecutive, "consecutive_accumulation_top", "連續累積榜", "consecutive_accumulation")
+    if not cross.empty:
+        add_cross_section(cross, "weekly_increase", "weekly_increase_model_cross", "當週增幅榜 × 每日模型")
+        add_cross_section(cross, "consecutive_accumulation", "consecutive_accumulation_model_cross", "連續累積榜 × 每日模型")
+
+    if not frames:
+        return pd.DataFrame(columns=REPORT_COLUMNS)
+    return pd.concat(frames, ignore_index=True)
+
+
+def write_report_ready_md(path: Path, title: str, rows: pd.DataFrame, highlight: bool) -> None:
+    lines = [
+        f"# {title}",
+        "",
+        f"- generated_at: {now_text()}",
+        "- purpose: 這是 TDCC 週報對話端 / PDF generator 的固定資料來源。",
+        "- contract: 對話端只渲染本表，不自行改排名、不自行新增買賣判斷、不把不同模型混成單一排名。",
+        "- report_mode: 精華版列當週增幅前五、連續累積前五，以及各每日模型交叉前三；完整版列完整清單。",
+        "",
+    ]
+    if rows.empty:
+        lines.append("- no rows.")
+    else:
+        for section_id, part in rows.groupby("section_id", sort=False):
+            section_name = safe_str(part["section_name_zh"].iloc[0]) if "section_name_zh" in part.columns else section_id
+            lines.extend([f"## {section_name}", "", markdown_table(part, REPORT_COLUMNS), ""])
+    path.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
 
 
 def build_weekly_increase(df: pd.DataFrame) -> pd.DataFrame:
@@ -473,6 +607,8 @@ def upsert_readme_fields() -> None:
         "tdcc_weekly_increase_ranking": [WEEKLY_INCREASE_CSV, WEEKLY_INCREASE_MD],
         "tdcc_consecutive_accumulation_ranking": [CONSECUTIVE_CSV, CONSECUTIVE_MD],
         "tdcc_weekly_model_cross_summary": [MODEL_CROSS_CSV, MODEL_CROSS_MD],
+        "tdcc_weekly_candidate_highlight_for_report": [HIGHLIGHT_FOR_REPORT_CSV, HIGHLIGHT_FOR_REPORT_MD],
+        "tdcc_weekly_candidate_full_for_report": [FULL_FOR_REPORT_CSV, FULL_FOR_REPORT_MD],
         "tdcc_weekly_candidate_highlight": [HIGHLIGHT_MD],
         "tdcc_weekly_candidate_full": [FULL_MD],
     }
@@ -482,6 +618,9 @@ def upsert_readme_fields() -> None:
             suffix = "csv" if path.suffix.lower() == ".csv" else "md"
             fields[f"{prefix}_{suffix}_raw_url"] = raw_url(path)
             fields[f"{prefix}_{suffix}_pages_url"] = pages_url(path)
+    if TDCC_WEEKLY_RULES.exists():
+        fields["rules_tdcc_weekly_raw_url"] = raw_url(TDCC_WEEKLY_RULES)
+        fields["rules_tdcc_weekly_pages_url"] = pages_url(TDCC_WEEKLY_RULES)
 
     for path in README_PATHS:
         lines = path.read_text(encoding="utf-8", errors="replace").splitlines() if path.exists() else []
@@ -525,6 +664,11 @@ def append_tracking_packet_section(weekly: pd.DataFrame, consecutive: pd.DataFra
         marker,
         "",
         "- purpose: 當週增幅榜找本週大戶突然增加；連續累積榜找兩週以上穩定累積。兩者分開排名，不互相替代。",
+        "- report_contract: TDCC 報告對話固定生產兩份：精華版與完整版。精華版優先讀 highlight_for_report；完整版優先讀 full_for_report。",
+        f"- weekly_candidate_highlight_for_report_csv_raw_url: {raw_url(HIGHLIGHT_FOR_REPORT_CSV)}",
+        f"- weekly_candidate_highlight_for_report_md_raw_url: {raw_url(HIGHLIGHT_FOR_REPORT_MD)}",
+        f"- weekly_candidate_full_for_report_csv_raw_url: {raw_url(FULL_FOR_REPORT_CSV)}",
+        f"- weekly_candidate_full_for_report_md_raw_url: {raw_url(FULL_FOR_REPORT_MD)}",
         f"- weekly_increase_md_raw_url: {raw_url(WEEKLY_INCREASE_MD)}",
         f"- consecutive_accumulation_md_raw_url: {raw_url(CONSECUTIVE_MD)}",
         f"- weekly_candidate_highlight_md_raw_url: {raw_url(HIGHLIGHT_MD)}",
@@ -569,12 +713,30 @@ def main() -> None:
 
     write_report_md(HIGHLIGHT_MD, "TDCC Weekly Candidate Highlight", weekly, consecutive, cross, highlight=True)
     write_report_md(FULL_MD, "TDCC Weekly Candidate Full", weekly, consecutive, cross, highlight=False)
+    highlight_for_report = build_report_rows(weekly, consecutive, cross, highlight=True)
+    full_for_report = build_report_rows(weekly, consecutive, cross, highlight=False)
+    write_csv(highlight_for_report, HIGHLIGHT_FOR_REPORT_CSV)
+    write_csv(full_for_report, FULL_FOR_REPORT_CSV)
+    write_report_ready_md(
+        HIGHLIGHT_FOR_REPORT_MD,
+        "TDCC Weekly Candidate Highlight For Report",
+        highlight_for_report,
+        highlight=True,
+    )
+    write_report_ready_md(
+        FULL_FOR_REPORT_MD,
+        "TDCC Weekly Candidate Full For Report",
+        full_for_report,
+        highlight=False,
+    )
     append_tracking_packet_section(weekly, consecutive)
     upsert_readme_fields()
 
     print(f"Saved: {WEEKLY_INCREASE_CSV} rows={len(weekly)}")
     print(f"Saved: {CONSECUTIVE_CSV} rows={len(consecutive)}")
     print(f"Saved: {MODEL_CROSS_CSV} rows={len(cross)}")
+    print(f"Saved: {HIGHLIGHT_FOR_REPORT_CSV} rows={len(highlight_for_report)}")
+    print(f"Saved: {FULL_FOR_REPORT_CSV} rows={len(full_for_report)}")
     print(f"Saved: {HIGHLIGHT_MD}")
     print(f"Saved: {FULL_MD}")
     print(f"latest_signal_date={meta.get('latest_signal_date', '')}")
