@@ -1,6 +1,6 @@
 # TDCC Normalized Signal Structures
 
-- generated_at: `2026-05-30 15:48:17 Asia/Taipei`
+- generated_at: `2026-06-01 18:58:30 Asia/Taipei`
 - processed_snapshot_window: `latest_8_dates`
 - price_metrics_limit: `500`
 - snapshot_rows: `6012`
@@ -69,34 +69,34 @@
 | 7 | tdcc_leading_price | 10 |
 | 7 | tdcc_price_divergence | 8 |
 | 7 | insufficient_price_context | 7 |
-| 6 | insufficient_price_context | 3 |
-| 6 | tdcc_leading_price | 3 |
+| 6 | tdcc_leading_price | 5 |
 | 6 | failed_after_tdcc | 1 |
+| 6 | insufficient_price_context | 1 |
 | 6 | tdcc_price_divergence | 1 |
 | 5 | insufficient_price_context | 4 |
 | 5 | tdcc_price_divergence | 3 |
 | 5 | tdcc_leading_price | 2 |
 | 5 | overheated_after_tdcc | 1 |
-| 4 | insufficient_price_context | 145 |
-| 4 | tdcc_leading_price | 61 |
+| 4 | insufficient_price_context | 142 |
+| 4 | tdcc_leading_price | 66 |
 | 4 | tdcc_price_divergence | 54 |
 | 4 | overheated_after_tdcc | 10 |
-| 4 | price_leading_tdcc | 10 |
+| 4 | price_leading_tdcc | 8 |
 | 4 | failed_after_tdcc | 5 |
 | 4 | tdcc_price_confirmed | 5 |
 | 3 | insufficient_price_context | 104 |
-| 3 | tdcc_leading_price | 27 |
+| 3 | tdcc_leading_price | 28 |
 | 3 | tdcc_price_divergence | 20 |
 | 3 | overheated_after_tdcc | 10 |
-| 3 | price_leading_tdcc | 5 |
+| 3 | price_leading_tdcc | 4 |
 | 3 | tdcc_price_confirmed | 2 |
-| 2 | insufficient_price_context | 183 |
-| 2 | tdcc_leading_price | 31 |
+| 2 | insufficient_price_context | 180 |
+| 2 | tdcc_leading_price | 36 |
 | 2 | tdcc_price_divergence | 20 |
 | 2 | overheated_after_tdcc | 19 |
-| 2 | price_leading_tdcc | 10 |
+| 2 | price_leading_tdcc | 8 |
 | 2 | failed_after_tdcc | 2 |
 | 2 | tdcc_price_confirmed | 2 |
-| 1 | insufficient_price_context | 420 |
+| 1 | insufficient_price_context | 425 |
 | 1 | overheated_after_tdcc | 15 |
-| 1 | price_leading_tdcc | 14 |
+| 1 | price_leading_tdcc | 9 |
