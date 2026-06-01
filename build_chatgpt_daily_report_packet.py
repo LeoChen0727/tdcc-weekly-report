@@ -54,6 +54,8 @@ CATALYST_SUMMARY_CSV = LATEST_DIR / "catalyst_summary_latest.csv"
 CATALYST_VALIDATION_MD = LATEST_DIR / "catalyst_layer_validation_latest.md"
 CATALYST_PERFORMANCE_CSV = Path("output/history/catalyst_performance/catalyst_performance.csv")
 THEME_EVENT_CALENDAR = Path("data/theme_events/theme_event_calendar.csv")
+THEME_EVENT_WATCH_CSV = LATEST_DIR / "theme_event_watch_latest.csv"
+THEME_EVENT_WATCH_MD = LATEST_DIR / "theme_event_watch_latest.md"
 COMPANY_THEME_MAPPING = Path("data/theme_events/company_theme_mapping.csv")
 QUARTERLY_CATALYST = Path("data/fundamental_catalysts/quarterly_catalyst.csv")
 EVENT_CATALYST_LOG = Path("data/event_catalysts/event_catalyst_log.csv")
@@ -404,6 +406,11 @@ def build_packet_text(main_date: str, report_ready: str, paths: dict[str, Path],
     lines.append("")
     lines.append("CATALYST DATA LAYER")
     lines.append(f"theme_event_calendar_raw_url: {raw_url(THEME_EVENT_CALENDAR)}")
+    lines.append(f"theme_event_watch_csv_raw_url: {raw_url(THEME_EVENT_WATCH_CSV)}")
+    lines.append(f"theme_event_watch_md_raw_url: {raw_url(THEME_EVENT_WATCH_MD)}")
+    lines.append(f"theme_event_watch_status: {'generated' if THEME_EVENT_WATCH_CSV.exists() and THEME_EVENT_WATCH_MD.exists() else 'missing'}")
+    lines.append("theme_event_watch_pdf_section: 近期事件預警 / 主題催化觀察")
+    lines.append("theme_event_watch_usage: Event proximity and theme catalyst context only. It is not a standalone buy model and must not override price, volume, TDCC, revenue, or model selection fields.")
     lines.append(f"company_theme_mapping_raw_url: {raw_url(COMPANY_THEME_MAPPING)}")
     lines.append(f"quarterly_catalyst_raw_url: {raw_url(QUARTERLY_CATALYST)}")
     lines.append(f"event_catalyst_log_raw_url: {raw_url(EVENT_CATALYST_LOG)}")
@@ -426,6 +433,14 @@ def build_packet_text(main_date: str, report_ready: str, paths: dict[str, Path],
     lines.append("fields: event_calendar_tags,event_proximity_score,nearest_event_date,nearest_event_type,nearest_event_name,days_to_nearest_event")
     lines.append(f"status: {'generated' if COMPANY_EVENT_CALENDAR.exists() and MACRO_EVENT_CALENDAR.exists() else 'missing'}")
     lines.append("note: Calendar proximity is a reminder layer. It does not create a bullish catalyst unless confirmed event or financial data is also present.")
+    if THEME_EVENT_WATCH_MD.exists():
+        watch_text = safe_read_text(THEME_EVENT_WATCH_MD).strip()
+        if watch_text:
+            lines.append("")
+            lines.append("THEME EVENT WATCH SUMMARY")
+            lines.append("=" * 80)
+            lines.extend(watch_text.splitlines()[:120])
+            lines.append("=" * 80)
     lines.append("")
     lines.append("SIGNAL PERFORMANCE TRACKING")
     lines.append(f"signal_log_path: {DAILY_SIGNAL_LOG.as_posix()}")
@@ -612,6 +627,10 @@ def write_packet_manifest(main_date: str, report_ready: str, paths: dict[str, Pa
         "fundamental_catalyst_layer_path": FUNDAMENTAL_CATALYST_MD.as_posix(),
         "fundamental_catalyst_layer_status": "generated" if FUNDAMENTAL_CATALYST_MD.exists() else "missing",
         "theme_event_calendar_raw_url": raw_url(THEME_EVENT_CALENDAR),
+        "theme_event_watch_csv_raw_url": raw_url(THEME_EVENT_WATCH_CSV),
+        "theme_event_watch_md_raw_url": raw_url(THEME_EVENT_WATCH_MD),
+        "theme_event_watch_status": "generated" if THEME_EVENT_WATCH_CSV.exists() and THEME_EVENT_WATCH_MD.exists() else "missing",
+        "theme_event_watch_pdf_section": "近期事件預警 / 主題催化觀察",
         "company_theme_mapping_raw_url": raw_url(COMPANY_THEME_MAPPING),
         "quarterly_catalyst_raw_url": raw_url(QUARTERLY_CATALYST),
         "event_catalyst_log_raw_url": raw_url(EVENT_CATALYST_LOG),

@@ -1,7 +1,7 @@
 # Daily Candidate Model Selection Audit
 
 - status: `pass`
-- main_price_date: `20260529`
+- main_price_date: `20260601`
 - all_candidates_rows: `851`
 - raw_model_signal_rows: `885`
 - report_model_signal_rows: `885`
@@ -16,7 +16,6 @@
 
 ## Warnings
 
-- freshness main_price_date=20260529 differs from candidate signal_date=20260601; auditing candidate-model internal consistency against candidate signal_date
 - volume_watch signal_date mismatch: expected 20260601, got ['20260529']; stale auxiliary table ignored for date gating
 - tdcc_short_edge signal_date mismatch: expected 20260601, got ['20260529']; stale auxiliary table ignored for date gating
 

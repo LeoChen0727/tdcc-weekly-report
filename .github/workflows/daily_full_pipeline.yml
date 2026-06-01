@@ -300,6 +300,10 @@ jobs:
           python scripts/build_daily_candidate_model_layer.py
           python scripts/validate_daily_candidate_model_layer.py
 
+      - name: Build theme event watch
+        run: |
+          python scripts/build_theme_event_watch.py
+
       - name: Build individual stock technical snapshot
         run: |
           python scripts/build_individual_stock_technical_snapshot.py
@@ -390,6 +394,8 @@ jobs:
           cp output/latest/catalyst_layer_validation_latest.md docs/latest/catalyst_layer_validation_latest.md || true
           cp output/latest/upcoming_catalyst_calendar_latest.md docs/latest/upcoming_catalyst_calendar_latest.md || true
           cp output/latest/upcoming_macro_event_calendar_latest.md docs/latest/upcoming_macro_event_calendar_latest.md || true
+          cp output/latest/theme_event_watch_latest.csv docs/latest/theme_event_watch_latest.csv || true
+          cp output/latest/theme_event_watch_latest.md docs/latest/theme_event_watch_latest.md || true
           cp output/latest/calendar_data_source_status_latest.md docs/latest/calendar_data_source_status_latest.md || true
           cp output/latest/event_calendar_validation_latest.md docs/latest/event_calendar_validation_latest.md || true
           cp output/latest/catalyst_needs_review_latest.md docs/latest/catalyst_needs_review_latest.md || true

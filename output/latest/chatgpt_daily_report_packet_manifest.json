@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-01 22:26:56 Asia/Taipei",
+  "generated_at": "2026-06-01 23:08:50 Asia/Taipei",
   "main_price_date": "20260601",
   "report_ready": "True",
   "repo_artifacts_are_sources_not_final_chatgpt_deliverables": true,
@@ -29,6 +29,10 @@
   "fundamental_catalyst_layer_path": "output/latest/fundamental_catalyst_layer_latest.md",
   "fundamental_catalyst_layer_status": "generated",
   "theme_event_calendar_raw_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/theme_events/theme_event_calendar.csv",
+  "theme_event_watch_csv_raw_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/theme_event_watch_latest.csv",
+  "theme_event_watch_md_raw_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/theme_event_watch_latest.md",
+  "theme_event_watch_status": "generated",
+  "theme_event_watch_pdf_section": "近期事件預警 / 主題催化觀察",
   "company_theme_mapping_raw_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/theme_events/company_theme_mapping.csv",
   "quarterly_catalyst_raw_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/fundamental_catalysts/quarterly_catalyst.csv",
   "event_catalyst_log_raw_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/event_catalysts/event_catalyst_log.csv",

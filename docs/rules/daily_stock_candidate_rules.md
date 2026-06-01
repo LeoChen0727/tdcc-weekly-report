@@ -152,6 +152,7 @@ Specialty sections are allowed and required when their program-side files or fie
 
 Required specialty sections when data exists:
 
+- `theme_event_watch_latest.md/csv`: required "近期事件預警 / 主題催化觀察" PDF section. This is an event proximity and theme catalyst context layer, not a standalone buy model. It must help the report surface upcoming exhibitions, product events, earnings/event windows, and related candidate intersections early, but it must not override model selection, price/volume structure, TDCC, revenue, or risk fields.
 - `daily_short_term_specialty_packet_latest.md`: standalone D+5 / D+10 short-term specialty.
 - `daily_model_parameter_research_latest.md/csv` and `daily_model_parameter_research_horizon_detail_latest.md/csv`: standalone model-parameter research and tuning evidence. Use for backtest discussion and parameter review, not as a hard-coded PDF model list unless the program-side model layer promotes the rule.
 - `daily_model_parameter_recommendations_latest.md/csv`: program-side model-parameter usage recommendation. The same recommendation fields are also joined into `daily_candidate_model_signals_latest.csv`. Use these fields to decide whether a backtested parameter is ready for PDF core display, secondary watch, score component only, intraday-target watch, or research-only status.

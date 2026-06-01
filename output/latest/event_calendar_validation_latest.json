@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-01 22:26:56 Asia/Taipei",
+  "generated_at": "2026-06-01 23:11:38 Asia/Taipei",
   "status": "pass",
   "schema_only": false,
   "issues": [],
@@ -8,49 +8,67 @@
       "path": "data/company_calendar/company_event_calendar.csv",
       "exists": true,
       "rows": 996,
-      "size_bytes": 447240
+      "size_bytes": 448237
     },
     "macro_event_calendar": {
       "path": "data/macro_events/macro_event_calendar.csv",
       "exists": true,
       "rows": 39,
-      "size_bytes": 13222
+      "size_bytes": 13262
     },
     "upcoming_company_calendar": {
       "path": "output/latest/upcoming_catalyst_calendar_latest.csv",
       "exists": true,
       "rows": 992,
-      "size_bytes": 445938
+      "size_bytes": 446931
     },
     "upcoming_macro_calendar": {
       "path": "output/latest/upcoming_macro_event_calendar_latest.csv",
       "exists": true,
       "rows": 14,
-      "size_bytes": 4786
+      "size_bytes": 4801
+    },
+    "theme_event_calendar": {
+      "path": "data/theme_events/theme_event_calendar.csv",
+      "exists": true,
+      "rows": 1,
+      "size_bytes": 659
+    },
+    "theme_event_watch_csv": {
+      "path": "output/latest/theme_event_watch_latest.csv",
+      "exists": true,
+      "rows": 15,
+      "size_bytes": 18908
+    },
+    "theme_event_watch_md": {
+      "path": "output/latest/theme_event_watch_latest.md",
+      "exists": true,
+      "rows": 0,
+      "size_bytes": 8625
     },
     "status_json": {
       "path": "output/latest/calendar_data_source_status_latest.json",
       "exists": true,
       "rows": 0,
-      "size_bytes": 2518
+      "size_bytes": 2589
     },
     "status_md": {
       "path": "output/latest/calendar_data_source_status_latest.md",
       "exists": true,
       "rows": 0,
-      "size_bytes": 2236
+      "size_bytes": 2262
     },
     "needs_review_csv": {
       "path": "output/latest/catalyst_needs_review_latest.csv",
       "exists": true,
       "rows": 4,
-      "size_bytes": 2497
+      "size_bytes": 2502
     },
     "needs_review_md": {
       "path": "output/latest/catalyst_needs_review_latest.md",
       "exists": true,
       "rows": 0,
-      "size_bytes": 2009
+      "size_bytes": 2031
     }
   }
 }

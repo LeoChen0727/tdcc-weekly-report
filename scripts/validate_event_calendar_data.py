@@ -12,8 +12,11 @@ from tracking_utils import LATEST_DIR, now_text, read_csv, safe_str
 
 COMPANY_EVENT_CALENDAR = Path("data/company_calendar/company_event_calendar.csv")
 MACRO_EVENT_CALENDAR = Path("data/macro_events/macro_event_calendar.csv")
+THEME_EVENT_CALENDAR = Path("data/theme_events/theme_event_calendar.csv")
 UPCOMING_COMPANY_CALENDAR = LATEST_DIR / "upcoming_catalyst_calendar_latest.csv"
 UPCOMING_MACRO_CALENDAR = LATEST_DIR / "upcoming_macro_event_calendar_latest.csv"
+THEME_EVENT_WATCH_CSV = LATEST_DIR / "theme_event_watch_latest.csv"
+THEME_EVENT_WATCH_MD = LATEST_DIR / "theme_event_watch_latest.md"
 UPCOMING_COMPANY_MD = LATEST_DIR / "upcoming_catalyst_calendar_latest.md"
 UPCOMING_MACRO_MD = LATEST_DIR / "upcoming_macro_event_calendar_latest.md"
 STATUS_JSON = LATEST_DIR / "calendar_data_source_status_latest.json"
@@ -69,6 +72,37 @@ NEEDS_REVIEW_REQUIRED = [
     "notes",
 ]
 
+THEME_REQUIRED = [
+    "event_date",
+    "event_end_date",
+    "event_name",
+    "event_type",
+    "theme_tags",
+    "related_industries",
+    "related_stock_ids",
+    "importance",
+    "source_url",
+    "last_updated",
+]
+
+THEME_WATCH_REQUIRED = [
+    "signal_date",
+    "event_date",
+    "event_end_date",
+    "days_to_event",
+    "event_phase",
+    "event_name",
+    "event_type",
+    "theme_tag",
+    "importance",
+    "matched_stock_count",
+    "candidate_intersection_count",
+    "theme_event_watch_status",
+    "pdf_section_zh",
+    "interpretation_zh",
+    "source_url",
+]
+
 
 def read_text(path: Path) -> str:
     if not path.exists():
@@ -102,13 +136,18 @@ def main() -> int:
     macro = read_csv(MACRO_EVENT_CALENDAR, dtype=str)
     upcoming_company = read_csv(UPCOMING_COMPANY_CALENDAR, dtype=str)
     upcoming_macro = read_csv(UPCOMING_MACRO_CALENDAR, dtype=str)
+    theme = read_csv(THEME_EVENT_CALENDAR, dtype=str)
+    theme_watch = read_csv(THEME_EVENT_WATCH_CSV, dtype=str)
     needs_review = read_csv(NEEDS_REVIEW_CSV, dtype=str)
 
     for path in [
         COMPANY_EVENT_CALENDAR,
         MACRO_EVENT_CALENDAR,
+        THEME_EVENT_CALENDAR,
         UPCOMING_COMPANY_CALENDAR,
         UPCOMING_MACRO_CALENDAR,
+        THEME_EVENT_WATCH_CSV,
+        THEME_EVENT_WATCH_MD,
         STATUS_JSON,
         STATUS_MD,
         NEEDS_REVIEW_CSV,
@@ -121,12 +160,16 @@ def main() -> int:
         issues.append(f"company_calendar_missing_column:{col}")
     for col in missing_columns(macro, MACRO_REQUIRED):
         issues.append(f"macro_calendar_missing_column:{col}")
+    for col in missing_columns(theme, THEME_REQUIRED):
+        issues.append(f"theme_calendar_missing_column:{col}")
     for col in missing_columns(upcoming_company, COMPANY_REQUIRED):
         issues.append(f"upcoming_company_missing_column:{col}")
     for col in missing_columns(upcoming_macro, MACRO_REQUIRED):
         issues.append(f"upcoming_macro_missing_column:{col}")
     for col in missing_columns(needs_review, NEEDS_REVIEW_REQUIRED):
         issues.append(f"needs_review_missing_column:{col}")
+    for col in missing_columns(theme_watch, THEME_WATCH_REQUIRED):
+        issues.append(f"theme_event_watch_missing_column:{col}")
 
     if not needs_review.empty and {"model_effect_allowed", "pdf_effect_allowed"}.issubset(needs_review.columns):
         bad_model = needs_review[needs_review["model_effect_allowed"].astype(str).str.lower().isin(["true", "1", "yes", "y"])]
@@ -145,6 +188,10 @@ def main() -> int:
             issues.append("upcoming_company_calendar_empty")
         if upcoming_macro.empty:
             issues.append("upcoming_macro_calendar_empty")
+        if theme.empty:
+            issues.append("theme_event_calendar_empty")
+        if not theme.empty and theme_watch.empty:
+            issues.append("theme_event_calendar_has_rows_but_watch_empty")
 
         readme = read_text(README_TXT)
         packet = read_text(PACKET_TXT)
@@ -154,6 +201,8 @@ def main() -> int:
             "upcoming_catalyst_calendar_raw_url",
             "upcoming_macro_event_calendar_raw_url",
             "calendar_data_source_status_raw_url",
+            "theme_event_watch_csv_raw_url",
+            "theme_event_watch_md_raw_url",
         ]:
             if readme and field not in readme:
                 issues.append(f"readme_missing_field:{field}")
@@ -179,6 +228,9 @@ def main() -> int:
             "macro_event_calendar": file_info(MACRO_EVENT_CALENDAR),
             "upcoming_company_calendar": file_info(UPCOMING_COMPANY_CALENDAR),
             "upcoming_macro_calendar": file_info(UPCOMING_MACRO_CALENDAR),
+            "theme_event_calendar": file_info(THEME_EVENT_CALENDAR),
+            "theme_event_watch_csv": file_info(THEME_EVENT_WATCH_CSV),
+            "theme_event_watch_md": file_info(THEME_EVENT_WATCH_MD),
             "status_json": file_info(STATUS_JSON),
             "status_md": file_info(STATUS_MD),
             "needs_review_csv": file_info(NEEDS_REVIEW_CSV),
