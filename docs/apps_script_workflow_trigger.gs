@@ -116,6 +116,10 @@ function testGithubTokenAndWorkflowAccess() {
 }
 
 function triggerDailyStockMonitor() {
+  if (new Date().getDay() === 0) {
+    Logger.log("Skip daily full pipeline on Sunday.");
+    return;
+  }
   dispatchWorkflow_("daily_full_pipeline.yml");
   Utilities.sleep(5000);
   logLatestWorkflowRuns_("daily_full_pipeline.yml");
@@ -159,6 +163,79 @@ function installBiweeklyResearchBacktestTrigger() {
     .inTimezone("Asia/Taipei")
     .create();
   Logger.log("Installed biweekly research backtest trigger: Sunday 20:30 Asia/Taipei, every 2 weeks.");
+}
+
+function installAllWorkflowTriggers() {
+  installDailyStockMonitorTrigger_();
+  installTdccWeeklyReportTrigger_();
+  installEventCatalystUpdateTriggers_();
+  installWeeklyThemeReviewTrigger_();
+  installBiweeklyResearchBacktestTrigger();
+  Logger.log("Installed all workflow triggers.");
+  listAllTriggers();
+}
+
+function installDailyStockMonitorTrigger_() {
+  removeTriggersForFunction_("triggerDailyStockMonitor");
+  ScriptApp.newTrigger("triggerDailyStockMonitor")
+    .timeBased()
+    .everyDays(1)
+    .atHour(19)
+    .nearMinute(30)
+    .inTimezone("Asia/Taipei")
+    .create();
+}
+
+function installTdccWeeklyReportTrigger_() {
+  removeTriggersForFunction_("triggerTdccWeeklyReport");
+  ScriptApp.newTrigger("triggerTdccWeeklyReport")
+    .timeBased()
+    .onWeekDay(ScriptApp.WeekDay.SATURDAY)
+    .atHour(15)
+    .nearMinute(30)
+    .inTimezone("Asia/Taipei")
+    .create();
+}
+
+function installEventCatalystUpdateTriggers_() {
+  removeTriggersForFunction_("triggerEventCatalystUpdate");
+  ScriptApp.newTrigger("triggerEventCatalystUpdate")
+    .timeBased()
+    .everyDays(1)
+    .atHour(8)
+    .nearMinute(10)
+    .inTimezone("Asia/Taipei")
+    .create();
+  ScriptApp.newTrigger("triggerEventCatalystUpdate")
+    .timeBased()
+    .everyDays(1)
+    .atHour(18)
+    .nearMinute(10)
+    .inTimezone("Asia/Taipei")
+    .create();
+}
+
+function installWeeklyThemeReviewTrigger_() {
+  removeTriggersForFunction_("triggerWeeklyThemeReview");
+  ScriptApp.newTrigger("triggerWeeklyThemeReview")
+    .timeBased()
+    .onWeekDay(ScriptApp.WeekDay.SUNDAY)
+    .atHour(18)
+    .nearMinute(30)
+    .inTimezone("Asia/Taipei")
+    .create();
+}
+
+function listAllTriggers() {
+  ScriptApp.getProjectTriggers().forEach(function (trigger) {
+    Logger.log(
+      [
+        "handler=" + trigger.getHandlerFunction(),
+        "eventType=" + trigger.getEventType(),
+        "source=" + trigger.getTriggerSource(),
+      ].join(" | ")
+    );
+  });
 }
 
 function removeTriggersForFunction_(functionName) {
