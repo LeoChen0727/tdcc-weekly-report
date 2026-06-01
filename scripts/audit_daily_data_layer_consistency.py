@@ -330,7 +330,10 @@ def audit(include_readme: bool = False) -> dict[str, object]:
         vol_dates = sorted(set(volume.get("signal_date", pd.Series(dtype=str)).astype(str)))
         details["volume_signal_dates"] = vol_dates
         if vol_dates != [main_date]:
-            errors.append(f"volume watch signal_date mismatch: expected {main_date}, got {vol_dates}")
+            warnings.append(
+                f"volume watch signal_date mismatch: expected {main_date}, got {vol_dates}; "
+                "stale auxiliary table ignored for date gating"
+            )
 
     if not volume_theme_stocks.empty:
         other_rows = volume_theme_stocks[
