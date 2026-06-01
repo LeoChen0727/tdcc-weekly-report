@@ -1,6 +1,6 @@
 # Stock Price History Manifest
 
-- generated_at: `2026-06-01 20:15:35 Asia/Taipei`
+- generated_at: `2026-06-01 21:00:05 Asia/Taipei`
 - stock_count: `2368`
 - history_dir: `data/stock_price_history/`
 - manifest_csv: `output/latest/stock_price_history_manifest.csv`
@@ -17,33 +17,33 @@
 
 | stock_id | stock_name | rows | start_date | end_date | file_path |
 |---|---|---:|---|---|---|
+| 7803 | 雲象科技-創 | 9 | 20260520 | 20260601 | `data/stock_price_history/7803.csv` |
+| 6722 | 輝創 | 86 | 20260116 | 20260601 | `data/stock_price_history/6722.csv` |
+| 7795 | 長廣 | 86 | 20260116 | 20260601 | `data/stock_price_history/7795.csv` |
+| 1623 | 大東電 | 82 | 20260122 | 20260601 | `data/stock_price_history/1623.csv` |
 | 6288 | 聯嘉 | 82 | 20250407 | 20250804 | `data/stock_price_history/6288.csv` |
-| 2888 | 新光金 | 66 | 20250407 | 20250711 | `data/stock_price_history/2888.csv` |
-| 006201 | 元大富櫃50 | 6 | 20260522 | 20260529 | `data/stock_price_history/006201.csv` |
-| 00858 | 永豐美國500大 | 6 | 20260522 | 20260529 | `data/stock_price_history/00858.csv` |
-| 00877 | 復華中國5G | 6 | 20260522 | 20260529 | `data/stock_price_history/00877.csv` |
-| 00886 | 永豐美國科技 | 6 | 20260522 | 20260529 | `data/stock_price_history/00886.csv` |
-| 00887 | 永豐中國科技50大 | 6 | 20260522 | 20260529 | `data/stock_price_history/00887.csv` |
-| 00888 | 永豐台灣ESG | 6 | 20260522 | 20260529 | `data/stock_price_history/00888.csv` |
-| 00928 | 中信上櫃ESG 30 | 6 | 20260522 | 20260529 | `data/stock_price_history/00928.csv` |
-| 00955 | 中信日本商社 | 6 | 20260522 | 20260529 | `data/stock_price_history/00955.csv` |
-| 009806 | 台新標普500 | 6 | 20260522 | 20260529 | `data/stock_price_history/009806.csv` |
-| 009807 | 台新標普科技精選 | 6 | 20260522 | 20260529 | `data/stock_price_history/009807.csv` |
-| 009814 | 富邦標普500 | 6 | 20260522 | 20260529 | `data/stock_price_history/009814.csv` |
-| 009815 | 大華美國MAG7+ | 6 | 20260522 | 20260529 | `data/stock_price_history/009815.csv` |
-| 6236 | 中湛 | 33 | 20251103 | 20260521 | `data/stock_price_history/6236.csv` |
-| 1240 | 茂生農經 | 273 | 20250407 | 20260529 | `data/stock_price_history/1240.csv` |
-| 1264 | 德麥 | 273 | 20250407 | 20260529 | `data/stock_price_history/1264.csv` |
-| 1268 | 漢來美食 | 273 | 20250407 | 20260529 | `data/stock_price_history/1268.csv` |
-| 1295 | 生合 | 273 | 20250407 | 20260529 | `data/stock_price_history/1295.csv` |
-| 1336 | 台翰 | 273 | 20250407 | 20260529 | `data/stock_price_history/1336.csv` |
-| 1565 | 精華 | 273 | 20250407 | 20260529 | `data/stock_price_history/1565.csv` |
-| 1569 | 濱川 | 273 | 20250407 | 20260529 | `data/stock_price_history/1569.csv` |
-| 1570 | 力肯 | 273 | 20250407 | 20260529 | `data/stock_price_history/1570.csv` |
-| 1580 | 新麥 | 273 | 20250407 | 20260529 | `data/stock_price_history/1580.csv` |
-| 1584 | 精剛 | 273 | 20250407 | 20260529 | `data/stock_price_history/1584.csv` |
-| 1586 | 和勤 | 273 | 20250407 | 20260529 | `data/stock_price_history/1586.csv` |
-| 1591 | 駿吉-KY | 273 | 20250407 | 20260529 | `data/stock_price_history/1591.csv` |
-| 1593 | 祺驊 | 273 | 20250407 | 20260529 | `data/stock_price_history/1593.csv` |
-| 1595 | 川寶 | 273 | 20250407 | 20260529 | `data/stock_price_history/1595.csv` |
-| 1599 | 宏佳騰 | 273 | 20250407 | 20260529 | `data/stock_price_history/1599.csv` |
+| 4590 | 富田-創 | 77 | 20260129 | 20260601 | `data/stock_price_history/4590.csv` |
+| 6934 | 心誠鎂 | 75 | 20260202 | 20260601 | `data/stock_price_history/6934.csv` |
+| 7823 | 奧義賽博-KY創 | 72 | 20260205 | 20260601 | `data/stock_price_history/7823.csv` |
+| 006203 | 元大MSCI台灣 | 7 | 20260522 | 20260601 | `data/stock_price_history/006203.csv` |
+| 006204 | 永豐臺灣加權 | 7 | 20260522 | 20260601 | `data/stock_price_history/006204.csv` |
+| 006205 | 富邦上証 | 7 | 20260522 | 20260601 | `data/stock_price_history/006205.csv` |
+| 006206 | 元大上證50 | 7 | 20260522 | 20260601 | `data/stock_price_history/006206.csv` |
+| 006207 | 復華滬深 | 7 | 20260522 | 20260601 | `data/stock_price_history/006207.csv` |
+| 006208 | 富邦台50 | 7 | 20260522 | 20260601 | `data/stock_price_history/006208.csv` |
+| 00636 | 國泰中國A50 | 7 | 20260522 | 20260601 | `data/stock_price_history/00636.csv` |
+| 00639 | 富邦深100 | 7 | 20260522 | 20260601 | `data/stock_price_history/00639.csv` |
+| 00643 | 群益深証中小 | 7 | 20260522 | 20260601 | `data/stock_price_history/00643.csv` |
+| 00645 | 富邦日本 | 7 | 20260522 | 20260601 | `data/stock_price_history/00645.csv` |
+| 00646 | 元大S&P500 | 7 | 20260522 | 20260601 | `data/stock_price_history/00646.csv` |
+| 00652 | 富邦印度 | 7 | 20260522 | 20260601 | `data/stock_price_history/00652.csv` |
+| 00657 | 國泰日經225 | 7 | 20260522 | 20260601 | `data/stock_price_history/00657.csv` |
+| 00660 | 元大歐洲50 | 7 | 20260522 | 20260601 | `data/stock_price_history/00660.csv` |
+| 00661 | 元大日經225 | 7 | 20260522 | 20260601 | `data/stock_price_history/00661.csv` |
+| 00662 | 富邦NASDAQ | 7 | 20260522 | 20260601 | `data/stock_price_history/00662.csv` |
+| 00668 | 國泰美國道瓊 | 7 | 20260522 | 20260601 | `data/stock_price_history/00668.csv` |
+| 00678 | 群益那斯達克生技 | 7 | 20260522 | 20260601 | `data/stock_price_history/00678.csv` |
+| 00690 | 兆豐藍籌30 | 7 | 20260522 | 20260601 | `data/stock_price_history/00690.csv` |
+| 00692 | 富邦公司治理 | 7 | 20260522 | 20260601 | `data/stock_price_history/00692.csv` |
+| 00700 | 富邦恒生國企 | 7 | 20260522 | 20260601 | `data/stock_price_history/00700.csv` |
+| 00701 | 國泰股利精選30 | 7 | 20260522 | 20260601 | `data/stock_price_history/00701.csv` |
