@@ -65,7 +65,7 @@ TASK READ ORDER
   3. rules_daily_stock_candidate_raw_url / rules/daily_stock_candidate_rules.md
   4. CHATGPT_DAILY_REPORT_RULES.txt
   5. daily candidate packets, CSVs, structured tables, theme layers, TDCC/warrant/volume/catalyst/validation files
-  6. stock price data and 180-day windows only when drawing or interpreting stock charts
+  6. stock price data and half-year chart windows only when drawing or interpreting stock charts
 - Source priority is: repo structured raw data / packet / CSV / feature panel / event log / Markdown > repo PDF > external data.
 - Daily stock selection must read the independent model layer when available:
   daily_candidate_model_layer_packet_latest.md
@@ -343,7 +343,7 @@ CURATED DAILY RECOMMENDATION PDF CONTRACT
 - First-page table columns must include: category, stock, rating/decision_priority, score/decision_score, selected reason from why_selected, and risk/next confirmation from why_downgraded/risk_tags/downgrade_flags/next_confirmation.
 - After the first page, each core category must include 3-5 representative stocks when available.
 - Each representative stock must be an operation card/page, not just a row. It must include: stock id/name, category, mainstream/non-mainstream status, rating, score, rank, TDCC, warrant, why_selected, why_downgraded/risk_tags/downgrade_flags/must_not_overstate/repeated_but_no_breakout/needs_eps_confirmation/revenue_good_eps_unconfirmed, technical state, conditional entry trigger, take-profit/reduce/exit trigger, do-not-chase or invalidation condition, next confirmation with trigger+action, and K-line chart.
-- K-line charts must use repo price data / 180-day windows when available. Charts must show price, volume, 23EMA as the primary line, MA20/MA60 as supporting lines, prior high/platform/support/resistance, breakout zone, and failure line when applicable.
+- K-line charts must use repo price data / half-year windows when available. Charts must show price, volume, 23EMA as the primary line, MA20/MA60 as supporting lines, prior high/platform/support/resistance, breakout zone, and failure line when applicable.
 - The chart must be on the same page as the stock explanation or directly adjacent. Do not put all charts in a detached appendix.
 - Include a back-section `降級 / 鈍化 / 風險清單`; it is a risk summary, not a recommendation table.
 - Wide tables must be split into readable tables or operation cards. Long why_selected/why_downgraded/next_confirmation text must not be forced into narrow table cells.
@@ -370,14 +370,14 @@ K 線圖資料來源優先順序：
 
 1. 優先使用 packet、manifest 或 all_candidates 中指定的個股資料欄位，若其中包含可重建 K 線的資料。
 2. 其次使用 GitHub repo 內的官方日價資料，例如 data/daily_price/ 或 output/latest/ 中可取得的日價 CSV / parquet / json 資料。
-3. 若系統已產出個股 120 日或 180 日價格資料檔，優先用該資料檔重畫。
+3. 若系統已產出個股半年視角或更長的價格資料檔，優先用該資料檔重畫，但圖面只呈現半年視角。
 4. 只有在無法取得足夠日價資料時，才使用 chart_path / chart_url 指向的既有圖檔作為備援。
 5. 若日價資料與既有圖檔都無法取得，才可標示為「圖表路徑版 / 圖片下載失敗版」。
 
 K 線圖繪製要求：
 
 - 精華版 PDF 的 K 線圖應由資料自行繪製。
-- 優先使用 120 日或 180 日視角。
+- 優先使用半年視角（約 126 個交易日）。
 - 圖中應盡量包含 K 線或收盤走勢、成交量、均線或重要參考線。
 - 圖表應能看出平台、前高、回檔、突破、量能變化。
 - 每張圖必須確認股票代號與股票名稱一致。

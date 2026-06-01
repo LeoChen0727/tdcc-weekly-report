@@ -92,9 +92,16 @@ REQUIRED_SIGNAL_COLUMNS = {
     "best_avg_close_return_pct",
     "model_revision_note",
     "same_model_repeat_status",
+    "same_model_repeat_status_zh",
+    "same_model_repeat_note_zh",
     "same_model_consecutive_days",
     "same_model_appear_count_5d",
     "same_model_appear_count_10d",
+    "model_rank_overall",
+    "model_rank_new_signal",
+    "model_rank_repeated_signal",
+    "display_rank_new_signal",
+    "display_rank_repeated_signal",
 }
 
 DISPLAY_COLUMNS = [
@@ -110,6 +117,8 @@ DISPLAY_COLUMNS = [
     "recommended_usage_zh",
     "why_selected_zh",
     "source_hit_labels_zh",
+    "same_model_repeat_status_zh",
+    "same_model_repeat_note_zh",
     "tdcc_direction_zh",
     "tdcc_big_holder_summary_zh",
     "tdcc_grade_change_summary_zh",

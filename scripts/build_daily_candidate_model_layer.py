@@ -344,6 +344,94 @@ def column_or_default(df: pd.DataFrame, name: str, default: str = "") -> pd.Seri
     return pd.Series([default] * len(df), index=df.index, dtype=str)
 
 
+SAME_MODEL_REPEAT_STATUS_ZH = {
+    "new_model_signal": "新進榜",
+    "repeated_same_model_signal": "重複進榜",
+}
+
+FRONTPAGE_DUPLICATE_REASON_ZH = {
+    "not_pdf_core_model": "非PDF核心模型",
+    "same_model_repeat_moved_to_persistence_table": "同模型重複進榜，移至重複進榜表",
+    "duplicate_stock_already_shown_on_frontpage": "首頁已列過同股票代表",
+}
+
+
+def same_model_repeat_status_zh(value: Any) -> str:
+    raw = safe_str(value)
+    if not raw:
+        return ""
+    return SAME_MODEL_REPEAT_STATUS_ZH.get(raw, "欄位尚未完成 / 暫用現有資料")
+
+
+def same_model_repeat_note_zh(row: pd.Series) -> str:
+    status = safe_str(row.get("same_model_repeat_status", ""))
+    if status == "new_model_signal":
+        return "本模型今日新進榜；用新進榜排名呈現。"
+    if status == "repeated_same_model_signal":
+        days = safe_str(row.get("same_model_consecutive_days", "")) or "0"
+        count5 = safe_str(row.get("same_model_appear_count_5d", "")) or "0"
+        count10 = safe_str(row.get("same_model_appear_count_10d", "")) or "0"
+        return f"同模型連續{days}天；近5日{count5}次、近10日{count10}次；移至重複進榜表，不作扣分。"
+    return "欄位尚未完成 / 暫用現有資料"
+
+
+def add_same_model_repeat_display_and_ranks(df: pd.DataFrame) -> pd.DataFrame:
+    out = df.copy()
+    required_cols = [
+        "same_model_repeat_status_zh",
+        "same_model_repeat_note_zh",
+        "model_rank_overall",
+        "model_rank_new_signal",
+        "model_rank_repeated_signal",
+        "display_rank_new_signal",
+        "display_rank_repeated_signal",
+    ]
+    for col in required_cols:
+        if col not in out.columns:
+            out[col] = ""
+    if out.empty:
+        return out
+
+    if "same_model_repeat_status" not in out.columns:
+        out["same_model_repeat_status"] = ""
+    out["same_model_repeat_status_zh"] = out["same_model_repeat_status"].map(same_model_repeat_status_zh)
+    out["same_model_repeat_note_zh"] = out.apply(same_model_repeat_note_zh, axis=1)
+    out["model_rank_overall"] = column_or_default(out, "model_rank")
+
+    for col in ["model_rank_new_signal", "model_rank_repeated_signal", "display_rank_new_signal", "display_rank_repeated_signal"]:
+        out[col] = ""
+
+    out["_score_num"] = pd.to_numeric(out.get("model_score", ""), errors="coerce").fillna(-999999)
+    out["_rank_num"] = pd.to_numeric(out.get("model_rank", ""), errors="coerce").fillna(999999)
+    out["_consec_num"] = pd.to_numeric(out.get("same_model_consecutive_days", ""), errors="coerce").fillna(0)
+    out["_count10_num"] = pd.to_numeric(out.get("same_model_appear_count_10d", ""), errors="coerce").fillna(0)
+    out["_stock_id_sort"] = column_or_default(out, "stock_id")
+
+    status = out["same_model_repeat_status"].astype(str)
+    new_mask = status.eq("new_model_signal")
+    repeated_mask = status.eq("repeated_same_model_signal")
+
+    if new_mask.any():
+        new_sorted = out[new_mask].sort_values(
+            ["report_bucket", "model_id", "_score_num", "_rank_num", "_stock_id_sort"],
+            ascending=[True, True, False, True, True],
+        )
+        ranks = new_sorted.groupby(["report_bucket", "model_id"], dropna=False).cumcount() + 1
+        out.loc[new_sorted.index, "model_rank_new_signal"] = ranks.astype(str).values
+        out.loc[new_sorted.index, "display_rank_new_signal"] = [f"新進榜#{int(rank)}" for rank in ranks]
+
+    if repeated_mask.any():
+        repeated_sorted = out[repeated_mask].sort_values(
+            ["report_bucket", "model_id", "_consec_num", "_count10_num", "_score_num", "_rank_num", "_stock_id_sort"],
+            ascending=[True, True, False, False, False, True, True],
+        )
+        ranks = repeated_sorted.groupby(["report_bucket", "model_id"], dropna=False).cumcount() + 1
+        out.loc[repeated_sorted.index, "model_rank_repeated_signal"] = ranks.astype(str).values
+        out.loc[repeated_sorted.index, "display_rank_repeated_signal"] = [f"重複榜#{int(rank)}" for rank in ranks]
+
+    return out.drop(columns=["_score_num", "_rank_num", "_consec_num", "_count10_num", "_stock_id_sort"], errors="ignore")
+
+
 def apply_display_columns(df: pd.DataFrame) -> pd.DataFrame:
     if df.empty:
         return df.copy()
@@ -370,6 +458,12 @@ def apply_display_columns(df: pd.DataFrame) -> pd.DataFrame:
     out["recommended_usage_zh"] = preserve_existing_display("recommended_usage_zh", column_or_default(out, "recommended_usage").map(zh_text_or_pending))
     out["why_selected_zh"] = preserve_existing_display("why_selected_zh", column_or_default(out, "why_selected").map(zh_text_or_pending))
     out["score_components_zh"] = column_or_default(out, "score_components").map(score_components_zh)
+    out["same_model_repeat_status_zh"] = column_or_default(out, "same_model_repeat_status").map(same_model_repeat_status_zh)
+    out["same_model_repeat_note_zh"] = out.apply(same_model_repeat_note_zh, axis=1)
+    if "frontpage_duplicate_reason" in out.columns:
+        out["frontpage_duplicate_reason_zh"] = column_or_default(out, "frontpage_duplicate_reason").map(
+            lambda value: FRONTPAGE_DUPLICATE_REASON_ZH.get(safe_str(value), "")
+        )
     if "merged_source_categories" in out.columns:
         out["merged_source_categories_zh"] = out["merged_source_categories"].map(lambda value: zh_tag_list(value, CATEGORY_ZH))
         out["source_hit_labels_zh"] = preserve_existing_display("source_hit_labels_zh", out["merged_source_categories_zh"])
@@ -383,6 +477,8 @@ def apply_display_columns(df: pd.DataFrame) -> pd.DataFrame:
         "next_confirmation_zh": "依量價、支撐壓力與籌碼變化追蹤",
         "recommended_usage_zh": "模型條件成立，依支撐壓力與風控管理",
         "why_selected_zh": "依模型主條件入選",
+        "same_model_repeat_status_zh": "欄位尚未完成 / 暫用現有資料",
+        "same_model_repeat_note_zh": "欄位尚未完成 / 暫用現有資料",
         "effective_primary_theme_zh": "未分類族群 / 暫用產業分類",
         "effective_structural_theme_bucket_zh": "未分類族群 / 暫用產業分類",
     }
@@ -1623,6 +1719,7 @@ def annotate_frontpage_uniqueness(signals: pd.DataFrame) -> pd.DataFrame:
         out = signals.copy()
         out["frontpage_display_allowed"] = ""
         out["frontpage_duplicate_reason"] = ""
+        out["frontpage_duplicate_reason_zh"] = ""
         return out
 
     out = signals.copy()
@@ -1646,6 +1743,9 @@ def annotate_frontpage_uniqueness(signals: pd.DataFrame) -> pd.DataFrame:
     out.loc[core.index, "frontpage_duplicate_reason"] = ""
     out.loc[allowed_idx, "frontpage_display_allowed"] = "True"
     out.loc[duplicate_idx, "frontpage_duplicate_reason"] = "duplicate_stock_already_shown_on_frontpage"
+    out["frontpage_duplicate_reason_zh"] = out["frontpage_duplicate_reason"].map(
+        lambda value: FRONTPAGE_DUPLICATE_REASON_ZH.get(safe_str(value), "")
+    )
     return out.drop(columns=["_score_num", "_rank_num"])
 
 
@@ -1682,10 +1782,15 @@ def build_frontpage_unique(signals: pd.DataFrame) -> pd.DataFrame:
                 "primary_model_name_zh": text(top, "model_name_zh"),
                 "primary_model_score": top.get("model_score", ""),
                 "primary_model_rank": top.get("model_rank", ""),
+                "model_rank_overall": top.get("model_rank_overall", top.get("model_rank", "")),
+                "model_rank_new_signal": top.get("model_rank_new_signal", ""),
+                "display_rank_new_signal": top.get("display_rank_new_signal", ""),
                 "model_hit_count": len(part),
                 "model_hits": _join_unique(part["model_name_zh"]),
                 "model_hit_ids": _join_unique(part["model_id"]),
                 "same_model_repeat_status": text(top, "same_model_repeat_status"),
+                "same_model_repeat_status_zh": text(top, "same_model_repeat_status_zh"),
+                "same_model_repeat_note_zh": text(top, "same_model_repeat_note_zh"),
                 "same_model_consecutive_days": top.get("same_model_consecutive_days", ""),
                 "same_model_appear_count_5d": top.get("same_model_appear_count_5d", ""),
                 "same_model_appear_count_10d": top.get("same_model_appear_count_10d", ""),
@@ -1693,8 +1798,10 @@ def build_frontpage_unique(signals: pd.DataFrame) -> pd.DataFrame:
                 "warrant_flow_signal": text(top, "warrant_flow_signal"),
                 "volume_ratio": top.get("volume_ratio", ""),
                 "risk_penalty_tags": _join_unique(part["risk_penalty_tags"]),
+                "risk_tags_zh": _join_unique(part["risk_tags_zh"]) if "risk_tags_zh" in part.columns else "",
                 "score_components": text(top, "score_components"),
                 "next_confirmation": text(top, "next_confirmation"),
+                "next_confirmation_zh": text(top, "next_confirmation_zh"),
                 "frontpage_usage": "Use this table for first-page representatives; full model hits remain in daily_candidate_model_signals_latest.csv.",
             }
         )
@@ -1785,7 +1892,7 @@ def attach_same_model_repeat(signals: pd.DataFrame, model_log: pd.DataFrame) -> 
         out["same_model_appear_count_5d"] = ""
         out["same_model_appear_count_10d"] = ""
         out["same_model_repeat_status"] = ""
-        return out, pd.DataFrame()
+        return add_same_model_repeat_display_and_ranks(out), pd.DataFrame()
 
     out = signals.copy()
     if model_log.empty:
@@ -1793,7 +1900,7 @@ def attach_same_model_repeat(signals: pd.DataFrame, model_log: pd.DataFrame) -> 
         out["same_model_appear_count_5d"] = 1
         out["same_model_appear_count_10d"] = 1
         out["same_model_repeat_status"] = "new_model_signal"
-        return out, pd.DataFrame()
+        return add_same_model_repeat_display_and_ranks(out), pd.DataFrame()
 
     log = model_log.copy()
     for col in ["signal_date", "report_bucket", "stock_id", "model_id"]:
@@ -1824,6 +1931,7 @@ def attach_same_model_repeat(signals: pd.DataFrame, model_log: pd.DataFrame) -> 
     out["same_model_appear_count_5d"] = count_5d
     out["same_model_appear_count_10d"] = count_10d
     out["same_model_repeat_status"] = status
+    out = add_same_model_repeat_display_and_ranks(out)
 
     repeat = out[
         (out["model_group"].astype(str).eq("pdf_core_model"))
@@ -1838,6 +1946,8 @@ def attach_same_model_repeat(signals: pd.DataFrame, model_log: pd.DataFrame) -> 
             ascending=[True, False, False, False, True],
         ).reset_index(drop=True)
         repeat["same_model_repeat_rank"] = repeat.groupby(["report_bucket", "model_id"], dropna=False).cumcount() + 1
+        repeat["model_rank_repeated_signal"] = repeat["same_model_repeat_rank"].astype(str)
+        repeat["display_rank_repeated_signal"] = repeat["same_model_repeat_rank"].map(lambda rank: f"重複榜#{int(rank)}")
         repeat = repeat.drop(columns=["_consec", "_count10", "_score"])
     return out, repeat
 
@@ -2612,17 +2722,20 @@ def write_packet(
         cols = [
             "frontpage_unique_rank",
             "report_bucket_zh",
+            "display_rank_new_signal",
             "stock_id",
             "stock_name",
             "effective_primary_theme_zh",
             "primary_model_name_zh",
             "primary_model_score",
+            "model_rank_new_signal",
             "model_hit_count",
             "model_hits",
-            "same_model_repeat_status",
+            "same_model_repeat_status_zh",
+            "same_model_repeat_note_zh",
             "same_model_consecutive_days",
             "risk_tags_zh",
-            "next_confirmation",
+            "next_confirmation_zh",
         ]
         available_cols = [col for col in cols if col in frontpage_unique.columns]
         lines.append(frontpage_unique[available_cols].head(60).to_markdown(index=False))
@@ -2632,17 +2745,22 @@ def write_packet(
     else:
         cols = [
             "same_model_repeat_rank",
+            "display_rank_repeated_signal",
             "report_bucket_zh",
             "model_id",
             "model_name_zh",
             "stock_id",
             "stock_name",
+            "same_model_repeat_status_zh",
+            "same_model_repeat_note_zh",
             "same_model_consecutive_days",
             "same_model_appear_count_5d",
             "same_model_appear_count_10d",
+            "model_rank_overall",
+            "model_rank_repeated_signal",
             "model_score",
             "effective_primary_theme_zh",
-            "next_confirmation",
+            "next_confirmation_zh",
         ]
         available_cols = [col for col in cols if col in same_model_repeat.columns]
         lines.append(same_model_repeat[available_cols].head(80).to_markdown(index=False))

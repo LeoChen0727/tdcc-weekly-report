@@ -48,7 +48,7 @@ PDF_KLINE_DIR = LATEST_DIR / "charts" / "pdf_kline"
 PDF_KLINE_STATUS_CSV = LATEST_DIR / "pdf_kline_chart_status_latest.csv"
 PDF_KLINE_STATUS_JSON = LATEST_DIR / "pdf_kline_chart_status_latest.json"
 PDF_KLINE_STATUS_MD = LATEST_DIR / "pdf_kline_chart_status_latest.md"
-PDF_KLINE_DAYS_DEFAULT = 180
+PDF_KLINE_DAYS_DEFAULT = 126
 PDF_KLINE_MIN_DAYS = 60
 
 # 中文檔名：給人看
@@ -373,11 +373,9 @@ def chart_days_from_row(row: pd.Series) -> int:
         days = int(float(value))
     except Exception:
         days = PDF_KLINE_DAYS_DEFAULT
-    if days < 120:
-        return 120
-    if days > 260:
-        return 260
-    return days
+    if days < 60:
+        return 60
+    return min(days, PDF_KLINE_DAYS_DEFAULT)
 
 
 def safe_chart_filename(text: str) -> str:
@@ -1623,7 +1621,7 @@ def build_summary_markdown(
     lines.append("- PDF K 線圖政策：`local_price_redraw_first`")
     lines.append(f"- PDF K 線圖輸出目錄：`{PDF_KLINE_DIR.as_posix()}`")
     lines.append(f"- PDF K 線圖狀態檔：`{PDF_KLINE_STATUS_MD.as_posix()}`")
-    lines.append("- 精華版 PDF 會先使用 repo 內日價資料重畫 120/180 日 K 線圖；`chart_path` / `chart_url` 只是資料不足時的備援。")
+    lines.append("- 精華版 PDF 會先使用 repo 內日價資料重畫半年視角 K 線圖（預設約 126 個交易日）；`chart_path` / `chart_url` 只是資料不足時的備援。")
     lines.append("- 不得因候選資料內的 `chart_url` 下載失敗，就把精華版 PDF 判定為圖片下載失敗版。")
     lines.append("")
 

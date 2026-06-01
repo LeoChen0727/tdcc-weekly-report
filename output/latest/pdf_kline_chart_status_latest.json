@@ -22,13 +22,13 @@
       "category_cn": "嚴格突破",
       "chart_status": "redrawn_from_local_price_data",
       "source_type": "local_price_redraw",
-      "chart_days": "180",
-      "image_path": "output/latest/charts/pdf_kline/5203_訊連_true_breakout_180d.png",
+      "chart_days": "126",
+      "image_path": "output/latest/charts/pdf_kline/5203_訊連_true_breakout_126d.png",
       "price_source": "data/daily_price",
       "price_data_path": "data/daily_price",
       "candidate_chart_path": "",
       "candidate_chart_url": "",
-      "note": "來源：日價資料重畫；data/daily_price；180 日"
+      "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
       "date": "20260601",
@@ -38,13 +38,13 @@
       "category_cn": "嚴格突破",
       "chart_status": "redrawn_from_local_price_data",
       "source_type": "local_price_redraw",
-      "chart_days": "180",
-      "image_path": "output/latest/charts/pdf_kline/2385_群光_true_breakout_180d.png",
+      "chart_days": "126",
+      "image_path": "output/latest/charts/pdf_kline/2385_群光_true_breakout_126d.png",
       "price_source": "data/daily_price",
       "price_data_path": "data/daily_price",
       "candidate_chart_path": "",
       "candidate_chart_url": "",
-      "note": "來源：日價資料重畫；data/daily_price；180 日"
+      "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
       "date": "20260601",
@@ -54,13 +54,13 @@
       "category_cn": "嚴格突破",
       "chart_status": "redrawn_from_local_price_data",
       "source_type": "local_price_redraw",
-      "chart_days": "180",
-      "image_path": "output/latest/charts/pdf_kline/2603_長榮_true_breakout_180d.png",
+      "chart_days": "126",
+      "image_path": "output/latest/charts/pdf_kline/2603_長榮_true_breakout_126d.png",
       "price_source": "data/daily_price",
       "price_data_path": "data/daily_price",
       "candidate_chart_path": "",
       "candidate_chart_url": "",
-      "note": "來源：日價資料重畫；data/daily_price；180 日"
+      "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
       "date": "20260601",
@@ -70,13 +70,13 @@
       "category_cn": "嚴格突破",
       "chart_status": "redrawn_from_local_price_data",
       "source_type": "local_price_redraw",
-      "chart_days": "180",
-      "image_path": "output/latest/charts/pdf_kline/3015_全漢_true_breakout_180d.png",
+      "chart_days": "126",
+      "image_path": "output/latest/charts/pdf_kline/3015_全漢_true_breakout_126d.png",
       "price_source": "data/daily_price",
       "price_data_path": "data/daily_price",
       "candidate_chart_path": "",
       "candidate_chart_url": "",
-      "note": "來源：日價資料重畫；data/daily_price；180 日"
+      "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
       "date": "20260601",
@@ -86,13 +86,13 @@
       "category_cn": "嚴格突破",
       "chart_status": "redrawn_from_local_price_data",
       "source_type": "local_price_redraw",
-      "chart_days": "180",
-      "image_path": "output/latest/charts/pdf_kline/6214_精誠_true_breakout_180d.png",
+      "chart_days": "126",
+      "image_path": "output/latest/charts/pdf_kline/6214_精誠_true_breakout_126d.png",
       "price_source": "data/daily_price",
       "price_data_path": "data/daily_price",
       "candidate_chart_path": "",
       "candidate_chart_url": "",
-      "note": "來源：日價資料重畫；data/daily_price；180 日"
+      "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
       "date": "20260601",
@@ -102,13 +102,13 @@
       "category_cn": "區間內轉強 / 挑戰前高觀察",
       "chart_status": "redrawn_from_local_price_data",
       "source_type": "local_price_redraw",
-      "chart_days": "180",
-      "image_path": "output/latest/charts/pdf_kline/1301_台塑_range_rebound_180d.png",
+      "chart_days": "126",
+      "image_path": "output/latest/charts/pdf_kline/1301_台塑_range_rebound_126d.png",
       "price_source": "data/daily_price",
       "price_data_path": "data/daily_price",
       "candidate_chart_path": "",
       "candidate_chart_url": "",
-      "note": "來源：日價資料重畫；data/daily_price；180 日"
+      "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
       "date": "20260601",
@@ -118,13 +118,13 @@
       "category_cn": "區間內轉強 / 挑戰前高觀察",
       "chart_status": "redrawn_from_local_price_data",
       "source_type": "local_price_redraw",
-      "chart_days": "180",
-      "image_path": "output/latest/charts/pdf_kline/1326_台化_range_rebound_180d.png",
+      "chart_days": "126",
+      "image_path": "output/latest/charts/pdf_kline/1326_台化_range_rebound_126d.png",
       "price_source": "data/daily_price",
       "price_data_path": "data/daily_price",
       "candidate_chart_path": "",
       "candidate_chart_url": "",
-      "note": "來源：日價資料重畫；data/daily_price；180 日"
+      "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
       "date": "20260601",
@@ -134,13 +134,13 @@
       "category_cn": "區間內轉強 / 挑戰前高觀察",
       "chart_status": "redrawn_from_local_price_data",
       "source_type": "local_price_redraw",
-      "chart_days": "180",
-      "image_path": "output/latest/charts/pdf_kline/2609_陽明_range_rebound_180d.png",
+      "chart_days": "126",
+      "image_path": "output/latest/charts/pdf_kline/2609_陽明_range_rebound_126d.png",
       "price_source": "data/daily_price",
       "price_data_path": "data/daily_price",
       "candidate_chart_path": "",
       "candidate_chart_url": "",
-      "note": "來源：日價資料重畫；data/daily_price；180 日"
+      "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
       "date": "20260601",
@@ -150,13 +150,13 @@
       "category_cn": "區間內轉強 / 挑戰前高觀察",
       "chart_status": "redrawn_from_local_price_data",
       "source_type": "local_price_redraw",
-      "chart_days": "180",
-      "image_path": "output/latest/charts/pdf_kline/3376_新日興_range_rebound_180d.png",
+      "chart_days": "126",
+      "image_path": "output/latest/charts/pdf_kline/3376_新日興_range_rebound_126d.png",
       "price_source": "data/daily_price",
       "price_data_path": "data/daily_price",
       "candidate_chart_path": "",
       "candidate_chart_url": "",
-      "note": "來源：日價資料重畫；data/daily_price；180 日"
+      "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
       "date": "20260601",
@@ -166,13 +166,13 @@
       "category_cn": "區間內轉強 / 挑戰前高觀察",
       "chart_status": "redrawn_from_local_price_data",
       "source_type": "local_price_redraw",
-      "chart_days": "180",
-      "image_path": "output/latest/charts/pdf_kline/3515_華擎_range_rebound_180d.png",
+      "chart_days": "126",
+      "image_path": "output/latest/charts/pdf_kline/3515_華擎_range_rebound_126d.png",
       "price_source": "data/daily_price",
       "price_data_path": "data/daily_price",
       "candidate_chart_path": "",
       "candidate_chart_url": "",
-      "note": "來源：日價資料重畫；data/daily_price；180 日"
+      "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
       "date": "20260601",
@@ -182,13 +182,13 @@
       "category_cn": "營收成長股價回檔",
       "chart_status": "redrawn_from_local_price_data",
       "source_type": "local_price_redraw",
-      "chart_days": "180",
-      "image_path": "output/latest/charts/pdf_kline/3055_蔚華科_revenue_pullback_180d.png",
+      "chart_days": "126",
+      "image_path": "output/latest/charts/pdf_kline/3055_蔚華科_revenue_pullback_126d.png",
       "price_source": "data/daily_price",
       "price_data_path": "data/daily_price",
       "candidate_chart_path": "",
       "candidate_chart_url": "",
-      "note": "來源：日價資料重畫；data/daily_price；180 日"
+      "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
       "date": "20260601",
@@ -198,13 +198,13 @@
       "category_cn": "營收成長股價回檔",
       "chart_status": "redrawn_from_local_price_data",
       "source_type": "local_price_redraw",
-      "chart_days": "180",
-      "image_path": "output/latest/charts/pdf_kline/2241_艾姆勒_revenue_pullback_180d.png",
+      "chart_days": "126",
+      "image_path": "output/latest/charts/pdf_kline/2241_艾姆勒_revenue_pullback_126d.png",
       "price_source": "data/daily_price",
       "price_data_path": "data/daily_price",
       "candidate_chart_path": "",
       "candidate_chart_url": "",
-      "note": "來源：日價資料重畫；data/daily_price；180 日"
+      "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
       "date": "20260601",
@@ -214,13 +214,13 @@
       "category_cn": "營收成長股價回檔",
       "chart_status": "redrawn_from_local_price_data",
       "source_type": "local_price_redraw",
-      "chart_days": "180",
-      "image_path": "output/latest/charts/pdf_kline/8996_高力_revenue_pullback_180d.png",
+      "chart_days": "126",
+      "image_path": "output/latest/charts/pdf_kline/8996_高力_revenue_pullback_126d.png",
       "price_source": "data/daily_price",
       "price_data_path": "data/daily_price",
       "candidate_chart_path": "",
       "candidate_chart_url": "",
-      "note": "來源：日價資料重畫；data/daily_price；180 日"
+      "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
       "date": "20260601",
@@ -230,13 +230,13 @@
       "category_cn": "營收成長股價回檔",
       "chart_status": "redrawn_from_local_price_data",
       "source_type": "local_price_redraw",
-      "chart_days": "180",
-      "image_path": "output/latest/charts/pdf_kline/6901_鑽石投資_revenue_pullback_180d.png",
+      "chart_days": "126",
+      "image_path": "output/latest/charts/pdf_kline/6901_鑽石投資_revenue_pullback_126d.png",
       "price_source": "data/daily_price",
       "price_data_path": "data/daily_price",
       "candidate_chart_path": "",
       "candidate_chart_url": "",
-      "note": "來源：日價資料重畫；data/daily_price；180 日"
+      "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
       "date": "20260601",
@@ -246,13 +246,13 @@
       "category_cn": "營收成長股價回檔",
       "chart_status": "redrawn_from_local_price_data",
       "source_type": "local_price_redraw",
-      "chart_days": "180",
-      "image_path": "output/latest/charts/pdf_kline/3443_創意_revenue_pullback_180d.png",
+      "chart_days": "126",
+      "image_path": "output/latest/charts/pdf_kline/3443_創意_revenue_pullback_126d.png",
       "price_source": "data/daily_price",
       "price_data_path": "data/daily_price",
       "candidate_chart_path": "",
       "candidate_chart_url": "",
-      "note": "來源：日價資料重畫；data/daily_price；180 日"
+      "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
       "date": "20260601",
@@ -262,13 +262,13 @@
       "category_cn": "回檔後短線轉強",
       "chart_status": "redrawn_from_local_price_data",
       "source_type": "local_price_redraw",
-      "chart_days": "180",
-      "image_path": "output/latest/charts/pdf_kline/2208_台船_pullback_rebound_180d.png",
+      "chart_days": "126",
+      "image_path": "output/latest/charts/pdf_kline/2208_台船_pullback_rebound_126d.png",
       "price_source": "data/daily_price",
       "price_data_path": "data/daily_price",
       "candidate_chart_path": "",
       "candidate_chart_url": "",
-      "note": "來源：日價資料重畫；data/daily_price；180 日"
+      "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
       "date": "20260601",
@@ -278,13 +278,13 @@
       "category_cn": "回檔後短線轉強",
       "chart_status": "redrawn_from_local_price_data",
       "source_type": "local_price_redraw",
-      "chart_days": "180",
-      "image_path": "output/latest/charts/pdf_kline/2374_佳能_pullback_rebound_180d.png",
+      "chart_days": "126",
+      "image_path": "output/latest/charts/pdf_kline/2374_佳能_pullback_rebound_126d.png",
       "price_source": "data/daily_price",
       "price_data_path": "data/daily_price",
       "candidate_chart_path": "",
       "candidate_chart_url": "",
-      "note": "來源：日價資料重畫；data/daily_price；180 日"
+      "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
       "date": "20260601",
@@ -294,13 +294,13 @@
       "category_cn": "回檔後短線轉強",
       "chart_status": "redrawn_from_local_price_data",
       "source_type": "local_price_redraw",
-      "chart_days": "180",
-      "image_path": "output/latest/charts/pdf_kline/1714_和桐_pullback_rebound_180d.png",
+      "chart_days": "126",
+      "image_path": "output/latest/charts/pdf_kline/1714_和桐_pullback_rebound_126d.png",
       "price_source": "data/daily_price",
       "price_data_path": "data/daily_price",
       "candidate_chart_path": "",
       "candidate_chart_url": "",
-      "note": "來源：日價資料重畫；data/daily_price；180 日"
+      "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
       "date": "20260601",
@@ -310,13 +310,13 @@
       "category_cn": "回檔後短線轉強",
       "chart_status": "redrawn_from_local_price_data",
       "source_type": "local_price_redraw",
-      "chart_days": "180",
-      "image_path": "output/latest/charts/pdf_kline/2022_聚亨_pullback_rebound_180d.png",
+      "chart_days": "126",
+      "image_path": "output/latest/charts/pdf_kline/2022_聚亨_pullback_rebound_126d.png",
       "price_source": "data/daily_price",
       "price_data_path": "data/daily_price",
       "candidate_chart_path": "",
       "candidate_chart_url": "",
-      "note": "來源：日價資料重畫；data/daily_price；180 日"
+      "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
       "date": "20260601",
@@ -326,13 +326,13 @@
       "category_cn": "回檔後短線轉強",
       "chart_status": "redrawn_from_local_price_data",
       "source_type": "local_price_redraw",
-      "chart_days": "180",
-      "image_path": "output/latest/charts/pdf_kline/2101_南港_pullback_rebound_180d.png",
+      "chart_days": "126",
+      "image_path": "output/latest/charts/pdf_kline/2101_南港_pullback_rebound_126d.png",
       "price_source": "data/daily_price",
       "price_data_path": "data/daily_price",
       "candidate_chart_path": "",
       "candidate_chart_url": "",
-      "note": "來源：日價資料重畫；data/daily_price；180 日"
+      "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
       "date": "20260601",
@@ -342,13 +342,13 @@
       "category_cn": "型態觀察",
       "chart_status": "redrawn_from_local_price_data",
       "source_type": "local_price_redraw",
-      "chart_days": "180",
-      "image_path": "output/latest/charts/pdf_kline/2606_裕民_pattern_180d.png",
+      "chart_days": "126",
+      "image_path": "output/latest/charts/pdf_kline/2606_裕民_pattern_126d.png",
       "price_source": "data/daily_price",
       "price_data_path": "data/daily_price",
       "candidate_chart_path": "",
       "candidate_chart_url": "",
-      "note": "來源：日價資料重畫；data/daily_price；180 日"
+      "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
       "date": "20260601",
@@ -358,13 +358,13 @@
       "category_cn": "型態觀察",
       "chart_status": "redrawn_from_local_price_data",
       "source_type": "local_price_redraw",
-      "chart_days": "180",
-      "image_path": "output/latest/charts/pdf_kline/2027_大成鋼_pattern_180d.png",
+      "chart_days": "126",
+      "image_path": "output/latest/charts/pdf_kline/2027_大成鋼_pattern_126d.png",
       "price_source": "data/daily_price",
       "price_data_path": "data/daily_price",
       "candidate_chart_path": "",
       "candidate_chart_url": "",
-      "note": "來源：日價資料重畫；data/daily_price；180 日"
+      "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
       "date": "20260601",
@@ -374,13 +374,13 @@
       "category_cn": "型態觀察",
       "chart_status": "redrawn_from_local_price_data",
       "source_type": "local_price_redraw",
-      "chart_days": "180",
-      "image_path": "output/latest/charts/pdf_kline/2392_正崴_pattern_180d.png",
+      "chart_days": "126",
+      "image_path": "output/latest/charts/pdf_kline/2392_正崴_pattern_126d.png",
       "price_source": "data/daily_price",
       "price_data_path": "data/daily_price",
       "candidate_chart_path": "",
       "candidate_chart_url": "",
-      "note": "來源：日價資料重畫；data/daily_price；180 日"
+      "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
       "date": "20260601",
@@ -390,13 +390,13 @@
       "category_cn": "型態觀察",
       "chart_status": "redrawn_from_local_price_data",
       "source_type": "local_price_redraw",
-      "chart_days": "180",
-      "image_path": "output/latest/charts/pdf_kline/2421_建準_pattern_180d.png",
+      "chart_days": "126",
+      "image_path": "output/latest/charts/pdf_kline/2421_建準_pattern_126d.png",
       "price_source": "data/daily_price",
       "price_data_path": "data/daily_price",
       "candidate_chart_path": "",
       "candidate_chart_url": "",
-      "note": "來源：日價資料重畫；data/daily_price；180 日"
+      "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
       "date": "20260601",
@@ -406,13 +406,13 @@
       "category_cn": "型態觀察",
       "chart_status": "redrawn_from_local_price_data",
       "source_type": "local_price_redraw",
-      "chart_days": "180",
-      "image_path": "output/latest/charts/pdf_kline/2610_華航_pattern_180d.png",
+      "chart_days": "126",
+      "image_path": "output/latest/charts/pdf_kline/2610_華航_pattern_126d.png",
       "price_source": "data/daily_price",
       "price_data_path": "data/daily_price",
       "candidate_chart_path": "",
       "candidate_chart_url": "",
-      "note": "來源：日價資料重畫；data/daily_price；180 日"
+      "note": "來源：日價資料重畫；data/daily_price；126 日"
     }
   ]
 }
