@@ -150,6 +150,26 @@ def fetch_text(url: str, *, expect_api: bool = False, timeout: int = 20) -> dict
                     if encoding == "base64" and content:
                         decoded = b64decode(content).decode("utf-8-sig", errors="replace")
                         return {"ok": True, "http_status": status, "text": decoded, "error": ""}
+                    download_url = safe_str(payload.get("download_url"))
+                    if download_url:
+                        # GitHub contents API returns encoding="none" and empty content for
+                        # larger files. In that case, the API proved file existence; fetch
+                        # the provided raw download URL instead of misclassifying it as a
+                        # decode failure.
+                        fallback = fetch_text(download_url, expect_api=False, timeout=timeout)
+                        if fallback.get("ok") and fallback.get("text"):
+                            return {
+                                "ok": True,
+                                "http_status": status,
+                                "text": fallback.get("text", ""),
+                                "error": "",
+                            }
+                        return {
+                            "ok": False,
+                            "http_status": status,
+                            "text": "",
+                            "error": f"api_content_not_expanded: download_url fallback failed: {fallback.get('error', '')}",
+                        }
                     return {"ok": False, "http_status": status, "text": "", "error": "api_decode_failed"}
                 except Exception as exc:
                     return {"ok": False, "http_status": status, "text": "", "error": f"api_decode_failed: {exc}"}

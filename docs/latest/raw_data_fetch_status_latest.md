@@ -1,9 +1,9 @@
 # Raw Data Fetch Status
 
-- generated_at: 2026-05-28 20:21:29 Asia/Taipei
+- generated_at: 2026-06-01 13:32:04 Asia/Taipei
 - sources_checked: raw, pages, api
 - checked_rows: 216
-- success_rows: 175
+- success_rows: 178
 - suspicious_single_line_rows: 0
 - content_not_expanded_rows: 0
 - cache_miss_rows: 0
@@ -62,90 +62,90 @@
 
 | logical_source | stock_id | source_type | status_category | http_status | rows | columns | line_count | local_line_count | sample_status | chatgpt_friendly |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| all_candidates |  | api | api_decode_failed | 200 | 0 | 0 | 0 | 677 | ok | False |
-| all_candidates |  | pages | missing_file | 404 | 0 | 0 | 0 | 677 | ok | False |
-| all_candidates |  | raw | success | 200 | 676 | 280 | 677 | 677 | ok | True |
-| candidate_repeat_appearance |  | api | success | 200 | 597 | 13 | 598 | 598 | ok | True |
-| candidate_repeat_appearance |  | pages | missing_file | 404 | 0 | 0 | 0 | 598 | ok | False |
-| candidate_repeat_appearance |  | raw | success | 200 | 597 | 13 | 598 | 598 | ok | True |
-| daily_candidate_decision |  | api | success | 200 | 676 | 36 | 677 | 677 | ok | True |
-| daily_candidate_decision |  | pages | missing_file | 404 | 0 | 0 | 0 | 677 | ok | False |
-| daily_candidate_decision |  | raw | success | 200 | 676 | 36 | 677 | 677 | ok | True |
-| daily_candidate_decision_md |  | api | success | 200 | 259 | 1 | 259 | 259 | ok | True |
-| daily_candidate_decision_md |  | pages | missing_file | 404 | 0 | 0 | 0 | 259 | ok | False |
-| daily_candidate_decision_md |  | raw | success | 200 | 259 | 1 | 259 | 259 | ok | True |
-| daily_candidate_decision_packet |  | api | success | 200 | 199 | 1 | 199 | 199 | ok | True |
-| daily_candidate_decision_packet |  | pages | missing_file | 404 | 0 | 0 | 0 | 199 | ok | False |
-| daily_candidate_decision_packet |  | raw | success | 200 | 199 | 1 | 199 | 199 | ok | True |
-| daily_market_full |  | api | success | 200 | 807 | 1 | 807 | 807 | ok | True |
-| daily_market_full |  | pages | missing_file | 404 | 0 | 0 | 0 | 807 | ok | False |
-| daily_market_full |  | raw | success | 200 | 807 | 1 | 807 | 807 | ok | True |
-| daily_market_summary |  | api | success | 200 | 379 | 1 | 379 | 379 | ok | True |
-| daily_market_summary |  | pages | missing_file | 404 | 0 | 0 | 0 | 379 | ok | False |
-| daily_market_summary |  | raw | success | 200 | 379 | 1 | 379 | 379 | ok | True |
-| daily_report_packet |  | api | success | 200 | 1552 | 1 | 1552 | 1552 | ok | True |
-| daily_report_packet |  | pages | success | 200 | 1800 | 1 | 1800 | 1552 | ok | True |
-| daily_report_packet |  | raw | success | 200 | 1552 | 1 | 1552 | 1552 | ok | True |
+| all_candidates |  | api | success | 200 | 748 | 291 | 749 | 749 | ok | True |
+| all_candidates |  | pages | missing_file | 404 | 0 | 0 | 0 | 749 | ok | False |
+| all_candidates |  | raw | success | 200 | 748 | 291 | 749 | 749 | ok | True |
+| candidate_repeat_appearance |  | api | success | 200 | 483 | 13 | 484 | 484 | ok | True |
+| candidate_repeat_appearance |  | pages | missing_file | 404 | 0 | 0 | 0 | 484 | ok | False |
+| candidate_repeat_appearance |  | raw | success | 200 | 483 | 13 | 484 | 484 | ok | True |
+| daily_candidate_decision |  | api | success | 200 | 748 | 73 | 749 | 749 | ok | True |
+| daily_candidate_decision |  | pages | missing_file | 404 | 0 | 0 | 0 | 749 | ok | False |
+| daily_candidate_decision |  | raw | success | 200 | 748 | 73 | 749 | 749 | ok | True |
+| daily_candidate_decision_md |  | api | success | 200 | 338 | 1 | 338 | 338 | ok | True |
+| daily_candidate_decision_md |  | pages | missing_file | 404 | 0 | 0 | 0 | 338 | ok | False |
+| daily_candidate_decision_md |  | raw | success | 200 | 338 | 1 | 338 | 338 | ok | True |
+| daily_candidate_decision_packet |  | api | success | 200 | 227 | 1 | 227 | 227 | ok | True |
+| daily_candidate_decision_packet |  | pages | missing_file | 404 | 0 | 0 | 0 | 227 | ok | False |
+| daily_candidate_decision_packet |  | raw | success | 200 | 227 | 1 | 227 | 227 | ok | True |
+| daily_market_full |  | api | success | 200 | 783 | 1 | 783 | 783 | ok | True |
+| daily_market_full |  | pages | missing_file | 404 | 0 | 0 | 0 | 783 | ok | False |
+| daily_market_full |  | raw | success | 200 | 783 | 1 | 783 | 783 | ok | True |
+| daily_market_summary |  | api | success | 200 | 238 | 1 | 238 | 238 | ok | True |
+| daily_market_summary |  | pages | missing_file | 404 | 0 | 0 | 0 | 238 | ok | False |
+| daily_market_summary |  | raw | success | 200 | 238 | 1 | 238 | 238 | ok | True |
+| daily_report_packet |  | api | success | 200 | 1588 | 1 | 1588 | 1588 | ok | True |
+| daily_report_packet |  | pages | success | 200 | 1588 | 1 | 1588 | 1588 | ok | True |
+| daily_report_packet |  | raw | success | 200 | 1588 | 1 | 1588 | 1588 | ok | True |
 | daily_signal_performance_summary |  | api | success | 200 | 122 | 1 | 122 | 122 | ok | True |
 | daily_signal_performance_summary |  | pages | missing_file | 404 | 0 | 0 | 0 | 122 | ok | False |
 | daily_signal_performance_summary |  | raw | success | 200 | 122 | 1 | 122 | 122 | ok | True |
-| individual_stock_available_raw_data_index |  | api | api_decode_failed | 200 | 0 | 0 | 0 | 2151 | ok | False |
-| individual_stock_available_raw_data_index |  | pages | success | 200 | 2150 | 32 | 2151 | 2151 | ok | True |
-| individual_stock_available_raw_data_index |  | raw | success | 200 | 2150 | 32 | 2151 | 2151 | ok | True |
-| individual_stock_available_raw_data_index_slim |  | api | success | 200 | 2150 | 17 | 2151 | 2151 | ok | True |
-| individual_stock_available_raw_data_index_slim |  | pages | success | 200 | 2150 | 17 | 2151 | 2151 | ok | True |
-| individual_stock_available_raw_data_index_slim |  | raw | success | 200 | 2150 | 17 | 2151 | 2151 | ok | True |
-| individual_stock_chatgpt_packet | 1815 | api | success | 200 | 146 | 1 | 146 | 145 | ok | True |
-| individual_stock_chatgpt_packet | 1815 | pages | success | 200 | 146 | 1 | 146 | 145 | ok | True |
-| individual_stock_chatgpt_packet | 1815 | raw | success | 200 | 146 | 1 | 146 | 145 | ok | True |
-| individual_stock_chatgpt_packet | 2330 | api | success | 200 | 145 | 1 | 145 | 145 | ok | True |
-| individual_stock_chatgpt_packet | 2330 | pages | success | 200 | 145 | 1 | 145 | 145 | ok | True |
-| individual_stock_chatgpt_packet | 2330 | raw | success | 200 | 145 | 1 | 145 | 145 | ok | True |
+| individual_stock_available_raw_data_index |  | api | success | 200 | 2393 | 32 | 2394 | 2394 | ok | True |
+| individual_stock_available_raw_data_index |  | pages | success | 200 | 2393 | 32 | 2394 | 2394 | ok | True |
+| individual_stock_available_raw_data_index |  | raw | success | 200 | 2393 | 32 | 2394 | 2394 | ok | True |
+| individual_stock_available_raw_data_index_slim |  | api | success | 200 | 2393 | 17 | 2394 | 2394 | ok | True |
+| individual_stock_available_raw_data_index_slim |  | pages | success | 200 | 2393 | 17 | 2394 | 2394 | ok | True |
+| individual_stock_available_raw_data_index_slim |  | raw | success | 200 | 2393 | 17 | 2394 | 2394 | ok | True |
+| individual_stock_chatgpt_packet | 1815 | api | success | 200 | 146 | 1 | 146 | 146 | ok | True |
+| individual_stock_chatgpt_packet | 1815 | pages | success | 200 | 146 | 1 | 146 | 146 | ok | True |
+| individual_stock_chatgpt_packet | 1815 | raw | success | 200 | 146 | 1 | 146 | 146 | ok | True |
+| individual_stock_chatgpt_packet | 2330 | api | success | 200 | 146 | 1 | 146 | 146 | ok | True |
+| individual_stock_chatgpt_packet | 2330 | pages | success | 200 | 146 | 1 | 146 | 146 | ok | True |
+| individual_stock_chatgpt_packet | 2330 | raw | success | 200 | 146 | 1 | 146 | 146 | ok | True |
 | individual_stock_chatgpt_packet | 2353 | api | success | 200 | 146 | 1 | 146 | 146 | ok | True |
 | individual_stock_chatgpt_packet | 2353 | pages | success | 200 | 146 | 1 | 146 | 146 | ok | True |
 | individual_stock_chatgpt_packet | 2353 | raw | success | 200 | 146 | 1 | 146 | 146 | ok | True |
-| individual_stock_chatgpt_packet | 2484 | api | success | 200 | 145 | 1 | 145 | 145 | ok | True |
-| individual_stock_chatgpt_packet | 2484 | pages | success | 200 | 145 | 1 | 145 | 145 | ok | True |
-| individual_stock_chatgpt_packet | 2484 | raw | success | 200 | 145 | 1 | 145 | 145 | ok | True |
-| individual_stock_chatgpt_packet | 8299 | api | success | 200 | 146 | 1 | 146 | 145 | ok | True |
-| individual_stock_chatgpt_packet | 8299 | pages | success | 200 | 146 | 1 | 146 | 145 | ok | True |
-| individual_stock_chatgpt_packet | 8299 | raw | success | 200 | 146 | 1 | 146 | 145 | ok | True |
-| individual_stock_chatgpt_packet_index |  | api | api_decode_failed | 200 | 0 | 0 | 0 | 2151 | ok | False |
-| individual_stock_chatgpt_packet_index |  | pages | success | 200 | 2150 | 36 | 2151 | 2151 | ok | True |
-| individual_stock_chatgpt_packet_index |  | raw | success | 200 | 2150 | 36 | 2151 | 2151 | ok | True |
+| individual_stock_chatgpt_packet | 2484 | api | success | 200 | 146 | 1 | 146 | 146 | ok | True |
+| individual_stock_chatgpt_packet | 2484 | pages | success | 200 | 146 | 1 | 146 | 146 | ok | True |
+| individual_stock_chatgpt_packet | 2484 | raw | success | 200 | 146 | 1 | 146 | 146 | ok | True |
+| individual_stock_chatgpt_packet | 8299 | api | success | 200 | 146 | 1 | 146 | 146 | ok | True |
+| individual_stock_chatgpt_packet | 8299 | pages | success | 200 | 146 | 1 | 146 | 146 | ok | True |
+| individual_stock_chatgpt_packet | 8299 | raw | success | 200 | 146 | 1 | 146 | 146 | ok | True |
+| individual_stock_chatgpt_packet_index |  | api | success | 200 | 2393 | 36 | 2394 | 2394 | ok | True |
+| individual_stock_chatgpt_packet_index |  | pages | success | 200 | 2393 | 36 | 2394 | 2394 | ok | True |
+| individual_stock_chatgpt_packet_index |  | raw | success | 200 | 2393 | 36 | 2394 | 2394 | ok | True |
 | individual_stock_chatgpt_packet_index_md |  | api | success | 200 | 245 | 1 | 245 | 245 | ok | True |
 | individual_stock_chatgpt_packet_index_md |  | pages | success | 200 | 245 | 1 | 245 | 245 | ok | True |
 | individual_stock_chatgpt_packet_index_md |  | raw | success | 200 | 245 | 1 | 245 | 245 | ok | True |
-| individual_stock_price_window_180_html | 1815 | api | success | 200 | 0 | 0 | 154 | 154 | ok | True |
-| individual_stock_price_window_180_html | 1815 | pages | success | 200 | 0 | 0 | 154 | 154 | ok | True |
-| individual_stock_price_window_180_html | 1815 | raw | success | 200 | 0 | 0 | 154 | 154 | ok | True |
-| individual_stock_price_window_180_html | 2330 | api | success | 200 | 0 | 0 | 154 | 154 | ok | True |
-| individual_stock_price_window_180_html | 2330 | pages | success | 200 | 0 | 0 | 154 | 154 | ok | True |
-| individual_stock_price_window_180_html | 2330 | raw | success | 200 | 0 | 0 | 154 | 154 | ok | True |
-| individual_stock_price_window_180_html | 2353 | api | success | 200 | 0 | 0 | 154 | 154 | ok | True |
-| individual_stock_price_window_180_html | 2353 | pages | success | 200 | 0 | 0 | 154 | 154 | ok | True |
-| individual_stock_price_window_180_html | 2353 | raw | success | 200 | 0 | 0 | 154 | 154 | ok | True |
-| individual_stock_price_window_180_html | 2484 | api | success | 200 | 0 | 0 | 154 | 154 | ok | True |
-| individual_stock_price_window_180_html | 2484 | pages | success | 200 | 0 | 0 | 154 | 154 | ok | True |
-| individual_stock_price_window_180_html | 2484 | raw | success | 200 | 0 | 0 | 154 | 154 | ok | True |
-| individual_stock_price_window_180_html | 8299 | api | success | 200 | 0 | 0 | 154 | 154 | ok | True |
-| individual_stock_price_window_180_html | 8299 | pages | success | 200 | 0 | 0 | 154 | 154 | ok | True |
-| individual_stock_price_window_180_html | 8299 | raw | success | 200 | 0 | 0 | 154 | 154 | ok | True |
-| individual_stock_price_window_180_txt | 1815 | api | success | 200 | 275 | 1 | 275 | 275 | ok | True |
-| individual_stock_price_window_180_txt | 1815 | pages | success | 200 | 275 | 1 | 275 | 275 | ok | True |
-| individual_stock_price_window_180_txt | 1815 | raw | success | 200 | 275 | 1 | 275 | 275 | ok | True |
-| individual_stock_price_window_180_txt | 2330 | api | success | 200 | 275 | 1 | 275 | 275 | ok | True |
-| individual_stock_price_window_180_txt | 2330 | pages | success | 200 | 275 | 1 | 275 | 275 | ok | True |
-| individual_stock_price_window_180_txt | 2330 | raw | success | 200 | 275 | 1 | 275 | 275 | ok | True |
-| individual_stock_price_window_180_txt | 2353 | api | success | 200 | 275 | 1 | 275 | 275 | ok | True |
-| individual_stock_price_window_180_txt | 2353 | pages | success | 200 | 275 | 1 | 275 | 275 | ok | True |
-| individual_stock_price_window_180_txt | 2353 | raw | success | 200 | 275 | 1 | 275 | 275 | ok | True |
-| individual_stock_price_window_180_txt | 2484 | api | success | 200 | 275 | 1 | 275 | 275 | ok | True |
-| individual_stock_price_window_180_txt | 2484 | pages | success | 200 | 275 | 1 | 275 | 275 | ok | True |
-| individual_stock_price_window_180_txt | 2484 | raw | success | 200 | 275 | 1 | 275 | 275 | ok | True |
-| individual_stock_price_window_180_txt | 8299 | api | success | 200 | 275 | 1 | 275 | 275 | ok | True |
-| individual_stock_price_window_180_txt | 8299 | pages | success | 200 | 275 | 1 | 275 | 275 | ok | True |
-| individual_stock_price_window_180_txt | 8299 | raw | success | 200 | 275 | 1 | 275 | 275 | ok | True |
+| individual_stock_price_window_180_html | 1815 | api | success | 200 | 0 | 0 | 198 | 198 | ok | True |
+| individual_stock_price_window_180_html | 1815 | pages | success | 200 | 0 | 0 | 198 | 198 | ok | True |
+| individual_stock_price_window_180_html | 1815 | raw | success | 200 | 0 | 0 | 198 | 198 | ok | True |
+| individual_stock_price_window_180_html | 2330 | api | success | 200 | 0 | 0 | 198 | 198 | ok | True |
+| individual_stock_price_window_180_html | 2330 | pages | success | 200 | 0 | 0 | 198 | 198 | ok | True |
+| individual_stock_price_window_180_html | 2330 | raw | success | 200 | 0 | 0 | 198 | 198 | ok | True |
+| individual_stock_price_window_180_html | 2353 | api | success | 200 | 0 | 0 | 198 | 198 | ok | True |
+| individual_stock_price_window_180_html | 2353 | pages | success | 200 | 0 | 0 | 198 | 198 | ok | True |
+| individual_stock_price_window_180_html | 2353 | raw | success | 200 | 0 | 0 | 198 | 198 | ok | True |
+| individual_stock_price_window_180_html | 2484 | api | success | 200 | 0 | 0 | 198 | 198 | ok | True |
+| individual_stock_price_window_180_html | 2484 | pages | success | 200 | 0 | 0 | 198 | 198 | ok | True |
+| individual_stock_price_window_180_html | 2484 | raw | success | 200 | 0 | 0 | 198 | 198 | ok | True |
+| individual_stock_price_window_180_html | 8299 | api | success | 200 | 0 | 0 | 198 | 198 | ok | True |
+| individual_stock_price_window_180_html | 8299 | pages | success | 200 | 0 | 0 | 198 | 198 | ok | True |
+| individual_stock_price_window_180_html | 8299 | raw | success | 200 | 0 | 0 | 198 | 198 | ok | True |
+| individual_stock_price_window_180_txt | 1815 | api | success | 200 | 363 | 1 | 363 | 363 | ok | True |
+| individual_stock_price_window_180_txt | 1815 | pages | success | 200 | 363 | 1 | 363 | 363 | ok | True |
+| individual_stock_price_window_180_txt | 1815 | raw | success | 200 | 363 | 1 | 363 | 363 | ok | True |
+| individual_stock_price_window_180_txt | 2330 | api | success | 200 | 363 | 1 | 363 | 363 | ok | True |
+| individual_stock_price_window_180_txt | 2330 | pages | success | 200 | 363 | 1 | 363 | 363 | ok | True |
+| individual_stock_price_window_180_txt | 2330 | raw | success | 200 | 363 | 1 | 363 | 363 | ok | True |
+| individual_stock_price_window_180_txt | 2353 | api | success | 200 | 363 | 1 | 363 | 363 | ok | True |
+| individual_stock_price_window_180_txt | 2353 | pages | success | 200 | 363 | 1 | 363 | 363 | ok | True |
+| individual_stock_price_window_180_txt | 2353 | raw | success | 200 | 363 | 1 | 363 | 363 | ok | True |
+| individual_stock_price_window_180_txt | 2484 | api | success | 200 | 363 | 1 | 363 | 363 | ok | True |
+| individual_stock_price_window_180_txt | 2484 | pages | success | 200 | 363 | 1 | 363 | 363 | ok | True |
+| individual_stock_price_window_180_txt | 2484 | raw | success | 200 | 363 | 1 | 363 | 363 | ok | True |
+| individual_stock_price_window_180_txt | 8299 | api | success | 200 | 363 | 1 | 363 | 363 | ok | True |
+| individual_stock_price_window_180_txt | 8299 | pages | success | 200 | 363 | 1 | 363 | 363 | ok | True |
+| individual_stock_price_window_180_txt | 8299 | raw | success | 200 | 363 | 1 | 363 | 363 | ok | True |
 | individual_stock_report_md | 1815 | api | success | 200 | 77 | 1 | 77 | 77 | ok | True |
 | individual_stock_report_md | 1815 | pages | success | 200 | 77 | 1 | 77 | 77 | ok | True |
 | individual_stock_report_md | 1815 | raw | success | 200 | 77 | 1 | 77 | 77 | ok | True |
@@ -164,24 +164,24 @@
 | individual_stock_reports_index |  | api | success | 200 | 5 | 15 | 6 | 6 | ok | True |
 | individual_stock_reports_index |  | pages | success | 200 | 5 | 15 | 6 | 6 | ok | True |
 | individual_stock_reports_index |  | raw | success | 200 | 5 | 15 | 6 | 6 | ok | True |
-| individual_stock_tdcc_window_txt | 1815 | api | success | 200 | 11 | 1 | 11 | 11 | ok | True |
-| individual_stock_tdcc_window_txt | 1815 | pages | success | 200 | 11 | 1 | 11 | 11 | ok | True |
-| individual_stock_tdcc_window_txt | 1815 | raw | success | 200 | 11 | 1 | 11 | 11 | ok | True |
-| individual_stock_tdcc_window_txt | 2330 | api | success | 200 | 11 | 1 | 11 | 11 | ok | True |
-| individual_stock_tdcc_window_txt | 2330 | pages | success | 200 | 11 | 1 | 11 | 11 | ok | True |
-| individual_stock_tdcc_window_txt | 2330 | raw | success | 200 | 11 | 1 | 11 | 11 | ok | True |
-| individual_stock_tdcc_window_txt | 2353 | api | success | 200 | 11 | 1 | 11 | 11 | ok | True |
-| individual_stock_tdcc_window_txt | 2353 | pages | success | 200 | 11 | 1 | 11 | 11 | ok | True |
-| individual_stock_tdcc_window_txt | 2353 | raw | success | 200 | 11 | 1 | 11 | 11 | ok | True |
-| individual_stock_tdcc_window_txt | 2484 | api | success | 200 | 11 | 1 | 11 | 11 | ok | True |
-| individual_stock_tdcc_window_txt | 2484 | pages | success | 200 | 11 | 1 | 11 | 11 | ok | True |
-| individual_stock_tdcc_window_txt | 2484 | raw | success | 200 | 11 | 1 | 11 | 11 | ok | True |
-| individual_stock_tdcc_window_txt | 8299 | api | success | 200 | 11 | 1 | 11 | 11 | ok | True |
-| individual_stock_tdcc_window_txt | 8299 | pages | success | 200 | 11 | 1 | 11 | 11 | ok | True |
-| individual_stock_tdcc_window_txt | 8299 | raw | success | 200 | 11 | 1 | 11 | 11 | ok | True |
-| readme_first |  | api | success | 200 | 282 | 1 | 282 | 282 | ok | True |
-| readme_first |  | pages | success | 200 | 282 | 1 | 282 | 282 | ok | True |
-| readme_first |  | raw | success | 200 | 282 | 1 | 282 | 282 | ok | True |
+| individual_stock_tdcc_window_txt | 1815 | api | success | 200 | 13 | 1 | 13 | 13 | ok | True |
+| individual_stock_tdcc_window_txt | 1815 | pages | success | 200 | 13 | 1 | 13 | 13 | ok | True |
+| individual_stock_tdcc_window_txt | 1815 | raw | success | 200 | 13 | 1 | 13 | 13 | ok | True |
+| individual_stock_tdcc_window_txt | 2330 | api | success | 200 | 13 | 1 | 13 | 13 | ok | True |
+| individual_stock_tdcc_window_txt | 2330 | pages | success | 200 | 13 | 1 | 13 | 13 | ok | True |
+| individual_stock_tdcc_window_txt | 2330 | raw | success | 200 | 13 | 1 | 13 | 13 | ok | True |
+| individual_stock_tdcc_window_txt | 2353 | api | success | 200 | 13 | 1 | 13 | 13 | ok | True |
+| individual_stock_tdcc_window_txt | 2353 | pages | success | 200 | 13 | 1 | 13 | 13 | ok | True |
+| individual_stock_tdcc_window_txt | 2353 | raw | success | 200 | 13 | 1 | 13 | 13 | ok | True |
+| individual_stock_tdcc_window_txt | 2484 | api | success | 200 | 13 | 1 | 13 | 13 | ok | True |
+| individual_stock_tdcc_window_txt | 2484 | pages | success | 200 | 13 | 1 | 13 | 13 | ok | True |
+| individual_stock_tdcc_window_txt | 2484 | raw | success | 200 | 13 | 1 | 13 | 13 | ok | True |
+| individual_stock_tdcc_window_txt | 8299 | api | success | 200 | 13 | 1 | 13 | 13 | ok | True |
+| individual_stock_tdcc_window_txt | 8299 | pages | success | 200 | 13 | 1 | 13 | 13 | ok | True |
+| individual_stock_tdcc_window_txt | 8299 | raw | success | 200 | 13 | 1 | 13 | 13 | ok | True |
+| readme_first |  | api | success | 200 | 346 | 1 | 346 | 346 | ok | True |
+| readme_first |  | pages | success | 200 | 346 | 1 | 346 | 346 | ok | True |
+| readme_first |  | raw | success | 200 | 346 | 1 | 346 | 346 | ok | True |
 | sell_strategy_backtest | 1815 | api | missing_file | 404 | 0 | 0 | 0 | 0 | empty_table | False |
 | sell_strategy_backtest | 1815 | pages | missing_file | 404 | 0 | 0 | 0 | 0 | empty_table | False |
 | sell_strategy_backtest | 1815 | raw | missing_file | 404 | 0 | 0 | 0 | 0 | empty_table | False |
@@ -212,24 +212,24 @@
 | sell_strategy_summary | 8299 | api | success | 200 | 28 | 1 | 28 | 28 | ok | True |
 | sell_strategy_summary | 8299 | pages | missing_file | 404 | 0 | 0 | 0 | 28 | ok | False |
 | sell_strategy_summary | 8299 | raw | success | 200 | 28 | 1 | 28 | 28 | ok | True |
-| stock_monitor |  | api | success | 200 | 159 | 1 | 159 | 159 | ok | True |
-| stock_monitor |  | pages | missing_file | 404 | 0 | 0 | 0 | 159 | ok | False |
-| stock_monitor |  | raw | success | 200 | 159 | 1 | 159 | 159 | ok | True |
-| stock_price_history | 1815 | api | success | 200 | 136 | 39 | 137 | 137 | ok | True |
-| stock_price_history | 1815 | pages | success | 200 | 136 | 39 | 137 | 137 | ok | True |
-| stock_price_history | 1815 | raw | success | 200 | 136 | 39 | 137 | 137 | ok | True |
-| stock_price_history | 2330 | api | success | 200 | 136 | 39 | 137 | 137 | ok | True |
-| stock_price_history | 2330 | pages | success | 200 | 136 | 39 | 137 | 137 | ok | True |
-| stock_price_history | 2330 | raw | success | 200 | 136 | 39 | 137 | 137 | ok | True |
-| stock_price_history | 2353 | api | success | 200 | 136 | 39 | 137 | 137 | ok | True |
-| stock_price_history | 2353 | pages | success | 200 | 136 | 39 | 137 | 137 | ok | True |
-| stock_price_history | 2353 | raw | success | 200 | 136 | 39 | 137 | 137 | ok | True |
-| stock_price_history | 2484 | api | success | 200 | 136 | 39 | 137 | 137 | ok | True |
-| stock_price_history | 2484 | pages | success | 200 | 136 | 39 | 137 | 137 | ok | True |
-| stock_price_history | 2484 | raw | success | 200 | 136 | 39 | 137 | 137 | ok | True |
-| stock_price_history | 8299 | api | success | 200 | 136 | 39 | 137 | 137 | ok | True |
-| stock_price_history | 8299 | pages | success | 200 | 136 | 39 | 137 | 137 | ok | True |
-| stock_price_history | 8299 | raw | success | 200 | 136 | 39 | 137 | 137 | ok | True |
+| stock_monitor |  | api | success | 200 | 175 | 1 | 175 | 175 | ok | True |
+| stock_monitor |  | pages | missing_file | 404 | 0 | 0 | 0 | 175 | ok | False |
+| stock_monitor |  | raw | success | 200 | 175 | 1 | 175 | 175 | ok | True |
+| stock_price_history | 1815 | api | success | 200 | 273 | 39 | 274 | 274 | ok | True |
+| stock_price_history | 1815 | pages | success | 200 | 273 | 39 | 274 | 274 | ok | True |
+| stock_price_history | 1815 | raw | success | 200 | 273 | 39 | 274 | 274 | ok | True |
+| stock_price_history | 2330 | api | success | 200 | 273 | 39 | 274 | 274 | ok | True |
+| stock_price_history | 2330 | pages | success | 200 | 273 | 39 | 274 | 274 | ok | True |
+| stock_price_history | 2330 | raw | success | 200 | 273 | 39 | 274 | 274 | ok | True |
+| stock_price_history | 2353 | api | success | 200 | 273 | 39 | 274 | 274 | ok | True |
+| stock_price_history | 2353 | pages | success | 200 | 273 | 39 | 274 | 274 | ok | True |
+| stock_price_history | 2353 | raw | success | 200 | 273 | 39 | 274 | 274 | ok | True |
+| stock_price_history | 2484 | api | success | 200 | 273 | 39 | 274 | 274 | ok | True |
+| stock_price_history | 2484 | pages | success | 200 | 273 | 39 | 274 | 274 | ok | True |
+| stock_price_history | 2484 | raw | success | 200 | 273 | 39 | 274 | 274 | ok | True |
+| stock_price_history | 8299 | api | success | 200 | 273 | 39 | 274 | 274 | ok | True |
+| stock_price_history | 8299 | pages | success | 200 | 273 | 39 | 274 | 274 | ok | True |
+| stock_price_history | 8299 | raw | success | 200 | 273 | 39 | 274 | 274 | ok | True |
 | surge_model_backtest |  | api | success | 200 | 15 | 17 | 16 | 16 | ok | True |
 | surge_model_backtest |  | pages | missing_file | 404 | 0 | 0 | 0 | 16 | ok | False |
 | surge_model_backtest |  | raw | success | 200 | 15 | 17 | 16 | 16 | ok | True |
@@ -242,25 +242,25 @@
 | surge_precondition_candidates |  | api | success | 200 | 100 | 19 | 101 | 101 | ok | True |
 | surge_precondition_candidates |  | pages | missing_file | 404 | 0 | 0 | 0 | 101 | ok | False |
 | surge_precondition_candidates |  | raw | success | 200 | 100 | 19 | 101 | 101 | ok | True |
-| tdcc_phase_distribution |  | api | success | 200 | 112 | 18 | 113 | 113 | ok | True |
-| tdcc_phase_distribution |  | pages | missing_file | 404 | 0 | 0 | 0 | 113 | ok | False |
-| tdcc_phase_distribution |  | raw | success | 200 | 112 | 18 | 113 | 113 | ok | True |
+| tdcc_phase_distribution |  | api | success | 200 | 118 | 18 | 119 | 119 | ok | True |
+| tdcc_phase_distribution |  | pages | missing_file | 404 | 0 | 0 | 0 | 119 | ok | False |
+| tdcc_phase_distribution |  | raw | success | 200 | 118 | 18 | 119 | 119 | ok | True |
 | tdcc_pre_move_abm_top |  | api | success | 200 | 50 | 28 | 51 | 51 | ok | True |
 | tdcc_pre_move_abm_top |  | pages | missing_file | 404 | 0 | 0 | 0 | 51 | ok | False |
 | tdcc_pre_move_abm_top |  | raw | success | 200 | 50 | 28 | 51 | 51 | ok | True |
-| tdcc_stock_history | 1815 | api | success | 200 | 4 | 29 | 5 | 5 | insufficient_tdcc_history | True |
-| tdcc_stock_history | 1815 | pages | success | 200 | 4 | 29 | 5 | 5 | insufficient_tdcc_history | True |
-| tdcc_stock_history | 1815 | raw | success | 200 | 4 | 29 | 5 | 5 | insufficient_tdcc_history | True |
-| tdcc_stock_history | 2330 | api | success | 200 | 4 | 29 | 5 | 5 | insufficient_tdcc_history | True |
-| tdcc_stock_history | 2330 | pages | success | 200 | 4 | 29 | 5 | 5 | insufficient_tdcc_history | True |
-| tdcc_stock_history | 2330 | raw | success | 200 | 4 | 29 | 5 | 5 | insufficient_tdcc_history | True |
-| tdcc_stock_history | 2353 | api | success | 200 | 4 | 29 | 5 | 5 | insufficient_tdcc_history | True |
-| tdcc_stock_history | 2353 | pages | success | 200 | 4 | 29 | 5 | 5 | insufficient_tdcc_history | True |
-| tdcc_stock_history | 2353 | raw | success | 200 | 4 | 29 | 5 | 5 | insufficient_tdcc_history | True |
-| tdcc_stock_history | 2484 | api | success | 200 | 4 | 29 | 5 | 5 | insufficient_tdcc_history | True |
-| tdcc_stock_history | 2484 | pages | success | 200 | 4 | 29 | 5 | 5 | insufficient_tdcc_history | True |
-| tdcc_stock_history | 2484 | raw | success | 200 | 4 | 29 | 5 | 5 | insufficient_tdcc_history | True |
-| tdcc_stock_history | 8299 | api | success | 200 | 4 | 29 | 5 | 5 | insufficient_tdcc_history | True |
-| tdcc_stock_history | 8299 | pages | success | 200 | 4 | 29 | 5 | 5 | insufficient_tdcc_history | True |
+| tdcc_stock_history | 1815 | api | success | 200 | 5 | 29 | 6 | 6 | insufficient_tdcc_history | True |
+| tdcc_stock_history | 1815 | pages | success | 200 | 5 | 29 | 6 | 6 | insufficient_tdcc_history | True |
+| tdcc_stock_history | 1815 | raw | success | 200 | 5 | 29 | 6 | 6 | insufficient_tdcc_history | True |
+| tdcc_stock_history | 2330 | api | success | 200 | 5 | 29 | 6 | 6 | insufficient_tdcc_history | True |
+| tdcc_stock_history | 2330 | pages | success | 200 | 5 | 29 | 6 | 6 | insufficient_tdcc_history | True |
+| tdcc_stock_history | 2330 | raw | success | 200 | 5 | 29 | 6 | 6 | insufficient_tdcc_history | True |
+| tdcc_stock_history | 2353 | api | success | 200 | 5 | 29 | 6 | 6 | insufficient_tdcc_history | True |
+| tdcc_stock_history | 2353 | pages | success | 200 | 5 | 29 | 6 | 6 | insufficient_tdcc_history | True |
+| tdcc_stock_history | 2353 | raw | success | 200 | 5 | 29 | 6 | 6 | insufficient_tdcc_history | True |
+| tdcc_stock_history | 2484 | api | success | 200 | 5 | 29 | 6 | 6 | insufficient_tdcc_history | True |
+| tdcc_stock_history | 2484 | pages | success | 200 | 5 | 29 | 6 | 6 | insufficient_tdcc_history | True |
+| tdcc_stock_history | 2484 | raw | success | 200 | 5 | 29 | 6 | 6 | insufficient_tdcc_history | True |
+| tdcc_stock_history | 8299 | api | success | 200 | 5 | 29 | 6 | 6 | insufficient_tdcc_history | True |
+| tdcc_stock_history | 8299 | pages | success | 200 | 5 | 29 | 6 | 6 | insufficient_tdcc_history | True |
 
 _Only first 200 rows shown. Use CSV for all rows._
