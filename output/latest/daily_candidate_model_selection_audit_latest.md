@@ -18,6 +18,7 @@
 
 - volume_watch signal_date mismatch: expected 20260601, got ['20260529']; stale auxiliary table ignored for date gating
 - tdcc_short_edge signal_date mismatch: expected 20260601, got ['20260529']; stale auxiliary table ignored for date gating
+- w_bottom_attack_latest.csv date mismatch: expected 20260601, got ['20260521']; this is a raw/stale pattern source and must not be used directly for current PDF model sections
 
 ## Review Details
 

@@ -32,6 +32,7 @@ REQUIRED_PARAMETER_MODELS = {
     "pullback_short_reclaim",
     "tdcc_stealth_accumulation",
     "tdcc_short_term_continuation_d5_d10",
+    "hot_theme_pullback",
     "short_term_surge_d5_d10",
     "group_fund_rotation",
     "explosive_volume_red_candle",

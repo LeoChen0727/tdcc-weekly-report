@@ -10,6 +10,7 @@
     "volume_watch_rows": 2,
     "tdcc_short_edge_rows": 100,
     "taxonomy_rows": 2375,
+    "w_bottom_attack_rows": 248,
     "all_candidates_dates": [
       "20260601"
     ],
@@ -24,6 +25,9 @@
     ],
     "tdcc_short_edge_dates": [
       "20260529"
+    ],
+    "w_bottom_attack_dates": [
+      "20260521"
     ],
     "same_report_line_model_stock_duplicates": 0,
     "bad_report_lines": [],
@@ -74,6 +78,7 @@
   "errors": [],
   "warnings": [
     "volume_watch signal_date mismatch: expected 20260601, got ['20260529']; stale auxiliary table ignored for date gating",
-    "tdcc_short_edge signal_date mismatch: expected 20260601, got ['20260529']; stale auxiliary table ignored for date gating"
+    "tdcc_short_edge signal_date mismatch: expected 20260601, got ['20260529']; stale auxiliary table ignored for date gating",
+    "w_bottom_attack_latest.csv date mismatch: expected 20260601, got ['20260521']; this is a raw/stale pattern source and must not be used directly for current PDF model sections"
   ]
 }

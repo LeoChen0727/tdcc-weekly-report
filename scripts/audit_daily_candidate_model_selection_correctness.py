@@ -22,6 +22,7 @@ REPORT_SIGNALS = LATEST_DIR / "daily_candidate_model_signals_for_report_latest.c
 VOLUME_WATCH = LATEST_DIR / "volume_breakout_watch_latest.csv"
 TDCC_SHORT_EDGE = LATEST_DIR / "tdcc_overheated_short_term_edge_candidates_latest.csv"
 TAXONOMY = LATEST_DIR / "stock_theme_taxonomy_latest.csv"
+W_BOTTOM_ATTACK = LATEST_DIR / "w_bottom_attack_latest.csv"
 AUDIT_JSON = LATEST_DIR / "daily_candidate_model_selection_audit_latest.json"
 AUDIT_MD = LATEST_DIR / "daily_candidate_model_selection_audit_latest.md"
 
@@ -334,6 +335,7 @@ def audit() -> dict[str, Any]:
     volume = read(VOLUME_WATCH)
     tdcc_edge = read(TDCC_SHORT_EDGE)
     taxonomy = read(TAXONOMY)
+    w_bottom_attack = read(W_BOTTOM_ATTACK)
     freshness_main_date = main_price_date_from_freshness()
     main_date, date_notes = resolve_candidate_signal_date(candidates, freshness_main_date)
     if not main_date:
@@ -353,6 +355,7 @@ def audit() -> dict[str, Any]:
     details["volume_watch_rows"] = int(len(volume))
     details["tdcc_short_edge_rows"] = int(len(tdcc_edge))
     details["taxonomy_rows"] = int(len(taxonomy))
+    details["w_bottom_attack_rows"] = int(len(w_bottom_attack))
 
     required_paths = {
         "all_candidates_latest.csv": candidates,
@@ -383,6 +386,23 @@ def audit() -> dict[str, Any]:
                 warnings.append(message + "; stale auxiliary table ignored for date gating")
             else:
                 errors.append(message)
+
+    if not w_bottom_attack.empty:
+        w_date_col = ""
+        for candidate_col in ["signal_date", "date", "as_of_date"]:
+            if candidate_col in w_bottom_attack.columns:
+                w_date_col = candidate_col
+                break
+        if w_date_col:
+            w_dates = sorted({safe_str(v) for v in w_bottom_attack[w_date_col].astype(str) if safe_str(v)})
+            details["w_bottom_attack_dates"] = w_dates
+            stale_dates = [d for d in w_dates if d != main_date]
+            if stale_dates:
+                warnings.append(
+                    "w_bottom_attack_latest.csv date mismatch: "
+                    f"expected {main_date}, got {stale_dates}; "
+                    "this is a raw/stale pattern source and must not be used directly for current PDF model sections"
+                )
 
     if not report_signals.empty:
         dup_cols = ["report_line", "model_id", "stock_id"]
