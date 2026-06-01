@@ -1,6 +1,6 @@
 # Stock Theme Taxonomy
 
-- generated_at: 2026-06-01 14:28:44 Asia/Taipei
+- generated_at: 2026-06-01 14:58:02 Asia/Taipei
 - total_rows: 2375
 - mainstream_count: 1072
 - non_mainstream_count: 908
@@ -133,7 +133,7 @@
 |       6412 | 群電         | 電子零組件業     | 電源_BBU         |                                | power_supply_theme                     | authorized_seed   |
 |       6449 | 鈺邦         | 電子零組件業     | 被動元件         |                                | passive_component_theme                | authorized_seed   |
 |       6510 | 精測         | 半導體業         | 半導體設備_CoWoS |                                | semiconductor_equipment_material_theme | authorized_seed   |
-|       6531 | 愛普*        | 半導體業         | 矽智財_ASIC      |                                | asic_advanced_process_theme            | authorized_seed   |
+|       6531 | 愛普*        | 半導體業         | 矽智財           | ASIC                           | asic_advanced_process_theme            | authorized_seed   |
 |       6640 | 均華         | 半導體業         | 半導體設備_CoWoS |                                | semiconductor_equipment_material_theme | authorized_seed   |
 |       6669 | 緯穎         | 電腦及週邊設備業 | AI伺服器         |                                | ai_server_ipc_theme                    | authorized_seed   |
 |       6715 | 嘉基         | 電子零組件業     | 低軌衛星         |                                | low_earth_orbit_satellite_theme        | authorized_seed   |

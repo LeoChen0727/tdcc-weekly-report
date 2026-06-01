@@ -1275,7 +1275,7 @@ def build_taxonomy() -> pd.DataFrame:
     return pd.DataFrame(rows).sort_values("stock_id").reset_index(drop=True)
 
 
-def build_template(taxonomy: pd.DataFrame, rows_per_sheet: int = 500) -> pd.DataFrame:
+def build_template(taxonomy: pd.DataFrame, rows_per_sheet: int = 500, write_files: bool = True) -> pd.DataFrame:
     """Build the user-fillable taxonomy workbook with simple readable columns."""
     label_map = {"core_mainstream": "\u4e3b\u6d41", "non_mainstream": "\u975e\u4e3b\u6d41", "both": "\u90fd\u6709", "theme_unknown": ""}
     basic_theme = taxonomy["basic_theme"] if "basic_theme" in taxonomy.columns else taxonomy.get("industry", pd.Series([""] * len(taxonomy)))
@@ -1304,6 +1304,9 @@ def build_template(taxonomy: pd.DataFrame, rows_per_sheet: int = 500) -> pd.Data
             "\u5099\u8a3b": taxonomy["notes"],
         }
     )
+    if not write_files:
+        return template
+
     write_csv(template, TEMPLATE_CSV)
     DOCS_LATEST_DIR.mkdir(parents=True, exist_ok=True)
     write_csv(template, DOCS_TEMPLATE_CSV)

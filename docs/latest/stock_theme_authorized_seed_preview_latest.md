@@ -1,6 +1,6 @@
 # Stock Theme Authorized Seed Preview
 
-- generated_at: 2026-06-01 14:28:44 Asia/Taipei
+- generated_at: 2026-06-01 14:58:02 Asia/Taipei
 - rows: 135
 - purpose: user-authorized market theme seed integrated with existing manual/default taxonomy.
 
@@ -85,7 +85,7 @@
 |       1815 | 富喬         | 玻纖布           | PCB_CCL_ABF材料                | glass_fiber_ccl_theme                  | core_mainstream             | core_mainstream          | core_mainstream              | mainstream                | True                         | False                            | False                         | authorized_seed   |
 |       5340 | 建榮         | 玻纖布           | PCB_CCL_ABF材料                | glass_fiber_ccl_theme                  | core_mainstream             | core_mainstream          | core_mainstream              | mainstream                | True                         | False                            | False                         | authorized_seed   |
 |       5475 | 德宏         | 玻纖布           | PCB_CCL_ABF材料                | glass_fiber_ccl_theme                  | core_mainstream             | core_mainstream          | core_mainstream              | mainstream                | True                         | False                            | False                         | authorized_seed   |
-|       6531 | 愛普*        | 矽智財_ASIC      |                                | asic_advanced_process_theme            | core_mainstream             | core_mainstream          | core_mainstream              | mainstream                | True                         | False                            | False                         | authorized_seed   |
+|       6531 | 愛普*        | 矽智財           | ASIC                           | asic_advanced_process_theme            | core_mainstream             | core_mainstream          | core_mainstream              | mainstream                | True                         | False                            | False                         | authorized_seed   |
 |       3704 | 合勤控       | 網通交換器       |                                | network_optical_datacenter_theme       | core_mainstream             | core_mainstream          | core_mainstream              | mainstream                | True                         | False                            | False                         | authorized_seed   |
 |       4906 | 正文         | 網通交換器       | 網通設備                       | network_optical_datacenter_theme       | theme_unknown               | core_mainstream          | core_mainstream              | mainstream                | True                         | False                            | False                         | authorized_seed   |
 |       5388 | 中磊         | 網通交換器       |                                | network_optical_datacenter_theme       | core_mainstream             | core_mainstream          | core_mainstream              | mainstream                | True                         | False                            | False                         | authorized_seed   |

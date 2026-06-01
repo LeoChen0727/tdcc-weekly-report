@@ -100,7 +100,7 @@ class StockThemeTaxonomyTests(unittest.TestCase):
                 "notes": [""],
             }
         )
-        template = taxonomy.build_template(source, rows_per_sheet=500)
+        template = taxonomy.build_template(source, rows_per_sheet=500, write_files=False)
         self.assertEqual(
             list(template.columns),
             [
