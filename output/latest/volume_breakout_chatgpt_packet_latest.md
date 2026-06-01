@@ -1,7 +1,7 @@
 # VOLUME BREAKOUT CHATGPT PACKET
 
 ## Metadata
-- generated_at: `2026-06-01 12:59:49 Asia/Taipei`
+- generated_at: `2026-06-01 16:43:46 Asia/Taipei`
 - main_price_date: `20260529`
 - watch_rows: `315`
 - strict_60d_volume_breakout_count: `35`

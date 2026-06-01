@@ -187,7 +187,7 @@ signal_date,report_bucket,stock_id,stock_name,model_id,model_name_zh,model_group
 20260529,non_mainstream,2645,長榮航太,price_pullback_23ema,股價回檔模型,pdf_core_model,76.8,48,航運業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
 20260529,non_mainstream,2646,星宇航空,price_pullback_23ema,股價回檔模型,pdf_core_model,82.8,27,航運業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
 20260529,non_mainstream,2731,雄獅,price_pullback_23ema,股價回檔模型,pdf_core_model,82.6,29,觀光餐旅,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260529,non_mainstream,2809,京城銀,price_pullback_23ema,股價回檔模型,pdf_core_model,82.0,31,未分類族群,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260529,non_mainstream,2809,京城銀,price_pullback_23ema,股價回檔模型,pdf_core_model,82.0,31,金融保險業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
 20260529,non_mainstream,2812,台中銀,price_pullback_23ema,股價回檔模型,pdf_core_model,58.0,92,金融保險業,tdcc_distribution_penalty,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
 20260529,non_mainstream,2820,華票,price_pullback_23ema,股價回檔模型,pdf_core_model,68.0,65,金融保險業,tdcc_distribution_penalty,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
 20260529,non_mainstream,2834,臺企銀,price_pullback_23ema,股價回檔模型,pdf_core_model,64.0,74,金融保險業,tdcc_distribution_penalty,回測23EMA或平台不破可建立部位；跌破23EMA後站不回或放量破平台需退出/降風險。
@@ -273,7 +273,7 @@ signal_date,report_bucket,stock_id,stock_name,model_id,model_name_zh,model_group
 20260529,mainstream,8210,勤誠,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,64.0,16,電腦及週邊設備業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
 20260529,mainstream,8213,志超,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,58.0,32,電子零組件業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
 20260529,mainstream,8271,宇瞻,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,55.1,34,記憶體儲存,tdcc_distribution_penalty,用於抓回檔後恢復動能的股票；若再跌破23EMA且站不回需退出/降風險。
-20260529,non_mainstream,0052,富邦科技,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,56.0,17,ETF_or_index_product,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260529,non_mainstream,0052,富邦科技,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,56.0,17,指數/ETF/ETN商品,,確認放量站上頸線/平台壓力，且收盤靠近高點。
 20260529,non_mainstream,1533,車王電,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,49.2,19,汽車工業,tdcc_distribution_penalty,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
 20260529,non_mainstream,2027,大成鋼,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,64.0,9,鋼鐵工業,,等待量價、TDCC、相對強弱至少一項轉強。
 20260529,non_mainstream,2206,三陽工業,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,62.1,11,汽車工業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
@@ -659,7 +659,7 @@ signal_date,report_bucket,stock_id,stock_name,model_id,model_name_zh,model_group
 20260529,mainstream,6176,瑞儀,volume_range_breakout,帶量突破模型,pdf_core_model,55.2,85,光電業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
 20260529,mainstream,6224,聚鼎,volume_range_breakout,帶量突破模型,pdf_core_model,73.6,34,電子零組件業_待細分,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
 20260529,mainstream,6235,華孚,volume_range_breakout,帶量突破模型,pdf_core_model,80.0,22,電腦及週邊設備業_待細分,false_breakout_risk_penalty,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260529,mainstream,6531,愛普*,volume_range_breakout,帶量突破模型,pdf_core_model,55.6,84,矽智財_ASIC,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260529,mainstream,6531,愛普*,volume_range_breakout,帶量突破模型,pdf_core_model,55.6,84,矽智財,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
 20260529,mainstream,6556,勝品,volume_range_breakout,帶量突破模型,pdf_core_model,80.0,23,光電業_待細分,,confirm close above MA20/EMA23 and avoid long upper shadow
 20260529,mainstream,6573,虹揚-KY,volume_range_breakout,帶量突破模型,pdf_core_model,72.0,42,半導體業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
 20260529,mainstream,6591,動力-KY,volume_range_breakout,帶量突破模型,pdf_core_model,49.8,93,電腦及週邊設備業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
@@ -679,7 +679,7 @@ signal_date,report_bucket,stock_id,stock_name,model_id,model_name_zh,model_group
 20260529,mainstream,8110,華東,volume_range_breakout,帶量突破模型,pdf_core_model,53.8,88,半導體業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
 20260529,mainstream,8131,福懋科,volume_range_breakout,帶量突破模型,pdf_core_model,79.0,26,半導體業_待細分,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
 20260529,mainstream,8163,達方,volume_range_breakout,帶量突破模型,pdf_core_model,71.6,44,電腦及週邊設備業_待細分,20d_return_high_score_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260529,mainstream,8261,富鼎,volume_range_breakout,帶量突破模型,pdf_core_model,55.2,86,power discrete/diodes,20d_return_high_score_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260529,mainstream,8261,富鼎,volume_range_breakout,帶量突破模型,pdf_core_model,55.2,86,功率元件/二極體,20d_return_high_score_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
 20260529,mainstream,8454,富邦媒,volume_range_breakout,帶量突破模型,pdf_core_model,82.3,18,數位雲端_待細分,,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
 20260529,mainstream,8472,夠麻吉,volume_range_breakout,帶量突破模型,pdf_core_model,91.0,6,數位雲端_待細分,,confirm close above MA20/EMA23 and avoid long upper shadow
 20260529,non_mainstream,0055,元大MSCI金融,volume_range_breakout,帶量突破模型,pdf_core_model,76.0,38,指數/ETF/ETN商品,,confirm close above MA20/EMA23 and avoid long upper shadow
@@ -724,7 +724,7 @@ signal_date,report_bucket,stock_id,stock_name,model_id,model_name_zh,model_group
 20260529,non_mainstream,2610,華航,volume_range_breakout,帶量突破模型,pdf_core_model,89.0,10,航運業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
 20260529,non_mainstream,2618,長榮航,volume_range_breakout,帶量突破模型,pdf_core_model,75.7,46,航運業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
 20260529,non_mainstream,2634,漢翔,volume_range_breakout,帶量突破模型,pdf_core_model,49.0,79,軍工無人機,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260529,non_mainstream,2809,京城銀,volume_range_breakout,帶量突破模型,pdf_core_model,70.0,59,未分類族群,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260529,non_mainstream,2809,京城銀,volume_range_breakout,帶量突破模型,pdf_core_model,70.0,59,金融保險業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
 20260529,non_mainstream,2816,旺旺保,volume_range_breakout,帶量突破模型,pdf_core_model,92.0,8,金融保險業,,confirm close above MA20/EMA23 and avoid long upper shadow
 20260529,non_mainstream,2834,臺企銀,volume_range_breakout,帶量突破模型,pdf_core_model,80.0,27,金融保險業,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
 20260529,non_mainstream,2838,聯邦銀,volume_range_breakout,帶量突破模型,pdf_core_model,60.3,75,金融保險業,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。

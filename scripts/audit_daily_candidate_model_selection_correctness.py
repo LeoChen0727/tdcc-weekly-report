@@ -7,6 +7,10 @@ from typing import Any
 
 import pandas as pd
 
+from build_daily_candidate_model_layer import (
+    cond_pullback,
+    cond_w_bottom_right,
+)
 from tracking_utils import LATEST_DIR, main_price_date_from_freshness, read_csv, safe_str
 
 
@@ -276,16 +280,11 @@ def audit_selected_row(
     elif model == "w_bottom_right_side":
         if hard_confirmed_breakout(source):
             errors.append(f"{sid}: w_bottom_right_side selected after confirmed breakout")
-        if not (flag(source, "w_bottom_flag") or flag(source, "w_bottom_right_side_flag")):
-            warnings.append(f"{sid}: w_bottom_right_side missing upstream W flags; verify price-history geometry")
+        if not cond_w_bottom_right(source):
+            errors.append(f"{sid}: w_bottom_right_side selected but price-history W geometry check failed")
     elif model == "price_pullback_23ema":
-        if not (
-            flag(source, "pullback_entry_zone_flag")
-            or flag(source, "pullback_right_side_flag")
-            or flag(source, "ma20_reclaim_setup_flag")
-            or abs(num(source, "distance_to_ema23_pct")) <= 5
-        ):
-            warnings.append(f"{sid}: price_pullback_23ema lacks pullback/EMA proximity evidence")
+        if not cond_pullback(source):
+            errors.append(f"{sid}: price_pullback_23ema selected but pullback/23EMA/support condition failed")
     elif model == "pullback_short_reclaim":
         ret20 = num(source, "return_20d", "return_20d_pct")
         if math.isnan(ret20) or ret20 < 5:
@@ -440,7 +439,7 @@ def audit() -> dict[str, Any]:
             sid = normalize_code(row.get("stock_id", ""))
             if not sid:
                 continue
-            if (flag(row, "w_bottom_flag") or flag(row, "w_bottom_right_side_flag")) and not already_confirmed_breakout(row):
+            if cond_w_bottom_right(row) and not already_confirmed_breakout(row):
                 if (sid, "w_bottom_right_side") not in current_model_keys:
                     review_missing_w.append(sid)
             vol = num(row, "volume_ratio")

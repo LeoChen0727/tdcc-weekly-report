@@ -58,6 +58,8 @@ NO_THIRD_BUCKET_COLUMNS = {
     "report_line_memberships",
 }
 
+VALID_REPORT_LINES = {"mainstream", "non_mainstream"}
+
 REQUIRED_MODEL_COLUMNS = {
     "signal_date",
     "report_line",
@@ -141,6 +143,13 @@ def _third_bucket_rows(df: pd.DataFrame, cols: list[str]) -> dict[str, int]:
             if count:
                 result[col] = count
     return result
+
+
+def _split_memberships(value: object) -> set[str]:
+    text = safe_str(value)
+    if not text:
+        return set()
+    return {part.strip() for part in re.split(r"[|,;/、]+", text) if part.strip()}
 
 
 def _template_xlsx_rows(path: Path) -> int:
@@ -245,6 +254,16 @@ def audit(include_readme: bool = False) -> dict[str, object]:
         details["same_model_report_duplicates"] = dup
         if dup:
             errors.append(f"report table has duplicate report_bucket/model_id/stock_id rows: {dup}")
+        if {"report_line", "report_line_memberships"}.issubset(signals.columns):
+            membership_mismatch = int(
+                signals.apply(
+                    lambda row: safe_str(row.get("report_line")) not in _split_memberships(row.get("report_line_memberships")),
+                    axis=1,
+                ).sum()
+            )
+            details["model_report_line_membership_mismatch_rows"] = membership_mismatch
+            if membership_mismatch:
+                errors.append(f"model signal rows have report_line not present in report_line_memberships: {membership_mismatch}")
         bad_text = _bad_text_rows(
             signals,
             ["model_name_zh", "model_main_conditions", "model_add_score_items", "model_operation_guidance"],
@@ -324,6 +343,11 @@ def audit(include_readme: bool = False) -> dict[str, object]:
         details["missing_required_taxonomy_columns"] = missing_taxonomy_cols
         if missing_taxonomy_cols:
             errors.append(f"taxonomy missing required columns: {missing_taxonomy_cols}")
+        if "stock_id" in taxonomy.columns:
+            duplicate_stock_ids = int(taxonomy["stock_id"].astype(str).str.zfill(4).duplicated().sum())
+            details["taxonomy_duplicate_stock_id_rows"] = duplicate_stock_ids
+            if duplicate_stock_ids:
+                errors.append(f"taxonomy contains duplicate stock_id rows: {duplicate_stock_ids}")
         basic_series = taxonomy.get("basic_theme", pd.Series(dtype=str)).astype(str).str.strip()
         primary_series = taxonomy.get("primary_theme", pd.Series(dtype=str)).astype(str).str.strip()
         unresolved_basic = int(basic_series.isin(["", "未分類"]).sum())
@@ -342,6 +366,32 @@ def audit(include_readme: bool = False) -> dict[str, object]:
         details["taxonomy_blank_required_columns"] = taxonomy_blank_required
         if taxonomy_blank_required:
             errors.append(f"taxonomy required columns contain blanks: {taxonomy_blank_required}")
+        if "report_line_memberships" in taxonomy.columns:
+            invalid_membership_rows = int(
+                taxonomy["report_line_memberships"]
+                .map(lambda value: not _split_memberships(value) or bool(_split_memberships(value) - VALID_REPORT_LINES))
+                .sum()
+            )
+            details["taxonomy_invalid_report_line_membership_rows"] = invalid_membership_rows
+            if invalid_membership_rows:
+                errors.append(f"taxonomy rows have invalid report_line_memberships: {invalid_membership_rows}")
+        if {"report_line_memberships", "mainstream_report_eligible", "non_mainstream_report_eligible"}.issubset(taxonomy.columns):
+            eligibility_mismatch_rows = int(
+                taxonomy.apply(
+                    lambda row: (
+                        ("mainstream" in _split_memberships(row.get("report_line_memberships")))
+                        != (safe_str(row.get("mainstream_report_eligible")).lower() in {"true", "1", "yes", "y"})
+                    )
+                    or (
+                        ("non_mainstream" in _split_memberships(row.get("report_line_memberships")))
+                        != (safe_str(row.get("non_mainstream_report_eligible")).lower() in {"true", "1", "yes", "y"})
+                    ),
+                    axis=1,
+                ).sum()
+            )
+            details["taxonomy_report_line_eligibility_mismatch_rows"] = eligibility_mismatch_rows
+            if eligibility_mismatch_rows:
+                errors.append(f"taxonomy report line memberships and eligibility flags mismatch: {eligibility_mismatch_rows}")
         sanity_errors: list[str] = []
         taxonomy_by_id = {str(row["stock_id"]).zfill(4): row for _, row in taxonomy.iterrows() if "stock_id" in taxonomy.columns}
         for stock_id, rule in TAXONOMY_SANITY_CASES.items():
