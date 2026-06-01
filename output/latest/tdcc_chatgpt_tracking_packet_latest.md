@@ -1,7 +1,7 @@
 # TDCC CHATGPT TRACKING PACKET
 
 ## Metadata
-- generated_at: 2026-05-30 19:19:26 Asia/Taipei
+- generated_at: 2026-06-01 18:45:34 Asia/Taipei
 - main_price_date: 20260529
 - latest_tdcc_signal_date: 20260529
 - source_files: tdcc_signal_snapshot.csv, tdcc_normalized_signal_log.csv, tdcc_signal_performance.csv, tdcc_pre_move_accumulation_latest.csv, tdcc_signal_effectiveness_latest.md
@@ -136,12 +136,12 @@
 
 | theme | theme_mainstream_status | signal_count | leading_count | confirmed_count | late_or_overheated_count | divergence_count | avg_tdcc_strength_score | avg_abm_score | representative_codes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| other electronics | mainstream_leader | 529 | 119 | 12 | 99 | 68 | 155.80 | 50.69 | 3434/3313/1584/1626/1617 |
-| other | single_name_signal | 224 | 57 | 0 | 15 | 73 | 156.09 | 59.10 | 7718/4527/4744/1233/4119 |
+| other electronics | mainstream_leader | 529 | 119 | 12 | 99 | 68 | 155.80 | 50.69 | 3434/3313/1584/1626/1614 |
+| other | single_name_signal | 224 | 57 | 0 | 15 | 73 | 156.09 | 59.10 | 7718/4527/4744/1233/4439 |
 | traditional industries | mainstream_leader | 220 | 73 | 1 | 4 | 58 | 167.30 | 62.35 | 1323/1460/1452/1474/1471 |
 | biotechnology | mainstream_leader | 117 | 29 | 1 | 11 | 38 | 159.49 | 56.39 | 6576/1734/8409/1723/6534 |
-| semiconductor | mainstream_leader | 86 | 24 | 1 | 14 | 2 | 153.49 | 51.17 | 3038/3019/3047/3041/3060 |
-| finance | mainstream_leader | 21 | 4 | 1 | 3 | 3 | 165.95 | 50.14 | 2816/2891/2881/2882/6005 |
+| semiconductor | mainstream_leader | 86 | 24 | 1 | 14 | 2 | 153.49 | 51.17 | 3038/3050/3071/3209/3047 |
+| finance | mainstream_leader | 21 | 4 | 1 | 3 | 3 | 165.95 | 50.14 | 2816/2891/2881/6015/6005 |
 | passive components | mainstream_overheated | 5 | 0 | 0 | 5 | 0 | 160.00 | 26.40 | 2375/2492/3624/3357/6173 |
 | semiconductor equipment/materials | mainstream_overheated | 4 | 1 | 0 | 3 | 0 | 173.75 | 38.25 | 3131/5234/8028/3498 |
 | memory | mainstream_overheated | 3 | 0 | 0 | 1 | 0 | 175.00 | 14.00 | 2344/3006/5351 |
@@ -520,3 +520,31 @@
 - tdcc_price_divergence 要列為失效觀察。
 - 必須同時看絕對報酬與相對 TWSE / TPEx benchmark。
 - 在 tuning_status=not_ready 前，不可調整核心模型權重。
+
+## TDCC Weekly Increase and Consecutive Candidate Reports
+
+- purpose: 當週增幅榜找本週大戶突然增加；連續累積榜找兩週以上穩定累積。兩者分開排名，不互相替代。
+- weekly_increase_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_weekly_increase_ranking_latest.md
+- consecutive_accumulation_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_consecutive_accumulation_ranking_latest.md
+- weekly_candidate_highlight_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_weekly_candidate_highlight_latest.md
+- weekly_candidate_full_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_weekly_candidate_full_latest.md
+
+### Weekly Increase Top 5
+
+| rank | stock_id | stock_name | tdcc_1w_change_400 | tdcc_1w_change_600 | tdcc_1w_change_800 | tdcc_1w_change_1000 | tdcc_phase_group_zh | risk_bucket |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 6127 | 九豪 | 11.70 | 11.90 | 11.26 | 13.67 | 過熱延續 | strong_but_overheated |
+| 2 | 6770 | 力積電 | 11.57 | 11.70 | 11.62 | 11.72 | 過熱延續 | strong_but_overheated |
+| 3 | 3211 | 順達 | 9.97 | 10.69 | 8.89 | 9.93 | 股價領先 / 追高風險 | strong_but_late |
+| 4 | 2369 | 菱生 | 8.20 | 8.95 | 9.15 | 9.08 | 過熱延續 | strong_but_overheated |
+| 5 | 2484 | 希華 | 7.62 | 7.33 | 8.65 | 8.51 | 過熱延續 | strong_but_overheated |
+
+### Consecutive Accumulation Top 5
+
+| rank | stock_id | stock_name | tdcc_1w_change_400 | tdcc_1w_change_600 | tdcc_1w_change_800 | tdcc_1w_change_1000 | tdcc_phase_group_zh | risk_bucket |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 6576 | 逸達 | 0.26 | 0.26 | 0.25 | 0.25 | 背離 / 失效觀察 | strong_but_divergent |
+| 2 | 1460 | 宏遠 | 0.03 | 0.09 | 0.20 | 0.21 | 背離 / 失效觀察 | strong_but_divergent |
+| 3 | 3434 | 哲固 | 0.02 | 0.02 | 0.02 | 0.02 | 潛伏吸籌 | strong_but_pre_move |
+| 4 | 1323 | 永裕 | 0.01 | 0.01 | 0.01 | 0.01 | 潛伏吸籌 | strong_but_pre_move |
+| 5 | 6127 | 九豪 | 11.70 | 11.90 | 11.26 | 13.67 | 過熱延續 | strong_but_overheated |
