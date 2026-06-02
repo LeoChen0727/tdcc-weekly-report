@@ -190,15 +190,21 @@ def check_forbidden_terms(label: str, text: str, errors: list[str]) -> None:
 
 
 def check_category_order(label: str, text: str, errors: list[str]) -> None:
-    compact = normalize_for_search(text)
     start_marker = "各分類清單" if label == "full_table" else "分類解讀"
-    start_pos = compact.find(normalize_for_search(start_marker))
+    start_pos = normalize_for_search(text).find(normalize_for_search(start_marker))
     if start_pos >= 0:
-        compact = compact[start_pos:]
+        # Map the marker back approximately by searching the raw marker too.  The
+        # order check must use line boundaries; compact text also contains
+        # category names inside table cells and reason text.
+        raw_start = text.find(start_marker)
+        if raw_start >= 0:
+            text = text[raw_start:]
 
     positions: list[tuple[str, int]] = []
     for category in CATEGORY_ORDER:
-        pos = compact.find(normalize_for_search(category))
+        pattern = re.compile(rf"(?m)^\s*{re.escape(category)}\s*$")
+        match = pattern.search(text)
+        pos = match.start() if match else -1
         if pos < 0:
             errors.append(f"{label}: missing category heading: {category}")
         else:

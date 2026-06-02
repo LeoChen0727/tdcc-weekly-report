@@ -19,6 +19,12 @@ Read in this order:
 
 If raw CSV does not expand, use the packet, HTML/TXT price window, TDCC window, index, or GitHub API contents endpoint. Do not replace repo price or TDCC data with external websites.
 
+## Chart Window
+
+For price/pattern analysis, continue to read the 180-trading-day price window because support, resistance, prior highs, and context still need enough history.
+
+For the main K-line chart in the individual stock PDF/report, draw only the latest half-year trading window by default: `126` trading days. Do not make the main report chart 180 days unless the user explicitly asks for a longer view.
+
 ## ACTION_DECISION Is Binding
 
 The individual stock packet may contain `## ACTION_DECISION`. This is the program-side action decision for report language.

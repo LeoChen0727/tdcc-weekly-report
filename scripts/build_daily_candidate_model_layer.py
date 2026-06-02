@@ -1,11 +1,12 @@
 from __future__ import annotations
 
 import math
+import re
 import sys
 from dataclasses import dataclass
 from functools import lru_cache
 from pathlib import Path
-from typing import Any, Callable
+from typing import Any, Callable, Iterable
 
 import pandas as pd
 
@@ -2463,6 +2464,410 @@ def build_report_ready_model_signals(signals: pd.DataFrame) -> pd.DataFrame:
     ).reset_index(drop=True)
     out["model_rank"] = out.groupby(["report_bucket", "model_name_zh"], dropna=False).cumcount() + 1
     return out.drop(columns=["_bucket_order", "_score_num"], errors="ignore")
+
+
+PDF_TOKEN_ZH = {
+    "non_mainstream": "非主流",
+    "mainstream": "主流",
+    "mainstream_or_non_mainstream": "主流與非主流皆可",
+    "dual": "雙線",
+    "neckline": "頸線",
+    "breakout": "突破",
+    "hot theme tag": "熱門族群標籤",
+    "hot_theme_tag": "熱門族群標籤",
+    "range_rebound": "區間轉強",
+    "short_term_specialty": "短線專項",
+    "mild_accumulation": "大戶溫和增加",
+    "strong_accumulation": "大戶強累積",
+    "neutral": "中性",
+    "distribution_warning": "大戶轉弱警示",
+    "call_strong_inflow": "認購強流入",
+    "call_inflow": "認購流入",
+    "call_put_bullish": "權證偏多",
+    "mixed_flow": "權證多空混合",
+    "put_inflow": "認售流入",
+    "put_strong_inflow": "認售強流入",
+    "no_signal": "無明確權證訊號",
+    "true_breakout": "嚴格突破",
+    "volume_breakout": "帶量突破",
+    "range_breakout_volume": "帶量突破盤整區間",
+    "range_breakout_watch": "接近盤整上緣觀察",
+    "ma_reclaim_volume_attack": "帶量站回均線",
+    "near_high_volume_watch": "接近前高帶量觀察",
+    "strict_high_breakout": "帶量突破波段高點",
+    "failed_range_breakout_risk": "盤整區間假突破風險",
+    "revenue_breakout_low_response": "營收爆發股價尚未反應",
+    "revenue_pullback": "營收成長股價回檔",
+    "pullback_rebound": "回檔後短線轉強",
+    "pattern": "型態觀察",
+    "tdcc": "TDCC",
+    "tdcc_leading_price": "TDCC領先股價",
+    "tdcc_price_confirmed": "TDCC與股價確認",
+    "price_leading_tdcc": "股價領先TDCC",
+    "overheated_after_tdcc": "TDCC後股價過熱",
+    "phase_overheated_after_tdcc": "TDCC後股價過熱",
+    "all_thresholds_overheated": "四級距同步過熱",
+    "w_bottom_right_side": "W底右側",
+    "platform_right_side": "平台右側",
+    "platform_breakout": "平台突破",
+    "neckline_challenge": "頸線挑戰",
+    "neckline_breakout": "頸線突破",
+    "new_model_signal": "新進榜",
+    "repeated_same_model_signal": "重複進榜",
+    "same_model_repeat_moved_to_persistence_table": "同模型重複進榜，移至延續表",
+    "duplicate_stock_already_shown_on_frontpage": "首頁已列示",
+    "not_pdf_core_model": "非PDF核心模型",
+    "ai_server_ipc_theme": "AI伺服器 / 工業電腦",
+    "automotive_electronics_theme": "車用電子",
+    "computer_peripheral_general_theme": "電腦週邊",
+    "defense_drone_theme": "軍工 / 無人機",
+    "digital_cloud_general_theme": "數位雲端",
+    "electronic_component_general_theme": "電子零組件",
+    "electronics_channel_general_theme": "電子通路",
+    "glass_fiber_ccl_theme": "玻纖布 / CCL",
+    "information_service_general_theme": "資訊服務",
+    "low_earth_orbit_satellite_theme": "低軌衛星",
+    "memory_hbm_theme": "記憶體 / HBM",
+    "network_optical_datacenter_theme": "網通 / 光通訊 / 資料中心",
+    "networking_general_theme": "網通",
+    "optoelectronics_general_theme": "光電",
+    "other_electronics_general_theme": "其他電子",
+    "passive_component_theme": "被動元件",
+    "pcb_ccl_theme": "PCB / CCL",
+    "power_grid_theme": "重電 / 電網",
+    "power_supply_theme": "電源 / BBU",
+    "robotics_ipc_edge_ai_theme": "機器人 / 工業電腦 / Edge AI",
+    "semiconductor_equipment_cowos_theme": "半導體設備 / CoWoS",
+    "semiconductor_general_theme": "半導體",
+    "thermal_liquid_cooling_theme": "散熱 / 液冷",
+    "wire_cable_theme": "電線電纜",
+    "20d_return_high_score_penalty": "20日漲幅偏高扣分",
+    "tdcc_distribution_penalty": "TDCC轉弱扣分",
+    "bb_width_extreme": "布林帶寬過度擴張",
+    "kd_overheated": "KD過熱",
+    "two_week_return_too_extended": "兩週漲幅過大",
+    "one_week_return_too_extended": "一週漲幅過大",
+    "second_attack_weaker_watch": "第二段攻擊量能較弱觀察",
+}
+
+MODEL_NAME_ZH_BY_ID = {
+    "volume_range_breakout": "帶量突破模型",
+    "price_pullback_23ema": "股價回檔模型",
+    "hot_theme_pullback": "熱門族群回檔模型",
+    "revenue_unreacted_range": "營收爆發但股價尚未反應模型",
+    "w_bottom_right_side": "W底右側模型",
+    "near_high_neckline_challenge": "接近前高 / 頸線挑戰模型",
+    "platform_strengthening": "平台整理轉強模型",
+    "pullback_short_reclaim": "回檔後短線轉強模型",
+    "tdcc_stealth_accumulation": "TDCC潛伏吸籌模型",
+    "tdcc_short_continuation": "TDCC短線延續模型 D+5/D+10",
+    "tdcc_short_term_continuation_d5_d10": "TDCC短線延續模型 D+5/D+10",
+    "short_term_surge_d5_d10": "短線急漲 D+5/D+10",
+    "group_fund_rotation": "族群資金輪動模型",
+}
+
+MODEL_HUMAN_REASON_ZH = {
+    "volume_range_breakout": "符合帶量突破模型，量能明顯放大並突破或挑戰關鍵壓力，後續依突破區與量價延續管理。",
+    "price_pullback_23ema": "符合股價回檔模型，股價接近23EMA或支撐區，回測後轉強。",
+    "hot_theme_pullback": "符合熱門族群回檔模型，具熱門族群標籤，股價回測23EMA或支撐後轉強。",
+    "revenue_unreacted_range": "符合營收爆發但股價尚未反應模型，營收動能較強且股價仍在整理區。",
+    "w_bottom_right_side": "符合W底右側模型，右側低點墊高並接近頸線或轉強區。",
+    "near_high_neckline_challenge": "符合接近前高 / 頸線挑戰模型，距離關鍵壓力不遠且量能開始回升。",
+    "platform_strengthening": "符合平台整理轉強模型，盤整區間形成後量能回升並接近上緣。",
+    "pullback_short_reclaim": "符合回檔後短線轉強模型，前段漲勢後回檔未破結構並重新轉強。",
+    "tdcc_stealth_accumulation": "符合TDCC潛伏吸籌模型，大戶籌碼改善，股價尚未完全反應。",
+    "tdcc_short_continuation": "符合TDCC短線延續模型，歷史短線延續樣本具參考性，適合作D+5/D+10短線延續觀察。",
+    "tdcc_short_term_continuation_d5_d10": "符合TDCC短線延續模型，歷史短線延續樣本具參考性，適合作D+5/D+10短線延續觀察。",
+    "short_term_surge_d5_d10": "符合短線急漲研究條件，僅作短線動能研究觀察，不作低位買進模型。",
+}
+
+MODEL_OPERATION_REMINDER_ZH = {
+    "volume_range_breakout": "若跌回突破區或量價失敗，應降低部位或退出；突破後以支撐與壓力管理。",
+    "price_pullback_23ema": "回檔模型不要求先突破；若跌破23EMA或支撐且無法快速收回，需降低風險。",
+    "hot_theme_pullback": "熱門族群回檔以族群標籤與23EMA附近支撐為主；若族群退潮或跌破支撐需降風險。",
+    "tdcc_stealth_accumulation": "TDCC為加分與追蹤項，不可單獨作為買進理由；若價格跌破支撐或量價失敗需降風險。",
+    "tdcc_short_continuation": "以訊號日隔天開盤為進場假設，後續依D+5 / D+10統計結果與價格轉弱條件管理。",
+    "tdcc_short_term_continuation_d5_d10": "以訊號日隔天開盤為進場假設，後續依D+5 / D+10統計結果與價格轉弱條件管理。",
+    "short_term_surge_d5_d10": "這是短線研究補充，不是低位買進模型；需用隔天開盤與D+N收盤 / 最高價統計管理。",
+}
+
+FORBIDDEN_PDF_TOKENS = [
+    "call_strong_inflow",
+    "call_put_bullish",
+    "strong_accumulation",
+    "mild_accumulation",
+    "short_term_specialty",
+    "range_rebound",
+    "hot_theme_tag",
+    "hot theme tag",
+    "non_mainstream",
+    "mainstream",
+    "neckline",
+]
+RAW_PDF_TOKEN_RE = re.compile(r"(^|[\s|/、,;])([a-z]+(?:_[a-z0-9]+){1,})(?=$|[\s|/、,;])")
+
+
+REPORT_MODEL_ID_ALIASES = {
+    "volume_breakout_range": "volume_range_breakout",
+    "tdcc_short_continuation": "tdcc_short_term_continuation_d5_d10",
+}
+
+
+def clean_join_unique(values: Iterable[Any], sep: str = " / ") -> str:
+    seen: list[str] = []
+    for value in values:
+        raw = safe_str(value)
+        if not raw or raw.lower() in {"nan", "none"}:
+            continue
+        for piece in re.split(r"[|,;/、]+", raw):
+            item = piece.strip()
+            if item and item not in seen:
+                seen.append(item)
+    return sep.join(seen)
+
+
+def translate_pdf_text(value: Any) -> str:
+    text_value = safe_str(value)
+    if not text_value:
+        return ""
+    out = text_value
+    for src in sorted(PDF_TOKEN_ZH, key=len, reverse=True):
+        out = re.sub(rf"(?<![A-Za-z0-9_]){re.escape(src)}(?![A-Za-z0-9_])", PDF_TOKEN_ZH[src], out)
+    return out
+
+
+def zh_or_clean(value: Any, fallback: str = "欄位尚未完成 / 暫用現有資料") -> str:
+    raw = safe_str(value).strip()
+    if not raw:
+        return fallback
+    translated = translate_pdf_text(raw).strip()
+    if any(token in translated for token in FORBIDDEN_PDF_TOKENS) or RAW_PDF_TOKEN_RE.search(translated):
+        return fallback
+    return translated
+
+
+def zh_tag_list_clean(value: Any, mapping: dict[str, str] | None = None, fallback: str = "") -> str:
+    raw = safe_str(value)
+    if not raw:
+        return fallback
+    mapping = mapping or {}
+    labels: list[str] = []
+    for item in re.split(r"[|,;/、]+", raw):
+        key = item.strip()
+        if not key:
+            continue
+        label = mapping.get(key) or PDF_TOKEN_ZH.get(key) or translate_pdf_text(key)
+        if RAW_PDF_TOKEN_RE.search(label):
+            label = "欄位尚未完成 / 暫用現有資料"
+        if label and label not in labels:
+            labels.append(label)
+    return " / ".join(labels) if labels else fallback
+
+
+def clean_model_name_zh(row: pd.Series) -> str:
+    model_id = safe_str(row.get("model_id", ""))
+    existing = safe_str(row.get("model_name_zh", ""))
+    if model_id in MODEL_NAME_ZH_BY_ID:
+        return MODEL_NAME_ZH_BY_ID[model_id]
+    cleaned = translate_pdf_text(existing)
+    if cleaned and has_cjk(cleaned) and not any(token in cleaned for token in FORBIDDEN_PDF_TOKENS):
+        return cleaned
+    return MODEL_NAME_ZH_BY_ID.get(model_id, "欄位尚未完成 / 暫用現有資料")
+
+
+def build_why_selected_human_zh(row: pd.Series) -> str:
+    model_id = safe_str(row.get("model_id", ""))
+    base = MODEL_HUMAN_REASON_ZH.get(model_id)
+    if not base:
+        model_name = clean_model_name_zh(row)
+        base = f"符合{model_name}，主條件已成立，後續依模型規則與風險欄位管理。"
+    additions: list[str] = []
+    tdcc = safe_str(row.get("tdcc_status", "")).lower()
+    if tdcc in {"strong_accumulation", "mild_accumulation"}:
+        additions.append("大戶籌碼正向。")
+    warrant = safe_str(row.get("warrant_flow_signal", "")).lower()
+    if warrant in {"call_strong_inflow", "call_inflow", "call_put_bullish"}:
+        additions.append("權證偏多。")
+    theme = safe_str(row.get("effective_primary_theme", ""))
+    if theme and theme.lower() not in {"unclassified", "unknown", "nan"}:
+        additions.append("具族群題材。")
+    return base + ("".join(additions) if additions else "")
+
+
+def build_operation_reminder_zh(row: pd.Series) -> str:
+    model_id = safe_str(row.get("model_id", ""))
+    if model_id in MODEL_OPERATION_REMINDER_ZH:
+        return MODEL_OPERATION_REMINDER_ZH[model_id]
+    for col in ["operation_reminder_zh", "recommended_usage_zh", "next_confirmation_zh", "risk_tags_zh"]:
+        raw = safe_str(row.get(col, ""))
+        if raw and raw != "欄位尚未完成" and not any(token in raw for token in FORBIDDEN_PDF_TOKENS):
+            return translate_pdf_text(raw)
+    return MODEL_OPERATION_REMINDER_ZH.get(
+        model_id,
+        "依模型主條件入選；後續依23EMA、支撐壓力、量價與風險標籤管理。",
+    )
+
+
+def same_model_repeat_status_zh(value: Any) -> str:
+    raw = safe_str(value)
+    if raw == "new_model_signal":
+        return "新進榜"
+    if raw == "repeated_same_model_signal":
+        return "重複進榜"
+    return "欄位尚未完成 / 暫用現有資料"
+
+
+def same_model_repeat_note_zh(row: pd.Series) -> str:
+    status = safe_str(row.get("same_model_repeat_status", ""))
+    if status == "new_model_signal":
+        return "本模型新進榜，列入新進榜排名。"
+    if status == "repeated_same_model_signal":
+        days = safe_str(row.get("same_model_consecutive_days", "")) or "0"
+        count5 = safe_str(row.get("same_model_appear_count_5d", "")) or "0"
+        count10 = safe_str(row.get("same_model_appear_count_10d", "")) or "0"
+        return f"同一模型連續上榜{days}天，5日出現{count5}次，10日出現{count10}次，列入重複進榜表。"
+    return "欄位尚未完成 / 暫用現有資料"
+
+
+def build_report_ready_model_signals(signals: pd.DataFrame) -> pd.DataFrame:
+    """Build a PDF-ready table: one row per report_line + model_id + stock_id."""
+    if signals.empty:
+        return signals.copy()
+
+    work = signals.copy()
+    for col in [
+        "signal_date",
+        "report_bucket",
+        "model_id",
+        "model_name_zh",
+        "stock_id",
+        "stock_name",
+        "model_score",
+        "model_rank",
+        "original_category",
+        "source_row_index",
+        "next_confirmation",
+        "score_components",
+        "risk_penalty_tags",
+    ]:
+        if col not in work.columns:
+            work[col] = ""
+
+    work["report_line"] = work["report_bucket"].astype(str).where(
+        work["report_bucket"].astype(str).isin(["mainstream", "non_mainstream"]),
+        "non_mainstream",
+    )
+    work["_canonical_model_id"] = work["model_id"].astype(str).map(lambda value: REPORT_MODEL_ID_ALIASES.get(value, value))
+    work["_rank_num"] = pd.to_numeric(work["model_rank"], errors="coerce").fillna(999999)
+    work["_score_num"] = pd.to_numeric(work["model_score"], errors="coerce").fillna(-999999)
+    work = work.sort_values(
+        ["report_line", "_canonical_model_id", "stock_id", "_rank_num", "_score_num"],
+        ascending=[True, True, True, True, False],
+    )
+
+    grouped_rows: list[dict[str, Any]] = []
+    for (_, _, _), part in work.groupby(["report_line", "_canonical_model_id", "stock_id"], dropna=False, sort=False):
+        best = part.iloc[0].copy()
+        row = best.to_dict()
+        row["report_bucket"] = row.get("report_line", row.get("report_bucket", ""))
+        row["model_id"] = safe_str(row.get("_canonical_model_id")) or safe_str(row.get("model_id"))
+        row["merged_same_model_source_count"] = int(len(part))
+        row["source_hit_count"] = int(len(part))
+        row["merged_model_ids"] = clean_join_unique(part["model_id"])
+        row["merged_source_row_indices"] = clean_join_unique(part["source_row_index"])
+        row["source_row_indices"] = row["merged_source_row_indices"]
+        row["merged_source_categories"] = clean_join_unique(part["original_category"])
+        row["merged_source_categories_zh"] = zh_tag_list_clean(row["merged_source_categories"], CATEGORY_ZH, "欄位尚未完成 / 暫用現有資料")
+        row["source_hit_labels"] = row["merged_source_categories"]
+        row["source_hit_labels_zh"] = row["merged_source_categories_zh"]
+        row["merged_next_confirmations"] = clean_join_unique(part["next_confirmation"])
+        row["merged_score_components"] = clean_join_unique(part["score_components"])
+        row["merged_risk_penalty_tags"] = clean_join_unique(part["risk_penalty_tags"])
+        row["report_model_key"] = row["model_id"] or safe_str(best.get("model_name_zh"))
+        grouped_rows.append(row)
+
+    out = pd.DataFrame(grouped_rows).drop(columns=["_rank_num", "_score_num", "_canonical_model_id"], errors="ignore")
+    out["_score_num"] = pd.to_numeric(out["model_score"], errors="coerce").fillna(0)
+    out = out.sort_values(["report_line", "model_id", "_score_num", "stock_id"], ascending=[True, True, False, True]).reset_index(drop=True)
+    out["model_rank"] = out.groupby(["report_line", "model_id"], dropna=False).cumcount() + 1
+    out["display_rank"] = out["model_rank"].astype(str)
+    return out.drop(columns=["_score_num"], errors="ignore")
+
+
+def apply_display_columns(df: pd.DataFrame) -> pd.DataFrame:
+    if df.empty:
+        return df.copy()
+    out = df.copy()
+
+    if "report_line" not in out.columns:
+        out["report_line"] = column_or_default(out, "report_bucket")
+    out["report_line"] = out["report_line"].astype(str).where(out["report_line"].astype(str).isin(["mainstream", "non_mainstream"]), "non_mainstream")
+    out["report_bucket"] = out["report_line"].where(column_or_default(out, "report_bucket").eq(""), column_or_default(out, "report_bucket"))
+    out["model_name_zh"] = out.apply(clean_model_name_zh, axis=1)
+    out["report_bucket_zh"] = out["report_line"].map({"mainstream": "主流", "non_mainstream": "非主流"}).fillna("非主流")
+    out["source_category_zh"] = column_or_default(out, "original_category").map(lambda value: zh_tag_list_clean(value, CATEGORY_ZH, "欄位尚未完成 / 暫用現有資料"))
+    out["effective_primary_theme_zh"] = column_or_default(out, "effective_primary_theme").map(lambda value: zh_or_clean(value))
+    out["effective_structural_theme_bucket_zh"] = column_or_default(out, "effective_structural_theme_bucket").map(lambda value: zh_or_clean(value))
+    out["tdcc_status_zh"] = column_or_default(out, "tdcc_status").map(lambda value: zh_tag_list_clean(value, TDCC_STATUS_ZH, "欄位尚未完成 / 暫用現有資料"))
+    out["warrant_flow_signal_zh"] = column_or_default(out, "warrant_flow_signal").map(lambda value: zh_tag_list_clean(value, WARRANT_SIGNAL_ZH, "欄位尚未完成 / 暫用現有資料"))
+    out["risk_tags_zh"] = column_or_default(out, "risk_penalty_tags").where(column_or_default(out, "risk_penalty_tags").ne(""), column_or_default(out, "risk_tags")).map(lambda value: zh_tag_list_clean(value, RISK_TAG_ZH, "依模型風險欄位管理"))
+    out["downgrade_flags_zh"] = column_or_default(out, "downgrade_flags").where(column_or_default(out, "downgrade_flags").ne(""), column_or_default(out, "merged_risk_penalty_tags")).map(lambda value: zh_tag_list_clean(value, RISK_TAG_ZH, "無明確降級旗標"))
+    out["next_confirmation_zh"] = column_or_default(out, "merged_next_confirmations").where(column_or_default(out, "merged_next_confirmations").ne(""), column_or_default(out, "next_confirmation")).map(lambda value: zh_or_clean(value, "依23EMA、支撐壓力與量價延續確認"))
+    out["recommended_usage_zh"] = column_or_default(out, "model_operation_guidance").where(column_or_default(out, "model_operation_guidance").ne(""), column_or_default(out, "recommended_usage")).map(lambda value: zh_or_clean(value, "依模型主條件與風控條件執行"))
+    out["score_components_zh"] = column_or_default(out, "score_components").where(column_or_default(out, "score_components").ne(""), column_or_default(out, "merged_score_components")).map(score_components_zh).map(translate_pdf_text)
+    out["why_selected_human_zh"] = out.apply(build_why_selected_human_zh, axis=1)
+    out["why_selected_zh"] = out["why_selected_human_zh"]
+    if "source_hit_labels_zh" not in out.columns:
+        out["source_hit_labels_zh"] = column_or_default(out, "merged_source_categories").map(lambda value: zh_tag_list_clean(value, CATEGORY_ZH, "欄位尚未完成 / 暫用現有資料"))
+    else:
+        out["source_hit_labels_zh"] = out["source_hit_labels_zh"].where(
+            out["source_hit_labels_zh"].astype(str).str.strip().ne(""),
+            column_or_default(out, "merged_source_categories").map(lambda value: zh_tag_list_clean(value, CATEGORY_ZH, "欄位尚未完成 / 暫用現有資料")),
+        ).map(translate_pdf_text)
+    out["merged_source_categories_zh"] = column_or_default(out, "merged_source_categories").map(lambda value: zh_tag_list_clean(value, CATEGORY_ZH, "欄位尚未完成 / 暫用現有資料"))
+    out["operation_reminder_zh"] = out.apply(build_operation_reminder_zh, axis=1)
+    out["same_model_repeat_status_zh"] = column_or_default(out, "same_model_repeat_status").map(same_model_repeat_status_zh)
+    out["same_model_repeat_note_zh"] = out.apply(same_model_repeat_note_zh, axis=1)
+    if "frontpage_duplicate_reason" in out.columns:
+        out["frontpage_duplicate_reason_zh"] = column_or_default(out, "frontpage_duplicate_reason").map(lambda value: PDF_TOKEN_ZH.get(safe_str(value), translate_pdf_text(value)))
+    return out
+
+
+def attach_report_contract_columns(df: pd.DataFrame) -> pd.DataFrame:
+    if df.empty:
+        return df.copy()
+    out = df.copy()
+    out["report_line"] = column_or_default(out, "report_line").where(
+        column_or_default(out, "report_line").isin(["mainstream", "non_mainstream"]),
+        column_or_default(out, "report_bucket").where(column_or_default(out, "report_bucket").isin(["mainstream", "non_mainstream"]), "non_mainstream"),
+    )
+    out["display_rank"] = column_or_default(out, "display_rank").where(column_or_default(out, "display_rank").ne(""), column_or_default(out, "model_rank"))
+    out["source_hit_count"] = column_or_default(out, "merged_same_model_source_count", "1")
+    out["source_hit_labels"] = column_or_default(out, "merged_source_categories")
+    out["source_row_indices"] = column_or_default(out, "merged_source_row_indices")
+    out["why_selected"] = column_or_default(out, "why_selected_human_zh")
+    out["risk_tags"] = column_or_default(out, "merged_risk_penalty_tags").where(column_or_default(out, "merged_risk_penalty_tags").ne(""), column_or_default(out, "risk_penalty_tags"))
+    out["downgrade_flags"] = column_or_default(out, "downgrade_flags").where(column_or_default(out, "downgrade_flags").ne(""), column_or_default(out, "risk_tags"))
+    if "merged_same_model_source_count" not in out.columns:
+        out["merged_same_model_source_count"] = "1"
+    if "merged_source_categories_zh" not in out.columns:
+        out["merged_source_categories_zh"] = column_or_default(out, "merged_source_categories").map(lambda value: zh_tag_list_clean(value, CATEGORY_ZH, "欄位尚未完成 / 暫用現有資料"))
+
+    tdcc_rows = [latest_tdcc_summary(stock_id) for stock_id in column_or_default(out, "stock_id")]
+    tdcc_df = pd.DataFrame(tdcc_rows, index=out.index)
+    for col in tdcc_df.columns:
+        out[col] = tdcc_df[col]
+    out = apply_display_columns(out)
+    for col in [
+        "why_selected_human_zh",
+        "operation_reminder_zh",
+        "risk_tags_zh",
+        "next_confirmation_zh",
+        "recommended_usage_zh",
+        "source_hit_labels_zh",
+    ]:
+        out[col] = column_or_default(out, col).replace("", "欄位尚未完成 / 暫用現有資料")
+    return out
 
 
 

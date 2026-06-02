@@ -16,6 +16,33 @@ OUTPUT_MD = LATEST_DIR / "warrant_flow_latest.md"
 
 HISTORY_DIR = Path("output/history/warrant_flow")
 
+WARRANT_SIGNAL_ZH = {
+    "call_put_bullish": "認購/認售結構偏多",
+    "call_strong_inflow": "認購強流入",
+    "call_inflow": "認購流入",
+    "put_strong_inflow": "認售強流入",
+    "put_inflow": "認售流入",
+    "put_call_bearish": "認售/認購結構偏空",
+    "mixed_flow": "多空混合",
+    "call_activity_observation": "認購活躍觀察",
+    "put_activity_observation": "認售活躍觀察",
+    "low_float_call_spike": "低流通認購異常",
+    "no_signal": "無明確權證訊號",
+}
+
+
+def warrant_signal_zh(value) -> str:
+    text = "" if pd.isna(value) else str(value).strip()
+    if not text:
+        return "無明確權證訊號"
+    return WARRANT_SIGNAL_ZH.get(text, "欄位尚未完成 / 暫用現有資料")
+
+
+def clean_display(value) -> str:
+    if pd.isna(value):
+        return ""
+    return str(value).replace("|", "/").replace("\n", " ").strip()
+
 OUTPUT_COLUMNS = [
     "date",
     "stock_id",
@@ -58,6 +85,7 @@ OUTPUT_COLUMNS = [
     "cancelled_quantity_total",
 
     "warrant_flow_signal",
+    "warrant_flow_signal_zh",
     "warrant_flow_score",
     "warrant_flow_warning",
     "note",
@@ -511,6 +539,8 @@ def apply_signals(df: pd.DataFrame) -> pd.DataFrame:
     for col in signals.columns:
         df[col] = signals[col]
 
+    df["warrant_flow_signal_zh"] = df["warrant_flow_signal"].map(warrant_signal_zh)
+
     return df
 
 
@@ -599,6 +629,77 @@ def write_markdown(df: pd.DataFrame) -> None:
     OUTPUT_MD.write_text("\n".join(lines), encoding="utf-8")
 
 
+def write_markdown_v2(df: pd.DataFrame) -> None:
+    lines = [
+        "# 權證資金流向最新摘要",
+        "",
+        f"- 產出時間：`{now_taipei()} Asia/Taipei`",
+        f"- CSV：`{OUTPUT_CSV}`",
+        "",
+    ]
+
+    if df.empty:
+        lines.append("目前沒有可用權證 raw data，僅能觀察。")
+        OUTPUT_MD.write_text("\n".join(lines), encoding="utf-8")
+        return
+
+    date_str = str(df["date"].iloc[0])
+    lines.extend(
+        [
+            f"- 資料日期：`{date_str}`",
+            f"- 股票筆數：`{len(df)}`",
+            "",
+        ]
+    )
+
+    summary = (
+        df.groupby("warrant_flow_signal_zh", dropna=False)
+        .size()
+        .reset_index(name="count")
+        .sort_values("count", ascending=False)
+    )
+
+    lines.extend(["## 權證訊號分布", "", "| 權證訊號 | 數量 |", "|---|---:|"])
+    for _, row in summary.iterrows():
+        lines.append(f"| {clean_display(row['warrant_flow_signal_zh'])} | {row['count']} |")
+
+    lines.extend(["", "## 權證偏多 / 偏空標的", ""])
+    show = df[df["warrant_flow_signal"] != "no_signal"].copy()
+
+    if show.empty:
+        lines.append("目前沒有明確偏多或偏空權證訊號。")
+    else:
+        show = show.sort_values(
+            ["warrant_flow_score", "total_warrant_turnover"],
+            ascending=False,
+        ).head(100)
+        cols = [
+            ("stock_id", "代號"),
+            ("stock_name", "股票"),
+            ("warrant_flow_signal_zh", "權證訊號"),
+            ("warrant_flow_score", "權證分數"),
+            ("call_warrant_count", "認購檔數"),
+            ("put_warrant_count", "認售檔數"),
+            ("call_turnover", "認購成交額"),
+            ("put_turnover", "認售成交額"),
+            ("total_warrant_turnover", "權證總成交額"),
+            ("call_put_turnover_ratio", "認購/認售成交比"),
+            ("call_turnover_change_1d", "認購成交額1日變化%"),
+            ("call_turnover_change_5d", "認購成交額5日變化%"),
+            ("low_float_call_spike_count", "低流通認購異常檔數"),
+            ("top_issuer", "主要發行商"),
+            ("warrant_flow_warning", "風險提醒"),
+            ("note", "說明"),
+        ]
+        lines.append("| " + " | ".join(label for _, label in cols) + " |")
+        lines.append("| " + " | ".join(["---"] * len(cols)) + " |")
+        for _, row in show.iterrows():
+            values = [clean_display(row.get(col, "")) for col, _ in cols]
+            lines.append("| " + " | ".join(values) + " |")
+
+    OUTPUT_MD.write_text("\n".join(lines), encoding="utf-8")
+
+
 def main() -> int:
     LATEST_DIR.mkdir(parents=True, exist_ok=True)
     HISTORY_DIR.mkdir(parents=True, exist_ok=True)
@@ -608,7 +709,7 @@ def main() -> int:
     if raw.empty:
         out = pd.DataFrame(columns=OUTPUT_COLUMNS)
         out.to_csv(OUTPUT_CSV, index=False, encoding="utf-8-sig")
-        write_markdown(out)
+        write_markdown_v2(out)
         print("No raw warrant data. Empty warrant flow output created.")
         return 0
 
@@ -632,7 +733,7 @@ def main() -> int:
     out.to_csv(OUTPUT_CSV, index=False, encoding="utf-8-sig")
     out.to_csv(HISTORY_DIR / f"warrant_flow_{date_str}.csv", index=False, encoding="utf-8-sig")
 
-    write_markdown(out)
+    write_markdown_v2(out)
 
     print(f"Saved: {OUTPUT_CSV}, rows={len(out)}")
     print(f"Saved: {OUTPUT_MD}")

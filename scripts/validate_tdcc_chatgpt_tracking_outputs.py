@@ -31,6 +31,7 @@ WEEKLY_FULL_MD = LATEST_DIR / "tdcc_weekly_candidate_full_latest.md"
 README_TXT = LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT.txt"
 VALIDATION_MD = LATEST_DIR / "tdcc_chatgpt_tracking_validation_latest.md"
 VALIDATION_JSON = LATEST_DIR / "tdcc_chatgpt_tracking_validation_latest.json"
+TDCC_FULL_REPORT_ALLOWED_MODEL_CROSS_IDS = {"tdcc_short_term_continuation_d5_d10"}
 
 
 def read_csv(path: Path) -> pd.DataFrame:
@@ -191,6 +192,17 @@ def main() -> None:
         bad = sorted(set(full_report["report_kind"].dropna().astype(str)) - {"full"})
         if bad:
             errors.append(f"full report-ready table has invalid report_kind values: {', '.join(bad)}")
+    if not full_report.empty and {"section_id", "model_id"}.issubset(full_report.columns):
+        cross_rows = full_report[full_report["section_id"].astype(str).str.contains("model_cross", na=False)]
+        bad = sorted(
+            set(cross_rows["model_id"].dropna().astype(str))
+            - TDCC_FULL_REPORT_ALLOWED_MODEL_CROSS_IDS
+        )
+        if bad:
+            errors.append(
+                "TDCC weekly full report model-cross section must only include "
+                f"TDCC short-term continuation model; found: {', '.join(bad)}"
+            )
 
     if not strength.empty and "theme" in strength.columns:
         other_pct = strength["theme"].astype(str).str.lower().isin(["", "other", "nan", "none"]).mean() * 100

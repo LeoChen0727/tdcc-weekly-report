@@ -10,7 +10,7 @@ on:
       days:
         description: "Price chart lookback days"
         required: false
-        default: "180"
+        default: "126"
         type: string
 
 permissions:

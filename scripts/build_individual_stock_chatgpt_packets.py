@@ -36,6 +36,8 @@ ALL_CANDIDATES_CSV = LATEST_DIR / "all_candidates_latest.csv"
 WARRANT_FLOW_CSV = LATEST_DIR / "warrant_flow_by_stock_latest.csv"
 REPEAT_CSV = LATEST_DIR / "candidate_repeat_appearance_latest.csv"
 SELL_DIR = Path("output/history/sell_strategy_backtest")
+DATA_FRESHNESS_CSV = LATEST_DIR / "data_freshness_latest.csv"
+READ_ME_FIRST_TXT = LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT.txt"
 
 
 def now_text() -> str:
@@ -83,6 +85,42 @@ def read_csv(path: Path) -> pd.DataFrame:
         except Exception:
             continue
     return pd.DataFrame()
+
+
+def load_freshness() -> dict[str, str]:
+    values: dict[str, str] = {}
+    if DATA_FRESHNESS_CSV.exists():
+        df = read_csv(DATA_FRESHNESS_CSV)
+        if not df.empty:
+            values.update({str(k): safe_str(v) for k, v in df.iloc[0].to_dict().items()})
+    if READ_ME_FIRST_TXT.exists():
+        for line in READ_ME_FIRST_TXT.read_text(encoding="utf-8", errors="ignore").splitlines():
+            if "=" not in line:
+                continue
+            key, value = line.split("=", 1)
+            values[safe_str(key)] = safe_str(value)
+    return values
+
+
+def current_main_price_date() -> str:
+    freshness = load_freshness()
+    for key in ["main_price_date", "all_candidates_date", "official_price_fetch_date"]:
+        value = normalize_date(freshness.get(key))
+        if value:
+            return value
+    return ""
+
+
+def filter_to_main_price_date(df: pd.DataFrame, main_date: str) -> pd.DataFrame:
+    if df.empty or not main_date:
+        return df
+    date_col = first_existing(df, ["date", "trade_date", "signal_date"])
+    if not date_col:
+        return df
+    result = df.copy()
+    result["_normalized_date"] = result[date_col].map(normalize_date)
+    result = result[(result["_normalized_date"] == "") | (result["_normalized_date"] <= main_date)].copy()
+    return result.drop(columns=["_normalized_date"], errors="ignore")
 
 
 def write_csv(df: pd.DataFrame, path: Path) -> None:
@@ -766,8 +804,9 @@ def write_index_md(index: pd.DataFrame) -> None:
         "1. For any stock, read `output/latest/individual_stock_chatgpt_packets/{stock_id}_packet_latest.md` first.",
         "2. If raw/pages packet does not expand, read the GitHub API contents endpoint and base64-decode `content`.",
         "3. For K-line, 23EMA, volume, support/resistance, and pattern checks, always read the stock's `price_window_180_html_*` URL from the packet. The 20-row preview is not enough.",
-        "4. Use 23EMA as the primary moving-average observation line in the main chart/conclusion. Treat MA20 / MA60 / MA120 as auxiliary/backtest fields unless explicitly requested.",
-        "5. Use full raw CSV only when deeper backtest or additional columns are needed.",
+        "4. For the main individual-stock report K-line chart, draw only the latest half-year trading window by default: `126` trading days. Keep the 180-day window for analysis context.",
+        "5. Use 23EMA as the primary moving-average observation line in the main chart/conclusion. Treat MA20 / MA60 / MA120 as auxiliary/backtest fields unless explicitly requested.",
+        "6. Use full raw CSV only when deeper backtest or additional columns are needed.",
         "",
         "## Preview",
         "",
@@ -824,6 +863,7 @@ def main() -> int:
     all_candidates_df = read_csv(ALL_CANDIDATES_CSV)
     warrant_df = read_csv(WARRANT_FLOW_CSV)
     repeat_df = read_csv(REPEAT_CSV)
+    main_date = current_main_price_date()
     shared_frames = [all_candidates_df, warrant_df, repeat_df]
 
     selected = [normalize_stock_id(x) for x in args.stock_id if normalize_stock_id(x)]
@@ -842,7 +882,7 @@ def main() -> int:
 
     rows: list[dict[str, Any]] = []
     for stock_id in stock_ids:
-        price_df = read_csv(DATA_PRICE_DIR / f"{stock_id}.csv")
+        price_df = filter_to_main_price_date(read_csv(DATA_PRICE_DIR / f"{stock_id}.csv"), main_date)
         tdcc_df = read_csv(DATA_TDCC_DIR / f"{stock_id}.csv")
         text, index_row = build_packet(
             stock_id=stock_id,

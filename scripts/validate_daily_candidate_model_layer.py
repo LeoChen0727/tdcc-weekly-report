@@ -67,10 +67,14 @@ REQUIRED_SIGNAL_COLUMNS = {
     "recommended_usage_zh",
     "why_selected",
     "why_selected_zh",
+    "why_selected_human_zh",
+    "operation_reminder_zh",
     "source_hit_count",
     "source_hit_labels",
     "source_hit_labels_zh",
     "source_row_indices",
+    "merged_same_model_source_count",
+    "merged_source_categories_zh",
     "mainstream_report_eligible",
     "non_mainstream_report_eligible",
     "dual_report_membership_flag",
@@ -116,7 +120,10 @@ DISPLAY_COLUMNS = [
     "next_confirmation_zh",
     "recommended_usage_zh",
     "why_selected_zh",
+    "why_selected_human_zh",
+    "operation_reminder_zh",
     "source_hit_labels_zh",
+    "merged_source_categories_zh",
     "same_model_repeat_status_zh",
     "same_model_repeat_note_zh",
     "tdcc_direction_zh",
@@ -126,8 +133,22 @@ DISPLAY_COLUMNS = [
     "score_components_zh",
 ]
 
-CRITICAL_DISPLAY_COLUMNS = ["report_bucket_zh", "source_category_zh", "model_name_zh"]
+CRITICAL_DISPLAY_COLUMNS = ["report_bucket_zh", "source_category_zh", "model_name_zh", "why_selected_human_zh", "operation_reminder_zh"]
 RAW_SLUG_PATTERN = re.compile(r"(^|[\s|/、,;])([a-z]+(?:_[a-z0-9]+){1,})(?=$|[\s|/、,;])")
+FORBIDDEN_DISPLAY_TOKENS = [
+    "neckline",
+    "breakout",
+    "hot theme tag",
+    "hot_theme_tag",
+    "range_rebound",
+    "short_term_specialty",
+    "mild_accumulation",
+    "strong_accumulation",
+    "call_strong_inflow",
+    "call_put_bullish",
+    "non_mainstream",
+    "mainstream",
+]
 
 
 def line_count(path: Path) -> int:
@@ -170,12 +191,16 @@ def validate() -> dict[str, object]:
         bad_buckets = sorted(set(signals["report_bucket"].astype(str)) - valid_buckets)
         if bad_buckets:
             errors.append(f"invalid_report_bucket: {bad_buckets}")
+        valid_report_lines = {"mainstream", "non_mainstream"}
+        bad_report_lines = sorted(set(signals["report_line"].astype(str)) - valid_report_lines)
+        if bad_report_lines:
+            errors.append(f"invalid_report_line: {bad_report_lines}")
         score = pd.to_numeric(signals.get("model_score", ""), errors="coerce")
         if score.notna().any() and ((score < 0) | (score > 100)).any():
             errors.append("model_score must be between 0 and 100")
-        dup_count = int(signals.duplicated(["report_bucket", "model_name_zh", "stock_id"]).sum())
+        dup_count = int(signals.duplicated(["report_line", "model_id", "stock_id"]).sum())
         if dup_count:
-            errors.append(f"duplicate_report_model_bucket_stock_rows: {dup_count}")
+            errors.append(f"duplicate_report_line_model_stock_rows: {dup_count}")
         repeat_status_values = set(signals.get("same_model_repeat_status", pd.Series(dtype=str)).astype(str))
         invalid_repeat_status = sorted(repeat_status_values - {"", "new_model_signal", "repeated_same_model_signal"})
         if invalid_repeat_status:
@@ -192,10 +217,25 @@ def validate() -> dict[str, object]:
                 errors.append(f"suspicious_unreadable_text_in_display_column: {col}")
             if values.map(lambda value: bool(RAW_SLUG_PATTERN.search(value))).any():
                 errors.append(f"raw_slug_leaked_in_display_column: {col}")
+            leaked = [
+                token
+                for token in FORBIDDEN_DISPLAY_TOKENS
+                if values.str.contains(re.escape(token), case=False, regex=True).any()
+            ]
+            if leaked:
+                errors.append(f"forbidden_pdf_token_in_display_column: {col}: {leaked}")
         pending_display_value = "\u6b04\u4f4d\u5c1a\u672a\u5b8c\u6210"
         for col in CRITICAL_DISPLAY_COLUMNS:
             if col in signals.columns and signals[col].astype(str).eq(pending_display_value).any():
                 errors.append(f"critical_display_column_pending: {col}")
+        if "why_selected_human_zh" in signals.columns:
+            reasons = signals["why_selected_human_zh"].astype(str)
+            if reasons.str.contains(r"基礎分\s*=|base\s*=", regex=True, case=False).any():
+                errors.append("why_selected_human_zh_must_not_be_score_breakdown")
+        if "operation_reminder_zh" in signals.columns:
+            reminders = signals["operation_reminder_zh"].astype(str).str.strip()
+            if reminders.eq("").any() or reminders.eq(pending_display_value).any():
+                errors.append("operation_reminder_zh_missing_or_pending")
 
     if not rotation.empty:
         rotation_model = rotation.get("rotation_model_id", pd.Series([""] * len(rotation))).astype(str)

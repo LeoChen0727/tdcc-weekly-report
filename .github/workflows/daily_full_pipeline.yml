@@ -299,6 +299,7 @@ jobs:
         run: |
           python scripts/build_daily_candidate_model_layer.py
           python scripts/validate_daily_candidate_model_layer.py
+          python scripts/build_daily_report_model_summary.py
 
       - name: Build theme event watch
         run: |
@@ -408,6 +409,10 @@ jobs:
           cp output/latest/daily_candidate_model_signals_latest.md docs/latest/daily_candidate_model_signals_latest.md || true
           cp output/latest/daily_candidate_model_signals_for_report_latest.csv docs/latest/daily_candidate_model_signals_for_report_latest.csv || true
           cp output/latest/daily_candidate_model_signals_for_report_latest.md docs/latest/daily_candidate_model_signals_for_report_latest.md || true
+          cp output/latest/daily_report_model_registry_latest.csv docs/latest/daily_report_model_registry_latest.csv || true
+          cp output/latest/daily_report_model_registry_latest.md docs/latest/daily_report_model_registry_latest.md || true
+          cp output/latest/daily_candidate_model_summary_for_report_latest.csv docs/latest/daily_candidate_model_summary_for_report_latest.csv || true
+          cp output/latest/daily_candidate_model_summary_for_report_latest.md docs/latest/daily_candidate_model_summary_for_report_latest.md || true
           cp output/latest/daily_candidate_frontpage_unique_latest.csv docs/latest/daily_candidate_frontpage_unique_latest.csv || true
           cp output/latest/daily_candidate_frontpage_unique_latest.md docs/latest/daily_candidate_frontpage_unique_latest.md || true
           cp output/latest/daily_candidate_same_model_repeat_latest.csv docs/latest/daily_candidate_same_model_repeat_latest.csv || true

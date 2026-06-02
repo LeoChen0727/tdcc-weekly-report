@@ -3,6 +3,7 @@ from __future__ import annotations
 from datetime import datetime
 from pathlib import Path
 from typing import Iterable
+import re
 
 import pandas as pd
 
@@ -18,6 +19,37 @@ DOCS_TXT = DOCS_LATEST_DIR / OUT_TXT.name
 
 RAW_PREFIX = "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main"
 PAGES_PREFIX = "https://LeoChen0727.github.io/tdcc-weekly-report"
+
+DISPLAY_TOKEN_MAP = {
+    "call_put_bullish": "認購/認售結構偏多",
+    "call_strong_inflow": "認購強流入",
+    "call_inflow": "認購流入",
+    "put_strong_inflow": "認售強流入",
+    "put_inflow": "認售流入",
+    "put_call_bearish": "認售/認購結構偏空",
+    "mixed_flow": "多空混合",
+    "call_activity_observation": "認購活躍觀察",
+    "put_activity_observation": "認售活躍觀察",
+    "low_float_call_spike": "低流通認購異常",
+    "no_signal": "無明確權證訊號",
+    "range_rebound": "區間內轉強 / 挑戰前高觀察",
+    "revenue_pullback": "營收成長股價回檔",
+    "revenue_breakout_low_response": "營收爆發但股價尚未反應",
+    "pullback_rebound": "回檔後短線轉強",
+    "true_breakout": "嚴格突破",
+    "pattern_watch": "型態觀察",
+    "short_term_specialty": "短線專項",
+    "mild_accumulation": "大戶溫和增加",
+    "strong_accumulation": "大戶同步增加",
+    "distribution_warning": "TDCC 大戶轉弱",
+}
+
+
+def sanitize_display_text(text: str) -> str:
+    for raw, label in sorted(DISPLAY_TOKEN_MAP.items(), key=lambda item: len(item[0]), reverse=True):
+        pattern = rf"(?<![A-Za-z0-9_]){re.escape(raw)}(?![A-Za-z0-9_])"
+        text = re.sub(pattern, label, text)
+    return text
 
 
 def now_text() -> str:
@@ -127,6 +159,8 @@ def build_guide() -> str:
     daily_model_parameters = read_csv(LATEST_DIR / "daily_candidate_model_parameters_latest.csv")
     daily_model_signals = read_csv(LATEST_DIR / "daily_candidate_model_signals_latest.csv")
     daily_model_report_signals = read_csv(LATEST_DIR / "daily_candidate_model_signals_for_report_latest.csv")
+    daily_report_model_registry = read_csv(LATEST_DIR / "daily_report_model_registry_latest.csv")
+    daily_model_summary_for_report = read_csv(LATEST_DIR / "daily_candidate_model_summary_for_report_latest.csv")
     daily_model_frontpage_unique = read_csv(LATEST_DIR / "daily_candidate_frontpage_unique_latest.csv")
     daily_model_same_repeat = read_csv(LATEST_DIR / "daily_candidate_same_model_repeat_latest.csv")
     daily_model_packet = LATEST_DIR / "daily_candidate_model_layer_packet_latest.md"
@@ -171,10 +205,11 @@ def build_guide() -> str:
             [
                 ["1", "READ_ME_FIRST_DAILY_REPORT.txt", "Confirm date/report_ready and collect raw URLs."],
                 ["2", "chatgpt_indicator_usage_guide_latest.md", "Understand which indicator layer is authoritative for each task."],
-                ["3", "daily_candidate_model_layer_packet_latest.md", "Mandatory for daily stock reports; lists independent model signals, parameters, and group rotation. Do not hard-code model count."],
-                ["4", "daily_short_term_specialty_packet_latest.md", "Mandatory for daily stock reports; contains standalone D+1-D+10 short-term specialty summary plus D+5/D+10 detail sections."],
-                ["5", "stock_theme_taxonomy_latest.csv/md + stock_theme_taxonomy_review_latest.csv/md", "Use program-side market-theme taxonomy before raw industry; review file marks missing/industry-only mappings that cannot enter mainstream routing."],
-                ["6", "Task-specific packet/top-list CSV", "Use packet/top-list fields before PDF text."],
+                ["3", "daily_report_model_registry_latest.csv + daily_candidate_model_summary_for_report_latest.csv", "Mandatory for daily stock PDF first page; fixed official model rows plus new/repeated first names. Do not hard-code model count in the PDF layer."],
+                ["4", "daily_candidate_model_layer_packet_latest.md", "Mandatory for daily stock reports; lists independent model signals, parameters, and group rotation. Do not hard-code model count."],
+                ["5", "daily_short_term_specialty_packet_latest.md", "Mandatory for daily stock reports; contains standalone D+1-D+10 short-term specialty summary plus D+5/D+10 detail sections."],
+                ["6", "stock_theme_taxonomy_latest.csv/md + stock_theme_taxonomy_review_latest.csv/md", "Use program-side market-theme taxonomy before raw industry; review file marks missing/industry-only mappings that cannot enter mainstream routing."],
+                ["7", "Task-specific packet/top-list CSV", "Use packet/top-list fields before PDF text."],
                 ["7", "PDF / Markdown reports", "Use as readable summaries and presentation artifacts."],
                 ["8", "External sources", "Only supplement news/events/targets; never replace repo price or TDCC raw data."],
             ],
@@ -187,16 +222,23 @@ def build_guide() -> str:
         [
             "Independent daily candidate models",
             "output/latest/daily_candidate_model_layer_packet_latest.md",
-            "daily_candidate_model_parameters, daily_candidate_model_signals, daily_candidate_frontpage_unique, model_rank, report_bucket, selection_semantics",
-            f"models={len(daily_model_parameters)} / raw_signals={len(daily_model_signals)} / report_signals={len(daily_model_report_signals)} / frontpage_unique={len(daily_model_frontpage_unique)} / packet={file_status(daily_model_packet)}",
-            "Main condition met means selected into that model. Score/risk ranks inside the model. Use model_signals_for_report for PDF model sections and frontpage_unique for first-page representatives.",
+            "daily_candidate_model_parameters, daily_report_model_registry, daily_candidate_model_summary_for_report, daily_candidate_model_signals, model_rank, report_bucket, selection_semantics",
+            f"models={len(daily_model_parameters)} / registry={len(daily_report_model_registry)} / fixed_summary={len(daily_model_summary_for_report)} / raw_signals={len(daily_model_signals)} / report_signals={len(daily_model_report_signals)} / packet={file_status(daily_model_packet)}",
+            "Main condition met means selected into that model. Score/risk ranks inside the model. Use model_signals_for_report for model sections and daily_candidate_model_summary_for_report for fixed first-page new/repeated representatives.",
+        ],
+        [
+            "Daily candidate fixed model summary",
+            "output/latest/daily_candidate_model_summary_for_report_latest.csv",
+            "report_line, model_id, model_registry_order, new_stock_display, new_rank_label, repeated_stock_display, repeated_rank_label",
+            f"rows={len(daily_model_summary_for_report)} / {count_values(daily_model_summary_for_report, 'report_line')}",
+            "First-page curated PDF contract. Render every registry model applicable to the report line; show no candidate when no new/repeated stock exists. Do not let models disappear from the first page.",
         ],
         [
             "Daily candidate front-page unique representatives",
             "output/latest/daily_candidate_frontpage_unique_latest.csv",
             "frontpage_unique_rank, report_bucket, stock_id, primary_model_id, model_hit_count, model_hits",
             f"rows={len(daily_model_frontpage_unique)} / {count_values(daily_model_frontpage_unique, 'report_bucket')}",
-            "First-page PDF table only. A stock can hit multiple models, but the first page should show it once per report bucket and use model_hits to explain overlap.",
+            "Legacy first-page unique table. Prefer daily_candidate_model_summary_for_report_latest.csv for fixed per-model new/repeated summaries.",
         ],
         [
             "Daily candidate same-model repeat",
@@ -431,7 +473,8 @@ def build_guide() -> str:
     lines.append("### Daily candidate report")
     lines.append("- Start from `daily_candidate_model_layer_packet_latest.md`, `daily_candidate_model_parameters_latest.md/csv`, and `daily_candidate_model_signals_for_report_latest.md/csv` for report/PDF sections. Raw research rows remain in `daily_candidate_model_signals_latest.md/csv`.")
     lines.append("- For PDF model sections, use `daily_candidate_model_signals_for_report_latest.csv/md`. It has one row per report line + displayed model + stock, with merged source columns when the same stock hit the same model through multiple source categories.")
-    lines.append("- For the first page of curated PDFs, use `daily_candidate_frontpage_unique_latest.csv/md`; do not repeat the same stock multiple times just because it hit multiple models. Raw research rows remain in `daily_candidate_model_signals_latest.csv`.")
+    lines.append("- For the first page of curated PDFs, use `daily_report_model_registry_latest.csv/md` plus `daily_candidate_model_summary_for_report_latest.csv/md`. Render every official model row for that report line, split new signals and repeated/cumulative signals, and show `今日無候選` when a model has no candidate.")
+    lines.append("- `daily_candidate_frontpage_unique_latest.csv/md` is legacy/secondary. Do not use it for the fixed first-page per-model new/repeated summary.")
     lines.append("- If a stock appears in the same model across multiple days, do not subtract score for that fact. Use `daily_candidate_same_model_repeat_latest.csv/md` as a separate repeated-signal table; front-page summaries can prioritize `new_model_signal` rows and place repeated same-model rows in a separate section.")
     lines.append("- A model main condition being met means the stock enters that model. Do not add a second ChatGPT-side buy/not-buy gate after selection; use risk fields only as score/rank/annotation unless the program-side model marks a hard exclusion.")
     lines.append("- Do not hard-code the number of models. Render the model rows present in `daily_candidate_model_parameters_latest.csv` and the matching candidates in `daily_candidate_model_signals_for_report_latest.csv`.")
@@ -477,7 +520,7 @@ def build_guide() -> str:
 
     lines.append("### Warrant report")
     lines.append("- Use `warrant_flow_by_stock_latest.csv` and `warrant_market_report_latest.md`.")
-    lines.append("- Warrant signals are auxiliary: `call_inflow`, `call_strong_inflow`, `call_put_bullish`, `mixed_flow`, `no_signal`.")
+    lines.append("- Warrant signals are auxiliary: 認購流入、認購強流入、認購/認售結構偏多、多空混合、無明確權證訊號。")
     lines.append("- If turnover is not ready, only discuss coverage/direction structure, not money-flow heat.")
     lines.append("")
 
@@ -524,7 +567,7 @@ def build_guide() -> str:
 def main() -> int:
     LATEST_DIR.mkdir(parents=True, exist_ok=True)
     DOCS_LATEST_DIR.mkdir(parents=True, exist_ok=True)
-    text = build_guide()
+    text = sanitize_display_text(build_guide())
     for path in [OUT_MD, OUT_TXT, DOCS_MD, DOCS_TXT]:
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(text, encoding="utf-8", newline="\n")

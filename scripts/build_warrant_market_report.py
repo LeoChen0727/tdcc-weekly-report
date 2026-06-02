@@ -69,6 +69,56 @@ NUMERIC_COLUMNS = [
     "warrant_flow_score",
 ]
 
+CATEGORY_LABEL_ZH = {
+    "true_breakout": "嚴格突破",
+    "range_rebound": "區間內轉強 / 挑戰前高觀察",
+    "revenue_breakout_low_response": "營收爆發但股價尚未反應",
+    "revenue_pullback": "營收成長股價回檔",
+    "pullback_rebound": "回檔後短線轉強",
+    "pattern": "型態觀察",
+    "short_term_specialty": "短線專項",
+    "tdcc_short_term_edge": "TDCC短線延續",
+    "non_revenue_momentum": "題材先動 / 非營收動能",
+    "volume_range_breakout": "帶量突破",
+    "volume_breakout": "帶量突破",
+    "hot_theme_pullback": "熱門族群回檔",
+}
+
+TDCC_STATUS_ZH = {
+    "strong_accumulation": "大戶強正向",
+    "mild_accumulation": "大戶正向",
+    "neutral": "中性",
+    "distribution_warning": "大戶轉弱",
+    "insufficient_tdcc_history": "TDCC資料不足",
+}
+
+WARRANT_SIGNAL_ZH = {
+    "call_strong_inflow": "認購明確偏多",
+    "call_inflow": "認購偏多",
+    "call_put_bullish": "認購/認售結構偏多",
+    "put_strong_inflow": "認售明確偏空",
+    "put_inflow": "認售偏空",
+    "put_call_bearish": "認售/認購結構偏空",
+    "mixed_flow": "權證多空混合",
+    "call_activity_observation": "認購活躍觀察",
+    "put_activity_observation": "認售活躍觀察",
+    "low_float_call_spike": "低流通認購異常",
+    "no_signal": "權證無明確訊號",
+    "": "",
+}
+
+
+def translate_tokens(value: Any, mapping: dict[str, str], fallback: str = "") -> str:
+    text = safe_str(value).strip()
+    if not text or text.lower() == "nan":
+        return fallback
+    parts = [p.strip() for p in text.replace(";", ",").replace("|", ",").split(",") if p.strip()]
+    if not parts:
+        parts = [text]
+    translated = [mapping.get(part, part) for part in parts]
+    translated = [x for x in translated if x and x.lower() != "nan"]
+    return "、".join(dict.fromkeys(translated)) or fallback
+
 
 def numeric_sum(df: pd.DataFrame, col: str) -> float:
     if col not in df.columns:
@@ -142,6 +192,12 @@ def add_candidate_context(flow: pd.DataFrame) -> pd.DataFrame:
     for col in ["candidate_category", "sector", "sub_theme", "tdcc_status"]:
         if col not in out.columns:
             out[col] = ""
+    out["candidate_category_zh"] = out["candidate_category"].map(lambda x: translate_tokens(x, CATEGORY_LABEL_ZH, ""))
+    out["tdcc_status_zh"] = out["tdcc_status"].map(lambda x: translate_tokens(x, TDCC_STATUS_ZH, ""))
+    if "warrant_flow_signal" in out.columns:
+        out["warrant_flow_signal_zh"] = out["warrant_flow_signal"].map(lambda x: translate_tokens(x, WARRANT_SIGNAL_ZH, ""))
+    if "flow_signal" in out.columns and "warrant_flow_signal_zh" not in out.columns:
+        out["warrant_flow_signal_zh"] = out["flow_signal"].map(lambda x: translate_tokens(x, WARRANT_SIGNAL_ZH, ""))
     return out
 
 
@@ -288,15 +344,15 @@ def main() -> int:
         "",
         "## 三、認購成交金額前20名標的",
         "",
-        markdown_table(call_top, ["stock_id", "stock_name", "call_turnover", "call_warrant_count", "candidate_category", "tdcc_status", "sub_theme"], 20),
+        markdown_table(call_top, ["stock_id", "stock_name", "call_turnover", "call_warrant_count", "candidate_category_zh", "tdcc_status_zh", "sub_theme"], 20),
         "",
         "## 四、認售成交金額前20名標的",
         "",
-        markdown_table(put_top, ["stock_id", "stock_name", "put_turnover", "put_warrant_count", "candidate_category", "tdcc_status", "sub_theme"], 20),
+        markdown_table(put_top, ["stock_id", "stock_name", "put_turnover", "put_warrant_count", "candidate_category_zh", "tdcc_status_zh", "sub_theme"], 20),
         "",
         "## 五、Call/Put 比異常標的",
         "",
-        markdown_table(ratio_top, ["stock_id", "stock_name", "call_put_turnover_ratio", "call_turnover", "put_turnover", "candidate_category", "sub_theme"], 20),
+        markdown_table(ratio_top, ["stock_id", "stock_name", "call_put_turnover_ratio", "call_turnover", "put_turnover", "candidate_category_zh", "tdcc_status_zh", "sub_theme"], 20),
         "",
         "## 六、族群權證熱度",
         "",
@@ -304,7 +360,7 @@ def main() -> int:
         "",
         "## 七、與每日候選分類、股價型態、TDCC、法人/主力資料交叉比對",
         "",
-        markdown_table(flow[flow.get("candidate_category", "").astype(str).str.len() > 0] if "candidate_category" in flow.columns else pd.DataFrame(), ["stock_id", "stock_name", "candidate_category", "tdcc_status", "call_turnover", "put_turnover", "sub_theme"], 60),
+        markdown_table(flow[flow.get("candidate_category", "").astype(str).str.len() > 0] if "candidate_category" in flow.columns else pd.DataFrame(), ["stock_id", "stock_name", "candidate_category_zh", "tdcc_status_zh", "call_turnover", "put_turnover", "sub_theme"], 60),
         "",
         "## 八、過熱與反指標風險",
         "",
@@ -314,7 +370,7 @@ def main() -> int:
         "",
         "## 九、後續追蹤名單",
         "",
-        markdown_table(call_top, ["stock_id", "stock_name", "call_turnover", "call_warrant_count", "candidate_category", "sub_theme"], 30),
+        markdown_table(call_top, ["stock_id", "stock_name", "call_turnover", "call_warrant_count", "candidate_category_zh", "tdcc_status_zh", "sub_theme"], 30),
         "",
     ]
     REPORT_MD.write_text("\n".join(lines), encoding="utf-8")

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import math
+import re
 import sys
 from pathlib import Path
 from typing import Any
@@ -14,7 +15,6 @@ from tracking_utils import (  # noqa: E402
     DOCS_LATEST_DIR,
     LATEST_DIR,
     markdown_table,
-    now_text,
     pages_url,
     raw_url,
     read_csv,
@@ -26,6 +26,7 @@ from tracking_utils import (  # noqa: E402
 
 DAILY_MODEL_SIGNALS = LATEST_DIR / "daily_candidate_model_signals_for_report_latest.csv"
 DAILY_DECISION = LATEST_DIR / "daily_candidate_decision_latest.csv"
+STOCK_THEME_TAXONOMY = LATEST_DIR / "stock_theme_taxonomy_latest.csv"
 
 WEEKLY_INCREASE_CSV = LATEST_DIR / "tdcc_weekly_increase_ranking_latest.csv"
 WEEKLY_INCREASE_MD = LATEST_DIR / "tdcc_weekly_increase_ranking_latest.md"
@@ -39,8 +40,12 @@ FULL_FOR_REPORT_CSV = LATEST_DIR / "tdcc_weekly_candidate_full_for_report_latest
 FULL_FOR_REPORT_MD = LATEST_DIR / "tdcc_weekly_candidate_full_for_report_latest.md"
 HIGHLIGHT_MD = LATEST_DIR / "tdcc_weekly_candidate_highlight_latest.md"
 FULL_MD = LATEST_DIR / "tdcc_weekly_candidate_full_latest.md"
+HIGHLIGHT_PDF = LATEST_DIR / "tdcc_weekly_candidate_highlight_latest.pdf"
+FULL_PDF = LATEST_DIR / "tdcc_weekly_candidate_full_latest.pdf"
 TRACKING_PACKET_MD = LATEST_DIR / "tdcc_chatgpt_tracking_packet_latest.md"
-TDCC_WEEKLY_RULES = Path("rules/tdcc_weekly_rules.md")
+
+TDCC_FULL_REPORT_ALLOWED_MODEL_CROSS_IDS = {"tdcc_short_term_continuation_d5_d10"}
+TDCC_FULL_REPORT_RANK_SECTION_LIMIT = 100
 
 README_PATHS = [
     LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT.txt",
@@ -74,6 +79,7 @@ BASE_COLUMNS = [
     "tdcc_price_phase",
     "tdcc_phase_group_zh",
     "risk_bucket",
+    "risk_bucket_zh",
     "price_return_20d",
     "distance_ma20_pct",
     "relative_return_vs_benchmark",
@@ -89,6 +95,7 @@ MODEL_CROSS_COLUMNS = [
     "theme",
     "tdcc_phase_group_zh",
     "risk_bucket",
+    "risk_bucket_zh",
     "tdcc_score",
     "model_id",
     "model_name_zh",
@@ -100,6 +107,9 @@ MODEL_CROSS_COLUMNS = [
     "why_selected_zh",
     "risk_tags_zh",
     "next_confirmation_zh",
+    "recommended_usage_zh",
+    "report_usage_zh",
+    "operation_note_zh",
 ]
 
 REPORT_COLUMNS = [
@@ -115,632 +125,1042 @@ REPORT_COLUMNS = [
     "theme",
     "tdcc_phase_group_zh",
     "risk_bucket",
+    "risk_bucket_zh",
     "tdcc_score",
+    "tdcc_weekly_increase_score",
+    "tdcc_consecutive_accumulation_score",
+    "tdcc_1w_change_400",
+    "tdcc_1w_change_600",
+    "tdcc_1w_change_800",
+    "tdcc_1w_change_1000",
+    "tdcc_consecutive_up_weeks",
     "model_id",
     "model_name_zh",
+    "model_rank",
     "tdcc_model_rank_in_list",
     "model_score",
     "model_source",
+    "source_hit_labels_zh",
     "why_selected_zh",
     "risk_tags_zh",
     "next_confirmation_zh",
+    "recommended_usage_zh",
     "report_usage_zh",
     "operation_note_zh",
 ]
 
+PDF_RANKING_COLUMNS = [
+    "section_rank",
+    "stock_id",
+    "stock_name",
+    "tdcc_phase_group_zh",
+    "risk_bucket",
+    "tdcc_score",
+    "why_selected_zh",
+    "next_confirmation_zh",
+    "operation_note_zh",
+]
 
-def as_bool(value: Any) -> bool:
-    return safe_str(value).strip().lower() in {"true", "1", "yes", "y"}
+PDF_MODEL_CROSS_COLUMNS = [
+    "section_rank",
+    "stock_id",
+    "stock_name",
+    "tdcc_phase_group_zh",
+    "risk_bucket",
+    "tdcc_score",
+    "model_name_zh",
+    "tdcc_model_rank_in_list",
+    "model_score",
+    "why_selected_zh",
+    "next_confirmation_zh",
+    "operation_note_zh",
+]
+
+PDF_HEADER_ZH = {
+    "section_rank": "序",
+    "stock_id": "代號",
+    "stock_name": "股票",
+    "tdcc_phase_group_zh": "TDCC階段",
+    "risk_bucket": "風險",
+    "tdcc_score": "TDCC分數",
+    "model_name_zh": "每日模型",
+    "tdcc_model_rank_in_list": "模型內排名",
+    "model_score": "模型分數",
+    "why_selected_zh": "入選原因",
+    "next_confirmation_zh": "下一確認",
+    "operation_note_zh": "操作提醒",
+}
+
+RANK_COLUMNS = {"section_rank", "tdcc_rank", "tdcc_model_rank_in_list"}
+SCORE_COLUMNS = {"tdcc_score", "model_score"}
+SNAKE_CASE_RE = re.compile(r"\b[a-z]+(?:_[a-z0-9]+)+\b")
 
 
-def num(df: pd.DataFrame, column: str, default: float = 0.0) -> pd.Series:
-    if column not in df.columns:
-        return pd.Series(default, index=df.index, dtype="float64")
-    return pd.to_numeric(df[column], errors="coerce").fillna(default)
+TOKEN_ZH = {
+    "tdcc_short_term_continuation_d5_d10": "TDCC 短線延續模型 D+5/D+10",
+    "tdcc_short_term_edge": "TDCC 短線延續模型 D+5/D+10",
+    "range_rebound": "區間轉強",
+    "revenue_pullback": "營收成長股價回檔",
+    "revenue_breakout_low_response": "營收爆發股價尚未反應",
+    "pullback_rebound": "回檔後短線轉強",
+    "short_term_specialty": "短線專項",
+    "volume_range_breakout": "帶量突破",
+    "volume_breakout": "帶量突破",
+    "w_bottom_right_side": "W底右側",
+    "theme_pullback": "熱門族群回檔",
+    "hot_theme_pullback": "熱門族群回檔",
+    "platform_turning_up": "平台整理轉強",
+    "tdcc_pre_move_accumulation": "TDCC 潛伏吸籌",
+    "tdcc_leading_price": "TDCC 領先股價 / 潛伏吸籌",
+    "tdcc_price_confirmed": "TDCC 與股價初步確認",
+    "price_leading_tdcc": "股價領先 TDCC / 追高風險",
+    "overheated_after_tdcc": "TDCC 後股價過熱",
+    "tdcc_price_divergence": "TDCC 與股價背離",
+    "failed_after_tdcc": "TDCC 訊號後失效",
+    "insufficient_price_context": "價格資料不足",
+    "insufficient_tdcc_history": "TDCC 歷史不足",
+    "neutral_or_unclear": "中性 / 不明",
+    "strong_but_pre_move": "籌碼強但尚未發動",
+    "strong_confirmed": "籌碼與股價確認",
+    "strong_but_late": "股價已領先",
+    "strong_but_overheated": "短線過熱",
+    "strong_but_divergent": "籌碼與股價背離",
+    "insufficient_data": "資料不足",
+    "mainstream": "主流",
+    "non_mainstream": "非主流",
+    "single_stock_signal": "單一個股訊號",
+    "mainstream_leader": "主流領先族群",
+    "mainstream_follow_through": "主流續強族群",
+    "emerging_theme": "早期題材",
+    "weak_theme": "弱勢族群",
+    "call_strong_inflow": "認購強流入",
+    "call_inflow": "認購偏多",
+    "call_put_bullish": "權證偏多",
+    "no_signal": "無明確權證訊號",
+    "mixed_flow": "權證多空混合",
+    "mild_accumulation": "大戶溫和增加",
+    "strong_accumulation": "大戶強累積",
+    "distribution_warning": "大戶轉弱警示",
+    "neckline": "頸線",
+    "breakout": "突破",
+    "hot theme tag": "熱門族群標籤",
+}
+
+THEME_FALLBACK_ZH = {
+    "other electronics": "其他電子",
+    "semiconductor": "半導體",
+    "semiconductor equipment/materials": "半導體設備 / 材料",
+    "power discrete/diodes": "功率元件 / 二極體",
+    "networking": "網通",
+    "memory": "記憶體",
+    "biotechnology": "生技醫療",
+    "connector/cable": "連接器 / 線纜",
+    "electronic components": "電子零組件",
+    "communications": "通訊網路",
+    "computer peripherals": "電腦及週邊設備",
+    "optoelectronics": "光電",
+}
+
+RISK_BUCKET_ZH = {
+    "strong_but_pre_move": "籌碼強但尚未發動",
+    "strong_confirmed": "籌碼與股價確認",
+    "strong_but_late": "股價已領先",
+    "strong_but_overheated": "短線過熱",
+    "strong_but_divergent": "籌碼與股價背離",
+    "insufficient_data": "資料不足",
+}
+
+PHASE_ZH = {
+    "tdcc_leading_price": "TDCC 領先股價 / 潛伏吸籌",
+    "tdcc_price_confirmed": "TDCC 與股價初步確認",
+    "price_leading_tdcc": "股價領先 TDCC / 追高風險",
+    "overheated_after_tdcc": "TDCC 後股價過熱",
+    "tdcc_price_divergence": "TDCC 與股價背離",
+    "failed_after_tdcc": "TDCC 訊號後失效",
+    "insufficient_price_context": "價格資料不足",
+    "insufficient_tdcc_history": "TDCC 歷史不足",
+    "neutral_or_unclear": "中性 / 不明",
+}
 
 
-def fmt(value: Any, digits: int = 2) -> str:
-    v = to_number(value)
-    if math.isnan(v):
+def zh(value: Any) -> str:
+    text = safe_str(value).strip()
+    if not text:
         return ""
-    return f"{v:.{digits}f}"
+    for raw, label in sorted(TOKEN_ZH.items(), key=lambda item: len(item[0]), reverse=True):
+        text = text.replace(raw, label)
+    return text
 
 
-def phase_group_zh(value: Any) -> str:
-    mapping = {
-        "tdcc_leading_price": "潛伏吸籌",
-        "tdcc_price_confirmed": "籌碼與股價初步確認",
-        "price_leading_tdcc": "股價領先 / 追高風險",
-        "overheated_after_tdcc": "過熱延續",
-        "tdcc_price_divergence": "背離 / 失效觀察",
-        "failed_after_tdcc": "背離 / 失效觀察",
-        "insufficient_price_context": "價格資料不足",
-        "insufficient_tdcc_history": "TDCC 歷史不足",
-        "neutral_or_unclear": "中性或不明",
-    }
-    return mapping.get(safe_str(value), "觀察")
+def clean_pdf_text(value: Any) -> str:
+    text = zh(value).strip()
+    if not text:
+        return ""
+
+    def replace_unknown(match: re.Match[str]) -> str:
+        token = match.group(0)
+        return TOKEN_ZH.get(token, "資料不足 / 暫用現有資料")
+
+    return SNAKE_CASE_RE.sub(replace_unknown, text)
 
 
-def theme_bonus(series: pd.Series) -> pd.Series:
-    mainstream_status = {
-        "mainstream_leader",
-        "mainstream_follow_through",
-        "emerging_theme",
-        "core_mainstream",
-        "market_theme",
-    }
-    return series.astype(str).isin(mainstream_status).astype(int)
+def format_rank_value(value: Any) -> str:
+    raw = safe_str(value).strip()
+    if not raw:
+        return ""
+    number = to_number(value)
+    if number is None or (isinstance(number, float) and math.isnan(number)):
+        return clean_pdf_text(raw)
+    if float(number).is_integer():
+        return str(int(number))
+    return f"{number:.2f}".rstrip("0").rstrip(".")
+
+
+def format_score_value(value: Any) -> str:
+    raw = safe_str(value).strip()
+    if not raw:
+        return ""
+    number = to_number(value)
+    if number is None or (isinstance(number, float) and math.isnan(number)):
+        return clean_pdf_text(raw)
+    return f"{number:.2f}".rstrip("0").rstrip(".")
+
+
+def is_model_cross_section_id(value: Any) -> bool:
+    return "model_cross" in safe_str(value)
+
+
+def pdf_columns_for_section(group: pd.DataFrame) -> list[str]:
+    if group.empty:
+        return PDF_RANKING_COLUMNS
+    section_ids = group.get("section_id", pd.Series(dtype=str)).map(safe_str)
+    if section_ids.map(is_model_cross_section_id).any():
+        return PDF_MODEL_CROSS_COLUMNS
+    return PDF_RANKING_COLUMNS
+
+
+def pdf_display_cell(row: pd.Series, column: str) -> str:
+    if column in RANK_COLUMNS:
+        return format_rank_value(row.get(column))
+    if column in SCORE_COLUMNS:
+        return format_score_value(row.get(column))
+    if column == "risk_bucket":
+        return clean_pdf_text(row.get("risk_bucket_zh")) or clean_pdf_text(row.get("risk_bucket"))
+    return clean_pdf_text(row.get(column))
+
+
+def theme_display_from_raw(value: Any) -> str:
+    text = safe_str(value).strip()
+    if not text:
+        return "未分類"
+    text = (
+        text.replace("_待細分", "")
+        .replace("業_待細分", "")
+        .replace("_", " / ")
+        .strip(" /")
+    )
+    lower = text.lower()
+    if lower in THEME_FALLBACK_ZH:
+        return THEME_FALLBACK_ZH[lower]
+    for raw, label in sorted(THEME_FALLBACK_ZH.items(), key=lambda item: len(item[0]), reverse=True):
+        lower = lower.replace(raw, label)
+    if lower != text.lower():
+        return lower
+    return zh(text) or text
+
+
+def load_theme_display_map() -> dict[str, str]:
+    if not STOCK_THEME_TAXONOMY.exists():
+        return {}
+    try:
+        df = pd.read_csv(STOCK_THEME_TAXONOMY, dtype=str).fillna("")
+    except Exception:
+        return {}
+    out: dict[str, str] = {}
+    for _, row in df.iterrows():
+        stock_id = safe_str(row.get("stock_id")).strip()
+        if not stock_id:
+            continue
+        display = (
+            safe_str(row.get("hot_primary_theme")).strip()
+            or safe_str(row.get("primary_theme")).strip()
+            or safe_str(row.get("basic_theme")).strip()
+            or safe_str(row.get("industry")).strip()
+        )
+        out[stock_id] = theme_display_from_raw(display)
+    return out
+
+
+def apply_theme_display(df: pd.DataFrame, theme_map: dict[str, str]) -> pd.DataFrame:
+    out = df.copy()
+    if "theme" not in out.columns:
+        out["theme"] = ""
+    if "stock_id" not in out.columns:
+        out["stock_id"] = ""
+    out["theme"] = out.apply(
+        lambda row: theme_map.get(safe_str(row.get("stock_id")).strip())
+        or theme_display_from_raw(row.get("theme")),
+        axis=1,
+    )
+    return out
+
+
+def pct(value: Any, digits: int = 2) -> str:
+    n = to_number(value)
+    if pd.isna(n):
+        return ""
+    return f"{n:.{digits}f}"
+
+
+def boolish(value: Any) -> bool:
+    return safe_str(value).strip().lower() in {"1", "true", "yes", "y", "是"}
+
+
+def ensure_columns(df: pd.DataFrame, columns: list[str]) -> pd.DataFrame:
+    out = df.copy()
+    for col in columns:
+        if col not in out.columns:
+            out[col] = ""
+    return out[columns]
 
 
 def add_tdcc_scores(df: pd.DataFrame) -> pd.DataFrame:
     out = df.copy()
     for col in DELTA_COLS:
-        if col not in out.columns:
-            out[col] = 0.0
+        out[col] = out.get(col, pd.Series(index=out.index, dtype="float64")).map(to_number)
 
-    d400 = num(out, "tdcc_1w_change_400")
-    d600 = num(out, "tdcc_1w_change_600")
-    d800 = num(out, "tdcc_1w_change_800")
-    d1000 = num(out, "tdcc_1w_change_1000")
-    all_up = out.get("all_thresholds_up", pd.Series(False, index=out.index)).map(as_bool)
-    high_up = out.get("high_thresholds_up", pd.Series(False, index=out.index)).map(as_bool)
-    weeks = num(out, "tdcc_consecutive_up_weeks")
-    bonus = theme_bonus(out.get("theme_mainstream_status", pd.Series("", index=out.index)))
+    positive_count = sum((out[col].fillna(0) > 0).astype(int) for col in DELTA_COLS)
+    high_positive_count = (
+        (out["tdcc_1w_change_800"].fillna(0) > 0).astype(int)
+        + (out["tdcc_1w_change_1000"].fillna(0) > 0).astype(int)
+    )
+    weekly_sum = sum(out[col].fillna(0).clip(lower=0) for col in DELTA_COLS)
+    out["tdcc_four_threshold_weekly_increase_sum"] = weekly_sum
 
-    out["tdcc_four_threshold_weekly_increase_sum"] = d400 + d600 + d800 + d1000
+    theme_bonus = out.get("theme_mainstream_status", "").map(
+        lambda x: 4
+        if safe_str(x) in {"mainstream_leader", "mainstream_follow_through"}
+        else 2
+        if safe_str(x) == "emerging_theme"
+        else 0
+    )
+    phase_bonus = out.get("tdcc_price_phase", "").map(
+        lambda x: 5
+        if safe_str(x) in {"tdcc_leading_price", "tdcc_price_confirmed"}
+        else -4
+        if safe_str(x) in {"price_leading_tdcc", "overheated_after_tdcc", "tdcc_price_divergence"}
+        else 0
+    )
+    risk_penalty = out.get("tdcc_price_phase", "").map(
+        lambda x: 6
+        if safe_str(x) in {"overheated_after_tdcc", "tdcc_price_divergence", "failed_after_tdcc"}
+        else 0
+    )
+    consecutive = out.get("tdcc_consecutive_up_weeks", pd.Series(index=out.index)).map(to_number).fillna(0)
+
     out["tdcc_weekly_increase_score"] = (
-        d400.clip(lower=0) * 1.0
-        + d600.clip(lower=0) * 1.2
-        + d800.clip(lower=0) * 1.6
-        + d1000.clip(lower=0) * 2.0
-        + all_up.astype(int) * 5
-        + high_up.astype(int) * 3
-        + bonus * 2
-    )
+        weekly_sum * 12 + positive_count * 6 + high_positive_count * 5 + theme_bonus + phase_bonus - risk_penalty
+    ).round(2)
     out["tdcc_consecutive_accumulation_score"] = (
-        out["tdcc_weekly_increase_score"]
-        + weeks * 5
-        + all_up.astype(int) * 8
-        + high_up.astype(int) * 5
-    )
-    if "tdcc_price_phase" not in out.columns:
-        out["tdcc_price_phase"] = ""
-    out["tdcc_phase_group_zh"] = out["tdcc_price_phase"].map(phase_group_zh)
-    out["risk_bucket"] = out["tdcc_price_phase"].map(risk_bucket)
-    out["ranking_note_zh"] = out.apply(build_ranking_note, axis=1)
+        out["tdcc_weekly_increase_score"] + consecutive.clip(upper=8) * 4
+    ).round(2)
+    out["risk_bucket"] = out.get("tdcc_price_phase", "").map(risk_bucket)
+    out["risk_bucket_zh"] = out["risk_bucket"].map(lambda x: RISK_BUCKET_ZH.get(safe_str(x), zh(x)))
+    out["tdcc_phase_group_zh"] = out.get("tdcc_price_phase", "").map(lambda x: PHASE_ZH.get(safe_str(x), zh(x)))
+    out["ranking_note_zh"] = out.apply(ranking_note, axis=1)
     return out
 
 
-def build_ranking_note(row: pd.Series) -> str:
-    parts: list[str] = []
-    if to_number(row.get("tdcc_four_threshold_weekly_increase_sum")) > 0:
-        parts.append("本週四級距合計增加")
-    if as_bool(row.get("all_thresholds_up")):
-        parts.append("四級距同步增加")
-    if as_bool(row.get("high_thresholds_up")):
-        parts.append("800/1000 高級距同步增加")
-    weeks = to_number(row.get("tdcc_consecutive_up_weeks"))
-    if not math.isnan(weeks) and weeks >= 2:
-        parts.append(f"連續增加 {int(weeks)} 週")
-    if safe_str(row.get("theme_mainstream_status")) in {
-        "mainstream_leader",
-        "mainstream_follow_through",
-        "emerging_theme",
-        "core_mainstream",
-    }:
-        parts.append("族群狀態加分")
-    phase = safe_str(row.get("tdcc_phase_group_zh"))
-    if phase:
-        parts.append(phase)
-    return "；".join(parts) if parts else "僅能觀察"
-
-
-def format_output(df: pd.DataFrame, columns: list[str]) -> pd.DataFrame:
-    out = df.copy()
-    for col in columns:
-        if col not in out.columns:
-            out[col] = ""
-    numeric_cols = {
-        "tdcc_weekly_increase_score",
-        "tdcc_consecutive_accumulation_score",
-        "tdcc_1w_change_400",
-        "tdcc_1w_change_600",
-        "tdcc_1w_change_800",
-        "tdcc_1w_change_1000",
-        "tdcc_four_threshold_weekly_increase_sum",
-        "price_return_20d",
-        "distance_ma20_pct",
-        "relative_return_vs_benchmark",
-        "tdcc_score",
-        "model_score",
-        "section_rank",
-    }
-    for col in numeric_cols & set(out.columns):
-        out[col] = out[col].map(lambda v: fmt(v, 2))
-    return out[columns]
-
-
-def report_usage_for_list(list_type: Any) -> str:
-    mapping = {
-        "weekly_increase": "當週大戶增幅觀察：找本週大戶突然增加，偏短線籌碼變化。",
-        "consecutive_accumulation": "連續累積觀察：找兩週以上穩定增加，偏中期籌碼累積。",
-    }
-    return mapping.get(safe_str(list_type), "TDCC 籌碼候選觀察。")
-
-
-def operation_note(row: pd.Series) -> str:
-    phase = safe_str(row.get("tdcc_phase_group_zh"))
-    risk = safe_str(row.get("risk_bucket"))
-    next_confirmation = safe_str(row.get("next_confirmation_zh"))
-    if "股價領先" in phase or "overheated" in risk or "late" in risk:
-        base = "股價已領先或有追高風險，需用每日模型確認量價是否續強。"
-    elif "潛伏" in phase:
-        base = "偏潛伏吸籌觀察，重點看量價是否開始確認。"
-    elif "背離" in phase or "divergent" in risk:
-        base = "列為背離或失效觀察，不可只因 TDCC 增加升級。"
-    elif "不足" in phase:
-        base = "資料不足，只能觀察。"
-    else:
-        base = "以 TDCC 作籌碼背景，仍需搭配每日模型與價格結構。"
-    if next_confirmation:
-        return f"{base} 下一確認：{next_confirmation}"
-    return base
-
-
-def build_report_rows(weekly: pd.DataFrame, consecutive: pd.DataFrame, cross: pd.DataFrame, highlight: bool) -> pd.DataFrame:
-    frames: list[pd.DataFrame] = []
-
-    def add_rank_section(df: pd.DataFrame, section_id: str, section_name: str, list_type: str) -> None:
-        if df.empty:
-            return
-        part = df.head(5).copy() if highlight else df.copy()
-        part["report_kind"] = "highlight" if highlight else "full"
-        part["section_id"] = section_id
-        part["section_name_zh"] = section_name
-        part["section_rank"] = range(1, len(part) + 1)
-        part["tdcc_list_type"] = list_type
-        part["tdcc_rank"] = part.get("rank", "")
-        part["tdcc_score"] = part.get(
-            "tdcc_weekly_increase_score" if list_type == "weekly_increase" else "tdcc_consecutive_accumulation_score",
-            "",
-        )
-        part["model_id"] = ""
-        part["model_name_zh"] = ""
-        part["tdcc_model_rank_in_list"] = ""
-        part["model_score"] = ""
-        part["model_source"] = "tdcc_ranking"
-        part["why_selected_zh"] = part.get("ranking_note_zh", "")
-        part["risk_tags_zh"] = part.get("risk_bucket", "")
-        part["next_confirmation_zh"] = "後續交叉每日模型、價格結構與量價確認。"
-        part["report_usage_zh"] = report_usage_for_list(list_type)
-        part["operation_note_zh"] = part.apply(operation_note, axis=1)
-        frames.append(format_output(part, REPORT_COLUMNS))
-
-    def add_cross_section(df: pd.DataFrame, list_type: str, section_id: str, section_name: str) -> None:
-        if df.empty:
-            return
-        part = df[df["tdcc_list_type"].astype(str).eq(list_type)].copy()
-        if part.empty:
-            return
-        if highlight:
-            part = part.groupby("model_id", group_keys=False).head(3).copy()
-        part["report_kind"] = "highlight" if highlight else "full"
-        part["section_id"] = section_id
-        part["section_name_zh"] = section_name
-        part["section_rank"] = part.groupby("model_id", dropna=False).cumcount() + 1
-        part["report_usage_zh"] = part["tdcc_list_type"].map(report_usage_for_list)
-        part["operation_note_zh"] = part.apply(operation_note, axis=1)
-        frames.append(format_output(part, REPORT_COLUMNS))
-
-    add_rank_section(weekly, "weekly_increase_top", "當週增幅榜", "weekly_increase")
-    add_rank_section(consecutive, "consecutive_accumulation_top", "連續累積榜", "consecutive_accumulation")
-    if not cross.empty:
-        add_cross_section(cross, "weekly_increase", "weekly_increase_model_cross", "當週增幅榜 × 每日模型")
-        add_cross_section(cross, "consecutive_accumulation", "consecutive_accumulation_model_cross", "連續累積榜 × 每日模型")
-
-    if not frames:
-        return pd.DataFrame(columns=REPORT_COLUMNS)
-    return pd.concat(frames, ignore_index=True)
-
-
-def write_report_ready_md(path: Path, title: str, rows: pd.DataFrame, highlight: bool) -> None:
-    lines = [
-        f"# {title}",
-        "",
-        f"- generated_at: {now_text()}",
-        "- purpose: 這是 TDCC 週報對話端 / PDF generator 的固定資料來源。",
-        "- contract: 對話端只渲染本表，不自行改排名、不自行新增買賣判斷、不把不同模型混成單一排名。",
-        "- report_mode: 精華版列當週增幅前五、連續累積前五，以及各每日模型交叉前三；完整版列完整清單。",
-        "",
+def ranking_note(row: pd.Series) -> str:
+    deltas = [
+        to_number(row.get("tdcc_1w_change_400")),
+        to_number(row.get("tdcc_1w_change_600")),
+        to_number(row.get("tdcc_1w_change_800")),
+        to_number(row.get("tdcc_1w_change_1000")),
     ]
-    if rows.empty:
-        lines.append("- no rows.")
-    else:
-        for section_id, part in rows.groupby("section_id", sort=False):
-            section_name = safe_str(part["section_name_zh"].iloc[0]) if "section_name_zh" in part.columns else section_id
-            lines.extend([f"## {section_name}", "", markdown_table(part, REPORT_COLUMNS), ""])
-    path.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
+    pos = sum(1 for x in deltas if not pd.isna(x) and x > 0)
+    high_pos = sum(1 for x in deltas[2:] if not pd.isna(x) and x > 0)
+    parts = [f"四級距本週增加 {pos}/4，高級距增加 {high_pos}/2"]
+    weeks = to_number(row.get("tdcc_consecutive_up_weeks"))
+    if not pd.isna(weeks) and weeks >= 2:
+        parts.append(f"連續增加 {weeks:.0f} 週")
+    phase = row.get("tdcc_phase_group_zh")
+    if safe_str(phase):
+        parts.append(safe_str(phase))
+    return "；".join(parts)
 
 
 def build_weekly_increase(df: pd.DataFrame) -> pd.DataFrame:
-    work = df[num(df, "tdcc_four_threshold_weekly_increase_sum") > 0].copy()
-    work = work.sort_values(
-        [
-            "tdcc_weekly_increase_score",
-            "tdcc_four_threshold_weekly_increase_sum",
-            "tdcc_1w_change_1000",
-            "tdcc_1w_change_800",
-            "stock_id",
-        ],
-        ascending=[False, False, False, False, True],
+    eligible = df.copy()
+    positive = pd.Series(False, index=eligible.index)
+    for col in DELTA_COLS:
+        positive = positive | (eligible[col].fillna(0) > 0)
+    eligible = eligible[positive].copy()
+    eligible = eligible.sort_values(
+        ["tdcc_weekly_increase_score", "tdcc_four_threshold_weekly_increase_sum"],
+        ascending=[False, False],
     )
-    work["rank"] = range(1, len(work) + 1)
-    return format_output(work, BASE_COLUMNS)
+    eligible["rank"] = range(1, len(eligible) + 1)
+    return ensure_columns(eligible, BASE_COLUMNS)
 
 
-def build_consecutive(df: pd.DataFrame) -> pd.DataFrame:
-    work = df[num(df, "tdcc_consecutive_up_weeks") >= 2].copy()
-    work = work.sort_values(
-        [
-            "tdcc_consecutive_accumulation_score",
-            "tdcc_consecutive_up_weeks",
-            "tdcc_four_threshold_weekly_increase_sum",
-            "stock_id",
-        ],
-        ascending=[False, False, False, True],
+def build_consecutive_accumulation(df: pd.DataFrame) -> pd.DataFrame:
+    weeks = df.get("tdcc_consecutive_up_weeks", pd.Series(index=df.index)).map(to_number).fillna(0)
+    eligible = df[
+        (weeks >= 2)
+        | df.get("all_thresholds_up", pd.Series(False, index=df.index)).map(boolish)
+        | df.get("high_thresholds_up", pd.Series(False, index=df.index)).map(boolish)
+    ].copy()
+    eligible = eligible.sort_values(
+        ["tdcc_consecutive_accumulation_score", "tdcc_weekly_increase_score"],
+        ascending=[False, False],
     )
-    work["rank"] = range(1, len(work) + 1)
-    return format_output(work, BASE_COLUMNS)
+    eligible["rank"] = range(1, len(eligible) + 1)
+    return ensure_columns(eligible, BASE_COLUMNS)
 
 
-def write_rank_md(path: Path, title: str, df: pd.DataFrame, purpose: str) -> None:
-    lines = [
-        f"# {title}",
-        "",
-        f"- generated_at: {now_text()}",
-        f"- purpose: {purpose}",
-        "- scoring_note: 分數同時考慮 400/600/800/1000 本週增幅、四級距同步、高級距同步、連續週數與族群狀態；這是 TDCC 週報排序，不是單獨買進建議。",
-        "",
-        markdown_table(df, list(df.columns)),
-        "",
-    ]
-    path.write_text("\n".join(lines), encoding="utf-8")
+def read_daily_model_signals() -> pd.DataFrame:
+    signals = read_csv(DAILY_MODEL_SIGNALS, dtype=str)
+    if not signals.empty:
+        return signals
 
-
-def rank_lookup(df: pd.DataFrame, list_type: str, score_col: str) -> pd.DataFrame:
-    if df.empty:
-        return pd.DataFrame(columns=["stock_id", "tdcc_rank", "tdcc_score", "tdcc_list_type"])
-    base_cols = [
-        "stock_id",
-        "rank",
-        score_col,
-        "signal_date",
-        "stock_name",
-        "theme",
-        "tdcc_phase_group_zh",
-        "risk_bucket",
-    ]
-    cols = [c for c in base_cols if c in df.columns]
-    out = df[cols].copy()
-    out = out.rename(columns={"rank": "tdcc_rank", score_col: "tdcc_score"})
-    out["tdcc_list_type"] = list_type
-    return out
-
-
-def build_decision_model_fallback() -> pd.DataFrame:
-    """Daily decision fallback for stocks not covered by the model-signal table.
-
-    The TDCC weekly report first selects stocks by TDCC behavior, then asks where
-    those stocks sit in the daily recommendation logic. Some daily candidates
-    still only exist in daily_candidate_decision_latest.csv. Treat those rows as
-    decision-layer model rows so TDCC-selected names such as pattern-watch stocks
-    do not disappear from the cross summary.
-    """
     decision = read_csv(DAILY_DECISION, dtype=str)
     if decision.empty:
         return pd.DataFrame()
-
-    category = decision.get("original_category", pd.Series("", index=decision.index)).astype(str)
-    category = category.mask(category.eq(""), "uncategorized")
-    category_zh = decision.get("original_category_cn", pd.Series("", index=decision.index)).astype(str)
-    category_label = category_zh.mask(category_zh.eq(""), category)
-    category_label = category_label.mask(category_label.eq(""), "每日決策層")
-    rank = decision.get("decision_rank_in_category", decision.get("section_rank", ""))
-    if isinstance(rank, str):
-        rank = pd.Series(rank, index=decision.index)
-    rank = pd.Series(rank, index=decision.index).astype(str)
-    missing_rank = rank.eq("") | rank.str.lower().eq("nan")
-    if "decision_rank_overall_for_display" in decision.columns:
-        rank = rank.mask(missing_rank, decision["decision_rank_overall_for_display"].astype(str))
-    fallback = pd.DataFrame(
-        {
-            "stock_id": decision.get("stock_id", ""),
-            "stock_name": decision.get("stock_name", ""),
-            "model_id": "daily_decision_" + category,
-            "model_name_zh": category_label,
-            "display_rank": rank,
-            "model_score": decision.get("decision_score", ""),
-            "model_source": "daily_candidate_decision",
-            "source_hit_labels_zh": category_label,
-            "why_selected_zh": decision.get("why_selected", ""),
-            "risk_tags_zh": decision.get("risk_tags", ""),
-            "next_confirmation_zh": decision.get("next_confirmation", ""),
-        }
-    )
-    fallback["model_name_zh"] = fallback["model_name_zh"].astype(str) + "（決策層）"
-    return fallback
+    decision = decision.copy()
+    decision["model_id"] = decision.get("original_category", "")
+    decision["model_name_zh"] = decision.get("original_category_cn", "").map(zh)
+    decision["display_rank"] = decision.get("decision_rank_overall_for_display", "")
+    decision["model_score"] = decision.get("decision_score", "")
+    decision["source_hit_labels_zh"] = decision.get("original_category_cn", "").map(zh)
+    decision["why_selected_zh"] = decision.get("why_selected", "").map(zh)
+    decision["risk_tags_zh"] = decision.get("risk_tags", "").map(zh)
+    decision["next_confirmation_zh"] = decision.get("next_confirmation", "").map(zh)
+    decision["recommended_usage_zh"] = decision.get("next_confirmation", "").map(zh)
+    return decision
 
 
-def load_daily_model_rows() -> pd.DataFrame:
-    models = read_csv(DAILY_MODEL_SIGNALS, dtype=str)
-    fallback = build_decision_model_fallback()
-    if models.empty and fallback.empty:
-        return pd.DataFrame()
-    if models.empty:
-        combined = fallback
-    elif fallback.empty:
-        combined = models
-    else:
-        model_keys = set(zip(models["stock_id"].astype(str), models["model_id"].astype(str)))
-        fb = fallback[
-            ~fallback.apply(lambda r: (safe_str(r.get("stock_id")), safe_str(r.get("model_id"))) in model_keys, axis=1)
-        ]
-        combined = pd.concat([models, fb], ignore_index=True, sort=False)
-    if "model_source" not in combined.columns:
-        combined["model_source"] = ""
-    combined["model_source"] = combined["model_source"].replace("", pd.NA).fillna("daily_candidate_model_signal")
-    return combined
-
-
-def build_model_cross(weekly: pd.DataFrame, consecutive: pd.DataFrame) -> pd.DataFrame:
-    models = load_daily_model_rows()
-    if models.empty:
-        return pd.DataFrame(columns=MODEL_CROSS_COLUMNS)
-
-    candidates = pd.concat(
-        [
-            rank_lookup(weekly, "weekly_increase", "tdcc_weekly_increase_score"),
-            rank_lookup(consecutive, "consecutive_accumulation", "tdcc_consecutive_accumulation_score"),
-        ],
-        ignore_index=True,
-    )
-    candidates = candidates[candidates["stock_id"].astype(str).ne("")]
-    if candidates.empty:
-        return pd.DataFrame(columns=MODEL_CROSS_COLUMNS)
-
-    merged = candidates.merge(models, on="stock_id", how="inner", suffixes=("_tdcc", ""))
-    if merged.empty:
-        return pd.DataFrame(columns=MODEL_CROSS_COLUMNS)
-
-    for column in ["signal_date", "stock_name", "theme", "tdcc_phase_group_zh", "risk_bucket"]:
-        tdcc_column = f"{column}_tdcc"
-        if tdcc_column not in merged.columns:
-            continue
-        if column not in merged.columns:
-            merged[column] = merged[tdcc_column]
-        else:
-            current = merged[column].astype(str)
-            missing = current.eq("") | current.str.lower().eq("nan")
-            merged[column] = merged[column].mask(missing, merged[tdcc_column])
-
-    merged["display_rank_num"] = pd.to_numeric(merged.get("display_rank", ""), errors="coerce").fillna(9999)
-    merged["model_score_num"] = pd.to_numeric(merged.get("model_score", ""), errors="coerce").fillna(-9999)
-    merged = merged.sort_values(
-        ["tdcc_list_type", "model_id", "model_score_num", "display_rank_num", "stock_id"],
-        ascending=[True, True, False, True, True],
-    )
-    merged["tdcc_model_rank_in_list"] = (
-        merged.groupby(["tdcc_list_type", "model_id"], dropna=False).cumcount() + 1
-    )
-    return format_output(merged, MODEL_CROSS_COLUMNS)
-
-
-def write_model_cross_md(df: pd.DataFrame) -> None:
-    lines = [
-        "# TDCC Weekly Candidates x Daily Model Cross Summary",
-        "",
-        f"- generated_at: {now_text()}",
-        "- purpose: 將 TDCC 當週增幅榜與連續累積榜股票，交叉到每日候選模型，觀察其在各模型中的位置。",
-        "- note: 這是 TDCC 週報候選的模型交叉檢查，不是每日推薦總排名。",
-        "",
-    ]
-    if df.empty:
-        lines.append("- no matched daily model rows.")
-    else:
-        for list_type, part in df.groupby("tdcc_list_type", dropna=False):
-            lines.extend([f"## {list_type}", "", markdown_table(part, MODEL_CROSS_COLUMNS), ""])
-    MODEL_CROSS_MD.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
-
-
-def write_report_md(
-    path: Path,
-    title: str,
+def build_model_cross(
     weekly: pd.DataFrame,
     consecutive: pd.DataFrame,
-    cross: pd.DataFrame,
-    highlight: bool,
-) -> None:
-    weekly_show = weekly.head(5) if highlight else weekly
-    consecutive_show = consecutive.head(5) if highlight else consecutive
-    weekly_cross = (
-        cross[cross["tdcc_list_type"].astype(str).eq("weekly_increase")]
-        if not cross.empty
-        else pd.DataFrame(columns=MODEL_CROSS_COLUMNS)
+    daily_models: pd.DataFrame,
+) -> pd.DataFrame:
+    if daily_models.empty:
+        return pd.DataFrame(columns=MODEL_CROSS_COLUMNS)
+
+    daily = daily_models.copy()
+    daily["stock_id"] = daily["stock_id"].astype(str).str.strip()
+    daily["model_id"] = daily.get("model_id", "").map(safe_str)
+    daily["display_rank_num"] = daily.get("display_rank", daily.get("model_rank", "")).map(to_number)
+    daily["model_score_num"] = daily.get("model_score", "").map(to_number)
+    daily = daily.sort_values(
+        ["stock_id", "model_id", "display_rank_num", "model_score_num"],
+        ascending=[True, True, True, False],
     )
-    consecutive_cross = (
-        cross[cross["tdcc_list_type"].astype(str).eq("consecutive_accumulation")]
-        if not cross.empty
-        else pd.DataFrame(columns=MODEL_CROSS_COLUMNS)
-    )
-    if highlight and not cross.empty:
-        weekly_cross = weekly_cross.groupby("model_id", group_keys=False).head(3)
-        consecutive_cross = consecutive_cross.groupby("model_id", group_keys=False).head(3)
+    daily = daily.drop_duplicates(["stock_id", "model_id"], keep="first")
+
+    frames: list[pd.DataFrame] = []
+    for list_type, ranking, score_col in [
+        ("weekly_increase", weekly, "tdcc_weekly_increase_score"),
+        ("consecutive_accumulation", consecutive, "tdcc_consecutive_accumulation_score"),
+    ]:
+        if ranking.empty:
+            continue
+        base = ranking.copy()
+        base["stock_id"] = base["stock_id"].astype(str).str.strip()
+        base = base.rename(columns={"rank": "tdcc_rank", score_col: "tdcc_score"})
+        merged = base.merge(daily, on="stock_id", how="inner", suffixes=("", "_model"))
+        if merged.empty:
+            continue
+        merged["tdcc_list_type"] = list_type
+        merged["model_name_zh"] = merged.get("model_name_zh", "").map(lambda x: zh(x) or zh(merged.get("model_id", "")))
+        merged["source_hit_labels_zh"] = merged.get("source_hit_labels_zh", "").map(zh)
+        merged["why_selected_zh"] = merged.apply(human_reason_from_model, axis=1)
+        merged["risk_tags_zh"] = merged.get("risk_tags_zh", "").map(zh)
+        merged["next_confirmation_zh"] = merged.get("next_confirmation_zh", "").map(zh)
+        merged["recommended_usage_zh"] = merged.get("recommended_usage_zh", "").map(zh)
+        merged["operation_note_zh"] = merged.apply(operation_note, axis=1)
+        merged["model_source"] = merged.get("source_category_zh", merged.get("original_category_cn", "")).map(zh)
+        merged["display_rank"] = merged.get("display_rank", merged.get("model_rank", ""))
+        merged["model_score"] = merged.get("model_score", "")
+        merged["tdcc_model_rank_in_list"] = (
+            merged.sort_values(["tdcc_list_type", "model_id", "tdcc_rank", "display_rank_num"])
+            .groupby(["tdcc_list_type", "model_id"])
+            .cumcount()
+            + 1
+        )
+        frames.append(ensure_columns(merged, MODEL_CROSS_COLUMNS))
+
+    if not frames:
+        return pd.DataFrame(columns=MODEL_CROSS_COLUMNS)
+    out = pd.concat(frames, ignore_index=True)
+    return out.sort_values(["tdcc_list_type", "model_id", "tdcc_model_rank_in_list", "tdcc_rank"])
+
+
+def human_reason_from_model(row: pd.Series) -> str:
+    existing = zh(row.get("why_selected_human_zh"))
+    if existing and "基礎分=" not in existing:
+        return existing
+    model = zh(row.get("model_name_zh")) or zh(row.get("model_id")) or "每日候選模型"
+    phase = safe_str(row.get("tdcc_phase_group_zh"))
+    risk = safe_str(row.get("risk_bucket_zh"))
+    return f"符合 {model}；TDCC 狀態為 {phase or '資料不足'}，風險桶為 {risk or '待確認'}。"
+
+
+def operation_note(row: pd.Series) -> str:
+    model_id = safe_str(row.get("model_id"))
+    if model_id in TDCC_FULL_REPORT_ALLOWED_MODEL_CROSS_IDS:
+        return "以訊號日隔天開盤為進場假設，依 D+5 / D+10 統計與短線支撐管理；這是短線延續研究，不是低位買進模型。"
+    next_text = zh(row.get("next_confirmation_zh"))
+    usage = zh(row.get("recommended_usage_zh"))
+    if usage:
+        return usage
+    if next_text:
+        return next_text
+    return "TDCC 為加分項，不可單獨作為買進理由；需搭配價格、量價與族群強弱確認。"
+
+
+def row_from_ranking(row: pd.Series, report_kind: str, section_id: str, section_name: str, section_rank: int) -> dict[str, Any]:
+    score = row.get("tdcc_weekly_increase_score")
+    if section_id == "consecutive_accumulation":
+        score = row.get("tdcc_consecutive_accumulation_score")
+    return {
+        "report_kind": report_kind,
+        "section_id": section_id,
+        "section_name_zh": section_name,
+        "section_rank": section_rank,
+        "tdcc_list_type": section_id,
+        "tdcc_rank": row.get("rank", ""),
+        "signal_date": row.get("signal_date", ""),
+        "stock_id": row.get("stock_id", ""),
+        "stock_name": row.get("stock_name", ""),
+        "theme": row.get("theme", ""),
+        "tdcc_phase_group_zh": row.get("tdcc_phase_group_zh", ""),
+        "risk_bucket": row.get("risk_bucket", ""),
+        "risk_bucket_zh": row.get("risk_bucket_zh", ""),
+        "tdcc_score": score,
+        "tdcc_weekly_increase_score": row.get("tdcc_weekly_increase_score", ""),
+        "tdcc_consecutive_accumulation_score": row.get("tdcc_consecutive_accumulation_score", ""),
+        "tdcc_1w_change_400": row.get("tdcc_1w_change_400", ""),
+        "tdcc_1w_change_600": row.get("tdcc_1w_change_600", ""),
+        "tdcc_1w_change_800": row.get("tdcc_1w_change_800", ""),
+        "tdcc_1w_change_1000": row.get("tdcc_1w_change_1000", ""),
+        "tdcc_consecutive_up_weeks": row.get("tdcc_consecutive_up_weeks", ""),
+        "model_id": "",
+        "model_name_zh": "",
+        "model_rank": "",
+        "model_score": "",
+        "model_source": "",
+        "source_hit_labels_zh": "",
+        "why_selected_zh": row.get("ranking_note_zh", ""),
+        "risk_tags_zh": row.get("risk_bucket_zh", ""),
+        "next_confirmation_zh": "用每日候選模型與價格位置確認可操作性。",
+        "recommended_usage_zh": "TDCC 排名用於籌碼追蹤，不單獨作為買進理由。",
+        "report_usage_zh": "TDCC 排名用於籌碼追蹤，不單獨作為買進理由。",
+        "operation_note_zh": "若價格已領先或過熱，需降為觀察；若仍在潛伏或初步確認，才進一步看每日候選模型。",
+    }
+
+
+def build_report_ready(
+    weekly: pd.DataFrame,
+    consecutive: pd.DataFrame,
+    model_cross: pd.DataFrame,
+    report_kind: str,
+) -> pd.DataFrame:
+    rows: list[dict[str, Any]] = []
+    weekly_limit = 5 if report_kind == "highlight" else TDCC_FULL_REPORT_RANK_SECTION_LIMIT
+    consecutive_limit = 5 if report_kind == "highlight" else TDCC_FULL_REPORT_RANK_SECTION_LIMIT
+
+    for idx, (_, row) in enumerate(weekly.head(weekly_limit).iterrows(), start=1):
+        rows.append(row_from_ranking(row, report_kind, "weekly_increase", "當週增幅排名", idx))
+    for idx, (_, row) in enumerate(consecutive.head(consecutive_limit).iterrows(), start=1):
+        rows.append(row_from_ranking(row, report_kind, "consecutive_accumulation", "連續累積排名", idx))
+
+    if not model_cross.empty:
+        cross = model_cross.copy()
+        if report_kind == "full":
+            cross = cross[cross["model_id"].isin(TDCC_FULL_REPORT_ALLOWED_MODEL_CROSS_IDS)]
+        for (list_type, model_id), group in cross.groupby(["tdcc_list_type", "model_id"], dropna=False):
+            group = group.sort_values(["tdcc_model_rank_in_list", "tdcc_rank"])
+            limit = 3 if report_kind == "highlight" else len(group)
+            section_name = f"{list_type_zh(list_type)} × {zh(group.iloc[0].get('model_name_zh')) or zh(model_id)}"
+            for idx, (_, row) in enumerate(group.head(limit).iterrows(), start=1):
+                rows.append(
+                    {
+                        "report_kind": report_kind,
+                        "section_id": f"model_cross_{list_type}_{model_id}",
+                        "section_name_zh": section_name,
+                        "section_rank": idx,
+                        "tdcc_list_type": list_type,
+                        "tdcc_rank": row.get("tdcc_rank", ""),
+                        "signal_date": row.get("signal_date", ""),
+                        "stock_id": row.get("stock_id", ""),
+                        "stock_name": row.get("stock_name", ""),
+                        "theme": row.get("theme", ""),
+                        "tdcc_phase_group_zh": row.get("tdcc_phase_group_zh", ""),
+                        "risk_bucket": row.get("risk_bucket", ""),
+                        "risk_bucket_zh": row.get("risk_bucket_zh", ""),
+                        "tdcc_score": row.get("tdcc_score", ""),
+                        "tdcc_weekly_increase_score": "",
+                        "tdcc_consecutive_accumulation_score": "",
+                        "tdcc_1w_change_400": "",
+                        "tdcc_1w_change_600": "",
+                        "tdcc_1w_change_800": "",
+                        "tdcc_1w_change_1000": "",
+                        "tdcc_consecutive_up_weeks": "",
+                        "model_id": row.get("model_id", ""),
+                        "model_name_zh": zh(row.get("model_name_zh")) or zh(row.get("model_id")),
+                        "model_rank": row.get("display_rank", ""),
+                        "tdcc_model_rank_in_list": row.get("tdcc_model_rank_in_list", row.get("display_rank", "")),
+                        "model_score": row.get("model_score", ""),
+                        "model_source": row.get("model_source", ""),
+                        "source_hit_labels_zh": row.get("source_hit_labels_zh", ""),
+                        "why_selected_zh": row.get("why_selected_zh", ""),
+                        "risk_tags_zh": row.get("risk_tags_zh", ""),
+                        "next_confirmation_zh": row.get("next_confirmation_zh", ""),
+                        "recommended_usage_zh": row.get("recommended_usage_zh", ""),
+                        "report_usage_zh": row.get("recommended_usage_zh", "") or row.get("operation_note_zh", ""),
+                        "operation_note_zh": row.get("operation_note_zh", ""),
+                    }
+                )
+
+    return ensure_columns(pd.DataFrame(rows), REPORT_COLUMNS)
+
+
+def list_type_zh(value: Any) -> str:
+    return {
+        "weekly_increase": "當週增幅榜",
+        "consecutive_accumulation": "連續累積榜",
+    }.get(safe_str(value), zh(value))
+
+
+def write_md_table(df: pd.DataFrame, path: Path, title: str, columns: list[str], limit: int | None = None) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    content = [
+        f"# {title}",
+        "",
+        f"- generated_at: {pd.Timestamp.now(tz='Asia/Taipei').strftime('%Y-%m-%d %H:%M:%S Asia/Taipei')}",
+        f"- rows: {len(df)}",
+        "",
+        markdown_table(df, columns, limit=limit),
+        "",
+    ]
+    path.write_text("\n".join(content), encoding="utf-8")
+
+
+def write_report_md(df: pd.DataFrame, path: Path, title: str, max_rows_per_section: int | None = None) -> None:
     lines = [
         f"# {title}",
         "",
-        f"- generated_at: {now_text()}",
-        "- report_design: 分成當週增幅榜與連續累積榜；再用每日候選模型做交叉檢查，區分潛伏吸籌、股價領先、過熱與背離風險。",
-        "- model_cross_note: 每個 TDCC 名單內的股票可出現在多個每日模型；不同模型不混成單一總排名。",
-        "",
-        "## 當週增幅榜",
-        "",
-        markdown_table(weekly_show, list(weekly_show.columns) if not weekly_show.empty else BASE_COLUMNS),
-        "",
-        "## 連續累積榜 / Strength Ranking",
-        "",
-        markdown_table(consecutive_show, list(consecutive_show.columns) if not consecutive_show.empty else BASE_COLUMNS),
-        "",
-        "## 當週增幅榜 x 每日候選模型前三",
-        "",
-        markdown_table(weekly_cross, MODEL_CROSS_COLUMNS),
-        "",
-        "## 連續累積榜 x 每日候選模型前三",
-        "",
-        markdown_table(consecutive_cross, MODEL_CROSS_COLUMNS),
+        "這份報告使用 TDCC weekly report-ready structured data 產生；TDCC 是籌碼追蹤，不是單獨買進理由。",
         "",
     ]
-    path.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
+    if df.empty:
+        lines.append("目前沒有可用資料。")
+    else:
+        for section, group in df.groupby("section_name_zh", sort=False):
+            show = group.head(max_rows_per_section) if max_rows_per_section else group
+            columns = pdf_columns_for_section(show)
+            lines += [
+                f"## {section}",
+                "",
+                markdown_table(show, columns, limit=None),
+                "",
+            ]
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("\n".join(lines), encoding="utf-8")
 
 
-def upsert_readme_fields() -> None:
-    files = {
-        "tdcc_weekly_increase_ranking": [WEEKLY_INCREASE_CSV, WEEKLY_INCREASE_MD],
-        "tdcc_consecutive_accumulation_ranking": [CONSECUTIVE_CSV, CONSECUTIVE_MD],
-        "tdcc_weekly_model_cross_summary": [MODEL_CROSS_CSV, MODEL_CROSS_MD],
-        "tdcc_weekly_candidate_highlight_for_report": [HIGHLIGHT_FOR_REPORT_CSV, HIGHLIGHT_FOR_REPORT_MD],
-        "tdcc_weekly_candidate_full_for_report": [FULL_FOR_REPORT_CSV, FULL_FOR_REPORT_MD],
-        "tdcc_weekly_candidate_highlight": [HIGHLIGHT_MD],
-        "tdcc_weekly_candidate_full": [FULL_MD],
-    }
-    fields: dict[str, str] = {}
-    for prefix, paths in files.items():
-        for path in paths:
-            suffix = "csv" if path.suffix.lower() == ".csv" else "md"
-            fields[f"{prefix}_{suffix}_raw_url"] = raw_url(path)
-            fields[f"{prefix}_{suffix}_pages_url"] = pages_url(path)
-    if TDCC_WEEKLY_RULES.exists():
-        fields["rules_tdcc_weekly_raw_url"] = raw_url(TDCC_WEEKLY_RULES)
-        fields["rules_tdcc_weekly_pages_url"] = pages_url(TDCC_WEEKLY_RULES)
+def wrap_text(text: Any, max_chars: int) -> str:
+    s = safe_str(text)
+    if not s:
+        return ""
+    parts = []
+    while len(s) > max_chars:
+        parts.append(s[:max_chars])
+        s = s[max_chars:]
+    parts.append(s)
+    return "\n".join(parts)
 
+
+def write_pdf(df: pd.DataFrame, path: Path, title: str, max_rows_per_section: int | None = None) -> None:
+    try:
+        from reportlab.lib import colors
+        from reportlab.lib.pagesizes import A4, landscape
+        from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
+        from reportlab.lib.units import cm
+        from reportlab.pdfbase import pdfmetrics
+        from reportlab.pdfbase.cidfonts import UnicodeCIDFont
+        from reportlab.platypus import PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
+    except Exception as exc:  # pragma: no cover - validated in CI
+        raise RuntimeError(f"reportlab unavailable; TDCC weekly PDF cannot be generated: {exc}") from exc
+
+    pdfmetrics.registerFont(UnicodeCIDFont("STSong-Light"))
+    styles = getSampleStyleSheet()
+    normal = ParagraphStyle(
+        "zh-normal",
+        parent=styles["Normal"],
+        fontName="STSong-Light",
+        fontSize=8.5,
+        leading=11,
+        wordWrap="CJK",
+    )
+    title_style = ParagraphStyle(
+        "zh-title",
+        parent=styles["Title"],
+        fontName="STSong-Light",
+        fontSize=18,
+        leading=24,
+        alignment=1,
+    )
+    h2 = ParagraphStyle(
+        "zh-h2",
+        parent=styles["Heading2"],
+        fontName="STSong-Light",
+        fontSize=12,
+        leading=15,
+        spaceBefore=8,
+        spaceAfter=6,
+    )
+
+    doc = SimpleDocTemplate(
+        str(path),
+        pagesize=landscape(A4),
+        rightMargin=0.8 * cm,
+        leftMargin=0.8 * cm,
+        topMargin=0.8 * cm,
+        bottomMargin=0.8 * cm,
+    )
+    story: list[Any] = [
+        Paragraph(title, title_style),
+        Spacer(1, 0.2 * cm),
+        Paragraph("TDCC 週報以當週增幅、連續累積與每日候選模型交集呈現。TDCC 不作單獨買進理由。", normal),
+        Spacer(1, 0.3 * cm),
+    ]
+    if df.empty:
+        story.append(Paragraph("目前沒有可用資料。", normal))
+    else:
+        first = True
+        headers = ["序", "代號", "股票", "族群", "TDCC階段", "風險桶", "TDCC分數", "模型", "模型名次", "模型分數", "入選 / 用途", "操作提醒"]
+        col_widths = [0.8 * cm, 1.3 * cm, 1.6 * cm, 2.1 * cm, 3.0 * cm, 2.5 * cm, 1.4 * cm, 3.0 * cm, 1.2 * cm, 1.3 * cm, 5.0 * cm, 5.0 * cm]
+        for section, group in df.groupby("section_name_zh", sort=False):
+            if not first:
+                story.append(PageBreak())
+            first = False
+            story.append(Paragraph(safe_str(section), h2))
+            show = group.head(max_rows_per_section) if max_rows_per_section else group
+            table_data = [[Paragraph(h, normal) for h in headers]]
+            for _, row in show.iterrows():
+                table_data.append(
+                    [
+                        Paragraph(safe_str(row.get("section_rank")), normal),
+                        Paragraph(safe_str(row.get("stock_id")), normal),
+                        Paragraph(safe_str(row.get("stock_name")), normal),
+                        Paragraph(wrap_text(row.get("theme"), 10), normal),
+                        Paragraph(wrap_text(row.get("tdcc_phase_group_zh"), 12), normal),
+                        Paragraph(wrap_text(row.get("risk_bucket_zh"), 12), normal),
+                        Paragraph(pct(row.get("tdcc_score"), 1), normal),
+                        Paragraph(wrap_text(row.get("model_name_zh"), 12), normal),
+                        Paragraph(safe_str(row.get("model_rank")), normal),
+                        Paragraph(pct(row.get("model_score"), 1), normal),
+                        Paragraph(wrap_text(row.get("why_selected_zh"), 26), normal),
+                        Paragraph(wrap_text(row.get("operation_note_zh"), 26), normal),
+                    ]
+                )
+            table = Table(table_data, colWidths=col_widths, repeatRows=1)
+            table.setStyle(
+                TableStyle(
+                    [
+                        ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#1f4e79")),
+                        ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
+                        ("GRID", (0, 0), (-1, -1), 0.25, colors.grey),
+                        ("VALIGN", (0, 0), (-1, -1), "TOP"),
+                        ("FONTNAME", (0, 0), (-1, -1), "STSong-Light"),
+                        ("FONTSIZE", (0, 0), (-1, -1), 8),
+                        ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, colors.HexColor("#f3f6f8")]),
+                    ]
+                )
+            )
+            story.append(table)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    doc.build(story)
+
+
+def write_pdf_v2(df: pd.DataFrame, path: Path, title: str, max_rows_per_section: int | None = None) -> None:
+    try:
+        from reportlab.lib import colors
+        from reportlab.lib.pagesizes import A4, landscape
+        from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
+        from reportlab.lib.units import cm
+        from reportlab.pdfbase import pdfmetrics
+        from reportlab.pdfbase.cidfonts import UnicodeCIDFont
+        from reportlab.pdfbase.ttfonts import TTFont
+        from reportlab.platypus import PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
+    except Exception as exc:  # pragma: no cover - validated in CI
+        raise RuntimeError(f"reportlab unavailable; TDCC weekly PDF cannot be generated: {exc}") from exc
+
+    def register_report_font() -> str:
+        font_path = Path(r"C:\Windows\Fonts\kaiu.ttf")
+        if font_path.exists():
+            pdfmetrics.registerFont(TTFont("DFKai-SB", str(font_path)))
+            return "DFKai-SB"
+        pdfmetrics.registerFont(UnicodeCIDFont("STSong-Light"))
+        return "STSong-Light"
+
+    pdf_font = register_report_font()
+    styles = getSampleStyleSheet()
+    normal = ParagraphStyle(
+        "zh-normal-v2",
+        parent=styles["Normal"],
+        fontName=pdf_font,
+        fontSize=14,
+        leading=17,
+        wordWrap="CJK",
+    )
+    small = ParagraphStyle(
+        "zh-small-v2",
+        parent=normal,
+        fontSize=14,
+        leading=17,
+    )
+    title_style = ParagraphStyle(
+        "zh-title-v2",
+        parent=styles["Title"],
+        fontName=pdf_font,
+        fontSize=18,
+        leading=24,
+        alignment=1,
+    )
+    h2 = ParagraphStyle(
+        "zh-h2-v2",
+        parent=styles["Heading2"],
+        fontName=pdf_font,
+        fontSize=14,
+        leading=18,
+        spaceBefore=8,
+        spaceAfter=6,
+    )
+
+    def para(value: Any, max_chars: int, style: Any = normal) -> Any:
+        return Paragraph(wrap_text(clean_pdf_text(value), max_chars), style)
+
+    def table_style() -> Any:
+        return TableStyle(
+            [
+                ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#1f4e79")),
+                ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
+                ("GRID", (0, 0), (-1, -1), 0.25, colors.grey),
+                ("VALIGN", (0, 0), (-1, -1), "TOP"),
+                ("FONTNAME", (0, 0), (-1, -1), pdf_font),
+                ("FONTSIZE", (0, 0), (-1, -1), 14),
+                ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, colors.HexColor("#f3f6f8")]),
+            ]
+        )
+
+    def headers_for_columns(columns: list[str]) -> list[Any]:
+        return [Paragraph(PDF_HEADER_ZH.get(column, column), normal) for column in columns]
+
+    def widths_for_columns(columns: list[str]) -> list[Any]:
+        if columns == PDF_MODEL_CROSS_COLUMNS:
+            return [
+                0.7 * cm,
+                1.4 * cm,
+                1.55 * cm,
+                2.35 * cm,
+                1.9 * cm,
+                1.45 * cm,
+                2.55 * cm,
+                1.35 * cm,
+                1.4 * cm,
+                4.25 * cm,
+                3.55 * cm,
+                4.65 * cm,
+            ]
+        return [
+            0.8 * cm,
+            1.45 * cm,
+            1.65 * cm,
+            2.7 * cm,
+            2.1 * cm,
+            1.8 * cm,
+            5.35 * cm,
+            4.45 * cm,
+            6.35 * cm,
+        ]
+
+    def cell_para(row: pd.Series, column: str) -> Any:
+        text = pdf_display_cell(row, column)
+        if column in {"section_rank", "stock_id", "tdcc_model_rank_in_list", "tdcc_score", "model_score"}:
+            return text
+        max_chars = {
+            "section_rank": 4,
+            "tdcc_model_rank_in_list": 4,
+            "tdcc_score": 6,
+            "model_score": 6,
+            "stock_name": 8,
+            "tdcc_phase_group_zh": 10,
+            "risk_bucket": 10,
+            "model_name_zh": 10,
+            "why_selected_zh": 20,
+            "next_confirmation_zh": 18,
+            "operation_note_zh": 22,
+        }.get(column, 16)
+        return Paragraph(wrap_text(text, max_chars), small if column in {"why_selected_zh", "next_confirmation_zh", "operation_note_zh"} else normal)
+
+    doc = SimpleDocTemplate(
+        str(path),
+        pagesize=landscape(A4),
+        rightMargin=0.8 * cm,
+        leftMargin=0.8 * cm,
+        topMargin=0.8 * cm,
+        bottomMargin=0.8 * cm,
+    )
+    story: list[Any] = [
+        Paragraph(title, title_style),
+        Spacer(1, 0.2 * cm),
+        Paragraph("TDCC 週報以當週增幅、連續累積與每日候選模型交集呈現。TDCC 不作單獨買進理由。", normal),
+        Spacer(1, 0.3 * cm),
+    ]
+    if df.empty:
+        story.append(Paragraph("目前沒有可用資料。", normal))
+    else:
+        first = True
+        for section, group in df.groupby("section_name_zh", sort=False):
+            if not first:
+                story.append(PageBreak())
+            first = False
+            story.append(Paragraph(safe_str(section), h2))
+            show = group.head(max_rows_per_section) if max_rows_per_section else group
+
+            columns = pdf_columns_for_section(show)
+            col_widths = widths_for_columns(columns)
+            table_data = [headers_for_columns(columns)]
+            for _, row in show.iterrows():
+                table_data.append([cell_para(row, column) for column in columns])
+
+            table = Table(table_data, colWidths=col_widths, repeatRows=1)
+            table.setStyle(table_style())
+            story.append(table)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    doc.build(story)
+
+
+def upsert_readme_fields(fields: dict[str, str]) -> None:
     for path in README_PATHS:
-        lines = path.read_text(encoding="utf-8", errors="replace").splitlines() if path.exists() else []
-        out: list[str] = []
-        seen: set[str] = set()
-        for line in lines:
-            key = line.split("=", 1)[0] if "=" in line else ""
-            if key in fields:
-                out.append(f"{key}={fields[key]}")
-                seen.add(key)
-            else:
-                out.append(line)
+        if not path.exists():
+            continue
+        lines = path.read_text(encoding="utf-8", errors="replace").splitlines()
+        existing = {line.split("=", 1)[0]: i for i, line in enumerate(lines) if "=" in line}
         for key, value in fields.items():
-            if key not in seen:
-                out.append(f"{key}={value}")
-        path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text("\n".join(out).rstrip() + "\n", encoding="utf-8")
+            line = f"{key}={value}"
+            if key in existing:
+                lines[existing[key]] = line
+            else:
+                lines.append(line)
+        path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
-def append_tracking_packet_section(weekly: pd.DataFrame, consecutive: pd.DataFrame) -> None:
+def append_tracking_packet(fields: dict[str, str]) -> None:
     if not TRACKING_PACKET_MD.exists():
         return
-    marker = "## TDCC Weekly Increase and Consecutive Candidate Reports"
     text = TRACKING_PACKET_MD.read_text(encoding="utf-8", errors="replace")
-    if marker in text:
-        text = text.split(marker, 1)[0].rstrip()
-
-    top_cols = [
-        "rank",
-        "stock_id",
-        "stock_name",
-        "tdcc_1w_change_400",
-        "tdcc_1w_change_600",
-        "tdcc_1w_change_800",
-        "tdcc_1w_change_1000",
-        "tdcc_phase_group_zh",
-        "risk_bucket",
-    ]
+    marker = "## TDCC WEEKLY CANDIDATE REPORTS"
     section = [
-        "",
         marker,
         "",
-        "- purpose: 當週增幅榜找本週大戶突然增加；連續累積榜找兩週以上穩定累積。兩者分開排名，不互相替代。",
-        "- report_contract: TDCC 報告對話固定生產兩份：精華版與完整版。精華版優先讀 highlight_for_report；完整版優先讀 full_for_report。",
-        f"- weekly_candidate_highlight_for_report_csv_raw_url: {raw_url(HIGHLIGHT_FOR_REPORT_CSV)}",
-        f"- weekly_candidate_highlight_for_report_md_raw_url: {raw_url(HIGHLIGHT_FOR_REPORT_MD)}",
-        f"- weekly_candidate_full_for_report_csv_raw_url: {raw_url(FULL_FOR_REPORT_CSV)}",
-        f"- weekly_candidate_full_for_report_md_raw_url: {raw_url(FULL_FOR_REPORT_MD)}",
-        f"- weekly_increase_md_raw_url: {raw_url(WEEKLY_INCREASE_MD)}",
-        f"- consecutive_accumulation_md_raw_url: {raw_url(CONSECUTIVE_MD)}",
-        f"- weekly_candidate_highlight_md_raw_url: {raw_url(HIGHLIGHT_MD)}",
-        f"- weekly_candidate_full_md_raw_url: {raw_url(FULL_MD)}",
-        "",
-        "### Weekly Increase Top 5",
-        "",
-        markdown_table(weekly.head(5), top_cols),
-        "",
-        "### Consecutive Accumulation Top 5",
-        "",
-        markdown_table(consecutive.head(5), top_cols),
+        "- 精華版與完整版由 report-ready CSV/MD/PDF 產出。",
+        "- 精華版包含當週增幅前五、連續累積前五，以及 TDCC 名單與每日候選模型交集前段。",
+        "- 完整版當週增幅與連續累積最多列前一百名；後段模型分析只保留 TDCC 短線延續模型 D+5/D+10。",
         "",
     ]
-    TRACKING_PACKET_MD.write_text(text.rstrip() + "\n" + "\n".join(section).rstrip() + "\n", encoding="utf-8")
+    for key, value in fields.items():
+        section.append(f"- {key}: {value}")
+    section.append("")
+    if marker in text:
+        text = text.split(marker, 1)[0].rstrip() + "\n\n" + "\n".join(section)
+    else:
+        text = text.rstrip() + "\n\n" + "\n".join(section)
+    TRACKING_PACKET_MD.write_text(text, encoding="utf-8")
 
 
-def main() -> None:
-    latest_df, meta = prepare_latest_frame()
-    latest_df = add_tdcc_scores(latest_df)
+def validate_outputs(highlight: pd.DataFrame, full: pd.DataFrame) -> None:
+    if highlight.empty:
+        raise RuntimeError("TDCC highlight report-ready table is empty.")
+    if full.empty:
+        raise RuntimeError("TDCC full report-ready table is empty.")
+    for section in ["weekly_increase", "consecutive_accumulation"]:
+        count = len(full[full["section_id"] == section])
+        if count > TDCC_FULL_REPORT_RANK_SECTION_LIMIT:
+            raise RuntimeError(f"{section} has {count} rows; expected <= {TDCC_FULL_REPORT_RANK_SECTION_LIMIT}.")
+    model_rows = full[full["model_id"].map(safe_str) != ""]
+    bad_models = sorted(set(model_rows["model_id"].map(safe_str)) - TDCC_FULL_REPORT_ALLOWED_MODEL_CROSS_IDS)
+    if bad_models:
+        raise RuntimeError(f"Full TDCC report contains unsupported model cross sections: {bad_models}")
+    for path in [HIGHLIGHT_PDF, FULL_PDF]:
+        if not path.exists() or path.stat().st_size < 10_000:
+            raise RuntimeError(f"TDCC PDF not generated or too small: {path}")
 
-    weekly = build_weekly_increase(latest_df)
-    consecutive = build_consecutive(latest_df)
+
+def main() -> int:
+    latest, meta = prepare_latest_frame()
+    if latest.empty:
+        raise RuntimeError("No TDCC latest frame available.")
+    latest = add_tdcc_scores(latest)
+    theme_map = load_theme_display_map()
+    latest = apply_theme_display(latest, theme_map)
+
+    weekly = build_weekly_increase(latest)
+    consecutive = build_consecutive_accumulation(latest)
+    daily_models = read_daily_model_signals()
+    model_cross = build_model_cross(weekly, consecutive, daily_models)
+
+    highlight = build_report_ready(weekly, consecutive, model_cross, "highlight")
+    full = build_report_ready(weekly, consecutive, model_cross, "full")
+
     write_csv(weekly, WEEKLY_INCREASE_CSV)
     write_csv(consecutive, CONSECUTIVE_CSV)
-    write_rank_md(
-        WEEKLY_INCREASE_MD,
-        "TDCC Weekly Increase Ranking",
-        weekly,
-        "找出本週大戶持股比例突然增加的股票，單週即可上榜。",
-    )
-    write_rank_md(
-        CONSECUTIVE_MD,
-        "TDCC Consecutive Accumulation Ranking",
-        consecutive,
-        "找出連續兩週以上累積增加的股票，偏長期穩定累積。",
-    )
+    write_csv(model_cross, MODEL_CROSS_CSV)
+    write_csv(highlight, HIGHLIGHT_FOR_REPORT_CSV)
+    write_csv(full, FULL_FOR_REPORT_CSV)
 
-    cross = build_model_cross(weekly, consecutive)
-    write_csv(cross, MODEL_CROSS_CSV)
-    write_model_cross_md(cross)
+    write_md_table(weekly, WEEKLY_INCREASE_MD, "TDCC 當週增幅排名", BASE_COLUMNS, limit=100)
+    write_md_table(consecutive, CONSECUTIVE_MD, "TDCC 連續累積排名", BASE_COLUMNS, limit=100)
+    write_md_table(model_cross, MODEL_CROSS_MD, "TDCC 名單與每日候選模型交集", MODEL_CROSS_COLUMNS, limit=200)
+    write_report_md(highlight, HIGHLIGHT_FOR_REPORT_MD, "TDCC 週報精華版 report-ready table")
+    write_report_md(full, FULL_FOR_REPORT_MD, "TDCC 週報完整版 report-ready table")
+    write_report_md(highlight, HIGHLIGHT_MD, "TDCC 大戶籌碼週報精華版")
+    write_report_md(full, FULL_MD, "TDCC 大戶籌碼週報完整版")
 
-    write_report_md(HIGHLIGHT_MD, "TDCC Weekly Candidate Highlight", weekly, consecutive, cross, highlight=True)
-    write_report_md(FULL_MD, "TDCC Weekly Candidate Full", weekly, consecutive, cross, highlight=False)
-    highlight_for_report = build_report_rows(weekly, consecutive, cross, highlight=True)
-    full_for_report = build_report_rows(weekly, consecutive, cross, highlight=False)
-    write_csv(highlight_for_report, HIGHLIGHT_FOR_REPORT_CSV)
-    write_csv(full_for_report, FULL_FOR_REPORT_CSV)
-    write_report_ready_md(
-        HIGHLIGHT_FOR_REPORT_MD,
-        "TDCC Weekly Candidate Highlight For Report",
-        highlight_for_report,
-        highlight=True,
-    )
-    write_report_ready_md(
-        FULL_FOR_REPORT_MD,
-        "TDCC Weekly Candidate Full For Report",
-        full_for_report,
-        highlight=False,
-    )
-    append_tracking_packet_section(weekly, consecutive)
-    upsert_readme_fields()
+    write_pdf_v2(highlight, HIGHLIGHT_PDF, "TDCC 大戶籌碼週報精華版")
+    write_pdf_v2(full, FULL_PDF, "TDCC 大戶籌碼週報完整版")
 
-    print(f"Saved: {WEEKLY_INCREASE_CSV} rows={len(weekly)}")
-    print(f"Saved: {CONSECUTIVE_CSV} rows={len(consecutive)}")
-    print(f"Saved: {MODEL_CROSS_CSV} rows={len(cross)}")
-    print(f"Saved: {HIGHLIGHT_FOR_REPORT_CSV} rows={len(highlight_for_report)}")
-    print(f"Saved: {FULL_FOR_REPORT_CSV} rows={len(full_for_report)}")
-    print(f"Saved: {HIGHLIGHT_MD}")
-    print(f"Saved: {FULL_MD}")
+    fields = {
+        "tdcc_weekly_candidate_highlight_for_report_csv_raw_url": raw_url(HIGHLIGHT_FOR_REPORT_CSV),
+        "tdcc_weekly_candidate_highlight_for_report_md_raw_url": raw_url(HIGHLIGHT_FOR_REPORT_MD),
+        "tdcc_weekly_candidate_full_for_report_csv_raw_url": raw_url(FULL_FOR_REPORT_CSV),
+        "tdcc_weekly_candidate_full_for_report_md_raw_url": raw_url(FULL_FOR_REPORT_MD),
+        "tdcc_weekly_candidate_highlight_pdf_raw_url": raw_url(HIGHLIGHT_PDF),
+        "tdcc_weekly_candidate_full_pdf_raw_url": raw_url(FULL_PDF),
+        "tdcc_weekly_candidate_highlight_pdf_pages_url": pages_url(HIGHLIGHT_PDF),
+        "tdcc_weekly_candidate_full_pdf_pages_url": pages_url(FULL_PDF),
+    }
+    upsert_readme_fields(fields)
+    append_tracking_packet(fields)
+    validate_outputs(highlight, full)
+
     print(f"latest_signal_date={meta.get('latest_signal_date', '')}")
+    for path in [
+        WEEKLY_INCREASE_CSV,
+        CONSECUTIVE_CSV,
+        MODEL_CROSS_CSV,
+        HIGHLIGHT_FOR_REPORT_CSV,
+        FULL_FOR_REPORT_CSV,
+        HIGHLIGHT_PDF,
+        FULL_PDF,
+    ]:
+        print(f"Saved: {path}")
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

@@ -55,12 +55,14 @@ SELL_BACKTEST_DIR = Path("output/history/sell_strategy_backtest")
 SELL_PERFORMANCE_CSV = LATEST_DIR / "sell_strategy_performance_latest.csv"
 SELL_PERFORMANCE_MD = LATEST_DIR / "sell_strategy_performance_latest.md"
 DAILY_CANDIDATE_SIGNAL_LOG = Path("output/history/daily_candidates/daily_candidate_signal_log.csv")
+DEFAULT_PRICE_CHART_DAYS = 126
 
 INDIVIDUAL_LATEST_DIR = LATEST_DIR / "individual_stock_reports"
 DOCS_INDIVIDUAL_DIR = DOCS_LATEST_DIR / "individual_stock_reports"
 
 ALL_CANDIDATES_CSV = LATEST_DIR / "all_candidates_latest.csv"
 DATA_FRESHNESS_CSV = LATEST_DIR / "data_freshness_latest.csv"
+READ_ME_FIRST_TXT = LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT.txt"
 WARRANT_FLOW_CSV = LATEST_DIR / "warrant_flow_latest.csv"
 TDCC_TREND_CSV = LATEST_DIR / "tdcc_trend_debug_latest.csv"
 TDCC_HOLDER_RATIO_CSV = LATEST_DIR / "tdcc_holder_ratio_latest.csv"
@@ -239,10 +241,17 @@ def normalize_price_columns(df: pd.DataFrame, source_file: str) -> pd.DataFrame:
 
 
 def load_freshness() -> dict[str, str]:
+    values: dict[str, str] = {}
     df = read_csv(DATA_FRESHNESS_CSV)
-    if df.empty:
-        return {}
-    return {str(k): safe_str(v) for k, v in df.iloc[0].to_dict().items()}
+    if not df.empty:
+        values.update({str(k): safe_str(v) for k, v in df.iloc[0].to_dict().items()})
+    if READ_ME_FIRST_TXT.exists():
+        for line in READ_ME_FIRST_TXT.read_text(encoding="utf-8", errors="ignore").splitlines():
+            if "=" not in line:
+                continue
+            key, value = line.split("=", 1)
+            values[safe_str(key)] = safe_str(value)
+    return values
 
 
 def main_price_date(freshness: dict[str, str], price_history: pd.DataFrame) -> str:
@@ -253,6 +262,14 @@ def main_price_date(freshness: dict[str, str], price_history: pd.DataFrame) -> s
     if not price_history.empty:
         return safe_str(price_history["date"].iloc[-1])
     return now_taipei().strftime("%Y%m%d")
+
+
+def filter_price_history_to_main_date(price_history: pd.DataFrame, main_date: str) -> pd.DataFrame:
+    if price_history.empty or not main_date or "date" not in price_history.columns:
+        return price_history
+    result = price_history.copy()
+    normalized = result["date"].astype(str).str.replace(r"[^0-9]", "", regex=True)
+    return result[normalized <= main_date].copy().reset_index(drop=True)
 
 
 def load_price_history(stock_id: str) -> pd.DataFrame:
@@ -2066,8 +2083,12 @@ def generate(stock_id_input: str, days: int) -> ReportPaths:
     if price_history.empty:
         raise SystemExit(f"No daily price data found for stock_id={stock_id}")
 
-    price_metrics = summarize_price(price_history)
     main_date = main_price_date(freshness, price_history)
+    price_history = filter_price_history_to_main_date(price_history, main_date)
+    if price_history.empty:
+        raise SystemExit(f"No daily price data found for stock_id={stock_id} on or before main_price_date={main_date}")
+
+    price_metrics = summarize_price(price_history)
     candidate_rows = load_candidate_rows(stock_id)
     warrant_row = load_warrant_row(stock_id)
     tdcc_raw = load_tdcc_info(stock_id)
@@ -2170,7 +2191,12 @@ def generate(stock_id_input: str, days: int) -> ReportPaths:
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Generate a fixed-format individual stock analysis report.")
     parser.add_argument("--stock-id", required=True, help="Taiwan stock id, for example 2353 or 2330.")
-    parser.add_argument("--days", type=int, default=180, help="Price chart lookback days. Default: 180.")
+    parser.add_argument(
+        "--days",
+        type=int,
+        default=DEFAULT_PRICE_CHART_DAYS,
+        help=f"Price chart lookback days. Default: {DEFAULT_PRICE_CHART_DAYS} (~half-year trading window).",
+    )
     return parser.parse_args()
 
 

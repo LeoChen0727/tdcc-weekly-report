@@ -11,6 +11,9 @@ import pandas as pd
 
 LATEST_DIR = Path("output/latest")
 STOCK_PRICE_HISTORY_DIR = Path("data/stock_price_history")
+PRICE_DUPLICATE_CHECK_COLUMNS = ("open", "high", "low", "close", "volume")
+MIN_PRICE_QUALITY_SAMPLE = 100
+MAX_ALLOWED_RECENT_DUPLICATE_RATIO = 0.20
 
 STOCK_MONITOR_MD = LATEST_DIR / "stock_monitor_latest.md"
 OFFICIAL_PRICE_FETCH_MD = LATEST_DIR / "official_price_fetch_latest.md"
@@ -128,7 +131,7 @@ def extract_csv_max_date(path: Path, preferred_columns: tuple[str, ...] = ()) ->
 
 
 def latest_stock_price_history_date() -> str:
-    dates: list[str] = []
+    dates: set[str] = set()
     if not STOCK_PRICE_HISTORY_DIR.exists():
         return ""
     for path in STOCK_PRICE_HISTORY_DIR.glob("*.csv"):
@@ -141,8 +144,60 @@ def latest_stock_price_history_date() -> str:
         series = df["date"].map(normalize_date)
         series = series[series.astype(str).str.len() == 8]
         if not series.empty:
-            dates.append(str(series.max()))
+            dates.update(str(x) for x in series.unique() if str(x))
+    for date in sorted(dates, reverse=True):
+        if is_valid_stock_price_history_date(date):
+            return date
     return max(dates) if dates else ""
+
+
+def is_valid_stock_price_history_date(date: str) -> bool:
+    """Reject copied/stale all-market snapshots.
+
+    Some upstream sources can write a new calendar-date file while carrying old
+    OHLCV values. A date is not a reliable all-market price date when many
+    symbols have exactly the same OHLCV as one of the recent prior rows.
+    """
+
+    checked = 0
+    duplicate_recent = 0
+    for path in STOCK_PRICE_HISTORY_DIR.glob("*.csv"):
+        try:
+            usecols = ["date", *PRICE_DUPLICATE_CHECK_COLUMNS]
+            df = pd.read_csv(path, dtype=str, usecols=usecols)
+        except Exception:
+            continue
+        if df.empty or "date" not in df.columns:
+            continue
+        df = df.copy()
+        df["_date"] = df["date"].map(normalize_date)
+        target = df[df["_date"] == date]
+        if target.empty:
+            continue
+        prior = df[df["_date"] < date].tail(5)
+        if prior.empty:
+            continue
+        checked += 1
+        target_row = target.iloc[-1]
+        for _, prior_row in prior.iterrows():
+            if all(
+                str(target_row.get(col, "")).strip() == str(prior_row.get(col, "")).strip()
+                for col in PRICE_DUPLICATE_CHECK_COLUMNS
+            ):
+                duplicate_recent += 1
+                break
+
+    if checked < MIN_PRICE_QUALITY_SAMPLE:
+        return True
+    duplicate_ratio = duplicate_recent / checked
+    if duplicate_ratio > MAX_ALLOWED_RECENT_DUPLICATE_RATIO:
+        print(
+            "Rejected stock_price_history date "
+            f"{date}: recent_duplicate_ratio={duplicate_ratio:.2%} "
+            f"({duplicate_recent}/{checked})"
+        )
+        return False
+    return True
 
 
 def cap_to_actual_trading_date(date: str, actual_price_date: str) -> str:
@@ -277,10 +332,11 @@ def write_markdown(df: pd.DataFrame) -> None:
         "## Rule",
         "",
         (
-            "When an upstream daily snapshot has a weekend or non-trading raw date newer than "
-            "`data/stock_price_history`, the effective report date is capped to the actual latest "
-            "stock price history date. This prevents copied weekend prices from becoming a fake "
-            "main_price_date."
+            "When an upstream daily snapshot has a raw date newer than the latest validated all-market "
+            "price history date, the effective report date is capped to the validated price date. "
+            "A stock price history date is rejected when many symbols have the exact same OHLCV as "
+            "recent prior rows, because that indicates a copied or stale upstream snapshot rather than "
+            "a trustworthy trading-day close."
         ),
         "",
     ]

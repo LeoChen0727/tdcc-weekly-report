@@ -9,6 +9,24 @@ Every TDCC weekly report task must produce exactly two user-facing report delive
 1. TDCC weekly highlight report
 2. TDCC weekly full report
 
+Both user-facing deliverables must be PDF files:
+
+- `output/latest/tdcc_weekly_candidate_highlight_latest.pdf`
+- `output/latest/tdcc_weekly_candidate_full_latest.pdf`
+
+PDF text and table content must use 標楷體 / DFKai-SB at 14 pt. Page count is not fixed; do not treat five pages as a rule.
+
+TDCC ranking sections and daily-model cross sections must use different PDF table contracts:
+
+- TDCC ranking sections use: section rank, stock id, stock name, TDCC phase, risk bucket, TDCC score, selected reason, next confirmation, operation note.
+- Daily-model cross sections use the ranking columns plus daily model, model rank within TDCC list, and model score.
+
+Ranking fields must render as integers when they are whole numbers. Do not display ranks as `1.00`, `2.00`, or similar decimal strings.
+
+Score fields may use at most two decimals and must strip redundant trailing zeroes, for example `81.30` -> `81.3` and `74.00` -> `74`.
+
+PDF text must not print raw slug or snake_case fields. If a display value has no approved Chinese label, render `資料不足 / 暫用現有資料` instead of the raw token.
+
 The report-producing conversation or PDF generator must read these program-side report-ready sources first:
 
 - `tdcc_weekly_candidate_highlight_for_report_latest.csv`

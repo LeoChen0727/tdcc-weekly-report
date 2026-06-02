@@ -121,6 +121,156 @@ BULLISH_WARRANT_SIGNALS = {
     "low_float_call_spike",
 }
 
+PDF_TOKEN_ZH = {
+    "true_breakout": "嚴格突破",
+    "range_rebound": "區間轉強",
+    "near_resistance": "接近壓力",
+    "abnormal_volume_up": "異常放量上漲",
+    "revenue_breakout_low_response": "營收爆發股價尚未反應",
+    "revenue_pullback": "營收成長股價回檔",
+    "pullback_rebound": "回檔後短線轉強",
+    "pattern": "型態觀察",
+    "short_term_specialty": "短線專項",
+    "volume_breakout": "帶量突破",
+    "range_breakout_volume": "帶量突破盤整區間",
+    "range_breakout_watch": "接近盤整上緣觀察",
+    "ma_reclaim_volume_attack": "帶量站回均線",
+    "near_high_volume_watch": "接近前高帶量觀察",
+    "strict_high_breakout": "帶量突破波段高點",
+    "failed_range_breakout_risk": "盤整區間假突破風險",
+    "mainstream": "主流",
+    "non_mainstream": "非主流",
+    "mainstream_leader": "主流領先族群",
+    "mainstream_follow_through": "主流延伸族群",
+    "emerging_theme": "新興族群",
+    "single_name_signal": "單一個股訊號",
+    "weak_theme": "弱族群",
+    "mainstream_overheated": "主流過熱",
+    "core_mainstream_supported": "核心主流支撐",
+    "core_mainstream_theme": "核心主流題材",
+    "non_mainstream_theme": "非主流題材",
+    "non_mainstream": "非主流",
+    "mainstream": "主流",
+    "short_term_specialty": "短線專項",
+    "range_rebound": "區間轉強",
+    "revenue_pullback": "營收成長回檔",
+    "revenue_breakout_low_response": "營收爆發股價尚未反應",
+    "pullback_rebound": "回檔後短線轉強",
+    "true_breakout": "嚴格突破",
+    "pattern": "型態觀察",
+    "neckline_challenge": "頸線挑戰",
+    "neckline_breakout": "頸線突破",
+    "platform_breakout": "平台突破",
+    "right_side_attack": "右側攻擊",
+    "right_side_volume_attack": "右側放量攻擊",
+    "range_breakout_volume": "帶量突破盤整區間",
+    "range_breakout_watch": "接近盤整上緣觀察",
+    "ma_reclaim_volume_attack": "帶量站回均線",
+    "near_high_volume_watch": "近高帶量觀察",
+    "strict_high_breakout": "帶量突破波段高點",
+    "failed_range_breakout_risk": "盤整假突破風險",
+    "confirmed_volume_theme": "已確認放量族群",
+    "early_mainstream_candidate": "早期主流候選",
+    "watch_volume_theme": "放量觀察族群",
+    "single_stock_volume_attack": "單股放量攻擊",
+    "failed_volume_theme": "放量失敗族群",
+    "overheated_volume_theme": "放量過熱族群",
+    "strong_accumulation": "大戶強累積",
+    "mild_accumulation": "大戶溫和增加",
+    "neutral": "中性",
+    "distribution_warning": "大戶轉弱警示",
+    "call_strong_inflow": "認購強流入",
+    "call_inflow": "認購流入",
+    "call_put_bullish": "權證偏多",
+    "put_inflow": "認售流入",
+    "put_strong_inflow": "認售強流入",
+    "no_signal": "無明確權證訊號",
+    "neckline": "頸線",
+    "breakout": "突破",
+    "hot_theme_tag": "熱門族群標籤",
+    "hot theme tag": "熱門族群標籤",
+    "core_mainstream_overheated": "核心主流過熱",
+    "non_mainstream_overheated": "非主流過熱",
+    "non_mainstream_single_name": "非主流單一個股",
+    "non_mainstream_flow_active": "非主流資金流動",
+    "continued_2_3d": "連續 2-3 日",
+    "continued_many_days": "連續多日",
+    "continued_overheated": "連續上榜但過熱",
+    "stale_signal": "訊號鈍化",
+    "repeated_but_no_breakout": "反覆上榜未突破",
+    "first_seen": "首次上榜",
+    "A_priority_watch": "A 優先追蹤",
+    "B_confirm_needed": "B 等確認",
+    "C_watch_only": "C 僅觀察",
+    "D_risk_downgrade": "D 風險降級",
+    "two_line_overlap": "雙線交集",
+    "mainstream_leader_stock": "主流領漲股",
+    "mainstream_follow_through_stock": "主流延伸股",
+    "emerging_theme_watch": "新興族群觀察",
+    "individual_revenue_low_response_watch": "營收低反應觀察",
+    "individual_fundamental_catalyst_watch": "基本面催化觀察",
+    "individual_tdcc_latent_watch": "TDCC 潛伏觀察",
+    "non_mainstream_flow_watch": "非主流資金觀察",
+    "individual_single_name_signal": "單一個股訊號",
+    "individual_pattern_watch": "型態觀察",
+    "individual_quality_watch": "個股條件觀察",
+    "individual_watch": "個股觀察",
+    "risk": "風險",
+}
+
+
+def display_zh(value: Any, fallback: str = "") -> str:
+    text = safe_str(value)
+    if not text:
+        return fallback
+    clean_map = {
+        "true_breakout": "嚴格突破",
+        "range_rebound": "區間轉強",
+        "near_resistance": "接近壓力",
+        "abnormal_volume_up": "異常放量上漲",
+        "revenue_breakout_low_response": "營收爆發但股價尚未反應",
+        "revenue_pullback": "營收成長股價回檔",
+        "pullback_rebound": "回檔後短線轉強",
+        "pattern": "型態觀察",
+        "short_term_specialty": "短線專項",
+        "hot_theme_pullback": "熱門族群回檔",
+        "volume_breakout": "帶量突破",
+        "range_breakout_volume": "帶量突破盤整區間",
+        "range_breakout_watch": "接近盤整上緣觀察",
+        "ma_reclaim_volume_attack": "帶量站回均線",
+        "near_high_volume_watch": "接近前高放量觀察",
+        "strict_high_breakout": "帶量突破波段高點",
+        "failed_range_breakout_risk": "盤整區間假突破風險",
+        "mainstream": "主流",
+        "non_mainstream": "非主流",
+        "mainstream_leader": "主流領先族群",
+        "mainstream_follow_through": "主流延伸族群",
+        "emerging_theme": "新興族群",
+        "single_name_signal": "單一個股訊號",
+        "weak_theme": "弱族群",
+        "mainstream_overheated": "主流過熱",
+        "strong_accumulation": "大戶強累積",
+        "mild_accumulation": "大戶溫和增加",
+        "neutral": "中性",
+        "distribution_warning": "大戶轉弱警示",
+        "call_strong_inflow": "認購強流入",
+        "call_inflow": "認購流入",
+        "call_put_bullish": "權證偏多",
+        "put_inflow": "認售流入",
+        "put_strong_inflow": "認售強流入",
+        "no_signal": "無明確訊號",
+        "neckline": "頸線",
+        "breakout": "突破",
+        "hot_theme_tag": "熱門族群標籤",
+        "hot theme tag": "熱門族群標籤",
+        "new_model_signal": "新進榜",
+        "repeated_same_model_signal": "重複進榜",
+    }
+    out = text
+    for src in sorted(clean_map, key=len, reverse=True):
+        out = out.replace(src, clean_map[src])
+    return out or fallback
+
 FORBIDDEN_WORD_REPLACEMENTS = {
     "持股": "候選名單",
     "成本": "價格區",
@@ -184,8 +334,8 @@ def clean_text(text: Any, limit: int | None = None) -> str:
     result = safe_str(text)
     result = result.replace("\n", " ").replace("\r", " ").replace("|", "/")
     result = re.sub(r"\s+", " ", result).strip()
-    for old, new in FORBIDDEN_WORD_REPLACEMENTS.items():
-        result = result.replace(old, new)
+    for old in sorted(FORBIDDEN_WORD_REPLACEMENTS, key=len, reverse=True):
+        result = result.replace(old, FORBIDDEN_WORD_REPLACEMENTS[old])
     if limit and len(result) > limit:
         result = result[: max(0, limit - 1)] + "…"
     return result
@@ -228,7 +378,7 @@ def register_font() -> str:
 
 
 def escape_html(text: Any) -> str:
-    return clean_text(text).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+    return pdf_text(text).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
 def para(text: Any, style: ParagraphStyle) -> Paragraph:
@@ -609,7 +759,7 @@ def group_name(row: pd.Series) -> str:
     return "其他"
 
 
-def tdcc_signal(row: pd.Series) -> str:
+def tdcc_signal_raw(row: pd.Series) -> str:
     for col in ["tdcc_accumulation_signal", "tdcc_judgement", "tdcc_judge"]:
         value = safe_str(row.get(col, ""))
         if value in {"strong_accumulation", "mild_accumulation", "neutral", "distribution_warning"}:
@@ -630,9 +780,13 @@ def tdcc_signal(row: pd.Series) -> str:
     return "neutral"
 
 
-def warrant_signal(row: pd.Series, warrant_flow_date: str) -> str:
+def tdcc_signal(row: pd.Series) -> str:
+    return display_zh(tdcc_signal_raw(row))
+
+
+def warrant_signal_raw(row: pd.Series, warrant_flow_date: str) -> str:
     if not warrant_flow_date:
-        return "權證資料不足 / 今日不作為主要判斷"
+        return ""
     value = safe_str(row.get("warrant_flow_signal", ""))
     if value:
         return value
@@ -640,6 +794,13 @@ def warrant_signal(row: pd.Series, warrant_flow_date: str) -> str:
     if note:
         return note
     return "no_signal"
+
+
+def warrant_signal(row: pd.Series, warrant_flow_date: str) -> str:
+    raw = warrant_signal_raw(row, warrant_flow_date)
+    if not raw:
+        return "權證資料不足 / 今日不作為主要判斷"
+    return display_zh(raw)
 
 
 def is_truthy(value: Any) -> bool:
@@ -665,7 +826,7 @@ def priority_label(row: pd.Series) -> str:
     decision_label = clean_text(row.get("decision_priority_label", ""))
     if decision_label:
         return decision_label
-    tdcc = tdcc_signal(row)
+    tdcc = tdcc_signal_raw(row)
     rev = clean_text(row.get("revaluation_priority", ""))
     if tdcc == "distribution_warning" or rev.startswith("D_") or is_truthy(row.get("already_priced_in", "")) or overheated(row):
         return "暫避降級"
@@ -703,7 +864,7 @@ def sort_score(row: pd.Series) -> float:
         "mild_accumulation": 120,
         "neutral": 30,
         "distribution_warning": -250,
-    }.get(tdcc_signal(row), 0)
+    }.get(tdcc_signal_raw(row), 0)
     score = safe_float(row.get("score"), 0)
     rank = safe_float(row.get("rank"), 9999)
     rank_bonus = max(0, 100 - rank) if not math.isnan(rank) else 0
@@ -775,7 +936,7 @@ def has_decision_warning(row: pd.Series) -> bool:
     repeat_label = clean_text(row.get("repeat_appear_label", "")).lower()
     if repeat_label in {"stale_signal", "repeated_but_no_breakout", "continued_overheated"}:
         return True
-    if tdcc_signal(row) == "distribution_warning":
+    if tdcc_signal_raw(row) == "distribution_warning":
         return True
     if overheated(row):
         return True
@@ -865,9 +1026,12 @@ def stock_text(row: pd.Series) -> str:
 
 
 def reason_text(row: pd.Series) -> str:
+    human_reason = clean_text(row.get("why_selected_human_zh", ""), 130)
+    if human_reason:
+        return display_zh(human_reason)
     decision_reason = clean_text(row.get("why_selected", ""), 130)
     if decision_reason:
-        return decision_reason
+        return display_zh(decision_reason)
     cat = safe_str(row.get("category_key", ""))
     parts: list[str] = []
     if cat == "revenue_breakout_low_response":
@@ -904,18 +1068,18 @@ def reason_text(row: pd.Series) -> str:
     elif cat == "pattern":
         pattern = clean_text(row.get("pattern") or row.get("pattern_stage"), 28)
         parts.append(pattern or "型態進入觀察區")
-    tdcc = tdcc_signal(row)
+    tdcc = tdcc_signal_raw(row)
     if tdcc in {"strong_accumulation", "mild_accumulation"}:
-        parts.append(f"TDCC {tdcc}")
-    return clean_text("；".join(parts), 130)
+        parts.append(f"TDCC {display_zh(tdcc)}")
+    return display_zh(clean_text("；".join(parts), 130))
 
 
 def risk_text(row: pd.Series, warrant_flow_date: str) -> str:
     decision_risk = clean_text(row.get("why_downgraded", ""), 120)
     if decision_risk:
-        return decision_risk
+        return display_zh(decision_risk)
     risks: list[str] = []
-    tdcc = tdcc_signal(row)
+    tdcc = tdcc_signal_raw(row)
     if tdcc == "distribution_warning":
         risks.append("TDCC 轉弱，訊號可靠度下降")
     if is_truthy(row.get("already_priced_in", "")):
@@ -929,7 +1093,7 @@ def risk_text(row: pd.Series, warrant_flow_date: str) -> str:
         risks.append("權證資料不足")
     if not risks:
         risks.append("需等量能與價格續強確認")
-    return clean_text("；".join(risks), 120)
+    return display_zh(clean_text("；".join(risks), 120))
 
 
 def warning_confirmation_text(row: pd.Series, limit: int = 120) -> str:
@@ -938,14 +1102,14 @@ def warning_confirmation_text(row: pd.Series, limit: int = 120) -> str:
     confirm = clean_text(row.get("next_confirmation", ""), limit)
     parts: list[str] = []
     if risk:
-        parts.append(f"Warning: {risk}")
+        parts.append(f"風險提醒：{display_zh(risk)}")
     elif flags:
-        parts.append(f"Warning flags: {flags}")
+        parts.append(f"風險標籤：{display_zh(flags)}")
     if confirm:
-        parts.append(f"Next: {confirm}")
+        parts.append(f"下一確認：{display_zh(confirm)}")
     if not parts and has_decision_warning(row):
-        parts.append("Warning: decision-layer risk flag present; do not overstate as top priority.")
-    return clean_text(" / ".join(parts), limit)
+        parts.append("風險提醒：決策層有風險標籤，不可過度放大為最高優先。")
+    return display_zh(clean_text(" / ".join(parts), limit))
 
 
 def confirm_text(row: pd.Series) -> str:
@@ -1045,7 +1209,7 @@ def catalyst_rows(df: pd.DataFrame) -> list[list[Any]]:
             action = "可升級觀察"
         elif is_truthy(row.get("revenue_good_eps_unconfirmed_flag", "")):
             action = "等 EPS 確認"
-        if is_truthy(row.get("already_reacted_to_catalyst", "")) or tdcc_signal(row) == "distribution_warning":
+        if is_truthy(row.get("already_reacted_to_catalyst", "")) or tdcc_signal_raw(row) == "distribution_warning":
             action = "降級/僅觀察"
         rows.append(
             [
@@ -1120,7 +1284,8 @@ def theme_leadership_rows(theme_df: pd.DataFrame, limit: int = 12) -> list[list[
             view[col] = pd.to_numeric(view[col], errors="coerce").fillna(0)
     view = view.sort_values(["theme_strength_score", "theme_breadth_score", "theme_risk_score"], ascending=[False, False, True]).head(limit)
     for _, row in view.iterrows():
-        status = clean_text(row.get("theme_final_status", ""), 28)
+        status_raw = clean_text(row.get("theme_final_status", ""), 28)
+        status = status_raw
         if status == "mainstream_leader":
             note = "主流領漲；優先看兩條線交集股"
         elif status == "mainstream_follow_through":
@@ -1154,13 +1319,13 @@ def theme_leadership_rows(theme_df: pd.DataFrame, limit: int = 12) -> list[list[
 
 
 def two_line_rows(two_line: pd.DataFrame, groups: set[str], limit: int = 12) -> list[list[Any]]:
-    rows = [["stock", "category", "theme", "structure", "line", "priority", "score", "TDCC", "warrant", "repeat", "note"]]
+    rows = [["股票", "分類", "族群", "結構", "報告線", "優先級", "分數", "TDCC", "權證", "連續", "備註"]]
     if two_line.empty:
-        rows.append(["n/a", "", "", "", "", "", "", "", "", "", "daily_candidate_two_line_view_latest.csv missing"])
+        rows.append(["無資料", "", "", "", "", "", "", "", "", "", "雙線候選表缺失"])
         return rows
     part = two_line[two_line["candidate_line_group"].isin(groups)].copy()
     if part.empty:
-        rows.append(["n/a", "", "", "", "", "", "", "", "", "", "no rows"])
+        rows.append(["無資料", "", "", "", "", "", "", "", "", "", "本區無符合資料"])
         return rows
     part["_priority_order"] = part["decision_priority"].map(DECISION_PRIORITY_ORDER).fillna(9)
     part["_has_warning"] = part.apply(has_decision_warning, axis=1).astype(int)
@@ -1171,16 +1336,16 @@ def two_line_rows(two_line: pd.DataFrame, groups: set[str], limit: int = 12) -> 
         rows.append(
             [
                 f"{safe_str(row.get('stock_id', ''))} {clean_text(row.get('stock_name', ''), 10)}",
-                clean_text(row.get("category", ""), 18),
-                f"{clean_text(row.get('theme_name', ''), 14)} / {clean_text(row.get('theme_final_status', ''), 24)}",
-                clean_text(row.get("theme_structural_status", ""), 20),
-                clean_text(row.get("candidate_line", ""), 20),
-                clean_text(row.get("decision_priority", ""), 20),
+                clean_text(display_zh(row.get("category", "")), 18),
+                f"{clean_text(display_zh(row.get('theme_name', '')), 14)} / {clean_text(display_zh(row.get('theme_final_status', '')), 24)}",
+                clean_text(display_zh(row.get("theme_structural_status", "")), 20),
+                clean_text(display_zh(row.get("candidate_line", "")), 20),
+                clean_text(display_zh(row.get("decision_priority", "")), 20),
                 safe_str(row.get("decision_score", "")),
-                clean_text(row.get("tdcc_status", ""), 20),
-                clean_text(row.get("warrant_flow_signal", ""), 18),
-                clean_text(row.get("repeat_appear_label", ""), 18),
-                clean_text(row.get("theme_mainstream_label", ""), 32) or note,
+                clean_text(display_zh(row.get("tdcc_status", "")), 20),
+                clean_text(display_zh(row.get("warrant_flow_signal", "")), 18),
+                clean_text(display_zh(row.get("repeat_appear_label", "")), 18),
+                clean_text(display_zh(row.get("theme_mainstream_label", "")), 32) or note,
             ]
         )
     return rows
@@ -1661,13 +1826,13 @@ def non_revenue_momentum_rows(df: pd.DataFrame, limit: int = 12) -> list[list[An
         rows.append(
             [
                 f"{safe_str(row.get('stock_id', ''))} {clean_text(row.get('stock_name', ''), 10)}",
-                clean_text(row.get("non_revenue_momentum_type", ""), 28),
-                clean_text(row.get("theme_name", ""), 14),
-                clean_text(row.get("revenue_confirmation_status", ""), 22),
-                clean_text(safe_str(row.get("theme_final_status", "")) or safe_str(row.get("theme_volume_attack_status", "")), 24),
-                f"{clean_text(row.get('volume_breakout_type', ''), 24)} / {num_text(row.get('volume_ratio', ''), 1)}x",
-                f"{clean_text(row.get('tdcc_status', ''), 18)} / {clean_text(row.get('warrant_flow_signal', ''), 18)}",
-                clean_text(row.get("next_confirmation", ""), 68),
+                clean_text(display_zh(row.get("non_revenue_momentum_type", "")), 28),
+                clean_text(display_zh(row.get("theme_name", "")), 14),
+                clean_text(display_zh(row.get("revenue_confirmation_status", "")), 22),
+                clean_text(display_zh(safe_str(row.get("theme_final_status", "")) or safe_str(row.get("theme_volume_attack_status", ""))), 24),
+                f"{clean_text(display_zh(row.get('volume_breakout_type', '')), 24)} / {num_text(row.get('volume_ratio', ''), 1)}x",
+                f"{clean_text(display_zh(row.get('tdcc_status', '')), 18)} / {clean_text(display_zh(row.get('warrant_flow_signal', '')), 18)}",
+                clean_text(display_zh(row.get("next_confirmation", "")), 68),
             ]
         )
     return rows
@@ -1705,7 +1870,7 @@ def downgrade_reason(row: pd.Series) -> str:
     if flags:
         return flags
     items: list[str] = []
-    if tdcc_signal(row) == "distribution_warning":
+    if tdcc_signal_raw(row) == "distribution_warning":
         items.append("TDCC 轉弱")
     if is_truthy(row.get("already_priced_in", "")):
         items.append("漲幅已反應")
@@ -2005,10 +2170,10 @@ def sector_matrix(df: pd.DataFrame, warrant_flow_date: str) -> pd.DataFrame:
             record[label] = count
             if count:
                 resonance += 1
-        tdcc_support = int(part.apply(tdcc_signal, axis=1).isin(["strong_accumulation", "mild_accumulation"]).sum())
-        tdcc_weak = int((part.apply(tdcc_signal, axis=1) == "distribution_warning").sum())
+        tdcc_support = int(part.apply(tdcc_signal_raw, axis=1).isin(["strong_accumulation", "mild_accumulation"]).sum())
+        tdcc_weak = int((part.apply(tdcc_signal_raw, axis=1) == "distribution_warning").sum())
         if warrant_flow_date:
-            warrant_support = int(part.apply(lambda row: warrant_signal(row, warrant_flow_date) in BULLISH_WARRANT_SIGNALS, axis=1).sum())
+            warrant_support = int(part.apply(lambda row: warrant_signal_raw(row, warrant_flow_date) in BULLISH_WARRANT_SIGNALS, axis=1).sum())
         else:
             warrant_support = 0
         has_breakout_mix = record["嚴格突破"] > 0 and record["區間轉強"] > 0
@@ -2064,13 +2229,13 @@ def full_table_rows(part: pd.DataFrame, warrant_flow_date: str) -> list[list[Any
                 repeat_display(row),
                 safe_str(row.get("appear_count_5d", "")),
                 safe_str(row.get("appear_count_10d", "")),
-                clean_text(row.get("multi_category_flags", ""), 24),
-                clean_text(row.get("group_name", ""), 24),
+                clean_text(display_zh(row.get("multi_category_flags", "")), 24),
+                clean_text(display_zh(row.get("group_name", "")), 24),
                 tdcc_signal(row),
                 warrant_signal(row, warrant_flow_date),
-                catalyst_brief(row),
-                reason_text(row),
-                downgrade_reason(row),
+                display_zh(catalyst_brief(row)),
+                display_zh(reason_text(row)),
+                display_zh(downgrade_reason(row)),
             ]
         )
     return rows
@@ -2094,36 +2259,36 @@ def load_volume_breakout_watch() -> pd.DataFrame:
 
 def volume_breakout_table_rows(part: pd.DataFrame) -> list[list[Any]]:
     rows = [[
-        "code",
-        "name",
-        "theme",
-        "theme status",
-        "volume theme status",
-        "volume setup",
-        "priority",
-        "routed category",
+        "代號",
+        "股票",
+        "族群",
+        "族群狀態",
+        "放量族群狀態",
+        "放量型態",
+        "優先級",
+        "分流分類",
         "TDCC",
-        "vol ratio",
-        "5d",
-        "20d",
-        "next check",
+        "量比",
+        "5日",
+        "20日",
+        "下一確認",
     ]]
     for _, row in part.iterrows():
         rows.append(
             [
                 safe_str(row.get("stock_id", "")),
                 clean_text(row.get("stock_name", ""), 14),
-                clean_text(row.get("theme_name", row.get("theme_group", "")), 14),
-                clean_text(row.get("theme_final_status", ""), 22),
-                clean_text(row.get("theme_volume_attack_status", ""), 24),
-                clean_text(row.get("volume_breakout_type", ""), 28),
-                clean_text(row.get("volume_breakout_priority", ""), 24),
-                clean_text(row.get("category", row.get("original_category", "")), 18),
-                clean_text(row.get("tdcc_status", ""), 22),
+                clean_text(display_zh(row.get("theme_name", row.get("theme_group", ""))), 14),
+                clean_text(display_zh(row.get("theme_final_status", "")), 22),
+                clean_text(display_zh(row.get("theme_volume_attack_status", "")), 24),
+                clean_text(display_zh(row.get("volume_breakout_type", "")), 28),
+                clean_text(display_zh(row.get("volume_breakout_priority", "")), 24),
+                clean_text(display_zh(row.get("category", row.get("original_category", ""))), 18),
+                clean_text(display_zh(row.get("tdcc_status", "")), 22),
                 num_text(row.get("volume_ratio", ""), 2),
                 pct_text(row.get("return_5d", "")),
                 pct_text(row.get("return_20d", "")),
-                clean_text(row.get("next_volume_breakout_confirmation", ""), 48),
+                clean_text(display_zh(row.get("next_volume_breakout_confirmation", "")), 48),
             ]
         )
     return rows
@@ -2154,15 +2319,15 @@ def build_full_table_pdf(df: pd.DataFrame, freshness: dict[str, Any], main_date:
 
     volume_watch = load_volume_breakout_watch()
     story.append(Spacer(1, 0.25 * cm))
-    story.append(para("Volume Breakout / Volume Attack Watch", style_map["h2"]))
+    story.append(para("帶量突破 / 放量攻擊觀察", style_map["h2"]))
     story.append(
         para(
-            "This section lists price-derived volume breakouts and volume attacks before the normal category tables. It separates strict 60-day breakouts from platform, neckline, range, and right-side volume attacks, then applies TDCC/repeat/overheat risk labels.",
+            "本節列出價格與量能衍生的帶量突破、平台突破、頸線挑戰、區間突破與右側放量攻擊，並搭配 TDCC、連續上榜與過熱風險標籤分層。",
             style_map["normal"],
         )
     )
     if volume_watch.empty:
-        story.append(para("No volume breakout watch rows were generated for the current report date.", style_map["normal"]))
+        story.append(para("本次資料日未產生帶量突破觀察列。", style_map["normal"]))
     else:
         for start in range(0, min(len(volume_watch), 60), 18):
             chunk = volume_watch.iloc[start : start + 18]
@@ -2256,7 +2421,7 @@ def display_text(*values: Any, fallback: str = "") -> str:
             continue
         if "欄位尚未完成" in text or text in {"nan", "None"}:
             continue
-        return text
+        return display_zh(text)
     return fallback
 
 
@@ -2274,20 +2439,120 @@ def best_rows_by_model(df: pd.DataFrame, limit: int | None = None) -> pd.DataFra
     return out.drop(columns=["_rank_num", "_score_num"], errors="ignore")
 
 
+def repeat_section_status(value: Any) -> str:
+    return "repeated" if safe_str(value) == "repeated_same_model_signal" else "new"
+
+
+def section_rank_fields(section: str) -> tuple[str, str, str]:
+    if section == "repeated":
+        return "model_rank_repeated_signal", "display_rank_repeated_signal", "連續上榜排名"
+    return "model_rank_new_signal", "display_rank_new_signal", "新進榜排名"
+
+
+def section_rows_by_model(df: pd.DataFrame, section: str, limit: int | None = None) -> pd.DataFrame:
+    if df.empty:
+        return df
+    rank_col, display_col, section_label = section_rank_fields(section)
+    work = df.copy()
+    status_series = work.get("same_model_repeat_status", pd.Series("", index=work.index)).astype(str)
+    if section == "repeated":
+        work = work[status_series.eq("repeated_same_model_signal")]
+    else:
+        work = work[~status_series.eq("repeated_same_model_signal")]
+    if work.empty:
+        return work
+
+    rank_values = work[rank_col] if rank_col in work.columns else pd.Series("", index=work.index)
+    display_values = work[display_col] if display_col in work.columns else pd.Series("", index=work.index)
+    fallback_rank_values = work["display_rank"] if "display_rank" in work.columns else pd.Series("", index=work.index)
+    score_values = work["model_score"] if "model_score" in work.columns else pd.Series("", index=work.index)
+
+    work["_section_rank_num"] = pd.to_numeric(rank_values, errors="coerce")
+    work["_fallback_rank_num"] = pd.to_numeric(fallback_rank_values, errors="coerce")
+    work["_rank_num"] = work["_section_rank_num"].fillna(work["_fallback_rank_num"]).fillna(999999)
+    work["_score_num"] = pd.to_numeric(score_values, errors="coerce").fillna(-999999)
+    work["pdf_section_status_zh"] = section_label
+    fallback_display = fallback_rank_values.astype(str).replace({"nan": ""})
+    work["pdf_section_rank"] = display_values.astype(str).replace({"nan": ""})
+    work.loc[work["pdf_section_rank"].str.strip().eq(""), "pdf_section_rank"] = fallback_display
+    work = work.sort_values(["model_name_zh", "_rank_num", "_score_num"], ascending=[True, True, False])
+    if limit is not None:
+        work = work.groupby("model_name_zh", dropna=False, group_keys=False).head(limit)
+    return work.drop(columns=["_section_rank_num", "_fallback_rank_num", "_rank_num", "_score_num"], errors="ignore")
+
+
+def sectioned_model_rows(df: pd.DataFrame, limit: int | None = None) -> list[tuple[str, str, pd.DataFrame]]:
+    if df.empty:
+        return []
+    ordered = best_rows_by_model(df, None)
+    result: list[tuple[str, str, pd.DataFrame]] = []
+    seen_models: set[str] = set()
+    for model_name in ordered.get("model_name_zh", pd.Series(dtype=str)).astype(str).tolist():
+        if model_name in seen_models:
+            continue
+        seen_models.add(model_name)
+        model_df = df[df.get("model_name_zh", "").astype(str).eq(model_name)].copy()
+        for section in ["new", "repeated"]:
+            section_df = section_rows_by_model(model_df, section, limit)
+            if section_df.empty:
+                continue
+            _, _, section_label = section_rank_fields(section)
+            result.append((model_name, section_label, section_df))
+    return result
+
+
+def pdf_text(value: Any, limit: int | None = None, fallback: str = "") -> str:
+    return clean_text(display_zh(value, fallback=fallback), limit)
+
+
+def first_page_best_rows(df: pd.DataFrame) -> pd.DataFrame:
+    if df.empty:
+        return df
+    rows: list[pd.Series] = []
+    ordered = best_rows_by_model(df, None)
+    seen_models: set[str] = set()
+    for model_name in ordered.get("model_name_zh", pd.Series(dtype=str)).astype(str).tolist():
+        if model_name in seen_models:
+            continue
+        seen_models.add(model_name)
+        model_df = df[df.get("model_name_zh", "").astype(str).eq(model_name)].copy()
+        chosen = section_rows_by_model(model_df, "new", 1)
+        if chosen.empty:
+            chosen = section_rows_by_model(model_df, "repeated", 1)
+        if not chosen.empty:
+            rows.append(chosen.iloc[0])
+    return pd.DataFrame(rows) if rows else df.head(0)
+
+
+def section_rank_text(row: pd.Series) -> str:
+    rank_text = display_text(row.get("pdf_section_rank"), row.get("display_rank"), fallback="")
+    section_text = display_text(row.get("pdf_section_status_zh"), row.get("same_model_repeat_status_zh"), fallback="")
+    if not rank_text:
+        return section_text
+    if section_text and not rank_text.startswith(section_text):
+        normalized_rank = rank_text.replace("連續 / 重複進榜", "").strip()
+        if section_text == "連續 / 重複進榜":
+            return normalized_rank or rank_text
+        if section_text == "新進榜":
+            return normalized_rank or rank_text
+    return rank_text
+
+
 def first_page_rows(df: pd.DataFrame) -> list[list[Any]]:
-    rows = [["模型", "第一名標的", "模型分數", "入選原因", "風險 / 操作提醒"]]
+    rows = [["模型", "第一名標的", "分數 / 榜別排名", "入選原因", "風險 / 操作提醒"]]
     if df.empty:
         rows.append(["資料不足", "無", "", "PDF-ready model signal table 尚未產生", "資料不足 / 僅能觀察"])
         return rows
-    first = best_rows_by_model(df, 1)
+    first = first_page_best_rows(df)
     for _, row in first.iterrows():
+        rank_text = section_rank_text(row)
         rows.append(
             [
                 clean_text(row.get("model_name_zh", "欄位尚未完成"), 22),
                 f"{safe_str(row.get('stock_id'))} {safe_str(row.get('stock_name'))}",
-                clean_text(row.get("model_score", ""), 10),
-                clean_text(display_text(row.get("why_selected_zh", ""), row.get("score_components_zh", ""), fallback="依模型主條件入選"), 70),
-                clean_text(display_text(row.get("risk_tags_zh", ""), row.get("next_confirmation_zh", ""), row.get("recommended_usage_zh", ""), fallback="依支撐、壓力與量價管理"), 70),
+                clean_text(f"{safe_str(row.get('model_score'))} / {rank_text}", 22),
+                clean_text(display_text(row.get("why_selected_human_zh", ""), row.get("why_selected_zh", ""), fallback="依模型主條件入選"), 70),
+                clean_text(display_text(row.get("operation_reminder_zh", ""), row.get("risk_tags_zh", ""), row.get("next_confirmation_zh", ""), row.get("recommended_usage_zh", ""), fallback="依支撐、壓力與量價管理"), 70),
             ]
         )
     return rows
@@ -2306,13 +2571,13 @@ def model_signal_card(
     current_position = display_text(tech.get("price_position_summary_zh"), fallback="使用現有價格資料判斷位置。")
     technical = display_text(tech.get("technical_summary_zh"), fallback="使用現有技術 snapshot 判斷動能。")
     sr = display_text(tech.get("support_resistance_summary_zh"), fallback="依近期高低點與23EMA控管支撐壓力。")
-    buy = display_text(tech.get("buy_condition_text_zh"), row.get("recommended_usage_zh"), fallback="依模型主條件與支撐壓力執行。")
+    buy = display_text(tech.get("buy_condition_text_zh"), row.get("operation_reminder_zh"), row.get("recommended_usage_zh"), fallback="依模型主條件與支撐壓力執行。")
     take_profit = display_text(tech.get("take_profit_text_zh"), fallback="接近壓力且量價失敗時分批停利。")
     exit_text = display_text(tech.get("exit_condition_text_zh"), fallback="跌破支撐且站不回時退出或降風險。")
     risk = display_text(row.get("risk_tags_zh"), row.get("tdcc_risk_text_zh"), fallback="依量價、TDCC與風險標籤管理。")
     tdcc = display_text(row.get("tdcc_big_holder_summary_zh"), row.get("tdcc_status_zh"), fallback="TDCC資料不足，僅能輔助觀察。")
     rows = [
-        ["操作結論", display_text(row.get("recommended_usage_zh"), fallback="模型條件成立，依下列支撐壓力與風控管理。")],
+        ["操作結論", display_text(row.get("operation_reminder_zh"), row.get("recommended_usage_zh"), fallback="模型條件成立，依下列支撐壓力與風控管理。")],
         ["目前位置", current_position],
         ["技術狀態", technical],
         ["支撐 / 壓力", sr],
@@ -2321,7 +2586,7 @@ def model_signal_card(
         ["主要風險", risk],
         ["TDCC / 權證 / 營收補充", f"{tdcc}；{display_text(row.get('warrant_flow_signal_zh'), fallback='權證無明確訊號')}；來源：{display_text(row.get('source_hit_labels_zh'), fallback='使用模型來源欄位')}"],
     ]
-    table_rows = [[para(title, style_map["curated_cell"]), para(f"分數 {safe_str(row.get('model_score'))} / 排名 {safe_str(row.get('display_rank'))}", style_map["curated_cell"])]]
+    table_rows = [[para(title, style_map["curated_cell"]), para(f"分數 {safe_str(row.get('model_score'))} / {section_rank_text(row)}", style_map["curated_cell"])]]
     table_rows.extend([[para(k, style_map["label"]), para(v, style_map["curated_cell"])] for k, v in rows])
     table = Table(table_rows, colWidths=[4.0 * cm, 12.8 * cm])
     table.setStyle(
@@ -2349,19 +2614,20 @@ def model_signal_card(
 
 
 def model_detail_rows(df: pd.DataFrame) -> list[list[Any]]:
-    rows = [["模型", "排名", "股票", "分數", "入選原因", "風險 / 操作提醒"]]
+    rows = [["模型", "榜別", "排名", "股票", "分數", "入選原因", "風險 / 操作提醒"]]
     if df.empty:
-        rows.append(["資料不足", "", "", "", "PDF-ready model signal table 尚未產生", "資料不足 / 僅能觀察"])
+        rows.append(["資料不足", "", "", "", "", "PDF-ready model signal table 尚未產生", "資料不足 / 僅能觀察"])
         return rows
     for _, row in df.iterrows():
         rows.append(
             [
                 clean_text(row.get("model_name_zh", ""), 18),
-                clean_text(row.get("display_rank", ""), 8),
+                clean_text(display_text(row.get("pdf_section_status_zh"), row.get("same_model_repeat_status_zh"), fallback=""), 10),
+                clean_text(display_text(row.get("pdf_section_rank"), row.get("display_rank"), fallback=""), 8),
                 f"{safe_str(row.get('stock_id'))} {safe_str(row.get('stock_name'))}",
                 clean_text(row.get("model_score", ""), 8),
-                clean_text(display_text(row.get("why_selected_zh", ""), row.get("score_components_zh", ""), fallback="依模型主條件入選"), 65),
-                clean_text(display_text(row.get("risk_tags_zh", ""), row.get("next_confirmation_zh", ""), row.get("recommended_usage_zh", ""), fallback="依支撐壓力管理"), 65),
+                clean_text(display_text(row.get("why_selected_human_zh", ""), row.get("why_selected_zh", ""), fallback="依模型主條件入選"), 65),
+                clean_text(display_text(row.get("operation_reminder_zh", ""), row.get("risk_tags_zh", ""), row.get("next_confirmation_zh", ""), row.get("recommended_usage_zh", ""), fallback="依支撐壓力管理"), 65),
             ]
         )
     return rows
@@ -2389,6 +2655,52 @@ def append_group_rotation_section(story: list[Any], style_map: dict[str, Paragra
     story.append(make_table(rows, style_map, [2.5 * cm, 1.6 * cm, 1.8 * cm, 1.8 * cm, 4.1 * cm, 6.0 * cm]))
 
 
+def append_theme_event_watch_section(story: list[Any], style_map: dict[str, ParagraphStyle], compact: bool) -> None:
+    events = read_csv_safe(LATEST_DIR / "theme_event_watch_latest.csv", dtype=str, keep_default_na=False)
+    story.append(PageBreak())
+    story.append(para("近期事件預警 / 主題催化觀察", style_map["h1"]))
+    story.append(
+        para(
+            "用途：提示近期展覽、法說、政策或產業事件與候選股/族群的交集。這是事件標籤與追蹤提醒，不取代模型入選條件。",
+            style_map["normal"],
+        )
+    )
+    if events.empty:
+        story.append(para("目前沒有可用的近期事件資料；事件層暫不影響今日候選股解讀。", style_map["normal"]))
+        return
+
+    for col in ["days_to_event", "importance", "candidate_intersection_count", "matched_stock_count"]:
+        if col in events.columns:
+            events[col + "_num"] = pd.to_numeric(events[col], errors="coerce")
+    sort_cols = [c for c in ["days_to_event_num", "importance_num", "candidate_intersection_count_num"] if c in events.columns]
+    if sort_cols:
+        ascending = [True if c == "days_to_event_num" else False for c in sort_cols]
+        events = events.sort_values(sort_cols, ascending=ascending)
+    limit = 10 if compact else 40
+    rows = [["事件", "日期", "族群", "候選交集", "代表候選", "解讀"]]
+    for _, row in events.head(limit).iterrows():
+        event_range = safe_str(row.get("event_date", ""))
+        end_date = safe_str(row.get("event_end_date", ""))
+        if end_date and end_date != event_range:
+            event_range = f"{event_range}-{end_date}"
+        candidates = display_text(
+            row.get("top_candidate_summary_zh"),
+            row.get("candidate_intersection_stock_names"),
+            fallback="目前無候選股交集",
+        )
+        rows.append(
+            [
+                clean_text(display_text(row.get("event_name"), fallback="事件未命名"), 26),
+                clean_text(event_range, 18),
+                clean_text(display_text(row.get("theme_tag"), fallback="族群未標示"), 18),
+                clean_text(display_text(row.get("candidate_intersection_count"), fallback="0"), 8),
+                clean_text(candidates, 42),
+                clean_text(display_text(row.get("interpretation_zh"), row.get("theme_event_watch_status"), fallback="事件資料僅供觀察"), 58),
+            ]
+        )
+    story.append(make_table(rows, style_map, [3.1 * cm, 2.0 * cm, 2.2 * cm, 1.5 * cm, 4.2 * cm, 5.2 * cm]))
+
+
 def build_model_line_pdf(report_line: str, full: bool, main_date: str, path: Path) -> None:
     style_map = styles()
     signals = load_model_report_signals()
@@ -2409,21 +2721,1075 @@ def build_model_line_pdf(report_line: str, full: bool, main_date: str, path: Pat
     story.append(para(f"{main_date} {title}", style_map["title"]))
     story.append(para("資料來源：repo PDF-ready model signal table；不同模型不混成單一排名。", style_map["subtitle"]))
     story.append(para("各模型第一名摘要", style_map["h1"]))
-    story.append(make_table(first_page_rows(part), style_map, [3.2 * cm, 3.2 * cm, 1.8 * cm, 5.1 * cm, 5.1 * cm]))
+    story.append(make_table(first_page_rows(part), style_map, [3.1 * cm, 3.1 * cm, 2.2 * cm, 5.0 * cm, 5.0 * cm]))
     story.append(PageBreak())
     if full:
         story.append(para("完整模型候選清單", style_map["h1"]))
-        for model_name, group in best_rows_by_model(part, None).groupby("model_name_zh", dropna=False):
+        for model_name, section_label, group in sectioned_model_rows(part, None):
             story.append(para(safe_str(model_name) or "模型欄位尚未完成", style_map["h2"]))
-            story.append(make_table(model_detail_rows(group), style_map, [2.6 * cm, 1.2 * cm, 2.5 * cm, 1.4 * cm, 5.0 * cm, 5.6 * cm]))
+            story.append(para(section_label, style_map["normal"]))
+            story.append(make_table(model_detail_rows(group), style_map, [2.3 * cm, 1.4 * cm, 1.2 * cm, 2.4 * cm, 1.2 * cm, 4.8 * cm, 5.2 * cm]))
             story.append(Spacer(1, 0.3 * cm))
     else:
         story.append(para("各模型代表股操作卡", style_map["h1"]))
-        for model_name, group in best_rows_by_model(part, 5).groupby("model_name_zh", dropna=False):
+        for model_name, section_label, group in sectioned_model_rows(part, 5):
             story.append(para(safe_str(model_name) or "模型欄位尚未完成", style_map["h2"]))
+            story.append(para(section_label, style_map["normal"]))
             for _, row in group.iterrows():
                 story.append(model_signal_card(row, style_map, tech_map, chart_map, include_chart=True))
+    append_theme_event_watch_section(story, style_map, compact=not full)
     append_group_rotation_section(story, style_map)
+    doc.build(story)
+
+
+def _rank_for_display(row: pd.Series) -> str:
+    rank = display_text(row.get("pdf_section_rank"), row.get("display_rank"), fallback="")
+    status = display_text(row.get("pdf_section_status_zh"), row.get("same_model_repeat_status_zh"), fallback="")
+    if rank:
+        return rank
+    return status
+
+
+def _first_page_rows_clean(df: pd.DataFrame) -> list[list[Any]]:
+    rows = [["模型", "第一名標的", "分數 / 排名", "入選優點", "風險 / 操作提醒"]]
+    if df.empty:
+        rows.append(["資料不足", "-", "", "PDF-ready model signal table 未產出", "資料不足 / 僅能觀察"])
+        return rows
+    first = first_page_best_rows(df)
+    for _, row in first.iterrows():
+        rows.append(
+            [
+                clean_text(display_text(row.get("model_name_zh"), fallback="模型名稱未完成"), 22),
+                f"{safe_str(row.get('stock_id'))} {safe_str(row.get('stock_name'))}",
+                clean_text(f"{safe_str(row.get('model_score'))} / {_rank_for_display(row)}", 22),
+                clean_text(display_text(row.get("why_selected_human_zh"), row.get("why_selected_zh"), fallback="欄位尚未完成 / 暫用現有資料"), 68),
+                clean_text(display_text(row.get("operation_reminder_zh"), row.get("risk_tags_zh"), row.get("next_confirmation_zh"), row.get("recommended_usage_zh"), fallback="依支撐壓力與模型條件管理。"), 68),
+            ]
+        )
+    return rows
+
+
+def _model_detail_rows_clean(df: pd.DataFrame) -> list[list[Any]]:
+    rows = [["模型", "榜別", "排名", "標的", "分數", "入選優點", "風險 / 操作提醒"]]
+    if df.empty:
+        rows.append(["資料不足", "", "", "-", "", "PDF-ready model signal table 未產出", "資料不足 / 僅能觀察"])
+        return rows
+    for _, row in df.iterrows():
+        rows.append(
+            [
+                clean_text(display_text(row.get("model_name_zh"), fallback="模型名稱未完成"), 18),
+                clean_text(display_text(row.get("pdf_section_status_zh"), row.get("same_model_repeat_status_zh"), fallback=""), 10),
+                clean_text(display_text(row.get("pdf_section_rank"), row.get("display_rank"), fallback=""), 12),
+                f"{safe_str(row.get('stock_id'))} {safe_str(row.get('stock_name'))}",
+                clean_text(row.get("model_score", ""), 8),
+                clean_text(display_text(row.get("why_selected_human_zh"), row.get("why_selected_zh"), fallback="欄位尚未完成 / 暫用現有資料"), 64),
+                clean_text(display_text(row.get("operation_reminder_zh"), row.get("risk_tags_zh"), row.get("next_confirmation_zh"), row.get("recommended_usage_zh"), fallback="依支撐壓力與模型條件管理。"), 64),
+            ]
+        )
+    return rows
+
+
+def _model_signal_card_clean(
+    row: pd.Series,
+    style_map: dict[str, ParagraphStyle],
+    tech_map: dict[str, pd.Series],
+    chart_map: dict[tuple[str, str], Path],
+    include_chart: bool,
+) -> KeepTogether:
+    stock_id = safe_str(row.get("stock_id"))
+    stock_name = safe_str(row.get("stock_name"))
+    tech = tech_map.get(stock_id, pd.Series(dtype=object))
+    title = f"{stock_id} {stock_name} / {display_text(row.get('model_name_zh'), fallback='模型名稱未完成')}"
+    rows = [
+        ["操作結論", display_text(row.get("operation_reminder_zh"), row.get("recommended_usage_zh"), fallback="依模型條件入選；後續以支撐壓力與量價管理。")],
+        ["目前位置", display_text(tech.get("price_position_summary_zh"), fallback="技術 snapshot 尚未完成 / 暫用現有資料")],
+        ["技術狀態", display_text(tech.get("technical_summary_zh"), fallback="技術 snapshot 尚未完成 / 暫用現有資料")],
+        ["支撐 / 壓力", display_text(tech.get("support_resistance_summary_zh"), fallback="支撐壓力欄位尚未完成 / 暫用現有資料")],
+        ["買進條件", display_text(tech.get("buy_condition_text_zh"), row.get("operation_reminder_zh"), fallback="依模型主條件成立後，以隔日開盤與支撐壓力控管。")],
+        ["停利 / 退出", f"{display_text(tech.get('take_profit_text_zh'), fallback='接近前高或量價失敗時分批停利。')}；{display_text(tech.get('exit_condition_text_zh'), fallback='跌破關鍵支撐且無法收回時退出。')}"],
+        ["主要風險", display_text(row.get("risk_tags_zh"), row.get("tdcc_risk_text_zh"), fallback="風險欄位尚未完成 / 暫用現有資料")],
+        ["TDCC / 權證 / 來源", f"{display_text(row.get('tdcc_big_holder_summary_zh'), row.get('tdcc_status_zh'), fallback='TDCC 欄位尚未完成')}；{display_text(row.get('warrant_flow_signal_zh'), fallback='權證欄位尚未完成')}；{display_text(row.get('source_hit_labels_zh'), fallback='來源欄位尚未完成')}"],
+    ]
+    table_rows = [[para(title, style_map["curated_cell"]), para(f"分數 {safe_str(row.get('model_score'))} / {_rank_for_display(row)}", style_map["curated_cell"])]]
+    table_rows.extend([[para(k, style_map["label"]), para(v, style_map["curated_cell"])] for k, v in rows])
+    table = Table(table_rows, colWidths=[4.0 * cm, 12.8 * cm])
+    table.setStyle(
+        TableStyle(
+            [
+                ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#EAF2F8")),
+                ("GRID", (0, 0), (-1, -1), 0.25, colors.HexColor("#CFD8E3")),
+                ("VALIGN", (0, 0), (-1, -1), "TOP"),
+                ("LEFTPADDING", (0, 0), (-1, -1), 6),
+                ("RIGHTPADDING", (0, 0), (-1, -1), 6),
+                ("TOPPADDING", (0, 0), (-1, -1), 5),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), 5),
+            ]
+        )
+    )
+    parts: list[Any] = [table]
+    if include_chart:
+        chart_row = row.copy()
+        chart_row["category"] = safe_str(row.get("original_category")) or safe_str(row.get("source_hit_labels"))
+        chart_path = chart_map.get((stock_id, "")) or redraw_pdf_kline_chart_for_row(chart_row)
+        if chart_path is not None and chart_path.exists():
+            parts.extend([Spacer(1, 0.12 * cm), PdfImage(str(chart_path), width=16.6 * cm, height=8.2 * cm)])
+    parts.append(Spacer(1, 0.22 * cm))
+    return KeepTogether(parts)
+
+
+def _append_theme_event_watch_section_clean(story: list[Any], style_map: dict[str, ParagraphStyle], compact: bool) -> None:
+    events = read_csv_safe(LATEST_DIR / "theme_event_watch_latest.csv", dtype=str, keep_default_na=False)
+    story.append(PageBreak())
+    story.append(para("近期事件預警 / 主題催化觀察", style_map["h1"]))
+    if events.empty:
+        story.append(para("目前沒有可用的事件預警資料。", style_map["normal"]))
+        return
+    rows = [["事件", "日期", "族群", "交集數", "相關標的", "解讀"]]
+    limit = 8 if compact else 30
+    for _, row in events.head(limit).iterrows():
+        start_date = display_text(row.get("event_start_date"), row.get("start_date"), fallback="")
+        end_date = display_text(row.get("event_end_date"), row.get("end_date"), fallback="")
+        event_range = start_date if not end_date or end_date == start_date else f"{start_date}-{end_date}"
+        rows.append(
+            [
+                clean_text(display_text(row.get("event_name"), fallback="事件名稱未完成"), 24),
+                clean_text(event_range, 18),
+                clean_text(display_text(row.get("theme_tag"), fallback="族群標籤未完成"), 18),
+                clean_text(display_text(row.get("candidate_intersection_count"), fallback="0"), 8),
+                clean_text(display_text(row.get("top_candidate_summary_zh"), row.get("candidate_intersection_stock_names"), fallback="-"), 42),
+                clean_text(display_text(row.get("interpretation_zh"), row.get("theme_event_watch_status"), fallback="事件資料僅供觀察。"), 58),
+            ]
+        )
+    story.append(make_table(rows, style_map, [3.1 * cm, 2.0 * cm, 2.2 * cm, 1.5 * cm, 4.2 * cm, 5.2 * cm]))
+
+
+def _append_group_rotation_section_clean(story: list[Any], style_map: dict[str, ParagraphStyle]) -> None:
+    rotation = read_csv_safe(LATEST_DIR / "daily_candidate_group_rotation_latest.csv", dtype=str, keep_default_na=False)
+    if rotation.empty:
+        return
+    story.append(PageBreak())
+    story.append(para("族群資金輪動觀察", style_map["h1"]))
+    story.append(para("此區不是個股買進模型，用於觀察族群出量是否由龍頭擴散到老二、老三。", style_map["normal"]))
+    rows = [["族群", "檔數", "3倍量檔數", "出量比例", "龍頭 / 老二 / 老三", "解讀"]]
+    for _, row in rotation.head(20).iterrows():
+        rows.append(
+            [
+                clean_text(display_text(row.get("theme"), fallback="族群未完成"), 18),
+                clean_text(row.get("stock_count", ""), 8),
+                clean_text(row.get("volume_expansion_3x_count", ""), 8),
+                clean_text(row.get("volume_expansion_ratio", ""), 8),
+                clean_text(" / ".join([safe_str(row.get("leader_1")), safe_str(row.get("leader_2")), safe_str(row.get("leader_3"))]).strip(" /"), 36),
+                clean_text(display_text(row.get("interpretation_zh"), row.get("interpretation"), fallback="觀察資金是否持續擴散。"), 60),
+            ]
+        )
+    story.append(make_table(rows, style_map, [2.5 * cm, 1.6 * cm, 1.8 * cm, 1.8 * cm, 4.1 * cm, 6.0 * cm]))
+
+
+def build_model_line_pdf(report_line: str, full: bool, main_date: str, path: Path) -> None:
+    style_map = styles()
+    signals = load_model_report_signals()
+    tech_map = load_technical_snapshot()
+    chart_map = load_pdf_kline_chart_map()
+    part = signals[signals.get("report_line", "").astype(str).eq(report_line)].copy() if not signals.empty else signals
+    title_prefix = "主流股" if report_line == "mainstream" else "非主流股"
+    title = f"{title_prefix}{'完整候選清單' if full else '每日推薦精華'}"
+    doc = SimpleDocTemplate(
+        str(path),
+        pagesize=A4,
+        leftMargin=1.5 * cm,
+        rightMargin=1.5 * cm,
+        topMargin=1.2 * cm,
+        bottomMargin=1.2 * cm,
+    )
+    story: list[Any] = []
+    story.append(para(f"{main_date} {title}", style_map["title"]))
+    story.append(para("資料來源：repo PDF-ready model signal table；各模型獨立呈現，不混成單一總排名。", style_map["subtitle"]))
+    story.append(para("各模型第一名摘要", style_map["h1"]))
+    story.append(make_table(_first_page_rows_clean(part), style_map, [3.1 * cm, 3.1 * cm, 2.2 * cm, 5.0 * cm, 5.0 * cm]))
+    story.append(PageBreak())
+    if full:
+        story.append(para("完整模型候選清單", style_map["h1"]))
+        for model_name, section_label, group in sectioned_model_rows(part, None):
+            story.append(para(display_text(model_name, fallback="模型名稱未完成"), style_map["h2"]))
+            story.append(para(section_label, style_map["normal"]))
+            story.append(make_table(_model_detail_rows_clean(group), style_map, [2.3 * cm, 1.4 * cm, 1.2 * cm, 2.4 * cm, 1.2 * cm, 4.8 * cm, 5.2 * cm]))
+            story.append(Spacer(1, 0.3 * cm))
+    else:
+        story.append(para("各模型代表股解析", style_map["h1"]))
+        for model_name, section_label, group in sectioned_model_rows(part, 5):
+            story.append(para(display_text(model_name, fallback="模型名稱未完成"), style_map["h2"]))
+            story.append(para(section_label, style_map["normal"]))
+            for _, row in group.iterrows():
+                story.append(_model_signal_card_clean(row, style_map, tech_map, chart_map, include_chart=True))
+    _append_theme_event_watch_section_clean(story, style_map, compact=not full)
+    _append_group_rotation_section_clean(story, style_map)
+    doc.build(story)
+
+
+def _rank_for_display_final(row: pd.Series) -> str:
+    rank = display_text(row.get("pdf_section_rank"), fallback="")
+    if not rank:
+        rank = display_text(row.get("display_rank"), fallback="")
+    status = display_text(row.get("pdf_section_status_zh"), row.get("same_model_repeat_status_zh"), fallback="")
+    if status and rank and not rank.startswith(status):
+        return f"{status} {rank}"
+    return rank or status or "-"
+
+
+def _display_final(*values: Any, fallback: str = "欄位尚未完成 / 暫用現有資料", limit: int | None = None) -> str:
+    text = display_text(*values, fallback=fallback)
+    text = clean_text(text, limit)
+    if not text or "甈" in text or "鞈" in text or "銝" in text or "摰" in text:
+        return fallback
+    return text
+
+
+def _first_page_rows_final(df: pd.DataFrame) -> list[list[Any]]:
+    rows = [["模型", "第一名標的", "分數 / 排名", "入選優點", "風險 / 操作提醒"]]
+    if df.empty:
+        rows.append(["資料不足", "-", "-", "PDF-ready model signal table 無資料", "資料不足 / 僅能觀察"])
+        return rows
+    first = first_page_best_rows(df)
+    for _, row in first.iterrows():
+        rows.append(
+            [
+                _display_final(row.get("model_name_zh"), fallback="模型名稱未完成", limit=24),
+                f"{safe_str(row.get('stock_id'))} {safe_str(row.get('stock_name'))}",
+                clean_text(f"{safe_str(row.get('model_score'))} / {_rank_for_display_final(row)}", 24),
+                _display_final(row.get("why_selected_human_zh"), row.get("why_selected_zh"), fallback="符合模型主要條件；詳細計分請看 score_components_zh。", limit=72),
+                _display_final(row.get("operation_reminder_zh"), row.get("risk_tags_zh"), row.get("next_confirmation_zh"), row.get("recommended_usage_zh"), fallback="依模型條件入選；買進後依支撐、量價與 TDCC 變化管理。", limit=72),
+            ]
+        )
+    return rows
+
+
+def _model_detail_rows_final(df: pd.DataFrame) -> list[list[Any]]:
+    rows = [["模型", "榜別", "排名", "標的", "分數", "入選優點", "風險 / 操作提醒"]]
+    if df.empty:
+        rows.append(["資料不足", "", "", "-", "", "PDF-ready model signal table 無資料", "資料不足 / 僅能觀察"])
+        return rows
+    for _, row in df.iterrows():
+        rows.append(
+            [
+                _display_final(row.get("model_name_zh"), fallback="模型名稱未完成", limit=18),
+                _display_final(row.get("pdf_section_status_zh"), row.get("same_model_repeat_status_zh"), fallback="", limit=10),
+                clean_text(_rank_for_display_final(row), 14),
+                f"{safe_str(row.get('stock_id'))} {safe_str(row.get('stock_name'))}",
+                clean_text(row.get("model_score", ""), 8),
+                _display_final(row.get("why_selected_human_zh"), row.get("why_selected_zh"), fallback="符合模型主要條件；詳細計分請看 score_components_zh。", limit=66),
+                _display_final(row.get("operation_reminder_zh"), row.get("risk_tags_zh"), row.get("next_confirmation_zh"), row.get("recommended_usage_zh"), fallback="依模型條件入選；買進後依支撐、量價與 TDCC 變化管理。", limit=66),
+            ]
+        )
+    return rows
+
+
+def _model_signal_card_final(
+    row: pd.Series,
+    style_map: dict[str, ParagraphStyle],
+    tech_map: dict[str, pd.Series],
+    chart_map: dict[tuple[str, str], Path],
+    include_chart: bool,
+) -> KeepTogether:
+    stock_id = safe_str(row.get("stock_id"))
+    stock_name = safe_str(row.get("stock_name"))
+    tech = tech_map.get(stock_id, pd.Series(dtype=object))
+    title = f"{stock_id} {stock_name} / {_display_final(row.get('model_name_zh'), fallback='模型名稱未完成')}"
+    table_rows = [
+        [
+            para(title, style_map["curated_cell"]),
+            para(f"分數 {safe_str(row.get('model_score'))} / {_rank_for_display_final(row)}", style_map["curated_cell"]),
+        ],
+        [para("操作提醒", style_map["label"]), para(_display_final(row.get("operation_reminder_zh"), row.get("recommended_usage_zh"), fallback="依模型條件入選；買進後依支撐、量價與 TDCC 變化管理。"), style_map["curated_cell"])],
+        [para("目前位置", style_map["label"]), para(_display_final(tech.get("price_position_summary_zh"), fallback="技術 snapshot 尚未完成 / 暫用 K 線圖判讀。"), style_map["curated_cell"])],
+        [para("技術狀態", style_map["label"]), para(_display_final(tech.get("technical_summary_zh"), fallback="技術 snapshot 尚未完成 / 暫用 K 線圖判讀。"), style_map["curated_cell"])],
+        [para("支撐 / 壓力", style_map["label"]), para(_display_final(tech.get("support_resistance_summary_zh"), fallback="支撐壓力欄位尚未完成 / 暫用 23EMA、前高與近期低點管理。"), style_map["curated_cell"])],
+        [para("入選優點", style_map["label"]), para(_display_final(row.get("why_selected_human_zh"), row.get("why_selected_zh"), fallback="符合模型主要條件；詳細計分請看 score_components_zh。"), style_map["curated_cell"])],
+        [para("買進條件", style_map["label"]), para(_display_final(tech.get("buy_condition_text_zh"), row.get("operation_reminder_zh"), fallback="依模型條件入選；實際進場以隔日開盤、支撐與量價確認管理。"), style_map["curated_cell"])],
+        [para("停利 / 退出", style_map["label"]), para(f"{_display_final(tech.get('take_profit_text_zh'), fallback='接近前高、爆量不漲或量價背離時分批停利。')}；{_display_final(tech.get('exit_condition_text_zh'), fallback='跌破 23EMA、近期低點或出現放量長黑時降低部位或退出。')}", style_map["curated_cell"])],
+        [para("主要風險", style_map["label"]), para(_display_final(row.get("risk_tags_zh"), row.get("tdcc_risk_text_zh"), row.get("downgrade_flags_zh"), fallback="風險欄位尚未完成 / 需觀察量價、TDCC 與事件後續。"), style_map["curated_cell"])],
+        [para("TDCC / 權證 / 來源", style_map["label"]), para(f"{_display_final(row.get('tdcc_big_holder_summary_zh'), row.get('tdcc_status_zh'), fallback='TDCC 摘要尚未完成')}；{_display_final(row.get('warrant_flow_signal_zh'), fallback='權證訊號尚未完成')}；{_display_final(row.get('source_hit_labels_zh'), fallback='來源分類尚未完成')}", style_map["curated_cell"])],
+    ]
+    table = Table(table_rows, colWidths=[4.0 * cm, 12.8 * cm])
+    table.setStyle(
+        TableStyle(
+            [
+                ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#EAF2F8")),
+                ("GRID", (0, 0), (-1, -1), 0.25, colors.HexColor("#CFD8E3")),
+                ("VALIGN", (0, 0), (-1, -1), "TOP"),
+                ("LEFTPADDING", (0, 0), (-1, -1), 6),
+                ("RIGHTPADDING", (0, 0), (-1, -1), 6),
+                ("TOPPADDING", (0, 0), (-1, -1), 5),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), 5),
+            ]
+        )
+    )
+    parts: list[Any] = [table]
+    if include_chart:
+        chart_row = row.copy()
+        chart_row["category"] = safe_str(row.get("original_category")) or safe_str(row.get("source_hit_labels"))
+        chart_path = chart_map.get((stock_id, "")) or redraw_pdf_kline_chart_for_row(chart_row)
+        if chart_path is not None and chart_path.exists():
+            parts.extend([Spacer(1, 0.12 * cm), PdfImage(str(chart_path), width=16.6 * cm, height=8.2 * cm)])
+    parts.append(Spacer(1, 0.22 * cm))
+    return KeepTogether(parts)
+
+
+def _append_theme_event_watch_section_final(story: list[Any], style_map: dict[str, ParagraphStyle], compact: bool) -> None:
+    events = read_csv_safe(LATEST_DIR / "theme_event_watch_latest.csv", dtype=str, keep_default_na=False)
+    story.append(PageBreak())
+    story.append(para("近期事件預警 / 主題催化觀察", style_map["h1"]))
+    if events.empty:
+        story.append(para("目前沒有可用事件預警資料。若事件資料未進入 theme_event_watch_latest.csv，PDF 不自行補事件。", style_map["normal"]))
+        return
+    rows = [["事件", "日期", "族群", "交集數", "相關候選", "解讀"]]
+    limit = 8 if compact else 30
+    for _, row in events.head(limit).iterrows():
+        start_date = _display_final(row.get("event_start_date"), row.get("start_date"), fallback="")
+        end_date = _display_final(row.get("event_end_date"), row.get("end_date"), fallback="")
+        event_range = start_date if not end_date or end_date == start_date else f"{start_date}-{end_date}"
+        rows.append(
+            [
+                _display_final(row.get("event_name"), fallback="事件名稱未完成", limit=24),
+                clean_text(event_range, 18),
+                _display_final(row.get("theme_tag"), fallback="族群標籤未完成", limit=18),
+                _display_final(row.get("candidate_intersection_count"), fallback="0", limit=8),
+                _display_final(row.get("top_candidate_summary_zh"), row.get("candidate_intersection_stock_names"), fallback="-", limit=42),
+                _display_final(row.get("interpretation_zh"), row.get("theme_event_watch_status"), fallback="事件資料已建立，需觀察族群量價與候選股交集。", limit=58),
+            ]
+        )
+    story.append(make_table(rows, style_map, [3.1 * cm, 2.0 * cm, 2.2 * cm, 1.5 * cm, 4.2 * cm, 5.2 * cm]))
+
+
+def _append_group_rotation_section_final(story: list[Any], style_map: dict[str, ParagraphStyle]) -> None:
+    rotation = read_csv_safe(LATEST_DIR / "daily_candidate_group_rotation_latest.csv", dtype=str, keep_default_na=False)
+    if rotation.empty:
+        return
+    story.append(PageBreak())
+    story.append(para("族群資金輪動觀察", style_map["h1"]))
+    story.append(para("這不是個股買進模型。用途是觀察同族群是否出現資金擴散，判斷資金是否從龍頭擴散到第二、第三順位。", style_map["normal"]))
+    rows = [["族群", "股票數", "3倍量家數", "出量比例", "龍頭 / 老二 / 老三", "解讀"]]
+    for _, row in rotation.head(20).iterrows():
+        rows.append(
+            [
+                _display_final(row.get("theme"), fallback="族群未完成", limit=18),
+                clean_text(row.get("stock_count", ""), 8),
+                clean_text(row.get("volume_expansion_3x_count", ""), 8),
+                clean_text(row.get("volume_expansion_ratio", ""), 8),
+                clean_text(" / ".join([safe_str(row.get("leader_1")), safe_str(row.get("leader_2")), safe_str(row.get("leader_3"))]).strip(" /"), 36),
+                _display_final(row.get("interpretation_zh"), row.get("interpretation"), fallback="資金擴散狀態待觀察。", limit=60),
+            ]
+        )
+    story.append(make_table(rows, style_map, [2.5 * cm, 1.6 * cm, 1.8 * cm, 1.8 * cm, 4.1 * cm, 6.0 * cm]))
+
+
+def build_model_line_pdf(report_line: str, full: bool, main_date: str, path: Path) -> None:
+    style_map = styles()
+    signals = load_model_report_signals()
+    tech_map = load_technical_snapshot()
+    chart_map = load_pdf_kline_chart_map()
+    part = signals[signals.get("report_line", "").astype(str).eq(report_line)].copy() if not signals.empty else signals
+    title_prefix = "主流股" if report_line == "mainstream" else "非主流股"
+    title_suffix = "完整候選清單" if full else "每日推薦精華"
+    doc = SimpleDocTemplate(
+        str(path),
+        pagesize=A4,
+        leftMargin=1.5 * cm,
+        rightMargin=1.5 * cm,
+        topMargin=1.2 * cm,
+        bottomMargin=1.2 * cm,
+    )
+    story: list[Any] = []
+    story.append(para(f"{main_date} {title_prefix}{title_suffix}", style_map["title"]))
+    story.append(para("資料來源：repo PDF-ready model signal table；同一模型同一股票已去重，並依新進榜 / 重複進榜分段呈現。", style_map["subtitle"]))
+    story.append(para("各模型第一名摘要", style_map["h1"]))
+    story.append(make_table(_first_page_rows_final(part), style_map, [3.1 * cm, 3.1 * cm, 2.2 * cm, 5.0 * cm, 5.0 * cm]))
+    story.append(PageBreak())
+    if full:
+        story.append(para("完整模型名單", style_map["h1"]))
+        for model_name, section_label, group in sectioned_model_rows(part, None):
+            story.append(para(_display_final(model_name, fallback="模型名稱未完成"), style_map["h2"]))
+            story.append(para(_display_final(section_label, fallback="榜別未完成"), style_map["h2"]))
+            story.append(make_table(_model_detail_rows_final(group), style_map, [2.3 * cm, 1.4 * cm, 1.2 * cm, 2.4 * cm, 1.2 * cm, 4.8 * cm, 5.2 * cm]))
+            story.append(Spacer(1, 0.3 * cm))
+    else:
+        story.append(para("各模型代表股", style_map["h1"]))
+        for model_name, section_label, group in sectioned_model_rows(part, 5):
+            story.append(para(_display_final(model_name, fallback="模型名稱未完成"), style_map["h2"]))
+            story.append(para(_display_final(section_label, fallback="榜別未完成"), style_map["h2"]))
+            for _, row in group.iterrows():
+                story.append(_model_signal_card_final(row, style_map, tech_map, chart_map, include_chart=True))
+    _append_theme_event_watch_section_final(story, style_map, compact=not full)
+    _append_group_rotation_section_final(story, style_map)
+    doc.build(story)
+
+
+PDF_DISPLAY_TOKEN_ZH_CLEAN = {
+    "range_rebound": "區間內轉強",
+    "revenue_pullback": "營收成長股價回檔",
+    "revenue_breakout_low_response": "營收爆發但股價尚未反應",
+    "pullback_rebound": "回檔後短線轉強",
+    "short_term_specialty": "短線專項",
+    "tdcc_short_term_edge": "TDCC短線延續",
+    "hot_theme_pullback": "熱門族群回檔",
+    "price_pullback_23ema": "股價回檔",
+    "tdcc_stealth_accumulation": "TDCC潛伏吸籌",
+    "tdcc_short_term_continuation_d5_d10": "TDCC短線延續 D+5/D+10",
+    "volume_range_breakout": "帶量突破",
+    "w_bottom_right_side": "W底右側",
+    "platform_strengthening": "平台整理轉強",
+    "near_high_neckline_challenge": "接近前高/頸線挑戰",
+    "new_model_signal": "新進榜",
+    "repeated_same_model_signal": "連續/累計進榜",
+    "mainstream": "主流",
+    "non_mainstream": "非主流",
+    "strong_accumulation": "大戶強累積",
+    "mild_accumulation": "大戶溫和增加",
+    "distribution_warning": "大戶轉弱警示",
+    "neutral": "中性",
+    "call_strong_inflow": "認購明確偏多",
+    "call_inflow": "認購偏多",
+    "call_put_bullish": "權證偏多",
+    "mixed_flow": "權證多空混合",
+    "no_signal": "無明確訊號",
+    "insufficient_data": "資料不足",
+    "neckline": "頸線",
+    "breakout": "突破",
+    "hot_theme_tag": "熱門族群標籤",
+    "hot theme tag": "熱門族群標籤",
+}
+
+
+def _pdf_human_text(*values: Any, fallback: str = "資料不足 / 暫用現有資料", limit: int | None = None) -> str:
+    text = ""
+    for value in values:
+        candidate = safe_str(value).strip()
+        if not candidate or candidate.lower() in {"nan", "none", "null"}:
+            continue
+        text = candidate
+        break
+    if not text:
+        text = fallback
+    for raw, zh in PDF_DISPLAY_TOKEN_ZH_CLEAN.items():
+        text = re.sub(rf"(?<![A-Za-z0-9_]){re.escape(raw)}(?![A-Za-z0-9_])", zh, text)
+    if re.fullmatch(r"[A-Za-z0-9_./ -]+", text or "") and "_" in text:
+        text = fallback
+    return clean_text(text, limit)
+
+
+def _model_score_text(value: Any) -> str:
+    text = safe_str(value).strip()
+    if not text:
+        return "-"
+    try:
+        num = float(text)
+        return f"{num:.1f}".rstrip("0").rstrip(".")
+    except Exception:
+        return clean_text(text, 10)
+
+
+def _repeat_key(row: pd.Series) -> str:
+    status = safe_str(row.get("same_model_repeat_status"))
+    return "repeated" if status == "repeated_same_model_signal" else "new"
+
+
+def _repeat_label(section: str) -> str:
+    return "連續/累計進榜" if section == "repeated" else "新進榜"
+
+
+def _rank_for_section(row: pd.Series, section: str) -> str:
+    if section == "repeated":
+        rank = safe_str(row.get("display_rank_repeated_signal")) or safe_str(row.get("model_rank_repeated_signal"))
+    else:
+        rank = safe_str(row.get("display_rank_new_signal")) or safe_str(row.get("model_rank_new_signal"))
+    if not rank:
+        rank = safe_str(row.get("display_rank")) or safe_str(row.get("model_rank"))
+    try:
+        if re.fullmatch(r"\d+(\.0+)?", rank):
+            rank = str(int(float(rank)))
+    except Exception:
+        pass
+    prefix = "連續榜#" if section == "repeated" else "新進榜#"
+    if rank and not rank.startswith(prefix) and not rank.startswith(_repeat_label(section)):
+        rank = f"{prefix}{rank}"
+    return rank or "-"
+
+
+def _rank_sort_number(row: pd.Series, section: str) -> float:
+    if section == "repeated":
+        fields = ["model_rank_repeated_signal", "display_rank_repeated_signal", "display_rank", "model_rank"]
+    else:
+        fields = ["model_rank_new_signal", "display_rank_new_signal", "display_rank", "model_rank"]
+    for field in fields:
+        text = safe_str(row.get(field))
+        match = re.search(r"\d+", text)
+        if match:
+            return float(match.group(0))
+    return 999999.0
+
+
+def _score_sort_number(row: pd.Series) -> float:
+    try:
+        return float(safe_str(row.get("model_score")))
+    except Exception:
+        return -999999.0
+
+
+def _model_names_in_report_order(df: pd.DataFrame) -> list[str]:
+    if df.empty or "model_name_zh" not in df.columns:
+        return []
+    work = df.copy()
+    work["_rank"] = work.apply(lambda row: min(_rank_sort_number(row, "new"), _rank_sort_number(row, "repeated")), axis=1)
+    work["_score"] = work.apply(_score_sort_number, axis=1)
+    work = work.sort_values(["_rank", "_score"], ascending=[True, False])
+    names: list[str] = []
+    seen: set[str] = set()
+    for name in work["model_name_zh"].astype(str).tolist():
+        name = _pdf_human_text(name, fallback="模型名稱未完成")
+        if name in seen:
+            continue
+        seen.add(name)
+        names.append(name)
+    return names
+
+
+def _rows_for_model_section(df: pd.DataFrame, model_name: str, section: str, limit: int | None) -> pd.DataFrame:
+    if df.empty:
+        return df
+    work = df[df["model_name_zh"].astype(str).map(lambda x: _pdf_human_text(x, fallback="模型名稱未完成") == model_name)].copy()
+    if work.empty:
+        return work
+    if section == "repeated":
+        work = work[work.apply(_repeat_key, axis=1).eq("repeated")]
+    else:
+        work = work[work.apply(_repeat_key, axis=1).eq("new")]
+    if work.empty:
+        return work
+    work["_rank"] = work.apply(lambda row: _rank_sort_number(row, section), axis=1)
+    work["_score"] = work.apply(_score_sort_number, axis=1)
+    work = work.sort_values(["_rank", "_score"], ascending=[True, False])
+    if limit is not None:
+        work = work.head(limit)
+    return work.drop(columns=["_rank", "_score"], errors="ignore")
+
+
+def _summary_rows_for_section(df: pd.DataFrame, section: str) -> list[list[Any]]:
+    rows = [["模型", "第一名標的", "分數", "榜別排名", "入選優點", "風險 / 操作提醒"]]
+    if df.empty:
+        rows.append(["資料不足", "-", "-", "-", "PDF-ready 表無資料", "資料不足 / 僅能觀察"])
+        return rows
+    for model_name in _model_names_in_report_order(df):
+        picked = _rows_for_model_section(df, model_name, section, 1)
+        if picked.empty:
+            continue
+        row = picked.iloc[0]
+        rows.append(
+            [
+                _pdf_human_text(model_name, fallback="模型名稱未完成", limit=16),
+                f"{safe_str(row.get('stock_id'))} {safe_str(row.get('stock_name'))}",
+                _model_score_text(row.get("model_score")),
+                _rank_for_section(row, section),
+                _pdf_human_text(row.get("why_selected_human_zh"), row.get("why_selected_zh"), fallback="模型條件成立，細節請見個股頁。", limit=48),
+                _pdf_human_text(row.get("operation_reminder_zh"), row.get("risk_tags_zh"), row.get("next_confirmation_zh"), row.get("recommended_usage_zh"), fallback="依支撐、壓力與量價失敗條件管理。", limit=48),
+            ]
+        )
+    if len(rows) == 1:
+        rows.append(["本段無資料", "-", "-", "-", f"今日沒有{_repeat_label(section)}資料", ""])
+    return rows
+
+
+def _detail_table_rows_for_section(df: pd.DataFrame, section: str) -> list[list[Any]]:
+    rows = [["排名", "標的", "分數", "入選優點", "風險 / 操作提醒"]]
+    if df.empty:
+        rows.append(["-", "-", "-", "本段無資料", ""])
+        return rows
+    for _, row in df.iterrows():
+        rows.append(
+            [
+                _rank_for_section(row, section),
+                f"{safe_str(row.get('stock_id'))} {safe_str(row.get('stock_name'))}",
+                _model_score_text(row.get("model_score")),
+                _pdf_human_text(row.get("why_selected_human_zh"), row.get("why_selected_zh"), fallback="模型條件成立，細節請見個股頁。", limit=62),
+                _pdf_human_text(row.get("operation_reminder_zh"), row.get("risk_tags_zh"), row.get("next_confirmation_zh"), row.get("recommended_usage_zh"), fallback="依支撐、壓力與量價失敗條件管理。", limit=62),
+            ]
+        )
+    return rows
+
+
+def _model_signal_card_readable(
+    row: pd.Series,
+    section: str,
+    style_map: dict[str, ParagraphStyle],
+    tech_map: dict[str, pd.Series],
+    chart_map: dict[tuple[str, str], Path],
+    include_chart: bool,
+) -> KeepTogether:
+    stock_id = safe_str(row.get("stock_id"))
+    stock_name = safe_str(row.get("stock_name"))
+    model_name = _pdf_human_text(row.get("model_name_zh"), fallback="模型名稱未完成")
+    tech = tech_map.get(stock_id, pd.Series(dtype=object))
+    title = f"{stock_id} {stock_name} / {model_name}"
+    table_rows = [
+        [para(title, style_map["curated_cell"]), para(f"{_repeat_label(section)} / {_rank_for_section(row, section)} / 分數 {_model_score_text(row.get('model_score'))}", style_map["curated_cell"])],
+        [para("操作結論", style_map["label"]), para(_pdf_human_text(row.get("operation_reminder_zh"), row.get("recommended_usage_zh"), fallback="模型條件成立；後續依支撐、壓力、量價失敗與TDCC變化管理。"), style_map["curated_cell"])],
+        [para("目前位置", style_map["label"]), para(_pdf_human_text(tech.get("price_position_summary_zh"), fallback="技術位置摘要尚未完成，請搭配K線與支撐壓力檢查。"), style_map["curated_cell"])],
+        [para("技術狀態", style_map["label"]), para(_pdf_human_text(tech.get("technical_summary_zh"), fallback="技術指標摘要尚未完成，暫用K線圖判讀。"), style_map["curated_cell"])],
+        [para("支撐 / 壓力", style_map["label"]), para(_pdf_human_text(tech.get("support_resistance_summary_zh"), fallback="支撐壓力摘要尚未完成，請以23EMA、平台與近期高低點管理。"), style_map["curated_cell"])],
+        [para("入選優點", style_map["label"]), para(_pdf_human_text(row.get("why_selected_human_zh"), row.get("why_selected_zh"), fallback="模型條件成立。"), style_map["curated_cell"])],
+        [para("買進條件", style_map["label"]), para(_pdf_human_text(tech.get("buy_condition_text_zh"), row.get("operation_reminder_zh"), fallback="依模型入選條件與隔日開盤後量價確認執行。"), style_map["curated_cell"])],
+        [para("停利 / 退出", style_map["label"]), para(f"{_pdf_human_text(tech.get('take_profit_text_zh'), fallback='接近壓力或量價背離時分批停利。')} / {_pdf_human_text(tech.get('exit_condition_text_zh'), fallback='跌破關鍵支撐、23EMA或出現量價失敗時退出。')}", style_map["curated_cell"])],
+        [para("主要風險", style_map["label"]), para(_pdf_human_text(row.get("risk_tags_zh"), row.get("tdcc_risk_text_zh"), row.get("downgrade_flags_zh"), fallback="風險標籤尚未完成，仍需檢查TDCC、權證、量價與市場背景。"), style_map["curated_cell"])],
+        [para("TDCC / 權證 / 來源", style_map["label"]), para(f"{_pdf_human_text(row.get('tdcc_big_holder_summary_zh'), row.get('tdcc_status_zh'), fallback='TDCC摘要尚未完成')} / {_pdf_human_text(row.get('warrant_flow_signal_zh'), fallback='權證摘要尚未完成')} / {_pdf_human_text(row.get('source_hit_labels_zh'), fallback='來源標籤尚未完成')}", style_map["curated_cell"])],
+    ]
+    table = Table(table_rows, colWidths=[4.0 * cm, 12.8 * cm])
+    table.setStyle(
+        TableStyle(
+            [
+                ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#EAF2F8")),
+                ("GRID", (0, 0), (-1, -1), 0.25, colors.HexColor("#CFD8E3")),
+                ("VALIGN", (0, 0), (-1, -1), "TOP"),
+                ("LEFTPADDING", (0, 0), (-1, -1), 6),
+                ("RIGHTPADDING", (0, 0), (-1, -1), 6),
+                ("TOPPADDING", (0, 0), (-1, -1), 5),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), 5),
+            ]
+        )
+    )
+    parts: list[Any] = [table]
+    if include_chart:
+        chart_row = row.copy()
+        chart_row["category"] = safe_str(row.get("original_category")) or safe_str(row.get("source_hit_labels"))
+        chart_path = chart_map.get((stock_id, "")) or redraw_pdf_kline_chart_for_row(chart_row)
+        if chart_path is not None and chart_path.exists():
+            parts.extend([Spacer(1, 0.12 * cm), PdfImage(str(chart_path), width=16.6 * cm, height=8.2 * cm)])
+    parts.append(Spacer(1, 0.22 * cm))
+    return KeepTogether(parts)
+
+
+def _append_theme_event_watch_section_readable(story: list[Any], style_map: dict[str, ParagraphStyle], compact: bool) -> None:
+    events = read_csv_safe(LATEST_DIR / "theme_event_watch_latest.csv", dtype=str, keep_default_na=False)
+    story.append(PageBreak())
+    story.append(para("近期事件預警 / 主題催化觀察", style_map["h1"]))
+    if events.empty:
+        story.append(para("目前沒有可用的事件預警資料。若有展覽、法說、重大公告或主題催化，應進入 theme_event_watch_latest.csv 後再呈現。", style_map["normal"]))
+        return
+    rows = [["事件", "日期", "族群", "交集數", "相關候選", "解讀"]]
+    limit = 8 if compact else 30
+    for _, row in events.head(limit).iterrows():
+        start_date = _pdf_human_text(row.get("event_start_date"), row.get("start_date"), fallback="")
+        end_date = _pdf_human_text(row.get("event_end_date"), row.get("end_date"), fallback="")
+        event_range = start_date if not end_date or end_date == start_date else f"{start_date}-{end_date}"
+        rows.append(
+            [
+                _pdf_human_text(row.get("event_name"), fallback="事件名稱未完成", limit=24),
+                clean_text(event_range, 18),
+                _pdf_human_text(row.get("theme_tag"), fallback="族群標籤未完成", limit=18),
+                _pdf_human_text(row.get("candidate_intersection_count"), fallback="0", limit=8),
+                _pdf_human_text(row.get("top_candidate_summary_zh"), row.get("candidate_intersection_stock_names"), fallback="-", limit=42),
+                _pdf_human_text(row.get("interpretation_zh"), row.get("theme_event_watch_status"), fallback="事件資料已建立，需觀察候選股與族群資金是否提前反應。", limit=58),
+            ]
+        )
+    story.append(make_table(rows, style_map, [3.1 * cm, 2.0 * cm, 2.2 * cm, 1.5 * cm, 4.2 * cm, 5.2 * cm]))
+
+
+def _append_group_rotation_section_readable(story: list[Any], style_map: dict[str, ParagraphStyle]) -> None:
+    rotation = read_csv_safe(LATEST_DIR / "daily_candidate_group_rotation_latest.csv", dtype=str, keep_default_na=False)
+    if rotation.empty:
+        return
+    story.append(PageBreak())
+    story.append(para("族群資金輪動觀察", style_map["h1"]))
+    story.append(para("這一段用來觀察同族群是否出現量能擴散，不是直接買進名單。", style_map["normal"]))
+    rows = [["族群", "股票數", "3倍量檔數", "擴散比例", "龍頭 / 老二 / 老三", "解讀"]]
+    for _, row in rotation.head(20).iterrows():
+        rows.append(
+            [
+                _pdf_human_text(row.get("theme"), fallback="族群名稱未完成", limit=18),
+                clean_text(row.get("stock_count", ""), 8),
+                clean_text(row.get("volume_expansion_3x_count", ""), 8),
+                clean_text(row.get("volume_expansion_ratio", ""), 8),
+                clean_text(" / ".join([safe_str(row.get("leader_1")), safe_str(row.get("leader_2")), safe_str(row.get("leader_3"))]).strip(" /"), 36),
+                _pdf_human_text(row.get("interpretation_zh"), row.get("interpretation"), fallback="資金擴散狀態待觀察。", limit=60),
+            ]
+        )
+    story.append(make_table(rows, style_map, [2.5 * cm, 1.6 * cm, 1.8 * cm, 1.8 * cm, 4.1 * cm, 6.0 * cm]))
+
+
+def build_model_line_pdf(report_line: str, full: bool, main_date: str, path: Path) -> None:
+    style_map = styles()
+    signals = load_model_report_signals()
+    tech_map = load_technical_snapshot()
+    chart_map = load_pdf_kline_chart_map()
+    part = signals[signals.get("report_line", "").astype(str).eq(report_line)].copy() if not signals.empty else signals
+    title_prefix = "主流股" if report_line == "mainstream" else "非主流股"
+    title_suffix = "完整候選清單" if full else "每日推薦精華"
+    doc = SimpleDocTemplate(
+        str(path),
+        pagesize=A4,
+        leftMargin=1.5 * cm,
+        rightMargin=1.5 * cm,
+        topMargin=1.2 * cm,
+        bottomMargin=1.2 * cm,
+    )
+    story: list[Any] = []
+    story.append(para(f"{main_date} {title_prefix}{title_suffix}", style_map["title"]))
+    story.append(para("資料來源：repo PDF-ready model signal table；同一模型內分成新進榜與連續/累計進榜，並各自使用程式端排名。", style_map["subtitle"]))
+
+    story.append(para("各模型新進榜第一名摘要", style_map["h1"]))
+    story.append(make_table(_summary_rows_for_section(part, "new"), style_map, [2.8 * cm, 2.8 * cm, 1.4 * cm, 2.0 * cm, 5.2 * cm, 5.0 * cm]))
+    story.append(Spacer(1, 0.25 * cm))
+    story.append(para("各模型連續/累計進榜第一名摘要", style_map["h1"]))
+    story.append(make_table(_summary_rows_for_section(part, "repeated"), style_map, [2.8 * cm, 2.8 * cm, 1.4 * cm, 2.0 * cm, 5.2 * cm, 5.0 * cm]))
+    story.append(PageBreak())
+
+    if full:
+        story.append(para("完整模型名單", style_map["h1"]))
+        limit = None
+    else:
+        story.append(para("各模型代表股分析", style_map["h1"]))
+        limit = 5
+
+    for model_name in _model_names_in_report_order(part):
+        story.append(para(model_name, style_map["h2"]))
+        for section in ["new", "repeated"]:
+            group = _rows_for_model_section(part, model_name, section, limit)
+            if group.empty:
+                continue
+            story.append(para(_repeat_label(section), style_map["h2"]))
+            story.append(make_table(_detail_table_rows_for_section(group, section), style_map, [2.0 * cm, 2.6 * cm, 1.4 * cm, 6.0 * cm, 6.0 * cm]))
+            if not full:
+                story.append(Spacer(1, 0.18 * cm))
+                for _, row in group.iterrows():
+                    story.append(_model_signal_card_readable(row, section, style_map, tech_map, chart_map, include_chart=True))
+            story.append(Spacer(1, 0.25 * cm))
+
+    _append_theme_event_watch_section_readable(story, style_map, compact=not full)
+    _append_group_rotation_section_readable(story, style_map)
+    doc.build(story)
+
+
+# Final PDF-facing renderer override.
+# Keep this block immediately before copy_outputs(), so main() uses this clean
+# implementation even if older experimental helpers above are still present.
+PDF_DISPLAY_TOKEN_ZH_FINAL = {
+    "range_rebound": "\u5340\u9593\u5167\u8f49\u5f37",
+    "revenue_pullback": "\u71df\u6536\u6210\u9577\u80a1\u50f9\u56de\u6a94",
+    "revenue_breakout_low_response": "\u71df\u6536\u7206\u767c\u4f46\u80a1\u50f9\u5c1a\u672a\u53cd\u61c9",
+    "pullback_rebound": "\u56de\u6a94\u5f8c\u77ed\u7dda\u8f49\u5f37",
+    "short_term_specialty": "\u77ed\u7dda\u5c08\u9805",
+    "tdcc_short_term_edge": "TDCC\u77ed\u7dda\u5ef6\u7e8c",
+    "hot_theme_pullback": "\u71b1\u9580\u65cf\u7fa4\u56de\u6a94",
+    "price_pullback_23ema": "\u80a1\u50f9\u56de\u6a94",
+    "tdcc_stealth_accumulation": "TDCC\u6f5b\u4f0f\u5438\u7c4c",
+    "tdcc_short_term_continuation_d5_d10": "TDCC\u77ed\u7dda\u5ef6\u7e8c D+5/D+10",
+    "volume_range_breakout": "\u5e36\u91cf\u7a81\u7834",
+    "w_bottom_right_side": "W\u5e95\u53f3\u5074",
+    "platform_strengthening": "\u5e73\u53f0\u6574\u7406\u8f49\u5f37",
+    "near_high_neckline_challenge": "\u63a5\u8fd1\u524d\u9ad8/\u9838\u7dda\u6311\u6230",
+    "new_model_signal": "\u65b0\u9032\u699c",
+    "repeated_same_model_signal": "\u9023\u7e8c/\u7d2f\u8a08\u9032\u699c",
+    "mainstream": "\u4e3b\u6d41",
+    "non_mainstream": "\u975e\u4e3b\u6d41",
+    "strong_accumulation": "\u5927\u6236\u5f37\u7d2f\u7a4d",
+    "mild_accumulation": "\u5927\u6236\u6eab\u548c\u589e\u52a0",
+    "distribution_warning": "\u5927\u6236\u8f49\u5f31\u8b66\u793a",
+    "neutral": "\u4e2d\u6027",
+    "call_strong_inflow": "\u8a8d\u8cfc\u660e\u78ba\u504f\u591a",
+    "call_inflow": "\u8a8d\u8cfc\u504f\u591a",
+    "call_put_bullish": "\u6b0a\u8b49\u504f\u591a",
+    "mixed_flow": "\u6b0a\u8b49\u591a\u7a7a\u6df7\u5408",
+    "no_signal": "\u7121\u660e\u78ba\u8a0a\u865f",
+    "insufficient_data": "\u8cc7\u6599\u4e0d\u8db3",
+    "neckline": "\u9838\u7dda",
+    "breakout": "\u7a81\u7834",
+    "hot_theme_tag": "\u71b1\u9580\u65cf\u7fa4\u6a19\u7c64",
+    "hot theme tag": "\u71b1\u9580\u65cf\u7fa4\u6a19\u7c64",
+}
+
+
+def _pdf_human_text(*values: Any, fallback: str = "\u8cc7\u6599\u4e0d\u8db3 / \u66ab\u7528\u73fe\u6709\u8cc7\u6599", limit: int | None = None) -> str:
+    text = ""
+    for value in values:
+        candidate = safe_str(value).strip()
+        if candidate and candidate.lower() not in {"nan", "none", "null"}:
+            text = candidate
+            break
+    if not text:
+        text = fallback
+    for raw, zh in PDF_DISPLAY_TOKEN_ZH_FINAL.items():
+        text = re.sub(rf"(?<![A-Za-z0-9_]){re.escape(raw)}(?![A-Za-z0-9_])", zh, text)
+    if re.fullmatch(r"[A-Za-z0-9_./ -]+", text or "") and "_" in text:
+        text = fallback
+    return clean_text(text, limit)
+
+
+def _repeat_label(section: str) -> str:
+    return "\u9023\u7e8c/\u7d2f\u8a08\u9032\u699c" if section == "repeated" else "\u65b0\u9032\u699c"
+
+
+def _rank_for_section(row: pd.Series, section: str) -> str:
+    fields = (
+        ["display_rank_repeated_signal", "model_rank_repeated_signal", "display_rank", "model_rank"]
+        if section == "repeated"
+        else ["display_rank_new_signal", "model_rank_new_signal", "display_rank", "model_rank"]
+    )
+    rank = ""
+    for field in fields:
+        rank = safe_str(row.get(field)).strip()
+        if rank:
+            break
+    if re.fullmatch(r"\d+(\.0+)?", rank or ""):
+        rank = str(int(float(rank)))
+    prefix = "\u9023\u7e8c\u699c#" if section == "repeated" else "\u65b0\u9032\u699c#"
+    if rank and not rank.startswith(prefix):
+        rank = f"{prefix}{rank}"
+    return rank or "-"
+
+
+def _rank_sort_number(row: pd.Series, section: str) -> float:
+    fields = (
+        ["model_rank_repeated_signal", "display_rank_repeated_signal", "display_rank", "model_rank"]
+        if section == "repeated"
+        else ["model_rank_new_signal", "display_rank_new_signal", "display_rank", "model_rank"]
+    )
+    for field in fields:
+        text = safe_str(row.get(field))
+        match = re.search(r"\d+", text)
+        if match:
+            return float(match.group(0))
+    return 999999.0
+
+
+def _score_sort_number(row: pd.Series) -> float:
+    try:
+        return float(safe_str(row.get("model_score")))
+    except Exception:
+        return -999999.0
+
+
+def _model_score_text(value: Any) -> str:
+    text = safe_str(value).strip()
+    if not text:
+        return "-"
+    try:
+        num = float(text)
+        return f"{num:.1f}".rstrip("0").rstrip(".")
+    except Exception:
+        return clean_text(text, 10)
+
+
+def _model_names_in_report_order(df: pd.DataFrame) -> list[str]:
+    if df.empty or "model_name_zh" not in df.columns:
+        return []
+    work = df.copy()
+    work["_rank"] = work.apply(lambda row: min(_rank_sort_number(row, "new"), _rank_sort_number(row, "repeated")), axis=1)
+    work["_score"] = work.apply(_score_sort_number, axis=1)
+    work = work.sort_values(["_rank", "_score"], ascending=[True, False])
+    names: list[str] = []
+    seen: set[str] = set()
+    for name in work["model_name_zh"].astype(str).tolist():
+        clean_name = _pdf_human_text(name, fallback="\u6a21\u578b\u540d\u7a31\u5c1a\u672a\u5b8c\u6210")
+        if clean_name in seen:
+            continue
+        seen.add(clean_name)
+        names.append(clean_name)
+    return names
+
+
+def _rows_for_model_section(df: pd.DataFrame, model_name: str, section: str, limit: int | None) -> pd.DataFrame:
+    if df.empty:
+        return df
+    work = df[df["model_name_zh"].astype(str).map(lambda x: _pdf_human_text(x, fallback="\u6a21\u578b\u540d\u7a31\u5c1a\u672a\u5b8c\u6210")) == model_name].copy()
+    work = work[work.apply(_repeat_key, axis=1).eq("repeated" if section == "repeated" else "new")]
+    if work.empty:
+        return work
+    work["_rank"] = work.apply(lambda row: _rank_sort_number(row, section), axis=1)
+    work["_score"] = work.apply(_score_sort_number, axis=1)
+    work = work.sort_values(["_rank", "_score"], ascending=[True, False])
+    if limit is not None:
+        work = work.head(limit)
+    return work.drop(columns=["_rank", "_score"], errors="ignore")
+
+
+def _summary_rows_for_section(df: pd.DataFrame, section: str) -> list[list[Any]]:
+    rows = [["\u6a21\u578b", "\u7b2c\u4e00\u540d\u6a19\u7684", "\u5206\u6578", "\u6392\u540d", "\u5165\u9078\u539f\u56e0", "\u98a8\u96aa/\u64cd\u4f5c\u63d0\u9192"]]
+    if df.empty:
+        rows.append(["\u8cc7\u6599\u4e0d\u8db3", "-", "-", "-", "PDF-ready \u6b04\u4f4d\u7121\u8cc7\u6599", "\u8cc7\u6599\u4e0d\u8db3 / \u50c5\u80fd\u89c0\u5bdf"])
+        return rows
+    for model_name in _model_names_in_report_order(df):
+        picked = _rows_for_model_section(df, model_name, section, 1)
+        if picked.empty:
+            continue
+        row = picked.iloc[0]
+        rows.append(
+            [
+                _pdf_human_text(model_name, fallback="\u6a21\u578b\u540d\u7a31\u5c1a\u672a\u5b8c\u6210", limit=16),
+                f"{safe_str(row.get('stock_id'))} {safe_str(row.get('stock_name'))}",
+                _model_score_text(row.get("model_score")),
+                _rank_for_section(row, section),
+                _pdf_human_text(row.get("why_selected_human_zh"), row.get("why_selected_zh"), fallback="\u7b26\u5408\u6a21\u578b\u4e3b\u689d\u4ef6\uff0c\u7d30\u9805\u8acb\u770b\u5f8c\u7e8c\u500b\u80a1\u9801\u3002", limit=48),
+                _pdf_human_text(row.get("operation_reminder_zh"), row.get("risk_tags_zh"), row.get("next_confirmation_zh"), row.get("recommended_usage_zh"), fallback="\u4f9d\u6a21\u578b\u689d\u4ef6\u7ba1\u7406\uff1b\u8dcc\u7834\u95dc\u9375\u652f\u6490\u6216\u91cf\u50f9\u5931\u6557\u9700\u964d\u4f4e\u90e8\u4f4d\u3002", limit=48),
+            ]
+        )
+    if len(rows) == 1:
+        rows.append(["\u672c\u6bb5\u7121\u6a19\u7684", "-", "-", "-", f"\u672c\u5831\u544a\u7dda\u6c92\u6709{_repeat_label(section)}\u8cc7\u6599", ""])
+    return rows
+
+
+def _detail_table_rows_for_section(df: pd.DataFrame, section: str) -> list[list[Any]]:
+    rows = [["\u6392\u540d", "\u6a19\u7684", "\u5206\u6578", "\u5165\u9078\u539f\u56e0", "\u98a8\u96aa/\u64cd\u4f5c\u63d0\u9192"]]
+    if df.empty:
+        rows.append(["-", "-", "-", "\u672c\u6bb5\u7121\u6a19\u7684", ""])
+        return rows
+    for _, row in df.iterrows():
+        rows.append(
+            [
+                _rank_for_section(row, section),
+                f"{safe_str(row.get('stock_id'))} {safe_str(row.get('stock_name'))}",
+                _model_score_text(row.get("model_score")),
+                _pdf_human_text(row.get("why_selected_human_zh"), row.get("why_selected_zh"), fallback="\u7b26\u5408\u6a21\u578b\u4e3b\u689d\u4ef6\u3002", limit=62),
+                _pdf_human_text(row.get("operation_reminder_zh"), row.get("risk_tags_zh"), row.get("next_confirmation_zh"), row.get("recommended_usage_zh"), fallback="\u4f9d\u95dc\u9375\u652f\u6490\u8207\u91cf\u50f9\u8b8a\u5316\u7ba1\u7406\u3002", limit=62),
+            ]
+        )
+    return rows
+
+
+def _model_signal_card_readable(
+    row: pd.Series,
+    section: str,
+    style_map: dict[str, ParagraphStyle],
+    tech_map: dict[str, pd.Series],
+    chart_map: dict[tuple[str, str], Path],
+    include_chart: bool,
+) -> KeepTogether:
+    stock_id = safe_str(row.get("stock_id"))
+    stock_name = safe_str(row.get("stock_name"))
+    model_name = _pdf_human_text(row.get("model_name_zh"), fallback="\u6a21\u578b\u540d\u7a31\u5c1a\u672a\u5b8c\u6210")
+    tech = tech_map.get(stock_id, pd.Series(dtype=object))
+    title = f"{stock_id} {stock_name} / {model_name}"
+    take_profit_text = _pdf_human_text(
+        tech.get("take_profit_text_zh"),
+        fallback="\u63a5\u8fd1\u58d3\u529b\u6216\u91cf\u50f9\u5931\u6557\u6642\u5206\u6279\u505c\u5229\u3002",
+    )
+    exit_text = _pdf_human_text(
+        tech.get("exit_condition_text_zh"),
+        fallback="\u8dcc\u7834\u8fd1\u671f\u652f\u6490\u621623EMA\u7121\u6cd5\u6536\u56de\u6642\u9000\u51fa\u3002",
+    )
+    tdcc_text = _pdf_human_text(
+        row.get("tdcc_big_holder_summary_zh"),
+        row.get("tdcc_status_zh"),
+        fallback="TDCC\u6458\u8981\u5c1a\u672a\u5b8c\u6210",
+    )
+    warrant_text = _pdf_human_text(
+        row.get("warrant_flow_signal_zh"),
+        fallback="\u6b0a\u8b49\u6458\u8981\u5c1a\u672a\u5b8c\u6210",
+    )
+    source_text = _pdf_human_text(
+        row.get("source_hit_labels_zh"),
+        fallback="\u4f86\u6e90\u6a19\u7c64\u5c1a\u672a\u5b8c\u6210",
+    )
+    table_rows = [
+        [para(title, style_map["curated_cell"]), para(f"{_repeat_label(section)} / {_rank_for_section(row, section)} / \u5206\u6578 {_model_score_text(row.get('model_score'))}", style_map["curated_cell"])],
+        [para("\u64cd\u4f5c\u7d50\u8ad6", style_map["label"]), para(_pdf_human_text(row.get("operation_reminder_zh"), row.get("recommended_usage_zh"), fallback="\u7b26\u5408\u6a21\u578b\u689d\u4ef6\uff0c\u4ee5\u95dc\u9375\u652f\u6490\u3001\u91cf\u50f9\u8207TDCC\u8b8a\u5316\u7ba1\u7406\u3002"), style_map["curated_cell"])],
+        [para("\u76ee\u524d\u4f4d\u7f6e", style_map["label"]), para(_pdf_human_text(tech.get("price_position_summary_zh"), fallback="\u4f4d\u7f6e\u6458\u8981\u6b04\u4f4d\u5c1a\u672a\u5b8c\u6210\uff0c\u8acb\u4ee5K\u7dda\u5716\u8207\u652f\u6490\u58d3\u529b\u5c0d\u7167\u3002"), style_map["curated_cell"])],
+        [para("\u6280\u8853\u72c0\u614b", style_map["label"]), para(_pdf_human_text(tech.get("technical_summary_zh"), fallback="\u6280\u8853\u6458\u8981\u6b04\u4f4d\u5c1a\u672a\u5b8c\u6210\uff0c\u66ab\u7528K\u7dda\u8207\u91cf\u50f9\u5224\u8b80\u3002"), style_map["curated_cell"])],
+        [para("\u652f\u6490/\u58d3\u529b", style_map["label"]), para(_pdf_human_text(tech.get("support_resistance_summary_zh"), fallback="\u652f\u6490\u58d3\u529b\u7531\u5716\u9762\u6a19\u793a\uff0c\u512a\u5148\u770b23EMA\u3001\u5e73\u53f0\u8207\u524d\u9ad8\u58d3\u529b\u3002"), style_map["curated_cell"])],
+        [para("\u5165\u9078\u539f\u56e0", style_map["label"]), para(_pdf_human_text(row.get("why_selected_human_zh"), row.get("why_selected_zh"), fallback="\u7b26\u5408\u6a21\u578b\u4e3b\u689d\u4ef6\u3002"), style_map["curated_cell"])],
+        [para("\u8cb7\u9032\u689d\u4ef6", style_map["label"]), para(_pdf_human_text(tech.get("buy_condition_text_zh"), row.get("operation_reminder_zh"), fallback="\u7b26\u5408\u6a21\u578b\u689d\u4ef6\u5f8c\uff0c\u4ee5\u4e0d\u8dcc\u7834\u95dc\u9375\u652f\u6490\u8207\u91cf\u50f9\u7e8c\u5f37\u7ba1\u7406\u3002"), style_map["curated_cell"])],
+        [para("\u505c\u5229/\u9000\u51fa", style_map["label"]), para(f"{take_profit_text} / {exit_text}", style_map["curated_cell"])],
+        [para("\u4e3b\u8981\u98a8\u96aa", style_map["label"]), para(_pdf_human_text(row.get("risk_tags_zh"), row.get("tdcc_risk_text_zh"), row.get("downgrade_flags_zh"), fallback="\u98a8\u96aa\u6a19\u7c64\u5c1a\u672a\u5b8c\u6210\uff0c\u4ee5\u91cf\u50f9\u3001TDCC\u8207\u652f\u6490\u5931\u5b88\u7ba1\u7406\u3002"), style_map["curated_cell"])],
+        [para("TDCC / \u6b0a\u8b49 / \u4f86\u6e90", style_map["label"]), para(f"{tdcc_text} / {warrant_text} / {source_text}", style_map["curated_cell"])],
+    ]
+    table = Table(table_rows, colWidths=[4.0 * cm, 12.8 * cm])
+    table.setStyle(TableStyle([("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#EAF2F8")), ("GRID", (0, 0), (-1, -1), 0.25, colors.HexColor("#CFD8E3")), ("VALIGN", (0, 0), (-1, -1), "TOP"), ("LEFTPADDING", (0, 0), (-1, -1), 6), ("RIGHTPADDING", (0, 0), (-1, -1), 6), ("TOPPADDING", (0, 0), (-1, -1), 5), ("BOTTOMPADDING", (0, 0), (-1, -1), 5)]))
+    parts: list[Any] = [table]
+    if include_chart:
+        chart_row = row.copy()
+        chart_row["category"] = safe_str(row.get("original_category")) or safe_str(row.get("source_hit_labels"))
+        chart_path = chart_map.get((stock_id, "")) or redraw_pdf_kline_chart_for_row(chart_row)
+        if chart_path is not None and chart_path.exists():
+            parts.extend([Spacer(1, 0.12 * cm), PdfImage(str(chart_path), width=16.6 * cm, height=8.2 * cm)])
+    parts.append(Spacer(1, 0.22 * cm))
+    return KeepTogether(parts)
+
+
+def _append_theme_event_watch_section_readable(story: list[Any], style_map: dict[str, ParagraphStyle], compact: bool) -> None:
+    events = read_csv_safe(LATEST_DIR / "theme_event_watch_latest.csv", dtype=str, keep_default_na=False)
+    story.append(PageBreak())
+    story.append(para("\u8fd1\u671f\u4e8b\u4ef6\u9810\u8b66 / \u4e3b\u984c\u50ac\u5316\u89c0\u5bdf", style_map["h1"]))
+    if events.empty:
+        story.append(para("\u76ee\u524d\u7121\u53ef\u986f\u793a\u7684\u4e8b\u4ef6\u9810\u8b66\u8cc7\u6599\uff1b\u82e5\u6709\u65b0\u4e8b\u4ef6\uff0c\u8acb\u88dc\u5165 theme_event_watch_latest.csv \u6216\u4e8b\u4ef6\u884c\u4e8b\u66c6\u3002", style_map["normal"]))
+        return
+    rows = [["\u4e8b\u4ef6", "\u65e5\u671f", "\u65cf\u7fa4", "\u4ea4\u96c6\u6578", "\u76f8\u95dc\u6a19\u7684", "\u89e3\u8b80"]]
+    limit = 8 if compact else 30
+    for _, row in events.head(limit).iterrows():
+        start_date = _pdf_human_text(row.get("event_start_date"), row.get("start_date"), fallback="")
+        end_date = _pdf_human_text(row.get("event_end_date"), row.get("end_date"), fallback="")
+        event_range = start_date if not end_date or end_date == start_date else f"{start_date}-{end_date}"
+        rows.append([
+            _pdf_human_text(row.get("event_name"), fallback="\u4e8b\u4ef6\u540d\u7a31\u5c1a\u672a\u5b8c\u6210", limit=24),
+            clean_text(event_range, 18),
+            _pdf_human_text(row.get("theme_tag"), fallback="\u65cf\u7fa4\u6a19\u7c64\u5c1a\u672a\u5b8c\u6210", limit=18),
+            _pdf_human_text(row.get("candidate_intersection_count"), fallback="0", limit=8),
+            _pdf_human_text(row.get("top_candidate_summary_zh"), row.get("candidate_intersection_stock_names"), fallback="-", limit=42),
+            _pdf_human_text(row.get("interpretation_zh"), row.get("theme_event_watch_status"), fallback="\u4e8b\u4ef6\u8cc7\u6599\u5df2\u5217\u5165\u89c0\u5bdf\uff0c\u9700\u5c0d\u7167\u65cf\u7fa4\u8cc7\u91d1\u662f\u5426\u64f4\u6563\u3002", limit=58),
+        ])
+    story.append(make_table(rows, style_map, [3.1 * cm, 2.0 * cm, 2.2 * cm, 1.5 * cm, 4.2 * cm, 5.2 * cm]))
+
+
+def _append_group_rotation_section_readable(story: list[Any], style_map: dict[str, ParagraphStyle]) -> None:
+    rotation = read_csv_safe(LATEST_DIR / "daily_candidate_group_rotation_latest.csv", dtype=str, keep_default_na=False)
+    if rotation.empty:
+        return
+    story.append(PageBreak())
+    story.append(para("\u65cf\u7fa4\u8cc7\u91d1\u8f2a\u52d5\u89c0\u5bdf", style_map["h1"]))
+    story.append(para("\u672c\u7bc0\u53ea\u5224\u8b80\u65cf\u7fa4\u51fa\u91cf\u64f4\u6563\uff0c\u4e0d\u76f4\u63a5\u7576\u500b\u80a1\u8cb7\u9032\u7406\u7531\u3002", style_map["normal"]))
+    rows = [["\u65cf\u7fa4", "\u6a94\u6578", "3\u500d\u91cf\u6a94\u6578", "\u64f4\u6563\u6bd4\u4f8b", "\u9f8d\u982d/\u8001\u4e8c/\u8001\u4e09", "\u89e3\u8b80"]]
+    for _, row in rotation.head(20).iterrows():
+        rows.append([
+            _pdf_human_text(row.get("theme"), fallback="\u65cf\u7fa4\u5c1a\u672a\u5b8c\u6210", limit=18),
+            clean_text(row.get("stock_count", ""), 8),
+            clean_text(row.get("volume_expansion_3x_count", ""), 8),
+            clean_text(row.get("volume_expansion_ratio", ""), 8),
+            clean_text(" / ".join([safe_str(row.get("leader_1")), safe_str(row.get("leader_2")), safe_str(row.get("leader_3"))]).strip(" /"), 36),
+            _pdf_human_text(row.get("interpretation_zh"), row.get("interpretation"), fallback="\u8cc7\u91d1\u64f4\u6563\u72c0\u614b\u5c1a\u672a\u5b8c\u6210\u3002", limit=60),
+        ])
+    story.append(make_table(rows, style_map, [2.5 * cm, 1.6 * cm, 1.8 * cm, 1.8 * cm, 4.1 * cm, 6.0 * cm]))
+
+
+def build_model_line_pdf(report_line: str, full: bool, main_date: str, path: Path) -> None:
+    style_map = styles()
+    signals = load_model_report_signals()
+    tech_map = load_technical_snapshot()
+    chart_map = load_pdf_kline_chart_map()
+    part = signals[signals.get("report_line", "").astype(str).eq(report_line)].copy() if not signals.empty else signals
+    title_prefix = "\u4e3b\u6d41\u80a1" if report_line == "mainstream" else "\u975e\u4e3b\u6d41\u80a1"
+    title_suffix = "\u5b8c\u6574\u5019\u9078\u6e05\u55ae" if full else "\u6bcf\u65e5\u63a8\u85a6\u7cbe\u83ef"
+    doc = SimpleDocTemplate(str(path), pagesize=A4, leftMargin=1.5 * cm, rightMargin=1.5 * cm, topMargin=1.2 * cm, bottomMargin=1.2 * cm)
+    story: list[Any] = []
+    story.append(para(f"{main_date} {title_prefix}{title_suffix}", style_map["title"]))
+    story.append(para("\u8cc7\u6599\u4f86\u6e90\uff1arepo PDF-ready model signal table\uff1b\u540c\u4e00\u6a21\u578b\u5167\u5206\u6210\u65b0\u9032\u699c\u8207\u9023\u7e8c/\u7d2f\u8a08\u9032\u699c\uff0c\u4e26\u5404\u81ea\u4f7f\u7528\u7a0b\u5f0f\u7aef\u6392\u540d\u3002", style_map["subtitle"]))
+    story.append(para("\u5404\u6a21\u578b\u65b0\u9032\u699c\u7b2c\u4e00\u540d\u6458\u8981", style_map["h1"]))
+    story.append(make_table(_summary_rows_for_section(part, "new"), style_map, [2.8 * cm, 2.8 * cm, 1.4 * cm, 2.0 * cm, 5.2 * cm, 5.0 * cm]))
+    story.append(Spacer(1, 0.25 * cm))
+    story.append(para("\u5404\u6a21\u578b\u9023\u7e8c/\u7d2f\u8a08\u9032\u699c\u7b2c\u4e00\u540d\u6458\u8981", style_map["h1"]))
+    story.append(make_table(_summary_rows_for_section(part, "repeated"), style_map, [2.8 * cm, 2.8 * cm, 1.4 * cm, 2.0 * cm, 5.2 * cm, 5.0 * cm]))
+    story.append(PageBreak())
+    limit = None if full else 5
+    story.append(para("\u5b8c\u6574\u6a21\u578b\u6e05\u55ae" if full else "\u5404\u6a21\u578b\u4ee3\u8868\u80a1\u5206\u6790", style_map["h1"]))
+    for model_name in _model_names_in_report_order(part):
+        story.append(para(model_name, style_map["h2"]))
+        for section in ["new", "repeated"]:
+            group = _rows_for_model_section(part, model_name, section, limit)
+            if group.empty:
+                continue
+            story.append(para(_repeat_label(section), style_map["h2"]))
+            story.append(make_table(_detail_table_rows_for_section(group, section), style_map, [2.0 * cm, 2.6 * cm, 1.4 * cm, 6.0 * cm, 6.0 * cm]))
+            if not full:
+                story.append(Spacer(1, 0.18 * cm))
+                for _, row in group.iterrows():
+                    story.append(_model_signal_card_readable(row, section, style_map, tech_map, chart_map, include_chart=True))
+            story.append(Spacer(1, 0.25 * cm))
+    _append_theme_event_watch_section_readable(story, style_map, compact=not full)
+    _append_group_rotation_section_readable(story, style_map)
     doc.build(story)
 
 

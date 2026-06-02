@@ -107,6 +107,69 @@ PACKET_LATEST_OLD = LATEST_DIR / "CHATGPT_DAILY_REPORT_PACKET.txt"
 PACKET_LATEST = LATEST_DIR / "chatgpt_daily_report_packet_latest.txt"
 PACKET_MANIFEST = LATEST_DIR / "chatgpt_daily_report_packet_manifest.json"
 
+DISPLAY_TOKEN_MAP = {
+    "call_put_bullish": "認購/認售結構偏多",
+    "call_strong_inflow": "認購強流入",
+    "call_inflow": "認購流入",
+    "put_strong_inflow": "認售強流入",
+    "put_inflow": "認售流入",
+    "put_call_bearish": "認售/認購結構偏空",
+    "mixed_flow": "多空混合",
+    "no_signal": "無明確訊號",
+    "range_rebound": "區間內轉強 / 挑戰前高觀察",
+    "revenue_pullback": "營收成長股價回檔",
+    "revenue_breakout_low_response": "營收爆發股價尚未反應",
+    "pullback_rebound": "回檔後短線轉強",
+    "true_breakout": "嚴格突破",
+    "pattern": "型態觀察",
+    "pattern_watch": "型態觀察",
+    "short_term_specialty": "短線專項",
+    "strong_accumulation": "大戶強正向",
+    "mild_accumulation": "大戶正向",
+    "distribution_warning": "TDCC 大戶轉弱",
+    "stale_signal": "反覆上榜未突破",
+}
+
+
+def sanitize_display_text(text: str) -> str:
+    for raw, label in DISPLAY_TOKEN_MAP.items():
+        pattern = rf"(?<![A-Za-z0-9_]){re.escape(raw)}(?![A-Za-z0-9_])"
+        text = re.sub(pattern, label, text)
+    return text
+
+
+DISPLAY_TOKEN_MAP.update(
+    {
+        "call_put_bullish": "認購/認售結構偏多",
+        "call_strong_inflow": "認購強流入",
+        "call_inflow": "認購流入",
+        "put_strong_inflow": "認售強流入",
+        "put_inflow": "認售流入",
+        "put_call_bearish": "認售/認購結構偏空",
+        "mixed_flow": "多空混合",
+        "call_activity_observation": "認購活躍觀察",
+        "put_activity_observation": "認售活躍觀察",
+        "low_float_call_spike": "低流通認購異常",
+        "no_signal": "無明確訊號",
+        "range_rebound": "區間內轉強 / 挑戰前高觀察",
+        "revenue_pullback": "營收成長股價回檔",
+        "revenue_breakout_low_response": "營收爆發但股價尚未反應",
+        "pullback_rebound": "回檔後短線轉強",
+        "true_breakout": "嚴格突破",
+        "pattern": "型態觀察",
+        "pattern_watch": "型態觀察",
+        "short_term_specialty": "短線專項",
+        "strong_accumulation": "大戶同步增加",
+        "mild_accumulation": "大戶溫和增加",
+        "distribution_warning": "TDCC 大戶轉弱",
+        "stale_signal": "反覆上榜未突破",
+        "tdcc_distribution_penalty": "TDCC 轉弱扣分",
+        "false_breakout_risk_penalty": "假突破風險扣分",
+        "continued_many_days": "連續多日上榜",
+        "repeated_but_no_breakout": "反覆上榜未突破",
+    }
+)
+
 
 def now_taipei() -> datetime:
     return datetime.now(ZoneInfo("Asia/Taipei"))
@@ -721,6 +784,7 @@ def main() -> int:
         paths=paths,
         meta=meta,
     )
+    packet_text = sanitize_display_text(packet_text)
 
     history_packet = HISTORY_REPORT_DIR / f"{main_date}_CHATGPT_DAILY_REPORT_PACKET.txt"
 

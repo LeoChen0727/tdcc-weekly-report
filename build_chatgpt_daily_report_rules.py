@@ -260,8 +260,8 @@ TDCC RULES
 
 WARRANT FLOW RULES
 - Warrant flow is supporting evidence only.
-- call_inflow or call_strong_inflow supports short-term attention.
-- call_put_bullish may indicate bullish structure but still needs price confirmation.
+- 認購流入 or 認購強流入 supports short-term attention.
+- 認購/認售結構偏多 may indicate bullish structure but still needs price confirmation.
 - Do not treat warrant flow as the main buy reason.
 
 MAINSTREAM / VOLUME ATTACK THEME STATUS RULES

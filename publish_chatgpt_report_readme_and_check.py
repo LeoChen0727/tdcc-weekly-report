@@ -140,6 +140,18 @@ TDCC_PHASE_DISTRIBUTION_CSV = LATEST_DIR / "tdcc_phase_distribution_latest.csv"
 TDCC_TOP_RISK_LIST_MD = LATEST_DIR / "tdcc_top_risk_list_latest.md"
 TDCC_TOP_RISK_LIST_CSV = LATEST_DIR / "tdcc_top_risk_list_latest.csv"
 TDCC_CHATGPT_TRACKING_PACKET_MD = LATEST_DIR / "tdcc_chatgpt_tracking_packet_latest.md"
+TDCC_WEEKLY_INCREASE_RANKING_MD = LATEST_DIR / "tdcc_weekly_increase_ranking_latest.md"
+TDCC_WEEKLY_INCREASE_RANKING_CSV = LATEST_DIR / "tdcc_weekly_increase_ranking_latest.csv"
+TDCC_CONSECUTIVE_ACCUMULATION_RANKING_MD = LATEST_DIR / "tdcc_consecutive_accumulation_ranking_latest.md"
+TDCC_CONSECUTIVE_ACCUMULATION_RANKING_CSV = LATEST_DIR / "tdcc_consecutive_accumulation_ranking_latest.csv"
+TDCC_WEEKLY_MODEL_CROSS_SUMMARY_MD = LATEST_DIR / "tdcc_weekly_model_cross_summary_latest.md"
+TDCC_WEEKLY_MODEL_CROSS_SUMMARY_CSV = LATEST_DIR / "tdcc_weekly_model_cross_summary_latest.csv"
+TDCC_WEEKLY_CANDIDATE_HIGHLIGHT_FOR_REPORT_MD = LATEST_DIR / "tdcc_weekly_candidate_highlight_for_report_latest.md"
+TDCC_WEEKLY_CANDIDATE_HIGHLIGHT_FOR_REPORT_CSV = LATEST_DIR / "tdcc_weekly_candidate_highlight_for_report_latest.csv"
+TDCC_WEEKLY_CANDIDATE_FULL_FOR_REPORT_MD = LATEST_DIR / "tdcc_weekly_candidate_full_for_report_latest.md"
+TDCC_WEEKLY_CANDIDATE_FULL_FOR_REPORT_CSV = LATEST_DIR / "tdcc_weekly_candidate_full_for_report_latest.csv"
+TDCC_WEEKLY_CANDIDATE_HIGHLIGHT_MD = LATEST_DIR / "tdcc_weekly_candidate_highlight_latest.md"
+TDCC_WEEKLY_CANDIDATE_FULL_MD = LATEST_DIR / "tdcc_weekly_candidate_full_latest.md"
 SURGE_MODEL_PACKET_MD = LATEST_DIR / "surge_model_chatgpt_packet_latest.md"
 SURGE_PRECONDITION_CANDIDATES_MD = LATEST_DIR / "surge_precondition_candidates_latest.md"
 SURGE_PRECONDITION_CANDIDATES_CSV = LATEST_DIR / "surge_precondition_candidates_latest.csv"
@@ -186,6 +198,10 @@ DAILY_CANDIDATE_MODEL_SIGNALS_CSV = LATEST_DIR / "daily_candidate_model_signals_
 DAILY_CANDIDATE_MODEL_SIGNALS_MD = LATEST_DIR / "daily_candidate_model_signals_latest.md"
 DAILY_CANDIDATE_MODEL_REPORT_SIGNALS_CSV = LATEST_DIR / "daily_candidate_model_signals_for_report_latest.csv"
 DAILY_CANDIDATE_MODEL_REPORT_SIGNALS_MD = LATEST_DIR / "daily_candidate_model_signals_for_report_latest.md"
+DAILY_REPORT_MODEL_REGISTRY_CSV = LATEST_DIR / "daily_report_model_registry_latest.csv"
+DAILY_REPORT_MODEL_REGISTRY_MD = LATEST_DIR / "daily_report_model_registry_latest.md"
+DAILY_CANDIDATE_MODEL_SUMMARY_FOR_REPORT_CSV = LATEST_DIR / "daily_candidate_model_summary_for_report_latest.csv"
+DAILY_CANDIDATE_MODEL_SUMMARY_FOR_REPORT_MD = LATEST_DIR / "daily_candidate_model_summary_for_report_latest.md"
 DAILY_CANDIDATE_MODEL_LAYER_PACKET_MD = LATEST_DIR / "daily_candidate_model_layer_packet_latest.md"
 DAILY_CANDIDATE_MODEL_LAYER_VALIDATION_JSON = LATEST_DIR / "daily_candidate_model_layer_validation_latest.json"
 DAILY_CANDIDATE_MODEL_LAYER_VALIDATION_MD = LATEST_DIR / "daily_candidate_model_layer_validation_latest.md"
@@ -705,6 +721,14 @@ def build_readme(
         f"daily_candidate_model_signals_for_report_md_raw_url={raw_url('main', DAILY_CANDIDATE_MODEL_REPORT_SIGNALS_MD)}",
         f"daily_candidate_model_signals_for_report_csv_pages_url={pages_url('latest/daily_candidate_model_signals_for_report_latest.csv')}",
         f"daily_candidate_model_signals_for_report_md_pages_url={pages_url('latest/daily_candidate_model_signals_for_report_latest.md')}",
+        f"daily_report_model_registry_csv_raw_url={raw_url('main', DAILY_REPORT_MODEL_REGISTRY_CSV)}",
+        f"daily_report_model_registry_md_raw_url={raw_url('main', DAILY_REPORT_MODEL_REGISTRY_MD)}",
+        f"daily_report_model_registry_csv_pages_url={pages_url('latest/daily_report_model_registry_latest.csv')}",
+        f"daily_report_model_registry_md_pages_url={pages_url('latest/daily_report_model_registry_latest.md')}",
+        f"daily_candidate_model_summary_for_report_csv_raw_url={raw_url('main', DAILY_CANDIDATE_MODEL_SUMMARY_FOR_REPORT_CSV)}",
+        f"daily_candidate_model_summary_for_report_md_raw_url={raw_url('main', DAILY_CANDIDATE_MODEL_SUMMARY_FOR_REPORT_MD)}",
+        f"daily_candidate_model_summary_for_report_csv_pages_url={pages_url('latest/daily_candidate_model_summary_for_report_latest.csv')}",
+        f"daily_candidate_model_summary_for_report_md_pages_url={pages_url('latest/daily_candidate_model_summary_for_report_latest.md')}",
         f"daily_candidate_group_rotation_csv_raw_url={raw_url('main', DAILY_CANDIDATE_GROUP_ROTATION_CSV)}",
         f"daily_candidate_group_rotation_md_raw_url={raw_url('main', DAILY_CANDIDATE_GROUP_ROTATION_MD)}",
         f"daily_candidate_group_rotation_csv_pages_url={pages_url('latest/daily_candidate_group_rotation_latest.csv')}",
@@ -866,6 +890,18 @@ def build_readme(
         f"tdcc_top_risk_list_md_raw_url={raw_url('main', TDCC_TOP_RISK_LIST_MD)}",
         f"tdcc_top_risk_list_csv_raw_url={raw_url('main', TDCC_TOP_RISK_LIST_CSV)}",
         f"tdcc_chatgpt_tracking_packet_raw_url={raw_url('main', TDCC_CHATGPT_TRACKING_PACKET_MD)}",
+        f"tdcc_weekly_increase_ranking_csv_raw_url={raw_url('main', TDCC_WEEKLY_INCREASE_RANKING_CSV)}",
+        f"tdcc_weekly_increase_ranking_md_raw_url={raw_url('main', TDCC_WEEKLY_INCREASE_RANKING_MD)}",
+        f"tdcc_consecutive_accumulation_ranking_csv_raw_url={raw_url('main', TDCC_CONSECUTIVE_ACCUMULATION_RANKING_CSV)}",
+        f"tdcc_consecutive_accumulation_ranking_md_raw_url={raw_url('main', TDCC_CONSECUTIVE_ACCUMULATION_RANKING_MD)}",
+        f"tdcc_weekly_model_cross_summary_csv_raw_url={raw_url('main', TDCC_WEEKLY_MODEL_CROSS_SUMMARY_CSV)}",
+        f"tdcc_weekly_model_cross_summary_md_raw_url={raw_url('main', TDCC_WEEKLY_MODEL_CROSS_SUMMARY_MD)}",
+        f"tdcc_weekly_candidate_highlight_for_report_csv_raw_url={raw_url('main', TDCC_WEEKLY_CANDIDATE_HIGHLIGHT_FOR_REPORT_CSV)}",
+        f"tdcc_weekly_candidate_highlight_for_report_md_raw_url={raw_url('main', TDCC_WEEKLY_CANDIDATE_HIGHLIGHT_FOR_REPORT_MD)}",
+        f"tdcc_weekly_candidate_full_for_report_csv_raw_url={raw_url('main', TDCC_WEEKLY_CANDIDATE_FULL_FOR_REPORT_CSV)}",
+        f"tdcc_weekly_candidate_full_for_report_md_raw_url={raw_url('main', TDCC_WEEKLY_CANDIDATE_FULL_FOR_REPORT_MD)}",
+        f"tdcc_weekly_candidate_highlight_md_raw_url={raw_url('main', TDCC_WEEKLY_CANDIDATE_HIGHLIGHT_MD)}",
+        f"tdcc_weekly_candidate_full_md_raw_url={raw_url('main', TDCC_WEEKLY_CANDIDATE_FULL_MD)}",
         f"surge_model_chatgpt_packet_raw_url={raw_url('main', SURGE_MODEL_PACKET_MD)}",
         f"surge_precondition_candidates_md_raw_url={raw_url('main', SURGE_PRECONDITION_CANDIDATES_MD)}",
         f"surge_precondition_candidates_csv_raw_url={raw_url('main', SURGE_PRECONDITION_CANDIDATES_CSV)}",
@@ -1172,6 +1208,10 @@ def sync_docs_files() -> None:
         DAILY_CANDIDATE_MODEL_SIGNALS_MD,
         DAILY_CANDIDATE_MODEL_REPORT_SIGNALS_CSV,
         DAILY_CANDIDATE_MODEL_REPORT_SIGNALS_MD,
+        DAILY_REPORT_MODEL_REGISTRY_CSV,
+        DAILY_REPORT_MODEL_REGISTRY_MD,
+        DAILY_CANDIDATE_MODEL_SUMMARY_FOR_REPORT_CSV,
+        DAILY_CANDIDATE_MODEL_SUMMARY_FOR_REPORT_MD,
         DAILY_CANDIDATE_MODEL_LAYER_PACKET_MD,
         DAILY_CANDIDATE_MODEL_LAYER_VALIDATION_JSON,
         DAILY_CANDIDATE_MODEL_LAYER_VALIDATION_MD,
@@ -1623,6 +1663,14 @@ def main() -> int:
         "daily_candidate_model_signals_for_report_md_raw_url": raw_url("main", DAILY_CANDIDATE_MODEL_REPORT_SIGNALS_MD),
         "daily_candidate_model_signals_for_report_csv_pages_url": pages_url("latest/daily_candidate_model_signals_for_report_latest.csv"),
         "daily_candidate_model_signals_for_report_md_pages_url": pages_url("latest/daily_candidate_model_signals_for_report_latest.md"),
+        "daily_report_model_registry_csv_raw_url": raw_url("main", DAILY_REPORT_MODEL_REGISTRY_CSV),
+        "daily_report_model_registry_md_raw_url": raw_url("main", DAILY_REPORT_MODEL_REGISTRY_MD),
+        "daily_report_model_registry_csv_pages_url": pages_url("latest/daily_report_model_registry_latest.csv"),
+        "daily_report_model_registry_md_pages_url": pages_url("latest/daily_report_model_registry_latest.md"),
+        "daily_candidate_model_summary_for_report_csv_raw_url": raw_url("main", DAILY_CANDIDATE_MODEL_SUMMARY_FOR_REPORT_CSV),
+        "daily_candidate_model_summary_for_report_md_raw_url": raw_url("main", DAILY_CANDIDATE_MODEL_SUMMARY_FOR_REPORT_MD),
+        "daily_candidate_model_summary_for_report_csv_pages_url": pages_url("latest/daily_candidate_model_summary_for_report_latest.csv"),
+        "daily_candidate_model_summary_for_report_md_pages_url": pages_url("latest/daily_candidate_model_summary_for_report_latest.md"),
         "daily_candidate_group_rotation_csv_raw_url": raw_url("main", DAILY_CANDIDATE_GROUP_ROTATION_CSV),
         "daily_candidate_group_rotation_md_raw_url": raw_url("main", DAILY_CANDIDATE_GROUP_ROTATION_MD),
         "daily_candidate_group_rotation_csv_pages_url": pages_url("latest/daily_candidate_group_rotation_latest.csv"),
@@ -1767,6 +1815,18 @@ def main() -> int:
         "tdcc_top_risk_list_md_raw_url": raw_url("main", TDCC_TOP_RISK_LIST_MD),
         "tdcc_top_risk_list_csv_raw_url": raw_url("main", TDCC_TOP_RISK_LIST_CSV),
         "tdcc_chatgpt_tracking_packet_raw_url": raw_url("main", TDCC_CHATGPT_TRACKING_PACKET_MD),
+        "tdcc_weekly_increase_ranking_csv_raw_url": raw_url("main", TDCC_WEEKLY_INCREASE_RANKING_CSV),
+        "tdcc_weekly_increase_ranking_md_raw_url": raw_url("main", TDCC_WEEKLY_INCREASE_RANKING_MD),
+        "tdcc_consecutive_accumulation_ranking_csv_raw_url": raw_url("main", TDCC_CONSECUTIVE_ACCUMULATION_RANKING_CSV),
+        "tdcc_consecutive_accumulation_ranking_md_raw_url": raw_url("main", TDCC_CONSECUTIVE_ACCUMULATION_RANKING_MD),
+        "tdcc_weekly_model_cross_summary_csv_raw_url": raw_url("main", TDCC_WEEKLY_MODEL_CROSS_SUMMARY_CSV),
+        "tdcc_weekly_model_cross_summary_md_raw_url": raw_url("main", TDCC_WEEKLY_MODEL_CROSS_SUMMARY_MD),
+        "tdcc_weekly_candidate_highlight_for_report_csv_raw_url": raw_url("main", TDCC_WEEKLY_CANDIDATE_HIGHLIGHT_FOR_REPORT_CSV),
+        "tdcc_weekly_candidate_highlight_for_report_md_raw_url": raw_url("main", TDCC_WEEKLY_CANDIDATE_HIGHLIGHT_FOR_REPORT_MD),
+        "tdcc_weekly_candidate_full_for_report_csv_raw_url": raw_url("main", TDCC_WEEKLY_CANDIDATE_FULL_FOR_REPORT_CSV),
+        "tdcc_weekly_candidate_full_for_report_md_raw_url": raw_url("main", TDCC_WEEKLY_CANDIDATE_FULL_FOR_REPORT_MD),
+        "tdcc_weekly_candidate_highlight_md_raw_url": raw_url("main", TDCC_WEEKLY_CANDIDATE_HIGHLIGHT_MD),
+        "tdcc_weekly_candidate_full_md_raw_url": raw_url("main", TDCC_WEEKLY_CANDIDATE_FULL_MD),
         "surge_model_chatgpt_packet_raw_url": raw_url("main", SURGE_MODEL_PACKET_MD),
         "surge_precondition_candidates_md_raw_url": raw_url("main", SURGE_PRECONDITION_CANDIDATES_MD),
         "surge_precondition_candidates_csv_raw_url": raw_url("main", SURGE_PRECONDITION_CANDIDATES_CSV),
