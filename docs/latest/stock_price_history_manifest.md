@@ -1,6 +1,6 @@
 # Stock Price History Manifest
 
-- generated_at: `2026-06-01 22:13:57 Asia/Taipei`
+- generated_at: `2026-06-02 19:35:01 Asia/Taipei`
 - stock_count: `2368`
 - history_dir: `data/stock_price_history/`
 - manifest_csv: `output/latest/stock_price_history_manifest.csv`
@@ -17,33 +17,33 @@
 
 | stock_id | stock_name | rows | start_date | end_date | file_path |
 |---|---|---:|---|---|---|
-| 7803 | 雲象科技-創 | 9 | 20260520 | 20260601 | `data/stock_price_history/7803.csv` |
-| 6722 | 輝創 | 86 | 20260116 | 20260601 | `data/stock_price_history/6722.csv` |
-| 7795 | 長廣 | 86 | 20260116 | 20260601 | `data/stock_price_history/7795.csv` |
-| 1623 | 大東電 | 82 | 20260122 | 20260601 | `data/stock_price_history/1623.csv` |
 | 6288 | 聯嘉 | 82 | 20250407 | 20250804 | `data/stock_price_history/6288.csv` |
-| 4590 | 富田-創 | 77 | 20260129 | 20260601 | `data/stock_price_history/4590.csv` |
-| 6934 | 心誠鎂 | 75 | 20260202 | 20260601 | `data/stock_price_history/6934.csv` |
-| 7823 | 奧義賽博-KY創 | 72 | 20260205 | 20260601 | `data/stock_price_history/7823.csv` |
-| 006201 | 元大富櫃50 | 7 | 20260522 | 20260601 | `data/stock_price_history/006201.csv` |
-| 006203 | 元大MSCI台灣 | 7 | 20260522 | 20260601 | `data/stock_price_history/006203.csv` |
-| 006204 | 永豐臺灣加權 | 7 | 20260522 | 20260601 | `data/stock_price_history/006204.csv` |
-| 006205 | 富邦上証 | 7 | 20260522 | 20260601 | `data/stock_price_history/006205.csv` |
-| 006206 | 元大上證50 | 7 | 20260522 | 20260601 | `data/stock_price_history/006206.csv` |
-| 006207 | 復華滬深 | 7 | 20260522 | 20260601 | `data/stock_price_history/006207.csv` |
-| 006208 | 富邦台50 | 7 | 20260522 | 20260601 | `data/stock_price_history/006208.csv` |
-| 00636 | 國泰中國A50 | 7 | 20260522 | 20260601 | `data/stock_price_history/00636.csv` |
-| 00639 | 富邦深100 | 7 | 20260522 | 20260601 | `data/stock_price_history/00639.csv` |
-| 00643 | 群益深証中小 | 7 | 20260522 | 20260601 | `data/stock_price_history/00643.csv` |
-| 00645 | 富邦日本 | 7 | 20260522 | 20260601 | `data/stock_price_history/00645.csv` |
-| 00646 | 元大S&P500 | 7 | 20260522 | 20260601 | `data/stock_price_history/00646.csv` |
-| 00652 | 富邦印度 | 7 | 20260522 | 20260601 | `data/stock_price_history/00652.csv` |
-| 00657 | 國泰日經225 | 7 | 20260522 | 20260601 | `data/stock_price_history/00657.csv` |
-| 00660 | 元大歐洲50 | 7 | 20260522 | 20260601 | `data/stock_price_history/00660.csv` |
-| 00661 | 元大日經225 | 7 | 20260522 | 20260601 | `data/stock_price_history/00661.csv` |
-| 00662 | 富邦NASDAQ | 7 | 20260522 | 20260601 | `data/stock_price_history/00662.csv` |
-| 00668 | 國泰美國道瓊 | 7 | 20260522 | 20260601 | `data/stock_price_history/00668.csv` |
-| 00678 | 群益那斯達克生技 | 7 | 20260522 | 20260601 | `data/stock_price_history/00678.csv` |
-| 00690 | 兆豐藍籌30 | 7 | 20260522 | 20260601 | `data/stock_price_history/00690.csv` |
-| 00692 | 富邦公司治理 | 7 | 20260522 | 20260601 | `data/stock_price_history/00692.csv` |
-| 00700 | 富邦恒生國企 | 7 | 20260522 | 20260601 | `data/stock_price_history/00700.csv` |
+| 2888 | 新光金 | 66 | 20250407 | 20250711 | `data/stock_price_history/2888.csv` |
+| 3426 | 台興 | 261 | 20250407 | 20260601 | `data/stock_price_history/3426.csv` |
+| 4413 | 飛寶企業 | 259 | 20250407 | 20260601 | `data/stock_price_history/4413.csv` |
+| 4154 | 樂威科-KY | 256 | 20250407 | 20260601 | `data/stock_price_history/4154.csv` |
+| 2724 | 藝舍-KY | 249 | 20250407 | 20260601 | `data/stock_price_history/2724.csv` |
+| 3064 | 泰偉 | 249 | 20250407 | 20260529 | `data/stock_price_history/3064.csv` |
+| 4305 | 世坤 | 246 | 20250407 | 20260601 | `data/stock_price_history/4305.csv` |
+| 6762 | 達亞 | 243 | 20250407 | 20260529 | `data/stock_price_history/6762.csv` |
+| 1589 | 永冠-KY | 235 | 20250407 | 20260402 | `data/stock_price_history/1589.csv` |
+| 3454 | 晶睿 | 224 | 20250407 | 20260318 | `data/stock_price_history/3454.csv` |
+| 1435 | 中福 | 216 | 20250408 | 20260428 | `data/stock_price_history/1435.csv` |
+| 6103 | 合邦 | 195 | 20250407 | 20260601 | `data/stock_price_history/6103.csv` |
+| 6747 | 亨泰光 | 17 | 20251103 | 20251126 | `data/stock_price_history/6747.csv` |
+| 0200 | 兆豐半導體氣候N | 136 | 20250407 | 20251031 | `data/stock_price_history/0200.csv` |
+| 7000 | 系統電永豐58購01 | 136 | 20250407 | 20251031 | `data/stock_price_history/7000.csv` |
+| 7001 | 華景電統一61購01 | 136 | 20250407 | 20251031 | `data/stock_price_history/7001.csv` |
+| 7002 | 鏵友益統一6A購01 | 136 | 20250407 | 20251031 | `data/stock_price_history/7002.csv` |
+| 7003 | 系微凱基57購01 | 136 | 20250407 | 20251031 | `data/stock_price_history/7003.csv` |
+| 7004 | 聖暉*兆豐56購01 | 136 | 20250407 | 20251031 | `data/stock_price_history/7004.csv` |
+| 7005 | 原相元大5A購01 | 136 | 20250407 | 20251031 | `data/stock_price_history/7005.csv` |
+| 7006 | 營邦統一6A購01 | 136 | 20250407 | 20251031 | `data/stock_price_history/7006.csv` |
+| 7007 | 竑騰統一5C購01 | 136 | 20250407 | 20251031 | `data/stock_price_history/7007.csv` |
+| 7008 | 力旺統一6A購01 | 136 | 20250407 | 20251031 | `data/stock_price_history/7008.csv` |
+| 7009 | 閎康兆豐56購01 | 136 | 20250407 | 20251031 | `data/stock_price_history/7009.csv` |
+| 7010 | 營邦元大5A購01 | 136 | 20250407 | 20251031 | `data/stock_price_history/7010.csv` |
+| 7011 | 擎亞元大56購01 | 136 | 20250407 | 20251031 | `data/stock_price_history/7011.csv` |
+| 7012 | 三聯群益59購01 | 136 | 20250407 | 20251031 | `data/stock_price_history/7012.csv` |
+| 7013 | 中光電凱基5A購01 | 136 | 20250407 | 20251031 | `data/stock_price_history/7013.csv` |
+| 7014 | M31元富56購01 | 136 | 20250407 | 20251031 | `data/stock_price_history/7014.csv` |
