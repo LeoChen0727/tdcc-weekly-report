@@ -504,3 +504,18 @@
 | 3 | 2484 | 希華 | 7.62 | 7.33 | 8.65 | 8.51 | 過熱延續 | strong_but_overheated |
 | 4 | 6284 | 佳邦 | 6.97 | 7.33 | 8.09 | 6.26 | 過熱延續 | strong_but_overheated |
 | 5 | 4906 | 正文 | 5.27 | 4.22 | 4.94 | 5.56 | 過熱延續 | strong_but_overheated |
+
+## TDCC WEEKLY CANDIDATE REPORTS
+
+- 精華版與完整版由 report-ready CSV/MD/PDF 產出。
+- 精華版包含當週增幅前五、連續累積前五，以及 TDCC 名單與每日候選模型交集前段。
+- 完整版當週增幅與連續累積最多列前一百名；後段模型分析只保留 TDCC 短線延續模型 D+5/D+10。
+
+- tdcc_weekly_candidate_highlight_for_report_csv_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_weekly_candidate_highlight_for_report_latest.csv
+- tdcc_weekly_candidate_highlight_for_report_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_weekly_candidate_highlight_for_report_latest.md
+- tdcc_weekly_candidate_full_for_report_csv_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_weekly_candidate_full_for_report_latest.csv
+- tdcc_weekly_candidate_full_for_report_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_weekly_candidate_full_for_report_latest.md
+- tdcc_weekly_candidate_highlight_pdf_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_weekly_candidate_highlight_latest.pdf
+- tdcc_weekly_candidate_full_pdf_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_weekly_candidate_full_latest.pdf
+- tdcc_weekly_candidate_highlight_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/tdcc_weekly_candidate_highlight_latest.pdf
+- tdcc_weekly_candidate_full_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/tdcc_weekly_candidate_full_latest.pdf

@@ -1,124 +1,181 @@
-# TDCC Weekly Candidate Highlight
+# TDCC 大戶籌碼週報精華版
 
-- generated_at: 2026-06-02 14:01:45 Asia/Taipei
-- report_design: 分成當週增幅榜與連續累積榜；再用每日候選模型做交叉檢查，區分潛伏吸籌、股價領先、過熱與背離風險。
-- model_cross_note: 每個 TDCC 名單內的股票可出現在多個每日模型；不同模型不混成單一總排名。
+這份報告使用 TDCC weekly report-ready structured data 產生；TDCC 是籌碼追蹤，不是單獨買進理由。
 
-## 當週增幅榜
+## 當週增幅排名
 
-| rank | signal_date | stock_id | stock_name | theme | theme_mainstream_status | tdcc_weekly_increase_score | tdcc_consecutive_accumulation_score | tdcc_1w_change_400 | tdcc_1w_change_600 | tdcc_1w_change_800 | tdcc_1w_change_1000 | tdcc_four_threshold_weekly_increase_sum | tdcc_consecutive_up_weeks | all_thresholds_up | high_thresholds_up | tdcc_price_phase | tdcc_phase_group_zh | risk_bucket | price_return_20d | distance_ma20_pct | relative_return_vs_benchmark | ranking_note_zh |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | 20260529 | 6127 | 九豪 | other electronics | mainstream_leader | 81.34 | 109.34 | 11.70 | 11.90 | 11.26 | 13.67 | 48.53 | 3 | True | True | overheated_after_tdcc | 過熱延續 | strong_but_overheated | 52.61 | 31.75 | 36.99 | 本週四級距合計增加；四級距同步增加；800/1000 高級距同步增加；連續增加 3 週；族群狀態加分；過熱延續 |
-| 2 | 20260529 | 6770 | 力積電 | other electronics | mainstream_leader | 77.64 | 100.64 | 11.57 | 11.70 | 11.62 | 11.72 | 46.61 | 2 | True | True | overheated_after_tdcc | 過熱延續 | strong_but_overheated | 70.91 | 37.97 | 32.59 | 本週四級距合計增加；四級距同步增加；800/1000 高級距同步增加；連續增加 2 週；族群狀態加分；過熱延續 |
-| 3 | 20260529 | 3211 | 順達 | semiconductor | mainstream_leader | 66.88 | 84.88 | 9.97 | 10.69 | 8.89 | 9.93 | 39.48 | 1 | True | True | price_leading_tdcc | 股價領先 / 追高風險 | strong_but_late | 20.94 | 11.17 | 13.39 | 本週四級距合計增加；四級距同步增加；800/1000 高級距同步增加；族群狀態加分；股價領先 / 追高風險 |
-| 4 | 20260529 | 2369 | 菱生 | biotechnology | mainstream_leader | 61.74 | 79.74 | 8.20 | 8.95 | 9.15 | 9.08 | 35.38 | 1 | True | True | overheated_after_tdcc | 過熱延續 | strong_but_overheated | 36.38 | 23.32 | 27.04 | 本週四級距合計增加；四級距同步增加；800/1000 高級距同步增加；族群狀態加分；過熱延續 |
-| 5 | 20260529 | 2484 | 希華 | other electronics | mainstream_leader | 57.28 | 80.28 | 7.62 | 7.33 | 8.65 | 8.51 | 32.11 | 2 | True | True | overheated_after_tdcc | 過熱延續 | strong_but_overheated | 37.29 | 21.27 | 36.93 | 本週四級距合計增加；四級距同步增加；800/1000 高級距同步增加；連續增加 2 週；族群狀態加分；過熱延續 |
+| section_rank | stock_id | stock_name | tdcc_phase_group_zh | risk_bucket | tdcc_score | why_selected_zh | next_confirmation_zh | operation_note_zh |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 6127 | 九豪 | TDCC 後股價過熱 | strong_but_overheated | 610.36 | 四級距本週增加 4/4，高級距增加 2/2；連續增加 3 週；TDCC 後股價過熱 | 用每日候選模型與價格位置確認可操作性。 | 若價格已領先或過熱，需降為觀察；若仍在潛伏或初步確認，才進一步看每日候選模型。 |
+| 2 | 6770 | 力積電 | TDCC 後股價過熱 | strong_but_overheated | 587.32 | 四級距本週增加 4/4，高級距增加 2/2；連續增加 2 週；TDCC 後股價過熱 | 用每日候選模型與價格位置確認可操作性。 | 若價格已領先或過熱，需降為觀察；若仍在潛伏或初步確認，才進一步看每日候選模型。 |
+| 3 | 3211 | 順達 | 股價領先 TDCC / 追高風險 | strong_but_late | 507.76 | 四級距本週增加 4/4，高級距增加 2/2；股價領先 TDCC / 追高風險 | 用每日候選模型與價格位置確認可操作性。 | 若價格已領先或過熱，需降為觀察；若仍在潛伏或初步確認，才進一步看每日候選模型。 |
+| 4 | 2369 | 菱生 | TDCC 後股價過熱 | strong_but_overheated | 452.56 | 四級距本週增加 4/4，高級距增加 2/2；TDCC 後股價過熱 | 用每日候選模型與價格位置確認可操作性。 | 若價格已領先或過熱，需降為觀察；若仍在潛伏或初步確認，才進一步看每日候選模型。 |
+| 5 | 2484 | 希華 | TDCC 後股價過熱 | strong_but_overheated | 413.32 | 四級距本週增加 4/4，高級距增加 2/2；連續增加 2 週；TDCC 後股價過熱 | 用每日候選模型與價格位置確認可操作性。 | 若價格已領先或過熱，需降為觀察；若仍在潛伏或初步確認，才進一步看每日候選模型。 |
 
-## 連續累積榜 / Strength Ranking
+## 連續累積排名
 
-| rank | signal_date | stock_id | stock_name | theme | theme_mainstream_status | tdcc_weekly_increase_score | tdcc_consecutive_accumulation_score | tdcc_1w_change_400 | tdcc_1w_change_600 | tdcc_1w_change_800 | tdcc_1w_change_1000 | tdcc_four_threshold_weekly_increase_sum | tdcc_consecutive_up_weeks | all_thresholds_up | high_thresholds_up | tdcc_price_phase | tdcc_phase_group_zh | risk_bucket | price_return_20d | distance_ma20_pct | relative_return_vs_benchmark | ranking_note_zh |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | 20260529 | 6127 | 九豪 | other electronics | mainstream_leader | 81.34 | 109.34 | 11.70 | 11.90 | 11.26 | 13.67 | 48.53 | 3 | True | True | overheated_after_tdcc | 過熱延續 | strong_but_overheated | 52.61 | 31.75 | 36.99 | 本週四級距合計增加；四級距同步增加；800/1000 高級距同步增加；連續增加 3 週；族群狀態加分；過熱延續 |
-| 2 | 20260529 | 6770 | 力積電 | other electronics | mainstream_leader | 77.64 | 100.64 | 11.57 | 11.70 | 11.62 | 11.72 | 46.61 | 2 | True | True | overheated_after_tdcc | 過熱延續 | strong_but_overheated | 70.91 | 37.97 | 32.59 | 本週四級距合計增加；四級距同步增加；800/1000 高級距同步增加；連續增加 2 週；族群狀態加分；過熱延續 |
-| 3 | 20260529 | 2484 | 希華 | other electronics | mainstream_leader | 57.28 | 80.28 | 7.62 | 7.33 | 8.65 | 8.51 | 32.11 | 2 | True | True | overheated_after_tdcc | 過熱延續 | strong_but_overheated | 37.29 | 21.27 | 36.93 | 本週四級距合計增加；四級距同步增加；800/1000 高級距同步增加；連續增加 2 週；族群狀態加分；過熱延續 |
-| 4 | 20260529 | 6284 | 佳邦 | other electronics | mainstream_leader | 51.23 | 79.23 | 6.97 | 7.33 | 8.09 | 6.26 | 28.65 | 3 | True | True | overheated_after_tdcc | 過熱延續 | strong_but_overheated | 58.49 | 28.78 | 33.53 | 本週四級距合計增加；四級距同步增加；800/1000 高級距同步增加；連續增加 3 週；族群狀態加分；過熱延續 |
-| 5 | 20260529 | 4906 | 正文 | networking | mainstream_overheated | 37.36 | 70.36 | 5.27 | 4.22 | 4.94 | 5.56 | 19.99 | 4 | True | True | overheated_after_tdcc | 過熱延續 | strong_but_overheated | 44.90 | 23.90 | 18.30 | 本週四級距合計增加；四級距同步增加；800/1000 高級距同步增加；連續增加 4 週；過熱延續 |
+| section_rank | stock_id | stock_name | tdcc_phase_group_zh | risk_bucket | tdcc_score | why_selected_zh | next_confirmation_zh | operation_note_zh |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 6127 | 九豪 | TDCC 後股價過熱 | strong_but_overheated | 622.36 | 四級距本週增加 4/4，高級距增加 2/2；連續增加 3 週；TDCC 後股價過熱 | 用每日候選模型與價格位置確認可操作性。 | 若價格已領先或過熱，需降為觀察；若仍在潛伏或初步確認，才進一步看每日候選模型。 |
+| 2 | 6770 | 力積電 | TDCC 後股價過熱 | strong_but_overheated | 595.32 | 四級距本週增加 4/4，高級距增加 2/2；連續增加 2 週；TDCC 後股價過熱 | 用每日候選模型與價格位置確認可操作性。 | 若價格已領先或過熱，需降為觀察；若仍在潛伏或初步確認，才進一步看每日候選模型。 |
+| 3 | 3211 | 順達 | 股價領先 TDCC / 追高風險 | strong_but_late | 511.76 | 四級距本週增加 4/4，高級距增加 2/2；股價領先 TDCC / 追高風險 | 用每日候選模型與價格位置確認可操作性。 | 若價格已領先或過熱，需降為觀察；若仍在潛伏或初步確認，才進一步看每日候選模型。 |
+| 4 | 2369 | 菱生 | TDCC 後股價過熱 | strong_but_overheated | 456.56 | 四級距本週增加 4/4，高級距增加 2/2；TDCC 後股價過熱 | 用每日候選模型與價格位置確認可操作性。 | 若價格已領先或過熱，需降為觀察；若仍在潛伏或初步確認，才進一步看每日候選模型。 |
+| 5 | 2484 | 希華 | TDCC 後股價過熱 | strong_but_overheated | 421.32 | 四級距本週增加 4/4，高級距增加 2/2；連續增加 2 週；TDCC 後股價過熱 | 用每日候選模型與價格位置確認可操作性。 | 若價格已領先或過熱，需降為觀察；若仍在潛伏或初步確認，才進一步看每日候選模型。 |
 
-## 當週增幅榜 x 每日候選模型前三
+## 連續累積榜 × 熱門族群回檔模型
 
-| tdcc_list_type | tdcc_rank | signal_date | stock_id | stock_name | theme | tdcc_phase_group_zh | risk_bucket | tdcc_score | model_id | model_name_zh | display_rank | tdcc_model_rank_in_list | model_score | model_source | source_hit_labels_zh | why_selected_zh | risk_tags_zh | next_confirmation_zh |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| weekly_increase | 592 |  | 1305 | 華夏 | traditional industries | 價格資料不足 | insufficient_data | 6.29 | daily_decision_pattern | 型態觀察（決策層） | 2 | 1 | 74.00 | daily_candidate_decision | 型態觀察 | 型態觀察；型態=預備發動型；分類分數=130；TDCC=strong_accumulation；權證=no_signal |  | 等待量價、TDCC、相對強弱至少一項轉強。 |
-| weekly_increase | 328 |  | 1313 | 聯成 | traditional industries | 潛伏吸籌 | strong_but_pre_move | 11.01 | daily_decision_pattern | 型態觀察（決策層） | 3 | 2 | 74.00 | daily_candidate_decision | 型態觀察 | 型態觀察；型態=預備發動型；分類分數=116；TDCC=strong_accumulation；權證=no_signal |  | 等待量價、TDCC、相對強弱至少一項轉強。 |
-| weekly_increase | 203 |  | 2027 | 大成鋼 | traditional industries | 潛伏吸籌 | strong_but_pre_move | 13.37 | daily_decision_pattern | 型態觀察（決策層） | 4 | 3 | 74.00 | daily_candidate_decision | 型態觀察 | 型態觀察；型態=已突破但未過熱；分類分數=110；TDCC=strong_accumulation；權證=call_strong_inflow |  | 等待量價、TDCC、相對強弱至少一項轉強。 |
-| weekly_increase | 367 |  | 2022 | 聚亨 | traditional industries | 潛伏吸籌 | strong_but_pre_move | 10.64 | daily_decision_pullback_rebound | 回檔後短線轉強（決策層） | 1 | 1 | 76.00 | daily_candidate_decision | 回檔後短線轉強 | 回檔後短線轉強；分類分數=70；量比=1.54；距前高=-21.21%；20日漲幅=-2.49%；TDCC=strong_accumulation |  | 等待量價、TDCC、相對強弱至少一項轉強。 |
-| weekly_increase | 371 |  | 2101 | 南港 | traditional industries | 價格資料不足 | insufficient_data | 10.62 | daily_decision_pullback_rebound | 回檔後短線轉強（決策層） | 2 | 2 | 76.00 | daily_candidate_decision | 回檔後短線轉強 | 回檔後短線轉強；分類分數=70；量比=2.59；距前高=-16.56%；20日漲幅=-7.25%；TDCC=strong_accumulation；權證=no_signal |  | 等待量價、TDCC、相對強弱至少一項轉強。 |
-| weekly_increase | 167 |  | 2537 | 聯上發 | traditional industries | 價格資料不足 | insufficient_data | 14.18 | daily_decision_pullback_rebound | 回檔後短線轉強（決策層） | 3 | 3 | 76.00 | daily_candidate_decision | 回檔後短線轉強 | 回檔後短線轉強；分類分數=70；量比=1.59；距前高=-8.22%；20日漲幅=-1.95%；TDCC=strong_accumulation |  | 等待量價、TDCC、相對強弱至少一項轉強。 |
-| weekly_increase | 328 |  | 1313 | 聯成 | traditional industries | 潛伏吸籌 | strong_but_pre_move | 11.01 | daily_decision_range_rebound | 區間內轉強 / 挑戰前高觀察（決策層） | 2 | 1 | 88.80 | daily_candidate_decision | 區間內轉強 / 挑戰前高觀察 | 區間內轉強 / 挑戰前高觀察；型態=neckline/platform breakout; upgrade only when risk checks pass；分類分數=69；量比=2.25；距前高=-21.79%；20日漲幅=-1.35%；TDCC=strong_accumulation；權證=no_signal |  | 確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。 |
-| weekly_increase | 241 |  | 1449 | 佳和 | traditional industries | 價格資料不足 | insufficient_data | 12.35 | daily_decision_range_rebound | 區間內轉強 / 挑戰前高觀察（決策層） | 3 | 2 | 88.80 | daily_candidate_decision | 區間內轉強 / 挑戰前高觀察 | 區間內轉強 / 挑戰前高觀察；型態=neckline/platform breakout; upgrade only when risk checks pass；分類分數=69；量比=2.62；距前高=-17.60%；20日漲幅=8.49%；TDCC=mild_accumulation |  | 確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。 |
-| weekly_increase | 315 |  | 1612 | 宏泰 | other electronics | 潛伏吸籌 | strong_but_pre_move | 11.17 | daily_decision_range_rebound | 區間內轉強 / 挑戰前高觀察（決策層） | 4 | 3 | 88.80 | daily_candidate_decision | 區間內轉強 / 挑戰前高觀察 | 區間內轉強 / 挑戰前高觀察；型態=neckline_challenge；分類分數=69；量比=1.84；距前高=-0.53%；20日漲幅=2.59%；TDCC=strong_accumulation；權證=no_signal |  | 確認放量站上頸線/平台壓力，且收盤靠近高點。 |
-| weekly_increase | 367 |  | 2022 | 聚亨 | traditional industries | 潛伏吸籌 | strong_but_pre_move | 10.64 | daily_decision_revenue_pullback | 營收成長股價回檔（決策層） | 1 | 1 | 77.00 | daily_candidate_decision | 營收成長股價回檔 | 營收成長股價回檔；分類分數=70；量比=1.54；距前高=-21.21%；20日漲幅=-2.49%；TDCC=strong_accumulation |  | 等待量價、TDCC、相對強弱至少一項轉強。 |
-| weekly_increase | 371 |  | 2101 | 南港 | traditional industries | 價格資料不足 | insufficient_data | 10.62 | daily_decision_revenue_pullback | 營收成長股價回檔（決策層） | 2 | 2 | 77.00 | daily_candidate_decision | 營收成長股價回檔 | 營收成長股價回檔；分類分數=70；量比=2.59；距前高=-16.56%；20日漲幅=-7.25%；TDCC=strong_accumulation；權證=no_signal |  | 等待量價、TDCC、相對強弱至少一項轉強。 |
-| weekly_increase | 167 |  | 2537 | 聯上發 | traditional industries | 價格資料不足 | insufficient_data | 14.18 | daily_decision_revenue_pullback | 營收成長股價回檔（決策層） | 3 | 3 | 77.00 | daily_candidate_decision | 營收成長股價回檔 | 營收成長股價回檔；分類分數=70；量比=1.59；距前高=-8.22%；20日漲幅=-1.95%；TDCC=strong_accumulation |  | 等待量價、TDCC、相對強弱至少一項轉強。 |
-| weekly_increase | 63 |  | 2328 | 廣宇 | other electronics | 價格資料不足 | insufficient_data | 21.87 | daily_decision_true_breakout | 嚴格突破（決策層） | 1 | 1 | 100.00 | daily_candidate_decision | 嚴格突破 | 嚴格突破；型態=breakout_confirmed / true_breakout；分類分數=114；量比=2.10；距前高=6.46%；20日漲幅=17.76%；TDCC=mild_accumulation；權證=no_signal |  | 確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。 |
-| weekly_increase | 368 |  | 2376 | 技嘉 | other electronics | 股價領先 / 追高風險 | strong_but_late | 10.64 | daily_decision_true_breakout | 嚴格突破（決策層） | 3 | 2 | 100.00 | daily_candidate_decision | 嚴格突破 | 嚴格突破；型態=breakout_confirmed / true_breakout；分類分數=92；量比=1.86；距前高=4.31%；20日漲幅=22.08%；TDCC=strong_accumulation；權證=call_inflow |  | 確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。 |
-| weekly_increase | 189 |  | 2385 | 群光 | other electronics | 價格資料不足 | insufficient_data | 13.74 | daily_decision_true_breakout | 嚴格突破（決策層） | 5 | 3 | 100.00 | daily_candidate_decision | 嚴格突破 | 嚴格突破；型態=breakout_confirmed / true_breakout；分類分數=153；量比=1.73；距前高=2.54%；20日漲幅=5.60%；TDCC=strong_accumulation；權證=call_strong_inflow |  | 確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。 |
-| weekly_increase | 798 | 20260601 | 3033 | 威健 | semiconductor | 價格資料不足 | insufficient_data | 2.48 | hot_theme_pullback | 熱門族群回檔模型 | 1 | 1 | 100.00 | daily_candidate_model_signal | 型態觀察 | 基礎分=50 / 量比:0.81x +0.0 / TDCC正向 +8 / 權證偏多 +6 / hot 族群 tag +12:半導體業 / IC通路 / near 23EMA/support +10 / 23EMA斜率向上 +6 / 回檔買點區 +5 / pullback volume not chasing +3 | 未見重大風險標籤 | 等待量價、TDCC、相對強弱至少一項轉強。 |
-| weekly_increase | 577 | 20260601 | 2368 | 金像電 | other electronics | 價格資料不足 | insufficient_data | 6.72 | hot_theme_pullback | 熱門族群回檔模型 | 3 | 2 | 100.00 | daily_candidate_model_signal | 型態觀察 | 基礎分=50 / 量比:0.78x +0.0 / TDCC正向 +8 / 營收強 +6 / hot 族群 tag +12:PCB_CCL_ABF材料 / 網通交換器 / 車用電子 / near 23EMA/support +10 / 23EMA斜率向上 +6 / 回檔買點區 +5 / pullback volume not chasing +3 | 未見重大風險標籤 | 等待量價、TDCC、相對強弱至少一項轉強。 |
-| weekly_increase | 783 | 20260601 | 2374 | 佳能 | other electronics | 價格資料不足 | insufficient_data | 2.58 | hot_theme_pullback | 熱門族群回檔模型 | 6 | 3 | 99.80 | daily_candidate_model_signal | 區間內轉強 / 挑戰前高觀察 | 基礎分=50 / 量比:1.46x +1.8 / TDCC正向 +8 / 權證偏多 +6 / 營收強 +6 / hot 族群 tag +12:機器人 / 機器視覺 / near 23EMA/support +10 / 23EMA斜率向上 +6 | 未見重大風險標籤 | 確認放量站上頸線/平台壓力，且收盤靠近高點。 |
-| weekly_increase | 96 | 20260601 | 4739 | 康普 | other | 價格資料不足 | insufficient_data | 18.01 | near_high_neckline_challenge | 接近前高 / 頸線挑戰模型 | 1 | 1 | 74.40 | daily_candidate_model_signal | 營收成長股價回檔 | 基礎分=50 / 量比:2.10x +4.4 / TDCC正向 +8 / 權證偏多 +6 / 營收強 +6 | 未見重大風險標籤 | 用於觀察即將挑戰壓力的股票；若隔日突破且收盤站上，轉入突破模型。 |
-| weekly_increase | 503 | 20260601 | 2882 | 國泰金 | finance | 價格資料不足 | insufficient_data | 8.81 | near_high_neckline_challenge | 接近前高 / 頸線挑戰模型 | 3 | 2 | 64.80 | daily_candidate_model_signal | 營收成長股價回檔 | 基礎分=50 / 量比:1.21x +0.8 / TDCC正向 +8 / 營收強 +6 | 未見重大風險標籤 | 等待量價、TDCC、相對強弱至少一項轉強。 |
-| weekly_increase | 438 | 20260601 | 4306 | 炎洲 | other | 潛伏吸籌 | strong_but_pre_move | 10.18 | near_high_neckline_challenge | 接近前高 / 頸線挑戰模型 | 4 | 3 | 60.00 | daily_candidate_model_signal | 營收成長股價回檔 | 基礎分=50 / 量比:1.51x +2.0 / TDCC正向 +8 | 未見重大風險標籤 | 等待量價、TDCC、相對強弱至少一項轉強。 |
-| weekly_increase | 379 | 20260601 | 2347 | 聯強 | other electronics | 潛伏吸籌 | strong_but_pre_move | 10.56 | platform_strengthening | 平台整理轉強模型 | 1 | 1 | 65.60 | daily_candidate_model_signal | 區間內轉強 / 挑戰前高觀察 | 基礎分=50 / 量比:1.40x +1.6 / TDCC正向 +8 / 營收強 +6 | 未見重大風險標籤 | 確認放量站上頸線/平台壓力，且收盤靠近高點。 |
-| weekly_increase | 177 | 20260601 | 3588 | 通嘉 | other electronics | 潛伏吸籌 | strong_but_pre_move | 14.03 | platform_strengthening | 平台整理轉強模型 | 2 | 2 | 59.90 | daily_candidate_model_signal | 區間內轉強 / 挑戰前高觀察 | 基礎分=50 / 量比:1.47x +1.9 / TDCC正向 +8 | 未見重大風險標籤 | 確認放量站上頸線/平台壓力，且收盤靠近高點。 |
-| weekly_increase | 822 | 20260601 | 1909 | 榮成 | traditional industries | 價格資料不足 | insufficient_data | 2.30 | platform_strengthening | 平台整理轉強模型 | 2 | 3 | 59.20 | daily_candidate_model_signal | 區間內轉強 / 挑戰前高觀察 | 基礎分=50 / 量比:1.31x +1.2 / TDCC正向 +8 | 未見重大風險標籤 | 確認放量站上頸線/平台壓力，且收盤靠近高點。 |
-| weekly_increase | 613 | 20260601 | 3036 | 文曄 | semiconductor | 價格資料不足 | insufficient_data | 5.63 | price_pullback_23ema | 股價回檔模型 | 2 | 1 | 95.00 | daily_candidate_model_signal | 型態觀察 | 基礎分=50 / 量比:0.61x +0.0 / TDCC正向 +8 / 權證偏多 +6 / 營收強 +6 / 接近23EMA / 平台 +10 / 23EMA斜率向上 +7 / 回檔買點區 +5 / 非追量買點 +3 | 未見重大風險標籤 | 等待量價、TDCC、相對強弱至少一項轉強。 |
-| weekly_increase | 570 | 20260601 | 6438 | 迅得 | other electronics | 價格資料不足 | insufficient_data | 7.05 | price_pullback_23ema | 股價回檔模型 | 3 | 2 | 90.20 | daily_candidate_model_signal | 營收成長股價回檔 | 基礎分=50 / 量比:1.05x +0.2 / TDCC正向 +8 / 權證偏多 +6 / 營收強 +6 / 接近23EMA / 平台 +10 / 23EMA斜率向上 +7 / 非追量買點 +3 | 未見重大風險標籤 | 等待量價、TDCC、相對強弱至少一項轉強。 |
-| weekly_increase | 450 | 20260601 | 2514 | 龍邦 | traditional industries | 價格資料不足 | insufficient_data | 10.13 | price_pullback_23ema | 股價回檔模型 | 3 | 3 | 90.00 | daily_candidate_model_signal | 區間內轉強 / 挑戰前高觀察 | 基礎分=50 / 量比:4.74x +15.0 / TDCC正向 +8 / 接近23EMA / 平台 +10 / 23EMA斜率向上 +7 | 未見重大風險標籤 | 確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。 |
-| weekly_increase | 782 | 20260601 | 5203 | 訊連 | other electronics | 價格資料不足 | insufficient_data | 2.58 | pullback_short_reclaim | 回檔後短線轉強模型 | 1 | 1 | 73.00 | daily_candidate_model_signal | 嚴格突破 | 基礎分=50 / 量比:5.20x +15.0 / TDCC正向 +8 | 未見重大風險標籤 | 確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。 |
-| weekly_increase | 783 | 20260601 | 2374 | 佳能 | other electronics | 價格資料不足 | insufficient_data | 2.58 | pullback_short_reclaim | 回檔後短線轉強模型 | 2 | 2 | 71.80 | daily_candidate_model_signal | 區間內轉強 / 挑戰前高觀察 | 基礎分=50 / 量比:1.46x +1.8 / TDCC正向 +8 / 權證偏多 +6 / 營收強 +6 | 未見重大風險標籤 | 確認放量站上頸線/平台壓力，且收盤靠近高點。 |
-| weekly_increase | 203 | 20260601 | 2027 | 大成鋼 | traditional industries | 潛伏吸籌 | strong_but_pre_move | 13.37 | pullback_short_reclaim | 回檔後短線轉強模型 | 2 | 3 | 70.00 | daily_candidate_model_signal | 型態觀察 | 基礎分=50 / 量比:0.91x +0.0 / TDCC正向 +8 / 權證偏多 +6 / 營收強 +6 | 未見重大風險標籤 | 等待量價、TDCC、相對強弱至少一項轉強。 |
-| weekly_increase | 783 | 20260601 | 2374 | 佳能 | other electronics | 價格資料不足 | insufficient_data | 2.58 | revenue_unreacted_range | 營收爆發但股價尚未反應模型 | 1 | 1 | 71.80 | daily_candidate_model_signal | 區間內轉強 / 挑戰前高觀察 | 基礎分=50 / 量比:1.46x +1.8 / TDCC正向 +8 / 權證偏多 +6 / 營收強 +6 | 未見重大風險標籤 | 確認放量站上頸線/平台壓力，且收盤靠近高點。 |
-| weekly_increase | 131 | 20260601 | 3715 | 定穎投控 | other electronics | 價格資料不足 | insufficient_data | 15.51 | revenue_unreacted_range | 營收爆發但股價尚未反應模型 | 2 | 2 | 71.10 | daily_candidate_model_signal | 區間內轉強 / 挑戰前高觀察 | 基礎分=50 / 量比:1.27x +1.1 / TDCC正向 +8 / 權證偏多 +6 / 營收強 +6 | 未見重大風險標籤 | 確認放量站上頸線/平台壓力，且收盤靠近高點。 |
-| weekly_increase | 739 | 20260601 | 1590 | 亞德客-KY | other electronics | 價格資料不足 | insufficient_data | 2.97 | revenue_unreacted_range | 營收爆發但股價尚未反應模型 | 3 | 3 | 70.70 | daily_candidate_model_signal | 營收成長股價回檔 | 基礎分=50 / 量比:1.17x +0.7 / TDCC正向 +8 / 權證偏多 +6 / 營收強 +6 | 未見重大風險標籤 | 等待量價、TDCC、相對強弱至少一項轉強。 |
-| weekly_increase | 414 | 20260601 | 1530 | 亞崴 | other electronics | 過熱延續 | strong_but_overheated | 10.29 | tdcc_short_term_continuation_d5_d10 | TDCC短線延續模型 D+5/D+10 | 1 | 1 | 100.00 | daily_candidate_model_signal | 短線專項 | 基礎分=50 / D+10勝率 85.2% +8.8 / D+10相對報酬 11.8% +8.3 / D+5勝率 67.1% +1.7 / 四級距同步過熱 +8 / TDCC連續週數 1週 +6 / MACD柱狀體>0 +6 / 1週漲幅10-30 +8 / 2週漲幅20-50 +8 / 布林寬度極端 -3 / 主流 +4 / 強多市場 +3 | 欄位尚未完成 | 短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。 |
-| weekly_increase | 107 | 20260601 | 5284 | jpp-KY | other electronics | 股價領先 / 追高風險 | strong_but_late | 16.99 | tdcc_short_term_continuation_d5_d10 | TDCC短線延續模型 D+5/D+10 | 1 | 2 | 100.00 | daily_candidate_model_signal | 短線專項 | 基礎分=50 / D+10勝率 85.2% +8.8 / D+10相對報酬 11.8% +8.3 / D+5勝率 67.1% +1.7 / 四級距同步過熱 +8 / TDCC連續週數 3週 +6 / MACD柱狀體>0 +8 / KD多方未過熱 +6 / 1週漲幅10-30 +8 / 強多市場 +3 | 未見重大風險標籤 | 短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。 |
-| weekly_increase | 700 | 20260601 | 1570 | 力肯 | other electronics | 價格資料不足 | insufficient_data | 3.37 | tdcc_short_term_continuation_d5_d10 | TDCC短線延續模型 D+5/D+10 | 2 | 3 | 100.00 | daily_candidate_model_signal | 短線專項 | 基礎分=50 / D+10勝率 81.1% +7.8 / D+10相對報酬 8.4% +5.9 / D+5勝率 65.6% +1.6 / TDCC過熱階段 +4 / TDCC連續週數 3週 +6 / MACD柱狀體>0 +6 / KD多方未過熱 +6 / 1週漲幅10-30 +8 / 2週漲幅20-50 +8 / 布林寬度極端 -3 / 主流 +4 / 強多市場 +3 | 欄位尚未完成 | 短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。 |
-| weekly_increase | 783 | 20260601 | 2374 | 佳能 | other electronics | 價格資料不足 | insufficient_data | 2.58 | tdcc_stealth_accumulation | TDCC潛伏吸籌模型 | 1 | 1 | 71.80 | daily_candidate_model_signal | 區間內轉強 / 挑戰前高觀察 | 基礎分=50 / 量比:1.46x +1.8 / TDCC正向 +8 / 權證偏多 +6 / 營收強 +6 | 未見重大風險標籤 | 確認放量站上頸線/平台壓力，且收盤靠近高點。 |
-| weekly_increase | 131 | 20260601 | 3715 | 定穎投控 | other electronics | 價格資料不足 | insufficient_data | 15.51 | tdcc_stealth_accumulation | TDCC潛伏吸籌模型 | 2 | 2 | 71.10 | daily_candidate_model_signal | 區間內轉強 / 挑戰前高觀察 | 基礎分=50 / 量比:1.27x +1.1 / TDCC正向 +8 / 權證偏多 +6 / 營收強 +6 | 未見重大風險標籤 | 確認放量站上頸線/平台壓力，且收盤靠近高點。 |
-| weekly_increase | 739 | 20260601 | 1590 | 亞德客-KY | other electronics | 價格資料不足 | insufficient_data | 2.97 | tdcc_stealth_accumulation | TDCC潛伏吸籌模型 | 3 | 3 | 70.70 | daily_candidate_model_signal | 營收成長股價回檔 | 基礎分=50 / 量比:1.17x +0.7 / TDCC正向 +8 / 權證偏多 +6 / 營收強 +6 | 未見重大風險標籤 | 等待量價、TDCC、相對強弱至少一項轉強。 |
-| weekly_increase | 771 | 20260601 | 3002 | 歐格 | semiconductor | 價格資料不足 | insufficient_data | 2.67 | volume_range_breakout | 帶量突破模型 | 1 | 1 | 94.40 | daily_candidate_model_signal | 區間內轉強 / 挑戰前高觀察 | 基礎分=50 / 量比:3.60x +10.4 / TDCC正向 +8 / 營收強 +6 / 平台/neckline breakout +10 / close 接近前高 +5 / clean base width +5 | 未見重大風險標籤 | 以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。 |
-| weekly_increase | 782 | 20260601 | 5203 | 訊連 | other electronics | 價格資料不足 | insufficient_data | 2.58 | volume_range_breakout | 帶量突破模型 | 2 | 2 | 93.00 | daily_candidate_model_signal | 嚴格突破 | 基礎分=50 / 量比:5.20x +15.0 / TDCC正向 +8 / 平台/neckline breakout +10 / close 接近前高 +5 / clean base width +5 | 未見重大風險標籤 | 確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。 |
-| weekly_increase | 708 | 20260601 | 8215 | 明基材 | other electronics | 價格資料不足 | insufficient_data | 3.23 | volume_range_breakout | 帶量突破模型 | 4 | 3 | 91.40 | daily_candidate_model_signal | 嚴格突破 | 基礎分=50 / 量比:4.10x +12.4 / TDCC正向 +8 / 權證偏多 +6 / 平台/neckline breakout +10 / close 接近前高 +5 | 未見重大風險標籤 | 確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。 |
-| weekly_increase | 241 | 20260601 | 1449 | 佳和 | traditional industries | 價格資料不足 | insufficient_data | 12.35 | w_bottom_right_side | W底右側模型 | 1 | 1 | 79.70 | daily_candidate_model_signal | 營收成長股價回檔 | 基礎分=50 / 量比:2.62x +6.5 / TDCC正向 +8 / 營收強 +6 / W底位階:14.2% / 距頸線:-1.7% / W底前盤整寬度:18.3% / 右側量能支撐 +3.2 / 第二段攻擊接近第一段 +2 / 第二段攻擊量能放大 +4 | 未見重大風險標籤 | 等待量價、TDCC、相對強弱至少一項轉強。 |
-| weekly_increase | 705 | 20260601 | 2597 | 潤弘 | traditional industries | 價格資料不足 | insufficient_data | 3.28 | w_bottom_right_side | W底右側模型 | 2 | 2 | 62.80 | daily_candidate_model_signal | 區間內轉強 / 挑戰前高觀察 | 基礎分=50 / 量比:1.30x +1.2 / TDCC正向 +8 / W底位階:6.9% / 距頸線:0.6% / W底前盤整寬度:20.7% / 右側量能支撐 +0.6 / 第二段攻擊量能放大 +4 / 第二段紅K比例改善 +3 | 欄位尚未完成 | 確認放量站上頸線/平台壓力，且收盤靠近高點。 |
-| weekly_increase | 317 | 20260601 | 2014 | 中鴻 | traditional industries | 價格資料不足 | insufficient_data | 11.13 | w_bottom_right_side | W底右側模型 | 3 | 3 | 58.30 | daily_candidate_model_signal | 型態觀察 | 基礎分=50 / 量比:1.08x +0.3 / TDCC正向 +8 / W底位階:36.0% / 距頸線:-1.1% / W底前盤整寬度:19.7% / 第二段攻擊量能放大 +4 | 欄位尚未完成 | 確認放量站上頸線/平台壓力，且收盤靠近高點。 |
+| section_rank | stock_id | stock_name | tdcc_phase_group_zh | risk_bucket | tdcc_score | model_name_zh | tdcc_model_rank_in_list | model_score | why_selected_zh | next_confirmation_zh | operation_note_zh |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2404 | 漢唐 | 價格資料不足 | insufficient_data | 206.6 | 熱門族群回檔模型 | 1.0 | 84.0 | 符合熱門族群回檔模型，具熱門族群標籤，股價回測23EMA或支撐後轉強。具族群題材。 | 先看 TDCC 是否停止轉弱，再看價格能否守住 MA20 / EMA23 與突破區。 | 用來抓熱門題材股回檔買點；先看23EMA/支撐是否守住，再用TDCC、權證、量價與營收作排序。 |
+| 2 | 8039 | 台虹 | 價格資料不足 | insufficient_data | 173.4 | 熱門族群回檔模型 | 2.0 | 94.0 | 符合熱門族群回檔模型，具熱門族群標籤，股價回測23EMA或支撐後轉強。大戶籌碼正向。具族群題材。 | 等待量價 / TDCC / 相對強弱至少一項轉強。 | 用來抓熱門題材股回檔買點；先看23EMA/支撐是否守住，再用TDCC、權證、量價與營收作排序。 |
+| 3 | 3019 | 亞光 | TDCC 領先股價 / 潛伏吸籌 | strong_but_pre_move | 173.24 | 熱門族群回檔模型 | 3.0 | 94.0 | 符合熱門族群回檔模型，具熱門族群標籤，股價回測23EMA或支撐後轉強。大戶籌碼正向。具族群題材。 | 等待量價 / TDCC / 相對強弱至少一項轉強。 | 用來抓熱門題材股回檔買點；先看23EMA/支撐是否守住，再用TDCC、權證、量價與營收作排序。 |
 
-## 連續累積榜 x 每日候選模型前三
+## 連續累積榜 × 接近前高 / 頸線挑戰模型
 
-| tdcc_list_type | tdcc_rank | signal_date | stock_id | stock_name | theme | tdcc_phase_group_zh | risk_bucket | tdcc_score | model_id | model_name_zh | display_rank | tdcc_model_rank_in_list | model_score | model_source | source_hit_labels_zh | why_selected_zh | risk_tags_zh | next_confirmation_zh |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| consecutive_accumulation | 461 |  | 1304 | 台聚 | traditional industries | 價格資料不足 | insufficient_data | 27.02 | daily_decision_pattern | 型態觀察（決策層） | 1 | 1 | 74.00 | daily_candidate_decision | 型態觀察 | 型態觀察；型態=預備發動型；分類分數=130；TDCC=strong_accumulation；權證=call_inflow |  | 等待量價、TDCC、相對強弱至少一項轉強。 |
-| consecutive_accumulation | 350 |  | 1305 | 華夏 | traditional industries | 價格資料不足 | insufficient_data | 36.29 | daily_decision_pattern | 型態觀察（決策層） | 2 | 2 | 74.00 | daily_candidate_decision | 型態觀察 | 型態觀察；型態=預備發動型；分類分數=130；TDCC=strong_accumulation；權證=no_signal |  | 等待量價、TDCC、相對強弱至少一項轉強。 |
-| consecutive_accumulation | 172 |  | 1313 | 聯成 | traditional industries | 潛伏吸籌 | strong_but_pre_move | 44.01 | daily_decision_pattern | 型態觀察（決策層） | 3 | 3 | 74.00 | daily_candidate_decision | 型態觀察 | 型態觀察；型態=預備發動型；分類分數=116；TDCC=strong_accumulation；權證=no_signal |  | 等待量價、TDCC、相對強弱至少一項轉強。 |
-| consecutive_accumulation | 193 |  | 2022 | 聚亨 | traditional industries | 潛伏吸籌 | strong_but_pre_move | 43.64 | daily_decision_pullback_rebound | 回檔後短線轉強（決策層） | 1 | 1 | 76.00 | daily_candidate_decision | 回檔後短線轉強 | 回檔後短線轉強；分類分數=70；量比=1.54；距前高=-21.21%；20日漲幅=-2.49%；TDCC=strong_accumulation |  | 等待量價、TDCC、相對強弱至少一項轉強。 |
-| consecutive_accumulation | 454 |  | 2867 | 三商壽 | finance | 價格資料不足 | insufficient_data | 28.17 | daily_decision_pullback_rebound | 回檔後短線轉強（決策層） | 4 | 2 | 76.00 | daily_candidate_decision | 回檔後短線轉強 | 回檔後短線轉強；分類分數=70；量比=1.86；距前高=-5.80%；20日漲幅=-2.55%；TDCC=strong_accumulation；權證=no_signal |  | 等待量價、TDCC、相對強弱至少一項轉強。 |
-| consecutive_accumulation | 559 |  | 5522 | 遠雄 | traditional industries | 價格資料不足 | insufficient_data | 20.71 | daily_decision_pullback_rebound | 回檔後短線轉強（決策層） | 6 | 3 | 73.00 | daily_candidate_decision | 回檔後短線轉強 | 回檔後短線轉強；分類分數=70；量比=1.36；距前高=-0.54%；20日漲幅=6.00%；TDCC=mild_accumulation |  | 等待量價、TDCC、相對強弱至少一項轉強。 |
-| consecutive_accumulation | 461 |  | 1304 | 台聚 | traditional industries | 價格資料不足 | insufficient_data | 27.02 | daily_decision_range_rebound | 區間內轉強 / 挑戰前高觀察（決策層） | 1 | 1 | 88.80 | daily_candidate_decision | 區間內轉強 / 挑戰前高觀察 | 區間內轉強 / 挑戰前高觀察；型態=neckline/platform breakout; upgrade only when risk checks pass；分類分數=69；量比=1.72；距前高=-33.50%；20日漲幅=2.36%；TDCC=strong_accumulation；權證=call_inflow |  | 確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。 |
-| consecutive_accumulation | 172 |  | 1313 | 聯成 | traditional industries | 潛伏吸籌 | strong_but_pre_move | 44.01 | daily_decision_range_rebound | 區間內轉強 / 挑戰前高觀察（決策層） | 2 | 2 | 88.80 | daily_candidate_decision | 區間內轉強 / 挑戰前高觀察 | 區間內轉強 / 挑戰前高觀察；型態=neckline/platform breakout; upgrade only when risk checks pass；分類分數=69；量比=2.25；距前高=-21.79%；20日漲幅=-1.35%；TDCC=strong_accumulation；權證=no_signal |  | 確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。 |
-| consecutive_accumulation | 170 |  | 1612 | 宏泰 | other electronics | 潛伏吸籌 | strong_but_pre_move | 44.17 | daily_decision_range_rebound | 區間內轉強 / 挑戰前高觀察（決策層） | 4 | 3 | 88.80 | daily_candidate_decision | 區間內轉強 / 挑戰前高觀察 | 區間內轉強 / 挑戰前高觀察；型態=neckline_challenge；分類分數=69；量比=1.84；距前高=-0.53%；20日漲幅=2.59%；TDCC=strong_accumulation；權證=no_signal |  | 確認放量站上頸線/平台壓力，且收盤靠近高點。 |
-| consecutive_accumulation | 193 |  | 2022 | 聚亨 | traditional industries | 潛伏吸籌 | strong_but_pre_move | 43.64 | daily_decision_revenue_pullback | 營收成長股價回檔（決策層） | 1 | 1 | 77.00 | daily_candidate_decision | 營收成長股價回檔 | 營收成長股價回檔；分類分數=70；量比=1.54；距前高=-21.21%；20日漲幅=-2.49%；TDCC=strong_accumulation |  | 等待量價、TDCC、相對強弱至少一項轉強。 |
-| consecutive_accumulation | 454 |  | 2867 | 三商壽 | finance | 價格資料不足 | insufficient_data | 28.17 | daily_decision_revenue_pullback | 營收成長股價回檔（決策層） | 4 | 2 | 77.00 | daily_candidate_decision | 營收成長股價回檔 | 營收成長股價回檔；分類分數=70；量比=1.86；距前高=-5.80%；20日漲幅=-2.55%；TDCC=strong_accumulation；權證=no_signal |  | 等待量價、TDCC、相對強弱至少一項轉強。 |
-| consecutive_accumulation | 645 |  | 2850 | 新產 | finance | 價格資料不足 | insufficient_data | 15.34 | daily_decision_revenue_pullback | 營收成長股價回檔（決策層） | 5 | 3 | 75.60 | daily_candidate_decision | 營收成長股價回檔 | 營收成長股價回檔；分類分數=63；量比=1.86；距前高=-2.06%；20日漲幅=7.55%；TDCC=mild_accumulation |  | 等待量價、TDCC、相對強弱至少一項轉強。 |
-| consecutive_accumulation | 45 |  | 2328 | 廣宇 | other electronics | 價格資料不足 | insufficient_data | 54.87 | daily_decision_true_breakout | 嚴格突破（決策層） | 1 | 1 | 100.00 | daily_candidate_decision | 嚴格突破 | 嚴格突破；型態=breakout_confirmed / true_breakout；分類分數=114；量比=2.10；距前高=6.46%；20日漲幅=17.76%；TDCC=mild_accumulation；權證=no_signal |  | 確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。 |
-| consecutive_accumulation | 114 |  | 2385 | 群光 | other electronics | 價格資料不足 | insufficient_data | 46.74 | daily_decision_true_breakout | 嚴格突破（決策層） | 5 | 2 | 100.00 | daily_candidate_decision | 嚴格突破 | 嚴格突破；型態=breakout_confirmed / true_breakout；分類分數=153；量比=1.73；距前高=2.54%；20日漲幅=5.60%；TDCC=strong_accumulation；權證=call_strong_inflow |  | 確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。 |
-| consecutive_accumulation | 83 |  | 2603 | 長榮 | traditional industries | 潛伏吸籌 | strong_but_pre_move | 49.22 | daily_decision_true_breakout | 嚴格突破（決策層） | 6 | 3 | 100.00 | daily_candidate_decision | 嚴格突破 | 嚴格突破；型態=breakout_confirmed / true_breakout；分類分數=151；量比=1.51；距前高=0.90%；20日漲幅=5.91%；TDCC=strong_accumulation；權證=call_inflow |  | 確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。 |
-| consecutive_accumulation | 465 | 20260601 | 2368 | 金像電 | other electronics | 價格資料不足 | insufficient_data | 26.72 | hot_theme_pullback | 熱門族群回檔模型 | 3 | 1 | 100.00 | daily_candidate_model_signal | 型態觀察 | 基礎分=50 / 量比:0.78x +0.0 / TDCC正向 +8 / 營收強 +6 / hot 族群 tag +12:PCB_CCL_ABF材料 / 網通交換器 / 車用電子 / near 23EMA/support +10 / 23EMA斜率向上 +6 / 回檔買點區 +5 / pullback volume not chasing +3 | 未見重大風險標籤 | 等待量價、TDCC、相對強弱至少一項轉強。 |
-| consecutive_accumulation | 495 | 20260601 | 4576 | 大銀微系統 | other | 價格資料不足 | insufficient_data | 23.30 | hot_theme_pullback | 熱門族群回檔模型 | 5 | 2 | 100.00 | daily_candidate_model_signal | 型態觀察 | 基礎分=50 / 量比:0.59x +0.0 / TDCC正向 +8 / 營收強 +6 / hot 族群 tag +12:機器人 / 精密傳動 / near 23EMA/support +10 / 23EMA斜率向上 +6 / 回檔買點區 +5 / pullback volume not chasing +3 | 未見重大風險標籤 | 等待量價、TDCC、相對強弱至少一項轉強。 |
-| consecutive_accumulation | 514 | 20260601 | 2374 | 佳能 | other electronics | 價格資料不足 | insufficient_data | 22.58 | hot_theme_pullback | 熱門族群回檔模型 | 6 | 3 | 99.80 | daily_candidate_model_signal | 區間內轉強 / 挑戰前高觀察 | 基礎分=50 / 量比:1.46x +1.8 / TDCC正向 +8 / 權證偏多 +6 / 營收強 +6 / hot 族群 tag +12:機器人 / 機器視覺 / near 23EMA/support +10 / 23EMA斜率向上 +6 | 未見重大風險標籤 | 確認放量站上頸線/平台壓力，且收盤靠近高點。 |
-| consecutive_accumulation | 128 | 20260601 | 4739 | 康普 | other | 價格資料不足 | insufficient_data | 46.01 | near_high_neckline_challenge | 接近前高 / 頸線挑戰模型 | 1 | 1 | 74.40 | daily_candidate_model_signal | 營收成長股價回檔 | 基礎分=50 / 量比:2.10x +4.4 / TDCC正向 +8 / 權證偏多 +6 / 營收強 +6 | 未見重大風險標籤 | 用於觀察即將挑戰壓力的股票；若隔日突破且收盤站上，轉入突破模型。 |
-| consecutive_accumulation | 416 | 20260601 | 2882 | 國泰金 | finance | 價格資料不足 | insufficient_data | 31.81 | near_high_neckline_challenge | 接近前高 / 頸線挑戰模型 | 3 | 2 | 64.80 | daily_candidate_model_signal | 營收成長股價回檔 | 基礎分=50 / 量比:1.21x +0.8 / TDCC正向 +8 / 營收強 +6 | 未見重大風險標籤 | 等待量價、TDCC、相對強弱至少一項轉強。 |
-| consecutive_accumulation | 221 | 20260601 | 4306 | 炎洲 | other | 潛伏吸籌 | strong_but_pre_move | 43.18 | near_high_neckline_challenge | 接近前高 / 頸線挑戰模型 | 4 | 3 | 60.00 | daily_candidate_model_signal | 營收成長股價回檔 | 基礎分=50 / 量比:1.51x +2.0 / TDCC正向 +8 | 未見重大風險標籤 | 等待量價、TDCC、相對強弱至少一項轉強。 |
-| consecutive_accumulation | 198 | 20260601 | 2347 | 聯強 | other electronics | 潛伏吸籌 | strong_but_pre_move | 43.56 | platform_strengthening | 平台整理轉強模型 | 1 | 1 | 65.60 | daily_candidate_model_signal | 區間內轉強 / 挑戰前高觀察 | 基礎分=50 / 量比:1.40x +1.6 / TDCC正向 +8 / 營收強 +6 | 未見重大風險標籤 | 確認放量站上頸線/平台壓力，且收盤靠近高點。 |
-| consecutive_accumulation | 106 | 20260601 | 3588 | 通嘉 | other electronics | 潛伏吸籌 | strong_but_pre_move | 47.03 | platform_strengthening | 平台整理轉強模型 | 2 | 2 | 59.90 | daily_candidate_model_signal | 區間內轉強 / 挑戰前高觀察 | 基礎分=50 / 量比:1.47x +1.9 / TDCC正向 +8 | 未見重大風險標籤 | 確認放量站上頸線/平台壓力，且收盤靠近高點。 |
-| consecutive_accumulation | 703 | 20260601 | 1909 | 榮成 | traditional industries | 價格資料不足 | insufficient_data | 12.30 | platform_strengthening | 平台整理轉強模型 | 2 | 3 | 59.20 | daily_candidate_model_signal | 區間內轉強 / 挑戰前高觀察 | 基礎分=50 / 量比:1.31x +1.2 / TDCC正向 +8 | 未見重大風險標籤 | 確認放量站上頸線/平台壓力，且收盤靠近高點。 |
-| consecutive_accumulation | 325 | 20260601 | 2514 | 龍邦 | traditional industries | 價格資料不足 | insufficient_data | 38.13 | price_pullback_23ema | 股價回檔模型 | 3 | 1 | 90.00 | daily_candidate_model_signal | 區間內轉強 / 挑戰前高觀察 | 基礎分=50 / 量比:4.74x +15.0 / TDCC正向 +8 / 接近23EMA / 平台 +10 / 23EMA斜率向上 +7 | 未見重大風險標籤 | 確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。 |
-| consecutive_accumulation | 534 | 20260601 | 2542 | 興富發 | traditional industries | 價格資料不足 | insufficient_data | 22.06 | price_pullback_23ema | 股價回檔模型 | 4 | 2 | 89.00 | daily_candidate_model_signal | 型態觀察 | 基礎分=50 / 量比:0.78x +0.0 / TDCC正向 +8 / 營收強 +6 / 接近23EMA / 平台 +10 / 23EMA斜率向上 +7 / 回檔買點區 +5 / 非追量買點 +3 | 未見重大風險標籤 | 等待量價、TDCC、相對強弱至少一項轉強。 |
-| consecutive_accumulation | 465 | 20260601 | 2368 | 金像電 | other electronics | 價格資料不足 | insufficient_data | 26.72 | price_pullback_23ema | 股價回檔模型 | 5 | 3 | 89.00 | daily_candidate_model_signal | 型態觀察 | 基礎分=50 / 量比:0.78x +0.0 / TDCC正向 +8 / 營收強 +6 / 接近23EMA / 平台 +10 / 23EMA斜率向上 +7 / 回檔買點區 +5 / 非追量買點 +3 | 未見重大風險標籤 | 等待量價、TDCC、相對強弱至少一項轉強。 |
-| consecutive_accumulation | 513 | 20260601 | 5203 | 訊連 | other electronics | 價格資料不足 | insufficient_data | 22.58 | pullback_short_reclaim | 回檔後短線轉強模型 | 1 | 1 | 73.00 | daily_candidate_model_signal | 嚴格突破 | 基礎分=50 / 量比:5.20x +15.0 / TDCC正向 +8 | 未見重大風險標籤 | 確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。 |
-| consecutive_accumulation | 514 | 20260601 | 2374 | 佳能 | other electronics | 價格資料不足 | insufficient_data | 22.58 | pullback_short_reclaim | 回檔後短線轉強模型 | 2 | 2 | 71.80 | daily_candidate_model_signal | 區間內轉強 / 挑戰前高觀察 | 基礎分=50 / 量比:1.46x +1.8 / TDCC正向 +8 / 權證偏多 +6 / 營收強 +6 | 未見重大風險標籤 | 確認放量站上頸線/平台壓力，且收盤靠近高點。 |
-| consecutive_accumulation | 120 | 20260601 | 2027 | 大成鋼 | traditional industries | 潛伏吸籌 | strong_but_pre_move | 46.37 | pullback_short_reclaim | 回檔後短線轉強模型 | 2 | 3 | 70.00 | daily_candidate_model_signal | 型態觀察 | 基礎分=50 / 量比:0.91x +0.0 / TDCC正向 +8 / 權證偏多 +6 / 營收強 +6 | 未見重大風險標籤 | 等待量價、TDCC、相對強弱至少一項轉強。 |
-| consecutive_accumulation | 514 | 20260601 | 2374 | 佳能 | other electronics | 價格資料不足 | insufficient_data | 22.58 | revenue_unreacted_range | 營收爆發但股價尚未反應模型 | 1 | 1 | 71.80 | daily_candidate_model_signal | 區間內轉強 / 挑戰前高觀察 | 基礎分=50 / 量比:1.46x +1.8 / TDCC正向 +8 / 權證偏多 +6 / 營收強 +6 | 未見重大風險標籤 | 確認放量站上頸線/平台壓力，且收盤靠近高點。 |
-| consecutive_accumulation | 120 | 20260601 | 2027 | 大成鋼 | traditional industries | 潛伏吸籌 | strong_but_pre_move | 46.37 | revenue_unreacted_range | 營收爆發但股價尚未反應模型 | 1 | 2 | 70.00 | daily_candidate_model_signal | 營收成長股價回檔 | 基礎分=50 / 量比:0.91x +0.0 / TDCC正向 +8 / 權證偏多 +6 / 營收強 +6 | 未見重大風險標籤 | 等待量價、TDCC、相對強弱至少一項轉強。 |
-| consecutive_accumulation | 51 | 20260601 | 2606 | 裕民 | traditional industries | 價格資料不足 | insufficient_data | 53.85 | revenue_unreacted_range | 營收爆發但股價尚未反應模型 | 2 | 3 | 70.00 | daily_candidate_model_signal | 型態觀察 | 基礎分=50 / 量比:0.91x +0.0 / TDCC正向 +8 / 權證偏多 +6 / 營收強 +6 | 未見重大風險標籤 | 等待量價、TDCC、相對強弱至少一項轉強。 |
-| consecutive_accumulation | 150 | 20260601 | 5284 | jpp-KY | other electronics | 股價領先 / 追高風險 | strong_but_late | 44.99 | tdcc_short_term_continuation_d5_d10 | TDCC短線延續模型 D+5/D+10 | 1 | 1 | 100.00 | daily_candidate_model_signal | 短線專項 | 基礎分=50 / D+10勝率 85.2% +8.8 / D+10相對報酬 11.8% +8.3 / D+5勝率 67.1% +1.7 / 四級距同步過熱 +8 / TDCC連續週數 3週 +6 / MACD柱狀體>0 +8 / KD多方未過熱 +6 / 1週漲幅10-30 +8 / 強多市場 +3 | 未見重大風險標籤 | 短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。 |
-| consecutive_accumulation | 596 | 20260601 | 1570 | 力肯 | other electronics | 價格資料不足 | insufficient_data | 18.37 | tdcc_short_term_continuation_d5_d10 | TDCC短線延續模型 D+5/D+10 | 2 | 2 | 100.00 | daily_candidate_model_signal | 短線專項 | 基礎分=50 / D+10勝率 81.1% +7.8 / D+10相對報酬 8.4% +5.9 / D+5勝率 65.6% +1.6 / TDCC過熱階段 +4 / TDCC連續週數 3週 +6 / MACD柱狀體>0 +6 / KD多方未過熱 +6 / 1週漲幅10-30 +8 / 2週漲幅20-50 +8 / 布林寬度極端 -3 / 主流 +4 / 強多市場 +3 | 欄位尚未完成 | 短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。 |
-| consecutive_accumulation | 348 | 20260601 | 6005 | 群益證 | finance | 過熱延續 | strong_but_overheated | 36.55 | tdcc_short_term_continuation_d5_d10 | TDCC短線延續模型 D+5/D+10 | 3 | 3 | 100.00 | daily_candidate_model_signal | 短線專項 | 基礎分=50 / D+10勝率 85.2% +8.8 / D+10相對報酬 11.8% +8.3 / D+5勝率 67.1% +1.7 / 四級距同步過熱 +8 / TDCC連續週數 2週 +6 / MACD柱狀體>0 +6 / 1週漲幅10-30 +8 / 2週漲幅20-50 +8 / 布林寬度極端 -3 / 強多市場 +3 | 欄位尚未完成 | 短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。 |
-| consecutive_accumulation | 514 | 20260601 | 2374 | 佳能 | other electronics | 價格資料不足 | insufficient_data | 22.58 | tdcc_stealth_accumulation | TDCC潛伏吸籌模型 | 1 | 1 | 71.80 | daily_candidate_model_signal | 區間內轉強 / 挑戰前高觀察 | 基礎分=50 / 量比:1.46x +1.8 / TDCC正向 +8 / 權證偏多 +6 / 營收強 +6 | 未見重大風險標籤 | 確認放量站上頸線/平台壓力，且收盤靠近高點。 |
-| consecutive_accumulation | 120 | 20260601 | 2027 | 大成鋼 | traditional industries | 潛伏吸籌 | strong_but_pre_move | 46.37 | tdcc_stealth_accumulation | TDCC潛伏吸籌模型 | 1 | 2 | 70.00 | daily_candidate_model_signal | 營收成長股價回檔 | 基礎分=50 / 量比:0.91x +0.0 / TDCC正向 +8 / 權證偏多 +6 / 營收強 +6 | 未見重大風險標籤 | 等待量價、TDCC、相對強弱至少一項轉強。 |
-| consecutive_accumulation | 51 | 20260601 | 2606 | 裕民 | traditional industries | 價格資料不足 | insufficient_data | 53.85 | tdcc_stealth_accumulation | TDCC潛伏吸籌模型 | 2 | 3 | 70.00 | daily_candidate_model_signal | 型態觀察 | 基礎分=50 / 量比:0.91x +0.0 / TDCC正向 +8 / 權證偏多 +6 / 營收強 +6 | 未見重大風險標籤 | 等待量價、TDCC、相對強弱至少一項轉強。 |
-| consecutive_accumulation | 513 | 20260601 | 5203 | 訊連 | other electronics | 價格資料不足 | insufficient_data | 22.58 | volume_range_breakout | 帶量突破模型 | 2 | 1 | 93.00 | daily_candidate_model_signal | 嚴格突破 | 基礎分=50 / 量比:5.20x +15.0 / TDCC正向 +8 / 平台/neckline breakout +10 / close 接近前高 +5 / clean base width +5 | 未見重大風險標籤 | 確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。 |
-| consecutive_accumulation | 672 | 20260601 | 8215 | 明基材 | other electronics | 價格資料不足 | insufficient_data | 13.23 | volume_range_breakout | 帶量突破模型 | 4 | 2 | 91.40 | daily_candidate_model_signal | 嚴格突破 | 基礎分=50 / 量比:4.10x +12.4 / TDCC正向 +8 / 權證偏多 +6 / 平台/neckline breakout +10 / close 接近前高 +5 | 未見重大風險標籤 | 確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。 |
-| consecutive_accumulation | 118 | 20260601 | 6214 | 精誠 | other electronics | 潛伏吸籌 | strong_but_pre_move | 46.40 | volume_range_breakout | 帶量突破模型 | 5 | 3 | 90.00 | daily_candidate_model_signal | 嚴格突破 | 基礎分=50 / 量比:2.50x +6.0 / TDCC正向 +8 / 營收強 +6 / 平台/neckline breakout +10 / close 接近前高 +5 / clean base width +5 | 未見重大風險標籤 | 確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。 |
-| consecutive_accumulation | 496 | 20260601 | 2597 | 潤弘 | traditional industries | 價格資料不足 | insufficient_data | 23.28 | w_bottom_right_side | W底右側模型 | 2 | 1 | 62.80 | daily_candidate_model_signal | 區間內轉強 / 挑戰前高觀察 | 基礎分=50 / 量比:1.30x +1.2 / TDCC正向 +8 / W底位階:6.9% / 距頸線:0.6% / W底前盤整寬度:20.7% / 右側量能支撐 +0.6 / 第二段攻擊量能放大 +4 / 第二段紅K比例改善 +3 | 欄位尚未完成 | 確認放量站上頸線/平台壓力，且收盤靠近高點。 |
-| consecutive_accumulation | 279 | 20260601 | 2241 | 艾姆勒 | traditional industries | 潛伏吸籌 | strong_but_pre_move | 40.70 | w_bottom_right_side | W底右側模型 | 4 | 2 | 57.00 | daily_candidate_model_signal | 營收成長股價回檔 | 基礎分=50 / 量比:0.64x +0.0 / 營收強 +6 / W底位階:16.8% / 距頸線:-1.3% / W底前盤整寬度:28.7% / 第二段攻擊接近第一段 +2 / 第二段攻擊量能放大 +4 / 第二段紅K比例改善 +3 | 欄位尚未完成 | 先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。 |
+| section_rank | stock_id | stock_name | tdcc_phase_group_zh | risk_bucket | tdcc_score | model_name_zh | tdcc_model_rank_in_list | model_score | why_selected_zh | next_confirmation_zh | operation_note_zh |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2337 | 旺宏 | 價格資料不足 | insufficient_data | 254.88 | 接近前高 / 頸線挑戰模型 | 1.0 | 50.0 | 符合接近前高 / 頸線挑戰模型，距離關鍵壓力不遠且量能開始回升。具族群題材。 | 用於觀察即將挑戰壓力的股票；若隔日突破且收盤站上，轉入突破模型。 | 用於觀察即將挑戰壓力的股票；若隔日突破且收盤站上，轉入突破模型。 |
+| 2 | 5388 | 中磊 | 價格資料不足 | insufficient_data | 161.56 | 接近前高 / 頸線挑戰模型 | 2.0 | 56.5 | 符合接近前高 / 頸線挑戰模型，距離關鍵壓力不遠且量能開始回升。權證偏多。具族群題材。 | 用於觀察即將挑戰壓力的股票；若隔日突破且收盤站上，轉入突破模型。 | 用於觀察即將挑戰壓力的股票；若隔日突破且收盤站上，轉入突破模型。 |
+| 3 | 2347 | 聯強 | TDCC 領先股價 / 潛伏吸籌 | strong_but_pre_move | 63.68 | 接近前高 / 頸線挑戰模型 | 3.0 | 81.4 | 符合接近前高 / 頸線挑戰模型，距離關鍵壓力不遠且量能開始回升。大戶籌碼正向。權證偏多。具族群題材。 | 等待量價 / TDCC / 相對強弱至少一項轉強。 | 用於觀察即將挑戰壓力的股票；若隔日突破且收盤站上，轉入突破模型。 |
+
+## 連續累積榜 × 平台整理轉強模型
+
+| section_rank | stock_id | stock_name | tdcc_phase_group_zh | risk_bucket | tdcc_score | model_name_zh | tdcc_model_rank_in_list | model_score | why_selected_zh | next_confirmation_zh | operation_note_zh |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 4306 | 炎洲 | TDCC 領先股價 / 潛伏吸籌 | strong_but_pre_move | 72.64 | 平台整理轉強模型 | 1.0 | 59.0 | 符合平台整理轉強模型，盤整區間形成後量能回升並接近上緣。大戶籌碼正向。具族群題材。 | 確認放量站上頸線 / 平台壓力，且收盤靠近高點。 | 用於平台內轉強觀察；突破上緣後才轉入突破模型。 |
+| 2 | 2201 | 裕隆 | TDCC 領先股價 / 潛伏吸籌 | strong_but_pre_move | 60.72 | 平台整理轉強模型 | 2.0 | 59.5 | 符合平台整理轉強模型，盤整區間形成後量能回升並接近上緣。大戶籌碼正向。具族群題材。 | 確認放量站上頸線 / 平台壓力，且收盤靠近高點。 | 用於平台內轉強觀察；突破上緣後才轉入突破模型。 |
+| 3 | 6142 | 友勁 | 價格資料不足 | insufficient_data | 33.64 | 平台整理轉強模型 | 3.0 | 59.9 | 符合平台整理轉強模型，盤整區間形成後量能回升並接近上緣。大戶籌碼正向。具族群題材。 | 等待嚴格突破 / 放量站上重要均線 / 權證資金偏多，或財報品質確認。 | 用於平台內轉強觀察；突破上緣後才轉入突破模型。 |
+
+## 連續累積榜 × 股價回檔模型
+
+| section_rank | stock_id | stock_name | tdcc_phase_group_zh | risk_bucket | tdcc_score | model_name_zh | tdcc_model_rank_in_list | model_score | why_selected_zh | next_confirmation_zh | operation_note_zh |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2369 | 菱生 | TDCC 後股價過熱 | strong_but_overheated | 456.56 | 股價回檔模型 | 1.0 | 84.0 | 符合股價回檔模型，股價接近23EMA或支撐區，回測後轉強。大戶籌碼正向。具族群題材。 | 等待量價 / TDCC / 相對強弱至少一項轉強。 | 回測23EMA或平台不破可建立部位；跌破23EMA後站不回或放量破平台需退出/降風險。 |
+| 2 | 2436 | 偉詮電 | 價格資料不足 | insufficient_data | 256.0 | 股價回檔模型 | 2.0 | 73.0 | 符合股價回檔模型，股價接近23EMA或支撐區，回測後轉強。具族群題材。 | 先看 TDCC 是否停止轉弱，再看價格能否守住 MA20 / EMA23 與突破區。 | 回測23EMA或平台不破可建立部位；跌破23EMA後站不回或放量破平台需退出/降風險。 |
+| 3 | 2493 | 揚博 | 價格資料不足 | insufficient_data | 224.52 | 股價回檔模型 | 3.0 | 83.0 | 符合股價回檔模型，股價接近23EMA或支撐區，回測後轉強。大戶籌碼正向。具族群題材。 | 等待量價 / TDCC / 相對強弱至少一項轉強。 | 回測23EMA或平台不破可建立部位；跌破23EMA後站不回或放量破平台需退出/降風險。 |
+
+## 連續累積榜 × 回檔後短線轉強模型
+
+| section_rank | stock_id | stock_name | tdcc_phase_group_zh | risk_bucket | tdcc_score | model_name_zh | tdcc_model_rank_in_list | model_score | why_selected_zh | next_confirmation_zh | operation_note_zh |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2369 | 菱生 | TDCC 後股價過熱 | strong_but_overheated | 456.56 | 回檔後短線轉強模型 | 1.0 | 64.0 | 符合回檔後短線轉強模型，前段漲勢後回檔未破結構並重新轉強。大戶籌碼正向。具族群題材。 | 等待量價 / TDCC / 相對強弱至少一項轉強。 | 用於抓回檔後恢復動能的股票；若再跌破23EMA且站不回需退出/降風險。 |
+| 2 | 2493 | 揚博 | 價格資料不足 | insufficient_data | 224.52 | 回檔後短線轉強模型 | 2.0 | 58.0 | 符合回檔後短線轉強模型，前段漲勢後回檔未破結構並重新轉強。大戶籌碼正向。具族群題材。 | 等待量價 / TDCC / 相對強弱至少一項轉強。 | 用於抓回檔後恢復動能的股票；若再跌破23EMA且站不回需退出/降風險。 |
+| 3 | 2404 | 漢唐 | 價格資料不足 | insufficient_data | 206.6 | 回檔後短線轉強模型 | 3.0 | 48.0 | 符合回檔後短線轉強模型，前段漲勢後回檔未破結構並重新轉強。具族群題材。 | 先看 TDCC 是否停止轉弱，再看價格能否守住 MA20 / EMA23 與突破區。 | 用於抓回檔後恢復動能的股票；若再跌破23EMA且站不回需退出/降風險。 |
+
+## 連續累積榜 × 營收爆發但股價尚未反應模型
+
+| section_rank | stock_id | stock_name | tdcc_phase_group_zh | risk_bucket | tdcc_score | model_name_zh | tdcc_model_rank_in_list | model_score | why_selected_zh | next_confirmation_zh | operation_note_zh |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2369 | 菱生 | TDCC 後股價過熱 | strong_but_overheated | 456.56 | 營收爆發但股價尚未反應模型 | 1.0 | 64.0 | 符合營收爆發但股價尚未反應模型，營收動能較強且股價仍在整理區。大戶籌碼正向。具族群題材。 | 等待量價 / TDCC / 相對強弱至少一項轉強。 | 用來尋找營收已改善但價格尚未完全反應的股票；突破平台或量價轉強是後續加碼/確認條件。 |
+| 2 | 2436 | 偉詮電 | 價格資料不足 | insufficient_data | 256.0 | 營收爆發但股價尚未反應模型 | 2.0 | 48.0 | 符合營收爆發但股價尚未反應模型，營收動能較強且股價仍在整理區。具族群題材。 | 先看 TDCC 是否停止轉弱，再看價格能否守住 MA20 / EMA23 與突破區。 | 用來尋找營收已改善但價格尚未完全反應的股票；突破平台或量價轉強是後續加碼/確認條件。 |
+| 3 | 2404 | 漢唐 | 價格資料不足 | insufficient_data | 206.6 | 營收爆發但股價尚未反應模型 | 3.0 | 48.0 | 符合營收爆發但股價尚未反應模型，營收動能較強且股價仍在整理區。具族群題材。 | 先看 TDCC 是否停止轉弱，再看價格能否守住 MA20 / EMA23 與突破區。 | 用來尋找營收已改善但價格尚未完全反應的股票；突破平台或量價轉強是後續加碼/確認條件。 |
+
+## 連續累積榜 × TDCC短線延續模型 D+5/D+10
+
+| section_rank | stock_id | stock_name | tdcc_phase_group_zh | risk_bucket | tdcc_score | model_name_zh | tdcc_model_rank_in_list | model_score | why_selected_zh | next_confirmation_zh | operation_note_zh |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 6127 | 九豪 | TDCC 後股價過熱 | strong_but_overheated | 622.36 | TDCC短線延續模型 D+5/D+10 | 1.0 | 100.0 | 符合TDCC短線延續模型，歷史短線延續樣本具參考性，適合作D+5/D+10短線延續觀察。具族群題材。 | 短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤 / 最高價。 | 以訊號日隔天開盤為進場假設，依 D+5 / D+10 統計與短線支撐管理；這是短線延續研究，不是低位買進模型。 |
+| 2 | 2369 | 菱生 | TDCC 後股價過熱 | strong_but_overheated | 456.56 | TDCC短線延續模型 D+5/D+10 | 2.0 | 100.0 | 符合TDCC短線延續模型，歷史短線延續樣本具參考性，適合作D+5/D+10短線延續觀察。具族群題材。 | 短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤 / 最高價。 | 以訊號日隔天開盤為進場假設，依 D+5 / D+10 統計與短線支撐管理；這是短線延續研究，不是低位買進模型。 |
+| 3 | 2484 | 希華 | TDCC 後股價過熱 | strong_but_overheated | 421.32 | TDCC短線延續模型 D+5/D+10 | 3.0 | 100.0 | 符合TDCC短線延續模型，歷史短線延續樣本具參考性，適合作D+5/D+10短線延續觀察。具族群題材。 | 短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤 / 最高價。 | 以訊號日隔天開盤為進場假設，依 D+5 / D+10 統計與短線支撐管理；這是短線延續研究，不是低位買進模型。 |
+
+## 連續累積榜 × TDCC潛伏吸籌模型
+
+| section_rank | stock_id | stock_name | tdcc_phase_group_zh | risk_bucket | tdcc_score | model_name_zh | tdcc_model_rank_in_list | model_score | why_selected_zh | next_confirmation_zh | operation_note_zh |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2369 | 菱生 | TDCC 後股價過熱 | strong_but_overheated | 456.56 | TDCC潛伏吸籌模型 | 1.0 | 64.0 | 符合TDCC潛伏吸籌模型，大戶籌碼改善，股價尚未完全反應。大戶籌碼正向。具族群題材。 | 等待量價 / TDCC / 相對強弱至少一項轉強。 | 用於突破前尋找籌碼先行但價格尚未完全反應的股票；帶量突破後應轉入突破模型。 |
+| 2 | 2493 | 揚博 | 價格資料不足 | insufficient_data | 224.52 | TDCC潛伏吸籌模型 | 2.0 | 58.0 | 符合TDCC潛伏吸籌模型，大戶籌碼改善，股價尚未完全反應。大戶籌碼正向。具族群題材。 | 等待量價 / TDCC / 相對強弱至少一項轉強。 | 用於突破前尋找籌碼先行但價格尚未完全反應的股票；帶量突破後應轉入突破模型。 |
+| 3 | 3591 | 艾笛森 | 價格資料不足 | insufficient_data | 192.84 | TDCC潛伏吸籌模型 | 3.0 | 58.1 | 符合TDCC潛伏吸籌模型，大戶籌碼改善，股價尚未完全反應。大戶籌碼正向。具族群題材。 | 等待量價 / TDCC / 相對強弱至少一項轉強。 | 用於突破前尋找籌碼先行但價格尚未完全反應的股票；帶量突破後應轉入突破模型。 |
+
+## 連續累積榜 × 帶量突破模型
+
+| section_rank | stock_id | stock_name | tdcc_phase_group_zh | risk_bucket | tdcc_score | model_name_zh | tdcc_model_rank_in_list | model_score | why_selected_zh | next_confirmation_zh | operation_note_zh |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 6155 | 鈞寶 | 股價領先 TDCC / 追高風險 | strong_but_late | 326.88 | 帶量突破模型 | 1.0 | 72.7 | 符合帶量突破模型，量能明顯放大並突破或挑戰關鍵壓力，後續依突破區與量價延續管理。大戶籌碼正向。具族群題材。 | 以訊號日隔天開盤為進場原點；跌回突破區 / 爆量長上影或跌破支撐為退出 / 降風險條件。 | 以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。 |
+| 2 | 5388 | 中磊 | 價格資料不足 | insufficient_data | 161.56 | 帶量突破模型 | 2.0 | 71.5 | 符合帶量突破模型，量能明顯放大並突破或挑戰關鍵壓力，後續依突破區與量價延續管理。權證偏多。具族群題材。 | 以訊號日隔天開盤為進場原點；跌回突破區 / 爆量長上影或跌破支撐為退出 / 降風險條件。 | 以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。 |
+| 3 | 2328 | 廣宇 | 價格資料不足 | insufficient_data | 151.92 | 帶量突破模型 | 3.0 | 80.9 | 符合帶量突破模型，量能明顯放大並突破或挑戰關鍵壓力，後續依突破區與量價延續管理。大戶籌碼正向。權證偏多。具族群題材。 | 以訊號日隔天開盤為進場原點；跌回突破區 / 爆量長上影或跌破支撐為退出 / 降風險條件。 | 以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。 |
+
+## 連續累積榜 × W底右側模型
+
+| section_rank | stock_id | stock_name | tdcc_phase_group_zh | risk_bucket | tdcc_score | model_name_zh | tdcc_model_rank_in_list | model_score | why_selected_zh | next_confirmation_zh | operation_note_zh |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 1810 | 和成 | 價格資料不足 | insufficient_data | 36.64 | W底右側模型 | 1.0 | 61.2 | 符合W底右側模型，右側低點墊高並接近頸線或轉強區。大戶籌碼正向。具族群題材。 | 確認放量站上頸線 / 平台壓力，且收盤靠近高點。 | 用於提前觀察頸線突破前的右側型態；突破頸線且量價確認後才升級為突破類。 |
+
+## 當週增幅榜 × 熱門族群回檔模型
+
+| section_rank | stock_id | stock_name | tdcc_phase_group_zh | risk_bucket | tdcc_score | model_name_zh | tdcc_model_rank_in_list | model_score | why_selected_zh | next_confirmation_zh | operation_note_zh |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2404 | 漢唐 | 價格資料不足 | insufficient_data | 194.6 | 熱門族群回檔模型 | 1.0 | 84.0 | 符合熱門族群回檔模型，具熱門族群標籤，股價回測23EMA或支撐後轉強。具族群題材。 | 先看 TDCC 是否停止轉弱，再看價格能否守住 MA20 / EMA23 與突破區。 | 用來抓熱門題材股回檔買點；先看23EMA/支撐是否守住，再用TDCC、權證、量價與營收作排序。 |
+| 2 | 8039 | 台虹 | 價格資料不足 | insufficient_data | 169.4 | 熱門族群回檔模型 | 2.0 | 94.0 | 符合熱門族群回檔模型，具熱門族群標籤，股價回測23EMA或支撐後轉強。大戶籌碼正向。具族群題材。 | 等待量價 / TDCC / 相對強弱至少一項轉強。 | 用來抓熱門題材股回檔買點；先看23EMA/支撐是否守住，再用TDCC、權證、量價與營收作排序。 |
+| 3 | 1802 | 台玻 | 價格資料不足 | insufficient_data | 160.64 | 熱門族群回檔模型 | 3.0 | 71.2 | 符合熱門族群回檔模型，具熱門族群標籤，股價回測23EMA或支撐後轉強。具族群題材。 | 先看 TDCC 是否停止轉弱，再看價格能否守住 MA20 / EMA23 與突破區。 | 用來抓熱門題材股回檔買點；先看23EMA/支撐是否守住，再用TDCC、權證、量價與營收作排序。 |
+
+## 當週增幅榜 × 接近前高 / 頸線挑戰模型
+
+| section_rank | stock_id | stock_name | tdcc_phase_group_zh | risk_bucket | tdcc_score | model_name_zh | tdcc_model_rank_in_list | model_score | why_selected_zh | next_confirmation_zh | operation_note_zh |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2337 | 旺宏 | 價格資料不足 | insufficient_data | 250.88 | 接近前高 / 頸線挑戰模型 | 1.0 | 50.0 | 符合接近前高 / 頸線挑戰模型，距離關鍵壓力不遠且量能開始回升。具族群題材。 | 用於觀察即將挑戰壓力的股票；若隔日突破且收盤站上，轉入突破模型。 | 用於觀察即將挑戰壓力的股票；若隔日突破且收盤站上，轉入突破模型。 |
+| 2 | 5388 | 中磊 | 價格資料不足 | insufficient_data | 153.56 | 接近前高 / 頸線挑戰模型 | 2.0 | 56.5 | 符合接近前高 / 頸線挑戰模型，距離關鍵壓力不遠且量能開始回升。權證偏多。具族群題材。 | 用於觀察即將挑戰壓力的股票；若隔日突破且收盤站上，轉入突破模型。 | 用於觀察即將挑戰壓力的股票；若隔日突破且收盤站上，轉入突破模型。 |
+| 3 | 2605 | 新興 | TDCC 訊號後失效 | strong_but_divergent | 55.16 | 接近前高 / 頸線挑戰模型 | 3.0 | 55.1 | 符合接近前高 / 頸線挑戰模型，距離關鍵壓力不遠且量能開始回升。權證偏多。具族群題材。 | 用於觀察即將挑戰壓力的股票；若隔日突破且收盤站上，轉入突破模型。 | 用於觀察即將挑戰壓力的股票；若隔日突破且收盤站上，轉入突破模型。 |
+
+## 當週增幅榜 × 平台整理轉強模型
+
+| section_rank | stock_id | stock_name | tdcc_phase_group_zh | risk_bucket | tdcc_score | model_name_zh | tdcc_model_rank_in_list | model_score | why_selected_zh | next_confirmation_zh | operation_note_zh |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 4306 | 炎洲 | TDCC 領先股價 / 潛伏吸籌 | strong_but_pre_move | 56.64 | 平台整理轉強模型 | 1.0 | 59.0 | 符合平台整理轉強模型，盤整區間形成後量能回升並接近上緣。大戶籌碼正向。具族群題材。 | 確認放量站上頸線 / 平台壓力，且收盤靠近高點。 | 用於平台內轉強觀察；突破上緣後才轉入突破模型。 |
+| 2 | 2201 | 裕隆 | TDCC 領先股價 / 潛伏吸籌 | strong_but_pre_move | 52.72 | 平台整理轉強模型 | 2.0 | 59.5 | 符合平台整理轉強模型，盤整區間形成後量能回升並接近上緣。大戶籌碼正向。具族群題材。 | 確認放量站上頸線 / 平台壓力，且收盤靠近高點。 | 用於平台內轉強觀察；突破上緣後才轉入突破模型。 |
+| 3 | 6142 | 友勁 | 價格資料不足 | insufficient_data | 21.64 | 平台整理轉強模型 | 3.0 | 59.9 | 符合平台整理轉強模型，盤整區間形成後量能回升並接近上緣。大戶籌碼正向。具族群題材。 | 等待嚴格突破 / 放量站上重要均線 / 權證資金偏多，或財報品質確認。 | 用於平台內轉強觀察；突破上緣後才轉入突破模型。 |
+
+## 當週增幅榜 × 股價回檔模型
+
+| section_rank | stock_id | stock_name | tdcc_phase_group_zh | risk_bucket | tdcc_score | model_name_zh | tdcc_model_rank_in_list | model_score | why_selected_zh | next_confirmation_zh | operation_note_zh |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2369 | 菱生 | TDCC 後股價過熱 | strong_but_overheated | 452.56 | 股價回檔模型 | 1.0 | 84.0 | 符合股價回檔模型，股價接近23EMA或支撐區，回測後轉強。大戶籌碼正向。具族群題材。 | 等待量價 / TDCC / 相對強弱至少一項轉強。 | 回測23EMA或平台不破可建立部位；跌破23EMA後站不回或放量破平台需退出/降風險。 |
+| 2 | 2436 | 偉詮電 | 價格資料不足 | insufficient_data | 248.0 | 股價回檔模型 | 2.0 | 73.0 | 符合股價回檔模型，股價接近23EMA或支撐區，回測後轉強。具族群題材。 | 先看 TDCC 是否停止轉弱，再看價格能否守住 MA20 / EMA23 與突破區。 | 回測23EMA或平台不破可建立部位；跌破23EMA後站不回或放量破平台需退出/降風險。 |
+| 3 | 2493 | 揚博 | 價格資料不足 | insufficient_data | 220.52 | 股價回檔模型 | 3.0 | 83.0 | 符合股價回檔模型，股價接近23EMA或支撐區，回測後轉強。大戶籌碼正向。具族群題材。 | 等待量價 / TDCC / 相對強弱至少一項轉強。 | 回測23EMA或平台不破可建立部位；跌破23EMA後站不回或放量破平台需退出/降風險。 |
+
+## 當週增幅榜 × 回檔後短線轉強模型
+
+| section_rank | stock_id | stock_name | tdcc_phase_group_zh | risk_bucket | tdcc_score | model_name_zh | tdcc_model_rank_in_list | model_score | why_selected_zh | next_confirmation_zh | operation_note_zh |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2369 | 菱生 | TDCC 後股價過熱 | strong_but_overheated | 452.56 | 回檔後短線轉強模型 | 1.0 | 64.0 | 符合回檔後短線轉強模型，前段漲勢後回檔未破結構並重新轉強。大戶籌碼正向。具族群題材。 | 等待量價 / TDCC / 相對強弱至少一項轉強。 | 用於抓回檔後恢復動能的股票；若再跌破23EMA且站不回需退出/降風險。 |
+| 2 | 2493 | 揚博 | 價格資料不足 | insufficient_data | 220.52 | 回檔後短線轉強模型 | 2.0 | 58.0 | 符合回檔後短線轉強模型，前段漲勢後回檔未破結構並重新轉強。大戶籌碼正向。具族群題材。 | 等待量價 / TDCC / 相對強弱至少一項轉強。 | 用於抓回檔後恢復動能的股票；若再跌破23EMA且站不回需退出/降風險。 |
+| 3 | 2404 | 漢唐 | 價格資料不足 | insufficient_data | 194.6 | 回檔後短線轉強模型 | 3.0 | 48.0 | 符合回檔後短線轉強模型，前段漲勢後回檔未破結構並重新轉強。具族群題材。 | 先看 TDCC 是否停止轉弱，再看價格能否守住 MA20 / EMA23 與突破區。 | 用於抓回檔後恢復動能的股票；若再跌破23EMA且站不回需退出/降風險。 |
+
+## 當週增幅榜 × 營收爆發但股價尚未反應模型
+
+| section_rank | stock_id | stock_name | tdcc_phase_group_zh | risk_bucket | tdcc_score | model_name_zh | tdcc_model_rank_in_list | model_score | why_selected_zh | next_confirmation_zh | operation_note_zh |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2369 | 菱生 | TDCC 後股價過熱 | strong_but_overheated | 452.56 | 營收爆發但股價尚未反應模型 | 1.0 | 64.0 | 符合營收爆發但股價尚未反應模型，營收動能較強且股價仍在整理區。大戶籌碼正向。具族群題材。 | 等待量價 / TDCC / 相對強弱至少一項轉強。 | 用來尋找營收已改善但價格尚未完全反應的股票；突破平台或量價轉強是後續加碼/確認條件。 |
+| 2 | 2436 | 偉詮電 | 價格資料不足 | insufficient_data | 248.0 | 營收爆發但股價尚未反應模型 | 2.0 | 48.0 | 符合營收爆發但股價尚未反應模型，營收動能較強且股價仍在整理區。具族群題材。 | 先看 TDCC 是否停止轉弱，再看價格能否守住 MA20 / EMA23 與突破區。 | 用來尋找營收已改善但價格尚未完全反應的股票；突破平台或量價轉強是後續加碼/確認條件。 |
+| 3 | 2404 | 漢唐 | 價格資料不足 | insufficient_data | 194.6 | 營收爆發但股價尚未反應模型 | 3.0 | 48.0 | 符合營收爆發但股價尚未反應模型，營收動能較強且股價仍在整理區。具族群題材。 | 先看 TDCC 是否停止轉弱，再看價格能否守住 MA20 / EMA23 與突破區。 | 用來尋找營收已改善但價格尚未完全反應的股票；突破平台或量價轉強是後續加碼/確認條件。 |
+
+## 當週增幅榜 × TDCC短線延續模型 D+5/D+10
+
+| section_rank | stock_id | stock_name | tdcc_phase_group_zh | risk_bucket | tdcc_score | model_name_zh | tdcc_model_rank_in_list | model_score | why_selected_zh | next_confirmation_zh | operation_note_zh |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 6127 | 九豪 | TDCC 後股價過熱 | strong_but_overheated | 610.36 | TDCC短線延續模型 D+5/D+10 | 1.0 | 100.0 | 符合TDCC短線延續模型，歷史短線延續樣本具參考性，適合作D+5/D+10短線延續觀察。具族群題材。 | 短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤 / 最高價。 | 以訊號日隔天開盤為進場假設，依 D+5 / D+10 統計與短線支撐管理；這是短線延續研究，不是低位買進模型。 |
+| 2 | 2369 | 菱生 | TDCC 後股價過熱 | strong_but_overheated | 452.56 | TDCC短線延續模型 D+5/D+10 | 2.0 | 100.0 | 符合TDCC短線延續模型，歷史短線延續樣本具參考性，適合作D+5/D+10短線延續觀察。具族群題材。 | 短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤 / 最高價。 | 以訊號日隔天開盤為進場假設，依 D+5 / D+10 統計與短線支撐管理；這是短線延續研究，不是低位買進模型。 |
+| 3 | 2484 | 希華 | TDCC 後股價過熱 | strong_but_overheated | 413.32 | TDCC短線延續模型 D+5/D+10 | 3.0 | 100.0 | 符合TDCC短線延續模型，歷史短線延續樣本具參考性，適合作D+5/D+10短線延續觀察。具族群題材。 | 短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤 / 最高價。 | 以訊號日隔天開盤為進場假設，依 D+5 / D+10 統計與短線支撐管理；這是短線延續研究，不是低位買進模型。 |
+
+## 當週增幅榜 × TDCC潛伏吸籌模型
+
+| section_rank | stock_id | stock_name | tdcc_phase_group_zh | risk_bucket | tdcc_score | model_name_zh | tdcc_model_rank_in_list | model_score | why_selected_zh | next_confirmation_zh | operation_note_zh |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2369 | 菱生 | TDCC 後股價過熱 | strong_but_overheated | 452.56 | TDCC潛伏吸籌模型 | 1.0 | 64.0 | 符合TDCC潛伏吸籌模型，大戶籌碼改善，股價尚未完全反應。大戶籌碼正向。具族群題材。 | 等待量價 / TDCC / 相對強弱至少一項轉強。 | 用於突破前尋找籌碼先行但價格尚未完全反應的股票；帶量突破後應轉入突破模型。 |
+| 2 | 2493 | 揚博 | 價格資料不足 | insufficient_data | 220.52 | TDCC潛伏吸籌模型 | 2.0 | 58.0 | 符合TDCC潛伏吸籌模型，大戶籌碼改善，股價尚未完全反應。大戶籌碼正向。具族群題材。 | 等待量價 / TDCC / 相對強弱至少一項轉強。 | 用於突破前尋找籌碼先行但價格尚未完全反應的股票；帶量突破後應轉入突破模型。 |
+| 3 | 3591 | 艾笛森 | 價格資料不足 | insufficient_data | 176.84 | TDCC潛伏吸籌模型 | 3.0 | 58.1 | 符合TDCC潛伏吸籌模型，大戶籌碼改善，股價尚未完全反應。大戶籌碼正向。具族群題材。 | 等待量價 / TDCC / 相對強弱至少一項轉強。 | 用於突破前尋找籌碼先行但價格尚未完全反應的股票；帶量突破後應轉入突破模型。 |
+
+## 當週增幅榜 × 帶量突破模型
+
+| section_rank | stock_id | stock_name | tdcc_phase_group_zh | risk_bucket | tdcc_score | model_name_zh | tdcc_model_rank_in_list | model_score | why_selected_zh | next_confirmation_zh | operation_note_zh |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 6155 | 鈞寶 | 股價領先 TDCC / 追高風險 | strong_but_late | 318.88 | 帶量突破模型 | 1.0 | 72.7 | 符合帶量突破模型，量能明顯放大並突破或挑戰關鍵壓力，後續依突破區與量價延續管理。大戶籌碼正向。具族群題材。 | 以訊號日隔天開盤為進場原點；跌回突破區 / 爆量長上影或跌破支撐為退出 / 降風險條件。 | 以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。 |
+| 2 | 5388 | 中磊 | 價格資料不足 | insufficient_data | 153.56 | 帶量突破模型 | 2.0 | 71.5 | 符合帶量突破模型，量能明顯放大並突破或挑戰關鍵壓力，後續依突破區與量價延續管理。權證偏多。具族群題材。 | 以訊號日隔天開盤為進場原點；跌回突破區 / 爆量長上影或跌破支撐為退出 / 降風險條件。 | 以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。 |
+| 3 | 3135 | 凌航 | TDCC 後股價過熱 | strong_but_overheated | 139.72 | 帶量突破模型 | 3.0 | 66.4 | 符合帶量突破模型，量能明顯放大並突破或挑戰關鍵壓力，後續依突破區與量價延續管理。大戶籌碼正向。具族群題材。 | 確認放量站上頸線 / 平台壓力，且收盤靠近高點。 | 以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。 |
+
+## 當週增幅榜 × W底右側模型
+
+| section_rank | stock_id | stock_name | tdcc_phase_group_zh | risk_bucket | tdcc_score | model_name_zh | tdcc_model_rank_in_list | model_score | why_selected_zh | next_confirmation_zh | operation_note_zh |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 1590 | 亞德客-KY | 價格資料不足 | insufficient_data | 30.12 | W底右側模型 | 1.0 | 70.0 | 符合W底右側模型，右側低點墊高並接近頸線或轉強區。大戶籌碼正向。具族群題材。 | 等待量價 / TDCC / 相對強弱至少一項轉強。 | 用於提前觀察頸線突破前的右側型態；突破頸線且量價確認後才升級為突破類。 |
+| 2 | 1810 | 和成 | 價格資料不足 | insufficient_data | 20.64 | W底右側模型 | 2.0 | 61.2 | 符合W底右側模型，右側低點墊高並接近頸線或轉強區。大戶籌碼正向。具族群題材。 | 確認放量站上頸線 / 平台壓力，且收盤靠近高點。 | 用於提前觀察頸線突破前的右側型態；突破頸線且量價確認後才升級為突破類。 |
+| 3 | 1504 | 東元 | 價格資料不足 | insufficient_data | 10.24 | W底右側模型 | 3.0 | 42.0 | 符合W底右側模型，右側低點墊高並接近頸線或轉強區。具族群題材。 | 先看 TDCC 是否停止轉弱，再看價格能否守住 MA20 / EMA23 與突破區。 | 用於提前觀察頸線突破前的右側型態；突破頸線且量價確認後才升級為突破類。 |

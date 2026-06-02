@@ -6,6 +6,7 @@
   "same_model_repeat_rows": 457,
   "rotation_rows": 13,
   "packet_lines": 224,
+  "expected_signal_date": "20260602",
   "errors": [],
   "warnings": []
 }

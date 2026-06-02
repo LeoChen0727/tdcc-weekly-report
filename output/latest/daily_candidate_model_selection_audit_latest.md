@@ -1,7 +1,7 @@
 # Daily Candidate Model Selection Audit
 
 - status: `pass`
-- main_price_date: `20260601`
+- main_price_date: `20260602`
 - all_candidates_rows: `787`
 - raw_model_signal_rows: `846`
 - report_model_signal_rows: `846`
@@ -16,7 +16,6 @@
 
 ## Warnings
 
-- freshness main_price_date=20260601 differs from candidate signal_date=20260602; auditing candidate-model internal consistency against candidate signal_date
 - volume_watch signal_date mismatch: expected 20260602, got ['20260529']; stale auxiliary table ignored for date gating
 - tdcc_short_edge signal_date mismatch: expected 20260602, got ['20260529']; stale auxiliary table ignored for date gating
 - w_bottom_attack_latest.csv date mismatch: expected 20260602, got ['20260521']; this is a raw/stale pattern source and must not be used directly for current PDF model sections
