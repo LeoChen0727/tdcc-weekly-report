@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2379 瑞昱
 
 ## Metadata
-- generated_at: 2026-05-30 23:41:24 Asia/Taipei
+- generated_at: 2026-06-02 23:25:30 Asia/Taipei
 - stock_id: 2379
 - stock_name: 瑞昱
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 273
+- latest_price_date: 20260602
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,77 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: buy_now
+- action_rating_label_zh: 建議買進
+- confidence_level: medium
+- thesis_state: breakout_confirmed
+- entry_style: breakout_follow
+- position_sizing: normal_position
+
+### management_plan
+- buy_first_tranche_now
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- model_recommended
+- decision_priority_high
+- decision_score_high
+- price_structure_not_broken
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+- acceptable_risk_reward
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 613
-- high: 615
-- low: 580
-- close: 580
-- volume: 7108843
-- ma5: 590.4
-- ema23_primary: 565.74
-- distance_to_ema23_pct: 2.52
-- ma20: 566.2
-- ma60: 523.63
-- ma120: 514.94
-- return_5d: 0.35
-- return_20d: 8.01
-- volume_ratio: 1.42
-- distance_to_ma20_pct_auxiliary: 2.44
-- distance_to_high_60_pct: -7.05
+- date: 20260602
+- open: 612
+- high: 653
+- low: 602
+- close: 653
+- volume: 11499887
+- ma5: 608.2
+- ema23_primary: 576.32
+- distance_to_ema23_pct: 13.31
+- ma20: 576.25
+- ma60: 529.65
+- ma120: 516.77
+- return_5d: 10.68
+- return_20d: 22.51
+- volume_ratio: 2.1
+- distance_to_ma20_pct_auxiliary: 13.32
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,535,548,524,528,5112509,528.01,-0,531.3,497.24,1.4
-20260505,528,534,526,533,2853367,528.42,0.87,533.55,497.51,0.78
 20260506,543,548,533,544,4251080,529.72,2.7,535.8,497.74,1.13
 20260507,550,551,535,539,3701667,530.5,1.6,537.5,497.98,0.97
 20260508,555,592,551,592,9246415,535.62,10.53,541.5,499.32,2.25
@@ -97,6 +143,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,595,624,595,605,6045678,561.76,7.7,561.9,519.74,1.28
 20260528,605,616,593,594,4278904,564.44,5.24,564.05,521.68,0.89
 20260529,613,615,580,580,7108843,565.74,2.52,566.2,523.63,1.42
+20260601,595,610,583,609,5909157,569.34,6.97,570.25,526.37,1.17
+20260602,612,653,602,653,11499887,576.32,13.31,576.25,529.65,2.1
 ```
 
 ## Latest TDCC Snapshot
@@ -126,21 +174,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260530 | 2379 | 瑞昱 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
-| 20260521 | 2379 | 瑞昱 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260602 | 2379 | 瑞昱 | true_breakout | 嚴格突破 | 128.0 |  |  | breakout_confirmed |  | call_strong_inflow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260521 | 2379 | 瑞昱 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_strong_inflow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260530 | 2379 | 瑞昱 | 8 | 8 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260602 | 2379 | 瑞昱 | 9 | 9 | 5 | 9 | 9 | continued_many_days | 連續 9 個交易日上榜，需判斷是持續醞釀或訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2379 | 瑞昱 | 54 | 0 | 3366160.0 | 0.0 |  | no_signal | 0 |  |
+| 20260602 | 2379 | 瑞昱 | 55 | 0 | 21798620.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

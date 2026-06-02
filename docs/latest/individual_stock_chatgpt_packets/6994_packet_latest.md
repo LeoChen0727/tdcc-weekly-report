@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6994 富威電力
 
 ## Metadata
-- generated_at: 2026-05-30 23:43:26 Asia/Taipei
+- generated_at: 2026-06-02 23:30:00 Asia/Taipei
 - stock_id: 6994
 - stock_name: 富威電力
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 272
+- latest_price_date: 20260602
+- price_rows: 274
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,71 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: unclear
+- entry_style: pullback_to_23ema
+- position_sizing: observe_only
+
+### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- near_23ema_or_support
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+- acceptable_risk_reward
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 62
-- high: 66.5
-- low: 61
-- close: 64.8
-- volume: 1131076
-- ma5: 59.66
-- ema23_primary: 60.49
-- distance_to_ema23_pct: 7.12
+- date: 20260602
+- open: 65.5
+- high: 65.5
+- low: 62.4
+- close: 62.8
+- volume: 632118
+- ma5: 63.12
+- ema23_primary: 61.1
+- distance_to_ema23_pct: 2.78
 - ma20: 59.41
-- ma60: 68.92
-- ma120: 80.79
-- return_5d: 15.71
-- return_20d: 1.41
-- volume_ratio: 1.48
-- distance_to_ma20_pct_auxiliary: 9.07
-- distance_to_high_60_pct: -38.29
+- ma60: 67.86
+- ma120: 80.34
+- return_5d: 11.35
+- return_20d: -2.33
+- volume_ratio: 0.77
+- distance_to_ma20_pct_auxiliary: 5.71
+- distance_to_high_60_pct: -28.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,64,65,64,64.5,230635,68.71,-6.13,67.06,78.26,0.3
-20260505,64.6,65.2,64,64.3,236733,68.34,-5.92,66.99,77.71,0.36
 20260506,65,65.5,63.6,64,325303,67.98,-5.86,67.09,77.22,0.53
 20260507,64.5,66.2,63.8,65.4,453225,67.77,-3.49,66.95,76.74,0.76
 20260508,65,65.4,63.9,64.4,331870,67.49,-4.57,66.82,76.27,0.58
@@ -97,6 +137,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,57.4,62,57,60.4,1166298,59.96,0.73,59.46,69.92,1.7
 20260528,60.9,64,60.3,61.6,983591,60.1,2.5,59.37,69.45,1.37
 20260529,62,66.5,61,64.8,1131076,60.49,7.12,59.41,68.92,1.48
+20260601,64.8,67,63,66,1019618,60.95,8.29,59.48,68.33,1.27
+20260602,65.5,65.5,62.4,62.8,632118,61.1,2.78,59.41,67.86,0.77
 ```
 
 ## Latest TDCC Snapshot
@@ -124,22 +166,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260530 | 6994 | 富威電力 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260530 | 6994 | 富威電力 | 2 | 2 | 3 | 3 | 3 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 6994 | 富威電力 | 2 | 0 | 79970.0 | 0.0 |  | no_signal | 0 |  |
+| 20260602 | 6994 | 富威電力 | 2 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3665 貿聯-KY
 
 ## Metadata
-- generated_at: 2026-05-30 23:42:11 Asia/Taipei
+- generated_at: 2026-06-02 23:27:11 Asia/Taipei
 - stock_id: 3665
 - stock_name: 貿聯-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 273
+- latest_price_date: 20260602
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,75 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
+- confidence_level: medium
+- thesis_state: unclear
+- entry_style: pullback_to_23ema
+- position_sizing: starter_1_4
+
+### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- near_23ema_or_support
+- revenue_not_deteriorating
+- no_major_volume_price_failure
+- acceptable_risk_reward
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+- tdcc_distribution_warning
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 2315
-- high: 2315
-- low: 2085
-- close: 2085
-- volume: 2705900
-- ma5: 2193
-- ema23_primary: 2292.77
-- distance_to_ema23_pct: -9.06
-- ma20: 2397
-- ma60: 2164.42
-- ma120: 1804.58
-- return_5d: -6.29
-- return_20d: -24.73
-- volume_ratio: 0.81
-- distance_to_ma20_pct_auxiliary: -13.02
-- distance_to_high_60_pct: -30.73
+- date: 20260602
+- open: 2110
+- high: 2200
+- low: 2095
+- close: 2195
+- volume: 1907710
+- ma5: 2126
+- ema23_primary: 2271.43
+- distance_to_ema23_pct: -3.36
+- ma20: 2322
+- ma60: 2180.75
+- ma120: 1815.21
+- return_5d: -3.09
+- return_20d: -23.65
+- volume_ratio: 0.59
+- distance_to_ma20_pct_auxiliary: -5.47
+- distance_to_high_60_pct: -27.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,2950,2970,2860,2940,2964568,2411.85,21.9,2429.5,1848.83,0.96
-20260505,2945,2950,2825,2875,2106864,2450.45,17.33,2477.5,1872.92,0.71
 20260506,2885,2885,2590,2745,6251547,2474.99,10.91,2515.25,1895,2
 20260507,2770,2810,2690,2780,2547615,2500.41,11.18,2553.5,1917.33,0.82
 20260508,2760,2800,2710,2750,1930030,2521.21,9.07,2584.5,1940.42,0.64
@@ -97,6 +141,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,2310,2335,2115,2115,2487948,2329.54,-9.21,2464.5,2146.92,0.75
 20260528,2030,2115,1950,2115,3095357,2311.66,-8.51,2431.25,2157.08,0.93
 20260529,2315,2315,2085,2085,2705900,2292.77,-9.06,2397,2164.42,0.81
+20260601,2150,2180,2095,2120,1512799,2278.38,-6.95,2356,2172.92,0.47
+20260602,2110,2200,2095,2195,1907710,2271.43,-3.36,2322,2180.75,0.59
 ```
 
 ## Latest TDCC Snapshot
@@ -124,22 +170,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260602 | 3665 | 貿聯-KY | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260602 | 3665 | 貿聯-KY | 1 | 1 | 1 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 3665 | 貿聯-KY | 249 | 14 | 5782000.0 | 188540.0 | 30.67 | no_signal | 0 |  |
+| 20260602 | 3665 | 貿聯-KY | 243 | 14 | 8021860.0 | 132110.0 | 60.72 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 006205 富邦上証
 
 ## Metadata
-- generated_at: 2026-05-30 23:40:47 Asia/Taipei
+- generated_at: 2026-06-02 23:24:04 Asia/Taipei
 - stock_id: 006205
 - stock_name: 富邦上証
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260529
-- price_rows: 6
+- latest_price_date: 20260602
+- price_rows: 8
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -54,24 +54,69 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
+- confidence_level: medium
+- thesis_state: high_level_distribution_risk
+- entry_style: breakout_follow
+- position_sizing: starter_1_4
+
+### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- near_23ema_or_support
+- revenue_not_deteriorating
+- no_major_volume_price_failure
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- tdcc_distribution_warning
+- price_too_extended
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 40.65
-- high: 41.15
-- low: 40.65
-- close: 41.09
-- volume: 1416118
-- ma5: 41.03
-- ema23_primary: 40.82
+- date: 20260602
+- open: 40.6
+- high: 41.1
+- low: 40.36
+- close: 41.1
+- volume: 709356
+- ma5: 40.91
+- ema23_primary: 40.83
 - distance_to_ema23_pct: 0.65
-- ma20: 40.98
-- ma60: 40.98
-- ma120: 40.98
-- return_5d: 0.91
+- ma20: 40.95
+- ma60: 40.95
+- ma120: 40.95
+- return_5d: -0.34
 - return_20d: 
-- volume_ratio: 1.34
-- distance_to_ma20_pct_auxiliary: 0.28
-- distance_to_high_60_pct: -1.39
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: 0.37
+- distance_to_high_60_pct: -1.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -83,6 +128,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,41.31,41.67,41,41.11,1144165,,,,,
 20260528,40.75,40.77,40.43,40.63,1358206,40.8,-0.42,40.95,40.95,1.38
 20260529,40.65,41.15,40.65,41.09,1416118,40.82,0.65,40.98,40.98,1.34
+20260601,40.89,40.92,40.4,40.63,605620,40.81,-0.44,40.93,40.93,0.61
+20260602,40.6,41.1,40.36,41.1,709356,40.83,0.65,40.95,40.95,0.74
 ```
 
 ## Latest TDCC Snapshot
@@ -106,14 +153,14 @@ no_rows,True
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260602 | 6205 | 詮欣 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260602 | 6205 | 詮欣 | 2 | 1 | 4 | 5 | 5 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | status |
@@ -121,7 +168,9 @@ no_rows,True
 | no rows |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

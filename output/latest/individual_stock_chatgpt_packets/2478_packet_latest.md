@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2478 大毅
 
 ## Metadata
-- generated_at: 2026-05-30 23:41:30 Asia/Taipei
+- generated_at: 2026-06-02 23:25:44 Asia/Taipei
 - stock_id: 2478
 - stock_name: 大毅
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 273
+- latest_price_date: 20260602
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,70 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: high_level_consolidation
+- entry_style: current_price_ok
+- position_sizing: observe_only
+
+### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+- price_too_extended
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 139
-- high: 139
-- low: 130.5
-- close: 139
-- volume: 4217226
-- ma5: 125
-- ema23_primary: 100.53
-- distance_to_ema23_pct: 38.27
-- ma20: 97.5
-- ma60: 77.11
-- ma120: 70.06
-- return_5d: 9.02
-- return_20d: 103.22
-- volume_ratio: 0.48
-- distance_to_ma20_pct_auxiliary: 42.57
-- distance_to_high_60_pct: 0
+- date: 20260602
+- open: 144
+- high: 145
+- low: 130
+- close: 143
+- volume: 3194844
+- ma5: 134.6
+- ema23_primary: 107.39
+- distance_to_ema23_pct: 33.16
+- ma20: 104.42
+- ma60: 79.58
+- ma120: 71.43
+- return_5d: 20.17
+- return_20d: 85.47
+- volume_ratio: 0.38
+- distance_to_ma20_pct_auxiliary: 36.95
+- distance_to_high_60_pct: -6.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,70.4,71.8,68.8,71.4,1646872,68.15,4.77,67.89,66.7,0.55
-20260505,71.4,77.6,71.1,77.1,9693455,68.89,11.91,68.88,66.77,2.83
 20260506,77,79,75.4,76.7,8088591,69.55,10.29,69.78,66.81,2.14
 20260507,78,83,76,80.1,13294545,70.42,13.74,70.69,66.97,3.03
 20260508,80.3,83.8,77.9,78.1,11626145,71.06,9.9,71.49,67.14,2.36
@@ -97,6 +136,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,121,123.5,113.5,120,3718085,94.31,27.24,91.08,75.07,0.44
 20260528,118.5,129.5,118.5,127,5923063,97.03,30.88,93.97,75.99,0.69
 20260529,139,139,130.5,139,4217226,100.53,38.27,97.5,77.11,0.48
+20260601,140.5,152.5,140.5,144,3472752,104.15,38.26,101.12,78.38,0.39
+20260602,144,145,130,143,3194844,107.39,33.16,104.42,79.58,0.38
 ```
 
 ## Latest TDCC Snapshot
@@ -136,10 +177,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2478 | 大毅 | 17 | 0 | 1494870.0 | 0.0 |  | no_signal | 0 |  |
+| 20260602 | 2478 | 大毅 | 17 | 0 | 1944230.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

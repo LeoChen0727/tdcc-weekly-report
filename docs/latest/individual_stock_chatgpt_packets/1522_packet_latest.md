@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1522 堤維西
 
 ## Metadata
-- generated_at: 2026-05-30 23:41:01 Asia/Taipei
+- generated_at: 2026-06-02 23:24:38 Asia/Taipei
 - stock_id: 1522
 - stock_name: 堤維西
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 273
+- latest_price_date: 20260602
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,74 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
+- confidence_level: medium
+- thesis_state: unclear
+- entry_style: current_price_ok
+- position_sizing: starter_1_4
+
+### management_plan
+- buy_first_tranche_now
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+- acceptable_risk_reward
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 34.5
-- high: 34.55
-- low: 33.2
-- close: 34.55
-- volume: 13169308
-- ma5: 30.58
-- ema23_primary: 30.9
-- distance_to_ema23_pct: 11.83
-- ma20: 30.66
-- ma60: 32.91
-- ma120: 40.23
-- return_5d: 17.32
-- return_20d: 11.63
-- volume_ratio: 6.1
-- distance_to_ma20_pct_auxiliary: 12.67
-- distance_to_high_60_pct: -18.61
+- date: 20260602
+- open: 32.85
+- high: 33.15
+- low: 32
+- close: 33.1
+- volume: 2790419
+- ma5: 32.11
+- ema23_primary: 31.23
+- distance_to_ema23_pct: 5.99
+- ma20: 30.83
+- ma60: 32.62
+- ma120: 39.97
+- return_5d: 13.75
+- return_20d: 4.42
+- volume_ratio: 1.13
+- distance_to_ma20_pct_auxiliary: 7.37
+- distance_to_high_60_pct: -22.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,30.95,31.4,30.8,31,815461,32.5,-4.62,31.88,38.11,1.03
-20260505,31.15,31.85,31,31.7,1063622,32.44,-2.27,31.89,37.79,1.3
 20260506,31.7,31.9,31.05,31.05,1080544,32.32,-3.93,31.88,37.45,1.29
 20260507,31.1,34.15,31.05,34.15,3033993,32.47,5.16,31.97,37.18,3.16
 20260508,32.8,33.3,32,32.1,5454156,32.44,-1.05,32,36.89,4.53
@@ -97,6 +140,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,29.1,29.1,28.55,28.6,1649272,30.48,-6.18,30.48,33.24,1.17
 20260528,31.35,31.45,31.35,31.45,3536658,30.56,2.9,30.48,33.04,2.28
 20260529,34.5,34.55,33.2,34.55,13169308,30.9,11.83,30.66,32.91,6.1
+20260601,33.95,33.95,32.65,32.85,5206287,31.06,5.77,30.76,32.77,2.19
+20260602,32.85,33.15,32,33.1,2790419,31.23,5.99,30.83,32.62,1.13
 ```
 
 ## Latest TDCC Snapshot
@@ -126,21 +171,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260530 | 1522 | 堤維西 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260530 | 1522 | 堤維西 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260602 | 1522 | 堤維西 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260602 | 1522 | 堤維西 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260530 | 1522 | 堤維西 | 6 | 3 | 5 | 6 | 6 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260602 | 1522 | 堤維西 | 7 | 4 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 1522 | 堤維西 | 2 | 0 | 782080.0 | 0.0 |  | no_signal | 0 |  |
+| 20260602 | 1522 | 堤維西 | 2 | 0 | 163200.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

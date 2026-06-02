@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2491 吉祥全
 
 ## Metadata
-- generated_at: 2026-05-30 23:41:31 Asia/Taipei
+- generated_at: 2026-06-02 23:25:46 Asia/Taipei
 - stock_id: 2491
 - stock_name: 吉祥全
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 273
+- latest_price_date: 20260602
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,74 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
+- confidence_level: medium
+- thesis_state: breakout_confirmed
+- entry_style: breakout_follow
+- position_sizing: starter_1_4
+
+### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+- price_too_extended
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 22.55
-- high: 24.25
-- low: 22.5
-- close: 23.3
-- volume: 1649256
-- ma5: 22.82
-- ema23_primary: 20.45
-- distance_to_ema23_pct: 13.95
-- ma20: 20.77
-- ma60: 17.45
-- ma120: 18.23
-- return_5d: 5.19
-- return_20d: 53.29
-- volume_ratio: 1.28
-- distance_to_ma20_pct_auxiliary: 12.21
-- distance_to_high_60_pct: -3.92
+- date: 20260602
+- open: 28.15
+- high: 28.15
+- low: 28.15
+- close: 28.15
+- volume: 2674787
+- ma5: 24.38
+- ema23_primary: 21.48
+- distance_to_ema23_pct: 31.03
+- ma20: 21.8
+- ma60: 17.81
+- ma120: 18.44
+- return_5d: 25.95
+- return_20d: 62.25
+- volume_ratio: 1.83
+- distance_to_ma20_pct_auxiliary: 29.16
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,15.3,16.2,15.2,15.8,244474,15.66,0.87,15.47,16.29,1.49
-20260505,16.15,17.35,16,17.35,910028,15.8,9.78,15.59,16.26,4.49
 20260506,18.5,19.05,18.3,19.05,2298533,16.07,18.51,15.82,16.27,7.36
 20260507,19.05,19.8,18.15,19.2,1753876,16.33,17.54,16.02,16.28,4.45
 20260508,18.8,21.1,18.8,21.1,2414190,16.73,26.11,16.33,16.33,4.72
@@ -97,6 +140,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,22.55,23.65,22.4,22.55,1290532,20,12.77,20,17.27,1.09
 20260528,22.5,23.2,22.1,22.3,740787,20.19,10.46,20.36,17.34,0.61
 20260529,22.55,24.25,22.5,23.3,1649256,20.45,13.95,20.77,17.45,1.28
+20260601,23.55,25.6,23.55,25.6,2101521,20.88,22.62,21.25,17.61,1.53
+20260602,28.15,28.15,28.15,28.15,2674787,21.48,31.03,21.8,17.81,1.83
 ```
 
 ## Latest TDCC Snapshot
@@ -126,12 +171,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260530 | 2491 | 吉祥全 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 55.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260602 | 2491 | 吉祥全 | true_breakout | 嚴格突破 | 82.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260530 | 2491 | 吉祥全 | 2 | 2 | 3 | 5 | 5 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260602 | 2491 | 吉祥全 | 3 | 2 | 3 | 6 | 6 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | status |
@@ -139,7 +184,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

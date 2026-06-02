@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5434 崇越
 
 ## Metadata
-- generated_at: 2026-05-30 23:42:41 Asia/Taipei
+- generated_at: 2026-06-02 23:28:18 Asia/Taipei
 - stock_id: 5434
 - stock_name: 崇越
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 273
+- latest_price_date: 20260602
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,74 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
+- confidence_level: medium
+- thesis_state: unclear
+- entry_style: current_price_ok
+- position_sizing: starter_1_4
+
+### management_plan
+- buy_first_tranche_now
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- revenue_not_deteriorating
+- no_major_volume_price_failure
+- acceptable_risk_reward
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+- tdcc_distribution_warning
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 464.5
-- high: 464.5
-- low: 452
-- close: 453
-- volume: 712060
-- ma5: 468.6
-- ema23_primary: 429.53
-- distance_to_ema23_pct: 5.46
-- ma20: 429
-- ma60: 383.09
-- ma120: 348.38
-- return_5d: 0.78
-- return_20d: 11.58
-- volume_ratio: 0.8
-- distance_to_ma20_pct_auxiliary: 5.59
-- distance_to_high_60_pct: -8.3
+- date: 20260602
+- open: 459
+- high: 467
+- low: 449.5
+- close: 466
+- volume: 1067700
+- ma5: 459.2
+- ema23_primary: 434.36
+- distance_to_ema23_pct: 7.28
+- ma20: 433.57
+- ma60: 387.77
+- ma120: 351.03
+- return_5d: -3.12
+- return_20d: 13.24
+- volume_ratio: 1.14
+- distance_to_ma20_pct_auxiliary: 7.48
+- distance_to_high_60_pct: -5.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,410,418,410,416,365952,393.74,5.65,401.8,351.77,0.32
-20260505,415.5,415.5,408.5,411.5,359108,395.22,4.12,405.8,353.14,0.33
 20260506,416.5,426,415.5,425,749158,397.7,6.86,409.02,354.7,0.74
 20260507,430,430,416.5,418.5,784580,399.43,4.77,411.95,356.11,0.8
 20260508,428,434,420.5,423,1255271,401.4,5.38,414.82,357.66,1.27
@@ -97,6 +140,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,481,481,468,473.5,1116667,425.29,11.34,424.52,379.1,1.3
 20260528,472.5,472.5,446.5,450.5,1192985,427.39,5.41,426.65,381.03,1.34
 20260529,464.5,464.5,452,453,712060,429.53,5.46,429,383.09,0.8
+20260601,456,456,448.5,453,672845,431.48,4.99,430.85,385.48,0.75
+20260602,459,467,449.5,466,1067700,434.36,7.28,433.57,387.77,1.14
 ```
 
 ## Latest TDCC Snapshot
@@ -124,22 +169,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260602 | 5434 | 崇越 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260602 | 5434 | 崇越 | 1 | 1 | 2 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 5434 | 崇越 | 16 | 0 | 395670.0 | 0.0 |  | no_signal | 0 |  |
+| 20260602 | 5434 | 崇越 | 15 | 0 | 677480.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

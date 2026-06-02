@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3094 聯傑
 
 ## Metadata
-- generated_at: 2026-05-30 23:41:52 Asia/Taipei
+- generated_at: 2026-06-02 23:26:30 Asia/Taipei
 - stock_id: 3094
 - stock_name: 聯傑
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 273
+- latest_price_date: 20260602
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,75 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
+- confidence_level: medium
+- thesis_state: unclear
+- entry_style: pullback_to_23ema
+- position_sizing: starter_1_4
+
+### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- near_23ema_or_support
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+- acceptable_risk_reward
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 35
-- high: 35
-- low: 33.6
-- close: 33.95
-- volume: 1641857
-- ma5: 35.06
-- ema23_primary: 32.35
-- distance_to_ema23_pct: 4.96
-- ma20: 32.97
-- ma60: 26.96
-- ma120: 25.86
-- return_5d: -3.96
-- return_20d: 29.58
-- volume_ratio: 0.37
-- distance_to_ma20_pct_auxiliary: 2.97
-- distance_to_high_60_pct: -9.35
+- date: 20260602
+- open: 34.3
+- high: 35.5
+- low: 32.7
+- close: 33.75
+- volume: 1724141
+- ma5: 34.3
+- ema23_primary: 32.59
+- distance_to_ema23_pct: 3.56
+- ma20: 33.58
+- ma60: 27.31
+- ma120: 26.03
+- return_5d: -3.43
+- return_20d: 22.28
+- volume_ratio: 0.39
+- distance_to_ma20_pct_auxiliary: 0.51
+- distance_to_high_60_pct: -9.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,26.55,28.3,26.55,28,3102399,25.29,10.73,24.93,24.49,2.37
-20260505,27.65,28.2,27.45,27.6,1065831,25.48,8.32,25.19,24.5,0.79
 20260506,28.3,30.35,28.15,30.35,7112616,25.89,17.25,25.57,24.54,4.19
 20260507,32.85,33.35,32,33.35,7117486,26.51,25.81,26.06,24.64,3.49
 20260508,34.05,34.2,30.1,30.9,9979840,26.87,14.98,26.45,24.72,3.94
@@ -97,6 +141,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,34.95,36.4,34.9,35.55,4056399,32.01,11.05,32.18,26.66,0.95
 20260528,35.6,36.3,33.7,34.25,2950743,32.2,6.37,32.58,26.81,0.67
 20260529,35,35,33.6,33.95,1641857,32.35,4.96,32.97,26.96,0.37
+20260601,33.7,34.55,33.4,34,1803792,32.48,4.67,33.27,27.14,0.42
+20260602,34.3,35.5,32.7,33.75,1724141,32.59,3.56,33.58,27.31,0.39
 ```
 
 ## Latest TDCC Snapshot
@@ -126,12 +172,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260530 | 3094 | 聯傑 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260602 | 3094 | 聯傑 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: ex_dividend on 20260622; status=confirmed; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260530 | 3094 | 聯傑 | 5 | 4 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260602 | 3094 | 聯傑 | 6 | 5 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | status |
@@ -139,7 +185,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

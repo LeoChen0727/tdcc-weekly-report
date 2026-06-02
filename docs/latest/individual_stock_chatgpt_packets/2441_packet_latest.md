@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2441 超豐
 
 ## Metadata
-- generated_at: 2026-05-30 23:41:28 Asia/Taipei
+- generated_at: 2026-06-02 23:25:39 Asia/Taipei
 - stock_id: 2441
 - stock_name: 超豐
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 273
+- latest_price_date: 20260602
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,74 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
+- confidence_level: medium
+- thesis_state: high_level_distribution_risk
+- entry_style: current_price_ok
+- position_sizing: starter_1_4
+
+### management_plan
+- buy_first_tranche_now
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- revenue_not_deteriorating
+- no_major_volume_price_failure
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+- tdcc_distribution_warning
+- price_too_extended
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 143.5
-- high: 146.5
-- low: 139.5
-- close: 141.5
-- volume: 15708457
-- ma5: 136.6
-- ema23_primary: 112.06
-- distance_to_ema23_pct: 26.27
-- ma20: 108.58
-- ma60: 95.77
-- ma120: 91.57
-- return_5d: 20.94
-- return_20d: 68.45
-- volume_ratio: 0.85
-- distance_to_ma20_pct_auxiliary: 30.31
-- distance_to_high_60_pct: -4.39
+- date: 20260602
+- open: 136
+- high: 137.5
+- low: 129.5
+- close: 134
+- volume: 11087947
+- ma5: 138
+- ema23_primary: 115.83
+- distance_to_ema23_pct: 15.68
+- ma20: 112.84
+- ma60: 97.42
+- ma120: 92.67
+- return_5d: -1.47
+- return_20d: 42.55
+- volume_ratio: 0.61
+- distance_to_ma20_pct_auxiliary: 18.75
+- distance_to_high_60_pct: -9.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,85.5,92.4,85.5,92.4,17911318,89.99,2.68,90.3,89.99,1.57
-20260505,94,96.2,92.4,94,18195640,90.32,4.07,90.75,89.85,1.49
 20260506,96.1,97.6,92.1,93.2,16894230,90.56,2.91,91.11,89.69,1.33
 20260507,94,94.2,92.6,93.4,5439141,90.8,2.87,91.06,89.68,0.46
 20260508,93.5,93.9,88.6,90.5,7727829,90.77,-0.3,90.88,89.65,0.65
@@ -97,6 +140,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,139,139,132.5,136,19478323,106.51,27.68,103.06,94.13,1.09
 20260528,135.5,148,135.5,141,20880267,109.39,28.9,105.71,94.91,1.14
 20260529,143.5,146.5,139.5,141.5,15708457,112.06,26.27,108.58,95.77,0.85
+20260601,143,143,135,137.5,14977794,114.18,20.42,110.84,96.65,0.81
+20260602,136,137.5,129.5,134,11087947,115.83,15.68,112.84,97.42,0.61
 ```
 
 ## Latest TDCC Snapshot
@@ -126,20 +171,22 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 2441 | 超豐 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260521 | 2441 | 超豐 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260530 | 2441 | 超豐 | 8 | 8 | 5 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260602 | 2441 | 超豐 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2441 | 超豐 | 69 | 0 | 8678100.0 | 0.0 |  | no_signal | 0 |  |
+| 20260602 | 2441 | 超豐 | 74 | 0 | 11290610.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

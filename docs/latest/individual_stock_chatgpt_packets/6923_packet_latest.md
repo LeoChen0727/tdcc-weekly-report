@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6923 中台
 
 ## Metadata
-- generated_at: 2026-05-30 23:43:23 Asia/Taipei
+- generated_at: 2026-06-02 23:29:54 Asia/Taipei
 - stock_id: 6923
 - stock_name: 中台
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 273
+- latest_price_date: 20260602
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,71 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: unclear
+- entry_style: pullback_to_23ema
+- position_sizing: observe_only
+
+### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- near_23ema_or_support
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+- acceptable_risk_reward
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 78
-- high: 78.2
-- low: 77.1
-- close: 77.6
-- volume: 161492
-- ma5: 78.28
-- ema23_primary: 79.81
+- date: 20260602
+- open: 77.4
+- high: 77.5
+- low: 76.7
+- close: 77.2
+- volume: 98082
+- ma5: 77.68
+- ema23_primary: 79.4
 - distance_to_ema23_pct: -2.77
-- ma20: 80.17
-- ma60: 81.23
-- ma120: 90.2
-- return_5d: -2.02
-- return_20d: -9.24
-- volume_ratio: 0.75
-- distance_to_ma20_pct_auxiliary: -3.21
-- distance_to_high_60_pct: -14.63
+- ma20: 79.39
+- ma60: 80.91
+- ma120: 89.8
+- return_5d: -2.03
+- return_20d: -10.02
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: -2.75
+- distance_to_high_60_pct: -15.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,86,86,83.7,84.4,276714,82.72,2.03,80.79,85.71,1.1
-20260505,84,87.5,84,85.8,378855,82.98,3.4,81.34,85.52,1.45
 20260506,85.8,85.8,82.4,82.7,340473,82.95,-0.3,81.67,85.28,1.24
 20260507,82.7,83.9,82,83.2,167923,82.97,0.27,82.03,85.05,0.61
 20260508,83.2,84.2,81.6,83,183452,82.98,0.03,82.42,84.83,0.66
@@ -97,6 +137,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,79.9,79.9,78.4,78.5,228200,80.21,-2.14,80.98,81.65,1.02
 20260528,79.2,79.2,77.2,77.8,123239,80.01,-2.76,80.56,81.43,0.56
 20260529,78,78.2,77.1,77.6,161492,79.81,-2.77,80.17,81.23,0.75
+20260601,77.6,77.7,76.6,77.3,165407,79.6,-2.89,79.81,81.09,0.79
+20260602,77.4,77.5,76.7,77.2,98082,79.4,-2.77,79.39,80.91,0.5
 ```
 
 ## Latest TDCC Snapshot
@@ -136,10 +178,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 6923 | 中台 | 6 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
+| 20260602 | 6923 | 中台 | 6 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

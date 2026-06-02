@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00898 國泰基因免疫革命
 
 ## Metadata
-- generated_at: 2026-05-30 23:40:48 Asia/Taipei
+- generated_at: 2026-06-02 23:24:08 Asia/Taipei
 - stock_id: 00898
 - stock_name: 國泰基因免疫革命
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260529
-- price_rows: 6
+- latest_price_date: 20260602
+- price_rows: 8
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -54,24 +54,66 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: unclear
+- entry_style: pullback_to_23ema
+- position_sizing: observe_only
+
+### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- near_23ema_or_support
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+- acceptable_risk_reward
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- none
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 8.28
-- high: 8.3
-- low: 8.25
-- close: 8.26
-- volume: 809757
-- ma5: 8.17
-- ema23_primary: 8.08
-- distance_to_ema23_pct: 2.23
-- ma20: 8.14
-- ma60: 8.14
-- ma120: 8.14
-- return_5d: 2.86
+- date: 20260602
+- open: 8.18
+- high: 8.18
+- low: 8.15
+- close: 8.17
+- volume: 295082
+- ma5: 8.19
+- ema23_primary: 8.1
+- distance_to_ema23_pct: 0.83
+- ma20: 8.16
+- ma60: 8.16
+- ma120: 8.16
+- return_5d: 0.12
 - return_20d: 
-- volume_ratio: 0.99
-- distance_to_ma20_pct_auxiliary: 1.41
-- distance_to_high_60_pct: -0.48
+- volume_ratio: 0.4
+- distance_to_ma20_pct_auxiliary: 0.06
+- distance_to_high_60_pct: -1.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -83,6 +125,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,8.16,8.16,8.1,8.11,712065,,,,,
 20260528,8.18,8.22,8.13,8.15,1398876,8.06,1.07,8.12,8.12,1.7
 20260529,8.28,8.3,8.25,8.26,809757,8.08,2.23,8.14,8.14,0.99
+20260601,8.29,8.33,8.27,8.28,705860,8.1,2.27,8.16,8.16,0.88
+20260602,8.18,8.18,8.15,8.17,295082,8.1,0.83,8.16,8.16,0.4
 ```
 
 ## Latest TDCC Snapshot
@@ -121,7 +165,9 @@ no_rows,True
 | no rows |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

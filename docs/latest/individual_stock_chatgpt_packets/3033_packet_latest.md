@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3033 威健
 
 ## Metadata
-- generated_at: 2026-05-30 23:41:48 Asia/Taipei
+- generated_at: 2026-06-02 23:26:21 Asia/Taipei
 - stock_id: 3033
 - stock_name: 威健
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 273
+- latest_price_date: 20260602
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,75 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
+- confidence_level: medium
+- thesis_state: unclear
+- entry_style: pullback_to_23ema
+- position_sizing: starter_1_4
+
+### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- near_23ema_or_support
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+- acceptable_risk_reward
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 50.8
-- high: 50.9
-- low: 49.55
-- close: 50.3
-- volume: 10625441
-- ma5: 50.12
-- ema23_primary: 46.09
-- distance_to_ema23_pct: 9.13
-- ma20: 46.86
-- ma60: 37.7
-- ma120: 34.25
-- return_5d: -6.68
-- return_20d: 40.7
-- volume_ratio: 0.42
-- distance_to_ma20_pct_auxiliary: 7.34
-- distance_to_high_60_pct: -9.04
+- date: 20260602
+- open: 48.85
+- high: 49.7
+- low: 48.45
+- close: 49.7
+- volume: 7798189
+- ma5: 49.93
+- ema23_primary: 46.6
+- distance_to_ema23_pct: 6.65
+- ma20: 47.97
+- ma60: 38.36
+- ma120: 34.57
+- return_5d: -1.19
+- return_20d: 28.92
+- volume_ratio: 0.32
+- distance_to_ma20_pct_auxiliary: 3.62
+- distance_to_high_60_pct: -10.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,36.55,38.75,36.45,37.9,30818909,34.65,9.38,34.55,32.52,5.31
-20260505,37.9,38.75,37.55,38.55,14136317,34.97,10.22,34.88,32.65,2.22
 20260506,40.8,42.4,40.45,42.4,51739018,35.59,19.12,35.38,32.84,5.85
 20260507,45,45.3,42.6,42.9,36045998,36.2,18.5,35.87,33.05,3.44
 20260508,42.4,45,41.95,43.85,21596063,36.84,19.03,36.41,33.27,1.89
@@ -97,6 +141,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,51.4,51.9,49.55,50.7,17668494,45.31,11.9,45.42,37.07,0.72
 20260528,51.1,51.7,49.8,50.1,12249078,45.71,9.61,46.13,37.38,0.49
 20260529,50.8,50.9,49.55,50.3,10625441,46.09,9.13,46.86,37.7,0.42
+20260601,50.3,50.5,48.05,48.85,17868088,46.32,5.46,47.41,38.03,0.72
+20260602,48.85,49.7,48.45,49.7,7798189,46.6,6.65,47.97,38.36,0.32
 ```
 
 ## Latest TDCC Snapshot
@@ -124,22 +170,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260602 | 3033 | 威健 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260602 | 3033 | 威健 | 2 | 2 | 2 | 3 | 3 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 3033 | 威健 | 32 | 0 | 9521900.0 | 0.0 |  | no_signal | 0 |  |
+| 20260602 | 3033 | 威健 | 32 | 0 | 6382260.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

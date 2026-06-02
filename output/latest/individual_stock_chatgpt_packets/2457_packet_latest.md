@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2457 飛宏
 
 ## Metadata
-- generated_at: 2026-05-30 23:41:29 Asia/Taipei
+- generated_at: 2026-06-02 23:25:40 Asia/Taipei
 - stock_id: 2457
 - stock_name: 飛宏
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 273
+- latest_price_date: 20260602
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,71 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: unclear
+- entry_style: pullback_to_23ema
+- position_sizing: observe_only
+
+### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- near_23ema_or_support
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+- acceptable_risk_reward
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 25.4
-- high: 26
-- low: 25.15
-- close: 26
-- volume: 3856330
-- ma5: 25.83
-- ema23_primary: 25.23
-- distance_to_ema23_pct: 3.05
-- ma20: 25.16
-- ma60: 25.62
-- ma120: 27.76
-- return_5d: -0.76
-- return_20d: 8.56
-- volume_ratio: 1.21
-- distance_to_ma20_pct_auxiliary: 3.33
-- distance_to_high_60_pct: -11.86
+- date: 20260602
+- open: 26.85
+- high: 26.85
+- low: 26
+- close: 26.5
+- volume: 4168094
+- ma5: 25.94
+- ema23_primary: 25.46
+- distance_to_ema23_pct: 4.09
+- ma20: 25.31
+- ma60: 25.55
+- ma120: 27.72
+- return_5d: 2.12
+- return_20d: 3.31
+- volume_ratio: 1.24
+- distance_to_ma20_pct_auxiliary: 4.7
+- distance_to_high_60_pct: -10.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,24.05,24.75,24.05,24.75,2377523,24.92,-0.7,24.5,27.16,0.93
-20260505,24.8,25.7,24.7,25.65,3478563,24.99,2.66,24.58,27.02,1.33
 20260506,25.7,25.8,24.7,25.05,2820282,24.99,0.24,24.64,26.9,1.05
 20260507,25.4,25.85,24.9,25.55,2868905,25.04,2.05,24.68,26.78,1.05
 20260508,25.5,25.55,24.2,24.25,4431797,24.97,-2.89,24.68,26.67,1.54
@@ -97,6 +137,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,26.15,26.4,25,25.2,3367331,25.16,0.15,25,25.78,1.14
 20260528,25.2,26,24.7,25.15,3685718,25.16,-0.04,25.06,25.68,1.2
 20260529,25.4,26,25.15,26,3856330,25.23,3.05,25.16,25.62,1.21
+20260601,27,27.4,26.4,26.85,5181637,25.37,5.85,25.27,25.59,1.56
+20260602,26.85,26.85,26,26.5,4168094,25.46,4.09,25.31,25.55,1.24
 ```
 
 ## Latest TDCC Snapshot
@@ -124,22 +166,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260530 | 2457 | 飛宏 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260530 | 2457 | 飛宏 | 2 | 2 | 3 | 3 | 3 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2457 | 飛宏 | 37 | 2 | 1512880.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260602 | 2457 | 飛宏 | 37 | 2 | 2747200.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

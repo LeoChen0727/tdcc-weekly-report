@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2601 益航
 
 ## Metadata
-- generated_at: 2026-05-30 23:41:35 Asia/Taipei
+- generated_at: 2026-06-02 23:25:53 Asia/Taipei
 - stock_id: 2601
 - stock_name: 益航
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 272
+- latest_price_date: 20260602
+- price_rows: 274
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,75 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
+- confidence_level: medium
+- thesis_state: breakout_initial
+- entry_style: breakout_follow
+- position_sizing: starter_1_4
+
+### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- near_23ema_or_support
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+- price_too_extended
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 5.1
-- high: 5.25
-- low: 5.05
-- close: 5.24
-- volume: 4603765
-- ma5: 5.09
-- ema23_primary: 5.09
-- distance_to_ema23_pct: 2.87
-- ma20: 4.95
-- ma60: 5.62
-- ma120: 5.58
-- return_5d: 4.17
-- return_20d: 4.59
-- volume_ratio: 1.86
-- distance_to_ma20_pct_auxiliary: 5.78
-- distance_to_high_60_pct: -27.62
+- date: 20260602
+- open: 6.33
+- high: 6.33
+- low: 6.27
+- close: 6.33
+- volume: 6290340
+- ma5: 5.48
+- ema23_primary: 5.25
+- distance_to_ema23_pct: 20.62
+- ma20: 5.06
+- ma60: 5.59
+- ma120: 5.59
+- return_5d: 25.35
+- return_20d: 27.62
+- volume_ratio: 2.25
+- distance_to_ma20_pct_auxiliary: 25.02
+- distance_to_high_60_pct: -12.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,4.96,5,4.85,4.94,3115218,5.52,-10.54,5.53,5.79,1.74
-20260505,4.94,5.04,4.91,4.96,2672746,5.48,-9.41,5.48,5.78,1.42
 20260506,4.98,5,4.87,4.89,3129210,5.43,-9.88,5.43,5.76,1.58
 20260507,4.87,4.94,4.79,4.92,3151909,5.38,-8.62,5.39,5.75,1.52
 20260508,4.93,4.95,4.86,4.91,1803930,5.34,-8.13,5.35,5.74,0.87
@@ -97,6 +141,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,5,5.05,4.98,5,2246857,5.08,-1.62,4.95,5.63,0.87
 20260528,5,5.06,4.96,5.06,2112817,5.08,-0.41,4.94,5.63,0.85
 20260529,5.1,5.25,5.05,5.24,4603765,5.09,2.87,4.95,5.62,1.86
+20260601,5.24,5.76,5.15,5.76,5897093,5.15,11.86,4.99,5.6,2.26
+20260602,6.33,6.33,6.27,6.33,6290340,5.25,20.62,5.06,5.59,2.25
 ```
 
 ## Latest TDCC Snapshot
@@ -126,12 +172,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260530 | 2601 | 益航 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260602 | 2601 | 益航 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260530 | 2601 | 益航 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260602 | 2601 | 益航 | 3 | 3 | 3 | 3 | 3 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | status |
@@ -139,7 +185,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

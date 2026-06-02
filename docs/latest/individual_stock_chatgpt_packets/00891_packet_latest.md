@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00891 中信關鍵半導體
 
 ## Metadata
-- generated_at: 2026-05-30 23:40:48 Asia/Taipei
+- generated_at: 2026-06-02 23:24:08 Asia/Taipei
 - stock_id: 00891
 - stock_name: 中信關鍵半導體
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260529
-- price_rows: 6
+- latest_price_date: 20260602
+- price_rows: 8
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -54,24 +54,66 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: unclear
+- entry_style: pullback_to_23ema
+- position_sizing: observe_only
+
+### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- near_23ema_or_support
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+- acceptable_risk_reward
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- none
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 36.15
-- high: 36.15
-- low: 35.68
-- close: 36.05
-- volume: 31226409
-- ma5: 35.57
-- ema23_primary: 34.32
-- distance_to_ema23_pct: 5.05
-- ma20: 35.25
-- ma60: 35.25
-- ma120: 35.25
-- return_5d: 7.26
+- date: 20260602
+- open: 36.82
+- high: 37.15
+- low: 35.79
+- close: 36.41
+- volume: 36107860
+- ma5: 36.1
+- ema23_primary: 34.65
+- distance_to_ema23_pct: 5.08
+- ma20: 35.54
+- ma60: 35.54
+- ma120: 35.54
+- return_5d: 3.7
 - return_20d: 
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: 2.28
-- distance_to_high_60_pct: -2.14
+- volume_ratio: 0.77
+- distance_to_ma20_pct_auxiliary: 2.45
+- distance_to_high_60_pct: -1.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -83,6 +125,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,35.88,36.84,35.81,36.26,60723858,,,,,
 20260528,36.8,36.81,35,35.36,47276382,34.16,3.52,35.09,35.09,0.87
 20260529,36.15,36.15,35.68,36.05,31226409,34.32,5.05,35.25,35.25,0.62
+20260601,36.31,36.8,36.22,36.42,38505049,34.49,5.59,35.41,35.41,0.79
+20260602,36.82,37.15,35.79,36.41,36107860,34.65,5.08,35.54,35.54,0.77
 ```
 
 ## Latest TDCC Snapshot
@@ -121,7 +165,9 @@ no_rows,True
 | no rows |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

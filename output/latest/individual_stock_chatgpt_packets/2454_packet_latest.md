@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2454 聯發科
 
 ## Metadata
-- generated_at: 2026-05-30 23:41:29 Asia/Taipei
+- generated_at: 2026-06-02 23:25:40 Asia/Taipei
 - stock_id: 2454
 - stock_name: 聯發科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 273
+- latest_price_date: 20260602
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,70 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: high_level_consolidation
+- entry_style: current_price_ok
+- position_sizing: observe_only
+
+### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+- price_too_extended
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 4460
-- high: 4485
-- low: 4235
-- close: 4310
-- volume: 23109791
-- ma5: 4374
-- ema23_primary: 3537.29
-- distance_to_ema23_pct: 21.84
-- ma20: 3665.5
-- ma60: 2434.17
-- ma120: 1994.58
-- return_5d: 11.66
-- return_20d: 65.13
-- volume_ratio: 1.84
-- distance_to_ma20_pct_auxiliary: 17.58
-- distance_to_high_60_pct: -8.1
+- date: 20260602
+- open: 4970
+- high: 4970
+- low: 4380
+- close: 4525
+- volume: 15626708
+- ma5: 4488
+- ema23_primary: 3697.34
+- distance_to_ema23_pct: 22.39
+- ma20: 3818.25
+- ma60: 2527.25
+- ma120: 2048.25
+- return_5d: 6.1
+- return_20d: 43.42
+- volume_ratio: 1.15
+- distance_to_ma20_pct_auxiliary: 18.51
+- distance_to_high_60_pct: -8.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,2870,2870,2870,2870,4019865,2135.92,34.37,2032.75,1832.25,0.25
-20260505,3155,3155,3155,3155,10091886,2220.84,42.06,2117.25,1855.33,0.63
 20260506,3470,3470,3155,3430,39638460,2321.61,47.74,2215.25,1882.92,2.26
 20260507,3430,3430,3295,3420,8465341,2413.14,41.72,2307.25,1910.25,0.49
 20260508,3320,3670,3320,3630,9525653,2514.54,44.36,2410,1941.08,0.55
@@ -97,6 +136,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,4475,4690,4450,4640,18260840,3381.32,37.22,3488.75,2350.75,1.51
 20260528,4620,4685,4270,4410,16433052,3467.04,27.2,3580.5,2392.58,1.34
 20260529,4460,4485,4235,4310,23109791,3537.29,21.84,3665.5,2434.17,1.84
+20260601,4440,4710,4440,4555,20083897,3622.1,25.76,3749.75,2481.42,1.5
+20260602,4970,4970,4380,4525,15626708,3697.34,22.39,3818.25,2527.25,1.15
 ```
 
 ## Latest TDCC Snapshot
@@ -124,22 +165,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260530 | 2454 | 聯發科 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | put_inflow | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260530 | 2454 | 聯發科 | 2 | 2 | 4 | 7 | 7 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2454 | 聯發科 | 487 | 45 | 68591580.0 | 3079750.0 | 22.27 | put_inflow | -1 | 認售權證資金升溫，偏空或避險訊號 |
+| 20260602 | 2454 | 聯發科 | 482 | 41 | 68533720.0 | 1238930.0 | 55.32 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

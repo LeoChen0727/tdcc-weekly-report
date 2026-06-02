@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3416 融程電
 
 ## Metadata
-- generated_at: 2026-05-30 23:42:02 Asia/Taipei
+- generated_at: 2026-06-02 23:26:51 Asia/Taipei
 - stock_id: 3416
 - stock_name: 融程電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 273
+- latest_price_date: 20260602
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,71 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: unclear
+- entry_style: pullback_to_23ema
+- position_sizing: observe_only
+
+### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- near_23ema_or_support
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+- acceptable_risk_reward
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 183
-- high: 184
-- low: 181
-- close: 183.5
-- volume: 567218
-- ma5: 185.2
-- ema23_primary: 172.11
-- distance_to_ema23_pct: 6.62
-- ma20: 172.38
-- ma60: 158.06
-- ma120: 153.43
-- return_5d: 0.27
-- return_20d: 16.51
-- volume_ratio: 0.63
-- distance_to_ma20_pct_auxiliary: 6.45
-- distance_to_high_60_pct: -6.38
+- date: 20260602
+- open: 186
+- high: 186.5
+- low: 180.5
+- close: 182.5
+- volume: 511021
+- ma5: 182.8
+- ema23_primary: 173.89
+- distance_to_ema23_pct: 4.95
+- ma20: 174.8
+- ma60: 159.4
+- ma120: 153.95
+- return_5d: -2.93
+- return_20d: 15.87
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: 4.41
+- distance_to_high_60_pct: -6.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,161.5,162.5,159.5,160.5,605148,154.66,3.78,154.93,149.78,1.46
-20260505,159,159,156,157.5,464411,154.89,1.68,155.62,149.85,1.07
 20260506,159,161,156,161,461930,155.4,3.6,156.45,150.03,1.02
 20260507,162,176,160.5,171.5,1957512,156.74,9.41,157.57,150.41,3.61
 20260508,171,178.5,168.5,175.5,1538176,158.31,10.86,158.85,150.88,2.52
@@ -97,6 +137,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,190,193,184.5,185,878096,170.36,8.6,169.9,156.97,1.02
 20260528,187,187,178,179,842353,171.08,4.63,171.07,157.45,0.95
 20260529,183,184,181,183.5,567218,172.11,6.62,172.38,158.06,0.63
+20260601,184.5,188,181.5,184,533119,173.1,6.3,173.55,158.75,0.6
+20260602,186,186.5,180.5,182.5,511021,173.89,4.95,174.8,159.4,0.57
 ```
 
 ## Latest TDCC Snapshot
@@ -136,10 +178,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 3416 | 融程電 | 13 | 0 | 488530.0 | 0.0 |  | no_signal | 0 |  |
+| 20260602 | 3416 | 融程電 | 13 | 0 | 1614510.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

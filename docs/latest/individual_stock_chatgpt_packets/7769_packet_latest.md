@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7769 鴻勁
 
 ## Metadata
-- generated_at: 2026-05-30 23:43:45 Asia/Taipei
+- generated_at: 2026-06-02 23:30:42 Asia/Taipei
 - stock_id: 7769
 - stock_name: 鴻勁
-- packet_status: standard_rawdata_packet
-- latest_price_date: 20260529
-- price_rows: 119
+- packet_status: standard_180d_window_packet
+- latest_price_date: 20260602
+- price_rows: 121
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
-- notes: price history shorter than 120 rows; K-line context is partial; TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
+- notes: TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
 
 ## Stable Read URLs
 - packet_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_chatgpt_packets/7769_packet_latest.md
@@ -54,31 +54,75 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
+- confidence_level: medium
+- thesis_state: unclear
+- entry_style: pullback_to_23ema
+- position_sizing: starter_1_4
+
+### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- near_23ema_or_support
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+- acceptable_risk_reward
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 8000
-- high: 8465
-- low: 7815
-- close: 8260
-- volume: 1880557
-- ma5: 7861
-- ema23_primary: 6800.01
-- distance_to_ema23_pct: 21.47
-- ma20: 6920.5
-- ma60: 5133.33
-- ma120: 4337.9
-- return_5d: 6.86
-- return_20d: 67.04
-- volume_ratio: 1.8
-- distance_to_ma20_pct_auxiliary: 19.36
-- distance_to_high_60_pct: -2.42
+- date: 20260602
+- open: 7120
+- high: 7480
+- low: 7110
+- close: 7175
+- volume: 1247463
+- ma5: 7690
+- ema23_primary: 6885.87
+- distance_to_ema23_pct: 4.2
+- ma20: 7106
+- ma60: 5241.08
+- ma120: 4399.67
+- return_5d: -9.18
+- return_20d: 28.12
+- volume_ratio: 1.23
+- distance_to_ma20_pct_auxiliary: 0.97
+- distance_to_high_60_pct: -15.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,5140,5420,5030,5380,1639624,4594.56,17.09,4535,4200.58,1.25
-20260505,5420,5635,5370,5600,1451459,4678.35,19.7,4623.25,4230.67,1.1
 20260506,5690,5780,5435,5705,1442242,4763.9,19.75,4708,4262.83,1.07
 20260507,5820,5900,5780,5835,758227,4853.16,20.23,4786.75,4296.92,0.57
 20260508,5885,6040,5770,5800,1128305,4932.06,17.6,4864.5,4331.08,0.85
@@ -97,6 +141,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,7855,7980,7800,7800,328372,6573.4,18.66,6630.75,5009.42,0.32
 20260528,7945,8435,7605,7700,1512972,6667.28,15.49,6754.75,5064.83,1.48
 20260529,8000,8465,7815,8260,1880557,6800.01,21.47,6920.5,5133.33,1.8
+20260601,8090,8165,7515,7515,1264343,6859.59,9.55,7027.25,5192.25,1.23
+20260602,7120,7480,7110,7175,1247463,6885.87,4.2,7106,5241.08,1.23
 ```
 
 ## Latest TDCC Snapshot
@@ -126,20 +172,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260530 | 7769 | 鴻勁 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260602 | 7769 | 鴻勁 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260602 | 7769 | 鴻勁 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260530 | 7769 | 鴻勁 | 3 | 3 | 3 | 3 | 3 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260602 | 7769 | 鴻勁 | 4 | 2 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 7769 | 鴻勁 | 24 | 0 | 16393920.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260602 | 7769 | 鴻勁 | 24 | 0 | 19974000.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2375 凱美
 
 ## Metadata
-- generated_at: 2026-05-30 23:41:23 Asia/Taipei
+- generated_at: 2026-06-02 23:25:29 Asia/Taipei
 - stock_id: 2375
 - stock_name: 凱美
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 273
+- latest_price_date: 20260602
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,70 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: high_level_consolidation
+- entry_style: current_price_ok
+- position_sizing: observe_only
+
+### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+- price_too_extended
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 171.5
-- high: 176.5
-- low: 158.5
-- close: 166.5
-- volume: 47401162
-- ma5: 149.4
-- ema23_primary: 117.28
-- distance_to_ema23_pct: 41.97
-- ma20: 112.53
-- ma60: 91.84
-- ma120: 92.53
-- return_5d: 23.79
-- return_20d: 95.88
-- volume_ratio: 2.81
-- distance_to_ma20_pct_auxiliary: 47.95
-- distance_to_high_60_pct: -5.67
+- date: 20260602
+- open: 160.5
+- high: 162.5
+- low: 150
+- close: 162.5
+- volume: 4694639
+- ma5: 160.3
+- ema23_primary: 124.62
+- distance_to_ema23_pct: 30.4
+- ma20: 119.98
+- ma60: 94.49
+- ma120: 93.7
+- return_5d: 21.27
+- return_20d: 80.56
+- volume_ratio: 0.27
+- distance_to_ma20_pct_auxiliary: 35.44
+- distance_to_high_60_pct: -7.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,86.4,89.9,85.1,87.6,3342542,83.82,4.51,83.23,84.47,0.78
-20260505,88.3,90.4,87.6,90,5116377,84.33,6.72,84.1,84.27,1.14
 20260506,91,92.5,86.3,88.7,4797352,84.7,4.73,84.83,84.08,1.02
 20260507,91,96.5,88.2,91.3,11589793,85.25,7.1,85.48,83.95,2.22
 20260508,92.1,95.5,89.5,90.4,9064706,85.68,5.51,86.11,83.88,1.61
@@ -97,6 +136,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,137,147,133,147,33132173,108.38,35.63,104.77,89.41,2.44
 20260528,148,161.5,145,161.5,30081252,112.81,43.17,108.46,90.56,2.05
 20260529,171.5,176.5,158.5,166.5,47401162,117.28,41.97,112.53,91.84,2.81
+20260601,163.5,175,158,164,7997735,121.17,35.34,116.36,93.2,0.47
+20260602,160.5,162.5,150,162.5,4694639,124.62,30.4,119.98,94.49,0.27
 ```
 
 ## Latest TDCC Snapshot
@@ -126,22 +167,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260530 | 2375 | 凱美 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260530 | 2375 | 凱美 | 6 | 1 | 5 | 6 | 6 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2375 | 凱美 | 33 | 1 | 18751020.0 | 0.0 |  | no_signal | 0 |  |
+| 20260602 | 2375 | 凱美 | 33 | 1 | 4803300.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

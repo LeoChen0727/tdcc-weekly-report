@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1314 中石化
 
 ## Metadata
-- generated_at: 2026-05-30 23:40:54 Asia/Taipei
+- generated_at: 2026-06-02 23:24:22 Asia/Taipei
 - stock_id: 1314
 - stock_name: 中石化
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 272
+- latest_price_date: 20260602
+- price_rows: 274
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,78 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: buy_now
+- action_rating_label_zh: 建議買進
+- confidence_level: medium
+- thesis_state: breakout_initial
+- entry_style: breakout_follow
+- position_sizing: normal_position
+
+### management_plan
+- buy_first_tranche_now
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- model_recommended
+- decision_priority_high
+- decision_score_high
+- price_structure_not_broken
+- near_23ema_or_support
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+- acceptable_risk_reward
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 7.11
-- high: 7.12
-- low: 7.02
-- close: 7.04
-- volume: 18071555
-- ma5: 7.02
-- ema23_primary: 7.17
-- distance_to_ema23_pct: -1.76
+- date: 20260602
+- open: 7.14
+- high: 7.54
+- low: 7.12
+- close: 7.53
+- volume: 70159841
+- ma5: 7.13
+- ema23_primary: 7.19
+- distance_to_ema23_pct: 4.71
 - ma20: 7.06
-- ma60: 7.79
-- ma120: 7.91
-- return_5d: -0.56
-- return_20d: -5.12
-- volume_ratio: 0.96
-- distance_to_ma20_pct_auxiliary: -0.28
-- distance_to_high_60_pct: -28.24
+- ma60: 7.76
+- ma120: 7.89
+- return_5d: 8.03
+- return_20d: 2.59
+- volume_ratio: 3.2
+- distance_to_ma20_pct_auxiliary: 6.61
+- distance_to_high_60_pct: -23.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,7.42,7.42,7.23,7.23,22499242,7.74,-6.58,7.73,8.13,0.92
-20260505,7.25,7.37,7.25,7.34,11584671,7.71,-4.75,7.68,8.11,0.49
 20260506,7.4,7.4,7.22,7.23,15355551,7.67,-5.69,7.64,8.09,0.65
 20260507,7.23,7.29,7.17,7.25,15765137,7.63,-5,7.59,8.08,0.69
 20260508,7.25,7.33,7.13,7.14,21973327,7.59,-5.93,7.54,8.06,1.02
@@ -97,6 +144,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,6.97,6.97,6.85,6.9,17995034,7.18,-3.96,7.1,7.83,1.01
 20260528,6.91,7.12,6.89,7.1,23612408,7.18,-1.08,7.08,7.81,1.28
 20260529,7.11,7.12,7.02,7.04,18071555,7.17,-1.76,7.06,7.79,0.96
+20260601,7.1,7.2,7.02,7.1,27008579,7.16,-0.85,7.05,7.77,1.42
+20260602,7.14,7.54,7.12,7.53,70159841,7.19,4.71,7.06,7.76,3.2
 ```
 
 ## Latest TDCC Snapshot
@@ -124,14 +173,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260602 | 1314 | 中石化 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260602 | 1314 | 中石化 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
 
 ## Warrant Context
 | status |
@@ -139,7 +188,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

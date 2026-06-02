@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2233 宇隆
 
 ## Metadata
-- generated_at: 2026-05-30 23:41:17 Asia/Taipei
+- generated_at: 2026-06-02 23:25:17 Asia/Taipei
 - stock_id: 2233
 - stock_name: 宇隆
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 273
+- latest_price_date: 20260602
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,71 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: unclear
+- entry_style: pullback_to_23ema
+- position_sizing: observe_only
+
+### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- near_23ema_or_support
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+- acceptable_risk_reward
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 356.5
-- high: 372
-- low: 351
-- close: 353
-- volume: 1723074
-- ma5: 365.6
-- ema23_primary: 321.07
-- distance_to_ema23_pct: 9.94
-- ma20: 325.9
-- ma60: 263.53
-- ma120: 241.02
-- return_5d: 1.73
-- return_20d: 17.67
-- volume_ratio: 0.76
-- distance_to_ma20_pct_auxiliary: 8.32
-- distance_to_high_60_pct: -10.41
+- date: 20260602
+- open: 351.5
+- high: 351.5
+- low: 319.5
+- close: 329
+- volume: 3319034
+- ma5: 350.7
+- ema23_primary: 324.33
+- distance_to_ema23_pct: 1.44
+- ma20: 328.45
+- ma60: 267.39
+- ma120: 243.42
+- return_5d: -12.73
+- return_20d: 4.61
+- volume_ratio: 1.63
+- distance_to_ma20_pct_auxiliary: 0.17
+- distance_to_high_60_pct: -16.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,315.5,325,301,318.5,6301467,250.09,27.35,242.45,236.96,3.46
-20260505,318,326,309.5,314.5,2750003,255.46,23.11,247.25,238.21,1.42
 20260506,317.5,330,306,315.5,3335963,260.46,21.13,252.28,239.57,1.6
 20260507,310,315.5,290,295,1803309,263.34,12.02,255.95,240.48,0.84
 20260508,287,297.5,280,292,905849,265.73,9.89,259.93,240.94,0.42
@@ -97,6 +137,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,380,381.5,362,365,2143533,315.14,15.82,319.32,259.63,0.85
 20260528,365.5,377,345,351.5,2379139,318.17,10.47,323.25,261.57,0.96
 20260529,356.5,372,351,353,1723074,321.07,9.94,325.9,263.53,0.76
+20260601,353,361.5,344,355,1186787,323.9,9.6,327.73,265.73,0.59
+20260602,351.5,351.5,319.5,329,3319034,324.33,1.44,328.45,267.39,1.63
 ```
 
 ## Latest TDCC Snapshot
@@ -136,10 +178,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2233 | 宇隆 | 49 | 1 | 8431120.0 | 0.0 |  | no_signal | 0 |  |
+| 20260602 | 2233 | 宇隆 | 49 | 1 | 9152230.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

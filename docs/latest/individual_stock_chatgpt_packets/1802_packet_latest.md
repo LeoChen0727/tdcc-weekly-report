@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1802 台玻
 
 ## Metadata
-- generated_at: 2026-05-30 23:41:10 Asia/Taipei
+- generated_at: 2026-06-02 23:25:00 Asia/Taipei
 - stock_id: 1802
 - stock_name: 台玻
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 273
+- latest_price_date: 20260602
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,75 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
+- confidence_level: medium
+- thesis_state: unclear
+- entry_style: pullback_to_23ema
+- position_sizing: starter_1_4
+
+### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- near_23ema_or_support
+- revenue_not_deteriorating
+- no_major_volume_price_failure
+- acceptable_risk_reward
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+- tdcc_distribution_warning
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 71.9
-- high: 72.9
-- low: 69.8
-- close: 71.9
-- volume: 78210167
-- ma5: 72.24
-- ema23_primary: 68.61
-- distance_to_ema23_pct: 4.79
-- ma20: 69.08
-- ma60: 63.48
-- ma120: 52.81
-- return_5d: 1.99
-- return_20d: 7.31
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: 4.08
-- distance_to_high_60_pct: -11.45
+- date: 20260602
+- open: 75.5
+- high: 76.8
+- low: 70.6
+- close: 71
+- volume: 149651763
+- ma5: 72.18
+- ema23_primary: 69.28
+- distance_to_ema23_pct: 2.48
+- ma20: 69.42
+- ma60: 63.95
+- ma120: 53.49
+- return_5d: -1.66
+- return_20d: -2.47
+- volume_ratio: 1.21
+- distance_to_ma20_pct_auxiliary: 2.28
+- distance_to_high_60_pct: -12.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,68,68.9,66.1,66.2,79575936,64.68,2.35,65.42,58.18,0.5
-20260505,66.3,72.8,66.1,72.8,141172570,65.36,11.38,66.45,58.53,0.86
 20260506,73.8,75.5,69.4,71.2,245896349,65.85,8.13,67.33,58.86,1.41
 20260507,72.6,75,70.7,70.8,148214300,66.26,6.85,67.92,59.17,0.82
 20260508,71.4,71.8,67.3,68.9,84842556,66.48,3.64,68.39,59.49,0.49
@@ -97,6 +141,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,73,74.4,70.2,72.8,154134122,68.12,6.87,68.62,63.29,1.29
 20260528,73.4,76,69.1,70.4,152764187,68.31,3.06,68.83,63.34,1.27
 20260529,71.9,72.9,69.8,71.9,78210167,68.61,4.79,69.08,63.48,0.66
+20260601,72,78.1,71,74.8,180789702,69.13,8.21,69.51,63.77,1.47
+20260602,75.5,76.8,70.6,71,149651763,69.28,2.48,69.42,63.95,1.21
 ```
 
 ## Latest TDCC Snapshot
@@ -126,20 +172,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 1802 | 台玻 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | put_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260602 | 1802 | 台玻 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | put_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260521 | 1802 | 台玻 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | put_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260530 | 1802 | 台玻 | 8 | 8 | 5 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260602 | 1802 | 台玻 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 1802 | 台玻 | 132 | 21 | 30985310.0 | 1542800.0 | 20.08 | put_inflow | -1 | 認售權證資金升溫，偏空或避險訊號 |
+| 20260602 | 1802 | 台玻 | 133 | 21 | 38098690.0 | 1009800.0 | 37.73 | put_inflow | -1 | 認售權證資金升溫，偏空或避險訊號 |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

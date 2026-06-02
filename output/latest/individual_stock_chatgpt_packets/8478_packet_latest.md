@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8478 東哥遊艇
 
 ## Metadata
-- generated_at: 2026-05-30 23:43:59 Asia/Taipei
+- generated_at: 2026-06-02 23:31:13 Asia/Taipei
 - stock_id: 8478
 - stock_name: 東哥遊艇
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 273
+- latest_price_date: 20260602
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,71 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: unclear
+- entry_style: pullback_to_23ema
+- position_sizing: observe_only
+
+### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- near_23ema_or_support
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+- acceptable_risk_reward
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 152.5
-- high: 153.5
-- low: 151.5
-- close: 153
-- volume: 157922
-- ma5: 150.8
-- ema23_primary: 157.44
-- distance_to_ema23_pct: -2.82
-- ma20: 158.1
-- ma60: 162.91
-- ma120: 176.41
-- return_5d: 0.33
-- return_20d: -9.2
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: -3.23
-- distance_to_high_60_pct: -17.3
+- date: 20260602
+- open: 155.5
+- high: 155.5
+- low: 152.5
+- close: 154.5
+- volume: 219856
+- ma5: 152.6
+- ema23_primary: 157.04
+- distance_to_ema23_pct: -1.62
+- ma20: 156.88
+- ma60: 162.7
+- ma120: 175.73
+- return_5d: 2.66
+- return_20d: -8.04
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: -1.51
+- distance_to_high_60_pct: -16.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,168.5,168.5,163.5,166.5,245460,168.4,-1.13,167.9,169.74,1.27
-20260505,168,169,167,168,92560,168.36,-0.22,168.5,169.34,0.48
 20260506,170,173.5,168,169.5,379943,168.46,0.62,169.1,169.01,1.81
 20260507,169,169,166.5,168,166592,168.42,-0.25,169.32,168.66,0.79
 20260508,168,169.5,166.5,169,107116,168.47,0.32,169.8,168.33,0.51
@@ -97,6 +137,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,151.5,154,150,150,366161,158.55,-5.39,159.93,163.47,1.56
 20260528,151.5,151.5,149.5,150,197549,157.84,-4.97,158.88,163.15,0.82
 20260529,152.5,153.5,151.5,153,157922,157.44,-2.82,158.1,162.91,0.65
+20260601,154,159,151.5,155.5,295617,157.28,-1.13,157.55,162.85,1.21
+20260602,155.5,155.5,152.5,154.5,219856,157.04,-1.62,156.88,162.7,0.88
 ```
 
 ## Latest TDCC Snapshot
@@ -136,10 +178,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 8478 | 東哥遊艇 | 10 | 0 | 1570.0 | 0.0 |  | no_signal | 0 |  |
+| 20260602 | 8478 | 東哥遊艇 | 10 | 0 | 17560.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

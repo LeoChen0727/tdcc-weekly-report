@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3046 建碁
 
 ## Metadata
-- generated_at: 2026-05-30 23:41:49 Asia/Taipei
+- generated_at: 2026-06-02 23:26:24 Asia/Taipei
 - stock_id: 3046
 - stock_name: 建碁
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 273
+- latest_price_date: 20260602
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,72 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: wait_pullback
+- action_rating_label_zh: 等待回檔
+- confidence_level: medium
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_support
+- position_sizing: observe_only
+
+### management_plan
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- model_recommended
+- decision_priority_high
+- decision_score_high
+- price_structure_not_broken
+- near_23ema_or_support
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+- price_too_extended
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 55.4
-- high: 59.8
-- low: 54.8
-- close: 58.2
-- volume: 3453533
-- ma5: 54.86
-- ema23_primary: 52.03
-- distance_to_ema23_pct: 11.87
-- ma20: 51.91
-- ma60: 49.02
-- ma120: 50.24
-- return_5d: 8.99
-- return_20d: 20
-- volume_ratio: 6.5
-- distance_to_ma20_pct_auxiliary: 12.12
-- distance_to_high_60_pct: -2.68
+- date: 20260602
+- open: 63.6
+- high: 63.7
+- low: 61
+- close: 62.1
+- volume: 2792247
+- ma5: 58.52
+- ema23_primary: 53.78
+- distance_to_ema23_pct: 15.47
+- ma20: 53.31
+- ma60: 49.55
+- ma120: 50.5
+- return_5d: 15.43
+- return_20d: 26.09
+- volume_ratio: 3.21
+- distance_to_ma20_pct_auxiliary: 16.48
+- distance_to_high_60_pct: -2.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,48.65,49.1,48.55,48.75,195773,48.16,1.22,48.18,48.64,1.2
-20260505,48.75,49.3,48.55,49.25,189794,48.25,2.07,48.33,48.57,1.12
 20260506,49.95,50,49.2,49.65,220948,48.37,2.65,48.49,48.5,1.25
 20260507,50.5,50.5,49,49.65,497210,48.48,2.42,48.61,48.45,2.58
 20260508,50.5,52.4,49.65,50.6,804968,48.65,4,48.73,48.41,3.66
@@ -97,6 +138,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,54.1,54.2,53.3,53.9,323879,51.2,5.28,51.12,48.77,0.96
 20260528,54.6,55.6,53.9,54.4,760286,51.47,5.7,51.42,48.86,2.07
 20260529,55.4,59.8,54.8,58.2,3453533,52.03,11.87,51.91,49.02,6.5
+20260601,58,64,57.3,64,4371760,53.02,20.7,52.67,49.31,5.91
+20260602,63.6,63.7,61,62.1,2792247,53.78,15.47,53.31,49.55,3.21
 ```
 
 ## Latest TDCC Snapshot
@@ -126,12 +169,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260530 | 3046 | 建碁 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260602 | 3046 | 建碁 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260530 | 3046 | 建碁 | 2 | 1 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260602 | 3046 | 建碁 | 3 | 1 | 3 | 3 | 3 | continued_2_3d | 連續 3 個交易日上榜，訊號延續但仍需確認。 |
 
 ## Warrant Context
 | status |
@@ -139,7 +182,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

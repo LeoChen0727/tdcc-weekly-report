@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2618 長榮航
 
 ## Metadata
-- generated_at: 2026-05-30 23:41:36 Asia/Taipei
+- generated_at: 2026-06-02 23:25:56 Asia/Taipei
 - stock_id: 2618
 - stock_name: 長榮航
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 273
+- latest_price_date: 20260602
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 27
 - tdcc_history_status: tdcc_history_ready
@@ -54,31 +54,70 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: unclear
+- entry_style: current_price_ok
+- position_sizing: observe_only
+
+### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+- acceptable_risk_reward
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- none
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 35.95
-- high: 36.7
-- low: 35.65
-- close: 36.05
-- volume: 122963731
-- ma5: 35.36
-- ema23_primary: 34.96
-- distance_to_ema23_pct: 3.11
-- ma20: 34.91
-- ma60: 34.66
-- ma120: 35.67
-- return_5d: 1.55
-- return_20d: 7.61
-- volume_ratio: 2.83
-- distance_to_ma20_pct_auxiliary: 3.25
-- distance_to_high_60_pct: -1.77
+- date: 20260602
+- open: 37.4
+- high: 37.8
+- low: 36.65
+- close: 37.25
+- volume: 84389805
+- ma5: 36.22
+- ema23_primary: 35.36
+- distance_to_ema23_pct: 5.34
+- ma20: 35.27
+- ma60: 34.78
+- ma120: 35.73
+- return_5d: 5.82
+- return_20d: 9.56
+- volume_ratio: 1.69
+- distance_to_ma20_pct_auxiliary: 5.61
+- distance_to_high_60_pct: -1.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,33.55,33.9,33.5,33.8,16096854,34.45,-1.88,34.55,35.61,0.72
-20260505,33.75,34.3,33.4,34,22178408,34.41,-1.19,34.5,35.53,0.98
 20260506,34.2,34.25,33.7,33.95,34613053,34.37,-1.23,34.48,35.46,1.44
 20260507,34.2,35.5,34.2,35.4,44124546,34.46,2.74,34.48,35.42,1.73
 20260508,35.4,35.7,35.2,35.65,34415959,34.56,3.16,34.53,35.38,1.3
@@ -97,6 +136,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,35.2,35.45,34.8,34.8,67319957,34.83,-0.07,34.72,34.66,1.9
 20260528,35.5,36.25,35.3,35.3,86240054,34.87,1.25,34.79,34.65,2.23
 20260529,35.95,36.7,35.65,36.05,122963731,34.96,3.11,34.91,34.66,2.83
+20260601,36.45,37.85,36.3,37.7,82974354,35.19,7.13,35.11,34.72,1.77
+20260602,37.4,37.8,36.65,37.25,84389805,35.36,5.34,35.27,34.78,1.69
 ```
 
 ## Latest TDCC Snapshot
@@ -131,22 +172,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260530 | 2618 | 長榮航 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260530 | 2618 | 長榮航 | 3 | 3 | 4 | 4 | 4 | continued_2_3d | 連續 3 個交易日上榜，訊號延續但仍需確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2618 | 長榮航 | 30 | 0 | 6913820.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260602 | 2618 | 長榮航 | 30 | 0 | 4560860.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

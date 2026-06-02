@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6831 邁科
 
 ## Metadata
-- generated_at: 2026-05-30 23:43:19 Asia/Taipei
+- generated_at: 2026-06-02 23:29:44 Asia/Taipei
 - stock_id: 6831
 - stock_name: 邁科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 121
+- latest_price_date: 20260602
+- price_rows: 123
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,71 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: high_level_consolidation
+- entry_style: pullback_to_23ema
+- position_sizing: observe_only
+
+### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- near_23ema_or_support
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+- price_too_extended
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 808
-- high: 809
-- low: 717
-- close: 742
-- volume: 2188736
-- ma5: 792.8
-- ema23_primary: 680.4
-- distance_to_ema23_pct: 9.05
-- ma20: 686.2
-- ma60: 492.03
-- ma120: 375.11
-- return_5d: -5.6
-- return_20d: 56.38
-- volume_ratio: 1.43
-- distance_to_ma20_pct_auxiliary: 8.13
-- distance_to_high_60_pct: -12.71
+- date: 20260602
+- open: 755
+- high: 755
+- low: 686
+- close: 686
+- volume: 3416371
+- ma5: 760
+- ema23_primary: 687.1
+- distance_to_ema23_pct: -0.16
+- ma20: 708.95
+- ma60: 505.29
+- ma120: 383.43
+- return_5d: -16.34
+- return_20d: 31.92
+- volume_ratio: 1.99
+- distance_to_ma20_pct_auxiliary: -3.24
+- distance_to_high_60_pct: -19.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,474.5,486,468,473,1182404,449.53,5.22,461.02,355.1,0.73
-20260505,472,520,468,520,1668989,455.4,14.19,467.7,359.52,1.03
 20260506,535,569,490,561,3268307,464.2,20.85,476.1,364.72,1.89
 20260507,590,594,550,559,2355430,472.1,18.41,483.12,369.91,1.35
 20260508,535,573,527,540,2677629,477.76,13.03,489.25,374.89,1.48
@@ -97,6 +137,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,850,850,797,820,610668,664.33,23.43,656.38,476.28,0.4
 20260528,830,850,779,790,502238,674.8,17.07,672.83,484.66,0.34
 20260529,808,809,717,742,2188736,680.4,9.05,686.2,492.03,1.43
+20260601,752,802,704,762,3210530,687.2,10.88,700.65,499.34,1.97
+20260602,755,755,686,686,3416371,687.1,-0.16,708.95,505.29,1.99
 ```
 
 ## Latest TDCC Snapshot
@@ -124,22 +166,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260530 | 6831 | 邁科 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | call_strong_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260530 | 6831 | 邁科 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 6831 | 邁科 | 19 | 0 | 6441470.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260602 | 6831 | 邁科 | 19 | 0 | 7236050.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

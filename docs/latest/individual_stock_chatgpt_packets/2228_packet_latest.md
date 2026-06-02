@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2228 劍麟
 
 ## Metadata
-- generated_at: 2026-05-30 23:41:17 Asia/Taipei
+- generated_at: 2026-06-02 23:25:16 Asia/Taipei
 - stock_id: 2228
 - stock_name: 劍麟
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 273
+- latest_price_date: 20260602
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,71 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: unclear
+- entry_style: pullback_to_23ema
+- position_sizing: observe_only
+
+### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- near_23ema_or_support
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+- acceptable_risk_reward
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 85.9
-- high: 86.5
-- low: 84.5
-- close: 84.7
-- volume: 312048
-- ma5: 83.46
-- ema23_primary: 85.07
-- distance_to_ema23_pct: -0.43
-- ma20: 84.96
-- ma60: 88.12
-- ma120: 95.66
-- return_5d: 1.32
-- return_20d: -2.87
-- volume_ratio: 1.17
-- distance_to_ma20_pct_auxiliary: -0.31
-- distance_to_high_60_pct: -10.08
+- date: 20260602
+- open: 85.5
+- high: 86.8
+- low: 84.9
+- close: 86.7
+- volume: 316435
+- ma5: 84.7
+- ema23_primary: 85.21
+- distance_to_ema23_pct: 1.75
+- ma20: 84.67
+- ma60: 87.92
+- ma120: 95.47
+- return_5d: 4.84
+- return_20d: -2.8
+- volume_ratio: 1.14
+- distance_to_ma20_pct_auxiliary: 2.4
+- distance_to_high_60_pct: -7.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,87.5,88.8,87.4,88.6,165343,89.5,-1,89.67,91.77,0.8
-20260505,88.8,89.8,88.8,89.2,154696,89.47,-0.3,89.8,91.55,0.74
 20260506,89.5,89.5,87.8,88.8,204227,89.41,-0.69,89.78,91.33,0.96
 20260507,88.8,91,88.7,90.5,242688,89.51,1.11,89.75,91.17,1.13
 20260508,91.2,91.2,88.6,88.6,185140,89.43,-0.93,89.62,91.03,0.85
@@ -97,6 +137,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,82.7,83.7,81.8,81.9,249219,85.11,-3.77,85.22,88.44,1.04
 20260528,83.4,87.2,83.4,85,662371,85.1,-0.12,85.08,88.27,2.55
 20260529,85.9,86.5,84.5,84.7,312048,85.07,-0.43,84.96,88.12,1.17
+20260601,85.1,86,84.3,85.2,227842,85.08,0.14,84.79,88.03,0.85
+20260602,85.5,86.8,84.9,86.7,316435,85.21,1.75,84.67,87.92,1.14
 ```
 
 ## Latest TDCC Snapshot
@@ -136,10 +178,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2228 | 劍麟 | 5 | 0 | 21130.0 | 0.0 |  | no_signal | 0 |  |
+| 20260602 | 2228 | 劍麟 | 4 | 0 | 3550.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

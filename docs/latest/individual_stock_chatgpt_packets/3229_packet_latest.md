@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3229 晟鈦
 
 ## Metadata
-- generated_at: 2026-05-30 23:41:56 Asia/Taipei
+- generated_at: 2026-06-02 23:26:38 Asia/Taipei
 - stock_id: 3229
 - stock_name: 晟鈦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 273
+- latest_price_date: 20260602
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,70 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: high_level_consolidation
+- entry_style: current_price_ok
+- position_sizing: observe_only
+
+### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+- price_too_extended
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 46.5
-- high: 49.5
-- low: 44.75
-- close: 49.5
-- volume: 1166361
-- ma5: 46.37
-- ema23_primary: 40.78
-- distance_to_ema23_pct: 21.39
-- ma20: 42.39
-- ma60: 30.48
-- ma120: 26.78
-- return_5d: 25
-- return_20d: 23.6
-- volume_ratio: 1.24
-- distance_to_ma20_pct_auxiliary: 16.77
-- distance_to_high_60_pct: -1.79
+- date: 20260602
+- open: 50
+- high: 52.6
+- low: 49
+- close: 50.3
+- volume: 1622794
+- ma5: 49.02
+- ema23_primary: 42.61
+- distance_to_ema23_pct: 18.04
+- ma20: 43.3
+- ma60: 31.57
+- ma120: 27.4
+- return_5d: 5.01
+- return_20d: 17.11
+- volume_ratio: 1.51
+- distance_to_ma20_pct_auxiliary: 16.16
+- distance_to_high_60_pct: -7.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,44.05,44.05,41.9,43.55,617544,31.84,36.78,30.5,24.08,0.76
-20260505,43,43,41.9,42.95,325259,32.77,31.08,31.72,24.4,0.4
 20260506,44.95,44.95,42.5,42.7,222010,33.59,27.11,32.92,24.73,0.27
 20260507,44.05,44.05,42.5,43,211279,34.38,25.08,34.13,25.08,0.26
 20260508,40.8,42,40.6,40.75,252767,34.91,16.73,35.23,25.38,0.3
@@ -97,6 +136,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,49.2,50.4,45.7,45.9,2101745,39.53,16.12,41.54,29.62,2.37
 20260528,45.8,48.35,44.5,45,844912,39.98,12.54,41.92,30.01,0.92
 20260529,46.5,49.5,44.75,49.5,1166361,40.78,21.39,42.39,30.48,1.24
+20260601,51.7,54.4,51.7,54.4,2094127,41.91,29.79,42.94,31.06,2.07
+20260602,50,52.6,49,50.3,1622794,42.61,18.04,43.3,31.57,1.51
 ```
 
 ## Latest TDCC Snapshot
@@ -124,14 +165,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260530 | 3229 | 晟鈦 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 58.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260530 | 3229 | 晟鈦 | 2 | 2 | 4 | 5 | 5 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |
@@ -139,7 +180,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

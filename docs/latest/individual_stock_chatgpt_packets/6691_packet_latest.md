@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6691 洋基工程
 
 ## Metadata
-- generated_at: 2026-05-30 23:43:14 Asia/Taipei
+- generated_at: 2026-06-02 23:29:31 Asia/Taipei
 - stock_id: 6691
 - stock_name: 洋基工程
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 273
+- latest_price_date: 20260602
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,71 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: unclear
+- entry_style: pullback_to_23ema
+- position_sizing: observe_only
+
+### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- near_23ema_or_support
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+- acceptable_risk_reward
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 651
-- high: 655
-- low: 640
-- close: 650
-- volume: 389388
-- ma5: 651.6
-- ema23_primary: 639.81
-- distance_to_ema23_pct: 1.59
-- ma20: 640.9
-- ma60: 627.75
-- ma120: 603.96
-- return_5d: 3.5
-- return_20d: 3.01
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: 1.42
-- distance_to_high_60_pct: -6.61
+- date: 20260602
+- open: 650
+- high: 650
+- low: 635
+- close: 644
+- volume: 336750
+- ma5: 650.8
+- ema23_primary: 640.78
+- distance_to_ema23_pct: 0.5
+- ma20: 641.5
+- ma60: 628.18
+- ma120: 606.62
+- return_5d: -0.92
+- return_20d: 0.78
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: 0.39
+- distance_to_high_60_pct: -7.47
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,636,647,636,641,365524,636.13,0.77,635.4,618.57,0.51
-20260505,638,643,632,639,403931,636.37,0.41,639.3,619.22,0.56
 20260506,645,680,634,677,1057331,639.75,5.82,645.05,620.47,1.4
 20260507,675,680,668,671,432313,642.36,4.46,649.5,621.57,0.58
 20260508,663,681,652,654,646795,643.33,1.66,652.2,622.25,0.86
@@ -97,6 +137,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,653,677,648,674,1062910,638.96,5.48,639.85,628.5,2.1
 20260528,674,674,637,638,862698,638.88,-0.14,639.95,627.85,1.63
 20260529,651,655,640,650,389388,639.81,1.59,640.9,627.75,0.73
+20260601,650,650,636,648,555393,640.49,1.17,641.25,628.28,1.02
+20260602,650,650,635,644,336750,640.78,0.5,641.5,628.18,0.62
 ```
 
 ## Latest TDCC Snapshot
@@ -136,10 +178,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 6691 | 洋基工程 | 64 | 0 | 1052920.0 | 0.0 |  | no_signal | 0 |  |
+| 20260602 | 6691 | 洋基工程 | 63 | 0 | 761210.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0050 元大台灣50
 
 ## Metadata
-- generated_at: 2026-05-30 23:40:46 Asia/Taipei
+- generated_at: 2026-06-02 23:24:03 Asia/Taipei
 - stock_id: 0050
 - stock_name: 元大台灣50
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 137
+- latest_price_date: 20260602
+- price_rows: 139
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -54,31 +54,70 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: unclear
+- entry_style: current_price_ok
+- position_sizing: observe_only
+
+### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+- acceptable_risk_reward
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- none
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 103.2
-- high: 105.4
-- low: 102.7
-- close: 105.4
-- volume: 102355526
-- ma5: 101.87
-- ema23_primary: 95.88
-- distance_to_ema23_pct: 9.93
-- ma20: 97.17
-- ma60: 85.61
-- ma120: 77.32
-- return_5d: 8.32
-- return_20d: 16.46
-- volume_ratio: 0.96
-- distance_to_ma20_pct_auxiliary: 8.47
-- distance_to_high_60_pct: 0
+- date: 20260602
+- open: 106.3
+- high: 106.3
+- low: 104.2
+- close: 105.7
+- volume: 117160979
+- ma5: 103.93
+- ema23_primary: 97.43
+- distance_to_ema23_pct: 8.49
+- ma20: 98.27
+- ma60: 86.58
+- ma120: 78.05
+- return_5d: 5.59
+- return_20d: 11.73
+- volume_ratio: 1.08
+- distance_to_ma20_pct_auxiliary: 7.56
+- distance_to_high_60_pct: -0.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,92.5,94.65,92.4,94.6,125270935,85.37,10.81,84.97,78.67,1.07
-20260505,94.4,94.75,94,94.6,82851869,86.14,9.82,86,79.04,0.72
 20260506,96.05,96.9,94.7,95.75,111759164,86.94,10.13,87.03,79.42,0.95
 20260507,97.95,98.4,97.4,97.7,117152238,87.84,11.23,87.95,79.81,1.05
 20260508,97.35,97.7,95.85,97,131188123,88.6,9.48,88.84,80.2,1.16
@@ -97,6 +136,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,102.4,103.9,102,102.55,94959812,94.51,8.5,95.94,84.83,0.92
 20260528,104,104.25,100.1,100.5,152915695,95.01,5.78,96.42,85.17,1.45
 20260529,103.2,105.4,102.7,105.4,102355526,95.88,9.93,97.17,85.61,0.96
+20260601,105.25,106.7,104.5,105.5,135817122,96.68,9.12,97.71,86.11,1.27
+20260602,106.3,106.3,104.2,105.7,117160979,97.43,8.49,98.27,86.58,1.08
 ```
 
 ## Latest TDCC Snapshot
@@ -132,10 +173,12 @@ no_rows,True
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 0050 | 元大台灣50 | 232 | 195 | 102926860.0 | 9137670.0 | 11.26 | call_inflow | 1 | 認購權證成交金額很大且認購/認售比偏高，需檢查標的是否高位追價或獲利結清 |
+| 20260602 | 0050 | 元大台灣50 | 233 | 195 | 83169520.0 | 7803290.0 | 10.66 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

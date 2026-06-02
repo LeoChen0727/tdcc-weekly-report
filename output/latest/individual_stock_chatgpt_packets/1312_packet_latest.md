@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1312 國喬
 
 ## Metadata
-- generated_at: 2026-05-30 23:40:54 Asia/Taipei
+- generated_at: 2026-06-02 23:24:22 Asia/Taipei
 - stock_id: 1312
 - stock_name: 國喬
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 273
+- latest_price_date: 20260602
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,70 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: high_level_consolidation
+- entry_style: current_price_ok
+- position_sizing: observe_only
+
+### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+- price_too_extended
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 11
-- high: 11.7
-- low: 10.55
-- close: 11.35
-- volume: 25578121
-- ma5: 10.56
-- ema23_primary: 11.19
-- distance_to_ema23_pct: 1.39
-- ma20: 10.98
+- date: 20260602
+- open: 13.25
+- high: 13.25
+- low: 13.25
+- close: 13.25
+- volume: 11632791
+- ma5: 11.52
+- ema23_primary: 11.43
+- distance_to_ema23_pct: 15.91
+- ma20: 11.05
 - ma60: 12.64
-- ma120: 12.49
-- return_5d: 9.13
-- return_20d: -7.72
-- volume_ratio: 3.49
-- distance_to_ma20_pct_auxiliary: 3.4
-- distance_to_high_60_pct: -26.54
+- ma120: 12.53
+- return_5d: 31.19
+- return_20d: 9.96
+- volume_ratio: 1.39
+- distance_to_ma20_pct_auxiliary: 19.87
+- distance_to_high_60_pct: -14.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,12.2,12.2,11.65,11.7,9600966,13.02,-10.17,13.12,13.35,0.65
-20260505,11.85,12.1,11.75,12.05,4346565,12.94,-6.9,13.06,13.32,0.3
 20260506,12,12,11.65,11.65,5961006,12.84,-9.24,12.97,13.29,0.42
 20260507,11.6,12.15,11.5,12.1,5809364,12.77,-5.28,12.94,13.27,0.43
 20260508,12.15,12.2,11.6,11.6,4496298,12.68,-8.49,12.88,13.23,0.34
@@ -97,6 +136,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,10.15,10.2,9.98,9.98,7881704,11.2,-10.9,11.09,12.71,1.3
 20260528,10.1,10.95,10.1,10.95,15134863,11.18,-2.06,11.02,12.67,2.35
 20260529,11,11.7,10.55,11.35,25578121,11.19,1.39,10.98,12.64,3.49
+20260601,11.5,12.2,11.1,12.05,23812360,11.27,6.96,10.99,12.63,2.96
+20260602,13.25,13.25,13.25,13.25,11632791,11.43,15.91,11.05,12.64,1.39
 ```
 
 ## Latest TDCC Snapshot
@@ -124,22 +165,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260530 | 1312 | 國喬 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260530 | 1312 | 國喬 | 3 | 3 | 3 | 3 | 3 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 1312 | 國喬 | 24 | 0 | 694220.0 | 0.0 |  | no_signal | 0 |  |
+| 20260602 | 1312 | 國喬 | 23 | 0 | 1879340.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

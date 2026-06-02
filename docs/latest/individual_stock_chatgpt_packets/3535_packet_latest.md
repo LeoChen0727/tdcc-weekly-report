@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3535 晶彩科
 
 ## Metadata
-- generated_at: 2026-05-30 23:42:06 Asia/Taipei
+- generated_at: 2026-06-02 23:27:01 Asia/Taipei
 - stock_id: 3535
 - stock_name: 晶彩科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 273
+- latest_price_date: 20260602
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,68 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: reduce
+- action_rating_label_zh: 減碼
+- confidence_level: low
+- thesis_state: failed_breakout
+- entry_style: no_entry_now
+- position_sizing: reduce_position
+
+### management_plan
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- near_23ema_or_support
+- revenue_not_deteriorating
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+- tdcc_distribution_warning
+- volume_price_failure
+- price_too_extended
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 124
-- high: 124
-- low: 122
-- close: 122.5
-- volume: 1298172
-- ma5: 125
-- ema23_primary: 125.44
-- distance_to_ema23_pct: -2.34
-- ma20: 127.88
-- ma60: 124.91
-- ma120: 110.9
-- return_5d: -3.92
-- return_20d: -4.67
-- volume_ratio: 0.19
-- distance_to_ma20_pct_auxiliary: -4.2
-- distance_to_high_60_pct: -18.87
+- date: 20260602
+- open: 135
+- high: 140
+- low: 132.5
+- close: 137.5
+- volume: 18882679
+- ma5: 127.7
+- ema23_primary: 127.14
+- distance_to_ema23_pct: 8.15
+- ma20: 127.15
+- ma60: 125.06
+- ma120: 111.9
+- return_5d: 7
+- return_20d: -5.5
+- volume_ratio: 3.19
+- distance_to_ma20_pct_auxiliary: 8.14
+- distance_to_high_60_pct: -8.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,132,141,129,141,14826671,123.92,13.78,123.95,118.83,1.84
-20260505,140,148.5,133,145.5,29345518,125.72,15.73,126.05,119.54,3.12
 20260506,150.5,151,135,136.5,21426845,126.62,7.8,127.2,120.09,2.06
 20260507,137,138,131,132,6626066,127.07,3.88,127.75,120.55,0.64
 20260508,131,135,125,128.5,4894231,127.19,1.03,128.07,121.03,0.48
@@ -97,6 +134,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,128.5,129,123.5,123.5,2474184,126.18,-2.12,128.45,125.29,0.33
 20260528,124.5,126.5,120,120.5,2462809,125.71,-4.14,128.18,124.97,0.34
 20260529,124,124,122,122.5,1298172,125.44,-2.34,127.88,124.91,0.19
+20260601,124.5,134.5,123,134.5,6979303,126.19,6.58,127.55,125.02,1.08
+20260602,135,140,132.5,137.5,18882679,127.14,8.15,127.15,125.06,3.19
 ```
 
 ## Latest TDCC Snapshot
@@ -126,12 +165,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 3535 | 晶彩科 | pattern | 型態觀察 |  |  |  | 預備發動型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260602 | 3535 | 晶彩科 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260521 | 3535 | 晶彩科 | pattern | 型態觀察 |  |  |  | 預備發動型 |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260530 | 3535 | 晶彩科 | 8 | 8 | 5 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260602 | 3535 | 晶彩科 | 9 | 9 | 5 | 9 | 9 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | status |
@@ -139,7 +179,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

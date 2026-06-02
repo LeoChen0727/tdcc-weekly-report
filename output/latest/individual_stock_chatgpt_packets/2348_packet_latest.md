@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2348 海悅
 
 ## Metadata
-- generated_at: 2026-05-30 23:41:21 Asia/Taipei
+- generated_at: 2026-06-02 23:25:25 Asia/Taipei
 - stock_id: 2348
 - stock_name: 海悅
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 273
+- latest_price_date: 20260602
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,71 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: unclear
+- entry_style: pullback_to_23ema
+- position_sizing: observe_only
+
+### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- near_23ema_or_support
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+- acceptable_risk_reward
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 67.9
-- high: 68.3
-- low: 67.6
-- close: 68.1
-- volume: 188375
-- ma5: 67.94
-- ema23_primary: 70.24
-- distance_to_ema23_pct: -3.05
-- ma20: 69.73
-- ma60: 74.08
-- ma120: 76.79
-- return_5d: -1.3
-- return_20d: -4.22
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: -2.34
-- distance_to_high_60_pct: -23.91
+- date: 20260602
+- open: 69.9
+- high: 70.7
+- low: 69.3
+- close: 70.7
+- volume: 334763
+- ma5: 68.84
+- ema23_primary: 70.25
+- distance_to_ema23_pct: 0.64
+- ma20: 69.56
+- ma60: 74.1
+- ma120: 76.55
+- return_5d: 4.28
+- return_20d: -1.81
+- volume_ratio: 1.14
+- distance_to_ma20_pct_auxiliary: 1.63
+- distance_to_high_60_pct: -21.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,70.9,72.9,70.9,72,304523,75.27,-4.35,76.17,75.94,0.9
-20260505,72.2,72.4,71.2,72,228768,75,-4,75.78,75.84,0.7
 20260506,71.5,71.8,70.6,71.1,330010,74.68,-4.79,75.31,75.73,1.04
 20260507,71.2,71.5,70.7,71.3,254195,74.39,-4.16,74.89,75.64,0.83
 20260508,71.7,71.7,70.4,70.9,311024,74.1,-4.32,74.59,75.5,1.06
@@ -97,6 +137,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,68,68.4,67.8,67.9,432858,70.69,-3.95,70.14,74.23,1.48
 20260528,68.2,68.4,67.4,67.6,226248,70.44,-4.03,69.89,74.14,0.77
 20260529,67.9,68.3,67.6,68.1,188375,70.24,-3.05,69.73,74.08,0.66
+20260601,68.2,69.9,68.2,69.9,338241,70.21,-0.45,69.63,74.09,1.18
+20260602,69.9,70.7,69.3,70.7,334763,70.25,0.64,69.56,74.1,1.14
 ```
 
 ## Latest TDCC Snapshot
@@ -136,10 +178,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2348 | 海悅 | 9 | 0 | 10000.0 | 0.0 |  | no_signal | 0 |  |
+| 20260602 | 2348 | 海悅 | 9 | 0 | 103100.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2464 盟立
 
 ## Metadata
-- generated_at: 2026-05-30 23:41:29 Asia/Taipei
+- generated_at: 2026-06-02 23:25:42 Asia/Taipei
 - stock_id: 2464
 - stock_name: 盟立
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 273
+- latest_price_date: 20260602
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,70 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: high_level_consolidation
+- entry_style: current_price_ok
+- position_sizing: observe_only
+
+### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+- price_too_extended
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 175
-- high: 184.5
-- low: 173
-- close: 184.5
-- volume: 14603817
-- ma5: 172.2
-- ema23_primary: 135.8
-- distance_to_ema23_pct: 35.86
-- ma20: 135.22
-- ma60: 96.47
-- ma120: 80.97
-- return_5d: 28.12
-- return_20d: 62.56
-- volume_ratio: 0.57
-- distance_to_ma20_pct_auxiliary: 36.44
-- distance_to_high_60_pct: 0
+- date: 20260602
+- open: 200
+- high: 200
+- low: 182.5
+- close: 185
+- volume: 17736318
+- ma5: 182.7
+- ema23_primary: 144.73
+- distance_to_ema23_pct: 27.82
+- ma20: 142.97
+- ma60: 100.61
+- ma120: 83.18
+- return_5d: 6.63
+- return_20d: 63.72
+- volume_ratio: 0.7
+- distance_to_ma20_pct_auxiliary: 29.39
+- distance_to_high_60_pct: -8.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,116,120,113,116,25160104,89.21,30.03,84.98,75.81,1.45
-20260505,118,121.5,111.5,113,18018922,91.19,23.92,87.31,76.52,0.99
 20260506,113,115,105,111,18892967,92.84,19.56,89.56,77.22,1
 20260507,112,113.5,107,111,13371619,94.35,17.64,91.72,77.91,0.68
 20260508,112,122,109,122,55247054,96.66,26.22,94.43,78.77,2.49
@@ -97,6 +136,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,177,184,173,177,32535439,128.05,38.23,129,93.03,1.16
 20260528,177,177,163.5,168,17695107,131.38,27.88,131.68,94.59,0.67
 20260529,175,184.5,173,184.5,14603817,135.8,35.86,135.22,96.47,0.57
+20260601,194.5,202,191.5,199,23206852,141.07,41.06,139.38,98.67,0.91
+20260602,200,200,182.5,185,17736318,144.73,27.82,142.97,100.61,0.7
 ```
 
 ## Latest TDCC Snapshot
@@ -136,10 +177,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2464 | 盟立 | 109 | 3 | 12318240.0 | 243870.0 | 50.51 | no_signal | 0 |  |
+| 20260602 | 2464 | 盟立 | 109 | 3 | 21328870.0 | 504390.0 | 42.29 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

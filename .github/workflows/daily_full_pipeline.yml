@@ -14,7 +14,7 @@ on:
       run_individual_stock_outputs:
         description: "Build per-stock ChatGPT packets, 180d windows, raw data indexes"
         required: false
-        default: "false"
+        default: "true"
 
 permissions:
   contents: write
@@ -477,6 +477,7 @@ jobs:
         run: |
           python scripts/build_individual_stock_chatgpt_packets.py
           python scripts/build_individual_stock_raw_data_index.py
+          python scripts/validate_individual_stock_outputs.py --all
 
       - name: Check raw data health
         if: ${{ github.event.inputs.run_raw_health_check == 'true' }}

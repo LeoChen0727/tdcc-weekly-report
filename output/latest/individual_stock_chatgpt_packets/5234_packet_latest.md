@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5234 達興材料
 
 ## Metadata
-- generated_at: 2026-05-30 23:42:36 Asia/Taipei
+- generated_at: 2026-06-02 23:28:07 Asia/Taipei
 - stock_id: 5234
 - stock_name: 達興材料
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 273
+- latest_price_date: 20260602
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,71 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: unclear
+- entry_style: pullback_to_23ema
+- position_sizing: observe_only
+
+### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- near_23ema_or_support
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+- acceptable_risk_reward
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 415
-- high: 418
-- low: 406
-- close: 409
-- volume: 670462
-- ma5: 427
-- ema23_primary: 419.08
-- distance_to_ema23_pct: -2.41
-- ma20: 417.95
-- ma60: 403.77
-- ma120: 377.85
-- return_5d: -7.78
-- return_20d: -7.99
-- volume_ratio: 0.76
-- distance_to_ma20_pct_auxiliary: -2.14
-- distance_to_high_60_pct: -18.12
+- date: 20260602
+- open: 412.5
+- high: 412.5
+- low: 396.5
+- close: 403
+- volume: 811209
+- ma5: 412.4
+- ema23_primary: 417.24
+- distance_to_ema23_pct: -3.41
+- ma20: 415.62
+- ma60: 404.32
+- ma120: 379
+- return_5d: -8.2
+- return_20d: -5.95
+- volume_ratio: 0.92
+- distance_to_ma20_pct_auxiliary: -3.04
+- distance_to_high_60_pct: -19.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,451,452,431.5,433.5,705386,420.14,3.18,421.32,388.52,0.63
-20260505,434,434,422,428.5,559473,420.83,1.82,424.9,390.18,0.52
 20260506,432.5,433.5,400,413.5,1078555,420.22,-1.6,427.75,391.57,0.99
 20260507,420,420.5,394,398.5,1259598,418.41,-4.76,428.07,392.64,1.16
 20260508,396.5,424.5,396.5,408,1110916,417.54,-2.29,428.43,393.85,1.06
@@ -97,6 +137,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,445,449,423,426,762122,420.77,1.24,422.23,403.08,0.82
 20260528,426,434.5,406.5,411.5,846915,420,-2.02,419.73,403.42,0.94
 20260529,415,418,406,409,670462,419.08,-2.41,417.95,403.77,0.76
+20260601,411,415,406,412.5,522893,418.53,-1.44,416.9,404.27,0.6
+20260602,412.5,412.5,396.5,403,811209,417.24,-3.41,415.62,404.32,0.92
 ```
 
 ## Latest TDCC Snapshot
@@ -136,10 +178,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 5234 | 達興材料 | 70 | 2 | 1792740.0 | 0.0 |  | no_signal | 0 |  |
+| 20260602 | 5234 | 達興材料 | 70 | 2 | 2005510.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

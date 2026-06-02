@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2031 新光鋼
 
 ## Metadata
-- generated_at: 2026-05-30 23:41:14 Asia/Taipei
+- generated_at: 2026-06-02 23:25:08 Asia/Taipei
 - stock_id: 2031
 - stock_name: 新光鋼
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 273
+- latest_price_date: 20260602
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,71 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: unclear
+- entry_style: pullback_to_23ema
+- position_sizing: observe_only
+
+### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- near_23ema_or_support
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+- acceptable_risk_reward
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 38.6
-- high: 39.5
-- low: 38.6
-- close: 39.35
-- volume: 1182549
-- ma5: 39.07
-- ema23_primary: 39.11
-- distance_to_ema23_pct: 0.61
-- ma20: 39.07
-- ma60: 39.56
-- ma120: 39.1
-- return_5d: 2.88
-- return_20d: -3.2
-- volume_ratio: 1.13
-- distance_to_ma20_pct_auxiliary: 0.71
-- distance_to_high_60_pct: -5.29
+- date: 20260602
+- open: 39.6
+- high: 39.8
+- low: 39.3
+- close: 39.65
+- volume: 926578
+- ma5: 39.27
+- ema23_primary: 39.21
+- distance_to_ema23_pct: 1.13
+- ma20: 38.97
+- ma60: 39.64
+- ma120: 39.11
+- return_5d: 2.06
+- return_20d: -2.7
+- volume_ratio: 0.89
+- distance_to_ma20_pct_auxiliary: 1.74
+- distance_to_high_60_pct: -4.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,40.65,40.95,40.45,40.7,1015891,40.11,1.48,40.37,39.66,1.21
-20260505,40.9,41.2,40.45,40.75,1153059,40.16,1.47,40.4,39.68,1.32
 20260506,40.45,40.45,39.25,39.4,2552878,40.1,-1.74,40.34,39.69,2.65
 20260507,39.45,39.8,39.1,39.75,774012,40.07,-0.8,40.26,39.7,0.85
 20260508,39.85,39.85,39.05,39.65,680846,40.03,-0.96,40.2,39.7,0.74
@@ -97,6 +137,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,38.95,39.1,38.5,38.85,928986,39.12,-0.7,39.24,39.56,0.89
 20260528,39.15,39.15,38.4,38.7,859306,39.09,-0.99,39.14,39.55,0.83
 20260529,38.6,39.5,38.6,39.35,1182549,39.11,0.61,39.07,39.56,1.13
+20260601,39.3,39.9,38.65,39.8,1190516,39.17,1.61,39.03,39.61,1.13
+20260602,39.6,39.8,39.3,39.65,926578,39.21,1.13,38.97,39.64,0.89
 ```
 
 ## Latest TDCC Snapshot
@@ -124,22 +166,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260530 | 2031 | 新光鋼 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260530 | 2031 | 新光鋼 | 2 | 2 | 3 | 4 | 4 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2031 | 新光鋼 | 1 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
+| 20260602 | 2031 | 新光鋼 | 1 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

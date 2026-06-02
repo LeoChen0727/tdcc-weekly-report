@@ -59,3 +59,43 @@ stock_id,stock_name,strategy_key,strategy_name,sample_count,avg_return_pct,media
 8299,群聯,fixed_d20,固定 D+20 賣,0,,,,,,,insufficient_sample,2026-05-26 13:40:41 Asia/Taipei
 8299,群聯,atr_trailing_stop,ATR trailing stop 賣,0,,,,,,,insufficient_sample,2026-05-26 13:40:41 Asia/Taipei
 8299,群聯,percent_trailing_stop,固定百分比 trailing stop 賣,1,-3.8353909465020486,-3.8353909465020486,0.0,4.526748971193406,-4.526748971193417,1.0,insufficient_sample,2026-05-26 13:40:41 Asia/Taipei
+3207,耀勝,prior_high,碰前高賣,0,,,,,,,insufficient_sample,2026-06-02 23:34:14 Asia/Taipei
+3207,耀勝,high_20d,碰 20日高賣,0,,,,,,,insufficient_sample,2026-06-02 23:34:14 Asia/Taipei
+3207,耀勝,high_60d,碰 60日高賣,0,,,,,,,insufficient_sample,2026-06-02 23:34:14 Asia/Taipei
+3207,耀勝,high_120d,碰 120日高賣,0,,,,,,,insufficient_sample,2026-06-02 23:34:14 Asia/Taipei
+3207,耀勝,resistance_scale_out,壓力區分批賣,0,,,,,,,insufficient_sample,2026-06-02 23:34:14 Asia/Taipei
+3207,耀勝,broker_target_median,券商目標價中位數賣,0,,,,,,,insufficient_sample,2026-06-02 23:34:14 Asia/Taipei
+3207,耀勝,broker_target_average,券商目標價平均數賣,0,,,,,,,insufficient_sample,2026-06-02 23:34:14 Asia/Taipei
+3207,耀勝,tdcc_weakening,TDCC 大戶轉弱賣,0,,,,,,,insufficient_sample,2026-06-02 23:34:14 Asia/Taipei
+3207,耀勝,shareholders_surge,股東人數暴增賣,0,,,,,,,insufficient_sample,2026-06-02 23:34:14 Asia/Taipei
+3207,耀勝,margin_surge,融資快速增加賣,0,,,,,,,insufficient_sample,2026-06-02 23:34:14 Asia/Taipei
+3207,耀勝,break_ema23,跌破 EMA23 賣,0,,,,,,,insufficient_sample,2026-06-02 23:34:14 Asia/Taipei
+3207,耀勝,break_ma20,跌破 MA20 輔助觀察賣,0,,,,,,,insufficient_sample,2026-06-02 23:34:14 Asia/Taipei
+3207,耀勝,break_neckline,跌破頸線賣,0,,,,,,,insufficient_sample,2026-06-02 23:34:14 Asia/Taipei
+3207,耀勝,break_breakout_low,跌破突破K低點賣,0,,,,,,,insufficient_sample,2026-06-02 23:34:14 Asia/Taipei
+3207,耀勝,high_volume_black,放量長黑賣,0,,,,,,,insufficient_sample,2026-06-02 23:34:14 Asia/Taipei
+3207,耀勝,fixed_d5,固定 D+5 賣,0,,,,,,,insufficient_sample,2026-06-02 23:34:14 Asia/Taipei
+3207,耀勝,fixed_d10,固定 D+10 賣,0,,,,,,,insufficient_sample,2026-06-02 23:34:14 Asia/Taipei
+3207,耀勝,fixed_d20,固定 D+20 賣,0,,,,,,,insufficient_sample,2026-06-02 23:34:14 Asia/Taipei
+3207,耀勝,atr_trailing_stop,ATR trailing stop 賣,0,,,,,,,insufficient_sample,2026-06-02 23:34:14 Asia/Taipei
+3207,耀勝,percent_trailing_stop,固定百分比 trailing stop 賣,0,,,,,,,insufficient_sample,2026-06-02 23:34:14 Asia/Taipei
+2324,仁寶,prior_high,碰前高賣,7,3.8279106834691743,2.2222222222222365,85.71428571428571,32.51325066975653,1.4341191071196628,1.4285714285714286,ok,2026-06-02 23:34:15 Asia/Taipei
+2324,仁寶,high_20d,碰 20日高賣,7,3.8279106834691743,2.2222222222222365,85.71428571428571,32.51325066975653,1.4341191071196628,1.4285714285714286,ok,2026-06-02 23:34:15 Asia/Taipei
+2324,仁寶,high_60d,碰 60日高賣,7,5.052400479387537,6.507936507936507,85.71428571428571,32.51325066975653,1.4341191071196628,1.4285714285714286,ok,2026-06-02 23:34:15 Asia/Taipei
+2324,仁寶,high_120d,碰 120日高賣,7,6.643824927954847,7.31343283582091,100.0,32.51325066975653,1.4341191071196628,1.7142857142857142,ok,2026-06-02 23:34:15 Asia/Taipei
+2324,仁寶,resistance_scale_out,壓力區分批賣,7,6.643824927954847,7.31343283582091,100.0,32.51325066975653,1.4341191071196628,1.7142857142857142,ok,2026-06-02 23:34:15 Asia/Taipei
+2324,仁寶,broker_target_median,券商目標價中位數賣,0,,,,,,,insufficient_sample,2026-06-02 23:34:15 Asia/Taipei
+2324,仁寶,broker_target_average,券商目標價平均數賣,0,,,,,,,insufficient_sample,2026-06-02 23:34:15 Asia/Taipei
+2324,仁寶,tdcc_weakening,TDCC 大戶轉弱賣,0,,,,,,,insufficient_sample,2026-06-02 23:34:15 Asia/Taipei
+2324,仁寶,shareholders_surge,股東人數暴增賣,0,,,,,,,insufficient_sample,2026-06-02 23:34:15 Asia/Taipei
+2324,仁寶,margin_surge,融資快速增加賣,0,,,,,,,insufficient_sample,2026-06-02 23:34:15 Asia/Taipei
+2324,仁寶,break_ema23,跌破 EMA23 賣,0,,,,,,,insufficient_sample,2026-06-02 23:34:15 Asia/Taipei
+2324,仁寶,break_ma20,跌破 MA20 輔助觀察賣,0,,,,,,,insufficient_sample,2026-06-02 23:34:15 Asia/Taipei
+2324,仁寶,break_neckline,跌破頸線賣,0,,,,,,,insufficient_sample,2026-06-02 23:34:15 Asia/Taipei
+2324,仁寶,break_breakout_low,跌破突破K低點賣,2,-1.812770562770566,-1.812770562770566,0.0,29.99413780663781,-4.592803030303038,1.0,insufficient_sample,2026-06-02 23:34:15 Asia/Taipei
+2324,仁寶,high_volume_black,放量長黑賣,3,3.4343434343434343,6.666666666666665,66.66666666666666,36.527176527176536,0.20202020202019236,1.6666666666666667,ok,2026-06-02 23:34:15 Asia/Taipei
+2324,仁寶,fixed_d5,固定 D+5 賣,4,20.36503427128428,16.507936507936517,100.0,35.39389430014431,-0.6297348484848585,5.0,ok,2026-06-02 23:34:15 Asia/Taipei
+2324,仁寶,fixed_d10,固定 D+10 賣,0,,,,,,,insufficient_sample,2026-06-02 23:34:15 Asia/Taipei
+2324,仁寶,fixed_d20,固定 D+20 賣,0,,,,,,,insufficient_sample,2026-06-02 23:34:15 Asia/Taipei
+2324,仁寶,atr_trailing_stop,ATR trailing stop 賣,3,1.9721019721019768,5.555555555555558,66.66666666666666,36.527176527176536,0.20202020202019236,1.6666666666666667,ok,2026-06-02 23:34:15 Asia/Taipei
+2324,仁寶,percent_trailing_stop,固定百分比 trailing stop 賣,3,1.815103415103436,4.996825396825422,66.66666666666666,36.527176527176536,0.20202020202019236,1.6666666666666667,ok,2026-06-02 23:34:15 Asia/Taipei

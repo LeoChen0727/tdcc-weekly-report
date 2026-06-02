@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2472 立隆電
 
 ## Metadata
-- generated_at: 2026-05-30 23:41:30 Asia/Taipei
+- generated_at: 2026-06-02 23:25:43 Asia/Taipei
 - stock_id: 2472
 - stock_name: 立隆電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 273
+- latest_price_date: 20260602
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,70 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: high_level_consolidation
+- entry_style: current_price_ok
+- position_sizing: observe_only
+
+### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+- price_too_extended
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 404
-- high: 404
-- low: 362
-- close: 371
-- volume: 21372445
-- ma5: 333.2
-- ema23_primary: 257.21
-- distance_to_ema23_pct: 44.24
-- ma20: 251.3
-- ma60: 178.57
-- ma120: 144.58
-- return_5d: 42.69
-- return_20d: 110.2
-- volume_ratio: 1.56
-- distance_to_ma20_pct_auxiliary: 47.63
-- distance_to_high_60_pct: -8.17
+- date: 20260602
+- open: 387
+- high: 387
+- low: 353
+- close: 380
+- volume: 4684429
+- ma5: 370.3
+- ema23_primary: 277.74
+- distance_to_ema23_pct: 36.82
+- ma20: 271.27
+- ma60: 187.79
+- ma120: 149.22
+- return_5d: 23.78
+- return_20d: 101.59
+- volume_ratio: 0.34
+- distance_to_ma20_pct_auxiliary: 40.08
+- distance_to_high_60_pct: -6.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,179,188,175,184,4717000,164.44,11.89,168.05,133.62,0.9
-20260505,184,193,183.5,188.5,4274133,166.45,13.25,170.9,134.82,0.82
 20260506,192.5,193,181,186.5,4177327,168.12,10.93,173.82,135.97,0.8
 20260507,191,205,188,201.5,9532418,170.9,17.91,176.88,137.41,1.82
 20260508,198.5,221.5,197.5,221.5,10762892,175.12,26.49,180.68,139.24,1.98
@@ -97,6 +136,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,337,337.5,328.5,337.5,12343744,235.58,43.26,231.9,170.12,0.99
 20260528,352,371,352,371,9320465,246.87,50.28,241.57,174.32,0.73
 20260529,404,404,362,371,21372445,257.21,44.24,251.3,178.57,1.56
+20260601,383,408,383,392,3708970,268.45,46.03,261.7,183.32,0.27
+20260602,387,387,353,380,4684429,277.74,36.82,271.27,187.79,0.34
 ```
 
 ## Latest TDCC Snapshot
@@ -136,10 +177,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2472 | 立隆電 | 95 | 1 | 39166070.0 | 5040.0 | 7771.05 | call_inflow | 1 |  |
+| 20260602 | 2472 | 立隆電 | 103 | 2 | 9995630.0 | 19950.0 | 501.03 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8499 鼎炫-KY
 
 ## Metadata
-- generated_at: 2026-05-30 23:44:00 Asia/Taipei
+- generated_at: 2026-06-02 23:31:15 Asia/Taipei
 - stock_id: 8499
 - stock_name: 鼎炫-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 273
+- latest_price_date: 20260602
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,71 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: unclear
+- entry_style: pullback_to_23ema
+- position_sizing: observe_only
+
+### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- near_23ema_or_support
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+- acceptable_risk_reward
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 320
-- high: 326
-- low: 317.5
-- close: 321
-- volume: 117294
-- ma5: 322.6
-- ema23_primary: 295.53
-- distance_to_ema23_pct: 8.62
-- ma20: 292.77
-- ma60: 275.24
-- ma120: 298.68
-- return_5d: 1.42
-- return_20d: 25.15
-- volume_ratio: 0.46
-- distance_to_ma20_pct_auxiliary: 9.64
-- distance_to_high_60_pct: -5.59
+- date: 20260602
+- open: 301
+- high: 301.5
+- low: 292.5
+- close: 298.5
+- volume: 76496
+- ma5: 309.7
+- ema23_primary: 296.24
+- distance_to_ema23_pct: 0.76
+- ma20: 296.95
+- ma60: 275.99
+- ma120: 299.49
+- return_5d: -11.29
+- return_20d: 15.25
+- volume_ratio: 0.29
+- distance_to_ma20_pct_auxiliary: 0.52
+- distance_to_high_60_pct: -12.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,259.5,261.5,250,257.5,85155,267.73,-3.82,268.88,274.71,0.67
-20260505,257.5,261.5,256,259,41198,267,-3,269.12,273.54,0.33
 20260506,264.5,265,258.5,262,103221,266.59,-1.72,269.35,272.68,0.81
 20260507,260,288,260,288,262531,268.37,7.31,270.23,272.23,1.92
 20260508,285,295,275,282,327978,269.51,4.64,270.88,271.65,2.19
@@ -97,6 +137,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,336,336.5,312.5,313.5,310641,291.33,7.61,286.85,274.65,1.25
 20260528,313,319.5,309.5,314,156963,293.22,7.09,289.55,275.11,0.62
 20260529,320,326,317.5,321,117294,295.53,8.62,292.77,275.24,0.46
+20260601,321.5,322,299,301.5,175542,296.03,1.85,294.98,275.57,0.68
+20260602,301,301.5,292.5,298.5,76496,296.24,0.76,296.95,275.99,0.29
 ```
 
 ## Latest TDCC Snapshot
@@ -136,10 +178,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 8499 | 鼎炫-KY | 20 | 1 | 491800.0 | 0.0 |  | no_signal | 0 |  |
+| 20260602 | 8499 | 鼎炫-KY | 20 | 1 | 37270.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

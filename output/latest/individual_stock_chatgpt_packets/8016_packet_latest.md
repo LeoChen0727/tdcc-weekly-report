@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8016 矽創
 
 ## Metadata
-- generated_at: 2026-05-30 23:43:47 Asia/Taipei
+- generated_at: 2026-06-02 23:30:47 Asia/Taipei
 - stock_id: 8016
 - stock_name: 矽創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 273
+- latest_price_date: 20260602
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,74 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
+- confidence_level: medium
+- thesis_state: unclear
+- entry_style: current_price_ok
+- position_sizing: starter_1_4
+
+### management_plan
+- buy_first_tranche_now
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+- acceptable_risk_reward
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 304
-- high: 306
-- low: 298
-- close: 306
-- volume: 4044659
-- ma5: 297.5
-- ema23_primary: 273.33
-- distance_to_ema23_pct: 11.95
-- ma20: 277.25
-- ma60: 228.88
-- ma120: 207.67
-- return_5d: 4.79
-- return_20d: 33.04
-- volume_ratio: 1.29
-- distance_to_ma20_pct_auxiliary: 10.37
-- distance_to_high_60_pct: 0
+- date: 20260602
+- open: 309
+- high: 309
+- low: 296.5
+- close: 302
+- volume: 2799664
+- ma5: 303.6
+- ema23_primary: 278.44
+- distance_to_ema23_pct: 8.46
+- ma20: 284.4
+- ma60: 232.83
+- ma120: 209.76
+- return_5d: 4.32
+- return_20d: 28.78
+- volume_ratio: 0.83
+- distance_to_ma20_pct_auxiliary: 6.19
+- distance_to_high_60_pct: -2.58
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,234,236.5,231,233.5,816967,216.45,7.88,215.07,201.6,0.57
-20260505,233.5,235.5,230.5,234.5,870315,217.96,7.59,217.25,202.32,0.59
 20260506,239,242.5,235,241.5,1703636,219.92,9.81,219.62,203.12,1.11
 20260507,244,265.5,242,265.5,5281178,223.72,18.68,222.8,204.28,3.07
 20260508,271,279.5,262,273,7424424,227.82,19.83,226.3,205.55,3.63
@@ -97,6 +140,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,292,305,290,301,4534481,267.66,12.46,269.88,225.23,1.55
 20260528,303.5,305,297,300,3268787,270.36,10.97,273.45,226.99,1.09
 20260529,304,306,298,306,4044659,273.33,11.95,277.25,228.88,1.29
+20260601,306,310,298,309,3666800,276.3,11.84,281.02,230.97,1.12
+20260602,309,309,296.5,302,2799664,278.44,8.46,284.4,232.83,0.83
 ```
 
 ## Latest TDCC Snapshot
@@ -124,22 +169,25 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260602 | 8016 | 矽創 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | first_seen | calendar event: ex_dividend on 20260615; status=confirmed; proximity=within_14d |
+| 20260602 | 8016 | 矽創 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | first_seen | calendar event: ex_dividend on 20260615; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260602 | 8016 | 矽創 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 8016 | 矽創 | 27 | 0 | 8273610.0 | 0.0 |  | no_signal | 0 |  |
+| 20260602 | 8016 | 矽創 | 27 | 0 | 2510350.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

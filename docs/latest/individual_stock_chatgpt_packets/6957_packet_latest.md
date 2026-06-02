@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6957 裕慶-KY
 
 ## Metadata
-- generated_at: 2026-05-30 23:43:25 Asia/Taipei
+- generated_at: 2026-06-02 23:29:57 Asia/Taipei
 - stock_id: 6957
 - stock_name: 裕慶-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 273
+- latest_price_date: 20260602
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,70 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: unclear
+- entry_style: current_price_ok
+- position_sizing: observe_only
+
+### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+- acceptable_risk_reward
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 166.5
-- high: 168
-- low: 163.5
-- close: 167
-- volume: 115911
-- ma5: 163.8
-- ema23_primary: 161.61
-- distance_to_ema23_pct: 3.34
-- ma20: 161.18
-- ma60: 161.28
-- ma120: 177.82
-- return_5d: 4.05
-- return_20d: 4.05
-- volume_ratio: 1.09
-- distance_to_ma20_pct_auxiliary: 3.61
-- distance_to_high_60_pct: -5.11
+- date: 20260602
+- open: 174
+- high: 181
+- low: 174
+- close: 181
+- volume: 373742
+- ma5: 170.4
+- ema23_primary: 163.98
+- distance_to_ema23_pct: 10.38
+- ma20: 162.55
+- ma60: 161.5
+- ma120: 177.18
+- return_5d: 13.48
+- return_20d: 13.12
+- volume_ratio: 3.01
+- distance_to_ma20_pct_auxiliary: 11.35
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,160.5,167.5,158,165,164763,161.01,2.48,159.45,168.02,1.76
-20260505,165,165,160,160,66638,160.93,-0.58,159.65,167.64,0.7
 20260506,162,162,159,162,82387,161.02,0.61,160,167.28,0.84
 20260507,160,162,160,162,57734,161.1,0.56,160.4,166.88,0.63
 20260508,162,162,159,159.5,97800,160.96,-0.91,160.7,166.42,1.13
@@ -97,6 +136,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,160,169,159.5,169,186788,160.9,5.04,160.57,161.68,1.91
 20260528,166.5,169.5,163.5,163.5,171001,161.12,1.48,160.85,161.4,1.66
 20260529,166.5,168,163.5,167,115911,161.61,3.34,161.18,161.28,1.09
+20260601,168,172.5,166,171.5,222891,162.43,5.58,161.5,161.34,2.05
+20260602,174,181,174,181,373742,163.98,10.38,162.55,161.5,3.01
 ```
 
 ## Latest TDCC Snapshot
@@ -136,10 +177,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 6957 | 裕慶-KY | 2 | 0 | 35000.0 | 0.0 |  | no_signal | 0 |  |
+| 20260602 | 6957 | 裕慶-KY | 2 | 0 | 4700.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

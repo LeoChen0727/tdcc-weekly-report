@@ -34,6 +34,14 @@ jobs:
           python -m pip install --upgrade pip
           pip install pandas requests matplotlib pillow reportlab
 
+      - name: Refresh and validate individual stock packet
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          python scripts/build_individual_stock_chatgpt_packets.py --stock-id "${{ inputs.stock_id }}"
+          python scripts/build_individual_stock_raw_data_index.py
+          python scripts/validate_individual_stock_outputs.py --stock-id "${{ inputs.stock_id }}"
+
       - name: Generate individual stock report
         run: |
           python scripts/generate_individual_stock_report.py \
@@ -48,11 +56,35 @@ jobs:
           git pull --rebase origin main || true
 
           git add output/latest/individual_stock_reports/ || true
+          git add output/latest/individual_stock_available_raw_data_index.csv || true
+          git add output/latest/individual_stock_available_raw_data_index.md || true
+          git add output/latest/individual_stock_available_raw_data_index_slim.csv || true
+          git add output/latest/individual_stock_available_raw_data_index_slim.md || true
+          git add output/latest/individual_stock_read_protocol_latest.md || true
+          git add output/latest/individual_stock_reports_index.csv || true
+          git add output/latest/individual_stock_reports_index.md || true
+          git add output/latest/individual_stock_chatgpt_packet_index.csv || true
+          git add output/latest/individual_stock_chatgpt_packet_index.md || true
+          git add output/latest/individual_stock_chatgpt_packets/ || true
+          git add output/latest/individual_stock_price_windows/ || true
+          git add output/latest/individual_stock_tdcc_windows/ || true
           git add output/latest/charts/ || true
           git add output/latest/sell_strategy_performance_latest.csv || true
           git add output/latest/sell_strategy_performance_latest.md || true
           git add output/history/individual_stock_reports/ || true
           git add output/history/sell_strategy_backtest/ || true
+          git add docs/latest/individual_stock_available_raw_data_index.csv || true
+          git add docs/latest/individual_stock_available_raw_data_index.md || true
+          git add docs/latest/individual_stock_available_raw_data_index_slim.csv || true
+          git add docs/latest/individual_stock_available_raw_data_index_slim.md || true
+          git add docs/latest/individual_stock_read_protocol_latest.md || true
+          git add docs/latest/individual_stock_reports_index.csv || true
+          git add docs/latest/individual_stock_reports_index.md || true
+          git add docs/latest/individual_stock_chatgpt_packet_index.csv || true
+          git add docs/latest/individual_stock_chatgpt_packet_index.md || true
+          git add docs/latest/individual_stock_chatgpt_packets/ || true
+          git add docs/latest/individual_stock_price_windows/ || true
+          git add docs/latest/individual_stock_tdcc_windows/ || true
           git add docs/latest/individual_stock_reports/ || true
 
           git status --short
@@ -81,6 +113,7 @@ jobs:
         run: |
           python scripts/build_individual_stock_chatgpt_packets.py --stock-id "${{ inputs.stock_id }}"
           python scripts/build_individual_stock_raw_data_index.py
+          python scripts/validate_individual_stock_outputs.py --stock-id "${{ inputs.stock_id }}"
           python scripts/check_raw_data_health.py --stock-id "${{ inputs.stock_id }}" --sources raw,pages,api --max-workers 8
 
           git config user.name "github-actions"

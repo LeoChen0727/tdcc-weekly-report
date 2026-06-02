@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2353 宏碁
 
 ## Metadata
-- generated_at: 2026-05-30 23:41:21 Asia/Taipei
+- generated_at: 2026-06-02 23:25:26 Asia/Taipei
 - stock_id: 2353
 - stock_name: 宏碁
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 273
+- latest_price_date: 20260602
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,71 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: take_profit
+- action_rating_label_zh: 停利
+- confidence_level: low
+- thesis_state: breakout_confirmed
+- entry_style: breakout_follow
+- position_sizing: observe_only
+
+### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- model_recommended
+- price_structure_not_broken
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+- price_too_extended
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 33.8
-- high: 35.2
-- low: 33.55
-- close: 35.2
-- volume: 75474874
-- ma5: 32.6
-- ema23_primary: 29.65
-- distance_to_ema23_pct: 18.72
-- ma20: 29.22
-- ma60: 28.02
-- ma120: 27.3
-- return_5d: 19.12
-- return_20d: 27.54
-- volume_ratio: 1.77
-- distance_to_ma20_pct_auxiliary: 20.46
+- date: 20260602
+- open: 42.55
+- high: 42.55
+- low: 41.6
+- close: 42.55
+- volume: 217599445
+- ma5: 35.97
+- ema23_primary: 31.42
+- distance_to_ema23_pct: 35.44
+- ma20: 30.5
+- ma60: 28.5
+- ma120: 27.52
+- return_5d: 33.39
+- return_20d: 53.33
+- volume_ratio: 4.13
+- distance_to_ma20_pct_auxiliary: 39.53
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,27.85,28.3,27.75,28.05,22633147,27.6,1.62,27.63,27.16,1.04
-20260505,28.05,28.2,27.65,27.75,19005392,27.62,0.49,27.66,27.19,0.85
 20260506,27.9,28.1,27.55,28.1,24606618,27.66,1.61,27.72,27.23,1.07
 20260507,28.15,28.25,27.9,28.1,22040751,27.69,1.47,27.75,27.27,0.94
 20260508,28.1,28.6,27.8,27.8,29518900,27.7,0.35,27.79,27.3,1.21
@@ -97,6 +137,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,32.1,32.4,31.2,31.4,61791194,28.89,8.71,28.61,27.8,1.7
 20260528,31.8,33.4,31.8,32,77812789,29.14,9.8,28.84,27.88,1.95
 20260529,33.8,35.2,33.55,35.2,75474874,29.65,18.72,29.22,28.02,1.77
+20260601,38.7,38.7,38.7,38.7,27395638,30.4,27.29,29.75,28.23,0.64
+20260602,42.55,42.55,41.6,42.55,217599445,31.42,35.44,30.5,28.5,4.13
 ```
 
 ## Latest TDCC Snapshot
@@ -126,20 +168,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 2353 | 宏碁 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260602 | 2353 | 宏碁 | true_breakout | 嚴格突破 | 94.0 |  |  | breakout_confirmed |  | call_put_bullish | continued_overheated | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_30d |
+| 20260521 | 2353 | 宏碁 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_put_bullish | continued_overheated | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260530 | 2353 | 宏碁 | 8 | 8 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260602 | 2353 | 宏碁 | 9 | 9 | 5 | 9 | 9 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2353 | 宏碁 | 39 | 2 | 6364930.0 | 5280.0 | 1205.48 | no_signal | 0 |  |
+| 20260602 | 2353 | 宏碁 | 41 | 2 | 19689720.0 | 23000.0 | 856.07 | call_put_bullish | 3 |  |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

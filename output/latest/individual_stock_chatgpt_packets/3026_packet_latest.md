@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3026 禾伸堂
 
 ## Metadata
-- generated_at: 2026-05-30 23:41:47 Asia/Taipei
+- generated_at: 2026-06-02 23:26:20 Asia/Taipei
 - stock_id: 3026
 - stock_name: 禾伸堂
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 273
+- latest_price_date: 20260602
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,70 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: high_level_consolidation
+- entry_style: current_price_ok
+- position_sizing: observe_only
+
+### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+- price_too_extended
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
+- date: 20260602
 - open: 640
-- high: 641
-- low: 615
-- close: 641
-- volume: 1558340
-- ma5: 589.4
-- ema23_primary: 415.2
-- distance_to_ema23_pct: 54.38
-- ma20: 401.12
-- ma60: 243.41
-- ma120: 174.45
-- return_5d: 34.52
-- return_20d: 201.65
-- volume_ratio: 0.21
-- distance_to_ma20_pct_auxiliary: 59.8
-- distance_to_high_60_pct: 0
+- high: 650
+- low: 605
+- close: 650
+- volume: 3276908
+- ma5: 635.2
+- ema23_primary: 454.39
+- distance_to_ema23_pct: 43.05
+- ma20: 443.5
+- ma60: 261.87
+- ma120: 183.7
+- return_5d: 14.04
+- return_20d: 161.57
+- volume_ratio: 0.53
+- distance_to_ma20_pct_auxiliary: 46.56
+- distance_to_high_60_pct: -7.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,215,233.5,202,226,16422071,204.82,10.34,213.88,147.86,1.79
-20260505,230,248.5,230,248.5,12836155,208.46,19.21,219.38,150.2,1.33
 20260506,273,273,260,273,21608419,213.84,27.66,225.43,152.95,2.09
 20260507,300,300,296,300,9326609,221.02,35.73,232.07,156.17,0.94
 20260508,313.5,330,297,330,22732968,230.1,43.41,239.4,159.93,2.24
@@ -97,6 +136,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,599,620,596,608,1917131,375.55,61.89,361.25,226.45,0.22
 20260528,608,635,585,605,2506943,394.68,53.29,379.7,234.62,0.31
 20260529,640,641,615,641,1558340,415.2,54.38,401.12,243.41,0.21
+20260601,671,699,665,672,1634588,436.6,53.92,423.43,252.85,0.25
+20260602,640,650,605,650,3276908,454.39,43.05,443.5,261.87,0.53
 ```
 
 ## Latest TDCC Snapshot
@@ -136,10 +177,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 3026 | 禾伸堂 | 63 | 0 | 3419910.0 | 0.0 |  | no_signal | 0 |  |
+| 20260602 | 3026 | 禾伸堂 | 63 | 0 | 11990220.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

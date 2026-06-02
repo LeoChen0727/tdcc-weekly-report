@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3004 豐達科
 
 ## Metadata
-- generated_at: 2026-05-30 23:41:45 Asia/Taipei
+- generated_at: 2026-06-02 23:26:16 Asia/Taipei
 - stock_id: 3004
 - stock_name: 豐達科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 273
+- latest_price_date: 20260602
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,71 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: unclear
+- entry_style: pullback_to_23ema
+- position_sizing: observe_only
+
+### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- near_23ema_or_support
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+- acceptable_risk_reward
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 121
-- high: 124.5
-- low: 120.5
-- close: 123.5
-- volume: 606384
-- ma5: 128.7
-- ema23_primary: 122.77
-- distance_to_ema23_pct: 0.6
-- ma20: 123.03
-- ma60: 114.24
-- ma120: 111.26
-- return_5d: -5.36
-- return_20d: 6.01
-- volume_ratio: 0.63
-- distance_to_ma20_pct_auxiliary: 0.39
-- distance_to_high_60_pct: -13.03
+- date: 20260602
+- open: 123.5
+- high: 123.5
+- low: 118.5
+- close: 119.5
+- volume: 673967
+- ma5: 121.7
+- ema23_primary: 122.55
+- distance_to_ema23_pct: -2.49
+- ma20: 123.12
+- ma60: 114.73
+- ma120: 111.46
+- return_5d: -13.09
+- return_20d: -4.78
+- volume_ratio: 0.76
+- distance_to_ma20_pct_auxiliary: -2.94
+- distance_to_high_60_pct: -15.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,119.5,120.5,115,115.5,700000,113.82,1.48,114.9,110.71,1.41
-20260505,115.5,127,115,125.5,2166037,114.79,9.33,116.03,110.88,3.7
 20260506,125.5,125.5,118.5,121.5,1076985,115.35,5.33,116.45,111.03,1.83
 20260507,121.5,124.5,119.5,120,362440,115.74,3.68,116.85,111.11,0.63
 20260508,121.5,123.5,116.5,117,503034,115.84,1,117.1,111.19,0.88
@@ -97,6 +137,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,134.5,134.5,124,124,2402674,123.13,0.71,122.6,113.9,2.63
 20260528,123.5,123.5,118,118,1126580,122.7,-3.83,122.67,114.02,1.19
 20260529,121,124.5,120.5,123.5,606384,122.77,0.6,123.03,114.24,0.63
+20260601,123.5,125,120,123.5,671744,122.83,0.55,123.42,114.55,0.69
+20260602,123.5,123.5,118.5,119.5,673967,122.55,-2.49,123.12,114.73,0.76
 ```
 
 ## Latest TDCC Snapshot
@@ -136,10 +178,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 3004 | 豐達科 | 5 | 0 | 147150.0 | 0.0 |  | no_signal | 0 |  |
+| 20260602 | 3004 | 豐達科 | 5 | 0 | 283040.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

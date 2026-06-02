@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8045 達運光電
 
 ## Metadata
-- generated_at: 2026-05-30 23:43:48 Asia/Taipei
+- generated_at: 2026-06-02 23:30:50 Asia/Taipei
 - stock_id: 8045
 - stock_name: 達運光電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 273
+- latest_price_date: 20260602
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,71 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: unclear
+- entry_style: pullback_to_23ema
+- position_sizing: observe_only
+
+### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- near_23ema_or_support
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+- acceptable_risk_reward
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 64.8
-- high: 66.2
-- low: 64
-- close: 66
-- volume: 225013
-- ma5: 66.7
-- ema23_primary: 70.91
-- distance_to_ema23_pct: -6.92
-- ma20: 71.45
-- ma60: 74.34
-- ma120: 76.78
-- return_5d: -8.08
-- return_20d: -9.96
-- volume_ratio: 0.64
-- distance_to_ma20_pct_auxiliary: -7.63
-- distance_to_high_60_pct: -24.57
+- date: 20260602
+- open: 71.5
+- high: 73.5
+- low: 67.3
+- close: 69.7
+- volume: 390738
+- ma5: 67.32
+- ema23_primary: 70.84
+- distance_to_ema23_pct: -1.61
+- ma20: 70.93
+- ma60: 74.03
+- ma120: 76.68
+- return_5d: 2.05
+- return_20d: -7.19
+- volume_ratio: 1.06
+- distance_to_ma20_pct_auxiliary: -1.73
+- distance_to_high_60_pct: -20.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,73.3,77.5,73.3,76.4,524843,75.35,1.4,74.72,77.75,1.58
-20260505,76.4,76.5,74.9,75.1,233399,75.33,-0.3,74.86,77.55,0.7
 20260506,76.8,76.8,73,75.5,243588,75.34,0.21,75.03,77.32,0.72
 20260507,75.1,75.4,72.2,72.4,646342,75.09,-3.59,74.95,77.07,1.78
 20260508,72.5,75.4,72.5,73.3,405786,74.95,-2.2,75.03,76.88,1.08
@@ -97,6 +137,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,68.2,68.3,64.5,65,586413,71.97,-9.68,72.28,74.95,1.72
 20260528,65.2,65.4,64,64.6,307225,71.35,-9.47,71.82,74.64,0.88
 20260529,64.8,66.2,64,66,225013,70.91,-6.92,71.45,74.34,0.64
+20260601,66,71.7,64.9,71.3,711902,70.94,0.51,71.2,74.22,1.97
+20260602,71.5,73.5,67.3,69.7,390738,70.84,-1.61,70.93,74.03,1.06
 ```
 
 ## Latest TDCC Snapshot
@@ -136,10 +178,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 8045 | 達運光電 | 3 | 0 | 11210.0 | 0.0 |  | no_signal | 0 |  |
+| 20260602 | 8045 | 達運光電 | 3 | 0 | 39750.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

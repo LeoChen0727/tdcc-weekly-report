@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6919 康霈*
 
 ## Metadata
-- generated_at: 2026-05-30 23:43:23 Asia/Taipei
+- generated_at: 2026-06-02 23:29:53 Asia/Taipei
 - stock_id: 6919
 - stock_name: 康霈*
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 268
+- latest_price_date: 20260602
+- price_rows: 270
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,71 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: unclear
+- entry_style: pullback_to_23ema
+- position_sizing: observe_only
+
+### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- near_23ema_or_support
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+- acceptable_risk_reward
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 100
-- high: 104.5
-- low: 99.2
-- close: 100.5
-- volume: 10857641
-- ma5: 101.5
-- ema23_primary: 101.88
-- distance_to_ema23_pct: -1.35
-- ma20: 100.84
-- ma60: 106.4
-- ma120: 133.29
-- return_5d: -3.37
-- return_20d: -3.37
-- volume_ratio: 1.74
-- distance_to_ma20_pct_auxiliary: -0.34
-- distance_to_high_60_pct: -32.09
+- date: 20260602
+- open: 98.6
+- high: 99.6
+- low: 96.7
+- close: 96.8
+- volume: 3659746
+- ma5: 98.48
+- ema23_primary: 101.2
+- distance_to_ema23_pct: -4.35
+- ma20: 100.39
+- ma60: 104.95
+- ma120: 132.29
+- return_5d: -5.56
+- return_20d: -4.16
+- volume_ratio: 0.59
+- distance_to_ma20_pct_auxiliary: -3.57
+- distance_to_high_60_pct: -32.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,106,106.5,103,103.5,4116927,106.49,-2.81,106.26,126.04,0.32
-20260505,105.5,106.5,100,101,4384079,106.03,-4.74,106.52,125.07,0.41
 20260506,102.5,108.5,100.5,101.5,6886846,105.65,-3.93,106.34,124,0.69
 20260507,102.5,104,101,101,5509698,105.26,-4.05,105.62,122.94,0.62
 20260508,103,105,101.5,104,5302421,105.16,-1.1,105.14,121.93,0.68
@@ -97,6 +137,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,102,102.5,98.5,98.5,6061949,102.37,-3.78,101.67,108.22,0.93
 20260528,98.1,102,98,98,4198936,102,-3.92,101.02,107.22,0.64
 20260529,100,104.5,99.2,100.5,10857641,101.88,-1.35,100.84,106.4,1.74
+20260601,101.5,102.5,98.5,98.6,5048806,101.6,-2.96,100.59,105.71,0.8
+20260602,98.6,99.6,96.7,96.8,3659746,101.2,-4.35,100.39,104.95,0.59
 ```
 
 ## Latest TDCC Snapshot
@@ -136,10 +178,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 6919 | 康霈* | 19 | 0 | 2479150.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260602 | 6919 | 康霈* | 19 | 0 | 830910.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6781 AES-KY
 
 ## Metadata
-- generated_at: 2026-05-30 23:43:17 Asia/Taipei
+- generated_at: 2026-06-02 23:29:39 Asia/Taipei
 - stock_id: 6781
 - stock_name: AES-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 273
+- latest_price_date: 20260602
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,71 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: unclear
+- entry_style: pullback_to_23ema
+- position_sizing: observe_only
+
+### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- near_23ema_or_support
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+- acceptable_risk_reward
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 1185
-- high: 1210
-- low: 1150
-- close: 1160
-- volume: 1162296
-- ma5: 1206
-- ema23_primary: 1168.45
-- distance_to_ema23_pct: -0.72
-- ma20: 1187.5
-- ma60: 1089.23
-- ma120: 1172.37
-- return_5d: -4.13
-- return_20d: 4.98
-- volume_ratio: 0.63
-- distance_to_ma20_pct_auxiliary: -2.32
-- distance_to_high_60_pct: -15.33
+- date: 20260602
+- open: 1205
+- high: 1205
+- low: 1100
+- close: 1130
+- volume: 1875312
+- ma5: 1171
+- ema23_primary: 1167.66
+- distance_to_ema23_pct: -3.23
+- ma20: 1191.25
+- ma60: 1093.82
+- ma120: 1170.66
+- return_5d: -9.24
+- return_20d: 0.89
+- volume_ratio: 0.98
+- distance_to_ma20_pct_auxiliary: -5.14
+- distance_to_high_60_pct: -17.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,1120,1140,1100,1135,1067158,1082.02,4.9,1053.55,1080.9,0.58
-20260505,1140,1140,1100,1120,964130,1085.19,3.21,1061.7,1079.73,0.52
 20260506,1145,1155,1075,1140,1972027,1089.76,4.61,1070.7,1078.98,1.06
 20260507,1165,1225,1155,1155,2766641,1095.19,5.46,1077.7,1077.4,1.43
 20260508,1180,1260,1180,1230,3561809,1106.43,11.17,1090.25,1077.9,1.75
@@ -97,6 +137,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,1265,1300,1195,1205,1704374,1170.06,2.99,1183.25,1088.9,0.89
 20260528,1220,1245,1150,1160,1487473,1169.22,-0.79,1184.75,1088.57,0.8
 20260529,1185,1210,1150,1160,1162296,1168.45,-0.72,1187.5,1089.23,0.63
+20260601,1180,1225,1175,1200,1537174,1171.08,2.47,1190.75,1092.23,0.82
+20260602,1205,1205,1100,1130,1875312,1167.66,-3.23,1191.25,1093.82,0.98
 ```
 
 ## Latest TDCC Snapshot
@@ -124,22 +166,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260530 | 6781 | AES-KY | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260530 | 6781 | AES-KY | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 6781 | AES-KY | 188 | 5 | 25343260.0 | 42640.0 | 594.35 | no_signal | 0 |  |
+| 20260602 | 6781 | AES-KY | 186 | 2 | 19746090.0 | 56000.0 | 352.61 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

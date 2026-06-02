@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009813 貝萊德標普卓越50
 
 ## Metadata
-- generated_at: 2026-05-30 23:40:50 Asia/Taipei
+- generated_at: 2026-06-02 23:24:12 Asia/Taipei
 - stock_id: 009813
 - stock_name: 貝萊德標普卓越50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260529
-- price_rows: 6
+- latest_price_date: 20260602
+- price_rows: 8
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -54,23 +54,65 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: unclear
+- entry_style: pullback_to_23ema
+- position_sizing: observe_only
+
+### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- near_23ema_or_support
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+- acceptable_risk_reward
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- none
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 11.3
-- high: 11.41
-- low: 11.3
-- close: 11.4
-- volume: 3822909
-- ma5: 11.34
-- ema23_primary: 11.35
-- distance_to_ema23_pct: 0.42
-- ma20: 11.34
-- ma60: 11.34
-- ma120: 11.34
-- return_5d: 0.35
+- date: 20260602
+- open: 11.42
+- high: 11.46
+- low: 11.39
+- close: 11.45
+- volume: 2909591
+- ma5: 11.37
+- ema23_primary: 11.37
+- distance_to_ema23_pct: 0.73
+- ma20: 11.37
+- ma60: 11.37
+- ma120: 11.37
+- return_5d: 0.7
 - return_20d: 
-- volume_ratio: 1.05
-- distance_to_ma20_pct_auxiliary: 0.5
+- volume_ratio: 0.81
+- distance_to_ma20_pct_auxiliary: 0.71
 - distance_to_high_60_pct: -0.09
 
 ## Recent Price Preview
@@ -83,6 +125,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,11.35,11.35,11.29,11.3,2765153,,,,,
 20260528,11.32,11.33,11.25,11.26,5379808,11.35,-0.78,11.33,11.33,1.5
 20260529,11.3,11.41,11.3,11.4,3822909,11.35,0.42,11.34,11.34,1.05
+20260601,11.42,11.46,11.42,11.44,4072378,11.36,0.7,11.36,11.36,1.1
+20260602,11.42,11.46,11.39,11.45,2909591,11.37,0.73,11.37,11.37,0.81
 ```
 
 ## Latest TDCC Snapshot
@@ -121,7 +165,9 @@ no_rows,True
 | no rows |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

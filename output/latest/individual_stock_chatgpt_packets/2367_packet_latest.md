@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2367 燿華
 
 ## Metadata
-- generated_at: 2026-05-30 23:41:23 Asia/Taipei
+- generated_at: 2026-06-02 23:25:28 Asia/Taipei
 - stock_id: 2367
 - stock_name: 燿華
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 273
+- latest_price_date: 20260602
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,71 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: unclear
+- entry_style: pullback_to_23ema
+- position_sizing: observe_only
+
+### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- near_23ema_or_support
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+- acceptable_risk_reward
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 66.9
-- high: 69.4
-- low: 65.3
-- close: 68.1
-- volume: 63669611
-- ma5: 67.56
-- ema23_primary: 65.25
-- distance_to_ema23_pct: 4.36
-- ma20: 64
-- ma60: 67.97
-- ma120: 52.92
-- return_5d: 1.95
-- return_20d: 18.02
-- volume_ratio: 1.19
-- distance_to_ma20_pct_auxiliary: 6.41
-- distance_to_high_60_pct: -17.45
+- date: 20260602
+- open: 67.6
+- high: 68.7
+- low: 65
+- close: 65.8
+- volume: 26666869
+- ma5: 66.84
+- ema23_primary: 65.46
+- distance_to_ema23_pct: 0.51
+- ma20: 64.64
+- ma60: 67.84
+- ma120: 53.63
+- return_5d: -1.35
+- return_20d: 7.52
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: 1.79
+- distance_to_high_60_pct: -20.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,58.2,62,56.5,59.1,58899270,65.26,-9.43,67.15,65.39,0.84
-20260505,59.1,61.5,58.6,61.2,36088814,64.92,-5.73,66.64,65.6,0.55
 20260506,61.3,61.3,58,60.9,47501210,64.58,-5.7,66.09,65.78,0.75
 20260507,61.1,61.9,59.3,61.4,32406092,64.32,-4.54,65.45,65.97,0.54
 20260508,61.4,65,60.5,61.7,62713175,64.1,-3.74,64.66,66.16,1.16
@@ -97,6 +137,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,67.6,67.6,64.9,67.1,40194516,64.92,3.36,63.06,68.13,0.79
 20260528,68,70,64.2,65.8,61519432,65,1.24,63.48,68.05,1.17
 20260529,66.9,69.4,65.3,68.1,63669611,65.25,4.36,64,67.97,1.19
+20260601,68.6,69.2,66.2,67.4,45237298,65.43,3.01,64.42,67.91,0.85
+20260602,67.6,68.7,65,65.8,26666869,65.46,0.51,64.64,67.84,0.51
 ```
 
 ## Latest TDCC Snapshot
@@ -124,22 +166,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260530 | 2367 | 燿華 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260530 | 2367 | 燿華 | 5 | 5 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2367 | 燿華 | 92 | 3 | 21309630.0 | 845160.0 | 25.21 | call_inflow | 1 |  |
+| 20260602 | 2367 | 燿華 | 93 | 3 | 10516760.0 | 77240.0 | 136.16 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

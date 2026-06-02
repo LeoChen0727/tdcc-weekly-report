@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00735 國泰臺韓科技
 
 ## Metadata
-- generated_at: 2026-05-30 23:40:47 Asia/Taipei
+- generated_at: 2026-06-02 23:24:06 Asia/Taipei
 - stock_id: 00735
 - stock_name: 國泰臺韓科技
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260529
-- price_rows: 6
+- latest_price_date: 20260602
+- price_rows: 8
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -54,24 +54,65 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: unclear
+- entry_style: current_price_ok
+- position_sizing: observe_only
+
+### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+- acceptable_risk_reward
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- none
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 111.65
-- high: 113.2
-- low: 111.6
-- close: 112.85
-- volume: 3520574
-- ma5: 108.89
-- ema23_primary: 104.02
-- distance_to_ema23_pct: 8.49
-- ma20: 107.61
-- ma60: 107.61
-- ma120: 107.61
-- return_5d: 11.51
+- date: 20260602
+- open: 116.95
+- high: 117
+- low: 114.1
+- close: 116.45
+- volume: 5180262
+- ma5: 113.12
+- ema23_primary: 106
+- distance_to_ema23_pct: 9.86
+- ma20: 109.81
+- ma60: 109.81
+- ma120: 109.81
+- return_5d: 9.19
 - return_20d: 
-- volume_ratio: 0.97
-- distance_to_ma20_pct_auxiliary: 4.87
-- distance_to_high_60_pct: -0.75
+- volume_ratio: 1.25
+- distance_to_ma20_pct_auxiliary: 6.05
+- distance_to_high_60_pct: -1.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -83,6 +124,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,111.1,113.7,111.1,111.65,6198600,,,,,
 20260528,112.1,112.1,106.2,108.3,5159771,103.22,4.93,106.56,106.56,1.4
 20260529,111.65,113.2,111.6,112.85,3520574,104.02,8.49,107.61,107.61,0.97
+20260601,115,117.65,114.85,116.35,6131463,105.05,10.76,108.86,108.86,1.53
+20260602,116.95,117,114.1,116.45,5180262,106,9.86,109.81,109.81,1.25
 ```
 
 ## Latest TDCC Snapshot
@@ -121,7 +164,9 @@ no_rows,True
 | no rows |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

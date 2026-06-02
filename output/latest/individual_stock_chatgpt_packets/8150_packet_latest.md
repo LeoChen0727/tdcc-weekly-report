@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8150 南茂
 
 ## Metadata
-- generated_at: 2026-05-30 23:43:53 Asia/Taipei
+- generated_at: 2026-06-02 23:30:59 Asia/Taipei
 - stock_id: 8150
 - stock_name: 南茂
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 273
+- latest_price_date: 20260602
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,70 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: unclear
+- entry_style: current_price_ok
+- position_sizing: observe_only
+
+### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+- acceptable_risk_reward
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 113
-- high: 113
-- low: 113
-- close: 113
-- volume: 13898178
-- ma5: 96.42
-- ema23_primary: 84.97
-- distance_to_ema23_pct: 32.99
-- ma20: 87.02
-- ma60: 71.07
-- ma120: 62.4
-- return_5d: 42.86
-- return_20d: 61.89
-- volume_ratio: 0.3
-- distance_to_ma20_pct_auxiliary: 29.86
-- distance_to_high_60_pct: 0
+- date: 20260602
+- open: 104.5
+- high: 110
+- low: 97.3
+- close: 98.6
+- volume: 61264270
+- ma5: 103
+- ema23_primary: 87.75
+- distance_to_ema23_pct: 12.37
+- ma20: 89.24
+- ma60: 72.47
+- ma120: 63.4
+- return_5d: 15.46
+- return_20d: 17.24
+- volume_ratio: 1.2
+- distance_to_ma20_pct_auxiliary: 10.49
+- distance_to_high_60_pct: -13.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,71.2,76.7,70.7,76.5,43860152,67.32,13.64,67.14,62.3,1.32
-20260505,79.9,84.1,79.8,84.1,20021669,68.71,22.39,68.5,62.59,0.59
 20260506,92.5,92.5,87.5,89.2,74820219,70.42,26.67,70.11,62.97,2.02
 20260507,90,98.1,84.5,98.1,80749867,72.73,34.89,71.97,63.51,2
 20260508,100.5,103,88.3,92.7,101806451,74.39,24.61,73.59,64.02,2.26
@@ -97,6 +136,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,89.7,93.9,86,93.9,90891826,80.55,16.58,83.06,69.64,2.19
 20260528,98.8,103,98.5,103,112421888,82.42,24.97,84.86,70.22,2.41
 20260529,113,113,113,113,13898178,84.97,32.99,87.02,71.07,0.3
+20260601,113,114,103,106.5,108776821,86.76,22.75,88.52,71.88,2.22
+20260602,104.5,110,97.3,98.6,61264270,87.75,12.37,89.24,72.47,1.2
 ```
 
 ## Latest TDCC Snapshot
@@ -136,10 +177,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 8150 | 南茂 | 145 | 2 | 4754460.0 | 0.0 |  | no_signal | 0 |  |
+| 20260602 | 8150 | 南茂 | 146 | 2 | 19630760.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

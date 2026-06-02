@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00662 富邦NASDAQ
 
 ## Metadata
-- generated_at: 2026-05-30 23:40:47 Asia/Taipei
+- generated_at: 2026-06-02 23:24:05 Asia/Taipei
 - stock_id: 00662
 - stock_name: 富邦NASDAQ
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260529
-- price_rows: 6
+- latest_price_date: 20260602
+- price_rows: 8
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -54,23 +54,65 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: unclear
+- entry_style: pullback_to_23ema
+- position_sizing: observe_only
+
+### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- near_23ema_or_support
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+- acceptable_risk_reward
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- none
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 121.75
-- high: 122.1
-- low: 121.4
-- close: 122.1
-- volume: 2824735
-- ma5: 120.9
-- ema23_primary: 120.01
-- distance_to_ema23_pct: 1.74
-- ma20: 120.67
-- ma60: 120.67
-- ma120: 120.67
-- return_5d: 2.18
+- date: 20260602
+- open: 122.3
+- high: 123.15
+- low: 122.25
+- close: 123.15
+- volume: 3565721
+- ma5: 121.87
+- ema23_primary: 120.48
+- distance_to_ema23_pct: 2.22
+- ma20: 121.24
+- ma60: 121.24
+- ma120: 121.24
+- return_5d: 2.41
 - return_20d: 
-- volume_ratio: 0.52
-- distance_to_ma20_pct_auxiliary: 1.19
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: 1.58
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
@@ -83,6 +125,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,121.5,121.5,121.1,121.15,4280250,,,,,
 20260528,121.2,121.25,119.95,120.2,7448812,119.82,0.32,120.38,120.38,1.26
 20260529,121.75,122.1,121.4,122.1,2824735,120.01,1.74,120.67,120.67,0.52
+20260601,122.6,123.05,122.6,122.75,5456882,120.24,2.09,120.96,120.96,1.01
+20260602,122.3,123.15,122.25,123.15,3565721,120.48,2.22,121.24,121.24,0.69
 ```
 
 ## Latest TDCC Snapshot
@@ -121,7 +165,9 @@ no_rows,True
 | no rows |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

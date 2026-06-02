@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3622 洋華
 
 ## Metadata
-- generated_at: 2026-05-30 23:42:10 Asia/Taipei
+- generated_at: 2026-06-02 23:27:08 Asia/Taipei
 - stock_id: 3622
 - stock_name: 洋華
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 273
+- latest_price_date: 20260602
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,71 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: unclear
+- entry_style: pullback_to_23ema
+- position_sizing: observe_only
+
+### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- near_23ema_or_support
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+- acceptable_risk_reward
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 56.7
-- high: 57
-- low: 56.4
-- close: 56.8
-- volume: 309346
-- ma5: 57.06
-- ema23_primary: 56.02
-- distance_to_ema23_pct: 1.4
-- ma20: 55.81
-- ma60: 56.88
-- ma120: 60.66
-- return_5d: 1.61
-- return_20d: 1.97
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: 1.76
-- distance_to_high_60_pct: -9.55
+- date: 20260602
+- open: 58.8
+- high: 59
+- low: 57
+- close: 58.4
+- volume: 478056
+- ma5: 57.42
+- ema23_primary: 56.4
+- distance_to_ema23_pct: 3.55
+- ma20: 56.06
+- ma60: 56.89
+- ma120: 60.54
+- return_5d: -0.17
+- return_20d: 4.1
+- volume_ratio: 0.91
+- distance_to_ma20_pct_auxiliary: 4.16
+- distance_to_high_60_pct: -7.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,56.2,56.5,55.5,55.7,266463,56.26,-0.99,55.75,58.98,0.75
-20260505,55.5,56.1,55.3,56.1,281708,56.24,-0.26,55.73,58.77,0.78
 20260506,57,57,55.4,55.6,391851,56.19,-1.05,55.7,58.58,1.06
 20260507,55.9,57.1,55.4,57.1,618626,56.27,1.48,55.7,58.41,1.61
 20260508,57,57.5,55.7,56.4,550310,56.28,0.22,55.76,58.25,1.5
@@ -97,6 +137,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,59,59.6,57.1,57.1,849896,55.91,2.14,55.69,56.98,1.75
 20260528,57.4,58,55.9,56.4,532825,55.95,0.81,55.76,56.92,1.07
 20260529,56.7,57,56.4,56.8,309346,56.02,1.4,55.81,56.88,0.62
+20260601,56.8,58.6,56.6,58.4,585949,56.22,3.88,55.95,56.9,1.14
+20260602,58.8,59,57,58.4,478056,56.4,3.55,56.06,56.89,0.91
 ```
 
 ## Latest TDCC Snapshot
@@ -136,10 +178,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 3622 | 洋華 | 2 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
+| 20260602 | 3622 | 洋華 | 2 | 0 | 48700.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

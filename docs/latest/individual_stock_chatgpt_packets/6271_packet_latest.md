@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6271 同欣電
 
 ## Metadata
-- generated_at: 2026-05-30 23:43:00 Asia/Taipei
+- generated_at: 2026-06-02 23:29:00 Asia/Taipei
 - stock_id: 6271
 - stock_name: 同欣電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 273
+- latest_price_date: 20260602
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,70 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: high_level_consolidation
+- entry_style: current_price_ok
+- position_sizing: observe_only
+
+### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+- price_too_extended
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 250
-- high: 250.5
-- low: 244.5
-- close: 247
-- volume: 2842670
-- ma5: 250
-- ema23_primary: 207.77
-- distance_to_ema23_pct: 18.88
-- ma20: 202.18
-- ma60: 175.77
-- ma120: 156.55
-- return_5d: 9.05
-- return_20d: 42.77
-- volume_ratio: 0.31
-- distance_to_ma20_pct_auxiliary: 22.17
-- distance_to_high_60_pct: -8.01
+- date: 20260602
+- open: 251.5
+- high: 253.5
+- low: 240
+- close: 249.5
+- volume: 3641722
+- ma5: 248.6
+- ema23_primary: 214.28
+- distance_to_ema23_pct: 16.44
+- ma20: 209.25
+- ma60: 178.86
+- ma120: 158.64
+- return_5d: -4.22
+- return_20d: 40.56
+- volume_ratio: 0.4
+- distance_to_ma20_pct_auxiliary: 19.24
+- distance_to_high_60_pct: -7.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,174.5,181.5,173,178,4844154,172.21,3.36,175.3,161.15,0.53
-20260505,178,180.5,176,177.5,6770582,172.65,2.81,176.6,161.57,0.73
 20260506,179,182,175.5,179.5,7692381,173.22,3.62,177.88,161.95,0.82
 20260507,181.5,182.5,178,180,6450379,173.79,3.57,178.45,162.38,0.7
 20260508,181.5,185.5,178,181.5,7838365,174.43,4.05,178.88,163,0.87
@@ -97,6 +136,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,262,268.5,247.5,254.5,17972095,200.54,26.91,194.9,173.22,1.93
 20260528,252.5,256,243.5,244.5,5491586,204.2,19.73,198.47,174.45,0.59
 20260529,250,250.5,244.5,247,2842670,207.77,18.88,202.18,175.77,0.31
+20260601,252,252,245,247.5,2612029,211.08,17.25,205.65,177.31,0.28
+20260602,251.5,253.5,240,249.5,3641722,214.28,16.44,209.25,178.86,0.4
 ```
 
 ## Latest TDCC Snapshot
@@ -136,10 +177,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 6271 | 同欣電 | 120 | 0 | 3216430.0 | 0.0 |  | no_signal | 0 |  |
+| 20260602 | 6271 | 同欣電 | 120 | 0 | 3085630.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

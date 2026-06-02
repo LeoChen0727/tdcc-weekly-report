@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00646 元大S&P500
 
 ## Metadata
-- generated_at: 2026-05-30 23:40:47 Asia/Taipei
+- generated_at: 2026-06-02 23:24:04 Asia/Taipei
 - stock_id: 00646
 - stock_name: 元大S&P500
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260529
-- price_rows: 6
+- latest_price_date: 20260602
+- price_rows: 8
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -54,24 +54,66 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: unclear
+- entry_style: pullback_to_23ema
+- position_sizing: observe_only
+
+### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- near_23ema_or_support
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+- acceptable_risk_reward
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- none
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 74.4
-- high: 74.75
-- low: 74.4
-- close: 74.7
-- volume: 2590946
-- ma5: 74.45
-- ema23_primary: 74.32
-- distance_to_ema23_pct: 0.51
-- ma20: 74.42
-- ma60: 74.42
-- ma120: 74.42
-- return_5d: 0.61
+- date: 20260602
+- open: 74.7
+- high: 75.1
+- low: 74.7
+- close: 75
+- volume: 2455605
+- ma5: 74.62
+- ema23_primary: 74.42
+- distance_to_ema23_pct: 0.77
+- ma20: 74.56
+- ma60: 74.56
+- ma120: 74.56
+- return_5d: 0.74
 - return_20d: 
-- volume_ratio: 0.76
-- distance_to_ma20_pct_auxiliary: 0.38
-- distance_to_high_60_pct: -0.07
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: 0.6
+- distance_to_high_60_pct: -0.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -83,6 +125,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,74.5,74.5,74.15,74.35,3140569,,,,,
 20260528,74.45,74.5,73.95,74.1,2404006,74.28,-0.25,74.36,74.36,0.67
 20260529,74.4,74.75,74.4,74.7,2590946,74.32,0.51,74.42,74.42,0.76
+20260601,74.85,75.05,74.75,74.95,3626592,74.37,0.78,74.49,74.49,1.05
+20260602,74.7,75.1,74.7,75,2455605,74.42,0.77,74.56,74.56,0.74
 ```
 
 ## Latest TDCC Snapshot
@@ -121,7 +165,9 @@ no_rows,True
 | no rows |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

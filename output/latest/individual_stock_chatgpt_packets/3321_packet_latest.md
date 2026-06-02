@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3321 同泰
 
 ## Metadata
-- generated_at: 2026-05-30 23:41:59 Asia/Taipei
+- generated_at: 2026-06-02 23:26:45 Asia/Taipei
 - stock_id: 3321
 - stock_name: 同泰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 270
+- latest_price_date: 20260602
+- price_rows: 272
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,71 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: take_profit
+- action_rating_label_zh: 停利
+- confidence_level: low
+- thesis_state: breakout_initial
+- entry_style: breakout_follow
+- position_sizing: observe_only
+
+### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- model_recommended
+- price_structure_not_broken
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+- price_too_extended
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 20.35
-- high: 20.6
-- low: 19.3
-- close: 19.4
-- volume: 1217376
-- ma5: 18.53
-- ema23_primary: 16.92
-- distance_to_ema23_pct: 14.67
-- ma20: 16.67
-- ma60: 16.32
-- ma120: 17.58
-- return_5d: 21.63
-- return_20d: 21.25
-- volume_ratio: 1.78
-- distance_to_ma20_pct_auxiliary: 16.38
-- distance_to_high_60_pct: -5.83
+- date: 20260602
+- open: 20.1
+- high: 21.1
+- low: 20.05
+- close: 20.75
+- volume: 1881011
+- ma5: 19.69
+- ema23_primary: 17.46
+- distance_to_ema23_pct: 18.86
+- ma20: 17.03
+- ma60: 16.43
+- ma120: 17.62
+- return_5d: 14.01
+- return_20d: 27.69
+- volume_ratio: 2.48
+- distance_to_ma20_pct_auxiliary: 21.86
+- distance_to_high_60_pct: -1.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,16.4,17.6,16.4,17.15,969258,16.32,5.11,16.21,16.77,2.7
-20260505,16.5,16.7,16.1,16.25,626918,16.31,-0.37,16.24,16.73,1.63
 20260506,16.35,16.35,16.05,16.2,283160,16.3,-0.62,16.26,16.69,0.72
 20260507,16.5,17.25,16.5,16.85,537735,16.35,3.08,16.27,16.67,1.33
 20260508,16.85,17,16.4,16.5,350092,16.36,0.86,16.28,16.64,0.85
@@ -97,6 +137,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,18.45,19.3,17.85,19.05,2174519,16.44,15.87,16.32,16.28,4.05
 20260528,19.1,20.5,19.1,19.45,2186802,16.69,16.52,16.5,16.3,3.43
 20260529,20.35,20.6,19.3,19.4,1217376,16.92,14.67,16.67,16.32,1.78
+20260601,19.95,20.2,19.55,19.8,1170998,17.16,15.4,16.8,16.37,1.68
+20260602,20.1,21.1,20.05,20.75,1881011,17.46,18.86,17.03,16.43,2.48
 ```
 
 ## Latest TDCC Snapshot
@@ -126,12 +168,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260530 | 3321 | 同泰 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260602 | 3321 | 同泰 | true_breakout | 嚴格突破 | 99.0 |  |  | platform_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260530 | 3321 | 同泰 | 5 | 2 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260602 | 3321 | 同泰 | 6 | 1 | 5 | 6 | 6 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
 
 ## Warrant Context
 | status |
@@ -139,7 +181,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

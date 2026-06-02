@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5258 虹堡
 
 ## Metadata
-- generated_at: 2026-05-30 23:42:37 Asia/Taipei
+- generated_at: 2026-06-02 23:28:08 Asia/Taipei
 - stock_id: 5258
 - stock_name: 虹堡
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 273
+- latest_price_date: 20260602
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,71 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: unclear
+- entry_style: pullback_to_23ema
+- position_sizing: observe_only
+
+### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- near_23ema_or_support
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+- acceptable_risk_reward
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 51.7
-- high: 51.8
-- low: 49.95
-- close: 50
-- volume: 1960853
-- ma5: 53.66
-- ema23_primary: 53.42
-- distance_to_ema23_pct: -6.41
-- ma20: 53.98
-- ma60: 49.72
-- ma120: 56.88
-- return_5d: -13.19
-- return_20d: 4.93
-- volume_ratio: 0.85
-- distance_to_ma20_pct_auxiliary: -7.38
-- distance_to_high_60_pct: -20.63
+- date: 20260602
+- open: 52
+- high: 52
+- low: 50.8
+- close: 52
+- volume: 850892
+- ma5: 51.5
+- ema23_primary: 53.23
+- distance_to_ema23_pct: -2.32
+- ma20: 54.4
+- ma60: 49.82
+- ma120: 56.66
+- return_5d: -8.77
+- return_20d: 6.67
+- volume_ratio: 0.36
+- distance_to_ma20_pct_auxiliary: -4.41
+- distance_to_high_60_pct: -17.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,47.65,48.05,46.9,47.5,611889,48.47,-2,48.39,50.02,1.18
-20260505,47.8,48.75,47.35,48.75,500108,48.49,0.53,48.48,49.81,0.94
 20260506,49.9,49.9,48.05,48.45,565150,48.49,-0.08,48.65,49.61,1.07
 20260507,48.9,48.9,47.95,48.5,428177,48.49,0.02,48.74,49.41,0.8
 20260508,48.95,53.3,48.9,53.3,2531194,48.89,9.02,49.1,49.31,3.89
@@ -97,6 +137,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,57.3,57.8,51.6,52,3663026,53.98,-3.67,53.7,49.73,1.7
 20260528,52.3,53.4,50.3,51,1357276,53.73,-5.09,53.87,49.72,0.61
 20260529,51.7,51.8,49.95,50,1960853,53.42,-6.41,53.98,49.72,0.85
+20260601,50.5,52.5,50.1,52.5,1303847,53.35,-1.59,54.23,49.78,0.56
+20260602,52,52,50.8,52,850892,53.23,-2.32,54.4,49.82,0.36
 ```
 
 ## Latest TDCC Snapshot
@@ -136,10 +178,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 5258 | 虹堡 | 1 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
+| 20260602 | 5258 | 虹堡 | 1 | 0 | 820.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

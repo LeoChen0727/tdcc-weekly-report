@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2114 鑫永銓
 
 ## Metadata
-- generated_at: 2026-05-30 23:41:16 Asia/Taipei
+- generated_at: 2026-06-02 23:25:14 Asia/Taipei
 - stock_id: 2114
 - stock_name: 鑫永銓
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 272
+- latest_price_date: 20260602
+- price_rows: 274
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,71 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: unclear
+- entry_style: pullback_to_23ema
+- position_sizing: observe_only
+
+### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- near_23ema_or_support
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+- acceptable_risk_reward
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 91.8
-- high: 94.5
-- low: 91.8
-- close: 94
-- volume: 245420
-- ma5: 92.04
-- ema23_primary: 89.87
-- distance_to_ema23_pct: 4.6
-- ma20: 89.32
-- ma60: 88.83
-- ma120: 89.31
-- return_5d: 4.33
-- return_20d: 6.21
-- volume_ratio: 2.29
-- distance_to_ma20_pct_auxiliary: 5.24
-- distance_to_high_60_pct: -0.53
+- date: 20260602
+- open: 94.4
+- high: 94.4
+- low: 92.3
+- close: 92.9
+- volume: 123868
+- ma5: 92.94
+- ema23_primary: 90.47
+- distance_to_ema23_pct: 2.69
+- ma20: 89.89
+- ma60: 88.98
+- ma120: 89.37
+- return_5d: 1.86
+- return_20d: 5.69
+- volume_ratio: 0.99
+- distance_to_ma20_pct_auxiliary: 3.35
+- distance_to_high_60_pct: -2.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,88.5,88.5,88.1,88.1,40285,88.56,-0.52,88.49,88.88,1.09
-20260505,88.1,88.4,87.9,87.9,61479,88.51,-0.68,88.5,88.86,1.58
 20260506,88.5,88.5,87.5,87.8,75888,88.45,-0.73,88.52,88.83,1.94
 20260507,88.8,88.8,87.7,87.8,38070,88.39,-0.67,88.53,88.8,0.99
 20260508,87,88.2,87,88.2,91226,88.38,-0.2,88.48,88.77,2.2
@@ -97,6 +137,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,91.6,92,91.4,91.6,91245,89.28,2.6,88.89,88.73,1
 20260528,91.6,92.3,91.6,91.8,136314,89.49,2.58,89.05,88.77,1.41
 20260529,91.8,94.5,91.8,94,245420,89.87,4.6,89.32,88.83,2.29
+20260601,94.8,95.3,94.3,94.4,337482,90.25,4.6,89.64,88.92,2.76
+20260602,94.4,94.4,92.3,92.9,123868,90.47,2.69,89.89,88.98,0.99
 ```
 
 ## Latest TDCC Snapshot
@@ -139,7 +181,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

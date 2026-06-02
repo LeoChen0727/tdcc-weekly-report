@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2886 兆豐金
 
 ## Metadata
-- generated_at: 2026-05-30 23:41:42 Asia/Taipei
+- generated_at: 2026-06-02 23:26:09 Asia/Taipei
 - stock_id: 2886
 - stock_name: 兆豐金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 273
+- latest_price_date: 20260602
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,76 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
+- confidence_level: medium
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
+
+### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- model_recommended
+- price_structure_not_broken
+- near_23ema_or_support
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+- acceptable_risk_reward
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 40.45
-- high: 40.85
-- low: 40
-- close: 40
-- volume: 121250792
-- ma5: 39.63
-- ema23_primary: 39.71
-- distance_to_ema23_pct: 0.74
-- ma20: 39.69
-- ma60: 39.41
-- ma120: 39.83
-- return_5d: 0.25
-- return_20d: 2.3
-- volume_ratio: 3.93
-- distance_to_ma20_pct_auxiliary: 0.78
-- distance_to_high_60_pct: -3.38
+- date: 20260602
+- open: 41.2
+- high: 42.4
+- low: 41.05
+- close: 41.7
+- volume: 69614925
+- ma5: 40.48
+- ema23_primary: 40.01
+- distance_to_ema23_pct: 4.23
+- ma20: 39.94
+- ma60: 39.49
+- ma120: 39.85
+- return_5d: 5.84
+- return_20d: 6.65
+- volume_ratio: 1.98
+- distance_to_ma20_pct_auxiliary: 4.4
+- distance_to_high_60_pct: -1.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,39.6,39.6,39,39,22230771,39.49,-1.25,39.57,39.43,0.85
-20260505,39,39.3,38.7,39.1,11363742,39.46,-0.92,39.56,39.42,0.44
 20260506,39.4,39.7,39.15,39.55,16708226,39.47,0.2,39.57,39.43,0.65
 20260507,39.4,40,39.4,39.65,20903142,39.48,0.42,39.59,39.43,0.82
 20260508,40,40.2,39.65,40.2,21349073,39.54,1.66,39.61,39.45,0.87
@@ -97,6 +142,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,39.6,39.95,39.4,39.45,29286253,39.67,-0.55,39.66,39.43,1.15
 20260528,39.8,40.25,39.5,39.8,36810439,39.68,0.3,39.65,39.42,1.4
 20260529,40.45,40.85,40,40,121250792,39.71,0.74,39.69,39.41,3.93
+20260601,40.2,41.45,40.1,41.45,49587396,39.85,4.01,39.81,39.45,1.54
+20260602,41.2,42.4,41.05,41.7,69614925,40.01,4.23,39.94,39.49,1.98
 ```
 
 ## Latest TDCC Snapshot
@@ -126,21 +173,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260530 | 2886 | 兆豐金 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
-| 20260530 | 2886 | 兆豐金 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=within_3d |
+| 20260602 | 2886 | 兆豐金 | pullback_rebound | 回檔後短線轉強 | 63.0 |  |  |  |  | call_inflow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260602 | 2886 | 兆豐金 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | call_inflow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260602 | 2886 | 兆豐金 | true_breakout | 嚴格突破 | 117.0 |  |  | platform_breakout |  | call_inflow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260530 | 2886 | 兆豐金 | 8 | 8 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 日、近 20 日上榜 8 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260602 | 2886 | 兆豐金 | 9 | 9 | 5 | 9 | 9 | continued_many_days | 連續 9 個交易日上榜，需判斷是持續醞釀或訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 2886 | 兆豐金 | 2 | 0 | 720290.0 | 0.0 |  | no_signal | 0 |  |
+| 20260602 | 2886 | 兆豐金 | 2 | 0 | 1638050.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8261 富鼎
 
 ## Metadata
-- generated_at: 2026-05-30 23:43:54 Asia/Taipei
+- generated_at: 2026-06-02 23:31:03 Asia/Taipei
 - stock_id: 8261
 - stock_name: 富鼎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260529
-- price_rows: 273
+- latest_price_date: 20260602
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -54,31 +54,70 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DECISION
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: high_level_consolidation
+- entry_style: current_price_ok
+- position_sizing: observe_only
+
+### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
+- exit_if_lost_23ema
+- exit_if_lost_recent_low
+- exit_if_revenue_breaks
+- exit_if_tdcc_and_price_both_weaken
+
+### entry_prerequisites
+- price_structure_not_broken
+- revenue_not_deteriorating
+- no_major_tdcc_warning
+- no_major_volume_price_failure
+
+### post_entry_watch_items
+- next_monthly_revenue
+- next_tdcc_update
+- 23ema_hold_or_reclaim
+- volume_price_confirmation
+- prior_high_breakout_quality
+- sector_benchmark_strength
+- event_follow_through
+- warrant_overheat_check
+
+### downgrade_reason
+- insufficient_tdcc_history
+- price_too_extended
+
+### chatgpt_instruction
+- Open the report with action_rating_label_zh as the program-side action conclusion.
+- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
+- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+
 ## Latest Price Snapshot
-- date: 20260529
-- open: 193
-- high: 193
-- low: 173.5
-- close: 181
-- volume: 16747454
-- ma5: 187.1
-- ema23_primary: 151.5
-- distance_to_ema23_pct: 19.47
-- ma20: 147.85
-- ma60: 122.1
-- ma120: 106.95
-- return_5d: 13.12
-- return_20d: 52.74
-- volume_ratio: 1.68
-- distance_to_ma20_pct_auxiliary: 22.42
-- distance_to_high_60_pct: -14.82
+- date: 20260602
+- open: 176.5
+- high: 178.5
+- low: 161.5
+- close: 167.5
+- volume: 8981983
+- ma5: 181.5
+- ema23_primary: 154.55
+- distance_to_ema23_pct: 8.38
+- ma20: 152.72
+- ma60: 124.59
+- ma120: 108.27
+- return_5d: -13.44
+- return_20d: 34.54
+- volume_ratio: 0.85
+- distance_to_ma20_pct_auxiliary: 9.67
+- distance_to_high_60_pct: -21.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,120.5,120.5,118.5,119.5,2002688,115.02,3.9,115.62,104.44,0.47
-20260505,120,125,120,124.5,4173275,115.81,7.51,116.83,104.91,0.96
 20260506,127,127,120.5,122,3324741,116.32,4.88,117.72,105.36,0.75
 20260507,124.5,128.5,122.5,128,8069956,117.3,9.13,118.7,105.89,1.74
 20260508,126.5,127.5,120.5,126,4695505,118.02,6.76,119.6,106.4,0.98
@@ -97,6 +136,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260527,212.5,212.5,188,195,19502762,145.07,34.42,141.18,119.22,2.29
 20260528,190,198,183.5,190,16676956,148.82,27.67,144.72,120.74,1.8
 20260529,193,193,173.5,181,16747454,151.5,19.47,147.85,122.1,1.68
+20260601,182.5,188.5,172,174,9012092,153.37,13.45,150.57,123.43,0.87
+20260602,176.5,178.5,161.5,167.5,8981983,154.55,8.38,152.72,124.59,0.85
 ```
 
 ## Latest TDCC Snapshot
@@ -136,10 +177,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260529 | 8261 | 富鼎 | 58 | 0 | 13594840.0 | 0.0 |  | no_signal | 0 |  |
+| 20260602 | 8261 | 富鼎 | 58 | 0 | 21718550.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
-- This packet supports analysis; it is not a buy/sell recommendation by itself.
+- ACTION_DECISION is the program-side action guidance for single-stock trading language.
+- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
+- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.
