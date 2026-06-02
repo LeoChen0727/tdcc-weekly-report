@@ -9,7 +9,7 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from tracking_utils import LATEST_DIR, read_csv, safe_str  # noqa: E402
+from tracking_utils import LATEST_DIR, main_price_date_from_freshness, normalize_date, read_csv, safe_str  # noqa: E402
 
 
 PARAMETERS_CSV = LATEST_DIR / "daily_candidate_model_parameters_latest.csv"
@@ -160,6 +160,7 @@ def line_count(path: Path) -> int:
 def validate() -> dict[str, object]:
     errors: list[str] = []
     warnings: list[str] = []
+    expected_signal_date = main_price_date_from_freshness()
 
     params = read_csv(PARAMETERS_CSV, dtype=str, keep_default_na=False)
     raw_signals = read_csv(SIGNALS_CSV, dtype=str, keep_default_na=False)
@@ -236,6 +237,21 @@ def validate() -> dict[str, object]:
             reminders = signals["operation_reminder_zh"].astype(str).str.strip()
             if reminders.eq("").any() or reminders.eq(pending_display_value).any():
                 errors.append("operation_reminder_zh_missing_or_pending")
+        if expected_signal_date and "signal_date" in signals.columns:
+            report_dates = sorted(
+                {normalize_date(value) for value in signals["signal_date"].astype(str).tolist() if normalize_date(value)}
+            )
+            if report_dates != [expected_signal_date]:
+                errors.append(
+                    f"report_model_signals signal_date mismatch: expected {expected_signal_date}, got {report_dates}"
+                )
+
+    if not raw_signals.empty and expected_signal_date and "signal_date" in raw_signals.columns:
+        raw_dates = sorted(
+            {normalize_date(value) for value in raw_signals["signal_date"].astype(str).tolist() if normalize_date(value)}
+        )
+        if raw_dates != [expected_signal_date]:
+            errors.append(f"raw_model_signals signal_date mismatch: expected {expected_signal_date}, got {raw_dates}")
 
     if not rotation.empty:
         rotation_model = rotation.get("rotation_model_id", pd.Series([""] * len(rotation))).astype(str)
@@ -272,6 +288,7 @@ def validate() -> dict[str, object]:
         "same_model_repeat_rows": 0 if repeat.empty else int(len(repeat)),
         "rotation_rows": 0 if rotation.empty else int(len(rotation)),
         "packet_lines": line_count(PACKET_MD),
+        "expected_signal_date": expected_signal_date,
         "errors": errors,
         "warnings": warnings,
     }
