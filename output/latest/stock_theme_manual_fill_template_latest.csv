@@ -305,7 +305,7 @@
 1590,亞德客-KY,電機機械,電機機械,主流,機器人,自動化,,,,user_authorized_seed_20260530;user_confirmed_robotics_theme
 1591,駿吉-KY,電機機械,電機機械,主流,,,,,,provisional_industry_mapping
 1593,祺驊,運動休閒,運動休閒,非主流,,,,,,
-1595,川寶,電子零組件業,電子零組件業,主流,,,,,,provisional_industry_mapping
+1595,川寶,半導體業,半導體業,主流,,,,,,provisional_industry_mapping
 1597,直得,電機機械,電機機械,主流,機器人自動化,,,,,user_authorized_seed_20260530
 1598,岱宇,運動休閒,運動休閒,非主流,,,,,,
 1599,宏佳騰,電機機械,電機機械,主流,,,,,,provisional_industry_mapping
@@ -440,7 +440,7 @@
 2221,大甲,其他業,其他業,非主流,,,,,,
 2227,裕日車,汽車工業,汽車工業,非主流,,,,,,provisional_industry_mapping
 2228,劍麟,汽車工業,汽車工業,非主流,,,,,,provisional_industry_mapping
-2230,泰茂,電機機械,電機機械,主流,,,,,,provisional_industry_mapping
+2230,泰茂,居家生活,居家生活,非主流,,,,,,
 2231,為升,汽車工業,汽車工業,都有,車用電子,,,,,user_authorized_seed_20260530;dual_industry_theme_identity
 2233,宇隆,汽車工業,汽車工業,都有,機器人自動化,,,,,user_authorized_seed_20260530;dual_industry_theme_identity
 2235,謚源,電機機械,電機機械,主流,,,,,,provisional_industry_mapping
@@ -596,7 +596,7 @@
 2506,太設,建材營造,建材營造,非主流,,,,,,provisional_industry_mapping
 2509,全坤建,建材營造,建材營造,非主流,,,,,,provisional_industry_mapping
 2511,太子,建材營造,建材營造,非主流,,,,,,provisional_industry_mapping
-2514,龍邦,其他,其他,非主流,,,,,,
+2514,龍邦,其他業,其他業,非主流,,,,,,
 2515,中工,建材營造,建材營造,非主流,,,,,,provisional_industry_mapping
 2516,新建,建材營造,建材營造,非主流,,,,,,provisional_industry_mapping
 2520,冠德,建材營造,建材營造,非主流,,,,,,provisional_industry_mapping
@@ -630,7 +630,7 @@
 2611,志信,航運業,航運業,非主流,,,,,,provisional_industry_mapping
 2612,中航,航運業,航運業,非主流,,,,,,provisional_industry_mapping
 2613,中櫃,航運業,航運業,非主流,,,,,,provisional_industry_mapping
-2614,東森,其他,其他,非主流,,,,,,
+2614,東森,其他業,其他業,非主流,,,,,,
 2615,萬海,航運業,航運業,非主流,,,,,,provisional_industry_mapping
 2616,山隆,油電燃氣業,油電燃氣業,非主流,,,,,,provisional_industry_mapping
 2617,台航,航運業,航運業,非主流,,,,,,provisional_industry_mapping
@@ -786,7 +786,7 @@
 3062,建漢,通信網路業,通信網路業,主流,,,,,,provisional_industry_mapping
 3064,泰偉,文化創意業,文化創意業,非主流,,,,,,
 3066,李洲,光電業,光電業,主流,,,,,,provisional_industry_mapping
-3067,全域,其他電子業,其他電子業,主流,,,,,,provisional_industry_mapping
+3067,全域,居家生活,居家生活,非主流,,,,,,
 3071,協禧,電腦及週邊設備業,電腦及週邊設備業,主流,,,,,,provisional_industry_mapping
 3073,天方能源,綠能環保,綠能環保,非主流,,,,,,
 3078,僑威,電子零組件業,電子零組件業,主流,,,,,,provisional_industry_mapping
@@ -875,7 +875,7 @@
 3310,佳穎,電子零組件業,電子零組件業,主流,,,,,,provisional_industry_mapping
 3311,閎暉,通信網路業,通信網路業,主流,,,,,,provisional_industry_mapping
 3312,弘憶股,電子通路業,電子通路業,主流,,,,,,provisional_industry_mapping
-3313,斐成,其他業,其他業,非主流,,,,,,
+3313,斐成,建材營造,建材營造,非主流,,,,,,provisional_industry_mapping
 3317,尼克森,半導體業,半導體業,主流,,,,,,provisional_industry_mapping
 3321,同泰,電子零組件業,電子零組件業,主流,,,,,,provisional_industry_mapping
 3322,建舜電,電子零組件業,電子零組件業,主流,,,,,,provisional_industry_mapping
@@ -1208,7 +1208,7 @@
 4807,日成-KY,貿易百貨,貿易百貨,非主流,,,,,,provisional_industry_mapping
 4903,聯光通,通信網路業,通信網路業,主流,,,,,,provisional_industry_mapping
 4904,遠傳,通信網路業,通信網路業,主流,,,,,,provisional_industry_mapping
-4905,台聯電,通信網路業,通信網路業,主流,,,,,,provisional_industry_mapping
+4905,台聯電,生技醫療業,生技醫療業,非主流,,,,,,provisional_industry_mapping
 4906,正文,通信網路業,通信網路業,主流,網通交換器,網通設備,,,,user_authorized_seed_20260530
 4907,富宇,建材營造,建材營造,非主流,,,,,,provisional_industry_mapping
 4908,前鼎,通信網路業,通信網路業,主流,CPO光通訊,,,,,user_authorized_seed_20260530
@@ -1219,7 +1219,7 @@
 4916,事欣科,電腦及週邊設備業,電腦及週邊設備業,主流,低軌衛星,工業電腦,,,,user_authorized_seed_20260530
 4919,新唐,半導體業,半導體業,主流,,,,,,provisional_industry_mapping
 4923,力士,半導體業,半導體業,主流,,,,,,provisional_industry_mapping
-4924,欣厚-KY,電腦及週邊設備業,電腦及週邊設備業,主流,,,,,,provisional_industry_mapping
+4924,欣厚-KY,綠能環保,綠能環保,非主流,,,,,,
 4927,泰鼎-KY,電子零組件業,電子零組件業,主流,,,,,,provisional_industry_mapping
 4930,燦星網,電器電纜,電器電纜,主流,,,,,,provisional_industry_mapping
 4931,新盛力,電腦及週邊設備業,電腦及週邊設備業,主流,電源_BBU,,,,,user_authorized_seed_20260530
@@ -1295,7 +1295,7 @@
 5276,達輝-KY,其他業,其他業,非主流,,,,,,
 5278,尚凡*,數位雲端,數位雲端,主流,,,,,,provisional_industry_mapping
 5283,禾聯碩,電器電纜,電器電纜,主流,,,,,,provisional_industry_mapping
-5284,jpp-KY,其他業,其他業,非主流,,,,,,
+5284,jpp-KY,其他,其他,非主流,,,,,,
 5285,界霖,半導體業,半導體業,主流,,,,,,provisional_industry_mapping
 5287,數字,數位雲端,數位雲端,主流,,,,,,provisional_industry_mapping
 5288,豐祥-KY,電機機械,電機機械,主流,,,,,,provisional_industry_mapping
@@ -1325,7 +1325,7 @@
 5356,協益,電腦及週邊設備業,電腦及週邊設備業,主流,,,,,,provisional_industry_mapping
 5364,力麗店,觀光餐旅,觀光餐旅,非主流,,,,,,provisional_industry_mapping
 5371,中光電,光電業,光電業,主流,,,,,,provisional_industry_mapping
-5381,光譜,電子零組件業,電子零組件業,主流,,,,,,provisional_industry_mapping
+5381,光譜,電機機械,電機機械,主流,,,,,,provisional_industry_mapping
 5386,青雲,電腦及週邊設備業,電腦及週邊設備業,主流,,,,,,provisional_industry_mapping
 5388,中磊,通信網路業,通信網路業,主流,網通交換器,,,,,user_authorized_seed_20260530
 5392,能率,光電業,光電業,主流,,,,,,provisional_industry_mapping
@@ -1527,7 +1527,7 @@
 6233,旺玖,半導體業,半導體業,主流,,,,,,provisional_industry_mapping
 6234,高僑,光電業,光電業,主流,,,,,,provisional_industry_mapping
 6235,華孚,電腦及週邊設備業,電腦及週邊設備業,主流,,,,,,provisional_industry_mapping
-6236,中湛,其他業,其他業,非主流,,,,,,
+6236,中湛,數位雲端,數位雲端,主流,,,,,,provisional_industry_mapping
 6237,驊訊,半導體業,半導體業,主流,,,,,,provisional_industry_mapping
 6239,力成,半導體業,半導體業,主流,記憶體儲存,,,,,user_authorized_seed_20260530
 6240,松崗,資訊服務業,資訊服務業,主流,,,,,,provisional_industry_mapping
@@ -2104,7 +2104,7 @@
 7715,裕山,綠能環保,綠能環保,非主流,,,,,,
 7716,昱臺國際,航運業,航運業,非主流,,,,,,provisional_industry_mapping
 7717,萊德光電-KY,通信網路業,通信網路業,主流,,,,,,provisional_industry_mapping
-7718,友鋮,鋼鐵工業,鋼鐵工業,非主流,,,,,,provisional_industry_mapping
+7718,友鋮,電機機械,電機機械,主流,,,,,,provisional_industry_mapping
 7721,微程式,數位雲端,數位雲端,主流,,,,,,provisional_industry_mapping
 7722,LINEPAY,數位雲端,數位雲端,主流,,,,,,provisional_industry_mapping
 7723,築間,觀光餐旅,觀光餐旅,非主流,,,,,,provisional_industry_mapping
@@ -2336,7 +2336,7 @@
 9904,寶成,運動休閒,運動休閒,非主流,,,,,,
 9905,大華,其他業,其他業,非主流,,,,,,
 9906,欣巴巴,建材營造,建材營造,非主流,,,,,,provisional_industry_mapping
-9907,統一實,其他業,其他業,非主流,,,,,,
+9907,統一實,其他,其他,非主流,,,,,,
 9908,大台北,油電燃氣業,油電燃氣業,非主流,,,,,,provisional_industry_mapping
 9910,豐泰,運動休閒,運動休閒,非主流,,,,,,
 9911,櫻花,居家生活,居家生活,非主流,,,,,,

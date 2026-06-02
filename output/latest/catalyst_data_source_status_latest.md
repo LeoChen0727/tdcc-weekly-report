@@ -1,12 +1,12 @@
 # Catalyst Data Source Status
 
-- generated_at: `2026-06-01 22:19:43 Asia/Taipei`
+- generated_at: `2026-06-02 19:41:34 Asia/Taipei`
 - external_fetch_status: `not_configured`
 - note: Schema and local/manual data tables are prepared. No unverified news, MOPS, or social rumor data is fabricated.
 
 | data_table | path | rows |
 |---|---|---:|
-| theme_event_calendar | `data/theme_events/theme_event_calendar.csv` | 0 |
+| theme_event_calendar | `data/theme_events/theme_event_calendar.csv` | 1 |
 | company_theme_mapping | `data/theme_events/company_theme_mapping.csv` | 28 |
 | quarterly_catalyst | `data/fundamental_catalysts/quarterly_catalyst.csv` | 0 |
 | event_catalyst_log | `data/event_catalysts/event_catalyst_log.csv` | 0 |

@@ -153,7 +153,7 @@ stock_id,stock_name,industry,market,industry_source
 1590,亞德客-KY,電機機械,TWSE,official_twse
 1591,駿吉-KY,電機機械,TPEX,official_tpex
 1593,祺驊,運動休閒,TPEX,official_tpex
-1595,川寶,電子零組件業,TPEX,official_tpex
+1595,川寶,半導體業,TPEX,official_tpex
 1597,直得,電機機械,TWSE,official_twse
 1598,岱宇,運動休閒,TWSE,official_twse
 1599,宏佳騰,電機機械,TPEX,official_tpex
@@ -288,7 +288,7 @@ stock_id,stock_name,industry,market,industry_source
 2221,大甲,其他業,TPEX,official_tpex
 2227,裕日車,汽車工業,TWSE,official_twse
 2228,劍麟,汽車工業,TWSE,official_twse
-2230,泰茂,電機機械,TPEX,official_tpex
+2230,泰茂,居家生活,TPEX,official_tpex
 2231,為升,汽車工業,TWSE,official_twse
 2233,宇隆,汽車工業,TWSE,official_twse
 2235,謚源,電機機械,TPEX,official_tpex
@@ -466,7 +466,7 @@ stock_id,stock_name,industry,market,industry_source
 2548,華固,建材營造,TWSE,official_twse
 2596,綠意,建材營造,TPEX,official_tpex
 2597,潤弘,建材營造,TWSE,official_twse
-2601,益航,貿易百貨,TWSE,official_twse
+2601,益航,航運業,TWSE,official_twse
 2603,長榮,航運業,TWSE,official_twse
 2605,新興,航運業,TWSE,official_twse
 2606,裕民,航運業,TWSE,official_twse
@@ -631,7 +631,7 @@ stock_id,stock_name,industry,market,industry_source
 3062,建漢,通信網路業,TWSE,official_twse
 3064,泰偉,文化創意業,TPEX,official_tpex
 3066,李洲,光電業,TPEX,official_tpex
-3067,全域,其他電子業,TPEX,official_tpex
+3067,全域,居家生活,TPEX,official_tpex
 3071,協禧,電腦及週邊設備業,TPEX,official_tpex
 3073,天方能源,綠能環保,TPEX,official_tpex
 3078,僑威,電子零組件業,TPEX,official_tpex
@@ -652,7 +652,7 @@ stock_id,stock_name,industry,market,industry_source
 3122,笙泉,半導體業,TPEX,official_tpex
 3128,昇銳,光電業,TPEX,official_tpex
 3130,一零四,數位雲端,TWSE,official_twse
-3131,弘塑,其他電子業,TPEX,official_tpex
+3131,弘塑,半導體業,TPEX,official_tpex
 3135,凌航,半導體業,TWSE,official_twse
 3138,耀登,通信網路業,TWSE,official_twse
 3141,晶宏,半導體業,TPEX,official_tpex
@@ -720,7 +720,7 @@ stock_id,stock_name,industry,market,industry_source
 3310,佳穎,電子零組件業,TPEX,official_tpex
 3311,閎暉,通信網路業,TWSE,official_twse
 3312,弘憶股,電子通路業,TWSE,official_twse
-3313,斐成,其他業,TPEX,official_tpex
+3313,斐成,建材營造,TPEX,official_tpex
 3317,尼克森,半導體業,TPEX,official_tpex
 3321,同泰,電子零組件業,TWSE,official_twse
 3322,建舜電,電子零組件業,TPEX,official_tpex
@@ -1052,7 +1052,7 @@ stock_id,stock_name,industry,market,industry_source
 4807,日成-KY,貿易百貨,TWSE,official_twse
 4903,聯光通,通信網路業,TPEX,official_tpex
 4904,遠傳,通信網路業,TWSE,official_twse
-4905,台聯電,通信網路業,TPEX,official_tpex
+4905,台聯電,生技醫療業,TPEX,official_tpex
 4906,正文,通信網路業,TWSE,official_twse
 4907,富宇,建材營造,TPEX,official_tpex
 4908,前鼎,通信網路業,TPEX,official_tpex
@@ -1063,7 +1063,7 @@ stock_id,stock_name,industry,market,industry_source
 4916,事欣科,電腦及週邊設備業,TWSE,official_twse
 4919,新唐,半導體業,TWSE,official_twse
 4923,力士,半導體業,TPEX,official_tpex
-4924,欣厚-KY,電腦及週邊設備業,TPEX,official_tpex
+4924,欣厚-KY,綠能環保,TPEX,official_tpex
 4927,泰鼎-KY,電子零組件業,TWSE,official_twse
 4930,燦星網,電器電纜,TWSE,official_twse
 4931,新盛力,電腦及週邊設備業,TPEX,official_tpex
@@ -1168,7 +1168,7 @@ stock_id,stock_name,industry,market,industry_source
 5356,協益,電腦及週邊設備業,TPEX,official_tpex
 5364,力麗店,觀光餐旅,TPEX,official_tpex
 5371,中光電,光電業,TPEX,official_tpex
-5381,光譜,電子零組件業,TPEX,official_tpex
+5381,光譜,電機機械,TPEX,official_tpex
 5386,青雲,電腦及週邊設備業,TPEX,official_tpex
 5388,中磊,通信網路業,TWSE,official_twse
 5392,能率,光電業,TPEX,official_tpex
@@ -1275,7 +1275,7 @@ stock_id,stock_name,industry,market,industry_source
 6122,擎邦,電機機械,TPEX,official_tpex
 6123,上奇,資訊服務業,TPEX,official_tpex
 6124,業強,電子零組件業,TPEX,official_tpex
-6125,廣運,光電業,TPEX,official_tpex
+6125,廣運,電機機械,TPEX,official_tpex
 6126,信音,電子零組件業,TPEX,official_tpex
 6127,九豪,電子零組件業,TPEX,official_tpex
 6128,上福,電腦及週邊設備業,TWSE,official_twse
@@ -1304,7 +1304,7 @@ stock_id,stock_name,industry,market,industry_source
 6158,禾昌,電子零組件業,TPEX,official_tpex
 6160,欣技,電腦及週邊設備業,TPEX,official_tpex
 6161,捷波,電腦及週邊設備業,TPEX,official_tpex
-6163,華電網,通信網路業,TPEX,official_tpex
+6163,華電網,資訊服務業,TPEX,official_tpex
 6164,華興,光電業,TWSE,official_twse
 6165,浪凡,數位雲端,TWSE,official_twse
 6166,凌華,電腦及週邊設備業,TWSE,official_twse
@@ -1370,7 +1370,7 @@ stock_id,stock_name,industry,market,industry_source
 6233,旺玖,半導體業,TPEX,official_tpex
 6234,高僑,光電業,TPEX,official_tpex
 6235,華孚,電腦及週邊設備業,TWSE,official_twse
-6236,中湛,其他業,TPEX,official_tpex
+6236,中湛,數位雲端,TPEX,official_tpex
 6237,驊訊,半導體業,TPEX,official_tpex
 6239,力成,半導體業,TWSE,official_twse
 6240,松崗,資訊服務業,TPEX,official_tpex
@@ -1707,7 +1707,7 @@ stock_id,stock_name,industry,market,industry_source
 7715,裕山,綠能環保,TPEX,official_tpex
 7716,昱臺國際,航運業,TPEX,official_tpex
 7717,萊德光電-KY,通信網路業,TPEX,official_tpex
-7718,友鋮,鋼鐵工業,TPEX,official_tpex
+7718,友鋮,電機機械,TPEX,official_tpex
 7721,微程式,數位雲端,TWSE,official_twse
 7722,LINEPAY,數位雲端,TWSE,official_twse
 7723,築間,觀光餐旅,TPEX,official_tpex
@@ -1914,7 +1914,7 @@ stock_id,stock_name,industry,market,industry_source
 8929,富堡,其他業,TPEX,official_tpex
 8930,青鋼,鋼鐵工業,TPEX,official_tpex
 8931,大汽電,油電燃氣業,TPEX,official_tpex
-8932,智通*,其他業,TPEX,official_tpex
+8932,智通*,數位雲端,TPEX,official_tpex
 8933,愛地雅,運動休閒,TPEX,official_tpex
 8935,邦泰,其他業,TPEX,official_tpex
 8936,國統,其他業,TPEX,official_tpex

@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-06-01 22:19:43 Asia/Taipei",
+  "generated_at": "2026-06-02 19:41:34 Asia/Taipei",
   "external_fetch_status": "not_configured",
   "note": "Schema and local/manual data tables are prepared. No unverified news, MOPS, or social rumor data is fabricated.",
   "files": {
     "theme_event_calendar": {
       "path": "data/theme_events/theme_event_calendar.csv",
       "exists": true,
-      "rows": 0
+      "rows": 1
     },
     "company_theme_mapping": {
       "path": "data/theme_events/company_theme_mapping.csv",

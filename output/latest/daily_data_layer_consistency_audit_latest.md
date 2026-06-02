@@ -1,13 +1,13 @@
 # Daily Data Layer Consistency Audit
 
 - status: `pass`
-- main_price_date: `20260601`
+- main_price_date: `20260602`
 - readme_main_price_date: ``
 - readme_index_main_price_date: ``
-- model_signal_rows: `913`
-- volume_watch_rows: `2`
+- model_signal_rows: `846`
+- volume_watch_rows: `1`
 - volume_theme_other_rows: `0`
-- group_rotation_rows: `11`
+- group_rotation_rows: `13`
 - taxonomy_rows: `2375`
 - taxonomy_template_csv_rows: `2375`
 - taxonomy_template_xlsx_rows: `2375`
@@ -20,19 +20,19 @@
 
 ## Warnings
 
-- volume watch signal_date mismatch: expected 20260601, got ['20260529']; stale auxiliary table ignored for date gating
+- volume watch signal_date mismatch: expected 20260602, got ['20260529']; stale auxiliary table ignored for date gating
 
 ## Details
 
 ```json
 {
-  "main_price_date": "20260601",
-  "effective_model_signal_date": "20260601",
-  "model_signal_rows": 913,
-  "raw_model_signal_rows": 913,
-  "volume_watch_rows": 2,
-  "volume_theme_stock_rows": 2,
-  "group_rotation_rows": 11,
+  "main_price_date": "20260602",
+  "effective_model_signal_date": "20260602",
+  "model_signal_rows": 846,
+  "raw_model_signal_rows": 846,
+  "volume_watch_rows": 1,
+  "volume_theme_stock_rows": 1,
+  "group_rotation_rows": 13,
   "taxonomy_rows": 2375,
   "taxonomy_template_csv_rows": 2375,
   "taxonomy_template_xlsx_rows": 2375,
@@ -41,7 +41,7 @@
   "missing_required_model_columns": [],
   "blank_required_model_columns": {},
   "model_signal_dates": [
-    "20260601"
+    "20260602"
   ],
   "same_model_report_duplicates": 0,
   "model_report_line_membership_mismatch_rows": 0,
@@ -52,7 +52,7 @@
   "model_signal_third_bucket_rows": {},
   "model_signal_main_condition_not_true_rows": 0,
   "raw_model_signal_dates": [
-    "20260601"
+    "20260602"
   ],
   "missing_volume_columns": [],
   "volume_signal_dates": [
@@ -60,7 +60,7 @@
   ],
   "volume_theme_other_rows": 0,
   "group_rotation_invalid_models": [],
-  "group_rotation_slow_rows": 10,
+  "group_rotation_slow_rows": 12,
   "group_rotation_launch_rows": 1,
   "missing_required_taxonomy_columns": [],
   "taxonomy_duplicate_stock_id_rows": 0,

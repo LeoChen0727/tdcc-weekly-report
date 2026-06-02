@@ -1,13 +1,13 @@
 # VOLUME BREAKOUT CHATGPT PACKET
 
 ## Metadata
-- generated_at: `2026-06-01 22:22:09 Asia/Taipei`
+- generated_at: `2026-06-02 19:43:39 Asia/Taipei`
 - main_price_date: `20260529`
-- watch_rows: `2`
+- watch_rows: `1`
 - strict_60d_volume_breakout_count: `0`
-- broad_recall_watch_count: `1`
+- broad_recall_watch_count: `0`
 - selected_but_routed_to_other_category_count: `0`
-- not_selected_by_candidate_model_count: `2`
+- not_selected_by_candidate_model_count: `1`
 - watch_csv_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/volume_breakout_watch_latest.csv
 - watch_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/volume_breakout_watch_latest.md
 - backtest_csv_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/volume_breakout_backtest_latest.csv
@@ -25,14 +25,12 @@
 | volume_breakout_rank | stock_id | stock_name | volume_breakout_type | volume_watch_scope | volume_breakout_priority | selection_status | category | pattern_stage | decision_priority | tdcc_status | repeat_appear_label | volume_ratio | return_5d | return_20d | risk_flags | next_volume_breakout_confirmation |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 | 6762 | 達亞 | volume_expansion_watch | volume_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 2.8087 | -6.383 | 18.1208 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
-| 2 | 2948 | 寶陞 | loose_platform_volume_watch | broad_watch | C_watch_only | not_selected_by_candidate_model |  |  |  |  |  | 2.2823 | 2.7027 | -0.1314 | not_in_candidate_model | broad recall only: wait for platform/neckline breakout, stronger volume, and benchmark-relative strength |
 
 ## Not Selected / Routed Elsewhere Diagnostics
 
 | stock_id | stock_name | volume_breakout_type | volume_watch_scope | selection_status | not_selected_reason | category | pattern_stage | risk_flags |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 6762 | 達亞 | volume_expansion_watch | volume_attack | not_selected_by_candidate_model | volume breakout detected from price history but not selected by existing candidate filters |  |  | not_in_candidate_model |
-| 2948 | 寶陞 | loose_platform_volume_watch | broad_watch | not_selected_by_candidate_model | volume breakout detected from price history but not selected by existing candidate filters |  |  | not_in_candidate_model |
 
 ## Backtest Summary
 
