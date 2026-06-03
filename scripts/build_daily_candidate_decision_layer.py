@@ -844,7 +844,11 @@ def build_decision(candidates: pd.DataFrame, main_date: str) -> pd.DataFrame:
         if not stock_id:
             continue
         category = category_of(row)
-        date = normalize_date(row.get("signal_date", "")) or main_date
+        # Daily reports are keyed by the latest market data date, not by the
+        # workflow execution date. Upstream candidate rows may be regenerated
+        # after midnight and carry the next calendar day; never let that drift
+        # into the decision layer.
+        date = main_date or normalize_date(row.get("signal_date", "")) or normalize_date(row.get("date", ""))
         base = {
             "source_row_index": idx,
             "signal_date": date,
@@ -919,7 +923,7 @@ def build_decision(candidates: pd.DataFrame, main_date: str) -> pd.DataFrame:
     return decision[DECISION_COLUMNS]
 
 
-def rewrite_all_candidates(candidates: pd.DataFrame, decision: pd.DataFrame) -> pd.DataFrame:
+def rewrite_all_candidates(candidates: pd.DataFrame, decision: pd.DataFrame, main_date: str) -> pd.DataFrame:
     out = candidates.copy()
     if out.empty or decision.empty:
         return out
@@ -981,6 +985,14 @@ def rewrite_all_candidates(candidates: pd.DataFrame, decision: pd.DataFrame) -> 
             out = out.drop(columns=[col])
     out = out.merge(decision_for_merge[merge_cols], on="_source_index", how="left").drop(columns=["_source_index"])
     out = out.fillna("")
+    canonical_date = normalize_date(main_date)
+    if canonical_date:
+        # `all_candidates_latest.csv` is the authoritative report candidate
+        # table. Keep all report-facing date columns aligned with the market
+        # price date so validators and downstream PDFs cannot accidentally use
+        # the workflow execution date.
+        for col in ["main_price_date", "signal_date", "date"]:
+            out[col] = canonical_date
     write_csv(out, ALL_CANDIDATES)
     try:
         with pd.ExcelWriter(ALL_CANDIDATES_XLSX, engine="openpyxl") as writer:
@@ -1241,7 +1253,7 @@ def main() -> int:
     write_csv(decision, DECISION_CSV)
     write_markdown(decision, main_date)
     write_packet(decision, main_date)
-    enriched = rewrite_all_candidates(candidates, decision)
+    enriched = rewrite_all_candidates(candidates, decision, main_date)
 
     print(f"Saved: {DECISION_CSV}, rows={len(decision)}")
     print(f"Saved: {DECISION_MD}")
