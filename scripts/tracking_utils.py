@@ -248,20 +248,16 @@ def resolve_candidate_signal_date(candidates: pd.DataFrame, preferred_date: str 
 
 def main_price_date_from_freshness() -> str:
     actual_price_date = latest_stock_price_history_date()
+    if actual_price_date:
+        return actual_price_date
+
     freshness = read_csv(LATEST_DIR / "data_freshness_latest.csv", dtype=str)
     if not freshness.empty:
         row = freshness.iloc[0]
-        report_ready = str(row.get("report_ready", "")).strip().lower() in {"true", "1", "yes", "y"}
-        all_candidates_date = normalize_date(row.get("all_candidates_date", ""))
-        main_price_date = normalize_date(row.get("main_price_date", ""))
-        if all_candidates_date and main_price_date and all_candidates_date != main_price_date and not report_ready:
-            return all_candidates_date
-        for col in ["main_price_date", "all_candidates_date", "official_price_fetch_date"]:
+        for col in ["actual_stock_price_history_date", "main_price_date", "all_candidates_date", "official_price_fetch_date"]:
             if col in freshness.columns:
                 date = normalize_date(row.get(col, ""))
                 if date:
-                    if actual_price_date and date > actual_price_date:
-                        return actual_price_date
                     return date
     return latest_price_date()
 

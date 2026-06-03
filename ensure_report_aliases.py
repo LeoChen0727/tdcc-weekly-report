@@ -4,6 +4,7 @@ from pathlib import Path
 import shutil
 import json
 import re
+import csv
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
@@ -23,6 +24,8 @@ ALIAS_FULL_PDF = LATEST_DIR / "daily_market_full_latest.pdf"
 
 MANIFEST_MD = LATEST_DIR / "report_manifest_latest.md"
 MANIFEST_JSON = LATEST_DIR / "report_manifest_latest.json"
+DATA_FRESHNESS_CSV = LATEST_DIR / "data_freshness_latest.csv"
+ALL_CANDIDATES_CSV = LATEST_DIR / "all_candidates_latest.csv"
 
 GITHUB_RAW_PREFIX = "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/"
 
@@ -35,7 +38,62 @@ def raw_url(path: Path) -> str:
     return GITHUB_RAW_PREFIX + str(path).replace("\\", "/")
 
 
+def normalize_date(value) -> str:
+    digits = re.sub(r"[^0-9]", "", str(value or "").strip())
+    if len(digits) >= 8 and digits.startswith("20"):
+        return digits[:8]
+    return ""
+
+
+def first_csv_row(path: Path) -> dict[str, str]:
+    if not path.exists():
+        return {}
+    try:
+        with path.open("r", encoding="utf-8-sig", newline="") as f:
+            reader = csv.DictReader(f)
+            return next(reader, {}) or {}
+    except Exception:
+        return {}
+
+
+def max_csv_date(path: Path, columns: list[str]) -> str:
+    if not path.exists():
+        return ""
+    dates: list[str] = []
+    try:
+        with path.open("r", encoding="utf-8-sig", newline="") as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                for col in columns:
+                    date = normalize_date(row.get(col, ""))
+                    if date:
+                        dates.append(date)
+                        break
+    except Exception:
+        return ""
+    return max(dates) if dates else ""
+
+
 def detect_main_date() -> str:
+    freshness_row = first_csv_row(DATA_FRESHNESS_CSV)
+    for col in ("main_price_date", "all_candidates_date", "stock_monitor_price_date"):
+        date = normalize_date(freshness_row.get(col, ""))
+        if date:
+            return date
+
+    if MANIFEST_JSON.exists():
+        try:
+            manifest_data = json.loads(MANIFEST_JSON.read_text(encoding="utf-8"))
+        except Exception:
+            manifest_data = {}
+        date = normalize_date(manifest_data.get("main_price_date", ""))
+        if date:
+            return date
+
+    candidate_date = max_csv_date(ALL_CANDIDATES_CSV, ["main_price_date", "signal_date", "date"])
+    if candidate_date:
+        return candidate_date
+
     candidates = [
         LATEST_DIR / "data_freshness_latest.md",
         MANIFEST_MD,

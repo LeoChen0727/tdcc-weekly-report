@@ -8,6 +8,12 @@ import re
 
 import pandas as pd
 
+from scripts.tracking_utils import (
+    latest_stock_price_history_date,
+    main_price_date_from_freshness,
+    resolve_candidate_signal_date,
+)
+
 
 LATEST_DIR = Path("output/latest")
 DATA_PRICE_DIR = Path("data/daily_price")
@@ -89,6 +95,9 @@ CATEGORY_ORDER = {
 
 FINAL_COLUMNS = [
     "date",
+    "signal_date",
+    "main_price_date",
+    "source_date",
     "category",
     "category_cn",
     "breakout_type",
@@ -398,6 +407,45 @@ def load_all_sources() -> pd.DataFrame:
     all_df = all_df[all_df["stock_id"].map(safe_str) != ""].copy()
 
     return all_df
+
+
+def canonicalize_candidate_dates(df: pd.DataFrame) -> tuple[pd.DataFrame, str, list[str]]:
+    """Normalize daily candidate dates to the accepted market price date.
+
+    Category source files may carry stale scan dates, source event dates, or the
+    workflow execution date.  `all_candidates_latest` is the canonical daily
+    candidate table, so `date` and `signal_date` must match `main_price_date`.
+    The original source date is retained in `source_date` for diagnostics.
+    """
+    df = df.copy()
+
+    if len(df) == 0:
+        preferred_date = latest_stock_price_history_date() or main_price_date_from_freshness()
+        return df, preferred_date, ["empty_candidates"]
+
+    original_date = pd.Series([""] * len(df), index=df.index, dtype="object")
+    if "date" in df.columns:
+        original_date = df["date"].map(normalize_date)
+
+    if "source_date" not in df.columns:
+        df["source_date"] = original_date
+    else:
+        df["source_date"] = df["source_date"].where(
+            df["source_date"].astype(str).str.strip() != "",
+            original_date,
+        )
+
+    # Do not use stale all_candidates_date to rebuild all_candidates itself.
+    # Prefer the latest accepted per-stock price history date, and use
+    # data_freshness only as a fallback when price history is unavailable.
+    preferred_date = latest_stock_price_history_date() or main_price_date_from_freshness()
+    signal_date, notes = resolve_candidate_signal_date(df, preferred_date)
+    if signal_date:
+        df["date"] = signal_date
+        df["signal_date"] = signal_date
+        df["main_price_date"] = signal_date
+
+    return df, signal_date, notes
 
 
 def normalize_tdcc_holder_columns(df: pd.DataFrame) -> pd.DataFrame:
@@ -827,6 +875,12 @@ def main() -> int:
     if all_df.empty:
         print("[WARN] no candidate source rows found")
         all_df = pd.DataFrame(columns=FINAL_COLUMNS)
+
+    all_df, signal_date, date_notes = canonicalize_candidate_dates(all_df)
+    if signal_date:
+        print(f"[INFO] all_candidates canonical signal_date={signal_date}")
+    for note in date_notes:
+        print(f"[INFO] date note: {note}")
 
     all_df = merge_tdcc(all_df)
     all_df = improve_notes(all_df)

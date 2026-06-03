@@ -1,18 +1,18 @@
 # Daily Data Layer Consistency Audit
 
 - status: `pass`
-- main_price_date: `20260602`
+- main_price_date: `20260603`
 - readme_main_price_date: ``
 - readme_index_main_price_date: ``
-- model_signal_rows: `824`
-- volume_watch_rows: `300`
+- model_signal_rows: `736`
+- volume_watch_rows: `507`
 - volume_theme_other_rows: `0`
-- group_rotation_rows: `13`
-- taxonomy_rows: `2375`
-- taxonomy_template_csv_rows: `2375`
-- taxonomy_template_xlsx_rows: `2375`
-- docs_taxonomy_template_csv_rows: `2375`
-- docs_taxonomy_template_xlsx_rows: `2375`
+- group_rotation_rows: `25`
+- taxonomy_rows: `2376`
+- taxonomy_template_csv_rows: `2376`
+- taxonomy_template_xlsx_rows: `2376`
+- docs_taxonomy_template_csv_rows: `2376`
+- docs_taxonomy_template_xlsx_rows: `2376`
 
 ## Errors
 
@@ -26,22 +26,22 @@
 
 ```json
 {
-  "main_price_date": "20260602",
-  "effective_model_signal_date": "20260602",
-  "model_signal_rows": 824,
-  "raw_model_signal_rows": 824,
-  "volume_watch_rows": 300,
-  "volume_theme_stock_rows": 300,
-  "group_rotation_rows": 13,
-  "taxonomy_rows": 2375,
-  "taxonomy_template_csv_rows": 2375,
-  "taxonomy_template_xlsx_rows": 2375,
-  "docs_taxonomy_template_csv_rows": 2375,
-  "docs_taxonomy_template_xlsx_rows": 2375,
+  "main_price_date": "20260603",
+  "effective_model_signal_date": "20260603",
+  "model_signal_rows": 736,
+  "raw_model_signal_rows": 736,
+  "volume_watch_rows": 507,
+  "volume_theme_stock_rows": 507,
+  "group_rotation_rows": 25,
+  "taxonomy_rows": 2376,
+  "taxonomy_template_csv_rows": 2376,
+  "taxonomy_template_xlsx_rows": 2376,
+  "docs_taxonomy_template_csv_rows": 2376,
+  "docs_taxonomy_template_xlsx_rows": 2376,
   "missing_required_model_columns": [],
   "blank_required_model_columns": {},
   "model_signal_dates": [
-    "20260602"
+    "20260603"
   ],
   "same_model_report_duplicates": 0,
   "model_report_line_membership_mismatch_rows": 0,
@@ -52,16 +52,16 @@
   "model_signal_third_bucket_rows": {},
   "model_signal_main_condition_not_true_rows": 0,
   "raw_model_signal_dates": [
-    "20260602"
+    "20260603"
   ],
   "missing_volume_columns": [],
   "volume_signal_dates": [
-    "20260602"
+    "20260603"
   ],
   "volume_theme_other_rows": 0,
   "group_rotation_invalid_models": [],
-  "group_rotation_slow_rows": 12,
-  "group_rotation_launch_rows": 1,
+  "group_rotation_slow_rows": 22,
+  "group_rotation_launch_rows": 3,
   "missing_required_taxonomy_columns": [],
   "taxonomy_duplicate_stock_id_rows": 0,
   "taxonomy_unresolved_basic_theme_rows": 0,

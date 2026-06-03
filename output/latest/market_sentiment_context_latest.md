@@ -1,18 +1,18 @@
 # Market Sentiment Context
 
-- generated_at: `2026-06-03 10:12:21 Asia/Taipei`
-- date: `20260602`
+- generated_at: `2026-06-03 22:53:50 Asia/Taipei`
+- date: `20260603`
 - sample_status: `insufficient_history`
 - data_quality_note: 資料不足 / 僅能觀察：VIX 或散戶小台歷史樣本未達 60 筆，不能判斷是否達歷史極端。
 
 ## VIX Historical Context
 
-- Taiwan VIX latest: `36.58`
+- Taiwan VIX latest: `34.94`
 - 252D high / low: `41.5` / `25.68`
-- 252D percentile: `71.05%`
+- 252D percentile: `53.25%`
 - 504D percentile: `-`
-- z-score 252D: `0.7`
-- vix_return_5d / 10d / 20d: `11.15%` / `-7.42%` / `-0.41%`
+- z-score 252D: `0.29`
+- vix_return_5d / 10d / 20d: `1.25%` / `-5.34%` / `-8.8%`
 - vix_context_label: `normal_range`
 - vix_index_interpretation: `trend_supported_no_extreme_vix`
 
@@ -20,7 +20,7 @@ VIX interpretation: VIX must be read with TWSE / TPEx position, market_regime, P
 
 ## Retail MTX Historical Context
 
-- retail_mtx_net_oi_proxy latest: `14,604`
+- retail_mtx_net_oi_proxy latest: `11,026`
 - proxy method: `negative_sum_of_three_institution_mtx_net_oi`
 - 252D high / low: `-` / `-`
 - 252D percentile: `-`
@@ -34,16 +34,16 @@ Retail MTX interpretation: retail positioning is a contrarian sentiment proxy on
 
 | index | close | dist 20D high | dist 60D high | dist 252D high | above MA20 | above MA60 |
 | --- | ---: | ---: | ---: | ---: | --- | --- |
-| TWSE | 45,557 | 0% | 0% | 0% | True | True |
-| TPEx | 440.64 | -1.21% | -1.21% | -1.21% | True | True |
+| TWSE | 46,459 | 0% | 0% | 0% | True | True |
+| TPEx | 446.82 | 0% | 0% | 0% | True | True |
 
 ## Combined Sentiment Interpretation
 
 - combined_sentiment_interpretation: `insufficient_history_observe_only`
 - sentiment_warning_level: `insufficient`
-- foreign_tx_futures_net_oi: `-67,018`
-- foreign_futures_net_oi: `-645,032` (whole futures exposure background only, not TX direction)
-- put_call_oi_ratio_pct: `142.84%`
+- foreign_tx_futures_net_oi: `-66,772`
+- foreign_futures_net_oi: `-636,347` (whole futures exposure background only, not TX direction)
+- put_call_oi_ratio_pct: `217.69%`
 
 ???? / ?????VIX ????????????????????????????????????????
 

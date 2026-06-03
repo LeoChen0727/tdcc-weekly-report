@@ -150,6 +150,7 @@
 009818,華南永昌NASDAQxT,指數/ETF/ETN商品,指數/ETF/ETN商品,非主流,,,,,,
 009819,中信數據及電力,指數/ETF/ETN商品,指數/ETF/ETN商品,非主流,,,,,,
 009820,元大納斯達克精選,指數/ETF/ETN商品,指數/ETF/ETN商品,非主流,,,,,,
+009822,華南永昌未來金融,指數/ETF/ETN商品,指數/ETF/ETN商品,非主流,,,,,,
 0200,兆豐半導體氣候N,指數/ETF/ETN商品,指數/ETF/ETN商品,非主流,,,,,,
 1101,台泥,水泥工業,水泥工業,非主流,,,,,,provisional_industry_mapping
 1102,亞泥,水泥工業,水泥工業,非主流,,,,,,provisional_industry_mapping
@@ -619,7 +620,7 @@
 2548,華固,建材營造,建材營造,非主流,,,,,,provisional_industry_mapping
 2596,綠意,建材營造,建材營造,非主流,,,,,,provisional_industry_mapping
 2597,潤弘,建材營造,建材營造,非主流,,,,,,provisional_industry_mapping
-2601,益航,貿易百貨,貿易百貨,非主流,,,,,,provisional_industry_mapping
+2601,益航,航運業,航運業,非主流,,,,,,provisional_industry_mapping
 2603,長榮,航運業,航運業,非主流,,,,,,provisional_industry_mapping
 2605,新興,航運業,航運業,非主流,,,,,,provisional_industry_mapping
 2606,裕民,航運業,航運業,非主流,,,,,,provisional_industry_mapping
@@ -1295,7 +1296,7 @@
 5276,達輝-KY,其他業,其他業,非主流,,,,,,
 5278,尚凡*,數位雲端,數位雲端,主流,,,,,,provisional_industry_mapping
 5283,禾聯碩,電器電纜,電器電纜,主流,,,,,,provisional_industry_mapping
-5284,jpp-KY,其他,其他,非主流,,,,,,
+5284,jpp-KY,其他業,其他業,非主流,,,,,,
 5285,界霖,半導體業,半導體業,主流,,,,,,provisional_industry_mapping
 5287,數字,數位雲端,數位雲端,主流,,,,,,provisional_industry_mapping
 5288,豐祥-KY,電機機械,電機機械,主流,,,,,,provisional_industry_mapping
@@ -1657,7 +1658,7 @@
 6589,台康生技,生技醫療業,生技醫療業,非主流,,,,,,provisional_industry_mapping
 6590,普鴻,資訊服務業,資訊服務業,主流,,,,,,provisional_industry_mapping
 6591,動力-KY,電腦及週邊設備業,電腦及週邊設備業,主流,,,,,,provisional_industry_mapping
-6592,和潤企業,其他,其他,非主流,,,,,,
+6592,和潤企業,其他業,其他業,非主流,,,,,,
 6593,台灣銘板,資訊服務業,資訊服務業,主流,,,,,,provisional_industry_mapping
 6596,寬宏藝術,文化創意業,文化創意業,非主流,,,,,,
 6597,立誠,電子零組件業,電子零組件業,主流,,,,,,provisional_industry_mapping
@@ -2336,7 +2337,7 @@
 9904,寶成,運動休閒,運動休閒,非主流,,,,,,
 9905,大華,其他業,其他業,非主流,,,,,,
 9906,欣巴巴,建材營造,建材營造,非主流,,,,,,provisional_industry_mapping
-9907,統一實,其他,其他,非主流,,,,,,
+9907,統一實,其他業,其他業,非主流,,,,,,
 9908,大台北,油電燃氣業,油電燃氣業,非主流,,,,,,provisional_industry_mapping
 9910,豐泰,運動休閒,運動休閒,非主流,,,,,,
 9911,櫻花,居家生活,居家生活,非主流,,,,,,
@@ -2358,14 +2359,14 @@
 9934,成霖,居家生活,居家生活,非主流,,,,,,
 9935,慶豐富,居家生活,居家生活,非主流,,,,,,
 9937,全國,油電燃氣業,油電燃氣業,非主流,,,,,,provisional_industry_mapping
-9938,百和,其他,其他,非主流,,,,,,
+9938,百和,其他業,其他業,非主流,,,,,,
 9939,宏全,其他,其他,非主流,,,,,,
 9940,信義,其他業,其他業,非主流,,,,,,
-9941,裕融,其他,其他,非主流,,,,,,
+9941,裕融,其他業,其他業,非主流,,,,,,
 9942,茂順,其他業,其他業,非主流,,,,,,
 9943,好樂迪,觀光餐旅,觀光餐旅,非主流,,,,,,provisional_industry_mapping
 9944,新麗,其他業,其他業,非主流,,,,,,
-9945,潤泰新,其他,其他,非主流,,,,,,
+9945,潤泰新,其他業,其他業,非主流,,,,,,
 9946,三發地產,建材營造,建材營造,非主流,,,,,,provisional_industry_mapping
 9949,琉園,文化創意業,文化創意業,非主流,,,,,,
 9950,萬國通,塑膠工業,塑膠工業,非主流,,,,,,provisional_industry_mapping

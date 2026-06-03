@@ -323,11 +323,18 @@ def write_markdown(repeat: pd.DataFrame, main_date: str, history_days: int) -> N
 def rewrite_all_candidates(candidates: pd.DataFrame, repeat: pd.DataFrame) -> pd.DataFrame:
     out = candidates.copy()
     out["stock_id"] = out["stock_id"].map(normalize_code)
-    merge_cols = [col for col in REPEAT_COLUMNS if col != "stock_name"]
+    repeat_merge = repeat.copy()
+    if "signal_date" in repeat_merge.columns:
+        repeat_merge = repeat_merge.rename(columns={"signal_date": "repeat_signal_date"})
+    merge_cols = [
+        ("repeat_signal_date" if col == "signal_date" else col)
+        for col in REPEAT_COLUMNS
+        if col != "stock_name"
+    ]
     for col in merge_cols:
-        if col != "stock_id" and col in out.columns:
+        if col not in {"stock_id", "date", "signal_date", "main_price_date", "source_date"} and col in out.columns:
             out = out.drop(columns=[col])
-    out = out.merge(repeat[merge_cols], on="stock_id", how="left")
+    out = out.merge(repeat_merge[merge_cols], on="stock_id", how="left")
     for col in merge_cols:
         if col not in out.columns:
             out[col] = ""

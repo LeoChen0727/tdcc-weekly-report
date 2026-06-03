@@ -109,6 +109,14 @@ def safe_str(value: Any) -> str:
     return text
 
 
+def normalize_date_value(value: Any) -> str:
+    text = safe_str(value)
+    digits = re.sub(r"[^0-9]", "", text)
+    if len(digits) >= 8:
+        return digits[:8]
+    return ""
+
+
 def read_freshness() -> dict[str, str]:
     if not DATA_FRESHNESS_CSV.exists():
         return {}
@@ -257,10 +265,24 @@ def check_candidate_date(errors: list[str], main_date: str) -> None:
         errors.append(f"missing {ALL_CANDIDATES_CSV}")
         return
     try:
-        df = pd.read_csv(ALL_CANDIDATES_CSV, dtype=str, usecols=["date"]).fillna("")
-        dates = sorted(set(df["date"].astype(str).str.replace(r"[^0-9]", "", regex=True)))
-        if main_date and main_date not in dates:
-            errors.append(f"all_candidates date does not contain main_price_date {main_date}; dates={dates[:5]}")
+        df = pd.read_csv(ALL_CANDIDATES_CSV, dtype=str, keep_default_na=False).fillna("")
+        authoritative_cols = [
+            col
+            for col in ["main_price_date", "signal_date", "date", "price_date", "trade_date"]
+            if col in df.columns
+        ]
+        if not authoritative_cols:
+            errors.append("all_candidates missing authoritative date columns: main_price_date/signal_date/date")
+            return
+        date_sets: dict[str, list[str]] = {}
+        for col in authoritative_cols:
+            values = sorted({normalize_date_value(value) for value in df[col].tolist()} - {""})
+            date_sets[col] = values
+        if main_date and not any(main_date in values for values in date_sets.values()):
+            errors.append(
+                f"all_candidates authoritative dates do not contain main_price_date {main_date}; "
+                f"date_sets={date_sets}"
+            )
     except Exception as exc:
         errors.append(f"failed to inspect all_candidates date: {exc}")
 

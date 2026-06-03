@@ -199,14 +199,14 @@
 
 market_sentiment_context:
   taiwan_vix:
-    latest: 36.58
-    percentile_252d: 71.0526
+    latest: 34.94
+    percentile_252d: 53.2468
     percentile_504d: 
     rank_label: middle_range
     context_label: normal_range
     index_interpretation: trend_supported_no_extreme_vix
   retail_mtx:
-    latest_proxy: 14604.0
+    latest_proxy: 11026.0
     proxy_method: negative_sum_of_three_institution_mtx_net_oi
     percentile_252d: 
     percentile_504d: 
