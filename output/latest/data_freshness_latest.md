@@ -1,6 +1,6 @@
 # Data Freshness Status
 
-- generated_at: `2026-06-03 23:11:25` Asia/Taipei
+- generated_at: `2026-06-03 23:17:38` Asia/Taipei
 - main_price_date: `20260603`
 - actual_stock_price_history_date: `20260603`
 - report_ready: `True`

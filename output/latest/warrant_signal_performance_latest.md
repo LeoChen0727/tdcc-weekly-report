@@ -1,6 +1,6 @@
 # Warrant Signal Performance
 
-- generated_at: `2026-06-03 22:53:57 Asia/Taipei`
+- generated_at: `2026-06-03 23:19:32 Asia/Taipei`
 - 權證只作輔助訊號，不可單獨作為買進理由。
 
 | date | stock_id | stock_name | call_turnover | put_turnover | return_d1 | return_d3 | return_d5 | return_d10 |

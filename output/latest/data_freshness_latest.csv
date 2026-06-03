@@ -1,2 +1,2 @@
 ﻿generated_at,main_price_date,actual_stock_price_history_date,stock_monitor_price_date,all_candidates_date,official_price_fetch_date,warrant_flow_date,raw_stock_monitor_price_date,raw_all_candidates_date,raw_official_price_fetch_date,raw_warrant_flow_date,report_ready,report_ready_note,stock_monitor_note,all_candidates_note,official_fetch_note,warrant_note
-2026-06-03 23:11:25,20260603,20260603,20260603,20260603,20260603,20260603,20260603,20260603,20260603,20260603,True,core daily data dates match main_price_date,ready,ready,ready,ready
+2026-06-03 23:17:38,20260603,20260603,20260603,20260603,20260603,20260603,20260603,20260603,20260603,20260603,True,core daily data dates match main_price_date,ready,ready,ready,ready

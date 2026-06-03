@@ -1,7 +1,7 @@
 # 每日全市場候選股監測報告 - 精華版
 
 - 主資料日期：`20260603`
-- 產生時間：`2026-06-03 22:53:59 Asia/Taipei`
+- 產生時間：`2026-06-03 23:19:33 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
 - 判斷說明：core daily data dates match main_price_date
 - 權證資料日期：`20260603`
@@ -28,18 +28,18 @@
 
 | 股票 | 原始分類 | 催化標籤 / 反應程度 | TDCC |
 |---|---|---|---|
+| 9939 宏全 | 型態觀察 | score 0 / theme 86.3/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window;其他 / monthly_revenue_calendar... | 大戶溫和增加 |
 | 1612 宏泰 | 嚴格突破 | score 0 / theme 100.0/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window / monthly_revenue_calendar;c... | 大戶同步增加 |
-| 8926 台汽電 | 型態觀察 | score 0 / theme 48.5/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window / monthly_revenue_calendar;ca... | 大戶同步增加 |
-| 8996 高力 | 型態觀察 | score 0 / theme 43.4/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window / monthly_revenue_calendar;ca... | 大戶轉弱 |
-| 2374 佳能 | 型態觀察 | score 0 / theme 26.6/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window / monthly_revenue_calendar;ca... | 大戶溫和增加 |
-| 3033 威健 | 型態觀察 | score 0 / theme 10.2/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window;semiconductor_theme;IC distri... | 大戶同步增加 |
-| 3545 敦泰 | 型態觀察 | score 0 / theme 100.0/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window / monthly_revenue_calendar;c... | 大戶溫和增加 |
-| 4551 智伸科 | 型態觀察 | score 0 / theme 96.0/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window / monthly_revenue_calendar;ca... | 大戶溫和增加 |
-| 4562 穎漢 | 型態觀察 | score 0 / theme 97.0/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window / monthly_revenue_calendar;ca... | 大戶轉弱 |
-| 6224 聚鼎 | 型態觀察 | score 0 / theme 100.0/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window / monthly_revenue_calendar;c... | 大戶溫和增加 |
-| 2365 昆盈 | 型態觀察 | score 0 / theme 100.0/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window / monthly_revenue_calendar;c... | 大戶溫和增加 |
-| 3591 艾笛森 | 型態觀察 | score 0 / theme 100.0/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window / monthly_revenue_calendar;c... | 大戶同步增加 |
-| 3714 富采 | 型態觀察 | score 0 / theme 100.0/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window / monthly_revenue_calendar;c... | 大戶轉弱 |
+| 1460 宏遠 | 嚴格突破 | score 0 / theme 100.0/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window / monthly_revenue_calendar;c... | 大戶溫和增加 |
+| 9934 成霖 | 嚴格突破 | score 0 / theme 45.9/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window / monthly_revenue_calendar;ca... | 大戶溫和增加 |
+| 4306 炎洲 | 嚴格突破 | score 0 / theme 100.0/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window / monthly_revenue_calendar;c... | 大戶溫和增加 |
+| 6189 豐藝 | 嚴格突破 | score 0 / theme 100.0/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window / monthly_revenue_calendar;c... | 大戶轉弱 |
+| 9933 中鼎 | 型態觀察 | score 0 / theme 86.3/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window;其他 / monthly_revenue_calendar... | 大戶轉弱 |
+| 7788 松川精密 | 型態觀察 | score 0 / theme 100.0/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window;電子零組件業 / monthly_revenue_cal... | 大戶轉弱 |
+| 7777 能率亞洲 | 型態觀察 | score 0 / theme 86.3/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window;其他 / monthly_revenue_calendar... | 大戶溫和增加 |
+| 6901 鑽石投資 | 型態觀察 | score 0 / theme 86.3/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window;其他 / monthly_revenue_calendar... | 大戶轉弱 |
+| 6854 錼創科技-KY創 | 型態觀察 | score 0 / theme 100.0/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window;半導體業 / monthly_revenue_calen... | 大戶轉弱 |
+| 6835 圓裕 | 型態觀察 | score 0 / theme 100.0/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window;電子零組件業 / monthly_revenue_cal... | 大戶溫和增加 |
 
 ## 精華候選股
 
