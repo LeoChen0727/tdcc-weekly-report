@@ -195,17 +195,50 @@ PDF_MODEL_CROSS_COLUMNS = [
 ]
 
 PDF_HEADER_ZH = {
+    "rank": "排名",
+    "signal_date": "資料日",
+    "report_kind": "報告版本",
+    "section_id": "區塊ID",
+    "section_name_zh": "區塊",
     "section_rank": "序",
+    "tdcc_list_type": "TDCC名單類型",
+    "tdcc_rank": "TDCC排名",
     "stock_id": "代號",
     "stock_name": "股票",
+    "theme": "族群",
+    "theme_mainstream_status": "族群主流狀態",
     "tdcc_phase_group_zh": "TDCC階段",
-    "risk_bucket": "風險",
+    "risk_bucket": "風險類型",
+    "risk_bucket_zh": "風險",
     "tdcc_score": "TDCC分數",
+    "tdcc_weekly_increase_score": "當週增幅分數",
+    "tdcc_consecutive_accumulation_score": "連續累積分數",
+    "tdcc_1w_change_400": ">400張週變化",
+    "tdcc_1w_change_600": ">600張週變化",
+    "tdcc_1w_change_800": ">800張週變化",
+    "tdcc_1w_change_1000": ">1000張週變化",
+    "tdcc_four_threshold_weekly_increase_sum": "四級距週變化合計",
+    "tdcc_consecutive_up_weeks": "連續增加週數",
+    "all_thresholds_up": "四級距同步增加",
+    "high_thresholds_up": "高級距同步增加",
+    "tdcc_price_phase": "TDCC股價階段",
+    "price_return_20d": "20日漲跌幅",
+    "distance_ma20_pct": "距MA20",
+    "relative_return_vs_benchmark": "相對大盤報酬",
+    "ranking_note_zh": "排名說明",
+    "model_id": "每日模型ID",
     "model_name_zh": "每日模型",
+    "model_rank": "模型排名",
+    "display_rank": "顯示排名",
     "tdcc_model_rank_in_list": "模型內排名",
     "model_score": "模型分數",
+    "model_source": "模型來源",
+    "source_hit_labels_zh": "同時命中來源",
     "why_selected_zh": "入選原因",
+    "risk_tags_zh": "風險標籤",
     "next_confirmation_zh": "下一確認",
+    "recommended_usage_zh": "建議用途",
+    "report_usage_zh": "報告用途",
     "operation_note_zh": "操作提醒",
 }
 
@@ -302,6 +335,7 @@ PHASE_ZH = {
 
 
 def zh(value: Any) -> str:
+    value = scalar_value(value)
     text = safe_str(value).strip()
     if not text:
         return ""
@@ -310,7 +344,17 @@ def zh(value: Any) -> str:
     return text
 
 
+def scalar_value(value: Any) -> Any:
+    if isinstance(value, pd.Series):
+        for item in value.tolist():
+            if safe_str(item).strip():
+                return item
+        return ""
+    return value
+
+
 def clean_pdf_text(value: Any) -> str:
+    value = scalar_value(value)
     text = zh(value).strip()
     if not text:
         return ""
@@ -323,6 +367,7 @@ def clean_pdf_text(value: Any) -> str:
 
 
 def format_rank_value(value: Any) -> str:
+    value = scalar_value(value)
     raw = safe_str(value).strip()
     if not raw:
         return ""
@@ -335,6 +380,7 @@ def format_rank_value(value: Any) -> str:
 
 
 def format_score_value(value: Any) -> str:
+    value = scalar_value(value)
     raw = safe_str(value).strip()
     if not raw:
         return ""
@@ -367,18 +413,29 @@ def pdf_display_cell(row: pd.Series, column: str) -> str:
     return clean_pdf_text(row.get(column))
 
 
+def pdf_headers_for_columns(columns: list[str]) -> list[str]:
+    seen: dict[str, int] = {}
+    headers: list[str] = []
+    for column in columns:
+        base = PDF_HEADER_ZH.get(column, clean_pdf_text(column) or column)
+        count = seen.get(base, 0) + 1
+        seen[base] = count
+        headers.append(base if count == 1 else f"{base}({count})")
+    return headers
+
+
 def pdf_display_table(df: pd.DataFrame, columns: list[str], limit: int | None = None) -> pd.DataFrame:
     """Return a human-facing table with translated headers and display-safe cells."""
     if limit is not None:
         df = df.head(limit)
+    headers = pdf_headers_for_columns(columns)
     rows: list[dict[str, str]] = []
     for _, row in df.iterrows():
         display_row: dict[str, str] = {}
-        for column in columns:
-            header = PDF_HEADER_ZH.get(column, clean_pdf_text(column) or column)
+        for column, header in zip(columns, headers):
             display_row[header] = pdf_display_cell(row, column)
         rows.append(display_row)
-    return pd.DataFrame(rows, columns=[PDF_HEADER_ZH.get(c, clean_pdf_text(c) or c) for c in columns])
+    return pd.DataFrame(rows, columns=headers)
 
 
 def theme_display_from_raw(value: Any) -> str:
@@ -797,10 +854,11 @@ def write_report_md(df: pd.DataFrame, path: Path, title: str, max_rows_per_secti
         for section, group in df.groupby("section_name_zh", sort=False):
             show = group.head(max_rows_per_section) if max_rows_per_section else group
             columns = pdf_columns_for_section(show)
+            display_df = pdf_display_table(show, columns)
             lines += [
                 f"## {section}",
                 "",
-                markdown_table(pdf_display_table(show, columns), [PDF_HEADER_ZH.get(c, clean_pdf_text(c) or c) for c in columns], limit=None),
+                markdown_table(display_df, list(display_df.columns), limit=None),
                 "",
             ]
     path.parent.mkdir(parents=True, exist_ok=True)

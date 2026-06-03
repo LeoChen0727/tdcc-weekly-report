@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import re
 from pathlib import Path
 from typing import Iterable
 
@@ -7,8 +8,14 @@ from typing import Iterable
 PDF_FACING_FILES = [
     Path("output/latest/tdcc_weekly_candidate_highlight_for_report_latest.md"),
     Path("output/latest/tdcc_weekly_candidate_full_for_report_latest.md"),
+    Path("output/latest/tdcc_weekly_increase_ranking_latest.md"),
+    Path("output/latest/tdcc_consecutive_accumulation_ranking_latest.md"),
+    Path("output/latest/tdcc_weekly_model_cross_summary_latest.md"),
     Path("docs/latest/tdcc_weekly_candidate_highlight_for_report_latest.md"),
     Path("docs/latest/tdcc_weekly_candidate_full_for_report_latest.md"),
+    Path("docs/latest/tdcc_weekly_increase_ranking_latest.md"),
+    Path("docs/latest/tdcc_consecutive_accumulation_ranking_latest.md"),
+    Path("docs/latest/tdcc_weekly_model_cross_summary_latest.md"),
 ]
 
 PDF_FACING_PDFS = [
@@ -25,6 +32,10 @@ PDF_FACING_PDFS = [
 REQUIRED_TDCC_PDFS = [
     Path("output/latest/tdcc_weekly_candidate_highlight_latest.pdf"),
     Path("output/latest/tdcc_weekly_candidate_full_latest.pdf"),
+]
+
+SOURCE_DISPLAY_FILES = [
+    Path("scripts/build_tdcc_weekly_candidate_reports.py"),
 ]
 
 RAW_TOKENS = [
@@ -65,22 +76,13 @@ RAW_TOKENS = [
 ]
 
 MOJIBAKE_MARKERS = [
-    "�",
-    "銝",
-    "蝐",
-    "嚗",
-    "鞈",
-    "憭",
-    "隤",
-    "撟",
-    "瘥",
-    "摰",
-    "閫",
-    "餈",
-    "鈭",
-    "",
-    "",
+    "\ufffd",  # Unicode replacement character, usually means decode failure.
 ]
+
+PRIVATE_USE_RE = re.compile(r"[\ue000-\uf8ff]")
+PANDAS_SERIES_LEAK_RE = re.compile(
+    r"\bName:\s*\d+\s*,\s*dtype:\s*object\b|\bdtype:\s*object\b"
+)
 
 
 def extract_pdf_text(path: Path) -> str:
@@ -127,9 +129,23 @@ def main() -> int:
         if not path.exists():
             problems.append(f"{path}: missing required TDCC weekly PDF")
 
+    for path in SOURCE_DISPLAY_FILES:
+        if not path.exists():
+            problems.append(f"{path}: missing source display file")
+            continue
+        text = path.read_text(encoding="utf-8", errors="replace")
+        for line_no, line in enumerate(text.splitlines(), start=1):
+            for marker in MOJIBAKE_MARKERS:
+                if marker in line:
+                    problems.append(f"{path}:{line_no}: source mojibake marker `{marker}`")
+            if PRIVATE_USE_RE.search(line):
+                problems.append(f"{path}:{line_no}: source private-use mojibake marker")
+
     for path, text in iter_sources():
         target = problems if path.suffix.lower() == ".pdf" else warnings
         for line_no, line in enumerate(text.splitlines(), start=1):
+            if PANDAS_SERIES_LEAK_RE.search(line):
+                problems.append(f"{path}:{line_no}: pandas Series leaked into display text")
             if path.suffix.lower() != ".pdf" and is_machine_readable_helper_line(line):
                 continue
             for token in RAW_TOKENS:
@@ -138,6 +154,8 @@ def main() -> int:
             for marker in MOJIBAKE_MARKERS:
                 if marker in line:
                     target.append(f"{path}:{line_no}: mojibake marker `{marker}`")
+            if PRIVATE_USE_RE.search(line):
+                target.append(f"{path}:{line_no}: private-use mojibake marker")
 
     if problems:
         print("PDF-facing display text validation failed:")
