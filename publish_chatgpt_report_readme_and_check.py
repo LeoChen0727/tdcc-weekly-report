@@ -56,10 +56,14 @@ RULES_DIR = Path("rules")
 DOCS_RULES_DIR = Path("docs/rules")
 MASTER_PRIORITY_RULES = RULES_DIR / "master_priority_rules.md"
 DAILY_STOCK_CANDIDATE_RULES = RULES_DIR / "daily_stock_candidate_rules.md"
+MARKET_OPENING_PREP_RULES = RULES_DIR / "market_opening_prep_rules.md"
+FUTURES_OPTIONS_VIX_RULES = RULES_DIR / "futures_options_vix_rules.md"
 ASTROLOGY_RULES = RULES_DIR / "astrology_rules.md"
 RULES_INDEX = RULES_DIR / "rules_index_latest.md"
 DOCS_MASTER_PRIORITY_RULES = DOCS_RULES_DIR / "master_priority_rules.md"
 DOCS_DAILY_STOCK_CANDIDATE_RULES = DOCS_RULES_DIR / "daily_stock_candidate_rules.md"
+DOCS_MARKET_OPENING_PREP_RULES = DOCS_RULES_DIR / "market_opening_prep_rules.md"
+DOCS_FUTURES_OPTIONS_VIX_RULES = DOCS_RULES_DIR / "futures_options_vix_rules.md"
 DOCS_ASTROLOGY_RULES = DOCS_RULES_DIR / "astrology_rules.md"
 DOCS_RULES_INDEX = DOCS_RULES_DIR / "rules_index_latest.md"
 ASTROLOGY_PROTOCOL = LATEST_DIR / "astrology_read_protocol_latest.md"
@@ -121,6 +125,12 @@ MARKET_INDEX_HISTORY_CSV = Path("data/market_index_history.csv")
 MARKET_INDEX_OHLC_HISTORY_CSV = Path("data/market_index_ohlc_history.csv")
 FUTURES_OPTIONS_INDICATORS_CSV = LATEST_DIR / "futures_options_indicators_latest.csv"
 FUTURES_OPTIONS_SOURCE_STATUS_MD = LATEST_DIR / "futures_options_source_status_latest.md"
+MARKET_SENTIMENT_CONTEXT_CSV = LATEST_DIR / "market_sentiment_context_latest.csv"
+MARKET_SENTIMENT_CONTEXT_MD = LATEST_DIR / "market_sentiment_context_latest.md"
+MARKET_SENTIMENT_CONTEXT_HISTORY_CSV = Path("output/history/market_risk/market_sentiment_context_history.csv")
+VIX_HISTORY_CSV = Path("output/history/market_risk/vix_history.csv")
+RETAIL_MTX_SENTIMENT_HISTORY_CSV = Path("output/history/market_risk/retail_mtx_sentiment_history.csv")
+FUTURES_OPTIONS_INDICATORS_HISTORY_CSV = Path("output/history/market_risk/futures_options_indicators_history.csv")
 MARKET_TIMING_PACKET_MD = LATEST_DIR / "market_timing_chatgpt_packet_latest.md"
 MARKET_TIMING_BACKTEST_MD = LATEST_DIR / "market_timing_backtest_latest.md"
 MARKET_TIMING_BACKTEST_CSV = LATEST_DIR / "market_timing_backtest_latest.csv"
@@ -569,6 +579,14 @@ def build_readme(
     market_risk_dashboard_pdf_raw_url: str,
     futures_options_indicators_raw_url: str,
     futures_options_source_status_raw_url: str,
+    market_sentiment_context_raw_url: str,
+    market_sentiment_context_md_raw_url: str,
+    market_sentiment_context_history_raw_url: str,
+    vix_history_raw_url: str,
+    retail_mtx_sentiment_history_raw_url: str,
+    futures_options_indicators_history_raw_url: str,
+    market_sentiment_context_pages_url: str,
+    market_sentiment_context_md_pages_url: str,
     rules_pages_url: str,
     rules_raw_url: str,
     preferred_chatgpt_url: str,
@@ -604,6 +622,10 @@ def build_readme(
         f"rules_master_priority_pages_url={pages_url('rules/master_priority_rules.md')}",
         f"rules_daily_stock_candidate_raw_url={raw_url('main', DAILY_STOCK_CANDIDATE_RULES)}",
         f"rules_daily_stock_candidate_pages_url={pages_url('rules/daily_stock_candidate_rules.md')}",
+        f"rules_market_opening_prep_raw_url={raw_url('main', MARKET_OPENING_PREP_RULES)}",
+        f"rules_market_opening_prep_pages_url={pages_url('rules/market_opening_prep_rules.md')}",
+        f"rules_futures_options_vix_raw_url={raw_url('main', FUTURES_OPTIONS_VIX_RULES)}",
+        f"rules_futures_options_vix_pages_url={pages_url('rules/futures_options_vix_rules.md')}",
         f"rules_astrology_raw_url={raw_url('main', ASTROLOGY_RULES)}",
         f"rules_astrology_pages_url={pages_url('rules/astrology_rules.md')}",
         "astrology_task_rule=calendar_date_task_read_astrology_rules_do_not_use_daily_market_report_format",
@@ -871,6 +893,14 @@ def build_readme(
         f"market_risk_dashboard_pdf_raw_url={market_risk_dashboard_pdf_raw_url}",
         f"futures_options_indicators_raw_url={futures_options_indicators_raw_url}",
         f"futures_options_source_status_raw_url={futures_options_source_status_raw_url}",
+        f"market_sentiment_context_raw_url={market_sentiment_context_raw_url}",
+        f"market_sentiment_context_md_raw_url={market_sentiment_context_md_raw_url}",
+        f"market_sentiment_context_history_raw_url={market_sentiment_context_history_raw_url}",
+        f"vix_history_raw_url={vix_history_raw_url}",
+        f"retail_mtx_sentiment_history_raw_url={retail_mtx_sentiment_history_raw_url}",
+        f"futures_options_indicators_history_raw_url={futures_options_indicators_history_raw_url}",
+        f"market_sentiment_context_pages_url={market_sentiment_context_pages_url}",
+        f"market_sentiment_context_md_pages_url={market_sentiment_context_md_pages_url}",
         f"market_timing_chatgpt_packet_raw_url={raw_url('main', MARKET_TIMING_PACKET_MD)}",
         f"market_timing_backtest_md_raw_url={raw_url('main', MARKET_TIMING_BACKTEST_MD)}",
         f"market_timing_backtest_csv_raw_url={raw_url('main', MARKET_TIMING_BACKTEST_CSV)}",
@@ -926,9 +956,10 @@ def build_readme(
         "1d. report_ready=True and fixed_pdf_validation_status=pass mean repo artifacts are available/validated; they do not mean ChatGPT has delivered the requested PDFs.",
         "2. Read rules_master_priority_pages_url or rules_master_priority_raw_url before any generated task rules.",
         "2a. Read rules_daily_stock_candidate_pages_url or rules_daily_stock_candidate_raw_url for the daily full-market candidate task.",
-        "2b. Read rules_astrology_pages_url or rules_astrology_raw_url for Zi Wei / Ba Zi calendar-date tasks; main_price_date is only auxiliary market-data status for those tasks.",
-        "2c. For astrology / Zi Wei / Ba Zi tasks, do not use CHATGPT_DAILY_REPORT_RULES.txt, rules_pages_url, rules_raw_url, or the daily market 'data status' opening format.",
-        "2d. Read rules_pages_url or rules_raw_url only after the master and task-specific rule files, and only for daily market candidate tasks.",
+        "2b. Read rules_market_opening_prep_pages_url/raw_url plus rules_futures_options_vix_pages_url/raw_url for market opening prep, futures/options, VIX, Put/Call, and retail MTX sentiment tasks.",
+        "2c. Read rules_astrology_pages_url or rules_astrology_raw_url for Zi Wei / Ba Zi calendar-date tasks; main_price_date is only auxiliary market-data status for those tasks.",
+        "2d. For astrology / Zi Wei / Ba Zi tasks, do not use CHATGPT_DAILY_REPORT_RULES.txt, rules_pages_url, rules_raw_url, or the daily market 'data status' opening format.",
+        "2e. Read rules_pages_url or rules_raw_url only after the master and task-specific rule files, and only for daily market candidate tasks.",
         "3. Read preferred_chatgpt_url for the packet.",
         "4. If preferred_chatgpt_url fails, follow read_order.",
         "5. If the URL is packet_github_api_url, decode the JSON content field from base64 before reading the packet.",
@@ -1184,6 +1215,8 @@ def sync_docs_files() -> None:
     for src, dst in [
         (MASTER_PRIORITY_RULES, DOCS_MASTER_PRIORITY_RULES),
         (DAILY_STOCK_CANDIDATE_RULES, DOCS_DAILY_STOCK_CANDIDATE_RULES),
+        (MARKET_OPENING_PREP_RULES, DOCS_MARKET_OPENING_PREP_RULES),
+        (FUTURES_OPTIONS_VIX_RULES, DOCS_FUTURES_OPTIONS_VIX_RULES),
         (ASTROLOGY_RULES, DOCS_ASTROLOGY_RULES),
         (RULES_INDEX, DOCS_RULES_INDEX),
     ]:
@@ -1371,6 +1404,14 @@ def main() -> int:
     market_risk_dashboard_pdf_raw_url = raw_url("main", MARKET_RISK_DASHBOARD_PDF)
     futures_options_indicators_raw_url = raw_url("main", FUTURES_OPTIONS_INDICATORS_CSV)
     futures_options_source_status_raw_url = raw_url("main", FUTURES_OPTIONS_SOURCE_STATUS_MD)
+    market_sentiment_context_raw_url = raw_url("main", MARKET_SENTIMENT_CONTEXT_CSV)
+    market_sentiment_context_md_raw_url = raw_url("main", MARKET_SENTIMENT_CONTEXT_MD)
+    market_sentiment_context_history_raw_url = raw_url("main", MARKET_SENTIMENT_CONTEXT_HISTORY_CSV)
+    vix_history_raw_url = raw_url("main", VIX_HISTORY_CSV)
+    retail_mtx_sentiment_history_raw_url = raw_url("main", RETAIL_MTX_SENTIMENT_HISTORY_CSV)
+    futures_options_indicators_history_raw_url = raw_url("main", FUTURES_OPTIONS_INDICATORS_HISTORY_CSV)
+    market_sentiment_context_pages_url = pages_url("latest/market_sentiment_context_latest.csv")
+    market_sentiment_context_md_pages_url = pages_url("latest/market_sentiment_context_latest.md")
 
     rules_pages_url = pages_url("latest/CHATGPT_DAILY_REPORT_RULES.txt")
     rules_raw_url = raw_url("main", RULES_LATEST)
@@ -1450,6 +1491,14 @@ def main() -> int:
         market_risk_dashboard_pdf_raw_url=market_risk_dashboard_pdf_raw_url,
         futures_options_indicators_raw_url=futures_options_indicators_raw_url,
         futures_options_source_status_raw_url=futures_options_source_status_raw_url,
+        market_sentiment_context_raw_url=market_sentiment_context_raw_url,
+        market_sentiment_context_md_raw_url=market_sentiment_context_md_raw_url,
+        market_sentiment_context_history_raw_url=market_sentiment_context_history_raw_url,
+        vix_history_raw_url=vix_history_raw_url,
+        retail_mtx_sentiment_history_raw_url=retail_mtx_sentiment_history_raw_url,
+        futures_options_indicators_history_raw_url=futures_options_indicators_history_raw_url,
+        market_sentiment_context_pages_url=market_sentiment_context_pages_url,
+        market_sentiment_context_md_pages_url=market_sentiment_context_md_pages_url,
         rules_pages_url=rules_pages_url,
         rules_raw_url=rules_raw_url,
         preferred_chatgpt_url=preferred,
@@ -1796,6 +1845,14 @@ def main() -> int:
         "market_risk_dashboard_pdf_raw_url": market_risk_dashboard_pdf_raw_url,
         "futures_options_indicators_raw_url": futures_options_indicators_raw_url,
         "futures_options_source_status_raw_url": futures_options_source_status_raw_url,
+        "market_sentiment_context_raw_url": market_sentiment_context_raw_url,
+        "market_sentiment_context_md_raw_url": market_sentiment_context_md_raw_url,
+        "market_sentiment_context_history_raw_url": market_sentiment_context_history_raw_url,
+        "vix_history_raw_url": vix_history_raw_url,
+        "retail_mtx_sentiment_history_raw_url": retail_mtx_sentiment_history_raw_url,
+        "futures_options_indicators_history_raw_url": futures_options_indicators_history_raw_url,
+        "market_sentiment_context_pages_url": market_sentiment_context_pages_url,
+        "market_sentiment_context_md_pages_url": market_sentiment_context_md_pages_url,
         "market_timing_chatgpt_packet_raw_url": raw_url("main", MARKET_TIMING_PACKET_MD),
         "market_timing_backtest_md_raw_url": raw_url("main", MARKET_TIMING_BACKTEST_MD),
         "market_timing_backtest_csv_raw_url": raw_url("main", MARKET_TIMING_BACKTEST_CSV),

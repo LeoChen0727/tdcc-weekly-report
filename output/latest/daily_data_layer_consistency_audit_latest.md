@@ -2,8 +2,8 @@
 
 - status: `pass`
 - main_price_date: `20260602`
-- readme_main_price_date: `20260602`
-- readme_index_main_price_date: `20260602`
+- readme_main_price_date: ``
+- readme_index_main_price_date: ``
 - model_signal_rows: `846`
 - volume_watch_rows: `1`
 - volume_theme_other_rows: `0`
@@ -27,10 +27,6 @@
 ```json
 {
   "main_price_date": "20260602",
-  "readme_main_price_date": "20260602",
-  "readme_report_ready": "True",
-  "readme_index_main_price_date": "20260602",
-  "readme_index_report_ready": "True",
   "effective_model_signal_date": "20260602",
   "model_signal_rows": 846,
   "raw_model_signal_rows": 846,

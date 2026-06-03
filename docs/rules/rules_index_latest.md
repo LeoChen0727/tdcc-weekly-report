@@ -18,6 +18,8 @@ Last updated: 2026-06-01
 | `rules/daily_stock_candidate_rules.md` | daily full-market candidate report | 2 |
 | `rules/single_stock_report_rules.md` | single-stock report and individual packet interpretation | 2 |
 | `rules/tdcc_weekly_rules.md` | TDCC weekly large-holder flow report | 2 |
+| `rules/market_opening_prep_rules.md` | market opening prep and market-risk analysis | 2 |
+| `rules/futures_options_vix_rules.md` | futures/options, VIX, Put/Call, retail MTX interpretation | 2 |
 | `rules/astrology_rules.md` | Zi Wei / Ba Zi calendar-date strategy report | 2 |
 
 ## Workflow Split

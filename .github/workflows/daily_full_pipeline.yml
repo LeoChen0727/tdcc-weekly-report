@@ -334,6 +334,8 @@ jobs:
           python scripts/fetch_futures_options_indicators.py
           python scripts/build_market_regime_dashboard.py
           python scripts/validate_market_regime_dashboard.py
+          python scripts/build_market_sentiment_context.py
+          python scripts/validate_market_sentiment_context.py
 
       - name: Build daily short-term specialty packet
         run: |
@@ -430,6 +432,8 @@ jobs:
           cp output/latest/non_revenue_momentum_watch_latest.md docs/latest/non_revenue_momentum_watch_latest.md || true
           cp output/latest/market_abnormal_status_latest.csv docs/latest/market_abnormal_status_latest.csv || true
           cp output/latest/market_abnormal_status_latest.md docs/latest/market_abnormal_status_latest.md || true
+          cp output/latest/market_sentiment_context_latest.csv docs/latest/market_sentiment_context_latest.csv || true
+          cp output/latest/market_sentiment_context_latest.md docs/latest/market_sentiment_context_latest.md || true
 
           {
             echo "main_price_date=pending"
@@ -456,6 +460,7 @@ jobs:
           git add output/history/daily_signals/daily_candidate_signal_log.csv || true
           git add output/history/daily_signals/daily_theme_status_history.csv || true
           git add output/history/daily_candidates/daily_theme_status_history.csv || true
+          git add output/history/market_risk/ || true
           git add docs/data/stock_price_history/ docs/data/tdcc_stock_history/ || true
 
           git status --short

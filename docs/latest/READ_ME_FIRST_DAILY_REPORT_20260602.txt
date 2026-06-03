@@ -6,7 +6,7 @@ astrology_forbidden_opening_heading_keys=data_status,flow_status,repo_entry_stat
 astrology_market_data_note_rule=market_data_status_may_appear_only_as_one_sentence_in_wealth_stock_section_or_final_data_note
 main_price_date=20260602
 report_ready=True
-commit_sha=4913ea28220bf3450e245d5c3f25c5393ef80973
+commit_sha=f331a76db309433dbba96f4b68f77fe5903a7931
 readme_latest_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT.txt
 readme_latest_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/READ_ME_FIRST_DAILY_REPORT.txt
 readme_index_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT_INDEX.txt
@@ -25,6 +25,10 @@ rules_master_priority_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc
 rules_master_priority_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/rules/master_priority_rules.md
 rules_daily_stock_candidate_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/rules/daily_stock_candidate_rules.md
 rules_daily_stock_candidate_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/rules/daily_stock_candidate_rules.md
+rules_market_opening_prep_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/rules/market_opening_prep_rules.md
+rules_market_opening_prep_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/rules/market_opening_prep_rules.md
+rules_futures_options_vix_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/rules/futures_options_vix_rules.md
+rules_futures_options_vix_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/rules/futures_options_vix_rules.md
 rules_astrology_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/rules/astrology_rules.md
 rules_astrology_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/rules/astrology_rules.md
 astrology_task_rule=calendar_date_task_read_astrology_rules_do_not_use_daily_market_report_format
@@ -41,7 +45,7 @@ repo_artifacts_do_not_satisfy_chatgpt_pdf_delivery=True
 do_not_paste_full_text_instead_of_required_pdf=True
 preferred_chatgpt_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/chatgpt_daily_report_packet_latest.txt
 packet_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/chatgpt_daily_report_packet_latest.txt
-packet_commit_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/4913ea28220bf3450e245d5c3f25c5393ef80973/output/history/reports/20260602_CHATGPT_DAILY_REPORT_PACKET.txt
+packet_commit_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/f331a76db309433dbba96f4b68f77fe5903a7931/output/history/reports/20260602_CHATGPT_DAILY_REPORT_PACKET.txt
 packet_latest_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/chatgpt_daily_report_packet_latest.txt
 packet_github_api_url=https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/chatgpt_daily_report_packet_latest.txt?ref=main
 summary_latest_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_summary_latest.md
@@ -142,6 +146,14 @@ daily_candidate_model_signals_for_report_csv_raw_url=https://raw.githubuserconte
 daily_candidate_model_signals_for_report_md_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_candidate_model_signals_for_report_latest.md
 daily_candidate_model_signals_for_report_csv_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_candidate_model_signals_for_report_latest.csv
 daily_candidate_model_signals_for_report_md_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_candidate_model_signals_for_report_latest.md
+daily_report_model_registry_csv_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_report_model_registry_latest.csv
+daily_report_model_registry_md_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_report_model_registry_latest.md
+daily_report_model_registry_csv_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_report_model_registry_latest.csv
+daily_report_model_registry_md_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_report_model_registry_latest.md
+daily_candidate_model_summary_for_report_csv_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_candidate_model_summary_for_report_latest.csv
+daily_candidate_model_summary_for_report_md_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_candidate_model_summary_for_report_latest.md
+daily_candidate_model_summary_for_report_csv_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_candidate_model_summary_for_report_latest.csv
+daily_candidate_model_summary_for_report_md_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_candidate_model_summary_for_report_latest.md
 daily_candidate_group_rotation_csv_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_candidate_group_rotation_latest.csv
 daily_candidate_group_rotation_md_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_candidate_group_rotation_latest.md
 daily_candidate_group_rotation_csv_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_candidate_group_rotation_latest.csv
@@ -284,6 +296,14 @@ market_risk_dashboard_pdf_pages_url=https://LeoChen0727.github.io/tdcc-weekly-re
 market_risk_dashboard_pdf_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/market_risk_dashboard_latest.pdf
 futures_options_indicators_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/futures_options_indicators_latest.csv
 futures_options_source_status_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/futures_options_source_status_latest.md
+market_sentiment_context_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/market_sentiment_context_latest.csv
+market_sentiment_context_md_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/market_sentiment_context_latest.md
+market_sentiment_context_history_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/market_risk/market_sentiment_context_history.csv
+vix_history_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/market_risk/vix_history.csv
+retail_mtx_sentiment_history_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/market_risk/retail_mtx_sentiment_history.csv
+futures_options_indicators_history_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/market_risk/futures_options_indicators_history.csv
+market_sentiment_context_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/market_sentiment_context_latest.csv
+market_sentiment_context_md_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/market_sentiment_context_latest.md
 market_timing_chatgpt_packet_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/market_timing_chatgpt_packet_latest.md
 market_timing_backtest_md_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/market_timing_backtest_latest.md
 market_timing_backtest_csv_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/market_timing_backtest_latest.csv
@@ -303,6 +323,18 @@ tdcc_phase_distribution_csv_raw_url=https://raw.githubusercontent.com/LeoChen072
 tdcc_top_risk_list_md_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_top_risk_list_latest.md
 tdcc_top_risk_list_csv_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_top_risk_list_latest.csv
 tdcc_chatgpt_tracking_packet_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_chatgpt_tracking_packet_latest.md
+tdcc_weekly_increase_ranking_csv_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_weekly_increase_ranking_latest.csv
+tdcc_weekly_increase_ranking_md_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_weekly_increase_ranking_latest.md
+tdcc_consecutive_accumulation_ranking_csv_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_consecutive_accumulation_ranking_latest.csv
+tdcc_consecutive_accumulation_ranking_md_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_consecutive_accumulation_ranking_latest.md
+tdcc_weekly_model_cross_summary_csv_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_weekly_model_cross_summary_latest.csv
+tdcc_weekly_model_cross_summary_md_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_weekly_model_cross_summary_latest.md
+tdcc_weekly_candidate_highlight_for_report_csv_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_weekly_candidate_highlight_for_report_latest.csv
+tdcc_weekly_candidate_highlight_for_report_md_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_weekly_candidate_highlight_for_report_latest.md
+tdcc_weekly_candidate_full_for_report_csv_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_weekly_candidate_full_for_report_latest.csv
+tdcc_weekly_candidate_full_for_report_md_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_weekly_candidate_full_for_report_latest.md
+tdcc_weekly_candidate_highlight_md_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_weekly_candidate_highlight_latest.md
+tdcc_weekly_candidate_full_md_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_weekly_candidate_full_latest.md
 surge_model_chatgpt_packet_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/surge_model_chatgpt_packet_latest.md
 surge_precondition_candidates_md_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/surge_precondition_candidates_latest.md
 surge_precondition_candidates_csv_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/surge_precondition_candidates_latest.csv
@@ -327,9 +359,10 @@ RULES:
 1d. report_ready=True and fixed_pdf_validation_status=pass mean repo artifacts are available/validated; they do not mean ChatGPT has delivered the requested PDFs.
 2. Read rules_master_priority_pages_url or rules_master_priority_raw_url before any generated task rules.
 2a. Read rules_daily_stock_candidate_pages_url or rules_daily_stock_candidate_raw_url for the daily full-market candidate task.
-2b. Read rules_astrology_pages_url or rules_astrology_raw_url for Zi Wei / Ba Zi calendar-date tasks; main_price_date is only auxiliary market-data status for those tasks.
-2c. For astrology / Zi Wei / Ba Zi tasks, do not use CHATGPT_DAILY_REPORT_RULES.txt, rules_pages_url, rules_raw_url, or the daily market 'data status' opening format.
-2d. Read rules_pages_url or rules_raw_url only after the master and task-specific rule files, and only for daily market candidate tasks.
+2b. Read rules_market_opening_prep_pages_url/raw_url plus rules_futures_options_vix_pages_url/raw_url for market opening prep, futures/options, VIX, Put/Call, and retail MTX sentiment tasks.
+2c. Read rules_astrology_pages_url or rules_astrology_raw_url for Zi Wei / Ba Zi calendar-date tasks; main_price_date is only auxiliary market-data status for those tasks.
+2d. For astrology / Zi Wei / Ba Zi tasks, do not use CHATGPT_DAILY_REPORT_RULES.txt, rules_pages_url, rules_raw_url, or the daily market 'data status' opening format.
+2e. Read rules_pages_url or rules_raw_url only after the master and task-specific rule files, and only for daily market candidate tasks.
 3. Read preferred_chatgpt_url for the packet.
 4. If preferred_chatgpt_url fails, follow read_order.
 5. If the URL is packet_github_api_url, decode the JSON content field from base64 before reading the packet.

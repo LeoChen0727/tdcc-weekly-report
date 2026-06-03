@@ -77,6 +77,12 @@ MARKET_RISK_DASHBOARD_MD = LATEST_DIR / "market_risk_dashboard_latest.md"
 MARKET_RISK_DASHBOARD_PDF = LATEST_DIR / "market_risk_dashboard_latest.pdf"
 FUTURES_OPTIONS_INDICATORS_CSV = LATEST_DIR / "futures_options_indicators_latest.csv"
 FUTURES_OPTIONS_SOURCE_STATUS_MD = LATEST_DIR / "futures_options_source_status_latest.md"
+MARKET_SENTIMENT_CONTEXT_CSV = LATEST_DIR / "market_sentiment_context_latest.csv"
+MARKET_SENTIMENT_CONTEXT_MD = LATEST_DIR / "market_sentiment_context_latest.md"
+MARKET_SENTIMENT_CONTEXT_HISTORY_CSV = Path("output/history/market_risk/market_sentiment_context_history.csv")
+VIX_HISTORY_CSV = Path("output/history/market_risk/vix_history.csv")
+RETAIL_MTX_SENTIMENT_HISTORY_CSV = Path("output/history/market_risk/retail_mtx_sentiment_history.csv")
+FUTURES_OPTIONS_INDICATORS_HISTORY_CSV = Path("output/history/market_risk/futures_options_indicators_history.csv")
 SURGE_MODEL_PACKET_MD = LATEST_DIR / "surge_model_chatgpt_packet_latest.md"
 SURGE_PRECONDITION_CANDIDATES_MD = LATEST_DIR / "surge_precondition_candidates_latest.md"
 SURGE_PRECONDITION_CANDIDATES_CSV = LATEST_DIR / "surge_precondition_candidates_latest.csv"
@@ -600,6 +606,19 @@ def build_packet_text(main_date: str, report_ready: str, paths: dict[str, Path],
     lines.append(f"market_risk_dashboard_pdf_raw_url: {raw_url(MARKET_RISK_DASHBOARD_PDF)}")
     lines.append(f"futures_options_indicators_raw_url: {raw_url(FUTURES_OPTIONS_INDICATORS_CSV)}")
     lines.append(f"futures_options_source_status_raw_url: {raw_url(FUTURES_OPTIONS_SOURCE_STATUS_MD)}")
+    lines.append(f"market_sentiment_context_raw_url: {raw_url(MARKET_SENTIMENT_CONTEXT_CSV)}")
+    lines.append(f"market_sentiment_context_md_raw_url: {raw_url(MARKET_SENTIMENT_CONTEXT_MD)}")
+    lines.append(f"market_sentiment_context_pages_url: {pages_url(Path('docs/latest/market_sentiment_context_latest.csv'))}")
+    lines.append(f"market_sentiment_context_md_pages_url: {pages_url(Path('docs/latest/market_sentiment_context_latest.md'))}")
+    lines.append(f"market_sentiment_context_history_raw_url: {raw_url(MARKET_SENTIMENT_CONTEXT_HISTORY_CSV)}")
+    lines.append(f"vix_history_raw_url: {raw_url(VIX_HISTORY_CSV)}")
+    lines.append(f"retail_mtx_sentiment_history_raw_url: {raw_url(RETAIL_MTX_SENTIMENT_HISTORY_CSV)}")
+    lines.append(f"futures_options_indicators_history_raw_url: {raw_url(FUTURES_OPTIONS_INDICATORS_HISTORY_CSV)}")
+    lines.append(
+        "market_sentiment_context_note: VIX / PutCall / retail MTX must be cross-checked with "
+        "TWSE/TPEx position, market_regime, and foreign_tx_futures_net_oi; if sample_status="
+        "insufficient_history, report 資料不足 / 僅能觀察."
+    )
     lines.append(f"status: {'generated' if MARKET_REGIME_CSV.exists() and MARKET_RISK_DASHBOARD_MD.exists() else 'missing'}")
     lines.append("note: Market regime is background for index futures / exposure review, not a standalone trading instruction.")
     lines.append("")

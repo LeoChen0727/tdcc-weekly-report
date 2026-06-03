@@ -87,3 +87,31 @@ Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available wi
 - Use this dashboard as market background for Taiwan index futures and portfolio exposure review.
 - Do not treat a single futures/options indicator as a buy or sell signal.
 - Keep this report separate from the daily all-market candidate-stock report; that report may cite market regime only as background.
+
+<!-- MARKET_SENTIMENT_CONTEXT_START -->
+## VIX Historical Context
+
+- Taiwan VIX latest: `36.58`
+- 252D high / low / percentile: `41.5` / `25.68` / `71.05%`
+- 504D percentile: `-`
+- z-score: `0.7`
+- vix_return_5d / 10d / 20d: `11.15%` / `-7.42%` / `-0.41%`
+- TWSE / TPEx position: TWSE dist 60D high `0%`, TPEx dist 60D high `-1.21%`
+- vix_index_interpretation: `trend_supported_no_extreme_vix`
+
+## Retail MTX Historical Context
+
+- retail_mtx_net_oi_proxy latest: `14,604`
+- proxy method: `negative_sum_of_three_institution_mtx_net_oi`
+- 252D high / low / percentile: `-` / `-` / `-`
+- 504D percentile: `-`
+- retail_mtx_index_interpretation: `insufficient_history_observe_only`
+
+## Combined Sentiment Interpretation
+
+- combined_sentiment_interpretation: `insufficient_history_observe_only`
+- sentiment_warning_level: `insufficient`
+- data_quality_note: 資料不足 / 僅能觀察：VIX 或散戶小台歷史樣本未達 60 筆，不能判斷是否達歷史極端。
+
+Operation meaning: use sentiment context only with TWSE / TPEx technical position, market_regime, Put/Call, and foreign TX futures net OI. Do not use VIX or retail MTX as standalone buy/sell signals.
+<!-- MARKET_SENTIMENT_CONTEXT_END -->
