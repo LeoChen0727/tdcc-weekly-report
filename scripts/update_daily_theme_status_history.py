@@ -5,6 +5,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 import pandas as pd
+from tracking_utils import main_price_date_from_freshness
 
 
 ROOT = Path(".")
@@ -89,12 +90,7 @@ def write_csv(df: pd.DataFrame, path: Path) -> None:
 
 
 def read_main_price_date() -> str:
-    if not README_TXT.exists():
-        return ""
-    for line in README_TXT.read_text(encoding="utf-8", errors="replace").splitlines():
-        if line.startswith("main_price_date="):
-            return line.split("=", 1)[1].strip()
-    return ""
+    return main_price_date_from_freshness()
 
 
 def norm_stock_id(value: object) -> str:

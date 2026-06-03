@@ -250,12 +250,15 @@ def load_freshness() -> dict[str, str]:
             if "=" not in line:
                 continue
             key, value = line.split("=", 1)
-            values[safe_str(key)] = safe_str(value)
+            # READ_ME is generated near the end of the workflow and can be
+            # stale while report scripts are still running. Use it only as
+            # fallback behind structured freshness.
+            values.setdefault(safe_str(key), safe_str(value))
     return values
 
 
 def main_price_date(freshness: dict[str, str], price_history: pd.DataFrame) -> str:
-    for key in ["main_price_date", "all_candidates_date", "official_price_fetch_date"]:
+    for key in ["actual_stock_price_history_date", "main_price_date", "all_candidates_date", "official_price_fetch_date"]:
         value = re.sub(r"[^0-9]", "", safe_str(freshness.get(key)))
         if value:
             return value

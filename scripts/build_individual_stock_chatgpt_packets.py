@@ -98,13 +98,15 @@ def load_freshness() -> dict[str, str]:
             if "=" not in line:
                 continue
             key, value = line.split("=", 1)
-            values[safe_str(key)] = safe_str(value)
+            # READ_ME can be stale until the publish step runs. Treat it as a
+            # fallback only; never let it overwrite structured freshness.
+            values.setdefault(safe_str(key), safe_str(value))
     return values
 
 
 def current_main_price_date() -> str:
     freshness = load_freshness()
-    for key in ["main_price_date", "all_candidates_date", "official_price_fetch_date"]:
+    for key in ["actual_stock_price_history_date", "main_price_date", "all_candidates_date", "official_price_fetch_date"]:
         value = normalize_date(freshness.get(key))
         if value:
             return value

@@ -6,6 +6,7 @@ from typing import Iterable
 import re
 
 import pandas as pd
+from tracking_utils import main_price_date_from_freshness
 
 
 ROOT = Path(".")
@@ -171,13 +172,7 @@ def build_guide() -> str:
     non_revenue_momentum = read_csv(LATEST_DIR / "non_revenue_momentum_watch_latest.csv")
     msci_rebalance = read_csv(LATEST_DIR / "msci_taiwan_rebalance_backtest_latest.csv")
 
-    main_price_date = ""
-    readme = LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT.txt"
-    if readme.exists():
-        for line in readme.read_text(encoding="utf-8", errors="replace").splitlines():
-            if line.startswith("main_price_date="):
-                main_price_date = line.split("=", 1)[1].strip()
-                break
+    main_price_date = main_price_date_from_freshness()
 
     lines: list[str] = []
     lines.append("# ChatGPT Indicator Usage Guide")

@@ -5,6 +5,7 @@ from pathlib import Path
 from typing import Any, Iterable
 
 import pandas as pd
+from tracking_utils import main_price_date_from_freshness
 
 
 ROOT = Path(".")
@@ -142,13 +143,7 @@ def append_note(existing: str, note: str) -> str:
 
 
 def read_main_price_date() -> str:
-    readme = LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT.txt"
-    if not readme.exists():
-        return ""
-    for line in readme.read_text(encoding="utf-8", errors="replace").splitlines():
-        if line.startswith("main_price_date="):
-            return line.split("=", 1)[1].strip()
-    return ""
+    return main_price_date_from_freshness()
 
 
 def merge_sources() -> pd.DataFrame:
