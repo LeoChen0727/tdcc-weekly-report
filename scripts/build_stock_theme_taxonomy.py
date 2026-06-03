@@ -1185,6 +1185,7 @@ def build_taxonomy() -> pd.DataFrame:
                 "stock_id",
                 "stock_name",
                 "industry",
+                "basic_theme",
                 "theme_mainstream_label",
                 "primary_theme",
                 "theme_2",
@@ -1221,8 +1222,16 @@ def build_taxonomy() -> pd.DataFrame:
             industry = industry or fallback_basic
             provisional = (fallback_primary, fallback_bucket, fallback_mainstream)
             provisional_primary = provisional[0]
-        primary = manual_primary or authorized_primary or default_primary or provisional_primary or industry
-        basic_theme = manual_basic or industry or provisional_primary or primary or "\u666e\u901a\u80a1_\u5f85\u88dc\u5b98\u65b9\u7522\u696d"
+        basic_theme = (
+            manual_basic
+            or industry
+            or provisional_primary
+            or manual_primary
+            or authorized_primary
+            or default_primary
+            or "\u666e\u901a\u80a1_\u5f85\u88dc\u5b98\u65b9\u7522\u696d"
+        )
+        primary = manual_primary or authorized_primary or default_primary or provisional_primary or basic_theme
         secondary_list = split_themes(
             row.get("manual_theme_2", ""),
             row.get("manual_theme_3", ""),
