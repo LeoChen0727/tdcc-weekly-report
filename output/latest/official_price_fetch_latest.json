@@ -1,24 +1,24 @@
 {
-  "generated_at": "2026-06-04 00:35:52 Asia/Taipei",
+  "generated_at": "2026-06-04 00:56:18 Asia/Taipei",
   "target_date": "20260604",
   "saved_price_date": "20260604",
   "is_target_date": true,
-  "result": "success_target_partial_fallback",
-  "reason": "已取得目標日部分官方日線資料並寫入今日檔案；部分市場資料可能由 fallback 補齊不足，請查看 twse_rows / tpex_rows。",
-  "twse_rows": 0,
+  "result": "success_target_full_market",
+  "reason": "成功取得目標日 TWSE + TPEx 官方日線資料。",
+  "twse_rows": 1236,
   "tpex_rows": 5585,
-  "total_rows": 5585,
-  "full_market_ok": false,
+  "total_rows": 6821,
+  "full_market_ok": true,
   "attempts": [
     {
       "date": "20260604",
-      "twse_rows": 0,
+      "twse_rows": 1236,
       "tpex_rows": 5585,
-      "total_rows": 5585,
-      "twse_ok": false,
+      "total_rows": 6821,
+      "twse_ok": true,
       "tpex_ok": true,
-      "full_market_ok": false,
-      "universe_rows": 6822
+      "full_market_ok": true,
+      "universe_rows": 6070
     }
   ],
   "paths": {
