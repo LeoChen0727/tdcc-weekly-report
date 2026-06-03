@@ -1158,7 +1158,8 @@ def append_tracking_packet(fields: dict[str, str]) -> None:
     if not TRACKING_PACKET_MD.exists():
         return
     text = TRACKING_PACKET_MD.read_text(encoding="utf-8", errors="replace")
-    marker = "## TDCC WEEKLY CANDIDATE REPORTS"
+    marker = "## TDCC Weekly Increase and Consecutive Candidate Reports"
+    legacy_marker = "## TDCC WEEKLY CANDIDATE REPORTS"
     section = [
         marker,
         "",
@@ -1172,6 +1173,8 @@ def append_tracking_packet(fields: dict[str, str]) -> None:
     section.append("")
     if marker in text:
         text = text.split(marker, 1)[0].rstrip() + "\n\n" + "\n".join(section)
+    elif legacy_marker in text:
+        text = text.split(legacy_marker, 1)[0].rstrip() + "\n\n" + "\n".join(section)
     else:
         text = text.rstrip() + "\n\n" + "\n".join(section)
     TRACKING_PACKET_MD.write_text(text, encoding="utf-8")

@@ -1,8 +1,8 @@
 # TDCC CHATGPT TRACKING PACKET
 
 ## Metadata
-- generated_at: 2026-06-02 14:01:39 Asia/Taipei
-- main_price_date: 20260601
+- generated_at: 2026-06-04 03:00:54 Asia/Taipei
+- main_price_date: 20260603
 - latest_tdcc_signal_date: 20260529
 - source_files: tdcc_signal_snapshot.csv, tdcc_normalized_signal_log.csv, tdcc_signal_performance.csv, tdcc_pre_move_accumulation_latest.csv, tdcc_signal_effectiveness_latest.md
 - overall_mature_d5_count: 82
@@ -136,12 +136,12 @@
 
 | theme | theme_mainstream_status | signal_count | leading_count | confirmed_count | late_or_overheated_count | divergence_count | avg_tdcc_strength_score | avg_abm_score | representative_codes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| other electronics | mainstream_leader | 529 | 58 | 6 | 53 | 31 | 155.29 | 50.69 | 1584/1626/1614/1617/3313 |
-| other | single_name_signal | 224 | 29 | 0 | 3 | 32 | 155.69 | 59.06 | 7718/4527/4744/1233/4119 |
-| traditional industries | mainstream_leader | 220 | 36 | 1 | 2 | 32 | 164.75 | 62.35 | 1323/1460/1443/1438/1452 |
-| biotechnology | mainstream_leader | 117 | 11 | 1 | 5 | 18 | 156.50 | 56.39 | 1723/1734/8409/6576/6534 |
-| semiconductor | mainstream_leader | 86 | 11 | 0 | 9 | 1 | 153.37 | 51.17 | 3038/3019/3047/3041/3060 |
-| finance | non_mainstream_watch | 21 | 0 | 1 | 3 | 0 | 161.19 | 50.14 | 2816/2891/2881/2882/6005 |
+| other electronics | mainstream_leader | 529 | 58 | 6 | 53 | 31 | 155.29 | 50.69 | 1626/3313/1584/3434/1614 |
+| other | single_name_signal | 224 | 29 | 0 | 3 | 32 | 155.69 | 59.06 | 7718/4527/4744/1233/4439 |
+| traditional industries | mainstream_leader | 220 | 36 | 1 | 2 | 32 | 164.75 | 62.35 | 1452/1443/1438/1460/1471 |
+| biotechnology | mainstream_leader | 117 | 11 | 1 | 5 | 18 | 156.50 | 56.39 | 8409/1723/6534/1734/6576 |
+| semiconductor | mainstream_leader | 86 | 11 | 0 | 9 | 1 | 153.37 | 51.17 | 3038/3050/3071/3209/3047 |
+| finance | non_mainstream_watch | 21 | 0 | 1 | 3 | 0 | 161.19 | 50.14 | 2816/2891/2881/6015/6005 |
 | passive components | mainstream_overheated | 5 | 0 | 0 | 2 | 0 | 160.00 | 26.40 | 2375/2492/3624/3357/6173 |
 | semiconductor equipment/materials | non_mainstream_watch | 4 | 1 | 0 | 2 | 0 | 173.75 | 38.25 | 3131/5234/8028/3498 |
 | memory | mainstream_overheated | 3 | 0 | 0 | 1 | 0 | 175.00 | 14.00 | 2344/3006/5351 |
@@ -473,39 +473,6 @@
 - 在 tuning_status=not_ready 前，不可調整核心模型權重。
 
 ## TDCC Weekly Increase and Consecutive Candidate Reports
-
-- purpose: 當週增幅榜找本週大戶突然增加；連續累積榜找兩週以上穩定累積。兩者分開排名，不互相替代。
-- report_contract: TDCC 報告對話固定生產兩份：精華版與完整版。精華版優先讀 highlight_for_report；完整版優先讀 full_for_report。
-- weekly_candidate_highlight_for_report_csv_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_weekly_candidate_highlight_for_report_latest.csv
-- weekly_candidate_highlight_for_report_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_weekly_candidate_highlight_for_report_latest.md
-- weekly_candidate_full_for_report_csv_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_weekly_candidate_full_for_report_latest.csv
-- weekly_candidate_full_for_report_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_weekly_candidate_full_for_report_latest.md
-- weekly_increase_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_weekly_increase_ranking_latest.md
-- consecutive_accumulation_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_consecutive_accumulation_ranking_latest.md
-- weekly_candidate_highlight_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_weekly_candidate_highlight_latest.md
-- weekly_candidate_full_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_weekly_candidate_full_latest.md
-
-### Weekly Increase Top 5
-
-| rank | stock_id | stock_name | tdcc_1w_change_400 | tdcc_1w_change_600 | tdcc_1w_change_800 | tdcc_1w_change_1000 | tdcc_phase_group_zh | risk_bucket |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | 6127 | 九豪 | 11.70 | 11.90 | 11.26 | 13.67 | 過熱延續 | strong_but_overheated |
-| 2 | 6770 | 力積電 | 11.57 | 11.70 | 11.62 | 11.72 | 過熱延續 | strong_but_overheated |
-| 3 | 3211 | 順達 | 9.97 | 10.69 | 8.89 | 9.93 | 股價領先 / 追高風險 | strong_but_late |
-| 4 | 2369 | 菱生 | 8.20 | 8.95 | 9.15 | 9.08 | 過熱延續 | strong_but_overheated |
-| 5 | 2484 | 希華 | 7.62 | 7.33 | 8.65 | 8.51 | 過熱延續 | strong_but_overheated |
-
-### Consecutive Accumulation Top 5
-
-| rank | stock_id | stock_name | tdcc_1w_change_400 | tdcc_1w_change_600 | tdcc_1w_change_800 | tdcc_1w_change_1000 | tdcc_phase_group_zh | risk_bucket |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | 6127 | 九豪 | 11.70 | 11.90 | 11.26 | 13.67 | 過熱延續 | strong_but_overheated |
-| 2 | 6770 | 力積電 | 11.57 | 11.70 | 11.62 | 11.72 | 過熱延續 | strong_but_overheated |
-| 3 | 2484 | 希華 | 7.62 | 7.33 | 8.65 | 8.51 | 過熱延續 | strong_but_overheated |
-| 4 | 6284 | 佳邦 | 6.97 | 7.33 | 8.09 | 6.26 | 過熱延續 | strong_but_overheated |
-| 5 | 4906 | 正文 | 5.27 | 4.22 | 4.94 | 5.56 | 過熱延續 | strong_but_overheated |
-
-## TDCC WEEKLY CANDIDATE REPORTS
 
 - 精華版與完整版由 report-ready CSV/MD/PDF 產出。
 - 精華版包含當週增幅前五、連續累積前五，以及 TDCC 名單與每日候選模型交集前段。
