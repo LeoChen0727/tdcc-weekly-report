@@ -1,17 +1,17 @@
 # TDCC CHATGPT TRACKING PACKET
 
 ## Metadata
-- generated_at: 2026-06-04 03:00:54 Asia/Taipei
+- generated_at: 2026-06-04 03:09:24 Asia/Taipei
 - main_price_date: 20260603
 - latest_tdcc_signal_date: 20260529
 - source_files: tdcc_signal_snapshot.csv, tdcc_normalized_signal_log.csv, tdcc_signal_performance.csv, tdcc_pre_move_accumulation_latest.csv, tdcc_signal_effectiveness_latest.md
-- overall_mature_d5_count: 82
-- phase_mature_d5_count: 82
-- overall_mature_d10_count: 81
-- phase_mature_d10_count: 81
+- overall_mature_d5_count: 119
+- phase_mature_d5_count: 119
+- overall_mature_d10_count: 82
+- phase_mature_d10_count: 82
 - overall_mature_d20_count: 0
 - phase_mature_d20_count: 0
-- pending_count: 37
+- pending_count: 0
 - insufficient_sample_count: 863
 - ranking_quality: complete
 - phase_mature_join_quality: ok
@@ -49,13 +49,13 @@
 
 ## Mature Sample Status
 
-- overall_mature_d5_count: 82
-- phase_mature_d5_count: 82
-- overall_mature_d10_count: 81
-- phase_mature_d10_count: 81
+- overall_mature_d5_count: 119
+- phase_mature_d5_count: 119
+- overall_mature_d10_count: 82
+- phase_mature_d10_count: 82
 - overall_mature_d20_count: 0
 - phase_mature_d20_count: 0
-- pending_count: 37
+- pending_count: 0
 - insufficient_sample_count: 863
 - phase_mature_join_quality: ok
 - sample_status: phase_d5_available_longer_horizons_pending
@@ -136,12 +136,12 @@
 
 | theme | theme_mainstream_status | signal_count | leading_count | confirmed_count | late_or_overheated_count | divergence_count | avg_tdcc_strength_score | avg_abm_score | representative_codes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| other electronics | mainstream_leader | 529 | 58 | 6 | 53 | 31 | 155.29 | 50.69 | 1626/3313/1584/3434/1614 |
-| other | single_name_signal | 224 | 29 | 0 | 3 | 32 | 155.69 | 59.06 | 7718/4527/4744/1233/4439 |
-| traditional industries | mainstream_leader | 220 | 36 | 1 | 2 | 32 | 164.75 | 62.35 | 1452/1443/1438/1460/1471 |
-| biotechnology | mainstream_leader | 117 | 11 | 1 | 5 | 18 | 156.50 | 56.39 | 8409/1723/6534/1734/6576 |
-| semiconductor | mainstream_leader | 86 | 11 | 0 | 9 | 1 | 153.37 | 51.17 | 3038/3050/3071/3209/3047 |
-| finance | non_mainstream_watch | 21 | 0 | 1 | 3 | 0 | 161.19 | 50.14 | 2816/2891/2881/6015/6005 |
+| other electronics | mainstream_leader | 529 | 58 | 6 | 53 | 31 | 155.29 | 50.69 | 1584/1626/1614/1617/3313 |
+| other | single_name_signal | 224 | 29 | 0 | 3 | 32 | 155.69 | 59.06 | 7718/4527/4744/1233/4119 |
+| traditional industries | mainstream_leader | 220 | 36 | 1 | 2 | 32 | 164.75 | 62.35 | 1323/1460/1443/1438/1452 |
+| biotechnology | mainstream_leader | 117 | 11 | 1 | 5 | 18 | 156.50 | 56.39 | 1723/1734/8409/6576/6534 |
+| semiconductor | mainstream_leader | 86 | 11 | 0 | 9 | 1 | 153.37 | 51.17 | 3038/3019/3047/3041/3060 |
+| finance | non_mainstream_watch | 21 | 0 | 1 | 3 | 0 | 161.19 | 50.14 | 2816/2891/2881/2882/6005 |
 | passive components | mainstream_overheated | 5 | 0 | 0 | 2 | 0 | 160.00 | 26.40 | 2375/2492/3624/3357/6173 |
 | semiconductor equipment/materials | non_mainstream_watch | 4 | 1 | 0 | 2 | 0 | 173.75 | 38.25 | 3131/5234/8028/3498 |
 | memory | mainstream_overheated | 3 | 0 | 0 | 1 | 0 | 175.00 | 14.00 | 2344/3006/5351 |
@@ -446,10 +446,10 @@
 | tdcc_price_phase | mature_sample_d5 | avg_ret_d5 | avg_relative_ret_d5 | mature_sample_d10 | avg_ret_d10 | avg_relative_ret_d10 | mature_sample_d20 | avg_ret_d20 | avg_relative_ret_d20 | avg_mfe_d10 | avg_mae_d10 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | failed_after_tdcc | 0.0 |  |  | 0.0 |  |  | 0.0 |  |  |  |  |
-| insufficient_price_context | 18.0 | 8.05 | 4.63 | 17.0 | 15.46 | 10.39 | 0.0 |  |  | 23.88 | -6.51 |
-| overheated_after_tdcc | 39.0 | 9.05 | 4.72 | 39.0 | 16.22 | 15.86 | 0.0 |  |  | 24.48 | -6.54 |
-| price_leading_tdcc | 16.0 | 7.13 | 3.15 | 16.0 | 9.09 | 5.03 | 0.0 |  |  | 19.56 | -5.94 |
-| tdcc_leading_price | 6.0 | 4.11 | 0.78 | 6.0 | 2.15 | -5.09 | 0.0 |  |  | 11.42 | -5.64 |
+| insufficient_price_context | 26.0 | 5.21 | 4.63 | 18.0 | 14.38 | 9.44 | 0.0 |  |  | 24.57 | -6.95 |
+| overheated_after_tdcc | 57.0 | 5.54 | 4.72 | 39.0 | 16.22 | 15.86 | 0.0 |  |  | 24.48 | -6.54 |
+| price_leading_tdcc | 26.0 | 6.24 | 3.15 | 16.0 | 9.09 | 5.03 | 0.0 |  |  | 19.56 | -5.94 |
+| tdcc_leading_price | 7.0 | 4.36 | 0.78 | 6.0 | 2.15 | -5.09 | 0.0 |  |  | 11.42 | -5.64 |
 | tdcc_price_confirmed | 2.0 | 5.29 | 0.47 | 2.0 | 21.87 |  | 0.0 |  |  | 23.17 | -3.99 |
 | tdcc_price_divergence | 1.0 | -1.74 | -4.68 | 1.0 | 19.34 | 11.44 | 0.0 |  |  | 19.34 | -11.15 |
 
