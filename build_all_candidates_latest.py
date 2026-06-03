@@ -420,7 +420,7 @@ def canonicalize_candidate_dates(df: pd.DataFrame) -> tuple[pd.DataFrame, str, l
     df = df.copy()
 
     if len(df) == 0:
-        preferred_date = latest_stock_price_history_date() or main_price_date_from_freshness()
+        preferred_date = main_price_date_from_freshness() or latest_stock_price_history_date()
         return df, preferred_date, ["empty_candidates"]
 
     original_date = pd.Series([""] * len(df), index=df.index, dtype="object")
@@ -435,10 +435,10 @@ def canonicalize_candidate_dates(df: pd.DataFrame) -> tuple[pd.DataFrame, str, l
             original_date,
         )
 
-    # Do not use stale all_candidates_date to rebuild all_candidates itself.
-    # Prefer the latest accepted per-stock price history date, and use
-    # data_freshness only as a fallback when price history is unavailable.
-    preferred_date = latest_stock_price_history_date() or main_price_date_from_freshness()
+    # Do not use raw stock_price_history max date directly here.  The raw
+    # history can contain a future calendar-date snapshot whose OHLCV copied
+    # the prior trading day.  `data_freshness_latest` owns that quality check.
+    preferred_date = main_price_date_from_freshness() or latest_stock_price_history_date()
     signal_date, notes = resolve_candidate_signal_date(df, preferred_date)
     if signal_date:
         df["date"] = signal_date
