@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3376 新日興
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:49 Asia/Taipei
+- generated_at: 2026-06-04 01:55:20 Asia/Taipei
 - stock_id: 3376
 - stock_name: 新日興
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,11 +59,11 @@
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -76,7 +76,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -101,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 215
-- high: 217
-- low: 206.5
-- close: 211.5
-- volume: 3929312
-- ma5: 209.2
-- ema23_primary: 208.09
-- distance_to_ema23_pct: 1.64
-- ma20: 206.97
-- ma60: 206.45
-- ma120: 208
-- return_5d: -3.42
-- return_20d: 2.92
-- volume_ratio: 0.68
-- distance_to_ma20_pct_auxiliary: 2.19
-- distance_to_high_60_pct: -9.62
+- date: 20260603
+- open: 211.5
+- high: 231.5
+- low: 210
+- close: 226.5
+- volume: 14199219
+- ma5: 212.1
+- ema23_primary: 209.62
+- distance_to_ema23_pct: 8.05
+- ma20: 208.05
+- ma60: 206.97
+- ma120: 208.25
+- return_5d: 6.84
+- return_20d: 10.49
+- volume_ratio: 2.27
+- distance_to_ma20_pct_auxiliary: 8.87
+- distance_to_high_60_pct: -3.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,207.5,208,199,205,4446743,206.52,-0.74,206.2,205.31,0.69
 20260507,205.5,218.5,202,215,7371480,207.23,3.75,206.38,205.24,1.15
 20260508,214,216,202,202.5,6381364,206.84,-2.1,206.1,205.18,0.98
 20260511,203.5,209.5,201.5,206.5,3282092,206.81,-0.15,206.1,205.12,0.51
@@ -143,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,206.5,208,201.5,202.5,6564203,207.12,-2.23,206.38,205.76,1.2
 20260601,205,222.5,204.5,215,8550039,207.78,3.48,206.68,206.14,1.5
 20260602,215,217,206.5,211.5,3929312,208.09,1.64,206.97,206.45,0.68
+20260603,211.5,231.5,210,226.5,14199219,209.62,8.05,208.05,206.97,2.27
 ```
 
 ## Latest TDCC Snapshot
@@ -172,18 +171,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3376 | 新日興 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 3376 | 新日興 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3376 | 新日興 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3376 | 新日興 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 3376 | 新日興 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3376 | 新日興 | 94 | 5 | 19116240.0 | 700470.0 | 27.29 | no_signal | 0 |  |
+| 20260603 | 3376 | 新日興 | 94 | 5 | 46612570.0 | 784780.0 | 59.4 | call_put_bullish | 3 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

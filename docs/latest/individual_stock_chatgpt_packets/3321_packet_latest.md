@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3321 同泰
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:45 Asia/Taipei
+- generated_at: 2026-06-04 01:55:18 Asia/Taipei
 - stock_id: 3321
 - stock_name: 同泰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 272
+- latest_price_date: 20260603
+- price_rows: 273
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,14 +55,18 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: take_profit
-- action_rating_label_zh: 停利
-- confidence_level: low
-- thesis_state: breakout_initial
-- entry_style: breakout_follow
-- position_sizing: observe_only
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
+- confidence_level: medium
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -73,9 +77,11 @@
 ### entry_prerequisites
 - model_recommended
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -89,7 +95,6 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
-- price_too_extended
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -97,29 +102,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 20.1
+- date: 20260603
+- open: 21.1
 - high: 21.1
-- low: 20.05
-- close: 20.75
-- volume: 1881011
-- ma5: 19.69
-- ema23_primary: 17.46
-- distance_to_ema23_pct: 18.86
-- ma20: 17.03
-- ma60: 16.43
-- ma120: 17.62
-- return_5d: 14.01
-- return_20d: 27.69
-- volume_ratio: 2.48
-- distance_to_ma20_pct_auxiliary: 21.86
-- distance_to_high_60_pct: -1.66
+- low: 19.5
+- close: 19.9
+- volume: 1339511
+- ma5: 19.86
+- ema23_primary: 17.66
+- distance_to_ema23_pct: 12.68
+- ma20: 17.21
+- ma60: 16.48
+- ma120: 17.64
+- return_5d: 4.46
+- return_20d: 22.84
+- volume_ratio: 1.65
+- distance_to_ma20_pct_auxiliary: 15.61
+- distance_to_high_60_pct: -5.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,16.35,16.35,16.05,16.2,283160,16.3,-0.62,16.26,16.69,0.72
 20260507,16.5,17.25,16.5,16.85,537735,16.35,3.08,16.27,16.67,1.33
 20260508,16.85,17,16.4,16.5,350092,16.36,0.86,16.28,16.64,0.85
 20260511,16.5,16.5,16.15,16.25,277045,16.35,-0.62,16.3,16.62,0.67
@@ -139,6 +143,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,20.35,20.6,19.3,19.4,1217376,16.92,14.67,16.67,16.32,1.78
 20260601,19.95,20.2,19.55,19.8,1170998,17.16,15.4,16.8,16.37,1.68
 20260602,20.1,21.1,20.05,20.75,1881011,17.46,18.86,17.03,16.43,2.48
+20260603,21.1,21.1,19.5,19.9,1339511,17.66,12.68,17.21,16.48,1.65
 ```
 
 ## Latest TDCC Snapshot
@@ -168,12 +173,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3321 | 同泰 | true_breakout | 嚴格突破 | 99.0 |  |  | platform_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3321 | 同泰 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3321 | 同泰 | 6 | 1 | 5 | 6 | 6 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260603 | 3321 | 同泰 | 7 | 1 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 7 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

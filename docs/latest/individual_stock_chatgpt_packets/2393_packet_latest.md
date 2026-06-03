@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2393 億光
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:32 Asia/Taipei
+- generated_at: 2026-06-04 01:54:42 Asia/Taipei
 - stock_id: 2393
 - stock_name: 億光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -97,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 64.5
-- high: 64.8
-- low: 63.2
-- close: 64.6
-- volume: 3332641
-- ma5: 63.3
-- ema23_primary: 66.04
-- distance_to_ema23_pct: -2.18
-- ma20: 66.54
-- ma60: 67.95
-- ma120: 61.59
-- return_5d: 0
-- return_20d: -10.65
-- volume_ratio: 0.87
-- distance_to_ma20_pct_auxiliary: -2.92
-- distance_to_high_60_pct: -13.87
+- date: 20260603
+- open: 64.9
+- high: 66.4
+- low: 64.3
+- close: 65.6
+- volume: 4032308
+- ma5: 63.88
+- ema23_primary: 66
+- distance_to_ema23_pct: -0.61
+- ma20: 66.17
+- ma60: 68.05
+- ma120: 61.7
+- return_5d: 4.63
+- return_20d: -10.26
+- volume_ratio: 1.04
+- distance_to_ma20_pct_auxiliary: -0.85
+- distance_to_high_60_pct: -12.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,72.7,73.3,70.9,73.1,3504072,70.6,3.54,71.58,65.31,1.21
 20260507,73.1,73.1,71.9,72.5,2820227,70.76,2.46,71.7,65.55,1
 20260508,72.7,74.7,72.7,73.7,5034699,71,3.8,71.83,65.83,1.73
 20260511,74.5,74.5,72.7,73.8,2706912,71.24,3.6,72.03,66.14,0.93
@@ -139,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,62.6,63.5,62.1,62.5,2865722,66.33,-5.78,67.29,67.71,0.75
 20260601,62.8,64.5,62.6,64.4,3534669,66.17,-2.68,66.92,67.85,0.91
 20260602,64.5,64.8,63.2,64.6,3332641,66.04,-2.18,66.54,67.95,0.87
+20260603,64.9,66.4,64.3,65.6,4032308,66,-0.61,66.17,68.05,1.04
 ```
 
 ## Latest TDCC Snapshot
@@ -178,7 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2393 | 億光 | 12 | 0 | 223630.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 2393 | 億光 | 12 | 0 | 440350.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

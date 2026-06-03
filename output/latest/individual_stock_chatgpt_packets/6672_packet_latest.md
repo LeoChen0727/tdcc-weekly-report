@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6672 騰輝電子-KY
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:29 Asia/Taipei
+- generated_at: 2026-06-04 01:56:35 Asia/Taipei
 - stock_id: 6672
 - stock_name: 騰輝電子-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -96,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 220
-- high: 221
-- low: 211.5
-- close: 215.5
-- volume: 4395680
-- ma5: 216.9
-- ema23_primary: 200.96
-- distance_to_ema23_pct: 7.24
-- ma20: 202.7
-- ma60: 165.81
-- ma120: 129.84
-- return_5d: 0.7
-- return_20d: -2.27
-- volume_ratio: 0.75
-- distance_to_ma20_pct_auxiliary: 6.31
-- distance_to_high_60_pct: -9.45
+- date: 20260603
+- open: 216.5
+- high: 219.5
+- low: 212.5
+- close: 217
+- volume: 3335589
+- ma5: 218
+- ema23_primary: 202.3
+- distance_to_ema23_pct: 7.27
+- ma20: 202.82
+- ma60: 167.77
+- ma120: 130.91
+- return_5d: 2.6
+- return_20d: 1.17
+- volume_ratio: 0.59
+- distance_to_ma20_pct_auxiliary: 6.99
+- distance_to_high_60_pct: -8.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,223.5,223.5,205.5,214.5,7917147,184.01,16.57,185.95,132.38,0.81
 20260507,221,229.5,216,226,7043622,187.51,20.53,190.18,134.54,0.72
 20260508,226.5,226.5,205,208,6478240,189.22,9.93,192.88,136.43,0.68
 20260511,208,211,197,209,5447945,190.87,9.5,195.82,138.42,0.58
@@ -138,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,220.5,224,219,222.5,6842632,197.79,12.49,203.1,161.69,1.11
 20260601,223,226,218,220,5736887,199.64,10.2,202.95,163.81,0.97
 20260602,220,221,211.5,215.5,4395680,200.96,7.24,202.7,165.81,0.75
+20260603,216.5,219.5,212.5,217,3335589,202.3,7.27,202.82,167.77,0.59
 ```
 
 ## Latest TDCC Snapshot
@@ -177,7 +177,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6672 | 騰輝電子-KY | 12 | 0 | 7830420.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 6672 | 騰輝電子-KY | 12 | 0 | 7523280.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

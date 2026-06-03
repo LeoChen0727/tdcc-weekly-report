@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6844 諾貝兒
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:45 Asia/Taipei
+- generated_at: 2026-06-04 01:56:42 Asia/Taipei
 - stock_id: 6844
 - stock_name: 諾貝兒
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 269
+- latest_price_date: 20260603
+- price_rows: 270
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -97,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 63.5
-- high: 64.1
-- low: 63.1
-- close: 64.1
-- volume: 64
-- ma5: 64.74
-- ema23_primary: 64.85
-- distance_to_ema23_pct: -1.16
-- ma20: 65.03
-- ma60: 64.15
-- ma120: 68.09
-- return_5d: -2.88
-- return_20d: 0.94
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: -1.43
-- distance_to_high_60_pct: -4.04
+- date: 20260603
+- open: 63.3
+- high: 64.9
+- low: 63.2
+- close: 64.9
+- volume: 64000
+- ma5: 64.64
+- ema23_primary: 64.86
+- distance_to_ema23_pct: 0.07
+- ma20: 65.11
+- ma60: 64.16
+- ma120: 68
+- return_5d: -0.76
+- return_20d: 2.53
+- volume_ratio: 1.82
+- distance_to_ma20_pct_auxiliary: -0.32
+- distance_to_high_60_pct: -2.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,64,64,62.7,63.3,46000,63.45,-0.24,63.22,64.62,4.32
 20260507,63.9,63.9,63.3,63.4,5000,63.45,-0.07,63.19,64.53,0.47
 20260508,63.8,64,63.3,64,24000,63.49,0.8,63.19,64.44,2.02
 20260511,64.6,64.9,64.1,64.9,23000,63.61,2.03,63.24,64.37,1.8
@@ -139,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,64.3,65,63.8,64.7,64000,64.96,-0.4,64.97,64.14,1.83
 20260601,63.8,64.5,63.4,64.5,64,64.92,-0.65,65,64.15,0
 20260602,63.5,64.1,63.1,64.1,64,64.85,-1.16,65.03,64.15,0
+20260603,63.3,64.9,63.2,64.9,64000,64.86,0.07,65.11,64.16,1.82
 ```
 
 ## Latest TDCC Snapshot

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0088 富邦越南
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:07 Asia/Taipei
+- generated_at: 2026-06-04 01:54:04 Asia/Taipei
 - stock_id: 0088
 - stock_name: 富邦越南
 - packet_status: insufficient_price_data
@@ -154,7 +154,7 @@ no_rows,True
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 0088 | 富邦越南 | 19 | 0 | 516520.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 0088 | 富邦越南 | 19 | 0 | 628090.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

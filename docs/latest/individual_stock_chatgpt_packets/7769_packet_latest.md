@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7769 鴻勁
 
 ## Metadata
-- generated_at: 2026-06-02 23:30:42 Asia/Taipei
+- generated_at: 2026-06-04 01:57:08 Asia/Taipei
 - stock_id: 7769
 - stock_name: 鴻勁
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 121
+- latest_price_date: 20260603
+- price_rows: 122
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,18 +55,14 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: starter_position
-- action_rating_label_zh: 可小量試單
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: high_level_consolidation
 - entry_style: pullback_to_23ema
-- position_sizing: starter_1_4
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -80,7 +76,6 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -94,6 +89,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- price_too_extended
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -101,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 7120
-- high: 7480
-- low: 7110
-- close: 7175
-- volume: 1247463
-- ma5: 7690
-- ema23_primary: 6885.87
-- distance_to_ema23_pct: 4.2
-- ma20: 7106
-- ma60: 5241.08
-- ma120: 4399.67
-- return_5d: -9.18
-- return_20d: 28.12
-- volume_ratio: 1.23
-- distance_to_ma20_pct_auxiliary: 0.97
-- distance_to_high_60_pct: -15.24
+- date: 20260603
+- open: 7450
+- high: 7800
+- low: 7360
+- close: 7525
+- volume: 714515
+- ma5: 7635
+- ema23_primary: 6939.13
+- distance_to_ema23_pct: 8.44
+- ma20: 7197
+- ma60: 5296.25
+- ma120: 4437.38
+- return_5d: -3.53
+- return_20d: 31.9
+- volume_ratio: 0.73
+- distance_to_ma20_pct_auxiliary: 4.56
+- distance_to_high_60_pct: -11.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,5690,5780,5435,5705,1442242,4763.9,19.75,4708,4262.83,1.07
 20260507,5820,5900,5780,5835,758227,4853.16,20.23,4786.75,4296.92,0.57
 20260508,5885,6040,5770,5800,1128305,4932.06,17.6,4864.5,4331.08,0.85
 20260511,6000,6380,5805,6380,1484440,5052.73,26.27,4973.5,4374.92,1.08
@@ -143,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,8000,8465,7815,8260,1880557,6800.01,21.47,6920.5,5133.33,1.8
 20260601,8090,8165,7515,7515,1264343,6859.59,9.55,7027.25,5192.25,1.23
 20260602,7120,7480,7110,7175,1247463,6885.87,4.2,7106,5241.08,1.23
+20260603,7450,7800,7360,7525,714515,6939.13,8.44,7197,5296.25,0.73
 ```
 
 ## Latest TDCC Snapshot
@@ -170,20 +166,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 7769 | 鴻勁 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260602 | 7769 | 鴻勁 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 7769 | 鴻勁 | 4 | 2 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 7769 | 鴻勁 | 24 | 0 | 19974000.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 7769 | 鴻勁 | 24 | 0 | 11873890.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

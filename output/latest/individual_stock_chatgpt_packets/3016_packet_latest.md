@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3016 嘉晶
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:18 Asia/Taipei
+- generated_at: 2026-06-04 01:55:05 Asia/Taipei
 - stock_id: 3016
 - stock_name: 嘉晶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 124.5
-- high: 126.5
-- low: 118.5
-- close: 118.5
-- volume: 7910814
-- ma5: 128.6
-- ema23_primary: 113.89
-- distance_to_ema23_pct: 4.05
-- ma20: 120.6
-- ma60: 82.93
-- ma120: 69.95
-- return_5d: -5.95
-- return_20d: 9.72
-- volume_ratio: 1.04
-- distance_to_ma20_pct_auxiliary: -1.74
-- distance_to_high_60_pct: -19.66
+- date: 20260603
+- open: 120.5
+- high: 122
+- low: 112.5
+- close: 115.5
+- volume: 9013879
+- ma5: 126.5
+- ema23_primary: 114.02
+- distance_to_ema23_pct: 1.3
+- ma20: 120.65
+- ma60: 83.91
+- ma120: 70.5
+- return_5d: -8.33
+- return_20d: 0.87
+- volume_ratio: 1.3
+- distance_to_ma20_pct_auxiliary: -4.27
+- distance_to_high_60_pct: -21.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,118.5,118.5,112.5,114.5,22662580,76.57,49.53,72.67,63.43,3.56
 20260507,112,121,112,118.5,4612650,80.07,48,75.9,64.28,0.7
 20260508,120,120,110.5,117,3059056,83.14,40.72,79.04,65.16,0.46
 20260511,121,128.5,119,128.5,5497642,86.92,47.83,82.69,66.24,0.8
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,146.5,147.5,133.5,138,23100390,112.33,22.85,118.7,80.7,3.38
 20260601,138.5,141,125,126,15785863,113.47,11.05,120.08,81.9,2.1
 20260602,124.5,126.5,118.5,118.5,7910814,113.89,4.05,120.6,82.93,1.04
+20260603,120.5,122,112.5,115.5,9013879,114.02,1.3,120.65,83.91,1.3
 ```
 
 ## Latest TDCC Snapshot
@@ -172,18 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3016 | 嘉晶 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260602 | 3016 | 嘉晶 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260603 | 3016 | 嘉晶 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3016 | 嘉晶 | 7 | 2 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 3016 | 嘉晶 | 8 | 3 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 8 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3016 | 嘉晶 | 47 | 3 | 5811870.0 | 111240.0 | 52.25 | no_signal | 0 |  |
+| 20260603 | 3016 | 嘉晶 | 47 | 3 | 4543720.0 | 43590.0 | 104.24 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

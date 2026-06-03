@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6689 伊雲谷
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:30 Asia/Taipei
+- generated_at: 2026-06-04 01:56:36 Asia/Taipei
 - stock_id: 6689
 - stock_name: 伊雲谷
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: breakout_initial
-- entry_style: breakout_follow
-- position_sizing: half_position
+- thesis_state: unclear
+- entry_style: pullback_to_23ema
+- position_sizing: starter_1_4
 
 ### management_plan
 - buy_first_tranche_near_support
@@ -75,7 +75,6 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -102,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 73.6
-- high: 77.1
-- low: 72.7
-- close: 74
-- volume: 2594712
-- ma5: 68.06
-- ema23_primary: 68.32
-- distance_to_ema23_pct: 8.32
-- ma20: 67.56
-- ma60: 71.75
-- ma120: 67.04
-- return_5d: 10.12
-- return_20d: 4.52
-- volume_ratio: 6.75
-- distance_to_ma20_pct_auxiliary: 9.53
-- distance_to_high_60_pct: -16.38
+- date: 20260603
+- open: 74
+- high: 74
+- low: 71.6
+- close: 73
+- volume: 668782
+- ma5: 69.62
+- ema23_primary: 68.71
+- distance_to_ema23_pct: 6.25
+- ma20: 67.67
+- ma60: 71.78
+- ma120: 67.11
+- return_5d: 11.96
+- return_20d: 3.25
+- volume_ratio: 1.69
+- distance_to_ma20_pct_auxiliary: 7.87
+- distance_to_high_60_pct: -17.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,71.5,72.5,70.6,70.7,425674,71.48,-1.1,71.29,70.34,1.14
 20260507,71,71.9,70,70.7,222743,71.42,-1.01,71.09,70.47,0.61
 20260508,70.3,71,69.2,69.5,242660,71.26,-2.47,70.94,70.61,0.68
 20260511,69.5,71.5,68.9,70.1,287361,71.16,-1.49,70.88,70.77,0.83
@@ -144,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,65.1,65.9,64.7,65,222141,67.46,-3.65,67.36,71.7,0.91
 20260601,65.9,71.5,65.9,71.5,578734,67.8,5.46,67.4,71.71,2.19
 20260602,73.6,77.1,72.7,74,2594712,68.32,8.32,67.56,71.75,6.75
+20260603,74,74,71.6,73,668782,68.71,6.25,67.67,71.78,1.69
 ```
 
 ## Latest TDCC Snapshot
@@ -173,12 +172,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6689 | 伊雲谷 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 6689 | 伊雲谷 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6689 | 伊雲谷 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| 20260603 | 6689 | 伊雲谷 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。 |
 
 ## Warrant Context
 | status |

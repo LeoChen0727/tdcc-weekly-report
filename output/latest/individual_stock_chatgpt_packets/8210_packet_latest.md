@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8210 勤誠
 
 ## Metadata
-- generated_at: 2026-06-02 23:31:01 Asia/Taipei
+- generated_at: 2026-06-04 01:57:17 Asia/Taipei
 - stock_id: 8210
 - stock_name: 勤誠
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 1410
-- high: 1465
-- low: 1350
-- close: 1375
-- volume: 1496306
-- ma5: 1372
-- ema23_primary: 1330.01
-- distance_to_ema23_pct: 3.38
-- ma20: 1396.5
-- ma60: 1108.73
-- ma120: 1021.77
-- return_5d: -4.51
-- return_20d: 8.7
-- volume_ratio: 0.58
-- distance_to_ma20_pct_auxiliary: -1.54
-- distance_to_high_60_pct: -13.52
+- date: 20260603
+- open: 1390
+- high: 1470
+- low: 1380
+- close: 1455
+- volume: 1832144
+- ma5: 1384
+- ema23_primary: 1340.43
+- distance_to_ema23_pct: 8.55
+- ma20: 1403
+- ma60: 1117.33
+- ma120: 1025.87
+- return_5d: 4.3
+- return_20d: 9.81
+- volume_ratio: 0.76
+- distance_to_ma20_pct_auxiliary: 3.71
+- distance_to_high_60_pct: -8.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,1275,1350,1215,1325,5188155,1080.13,22.67,1064.05,962.32,1.49
 20260507,1400,1450,1240,1290,8188471,1097.62,17.53,1083.65,968.02,2.21
 20260508,1345,1415,1335,1415,6155787,1124.07,25.88,1110.4,976.1,1.59
 20260511,1455,1555,1455,1555,3683014,1159.98,34.05,1143.65,986.93,0.93
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,1360,1380,1335,1365,1081877,1319.19,3.47,1378.5,1092.65,0.41
 20260601,1395,1450,1375,1400,898622,1325.93,5.59,1391,1101.32,0.34
 20260602,1410,1465,1350,1375,1496306,1330.01,3.38,1396.5,1108.73,0.58
+20260603,1390,1470,1380,1455,1832144,1340.43,8.55,1403,1117.33,0.76
 ```
 
 ## Latest TDCC Snapshot
@@ -172,17 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 8210 | 勤誠 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 8210 | 勤誠 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 8210 | 勤誠 | 1 | 1 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 8210 | 勤誠 | 2 | 1 | 4 | 5 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 8210 | 勤誠 | 196 | 6 | 18957280.0 | 49610.0 | 382.13 | no_signal | 0 |  |
+| 20260603 | 8210 | 勤誠 | 196 | 6 | 30756180.0 | 25230.0 | 1219.03 | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

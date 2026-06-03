@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8926 台汽電
 
 ## Metadata
-- generated_at: 2026-06-02 23:31:16 Asia/Taipei
+- generated_at: 2026-06-04 01:57:24 Asia/Taipei
 - stock_id: 8926
 - stock_name: 台汽電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,18 +55,14 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: starter_position
-- action_rating_label_zh: 可小量試單
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: high_level_consolidation
 - entry_style: current_price_ok
-- position_sizing: starter_1_4
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_now
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -100,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 67.3
-- high: 68.2
-- low: 66
-- close: 67.4
-- volume: 7038284
-- ma5: 68.16
-- ema23_primary: 59.6
-- distance_to_ema23_pct: 13.08
-- ma20: 59.47
-- ma60: 50.01
-- ma120: 46.31
-- return_5d: -1.89
-- return_20d: 41.75
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: 13.34
-- distance_to_high_60_pct: -7.03
+- date: 20260603
+- open: 68
+- high: 71.4
+- low: 67.5
+- close: 70.4
+- volume: 13702470
+- ma5: 67.78
+- ema23_primary: 60.5
+- distance_to_ema23_pct: 16.36
+- ma20: 60.65
+- ma60: 50.42
+- ma120: 46.55
+- return_5d: -2.63
+- return_20d: 50.75
+- volume_ratio: 1.05
+- distance_to_ma20_pct_auxiliary: 16.07
+- distance_to_high_60_pct: -2.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,47.8,47.8,46.3,46.7,1887161,45.44,2.77,45.12,45.16,1.09
 20260507,46.3,47,45.75,46.75,2394185,45.55,2.64,45.29,45.21,1.34
 20260508,48,49.2,47.8,49.1,6852068,45.85,7.1,45.58,45.31,3.27
 20260511,49.5,52.5,49.3,51.5,9983550,46.32,11.19,45.95,45.45,4.06
@@ -142,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,68.8,69,65.2,66.6,13091315,58.14,14.55,57.41,49.29,1.09
 20260601,67,69.9,66,67.2,10988975,58.89,14.1,58.48,49.65,0.89
 20260602,67.3,68.2,66,67.4,7038284,59.6,13.08,59.47,50.01,0.56
+20260603,68,71.4,67.5,70.4,13702470,60.5,16.36,60.65,50.42,1.05
 ```
 
 ## Latest TDCC Snapshot
@@ -169,15 +165,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 8926 | 台汽電 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260602 | 8926 | 台汽電 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 8926 | 台汽電 | 2 | 2 | 4 | 6 | 6 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

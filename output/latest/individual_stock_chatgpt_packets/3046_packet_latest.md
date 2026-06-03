@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3046 建碁
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:24 Asia/Taipei
+- generated_at: 2026-06-04 01:55:08 Asia/Taipei
 - stock_id: 3046
 - stock_name: 建碁
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,14 +55,20 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: wait_pullback
-- action_rating_label_zh: 等待回檔
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
 - thesis_state: healthy_pullback
-- entry_style: pullback_to_support
-- position_sizing: observe_only
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
@@ -70,13 +76,12 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_priority_high
-- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -90,7 +95,6 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
-- price_too_extended
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -98,29 +102,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 63.6
-- high: 63.7
+- date: 20260603
+- open: 63
+- high: 63.2
 - low: 61
-- close: 62.1
-- volume: 2792247
-- ma5: 58.52
-- ema23_primary: 53.78
-- distance_to_ema23_pct: 15.47
-- ma20: 53.31
-- ma60: 49.55
-- ma120: 50.5
-- return_5d: 15.43
-- return_20d: 26.09
-- volume_ratio: 3.21
-- distance_to_ma20_pct_auxiliary: 16.48
-- distance_to_high_60_pct: -2.97
+- close: 62.4
+- volume: 1258635
+- ma5: 60.22
+- ema23_primary: 54.5
+- distance_to_ema23_pct: 14.5
+- ma20: 53.95
+- ma60: 49.82
+- ma120: 50.62
+- return_5d: 15.77
+- return_20d: 25.68
+- volume_ratio: 1.36
+- distance_to_ma20_pct_auxiliary: 15.66
+- distance_to_high_60_pct: -2.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,49.95,50,49.2,49.65,220948,48.37,2.65,48.49,48.5,1.25
 20260507,50.5,50.5,49,49.65,497210,48.48,2.42,48.61,48.45,2.58
 20260508,50.5,52.4,49.65,50.6,804968,48.65,4,48.73,48.41,3.66
 20260511,51.2,52.5,50.6,52.4,684627,48.97,7.01,48.94,48.43,2.74
@@ -140,6 +143,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,55.4,59.8,54.8,58.2,3453533,52.03,11.87,51.91,49.02,6.5
 20260601,58,64,57.3,64,4371760,53.02,20.7,52.67,49.31,5.91
 20260602,63.6,63.7,61,62.1,2792247,53.78,15.47,53.31,49.55,3.21
+20260603,63,63.2,61,62.4,1258635,54.5,14.5,53.95,49.82,1.36
 ```
 
 ## Latest TDCC Snapshot
@@ -169,12 +173,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3046 | 建碁 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3046 | 建碁 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3046 | 建碁 | 3 | 1 | 3 | 3 | 3 | continued_2_3d | 連續 3 個交易日上榜，訊號延續但仍需確認。 |
+| 20260603 | 3046 | 建碁 | 1 | 1 | 3 | 3 | 3 | repeated_but_no_breakout | 近 10 日上榜 3 次、近 20 日上榜 3 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

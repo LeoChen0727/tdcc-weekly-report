@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6026 福邦證
 
 ## Metadata
-- generated_at: 2026-06-02 23:28:33 Asia/Taipei
+- generated_at: 2026-06-04 01:56:08 Asia/Taipei
 - stock_id: 6026
 - stock_name: 福邦證
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,7 +58,7 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: high_level_distribution_risk
 - entry_style: current_price_ok
 - position_sizing: starter_1_4
 
@@ -78,7 +78,6 @@
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -93,6 +92,7 @@
 ### downgrade_reason
 - insufficient_tdcc_history
 - tdcc_distribution_warning
+- price_too_extended
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -100,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 17.45
-- high: 18
-- low: 17.05
-- close: 17.8
-- volume: 17
-- ma5: 16.93
-- ema23_primary: 15.99
-- distance_to_ema23_pct: 11.3
-- ma20: 16.04
-- ma60: 15.17
-- ma120: 14.38
-- return_5d: 13.02
-- return_20d: 13.38
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: 10.96
-- distance_to_high_60_pct: -1.11
+- date: 20260603
+- open: 18.2
+- high: 19.55
+- low: 18.1
+- close: 19.3
+- volume: 19000
+- ma5: 17.5
+- ema23_primary: 16.27
+- distance_to_ema23_pct: 18.64
+- ma20: 16.21
+- ma60: 15.26
+- ma120: 14.44
+- return_5d: 17.33
+- return_20d: 21.38
+- volume_ratio: 0.01
+- distance_to_ma20_pct_auxiliary: 19.04
+- distance_to_high_60_pct: -1.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,15.85,15.95,15.75,15.9,3186000,15.06,5.55,15.01,14.66,1.69
 20260507,16.3,16.9,16.15,16.7,7627000,15.2,9.87,15.1,14.69,3.5
 20260508,16.9,17,16.6,16.8,4996000,15.33,9.56,15.2,14.71,2.1
 20260511,16.7,16.8,16.25,16.6,8102000,15.44,7.52,15.29,14.74,3.02
@@ -142,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,16.55,16.95,16.45,16.85,17000,15.69,7.36,15.86,15.04,0.01
 20260601,17.2,17.5,17.05,17.3,17,15.83,9.3,15.94,15.1,0
 20260602,17.45,18,17.05,17.8,17,15.99,11.3,16.04,15.17,0
+20260603,18.2,19.55,18.1,19.3,19000,16.27,18.64,16.21,15.26,0.01
 ```
 
 ## Latest TDCC Snapshot
@@ -171,12 +171,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 6026 | 福邦證 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 6026 | 福邦證 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6026 | 福邦證 | 9 | 9 | 5 | 9 | 9 | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 6026 | 福邦證 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

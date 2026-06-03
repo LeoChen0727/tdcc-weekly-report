@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5484 慧友
 
 ## Metadata
-- generated_at: 2026-06-02 23:28:22 Asia/Taipei
+- generated_at: 2026-06-04 01:56:03 Asia/Taipei
 - stock_id: 5484
 - stock_name: 慧友
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,11 +59,11 @@
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: high_level_distribution_risk
-- entry_style: breakout_follow
+- entry_style: current_price_ok
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -100,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 58.5
-- high: 58.9
-- low: 54.2
-- close: 57.4
-- volume: 5970637
-- ma5: 51.1
-- ema23_primary: 45.06
-- distance_to_ema23_pct: 27.38
-- ma20: 43.62
-- ma60: 41.01
-- ma120: 40.11
-- return_5d: 11.89
-- return_20d: 45.32
-- volume_ratio: 3.61
-- distance_to_ma20_pct_auxiliary: 31.58
-- distance_to_high_60_pct: -2.55
+- date: 20260603
+- open: 57.4
+- high: 57.7
+- low: 54.5
+- close: 54.5
+- volume: 3010886
+- ma5: 52.22
+- ema23_primary: 45.85
+- distance_to_ema23_pct: 18.87
+- ma20: 44.42
+- ma60: 41.32
+- ma120: 40.26
+- return_5d: 11.45
+- return_20d: 41.19
+- volume_ratio: 1.69
+- distance_to_ma20_pct_auxiliary: 22.69
+- distance_to_high_60_pct: -7.47
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,39.8,39.8,38.05,38.6,456710,39.08,-1.23,39.11,39.44,0.89
 20260507,39.65,39.7,38.15,38.5,362218,39.03,-1.36,38.91,39.34,0.72
 20260508,38.9,38.9,37.6,37.95,257528,38.94,-2.55,38.63,39.26,0.54
 20260511,38.1,38.5,37.7,38.2,322381,38.88,-1.75,38.52,39.22,0.81
@@ -142,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,48,50.5,47.8,48.75,1526083,43.06,13.2,41.99,40.34,1.19
 20260601,48.7,53.6,47.8,53.6,2308919,43.94,21.98,42.73,40.64,1.68
 20260602,58.5,58.9,54.2,57.4,5970637,45.06,27.38,43.62,41.01,3.61
+20260603,57.4,57.7,54.5,54.5,3010886,45.85,18.87,44.42,41.32,1.69
 ```
 
 ## Latest TDCC Snapshot
@@ -171,13 +171,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 5484 | 慧友 | true_breakout | 嚴格突破 | 84.0 |  |  | platform_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 5484 | 慧友 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 5484 | 慧友 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 5484 | 慧友 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 5484 | 慧友 | 9 | 9 | 5 | 9 | 9 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260603 | 5484 | 慧友 | 10 | 10 | 5 | 10 | 10 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

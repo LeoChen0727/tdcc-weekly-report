@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3026 禾伸堂
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:20 Asia/Taipei
+- generated_at: 2026-06-04 01:55:06 Asia/Taipei
 - stock_id: 3026
 - stock_name: 禾伸堂
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,14 +55,18 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: high_level_consolidation
 - entry_style: current_price_ok
-- position_sizing: observe_only
+- position_sizing: starter_1_4
 
 ### management_plan
+- buy_first_tranche_now
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -96,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 640
+- date: 20260603
+- open: 638
 - high: 650
-- low: 605
-- close: 650
-- volume: 3276908
-- ma5: 635.2
-- ema23_primary: 454.39
-- distance_to_ema23_pct: 43.05
-- ma20: 443.5
-- ma60: 261.87
-- ma120: 183.7
-- return_5d: 14.04
-- return_20d: 161.57
-- volume_ratio: 0.53
-- distance_to_ma20_pct_auxiliary: 46.56
-- distance_to_high_60_pct: -7.01
+- low: 628
+- close: 640
+- volume: 1133009
+- ma5: 641.6
+- ema23_primary: 469.85
+- distance_to_ema23_pct: 36.21
+- ma20: 461.85
+- ma60: 270.71
+- ma120: 188.16
+- return_5d: 5.26
+- return_20d: 134.43
+- volume_ratio: 0.22
+- distance_to_ma20_pct_auxiliary: 38.57
+- distance_to_high_60_pct: -8.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,273,273,260,273,21608419,213.84,27.66,225.43,152.95,2.09
 20260507,300,300,296,300,9326609,221.02,35.73,232.07,156.17,0.94
 20260508,313.5,330,297,330,22732968,230.1,43.41,239.4,159.93,2.24
 20260511,329,351.5,311,329.5,31292625,238.39,38.22,246.18,163.68,2.88
@@ -138,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,640,641,615,641,1558340,415.2,54.38,401.12,243.41,0.21
 20260601,671,699,665,672,1634588,436.6,53.92,423.43,252.85,0.25
 20260602,640,650,605,650,3276908,454.39,43.05,443.5,261.87,0.53
+20260603,638,650,628,640,1133009,469.85,36.21,461.85,270.71,0.22
 ```
 
 ## Latest TDCC Snapshot
@@ -165,19 +169,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260603 | 3026 | 禾伸堂 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | no_signal | first_seen | calendar event: ex_dividend on 20260622; status=confirmed; proximity=within_30d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260603 | 3026 | 禾伸堂 | 1 | 1 | 1 | 2 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3026 | 禾伸堂 | 63 | 0 | 11990220.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 3026 | 禾伸堂 | 63 | 0 | 13210680.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

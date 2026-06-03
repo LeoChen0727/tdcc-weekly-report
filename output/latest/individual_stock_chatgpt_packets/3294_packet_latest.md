@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3294 英濟
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:43 Asia/Taipei
+- generated_at: 2026-06-04 01:55:17 Asia/Taipei
 - stock_id: 3294
 - stock_name: 英濟
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -100,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 40.45
-- high: 42.6
-- low: 40.25
-- close: 41.15
-- volume: 42
-- ma5: 40.14
-- ema23_primary: 37.42
-- distance_to_ema23_pct: 9.97
-- ma20: 36.81
-- ma60: 34.62
+- date: 20260603
+- open: 41.5
+- high: 41.8
+- low: 40.3
+- close: 40.75
+- volume: 41000
+- ma5: 40.33
+- ema23_primary: 37.7
+- distance_to_ema23_pct: 8.1
+- ma20: 37.33
+- ma60: 34.67
 - ma120: 37.06
-- return_5d: 1.6
-- return_20d: 32.96
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: 11.78
-- distance_to_high_60_pct: -8.45
+- return_5d: 2.39
+- return_20d: 33.83
+- volume_ratio: 0.02
+- distance_to_ma20_pct_auxiliary: 9.16
+- distance_to_high_60_pct: -9.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,31.2,31.4,30.15,30.45,633000,32.01,-4.87,31.88,34.85,1.08
 20260507,30.7,31.45,30.4,31.35,689000,31.95,-1.89,31.82,34.69,1.14
 20260508,31.7,32.25,30.25,30.25,898000,31.81,-4.91,31.74,34.53,1.42
 20260511,30.4,30.85,30.3,30.7,557000,31.72,-3.21,31.7,34.4,0.86
@@ -142,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,40.35,40.65,39.35,40.2,40000,36.8,9.25,35.82,34.5,0.02
 20260601,41,42.95,40.15,40.2,41,37.08,8.42,36.3,34.56,0
 20260602,40.45,42.6,40.25,41.15,42,37.42,9.97,36.81,34.62,0
+20260603,41.5,41.8,40.3,40.75,41000,37.7,8.1,37.33,34.67,0.02
 ```
 
 ## Latest TDCC Snapshot
@@ -171,12 +171,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 3294 | 英濟 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3294 | 英濟 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3294 | 英濟 | 9 | 9 | 5 | 9 | 9 | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 3294 | 英濟 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

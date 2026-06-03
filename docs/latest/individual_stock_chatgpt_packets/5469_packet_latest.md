@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5469 瀚宇博
 
 ## Metadata
-- generated_at: 2026-06-02 23:28:20 Asia/Taipei
+- generated_at: 2026-06-04 01:56:02 Asia/Taipei
 - stock_id: 5469
 - stock_name: 瀚宇博
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -97,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 86.6
-- high: 86.6
-- low: 83.6
-- close: 85.9
-- volume: 3723117
-- ma5: 85.62
-- ema23_primary: 84.25
-- distance_to_ema23_pct: 1.96
-- ma20: 82.8
-- ma60: 85.59
-- ma120: 91.32
-- return_5d: 3.37
-- return_20d: 1.42
-- volume_ratio: 0.96
-- distance_to_ma20_pct_auxiliary: 3.75
-- distance_to_high_60_pct: -14.1
+- date: 20260603
+- open: 86.2
+- high: 88.2
+- low: 85.7
+- close: 86.9
+- volume: 5093574
+- ma5: 85.6
+- ema23_primary: 84.47
+- distance_to_ema23_pct: 2.87
+- ma20: 82.95
+- ma60: 85.57
+- ma120: 91.14
+- return_5d: -0.11
+- return_20d: 3.82
+- volume_ratio: 1.3
+- distance_to_ma20_pct_auxiliary: 4.76
+- distance_to_high_60_pct: -13.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,85.5,85.7,82.5,83.7,4326984,87.87,-4.74,89.44,89.81,0.79
 20260507,84.5,84.6,83.5,84.3,2170084,87.57,-3.73,89.45,89.5,0.4
 20260508,84.4,84.5,80.8,81.8,3930290,87.09,-6.07,89.28,89.17,0.71
 20260511,82.2,86,82.1,85.1,6030137,86.92,-2.1,89.03,88.96,1.12
@@ -139,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,85.8,87.1,84.6,85.2,3367390,83.93,1.51,82.61,85.65,0.89
 20260601,86,86.2,84.5,86,3655630,84.1,2.26,82.73,85.64,0.95
 20260602,86.6,86.6,83.6,85.9,3723117,84.25,1.96,82.8,85.59,0.96
+20260603,86.2,88.2,85.7,86.9,5093574,84.47,2.87,82.95,85.57,1.3
 ```
 
 ## Latest TDCC Snapshot
@@ -178,7 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 5469 | 瀚宇博 | 49 | 0 | 1718620.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 5469 | 瀚宇博 | 48 | 0 | 3567320.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

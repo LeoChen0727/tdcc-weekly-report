@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3685 元創精密
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:13 Asia/Taipei
+- generated_at: 2026-06-04 01:55:32 Asia/Taipei
 - stock_id: 3685
 - stock_name: 元創精密
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,7 +59,7 @@
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: current_price_ok
+- entry_style: pullback_to_23ema
 - position_sizing: observe_only
 
 ### management_plan
@@ -72,6 +72,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -96,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 27.8
-- high: 27.8
-- low: 26.55
-- close: 26.7
-- volume: 27
-- ma5: 27.96
-- ema23_primary: 28.82
-- distance_to_ema23_pct: -7.36
-- ma20: 28.52
-- ma60: 30.22
-- ma120: 34.36
-- return_5d: -6.32
-- return_20d: -12.17
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: -6.39
-- distance_to_high_60_pct: -26.24
+- date: 20260603
+- open: 27
+- high: 28
+- low: 26.5
+- close: 28
+- volume: 27000
+- ma5: 27.78
+- ema23_primary: 28.75
+- distance_to_ema23_pct: -2.62
+- ma20: 28.4
+- ma60: 30.13
+- ma120: 34.29
+- return_5d: -3.11
+- return_20d: -7.89
+- volume_ratio: 0.18
+- distance_to_ma20_pct_auxiliary: -1.42
+- distance_to_high_60_pct: -22.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,30.45,30.45,29,30.4,357000,31.3,-2.88,31.11,32.72,0.76
 20260507,30.4,30.4,28.9,29.3,298000,31.13,-5.89,31.14,32.6,0.63
 20260508,29.35,31.4,29.3,30.1,523000,31.05,-3.05,31.3,32.52,1.11
 20260511,30.1,30.1,28.9,30,334000,30.96,-3.1,31.5,32.43,0.72
@@ -138,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,28.8,28.8,27.4,27.95,28000,29.12,-4.03,28.83,30.41,0.15
 20260601,28,28,27,27.8,27,29.01,-4.18,28.71,30.33,0
 20260602,27.8,27.8,26.55,26.7,27,28.82,-7.36,28.52,30.22,0
+20260603,27,28,26.5,28,27000,28.75,-2.62,28.4,30.13,0.18
 ```
 
 ## Latest TDCC Snapshot

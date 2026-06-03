@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6873 泓德能源
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:47 Asia/Taipei
+- generated_at: 2026-06-04 01:56:43 Asia/Taipei
 - stock_id: 6873
 - stock_name: 泓德能源
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,7 +59,7 @@
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: observe_only
 
 ### management_plan
@@ -72,7 +72,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -97,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 90.3
-- high: 90.3
-- low: 89
-- close: 90.2
-- volume: 412948
-- ma5: 90.22
-- ema23_primary: 88.9
-- distance_to_ema23_pct: 1.46
-- ma20: 88.75
-- ma60: 90.24
-- ma120: 98.5
-- return_5d: 0.56
-- return_20d: -0.44
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: 1.64
-- distance_to_high_60_pct: -12.85
+- date: 20260603
+- open: 90.6
+- high: 96.8
+- low: 88.4
+- close: 94.9
+- volume: 1555720
+- ma5: 90.84
+- ema23_primary: 89.4
+- distance_to_ema23_pct: 6.15
+- ma20: 89.03
+- ma60: 90.15
+- ma120: 98.45
+- return_5d: 3.38
+- return_20d: 6.51
+- volume_ratio: 1.96
+- distance_to_ma20_pct_auxiliary: 6.59
+- distance_to_high_60_pct: -8.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,90,90.9,88.9,89.1,520056,89.46,-0.4,88.28,97.74,0.78
 20260507,89.1,94,87.3,93.8,1006323,89.82,4.43,88.55,97.35,1.52
 20260508,95,95,91.9,91.9,487412,90,2.12,88.75,96.98,0.75
 20260511,93.1,94.5,91,94.1,557081,90.34,4.16,89.19,96.59,0.88
@@ -139,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,91.1,91.1,88.6,89.1,2147894,88.66,0.5,88.81,90.65,2.9
 20260601,89.9,90.9,88.1,90.2,685382,88.79,1.59,88.77,90.42,0.92
 20260602,90.3,90.3,89,90.2,412948,88.9,1.46,88.75,90.24,0.56
+20260603,90.6,96.8,88.4,94.9,1555720,89.4,6.15,89.03,90.15,1.96
 ```
 
 ## Latest TDCC Snapshot
@@ -178,7 +177,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6873 | 泓德能源 | 24 | 0 | 778800.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 6873 | 泓德能源 | 24 | 0 | 1405240.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

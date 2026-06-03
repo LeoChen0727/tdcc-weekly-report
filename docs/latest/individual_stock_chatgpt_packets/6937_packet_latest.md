@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6937 天虹
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:55 Asia/Taipei
+- generated_at: 2026-06-04 01:56:47 Asia/Taipei
 - stock_id: 6937
 - stock_name: 天虹
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -97,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 311.5
-- high: 311.5
-- low: 295.5
-- close: 300.5
-- volume: 719593
-- ma5: 308.3
-- ema23_primary: 306.95
-- distance_to_ema23_pct: -2.1
-- ma20: 306.57
-- ma60: 289.83
-- ma120: 257.6
-- return_5d: -10.96
-- return_20d: -10.83
-- volume_ratio: 0.76
-- distance_to_ma20_pct_auxiliary: -1.98
-- distance_to_high_60_pct: -16.18
+- date: 20260603
+- open: 305
+- high: 305
+- low: 297
+- close: 298
+- volume: 604135
+- ma5: 304.1
+- ema23_primary: 306.21
+- distance_to_ema23_pct: -2.68
+- ma20: 305.52
+- ma60: 290.68
+- ma120: 258.25
+- return_5d: -6.58
+- return_20d: -6.58
+- volume_ratio: 0.68
+- distance_to_ma20_pct_auxiliary: -2.46
+- distance_to_high_60_pct: -16.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,343,348.5,314.5,319,1788241,302.51,5.45,308.35,264.49,1.15
 20260507,322.5,328.5,315.5,320,688418,303.97,5.27,311.12,266.18,0.44
 20260508,320,323.5,300,306.5,836167,304.18,0.76,312.65,267.74,0.54
 20260511,302,303,291.5,295.5,935014,303.46,-2.62,313.2,269.22,0.62
@@ -139,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,316,316,301.5,303,660900,307.22,-1.37,309.6,287.77,0.59
 20260601,303,312,295,311,1017386,307.54,1.13,308.4,288.98,1.01
 20260602,311.5,311.5,295.5,300.5,719593,306.95,-2.1,306.57,289.83,0.76
+20260603,305,305,297,298,604135,306.21,-2.68,305.52,290.68,0.68
 ```
 
 ## Latest TDCC Snapshot
@@ -178,7 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6937 | 天虹 | 46 | 1 | 2226570.0 | 84720.0 | 26.28 | no_signal | 0 |  |
+| 20260603 | 6937 | 天虹 | 46 | 1 | 1059490.0 | 87180.0 | 12.15 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6901 鑽石投資
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:50 Asia/Taipei
+- generated_at: 2026-06-04 01:56:45 Asia/Taipei
 - stock_id: 6901
 - stock_name: 鑽石投資
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,11 +59,11 @@
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -76,7 +76,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -101,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 13
-- high: 13.25
-- low: 12.8
-- close: 13.2
-- volume: 1308644
-- ma5: 12.66
-- ema23_primary: 13.37
-- distance_to_ema23_pct: -1.29
-- ma20: 13.4
-- ma60: 13.91
-- ma120: 15.38
-- return_5d: 3.12
-- return_20d: -2.94
-- volume_ratio: 0.63
-- distance_to_ma20_pct_auxiliary: -1.47
-- distance_to_high_60_pct: -18.27
+- date: 20260603
+- open: 13.2
+- high: 14.45
+- low: 13.2
+- close: 14.35
+- volume: 3095780
+- ma5: 13.08
+- ema23_primary: 13.45
+- distance_to_ema23_pct: 6.66
+- ma20: 13.46
+- ma60: 13.89
+- ma120: 15.36
+- return_5d: 17.14
+- return_20d: 9.54
+- volume_ratio: 1.42
+- distance_to_ma20_pct_auxiliary: 6.61
+- distance_to_high_60_pct: -6.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,13.8,13.8,13.05,13.1,1134462,13.95,-6.08,13.93,14.95,1.41
 20260507,13.2,13.3,13,13.2,950135,13.89,-4.94,13.89,14.87,1.14
 20260508,13.3,13.3,13,13,657104,13.81,-5.88,13.85,14.8,0.78
 20260511,13.7,14.3,13.65,14.05,4398363,13.83,1.58,13.87,14.75,4.23
@@ -143,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,12.3,12.9,12.25,12.4,928729,13.41,-7.53,13.44,14,0.46
 20260601,12.55,13.15,12.4,13.15,1430649,13.39,-1.78,13.42,13.96,0.7
 20260602,13,13.25,12.8,13.2,1308644,13.37,-1.29,13.4,13.91,0.63
+20260603,13.2,14.45,13.2,14.35,3095780,13.45,6.66,13.46,13.89,1.42
 ```
 
 ## Latest TDCC Snapshot
@@ -172,13 +171,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6901 | 鑽石投資 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260521 | 6901 | 鑽石投資 | pattern | 型態觀察 |  |  |  | 預備發動型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 6901 | 鑽石投資 | pattern | 型態觀察 |  |  |  | 預備發動型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6901 | 鑽石投資 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 6901 | 鑽石投資 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

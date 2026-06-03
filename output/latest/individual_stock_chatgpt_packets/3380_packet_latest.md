@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3380 明泰
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:50 Asia/Taipei
+- generated_at: 2026-06-04 01:55:20 Asia/Taipei
 - stock_id: 3380
 - stock_name: 明泰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,11 +59,11 @@
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: high_level_distribution_risk
-- entry_style: breakout_follow
+- entry_style: current_price_ok
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -76,7 +76,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 
@@ -101,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 38.85
-- high: 40.3
-- low: 38.45
-- close: 40.2
-- volume: 9176825
-- ma5: 37.84
-- ema23_primary: 35.37
-- distance_to_ema23_pct: 13.67
-- ma20: 33.88
-- ma60: 35.8
-- ma120: 34.13
-- return_5d: 13.56
-- return_20d: 15.68
-- volume_ratio: 1.82
-- distance_to_ma20_pct_auxiliary: 18.65
-- distance_to_high_60_pct: -8.53
+- date: 20260603
+- open: 40.25
+- high: 40.7
+- low: 39.15
+- close: 40.55
+- volume: 7967829
+- ma5: 38.85
+- ema23_primary: 35.8
+- distance_to_ema23_pct: 13.27
+- ma20: 34.32
+- ma60: 35.89
+- ma120: 34.22
+- return_5d: 14.23
+- return_20d: 27.72
+- volume_ratio: 1.62
+- distance_to_ma20_pct_auxiliary: 18.15
+- distance_to_high_60_pct: -7.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,34,34,31.5,31.75,10915275,36.1,-12.04,37.57,35.38,1.32
 20260507,31.95,32.7,31.7,32.6,3572874,35.8,-8.95,37.15,35.34,0.48
 20260508,32.6,33.2,31.7,31.9,3659248,35.48,-10.09,36.67,35.31,0.6
 20260511,31.9,32.35,31.75,32.2,2053330,35.21,-8.54,36.33,35.3,0.37
@@ -143,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,37,39.4,36.45,38.6,10992438,34.58,11.64,33.35,35.61,2.48
 20260601,39.1,39.65,38.1,38.8,7954792,34.93,11.09,33.61,35.72,1.69
 20260602,38.85,40.3,38.45,40.2,9176825,35.37,13.67,33.88,35.8,1.82
+20260603,40.25,40.7,39.15,40.55,7967829,35.8,13.27,34.32,35.89,1.62
 ```
 
 ## Latest TDCC Snapshot
@@ -172,18 +171,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3380 | 明泰 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 3380 | 明泰 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3380 | 明泰 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3380 | 明泰 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 55.0 |  |  | neckline_challenge |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3380 | 明泰 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 3380 | 明泰 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3380 | 明泰 | 18 | 0 | 6252380.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260603 | 3380 | 明泰 | 17 | 0 | 5704210.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

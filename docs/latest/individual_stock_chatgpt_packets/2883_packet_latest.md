@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2883 凱基金
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:09 Asia/Taipei
+- generated_at: 2026-06-04 01:55:00 Asia/Taipei
 - stock_id: 2883
 - stock_name: 凱基金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,15 +55,15 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
-- position_sizing: half_position
+- thesis_state: high_level_distribution_risk
+- entry_style: current_price_ok
+- position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -75,13 +75,9 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -95,6 +91,8 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- tdcc_distribution_warning
+- price_too_extended
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -102,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 22.55
-- high: 23.45
-- low: 22.3
-- close: 23.4
-- volume: 212718010
-- ma5: 22.6
-- ema23_primary: 21.93
-- distance_to_ema23_pct: 6.68
-- ma20: 22.09
-- ma60: 21.03
-- ma120: 19.48
-- return_5d: 8.58
-- return_20d: 7.34
-- volume_ratio: 2.83
-- distance_to_ma20_pct_auxiliary: 5.94
-- distance_to_high_60_pct: -0.21
+- date: 20260603
+- open: 24.45
+- high: 25.7
+- low: 24.35
+- close: 25.7
+- volume: 121759780
+- ma5: 23.28
+- ema23_primary: 22.25
+- distance_to_ema23_pct: 15.52
+- ma20: 22.26
+- ma60: 21.12
+- ma120: 19.56
+- return_5d: 15.25
+- return_20d: 15.77
+- volume_ratio: 1.57
+- distance_to_ma20_pct_auxiliary: 15.44
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,21.95,22.3,21.95,22.2,68298084,20.98,5.82,21.09,20.2,1.39
 20260507,22.25,22.8,22,22.45,74881281,21.1,6.39,21.14,20.27,1.55
 20260508,22.6,22.95,22.3,22.9,60958656,21.25,7.76,21.22,20.35,1.23
 20260511,22.9,23.1,22.8,22.8,41098922,21.38,6.64,21.3,20.43,0.83
@@ -144,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,22.5,22.6,22,22.5,107714431,21.72,3.57,21.95,20.93,1.6
 20260601,22.45,22.9,22.3,22.65,82690695,21.8,3.89,22.01,20.98,1.23
 20260602,22.55,23.45,22.3,23.4,212718010,21.93,6.68,22.09,21.03,2.83
+20260603,24.45,25.7,24.35,25.7,121759780,22.25,15.52,22.26,21.12,1.57
 ```
 
 ## Latest TDCC Snapshot
@@ -173,20 +171,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2883 | 凱基金 | pullback_rebound | 回檔後短線轉強 | 63.0 |  |  |  |  | call_strong_inflow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260602 | 2883 | 凱基金 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | call_strong_inflow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260602 | 2883 | 凱基金 | true_breakout | 嚴格突破 | 148.0 |  |  | breakout_confirmed |  | call_strong_inflow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 2883 | 凱基金 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_strong_inflow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2883 | 凱基金 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2883 | 凱基金 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2883 | 凱基金 | 9 | 9 | 5 | 9 | 9 | continued_many_days | 連續 9 個交易日上榜，需判斷是持續醞釀或訊號鈍化。 |
+| 20260603 | 2883 | 凱基金 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2883 | 凱基金 | 14 | 0 | 6976610.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260603 | 2883 | 凱基金 | 14 | 0 | 4568320.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

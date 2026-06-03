@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8103 瀚荃
 
 ## Metadata
-- generated_at: 2026-06-02 23:30:57 Asia/Taipei
+- generated_at: 2026-06-04 01:57:15 Asia/Taipei
 - stock_id: 8103
 - stock_name: 瀚荃
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 268
+- latest_price_date: 20260603
+- price_rows: 269
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,18 +55,14 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: starter_position
-- action_rating_label_zh: 可小量試單
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
 - entry_style: pullback_to_23ema
-- position_sizing: starter_1_4
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -78,6 +74,7 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -93,7 +90,6 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
-- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -101,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 113
-- high: 113
-- low: 102.5
-- close: 103.5
-- volume: 3207820
-- ma5: 107.2
-- ema23_primary: 107.35
-- distance_to_ema23_pct: -3.58
-- ma20: 109.28
-- ma60: 98.59
-- ma120: 94.54
-- return_5d: -3.27
-- return_20d: -15.51
-- volume_ratio: 1.26
-- distance_to_ma20_pct_auxiliary: -5.28
-- distance_to_high_60_pct: -24.18
+- date: 20260603
+- open: 104.5
+- high: 106
+- low: 103
+- close: 103
+- volume: 1378131
+- ma5: 106.6
+- ema23_primary: 106.98
+- distance_to_ema23_pct: -3.72
+- ma20: 108.58
+- ma60: 98.78
+- ma120: 94.78
+- return_5d: -2.83
+- return_20d: -11.97
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: -5.13
+- distance_to_high_60_pct: -24.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,123,125,113,117,3788282,105.97,10.4,103.98,94.01,0.93
 20260507,117,127,115.5,121.5,2720319,107.27,13.27,105.85,94.45,0.65
 20260508,120.5,123.5,115.5,116,1597748,108,7.41,107.22,94.91,0.39
 20260511,120,122.5,115,115.5,3439232,108.62,6.33,108.56,95.41,0.82
@@ -143,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,104,111.5,103,111.5,3333458,107.17,4.04,110.7,98,1.34
 20260601,115,119.5,111.5,113.5,5068242,107.7,5.39,110.22,98.4,2.02
 20260602,113,113,102.5,103.5,3207820,107.35,-3.58,109.28,98.59,1.26
+20260603,104.5,106,103,103,1378131,106.98,-3.72,108.58,98.78,0.57
 ```
 
 ## Latest TDCC Snapshot
@@ -170,19 +166,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 8103 | 瀚荃 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 8103 | 瀚荃 | 1 | 1 | 4 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 8103 | 瀚荃 | 17 | 0 | 3054800.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 8103 | 瀚荃 | 17 | 0 | 4291050.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

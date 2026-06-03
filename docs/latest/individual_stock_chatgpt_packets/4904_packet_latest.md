@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4904 遠傳
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:50 Asia/Taipei
+- generated_at: 2026-06-04 01:55:49 Asia/Taipei
 - stock_id: 4904
 - stock_name: 遠傳
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,14 +55,18 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: healthy_pullback
 - entry_style: pullback_to_23ema
-- position_sizing: observe_only
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -71,6 +75,7 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -97,29 +102,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 97
-- high: 99.6
-- low: 97
-- close: 99.5
-- volume: 14379400
-- ma5: 95.54
-- ema23_primary: 95.77
-- distance_to_ema23_pct: 3.9
-- ma20: 96.02
-- ma60: 94.66
-- ma120: 92.1
-- return_5d: 5.85
-- return_20d: 3.86
-- volume_ratio: 1.84
-- distance_to_ma20_pct_auxiliary: 3.62
-- distance_to_high_60_pct: -0.1
+- date: 20260603
+- open: 99.9
+- high: 101.5
+- low: 98.6
+- close: 100.5
+- volume: 9932294
+- ma5: 97.06
+- ema23_primary: 96.16
+- distance_to_ema23_pct: 4.51
+- ma20: 96.29
+- ma60: 94.79
+- ma120: 92.2
+- return_5d: 8.18
+- return_20d: 5.68
+- volume_ratio: 1.23
+- distance_to_ma20_pct_auxiliary: 4.37
+- distance_to_high_60_pct: -0.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,96.8,96.8,95.1,95.1,5452066,94.93,0.18,95.41,93.33,0.84
 20260507,96,96.3,95.3,95.4,5049092,94.97,0.45,95.51,93.43,0.78
 20260508,95.5,96.4,94.8,95.9,8954831,95.05,0.89,95.54,93.55,1.38
 20260511,96.3,96.9,95.9,96.2,2828872,95.15,1.11,95.62,93.67,0.44
@@ -139,6 +143,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,93.6,94.9,93.5,94.6,20793915,95.28,-0.71,95.69,94.45,2.9
 20260601,95.4,97.6,94.6,97.1,10021141,95.43,1.75,95.83,94.53,1.37
 20260602,97,99.6,97,99.5,14379400,95.77,3.9,96.02,94.66,1.84
+20260603,99.9,101.5,98.6,100.5,9932294,96.16,4.51,96.29,94.79,1.23
 ```
 
 ## Latest TDCC Snapshot
@@ -166,14 +171,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260603 | 4904 | 遠傳 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: ex_dividend on 20260708; status=confirmed; proximity=within_60d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260603 | 4904 | 遠傳 | 1 | 1 | 2 | 2 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
 | status |

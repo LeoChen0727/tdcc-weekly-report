@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6456 GIS-KY
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:08 Asia/Taipei
+- generated_at: 2026-06-04 01:56:25 Asia/Taipei
 - stock_id: 6456
 - stock_name: GIS-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,7 +58,7 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: high_level_distribution_risk
 - entry_style: current_price_ok
 - position_sizing: starter_1_4
 
@@ -78,7 +78,6 @@
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -93,6 +92,7 @@
 ### downgrade_reason
 - insufficient_tdcc_history
 - tdcc_distribution_warning
+- price_too_extended
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -100,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 84
-- high: 86.4
-- low: 79.9
-- close: 82.9
-- volume: 25276861
-- ma5: 78.78
-- ema23_primary: 73.94
-- distance_to_ema23_pct: 12.11
-- ma20: 72.19
-- ma60: 67.74
-- ma120: 55.67
-- return_5d: 1.1
-- return_20d: 2.73
-- volume_ratio: 1.57
-- distance_to_ma20_pct_auxiliary: 14.83
-- distance_to_high_60_pct: -4.05
+- date: 20260603
+- open: 88.9
+- high: 91.1
+- low: 88.9
+- close: 91.1
+- volume: 7647761
+- ma5: 81.2
+- ema23_primary: 75.37
+- distance_to_ema23_pct: 20.86
+- ma20: 73.11
+- ma60: 68.22
+- ma120: 56.08
+- return_5d: 15.32
+- return_20d: 24.97
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: 24.62
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,78,79,72.7,72.9,18343677,71.62,1.79,72.12,59.08,1.34
 20260507,73,73.4,70.5,70.9,11438959,71.56,-0.92,72.89,59.57,0.81
 20260508,70.5,70.6,65.3,65.5,11819557,71.05,-7.81,73.45,60,0.82
 20260511,65.4,67.9,63.9,66.6,6519578,70.68,-5.77,74.14,60.45,0.45
@@ -142,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,72,77.4,72,76.5,18360080,72.15,6.03,71.78,66.78,1.37
 20260601,78.4,84.1,78,83.9,36104373,73.13,14.73,72.08,67.31,2.39
 20260602,84,86.4,79.9,82.9,25276861,73.94,12.11,72.19,67.74,1.57
+20260603,88.9,91.1,88.9,91.1,7647761,75.37,20.86,73.11,68.22,0.49
 ```
 
 ## Latest TDCC Snapshot
@@ -171,17 +171,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 6456 | GIS-KY | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 6456 | GIS-KY | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6456 | GIS-KY | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 6456 | GIS-KY | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6456 | GIS-KY | 45 | 0 | 20186990.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 6456 | GIS-KY | 45 | 0 | 7785170.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

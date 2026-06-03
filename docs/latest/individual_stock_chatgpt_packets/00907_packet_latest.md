@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00907 永豐優息存股
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:09 Asia/Taipei
+- generated_at: 2026-06-04 01:54:04 Asia/Taipei
 - stock_id: 00907
 - stock_name: 永豐優息存股
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260602
-- price_rows: 8
+- latest_price_date: 20260603
+- price_rows: 9
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -59,7 +59,7 @@
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: observe_only
 
 ### management_plan
@@ -72,7 +72,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -97,23 +96,23 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 15.64
-- high: 15.8
-- low: 15.53
-- close: 15.8
-- volume: 4075735
-- ma5: 15.38
-- ema23_primary: 15.07
-- distance_to_ema23_pct: 4.87
-- ma20: 15.2
-- ma60: 15.2
-- ma120: 15.2
-- return_5d: 5.9
+- date: 20260603
+- open: 15.89
+- high: 16.44
+- low: 15.88
+- close: 16.43
+- volume: 6932947
+- ma5: 15.66
+- ema23_primary: 15.18
+- distance_to_ema23_pct: 8.24
+- ma20: 15.33
+- ma60: 15.33
+- ma120: 15.33
+- return_5d: 9.24
 - return_20d: 
-- volume_ratio: 1.57
-- distance_to_ma20_pct_auxiliary: 3.97
-- distance_to_high_60_pct: 0
+- volume_ratio: 2.26
+- distance_to_ma20_pct_auxiliary: 7.15
+- distance_to_high_60_pct: -0.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -127,6 +126,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,15.17,15.37,15.17,15.35,2801603,14.94,2.74,15.02,15.02,1.24
 20260601,15.35,15.66,15.35,15.64,3139466,15,4.27,15.11,15.11,1.32
 20260602,15.64,15.8,15.53,15.8,4075735,15.07,4.87,15.2,15.2,1.57
+20260603,15.89,16.44,15.88,16.43,6932947,15.18,8.24,15.33,15.33,2.26
 ```
 
 ## Latest TDCC Snapshot

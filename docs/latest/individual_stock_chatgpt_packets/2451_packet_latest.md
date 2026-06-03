@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2451 創見
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:40 Asia/Taipei
+- generated_at: 2026-06-04 01:54:46 Asia/Taipei
 - stock_id: 2451
 - stock_name: 創見
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,15 +55,15 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
-- position_sizing: half_position
+- thesis_state: unclear
+- entry_style: current_price_ok
+- position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -75,11 +75,8 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -95,6 +92,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -102,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 364
-- high: 379
-- low: 350.5
-- close: 363.5
-- volume: 14115945
-- ma5: 340.4
-- ema23_primary: 316.73
-- distance_to_ema23_pct: 14.77
-- ma20: 326.18
-- ma60: 276.08
-- ma120: 243.77
-- return_5d: 14.85
-- return_20d: 28.45
-- volume_ratio: 1.4
-- distance_to_ma20_pct_auxiliary: 11.44
-- distance_to_high_60_pct: -4.09
+- date: 20260603
+- open: 369
+- high: 369
+- low: 348
+- close: 358
+- volume: 9314022
+- ma5: 347.8
+- ema23_primary: 320.17
+- distance_to_ema23_pct: 11.81
+- ma20: 328.95
+- ma60: 278.43
+- ma120: 245.22
+- return_5d: 11.53
+- return_20d: 18.35
+- volume_ratio: 0.97
+- distance_to_ma20_pct_auxiliary: 8.83
+- distance_to_high_60_pct: -5.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,304,311,293.5,302.5,19504176,259.49,16.57,257.07,243.67,1.83
 20260507,312,312,293.5,302.5,11635228,263.08,14.98,259.8,244.53,1.08
 20260508,313,330,301.5,312.5,22628468,267.2,16.95,263.77,245.43,2
 20260511,333,343.5,332.5,343.5,14540723,273.56,25.57,268.93,246.71,1.26
@@ -144,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,332,343,329,338,7479786,308.39,9.6,317.55,270.94,0.74
 20260601,351,360,343,357.5,8658486,312.48,14.41,322.15,273.58,0.87
 20260602,364,379,350.5,363.5,14115945,316.73,14.77,326.18,276.08,1.4
+20260603,369,369,348,358,9314022,320.17,11.81,328.95,278.43,0.97
 ```
 
 ## Latest TDCC Snapshot
@@ -173,19 +171,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2451 | 創見 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260602 | 2451 | 創見 | true_breakout | 嚴格突破 | 85.0 |  |  | platform_breakout |  | call_inflow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 2451 | 創見 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_inflow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2451 | 創見 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2451 | 創見 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2451 | 創見 | 9 | 9 | 5 | 9 | 9 | continued_many_days | 連續 9 個交易日上榜，需判斷是持續醞釀或訊號鈍化。 |
+| 20260603 | 2451 | 創見 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2451 | 創見 | 130 | 6 | 42375360.0 | 49400.0 | 857.8 | call_inflow | 1 |  |
+| 20260603 | 2451 | 創見 | 130 | 6 | 24172440.0 | 93030.0 | 259.83 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

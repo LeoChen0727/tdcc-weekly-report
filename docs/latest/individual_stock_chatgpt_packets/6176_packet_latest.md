@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6176 瑞儀
 
 ## Metadata
-- generated_at: 2026-06-02 23:28:45 Asia/Taipei
+- generated_at: 2026-06-04 01:56:14 Asia/Taipei
 - stock_id: 6176
 - stock_name: 瑞儀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -97,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 105.5
-- high: 106
-- low: 101.5
-- close: 103.5
-- volume: 12251701
-- ma5: 103.7
-- ema23_primary: 102.77
-- distance_to_ema23_pct: 0.71
+- date: 20260603
+- open: 104.5
+- high: 104.5
+- low: 102
+- close: 102.5
+- volume: 10505186
+- ma5: 103.9
+- ema23_primary: 102.75
+- distance_to_ema23_pct: -0.24
 - ma20: 103.45
-- ma60: 97.89
-- ma120: 109.54
-- return_5d: -1.43
-- return_20d: 0.98
-- volume_ratio: 1.7
-- distance_to_ma20_pct_auxiliary: 0.05
-- distance_to_high_60_pct: -11.16
+- ma60: 97.86
+- ma120: 109.39
+- return_5d: 0.99
+- return_20d: 0
+- volume_ratio: 1.43
+- distance_to_ma20_pct_auxiliary: -0.92
+- distance_to_high_60_pct: -12.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,104,104,101.5,102.5,7522949,98.21,4.37,96.16,103.3,0.69
 20260507,103,104,101.5,102,6271224,98.53,3.53,96.69,102.92,0.57
 20260508,102,106,101.5,104.5,7469421,99.02,5.53,97.34,102.59,0.67
 20260511,104.5,105,102.5,104,6020385,99.44,4.59,98.09,102.29,0.53
@@ -139,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,103.5,109.5,102,106.5,10413493,102.5,3.9,103.2,97.75,1.56
 20260601,104,105.5,102,105,10495679,102.71,2.23,103.4,97.85,1.53
 20260602,105.5,106,101.5,103.5,12251701,102.77,0.71,103.45,97.89,1.7
+20260603,104.5,104.5,102,102.5,10505186,102.75,-0.24,103.45,97.86,1.43
 ```
 
 ## Latest TDCC Snapshot
@@ -178,7 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6176 | 瑞儀 | 21 | 1 | 4424680.0 | 30500.0 | 145.07 | no_signal | 0 |  |
+| 20260603 | 6176 | 瑞儀 | 21 | 1 | 4263370.0 | 60700.0 | 70.24 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

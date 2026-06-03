@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1540 喬福
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:42 Asia/Taipei
+- generated_at: 2026-06-04 01:54:19 Asia/Taipei
 - stock_id: 1540
 - stock_name: 喬福
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,14 +55,20 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: reduce
-- action_rating_label_zh: 減碼
-- confidence_level: low
-- thesis_state: failed_breakout
-- entry_style: no_entry_now
-- position_sizing: reduce_position
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
+- confidence_level: medium
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
@@ -70,9 +76,11 @@
 
 ### entry_prerequisites
 - model_recommended
+- price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
+- no_major_volume_price_failure
 - acceptable_risk_reward
 
 ### post_entry_watch_items
@@ -87,7 +95,6 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
-- volume_price_failure
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -95,29 +102,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 22.55
-- high: 23.15
-- low: 22
-- close: 22.75
-- volume: 1004044
-- ma5: 21.65
-- ema23_primary: 21.33
-- distance_to_ema23_pct: 6.65
-- ma20: 21.1
+- date: 20260603
+- open: 23.1
+- high: 23.1
+- low: 22.5
+- close: 22.85
+- volume: 546300
+- ma5: 22.05
+- ema23_primary: 21.46
+- distance_to_ema23_pct: 6.49
+- ma20: 21.19
 - ma60: 21.63
 - ma120: 22.75
-- return_5d: 7.06
-- return_20d: 5.32
-- volume_ratio: 2.62
-- distance_to_ma20_pct_auxiliary: 7.82
-- distance_to_high_60_pct: -1.94
+- return_5d: 9.59
+- return_20d: 8.29
+- volume_ratio: 1.39
+- distance_to_ma20_pct_auxiliary: 7.85
+- distance_to_high_60_pct: -1.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,21.6,21.6,20.95,21.1,361069,21.5,-1.86,21.48,22.57,1.13
 20260507,21.1,21.2,20.9,21.15,221455,21.47,-1.5,21.43,22.49,0.69
 20260508,21.15,21.4,20.6,20.9,285802,21.42,-2.44,21.38,22.41,0.88
 20260511,20.75,20.85,20.65,20.8,338017,21.37,-2.68,21.32,22.35,1.02
@@ -137,6 +143,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,21.45,21.6,21.15,21.2,377133,21.11,0.42,20.98,21.62,1.16
 20260601,21.2,22.25,21.2,22.2,778391,21.2,4.71,21.04,21.62,2.27
 20260602,22.55,23.15,22,22.75,1004044,21.33,6.65,21.1,21.63,2.62
+20260603,23.1,23.1,22.5,22.85,546300,21.46,6.49,21.19,21.63,1.39
 ```
 
 ## Latest TDCC Snapshot
@@ -166,12 +173,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1540 | 喬福 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 1540 | 喬福 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1540 | 喬福 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| 20260603 | 1540 | 喬福 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。 |
 
 ## Warrant Context
 | status |

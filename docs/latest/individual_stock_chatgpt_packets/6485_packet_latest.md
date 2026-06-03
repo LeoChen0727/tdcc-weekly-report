@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6485 點序
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:10 Asia/Taipei
+- generated_at: 2026-06-04 01:56:26 Asia/Taipei
 - stock_id: 6485
 - stock_name: 點序
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,14 +55,20 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: wait_pullback
-- action_rating_label_zh: 等待回檔
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: high_level_consolidation
-- entry_style: pullback_to_support
-- position_sizing: observe_only
+- thesis_state: unclear
+- entry_style: current_price_ok
+- position_sizing: starter_1_4
 
 ### management_plan
+- buy_first_tranche_now
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
@@ -74,6 +80,7 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -87,7 +94,6 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
-- price_too_extended
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -95,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
+- date: 20260603
 - open: 117
-- high: 123
-- low: 112
-- close: 116.5
-- volume: 118
-- ma5: 109.6
-- ema23_primary: 101.21
-- distance_to_ema23_pct: 15.11
-- ma20: 100.53
-- ma60: 88.67
-- ma120: 88.68
-- return_5d: 3.56
-- return_20d: 28.45
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: 15.88
-- distance_to_high_60_pct: -5.67
+- high: 117
+- low: 110.5
+- close: 113
+- volume: 114000
+- ma5: 110.6
+- ema23_primary: 102.19
+- distance_to_ema23_pct: 10.58
+- ma20: 101.73
+- ma60: 89.17
+- ma120: 89.06
+- return_5d: 4.63
+- return_20d: 26.82
+- volume_ratio: 0.06
+- distance_to_ma20_pct_auxiliary: 11.08
+- distance_to_high_60_pct: -8.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,93.4,95.5,89.1,89.1,2154000,83.08,7.25,81.05,86.57,2.28
 20260507,89.6,90.9,86.7,86.7,981000,83.38,3.98,81.39,85.94,1.01
 20260508,85.2,87.3,80.3,82.6,1204000,83.31,-0.86,81.67,85.44,1.19
 20260511,83.9,86.9,83.2,84.2,535000,83.39,0.97,81.94,85.01,0.53
@@ -137,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,107,108.5,102.5,105,105000,98.39,6.72,97.81,87.48,0.05
 20260601,105.5,115.5,105.5,115.5,113,99.81,15.71,99.25,88.11,0
 20260602,117,123,112,116.5,118,101.21,15.11,100.53,88.67,0
+20260603,117,117,110.5,113,114000,102.19,10.58,101.73,89.17,0.06
 ```
 
 ## Latest TDCC Snapshot
@@ -166,12 +172,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 6485 | 點序 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 6485 | 點序 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6485 | 點序 | 9 | 9 | 5 | 9 | 9 | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 6485 | 點序 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

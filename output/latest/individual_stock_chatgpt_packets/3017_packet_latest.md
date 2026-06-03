@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3017 奇鋐
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:18 Asia/Taipei
+- generated_at: 2026-06-04 01:55:05 Asia/Taipei
 - stock_id: 3017
 - stock_name: 奇鋐
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,11 +59,11 @@
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -76,7 +76,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -101,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 2800
-- high: 2835
-- low: 2650
-- close: 2700
-- volume: 4220815
-- ma5: 2686
-- ema23_primary: 2576.72
-- distance_to_ema23_pct: 4.78
-- ma20: 2543.75
-- ma60: 2347.17
-- ma120: 1908.71
-- return_5d: -0.92
-- return_20d: -0.18
-- volume_ratio: 0.7
-- distance_to_ma20_pct_auxiliary: 6.14
-- distance_to_high_60_pct: -10.3
+- date: 20260603
+- open: 2750
+- high: 2965
+- low: 2700
+- close: 2855
+- volume: 6908395
+- ma5: 2717
+- ema23_primary: 2599.91
+- distance_to_ema23_pct: 9.81
+- ma20: 2564.75
+- ma60: 2364
+- ma120: 1921.04
+- return_5d: 5.74
+- return_20d: 17.25
+- volume_ratio: 1.18
+- distance_to_ma20_pct_auxiliary: 11.32
+- distance_to_high_60_pct: -5.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,2680,2685,2435,2435,11438234,2519.04,-3.34,2554.5,2055,2.31
 20260507,2445,2500,2380,2415,11314013,2510.37,-3.8,2563.75,2070.83,2.13
 20260508,2405,2500,2350,2445,5937295,2504.92,-2.39,2574.25,2086.67,1.1
 20260511,2485,2590,2455,2555,6204661,2509.1,1.83,2588.75,2104.92,1.12
@@ -143,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,2680,2730,2615,2665,9351169,2545.56,4.69,2549,2315.25,1.51
 20260601,2705,2835,2705,2785,5090031,2565.52,8.56,2544,2332.5,0.81
 20260602,2800,2835,2650,2700,4220815,2576.72,4.78,2543.75,2347.17,0.7
+20260603,2750,2965,2700,2855,6908395,2599.91,9.81,2564.75,2364,1.18
 ```
 
 ## Latest TDCC Snapshot
@@ -172,17 +171,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3017 | 奇鋐 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260603 | 3017 | 奇鋐 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3017 | 奇鋐 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 3017 | 奇鋐 | 10 | 1 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3017 | 奇鋐 | 414 | 38 | 97620000.0 | 295390.0 | 330.48 | no_signal | 0 | 認購權證成交量與成交金額同步偏大，短線資金關注度高 |
+| 20260603 | 3017 | 奇鋐 | 415 | 36 | 149548080.0 | 481630.0 | 310.5 | call_inflow | 1 | 認購權證成交金額很大且認購/認售比偏高，需檢查標的是否高位追價或獲利結清；認購權證成交量與成交金額同步偏大，短線資金關注度高 |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

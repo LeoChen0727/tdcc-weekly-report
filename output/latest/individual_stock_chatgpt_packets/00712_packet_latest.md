@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00712 復華富時不動產
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:06 Asia/Taipei
+- generated_at: 2026-06-04 01:54:03 Asia/Taipei
 - stock_id: 00712
 - stock_name: 復華富時不動產
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260602
-- price_rows: 8
+- latest_price_date: 20260603
+- price_rows: 9
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -97,22 +97,22 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 8.73
-- high: 8.77
-- low: 8.7
+- date: 20260603
+- open: 8.78
+- high: 8.78
+- low: 8.75
 - close: 8.76
-- volume: 49527463
+- volume: 56562405
 - ma5: 8.77
 - ema23_primary: 8.77
-- distance_to_ema23_pct: -0.11
+- distance_to_ema23_pct: -0.1
 - ma20: 8.77
 - ma60: 8.77
 - ma120: 8.77
-- return_5d: 0.11
+- return_5d: -0.11
 - return_20d: 
-- volume_ratio: 1.88
-- distance_to_ma20_pct_auxiliary: -0.09
+- volume_ratio: 1.91
+- distance_to_ma20_pct_auxiliary: -0.08
 - distance_to_high_60_pct: -0.79
 
 ## Recent Price Preview
@@ -127,6 +127,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,8.76,8.78,8.76,8.78,14742078,8.77,0.14,8.76,8.76,0.65
 20260601,8.8,8.81,8.77,8.8,25159445,8.77,0.34,8.77,8.77,1.09
 20260602,8.73,8.77,8.7,8.76,49527463,8.77,-0.11,8.77,8.77,1.88
+20260603,8.78,8.78,8.75,8.76,56562405,8.77,-0.1,8.77,8.77,1.91
 ```
 
 ## Latest TDCC Snapshot

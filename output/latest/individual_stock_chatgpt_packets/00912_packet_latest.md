@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00912 中信臺灣智慧50
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:09 Asia/Taipei
+- generated_at: 2026-06-04 01:54:04 Asia/Taipei
 - stock_id: 00912
 - stock_name: 中信臺灣智慧50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260602
-- price_rows: 8
+- latest_price_date: 20260603
+- price_rows: 9
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -97,23 +97,23 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 33
-- high: 33.1
-- low: 32.57
-- close: 33.1
-- volume: 1205484
-- ma5: 32.49
-- ema23_primary: 31.55
-- distance_to_ema23_pct: 4.91
-- ma20: 32.1
-- ma60: 32.1
-- ma120: 32.1
-- return_5d: 4.38
+- date: 20260603
+- open: 33.51
+- high: 33.89
+- low: 33.51
+- close: 33.8
+- volume: 1033113
+- ma5: 32.81
+- ema23_primary: 31.74
+- distance_to_ema23_pct: 6.5
+- ma20: 32.29
+- ma60: 32.29
+- ma120: 32.29
+- return_5d: 4.87
 - return_20d: 
-- volume_ratio: 1.12
-- distance_to_ma20_pct_auxiliary: 3.12
-- distance_to_high_60_pct: -0.45
+- volume_ratio: 0.97
+- distance_to_ma20_pct_auxiliary: 4.69
+- distance_to_high_60_pct: -0.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -127,6 +127,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,32.15,32.65,32.15,32.6,1103288,31.27,4.25,31.79,31.79,1.06
 20260601,32.7,33.25,32.7,32.94,1151836,31.41,4.88,31.95,31.95,1.09
 20260602,33,33.1,32.57,33.1,1205484,31.55,4.91,32.1,32.1,1.12
+20260603,33.51,33.89,33.51,33.8,1033113,31.74,6.5,32.29,32.29,0.97
 ```
 
 ## Latest TDCC Snapshot

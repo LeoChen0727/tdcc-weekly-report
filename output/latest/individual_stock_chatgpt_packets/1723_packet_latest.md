@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1723 中碳
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:54 Asia/Taipei
+- generated_at: 2026-06-04 01:54:24 Asia/Taipei
 - stock_id: 1723
 - stock_name: 中碳
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 27
 - tdcc_history_status: tdcc_history_ready
@@ -97,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 83.8
-- high: 83.9
-- low: 82.2
-- close: 83.7
-- volume: 905289
-- ma5: 82.74
-- ema23_primary: 81.13
-- distance_to_ema23_pct: 3.17
-- ma20: 80.89
-- ma60: 79
-- ma120: 74.8
-- return_5d: 2.07
-- return_20d: 7.31
-- volume_ratio: 1.1
-- distance_to_ma20_pct_auxiliary: 3.48
-- distance_to_high_60_pct: -10.86
+- date: 20260603
+- open: 83
+- high: 84.9
+- low: 82.7
+- close: 84.1
+- volume: 793021
+- ma5: 83.36
+- ema23_primary: 81.37
+- distance_to_ema23_pct: 3.35
+- ma20: 81.15
+- ma60: 79.25
+- ma120: 74.9
+- return_5d: 3.83
+- return_20d: 6.73
+- volume_ratio: 0.95
+- distance_to_ma20_pct_auxiliary: 3.64
+- distance_to_high_60_pct: -10.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,78.2,79,77.4,78.8,611663,79.15,-0.44,79.73,76.24,0.48
 20260507,78.6,79.3,78.3,78.7,528358,79.11,-0.52,79.76,76.33,0.49
 20260508,80.2,82,78.7,79.9,1227386,79.18,0.92,79.89,76.42,1.21
 20260511,80,82.3,80,80.8,1171379,79.31,1.88,80.03,76.53,1.15
@@ -139,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,83,83.4,81.5,82.3,655076,80.62,2.08,80.26,78.51,0.85
 20260601,82.3,84.5,82,83.9,1258260,80.89,3.72,80.6,78.76,1.58
 20260602,83.8,83.9,82.2,83.7,905289,81.13,3.17,80.89,79,1.1
+20260603,83,84.9,82.7,84.1,793021,81.37,3.35,81.15,79.25,0.95
 ```
 
 ## Latest TDCC Snapshot
@@ -185,7 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1723 | 中碳 | 8 | 0 | 2468610.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260603 | 1723 | 中碳 | 8 | 0 | 729900.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

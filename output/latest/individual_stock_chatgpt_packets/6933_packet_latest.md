@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6933 AMAX-KY
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:55 Asia/Taipei
+- generated_at: 2026-06-04 01:56:46 Asia/Taipei
 - stock_id: 6933
 - stock_name: AMAX-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,11 +59,11 @@
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -76,7 +76,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -101,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 194.5
+- date: 20260603
+- open: 185.5
 - high: 195
-- low: 180
-- close: 183
-- volume: 1542070
-- ma5: 173.2
-- ema23_primary: 168.74
-- distance_to_ema23_pct: 8.45
-- ma20: 167.9
-- ma60: 158.01
-- ma120: 152.34
-- return_5d: 10.57
-- return_20d: 6.4
-- volume_ratio: 3.85
-- distance_to_ma20_pct_auxiliary: 8.99
-- distance_to_high_60_pct: -11.59
+- low: 183
+- close: 186
+- volume: 745785
+- ma5: 177.6
+- ema23_primary: 170.18
+- distance_to_ema23_pct: 9.3
+- ma20: 168.7
+- ma60: 158.91
+- ma120: 152.53
+- return_5d: 13.41
+- return_20d: 9.41
+- volume_ratio: 1.75
+- distance_to_ma20_pct_auxiliary: 10.25
+- distance_to_high_60_pct: -10.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,174.5,174.5,166.5,170,254690,167.43,1.54,177,147.97,0.31
 20260507,171,175,169,170.5,216128,167.68,1.68,177.47,148.44,0.3
 20260508,170.5,172,162,165,211808,167.46,-1.47,177.62,148.82,0.31
 20260511,166.5,167,162,163,169842,167.09,-2.45,176.88,149.26,0.28
@@ -143,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,158.5,172.5,158.5,172.5,466925,165.44,4.27,166.35,156.13,1.46
 20260601,189,189.5,188.5,189.5,651087,167.45,13.17,167.35,157.16,1.94
 20260602,194.5,195,180,183,1542070,168.74,8.45,167.9,158.01,3.85
+20260603,185.5,195,183,186,745785,170.18,9.3,168.7,158.91,1.75
 ```
 
 ## Latest TDCC Snapshot
@@ -172,17 +171,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6933 | AMAX-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 6933 | AMAX-KY | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6933 | AMAX-KY | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| 20260603 | 6933 | AMAX-KY | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6933 | AMAX-KY | 2 | 0 | 46480.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 6933 | AMAX-KY | 2 | 0 | 31620.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

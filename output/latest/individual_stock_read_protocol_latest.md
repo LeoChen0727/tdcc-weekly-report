@@ -1,6 +1,6 @@
 # Individual Stock Raw Data Read Protocol
 
-- generated_at: 2026-05-30 23:44:57 Asia/Taipei
+- generated_at: 2026-06-04 01:58:24 Asia/Taipei
 - scope: every Taiwan stock id with repo raw data
 - individual_report_md_is_optional: True
 - individual_stock_chatgpt_packet_is_primary_read_entry: True
@@ -28,14 +28,15 @@ For any `stock_id`, use the same fixed packet-first, raw-data-backed flow. Do no
 2. Read the individual ChatGPT packet first. It gives stable URLs, latest snapshot, recent TDCC rows, candidate context, repeat appearance, and warrant context.
 3. For any K-line, 23EMA, volume, support/resistance, or pattern conclusion, always read `price_window_180_html` first. The 20-row packet preview is not enough for technical analysis.
    Main chart/conclusion rule: use 23EMA as the primary moving-average observation line. MA20 / MA60 / MA120 are backend auxiliary/backtest fields unless the user explicitly asks for them.
-4. If packet/raw/pages returns Cache miss, Internal Error, stale content, or `Total lines: 1`, read the matching GitHub API URL and base64-decode `content`.
-5. Use full price / TDCC raw CSV only for programmatic backtests or extra columns. Do not require ChatGPT to expand full raw CSV before ordinary single-stock analysis.
-6. If raw price history returns Cache miss, Internal Error, stale content, or `Total lines: 1` while the file is expected to be multi-line, use the `price_window_180_html` or GitHub API fallback before downgrading the report.
-7. If price rows >= 60, the stock can be analyzed as `standard_rawdata_report` even when the individual Markdown/PDF report does not exist.
-8. Read TDCC history from the packet first, then TDCC raw/API fallback if needed.
-9. If TDCC rows < 8 weekly rows, mark `insufficient_tdcc_history`; do not make 8-12 week TDCC backtest conclusions.
-10. Read individual report Markdown only as an optional prepared report. If it is missing, continue with packet/raw data.
-11. External websites may supplement news, announcements, broker targets, or events, but must not replace repo price history or repo TDCC history as primary data.
+4. For the main individual-stock report K-line chart, draw only the latest half-year trading window by default: `126` trading days. Keep the 180-day window for analysis context, not for the main chart length.
+5. If packet/raw/pages returns Cache miss, Internal Error, stale content, or `Total lines: 1`, read the matching GitHub API URL and base64-decode `content`.
+6. Use full price / TDCC raw CSV only for programmatic backtests or extra columns. Do not require ChatGPT to expand full raw CSV before ordinary single-stock analysis.
+7. If raw price history returns Cache miss, Internal Error, stale content, or `Total lines: 1` while the file is expected to be multi-line, use the `price_window_180_html` or GitHub API fallback before downgrading the report.
+8. If price rows >= 60, the stock can be analyzed as `standard_rawdata_report` even when the individual Markdown/PDF report does not exist.
+9. Read TDCC history from the packet first, then TDCC raw/API fallback if needed.
+10. If TDCC rows < 8 weekly rows, mark `insufficient_tdcc_history`; do not make 8-12 week TDCC backtest conclusions.
+11. Read individual report Markdown only as an optional prepared report. If it is missing, continue with packet/raw data.
+12. External websites may supplement news, announcements, broker targets, or events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## Status Definitions
 

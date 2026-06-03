@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2834 臺企銀
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:06 Asia/Taipei
+- generated_at: 2026-06-04 01:54:59 Asia/Taipei
 - stock_id: 2834
 - stock_name: 臺企銀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 16.15
-- high: 16.3
-- low: 16.1
-- close: 16.3
-- volume: 29839619
-- ma5: 16.16
-- ema23_primary: 16.07
-- distance_to_ema23_pct: 1.43
-- ma20: 16.07
-- ma60: 15.72
-- ma120: 15.79
-- return_5d: 1.88
-- return_20d: 0.93
-- volume_ratio: 0.96
-- distance_to_ma20_pct_auxiliary: 1.42
-- distance_to_high_60_pct: -3.83
+- date: 20260603
+- open: 16.4
+- high: 16.9
+- low: 16.25
+- close: 16.85
+- volume: 90844677
+- ma5: 16.3
+- ema23_primary: 16.14
+- distance_to_ema23_pct: 4.43
+- ma20: 16.11
+- ma60: 15.75
+- ma120: 15.8
+- return_5d: 4.33
+- return_20d: 4.01
+- volume_ratio: 2.68
+- distance_to_ma20_pct_auxiliary: 4.63
+- distance_to_high_60_pct: -0.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,16.25,16.3,16.1,16.2,33847936,16.02,1.15,16.07,15.6,0.97
 20260507,16.2,16.25,16.15,16.15,35897266,16.03,0.76,16.11,15.61,1.01
 20260508,16.2,16.3,16,16.25,42813107,16.05,1.27,16.15,15.62,1.17
 20260511,16.25,16.3,16.1,16.15,36139965,16.05,0.59,16.19,15.63,0.97
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,16,16.25,15.95,16.25,67812568,16.04,1.34,16.07,15.69,2.16
 20260601,16.25,16.25,16.05,16.2,32673615,16.05,0.94,16.07,15.71,1.04
 20260602,16.15,16.3,16.1,16.3,29839619,16.07,1.43,16.07,15.72,0.96
+20260603,16.4,16.9,16.25,16.85,90844677,16.14,4.43,16.11,15.75,2.68
 ```
 
 ## Latest TDCC Snapshot
@@ -172,17 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2834 | 臺企銀 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2834 | 臺企銀 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2834 | 臺企銀 | 3 | 2 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 2834 | 臺企銀 | 4 | 1 | 4 | 5 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2834 | 臺企銀 | 2 | 0 | 116700.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 2834 | 臺企銀 | 2 | 0 | 498780.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

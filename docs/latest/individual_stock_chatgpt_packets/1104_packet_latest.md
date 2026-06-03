@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1104 環泥
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:14 Asia/Taipei
+- generated_at: 2026-06-04 01:54:07 Asia/Taipei
 - stock_id: 1104
 - stock_name: 環泥
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,8 +58,8 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: breakout_initial
-- entry_style: breakout_follow
+- thesis_state: unclear
+- entry_style: pullback_to_23ema
 - position_sizing: starter_1_4
 
 ### management_plan
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 28
-- high: 28.6
-- low: 27.95
-- close: 28.6
-- volume: 1206785
-- ma5: 27.67
-- ema23_primary: 27.91
-- distance_to_ema23_pct: 2.49
-- ma20: 27.76
+- date: 20260603
+- open: 28.6
+- high: 28.9
+- low: 28.35
+- close: 28.7
+- volume: 1028942
+- ma5: 27.97
+- ema23_primary: 27.97
+- distance_to_ema23_pct: 2.6
+- ma20: 27.78
 - ma60: 28.71
-- ma120: 29.45
-- return_5d: 4.57
-- return_20d: 1.24
-- volume_ratio: 1.49
-- distance_to_ma20_pct_auxiliary: 3.03
-- distance_to_high_60_pct: -5.77
+- ma120: 29.43
+- return_5d: 5.51
+- return_20d: 1.41
+- volume_ratio: 1.22
+- distance_to_ma20_pct_auxiliary: 3.31
+- distance_to_high_60_pct: -5.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,28.25,28.45,28.15,28.3,427061,28.84,-1.87,28.89,29.32,0.58
 20260507,28.35,28.45,27.9,28.3,1523197,28.79,-1.72,28.84,29.29,2.07
 20260508,28.5,28.5,28.15,28.3,571469,28.75,-1.58,28.8,29.27,0.77
 20260511,28.3,28.45,28.25,28.3,610558,28.72,-1.45,28.74,29.24,0.81
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,27.2,27.6,27.2,27.45,733698,27.84,-1.39,27.76,28.73,0.96
 20260601,27.65,27.95,27.6,27.9,969896,27.84,0.21,27.74,28.71,1.27
 20260602,28,28.6,27.95,28.6,1206785,27.91,2.49,27.76,28.71,1.49
+20260603,28.6,28.9,28.35,28.7,1028942,27.97,2.6,27.78,28.71,1.22
 ```
 
 ## Latest TDCC Snapshot
@@ -172,12 +172,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1104 | 環泥 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | first_seen | calendar event: ex_dividend on 20260624; status=confirmed; proximity=within_30d |
+| 20260603 | 1104 | 環泥 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: ex_dividend on 20260624; status=confirmed; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1104 | 環泥 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| 20260603 | 1104 | 環泥 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

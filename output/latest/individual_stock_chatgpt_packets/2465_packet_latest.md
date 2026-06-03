@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2465 麗臺
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:42 Asia/Taipei
+- generated_at: 2026-06-04 01:54:47 Asia/Taipei
 - stock_id: 2465
 - stock_name: 麗臺
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,18 +55,14 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: healthy_pullback
+- thesis_state: unclear
 - entry_style: pullback_to_23ema
-- position_sizing: half_position
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -75,7 +71,6 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -102,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
+- date: 20260603
 - open: 90.3
-- high: 92
-- low: 86.1
-- close: 89.1
-- volume: 3519465
-- ma5: 85.66
-- ema23_primary: 81.05
-- distance_to_ema23_pct: 9.93
-- ma20: 83.25
-- ma60: 68.37
-- ma120: 62.56
-- return_5d: 2.18
-- return_20d: -0.45
-- volume_ratio: 1.24
-- distance_to_ma20_pct_auxiliary: 7.02
-- distance_to_high_60_pct: -5.01
+- high: 90.3
+- low: 82.5
+- close: 82.8
+- volume: 3561322
+- ma5: 85.02
+- ema23_primary: 81.2
+- distance_to_ema23_pct: 1.97
+- ma20: 83.14
+- ma60: 68.9
+- ma120: 62.77
+- return_5d: -3.72
+- return_20d: -2.7
+- volume_ratio: 1.36
+- distance_to_ma20_pct_auxiliary: -0.41
+- distance_to_high_60_pct: -11.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,93.5,93.8,83.2,85.1,7872693,68.94,23.44,67.94,58.77,2.51
 20260507,86.8,88.2,84.2,86.3,3569734,70.39,22.61,69.27,59.28,1.09
 20260508,86.3,88.4,79.5,80.5,3983062,71.23,13.02,70.35,59.7,1.17
 20260511,81.9,87.5,81.9,86.9,3045079,72.53,19.8,71.7,60.25,0.87
@@ -144,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,83.2,86.2,81.6,82.8,1913237,79.58,4.05,82.92,67.08,0.59
 20260601,83.8,90.8,83.8,88.5,4090608,80.32,10.18,83.28,67.73,1.32
 20260602,90.3,92,86.1,89.1,3519465,81.05,9.93,83.25,68.37,1.24
+20260603,90.3,90.3,82.5,82.8,3561322,81.2,1.97,83.14,68.9,1.36
 ```
 
 ## Latest TDCC Snapshot
@@ -171,14 +166,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2465 | 麗臺 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2465 | 麗臺 | 9 | 9 | 5 | 9 | 9 | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

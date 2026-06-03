@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6983 華洋精機
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:59 Asia/Taipei
+- generated_at: 2026-06-04 01:56:48 Asia/Taipei
 - stock_id: 6983
 - stock_name: 華洋精機
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 143
+- latest_price_date: 20260603
+- price_rows: 144
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,7 +59,7 @@
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: current_price_ok
+- entry_style: pullback_to_23ema
 - position_sizing: observe_only
 
 ### management_plan
@@ -72,6 +72,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -96,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 370.5
-- high: 370.5
-- low: 345.5
-- close: 355
-- volume: 356
-- ma5: 384.4
-- ema23_primary: 386.58
-- distance_to_ema23_pct: -8.17
-- ma20: 386.93
-- ma60: 383.31
-- ma120: 382.4
-- return_5d: -24.79
-- return_20d: -6.95
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: -8.25
-- distance_to_high_60_pct: -31.73
+- date: 20260603
+- open: 360
+- high: 375
+- low: 356
+- close: 366
+- volume: 363000
+- ma5: 371.6
+- ema23_primary: 384.87
+- distance_to_ema23_pct: -4.9
+- ma20: 386.15
+- ma60: 383.05
+- ma120: 382.27
+- return_5d: -14.88
+- return_20d: -4.06
+- volume_ratio: 1.7
+- distance_to_ma20_pct_auxiliary: -5.22
+- distance_to_high_60_pct: -29.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20251009,391,400,372,381.5,157161,381.5,0,381.5,381.5,1
 20251013,391,400,372,381.5,157161,381.5,0,381.5,381.5,1
 20251014,391,400,372,381.5,157161,381.5,0,381.5,381.5,1
 20251016,391,400,372,381.5,157161,381.5,0,381.5,381.5,1
@@ -138,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,391,400,372,381.5,382000,391.18,-2.47,388.8,383.93,1.74
 20260601,380,398,361.5,370.5,374,389.46,-4.87,388.25,383.75,0
 20260602,370.5,370.5,345.5,355,356,386.58,-8.17,386.93,383.31,0
+20260603,360,375,356,366,363000,384.87,-4.9,386.15,383.05,1.7
 ```
 
 ## Latest TDCC Snapshot

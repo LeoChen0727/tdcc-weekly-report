@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7842 天能綠電
 
 ## Metadata
-- generated_at: 2026-06-02 23:30:46 Asia/Taipei
+- generated_at: 2026-06-04 01:57:10 Asia/Taipei
 - stock_id: 7842
 - stock_name: 天能綠電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 153
+- latest_price_date: 20260603
+- price_rows: 154
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -97,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 119
-- high: 119
-- low: 111.5
-- close: 111.5
-- volume: 113
-- ma5: 112
-- ema23_primary: 110.36
-- distance_to_ema23_pct: 1.03
-- ma20: 110.5
-- ma60: 110.17
-- ma120: 110.08
-- return_5d: -7.85
-- return_20d: 1.36
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: 0.91
-- distance_to_high_60_pct: -12.55
+- date: 20260603
+- open: 112
+- high: 114.5
+- low: 111
+- close: 113
+- volume: 113000
+- ma5: 111.6
+- ema23_primary: 110.58
+- distance_to_ema23_pct: 2.19
+- ma20: 110.65
+- ma60: 110.22
+- ma120: 110.11
+- return_5d: -1.74
+- return_20d: 2.73
+- volume_ratio: 0.9
+- distance_to_ma20_pct_auxiliary: 2.12
+- distance_to_high_60_pct: -11.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20251029,114,114,110,110,51597,110,0,110,110,1
 20251030,114,114,110,110,51597,110,0,110,110,1
 20251031,114,114,110,110,51597,110,0,110,110,1
 20260511,119,127.5,108,125.5,599000,111.29,12.77,110.78,110.26,7.59
@@ -139,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,114,114,110,110,111000,110.01,-0.01,110.28,110.09,0.87
 20260601,110,114.5,110,113,112,110.26,2.49,110.42,110.14,0
 20260602,119,119,111.5,111.5,113,110.36,1.03,110.5,110.17,0
+20260603,112,114.5,111,113,113000,110.58,2.19,110.65,110.22,0.9
 ```
 
 ## Latest TDCC Snapshot

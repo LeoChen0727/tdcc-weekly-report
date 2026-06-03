@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1560 中砂
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:42 Asia/Taipei
+- generated_at: 2026-06-04 01:54:20 Asia/Taipei
 - stock_id: 1560
 - stock_name: 中砂
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -100,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 711
-- high: 715
-- low: 688
-- close: 697
-- volume: 3369946
+- date: 20260603
+- open: 707
+- high: 733
+- low: 707
+- close: 727
+- volume: 1623409
 - ma5: 715.2
-- ema23_primary: 654.3
-- distance_to_ema23_pct: 6.53
-- ma20: 662.2
-- ma60: 549.12
-- ma120: 477.39
-- return_5d: -6.06
-- return_20d: 21.85
-- volume_ratio: 1.19
-- distance_to_ma20_pct_auxiliary: 5.26
-- distance_to_high_60_pct: -7.07
+- ema23_primary: 660.36
+- distance_to_ema23_pct: 10.09
+- ma20: 669.75
+- ma60: 553.12
+- ma120: 480.77
+- return_5d: 0
+- return_20d: 26.22
+- volume_ratio: 0.6
+- distance_to_ma20_pct_auxiliary: 8.55
+- distance_to_high_60_pct: -3.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,583,601,562,576,3768769,524.51,9.82,531.5,479.35,1.31
 20260507,582,595,563,577,2910067,528.88,9.1,535.3,481.84,1.02
 20260508,588,617,568,572,3249555,532.48,7.42,538.5,484.23,1.13
 20260511,584,629,581,629,4553067,540.52,16.37,544.15,487.93,1.53
@@ -142,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,726,731,707,718,1503335,644.37,11.43,647.95,541.27,0.52
 20260601,721,727,709,717,1098703,650.42,10.24,655.95,545.48,0.4
 20260602,711,715,688,697,3369946,654.3,6.53,662.2,549.12,1.19
+20260603,707,733,707,727,1623409,660.36,10.09,669.75,553.12,0.6
 ```
 
 ## Latest TDCC Snapshot
@@ -171,17 +171,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1560 | 中砂 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 1560 | 中砂 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1560 | 中砂 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| 20260603 | 1560 | 中砂 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1560 | 中砂 | 156 | 14 | 8543640.0 | 39720.0 | 215.1 | no_signal | 0 |  |
+| 20260603 | 1560 | 中砂 | 157 | 14 | 12476060.0 | 85350.0 | 146.18 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

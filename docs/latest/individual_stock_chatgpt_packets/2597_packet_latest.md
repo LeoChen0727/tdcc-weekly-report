@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2597 潤弘
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:53 Asia/Taipei
+- generated_at: 2026-06-04 01:54:53 Asia/Taipei
 - stock_id: 2597
 - stock_name: 潤弘
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,15 +55,15 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: buy_now
-- action_rating_label_zh: 建議買進
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: breakout_initial
-- entry_style: breakout_follow
-- position_sizing: normal_position
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
-- buy_first_tranche_now
+- buy_first_tranche_near_support
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -76,9 +76,8 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_priority_high
-- decision_score_high
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -103,29 +102,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 168
-- high: 180
-- low: 166.5
-- close: 173.5
-- volume: 3924400
-- ma5: 164.1
-- ema23_primary: 161.05
-- distance_to_ema23_pct: 7.73
-- ma20: 161.1
-- ma60: 157.81
-- ma120: 164.01
-- return_5d: 10.16
-- return_20d: 13.77
-- volume_ratio: 4.2
-- distance_to_ma20_pct_auxiliary: 7.7
-- distance_to_high_60_pct: -3.61
+- date: 20260603
+- open: 175
+- high: 181.5
+- low: 174
+- close: 176
+- volume: 3640235
+- ma5: 167.8
+- ema23_primary: 162.3
+- distance_to_ema23_pct: 8.44
+- ma20: 162.12
+- ma60: 157.93
+- ma120: 164.05
+- return_5d: 11.75
+- return_20d: 13.18
+- volume_ratio: 3.45
+- distance_to_ma20_pct_auxiliary: 8.56
+- distance_to_high_60_pct: -3.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,153,157,152.5,155.5,1265895,154.93,0.37,154.4,160.55,1.58
 20260507,154.5,157.5,153.5,156,1073051,155.02,0.63,154.53,160.3,1.29
 20260508,157,157.5,154.5,156,927146,155.1,0.58,154.7,160.06,1.08
 20260511,156,161.5,156,160,783756,155.51,2.89,154.9,159.93,0.9
@@ -145,6 +143,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,158.5,166,157,166,1330536,159.32,4.19,159.4,157.72,1.77
 20260601,164.5,169,163.5,166.5,1026549,159.92,4.12,160.05,157.73,1.34
 20260602,168,180,166.5,173.5,3924400,161.05,7.73,161.1,157.81,4.2
+20260603,175,181.5,174,176,3640235,162.3,8.44,162.12,157.93,3.45
 ```
 
 ## Latest TDCC Snapshot
@@ -174,12 +173,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2597 | 潤弘 | true_breakout | 嚴格突破 | 159.0 |  |  | platform_breakout |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2597 | 潤弘 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2597 | 潤弘 | 3 | 1 | 3 | 3 | 3 | continued_2_3d | 連續 3 個交易日上榜，訊號延續但仍需確認。 |
+| 20260603 | 2597 | 潤弘 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 次、近 20 日上榜 4 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

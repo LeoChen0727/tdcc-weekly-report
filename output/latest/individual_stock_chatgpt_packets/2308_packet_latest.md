@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2308 台達電
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:20 Asia/Taipei
+- generated_at: 2026-06-04 01:54:36 Asia/Taipei
 - stock_id: 2308
 - stock_name: 台達電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -100,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 2430
-- high: 2455
-- low: 2330
-- close: 2360
-- volume: 12331189
-- ma5: 2427
-- ema23_primary: 2197.27
-- distance_to_ema23_pct: 7.41
-- ma20: 2213.75
-- ma60: 1849.83
-- ma120: 1473.86
-- return_5d: 0.43
-- return_20d: 9.01
-- volume_ratio: 1.03
-- distance_to_ma20_pct_auxiliary: 6.61
-- distance_to_high_60_pct: -8.7
+- date: 20260603
+- open: 2420
+- high: 2460
+- low: 2410
+- close: 2455
+- volume: 10882344
+- ma5: 2414
+- ema23_primary: 2218.74
+- distance_to_ema23_pct: 10.65
+- ma20: 2226
+- ma60: 1868.75
+- ma120: 1486.55
+- return_5d: -2.58
+- return_20d: 11.09
+- volume_ratio: 0.93
+- distance_to_ma20_pct_auxiliary: 10.29
+- distance_to_high_60_pct: -5.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,2215,2270,2150,2210,15562046,1930.03,14.51,1953,1552.08,1.21
 20260507,2275,2370,2250,2280,15656408,1959.19,16.37,1983.75,1568.75,1.21
 20260508,2230,2250,2170,2200,11802071,1979.26,11.15,2011.5,1584.5,0.92
 20260511,2215,2270,2205,2245,9200516,2001.41,12.17,2037,1601.58,0.73
@@ -142,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,2470,2525,2445,2445,17179076,2160.88,13.15,2194,1813.33,1.43
 20260601,2450,2520,2410,2420,9840869,2182.47,10.88,2204,1832.75,0.83
 20260602,2430,2455,2330,2360,12331189,2197.27,7.41,2213.75,1849.83,1.03
+20260603,2420,2460,2410,2455,10882344,2218.74,10.65,2226,1868.75,0.93
 ```
 
 ## Latest TDCC Snapshot
@@ -171,18 +171,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2308 | 台達電 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_30d |
-| 20260602 | 2308 | 台達電 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260603 | 2308 | 台達電 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2308 | 台達電 | 1 | 1 | 2 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 2308 | 台達電 | 1 | 1 | 1 | 6 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2308 | 台達電 | 288 | 51 | 47405470.0 | 239890.0 | 197.61 | no_signal | 0 |  |
+| 20260603 | 2308 | 台達電 | 284 | 49 | 36030360.0 | 144250.0 | 249.78 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

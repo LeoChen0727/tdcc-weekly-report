@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1503 士電
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:36 Asia/Taipei
+- generated_at: 2026-06-04 01:54:17 Asia/Taipei
 - stock_id: 1503
 - stock_name: 士電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,7 +58,7 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: high_level_distribution_risk
 - entry_style: current_price_ok
 - position_sizing: starter_1_4
 
@@ -78,7 +78,6 @@
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -93,6 +92,7 @@
 ### downgrade_reason
 - insufficient_tdcc_history
 - tdcc_distribution_warning
+- price_too_extended
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -100,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 220.5
-- high: 222.5
-- low: 214
-- close: 222
-- volume: 6460112
-- ma5: 219.7
-- ema23_primary: 203.65
-- distance_to_ema23_pct: 9.01
-- ma20: 201.85
-- ma60: 197.11
-- ma120: 195.13
-- return_5d: 9.36
-- return_20d: 12.12
-- volume_ratio: 1.15
-- distance_to_ma20_pct_auxiliary: 9.98
-- distance_to_high_60_pct: -7.11
+- date: 20260603
+- open: 231
+- high: 244
+- low: 225.5
+- close: 244
+- volume: 14885711
+- ma5: 224.3
+- ema23_primary: 207.01
+- distance_to_ema23_pct: 17.87
+- ma20: 204.22
+- ma60: 197.53
+- ma120: 195.76
+- return_5d: 10.41
+- return_20d: 24.17
+- volume_ratio: 2.39
+- distance_to_ma20_pct_auxiliary: 19.48
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,201.5,201.5,195,196.5,2113355,193.98,1.3,192.88,202.52,1.08
 20260507,198,202,196.5,199.5,2336297,194.44,2.6,193.53,201.74,1.17
 20260508,200.5,210,198.5,202.5,6374753,195.11,3.79,194.5,201.09,2.8
 20260511,209.5,211,203,206.5,4365252,196.06,5.32,195.53,200.72,1.78
@@ -142,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,221,222,216,219,6209284,200.3,9.34,199.7,196.49,1.14
 20260601,220.5,225,218,220.5,5753159,201.98,9.17,200.65,196.86,1.07
 20260602,220.5,222.5,214,222,6460112,203.65,9.01,201.85,197.11,1.15
+20260603,231,244,225.5,244,14885711,207.01,17.87,204.22,197.53,2.39
 ```
 
 ## Latest TDCC Snapshot
@@ -171,17 +171,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1503 | 士電 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 1503 | 士電 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1503 | 士電 | 1 | 1 | 3 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 1503 | 士電 | 2 | 1 | 3 | 8 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1503 | 士電 | 79 | 2 | 13599950.0 | 9600.0 | 1416.66 | no_signal | 0 |  |
+| 20260603 | 1503 | 士電 | 78 | 2 | 20022150.0 | 4200.0 | 4767.18 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

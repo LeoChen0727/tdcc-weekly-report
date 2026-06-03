@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3663 鑫科
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:11 Asia/Taipei
+- generated_at: 2026-06-04 01:55:31 Asia/Taipei
 - stock_id: 3663
 - stock_name: 鑫科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,11 +59,11 @@
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: current_price_ok
+- entry_style: pullback_to_23ema
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_now
+- buy_first_tranche_near_support
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -76,6 +76,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -100,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 90.1
-- high: 91.4
-- low: 84.4
-- close: 86.3
-- volume: 87
-- ma5: 87.88
-- ema23_primary: 80.8
-- distance_to_ema23_pct: 6.8
-- ma20: 79.43
-- ma60: 73.32
-- ma120: 64.71
-- return_5d: -5.58
-- return_20d: 15.22
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: 8.65
-- distance_to_high_60_pct: -8
+- date: 20260603
+- open: 85.9
+- high: 89.5
+- low: 83.6
+- close: 83.9
+- volume: 86000
+- ma5: 86.68
+- ema23_primary: 81.06
+- distance_to_ema23_pct: 3.5
+- ma20: 80.11
+- ma60: 73.77
+- ma120: 65.02
+- return_5d: -6.67
+- return_20d: 19.35
+- volume_ratio: 0.03
+- distance_to_ma20_pct_auxiliary: 4.73
+- distance_to_high_60_pct: -10.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,76,76,70.1,70.3,3481000,70.4,-0.14,71.16,67.33,0.89
 20260507,71,76.5,70.5,74.4,4295000,70.73,5.19,71.38,67.51,1.07
 20260508,75,76.4,71,72.1,3451000,70.85,1.77,71.39,67.69,0.86
 20260511,70.1,70.2,66.3,67.9,3567000,70.6,-3.83,71.27,67.85,0.92
@@ -142,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,87,90.5,85,88,88000,79.47,10.74,78.03,72.22,0.02
 20260601,88.6,93.8,88.6,89.5,91,80.3,11.45,78.86,72.81,0
 20260602,90.1,91.4,84.4,86.3,87,80.8,6.8,79.43,73.32,0
+20260603,85.9,89.5,83.6,83.9,86000,81.06,3.5,80.11,73.77,0.03
 ```
 
 ## Latest TDCC Snapshot
@@ -171,12 +172,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 3663 | 鑫科 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3663 | 鑫科 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3663 | 鑫科 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 3663 | 鑫科 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

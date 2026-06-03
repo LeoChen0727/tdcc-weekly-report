@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6955 邦睿生技-創
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:57 Asia/Taipei
+- generated_at: 2026-06-04 01:56:47 Asia/Taipei
 - stock_id: 6955
 - stock_name: 邦睿生技-創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 239
+- latest_price_date: 20260603
+- price_rows: 240
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,7 +59,7 @@
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: current_price_ok
+- entry_style: pullback_to_23ema
 - position_sizing: observe_only
 
 ### management_plan
@@ -72,6 +72,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -96,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 145
+- date: 20260603
+- open: 146
 - high: 146
-- low: 144
+- low: 146
 - close: 146
-- volume: 4000
-- ma5: 147.2
-- ema23_primary: 154.01
-- distance_to_ema23_pct: -5.2
-- ma20: 154.2
-- ma60: 162.36
-- ma120: 161.74
-- return_5d: -3.63
-- return_20d: -12.31
-- volume_ratio: 0.23
-- distance_to_ma20_pct_auxiliary: -5.32
+- volume: 5000
+- ma5: 146.5
+- ema23_primary: 153.35
+- distance_to_ema23_pct: -4.79
+- ma20: 153.22
+- ma60: 161.94
+- ma120: 161.54
+- return_5d: -2.34
+- return_20d: -11.78
+- volume_ratio: 0.32
+- distance_to_ma20_pct_auxiliary: -4.72
 - distance_to_high_60_pct: -16.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,164,168,160,165.5,35036,165.52,-0.01,164.93,166.88,2.63
 20260505,161.5,163,158,162.5,47036,165.27,-1.68,164.88,166.89,3.03
 20260506,161.5,162.5,159.5,160,21012,164.83,-2.93,164.78,166.91,1.31
 20260507,158,164.5,158,161,42025,164.51,-2.14,164.72,166.93,2.4
@@ -138,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,150,150,145,145.5,36110,155.63,-6.51,156.32,163.19,1.9
 20260601,145,145,141.5,145,23009,154.74,-6.3,155.22,162.78,1.28
 20260602,145,146,144,146,4000,154.01,-5.2,154.2,162.36,0.23
+20260603,146,146,146,146,5000,153.35,-4.79,153.22,161.94,0.32
 ```
 
 ## Latest TDCC Snapshot

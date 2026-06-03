@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8422 可寧衛*
 
 ## Metadata
-- generated_at: 2026-06-02 23:31:08 Asia/Taipei
+- generated_at: 2026-06-04 01:57:20 Asia/Taipei
 - stock_id: 8422
 - stock_name: 可寧衛*
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 268
+- latest_price_date: 20260603
+- price_rows: 269
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -97,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 27.95
-- high: 27.95
-- low: 26.75
-- close: 27.35
-- volume: 14062178
-- ma5: 27.19
-- ema23_primary: 27.34
-- distance_to_ema23_pct: 0.02
-- ma20: 27.01
-- ma60: 28.65
-- ma120: 30.61
-- return_5d: 0.74
-- return_20d: -3.53
-- volume_ratio: 1.47
-- distance_to_ma20_pct_auxiliary: 1.26
-- distance_to_high_60_pct: -15.85
+- date: 20260603
+- open: 27.4
+- high: 28.3
+- low: 27.1
+- close: 28.1
+- volume: 19432395
+- ma5: 27.35
+- ema23_primary: 27.41
+- distance_to_ema23_pct: 2.53
+- ma20: 27.02
+- ma60: 28.58
+- ma120: 30.64
+- return_5d: 2.93
+- return_20d: 0.9
+- volume_ratio: 1.93
+- distance_to_ma20_pct_auxiliary: 3.99
+- distance_to_high_60_pct: -11.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,28.7,28.7,27.8,27.85,9948300,28.96,-3.84,28.95,31.1,0.91
 20260507,27.85,28.4,27.15,28.4,16925306,28.91,-1.78,28.86,30.9,1.55
 20260508,28.4,28.6,27.7,27.9,7641789,28.83,-3.23,28.79,30.72,0.72
 20260511,27.75,28.15,27.6,27.95,7448103,28.76,-2.81,28.73,30.57,0.7
@@ -139,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,27,27.3,26.7,26.9,7161633,27.31,-1.51,27.07,28.79,0.81
 20260601,27,28.4,27,27.7,15510946,27.34,1.3,27.06,28.73,1.67
 20260602,27.95,27.95,26.75,27.35,14062178,27.34,0.02,27.01,28.65,1.47
+20260603,27.4,28.3,27.1,28.1,19432395,27.41,2.53,27.02,28.58,1.93
 ```
 
 ## Latest TDCC Snapshot
@@ -178,7 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 8422 | 可寧衛* | 85 | 12 | 1428200.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260603 | 8422 | 可寧衛* | 85 | 12 | 3334150.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1727 中華化
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:54 Asia/Taipei
+- generated_at: 2026-06-04 01:54:25 Asia/Taipei
 - stock_id: 1727
 - stock_name: 中華化
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,14 +55,18 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: unclear
 - entry_style: current_price_ok
-- position_sizing: observe_only
+- position_sizing: starter_1_4
 
 ### management_plan
+- buy_first_tranche_now
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -73,7 +77,6 @@
 ### entry_prerequisites
 - price_structure_not_broken
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -89,6 +92,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -96,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 96.2
-- high: 98.5
-- low: 93.5
-- close: 95.5
-- volume: 7341333
-- ma5: 95.12
-- ema23_primary: 87.1
-- distance_to_ema23_pct: 9.65
-- ma20: 88.11
-- ma60: 67.85
-- ma120: 55.82
-- return_5d: -1.55
-- return_20d: 19.38
-- volume_ratio: 0.5
-- distance_to_ma20_pct_auxiliary: 8.38
-- distance_to_high_60_pct: -14.73
+- date: 20260603
+- open: 97
+- high: 97
+- low: 94.2
+- close: 94.2
+- volume: 4758291
+- ma5: 94.66
+- ema23_primary: 87.69
+- distance_to_ema23_pct: 7.42
+- ma20: 88.92
+- ma60: 68.63
+- ma120: 56.27
+- return_5d: -2.38
+- return_20d: 20.61
+- volume_ratio: 0.33
+- distance_to_ma20_pct_auxiliary: 5.94
+- distance_to_high_60_pct: -15.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,79.6,80.8,74.8,78.1,9548641,66.95,16.66,65.56,53.96,0.63
 20260507,78.2,83,76.6,78.2,9981149,67.88,15.2,66.94,54.49,0.65
 20260508,77.4,78.5,71.1,72.3,8658563,68.25,5.93,68.03,54.96,0.55
 20260511,72.8,77.6,72.8,76.3,8600152,68.92,10.7,69.06,55.51,0.55
@@ -138,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,95.2,95.8,90.4,94,8961547,85.51,9.93,86.64,66.25,0.6
 20260601,94.5,99.3,93.8,95.4,8641811,86.33,10.5,87.34,67.06,0.58
 20260602,96.2,98.5,93.5,95.5,7341333,87.1,9.65,88.11,67.85,0.5
+20260603,97,97,94.2,94.2,4758291,87.69,7.42,88.92,68.63,0.33
 ```
 
 ## Latest TDCC Snapshot
@@ -165,14 +169,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260603 | 1727 | 中華化 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260603 | 1727 | 中華化 | 3 | 3 | 3 | 3 | 3 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

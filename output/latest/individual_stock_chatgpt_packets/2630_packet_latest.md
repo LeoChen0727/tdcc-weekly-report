@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2630 亞航
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:57 Asia/Taipei
+- generated_at: 2026-06-04 01:54:54 Asia/Taipei
 - stock_id: 2630
 - stock_name: 亞航
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -97,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 44.05
-- high: 44.05
-- low: 42.55
-- close: 42.85
-- volume: 947291
-- ma5: 42.47
-- ema23_primary: 44.33
-- distance_to_ema23_pct: -3.33
-- ma20: 44.17
-- ma60: 47.21
-- ma120: 49.63
-- return_5d: 2.02
-- return_20d: -14.81
-- volume_ratio: 0.72
-- distance_to_ma20_pct_auxiliary: -2.99
-- distance_to_high_60_pct: -18.84
+- date: 20260603
+- open: 43.2
+- high: 43.35
+- low: 42.1
+- close: 42.8
+- volume: 985427
+- ma5: 42.78
+- ema23_primary: 44.2
+- distance_to_ema23_pct: -3.16
+- ma20: 43.85
+- ma60: 47.06
+- ma120: 49.56
+- return_5d: 3.76
+- return_20d: -13.18
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: -2.39
+- distance_to_high_60_pct: -18.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,50.8,50.9,49.05,49.3,800197,48.82,0.98,48.4,49.48,0.62
 20260507,49.4,50.3,48.7,49.75,719464,48.9,1.74,48.52,49.43,0.55
 20260508,50.5,51.9,49.95,50.4,2732916,49.03,2.8,48.72,49.4,1.94
 20260511,47.6,47.6,45.4,45.6,4771044,48.74,-6.44,48.7,49.32,2.96
@@ -139,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,42.25,43.7,42.25,42.75,1498105,44.53,-4,44.81,47.52,1.13
 20260601,43.25,44.4,42.8,43.7,1464860,44.46,-1.71,44.55,47.37,1.1
 20260602,44.05,44.05,42.55,42.85,947291,44.33,-3.33,44.17,47.21,0.72
+20260603,43.2,43.35,42.1,42.8,985427,44.2,-3.16,43.85,47.06,0.74
 ```
 
 ## Latest TDCC Snapshot
@@ -178,7 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2630 | 亞航 | 16 | 0 | 61330.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 2630 | 亞航 | 16 | 0 | 6150.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

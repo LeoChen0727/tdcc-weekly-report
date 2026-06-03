@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3022 威強電
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:19 Asia/Taipei
+- generated_at: 2026-06-04 01:55:05 Asia/Taipei
 - stock_id: 3022
 - stock_name: 威強電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: buy_now
-- action_rating_label_zh: 建議買進
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: breakout_confirmed
-- entry_style: breakout_follow
-- position_sizing: normal_position
+- thesis_state: unclear
+- entry_style: current_price_ok
+- position_sizing: starter_1_4
 
 ### management_plan
 - buy_first_tranche_now
@@ -76,8 +76,6 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_priority_high
-- decision_score_high
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_tdcc_warning
@@ -103,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 76.8
-- high: 77.7
-- low: 75.6
-- close: 77.7
-- volume: 1782442
-- ma5: 75.08
-- ema23_primary: 71.83
-- distance_to_ema23_pct: 8.18
-- ma20: 71.68
-- ma60: 67.41
-- ma120: 66.11
-- return_5d: 3.6
-- return_20d: 3.6
-- volume_ratio: 1.53
-- distance_to_ma20_pct_auxiliary: 8.4
-- distance_to_high_60_pct: 0
+- date: 20260603
+- open: 78.6
+- high: 78.6
+- low: 76.7
+- close: 77.1
+- volume: 1057878
+- ma5: 75.72
+- ema23_primary: 72.27
+- distance_to_ema23_pct: 6.69
+- ma20: 71.83
+- ma60: 67.71
+- ma120: 66.19
+- return_5d: 4.33
+- return_20d: 4.19
+- volume_ratio: 0.93
+- distance_to_ma20_pct_auxiliary: 7.33
+- distance_to_high_60_pct: -1.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,76.5,76.5,73.2,74,1679598,68.64,7.81,68.92,64.27,1.46
 20260507,75,76.1,74.1,75.3,1211949,69.19,8.83,69.57,64.44,1.02
 20260508,75.3,76.2,73.7,73.7,1200946,69.57,5.94,70.13,64.58,0.98
 20260511,67.9,69.3,66.7,69,2658527,69.52,-0.75,70.25,64.67,2.17
@@ -145,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,74.4,75.7,73.6,74.8,1152615,70.87,5.54,71.3,66.77,0.97
 20260601,75.5,77.3,75.4,75.9,1494421,71.29,6.46,71.55,67.1,1.23
 20260602,76.8,77.7,75.6,77.7,1782442,71.83,8.18,71.68,67.41,1.53
+20260603,78.6,78.6,76.7,77.1,1057878,72.27,6.69,71.83,67.71,0.93
 ```
 
 ## Latest TDCC Snapshot
@@ -174,18 +172,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3022 | 威強電 | true_breakout | 嚴格突破 | 119.0 |  |  | breakout_confirmed |  | no_signal | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 3022 | 威強電 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3022 | 威強電 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3022 | 威強電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3022 | 威強電 | 9 | 9 | 5 | 9 | 9 | continued_many_days | 連續 9 個交易日上榜，需判斷是持續醞釀或訊號鈍化。 |
+| 20260603 | 3022 | 威強電 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3022 | 威強電 | 11 | 0 | 1004890.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 3022 | 威強電 | 11 | 0 | 384760.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

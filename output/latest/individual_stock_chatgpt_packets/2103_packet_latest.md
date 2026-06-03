@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2103 台橡
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:12 Asia/Taipei
+- generated_at: 2026-06-04 01:54:33 Asia/Taipei
 - stock_id: 2103
 - stock_name: 台橡
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,15 +55,15 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
-- position_sizing: half_position
+- thesis_state: unclear
+- entry_style: current_price_ok
+- position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -75,9 +75,7 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -102,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 19.55
-- high: 20.25
-- low: 19.4
-- close: 20.25
-- volume: 5841615
-- ma5: 19.3
-- ema23_primary: 19.81
-- distance_to_ema23_pct: 2.24
-- ma20: 20.14
-- ma60: 19.93
-- ma120: 17.98
-- return_5d: 5.19
-- return_20d: 3.05
-- volume_ratio: 0.93
-- distance_to_ma20_pct_auxiliary: 0.56
-- distance_to_high_60_pct: -10.79
+- date: 20260603
+- open: 20.35
+- high: 21.8
+- low: 20.2
+- close: 21.7
+- volume: 11281876
+- ma5: 19.88
+- ema23_primary: 19.96
+- distance_to_ema23_pct: 8.7
+- ma20: 20.23
+- ma60: 19.94
+- ma120: 18.03
+- return_5d: 15.43
+- return_20d: 8.77
+- volume_ratio: 1.73
+- distance_to_ma20_pct_auxiliary: 7.29
+- distance_to_high_60_pct: -4.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,19.85,20.65,19.75,19.95,6143797,19.44,2.63,19.35,18.97,1.23
 20260507,19.95,19.95,19,19.25,5911029,19.42,-0.89,19.36,19.03,1.17
 20260508,19.95,21.15,19.8,20.3,23456135,19.5,4.12,19.4,19.11,3.89
 20260511,20.1,21.5,20.1,21.1,12265925,19.63,7.49,19.48,19.2,1.89
@@ -144,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,18.95,19.15,18.9,19.05,2606780,19.79,-3.76,20.09,19.9,0.43
 20260601,19.05,19.55,18.85,19.45,3630300,19.77,-1.6,20.11,19.91,0.59
 20260602,19.55,20.25,19.4,20.25,5841615,19.81,2.24,20.14,19.93,0.93
+20260603,20.35,21.8,20.2,21.7,11281876,19.96,8.7,20.23,19.94,1.73
 ```
 
 ## Latest TDCC Snapshot
@@ -173,18 +171,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2103 | 台橡 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 2103 | 台橡 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2103 | 台橡 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2103 | 台橡 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 2103 | 台橡 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2103 | 台橡 | 5 | 0 | 658360.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 2103 | 台橡 | 5 | 0 | 10195460.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

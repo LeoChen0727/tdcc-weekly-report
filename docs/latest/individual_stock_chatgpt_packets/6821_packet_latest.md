@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6821 聯寶
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:43 Asia/Taipei
+- generated_at: 2026-06-04 01:56:41 Asia/Taipei
 - stock_id: 6821
 - stock_name: 聯寶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -96,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 69
-- high: 71.8
+- date: 20260603
+- open: 71
+- high: 71
 - low: 68.9
-- close: 69.9
-- volume: 70
-- ma5: 70.58
-- ema23_primary: 60.83
-- distance_to_ema23_pct: 14.91
-- ma20: 57.98
-- ma60: 53.73
-- ma120: 45.46
-- return_5d: 0.72
-- return_20d: 34.42
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: 20.55
-- distance_to_high_60_pct: -8.39
+- close: 69.4
+- volume: 70000
+- ma5: 70.08
+- ema23_primary: 61.54
+- distance_to_ema23_pct: 12.76
+- ma20: 58.76
+- ma60: 54.27
+- ma120: 45.71
+- return_5d: -3.48
+- return_20d: 28.52
+- volume_ratio: 0.18
+- distance_to_ma20_pct_auxiliary: 18.12
+- distance_to_high_60_pct: -9.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,54,57,53,54,1490000,55.91,-3.41,59.84,47.15,0.99
 20260507,54.2,57,52.6,52.8,1201000,55.65,-5.12,59.81,47.38,0.79
 20260508,52.8,53.3,50.7,51,657000,55.26,-7.71,59.66,47.59,0.43
 20260511,51.8,51.8,49.1,50,610000,54.82,-8.8,59.2,47.79,0.41
@@ -138,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,72.6,72.8,69.8,70.1,71000,59.19,18.44,56.24,52.63,0.14
 20260601,70.4,70.4,69,69,70,60.01,14.99,57.09,53.17,0
 20260602,69,71.8,68.9,69.9,70,60.83,14.91,57.98,53.73,0
+20260603,71,71,68.9,69.4,70000,61.54,12.76,58.76,54.27,0.18
 ```
 
 ## Latest TDCC Snapshot

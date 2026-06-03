@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1444 力麗
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:30 Asia/Taipei
+- generated_at: 2026-06-04 01:54:14 Asia/Taipei
 - stock_id: 1444
 - stock_name: 力麗
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,14 +55,18 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: high_level_distribution_risk
 - entry_style: current_price_ok
-- position_sizing: observe_only
+- position_sizing: starter_1_4
 
 ### management_plan
+- buy_first_tranche_now
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -73,9 +77,7 @@
 ### entry_prerequisites
 - price_structure_not_broken
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -89,6 +91,8 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- tdcc_distribution_warning
+- price_too_extended
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -96,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 6.9
-- high: 6.98
-- low: 6.62
-- close: 6.8
-- volume: 5044759
-- ma5: 6.32
-- ema23_primary: 6.14
-- distance_to_ema23_pct: 10.73
-- ma20: 6.03
-- ma60: 6.2
-- ma120: 6.2
-- return_5d: 16.24
-- return_20d: 14.09
-- volume_ratio: 3.01
-- distance_to_ma20_pct_auxiliary: 12.76
-- distance_to_high_60_pct: -2.58
+- date: 20260603
+- open: 6.8
+- high: 7.48
+- low: 6.78
+- close: 7.48
+- volume: 10898064
+- ma5: 6.66
+- ema23_primary: 6.25
+- distance_to_ema23_pct: 19.63
+- ma20: 6.1
+- ma60: 6.22
+- ma120: 6.21
+- return_5d: 29.19
+- return_20d: 24.46
+- volume_ratio: 5.04
+- distance_to_ma20_pct_auxiliary: 22.54
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,5.96,6.02,5.93,6.01,1128148,6.25,-3.76,6.33,6.3,0.95
 20260507,6,6.01,5.95,5.98,773228,6.22,-3.91,6.32,6.28,0.64
 20260508,5.97,6.02,5.97,6,721460,6.2,-3.29,6.3,6.27,0.6
 20260511,6,6.02,5.93,5.96,823589,6.18,-3.62,6.29,6.26,0.67
@@ -138,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,6.05,6.35,6,6.25,3336213,6.02,3.8,5.95,6.17,2.53
 20260601,6.26,6.78,6.25,6.74,5062297,6.08,10.84,5.99,6.18,3.37
 20260602,6.9,6.98,6.62,6.8,5044759,6.14,10.73,6.03,6.2,3.01
+20260603,6.8,7.48,6.78,7.48,10898064,6.25,19.63,6.1,6.22,5.04
 ```
 
 ## Latest TDCC Snapshot
@@ -165,14 +169,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260603 | 1444 | 力麗 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260603 | 1444 | 力麗 | 5 | 1 | 5 | 5 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

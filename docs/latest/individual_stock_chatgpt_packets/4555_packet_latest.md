@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4555 氣立
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:38 Asia/Taipei
+- generated_at: 2026-06-04 01:55:43 Asia/Taipei
 - stock_id: 4555
 - stock_name: 氣立
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,7 +58,7 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: high_level_distribution_risk
 - entry_style: current_price_ok
 - position_sizing: starter_1_4
 
@@ -78,7 +78,6 @@
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -93,6 +92,7 @@
 ### downgrade_reason
 - insufficient_tdcc_history
 - tdcc_distribution_warning
+- price_too_extended
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -100,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 56.5
-- high: 56.7
-- low: 52
-- close: 53.9
-- volume: 1683155
-- ma5: 56.12
-- ema23_primary: 48.33
-- distance_to_ema23_pct: 11.53
-- ma20: 47.4
-- ma60: 40.67
-- ma120: 39.96
-- return_5d: -4.09
-- return_20d: 27.73
-- volume_ratio: 1.02
-- distance_to_ma20_pct_auxiliary: 13.71
-- distance_to_high_60_pct: -12.36
+- date: 20260603
+- open: 53.9
+- high: 57
+- low: 53.8
+- close: 56.1
+- volume: 947680
+- ma5: 56.6
+- ema23_primary: 48.97
+- distance_to_ema23_pct: 14.55
+- ma20: 48.09
+- ma60: 41
+- ma120: 40.08
+- return_5d: 4.47
+- return_20d: 32.31
+- volume_ratio: 0.59
+- distance_to_ma20_pct_auxiliary: 16.66
+- distance_to_high_60_pct: -8.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,42.45,45.5,41.5,42.4,1945790,39.49,7.36,39.5,37.68,4.08
 20260507,43.85,44.2,41.65,42,394575,39.7,5.79,39.81,37.69,0.8
 20260508,42.1,43.1,41.4,42.65,367604,39.95,6.76,40.15,37.73,0.72
 20260511,43.2,43.2,41.6,42.65,199946,40.17,6.17,40.48,37.78,0.39
@@ -142,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,61.5,61.5,57.6,58.1,1553169,46.98,23.68,46.06,40.01,1.02
 20260601,58.5,60.2,57,57.1,1526791,47.82,19.4,46.82,40.37,0.97
 20260602,56.5,56.7,52,53.9,1683155,48.33,11.53,47.4,40.67,1.02
+20260603,53.9,57,53.8,56.1,947680,48.97,14.55,48.09,41,0.59
 ```
 
 ## Latest TDCC Snapshot
@@ -171,12 +171,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 4555 | 氣立 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: ex_dividend on 20260602; status=confirmed; proximity=within_3d |
+| 20260603 | 4555 | 氣立 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: ex_dividend on 20260602; status=confirmed; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 4555 | 氣立 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 4555 | 氣立 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

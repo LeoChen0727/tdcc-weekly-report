@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2312 金寶
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:20 Asia/Taipei
+- generated_at: 2026-06-04 01:54:36 Asia/Taipei
 - stock_id: 2312
 - stock_name: 金寶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,28 +55,22 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: starter_position
-- action_rating_label_zh: 可小量試單
+- action_rating: wait_pullback
+- action_rating_label_zh: 等待回檔
 - confidence_level: medium
 - thesis_state: high_level_consolidation
-- entry_style: pullback_to_23ema
-- position_sizing: starter_1_4
+- entry_style: pullback_to_support
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
-- take_profit_near_prior_high
-- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -101,29 +95,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 40.95
-- high: 43.5
-- low: 38.85
-- close: 41.3
-- volume: 135198121
-- ma5: 39.18
-- ema23_primary: 33.18
-- distance_to_ema23_pct: 24.47
-- ma20: 32.45
-- ma60: 27.03
-- ma120: 26.04
-- return_5d: 3.25
-- return_20d: 46.98
-- volume_ratio: 1.69
-- distance_to_ma20_pct_auxiliary: 27.26
-- distance_to_high_60_pct: -5.06
+- date: 20260603
+- open: 41.7
+- high: 44.4
+- low: 40.7
+- close: 43.4
+- volume: 167087498
+- ma5: 40.39
+- ema23_primary: 34.03
+- distance_to_ema23_pct: 27.53
+- ma20: 33.22
+- ma60: 27.36
+- ma120: 26.21
+- return_5d: 16.2
+- return_20d: 55
+- volume_ratio: 1.93
+- distance_to_ma20_pct_auxiliary: 30.63
+- distance_to_high_60_pct: -2.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,28.35,28.4,27.4,28,35217157,26.23,6.74,25.93,24.58,0.6
 20260507,28.4,29.25,28.2,28.55,44192450,26.43,8.04,26.24,24.63,0.73
 20260508,28.6,29.8,27.7,27.95,44666989,26.55,5.26,26.5,24.64,0.72
 20260511,28.6,30.4,28.4,29.9,88274650,26.83,11.44,26.87,24.7,1.33
@@ -143,6 +136,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,39.55,39.7,37.8,38.95,102606028,31.7,22.87,31.16,26.42,1.45
 20260601,39.9,42,39.8,40.6,120797558,32.44,25.15,31.79,26.73,1.61
 20260602,40.95,43.5,38.85,41.3,135198121,33.18,24.47,32.45,27.03,1.69
+20260603,41.7,44.4,40.7,43.4,167087498,34.03,27.53,33.22,27.36,1.93
 ```
 
 ## Latest TDCC Snapshot
@@ -172,18 +166,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2312 | 金寶 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 63.0 |  |  | neckline_challenge |  | call_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 2312 | 金寶 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2312 | 金寶 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2312 | 金寶 | 9 | 9 | 5 | 9 | 9 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260603 | 2312 | 金寶 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2312 | 金寶 | 91 | 1 | 28560200.0 | 89100.0 | 320.54 | call_inflow | 1 |  |
+| 20260603 | 2312 | 金寶 | 90 | 1 | 35924560.0 | 36060.0 | 996.24 | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

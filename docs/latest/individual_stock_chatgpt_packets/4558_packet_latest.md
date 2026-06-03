@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4558 寶緯
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:39 Asia/Taipei
+- generated_at: 2026-06-04 01:55:44 Asia/Taipei
 - stock_id: 4558
 - stock_name: 寶緯
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -97,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 19.2
-- high: 19.95
-- low: 18.8
+- date: 20260603
+- open: 19.9
+- high: 20
+- low: 19.6
 - close: 19.75
-- volume: 19
-- ma5: 19.65
-- ema23_primary: 19.68
-- distance_to_ema23_pct: 0.34
-- ma20: 19.75
-- ma60: 19.49
+- volume: 20000
+- ma5: 19.6
+- ema23_primary: 19.69
+- distance_to_ema23_pct: 0.31
+- ma20: 19.79
+- ma60: 19.5
 - ma120: 19.45
 - return_5d: -1.25
-- return_20d: 3.4
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: 0
+- return_20d: 3.95
+- volume_ratio: 0.33
+- distance_to_ma20_pct_auxiliary: -0.19
 - distance_to_high_60_pct: -13.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,19.1,19.3,18.95,19,44000,19.33,-1.7,19.36,19.34,0.65
 20260507,19.5,19.5,18.9,19,51000,19.3,-1.56,19.34,19.3,0.76
 20260508,19.35,19.45,19,19.4,65000,19.31,0.47,19.34,19.29,0.96
 20260511,20.85,20.9,19.45,20.35,387000,19.4,4.92,19.41,19.3,4.58
@@ -139,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,19.65,19.7,19.65,19.65,20000,19.72,-0.36,19.72,19.47,0.3
 20260601,19.65,19.7,19.1,19.2,19,19.68,-2.43,19.72,19.48,0
 20260602,19.2,19.95,18.8,19.75,19,19.68,0.34,19.75,19.49,0
+20260603,19.9,20,19.6,19.75,20000,19.69,0.31,19.79,19.5,0.33
 ```
 
 ## Latest TDCC Snapshot

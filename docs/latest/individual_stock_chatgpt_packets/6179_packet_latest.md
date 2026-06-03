@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6179 亞通
 
 ## Metadata
-- generated_at: 2026-06-02 23:28:46 Asia/Taipei
+- generated_at: 2026-06-04 01:56:14 Asia/Taipei
 - stock_id: 6179
 - stock_name: 亞通
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -102,29 +102,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 23.85
-- high: 24.05
-- low: 23.35
-- close: 23.6
-- volume: 24
-- ma5: 23.74
+- date: 20260603
+- open: 23.6
+- high: 24.5
+- low: 23.45
+- close: 24.35
+- volume: 24000
+- ma5: 23.85
 - ema23_primary: 24.3
-- distance_to_ema23_pct: -2.86
-- ma20: 24.29
-- ma60: 24.91
-- ma120: 27.05
-- return_5d: -2.88
-- return_20d: -2.28
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: -2.84
-- distance_to_high_60_pct: -19.59
+- distance_to_ema23_pct: 0.2
+- ma20: 24.32
+- ma60: 24.9
+- ma120: 26.98
+- return_5d: 2.31
+- return_20d: 2.74
+- volume_ratio: 0.02
+- distance_to_ma20_pct_auxiliary: 0.11
+- distance_to_high_60_pct: -17.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,24.15,24.25,23.6,23.7,934000,24.48,-3.17,24.37,25.71,0.85
 20260507,23.75,24.15,23.75,24.05,695000,24.44,-1.6,24.36,25.63,0.63
 20260508,24.1,24.1,23.35,23.7,941000,24.38,-2.79,24.32,25.55,0.87
 20260511,25,25.25,24.3,24.7,8325000,24.41,1.2,24.3,25.51,5.78
@@ -144,6 +143,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,24,24,23.7,23.85,24000,24.41,-2.29,24.32,24.95,0.02
 20260601,24,24.6,23.65,23.8,24,24.36,-2.3,24.32,24.93,0
 20260602,23.85,24.05,23.35,23.6,24,24.3,-2.86,24.29,24.91,0
+20260603,23.6,24.5,23.45,24.35,24000,24.3,0.2,24.32,24.9,0.02
 ```
 
 ## Latest TDCC Snapshot
@@ -173,12 +173,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 6179 | 亞通 | pattern | 型態觀察 |  |  |  | 預備發動型 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 6179 | 亞通 | pattern | 型態觀察 |  |  |  | 預備發動型 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6179 | 亞通 | 9 | 9 | 5 | 9 | 9 | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 6179 | 亞通 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

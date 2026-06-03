@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4961 天鈺
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:57 Asia/Taipei
+- generated_at: 2026-06-04 01:55:52 Asia/Taipei
 - stock_id: 4961
 - stock_name: 天鈺
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 27
 - tdcc_history_status: tdcc_history_ready
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 176
-- high: 176
-- low: 168.5
-- close: 173
-- volume: 1380749
+- date: 20260603
+- open: 173
+- high: 174.5
+- low: 170.5
+- close: 171.5
+- volume: 801025
 - ma5: 172.4
-- ema23_primary: 169.3
-- distance_to_ema23_pct: 2.18
-- ma20: 171.4
-- ma60: 157.36
-- ma120: 151.39
-- return_5d: -0.86
-- return_20d: 8.8
-- volume_ratio: 0.77
-- distance_to_ma20_pct_auxiliary: 0.93
-- distance_to_high_60_pct: -5.21
+- ema23_primary: 169.49
+- distance_to_ema23_pct: 1.19
+- ma20: 172.15
+- ma60: 157.77
+- ma120: 151.64
+- return_5d: 0
+- return_20d: 9.58
+- volume_ratio: 0.45
+- distance_to_ma20_pct_auxiliary: -0.38
+- distance_to_high_60_pct: -6.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,160,160.5,155,156.5,1037685,154.87,1.05,156.03,149.2,0.71
 20260507,158,162,157.5,161,1422732,155.38,3.61,156.45,149.33,0.96
 20260508,161.5,174,160.5,170,4471411,156.6,8.56,157.32,149.65,2.73
 20260511,171.5,173,164,170.5,2067111,157.76,8.08,158.2,150.04,1.23
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,172.5,173,168.5,172.5,798614,168.42,2.42,169.72,156.22,0.46
 20260601,171.5,175,168,175,1771929,168.97,3.57,170.7,156.83,1
 20260602,176,176,168.5,173,1380749,169.3,2.18,171.4,157.36,0.77
+20260603,173,174.5,170.5,171.5,801025,169.49,1.19,172.15,157.77,0.45
 ```
 
 ## Latest TDCC Snapshot
@@ -179,18 +179,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 4961 | 天鈺 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 4961 | 天鈺 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 4961 | 天鈺 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 4961 | 天鈺 | 9 | 9 | 5 | 9 | 9 | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 4961 | 天鈺 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 4961 | 天鈺 | 11 | 0 | 924990.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 4961 | 天鈺 | 11 | 0 | 2154530.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

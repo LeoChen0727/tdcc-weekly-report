@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8114 振樺電
 
 ## Metadata
-- generated_at: 2026-06-02 23:30:58 Asia/Taipei
+- generated_at: 2026-06-04 01:57:16 Asia/Taipei
 - stock_id: 8114
 - stock_name: 振樺電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,7 +58,7 @@
 - action_rating: wait_pullback
 - action_rating_label_zh: 等待回檔
 - confidence_level: medium
-- thesis_state: high_level_consolidation
+- thesis_state: healthy_pullback
 - entry_style: pullback_to_support
 - position_sizing: observe_only
 
@@ -71,6 +71,7 @@
 ### entry_prerequisites
 - model_recommended
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -95,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 260
-- high: 262
-- low: 239.5
-- close: 254.5
-- volume: 2336554
-- ma5: 254.6
-- ema23_primary: 230.88
-- distance_to_ema23_pct: 10.23
-- ma20: 232.78
-- ma60: 195.3
-- ma120: 187.8
-- return_5d: -2.3
-- return_20d: 42.18
-- volume_ratio: 1.19
-- distance_to_ma20_pct_auxiliary: 9.33
-- distance_to_high_60_pct: -7.96
+- date: 20260603
+- open: 258.5
+- high: 262.5
+- low: 245
+- close: 246
+- volume: 1337097
+- ma5: 250.4
+- ema23_primary: 232.14
+- distance_to_ema23_pct: 5.97
+- ma20: 236.2
+- ma60: 196.41
+- ma120: 188.29
+- return_5d: -7.87
+- return_20d: 38.59
+- volume_ratio: 0.67
+- distance_to_ma20_pct_auxiliary: 4.15
+- distance_to_high_60_pct: -11.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,181,181,176,177.5,694525,179.38,-1.05,178.22,176.69,0.96
 20260507,179,182,178,180.5,482616,179.48,0.57,178.55,176.51,0.67
 20260508,188,198.5,188,198.5,3261620,181.06,9.63,180.03,176.69,3.83
 20260511,209.5,218,208,218,3561304,184.14,18.39,182.53,177.34,3.53
@@ -137,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,251,259.5,239,246,1504598,225.94,8.88,225.12,192.35,0.83
 20260601,247,264,238.5,259.5,2148303,228.74,13.45,229,193.92,1.14
 20260602,260,262,239.5,254.5,2336554,230.88,10.23,232.78,195.3,1.19
+20260603,258.5,262.5,245,246,1337097,232.14,5.97,236.2,196.41,0.67
 ```
 
 ## Latest TDCC Snapshot
@@ -166,17 +167,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 8114 | 振樺電 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 8114 | 振樺電 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_inflow | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 8114 | 振樺電 | 2 | 2 | 2 | 3 | 3 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260603 | 8114 | 振樺電 | 3 | 3 | 3 | 4 | 4 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 8114 | 振樺電 | 17 | 0 | 1508100.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 8114 | 振樺電 | 16 | 0 | 1906900.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

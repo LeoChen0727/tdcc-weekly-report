@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6605 帝寶
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:23 Asia/Taipei
+- generated_at: 2026-06-04 01:56:32 Asia/Taipei
 - stock_id: 6605
 - stock_name: 帝寶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 27
 - tdcc_history_status: tdcc_history_ready
@@ -100,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 141.5
-- high: 142.5
-- low: 139
-- close: 142.5
-- volume: 1135417
-- ma5: 139.7
-- ema23_primary: 133.46
-- distance_to_ema23_pct: 6.77
-- ma20: 132.15
-- ma60: 132.32
-- ma120: 138.59
-- return_5d: 10.47
-- return_20d: 10.04
-- volume_ratio: 1.6
-- distance_to_ma20_pct_auxiliary: 7.83
-- distance_to_high_60_pct: -5.32
+- date: 20260603
+- open: 143
+- high: 145.5
+- low: 141.5
+- close: 144
+- volume: 1113336
+- ma5: 142.9
+- ema23_primary: 134.34
+- distance_to_ema23_pct: 7.19
+- ma20: 133.05
+- ma60: 132.47
+- ma120: 138.63
+- return_5d: 12.5
+- return_20d: 14.29
+- volume_ratio: 1.55
+- distance_to_ma20_pct_auxiliary: 8.23
+- distance_to_high_60_pct: -4.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,131.5,133.5,125.5,126,925417,129.63,-2.8,129.55,136.38,2.23
 20260507,127,131,126.5,130,718529,129.66,0.26,129.32,135.93,1.63
 20260508,130,131.5,129,130,348248,129.69,0.24,129.05,135.53,0.77
 20260511,131.5,131.5,128.5,129,297228,129.63,-0.49,128.68,135.16,0.65
@@ -142,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,150.5,150.5,143.5,146,4018620,131.84,10.74,130.78,132.08,6.66
 20260601,145,145,137,141.5,1594134,132.64,6.68,131.5,132.26,2.38
 20260602,141.5,142.5,139,142.5,1135417,133.46,6.77,132.15,132.32,1.6
+20260603,143,145.5,141.5,144,1113336,134.34,7.19,133.05,132.47,1.55
 ```
 
 ## Latest TDCC Snapshot
@@ -178,17 +178,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6605 | 帝寶 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 6605 | 帝寶 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6605 | 帝寶 | 3 | 1 | 3 | 3 | 3 | continued_2_3d | 連續 3 個交易日上榜，訊號延續但仍需確認。 |
+| 20260603 | 6605 | 帝寶 | 4 | 1 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 次、近 20 日上榜 4 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6605 | 帝寶 | 8 | 0 | 133260.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 6605 | 帝寶 | 8 | 0 | 427070.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

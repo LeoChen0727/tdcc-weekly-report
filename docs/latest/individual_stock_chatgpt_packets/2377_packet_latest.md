@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2377 微星
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:30 Asia/Taipei
+- generated_at: 2026-06-04 01:54:41 Asia/Taipei
 - stock_id: 2377
 - stock_name: 微星
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,11 +59,11 @@
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: high_level_distribution_risk
-- entry_style: breakout_follow
+- entry_style: current_price_ok
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -100,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 145
-- high: 152.5
-- low: 142
-- close: 149
-- volume: 98352697
-- ma5: 134.3
-- ema23_primary: 118.48
-- distance_to_ema23_pct: 25.76
-- ma20: 117.67
-- ma60: 101.03
-- ma120: 99.11
-- return_5d: 18.25
-- return_20d: 55.69
-- volume_ratio: 2.12
-- distance_to_ma20_pct_auxiliary: 26.62
-- distance_to_high_60_pct: -2.3
+- date: 20260603
+- open: 151.5
+- high: 152
+- low: 146
+- close: 146.5
+- volume: 46778868
+- ma5: 138.3
+- ema23_primary: 120.81
+- distance_to_ema23_pct: 21.26
+- ma20: 120
+- ma60: 101.86
+- ma120: 99.44
+- return_5d: 15.81
+- return_20d: 46.5
+- volume_ratio: 0.98
+- distance_to_ma20_pct_auxiliary: 22.08
+- distance_to_high_60_pct: -3.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,96.4,100.5,95.5,100,18547668,94.6,5.71,94,92.71,1.59
 20260507,101.5,103.5,99.1,101,17012799,95.13,6.17,94.44,92.8,1.38
 20260508,100.5,103.5,98.9,100,13009977,95.54,4.67,94.86,92.91,1.02
 20260511,99.5,109.5,97,107.5,36533409,96.53,11.36,95.69,93.19,2.58
@@ -142,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,126,133,126,131,41284924,113.36,15.56,112.69,99.33,1.08
 20260601,136,144,134.5,141.5,79728605,115.7,22.3,115.01,100.13,1.91
 20260602,145,152.5,142,149,98352697,118.48,25.76,117.67,101.03,2.12
+20260603,151.5,152,146,146.5,46778868,120.81,21.26,120,101.86,0.98
 ```
 
 ## Latest TDCC Snapshot
@@ -171,18 +171,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2377 | 微星 | true_breakout | 嚴格突破 | 74.0 |  |  | platform_breakout |  | call_put_bullish | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 2377 | 微星 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_put_bullish | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2377 | 微星 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2377 | 微星 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2377 | 微星 | 9 | 9 | 5 | 9 | 9 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260603 | 2377 | 微星 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2377 | 微星 | 61 | 2 | 67527350.0 | 361530.0 | 186.78 | call_put_bullish | 3 |  |
+| 20260603 | 2377 | 微星 | 62 | 2 | 46467980.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

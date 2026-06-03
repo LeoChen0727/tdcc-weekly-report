@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7750 新代
 
 ## Metadata
-- generated_at: 2026-06-02 23:30:41 Asia/Taipei
+- generated_at: 2026-06-04 01:57:07 Asia/Taipei
 - stock_id: 7750
 - stock_name: 新代
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 166
+- latest_price_date: 20260603
+- price_rows: 167
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,7 +59,7 @@
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: current_price_ok
+- entry_style: pullback_to_23ema
 - position_sizing: observe_only
 
 ### management_plan
@@ -72,6 +72,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -96,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 2280
-- high: 2305
-- low: 2200
-- close: 2200
-- volume: 627820
-- ma5: 2345
-- ema23_primary: 2388.41
-- distance_to_ema23_pct: -7.89
-- ma20: 2537.25
-- ma60: 1940.42
-- ma120: 1442.04
-- return_5d: -16.35
-- return_20d: -17.6
-- volume_ratio: 0.85
-- distance_to_ma20_pct_auxiliary: -13.29
-- distance_to_high_60_pct: -28.34
+- date: 20260603
+- open: 2240
+- high: 2320
+- low: 2240
+- close: 2295
+- volume: 263918
+- ma5: 2302
+- ema23_primary: 2380.62
+- distance_to_ema23_pct: -3.6
+- ma20: 2522.25
+- ma60: 1957.08
+- ma120: 1454.89
+- return_5d: -8.57
+- return_20d: -11.56
+- volume_ratio: 0.38
+- distance_to_ma20_pct_auxiliary: -9.01
+- distance_to_high_60_pct: -25.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,2705,2705,2415,2595,1039779,2059,26.03,2023.5,1502.93,1.47
 20260507,2590,2625,2525,2605,310595,2104.5,23.78,2081.5,1529.95,0.44
 20260508,2610,2710,2545,2545,457167,2141.21,18.86,2137.75,1556.32,0.66
 20260511,2790,2795,2790,2795,254528,2195.69,27.29,2202.5,1586.85,0.37
@@ -138,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,2400,2445,2360,2390,283843,2419.68,-1.23,2580.75,1909.17,0.4
 20260601,2400,2425,2220,2250,983666,2405.54,-6.47,2560.75,1926,1.34
 20260602,2280,2305,2200,2200,627820,2388.41,-7.89,2537.25,1940.42,0.85
+20260603,2240,2320,2240,2295,263918,2380.62,-3.6,2522.25,1957.08,0.38
 ```
 
 ## Latest TDCC Snapshot
@@ -177,7 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 7750 | 新代 | 24 | 0 | 1538670.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 7750 | 新代 | 24 | 0 | 794830.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

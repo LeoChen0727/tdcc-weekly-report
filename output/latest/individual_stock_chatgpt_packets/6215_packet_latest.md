@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6215 和椿
 
 ## Metadata
-- generated_at: 2026-06-02 23:28:52 Asia/Taipei
+- generated_at: 2026-06-04 01:56:17 Asia/Taipei
 - stock_id: 6215
 - stock_name: 和椿
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -102,29 +102,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 130
-- high: 130
-- low: 116.5
-- close: 118.5
-- volume: 5258439
-- ma5: 126
-- ema23_primary: 122.38
-- distance_to_ema23_pct: -3.17
-- ma20: 124.12
-- ma60: 111.08
-- ma120: 110.51
-- return_5d: -10.57
-- return_20d: 2.16
-- volume_ratio: 0.85
-- distance_to_ma20_pct_auxiliary: -4.53
-- distance_to_high_60_pct: -14.13
+- date: 20260603
+- open: 120
+- high: 120
+- low: 116
+- close: 117.5
+- volume: 2322619
+- ma5: 123.4
+- ema23_primary: 121.98
+- distance_to_ema23_pct: -3.67
+- ma20: 124.4
+- ma60: 111.29
+- ma120: 110.61
+- return_5d: -9.96
+- return_20d: 4.91
+- volume_ratio: 0.38
+- distance_to_ma20_pct_auxiliary: -5.55
+- distance_to_high_60_pct: -14.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,117,117.5,110.5,112,3089677,106.98,4.69,105.9,107.26,1.21
 20260507,113,114,111,112.5,1273333,107.44,4.71,106.7,107.06,0.49
 20260508,112.5,116,109,112,2253484,107.82,3.87,107.42,106.88,0.86
 20260511,115.5,122,114.5,119.5,7214128,108.8,9.84,108.35,106.93,2.5
@@ -144,6 +143,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,126.5,131,125,127.5,3791740,122.17,4.37,123.3,110.44,0.61
 20260601,129,133,127.5,129,3971642,122.74,5.1,124,110.87,0.64
 20260602,130,130,116.5,118.5,5258439,122.38,-3.17,124.12,111.08,0.85
+20260603,120,120,116,117.5,2322619,121.98,-3.67,124.4,111.29,0.38
 ```
 
 ## Latest TDCC Snapshot
@@ -173,18 +173,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6215 | 和椿 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260521 | 6215 | 和椿 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 6215 | 和椿 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6215 | 和椿 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 6215 | 和椿 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6215 | 和椿 | 31 | 0 | 6575450.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 6215 | 和椿 | 31 | 0 | 4649060.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

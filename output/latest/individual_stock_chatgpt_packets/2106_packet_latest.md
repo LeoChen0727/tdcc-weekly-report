@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2106 建大
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:13 Asia/Taipei
+- generated_at: 2026-06-04 01:54:33 Asia/Taipei
 - stock_id: 2106
 - stock_name: 建大
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,8 +58,8 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: breakout_initial
-- entry_style: breakout_follow
+- thesis_state: unclear
+- entry_style: pullback_to_23ema
 - position_sizing: starter_1_4
 
 ### management_plan
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 17.15
-- high: 18.2
-- low: 17.15
-- close: 18.1
-- volume: 3112386
-- ma5: 17.04
-- ema23_primary: 17.14
-- distance_to_ema23_pct: 5.61
-- ma20: 16.97
-- ma60: 17.77
-- ma120: 18.89
-- return_5d: 8.38
-- return_20d: 4.32
-- volume_ratio: 3.03
-- distance_to_ma20_pct_auxiliary: 6.64
-- distance_to_high_60_pct: -6.94
+- date: 20260603
+- open: 18.1
+- high: 18.45
+- low: 18.05
+- close: 18.25
+- volume: 2741415
+- ma5: 17.36
+- ema23_primary: 17.23
+- distance_to_ema23_pct: 5.91
+- ma20: 17.02
+- ma60: 17.76
+- ma120: 18.88
+- return_5d: 9.61
+- return_20d: 5.19
+- volume_ratio: 2.42
+- distance_to_ma20_pct_auxiliary: 7.24
+- distance_to_high_60_pct: -4.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,17.4,17.45,17.3,17.35,604721,17.9,-3.07,17.99,18.66,0.92
 20260507,17.2,17.5,17.15,17.5,816093,17.87,-2.05,17.95,18.61,1.23
 20260508,17.55,17.6,17.2,17.2,602485,17.81,-3.43,17.89,18.56,0.9
 20260511,17.2,17.4,17.2,17.35,443409,17.77,-2.37,17.85,18.52,0.66
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,16.65,16.95,16.65,16.75,735718,17.05,-1.77,16.94,17.82,0.89
 20260601,16.9,17.05,16.7,17.05,2262433,17.05,-0.01,16.93,17.79,2.54
 20260602,17.15,18.2,17.15,18.1,3112386,17.14,5.61,16.97,17.77,3.03
+20260603,18.1,18.45,18.05,18.25,2741415,17.23,5.91,17.02,17.76,2.42
 ```
 
 ## Latest TDCC Snapshot
@@ -172,12 +172,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2106 | 建大 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  |  | continued_2_3d | calendar event: ex_dividend on 20260622; status=confirmed; proximity=within_30d |
+| 20260603 | 2106 | 建大 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: ex_dividend on 20260622; status=confirmed; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2106 | 建大 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260603 | 2106 | 建大 | 3 | 3 | 3 | 3 | 3 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

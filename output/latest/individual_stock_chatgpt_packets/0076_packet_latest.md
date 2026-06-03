@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0076 期街口道瓊銅
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:06 Asia/Taipei
+- generated_at: 2026-06-04 01:54:03 Asia/Taipei
 - stock_id: 0076
 - stock_name: 期街口道瓊銅
 - packet_status: insufficient_price_data
@@ -154,7 +154,7 @@ no_rows,True
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 0076 | 期街口道瓊銅 | 45 | 6 | 937420.0 | 24450.0 | 38.34 | no_signal | 0 |  |
+| 20260603 | 0076 | 期街口道瓊銅 | 45 | 6 | 1426760.0 | 39060.0 | 36.53 | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

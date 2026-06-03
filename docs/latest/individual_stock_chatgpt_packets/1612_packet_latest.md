@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1612 宏泰
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:48 Asia/Taipei
+- generated_at: 2026-06-04 01:54:22 Asia/Taipei
 - stock_id: 1612
 - stock_name: 宏泰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,14 +55,18 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
-- position_sizing: observe_only
+- entry_style: current_price_ok
+- position_sizing: starter_1_4
 
 ### management_plan
+- buy_first_tranche_now
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -72,7 +76,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -97,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 38
-- high: 38
-- low: 37.15
-- close: 37.6
-- volume: 1342117
-- ma5: 37.23
-- ema23_primary: 36.57
-- distance_to_ema23_pct: 2.82
-- ma20: 36.67
-- ma60: 35.66
-- ma120: 35.52
-- return_5d: 1.76
-- return_20d: 2.73
-- volume_ratio: 1.25
-- distance_to_ma20_pct_auxiliary: 2.52
-- distance_to_high_60_pct: -1.31
+- date: 20260603
+- open: 37.7
+- high: 39.5
+- low: 37.7
+- close: 39.5
+- volume: 5769577
+- ma5: 37.75
+- ema23_primary: 36.81
+- distance_to_ema23_pct: 7.3
+- ma20: 36.81
+- ma60: 35.74
+- ma120: 35.56
+- return_5d: 7.05
+- return_20d: 7.48
+- volume_ratio: 4.44
+- distance_to_ma20_pct_auxiliary: 7.3
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,36.8,36.9,36.35,36.75,1238369,35.59,3.25,35.52,35.41,1.63
 20260507,36.95,37.5,36.8,37.2,1950220,35.73,4.12,35.63,35.4,2.34
 20260508,37.05,37.2,36.35,36.7,1257492,35.81,2.49,35.73,35.38,1.44
 20260511,37,37.45,36.7,37.25,1196642,35.93,3.68,35.84,35.4,1.32
@@ -139,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,37,37.85,36.95,37.25,1966246,36.37,2.42,36.56,35.55,1.84
 20260601,37.25,38.1,37.15,37.65,1940700,36.48,3.22,36.62,35.62,1.81
 20260602,38,38,37.15,37.6,1342117,36.57,2.82,36.67,35.66,1.25
+20260603,37.7,39.5,37.7,39.5,5769577,36.81,7.3,36.81,35.74,4.44
 ```
 
 ## Latest TDCC Snapshot
@@ -166,19 +169,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260603 | 1612 | 宏泰 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260603 | 1612 | 宏泰 | 4 | 1 | 4 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 5 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1612 | 宏泰 | 5 | 0 | 128670.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 1612 | 宏泰 | 5 | 0 | 1254200.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

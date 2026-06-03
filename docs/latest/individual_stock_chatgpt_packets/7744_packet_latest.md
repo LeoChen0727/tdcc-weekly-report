@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7744 崴寶
 
 ## Metadata
-- generated_at: 2026-06-02 23:30:40 Asia/Taipei
+- generated_at: 2026-06-04 01:57:07 Asia/Taipei
 - stock_id: 7744
 - stock_name: 崴寶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 257
+- latest_price_date: 20260603
+- price_rows: 258
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,7 +59,7 @@
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: observe_only
 
 ### management_plan
@@ -72,7 +72,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -97,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 515
-- high: 540
-- low: 490
-- close: 500
-- volume: 515
-- ma5: 494.2
-- ema23_primary: 514.02
-- distance_to_ema23_pct: -2.73
-- ma20: 529.7
-- ma60: 497.95
-- ma120: 415.15
-- return_5d: -0.99
-- return_20d: -12.59
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: -5.61
-- distance_to_high_60_pct: -19.09
+- date: 20260603
+- open: 500
+- high: 500
+- low: 476
+- close: 480.5
+- volume: 485000
+- ma5: 490.9
+- ema23_primary: 511.23
+- distance_to_ema23_pct: -6.01
+- ma20: 525.62
+- ma60: 498.48
+- ma120: 416.79
+- return_5d: -3.32
+- return_20d: -14.5
+- volume_ratio: 1.74
+- distance_to_ma20_pct_auxiliary: -8.59
+- distance_to_high_60_pct: -22.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,575,581,540,562,391000,508.24,10.58,511.82,453.76,1.86
 20260507,573,573,545,556,133000,512.22,8.55,514.95,457.74,0.64
 20260508,536,573,534,564,127000,516.54,9.19,519.27,462.05,0.64
 20260511,585,585,548,553,207000,519.58,6.43,522.12,466.22,1.04
@@ -139,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,489,498,486.5,492,492000,516.32,-4.71,534.1,496.02,1.69
 20260601,493,520,493,504,507,515.29,-2.19,533.3,497.27,0
 20260602,515,540,490,500,515,514.02,-2.73,529.7,497.95,0
+20260603,500,500,476,480.5,485000,511.23,-6.01,525.62,498.48,1.74
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3694 海華
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:14 Asia/Taipei
+- generated_at: 2026-06-04 01:55:32 Asia/Taipei
 - stock_id: 3694
 - stock_name: 海華
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -100,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 68.9
-- high: 69.8
-- low: 66.9
-- close: 69.1
-- volume: 2046541
-- ma5: 68.52
-- ema23_primary: 65.36
-- distance_to_ema23_pct: 5.73
-- ma20: 64.52
-- ma60: 60.16
-- ma120: 60.39
-- return_5d: -1.57
-- return_20d: 11.45
-- volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: 7.11
-- distance_to_high_60_pct: -5.21
+- date: 20260603
+- open: 70.3
+- high: 71.1
+- low: 68.7
+- close: 69.4
+- volume: 2503442
+- ma5: 68.7
+- ema23_primary: 65.69
+- distance_to_ema23_pct: 5.64
+- ma20: 64.95
+- ma60: 60.35
+- ma120: 60.43
+- return_5d: 1.31
+- return_20d: 14.52
+- volume_ratio: 0.6
+- distance_to_ma20_pct_auxiliary: 6.84
+- distance_to_high_60_pct: -4.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,62.8,62.8,59.4,60.6,2077884,59.92,1.13,60.33,58.51,1.64
 20260507,61.1,62.5,60.5,61.9,1117470,60.09,3.01,60.65,58.5,0.87
 20260508,61.6,62.4,59.8,60,1400908,60.08,-0.13,60.86,58.49,1.05
 20260511,59,59,56.4,56.8,2320371,59.81,-5.03,60.84,58.45,1.64
@@ -142,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,67.6,70.2,67.3,69.5,2636138,64.66,7.48,63.78,59.73,0.64
 20260601,69,69.9,68.4,68.9,1674570,65.02,5.97,64.16,59.96,0.4
 20260602,68.9,69.8,66.9,69.1,2046541,65.36,5.73,64.52,60.16,0.49
+20260603,70.3,71.1,68.7,69.4,2503442,65.69,5.64,64.95,60.35,0.6
 ```
 
 ## Latest TDCC Snapshot
@@ -171,18 +171,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3694 | 海華 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 3694 | 海華 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3694 | 海華 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3694 | 海華 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 3694 | 海華 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3694 | 海華 | 11 | 0 | 365910.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 3694 | 海華 | 11 | 0 | 318700.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

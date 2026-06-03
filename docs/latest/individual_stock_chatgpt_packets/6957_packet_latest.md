@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6957 裕慶-KY
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:57 Asia/Taipei
+- generated_at: 2026-06-04 01:56:47 Asia/Taipei
 - stock_id: 6957
 - stock_name: 裕慶-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -96,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 174
-- high: 181
-- low: 174
-- close: 181
-- volume: 373742
-- ma5: 170.4
-- ema23_primary: 163.98
-- distance_to_ema23_pct: 10.38
-- ma20: 162.55
-- ma60: 161.5
-- ma120: 177.18
-- return_5d: 13.48
-- return_20d: 13.12
-- volume_ratio: 3.01
-- distance_to_ma20_pct_auxiliary: 11.35
-- distance_to_high_60_pct: 0
+- date: 20260603
+- open: 183
+- high: 199
+- low: 183
+- close: 188
+- volume: 559919
+- ma5: 174.2
+- ema23_primary: 165.98
+- distance_to_ema23_pct: 13.27
+- ma20: 163.85
+- ma60: 161.75
+- ma120: 176.92
+- return_5d: 11.24
+- return_20d: 16.05
+- volume_ratio: 3.78
+- distance_to_ma20_pct_auxiliary: 14.74
+- distance_to_high_60_pct: -5.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,162,162,159,162,82387,161.02,0.61,160,167.28,0.84
 20260507,160,162,160,162,57734,161.1,0.56,160.4,166.88,0.63
 20260508,162,162,159,159.5,97800,160.96,-0.91,160.7,166.42,1.13
 20260511,158,159,155,159,156707,160.8,-1.12,160.8,166.02,1.8
@@ -138,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,166.5,168,163.5,167,115911,161.61,3.34,161.18,161.28,1.09
 20260601,168,172.5,166,171.5,222891,162.43,5.58,161.5,161.34,2.05
 20260602,174,181,174,181,373742,163.98,10.38,162.55,161.5,3.01
+20260603,183,199,183,188,559919,165.98,13.27,163.85,161.75,3.78
 ```
 
 ## Latest TDCC Snapshot
@@ -177,7 +177,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6957 | 裕慶-KY | 2 | 0 | 4700.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 6957 | 裕慶-KY | 2 | 0 | 62780.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

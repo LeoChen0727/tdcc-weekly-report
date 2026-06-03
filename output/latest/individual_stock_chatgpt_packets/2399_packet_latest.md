@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2399 映泰
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:32 Asia/Taipei
+- generated_at: 2026-06-04 01:54:42 Asia/Taipei
 - stock_id: 2399
 - stock_name: 映泰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,14 +55,18 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: unclear
 - entry_style: current_price_ok
-- position_sizing: observe_only
+- position_sizing: starter_1_4
 
 ### management_plan
+- buy_first_tranche_now
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -73,7 +77,6 @@
 ### entry_prerequisites
 - price_structure_not_broken
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -89,6 +92,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -96,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 51
-- high: 51.9
-- low: 49.05
-- close: 50.1
-- volume: 11243720
-- ma5: 48.78
-- ema23_primary: 45.56
-- distance_to_ema23_pct: 9.96
-- ma20: 46.25
-- ma60: 38.06
-- ma120: 31.35
-- return_5d: -0.79
-- return_20d: 16.24
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: 8.32
-- distance_to_high_60_pct: -4.39
+- date: 20260603
+- open: 51.8
+- high: 54.6
+- low: 50.7
+- close: 50.7
+- volume: 16893909
+- ma5: 49.32
+- ema23_primary: 45.99
+- distance_to_ema23_pct: 10.24
+- ma20: 46.55
+- ma60: 38.52
+- ma120: 31.58
+- return_5d: 5.62
+- return_20d: 13.17
+- volume_ratio: 1.06
+- distance_to_ma20_pct_auxiliary: 8.93
+- distance_to_high_60_pct: -7.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,43.5,47,43.4,44.8,39573501,38.89,15.18,39.26,30.75,1.54
 20260507,44.8,44.8,42.7,43.5,19221011,39.28,10.75,39.54,31.04,0.78
 20260508,43.2,44.55,42.1,42.3,14536476,39.53,7.01,39.88,31.34,0.61
 20260511,42.3,45.4,41.4,44.8,25679481,39.97,12.09,40.41,31.7,1.05
@@ -138,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,49.8,49.8,47.85,47.9,6976008,44.69,7.18,45.58,37.17,0.39
 20260601,48.7,52.4,48.5,50.2,13406131,45.15,11.19,45.9,37.62,0.78
 20260602,51,51.9,49.05,50.1,11243720,45.56,9.96,46.25,38.06,0.66
+20260603,51.8,54.6,50.7,50.7,16893909,45.99,10.24,46.55,38.52,1.06
 ```
 
 ## Latest TDCC Snapshot
@@ -165,14 +169,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260603 | 2399 | 映泰 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260603 | 2399 | 映泰 | 1 | 1 | 2 | 4 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

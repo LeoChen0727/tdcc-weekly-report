@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9945 潤泰新
 
 ## Metadata
-- generated_at: 2026-06-02 23:31:27 Asia/Taipei
+- generated_at: 2026-06-04 01:57:29 Asia/Taipei
 - stock_id: 9945
 - stock_name: 潤泰新
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 23.7
-- high: 24
-- low: 23.35
-- close: 23.9
-- volume: 9162330
-- ma5: 23.48
-- ema23_primary: 23.66
-- distance_to_ema23_pct: 1.02
-- ma20: 23.43
-- ma60: 24.79
-- ma120: 27.17
-- return_5d: 1.06
-- return_20d: 2.36
-- volume_ratio: 1.1
-- distance_to_ma20_pct_auxiliary: 1.98
-- distance_to_high_60_pct: -16.58
+- date: 20260603
+- open: 24.05
+- high: 25.05
+- low: 23.85
+- close: 24.55
+- volume: 13484012
+- ma5: 23.74
+- ema23_primary: 23.73
+- distance_to_ema23_pct: 3.45
+- ma20: 23.49
+- ma60: 24.73
+- ma120: 27.12
+- return_5d: 5.59
+- return_20d: 4.69
+- volume_ratio: 1.56
+- distance_to_ma20_pct_auxiliary: 4.51
+- distance_to_high_60_pct: -13.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,23.55,23.65,23.3,23.45,6349116,24.53,-4.39,24.51,26.56,1.05
 20260507,23.5,23.6,23.3,23.6,7936861,24.45,-3.47,24.41,26.47,1.27
 20260508,23.6,23.7,23.4,23.4,4918875,24.36,-3.95,24.3,26.37,0.77
 20260511,23.45,23.6,23.3,23.6,6190323,24.3,-2.87,24.2,26.28,0.95
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,23.45,23.7,23.3,23.3,8322563,23.63,-1.4,23.39,24.94,1.03
 20260601,23.3,23.8,23.15,23.7,9485281,23.64,0.27,23.41,24.87,1.16
 20260602,23.7,24,23.35,23.9,9162330,23.66,1.02,23.43,24.79,1.1
+20260603,24.05,25.05,23.85,24.55,13484012,23.73,3.45,23.49,24.73,1.56
 ```
 
 ## Latest TDCC Snapshot
@@ -172,18 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 9945 | 潤泰新 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260602 | 9945 | 潤泰新 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 9945 | 潤泰新 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 65.0 |  |  | neckline_challenge |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 9945 | 潤泰新 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 9945 | 潤泰新 | 10 | 3 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 9945 | 潤泰新 | 9 | 0 | 622680.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 9945 | 潤泰新 | 9 | 0 | 1084590.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

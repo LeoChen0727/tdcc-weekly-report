@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1308 亞聚
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:21 Asia/Taipei
+- generated_at: 2026-06-04 01:54:10 Asia/Taipei
 - stock_id: 1308
 - stock_name: 亞聚
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 27
 - tdcc_history_status: tdcc_history_ready
@@ -55,14 +55,20 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: reduce
-- action_rating_label_zh: 減碼
-- confidence_level: low
-- thesis_state: failed_breakout
-- entry_style: no_entry_now
-- position_sizing: reduce_position
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
+- confidence_level: medium
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
@@ -70,9 +76,11 @@
 
 ### entry_prerequisites
 - model_recommended
+- price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
+- no_major_volume_price_failure
 - acceptable_risk_reward
 
 ### post_entry_watch_items
@@ -86,7 +94,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- volume_price_failure
+- none
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -94,29 +102,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 13.8
-- high: 13.95
-- low: 13.5
-- close: 13.85
-- volume: 5159293
-- ma5: 13.34
-- ema23_primary: 13.7
-- distance_to_ema23_pct: 1.09
-- ma20: 13.34
-- ma60: 15.17
-- ma120: 14.39
-- return_5d: 6.95
-- return_20d: -2.81
-- volume_ratio: 1.62
-- distance_to_ma20_pct_auxiliary: 3.86
-- distance_to_high_60_pct: -34.52
+- date: 20260603
+- open: 13.9
+- high: 14.6
+- low: 13.85
+- close: 14.4
+- volume: 6182882
+- ma5: 13.65
+- ema23_primary: 13.76
+- distance_to_ema23_pct: 4.66
+- ma20: 13.37
+- ma60: 15.16
+- ma120: 14.4
+- return_5d: 12.06
+- return_20d: 5.11
+- volume_ratio: 1.88
+- distance_to_ma20_pct_auxiliary: 7.7
+- distance_to_high_60_pct: -31.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,14.1,14.1,13.7,13.7,4039189,15.34,-10.69,15.48,15.3,0.55
 20260507,13.45,13.85,13.4,13.75,3750392,15.21,-9.58,15.33,15.3,0.57
 20260508,13.85,13.95,13.35,13.4,3128933,15.06,-11,15.16,15.29,0.52
 20260511,13.55,13.9,13.5,13.65,2984565,14.94,-8.63,15.01,15.28,0.53
@@ -136,6 +143,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,13,13.2,12.95,13.1,3054408,13.69,-4.31,13.38,15.18,0.97
 20260601,13.2,13.7,13,13.65,4039526,13.69,-0.27,13.36,15.17,1.31
 20260602,13.8,13.95,13.5,13.85,5159293,13.7,1.09,13.34,15.17,1.62
+20260603,13.9,14.6,13.85,14.4,6182882,13.76,4.66,13.37,15.16,1.88
 ```
 
 ## Latest TDCC Snapshot
@@ -172,17 +180,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1308 | 亞聚 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 1308 | 亞聚 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1308 | 亞聚 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260603 | 1308 | 亞聚 | 3 | 1 | 3 | 3 | 3 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1308 | 亞聚 | 19 | 1 | 257330.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 1308 | 亞聚 | 19 | 1 | 515020.0 | 1740.0 | 295.99 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

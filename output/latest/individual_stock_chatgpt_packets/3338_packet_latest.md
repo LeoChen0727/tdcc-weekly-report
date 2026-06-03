@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3338 泰碩
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:47 Asia/Taipei
+- generated_at: 2026-06-04 01:55:19 Asia/Taipei
 - stock_id: 3338
 - stock_name: 泰碩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,12 +58,12 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: breakout_initial
-- entry_style: breakout_follow
+- thesis_state: high_level_consolidation
+- entry_style: current_price_ok
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -76,7 +76,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -101,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 88.7
-- high: 88.7
-- low: 87.8
-- close: 88.7
-- volume: 6321020
-- ma5: 78.18
-- ema23_primary: 75.12
-- distance_to_ema23_pct: 18.08
-- ma20: 74.8
-- ma60: 68.11
-- ma120: 59.72
-- return_5d: 13.14
-- return_20d: 19.86
-- volume_ratio: 2.74
-- distance_to_ma20_pct_auxiliary: 18.59
-- distance_to_high_60_pct: -1.11
+- date: 20260603
+- open: 93.1
+- high: 94.3
+- low: 85.6
+- close: 85.8
+- volume: 11483388
+- ma5: 80.22
+- ema23_primary: 76.01
+- distance_to_ema23_pct: 12.88
+- ma20: 75.34
+- ma60: 68.56
+- ma120: 60.02
+- return_5d: 13.49
+- return_20d: 14.55
+- volume_ratio: 4.15
+- distance_to_ma20_pct_auxiliary: 13.88
+- distance_to_high_60_pct: -9.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,74.5,76.3,73.1,74.9,2318503,70.51,6.23,70.22,61.46,0.45
 20260507,74.6,74.9,73.1,73.3,1835346,70.74,3.62,70.86,61.8,0.35
 20260508,73.1,74.1,71.4,72.9,2151382,70.92,2.79,71.53,62.14,0.41
 20260511,72.1,72.4,70.5,72.4,1655070,71.04,1.91,72.2,62.49,0.31
@@ -143,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,73.5,73.9,72.8,73.4,762343,73.26,0.19,73.74,67.21,0.36
 20260601,80.7,80.7,80.7,80.7,1669025,73.88,9.23,74.06,67.6,0.8
 20260602,88.7,88.7,87.8,88.7,6321020,75.12,18.08,74.8,68.11,2.74
+20260603,93.1,94.3,85.6,85.8,11483388,76.01,12.88,75.34,68.56,4.15
 ```
 
 ## Latest TDCC Snapshot
@@ -172,13 +171,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3338 | 泰碩 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 3338 | 泰碩 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3338 | 泰碩 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3338 | 泰碩 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3338 | 泰碩 | 9 | 9 | 5 | 9 | 9 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260603 | 3338 | 泰碩 | 10 | 10 | 5 | 10 | 10 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

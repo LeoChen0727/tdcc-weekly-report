@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8072 陞泰
 
 ## Metadata
-- generated_at: 2026-06-02 23:30:52 Asia/Taipei
+- generated_at: 2026-06-04 01:57:13 Asia/Taipei
 - stock_id: 8072
 - stock_name: 陞泰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,15 +55,15 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: buy_now
-- action_rating_label_zh: 建議買進
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: breakout_initial
-- entry_style: breakout_follow
-- position_sizing: normal_position
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
-- buy_first_tranche_now
+- buy_first_tranche_near_support
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -76,8 +76,6 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_priority_high
-- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -104,29 +102,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 28.6
-- high: 30.75
-- low: 28.3
-- close: 29.45
-- volume: 1665475
-- ma5: 28.03
-- ema23_primary: 27.94
-- distance_to_ema23_pct: 5.42
-- ma20: 27.77
-- ma60: 27.99
-- ma120: 29.34
-- return_5d: 5.94
-- return_20d: 3.33
-- volume_ratio: 4.86
-- distance_to_ma20_pct_auxiliary: 6.04
-- distance_to_high_60_pct: -4.23
+- date: 20260603
+- open: 29.45
+- high: 29.85
+- low: 29
+- close: 29.85
+- volume: 704102
+- ma5: 28.47
+- ema23_primary: 28.1
+- distance_to_ema23_pct: 6.24
+- ma20: 27.85
+- ma60: 28.01
+- ma120: 29.33
+- return_5d: 7.96
+- return_20d: 5.29
+- volume_ratio: 1.9
+- distance_to_ma20_pct_auxiliary: 7.19
+- distance_to_high_60_pct: -2.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,28.65,28.65,27.95,28.35,151939,28.4,-0.16,28.71,28.88,0.45
 20260507,28.6,29,27.95,28.5,292423,28.41,0.33,28.71,28.81,0.91
 20260508,28.9,29.2,28.2,28.75,253492,28.43,1.11,28.67,28.77,0.94
 20260511,28.4,28.4,27.5,28,343138,28.4,-1.4,28.63,28.73,1.3
@@ -146,6 +143,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,27.45,27.75,27.3,27.35,212254,27.74,-1.42,27.71,27.99,0.86
 20260601,27.5,28.75,27.5,28.4,598537,27.8,2.16,27.73,27.99,2.26
 20260602,28.6,30.75,28.3,29.45,1665475,27.94,5.42,27.77,27.99,4.86
+20260603,29.45,29.85,29,29.85,704102,28.1,6.24,27.85,28.01,1.9
 ```
 
 ## Latest TDCC Snapshot
@@ -175,12 +173,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 8072 | 陞泰 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 8072 | 陞泰 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 8072 | 陞泰 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| 20260603 | 8072 | 陞泰 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3673 TPK-KY
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:12 Asia/Taipei
+- generated_at: 2026-06-04 01:55:31 Asia/Taipei
 - stock_id: 3673
 - stock_name: TPK-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,18 +55,14 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: starter_position
-- action_rating_label_zh: 可小量試單
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_distribution_risk
-- entry_style: pullback_to_23ema
-- position_sizing: starter_1_4
+- thesis_state: high_level_consolidation
+- entry_style: current_price_ok
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -76,8 +72,8 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 
 ### post_entry_watch_items
@@ -92,7 +88,6 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
-- tdcc_distribution_warning
 - price_too_extended
 
 ### chatgpt_instruction
@@ -101,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 88
-- high: 92.4
-- low: 83.3
-- close: 92
-- volume: 49966718
-- ma5: 87.34
-- ema23_primary: 74.94
-- distance_to_ema23_pct: 22.77
-- ma20: 73.28
-- ma60: 58.84
-- ma120: 50.08
-- return_5d: 5.26
-- return_20d: 47.2
-- volume_ratio: 1.51
-- distance_to_ma20_pct_auxiliary: 25.55
-- distance_to_high_60_pct: -3.06
+- date: 20260603
+- open: 93
+- high: 98.9
+- low: 91.8
+- close: 94
+- volume: 55556531
+- ma5: 88.56
+- ema23_primary: 76.53
+- distance_to_ema23_pct: 22.84
+- ma20: 75
+- ma60: 59.74
+- ma120: 50.52
+- return_5d: 6.94
+- return_20d: 57.98
+- volume_ratio: 1.58
+- distance_to_ma20_pct_auxiliary: 25.33
+- distance_to_high_60_pct: -4.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,63,63.2,58.1,59.5,13790548,58.48,1.74,61.33,47.99,0.79
 20260507,59.8,61.9,58.6,60.5,8460050,58.65,3.16,61.77,48.33,0.5
 20260508,61.8,62.3,58.5,59,8371463,58.68,0.55,62.16,48.65,0.51
 20260511,59.9,60.5,59,59.8,5735038,58.77,1.75,62.65,48.99,0.35
@@ -143,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,81.7,88.5,78.8,86.3,41007388,71.92,19.99,70.39,57.12,1.41
 20260601,87.5,94.9,87.4,89.5,48207223,73.39,21.96,71.8,57.97,1.55
 20260602,88,92.4,83.3,92,49966718,74.94,22.77,73.28,58.84,1.51
+20260603,93,98.9,91.8,94,55556531,76.53,22.84,75,59.74,1.58
 ```
 
 ## Latest TDCC Snapshot
@@ -170,19 +165,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3673 | TPK-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 60.0 |  |  | neckline_challenge |  | call_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3673 | TPK-KY | 3 | 2 | 4 | 7 | 7 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3673 | TPK-KY | 53 | 0 | 35686930.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260603 | 3673 | TPK-KY | 53 | 0 | 39953510.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6164 華興
 
 ## Metadata
-- generated_at: 2026-06-02 23:28:43 Asia/Taipei
+- generated_at: 2026-06-04 01:56:13 Asia/Taipei
 - stock_id: 6164
 - stock_name: 華興
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,8 +58,8 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: breakout_initial
-- entry_style: breakout_follow
+- thesis_state: unclear
+- entry_style: pullback_to_23ema
 - position_sizing: starter_1_4
 
 ### management_plan
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 12.8
-- high: 13.85
-- low: 12.45
-- close: 13.4
-- volume: 2593854
-- ma5: 12.48
-- ema23_primary: 12.32
-- distance_to_ema23_pct: 8.75
-- ma20: 12.24
-- ma60: 12.31
-- ma120: 12.13
-- return_5d: 9.84
-- return_20d: 3.08
-- volume_ratio: 3.51
-- distance_to_ma20_pct_auxiliary: 9.48
-- distance_to_high_60_pct: -3.25
+- date: 20260603
+- open: 13.4
+- high: 13.9
+- low: 13.2
+- close: 13.55
+- volume: 2458575
+- ma5: 12.77
+- ema23_primary: 12.42
+- distance_to_ema23_pct: 9.06
+- ma20: 12.29
+- ma60: 12.34
+- ma120: 12.16
+- return_5d: 11.98
+- return_20d: 7.97
+- volume_ratio: 3.29
+- distance_to_ma20_pct_auxiliary: 10.25
+- distance_to_high_60_pct: -2.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,13.1,13.2,12.5,12.55,2285489,12.38,1.35,12.46,12.31,2.38
 20260507,12.7,12.9,12.6,12.65,509407,12.41,1.97,12.48,12.31,0.53
 20260508,12.65,12.8,12.4,12.45,510249,12.41,0.33,12.49,12.3,0.55
 20260511,12.5,12.6,12.2,12.3,527628,12.4,-0.81,12.5,12.3,0.57
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,12.25,12.25,12,12.1,532526,12.19,-0.7,12.18,12.25,0.85
 20260601,12.2,12.7,12,12.65,1445052,12.22,3.48,12.22,12.28,2.16
 20260602,12.8,13.85,12.45,13.4,2593854,12.32,8.75,12.24,12.31,3.51
+20260603,13.4,13.9,13.2,13.55,2458575,12.42,9.06,12.29,12.34,3.29
 ```
 
 ## Latest TDCC Snapshot
@@ -172,12 +172,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6164 | 華興 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 6164 | 華興 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6164 | 華興 | 2 | 2 | 2 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 6164 | 華興 | 3 | 3 | 3 | 6 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2395 研華
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:32 Asia/Taipei
+- generated_at: 2026-06-04 01:54:42 Asia/Taipei
 - stock_id: 2395
 - stock_name: 研華
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -96,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 520
-- high: 530
-- low: 508
-- close: 515
-- volume: 6795914
-- ma5: 505.3
-- ema23_primary: 464.43
-- distance_to_ema23_pct: 10.89
-- ma20: 477.18
-- ma60: 391.57
-- ma120: 342.08
-- return_5d: 0.98
-- return_20d: 29.89
-- volume_ratio: 1.2
-- distance_to_ma20_pct_auxiliary: 7.93
-- distance_to_high_60_pct: -2.83
+- date: 20260603
+- open: 519
+- high: 520
+- low: 500
+- close: 513
+- volume: 4019813
+- ma5: 506.1
+- ema23_primary: 468.48
+- distance_to_ema23_pct: 9.5
+- ma20: 482.35
+- ma60: 393.87
+- ma120: 343.96
+- return_5d: 0.79
+- return_20d: 25.27
+- volume_ratio: 0.73
+- distance_to_ma20_pct_auxiliary: 6.35
+- distance_to_high_60_pct: -3.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,400.5,415,399,409.5,7142460,363.12,12.77,362.7,337.16,1.99
 20260507,445,450,423.5,444,9165942,369.86,20.05,367.48,339.58,2.36
 20260508,450,488,449.5,476.5,10464742,378.75,25.81,373.9,342.44,2.46
 20260511,483,486,463,478.5,5602704,387.06,23.62,380.52,345.43,1.27
@@ -138,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,496,515,492,495,10573832,454.63,8.88,465.15,385.27,1.81
 20260601,505,525,505,517,3813940,459.83,12.43,471.25,388.69,0.68
 20260602,520,530,508,515,6795914,464.43,10.89,477.18,391.57,1.2
+20260603,519,520,500,513,4019813,468.48,9.5,482.35,393.87,0.73
 ```
 
 ## Latest TDCC Snapshot
@@ -177,7 +177,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2395 | 研華 | 49 | 0 | 22714680.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 2395 | 研華 | 49 | 0 | 12959680.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

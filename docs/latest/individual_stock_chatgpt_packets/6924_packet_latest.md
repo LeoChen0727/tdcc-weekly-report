@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6924 榮惠-KY創
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:54 Asia/Taipei
+- generated_at: 2026-06-04 01:56:46 Asia/Taipei
 - stock_id: 6924
 - stock_name: 榮惠-KY創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 256
+- latest_price_date: 20260603
+- price_rows: 257
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -96,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 176
-- high: 193.5
-- low: 176
-- close: 193.5
-- volume: 127717
-- ma5: 178.1
-- ema23_primary: 145.55
-- distance_to_ema23_pct: 32.94
-- ma20: 144.34
-- ma60: 101.64
-- ma120: 83.66
-- return_5d: 20.19
-- return_20d: 110.78
-- volume_ratio: 0.72
-- distance_to_ma20_pct_auxiliary: 34.05
-- distance_to_high_60_pct: 0
+- date: 20260603
+- open: 191
+- high: 193
+- low: 179
+- close: 188
+- volume: 182524
+- ma5: 182.9
+- ema23_primary: 149.09
+- distance_to_ema23_pct: 26.1
+- ma20: 149.05
+- ma60: 103.78
+- ma120: 84.76
+- return_5d: 14.63
+- return_20d: 100.21
+- volume_ratio: 0.98
+- distance_to_ma20_pct_auxiliary: 26.13
+- distance_to_high_60_pct: -2.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,95.8,95.8,92,93.9,21051,86.44,8.63,87.17,74.49,0.58
 20260507,93.9,94.3,93.1,94,19165,87.07,7.96,87.83,74.97,0.53
 20260508,93.3,94,92.3,94,13025,87.65,7.25,88.53,75.48,0.36
 20260511,102.5,103,98.1,103,282108,88.93,15.83,89.67,76.13,5.75
@@ -138,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,180.5,189,170,182,121369,138.03,31.86,134.91,97.48,0.74
 20260601,181.5,181.5,169,176,157565,141.19,24.65,139.26,99.42,0.92
 20260602,176,193.5,176,193.5,127717,145.55,32.94,144.34,101.64,0.72
+20260603,191,193,179,188,182524,149.09,26.1,149.05,103.78,0.98
 ```
 
 ## Latest TDCC Snapshot

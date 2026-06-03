@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4442 竣邦-KY
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:33 Asia/Taipei
+- generated_at: 2026-06-04 01:55:41 Asia/Taipei
 - stock_id: 4442
 - stock_name: 竣邦-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 273
+- latest_price_date: 20260603
+- price_rows: 274
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -97,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 50.6
-- high: 50.9
-- low: 50.3
-- close: 50.9
-- volume: 51
-- ma5: 50.48
-- ema23_primary: 52.54
-- distance_to_ema23_pct: -3.13
-- ma20: 52.27
-- ma60: 56.76
-- ma120: 57.35
-- return_5d: -0.2
-- return_20d: -8.94
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: -2.63
-- distance_to_high_60_pct: -21.57
+- date: 20260603
+- open: 51.1
+- high: 51.2
+- low: 51
+- close: 51.2
+- volume: 51000
+- ma5: 50.58
+- ema23_primary: 52.43
+- distance_to_ema23_pct: -2.35
+- ma20: 52.05
+- ma60: 56.69
+- ma120: 57.32
+- return_5d: 0.99
+- return_20d: -7.91
+- volume_ratio: 0.97
+- distance_to_ma20_pct_auxiliary: -1.64
+- distance_to_high_60_pct: -21.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,55.6,55.6,55.3,55.6,10000,57.34,-3.03,57.73,58.12,0.13
 20260507,55.6,55.8,55.6,55.8,9000,57.21,-2.46,57.4,58.08,0.15
 20260508,55.6,55.8,54.8,54.9,38000,57.02,-3.71,57.09,58.03,0.81
 20260511,55.3,56.5,54.9,54.9,80000,56.84,-3.41,56.78,57.98,1.73
@@ -139,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,50.5,50.5,50.1,50.1,50000,52.88,-5.27,52.74,56.94,0.95
 20260601,50.5,50.7,50.4,50.6,51,52.69,-3.97,52.52,56.85,0
 20260602,50.6,50.9,50.3,50.9,51,52.54,-3.13,52.27,56.76,0
+20260603,51.1,51.2,51,51.2,51000,52.43,-2.35,52.05,56.69,0.97
 ```
 
 ## Latest TDCC Snapshot

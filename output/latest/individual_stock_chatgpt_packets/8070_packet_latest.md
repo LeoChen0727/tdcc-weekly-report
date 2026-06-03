@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8070 長華*
 
 ## Metadata
-- generated_at: 2026-06-02 23:30:52 Asia/Taipei
+- generated_at: 2026-06-04 01:57:13 Asia/Taipei
 - stock_id: 8070
 - stock_name: 長華*
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,14 +55,18 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: take_profit
-- action_rating_label_zh: 停利
-- confidence_level: low
-- thesis_state: breakout_confirmed
-- entry_style: breakout_follow
-- position_sizing: observe_only
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
+- confidence_level: medium
+- thesis_state: high_level_distribution_risk
+- entry_style: current_price_ok
+- position_sizing: starter_1_4
 
 ### management_plan
+- buy_first_tranche_now
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -71,10 +75,8 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 
 ### post_entry_watch_items
@@ -89,6 +91,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- tdcc_distribution_warning
 - price_too_extended
 
 ### chatgpt_instruction
@@ -97,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 53.9
-- high: 58
-- low: 51.4
-- close: 58
-- volume: 29300010
-- ma5: 52.9
-- ema23_primary: 48.65
-- distance_to_ema23_pct: 19.21
-- ma20: 47.84
-- ma60: 46.26
-- ma120: 45.59
-- return_5d: 17.05
-- return_20d: 18.13
-- volume_ratio: 4.6
-- distance_to_ma20_pct_auxiliary: 21.23
-- distance_to_high_60_pct: 0
+- date: 20260603
+- open: 60.7
+- high: 61.3
+- low: 56.9
+- close: 60
+- volume: 30031927
+- ma5: 54.84
+- ema23_primary: 49.6
+- distance_to_ema23_pct: 20.97
+- ma20: 48.4
+- ma60: 46.54
+- ma120: 45.72
+- return_5d: 19.28
+- return_20d: 22.82
+- volume_ratio: 3.9
+- distance_to_ma20_pct_auxiliary: 23.97
+- distance_to_high_60_pct: -2.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,49.5,49.95,48.25,48.85,3555621,47.09,3.74,47.55,45.09,0.84
 20260507,49.4,49.4,48.2,48.45,5035221,47.2,2.64,47.76,45.07,1.14
 20260508,48.9,48.9,47.45,48.2,2884776,47.28,1.94,47.83,45.09,0.67
 20260511,48.7,48.8,47.8,48.25,2643728,47.37,1.87,47.86,45.12,0.65
@@ -139,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,52.1,53,50.3,52.5,9772984,47.35,10.88,47.18,45.78,2.03
 20260601,53.8,54.7,52.5,52.8,8555021,47.8,10.45,47.4,46,1.69
 20260602,53.9,58,51.4,58,29300010,48.65,19.21,47.84,46.26,4.6
+20260603,60.7,61.3,56.9,60,30031927,49.6,20.97,48.4,46.54,3.9
 ```
 
 ## Latest TDCC Snapshot
@@ -168,18 +171,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 8070 | 長華* | true_breakout | 嚴格突破 | 119.0 |  |  | breakout_confirmed |  | call_inflow | continued_overheated | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_30d |
-| 20260521 | 8070 | 長華* | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_inflow | continued_overheated | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_30d |
+| 20260603 | 8070 | 長華* | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_inflow | repeated_but_no_breakout | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_14d |
+| 20260603 | 8070 | 長華* | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  | call_inflow | repeated_but_no_breakout | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 8070 | 長華* | 9 | 9 | 5 | 9 | 9 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260603 | 8070 | 長華* | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 8070 | 長華* | 11 | 0 | 7318370.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260603 | 8070 | 長華* | 12 | 0 | 9170570.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

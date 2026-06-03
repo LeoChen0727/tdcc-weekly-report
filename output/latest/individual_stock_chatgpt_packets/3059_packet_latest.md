@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3059 華晶科
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:26 Asia/Taipei
+- generated_at: 2026-06-04 01:55:09 Asia/Taipei
 - stock_id: 3059
 - stock_name: 華晶科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,12 +58,12 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: breakout_initial
-- entry_style: breakout_follow
+- thesis_state: high_level_distribution_risk
+- entry_style: current_price_ok
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -77,7 +77,6 @@
 ### entry_prerequisites
 - price_structure_not_broken
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 
 ### post_entry_watch_items
@@ -92,6 +91,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- tdcc_distribution_warning
 - price_too_extended
 
 ### chatgpt_instruction
@@ -100,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 51
-- high: 51
-- low: 50.8
-- close: 51
-- volume: 14608606
-- ma5: 44.64
-- ema23_primary: 42.4
-- distance_to_ema23_pct: 20.28
-- ma20: 42.19
-- ma60: 39.14
-- ma120: 39.9
-- return_5d: 20.14
-- return_20d: 26.87
-- volume_ratio: 1.57
-- distance_to_ma20_pct_auxiliary: 20.9
-- distance_to_high_60_pct: 0
+- date: 20260603
+- open: 54
+- high: 54.5
+- low: 50.2
+- close: 50.6
+- volume: 45397127
+- ma5: 46.45
+- ema23_primary: 43.08
+- distance_to_ema23_pct: 17.45
+- ma20: 42.71
+- ma60: 39.35
+- ma120: 39.96
+- return_5d: 21.78
+- return_20d: 26.18
+- volume_ratio: 3.99
+- distance_to_ma20_pct_auxiliary: 18.47
+- distance_to_high_60_pct: -7.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,40.6,40.7,39.35,40.1,4198727,38.65,3.76,38.26,38.08,1.06
 20260507,40.25,41.2,40,40.3,3606505,38.78,3.91,38.41,38.05,0.88
 20260508,40.6,41.05,39.25,39.35,3848549,38.83,1.34,38.56,38.03,0.92
 20260511,39.85,40.5,39.4,40.15,2718062,38.94,3.1,38.74,38.05,0.63
@@ -142,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,42.75,43.1,42.15,42.35,5010086,41.18,2.85,41.38,38.76,0.63
 20260601,42.45,46.5,42.45,46.45,23546693,41.62,11.61,41.65,38.92,2.67
 20260602,51,51,50.8,51,14608606,42.4,20.28,42.19,39.14,1.57
+20260603,54,54.5,50.2,50.6,45397127,43.08,17.45,42.71,39.35,3.99
 ```
 
 ## Latest TDCC Snapshot
@@ -171,18 +171,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3059 | 華晶科 | true_breakout | 嚴格突破 | 69.0 |  |  | platform_right_side |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 3059 | 華晶科 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3059 | 華晶科 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3059 | 華晶科 | 9 | 9 | 5 | 9 | 9 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260603 | 3059 | 華晶科 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3059 | 華晶科 | 26 | 1 | 5343580.0 | 22800.0 | 234.37 | no_signal | 0 |  |
+| 20260603 | 3059 | 華晶科 | 26 | 1 | 20814160.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

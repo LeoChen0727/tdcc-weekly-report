@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1582 信錦
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:44 Asia/Taipei
+- generated_at: 2026-06-04 01:54:20 Asia/Taipei
 - stock_id: 1582
 - stock_name: 信錦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 27
 - tdcc_history_status: tdcc_history_ready
@@ -59,11 +59,11 @@
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: current_price_ok
+- entry_style: pullback_to_23ema
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_now
+- buy_first_tranche_near_support
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -76,6 +76,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -100,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 114.5
-- high: 115
-- low: 109
-- close: 112
-- volume: 4372763
-- ma5: 113.8
-- ema23_primary: 106.49
-- distance_to_ema23_pct: 5.17
-- ma20: 104.66
-- ma60: 98.4
-- ma120: 83.04
-- return_5d: 0.45
-- return_20d: 19.79
-- volume_ratio: 0.4
-- distance_to_ma20_pct_auxiliary: 7.02
-- distance_to_high_60_pct: -8.94
+- date: 20260603
+- open: 112.5
+- high: 113
+- low: 110
+- close: 111.5
+- volume: 3218881
+- ma5: 114.1
+- ema23_primary: 106.91
+- distance_to_ema23_pct: 4.29
+- ma20: 105.7
+- ma60: 98.75
+- ma120: 83.41
+- return_5d: 1.36
+- return_20d: 23.07
+- volume_ratio: 0.29
+- distance_to_ma20_pct_auxiliary: 5.49
+- distance_to_high_60_pct: -9.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,93.7,94,88.8,90.6,3868067,94.61,-4.24,97.44,87.44,0.56
 20260507,88,90.4,86.8,88.7,3455319,94.11,-5.75,96.62,87.73,0.53
 20260508,88.5,90.4,86.7,87.8,2027041,93.59,-6.19,96.02,88.03,0.33
 20260511,88.5,89.8,87.7,89.5,1637644,93.25,-4.02,95.63,88.39,0.28
@@ -142,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,121.5,123,116,119.5,12841930,105.27,13.52,102.73,97.36,1.2
 20260601,121,121.5,112,114,10144671,105.99,7.55,103.73,97.9,0.93
 20260602,114.5,115,109,112,4372763,106.49,5.17,104.66,98.4,0.4
+20260603,112.5,113,110,111.5,3218881,106.91,4.29,105.7,98.75,0.29
 ```
 
 ## Latest TDCC Snapshot
@@ -178,17 +179,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1582 | 信錦 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: ex_dividend on 20260616; status=confirmed; proximity=within_14d |
+| 20260603 | 1582 | 信錦 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: ex_dividend on 20260616; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1582 | 信錦 | 1 | 1 | 2 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 1582 | 信錦 | 2 | 2 | 3 | 6 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1582 | 信錦 | 36 | 1 | 3288390.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 1582 | 信錦 | 36 | 1 | 2941790.0 | 2010.0 | 1463.58 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

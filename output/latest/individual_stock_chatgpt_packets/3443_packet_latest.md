@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3443 創意
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:53 Asia/Taipei
+- generated_at: 2026-06-04 01:55:22 Asia/Taipei
 - stock_id: 3443
 - stock_name: 創意
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 4745
-- high: 4795
-- low: 4420
-- close: 4535
-- volume: 2850767
-- ma5: 4710
-- ema23_primary: 4690.35
-- distance_to_ema23_pct: -3.31
-- ma20: 5016.25
-- ma60: 3646.75
-- ma120: 3004.58
-- return_5d: -14.19
-- return_20d: -6.2
-- volume_ratio: 0.91
-- distance_to_ma20_pct_auxiliary: -9.59
-- distance_to_high_60_pct: -23.78
+- date: 20260603
+- open: 4600
+- high: 4725
+- low: 4510
+- close: 4605
+- volume: 1608751
+- ma5: 4611
+- ema23_primary: 4683.24
+- distance_to_ema23_pct: -1.67
+- ma20: 4998.75
+- ma60: 3683.75
+- ma120: 3024.12
+- return_5d: -9.71
+- return_20d: -7.06
+- volume_ratio: 0.54
+- distance_to_ma20_pct_auxiliary: -7.88
+- distance_to_high_60_pct: -22.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,4925,4965,4520,4955,4890790,3724.73,33.03,3663,2856.25,2.07
 20260507,4955,5450,4945,5450,2180365,3868.5,40.88,3810,2904.08,0.95
 20260508,5465,5555,5210,5210,2898906,3980.29,30.89,3937.75,2946,1.27
 20260511,5300,5730,5245,5730,2419167,4126.1,38.87,4091,2997.83,1.07
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,4440,4835,4155,4670,7153455,4708.97,-0.83,5032.75,3570.83,2.29
 20260601,4655,4790,4540,4655,3322337,4704.47,-1.05,5031.25,3610.42,1.04
 20260602,4745,4795,4420,4535,2850767,4690.35,-3.31,5016.25,3646.75,0.91
+20260603,4600,4725,4510,4605,1608751,4683.24,-1.67,4998.75,3683.75,0.54
 ```
 
 ## Latest TDCC Snapshot
@@ -172,18 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3443 | 創意 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: ex_dividend on 20260608; status=confirmed; proximity=within_7d |
-| 20260602 | 3443 | 創意 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | calendar event: ex_dividend on 20260608; status=confirmed; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260603 | 3443 | 創意 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: ex_dividend on 20260608; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3443 | 創意 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 3443 | 創意 | 10 | 3 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3443 | 創意 | 104 | 16 | 12097520.0 | 31380.0 | 385.52 | no_signal | 0 |  |
+| 20260603 | 3443 | 創意 | 104 | 16 | 3155650.0 | 3310.0 | 953.37 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4943 康控-KY
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:55 Asia/Taipei
+- generated_at: 2026-06-04 01:55:51 Asia/Taipei
 - stock_id: 4943
 - stock_name: 康控-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 271
+- latest_price_date: 20260603
+- price_rows: 272
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -97,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 9.18
-- high: 9.18
-- low: 8.9
-- close: 9
-- volume: 55862
-- ma5: 9.04
-- ema23_primary: 9.29
-- distance_to_ema23_pct: -3.15
-- ma20: 9.12
-- ma60: 10.36
-- ma120: 11.5
-- return_5d: 0.67
-- return_20d: -1.64
-- volume_ratio: 1.07
-- distance_to_ma20_pct_auxiliary: -1.36
-- distance_to_high_60_pct: -29.96
+- date: 20260603
+- open: 9
+- high: 9
+- low: 8.65
+- close: 8.9
+- volume: 64681
+- ma5: 9.05
+- ema23_primary: 9.26
+- distance_to_ema23_pct: -3.89
+- ma20: 9.11
+- ma60: 10.3
+- ma120: 11.45
+- return_5d: 0.79
+- return_20d: -3.26
+- volume_ratio: 1.19
+- distance_to_ma20_pct_auxiliary: -2.29
+- distance_to_high_60_pct: -29.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,9.17,9.46,9.17,9.2,22692,10.21,-9.92,10.24,11.2,0.6
 20260507,9.79,9.79,9.12,9.45,38082,10.15,-6.89,10.17,11.15,0.99
 20260508,9.58,9.58,9,9.33,32360,10.08,-7.45,10.09,11.1,0.83
 20260511,9.48,9.48,9.08,9.36,9984,10.02,-6.6,10.01,11.06,0.26
@@ -139,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,9,9.2,8.95,9.2,153985,9.32,-1.31,9.13,10.45,3.09
 20260601,9.3,9.3,8.77,9.29,60063,9.32,-0.31,9.13,10.41,1.16
 20260602,9.18,9.18,8.9,9,55862,9.29,-3.15,9.12,10.36,1.07
+20260603,9,9,8.65,8.9,64681,9.26,-3.89,9.11,10.3,1.19
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2344 華邦電
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:24 Asia/Taipei
+- generated_at: 2026-06-04 01:54:38 Asia/Taipei
 - stock_id: 2344
 - stock_name: 華邦電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,11 +59,11 @@
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: high_level_consolidation
-- entry_style: breakout_follow
+- entry_style: current_price_ok
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -100,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 174
-- high: 184.5
-- low: 171.5
-- close: 184.5
-- volume: 270430116
-- ma5: 161.9
-- ema23_primary: 132.53
-- distance_to_ema23_pct: 39.21
-- ma20: 131.78
-- ma60: 109.62
-- ma120: 101.86
-- return_5d: 30.85
-- return_20d: 86.74
-- volume_ratio: 1.01
-- distance_to_ma20_pct_auxiliary: 40.01
-- distance_to_high_60_pct: 0
+- date: 20260603
+- open: 188
+- high: 193
+- low: 177
+- close: 177.5
+- volume: 332157125
+- ma5: 166.4
+- ema23_primary: 136.28
+- distance_to_ema23_pct: 30.25
+- ma20: 135.22
+- ma60: 110.8
+- ma120: 102.85
+- return_5d: 14.52
+- return_20d: 63.59
+- volume_ratio: 1.21
+- distance_to_ma20_pct_auxiliary: 31.26
+- distance_to_high_60_pct: -8.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,108.5,108.5,104,108.5,241792428,95.36,13.78,92.68,103.55,1.51
 20260507,113,117,106.5,114,338649833,96.92,17.63,93.6,103.33,2
 20260508,111,115,103.5,107,174129448,97.76,9.46,94.4,102.95,1.02
 20260511,115,117.5,113,117.5,162759860,99.4,18.21,95.6,102.77,0.95
@@ -142,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,155,158,151,158,249880280,124.15,27.27,123.86,107.34,0.96
 20260601,168,173.5,166,168,295190831,127.8,31.45,127.49,108.41,1.11
 20260602,174,184.5,171.5,184.5,270430116,132.53,39.21,131.78,109.62,1.01
+20260603,188,193,177,177.5,332157125,136.28,30.25,135.22,110.8,1.21
 ```
 
 ## Latest TDCC Snapshot
@@ -171,18 +171,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2344 | 華邦電 | true_breakout | 嚴格突破 | 64.0 |  |  | platform_right_side |  | put_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 2344 | 華邦電 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | put_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2344 | 華邦電 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2344 | 華邦電 | 9 | 9 | 5 | 9 | 9 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260603 | 2344 | 華邦電 | 10 | 10 | 5 | 10 | 10 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2344 | 華邦電 | 173 | 20 | 80918330.0 | 1314600.0 | 61.55 | put_inflow | -1 | 認售權證資金升溫，偏空或避險訊號 |
+| 20260603 | 2344 | 華邦電 | 180 | 20 | 85913940.0 | 1085800.0 | 79.13 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

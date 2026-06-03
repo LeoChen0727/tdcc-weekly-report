@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2329 華泰
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:22 Asia/Taipei
+- generated_at: 2026-06-04 01:54:37 Asia/Taipei
 - stock_id: 2329
 - stock_name: 華泰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 61.1
-- high: 61.3
-- low: 57.2
-- close: 58.9
-- volume: 15484189
-- ma5: 59.88
-- ema23_primary: 57.72
-- distance_to_ema23_pct: 2.04
-- ma20: 57.69
-- ma60: 56.34
-- ma120: 55.36
-- return_5d: 0.86
-- return_20d: -5.15
-- volume_ratio: 0.86
-- distance_to_ma20_pct_auxiliary: 2.1
-- distance_to_high_60_pct: -11.16
+- date: 20260603
+- open: 59.4
+- high: 60.8
+- low: 58.7
+- close: 58.8
+- volume: 9780335
+- ma5: 59.94
+- ema23_primary: 57.81
+- distance_to_ema23_pct: 1.71
+- ma20: 57.51
+- ma60: 56.46
+- ma120: 55.46
+- return_5d: 0.51
+- return_20d: -5.77
+- volume_ratio: 0.58
+- distance_to_ma20_pct_auxiliary: 2.24
+- distance_to_high_60_pct: -11.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,63.3,64.4,60.6,62.4,36530807,57.84,7.89,58.28,55.32,1.54
 20260507,63.5,63.7,61.7,62.3,19325372,58.21,7.03,58.7,55.33,0.81
 20260508,62.2,62.4,58.2,59.7,18616885,58.33,2.34,59.09,55.32,0.77
 20260511,61.5,62.6,58.8,59,16781232,58.39,1.04,59.33,55.33,0.69
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,62.4,63,59.9,61.1,27262250,57.31,6.62,57.81,56.04,1.36
 20260601,61.3,62.3,60.6,61,16891552,57.62,5.87,57.85,56.24,0.86
 20260602,61.1,61.3,57.2,58.9,15484189,57.72,2.04,57.69,56.34,0.86
+20260603,59.4,60.8,58.7,58.8,9780335,57.81,1.71,57.51,56.46,0.58
 ```
 
 ## Latest TDCC Snapshot
@@ -172,18 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2329 | 華泰 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: ex_dividend on 20260611; status=confirmed; proximity=within_14d |
-| 20260521 | 2329 | 華泰 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | stale_signal | calendar event: ex_dividend on 20260611; status=confirmed; proximity=within_14d |
+| 20260603 | 2329 | 華泰 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: ex_dividend on 20260611; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2329 | 華泰 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 2329 | 華泰 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2329 | 華泰 | 143 | 4 | 11365000.0 | 109330.0 | 103.95 | no_signal | 0 |  |
+| 20260603 | 2329 | 華泰 | 144 | 4 | 6527490.0 | 10000.0 | 652.75 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

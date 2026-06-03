@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3229 晟鈦
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:38 Asia/Taipei
+- generated_at: 2026-06-04 01:55:15 Asia/Taipei
 - stock_id: 3229
 - stock_name: 晟鈦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,14 +55,18 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: high_level_consolidation
-- entry_style: current_price_ok
-- position_sizing: observe_only
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -71,10 +75,13 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -88,7 +95,6 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
-- price_too_extended
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -96,29 +102,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 50
-- high: 52.6
-- low: 49
-- close: 50.3
-- volume: 1622794
-- ma5: 49.02
-- ema23_primary: 42.61
-- distance_to_ema23_pct: 18.04
-- ma20: 43.3
-- ma60: 31.57
-- ma120: 27.4
-- return_5d: 5.01
-- return_20d: 17.11
-- volume_ratio: 1.51
-- distance_to_ma20_pct_auxiliary: 16.16
-- distance_to_high_60_pct: -7.54
+- date: 20260603
+- open: 50.2
+- high: 50.4
+- low: 46.2
+- close: 46.7
+- volume: 1074768
+- ma5: 49.18
+- ema23_primary: 42.95
+- distance_to_ema23_pct: 8.73
+- ma20: 43.5
+- ma60: 32.01
+- ma120: 27.66
+- return_5d: 1.74
+- return_20d: 9.37
+- volume_ratio: 0.96
+- distance_to_ma20_pct_auxiliary: 7.35
+- distance_to_high_60_pct: -14.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,44.95,44.95,42.5,42.7,222010,33.59,27.11,32.92,24.73,0.27
 20260507,44.05,44.05,42.5,43,211279,34.38,25.08,34.13,25.08,0.26
 20260508,40.8,42,40.6,40.75,252767,34.91,16.73,35.23,25.38,0.3
 20260511,38.3,44.8,37.9,44.8,2052783,35.73,25.38,36.44,25.77,2.26
@@ -138,6 +143,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,46.5,49.5,44.75,49.5,1166361,40.78,21.39,42.39,30.48,1.24
 20260601,51.7,54.4,51.7,54.4,2094127,41.91,29.79,42.94,31.06,2.07
 20260602,50,52.6,49,50.3,1622794,42.61,18.04,43.3,31.57,1.51
+20260603,50.2,50.4,46.2,46.7,1074768,42.95,8.73,43.5,32.01,0.96
 ```
 
 ## Latest TDCC Snapshot
@@ -165,14 +171,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260603 | 3229 | 晟鈦 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260603 | 3229 | 晟鈦 | 4 | 1 | 4 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 7 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

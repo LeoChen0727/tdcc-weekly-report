@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3661 世芯-KY
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:11 Asia/Taipei
+- generated_at: 2026-06-04 01:55:31 Asia/Taipei
 - stock_id: 3661
 - stock_name: 世芯-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 4870
-- high: 4870
-- low: 4500
-- close: 4575
-- volume: 2077361
-- ma5: 4529
-- ema23_primary: 4510.87
-- distance_to_ema23_pct: 1.42
-- ma20: 4737.75
-- ma60: 3816.17
-- ma120: 3580.25
-- return_5d: -1.4
-- return_20d: 10.24
-- volume_ratio: 0.87
-- distance_to_ma20_pct_auxiliary: -3.44
-- distance_to_high_60_pct: -18.88
+- date: 20260603
+- open: 4600
+- high: 4685
+- low: 4530
+- close: 4595
+- volume: 1171299
+- ma5: 4548
+- ema23_primary: 4517.88
+- distance_to_ema23_pct: 1.71
+- ma20: 4739.25
+- ma60: 3837.58
+- ma120: 3591
+- return_5d: 2.11
+- return_20d: 0.66
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: -3.04
+- distance_to_high_60_pct: -18.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,4270,4565,4150,4565,3304638,3780.06,20.77,3720.25,3360.5,1.18
 20260507,4770,4870,4635,4795,3079780,3864.64,24.07,3817,3384.25,1.08
 20260508,4805,5000,4680,4890,3239543,3950.09,23.79,3916.75,3411.25,1.1
 20260511,5200,5375,5180,5375,1273298,4068.83,32.1,4034.25,3448.75,0.44
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,4470,4575,4315,4415,2199066,4473.23,-1.3,4686.25,3765.5,0.92
 20260601,4485,4855,4450,4855,2425118,4505.04,7.77,4716.5,3794.42,1.02
 20260602,4870,4870,4500,4575,2077361,4510.87,1.42,4737.75,3816.17,0.87
+20260603,4600,4685,4530,4595,1171299,4517.88,1.71,4739.25,3837.58,0.51
 ```
 
 ## Latest TDCC Snapshot
@@ -172,17 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3661 | 世芯-KY | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3661 | 世芯-KY | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3661 | 世芯-KY | 6 | 1 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 3661 | 世芯-KY | 7 | 2 | 5 | 7 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3661 | 世芯-KY | 442 | 20 | 86498820.0 | 949540.0 | 91.1 | no_signal | 0 |  |
+| 20260603 | 3661 | 世芯-KY | 440 | 20 | 30630130.0 | 1325790.0 | 23.1 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

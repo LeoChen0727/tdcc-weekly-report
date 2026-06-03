@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3060 銘異
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:26 Asia/Taipei
+- generated_at: 2026-06-04 01:55:09 Asia/Taipei
 - stock_id: 3060
 - stock_name: 銘異
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,20 +55,14 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: wait_pullback
+- action_rating_label_zh: 等待回檔
 - confidence_level: medium
-- thesis_state: breakout_initial
-- entry_style: breakout_follow
-- position_sizing: half_position
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_support
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
-- take_profit_near_prior_high
-- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
@@ -76,12 +70,13 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_priority_high
+- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -95,6 +90,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- price_too_extended
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -102,29 +98,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 30.05
-- high: 32.6
-- low: 29.75
-- close: 32.6
-- volume: 15593440
-- ma5: 30.03
-- ema23_primary: 28.92
-- distance_to_ema23_pct: 12.73
-- ma20: 28.45
-- ma60: 29.33
-- ma120: 30.78
-- return_5d: 14.99
-- return_20d: 14.19
-- volume_ratio: 5.04
-- distance_to_ma20_pct_auxiliary: 14.58
-- distance_to_high_60_pct: -10.32
+- date: 20260603
+- open: 34.55
+- high: 35.05
+- low: 32.75
+- close: 33.75
+- volume: 21825145
+- ma5: 30.82
+- ema23_primary: 29.32
+- distance_to_ema23_pct: 15.1
+- ma20: 28.73
+- ma60: 29.38
+- ma120: 30.83
+- return_5d: 13.26
+- return_20d: 19.89
+- volume_ratio: 5.34
+- distance_to_ma20_pct_auxiliary: 17.46
+- distance_to_high_60_pct: -7.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,29.25,29.4,28.05,28.15,1953854,29.05,-3.1,29.17,30.46,0.68
 20260507,28.4,29.5,28.05,28.9,2487147,29.04,-0.48,29.1,30.37,0.87
 20260508,29.3,29.7,27.8,28,2684914,28.95,-3.29,29.03,30.25,0.94
 20260511,28.6,29.15,28.4,28.55,2387673,28.92,-1.27,28.98,30.13,0.83
@@ -144,6 +139,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,29.55,29.9,28.5,29.4,2896370,28.49,3.2,28.16,29.3,1.26
 20260601,30.5,30.9,29.55,29.65,3286586,28.58,3.73,28.25,29.3,1.38
 20260602,30.05,32.6,29.75,32.6,15593440,28.92,12.73,28.45,29.33,5.04
+20260603,34.55,35.05,32.75,33.75,21825145,29.32,15.1,28.73,29.38,5.34
 ```
 
 ## Latest TDCC Snapshot
@@ -173,12 +169,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3060 | 銘異 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3060 | 銘異 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3060 | 銘異 | 1 | 1 | 3 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 3060 | 銘異 | 2 | 2 | 3 | 5 | 5 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

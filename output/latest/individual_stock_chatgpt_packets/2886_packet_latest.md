@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2886 兆豐金
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:09 Asia/Taipei
+- generated_at: 2026-06-04 01:55:01 Asia/Taipei
 - stock_id: 2886
 - stock_name: 兆豐金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -102,29 +102,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 41.2
-- high: 42.4
-- low: 41.05
-- close: 41.7
-- volume: 69614925
-- ma5: 40.48
-- ema23_primary: 40.01
-- distance_to_ema23_pct: 4.23
-- ma20: 39.94
-- ma60: 39.49
-- ma120: 39.85
-- return_5d: 5.84
-- return_20d: 6.65
-- volume_ratio: 1.98
-- distance_to_ma20_pct_auxiliary: 4.4
-- distance_to_high_60_pct: -1.65
+- date: 20260603
+- open: 41.6
+- high: 42.45
+- low: 40.9
+- close: 41.65
+- volume: 51809254
+- ma5: 40.92
+- ema23_primary: 40.14
+- distance_to_ema23_pct: 3.75
+- ma20: 40.05
+- ma60: 39.53
+- ma120: 39.86
+- return_5d: 5.58
+- return_20d: 5.31
+- volume_ratio: 1.41
+- distance_to_ma20_pct_auxiliary: 4
+- distance_to_high_60_pct: -1.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,39.4,39.7,39.15,39.55,16708226,39.47,0.2,39.57,39.43,0.65
 20260507,39.4,40,39.4,39.65,20903142,39.48,0.42,39.59,39.43,0.82
 20260508,40,40.2,39.65,40.2,21349073,39.54,1.66,39.61,39.45,0.87
 20260511,40.2,40.5,40,40.1,20510621,39.59,1.29,39.62,39.47,0.84
@@ -144,6 +143,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,40.45,40.85,40,40,121250792,39.71,0.74,39.69,39.41,3.93
 20260601,40.2,41.45,40.1,41.45,49587396,39.85,4.01,39.81,39.45,1.54
 20260602,41.2,42.4,41.05,41.7,69614925,40.01,4.23,39.94,39.49,1.98
+20260603,41.6,42.45,40.9,41.65,51809254,40.14,3.75,40.05,39.53,1.41
 ```
 
 ## Latest TDCC Snapshot
@@ -173,19 +173,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2886 | 兆豐金 | pullback_rebound | 回檔後短線轉強 | 63.0 |  |  |  |  | call_inflow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260602 | 2886 | 兆豐金 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | call_inflow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260602 | 2886 | 兆豐金 | true_breakout | 嚴格突破 | 117.0 |  |  | platform_breakout |  | call_inflow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2886 | 兆豐金 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2886 | 兆豐金 | 9 | 9 | 5 | 9 | 9 | continued_many_days | 連續 9 個交易日上榜，需判斷是持續醞釀或訊號鈍化。 |
+| 20260603 | 2886 | 兆豐金 | 10 | 2 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2886 | 兆豐金 | 2 | 0 | 1638050.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260603 | 2886 | 兆豐金 | 2 | 0 | 836100.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

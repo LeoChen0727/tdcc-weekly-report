@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6885 全福生技
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:49 Asia/Taipei
+- generated_at: 2026-06-04 01:56:44 Asia/Taipei
 - stock_id: 6885
 - stock_name: 全福生技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -76,6 +76,8 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_priority_high
+- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -102,29 +104,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 22.4
-- high: 24.55
-- low: 22.35
-- close: 24.55
-- volume: 1084872
-- ma5: 21.9
-- ema23_primary: 22.37
-- distance_to_ema23_pct: 9.76
-- ma20: 22.12
-- ma60: 23.43
-- ma120: 25.93
-- return_5d: 14.19
-- return_20d: 3.59
-- volume_ratio: 2.39
-- distance_to_ma20_pct_auxiliary: 10.97
-- distance_to_high_60_pct: -6.65
+- date: 20260603
+- open: 25.3
+- high: 25.5
+- low: 23.9
+- close: 24.45
+- volume: 1880198
+- ma5: 22.55
+- ema23_primary: 22.54
+- distance_to_ema23_pct: 8.47
+- ma20: 22.18
+- ma60: 23.41
+- ma120: 25.89
+- return_5d: 15.33
+- return_20d: 4.49
+- volume_ratio: 3.5
+- distance_to_ma20_pct_auxiliary: 10.26
+- distance_to_high_60_pct: -7.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,23.9,23.9,23.3,23.4,232791,23.71,-1.32,23.6,25.16,0.79
 20260507,23.5,23.5,22.3,22.8,570375,23.64,-3.54,23.52,25.08,1.86
 20260508,23,23.2,22.15,22.4,452799,23.53,-4.82,23.44,25,1.41
 20260511,22.3,22.6,22.15,22.6,213548,23.46,-3.65,23.39,24.93,0.67
@@ -144,6 +145,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,20.55,21,20.55,20.7,417342,22.15,-6.56,22.14,23.52,1.05
 20260601,20.7,22.7,20.7,22.35,825317,22.17,0.81,22.08,23.46,1.98
 20260602,22.4,24.55,22.35,24.55,1084872,22.37,9.76,22.12,23.43,2.39
+20260603,25.3,25.5,23.9,24.45,1880198,22.54,8.47,22.18,23.41,3.5
 ```
 
 ## Latest TDCC Snapshot
@@ -173,14 +175,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6885 | 全福生技 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260602 | 6885 | 全福生技 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260602 | 6885 | 全福生技 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 6885 | 全福生技 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6885 | 全福生技 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| 20260603 | 6885 | 全福生技 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

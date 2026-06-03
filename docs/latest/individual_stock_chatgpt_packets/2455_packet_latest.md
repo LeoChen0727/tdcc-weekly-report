@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2455 全新
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:40 Asia/Taipei
+- generated_at: 2026-06-04 01:54:46 Asia/Taipei
 - stock_id: 2455
 - stock_name: 全新
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,11 +59,11 @@
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -76,7 +76,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -101,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 420
-- high: 420
-- low: 393.5
-- close: 399
-- volume: 1385268
-- ma5: 409.3
-- ema23_primary: 383.75
-- distance_to_ema23_pct: 3.97
-- ma20: 387.45
-- ma60: 314.42
-- ma120: 239.24
-- return_5d: -5.79
-- return_20d: 3.23
-- volume_ratio: 0.2
-- distance_to_ma20_pct_auxiliary: 2.98
-- distance_to_high_60_pct: -13.26
+- date: 20260603
+- open: 413.5
+- high: 422
+- low: 413.5
+- close: 414
+- volume: 1545220
+- ma5: 408.4
+- ema23_primary: 386.27
+- distance_to_ema23_pct: 7.18
+- ma20: 390.75
+- ma60: 317.7
+- ma120: 241.5
+- return_5d: -1.08
+- return_20d: 18.97
+- volume_ratio: 0.23
+- distance_to_ma20_pct_auxiliary: 5.95
+- distance_to_high_60_pct: -10
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,373,373,348,348,5242738,317.04,9.77,321.93,251.7,0.4
 20260507,365,365,333,342,3304282,319.12,7.17,324.5,254.51,0.29
 20260508,335,341,329,337,2191135,320.61,5.11,326.95,257.27,0.21
 20260511,360,369.5,347,360,3315258,323.89,11.15,330,260.48,0.36
@@ -143,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,399,422,392,422,2092897,379.36,11.24,383.8,308.25,0.21
 20260601,428,428.5,410.5,415.5,1670842,382.37,8.66,386.82,311.4,0.2
 20260602,420,420,393.5,399,1385268,383.75,3.97,387.45,314.42,0.2
+20260603,413.5,422,413.5,414,1545220,386.27,7.18,390.75,317.7,0.23
 ```
 
 ## Latest TDCC Snapshot
@@ -172,19 +171,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2455 | 全新 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260602 | 2455 | 全新 | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260521 | 2455 | 全新 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2455 | 全新 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2455 | 全新 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 2455 | 全新 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2455 | 全新 | 58 | 0 | 4570510.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260603 | 2455 | 全新 | 56 | 0 | 3992640.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

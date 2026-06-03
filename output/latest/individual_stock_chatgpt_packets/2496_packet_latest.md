@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2496 卓越
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:47 Asia/Taipei
+- generated_at: 2026-06-04 01:54:50 Asia/Taipei
 - stock_id: 2496
 - stock_name: 卓越
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -97,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 64.7
+- date: 20260603
+- open: 64.9
 - high: 65
 - low: 64.5
-- close: 64.6
-- volume: 35064
+- close: 65
+- volume: 32106
 - ma5: 64.76
 - ema23_primary: 64.91
-- distance_to_ema23_pct: -0.47
-- ma20: 64.86
-- ma60: 66.09
-- ma120: 67.53
-- return_5d: -0.31
-- return_20d: 0.15
-- volume_ratio: 1.59
-- distance_to_ma20_pct_auxiliary: -0.4
-- distance_to_high_60_pct: -7.58
+- distance_to_ema23_pct: 0.13
+- ma20: 64.89
+- ma60: 66.03
+- ma120: 67.5
+- return_5d: 0
+- return_20d: 0.78
+- volume_ratio: 1.4
+- distance_to_ma20_pct_auxiliary: 0.18
+- distance_to_high_60_pct: -7.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,64.5,64.6,64.1,64.5,15192,65.44,-1.44,65.33,67.56,0.75
 20260507,64.5,64.5,64.2,64.5,20703,65.36,-1.32,65.25,67.45,1
 20260508,65.2,66.2,65.2,65.9,44336,65.41,0.75,65.22,67.37,1.95
 20260511,65.9,66.3,65.9,66.2,31073,65.47,1.11,65.2,67.3,1.32
@@ -139,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,64.7,65,64.6,64.8,11282,64.95,-0.24,64.84,66.2,0.56
 20260601,64.8,64.8,64.5,64.7,15278,64.93,-0.36,64.86,66.16,0.74
 20260602,64.7,65,64.5,64.6,35064,64.91,-0.47,64.86,66.09,1.59
+20260603,64.9,65,64.5,65,32106,64.91,0.13,64.89,66.03,1.4
 ```
 
 ## Latest TDCC Snapshot

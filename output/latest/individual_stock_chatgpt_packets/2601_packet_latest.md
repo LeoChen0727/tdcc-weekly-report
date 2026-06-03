@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2601 益航
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:53 Asia/Taipei
+- generated_at: 2026-06-04 01:54:53 Asia/Taipei
 - stock_id: 2601
 - stock_name: 益航
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 274
+- latest_price_date: 20260603
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,8 +58,8 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: breakout_initial
-- entry_style: breakout_follow
+- thesis_state: high_level_consolidation
+- entry_style: pullback_to_23ema
 - position_sizing: starter_1_4
 
 ### management_plan
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 6.33
-- high: 6.33
-- low: 6.27
-- close: 6.33
-- volume: 6290340
-- ma5: 5.48
-- ema23_primary: 5.25
-- distance_to_ema23_pct: 20.62
-- ma20: 5.06
-- ma60: 5.59
-- ma120: 5.59
-- return_5d: 25.35
-- return_20d: 27.62
-- volume_ratio: 2.25
-- distance_to_ma20_pct_auxiliary: 25.02
-- distance_to_high_60_pct: -12.57
+- date: 20260603
+- open: 6.89
+- high: 6.89
+- low: 6.36
+- close: 6.4
+- volume: 17416607
+- ma5: 5.76
+- ema23_primary: 5.34
+- distance_to_ema23_pct: 19.77
+- ma20: 5.14
+- ma60: 5.58
+- ma120: 5.6
+- return_5d: 28
+- return_20d: 30.88
+- volume_ratio: 4.96
+- distance_to_ma20_pct_auxiliary: 24.55
+- distance_to_high_60_pct: -10.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,4.98,5,4.87,4.89,3129210,5.43,-9.88,5.43,5.76,1.58
 20260507,4.87,4.94,4.79,4.92,3151909,5.38,-8.62,5.39,5.75,1.52
 20260508,4.93,4.95,4.86,4.91,1803930,5.34,-8.13,5.35,5.74,0.87
 20260511,4.91,4.99,4.9,4.97,1638778,5.31,-6.46,5.32,5.73,0.78
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,5.1,5.25,5.05,5.24,4603765,5.09,2.87,4.95,5.62,1.86
 20260601,5.24,5.76,5.15,5.76,5897093,5.15,11.86,4.99,5.6,2.26
 20260602,6.33,6.33,6.27,6.33,6290340,5.25,20.62,5.06,5.59,2.25
+20260603,6.89,6.89,6.36,6.4,17416607,5.34,19.77,5.14,5.58,4.96
 ```
 
 ## Latest TDCC Snapshot
@@ -172,12 +172,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2601 | 益航 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2601 | 益航 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 66.0 |  |  | platform_right_side |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2601 | 益航 | 3 | 3 | 3 | 3 | 3 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260603 | 2601 | 益航 | 4 | 4 | 4 | 4 | 4 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

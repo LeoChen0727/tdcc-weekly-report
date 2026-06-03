@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1301 台塑
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:20 Asia/Taipei
+- generated_at: 2026-06-04 01:54:10 Asia/Taipei
 - stock_id: 1301
 - stock_name: 台塑
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,8 +58,8 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: breakout_initial
-- entry_style: breakout_follow
+- thesis_state: unclear
+- entry_style: pullback_to_23ema
 - position_sizing: starter_1_4
 
 ### management_plan
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 49.75
-- high: 51.1
-- low: 49.15
-- close: 50.9
-- volume: 52270283
-- ma5: 47.77
-- ema23_primary: 47.6
-- distance_to_ema23_pct: 6.94
-- ma20: 47.05
-- ma60: 48.26
-- ma120: 45.87
-- return_5d: 13.74
-- return_20d: -0.78
-- volume_ratio: 2.09
-- distance_to_ma20_pct_auxiliary: 8.18
-- distance_to_high_60_pct: -9.59
+- date: 20260603
+- open: 51.4
+- high: 53.4
+- low: 50.7
+- close: 52
+- volume: 49981521
+- ma5: 49.08
+- ema23_primary: 47.97
+- distance_to_ema23_pct: 8.41
+- ma20: 47.12
+- ma60: 48.29
+- ma120: 45.96
+- return_5d: 14.41
+- return_20d: 2.56
+- volume_ratio: 1.89
+- distance_to_ma20_pct_auxiliary: 10.36
+- distance_to_high_60_pct: -7.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,51.8,52,50.6,50.7,20753172,50.41,0.57,51.08,48.61,0.66
 20260507,50.7,50.8,49.35,49.55,27679070,50.34,-1.57,51.2,48.58,0.88
 20260508,51,51.3,48.15,48.55,38566032,50.19,-3.27,51.26,48.57,1.19
 20260511,48,51,47.95,49.25,18754378,50.11,-1.72,51.37,48.6,0.58
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,45.45,47.9,45.45,47.45,45838760,47.05,0.84,47.11,48.15,2.23
 20260601,47.9,50.3,46.4,50,65949814,47.3,5.71,47.07,48.2,2.84
 20260602,49.75,51.1,49.15,50.9,52270283,47.6,6.94,47.05,48.26,2.09
+20260603,51.4,53.4,50.7,52,49981521,47.97,8.41,47.12,48.29,1.89
 ```
 
 ## Latest TDCC Snapshot
@@ -172,17 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1301 | 台塑 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 1301 | 台塑 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1301 | 台塑 | 3 | 3 | 3 | 3 | 3 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 1301 | 台塑 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1301 | 台塑 | 97 | 5 | 22670400.0 | 24500.0 | 925.32 | call_inflow | 1 |  |
+| 20260603 | 1301 | 台塑 | 94 | 4 | 21899750.0 | 39030.0 | 561.1 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

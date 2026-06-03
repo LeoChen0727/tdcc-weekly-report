@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3374 精材
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:49 Asia/Taipei
+- generated_at: 2026-06-04 01:55:20 Asia/Taipei
 - stock_id: 3374
 - stock_name: 精材
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,12 +58,12 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: unclear
-- entry_style: pullback_to_23ema
+- thesis_state: high_level_distribution_risk
+- entry_style: current_price_ok
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -76,10 +76,8 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -94,6 +92,7 @@
 ### downgrade_reason
 - insufficient_tdcc_history
 - tdcc_distribution_warning
+- price_too_extended
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -101,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 261.5
-- high: 262.5
-- low: 246.5
-- close: 254.5
-- volume: 255
-- ma5: 255.9
-- ema23_primary: 239.75
-- distance_to_ema23_pct: 6.15
-- ma20: 245.97
-- ma60: 199.67
-- ma120: 179.44
-- return_5d: -0.39
-- return_20d: 27.25
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: 3.47
-- distance_to_high_60_pct: -10.7
+- date: 20260603
+- open: 259.5
+- high: 279.5
+- low: 259
+- close: 275.5
+- volume: 274000
+- ma5: 260.9
+- ema23_primary: 242.73
+- distance_to_ema23_pct: 13.5
+- ma20: 249.8
+- ma60: 201.31
+- ma120: 180.53
+- return_5d: 9.98
+- return_20d: 38.44
+- volume_ratio: 0.02
+- distance_to_ma20_pct_auxiliary: 10.29
+- distance_to_high_60_pct: -3.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,205.5,205.5,192.5,199,9459000,189.94,4.77,189.65,175.98,0.8
 20260507,201,217.5,197,206,14842000,191.27,7.7,191.68,176.38,1.2
 20260508,203,226.5,202.5,226.5,27774000,194.21,16.63,194.65,177.28,2.04
 20260511,242.5,249,239,249,19435000,198.78,25.27,198.78,178.64,1.35
@@ -143,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,264,269,257.5,259,261000,236.4,9.56,240.32,196.98,0.02
 20260601,262,265,253,260.5,258,238.4,9.27,243.25,198.44,0
 20260602,261.5,262.5,246.5,254.5,255,239.75,6.15,245.97,199.67,0
+20260603,259.5,279.5,259,275.5,274000,242.73,13.5,249.8,201.31,0.02
 ```
 
 ## Latest TDCC Snapshot
@@ -172,12 +171,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 3374 | 精材 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3374 | 精材 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3374 | 精材 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 3374 | 精材 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

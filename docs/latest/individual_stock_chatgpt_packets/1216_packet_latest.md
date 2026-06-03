@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1216 統一
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:15 Asia/Taipei
+- generated_at: 2026-06-04 01:54:08 Asia/Taipei
 - stock_id: 1216
 - stock_name: 統一
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -102,29 +102,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 73.3
-- high: 74.3
-- low: 72
-- close: 74.2
-- volume: 25835043
-- ma5: 72.14
-- ema23_primary: 72.37
-- distance_to_ema23_pct: 2.53
-- ma20: 72.71
-- ma60: 71.72
-- ma120: 73.39
-- return_5d: 4.8
-- return_20d: 7.38
-- volume_ratio: 1.32
-- distance_to_ma20_pct_auxiliary: 2.05
-- distance_to_high_60_pct: -3.26
+- date: 20260603
+- open: 74.5
+- high: 74.5
+- low: 72.9
+- close: 73.3
+- volume: 15796699
+- ma5: 72.76
+- ema23_primary: 72.45
+- distance_to_ema23_pct: 1.18
+- ma20: 72.94
+- ma60: 71.75
+- ma120: 73.36
+- return_5d: 4.42
+- return_20d: 6.7
+- volume_ratio: 0.81
+- distance_to_ma20_pct_auxiliary: 0.49
+- distance_to_high_60_pct: -4.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,69.6,69.6,68.5,68.7,16462509,70.93,-3.14,71.39,71.74,1.47
 20260507,68.7,69.9,68.7,69.4,19155077,70.8,-1.98,71.23,71.69,1.63
 20260508,70.2,73.4,70,73.2,35053381,71,3.1,71.29,71.7,2.67
 20260511,73,74.2,72.5,73.9,15953926,71.24,3.73,71.39,71.74,1.21
@@ -144,6 +143,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,71.6,73.1,70.8,71.8,38842511,72.07,-0.37,72.25,71.64,2.13
 20260601,72.1,74.3,72.1,73.7,26071384,72.2,2.07,72.45,71.67,1.38
 20260602,73.3,74.3,72,74.2,25835043,72.37,2.53,72.71,71.72,1.32
+20260603,74.5,74.5,72.9,73.3,15796699,72.45,1.18,72.94,71.75,0.81
 ```
 
 ## Latest TDCC Snapshot
@@ -173,17 +173,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1216 | 統一 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 1216 | 統一 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1216 | 統一 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260603 | 1216 | 統一 | 3 | 1 | 3 | 3 | 3 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1216 | 統一 | 15 | 0 | 756020.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 1216 | 統一 | 13 | 0 | 778530.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4736 泰博
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:45 Asia/Taipei
+- generated_at: 2026-06-04 01:55:47 Asia/Taipei
 - stock_id: 4736
 - stock_name: 泰博
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -97,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 124.5
-- high: 125
-- low: 123.5
-- close: 125
-- volume: 170973
-- ma5: 123.1
-- ema23_primary: 123.53
-- distance_to_ema23_pct: 1.19
-- ma20: 123.38
-- ma60: 124.61
-- ma120: 124.99
-- return_5d: 2.04
-- return_20d: -0.4
-- volume_ratio: 0.77
-- distance_to_ma20_pct_auxiliary: 1.32
-- distance_to_high_60_pct: -3.85
+- date: 20260603
+- open: 126
+- high: 126
+- low: 124
+- close: 126
+- volume: 251768
+- ma5: 123.9
+- ema23_primary: 123.74
+- distance_to_ema23_pct: 1.83
+- ma20: 123.22
+- ma60: 124.57
+- ma120: 125
+- return_5d: 3.28
+- return_20d: -2.33
+- volume_ratio: 1.24
+- distance_to_ma20_pct_auxiliary: 2.25
+- distance_to_high_60_pct: -3.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,126.5,129,125,129,598468,125.95,2.42,126.03,126.12,2.65
 20260507,129,129,127,127.5,244024,126.08,1.13,126.3,126.02,1.06
 20260508,128,128,125,126,319724,126.07,-0.06,126.35,125.88,1.37
 20260511,125,125.5,124,125,274932,125.99,-0.78,126.28,125.72,1.17
@@ -139,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,123,124.5,122.5,122.5,144525,123.35,-0.69,123.47,124.64,0.68
 20260601,123,124,123,124,274075,123.4,0.48,123.4,124.66,1.25
 20260602,124.5,125,123.5,125,170973,123.53,1.19,123.38,124.61,0.77
+20260603,126,126,124,126,251768,123.74,1.83,123.22,124.57,1.24
 ```
 
 ## Latest TDCC Snapshot

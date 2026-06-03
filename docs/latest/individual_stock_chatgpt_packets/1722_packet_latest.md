@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1722 台肥
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:53 Asia/Taipei
+- generated_at: 2026-06-04 01:54:24 Asia/Taipei
 - stock_id: 1722
 - stock_name: 台肥
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 47
-- high: 47.3
-- low: 46.8
-- close: 47.05
-- volume: 2691603
-- ma5: 46.49
-- ema23_primary: 46.34
-- distance_to_ema23_pct: 1.54
-- ma20: 46.35
-- ma60: 46.34
-- ma120: 46.63
-- return_5d: 2.73
-- return_20d: 0.11
-- volume_ratio: 0.78
-- distance_to_ma20_pct_auxiliary: 1.52
-- distance_to_high_60_pct: -9.52
+- date: 20260603
+- open: 47.25
+- high: 48.4
+- low: 46.9
+- close: 47.95
+- volume: 6745933
+- ma5: 46.95
+- ema23_primary: 46.47
+- distance_to_ema23_pct: 3.18
+- ma20: 46.4
+- ma60: 46.35
+- ma120: 46.64
+- return_5d: 5.04
+- return_20d: 2.35
+- volume_ratio: 1.92
+- distance_to_ma20_pct_auxiliary: 3.33
+- distance_to_high_60_pct: -7.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,47.05,47.55,46.55,46.85,5231012,46.43,0.91,46.19,46.38,0.84
 20260507,46.9,47.85,46.45,46.8,4965166,46.46,0.74,46.23,46.38,0.78
 20260508,47.2,47.2,46.55,46.55,2754555,46.46,0.18,46.23,46.38,0.43
 20260511,46.9,47.5,46.85,47.1,4403783,46.52,1.25,46.27,46.39,0.68
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,46.4,46.6,46.05,46.6,2427793,46.2,0.86,46.41,46.3,0.61
 20260601,46.6,47.2,46.1,47.05,4239047,46.27,1.68,46.34,46.32,1.16
 20260602,47,47.3,46.8,47.05,2691603,46.34,1.54,46.35,46.34,0.78
+20260603,47.25,48.4,46.9,47.95,6745933,46.47,3.18,46.4,46.35,1.92
 ```
 
 ## Latest TDCC Snapshot
@@ -172,13 +172,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1722 | 台肥 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 1722 | 台肥 | pattern | 型態觀察 |  |  |  | 預備發動型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 1722 | 台肥 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1722 | 台肥 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 1722 | 台肥 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

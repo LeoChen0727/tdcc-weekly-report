@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8299 群聯
 
 ## Metadata
-- generated_at: 2026-06-02 23:31:04 Asia/Taipei
+- generated_at: 2026-06-04 01:57:18 Asia/Taipei
 - stock_id: 8299
 - stock_name: 群聯
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,8 +58,8 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_consolidation
-- entry_style: current_price_ok
+- thesis_state: unclear
+- entry_style: pullback_to_23ema
 - position_sizing: observe_only
 
 ### management_plan
@@ -72,9 +72,11 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -88,7 +90,6 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
-- price_too_extended
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -96,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 2810
+- date: 20260603
+- open: 2835
 - high: 2835
-- low: 2690
-- close: 2820
-- volume: 2782
-- ma5: 2619
-- ema23_primary: 2435.11
-- distance_to_ema23_pct: 15.81
-- ma20: 2550
-- ma60: 2023.75
-- ma120: 1820.42
-- return_5d: 12.57
-- return_20d: 33.33
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: 10.59
-- distance_to_high_60_pct: -2.08
+- low: 2685
+- close: 2685
+- volume: 2742000
+- ma5: 2660
+- ema23_primary: 2455.94
+- distance_to_ema23_pct: 9.33
+- ma20: 2568
+- ma60: 2039
+- ma120: 1833.46
+- return_5d: 8.27
+- return_20d: 15.48
+- volume_ratio: 0.45
+- distance_to_ma20_pct_auxiliary: 4.56
+- distance_to_high_60_pct: -6.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,2300,2325,2235,2325,12286000,1859.66,25.02,1802.5,1840.33,1.32
 20260507,2395,2500,2320,2390,11786000,1903.85,25.53,1835.75,1842.08,1.24
 20260508,2355,2500,2230,2430,12625000,1947.7,24.76,1876.5,1844.17,1.3
 20260511,2670,2670,2670,2670,1548000,2007.89,32.98,1927,1849,0.16
@@ -138,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,2530,2620,2525,2575,2570000,2366.5,8.81,2476.75,1989,0.35
 20260601,2655,2825,2625,2770,2743,2400.12,15.41,2514.75,2006.75,0
 20260602,2810,2835,2690,2820,2782,2435.11,15.81,2550,2023.75,0
+20260603,2835,2835,2685,2685,2742000,2455.94,9.33,2568,2039,0.45
 ```
 
 ## Latest TDCC Snapshot

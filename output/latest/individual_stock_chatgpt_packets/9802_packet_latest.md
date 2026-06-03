@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9802 鈺齊-KY
 
 ## Metadata
-- generated_at: 2026-06-02 23:31:21 Asia/Taipei
+- generated_at: 2026-06-04 01:57:26 Asia/Taipei
 - stock_id: 9802
 - stock_name: 鈺齊-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,15 +55,15 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: buy_now
-- action_rating_label_zh: 建議買進
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: breakout_initial
-- entry_style: breakout_follow
-- position_sizing: normal_position
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
-- buy_first_tranche_now
+- buy_first_tranche_near_support
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -104,29 +104,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 77.6
-- high: 81.4
-- low: 76.8
-- close: 80.5
-- volume: 2900056
-- ma5: 75.74
-- ema23_primary: 76.79
-- distance_to_ema23_pct: 4.83
-- ma20: 77.12
-- ma60: 78.94
-- ma120: 90.02
-- return_5d: 8.2
-- return_20d: -0.49
-- volume_ratio: 2.38
-- distance_to_ma20_pct_auxiliary: 4.38
-- distance_to_high_60_pct: -11.34
+- date: 20260603
+- open: 81
+- high: 81.5
+- low: 79.7
+- close: 79.7
+- volume: 1192956
+- ma5: 77
+- ema23_primary: 77.04
+- distance_to_ema23_pct: 3.46
+- ma20: 77.11
+- ma60: 78.77
+- ma120: 89.76
+- return_5d: 8.58
+- return_20d: -0.25
+- volume_ratio: 0.98
+- distance_to_ma20_pct_auxiliary: 3.35
+- distance_to_high_60_pct: -9.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,82,82,78.2,79.9,1147511,78.63,1.61,77.52,84.31,0.95
 20260507,80.2,81,78.9,81,987734,78.83,2.75,77.7,84.06,0.81
 20260508,80.9,80.9,79.3,80.4,829103,78.96,1.82,77.94,83.8,0.68
 20260511,80.8,85.7,80.7,83.1,1963505,79.31,4.79,78.3,83.61,1.53
@@ -146,6 +145,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,73.7,74.6,73.4,73.6,3878184,76.34,-3.59,77.28,79.33,3.46
 20260601,74.5,77.8,73.7,77.7,1651501,76.46,1.63,77.14,79.11,1.46
 20260602,77.6,81.4,76.8,80.5,2900056,76.79,4.83,77.12,78.94,2.38
+20260603,81,81.5,79.7,79.7,1192956,77.04,3.46,77.11,78.77,0.98
 ```
 
 ## Latest TDCC Snapshot
@@ -175,17 +175,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 9802 | 鈺齊-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 9802 | 鈺齊-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 9802 | 鈺齊-KY | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260603 | 9802 | 鈺齊-KY | 3 | 1 | 3 | 3 | 3 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 9802 | 鈺齊-KY | 6 | 0 | 100.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 9802 | 鈺齊-KY | 6 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

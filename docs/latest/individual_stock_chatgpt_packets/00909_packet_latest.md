@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00909 國泰數位支付服務
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:09 Asia/Taipei
+- generated_at: 2026-06-04 01:54:04 Asia/Taipei
 - stock_id: 00909
 - stock_name: 國泰數位支付服務
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260602
-- price_rows: 8
+- latest_price_date: 20260603
+- price_rows: 9
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -97,23 +97,23 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 51.6
-- high: 52.2
-- low: 51.6
-- close: 52.15
-- volume: 2336583
-- ma5: 50.97
-- ema23_primary: 49.79
-- distance_to_ema23_pct: 4.74
-- ma20: 50.37
-- ma60: 50.37
-- ma120: 50.37
-- return_5d: 5.78
+- date: 20260603
+- open: 51.75
+- high: 51.75
+- low: 51.35
+- close: 51.5
+- volume: 3402622
+- ma5: 51.39
+- ema23_primary: 49.93
+- distance_to_ema23_pct: 3.14
+- ma20: 50.49
+- ma60: 50.49
+- ma120: 50.49
+- return_5d: 4.29
 - return_20d: 
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: 3.54
-- distance_to_high_60_pct: -0.1
+- volume_ratio: 1.06
+- distance_to_ma20_pct_auxiliary: 2
+- distance_to_high_60_pct: -1.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -127,6 +127,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,51.3,52,51.15,52,4432900,49.38,5.31,49.84,49.84,1.24
 20260601,51.7,51.8,51.65,51.75,1653559,49.58,4.38,50.11,50.11,0.5
 20260602,51.6,52.2,51.6,52.15,2336583,49.79,4.74,50.37,50.37,0.73
+20260603,51.75,51.75,51.35,51.5,3402622,49.93,3.14,50.49,50.49,1.06
 ```
 
 ## Latest TDCC Snapshot

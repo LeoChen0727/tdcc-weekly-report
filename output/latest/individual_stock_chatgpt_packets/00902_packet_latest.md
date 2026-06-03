@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00902 中信電池及儲能
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:08 Asia/Taipei
+- generated_at: 2026-06-04 01:54:04 Asia/Taipei
 - stock_id: 00902
 - stock_name: 中信電池及儲能
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260602
-- price_rows: 8
+- latest_price_date: 20260603
+- price_rows: 9
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -97,23 +97,23 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 16.57
-- high: 16.57
-- low: 16.14
-- close: 16.45
-- volume: 2260461
-- ma5: 16.72
-- ema23_primary: 16.55
-- distance_to_ema23_pct: -0.62
-- ma20: 16.68
-- ma60: 16.68
-- ma120: 16.68
-- return_5d: -1.61
+- date: 20260603
+- open: 16.5
+- high: 16.62
+- low: 16.45
+- close: 16.46
+- volume: 1546548
+- ma5: 16.68
+- ema23_primary: 16.54
+- distance_to_ema23_pct: -0.51
+- ma20: 16.65
+- ma60: 16.65
+- ma120: 16.65
+- return_5d: -1.38
 - return_20d: 
-- volume_ratio: 1.03
-- distance_to_ma20_pct_auxiliary: -1.36
-- distance_to_high_60_pct: -3.52
+- volume_ratio: 0.73
+- distance_to_ma20_pct_auxiliary: -1.15
+- distance_to_high_60_pct: -3.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -127,6 +127,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,16.84,17.05,16.84,17.04,2731724,16.54,3,16.7,16.7,1.2
 20260601,17.03,17.05,16.76,16.76,1599764,16.56,1.2,16.71,16.71,0.73
 20260602,16.57,16.57,16.14,16.45,2260461,16.55,-0.62,16.68,16.68,1.03
+20260603,16.5,16.62,16.45,16.46,1546548,16.54,-0.51,16.65,16.65,0.73
 ```
 
 ## Latest TDCC Snapshot

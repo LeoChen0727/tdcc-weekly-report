@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1319 東陽
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:23 Asia/Taipei
+- generated_at: 2026-06-04 01:54:11 Asia/Taipei
 - stock_id: 1319
 - stock_name: 東陽
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 27
 - tdcc_history_status: tdcc_history_ready
@@ -102,29 +102,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 87.8
-- high: 93.9
-- low: 87.8
-- close: 92.1
-- volume: 14762947
-- ma5: 87.98
-- ema23_primary: 82.72
-- distance_to_ema23_pct: 11.33
-- ma20: 81.86
-- ma60: 81.32
-- ma120: 90.56
-- return_5d: 14.98
-- return_20d: 20.55
-- volume_ratio: 3.02
-- distance_to_ma20_pct_auxiliary: 12.5
-- distance_to_high_60_pct: -3.15
+- date: 20260603
+- open: 93.4
+- high: 96.5
+- low: 91.6
+- close: 94.3
+- volume: 14980041
+- ma5: 91.1
+- ema23_primary: 83.69
+- distance_to_ema23_pct: 12.68
+- ma20: 82.81
+- ma60: 81.34
+- ma120: 90.53
+- return_5d: 19.82
+- return_20d: 25.07
+- volume_ratio: 2.77
+- distance_to_ma20_pct_auxiliary: 13.88
+- distance_to_high_60_pct: -2.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,77.6,77.6,75.1,75.4,4643982,78.13,-3.5,77.31,88.06,1.52
 20260507,76.1,80.2,75.6,80,6288537,78.29,2.18,77.23,87.51,1.92
 20260508,80,81.2,78.7,80.2,4910456,78.45,2.23,77.24,87.03,1.46
 20260511,81.4,81.4,80,80.8,2985544,78.65,2.74,77.25,86.55,0.87
@@ -144,6 +143,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,95.1,95.1,91.8,95.1,11135579,81.36,16.89,80.45,81.42,3.14
 20260601,91.1,92.6,86.9,87.5,18936391,81.87,6.87,81.08,81.35,4.34
 20260602,87.8,93.9,87.8,92.1,14762947,82.72,11.33,81.86,81.32,3.02
+20260603,93.4,96.5,91.6,94.3,14980041,83.69,12.68,82.81,81.34,2.77
 ```
 
 ## Latest TDCC Snapshot
@@ -180,17 +180,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1319 | 東陽 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | repeated_but_no_breakout | calendar event: ex_dividend on 20260622; status=confirmed; proximity=within_30d |
+| 20260603 | 1319 | 東陽 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | repeated_but_no_breakout | calendar event: ex_dividend on 20260622; status=confirmed; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1319 | 東陽 | 4 | 2 | 4 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 1319 | 東陽 | 5 | 3 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 次、近 20 日上榜 6 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1319 | 東陽 | 18 | 0 | 3697220.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260603 | 1319 | 東陽 | 18 | 0 | 6130490.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

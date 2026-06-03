@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4919 新唐
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:53 Asia/Taipei
+- generated_at: 2026-06-04 01:55:50 Asia/Taipei
 - stock_id: 4919
 - stock_name: 新唐
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,7 +58,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_consolidation
+- thesis_state: unclear
 - entry_style: current_price_ok
 - position_sizing: observe_only
 
@@ -75,6 +75,7 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -88,7 +89,6 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
-- price_too_extended
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -96,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 214.5
-- high: 214.5
-- low: 200
-- close: 211
-- volume: 3415532
-- ma5: 201.1
-- ema23_primary: 178.69
-- distance_to_ema23_pct: 18.08
-- ma20: 181.55
-- ma60: 133.85
-- ma120: 95.78
-- return_5d: 0
-- return_20d: 27.88
-- volume_ratio: 0.11
-- distance_to_ma20_pct_auxiliary: 16.22
-- distance_to_high_60_pct: -8.26
+- date: 20260603
+- open: 212.5
+- high: 212.5
+- low: 203
+- close: 203
+- volume: 1696801
+- ma5: 200.4
+- ema23_primary: 180.72
+- distance_to_ema23_pct: 12.33
+- ma20: 183.65
+- ma60: 135.89
+- ma120: 97.02
+- return_5d: -1.69
+- return_20d: 26.09
+- volume_ratio: 0.06
+- distance_to_ma20_pct_auxiliary: 10.54
+- distance_to_high_60_pct: -11.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,172,172,153,161,9011178,132.74,21.29,131.72,96.93,0.53
 20260507,162,177,151.5,177,49800900,136.43,29.74,136,98.77,2.61
 20260508,172.5,179,164,167.5,39775866,139.01,20.49,139.88,100.55,1.94
 20260511,163,184,156,184,50067134,142.76,28.88,144.5,102.58,2.22
@@ -138,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,197,197,184,191.5,5100080,172.82,10.81,176.95,129.32,0.16
 20260601,199.5,208,199.5,208,3780749,175.75,18.35,179.25,131.55,0.12
 20260602,214.5,214.5,200,211,3415532,178.69,18.08,181.55,133.85,0.11
+20260603,212.5,212.5,203,203,1696801,180.72,12.33,183.65,135.89,0.06
 ```
 
 ## Latest TDCC Snapshot
@@ -177,7 +177,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 4919 | 新唐 | 87 | 0 | 4437390.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 4919 | 新唐 | 87 | 0 | 3106310.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

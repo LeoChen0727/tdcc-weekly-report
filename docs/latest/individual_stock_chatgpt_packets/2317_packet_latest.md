@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2317 鴻海
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:21 Asia/Taipei
+- generated_at: 2026-06-04 01:54:37 Asia/Taipei
 - stock_id: 2317
 - stock_name: 鴻海
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 274
+- latest_price_date: 20260603
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,26 +55,21 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: starter_position
-- action_rating_label_zh: 可小量試單
+- action_rating: wait_pullback
+- action_rating_label_zh: 等待回檔
 - confidence_level: medium
 - thesis_state: high_level_consolidation
-- entry_style: current_price_ok
-- position_sizing: starter_1_4
+- entry_style: pullback_to_support
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_now
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
-- take_profit_near_prior_high
-- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_tdcc_warning
@@ -100,29 +95,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 297.5
-- high: 302
-- low: 293
-- close: 301.5
-- volume: 113076476
-- ma5: 282.2
-- ema23_primary: 256.46
-- distance_to_ema23_pct: 17.56
-- ma20: 258.18
-- ma60: 225.61
-- ma120: 226.06
-- return_5d: 16.41
-- return_20d: 25.89
-- volume_ratio: 1.05
-- distance_to_ma20_pct_auxiliary: 16.78
-- distance_to_high_60_pct: -0.99
+- date: 20260603
+- open: 306
+- high: 314
+- low: 299
+- close: 309
+- volume: 149620933
+- ma5: 291.2
+- ema23_primary: 260.84
+- distance_to_ema23_pct: 18.46
+- ma20: 261.02
+- ma60: 227.04
+- ma120: 226.76
+- return_5d: 17.05
+- return_20d: 22.62
+- volume_ratio: 1.46
+- distance_to_ma20_pct_auxiliary: 18.38
+- distance_to_high_60_pct: -1.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,246.5,253,245,252,240330399,219.71,14.69,216.65,215.02,2.8
 20260507,255,258,250,253.5,128767846,222.53,13.92,219.25,215.48,1.45
 20260508,254,256,245.5,250,102375417,224.82,11.2,221.75,215.92,1.12
 20260511,256.5,258,251,252,63063740,227.08,10.97,224.32,216.44,0.69
@@ -142,6 +136,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,269,289,268,289,289511198,248.63,16.24,251.78,223.04,2.83
 20260601,302,304.5,293,293.5,205766647,252.37,16.3,255.07,224.32,1.87
 20260602,297.5,302,293,301.5,113076476,256.46,17.56,258.18,225.61,1.05
+20260603,306,314,299,309,149620933,260.84,18.46,261.02,227.04,1.46
 ```
 
 ## Latest TDCC Snapshot
@@ -171,18 +166,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2317 | 鴻海 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 2317 | 鴻海 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2317 | 鴻海 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2317 | 鴻海 | 9 | 9 | 5 | 9 | 9 | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 2317 | 鴻海 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2317 | 鴻海 | 529 | 46 | 210204160.0 | 1447080.0 | 145.26 | no_signal | 0 | 認購權證成交金額很大且認購/認售比偏高，需檢查標的是否高位追價或獲利結清；認購權證成交量與成交金額同步偏大，短線資金關注度高 |
+| 20260603 | 2317 | 鴻海 | 531 | 46 | 251226090.0 | 1138290.0 | 220.7 | no_signal | 0 | 認購權證成交金額很大且認購/認售比偏高，需檢查標的是否高位追價或獲利結清；認購權證成交量與成交金額同步偏大，短線資金關注度高 |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

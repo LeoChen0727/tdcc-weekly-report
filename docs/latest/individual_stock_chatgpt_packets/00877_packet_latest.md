@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00877 復華中國5G
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:07 Asia/Taipei
+- generated_at: 2026-06-04 01:54:04 Asia/Taipei
 - stock_id: 00877
 - stock_name: 復華中國5G
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260602
-- price_rows: 8
+- latest_price_date: 20260603
+- price_rows: 9
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -59,7 +59,7 @@
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: observe_only
 
 ### management_plan
@@ -72,7 +72,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -97,23 +96,23 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 41.18
-- high: 43.01
-- low: 40.9
-- close: 43
-- volume: 42
-- ma5: 42.45
-- ema23_primary: 41.03
-- distance_to_ema23_pct: 4.8
-- ma20: 41.96
-- ma60: 41.96
-- ma120: 41.96
-- return_5d: 2.38
+- date: 20260603
+- open: 43.19
+- high: 45.83
+- low: 43.14
+- close: 45.07
+- volume: 45000
+- ma5: 42.96
+- ema23_primary: 41.37
+- distance_to_ema23_pct: 8.95
+- ma20: 42.31
+- ma60: 42.31
+- ma120: 42.31
+- return_5d: 6
 - return_20d: 
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: 2.47
-- distance_to_high_60_pct: -1.6
+- volume_ratio: 1.37
+- distance_to_ma20_pct_auxiliary: 6.53
+- distance_to_high_60_pct: -1.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -127,6 +126,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,42.81,43.7,42.2,43.12,43000,40.79,5.72,41.85,41.85,1.03
 20260601,43,43,41.14,41.57,42,40.85,1.75,41.81,41.81,0
 20260602,41.18,43.01,40.9,43,42,41.03,4.8,41.96,41.96,0
+20260603,43.19,45.83,43.14,45.07,45000,41.37,8.95,42.31,42.31,1.37
 ```
 
 ## Latest TDCC Snapshot

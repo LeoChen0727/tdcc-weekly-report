@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00861 元大全球未來通訊
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:07 Asia/Taipei
+- generated_at: 2026-06-04 01:54:04 Asia/Taipei
 - stock_id: 00861
 - stock_name: 元大全球未來通訊
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260602
-- price_rows: 8
+- latest_price_date: 20260603
+- price_rows: 9
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -59,7 +59,7 @@
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: observe_only
 
 ### management_plan
@@ -72,7 +72,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -97,22 +96,22 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 91.55
-- high: 92
-- low: 90.95
-- close: 92
-- volume: 364146
-- ma5: 90.38
-- ema23_primary: 87.71
-- distance_to_ema23_pct: 4.89
-- ma20: 89.34
-- ma60: 89.34
-- ma120: 89.34
-- return_5d: 3.9
+- date: 20260603
+- open: 96.25
+- high: 96.7
+- low: 96.05
+- close: 96.7
+- volume: 300354
+- ma5: 91.68
+- ema23_primary: 88.46
+- distance_to_ema23_pct: 9.31
+- ma20: 90.16
+- ma60: 90.16
+- ma120: 90.16
+- return_5d: 7.21
 - return_20d: 
-- volume_ratio: 1.19
-- distance_to_ma20_pct_auxiliary: 2.98
+- volume_ratio: 0.99
+- distance_to_ma20_pct_auxiliary: 7.26
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
@@ -127,6 +126,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,89.05,90,89.05,89.9,284377,86.94,3.4,88.53,88.53,0.9
 20260601,90.75,91.65,90.75,91.5,174555,87.32,4.78,88.96,88.96,0.59
 20260602,91.55,92,90.95,92,364146,87.71,4.89,89.34,89.34,1.19
+20260603,96.25,96.7,96.05,96.7,300354,88.46,9.31,90.16,90.16,0.99
 ```
 
 ## Latest TDCC Snapshot

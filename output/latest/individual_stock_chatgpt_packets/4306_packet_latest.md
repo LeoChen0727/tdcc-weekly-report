@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4306 炎洲
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:29 Asia/Taipei
+- generated_at: 2026-06-04 01:55:39 Asia/Taipei
 - stock_id: 4306
 - stock_name: 炎洲
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,11 +59,11 @@
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -75,8 +75,8 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 14.3
-- high: 14.55
-- low: 14.2
-- close: 14.45
-- volume: 2404945
-- ma5: 14.08
-- ema23_primary: 13.74
-- distance_to_ema23_pct: 5.15
-- ma20: 13.62
-- ma60: 13.54
-- ma120: 13.72
-- return_5d: 5.86
-- return_20d: 9.89
-- volume_ratio: 1.43
-- distance_to_ma20_pct_auxiliary: 6.05
-- distance_to_high_60_pct: -0.69
+- date: 20260603
+- open: 14.6
+- high: 15
+- low: 14.4
+- close: 14.95
+- volume: 5039568
+- ma5: 14.31
+- ema23_primary: 13.84
+- distance_to_ema23_pct: 7.99
+- ma20: 13.72
+- ma60: 13.56
+- ma120: 13.73
+- return_5d: 8.33
+- return_20d: 14.12
+- volume_ratio: 2.69
+- distance_to_ma20_pct_auxiliary: 8.98
+- distance_to_high_60_pct: -0.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,13.15,13.25,13.1,13.1,1237074,13.4,-2.26,13.47,13.49,1.13
 20260507,13.15,13.25,13.05,13.15,1638711,13.38,-1.73,13.46,13.48,1.47
 20260508,13.25,13.3,13.1,13.15,881077,13.36,-1.59,13.44,13.47,0.79
 20260511,13.3,13.35,13.15,13.35,1525703,13.36,-0.09,13.43,13.47,1.31
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,13.8,14.1,13.8,14.05,2295134,13.63,3.11,13.51,13.5,1.52
 20260601,14.15,14.5,14.15,14.25,2864513,13.68,4.18,13.56,13.52,1.78
 20260602,14.3,14.55,14.2,14.45,2404945,13.74,5.15,13.62,13.54,1.43
+20260603,14.6,15,14.4,14.95,5039568,13.84,7.99,13.72,13.56,2.69
 ```
 
 ## Latest TDCC Snapshot
@@ -172,15 +172,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 4306 | 炎洲 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260602 | 4306 | 炎洲 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260602 | 4306 | 炎洲 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 4306 | 炎洲 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 4306 | 炎洲 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 4306 | 炎洲 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 4306 | 炎洲 | 9 | 9 | 5 | 9 | 9 | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 4306 | 炎洲 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

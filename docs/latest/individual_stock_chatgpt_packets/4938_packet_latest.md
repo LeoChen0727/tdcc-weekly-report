@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4938 和碩
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:55 Asia/Taipei
+- generated_at: 2026-06-04 01:55:51 Asia/Taipei
 - stock_id: 4938
 - stock_name: 和碩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,14 +55,18 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: take_profit
-- action_rating_label_zh: 停利
-- confidence_level: low
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
+- confidence_level: medium
 - thesis_state: high_level_distribution_risk
-- entry_style: breakout_follow
-- position_sizing: observe_only
+- entry_style: current_price_ok
+- position_sizing: starter_1_4
 
 ### management_plan
+- buy_first_tranche_now
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -71,7 +75,6 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_volume_price_failure
@@ -97,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 92
-- high: 99.5
-- low: 90.8
-- close: 97.8
-- volume: 62079513
-- ma5: 88.6
-- ema23_primary: 83.41
-- distance_to_ema23_pct: 17.25
-- ma20: 82.41
-- ma60: 80.02
-- ma120: 75.12
-- return_5d: 20.15
-- return_20d: 20
-- volume_ratio: 3.35
-- distance_to_ma20_pct_auxiliary: 18.68
-- distance_to_high_60_pct: -1.71
+- date: 20260603
+- open: 100
+- high: 102.5
+- low: 96.9
+- close: 98.5
+- volume: 57606262
+- ma5: 91.88
+- ema23_primary: 84.67
+- distance_to_ema23_pct: 16.33
+- ma20: 83.15
+- ma60: 80.47
+- ma120: 75.34
+- return_5d: 19.98
+- return_20d: 17.82
+- volume_ratio: 2.77
+- distance_to_ma20_pct_auxiliary: 18.46
+- distance_to_high_60_pct: -3.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,82.3,83.6,81.7,83.6,11744739,81.16,3.01,81.75,76.28,0.92
 20260507,83.8,84.7,83.3,84.3,10411342,81.42,3.54,81.98,76.5,0.81
 20260508,84.5,85.3,83.9,84.4,10969204,81.67,3.35,82.2,76.74,0.85
 20260511,84.4,84.4,82.6,83.4,10027621,81.81,1.94,82.33,76.97,0.77
@@ -139,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,85.5,89.4,85.3,88.5,38620432,81.28,8.88,81.09,79.16,2.67
 20260601,92,92.1,89.5,91.2,39426487,82.11,11.07,81.59,79.54,2.49
 20260602,92,99.5,90.8,97.8,62079513,83.41,17.25,82.41,80.02,3.35
+20260603,100,102.5,96.9,98.5,57606262,84.67,16.33,83.15,80.47,2.77
 ```
 
 ## Latest TDCC Snapshot
@@ -168,18 +171,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 4938 | 和碩 | true_breakout | 嚴格突破 | 121.0 |  |  | breakout_confirmed |  | no_signal | continued_many_days | calendar event: ex_dividend on 20260615; status=confirmed; proximity=within_14d |
-| 20260521 | 4938 | 和碩 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | continued_many_days | calendar event: ex_dividend on 20260615; status=confirmed; proximity=within_14d |
+| 20260603 | 4938 | 和碩 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_inflow | stale_signal | calendar event: ex_dividend on 20260615; status=confirmed; proximity=within_14d |
+| 20260603 | 4938 | 和碩 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | stale_signal | calendar event: ex_dividend on 20260615; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 4938 | 和碩 | 9 | 9 | 5 | 9 | 9 | continued_many_days | 連續 9 個交易日上榜，需判斷是持續醞釀或訊號鈍化。 |
+| 20260603 | 4938 | 和碩 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 4938 | 和碩 | 17 | 0 | 13261370.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 4938 | 和碩 | 18 | 0 | 19922450.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

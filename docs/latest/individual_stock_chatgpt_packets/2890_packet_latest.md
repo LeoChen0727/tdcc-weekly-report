@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2890 永豐金
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:10 Asia/Taipei
+- generated_at: 2026-06-04 01:55:01 Asia/Taipei
 - stock_id: 2890
 - stock_name: 永豐金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,11 +59,11 @@
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -76,7 +76,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -101,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 30.4
-- high: 31
-- low: 30.3
-- close: 31
-- volume: 53360627
-- ma5: 30.12
-- ema23_primary: 30.34
-- distance_to_ema23_pct: 2.17
-- ma20: 30.16
-- ma60: 31.28
-- ma120: 30.24
-- return_5d: 4.91
-- return_20d: 1.14
-- volume_ratio: 1.38
-- distance_to_ma20_pct_auxiliary: 2.8
-- distance_to_high_60_pct: -7.88
+- date: 20260603
+- open: 31.5
+- high: 33
+- low: 31.15
+- close: 33
+- volume: 93687028
+- ma5: 30.79
+- ema23_primary: 30.56
+- distance_to_ema23_pct: 7.97
+- ma20: 30.25
+- ma60: 31.3
+- ma120: 30.29
+- return_5d: 11.3
+- return_20d: 6.45
+- volume_ratio: 2.24
+- distance_to_ma20_pct_auxiliary: 9.07
+- distance_to_high_60_pct: -1.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,30.75,31.15,30.7,31,32133947,31.66,-2.08,32.06,31.48,1.22
 20260507,31,31.2,30.85,30.9,32907486,31.59,-2.2,31.97,31.51,1.23
 20260508,31.15,31.3,30.6,31,35823012,31.54,-1.73,31.87,31.54,1.3
 20260511,31,31.05,30.6,30.6,33938928,31.47,-2.75,31.76,31.57,1.2
@@ -143,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,29.6,30,29.55,30,64350996,30.27,-0.88,30.14,31.31,1.74
 20260601,30,30.65,29.85,30.45,40613955,30.28,0.56,30.14,31.29,1.09
 20260602,30.4,31,30.3,31,53360627,30.34,2.17,30.16,31.28,1.38
+20260603,31.5,33,31.15,33,93687028,30.56,7.97,30.25,31.3,2.24
 ```
 
 ## Latest TDCC Snapshot
@@ -172,19 +171,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2890 | 永豐金 | pullback_rebound | 回檔後短線轉強 | 70.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260602 | 2890 | 永豐金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260602 | 2890 | 永豐金 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2890 | 永豐金 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2890 | 永豐金 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 2890 | 永豐金 | 10 | 1 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2890 | 永豐金 | 15 | 0 | 1501350.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 2890 | 永豐金 | 15 | 0 | 5305100.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

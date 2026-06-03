@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1531 高林股
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:40 Asia/Taipei
+- generated_at: 2026-06-04 01:54:19 Asia/Taipei
 - stock_id: 1531
 - stock_name: 高林股
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -97,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 12.4
-- high: 12.45
-- low: 12.2
-- close: 12.4
-- volume: 279681
-- ma5: 12.25
-- ema23_primary: 12.49
-- distance_to_ema23_pct: -0.75
-- ma20: 12.49
-- ma60: 12.7
-- ma120: 12.4
-- return_5d: 1.64
-- return_20d: -4.25
-- volume_ratio: 1.4
-- distance_to_ma20_pct_auxiliary: -0.72
-- distance_to_high_60_pct: -8.49
+- date: 20260603
+- open: 12.3
+- high: 12.7
+- low: 12.3
+- close: 12.65
+- volume: 216567
+- ma5: 12.37
+- ema23_primary: 12.51
+- distance_to_ema23_pct: 1.15
+- ma20: 12.47
+- ma60: 12.71
+- ma120: 12.41
+- return_5d: 4.98
+- return_20d: -2.69
+- volume_ratio: 1.08
+- distance_to_ma20_pct_auxiliary: 1.42
+- distance_to_high_60_pct: -6.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,13.15,13.25,12.9,13,188496,13,0.03,13.12,12.63,0.95
 20260507,12.95,13.15,12.85,13,143805,13,0.02,13.12,12.64,0.72
 20260508,13.05,13.05,12.75,13,212302,13,0.02,13.11,12.65,1.03
 20260511,13.05,13.05,12.75,12.9,243401,12.99,-0.69,13.1,12.66,1.17
@@ -139,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,12.2,12.3,12.1,12.1,215992,12.51,-3.28,12.54,12.68,1.08
 20260601,12.15,12.45,12.15,12.4,212500,12.5,-0.81,12.52,12.69,1.06
 20260602,12.4,12.45,12.2,12.4,279681,12.49,-0.75,12.49,12.7,1.4
+20260603,12.3,12.7,12.3,12.65,216567,12.51,1.15,12.47,12.71,1.08
 ```
 
 ## Latest TDCC Snapshot

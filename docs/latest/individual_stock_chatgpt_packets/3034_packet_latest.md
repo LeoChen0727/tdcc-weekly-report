@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3034 聯詠
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:21 Asia/Taipei
+- generated_at: 2026-06-04 01:55:07 Asia/Taipei
 - stock_id: 3034
 - stock_name: 聯詠
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,15 +55,15 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: buy_now
-- action_rating_label_zh: 建議買進
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: breakout_confirmed
-- entry_style: breakout_follow
-- position_sizing: normal_position
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
-- buy_first_tranche_now
+- buy_first_tranche_near_support
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -79,6 +79,7 @@
 - decision_priority_high
 - decision_score_high
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -103,29 +104,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 498
-- high: 510
-- low: 493
-- close: 507
-- volume: 10893317
-- ma5: 488.8
-- ema23_primary: 471.07
-- distance_to_ema23_pct: 7.63
-- ma20: 481.52
-- ma60: 424.23
-- ma120: 402.25
-- return_5d: 3.15
-- return_20d: 20.71
-- volume_ratio: 1.35
-- distance_to_ma20_pct_auxiliary: 5.29
-- distance_to_high_60_pct: -0.59
+- date: 20260603
+- open: 511
+- high: 512
+- low: 500
+- close: 503
+- volume: 5153913
+- ma5: 492.4
+- ema23_primary: 473.73
+- distance_to_ema23_pct: 6.18
+- ma20: 484.6
+- ma60: 426.36
+- ma120: 403.19
+- return_5d: 3.71
+- return_20d: 13.93
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: 3.8
+- distance_to_high_60_pct: -1.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,426,441.5,425,441.5,8811691,409.49,7.82,411.02,390.52,2.02
 20260507,448,453,440,453,6506551,413.12,9.65,414.1,391.52,1.43
 20260508,464,498,455.5,498,20155564,420.19,18.52,419.02,393.41,3.72
 20260511,500,503,486,496.5,14732079,426.55,16.4,424.15,395.43,2.45
@@ -145,6 +145,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,480.5,485.5,475,477,7952543,465.19,2.54,473.12,419.93,1.06
 20260601,484,497,480,496.5,7656543,467.8,6.13,477.18,422.02,1
 20260602,498,510,493,507,10893317,471.07,7.63,481.52,424.23,1.35
+20260603,511,512,500,503,5153913,473.73,6.18,484.6,426.36,0.65
 ```
 
 ## Latest TDCC Snapshot
@@ -174,17 +175,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3034 | 聯詠 | true_breakout | 嚴格突破 | 116.0 |  |  | breakout_confirmed |  | call_put_bullish | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3034 | 聯詠 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3034 | 聯詠 | 6 | 1 | 5 | 6 | 6 | continued_many_days | 連續 6 個交易日上榜，需判斷是持續醞釀或訊號鈍化。 |
+| 20260603 | 3034 | 聯詠 | 1 | 1 | 4 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 次、近 20 日上榜 6 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3034 | 聯詠 | 87 | 7 | 31615840.0 | 13900.0 | 2274.52 | call_put_bullish | 3 |  |
+| 20260603 | 3034 | 聯詠 | 86 | 7 | 23299180.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

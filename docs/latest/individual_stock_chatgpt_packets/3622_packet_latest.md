@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3622 洋華
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:08 Asia/Taipei
+- generated_at: 2026-06-04 01:55:29 Asia/Taipei
 - stock_id: 3622
 - stock_name: 洋華
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,7 +59,7 @@
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: observe_only
 
 ### management_plan
@@ -72,7 +72,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -97,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
+- date: 20260603
 - open: 58.8
-- high: 59
-- low: 57
-- close: 58.4
-- volume: 478056
-- ma5: 57.42
-- ema23_primary: 56.4
-- distance_to_ema23_pct: 3.55
-- ma20: 56.06
-- ma60: 56.89
-- ma120: 60.54
-- return_5d: -0.17
-- return_20d: 4.1
-- volume_ratio: 0.91
-- distance_to_ma20_pct_auxiliary: 4.16
-- distance_to_high_60_pct: -7.01
+- high: 60.3
+- low: 57.4
+- close: 60.2
+- volume: 1702211
+- ma5: 58.04
+- ema23_primary: 56.72
+- distance_to_ema23_pct: 6.14
+- ma20: 56.3
+- ma60: 56.92
+- ma120: 60.49
+- return_5d: 5.43
+- return_20d: 8.27
+- volume_ratio: 2.89
+- distance_to_ma20_pct_auxiliary: 6.94
+- distance_to_high_60_pct: -4.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,57,57,55.4,55.6,391851,56.19,-1.05,55.7,58.58,1.06
 20260507,55.9,57.1,55.4,57.1,618626,56.27,1.48,55.7,58.41,1.61
 20260508,57,57.5,55.7,56.4,550310,56.28,0.22,55.76,58.25,1.5
 20260511,57.9,59.5,56.6,57.4,565092,56.37,1.82,55.88,58.15,1.51
@@ -139,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,56.7,57,56.4,56.8,309346,56.02,1.4,55.81,56.88,0.62
 20260601,56.8,58.6,56.6,58.4,585949,56.22,3.88,55.95,56.9,1.14
 20260602,58.8,59,57,58.4,478056,56.4,3.55,56.06,56.89,0.91
+20260603,58.8,60.3,57.4,60.2,1702211,56.72,6.14,56.3,56.92,2.89
 ```
 
 ## Latest TDCC Snapshot
@@ -178,7 +177,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3622 | 洋華 | 2 | 0 | 48700.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 3622 | 洋華 | 2 | 0 | 59300.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

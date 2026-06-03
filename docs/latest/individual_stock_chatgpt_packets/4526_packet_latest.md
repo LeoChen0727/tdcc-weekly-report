@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4526 東台
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:34 Asia/Taipei
+- generated_at: 2026-06-04 01:55:41 Asia/Taipei
 - stock_id: 4526
 - stock_name: 東台
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -100,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 44.5
-- high: 45.85
-- low: 40.95
-- close: 42.15
-- volume: 25140245
-- ma5: 40.46
-- ema23_primary: 38.51
-- distance_to_ema23_pct: 9.44
-- ma20: 38.28
-- ma60: 35.35
-- ma120: 34.06
-- return_5d: -4.96
-- return_20d: 4.59
-- volume_ratio: 2.17
-- distance_to_ma20_pct_auxiliary: 10.1
-- distance_to_high_60_pct: -8.07
+- date: 20260603
+- open: 42.5
+- high: 45.2
+- low: 41.5
+- close: 44.7
+- volume: 22027651
+- ma5: 41.41
+- ema23_primary: 39.03
+- distance_to_ema23_pct: 14.53
+- ma20: 38.67
+- ma60: 35.56
+- ma120: 34.17
+- return_5d: 11.89
+- return_20d: 20.81
+- volume_ratio: 1.85
+- distance_to_ma20_pct_auxiliary: 15.6
+- distance_to_high_60_pct: -2.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,40,40,36.8,37,15596300,35.05,5.56,34.95,33.98,1.78
 20260507,37,37.15,36.05,36.2,6270900,35.15,3,35.04,33.98,0.7
 20260508,36.05,36.65,34.2,34.5,4861969,35.09,-1.69,34.97,33.96,0.59
 20260511,34.75,35.75,34.25,35.25,3433078,35.11,0.41,34.98,33.99,0.42
@@ -142,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,39,40.3,38.8,38.95,7405636,37.76,3.14,37.92,34.98,0.61
 20260601,39.25,42.8,39.1,42.8,15995561,38.18,12.09,38.19,35.17,1.37
 20260602,44.5,45.85,40.95,42.15,25140245,38.51,9.44,38.28,35.35,2.17
+20260603,42.5,45.2,41.5,44.7,22027651,39.03,14.53,38.67,35.56,1.85
 ```
 
 ## Latest TDCC Snapshot
@@ -171,18 +171,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 4526 | 東台 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 4526 | 東台 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 4526 | 東台 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 4526 | 東台 | 9 | 9 | 5 | 9 | 9 | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 4526 | 東台 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 4526 | 東台 | 7 | 0 | 4434940.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260603 | 4526 | 東台 | 7 | 0 | 5046150.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

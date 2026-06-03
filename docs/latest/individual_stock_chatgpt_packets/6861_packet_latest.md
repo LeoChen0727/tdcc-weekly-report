@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6861 睿生光電
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:46 Asia/Taipei
+- generated_at: 2026-06-04 01:56:43 Asia/Taipei
 - stock_id: 6861
 - stock_name: 睿生光電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,18 +55,14 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
-- position_sizing: half_position
+- thesis_state: unclear
+- entry_style: current_price_ok
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -75,9 +71,7 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -102,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 390
-- high: 395.5
-- low: 356.5
-- close: 370
-- volume: 3070621
-- ma5: 416.8
-- ema23_primary: 387.77
-- distance_to_ema23_pct: -4.58
-- ma20: 419.82
-- ma60: 260.85
-- ma120: 165.87
-- return_5d: -17.69
-- return_20d: -6.68
-- volume_ratio: 2.34
-- distance_to_ma20_pct_auxiliary: -11.87
-- distance_to_high_60_pct: -24.49
+- date: 20260603
+- open: 368
+- high: 384.5
+- low: 359
+- close: 359.5
+- volume: 1078687
+- ma5: 396.3
+- ema23_primary: 385.42
+- distance_to_ema23_pct: -6.72
+- ma20: 419
+- ma60: 264.33
+- ma120: 168.37
+- return_5d: -22.19
+- return_20d: -4.39
+- volume_ratio: 0.82
+- distance_to_ma20_pct_auxiliary: -14.2
+- distance_to_high_60_pct: -26.63
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,435,435,366,376,1046863,244.86,53.56,226.18,155.71,0.49
 20260507,376,409.5,361,405,567413,258.2,56.85,239.9,161.39,0.26
 20260508,408,413,375,376,537326,268.02,40.29,251.95,166.6,0.25
 20260511,381,389,379,389,435102,278.1,39.88,264.6,172.03,0.21
@@ -144,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,419.5,452.5,417,440,1766201,388.79,13.17,419.38,253.03,1.59
 20260601,435,439,396,396,2244673,389.39,1.7,421.15,257.23,1.88
 20260602,390,395.5,356.5,370,3070621,387.77,-4.58,419.82,260.85,2.34
+20260603,368,384.5,359,359.5,1078687,385.42,-6.72,419,264.33,0.82
 ```
 
 ## Latest TDCC Snapshot
@@ -171,14 +165,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6861 | 睿生光電 | revenue_pullback | 營收成長股價回檔 | 67.0 |  |  |  |  |  | stale_signal | calendar event: ex_dividend on 20260615; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6861 | 睿生光電 | 9 | 4 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

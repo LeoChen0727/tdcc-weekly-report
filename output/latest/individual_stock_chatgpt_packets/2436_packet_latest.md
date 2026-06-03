@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2436 偉詮電
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:38 Asia/Taipei
+- generated_at: 2026-06-04 01:54:45 Asia/Taipei
 - stock_id: 2436
 - stock_name: 偉詮電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 75.9
-- high: 76.5
-- low: 72.8
-- close: 73.8
-- volume: 6226452
-- ma5: 76.36
-- ema23_primary: 74.24
-- distance_to_ema23_pct: -0.6
-- ma20: 74.7
-- ma60: 68.03
-- ma120: 59.48
-- return_5d: -7.29
-- return_20d: 0.41
-- volume_ratio: 0.68
-- distance_to_ma20_pct_auxiliary: -1.2
-- distance_to_high_60_pct: -12.56
+- date: 20260603
+- open: 74.4
+- high: 75.2
+- low: 73.2
+- close: 73.5
+- volume: 4130765
+- ma5: 75.44
+- ema23_primary: 74.18
+- distance_to_ema23_pct: -0.92
+- ma20: 74.63
+- ma60: 68.33
+- ma120: 59.7
+- return_5d: -5.89
+- return_20d: -1.87
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: -1.51
+- distance_to_high_60_pct: -12.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,75.8,78.8,74.1,74.9,16846360,69.56,7.67,69.38,62.16,1.03
 20260507,75.6,76.2,73.8,74,8457010,69.93,5.82,69.94,62.49,0.51
 20260508,73.3,74.5,70.5,72,6379087,70.1,2.7,70.47,62.77,0.38
 20260511,72.3,77.1,71.5,75.9,10636326,70.59,7.53,71.18,63.17,0.62
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,78.9,79.5,75.8,77.2,8182744,74.14,4.13,74.59,67.4,0.89
 20260601,78.2,78.6,75.5,75.9,6523093,74.28,2.17,74.69,67.75,0.72
 20260602,75.9,76.5,72.8,73.8,6226452,74.24,-0.6,74.7,68.03,0.68
+20260603,74.4,75.2,73.2,73.5,4130765,74.18,-0.92,74.63,68.33,0.49
 ```
 
 ## Latest TDCC Snapshot
@@ -172,19 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2436 | 偉詮電 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260602 | 2436 | 偉詮電 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260521 | 2436 | 偉詮電 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2436 | 偉詮電 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2436 | 偉詮電 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 2436 | 偉詮電 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2436 | 偉詮電 | 36 | 0 | 5414940.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 2436 | 偉詮電 | 36 | 0 | 3515760.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2354 鴻準
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:26 Asia/Taipei
+- generated_at: 2026-06-04 01:54:39 Asia/Taipei
 - stock_id: 2354
 - stock_name: 鴻準
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,11 +59,11 @@
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -76,7 +76,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -101,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 63.5
-- high: 64.5
-- low: 62.8
-- close: 64
-- volume: 30238205
-- ma5: 61.14
-- ema23_primary: 59.23
-- distance_to_ema23_pct: 8.05
-- ma20: 60.62
-- ma60: 55.17
+- date: 20260603
+- open: 65
+- high: 66.4
+- low: 63.2
+- close: 65.1
+- volume: 37299914
+- ma5: 62.22
+- ema23_primary: 59.72
+- distance_to_ema23_pct: 9.01
+- ma20: 60.66
+- ma60: 55.34
 - ma120: 57.81
-- return_5d: 5.79
-- return_20d: 9.4
-- volume_ratio: 1.35
-- distance_to_ma20_pct_auxiliary: 5.58
-- distance_to_high_60_pct: -1.99
+- return_5d: 9.05
+- return_20d: 1.24
+- volume_ratio: 1.86
+- distance_to_ma20_pct_auxiliary: 7.32
+- distance_to_high_60_pct: -1.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,62,64.3,60.2,64.3,83280910,53.6,19.96,52.63,54.32,6.85
 20260507,64.8,65.3,62.5,63.3,63752113,54.41,16.34,53.25,54.38,4.26
 20260508,63,63,60.2,61.4,25532398,54.99,11.65,53.79,54.43,1.6
 20260511,61.4,62.1,59.5,61.6,21682955,55.54,10.9,54.37,54.5,1.29
@@ -143,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,59,61.7,59,60.9,20457567,58.43,4.22,59.87,54.89,0.95
 20260601,61.6,64,61.4,62.8,32610376,58.8,6.81,60.34,55.03,1.44
 20260602,63.5,64.5,62.8,64,30238205,59.23,8.05,60.62,55.17,1.35
+20260603,65,66.4,63.2,65.1,37299914,59.72,9.01,60.66,55.34,1.86
 ```
 
 ## Latest TDCC Snapshot
@@ -172,18 +171,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2354 | 鴻準 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 2354 | 鴻準 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2354 | 鴻準 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2354 | 鴻準 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2354 | 鴻準 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 2354 | 鴻準 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2354 | 鴻準 | 37 | 3 | 10820040.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260603 | 2354 | 鴻準 | 37 | 3 | 16519170.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

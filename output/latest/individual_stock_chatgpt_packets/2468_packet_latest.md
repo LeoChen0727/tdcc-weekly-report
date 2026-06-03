@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2468 華經
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:42 Asia/Taipei
+- generated_at: 2026-06-04 01:54:48 Asia/Taipei
 - stock_id: 2468
 - stock_name: 華經
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,7 +59,7 @@
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: high_level_distribution_risk
-- entry_style: breakout_follow
+- entry_style: pullback_to_23ema
 - position_sizing: starter_1_4
 
 ### management_plan
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 40.05
-- high: 40.15
-- low: 38.9
-- close: 40.15
-- volume: 4367096
-- ma5: 35.19
-- ema23_primary: 34.42
-- distance_to_ema23_pct: 16.63
-- ma20: 34.05
-- ma60: 35.04
-- ma120: 37.59
-- return_5d: 17.74
-- return_20d: 17.4
-- volume_ratio: 7.34
-- distance_to_ma20_pct_auxiliary: 17.91
-- distance_to_high_60_pct: -8.75
+- date: 20260603
+- open: 42
+- high: 43.95
+- low: 40.15
+- close: 40.7
+- volume: 4614733
+- ma5: 36.71
+- ema23_primary: 34.95
+- distance_to_ema23_pct: 16.46
+- ma20: 34.39
+- ma60: 35.15
+- ma120: 37.56
+- return_5d: 22.96
+- return_20d: 19.71
+- volume_ratio: 5.7
+- distance_to_ma20_pct_auxiliary: 18.36
+- distance_to_high_60_pct: -7.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,34.65,35.1,33.9,34,317695,34.54,-1.56,34.27,35.8,1.11
 20260507,34.5,37,34.5,35.9,1121602,34.65,3.6,34.37,35.72,3.41
 20260508,36,38.1,35.7,35.8,1120561,34.75,3.02,34.48,35.65,3
 20260511,35.45,35.45,34.1,34.2,532306,34.7,-1.45,34.5,35.59,1.36
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,33.7,33.95,33.2,33.2,246563,33.67,-1.39,33.63,34.87,0.7
 20260601,34.15,36.5,34.15,36.5,988276,33.9,7.66,33.76,34.93,2.54
 20260602,40.05,40.15,38.9,40.15,4367096,34.42,16.63,34.05,35.04,7.34
+20260603,42,43.95,40.15,40.7,4614733,34.95,16.46,34.39,35.15,5.7
 ```
 
 ## Latest TDCC Snapshot
@@ -172,12 +172,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2468 | 華經 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2468 | 華經 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2468 | 華經 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| 20260603 | 2468 | 華經 | 2 | 2 | 2 | 2 | 2 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

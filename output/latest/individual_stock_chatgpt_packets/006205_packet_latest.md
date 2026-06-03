@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 006205 富邦上証
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:04 Asia/Taipei
+- generated_at: 2026-06-04 01:54:02 Asia/Taipei
 - stock_id: 006205
 - stock_name: 富邦上証
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260602
-- price_rows: 8
+- latest_price_date: 20260603
+- price_rows: 9
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -58,8 +58,8 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: high_level_distribution_risk
-- entry_style: breakout_follow
+- thesis_state: unclear
+- entry_style: pullback_to_23ema
 - position_sizing: starter_1_4
 
 ### management_plan
@@ -79,6 +79,7 @@
 - near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -92,7 +93,6 @@
 
 ### downgrade_reason
 - tdcc_distribution_warning
-- price_too_extended
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -100,23 +100,23 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 40.6
-- high: 41.1
-- low: 40.36
-- close: 41.1
-- volume: 709356
-- ma5: 40.91
-- ema23_primary: 40.83
-- distance_to_ema23_pct: 0.65
-- ma20: 40.95
-- ma60: 40.95
-- ma120: 40.95
-- return_5d: -0.34
+- date: 20260603
+- open: 41.1
+- high: 41.35
+- low: 40.81
+- close: 41.21
+- volume: 773651
+- ma5: 40.93
+- ema23_primary: 40.86
+- distance_to_ema23_pct: 0.85
+- ma20: 40.98
+- ma60: 40.98
+- ma120: 40.98
+- return_5d: 0.24
 - return_20d: 
-- volume_ratio: 0.74
-- distance_to_ma20_pct_auxiliary: 0.37
-- distance_to_high_60_pct: -1.37
+- volume_ratio: 0.83
+- distance_to_ma20_pct_auxiliary: 0.57
+- distance_to_high_60_pct: -1.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -130,6 +130,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,40.65,41.15,40.65,41.09,1416118,40.82,0.65,40.98,40.98,1.34
 20260601,40.89,40.92,40.4,40.63,605620,40.81,-0.44,40.93,40.93,0.61
 20260602,40.6,41.1,40.36,41.1,709356,40.83,0.65,40.95,40.95,0.74
+20260603,41.1,41.35,40.81,41.21,773651,40.86,0.85,40.98,40.98,0.83
 ```
 
 ## Latest TDCC Snapshot
@@ -155,12 +156,12 @@ no_rows,True
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6205 | 詮欣 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 6205 | 詮欣 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6205 | 詮欣 | 2 | 1 | 4 | 5 | 5 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260603 | 6205 | 詮欣 | 3 | 2 | 4 | 6 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

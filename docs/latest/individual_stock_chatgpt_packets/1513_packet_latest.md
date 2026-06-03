@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1513 中興電
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:37 Asia/Taipei
+- generated_at: 2026-06-04 01:54:17 Asia/Taipei
 - stock_id: 1513
 - stock_name: 中興電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -100,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 169.5
-- high: 170
-- low: 165
-- close: 168
-- volume: 8754578
-- ma5: 167.5
-- ema23_primary: 159.14
-- distance_to_ema23_pct: 5.57
-- ma20: 158.22
-- ma60: 154.66
-- ma120: 156.42
-- return_5d: 1.82
-- return_20d: 9.09
-- volume_ratio: 0.78
-- distance_to_ma20_pct_auxiliary: 6.18
-- distance_to_high_60_pct: -5.08
+- date: 20260603
+- open: 171
+- high: 184.5
+- low: 169
+- close: 184.5
+- volume: 45937741
+- ma5: 170.6
+- ema23_primary: 161.25
+- distance_to_ema23_pct: 14.42
+- ma20: 159.68
+- ma60: 155.07
+- ma120: 156.71
+- return_5d: 9.17
+- return_20d: 18.65
+- volume_ratio: 3.52
+- distance_to_ma20_pct_auxiliary: 15.55
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,157,158,154,155.5,10727471,152.43,2.02,151.82,157.53,2.03
 20260507,157,158,155.5,156.5,5840853,152.77,2.44,152.25,157.05,1.08
 20260508,157,163.5,157,158,17757265,153.2,3.13,152.65,156.72,2.88
 20260511,159.5,159.5,156,158.5,7010322,153.64,3.16,153.05,156.55,1.09
@@ -142,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,168.5,169.5,165,166.5,12795546,157.41,5.77,156.88,154.3,1.12
 20260601,167.5,171,166.5,168.5,9845209,158.34,6.42,157.53,154.53,0.89
 20260602,169.5,170,165,168,8754578,159.14,5.57,158.22,154.66,0.78
+20260603,171,184.5,169,184.5,45937741,161.25,14.42,159.68,155.07,3.52
 ```
 
 ## Latest TDCC Snapshot
@@ -171,18 +171,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1513 | 中興電 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: ex_dividend on 20260709; status=confirmed; proximity=within_60d |
-| 20260521 | 1513 | 中興電 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | stale_signal | calendar event: ex_dividend on 20260709; status=confirmed; proximity=within_60d |
+| 20260603 | 1513 | 中興電 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_put_bullish | stale_signal | calendar event: ex_dividend on 20260709; status=confirmed; proximity=within_60d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1513 | 中興電 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 1513 | 中興電 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1513 | 中興電 | 92 | 2 | 9530030.0 | 880.0 | 10829.58 | no_signal | 0 |  |
+| 20260603 | 1513 | 中興電 | 93 | 2 | 31487480.0 | 13070.0 | 2409.14 | call_put_bullish | 3 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

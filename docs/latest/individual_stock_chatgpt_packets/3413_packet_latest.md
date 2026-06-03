@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3413 京鼎
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:51 Asia/Taipei
+- generated_at: 2026-06-04 01:55:21 Asia/Taipei
 - stock_id: 3413
 - stock_name: 京鼎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 274
+- latest_price_date: 20260603
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 27
 - tdcc_history_status: tdcc_history_ready
@@ -102,29 +102,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 317.5
-- high: 320
-- low: 311
-- close: 312.5
-- volume: 3099439
-- ma5: 316.3
-- ema23_primary: 319.81
-- distance_to_ema23_pct: -2.29
-- ma20: 319.8
-- ma60: 313.11
-- ma120: 301.72
-- return_5d: -9.68
-- return_20d: -3.7
-- volume_ratio: 0.89
-- distance_to_ma20_pct_auxiliary: -2.28
-- distance_to_high_60_pct: -12.95
+- date: 20260603
+- open: 316
+- high: 322.5
+- low: 315.5
+- close: 319.5
+- volume: 2465895
+- ma5: 317.3
+- ema23_primary: 319.78
+- distance_to_ema23_pct: -0.09
+- ma20: 319.88
+- ma60: 313.27
+- ma120: 301.88
+- return_5d: 1.59
+- return_20d: 0.47
+- volume_ratio: 0.71
+- distance_to_ma20_pct_auxiliary: -0.12
+- distance_to_high_60_pct: -11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,325.5,325.5,314,318,2743147,314.61,1.08,316.95,305.58,1.21
 20260507,315,315,303.5,309,3802636,314.15,-1.64,317.3,305.68,1.61
 20260508,308,317.5,304.5,315.5,2846218,314.26,0.39,317.65,306.11,1.2
 20260511,309,313,296,308.5,3655573,313.78,-1.68,317.32,306.52,1.55
@@ -144,6 +143,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,322,323,318,320,2582808,320.83,-0.26,320.8,312.43,0.76
 20260601,322,322,315,316.5,2817259,320.47,-1.24,320.4,312.88,0.82
 20260602,317.5,320,311,312.5,3099439,319.81,-2.29,319.8,313.11,0.89
+20260603,316,322.5,315.5,319.5,2465895,319.78,-0.09,319.88,313.27,0.71
 ```
 
 ## Latest TDCC Snapshot
@@ -180,17 +180,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 3413 | 京鼎 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3413 | 京鼎 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3413 | 京鼎 | 9 | 9 | 5 | 9 | 9 | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 3413 | 京鼎 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3413 | 京鼎 | 44 | 0 | 4030820.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 3413 | 京鼎 | 43 | 0 | 10262280.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

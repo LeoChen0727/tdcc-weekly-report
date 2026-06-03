@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8046 南電
 
 ## Metadata
-- generated_at: 2026-06-02 23:30:50 Asia/Taipei
+- generated_at: 2026-06-04 01:57:12 Asia/Taipei
 - stock_id: 8046
 - stock_name: 南電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 905
-- high: 907
-- low: 834
-- close: 862
-- volume: 14435807
-- ma5: 874
-- ema23_primary: 858.52
-- distance_to_ema23_pct: 0.41
-- ma20: 873.1
-- ma60: 729.33
-- ma120: 527.85
-- return_5d: -6.51
-- return_20d: -13.54
-- volume_ratio: 0.81
-- distance_to_ma20_pct_auxiliary: -1.27
-- distance_to_high_60_pct: -16.71
+- date: 20260603
+- open: 860
+- high: 920
+- low: 856
+- close: 904
+- volume: 17486574
+- ma5: 873.8
+- ema23_primary: 862.31
+- distance_to_ema23_pct: 4.83
+- ma20: 871.3
+- ma60: 736.57
+- ma120: 533.19
+- return_5d: -0.11
+- return_20d: -3.83
+- volume_ratio: 0.99
+- distance_to_ma20_pct_auxiliary: 3.75
+- distance_to_high_60_pct: -12.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,1005,1025,901,940,22794178,805.94,16.63,806.05,593.46,1.05
 20260507,970,980,932,947,11915247,817.69,15.81,821.55,602.64,0.58
 20260508,942,942,853,854,20326159,820.72,4.06,830.8,610.64,0.99
 20260511,857,918,857,908,13746504,827.99,9.66,842.85,619.3,0.68
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,860,867,825,848,17926232,853.95,-0.7,883.9,715.06,1
 20260601,842,923,838,905,21446815,858.2,5.45,879.85,722.64,1.21
 20260602,905,907,834,862,14435807,858.52,0.41,873.1,729.33,0.81
+20260603,860,920,856,904,17486574,862.31,4.83,871.3,736.57,0.99
 ```
 
 ## Latest TDCC Snapshot
@@ -172,18 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 8046 | 南電 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260602 | 8046 | 南電 | revenue_pullback | 營收成長股價回檔 | 76.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260603 | 8046 | 南電 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 8046 | 南電 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 8046 | 南電 | 10 | 4 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 8046 | 南電 | 109 | 16 | 3591700.0 | 405200.0 | 8.86 | no_signal | 0 |  |
+| 20260603 | 8046 | 南電 | 105 | 16 | 6580700.0 | 317610.0 | 20.72 | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

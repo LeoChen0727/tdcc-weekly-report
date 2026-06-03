@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2049 上銀
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:09 Asia/Taipei
+- generated_at: 2026-06-04 01:54:31 Asia/Taipei
 - stock_id: 2049
 - stock_name: 上銀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,18 +55,14 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: healthy_pullback
+- thesis_state: unclear
 - entry_style: pullback_to_23ema
-- position_sizing: half_position
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -75,7 +71,6 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -102,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 391
-- high: 393.5
-- low: 354
-- close: 364
-- volume: 10348396
-- ma5: 387.5
-- ema23_primary: 362.09
-- distance_to_ema23_pct: 0.53
-- ma20: 370.45
-- ma60: 295.89
-- ma120: 255.68
-- return_5d: -11.11
-- return_20d: 13.4
-- volume_ratio: 1.2
-- distance_to_ma20_pct_auxiliary: -1.74
-- distance_to_high_60_pct: -14.55
+- date: 20260603
+- open: 372.5
+- high: 373.5
+- low: 362.5
+- close: 369
+- volume: 5201014
+- ma5: 379.5
+- ema23_primary: 362.66
+- distance_to_ema23_pct: 1.75
+- ma20: 373.12
+- ma60: 298.21
+- ma120: 257.15
+- return_5d: -9.78
+- return_20d: 16.96
+- volume_ratio: 0.61
+- distance_to_ma20_pct_auxiliary: -1.11
+- distance_to_high_60_pct: -13.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,322.5,328,308,315.5,7480615,287.73,9.65,289,253.01,0.73
 20260507,319,325,313.5,318,6305514,290.26,9.56,292.82,253.98,0.61
 20260508,322,324.5,308,319.5,6374214,292.69,9.16,296.55,255.02,0.62
 20260511,327,351,322.5,351,12319911,297.55,17.96,302,256.7,1.15
@@ -144,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,402.5,406,384,389,7950787,359.59,8.18,364.85,291.38,0.91
 20260601,392.5,398.5,387,387.5,5578905,361.91,7.07,368.3,293.82,0.67
 20260602,391,393.5,354,364,10348396,362.09,0.53,370.45,295.89,1.2
+20260603,372.5,373.5,362.5,369,5201014,362.66,1.75,373.12,298.21,0.61
 ```
 
 ## Latest TDCC Snapshot
@@ -171,19 +166,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2049 | 上銀 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2049 | 上銀 | 4 | 3 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 日、近 20 日上榜 4 日，尚未突破，需分辨醞釀或鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2049 | 上銀 | 124 | 6 | 17865520.0 | 165970.0 | 107.64 | no_signal | 0 |  |
+| 20260603 | 2049 | 上銀 | 125 | 6 | 12122710.0 | 552510.0 | 21.94 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2867 三商壽
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:08 Asia/Taipei
+- generated_at: 2026-06-04 01:55:00 Asia/Taipei
 - stock_id: 2867
 - stock_name: 三商壽
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 274
+- latest_price_date: 20260603
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -76,6 +76,8 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_priority_high
+- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -102,29 +104,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 7.63
-- high: 7.8
-- low: 7.61
-- close: 7.79
-- volume: 20130964
-- ma5: 7.58
-- ema23_primary: 7.66
-- distance_to_ema23_pct: 1.63
-- ma20: 7.67
+- date: 20260603
+- open: 7.8
+- high: 8.07
+- low: 7.79
+- close: 8
+- volume: 42223769
+- ma5: 7.68
+- ema23_primary: 7.69
+- distance_to_ema23_pct: 3.99
+- ma20: 7.69
 - ma60: 7.74
-- ma120: 7.79
-- return_5d: 2.77
-- return_20d: 2.37
-- volume_ratio: 2.12
-- distance_to_ma20_pct_auxiliary: 1.54
-- distance_to_high_60_pct: -3.83
+- ma120: 7.8
+- return_5d: 6.1
+- return_20d: 4.03
+- volume_ratio: 3.75
+- distance_to_ma20_pct_auxiliary: 4.07
+- distance_to_high_60_pct: -1.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,7.67,7.71,7.6,7.69,7002059,7.77,-1.01,7.8,7.85,0.71
 20260507,7.69,7.86,7.69,7.81,14698167,7.77,0.49,7.8,7.84,1.43
 20260508,7.81,7.83,7.75,7.83,6736625,7.78,0.69,7.8,7.84,0.7
 20260511,7.84,7.87,7.8,7.82,7612756,7.78,0.51,7.81,7.84,0.83
@@ -144,6 +145,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,7.5,7.52,7.44,7.52,11342143,7.66,-1.77,7.66,7.75,1.36
 20260601,7.52,7.65,7.46,7.63,16761951,7.65,-0.31,7.66,7.74,1.93
 20260602,7.63,7.8,7.61,7.79,20130964,7.66,1.63,7.67,7.74,2.12
+20260603,7.8,8.07,7.79,8,42223769,7.69,3.99,7.69,7.74,3.75
 ```
 
 ## Latest TDCC Snapshot
@@ -173,19 +175,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2867 | 三商壽 | pullback_rebound | 回檔後短線轉強 | 70.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260602 | 2867 | 三商壽 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260602 | 2867 | 三商壽 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2867 | 三商壽 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2867 | 三商壽 | 9 | 9 | 5 | 9 | 9 | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 2867 | 三商壽 | 10 | 3 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2867 | 三商壽 | 3 | 0 | 24250.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 2867 | 三商壽 | 3 | 0 | 8120.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

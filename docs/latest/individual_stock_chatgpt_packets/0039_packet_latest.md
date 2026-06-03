@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0039 金融類
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:02 Asia/Taipei
+- generated_at: 2026-06-04 01:54:01 Asia/Taipei
 - stock_id: 0039
 - stock_name: 金融類
 - packet_status: insufficient_price_data
@@ -154,7 +154,7 @@ no_rows,True
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 0039 | 金融類 | 5 | 3 | 140050.0 | 8990.0 | 15.58 | no_signal | 0 |  |
+| 20260603 | 0039 | 金融類 | 5 | 3 | 1083830.0 | 32840.0 | 33.0 | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

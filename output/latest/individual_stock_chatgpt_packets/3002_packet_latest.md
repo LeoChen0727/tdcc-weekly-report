@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3002 歐格
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:15 Asia/Taipei
+- generated_at: 2026-06-04 01:55:04 Asia/Taipei
 - stock_id: 3002
 - stock_name: 歐格
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,8 +58,8 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: breakout_initial
-- entry_style: breakout_follow
+- thesis_state: high_level_consolidation
+- entry_style: pullback_to_23ema
 - position_sizing: starter_1_4
 
 ### management_plan
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 20.25
-- high: 20.95
-- low: 18.45
-- close: 20.45
-- volume: 3729261
-- ma5: 18.31
-- ema23_primary: 17.94
-- distance_to_ema23_pct: 13.99
-- ma20: 17.55
-- ma60: 18.72
-- ma120: 21.5
-- return_5d: 19.59
-- return_20d: 10.24
-- volume_ratio: 7.37
-- distance_to_ma20_pct_auxiliary: 16.54
-- distance_to_high_60_pct: -7.67
+- date: 20260603
+- open: 20.4
+- high: 20.4
+- low: 19.6
+- close: 19.75
+- volume: 1132324
+- ma5: 18.88
+- ema23_primary: 18.09
+- distance_to_ema23_pct: 9.17
+- ma20: 17.62
+- ma60: 18.69
+- ma120: 21.44
+- return_5d: 16.86
+- return_20d: 8.52
+- volume_ratio: 2.07
+- distance_to_ma20_pct_auxiliary: 12.06
+- distance_to_high_60_pct: -9.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,18.65,18.65,18,18.2,319997,18.78,-3.1,18.78,20,1.15
 20260507,18.45,18.45,18.1,18.1,113184,18.73,-3.34,18.72,19.93,0.43
 20260508,18.15,18.4,17.7,17.8,272258,18.65,-4.55,18.62,19.86,1.2
 20260511,17.65,17.85,17.65,17.7,184880,18.57,-4.68,18.54,19.79,0.85
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,17.2,17.7,17.1,17.7,330880,17.55,0.83,17.39,18.76,1.23
 20260601,17.65,19.45,17.65,19.45,1250534,17.71,9.82,17.45,18.74,3.85
 20260602,20.25,20.95,18.45,20.45,3729261,17.94,13.99,17.55,18.72,7.37
+20260603,20.4,20.4,19.6,19.75,1132324,18.09,9.17,17.62,18.69,2.07
 ```
 
 ## Latest TDCC Snapshot
@@ -172,12 +172,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3002 | 歐格 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3002 | 歐格 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3002 | 歐格 | 2 | 2 | 2 | 2 | 2 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260603 | 3002 | 歐格 | 3 | 3 | 3 | 3 | 3 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

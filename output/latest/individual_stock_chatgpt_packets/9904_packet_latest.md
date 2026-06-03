@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9904 寶成
 
 ## Metadata
-- generated_at: 2026-06-02 23:31:21 Asia/Taipei
+- generated_at: 2026-06-04 01:57:26 Asia/Taipei
 - stock_id: 9904
 - stock_name: 寶成
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,22 +55,30 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: reduce
-- action_rating_label_zh: 減碼
-- confidence_level: low
-- thesis_state: failed_breakout
-- entry_style: no_entry_now
-- position_sizing: reduce_position
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
+- confidence_level: medium
+- thesis_state: unclear
+- entry_style: pullback_to_23ema
+- position_sizing: starter_1_4
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_volume_price_failure
 - acceptable_risk_reward
 
 ### post_entry_watch_items
@@ -86,7 +94,6 @@
 ### downgrade_reason
 - insufficient_tdcc_history
 - tdcc_distribution_warning
-- volume_price_failure
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -94,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 25.75
-- high: 26.35
-- low: 25.65
-- close: 26.1
-- volume: 23730546
-- ma5: 25.58
-- ema23_primary: 25.98
-- distance_to_ema23_pct: 0.46
-- ma20: 25.79
-- ma60: 27.33
-- ma120: 29.09
-- return_5d: 2.15
-- return_20d: 1.95
-- volume_ratio: 1.53
-- distance_to_ma20_pct_auxiliary: 1.2
-- distance_to_high_60_pct: -14
+- date: 20260603
+- open: 26.3
+- high: 26.5
+- low: 26.05
+- close: 26.5
+- volume: 23295142
+- ma5: 25.81
+- ema23_primary: 26.02
+- distance_to_ema23_pct: 1.83
+- ma20: 25.84
+- ma60: 27.27
+- ma120: 29.06
+- return_5d: 4.54
+- return_20d: 3.52
+- volume_ratio: 1.44
+- distance_to_ma20_pct_auxiliary: 2.57
+- distance_to_high_60_pct: -12.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,25.7,25.8,25.5,25.6,10258887,26.98,-5.11,27.05,28.87,0.68
 20260507,25.7,26.1,25.55,25.95,14713908,26.89,-3.51,26.9,28.79,0.95
 20260508,26.2,26.2,25.75,25.9,11645528,26.81,-3.39,26.77,28.71,0.74
 20260511,25.95,26.2,25.75,25.8,17539248,26.73,-3.46,26.64,28.63,1.1
@@ -136,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,25.25,25.55,25.2,25.45,12333549,25.99,-2.06,25.75,27.45,0.86
 20260601,25.5,25.8,25.4,25.8,22820802,25.97,-0.66,25.77,27.4,1.54
 20260602,25.75,26.35,25.65,26.1,23730546,25.98,0.46,25.79,27.33,1.53
+20260603,26.3,26.5,26.05,26.5,23295142,26.02,1.83,25.84,27.27,1.44
 ```
 
 ## Latest TDCC Snapshot
@@ -165,17 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 9904 | 寶成 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 9904 | 寶成 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 65.0 |  |  | neckline_challenge |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 9904 | 寶成 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260603 | 9904 | 寶成 | 3 | 3 | 3 | 3 | 3 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 9904 | 寶成 | 9 | 0 | 665490.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 9904 | 寶成 | 10 | 0 | 1713430.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1303 南亞
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:20 Asia/Taipei
+- generated_at: 2026-06-04 01:54:10 Asia/Taipei
 - stock_id: 1303
 - stock_name: 南亞
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,7 +59,7 @@
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: high_level_distribution_risk
-- entry_style: breakout_follow
+- entry_style: pullback_to_23ema
 - position_sizing: starter_1_4
 
 ### management_plan
@@ -76,6 +76,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 
@@ -100,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 110
-- high: 118
-- low: 108.5
-- close: 112.5
-- volume: 151715085
-- ma5: 100.82
-- ema23_primary: 92.08
-- distance_to_ema23_pct: 22.18
-- ma20: 90.66
-- ma60: 85.76
-- ma120: 77.6
-- return_5d: 23.9
-- return_20d: 19.68
-- volume_ratio: 1.87
-- distance_to_ma20_pct_auxiliary: 24.1
-- distance_to_high_60_pct: -4.66
+- date: 20260603
+- open: 118.5
+- high: 118.5
+- low: 107
+- close: 113
+- volume: 77820950
+- ma5: 104.32
+- ema23_primary: 93.82
+- distance_to_ema23_pct: 20.44
+- ma20: 91.61
+- ma60: 86.27
+- ma120: 78.05
+- return_5d: 18.32
+- return_20d: 20.47
+- volume_ratio: 1
+- distance_to_ma20_pct_auxiliary: 23.34
+- distance_to_high_60_pct: -4.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,97.2,101.5,92,93.8,151794126,87.34,7.4,88.13,82.6,1.59
 20260507,94.1,94.6,90.2,90.3,74376118,87.58,3.1,88.39,82.76,0.79
 20260508,89.5,90.8,86.6,88.6,61558376,87.67,1.06,88.56,82.95,0.68
 20260511,89.8,92.3,89.5,91.5,53717251,87.99,3.99,89.06,83.21,0.6
@@ -142,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,92,98.6,91.9,98.1,150486779,88.65,10.66,88.78,84.79,1.94
 20260601,98.7,107.5,97.5,107.5,111908983,90.22,19.15,89.73,85.26,1.4
 20260602,110,118,108.5,112.5,151715085,92.08,22.18,90.66,85.76,1.87
+20260603,118.5,118.5,107,113,77820950,93.82,20.44,91.61,86.27,1
 ```
 
 ## Latest TDCC Snapshot
@@ -171,17 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1303 | 南亞 | true_breakout | 嚴格突破 | 82.0 |  |  | platform_breakout |  | call_put_bullish | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 1303 | 南亞 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1303 | 南亞 | 6 | 2 | 5 | 6 | 6 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260603 | 1303 | 南亞 | 1 | 1 | 4 | 6 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1303 | 南亞 | 252 | 22 | 128226960.0 | 184660.0 | 694.39 | call_put_bullish | 3 | 認購權證成交金額很大且認購/認售比偏高，需檢查標的是否高位追價或獲利結清 |
+| 20260603 | 1303 | 南亞 | 248 | 19 | 56979070.0 | 157780.0 | 361.13 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

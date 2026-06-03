@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3189 景碩
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:35 Asia/Taipei
+- generated_at: 2026-06-04 01:55:13 Asia/Taipei
 - stock_id: 3189
 - stock_name: 景碩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -96,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 778
-- high: 778
-- low: 710
-- close: 743
-- volume: 6753281
-- ma5: 725.8
-- ema23_primary: 597.54
-- distance_to_ema23_pct: 24.34
-- ma20: 580.73
-- ma60: 452.37
-- ma120: 325.86
-- return_5d: 6.75
-- return_20d: 40.99
-- volume_ratio: 0.27
-- distance_to_ma20_pct_auxiliary: 27.94
-- distance_to_high_60_pct: -4.5
+- date: 20260603
+- open: 740
+- high: 749
+- low: 730
+- close: 739
+- volume: 4661433
+- ma5: 733.2
+- ema23_primary: 609.33
+- distance_to_ema23_pct: 21.28
+- ma20: 593.55
+- ma60: 459.82
+- ma120: 330.83
+- return_5d: 5.27
+- return_20d: 53.16
+- volume_ratio: 0.2
+- distance_to_ma20_pct_auxiliary: 24.51
+- distance_to_high_60_pct: -5.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,532,537,475,482.5,32577765,452.09,6.73,453.4,353.66,0.88
 20260507,486.5,506,478,492.5,21099853,455.46,8.13,458.32,357.81,0.56
 20260508,487,487.5,445.5,458,28689133,455.67,0.51,461.88,361.62,0.79
 20260511,475,503,468,503,26643811,459.61,9.44,467.98,365.8,0.73
@@ -138,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,707,746,704,729,7357595,567.08,28.55,557.77,436.78,0.28
 20260601,740,775,740,774,6218324,584.32,32.46,569.92,444.94,0.24
 20260602,778,778,710,743,6753281,597.54,24.34,580.73,452.37,0.27
+20260603,740,749,730,739,4661433,609.33,21.28,593.55,459.82,0.2
 ```
 
 ## Latest TDCC Snapshot
@@ -177,7 +177,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3189 | 景碩 | 153 | 14 | 5827150.0 | 51320.0 | 113.55 | no_signal | 0 |  |
+| 20260603 | 3189 | 景碩 | 152 | 14 | 3601100.0 | 17600.0 | 204.61 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

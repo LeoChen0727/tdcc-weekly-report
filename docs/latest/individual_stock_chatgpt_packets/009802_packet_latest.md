@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009802 富邦旗艦50
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:11 Asia/Taipei
+- generated_at: 2026-06-04 01:54:06 Asia/Taipei
 - stock_id: 009802
 - stock_name: 富邦旗艦50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260602
-- price_rows: 8
+- latest_price_date: 20260603
+- price_rows: 9
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,15 +55,15 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: buy_now
-- action_rating_label_zh: 建議買進
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: high
-- thesis_state: breakout_initial
-- entry_style: breakout_follow
-- position_sizing: normal_position
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
-- buy_first_tranche_now
+- buy_first_tranche_near_support
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -104,23 +104,23 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 20.94
-- high: 21
-- low: 20.2
-- close: 20.57
-- volume: 8172308
-- ma5: 20.35
-- ema23_primary: 19.18
-- distance_to_ema23_pct: 7.23
-- ma20: 19.92
-- ma60: 19.92
-- ma120: 19.92
-- return_5d: 4.95
+- date: 20260603
+- open: 20.9
+- high: 21.14
+- low: 20.83
+- close: 21.04
+- volume: 8875257
+- ma5: 20.46
+- ema23_primary: 19.34
+- distance_to_ema23_pct: 8.8
+- ma20: 20.04
+- ma60: 20.04
+- ma120: 20.04
+- return_5d: 2.68
 - return_20d: 
-- volume_ratio: 0.54
-- distance_to_ma20_pct_auxiliary: 3.28
-- distance_to_high_60_pct: -2.05
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: 4.98
+- distance_to_high_60_pct: -0.47
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -134,6 +134,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,20.25,20.38,19.99,20.26,14061992,18.91,7.12,19.69,19.69,0.83
 20260601,20.58,20.97,20.48,20.64,10701601,19.06,8.31,19.82,19.82,0.67
 20260602,20.94,21,20.2,20.57,8172308,19.18,7.23,19.92,19.92,0.54
+20260603,20.9,21.14,20.83,21.04,8875257,19.34,8.8,20.04,20.04,0.62
 ```
 
 ## Latest TDCC Snapshot
@@ -159,17 +160,17 @@ no_rows,True
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 9802 | 鈺齊-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 9802 | 鈺齊-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 9802 | 鈺齊-KY | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260603 | 9802 | 鈺齊-KY | 3 | 1 | 3 | 3 | 3 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 9802 | 鈺齊-KY | 6 | 0 | 100.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 9802 | 鈺齊-KY | 6 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

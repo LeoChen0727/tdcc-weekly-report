@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3031 佰鴻
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:21 Asia/Taipei
+- generated_at: 2026-06-04 01:55:06 Asia/Taipei
 - stock_id: 3031
 - stock_name: 佰鴻
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,11 +59,11 @@
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -76,7 +76,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -101,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 32.5
-- high: 32.65
-- low: 31.3
-- close: 31.95
-- volume: 2076223
-- ma5: 31.8
-- ema23_primary: 31.05
-- distance_to_ema23_pct: 2.91
-- ma20: 30.87
-- ma60: 27.8
-- ma120: 23.83
-- return_5d: 0.31
-- return_20d: 1.75
-- volume_ratio: 0.54
-- distance_to_ma20_pct_auxiliary: 3.49
-- distance_to_high_60_pct: -9.49
+- date: 20260603
+- open: 32.15
+- high: 33.4
+- low: 32.15
+- close: 32.75
+- volume: 2392086
+- ma5: 32.16
+- ema23_primary: 31.19
+- distance_to_ema23_pct: 5.01
+- ma20: 30.98
+- ma60: 28.02
+- ma120: 23.94
+- return_5d: 5.82
+- return_20d: 7.38
+- volume_ratio: 0.64
+- distance_to_ma20_pct_auxiliary: 5.7
+- distance_to_high_60_pct: -7.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,31.75,32.3,30.4,30.5,3954215,29.78,2.42,30.94,24.35,0.37
 20260507,30.9,31.15,30.4,30.55,1782289,29.84,2.37,31.28,24.51,0.17
 20260508,30.4,31,29.15,29.55,2199161,29.82,-0.9,31.47,24.66,0.21
 20260511,30,31.15,29.55,30,2498345,29.83,0.56,31.55,24.83,0.26
@@ -143,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,32.05,33.15,31.7,32.4,3306478,30.83,5.08,30.8,27.37,0.86
 20260601,32.5,33.7,32,32.4,3465430,30.96,4.64,30.84,27.59,0.9
 20260602,32.5,32.65,31.3,31.95,2076223,31.05,2.91,30.87,27.8,0.54
+20260603,32.15,33.4,32.15,32.75,2392086,31.19,5.01,30.98,28.02,0.64
 ```
 
 ## Latest TDCC Snapshot
@@ -172,12 +171,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3031 | 佰鴻 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3031 | 佰鴻 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3031 | 佰鴻 | 6 | 6 | 5 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 3031 | 佰鴻 | 7 | 7 | 5 | 9 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

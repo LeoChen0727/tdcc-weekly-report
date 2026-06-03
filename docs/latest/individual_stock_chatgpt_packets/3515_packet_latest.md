@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3515 華擎
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:58 Asia/Taipei
+- generated_at: 2026-06-04 01:55:24 Asia/Taipei
 - stock_id: 3515
 - stock_name: 華擎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,12 +58,12 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: high_level_distribution_risk
-- entry_style: breakout_follow
+- thesis_state: unclear
+- entry_style: current_price_ok
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -78,6 +78,7 @@
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -92,7 +93,6 @@
 ### downgrade_reason
 - insufficient_tdcc_history
 - tdcc_distribution_warning
-- price_too_extended
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -100,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 255
+- date: 20260603
+- open: 273.5
 - high: 273.5
-- low: 252
-- close: 273.5
-- volume: 4098455
-- ma5: 248.5
-- ema23_primary: 237.65
-- distance_to_ema23_pct: 15.08
-- ma20: 236.68
-- ma60: 225.14
-- ma120: 230.64
-- return_5d: 11.63
-- return_20d: 15.16
-- volume_ratio: 3.27
-- distance_to_ma20_pct_auxiliary: 15.56
-- distance_to_high_60_pct: 0
+- low: 257.5
+- close: 259
+- volume: 3851236
+- ma5: 252.3
+- ema23_primary: 239.43
+- distance_to_ema23_pct: 8.17
+- ma20: 237.43
+- ma60: 225.74
+- ma120: 230.7
+- return_5d: 7.92
+- return_20d: 6.15
+- volume_ratio: 2.85
+- distance_to_ma20_pct_auxiliary: 9.09
+- distance_to_high_60_pct: -5.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,240,244.5,236,244,1850124,228.4,6.83,227.72,220.35,1.86
 20260507,253.5,254,246,246.5,2247868,229.9,7.22,229.2,220.72,2.1
 20260508,246,250,242.5,245.5,1409465,231.2,6.18,230.95,221.12,1.27
 20260511,234.5,234.5,223.5,232.5,2095944,231.31,0.51,231.82,221.4,1.75
@@ -142,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,237.5,245,236,242,1355728,232.66,4.01,233.97,223.63,1.39
 20260601,247,258,242.5,253.5,2588126,234.4,8.15,234.88,224.32,2.41
 20260602,255,273.5,252,273.5,4098455,237.65,15.08,236.68,225.14,3.27
+20260603,273.5,273.5,257.5,259,3851236,239.43,8.17,237.43,225.74,2.85
 ```
 
 ## Latest TDCC Snapshot
@@ -171,18 +171,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3515 | 華擎 | true_breakout | 嚴格突破 | 126.0 |  |  | breakout_confirmed |  | call_put_bullish | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 3515 | 華擎 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_put_bullish | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3515 | 華擎 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3515 | 華擎 | 9 | 9 | 5 | 9 | 9 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260603 | 3515 | 華擎 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3515 | 華擎 | 25 | 3 | 10745960.0 | 10600.0 | 1013.77 | call_put_bullish | 3 |  |
+| 20260603 | 3515 | 華擎 | 27 | 3 | 10144130.0 | 7270.0 | 1395.34 | call_put_bullish | 3 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

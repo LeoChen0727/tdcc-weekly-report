@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6130 上亞科技
 
 ## Metadata
-- generated_at: 2026-06-02 23:28:38 Asia/Taipei
+- generated_at: 2026-06-04 01:56:11 Asia/Taipei
 - stock_id: 6130
 - stock_name: 上亞科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -97,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 23.25
-- high: 23.9
-- low: 22.75
-- close: 22.95
-- volume: 23
-- ma5: 22.45
-- ema23_primary: 23.22
-- distance_to_ema23_pct: -1.16
-- ma20: 22.71
-- ma60: 26.1
-- ma120: 34.27
-- return_5d: 0
-- return_20d: -5.36
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: 1.06
-- distance_to_high_60_pct: -39.61
+- date: 20260603
+- open: 23.2
+- high: 23.35
+- low: 22.65
+- close: 22.8
+- volume: 23000
+- ma5: 22.6
+- ema23_primary: 23.18
+- distance_to_ema23_pct: -1.66
+- ma20: 22.66
+- ma60: 25.85
+- ma120: 34.13
+- return_5d: 3.4
+- return_20d: -4.2
+- volume_ratio: 0.27
+- distance_to_ma20_pct_auxiliary: 0.62
+- distance_to_high_60_pct: -37.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,24.75,24.75,23.55,23.8,95000,26.06,-8.67,25.45,31.44,0.29
 20260507,24.45,24.45,23.15,23.7,186000,25.86,-8.36,25.38,31.14,0.56
 20260508,24.35,24.35,23,23.7,118000,25.68,-7.72,25.32,30.83,0.36
 20260511,24.3,24.3,23.35,23.65,74000,25.51,-7.3,25.22,30.52,0.23
@@ -139,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,22.35,22.35,21.6,21.95,22000,23.24,-5.56,22.82,26.58,0.22
 20260601,22.25,24.1,21.65,23.25,23,23.24,0.03,22.77,26.35,0
 20260602,23.25,23.9,22.75,22.95,23,23.22,-1.16,22.71,26.1,0
+20260603,23.2,23.35,22.65,22.8,23000,23.18,-1.66,22.66,25.85,0.27
 ```
 
 ## Latest TDCC Snapshot

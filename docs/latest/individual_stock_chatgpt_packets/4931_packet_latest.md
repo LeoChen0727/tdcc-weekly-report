@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4931 新盛力
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:54 Asia/Taipei
+- generated_at: 2026-06-04 01:55:51 Asia/Taipei
 - stock_id: 4931
 - stock_name: 新盛力
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -95,29 +95,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 235
-- high: 239.5
-- low: 226
-- close: 231
-- volume: 231
-- ma5: 223
-- ema23_primary: 198.21
-- distance_to_ema23_pct: 16.54
-- ma20: 199.38
-- ma60: 161.68
-- ma120: 161.4
-- return_5d: 7.44
-- return_20d: 48.08
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: 15.86
-- distance_to_high_60_pct: -7.41
+- date: 20260603
+- open: 236.5
+- high: 254
+- low: 231.5
+- close: 254
+- volume: 245000
+- ma5: 232.4
+- ema23_primary: 202.86
+- distance_to_ema23_pct: 25.21
+- ma20: 203.75
+- ma60: 163.71
+- ma120: 162.19
+- return_5d: 22.71
+- return_20d: 52.55
+- volume_ratio: 0.03
+- distance_to_ma20_pct_auxiliary: 24.66
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,157,169,153,166.5,11670000,151.96,9.57,150.3,143.78,1.09
 20260507,166.5,171,164,164,12879000,152.97,7.21,151.82,143.88,1.17
 20260508,165,173,159.5,170,18368000,154.39,10.11,153.57,144.19,1.57
 20260511,174,187,172,187,15674000,157.1,19.03,156.15,144.87,1.27
@@ -137,6 +136,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,221,229.5,219,229.5,226000,191.29,19.97,191.4,158.23,0.02
 20260601,241.5,249.5,233,238.5,240,195.23,22.17,195.62,160.07,0
 20260602,235,239.5,226,231,231,198.21,16.54,199.38,161.68,0
+20260603,236.5,254,231.5,254,245000,202.86,25.21,203.75,163.71,0.03
 ```
 
 ## Latest TDCC Snapshot
@@ -166,12 +166,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 4931 | 新盛力 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 4931 | 新盛力 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 4931 | 新盛力 | 9 | 9 | 5 | 9 | 9 | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 4931 | 新盛力 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

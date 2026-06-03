@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1449 佳和
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:31 Asia/Taipei
+- generated_at: 2026-06-04 01:54:15 Asia/Taipei
 - stock_id: 1449
 - stock_name: 佳和
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,15 +55,15 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
-- position_sizing: half_position
+- thesis_state: unclear
+- entry_style: current_price_ok
+- position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -75,9 +75,7 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -102,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 14.7
-- high: 14.7
-- low: 13.3
-- close: 13.8
-- volume: 3946261
-- ma5: 12.98
-- ema23_primary: 12.97
-- distance_to_ema23_pct: 6.44
-- ma20: 12.87
-- ma60: 12.87
-- ma120: 12.01
-- return_5d: 13.11
-- return_20d: 3.76
-- volume_ratio: 2.39
-- distance_to_ma20_pct_auxiliary: 7.27
-- distance_to_high_60_pct: -19.06
+- date: 20260603
+- open: 13.95
+- high: 14.05
+- low: 13.7
+- close: 13.9
+- volume: 2570518
+- ma5: 13.34
+- ema23_primary: 13.04
+- distance_to_ema23_pct: 6.57
+- ma20: 12.91
+- ma60: 12.92
+- ma120: 12.04
+- return_5d: 14.88
+- return_20d: 6.92
+- volume_ratio: 1.49
+- distance_to_ma20_pct_auxiliary: 7.67
+- distance_to_high_60_pct: -18.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,13.5,13.5,12.9,13,1252518,13.47,-3.48,14.25,12.28,0.31
 20260507,13.05,13.15,12.7,13.1,1070093,13.44,-2.52,14.15,12.3,0.33
 20260508,13.2,13.3,12.85,12.95,1191208,13.4,-3.34,13.98,12.33,0.39
 20260511,13.95,14.2,13.95,14.2,2470188,13.46,5.46,13.9,12.38,1.01
@@ -144,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,12.5,13.15,12.5,12.8,2071295,12.78,0.13,12.79,12.75,1.54
 20260601,13.25,14.05,13.2,14.05,4144682,12.89,9,12.84,12.82,2.75
 20260602,14.7,14.7,13.3,13.8,3946261,12.97,6.44,12.87,12.87,2.39
+20260603,13.95,14.05,13.7,13.9,2570518,13.04,6.57,12.91,12.92,1.49
 ```
 
 ## Latest TDCC Snapshot
@@ -173,13 +171,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1449 | 佳和 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260602 | 1449 | 佳和 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 1449 | 佳和 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1449 | 佳和 | 3 | 3 | 3 | 5 | 5 | continued_2_3d | 連續 3 個交易日上榜，訊號延續但仍需確認。 |
+| 20260603 | 1449 | 佳和 | 4 | 2 | 4 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 次、近 20 日上榜 6 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

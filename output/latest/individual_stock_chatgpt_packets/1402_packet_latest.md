@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1402 遠東新
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:26 Asia/Taipei
+- generated_at: 2026-06-04 01:54:12 Asia/Taipei
 - stock_id: 1402
 - stock_name: 遠東新
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 27
 - tdcc_history_status: tdcc_history_ready
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: healthy_pullback
+- thesis_state: unclear
 - entry_style: pullback_to_23ema
-- position_sizing: half_position
+- position_sizing: starter_1_4
 
 ### management_plan
 - buy_first_tranche_near_support
@@ -75,7 +75,6 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -102,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 25.1
-- high: 26.8
-- low: 25.1
-- close: 26.25
-- volume: 125381435
-- ma5: 25.04
-- ema23_primary: 26.01
-- distance_to_ema23_pct: 0.94
-- ma20: 26.14
-- ma60: 26.47
-- ma120: 27.37
-- return_5d: 0.77
-- return_20d: 2.14
-- volume_ratio: 2.2
-- distance_to_ma20_pct_auxiliary: 0.43
-- distance_to_high_60_pct: -11.62
+- date: 20260603
+- open: 26.85
+- high: 27.7
+- low: 26.45
+- close: 27.3
+- volume: 96933858
+- ma5: 25.81
+- ema23_primary: 26.11
+- distance_to_ema23_pct: 4.54
+- ma20: 26.2
+- ma60: 26.44
+- ma120: 27.36
+- return_5d: 16.42
+- return_20d: 4.6
+- volume_ratio: 1.58
+- distance_to_ma20_pct_auxiliary: 4.21
+- distance_to_high_60_pct: -8.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,25.9,26.1,25.65,26.1,9416608,26.21,-0.43,26.18,27.15,0.69
 20260507,25.9,26.15,25.9,26,12458181,26.2,-0.75,26.16,27.11,0.92
 20260508,26.2,26.2,25.9,26.1,10420581,26.19,-0.33,26.12,27.08,0.79
 20260511,26.15,26.5,26.1,26.35,10765330,26.2,0.57,26.1,27.05,0.82
@@ -144,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,24.75,25.65,24.55,25.65,330333051,26.07,-1.61,26.13,26.55,6.87
 20260601,25.6,25.6,24.65,25.05,78316034,25.98,-3.59,26.11,26.5,1.53
 20260602,25.1,26.8,25.1,26.25,125381435,26.01,0.94,26.14,26.47,2.2
+20260603,26.85,27.7,26.45,27.3,96933858,26.11,4.54,26.2,26.44,1.58
 ```
 
 ## Latest TDCC Snapshot
@@ -180,18 +179,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1402 | 遠東新 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 1402 | 遠東新 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 1402 | 遠東新 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1402 | 遠東新 | 9 | 9 | 5 | 9 | 9 | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 1402 | 遠東新 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1402 | 遠東新 | 6 | 0 | 5142920.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260603 | 1402 | 遠東新 | 6 | 0 | 3631940.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

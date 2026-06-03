@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2543 皇昌
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:52 Asia/Taipei
+- generated_at: 2026-06-04 01:54:52 Asia/Taipei
 - stock_id: 2543
 - stock_name: 皇昌
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 47
-- high: 47.4
-- low: 45.6
-- close: 45.75
-- volume: 1920465
-- ma5: 44.39
-- ema23_primary: 44.75
-- distance_to_ema23_pct: 2.24
-- ma20: 42.51
-- ma60: 54.21
-- ma120: 58.45
-- return_5d: 12.13
-- return_20d: 3.39
-- volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: 7.62
-- distance_to_high_60_pct: -43.93
+- date: 20260603
+- open: 45.95
+- high: 46
+- low: 45.05
+- close: 45.8
+- volume: 1353134
+- ma5: 45.25
+- ema23_primary: 44.84
+- distance_to_ema23_pct: 2.15
+- ma20: 42.62
+- ma60: 53.66
+- ma120: 58.32
+- return_5d: 10.36
+- return_20d: 4.93
+- volume_ratio: 0.35
+- distance_to_ma20_pct_auxiliary: 7.46
+- distance_to_high_60_pct: -43.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,44.5,44.9,43.6,43.65,2910294,51.88,-15.86,51.87,61.03,1.06
 20260507,43.65,44.45,43.3,43.55,1573023,51.18,-14.91,51.12,60.67,0.57
 20260508,43.6,44.2,42.2,42.2,2758729,50.44,-16.33,50.35,60.3,0.96
 20260511,43.3,45.35,42.8,43.25,3864182,49.84,-13.22,49.62,59.93,1.29
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,42,45.9,41.55,45.9,5022725,44.44,3.28,42.35,55.02,1.29
 20260601,46.5,48.1,46.1,47,4006244,44.66,5.25,42.44,54.63,1.01
 20260602,47,47.4,45.6,45.75,1920465,44.75,2.24,42.51,54.21,0.49
+20260603,45.95,46,45.05,45.8,1353134,44.84,2.15,42.62,53.66,0.35
 ```
 
 ## Latest TDCC Snapshot
@@ -172,17 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2543 | 皇昌 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2543 | 皇昌 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2543 | 皇昌 | 1 | 1 | 3 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 2543 | 皇昌 | 2 | 2 | 3 | 6 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2543 | 皇昌 | 22 | 0 | 280260.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 2543 | 皇昌 | 22 | 0 | 149970.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

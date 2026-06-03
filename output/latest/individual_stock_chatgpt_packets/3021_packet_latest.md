@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3021 鴻名
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:19 Asia/Taipei
+- generated_at: 2026-06-04 01:55:05 Asia/Taipei
 - stock_id: 3021
 - stock_name: 鴻名
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,8 +58,8 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: breakout_confirmed
-- entry_style: breakout_follow
+- thesis_state: high_level_consolidation
+- entry_style: pullback_to_23ema
 - position_sizing: starter_1_4
 
 ### management_plan
@@ -76,6 +76,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -100,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 36.4
-- high: 36.4
-- low: 33.25
-- close: 36.4
-- volume: 7587271
-- ma5: 30.39
-- ema23_primary: 22.28
-- distance_to_ema23_pct: 63.35
-- ma20: 20.68
-- ma60: 17.78
-- ma120: 17.76
-- return_5d: 60.35
-- return_20d: 124.69
-- volume_ratio: 8.4
-- distance_to_ma20_pct_auxiliary: 75.97
+- date: 20260603
+- open: 40
+- high: 40
+- low: 39.95
+- close: 40
+- volume: 2125992
+- ma5: 33.4
+- ema23_primary: 23.76
+- distance_to_ema23_pct: 68.35
+- ma20: 21.86
+- ma60: 18.16
+- ma120: 17.95
+- return_5d: 60.32
+- return_20d: 143.16
+- volume_ratio: 2.12
+- distance_to_ma20_pct_auxiliary: 82.96
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,16.3,16.55,16.15,16.45,125255,16.46,-0.08,16.47,16.66,0.67
 20260507,16.5,16.5,16.2,16.25,116119,16.45,-1.19,16.48,16.63,0.61
 20260508,16.4,16.5,16.25,16.3,129031,16.43,-0.81,16.51,16.6,0.67
 20260511,16.35,16.65,16.3,16.4,95580,16.43,-0.19,16.51,16.57,0.5
@@ -142,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,30.1,30.1,30.1,30.1,923348,19.9,51.25,18.86,17.16,1.83
 20260601,33.1,33.1,33.1,33.1,1114808,21,57.62,19.68,17.45,2.02
 20260602,36.4,36.4,33.25,36.4,7587271,22.28,63.35,20.68,17.78,8.4
+20260603,40,40,39.95,40,2125992,23.76,68.35,21.86,18.16,2.12
 ```
 
 ## Latest TDCC Snapshot
@@ -171,12 +172,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3021 | 鴻名 | true_breakout | 嚴格突破 | 94.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3021 | 鴻名 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3021 | 鴻名 | 2 | 2 | 2 | 4 | 4 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260603 | 3021 | 鴻名 | 3 | 1 | 3 | 5 | 5 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

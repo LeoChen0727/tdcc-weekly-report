@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1736 喬山
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:56 Asia/Taipei
+- generated_at: 2026-06-04 01:54:25 Asia/Taipei
 - stock_id: 1736
 - stock_name: 喬山
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -97,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 118
-- high: 122
-- low: 117
-- close: 118
-- volume: 611445
-- ma5: 117.7
-- ema23_primary: 120.31
-- distance_to_ema23_pct: -1.92
-- ma20: 120.8
-- ma60: 123.17
-- ma120: 135.61
-- return_5d: -0.84
-- return_20d: -5.98
-- volume_ratio: 0.95
-- distance_to_ma20_pct_auxiliary: -2.32
-- distance_to_high_60_pct: -18.34
+- date: 20260603
+- open: 120
+- high: 120.5
+- low: 115.5
+- close: 116
+- volume: 958771
+- ma5: 117.6
+- ema23_primary: 119.95
+- distance_to_ema23_pct: -3.29
+- ma20: 120.45
+- ma60: 122.73
+- ma120: 135.22
+- return_5d: -0.43
+- return_20d: -5.69
+- volume_ratio: 1.43
+- distance_to_ma20_pct_auxiliary: -3.69
+- distance_to_high_60_pct: -17.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,126.5,127.5,122.5,123,491059,122.7,0.25,120.5,129.07,0.54
 20260507,123,130.5,123,130,825575,123.31,5.43,120.75,128.79,0.89
 20260508,128.5,128.5,123,125,462371,123.45,1.26,120.92,128.47,0.5
 20260511,126,126,123,124,576094,123.49,0.41,121.08,128.07,0.63
@@ -139,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,116,119.5,113.5,119.5,939255,120.7,-1,121.45,123.53,1.5
 20260601,120.5,123,116,118.5,1154556,120.52,-1.68,121.17,123.46,1.77
 20260602,118,122,117,118,611445,120.31,-1.92,120.8,123.17,0.95
+20260603,120,120.5,115.5,116,958771,119.95,-3.29,120.45,122.73,1.43
 ```
 
 ## Latest TDCC Snapshot
@@ -178,7 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1736 | 喬山 | 1 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 1736 | 喬山 | 1 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

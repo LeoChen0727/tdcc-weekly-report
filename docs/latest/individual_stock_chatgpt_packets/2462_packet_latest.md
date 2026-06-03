@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2462 良得電
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:41 Asia/Taipei
+- generated_at: 2026-06-04 01:54:47 Asia/Taipei
 - stock_id: 2462
 - stock_name: 良得電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,14 +55,18 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: take_profit
-- action_rating_label_zh: 停利
-- confidence_level: low
-- thesis_state: breakout_confirmed
-- entry_style: breakout_follow
-- position_sizing: observe_only
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
+- confidence_level: medium
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -72,10 +76,14 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_priority_high
+- decision_score_high
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -89,7 +97,6 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
-- price_too_extended
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -97,29 +104,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 23.8
-- high: 24.45
-- low: 22.75
-- close: 24.15
-- volume: 2763571
-- ma5: 21.83
-- ema23_primary: 21.34
-- distance_to_ema23_pct: 13.19
-- ma20: 20.93
-- ma60: 21.78
-- ma120: 22.88
-- return_5d: 15.83
-- return_20d: 14.46
-- volume_ratio: 4.11
-- distance_to_ma20_pct_auxiliary: 15.4
-- distance_to_high_60_pct: -1.23
+- date: 20260603
+- open: 24.1
+- high: 24.95
+- low: 23.75
+- close: 24.05
+- volume: 1583141
+- ma5: 22.59
+- ema23_primary: 21.56
+- distance_to_ema23_pct: 11.54
+- ma20: 21.08
+- ma60: 21.79
+- ma120: 22.9
+- return_5d: 18.77
+- return_20d: 14.8
+- volume_ratio: 2.15
+- distance_to_ma20_pct_auxiliary: 14.08
+- distance_to_high_60_pct: -3.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,21.25,21.25,20.8,20.95,302846,21.93,-4.48,21.96,23.08,0.77
 20260507,20.95,21.3,20.8,21.25,443580,21.87,-2.86,21.9,22.99,1.1
 20260508,21.3,22.35,21.3,21.85,1023411,21.87,-0.1,21.89,22.93,2.29
 20260511,21.45,21.7,21.05,21.15,985942,21.81,-3.04,21.86,22.88,2.05
@@ -139,6 +145,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,21.05,21.2,20.75,21,420150,20.9,0.5,20.66,21.77,0.83
 20260601,21.15,23.1,21.15,23.1,1273027,21.08,9.58,20.77,21.77,2.31
 20260602,23.8,24.45,22.75,24.15,2763571,21.34,13.19,20.93,21.78,4.11
+20260603,24.1,24.95,23.75,24.05,1583141,21.56,11.54,21.08,21.79,2.15
 ```
 
 ## Latest TDCC Snapshot
@@ -168,12 +175,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2462 | 良得電 | true_breakout | 嚴格突破 | 121.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2462 | 良得電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2462 | 良得電 | 2 | 1 | 2 | 2 | 2 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260603 | 2462 | 良得電 | 3 | 3 | 3 | 3 | 3 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

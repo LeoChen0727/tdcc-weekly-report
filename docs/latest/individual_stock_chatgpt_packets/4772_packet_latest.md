@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4772 台特化
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:49 Asia/Taipei
+- generated_at: 2026-06-04 01:55:49 Asia/Taipei
 - stock_id: 4772
 - stock_name: 台特化
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -97,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 306.5
-- high: 307
-- low: 297
-- close: 298.5
-- volume: 300
-- ma5: 300.6
-- ema23_primary: 303.32
-- distance_to_ema23_pct: -1.59
-- ma20: 303.95
-- ma60: 305.87
-- ma120: 315.1
-- return_5d: -1.49
-- return_20d: -3.71
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: -1.79
-- distance_to_high_60_pct: -13.6
+- date: 20260603
+- open: 305
+- high: 313
+- low: 300.5
+- close: 305.5
+- volume: 308000
+- ma5: 301.2
+- ema23_primary: 303.5
+- distance_to_ema23_pct: 0.66
+- ma20: 303.9
+- ma60: 305.47
+- ma120: 315.09
+- return_5d: 0.99
+- return_20d: -0.33
+- volume_ratio: 0.24
+- distance_to_ma20_pct_auxiliary: 0.53
+- distance_to_high_60_pct: -11.58
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,311.5,313,301,306.5,2639000,308.34,-0.6,308.18,311.41,1.07
 20260507,311,313,306,308,1418000,308.31,-0.1,308.95,310.94,0.58
 20260508,308,324,302.5,321.5,4388000,309.41,3.91,310.38,310.8,1.68
 20260511,325.5,326,312,317.5,4278000,310.09,2.39,311.45,310.77,1.55
@@ -139,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,302.5,304.5,298.5,300,301000,303.82,-1.26,305.1,306.19,0.19
 20260601,305,306.5,300,303,303,303.75,-0.25,304.52,306.23,0
 20260602,306.5,307,297,298.5,300,303.32,-1.59,303.95,305.87,0
+20260603,305,313,300.5,305.5,308000,303.5,0.66,303.9,305.47,0.24
 ```
 
 ## Latest TDCC Snapshot

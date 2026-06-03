@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2401 凌陽
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:32 Asia/Taipei
+- generated_at: 2026-06-04 01:54:43 Asia/Taipei
 - stock_id: 2401
 - stock_name: 凌陽
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -100,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 29.65
-- high: 30.1
-- low: 28.2
-- close: 28.9
-- volume: 11825676
-- ma5: 29.93
-- ema23_primary: 27.44
-- distance_to_ema23_pct: 5.32
-- ma20: 27.4
-- ma60: 23.7
-- ma120: 22.46
-- return_5d: -3.99
-- return_20d: 14.91
-- volume_ratio: 0.7
-- distance_to_ma20_pct_auxiliary: 5.47
-- distance_to_high_60_pct: -12.42
+- date: 20260603
+- open: 29.8
+- high: 29.8
+- low: 29
+- close: 29.35
+- volume: 6818588
+- ma5: 29.59
+- ema23_primary: 27.6
+- distance_to_ema23_pct: 6.34
+- ma20: 27.61
+- ma60: 23.82
+- ma120: 22.54
+- return_5d: -5.47
+- return_20d: 16.93
+- volume_ratio: 0.4
+- distance_to_ma20_pct_auxiliary: 6.29
+- distance_to_high_60_pct: -11.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,25.65,25.75,24.75,25.1,6703179,23.37,7.38,23.34,21.94,0.7
 20260507,25.5,25.75,25.05,25.4,6343689,23.54,7.89,23.6,21.98,0.65
 20260508,25.55,26.35,24.65,25.3,11519199,23.69,6.8,23.86,22.03,1.12
 20260511,25.55,26.25,25.25,25.65,8348210,23.85,7.53,24.16,22.09,0.79
@@ -142,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,30.95,30.95,29.85,30,11222420,27.09,10.72,27,23.42,0.66
 20260601,30.2,30.2,29.2,29.65,11158609,27.31,8.58,27.21,23.57,0.67
 20260602,29.65,30.1,28.2,28.9,11825676,27.44,5.32,27.4,23.7,0.7
+20260603,29.8,29.8,29,29.35,6818588,27.6,6.34,27.61,23.82,0.4
 ```
 
 ## Latest TDCC Snapshot
@@ -171,17 +171,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2401 | 凌陽 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2401 | 凌陽 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2401 | 凌陽 | 1 | 1 | 2 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 2401 | 凌陽 | 2 | 2 | 2 | 6 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2401 | 凌陽 | 14 | 0 | 1084080.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 2401 | 凌陽 | 14 | 0 | 1351570.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

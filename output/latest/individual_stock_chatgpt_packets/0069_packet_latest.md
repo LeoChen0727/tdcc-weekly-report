@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0069 期街口S&P黃豆
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:05 Asia/Taipei
+- generated_at: 2026-06-04 01:54:03 Asia/Taipei
 - stock_id: 0069
 - stock_name: 期街口S&P黃豆
 - packet_status: insufficient_price_data
@@ -154,7 +154,7 @@ no_rows,True
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 0069 | 期街口S&P黃豆 | 36 | 2 | 1623200.0 | 12000.0 | 135.27 | call_inflow | 1 |  |
+| 20260603 | 0069 | 期街口S&P黃豆 | 36 | 2 | 1710430.0 | 12600.0 | 135.75 | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

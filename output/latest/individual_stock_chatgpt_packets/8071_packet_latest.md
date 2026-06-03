@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8071 能率網通
 
 ## Metadata
-- generated_at: 2026-06-02 23:30:52 Asia/Taipei
+- generated_at: 2026-06-04 01:57:13 Asia/Taipei
 - stock_id: 8071
 - stock_name: 能率網通
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,7 +58,7 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: high_level_distribution_risk
+- thesis_state: unclear
 - entry_style: current_price_ok
 - position_sizing: starter_1_4
 
@@ -78,6 +78,7 @@
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -92,7 +93,6 @@
 ### downgrade_reason
 - insufficient_tdcc_history
 - tdcc_distribution_warning
-- price_too_extended
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -100,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 24.3
-- high: 24.5
-- low: 22.2
-- close: 23.35
-- volume: 23
-- ma5: 21.48
-- ema23_primary: 19.6
-- distance_to_ema23_pct: 19.11
-- ma20: 19.43
-- ma60: 17.4
-- ma120: 17.61
-- return_5d: 16.17
-- return_20d: 31.92
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: 20.14
-- distance_to_high_60_pct: -4.69
+- date: 20260603
+- open: 23.5
+- high: 23.75
+- low: 22.45
+- close: 22.7
+- volume: 23000
+- ma5: 22.12
+- ema23_primary: 19.86
+- distance_to_ema23_pct: 14.29
+- ma20: 19.68
+- ma60: 17.49
+- ma120: 17.65
+- return_5d: 16.41
+- return_20d: 28.25
+- volume_ratio: 0.02
+- distance_to_ma20_pct_auxiliary: 15.32
+- distance_to_high_60_pct: -7.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,17.9,18.15,17.15,17.7,1407000,16.47,7.5,16.32,16.72,4.27
 20260507,17.9,17.9,17.15,17.2,571000,16.53,4.08,16.39,16.7,1.64
 20260508,17.15,17.4,16.65,16.75,275000,16.55,1.24,16.44,16.68,0.77
 20260511,16.8,17,16.65,16.8,176000,16.57,1.41,16.5,16.66,0.49
@@ -142,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,20.15,21.75,20.15,21.3,21000,18.89,12.78,18.79,17.18,0.01
 20260601,21.8,23.4,21.75,23.4,23,19.26,21.48,19.15,17.3,0
 20260602,24.3,24.5,22.2,23.35,23,19.6,19.11,19.43,17.4,0
+20260603,23.5,23.75,22.45,22.7,23000,19.86,14.29,19.68,17.49,0.02
 ```
 
 ## Latest TDCC Snapshot
@@ -171,12 +171,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 8071 | 能率網通 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 8071 | 能率網通 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 8071 | 能率網通 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 8071 | 能率網通 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2211 長榮鋼
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:15 Asia/Taipei
+- generated_at: 2026-06-04 01:54:34 Asia/Taipei
 - stock_id: 2211
 - stock_name: 長榮鋼
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -104,29 +104,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 93.1
-- high: 93.8
-- low: 91.6
-- close: 93.8
-- volume: 2083272
-- ma5: 92.8
-- ema23_primary: 94.6
-- distance_to_ema23_pct: -0.84
-- ma20: 94.41
-- ma60: 98.19
-- ma120: 101.54
-- return_5d: 1.74
-- return_20d: -4.96
-- volume_ratio: 2.39
-- distance_to_ma20_pct_auxiliary: -0.65
-- distance_to_high_60_pct: -10.24
+- date: 20260603
+- open: 93.7
+- high: 95
+- low: 92.7
+- close: 95
+- volume: 1616948
+- ma5: 93.46
+- ema23_primary: 94.63
+- distance_to_ema23_pct: 0.39
+- ma20: 94.22
+- ma60: 98.11
+- ma120: 101.35
+- return_5d: 3.6
+- return_20d: -3.75
+- volume_ratio: 1.75
+- distance_to_ma20_pct_auxiliary: 0.82
+- distance_to_high_60_pct: -9.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,99.4,99.4,98.4,98.7,513067,99.37,-0.68,99.48,100.84,0.83
 20260507,98.5,99.3,98.5,99.1,569278,99.35,-0.25,99.42,100.81,0.92
 20260508,99.6,99.6,98,98.5,613286,99.28,-0.79,99.34,100.73,0.97
 20260511,98.6,98.6,97.7,97.7,800693,99.15,-1.46,99.22,100.64,1.24
@@ -146,6 +145,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,91.5,93.2,91.5,93.2,806736,94.74,-1.62,94.86,98.45,1.06
 20260601,92.9,93.9,92.4,93.9,1178645,94.67,-0.81,94.66,98.34,1.49
 20260602,93.1,93.8,91.6,93.8,2083272,94.6,-0.84,94.41,98.19,2.39
+20260603,93.7,95,92.7,95,1616948,94.63,0.39,94.22,98.11,1.75
 ```
 
 ## Latest TDCC Snapshot
@@ -175,17 +175,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2211 | 長榮鋼 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2211 | 長榮鋼 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2211 | 長榮鋼 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260603 | 2211 | 長榮鋼 | 3 | 3 | 3 | 3 | 3 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2211 | 長榮鋼 | 5 | 0 | 15780.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 2211 | 長榮鋼 | 5 | 0 | 81290.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

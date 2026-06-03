@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2520 冠德
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:49 Asia/Taipei
+- generated_at: 2026-06-04 01:54:51 Asia/Taipei
 - stock_id: 2520
 - stock_name: 冠德
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 30.9
-- high: 31.35
-- low: 30.55
-- close: 31.2
-- volume: 1781415
-- ma5: 30.39
-- ema23_primary: 30.47
-- distance_to_ema23_pct: 2.38
-- ma20: 30.38
+- date: 20260603
+- open: 31.2
+- high: 31.85
+- low: 31
+- close: 31.6
+- volume: 1925095
+- ma5: 30.7
+- ema23_primary: 30.57
+- distance_to_ema23_pct: 3.38
+- ma20: 30.5
 - ma60: 31.08
-- ma120: 31.87
-- return_5d: 3.48
-- return_20d: 8.52
-- volume_ratio: 1.22
-- distance_to_ma20_pct_auxiliary: 2.69
-- distance_to_high_60_pct: -6.59
+- ma120: 31.86
+- return_5d: 5.16
+- return_20d: 8.4
+- volume_ratio: 1.29
+- distance_to_ma20_pct_auxiliary: 3.59
+- distance_to_high_60_pct: -5.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,28.8,29.2,28.75,29.15,1253596,30.52,-4.47,30.55,31.45,0.77
 20260507,29.1,29.45,29,29.45,1541939,30.43,-3.21,30.44,31.42,0.93
 20260508,29.5,30.25,29.25,30.05,1561111,30.4,-1.14,30.39,31.41,0.96
 20260511,30.15,30.65,30.05,30.6,1639443,30.41,0.62,30.39,31.4,1
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,30.15,30.15,29.8,29.85,1374743,30.36,-1.69,30.17,31.07,0.91
 20260601,29.9,30.9,29.8,30.9,1729973,30.41,1.62,30.26,31.08,1.17
 20260602,30.9,31.35,30.55,31.2,1781415,30.47,2.38,30.38,31.08,1.22
+20260603,31.2,31.85,31,31.6,1925095,30.57,3.38,30.5,31.08,1.29
 ```
 
 ## Latest TDCC Snapshot
@@ -172,19 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2520 | 冠德 | pullback_rebound | 回檔後短線轉強 | 63.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260602 | 2520 | 冠德 | revenue_pullback | 營收成長股價回檔 | 63.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260602 | 2520 | 冠德 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2520 | 冠德 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2520 | 冠德 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 2520 | 冠德 | 10 | 3 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2520 | 冠德 | 7 | 0 | 171210.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 2520 | 冠德 | 7 | 0 | 245090.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

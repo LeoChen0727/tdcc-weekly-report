@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2353 宏碁
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:26 Asia/Taipei
+- generated_at: 2026-06-04 01:54:39 Asia/Taipei
 - stock_id: 2353
 - stock_name: 宏碁
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,14 +55,18 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: take_profit
-- action_rating_label_zh: 停利
-- confidence_level: low
-- thesis_state: breakout_confirmed
-- entry_style: breakout_follow
-- position_sizing: observe_only
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
+- confidence_level: medium
+- thesis_state: high_level_consolidation
+- entry_style: current_price_ok
+- position_sizing: starter_1_4
 
 ### management_plan
+- buy_first_tranche_now
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -71,7 +75,6 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_tdcc_warning
@@ -97,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 42.55
-- high: 42.55
-- low: 41.6
-- close: 42.55
-- volume: 217599445
-- ma5: 35.97
-- ema23_primary: 31.42
-- distance_to_ema23_pct: 35.44
-- ma20: 30.5
-- ma60: 28.5
-- ma120: 27.52
-- return_5d: 33.39
-- return_20d: 53.33
-- volume_ratio: 4.13
-- distance_to_ma20_pct_auxiliary: 39.53
-- distance_to_high_60_pct: 0
+- date: 20260603
+- open: 44
+- high: 44.2
+- low: 41.8
+- close: 43.4
+- volume: 302713693
+- ma5: 38.37
+- ema23_primary: 32.41
+- distance_to_ema23_pct: 33.89
+- ma20: 31.26
+- ma60: 28.77
+- ma120: 27.66
+- return_5d: 38.22
+- return_20d: 54.45
+- volume_ratio: 4.55
+- distance_to_ma20_pct_auxiliary: 38.84
+- distance_to_high_60_pct: -1.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,27.9,28.1,27.55,28.1,24606618,27.66,1.61,27.72,27.23,1.07
 20260507,28.15,28.25,27.9,28.1,22040751,27.69,1.47,27.75,27.27,0.94
 20260508,28.1,28.6,27.8,27.8,29518900,27.7,0.35,27.79,27.3,1.21
 20260511,28.2,29.1,27.75,28.8,46873101,27.79,3.62,27.86,27.37,1.8
@@ -139,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,33.8,35.2,33.55,35.2,75474874,29.65,18.72,29.22,28.02,1.77
 20260601,38.7,38.7,38.7,38.7,27395638,30.4,27.29,29.75,28.23,0.64
 20260602,42.55,42.55,41.6,42.55,217599445,31.42,35.44,30.5,28.5,4.13
+20260603,44,44.2,41.8,43.4,302713693,32.41,33.89,31.26,28.77,4.55
 ```
 
 ## Latest TDCC Snapshot
@@ -168,18 +171,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2353 | 宏碁 | true_breakout | 嚴格突破 | 94.0 |  |  | breakout_confirmed |  | call_put_bullish | continued_overheated | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_30d |
-| 20260521 | 2353 | 宏碁 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_put_bullish | continued_overheated | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_30d |
+| 20260603 | 2353 | 宏碁 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_put_bullish | continued_overheated | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_14d |
+| 20260603 | 2353 | 宏碁 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_put_bullish | continued_overheated | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2353 | 宏碁 | 9 | 9 | 5 | 9 | 9 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260603 | 2353 | 宏碁 | 10 | 10 | 5 | 10 | 10 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2353 | 宏碁 | 41 | 2 | 19689720.0 | 23000.0 | 856.07 | call_put_bullish | 3 |  |
+| 20260603 | 2353 | 宏碁 | 43 | 2 | 24528610.0 | 10230.0 | 2397.71 | call_put_bullish | 3 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

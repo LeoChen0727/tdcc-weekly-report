@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3664 安瑞-KY
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:11 Asia/Taipei
+- generated_at: 2026-06-04 01:55:31 Asia/Taipei
 - stock_id: 3664
 - stock_name: 安瑞-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,7 +58,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_consolidation
+- thesis_state: unclear
 - entry_style: pullback_to_23ema
 - position_sizing: observe_only
 
@@ -76,6 +76,7 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -89,7 +90,6 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
-- price_too_extended
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -97,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 8.3
-- high: 8.3
-- low: 7.75
-- close: 7.75
-- volume: 8
+- date: 20260603
+- open: 7.7
+- high: 7.7
+- low: 7.6
+- close: 7.7
+- volume: 8000
 - ma5: 7.7
-- ema23_primary: 8.11
-- distance_to_ema23_pct: -4.49
-- ma20: 8.31
-- ma60: 9.42
-- ma120: 12.61
-- return_5d: -5.95
-- return_20d: 31.8
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: -6.77
-- distance_to_high_60_pct: -50
+- ema23_primary: 8.08
+- distance_to_ema23_pct: -4.7
+- ma20: 8.38
+- ma60: 9.3
+- ma120: 12.54
+- return_5d: 0.39
+- return_20d: 19.2
+- volume_ratio: 0.1
+- distance_to_ma20_pct_auxiliary: -8.06
+- distance_to_high_60_pct: -50.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,5.77,6.46,5.77,6.46,111000,7.61,-15.09,7.17,11.34,0.82
 20260507,7.08,7.1,7.08,7.1,42000,7.57,-6.16,7.11,11.19,0.31
 20260508,7.81,7.81,7.81,7.81,14000,7.59,2.95,7.06,11.05,0.11
 20260511,8.4,8.59,8.4,8.59,173000,7.67,12,7.05,10.94,1.24
@@ -139,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,7.67,7.67,7.6,7.6,8000,8.18,-7.08,8.1,9.58,0.08
 20260601,8.2,8.2,7.7,7.8,8,8.15,-4.27,8.22,9.51,0
 20260602,8.3,8.3,7.75,7.75,8,8.11,-4.49,8.31,9.42,0
+20260603,7.7,7.7,7.6,7.7,8000,8.08,-4.7,8.38,9.3,0.1
 ```
 
 ## Latest TDCC Snapshot

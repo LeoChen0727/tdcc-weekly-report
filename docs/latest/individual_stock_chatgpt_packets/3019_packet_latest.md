@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3019 亞光
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:18 Asia/Taipei
+- generated_at: 2026-06-04 01:55:05 Asia/Taipei
 - stock_id: 3019
 - stock_name: 亞光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 157.5
-- high: 157.5
-- low: 150
-- close: 152.5
-- volume: 7761836
-- ma5: 152.1
-- ema23_primary: 147.86
-- distance_to_ema23_pct: 3.14
-- ma20: 148.9
-- ma60: 136.6
-- ma120: 140.18
-- return_5d: -0.65
-- return_20d: 6.64
-- volume_ratio: 0.84
-- distance_to_ma20_pct_auxiliary: 2.42
-- distance_to_high_60_pct: -4.39
+- date: 20260603
+- open: 153.5
+- high: 155
+- low: 151.5
+- close: 151.5
+- volume: 4854354
+- ma5: 152.5
+- ema23_primary: 148.17
+- distance_to_ema23_pct: 2.25
+- ma20: 149.32
+- ma60: 136.9
+- ma120: 140.28
+- return_5d: 1.34
+- return_20d: 5.94
+- volume_ratio: 0.53
+- distance_to_ma20_pct_auxiliary: 1.46
+- distance_to_high_60_pct: -5.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,145,145,139,143,6343031,135.5,5.54,133.65,136.86,0.95
 20260507,144.5,146,142.5,143,5397174,136.12,5.05,134.5,136.58,0.79
 20260508,143,148,141.5,144,8286655,136.78,5.28,135.45,136.35,1.15
 20260511,144.5,148,142.5,146.5,7438977,137.59,6.48,136.5,136.07,0.99
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,152,158.5,151.5,154,9863655,146.76,4.94,147.82,135.95,1.09
 20260601,155.5,156.5,153,155,6349794,147.44,5.13,148.43,136.32,0.7
 20260602,157.5,157.5,150,152.5,7761836,147.86,3.14,148.9,136.6,0.84
+20260603,153.5,155,151.5,151.5,4854354,148.17,2.25,149.32,136.9,0.53
 ```
 
 ## Latest TDCC Snapshot
@@ -172,19 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3019 | 亞光 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260602 | 3019 | 亞光 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260521 | 3019 | 亞光 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3019 | 亞光 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3019 | 亞光 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 3019 | 亞光 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3019 | 亞光 | 105 | 0 | 13230190.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 3019 | 亞光 | 105 | 0 | 6578720.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

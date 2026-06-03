@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6202 盛群
 
 ## Metadata
-- generated_at: 2026-06-02 23:28:50 Asia/Taipei
+- generated_at: 2026-06-04 01:56:16 Asia/Taipei
 - stock_id: 6202
 - stock_name: 盛群
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 58.6
+- date: 20260603
+- open: 58
 - high: 59.2
-- low: 56
-- close: 57.7
-- volume: 2593954
-- ma5: 58.8
-- ema23_primary: 57.25
-- distance_to_ema23_pct: 0.79
-- ma20: 57.38
-- ma60: 54.42
-- ma120: 49.04
-- return_5d: -6.18
-- return_20d: 0.87
-- volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: 0.56
-- distance_to_high_60_pct: -12.18
+- low: 56.8
+- close: 58.4
+- volume: 2414461
+- ma5: 58.4
+- ema23_primary: 57.35
+- distance_to_ema23_pct: 1.84
+- ma20: 57.45
+- ma60: 54.41
+- ma120: 49.21
+- return_5d: -3.31
+- return_20d: 2.64
+- volume_ratio: 0.55
+- distance_to_ma20_pct_auxiliary: 1.64
+- distance_to_high_60_pct: -11.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,58,58,55.6,56.9,3038078,54.22,4.94,53.96,53.34,0.59
 20260507,57.5,58.7,56.7,57.5,4496463,54.49,5.52,54.38,53.41,0.85
 20260508,58.7,58.7,54.2,55.2,3486863,54.55,1.19,54.71,53.52,0.65
 20260511,55.2,60.2,55.1,59.5,7516178,54.97,8.25,55.22,53.73,1.32
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,60.2,60.2,57.9,58.7,3041013,57.13,2.75,57.23,54.38,0.67
 20260601,58.8,59.6,57.5,58.1,2781681,57.21,1.56,57.35,54.43,0.63
 20260602,58.6,59.2,56,57.7,2593954,57.25,0.79,57.38,54.42,0.59
+20260603,58,59.2,56.8,58.4,2414461,57.35,1.84,57.45,54.41,0.55
 ```
 
 ## Latest TDCC Snapshot
@@ -172,17 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6202 | 盛群 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 6202 | 盛群 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6202 | 盛群 | 6 | 5 | 5 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 6202 | 盛群 | 7 | 6 | 5 | 9 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6202 | 盛群 | 6 | 0 | 962220.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 6202 | 盛群 | 6 | 0 | 708490.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

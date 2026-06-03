@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7708 全家餐飲
 
 ## Metadata
-- generated_at: 2026-06-02 23:30:36 Asia/Taipei
+- generated_at: 2026-06-04 01:57:05 Asia/Taipei
 - stock_id: 7708
 - stock_name: 全家餐飲
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 274
+- latest_price_date: 20260603
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -97,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 91.8
-- high: 92
-- low: 91.3
-- close: 92
-- volume: 92
-- ma5: 92.1
-- ema23_primary: 92.08
-- distance_to_ema23_pct: -0.08
-- ma20: 92.06
-- ma60: 92.18
-- ma120: 93.67
-- return_5d: -0.43
-- return_20d: 0.77
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: -0.07
-- distance_to_high_60_pct: -3.06
+- date: 20260603
+- open: 92
+- high: 92.5
+- low: 92
+- close: 92.3
+- volume: 92000
+- ma5: 92.16
+- ema23_primary: 92.1
+- distance_to_ema23_pct: 0.22
+- ma20: 92.11
+- ma60: 92.17
+- ma120: 93.62
+- return_5d: 0.33
+- return_20d: 1.1
+- volume_ratio: 2.32
+- distance_to_ma20_pct_auxiliary: 0.21
+- distance_to_high_60_pct: -2.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,91.3,91.3,91.1,91.3,20000,91.94,-0.7,91.95,92.58,1.79
 20260507,91.3,91.3,90.3,90.6,22000,91.83,-1.34,91.86,92.52,1.8
 20260508,91.6,92,91.3,92,24000,91.85,0.17,91.86,92.48,1.84
 20260511,92.5,92.5,92.1,92.2,15000,91.88,0.35,91.86,92.45,1.16
@@ -139,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,92,92.4,92,92.4,92000,92.1,0.32,92,92.21,2.43
 20260601,92.4,92.4,91.5,91.9,92,92.08,-0.2,92.03,92.21,0
 20260602,91.8,92,91.3,92,92,92.08,-0.08,92.06,92.18,0
+20260603,92,92.5,92,92.3,92000,92.1,0.22,92.11,92.17,2.32
 ```
 
 ## Latest TDCC Snapshot

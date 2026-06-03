@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4958 臻鼎-KY
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:57 Asia/Taipei
+- generated_at: 2026-06-04 01:55:52 Asia/Taipei
 - stock_id: 4958
 - stock_name: 臻鼎-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -96,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 548
-- high: 548
-- low: 501
-- close: 520
-- volume: 13270682
-- ma5: 520.2
-- ema23_primary: 455.64
-- distance_to_ema23_pct: 14.13
-- ma20: 461.52
-- ma60: 325.65
-- ma120: 244.11
-- return_5d: -3.7
-- return_20d: 21.92
-- volume_ratio: 0.31
-- distance_to_ma20_pct_auxiliary: 12.67
-- distance_to_high_60_pct: -8.45
+- date: 20260603
+- open: 516
+- high: 524
+- low: 505
+- close: 510
+- volume: 8477422
+- ma5: 515.8
+- ema23_primary: 460.17
+- distance_to_ema23_pct: 10.83
+- ma20: 466.43
+- ma60: 331.23
+- ma120: 247.15
+- return_5d: -4.14
+- return_20d: 23.79
+- volume_ratio: 0.21
+- distance_to_ma20_pct_auxiliary: 9.34
+- distance_to_high_60_pct: -10.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,435,440,400,412,56667967,329.73,24.95,325.75,238.57,1.02
 20260507,415,429.5,403,427,47730420,337.84,26.39,334.73,242.75,0.85
 20260508,427,427.5,392,401,43760993,343.1,16.87,341.6,246.47,0.78
 20260511,405,424.5,397,412,41454268,348.84,18.1,348.95,250.07,0.74
@@ -138,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,504,515,499.5,515,11454003,440.86,16.82,451.07,313.79,0.24
 20260601,542,555,541,548,12673360,449.78,21.84,456.85,319.94,0.29
 20260602,548,548,501,520,13270682,455.64,14.13,461.52,325.65,0.31
+20260603,516,524,505,510,8477422,460.17,10.83,466.43,331.23,0.21
 ```
 
 ## Latest TDCC Snapshot
@@ -177,7 +177,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 4958 | 臻鼎-KY | 271 | 17 | 52868550.0 | 168530.0 | 313.7 | call_inflow | 1 |  |
+| 20260603 | 4958 | 臻鼎-KY | 270 | 17 | 12491800.0 | 117450.0 | 106.36 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

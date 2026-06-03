@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00830 國泰費城半導體
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:07 Asia/Taipei
+- generated_at: 2026-06-04 01:54:03 Asia/Taipei
 - stock_id: 00830
 - stock_name: 國泰費城半導體
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260602
-- price_rows: 8
+- latest_price_date: 20260603
+- price_rows: 9
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -59,7 +59,7 @@
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: observe_only
 
 ### management_plan
@@ -72,7 +72,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -97,23 +96,23 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 90.25
-- high: 90.65
-- low: 89.5
-- close: 90.55
-- volume: 8963566
-- ma5: 89.79
-- ema23_primary: 86.55
-- distance_to_ema23_pct: 4.62
-- ma20: 88.51
-- ma60: 88.51
-- ma120: 88.51
-- return_5d: 3.96
+- date: 20260603
+- open: 96.25
+- high: 97
+- low: 96.1
+- close: 97
+- volume: 11019276
+- ma5: 91.07
+- ema23_primary: 87.42
+- distance_to_ema23_pct: 10.96
+- ma20: 89.46
+- ma60: 89.46
+- ma120: 89.46
+- return_5d: 7.06
 - return_20d: 
-- volume_ratio: 0.96
-- distance_to_ma20_pct_auxiliary: 2.3
-- distance_to_high_60_pct: -0.33
+- volume_ratio: 1.16
+- distance_to_ma20_pct_auxiliary: 8.43
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -127,6 +126,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,89.45,89.9,89.15,89.9,6173772,85.81,4.77,87.86,87.86,0.63
 20260601,90.85,90.85,90.25,90.4,6859422,86.19,4.89,88.22,88.22,0.73
 20260602,90.25,90.65,89.5,90.55,8963566,86.55,4.62,88.51,88.51,0.96
+20260603,96.25,97,96.1,97,11019276,87.42,10.96,89.46,89.46,1.16
 ```
 
 ## Latest TDCC Snapshot

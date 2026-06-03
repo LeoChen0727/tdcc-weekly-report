@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3504 揚明光
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:57 Asia/Taipei
+- generated_at: 2026-06-04 01:55:24 Asia/Taipei
 - stock_id: 3504
 - stock_name: 揚明光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -100,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 78.8
-- high: 79.9
-- low: 76.2
-- close: 79.4
-- volume: 1679997
-- ma5: 78.06
-- ema23_primary: 74.62
-- distance_to_ema23_pct: 6.41
-- ma20: 74.7
-- ma60: 64.61
-- ma120: 59.28
-- return_5d: -1.12
-- return_20d: 19.76
-- volume_ratio: 0.52
-- distance_to_ma20_pct_auxiliary: 6.29
-- distance_to_high_60_pct: -11.78
+- date: 20260603
+- open: 80
+- high: 83.9
+- low: 78.4
+- close: 83.7
+- volume: 3937405
+- ma5: 79.28
+- ema23_primary: 75.37
+- distance_to_ema23_pct: 11.05
+- ma20: 75.64
+- ma60: 64.99
+- ma120: 59.56
+- return_5d: 7.86
+- return_20d: 28.77
+- volume_ratio: 1.17
+- distance_to_ma20_pct_auxiliary: 10.66
+- distance_to_high_60_pct: -7
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,66.8,66.8,63.6,65,824890,63.18,2.88,63.52,58.92,0.45
 20260507,66,66.2,64.5,65.3,588229,63.36,3.07,64.17,59.07,0.32
 20260508,65.3,65.9,62.1,62.1,769862,63.25,-1.82,64.68,59.17,0.41
 20260511,61.7,63.3,61.5,62.8,514332,63.21,-0.65,65.21,59.31,0.27
@@ -142,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,78,78.9,77.1,77.8,996803,73.8,5.42,73.35,63.97,0.32
 20260601,78.2,80.8,78.2,78.4,1522648,74.18,5.68,74.05,64.29,0.48
 20260602,78.8,79.9,76.2,79.4,1679997,74.62,6.41,74.7,64.61,0.52
+20260603,80,83.9,78.4,83.7,3937405,75.37,11.05,75.64,64.99,1.17
 ```
 
 ## Latest TDCC Snapshot
@@ -171,12 +171,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3504 | 揚明光 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3504 | 揚明光 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3504 | 揚明光 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260603 | 3504 | 揚明光 | 3 | 1 | 3 | 3 | 3 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

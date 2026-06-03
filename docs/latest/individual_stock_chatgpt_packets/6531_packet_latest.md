@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6531 愛普*
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:15 Asia/Taipei
+- generated_at: 2026-06-04 01:56:28 Asia/Taipei
 - stock_id: 6531
 - stock_name: 愛普*
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,11 +59,11 @@
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -76,7 +76,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -101,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 1140
-- high: 1155
-- low: 1045
-- close: 1075
-- volume: 6639528
-- ma5: 1113
-- ema23_primary: 993.9
-- distance_to_ema23_pct: 8.16
-- ma20: 1031.2
-- ma60: 738.13
-- ma120: 584.26
-- return_5d: -0.46
-- return_20d: 14.97
-- volume_ratio: 0.79
-- distance_to_ma20_pct_auxiliary: 4.25
-- distance_to_high_60_pct: -17.62
+- date: 20260603
+- open: 1110
+- high: 1165
+- low: 1090
+- close: 1100
+- volume: 5331477
+- ma5: 1117
+- ema23_primary: 1002.74
+- distance_to_ema23_pct: 9.7
+- ma20: 1037.95
+- ma60: 749.23
+- ma120: 589.82
+- return_5d: 1.85
+- return_20d: 13.99
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: 5.98
+- distance_to_high_60_pct: -15.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,949,999,905,965,2775296,729.23,32.33,713.62,543.68,0.36
 20260507,986,986,925,925,1653422,745.54,24.07,735.98,551.83,0.22
 20260508,894,894,833,875,3479516,756.33,15.69,755.7,559.03,0.47
 20260511,875,962,875,962,2885959,773.47,24.37,778,567.91,0.4
@@ -143,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,1160,1200,1140,1190,13570160,973.94,22.18,1014.15,715.54,1.77
 20260601,1240,1305,1115,1125,11967569,986.52,14.04,1024.2,727.56,1.47
 20260602,1140,1155,1045,1075,6639528,993.9,8.16,1031.2,738.13,0.79
+20260603,1110,1165,1090,1100,5331477,1002.74,9.7,1037.95,749.23,0.63
 ```
 
 ## Latest TDCC Snapshot
@@ -172,18 +171,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6531 | 愛普* | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260602 | 6531 | 愛普* | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260603 | 6531 | 愛普* | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6531 | 愛普* | 9 | 2 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 6531 | 愛普* | 1 | 1 | 4 | 9 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6531 | 愛普* | 110 | 4 | 4878810.0 | 4800.0 | 1016.42 | no_signal | 0 |  |
+| 20260603 | 6531 | 愛普* | 109 | 4 | 5014100.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

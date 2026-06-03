@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3045 台灣大
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:23 Asia/Taipei
+- generated_at: 2026-06-04 01:55:08 Asia/Taipei
 - stock_id: 3045
 - stock_name: 台灣大
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 27
 - tdcc_history_status: tdcc_history_ready
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: healthy_pullback
+- thesis_state: unclear
 - entry_style: pullback_to_23ema
-- position_sizing: half_position
+- position_sizing: starter_1_4
 
 ### management_plan
 - buy_first_tranche_near_support
@@ -75,7 +75,6 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -102,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 114
-- high: 115.5
-- low: 114
-- close: 115.5
-- volume: 18437124
-- ma5: 112.4
-- ema23_primary: 112.29
-- distance_to_ema23_pct: 2.86
-- ma20: 112.33
-- ma60: 110.67
-- ma120: 108.73
-- return_5d: 4.52
-- return_20d: 4.52
-- volume_ratio: 1.24
-- distance_to_ma20_pct_auxiliary: 2.83
-- distance_to_high_60_pct: -1.7
+- date: 20260603
+- open: 115.5
+- high: 116.5
+- low: 114.5
+- close: 116
+- volume: 13036750
+- ma5: 113.6
+- ema23_primary: 112.6
+- distance_to_ema23_pct: 3.02
+- ma20: 112.62
+- ma60: 110.8
+- ma120: 108.8
+- return_5d: 5.45
+- return_20d: 5.45
+- volume_ratio: 0.85
+- distance_to_ma20_pct_auxiliary: 3
+- distance_to_high_60_pct: -1.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,110.5,110.5,110,110,5488889,110.83,-0.75,111.22,108.78,0.5
 20260507,110.5,110.5,110,110,6207390,110.76,-0.69,111.25,108.84,0.57
 20260508,110,110.5,109.5,110,7901444,110.7,-0.63,111.25,108.92,0.73
 20260511,110,110.5,109.5,110,7510510,110.64,-0.58,111.25,108.99,0.68
@@ -144,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,111.5,112.5,111.5,111.5,21139103,111.82,-0.28,111.9,110.43,1.5
 20260601,112.5,115,112,114,15419123,112,1.79,112.08,110.53,1.06
 20260602,114,115.5,114,115.5,18437124,112.29,2.86,112.33,110.67,1.24
+20260603,115.5,116.5,114.5,116,13036750,112.6,3.02,112.62,110.8,0.85
 ```
 
 ## Latest TDCC Snapshot
@@ -180,18 +179,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3045 | 台灣大 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 3045 | 台灣大 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3045 | 台灣大 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3045 | 台灣大 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3045 | 台灣大 | 9 | 9 | 5 | 9 | 9 | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 3045 | 台灣大 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3045 | 台灣大 | 1 | 0 | 10440.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 3045 | 台灣大 | 1 | 0 | 40890.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

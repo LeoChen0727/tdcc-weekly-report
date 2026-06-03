@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2542 興富發
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:52 Asia/Taipei
+- generated_at: 2026-06-04 01:54:52 Asia/Taipei
 - stock_id: 2542
 - stock_name: 興富發
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -102,29 +102,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 42.5
-- high: 43.25
-- low: 42.25
-- close: 42.45
-- volume: 23826164
-- ma5: 42.42
-- ema23_primary: 41.68
-- distance_to_ema23_pct: 1.85
-- ma20: 42.35
-- ma60: 38.45
-- ma120: 38.4
-- return_5d: 0.12
-- return_20d: 6.93
-- volume_ratio: 1.77
-- distance_to_ma20_pct_auxiliary: 0.22
-- distance_to_high_60_pct: -5.25
+- date: 20260603
+- open: 42.8
+- high: 43.2
+- low: 42.35
+- close: 43
+- volume: 19886621
+- ma5: 42.4
+- ema23_primary: 41.79
+- distance_to_ema23_pct: 2.9
+- ma20: 42.52
+- ma60: 38.56
+- ma120: 38.44
+- return_5d: -0.23
+- return_20d: 8.59
+- volume_ratio: 1.42
+- distance_to_ma20_pct_auxiliary: 1.12
+- distance_to_high_60_pct: -4.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,39.7,39.9,39.15,39.6,9351671,37.69,5.08,37.2,36.92,0.84
 20260507,39.4,39.7,39.2,39.4,10540914,37.83,4.15,37.35,36.96,0.91
 20260508,39.5,40.1,39.5,40,9527576,38.01,5.24,37.55,36.99,0.8
 20260511,40.2,41.75,40.2,41.65,17642381,38.31,8.71,37.8,37.07,1.4
@@ -144,6 +143,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,42.3,42.35,41.6,41.95,12369851,41.52,1.04,42.09,38.26,0.98
 20260601,41.9,42.6,41.3,42.6,10112070,41.61,2.38,42.22,38.36,0.8
 20260602,42.5,43.25,42.25,42.45,23826164,41.68,1.85,42.35,38.45,1.77
+20260603,42.8,43.2,42.35,43,19886621,41.79,2.9,42.52,38.56,1.42
 ```
 
 ## Latest TDCC Snapshot
@@ -173,18 +173,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2542 | 興富發 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260521 | 2542 | 興富發 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2542 | 興富發 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2542 | 興富發 | 9 | 9 | 5 | 9 | 9 | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 2542 | 興富發 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2542 | 興富發 | 6 | 0 | 842580.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 2542 | 興富發 | 6 | 0 | 744170.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

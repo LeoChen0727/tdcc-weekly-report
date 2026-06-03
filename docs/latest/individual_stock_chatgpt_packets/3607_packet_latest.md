@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3607 谷崧
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:07 Asia/Taipei
+- generated_at: 2026-06-04 01:55:29 Asia/Taipei
 - stock_id: 3607
 - stock_name: 谷崧
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,14 +55,18 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: take_profit
-- action_rating_label_zh: 停利
-- confidence_level: low
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
+- confidence_level: medium
 - thesis_state: high_level_distribution_risk
-- entry_style: breakout_follow
-- position_sizing: observe_only
+- entry_style: pullback_to_23ema
+- position_sizing: starter_1_4
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -71,9 +75,8 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
-- decision_score_high
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 
@@ -98,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 16.9
-- high: 17.8
-- low: 16.75
-- close: 17.8
-- volume: 2048494
-- ma5: 16.01
-- ema23_primary: 15.14
-- distance_to_ema23_pct: 17.55
-- ma20: 14.9
-- ma60: 14.6
-- ma120: 14.46
-- return_5d: 17.49
-- return_20d: 24.48
-- volume_ratio: 3.06
-- distance_to_ma20_pct_auxiliary: 19.46
-- distance_to_high_60_pct: 0
+- date: 20260603
+- open: 19.55
+- high: 19.55
+- low: 18
+- close: 18.3
+- volume: 6893502
+- ma5: 16.63
+- ema23_primary: 15.41
+- distance_to_ema23_pct: 18.79
+- ma20: 15.1
+- ma60: 14.68
+- ma120: 14.5
+- return_5d: 20.39
+- return_20d: 27.53
+- volume_ratio: 6.9
+- distance_to_ma20_pct_auxiliary: 21.21
+- distance_to_high_60_pct: -6.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,14.45,14.55,14.2,14.35,315301,14.62,-1.83,14.74,14.33,0.64
 20260507,14.45,14.65,14.35,14.65,402193,14.62,0.2,14.76,14.33,0.8
 20260508,14.7,15,14.5,14.55,513241,14.61,-0.44,14.78,14.33,0.98
 20260511,14.5,14.65,14.45,14.55,345531,14.61,-0.41,14.8,14.33,0.65
@@ -140,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,15.4,15.8,15.35,15.65,929379,14.78,5.87,14.63,14.49,1.64
 20260601,15.7,16.35,15.55,16.2,1432266,14.9,8.72,14.72,14.54,2.34
 20260602,16.9,17.8,16.75,17.8,2048494,15.14,17.55,14.9,14.6,3.06
+20260603,19.55,19.55,18,18.3,6893502,15.41,18.79,15.1,14.68,6.9
 ```
 
 ## Latest TDCC Snapshot
@@ -169,12 +172,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3607 | 谷崧 | true_breakout | 嚴格突破 | 129.0 |  |  | breakout_confirmed |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3607 | 谷崧 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3607 | 谷崧 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260603 | 3607 | 谷崧 | 3 | 1 | 3 | 3 | 3 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

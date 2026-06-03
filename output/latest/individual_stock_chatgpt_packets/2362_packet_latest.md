@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2362 藍天
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:27 Asia/Taipei
+- generated_at: 2026-06-04 01:54:40 Asia/Taipei
 - stock_id: 2362
 - stock_name: 藍天
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,14 +55,18 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: take_profit
-- action_rating_label_zh: 停利
-- confidence_level: low
-- thesis_state: breakout_confirmed
-- entry_style: breakout_follow
-- position_sizing: observe_only
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
+- confidence_level: medium
+- thesis_state: high_level_consolidation
+- entry_style: pullback_to_23ema
+- position_sizing: starter_1_4
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -71,8 +75,8 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -97,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 46.95
-- high: 51.9
-- low: 45.85
-- close: 51.9
-- volume: 12900380
-- ma5: 45.05
-- ema23_primary: 41.7
-- distance_to_ema23_pct: 24.45
-- ma20: 41.11
-- ma60: 39.32
-- ma120: 39.21
-- return_5d: 24.46
-- return_20d: 32.4
-- volume_ratio: 5.33
-- distance_to_ma20_pct_auxiliary: 26.25
-- distance_to_high_60_pct: 0
+- date: 20260603
+- open: 52.1
+- high: 52.1
+- low: 50
+- close: 50.4
+- volume: 10068551
+- ma5: 46.92
+- ema23_primary: 42.43
+- distance_to_ema23_pct: 18.79
+- ma20: 41.66
+- ma60: 39.52
+- ma120: 39.29
+- return_5d: 22.78
+- return_20d: 27.92
+- volume_ratio: 3.48
+- distance_to_ma20_pct_auxiliary: 20.99
+- distance_to_high_60_pct: -3.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,39.5,39.85,39.05,39.4,634969,38.62,2.02,38.65,38.38,1.14
 20260507,39.15,40,39.15,39.95,1035124,38.73,3.15,38.7,38.41,1.79
 20260508,39.95,40.4,39.35,39.9,990677,38.83,2.76,38.78,38.43,1.64
 20260511,39.95,40.4,39.75,40.35,856373,38.95,3.58,38.87,38.48,1.36
@@ -139,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,41.5,44.15,41.45,44.05,6210848,40.19,9.61,40.02,38.91,4.49
 20260601,45.2,48.45,43.9,47.25,8683688,40.78,15.87,40.47,39.09,4.81
 20260602,46.95,51.9,45.85,51.9,12900380,41.7,24.45,41.11,39.32,5.33
+20260603,52.1,52.1,50,50.4,10068551,42.43,18.79,41.66,39.52,3.48
 ```
 
 ## Latest TDCC Snapshot
@@ -168,17 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2362 | 藍天 | true_breakout | 嚴格突破 | 109.0 |  |  | breakout_confirmed |  | no_signal | continued_overheated | calendar event: ex_dividend on 20260625; status=confirmed; proximity=within_30d |
+| 20260603 | 2362 | 藍天 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | continued_overheated | calendar event: ex_dividend on 20260625; status=confirmed; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2362 | 藍天 | 4 | 3 | 4 | 8 | 8 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260603 | 2362 | 藍天 | 5 | 2 | 5 | 9 | 9 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2362 | 藍天 | 1 | 0 | 73200.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 2362 | 藍天 | 1 | 0 | 49400.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

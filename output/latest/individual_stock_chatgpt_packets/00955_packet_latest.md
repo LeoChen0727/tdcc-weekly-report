@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00955 中信日本商社
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:11 Asia/Taipei
+- generated_at: 2026-06-04 01:54:05 Asia/Taipei
 - stock_id: 00955
 - stock_name: 中信日本商社
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260602
-- price_rows: 8
+- latest_price_date: 20260603
+- price_rows: 9
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -97,23 +97,23 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
+- date: 20260603
 - open: 14.7
-- high: 14.77
-- low: 14.6
-- close: 14.66
-- volume: 15
-- ma5: 15.02
-- ema23_primary: 15.39
-- distance_to_ema23_pct: -4.71
-- ma20: 15.21
-- ma60: 15.21
-- ma120: 15.21
-- return_5d: -5.17
+- high: 14.82
+- low: 14.7
+- close: 14.8
+- volume: 15000
+- ma5: 14.93
+- ema23_primary: 15.34
+- distance_to_ema23_pct: -3.5
+- ma20: 15.17
+- ma60: 15.17
+- ma120: 15.17
+- return_5d: -2.95
 - return_20d: 
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: -3.64
-- distance_to_high_60_pct: -6.74
+- volume_ratio: 1.26
+- distance_to_ma20_pct_auxiliary: -2.42
+- distance_to_high_60_pct: -5.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -127,6 +127,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,15.17,15.34,15.15,15.33,15000,15.52,-1.2,15.38,15.38,0.98
 20260601,14.96,14.96,14.69,14.74,15,15.45,-4.6,15.29,15.29,0
 20260602,14.7,14.77,14.6,14.66,15,15.39,-4.71,15.21,15.21,0
+20260603,14.7,14.82,14.7,14.8,15000,15.34,-3.5,15.17,15.17,1.26
 ```
 
 ## Latest TDCC Snapshot

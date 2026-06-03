@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2511 太子
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:48 Asia/Taipei
+- generated_at: 2026-06-04 01:54:50 Asia/Taipei
 - stock_id: 2511
 - stock_name: 太子
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 7.84
-- high: 7.89
-- low: 7.78
-- close: 7.88
-- volume: 1657794
-- ma5: 7.73
-- ema23_primary: 7.77
-- distance_to_ema23_pct: 1.42
-- ma20: 7.71
-- ma60: 7.98
+- date: 20260603
+- open: 7.91
+- high: 8.06
+- low: 7.88
+- close: 8.01
+- volume: 3626058
+- ma5: 7.81
+- ema23_primary: 7.79
+- distance_to_ema23_pct: 2.83
+- ma20: 7.72
+- ma60: 7.97
 - ma120: 8.13
-- return_5d: 3.41
-- return_20d: -0.13
-- volume_ratio: 1.21
-- distance_to_ma20_pct_auxiliary: 2.18
-- distance_to_high_60_pct: -4.83
+- return_5d: 5.12
+- return_20d: 1.39
+- volume_ratio: 2.41
+- distance_to_ma20_pct_auxiliary: 3.79
+- distance_to_high_60_pct: -3.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,7.95,7.95,7.88,7.9,854610,8.04,-1.74,8.07,8.16,0.68
 20260507,7.87,7.89,7.82,7.88,1837061,8.03,-1.83,8.06,8.15,1.43
 20260508,7.98,7.98,7.61,7.81,2789036,8.01,-2.48,8.04,8.14,2.02
 20260511,7.79,7.86,7.75,7.82,856976,7.99,-2.17,8.02,8.13,0.62
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,7.69,7.73,7.65,7.69,1201379,7.76,-0.84,7.71,7.98,0.9
 20260601,7.7,7.88,7.69,7.81,2463215,7.76,0.65,7.71,7.98,1.85
 20260602,7.84,7.89,7.78,7.88,1657794,7.77,1.42,7.71,7.98,1.21
+20260603,7.91,8.06,7.88,8.01,3626058,7.79,2.83,7.72,7.97,2.41
 ```
 
 ## Latest TDCC Snapshot
@@ -172,12 +172,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2511 | 太子 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2511 | 太子 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2511 | 太子 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260603 | 2511 | 太子 | 3 | 3 | 3 | 3 | 3 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

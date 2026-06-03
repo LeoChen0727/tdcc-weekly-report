@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4561 健椿
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:39 Asia/Taipei
+- generated_at: 2026-06-04 01:55:44 Asia/Taipei
 - stock_id: 4561
 - stock_name: 健椿
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,7 +59,7 @@
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: current_price_ok
+- entry_style: pullback_to_23ema
 - position_sizing: observe_only
 
 ### management_plan
@@ -72,6 +72,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -96,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 59.8
-- high: 59.8
-- low: 52.9
-- close: 54.2
-- volume: 55
-- ma5: 51.7
-- ema23_primary: 47.98
-- distance_to_ema23_pct: 12.96
-- ma20: 49.73
-- ma60: 39.5
-- ma120: 38.4
-- return_5d: 8.4
-- return_20d: 21.8
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: 8.98
-- distance_to_high_60_pct: -9.36
+- date: 20260603
+- open: 55.1
+- high: 55.1
+- low: 51
+- close: 51
+- volume: 52000
+- ma5: 52.14
+- ema23_primary: 48.23
+- distance_to_ema23_pct: 5.74
+- ma20: 50.07
+- ma60: 39.75
+- ma120: 38.54
+- return_5d: 4.51
+- return_20d: 15.38
+- volume_ratio: 0.08
+- distance_to_ma20_pct_auxiliary: 1.85
+- distance_to_high_60_pct: -14.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,44.3,44.35,42.65,44.2,1145000,36.75,20.28,35.95,36.93,2.04
 20260507,45.2,47.5,44.3,47.25,2885000,37.62,25.59,36.67,36.91,4.12
 20260508,47.85,51.9,47.7,51.4,4823000,38.77,32.57,37.63,36.97,5.15
 20260511,50.2,52.5,48.45,51.6,2271000,39.84,29.52,38.61,37.09,2.17
@@ -138,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,47.6,51.7,46.9,51.7,51000,46.56,11.04,48.5,38.85,0.06
 20260601,53.3,56.8,53.3,56.8,56,47.41,19.79,49.25,39.21,0
 20260602,59.8,59.8,52.9,54.2,55,47.98,12.96,49.73,39.5,0
+20260603,55.1,55.1,51,51,52000,48.23,5.74,50.07,39.75,0.08
 ```
 
 ## Latest TDCC Snapshot

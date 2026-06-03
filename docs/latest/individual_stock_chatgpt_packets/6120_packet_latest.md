@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6120 達運
 
 ## Metadata
-- generated_at: 2026-06-02 23:28:36 Asia/Taipei
+- generated_at: 2026-06-04 01:56:10 Asia/Taipei
 - stock_id: 6120
 - stock_name: 達運
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 268
+- latest_price_date: 20260603
+- price_rows: 269
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,11 +59,11 @@
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -76,7 +76,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -101,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 15.1
-- high: 15.5
-- low: 14.5
-- close: 15.45
-- volume: 8345628
-- ma5: 14.47
-- ema23_primary: 13.85
-- distance_to_ema23_pct: 11.54
-- ma20: 13.57
-- ma60: 13.51
-- ma120: 13.17
-- return_5d: 10.36
-- return_20d: 18.85
-- volume_ratio: 1.6
-- distance_to_ma20_pct_auxiliary: 13.83
-- distance_to_high_60_pct: -0.96
+- date: 20260603
+- open: 15.7
+- high: 16.5
+- low: 15.55
+- close: 16.1
+- volume: 12546434
+- ma5: 14.91
+- ema23_primary: 14.04
+- distance_to_ema23_pct: 14.68
+- ma20: 13.72
+- ma60: 13.55
+- ma120: 13.21
+- return_5d: 15.83
+- return_20d: 23.37
+- volume_ratio: 2.19
+- distance_to_ma20_pct_auxiliary: 17.3
+- distance_to_high_60_pct: -2.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,13.2,13.3,12.85,13.05,2710860,13.48,-3.22,13.91,13.33,0.42
 20260507,13.15,13.45,13.05,13.3,3077645,13.47,-1.25,13.9,13.33,0.49
 20260508,13.45,13.75,12.85,12.9,4290593,13.42,-3.89,13.82,13.32,0.83
 20260511,12.95,13.1,12.7,12.8,2855177,13.37,-4.26,13.76,13.32,0.62
@@ -143,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,14.05,14.45,13.85,14.35,4929934,13.6,5.53,13.34,13.42,1.05
 20260601,14.5,15.5,14.3,14.9,8166804,13.71,8.71,13.45,13.46,1.64
 20260602,15.1,15.5,14.5,15.45,8345628,13.85,11.54,13.57,13.51,1.6
+20260603,15.7,16.5,15.55,16.1,12546434,14.04,14.68,13.72,13.55,2.19
 ```
 
 ## Latest TDCC Snapshot
@@ -172,18 +171,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6120 | 達運 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 63.0 |  |  | neckline_challenge |  | no_signal | stale_signal | calendar event: ex_dividend on 20260622; status=confirmed; proximity=within_30d |
-| 20260521 | 6120 | 達運 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | stale_signal | calendar event: ex_dividend on 20260622; status=confirmed; proximity=within_30d |
+| 20260603 | 6120 | 達運 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | stale_signal | calendar event: ex_dividend on 20260622; status=confirmed; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6120 | 達運 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 6120 | 達運 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6120 | 達運 | 8 | 0 | 1218960.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 6120 | 達運 | 8 | 0 | 1462450.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

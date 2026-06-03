@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2207 和泰車
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:15 Asia/Taipei
+- generated_at: 2026-06-04 01:54:34 Asia/Taipei
 - stock_id: 2207
 - stock_name: 和泰車
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 274
+- latest_price_date: 20260603
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -97,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 472
-- high: 479.5
-- low: 466.5
-- close: 471.5
-- volume: 838817
-- ma5: 470.1
-- ema23_primary: 473.45
-- distance_to_ema23_pct: -0.41
-- ma20: 470.02
-- ma60: 488.1
-- ma120: 522.68
-- return_5d: 2.06
-- return_20d: -1.36
-- volume_ratio: 1.2
-- distance_to_ma20_pct_auxiliary: 0.31
-- distance_to_high_60_pct: -10.7
+- date: 20260603
+- open: 479.5
+- high: 487.5
+- low: 471.5
+- close: 485
+- volume: 976036
+- ma5: 473.8
+- ema23_primary: 474.41
+- distance_to_ema23_pct: 2.23
+- ma20: 470.57
+- ma60: 487.65
+- ma120: 521.71
+- return_5d: 3.97
+- return_20d: 2.32
+- volume_ratio: 1.34
+- distance_to_ma20_pct_auxiliary: 3.07
+- distance_to_high_60_pct: -8.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,484.5,484.5,473,474,385983,493.16,-3.89,497.32,510.66,1.08
 20260507,473.5,487,473,487,539232,492.65,-1.15,496.9,509.73,1.47
 20260508,494,494,478.5,487,372928,492.18,-1.05,496.38,508.82,1.02
 20260511,480.5,484.5,475.5,475.5,490356,490.79,-3.12,494.75,507.68,1.33
@@ -139,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,458,483,458,483,4080767,473.64,1.98,470.32,489.7,6.39
 20260601,478,484,470,473.5,952623,473.63,-0.03,470.35,488.86,1.42
 20260602,472,479.5,466.5,471.5,838817,473.45,-0.41,470.02,488.1,1.2
+20260603,479.5,487.5,471.5,485,976036,474.41,2.23,470.57,487.65,1.34
 ```
 
 ## Latest TDCC Snapshot

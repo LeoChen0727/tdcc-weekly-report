@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7017 神盾永豐56購01
 
 ## Metadata
-- generated_at: 2026-06-02 23:30:03 Asia/Taipei
+- generated_at: 2026-06-04 01:56:50 Asia/Taipei
 - stock_id: 7017
 - stock_name: 神盾永豐56購01
 - packet_status: standard_180d_window_packet

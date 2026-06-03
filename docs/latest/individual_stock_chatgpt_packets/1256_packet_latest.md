@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1256 鮮活果汁-KY
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:19 Asia/Taipei
+- generated_at: 2026-06-04 01:54:09 Asia/Taipei
 - stock_id: 1256
 - stock_name: 鮮活果汁-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -96,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 212
-- high: 212
+- date: 20260603
+- open: 204
+- high: 208
 - low: 201.5
-- close: 203
-- volume: 188250
-- ma5: 201.6
-- ema23_primary: 186.02
-- distance_to_ema23_pct: 9.13
-- ma20: 187
-- ma60: 166.57
-- ma120: 158.74
-- return_5d: 3.57
-- return_20d: 23.03
-- volume_ratio: 1.01
-- distance_to_ma20_pct_auxiliary: 8.56
-- distance_to_high_60_pct: -7.09
+- close: 201.5
+- volume: 218291
+- ma5: 203.5
+- ema23_primary: 187.31
+- distance_to_ema23_pct: 7.57
+- ma20: 188.88
+- ma60: 167.16
+- ma120: 159.25
+- return_5d: 4.95
+- return_20d: 22.87
+- volume_ratio: 1.13
+- distance_to_ma20_pct_auxiliary: 6.68
+- distance_to_high_60_pct: -7.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,164.5,165,161.5,164,59051,159.13,3.06,158.43,157.43,1
 20260507,166.5,168,165,168,86182,159.87,5.09,159.1,157.61,1.44
 20260508,171.5,177,169.5,176,235864,161.21,9.17,160.4,157.83,3.41
 20260511,176,181.5,174.5,177,142853,162.53,8.9,161.62,158.17,1.93
@@ -138,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,206.5,212.5,200.5,205.5,356741,182.21,12.78,182.95,165.16,2.17
 20260601,212,218.5,205,209.5,385723,184.48,13.56,185.1,166.01,2.16
 20260602,212,212,201.5,203,188250,186.02,9.13,187,166.57,1.01
+20260603,204,208,201.5,201.5,218291,187.31,7.57,188.88,167.16,1.13
 ```
 
 ## Latest TDCC Snapshot

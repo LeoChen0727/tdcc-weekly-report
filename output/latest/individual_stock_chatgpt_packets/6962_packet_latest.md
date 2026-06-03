@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6962 奕力-KY
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:58 Asia/Taipei
+- generated_at: 2026-06-04 01:56:48 Asia/Taipei
 - stock_id: 6962
 - stock_name: 奕力-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: starter_position
-- action_rating_label_zh: 可小量試單
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: healthy_pullback
 - entry_style: pullback_to_23ema
-- position_sizing: starter_1_4
+- position_sizing: half_position
 
 ### management_plan
 - buy_first_tranche_near_support
@@ -75,6 +75,7 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -101,29 +102,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 38.2
-- high: 38.25
-- low: 37.25
-- close: 38.15
-- volume: 4124449
-- ma5: 37.98
-- ema23_primary: 37.43
-- distance_to_ema23_pct: 1.93
-- ma20: 37.74
-- ma60: 34.76
-- ma120: 36.7
-- return_5d: -1.42
-- return_20d: 7.62
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: 1.09
-- distance_to_high_60_pct: -7.85
+- date: 20260603
+- open: 38.6
+- high: 39.15
+- low: 38.2
+- close: 38.4
+- volume: 4502379
+- ma5: 38.09
+- ema23_primary: 37.51
+- distance_to_ema23_pct: 2.38
+- ma20: 37.91
+- ma60: 34.86
+- ma120: 36.68
+- return_5d: 1.45
+- return_20d: 9.71
+- volume_ratio: 0.72
+- distance_to_ma20_pct_auxiliary: 1.29
+- distance_to_high_60_pct: -7.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,36.2,36.5,34.7,35,4730198,34.88,0.35,35.03,34.49,0.75
 20260507,35.5,38.1,35,36.75,8129887,35.03,4.9,35.2,34.43,1.23
 20260508,37.2,38.8,36.8,38.3,11988409,35.31,8.48,35.44,34.39,1.69
 20260511,38.9,38.9,37.05,38.1,6272069,35.54,7.2,35.72,34.35,0.86
@@ -143,6 +143,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,38.05,38.5,37.65,38.25,3766614,37.29,2.56,37.44,34.56,0.61
 20260601,38.45,38.95,37.9,38.1,4974459,37.36,1.98,37.6,34.66,0.79
 20260602,38.2,38.25,37.25,38.15,4124449,37.43,1.93,37.74,34.76,0.65
+20260603,38.6,39.15,38.2,38.4,4502379,37.51,2.38,37.91,34.86,0.72
 ```
 
 ## Latest TDCC Snapshot
@@ -172,18 +173,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6962 | 奕力-KY | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 6962 | 奕力-KY | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 6962 | 奕力-KY | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6962 | 奕力-KY | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 6962 | 奕力-KY | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6962 | 奕力-KY | 11 | 0 | 477780.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 6962 | 奕力-KY | 11 | 0 | 742240.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3592 瑞鼎
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:06 Asia/Taipei
+- generated_at: 2026-06-04 01:55:28 Asia/Taipei
 - stock_id: 3592
 - stock_name: 瑞鼎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,15 +55,15 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: starter_position
-- action_rating_label_zh: 可小量試單
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: unclear
-- entry_style: current_price_ok
-- position_sizing: starter_1_4
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
-- buy_first_tranche_now
+- buy_first_tranche_near_support
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -77,6 +77,7 @@
 ### entry_prerequisites
 - model_recommended
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -101,29 +102,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
+- date: 20260603
 - open: 283
 - high: 283
-- low: 278
-- close: 281.5
-- volume: 708448
-- ma5: 280.2
-- ema23_primary: 263.93
-- distance_to_ema23_pct: 6.66
-- ma20: 264.48
-- ma60: 238.9
-- ma120: 232.05
-- return_5d: -1.05
-- return_20d: 16.8
-- volume_ratio: 0.5
-- distance_to_ma20_pct_auxiliary: 6.44
-- distance_to_high_60_pct: -1.57
+- low: 280
+- close: 280
+- volume: 553682
+- ma5: 280
+- ema23_primary: 265.26
+- distance_to_ema23_pct: 5.55
+- ma20: 266.7
+- ma60: 239.8
+- ma120: 232.57
+- return_5d: -0.36
+- return_20d: 18.9
+- volume_ratio: 0.41
+- distance_to_ma20_pct_auxiliary: 4.99
+- distance_to_high_60_pct: -2.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,241.5,241.5,228,235.5,1911618,234.02,0.63,235.47,226.93,2.31
 20260507,238.5,243,236,242.5,1068723,234.72,3.31,236.38,227.03,1.25
 20260508,247,262,247,258.5,2731957,236.7,9.21,238.07,227.38,2.8
 20260511,274.5,274.5,257,263.5,2486508,238.94,10.28,239.85,227.91,2.31
@@ -143,6 +143,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,277,279.5,273,279.5,789595,260.27,7.39,260.15,236.79,0.57
 20260601,272,285,272,285,1533025,262.33,8.64,262.45,237.91,1.08
 20260602,283,283,278,281.5,708448,263.93,6.66,264.48,238.9,0.5
+20260603,283,283,280,280,553682,265.26,5.55,266.7,239.8,0.41
 ```
 
 ## Latest TDCC Snapshot
@@ -172,17 +173,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 3592 | 瑞鼎 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3592 | 瑞鼎 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3592 | 瑞鼎 | 9 | 9 | 5 | 9 | 9 | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 3592 | 瑞鼎 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3592 | 瑞鼎 | 9 | 0 | 508030.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 3592 | 瑞鼎 | 9 | 0 | 44890.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

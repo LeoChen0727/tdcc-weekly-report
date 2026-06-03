@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1434 福懋
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:28 Asia/Taipei
+- generated_at: 2026-06-04 01:54:13 Asia/Taipei
 - stock_id: 1434
 - stock_name: 福懋
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,15 +55,15 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
-- position_sizing: half_position
+- thesis_state: unclear
+- entry_style: current_price_ok
+- position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -75,9 +75,7 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -102,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 15.55
-- high: 15.8
-- low: 15.5
-- close: 15.75
-- volume: 2814639
-- ma5: 15.34
-- ema23_primary: 15.52
-- distance_to_ema23_pct: 1.5
-- ma20: 15.42
-- ma60: 16.14
-- ma120: 16.36
-- return_5d: 5
-- return_20d: -1.25
-- volume_ratio: 1.22
-- distance_to_ma20_pct_auxiliary: 2.14
-- distance_to_high_60_pct: -11.02
+- date: 20260603
+- open: 15.95
+- high: 16.75
+- low: 15.95
+- close: 16.65
+- volume: 7514492
+- ma5: 15.67
+- ema23_primary: 15.61
+- distance_to_ema23_pct: 6.65
+- ma20: 15.45
+- ma60: 16.12
+- ma120: 16.37
+- return_5d: 11
+- return_20d: 3.42
+- volume_ratio: 2.92
+- distance_to_ma20_pct_auxiliary: 7.78
+- distance_to_high_60_pct: -5.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,16.1,16.2,16,16.1,2127266,16.28,-1.08,16.32,16.81,1.12
 20260507,16,16,15.85,15.95,1783805,16.25,-1.83,16.29,16.78,0.96
 20260508,15.95,16,15.8,15.85,1475101,16.21,-2.25,16.26,16.76,0.78
 20260511,15.95,16.25,15.9,15.9,2133329,16.19,-1.78,16.23,16.75,1.1
@@ -144,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,14.95,15.45,14.95,15.45,3946190,15.49,-0.26,15.45,16.19,1.88
 20260601,15.4,15.7,15.2,15.55,4225210,15.5,0.35,15.43,16.17,1.9
 20260602,15.55,15.8,15.5,15.75,2814639,15.52,1.5,15.42,16.14,1.22
+20260603,15.95,16.75,15.95,16.65,7514492,15.61,6.65,15.45,16.12,2.92
 ```
 
 ## Latest TDCC Snapshot
@@ -173,12 +171,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1434 | 福懋 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 1434 | 福懋 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1434 | 福懋 | 3 | 3 | 3 | 3 | 3 | continued_2_3d | 連續 3 個交易日上榜，訊號延續但仍需確認。 |
+| 20260603 | 1434 | 福懋 | 4 | 1 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 次、近 20 日上榜 4 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

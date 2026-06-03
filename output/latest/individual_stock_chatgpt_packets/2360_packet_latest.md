@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2360 致茂
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:27 Asia/Taipei
+- generated_at: 2026-06-04 01:54:40 Asia/Taipei
 - stock_id: 2360
 - stock_name: 致茂
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,11 +59,11 @@
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -76,7 +76,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -101,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 2570
-- high: 2605
-- low: 2390
-- close: 2420
-- volume: 3018185
-- ma5: 2543
-- ema23_primary: 2319.8
-- distance_to_ema23_pct: 4.32
-- ma20: 2356.25
-- ma60: 1950.67
-- ma120: 1449.49
-- return_5d: -3.2
-- return_20d: 8.28
-- volume_ratio: 0.84
-- distance_to_ma20_pct_auxiliary: 2.71
-- distance_to_high_60_pct: -13.42
+- date: 20260603
+- open: 2470
+- high: 2555
+- low: 2450
+- close: 2545
+- volume: 1597378
+- ma5: 2527
+- ema23_primary: 2338.57
+- distance_to_ema23_pct: 8.83
+- ma20: 2366.25
+- ma60: 1970.17
+- ma120: 1463.88
+- return_5d: -3.05
+- return_20d: 8.53
+- volume_ratio: 0.48
+- distance_to_ma20_pct_auxiliary: 7.55
+- distance_to_high_60_pct: -8.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,2350,2450,2270,2345,6415650,1978.13,18.55,2020.75,1567.7,1.31
 20260507,2530,2530,2270,2325,4128219,2007.04,15.84,2050.75,1589.2,0.83
 20260508,2325,2370,2210,2230,4059124,2025.62,10.09,2070.25,1609.45,0.83
 20260511,2210,2415,2205,2360,3303030,2053.48,14.93,2099,1632.45,0.68
@@ -143,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,2570,2610,2450,2520,5371739,2286.21,10.23,2333.5,1913.08,1.42
 20260601,2520,2710,2500,2580,3918391,2310.7,11.65,2347,1933.75,1.07
 20260602,2570,2605,2390,2420,3018185,2319.8,4.32,2356.25,1950.67,0.84
+20260603,2470,2555,2450,2545,1597378,2338.57,8.83,2366.25,1970.17,0.48
 ```
 
 ## Latest TDCC Snapshot
@@ -172,18 +171,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2360 | 致茂 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_put_bullish | stale_signal | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_30d |
-| 20260602 | 2360 | 致茂 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_put_bullish | stale_signal | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260603 | 2360 | 致茂 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2360 | 致茂 | 9 | 4 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 2360 | 致茂 | 10 | 3 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2360 | 致茂 | 65 | 5 | 6384450.0 | 500.0 | 12768.9 | call_put_bullish | 3 |  |
+| 20260603 | 2360 | 致茂 | 64 | 5 | 1523060.0 | 1000.0 | 1523.06 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

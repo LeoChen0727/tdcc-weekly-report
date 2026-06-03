@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6235 華孚
 
 ## Metadata
-- generated_at: 2026-06-02 23:28:56 Asia/Taipei
+- generated_at: 2026-06-04 01:56:19 Asia/Taipei
 - stock_id: 6235
 - stock_name: 華孚
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,7 +59,7 @@
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: current_price_ok
+- entry_style: pullback_to_23ema
 - position_sizing: observe_only
 
 ### management_plan
@@ -72,6 +72,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -96,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 47.2
-- high: 47.2
-- low: 45.1
-- close: 45.7
-- volume: 2965926
-- ma5: 44.33
-- ema23_primary: 43.16
-- distance_to_ema23_pct: 5.89
-- ma20: 42.21
-- ma60: 45.19
-- ma120: 52.61
-- return_5d: 11.87
-- return_20d: 6.03
-- volume_ratio: 1.76
-- distance_to_ma20_pct_auxiliary: 8.27
-- distance_to_high_60_pct: -11.09
+- date: 20260603
+- open: 46.3
+- high: 46.3
+- low: 44.95
+- close: 45.35
+- volume: 1858344
+- ma5: 45.42
+- ema23_primary: 43.34
+- distance_to_ema23_pct: 4.64
+- ma20: 42.34
+- ma60: 45.1
+- ma120: 52.49
+- return_5d: 13.66
+- return_20d: 5.96
+- volume_ratio: 1.07
+- distance_to_ma20_pct_auxiliary: 7.12
+- distance_to_high_60_pct: -11.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,43.25,43.4,42.05,42.8,820751,45.22,-5.35,44.88,49.99,1.17
 20260507,42.6,43.45,42.6,43.4,738950,45.07,-3.7,44.78,49.69,1.05
 20260508,43.65,44.3,42.9,43,939003,44.89,-4.22,44.64,49.41,1.3
 20260511,42.95,43.65,42.5,43.6,777089,44.79,-2.65,44.56,49.18,1.05
@@ -138,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,44.1,46,42.85,45,8756834,42.54,5.79,41.84,45.3,6.25
 20260601,44.5,47.65,43.3,47.2,4245205,42.93,9.95,42.08,45.26,2.71
 20260602,47.2,47.2,45.1,45.7,2965926,43.16,5.89,42.21,45.19,1.76
+20260603,46.3,46.3,44.95,45.35,1858344,43.34,4.64,42.34,45.1,1.07
 ```
 
 ## Latest TDCC Snapshot
@@ -177,7 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6235 | 華孚 | 13 | 0 | 122690.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 6235 | 華孚 | 13 | 0 | 109940.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

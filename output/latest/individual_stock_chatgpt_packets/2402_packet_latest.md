@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2402 毅嘉
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:33 Asia/Taipei
+- generated_at: 2026-06-04 01:54:43 Asia/Taipei
 - stock_id: 2402
 - stock_name: 毅嘉
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 70
-- high: 70.1
-- low: 68
-- close: 68.7
-- volume: 6690172
-- ma5: 68.56
-- ema23_primary: 67.39
-- distance_to_ema23_pct: 1.95
-- ma20: 67.33
-- ma60: 62.44
-- ma120: 59.56
-- return_5d: -2
-- return_20d: -5.37
-- volume_ratio: 0.69
-- distance_to_ma20_pct_auxiliary: 2.04
-- distance_to_high_60_pct: -19.18
+- date: 20260603
+- open: 69.1
+- high: 72.5
+- low: 69.1
+- close: 69.7
+- volume: 18391338
+- ma5: 68.76
+- ema23_primary: 67.58
+- distance_to_ema23_pct: 3.14
+- ma20: 67.27
+- ma60: 62.75
+- ma120: 59.73
+- return_5d: 1.46
+- return_20d: -1.55
+- volume_ratio: 1.87
+- distance_to_ma20_pct_auxiliary: 3.61
+- distance_to_high_60_pct: -18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,73.3,73.7,68.2,70.8,14578663,67.61,4.72,70.06,58.31,0.47
 20260507,71.4,73,69.6,70.1,8735118,67.82,3.37,70.72,58.54,0.29
 20260508,70.7,70.7,66.7,68,8389732,67.83,0.25,71.33,58.76,0.28
 20260511,68,69.6,67,69,4910098,67.93,1.57,71.72,59.02,0.17
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,68,70,66.8,69.4,12426985,67.03,3.54,67.64,61.82,1.21
 20260601,69.3,71.5,69.3,69.9,10897347,67.27,3.91,67.52,62.15,1.11
 20260602,70,70.1,68,68.7,6690172,67.39,1.95,67.33,62.44,0.69
+20260603,69.1,72.5,69.1,69.7,18391338,67.58,3.14,67.27,62.75,1.87
 ```
 
 ## Latest TDCC Snapshot
@@ -172,18 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2402 | 毅嘉 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 2402 | 毅嘉 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2402 | 毅嘉 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2402 | 毅嘉 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 2402 | 毅嘉 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2402 | 毅嘉 | 99 | 10 | 17704540.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 2402 | 毅嘉 | 98 | 10 | 19355390.0 | 3240.0 | 5973.89 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

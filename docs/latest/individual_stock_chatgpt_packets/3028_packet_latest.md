@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3028 增你強
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:20 Asia/Taipei
+- generated_at: 2026-06-04 01:55:06 Asia/Taipei
 - stock_id: 3028
 - stock_name: 增你強
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,11 +59,11 @@
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: current_price_ok
+- entry_style: pullback_to_23ema
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_now
+- buy_first_tranche_near_support
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -76,6 +76,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -100,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 81.8
-- high: 84
-- low: 80.6
-- close: 84
-- volume: 4333886
-- ma5: 81.84
-- ema23_primary: 77.77
-- distance_to_ema23_pct: 8
-- ma20: 79.92
-- ma60: 65.28
-- ma120: 53.7
-- return_5d: 2.94
-- return_20d: 20.69
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: 5.1
-- distance_to_high_60_pct: -4.87
+- date: 20260603
+- open: 84.8
+- high: 85.2
+- low: 83.1
+- close: 83.4
+- volume: 3541818
+- ma5: 82.24
+- ema23_primary: 78.24
+- distance_to_ema23_pct: 6.59
+- ma20: 80.27
+- ma60: 65.77
+- ma120: 54.09
+- return_5d: 2.46
+- return_20d: 9.02
+- volume_ratio: 0.55
+- distance_to_ma20_pct_auxiliary: 3.9
+- distance_to_high_60_pct: -5.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,72.2,76.5,72,76.5,6698508,64.08,19.39,64.52,55.39,0.98
 20260507,81.1,81.5,74.6,76,13246429,65.07,16.79,65.58,55.97,1.8
 20260508,76.2,81.5,75,79.8,9299422,66.3,20.36,66.56,56.6,1.24
 20260511,81.5,84.4,75.3,75.5,14230259,67.07,12.58,67.36,57.09,1.91
@@ -142,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,83.5,83.5,80.6,81.5,2980755,76.86,6.04,78.62,64.29,0.45
 20260601,81.5,82.2,80.5,81.1,2550572,77.21,5.04,79.2,64.78,0.39
 20260602,81.8,84,80.6,84,4333886,77.77,8,79.92,65.28,0.66
+20260603,84.8,85.2,83.1,83.4,3541818,78.24,6.59,80.27,65.77,0.55
 ```
 
 ## Latest TDCC Snapshot
@@ -171,18 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3028 | 增你強 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_strong_inflow | repeated_but_no_breakout | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_30d |
-| 20260602 | 3028 | 增你強 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_strong_inflow | repeated_but_no_breakout | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260603 | 3028 | 增你強 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3028 | 增你強 | 9 | 9 | 5 | 9 | 9 | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 3028 | 增你強 | 10 | 5 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3028 | 增你強 | 25 | 0 | 3539930.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260603 | 3028 | 增你強 | 25 | 0 | 2827340.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2374 佳能
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:29 Asia/Taipei
+- generated_at: 2026-06-04 01:54:41 Asia/Taipei
 - stock_id: 2374
 - stock_name: 佳能
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 85.4
-- high: 85.4
-- low: 81.4
-- close: 82.5
-- volume: 14325800
-- ma5: 81.96
-- ema23_primary: 80.3
-- distance_to_ema23_pct: 2.74
-- ma20: 81.17
-- ma60: 74.88
-- ma120: 77.45
-- return_5d: 0.12
-- return_20d: 1.85
-- volume_ratio: 1.08
-- distance_to_ma20_pct_auxiliary: 1.63
-- distance_to_high_60_pct: -4.51
+- date: 20260603
+- open: 82.5
+- high: 82.9
+- low: 81.5
+- close: 81.6
+- volume: 7506823
+- ma5: 82.12
+- ema23_primary: 80.41
+- distance_to_ema23_pct: 1.48
+- ma20: 81.3
+- ma60: 75.04
+- ma120: 77.46
+- return_5d: 0.99
+- return_20d: 3.03
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: 0.38
+- distance_to_high_60_pct: -5.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,81.4,81.6,78.4,79.2,10414092,74.47,6.35,73.61,74.53,1.16
 20260507,80.5,81.8,79.3,79.7,8917537,74.91,6.4,74.15,74.34,0.96
 20260508,79.6,81.1,77.1,78.5,8950990,75.21,4.38,74.62,74.08,0.93
 20260511,79,80.9,78.7,80.5,7900039,75.65,6.41,75.14,74,0.81
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,80,84.4,79.8,83.2,20794251,79.68,4.41,80.97,74.48,1.52
 20260601,84.2,86.4,83.3,84.7,21521256,80.1,5.74,81.1,74.72,1.6
 20260602,85.4,85.4,81.4,82.5,14325800,80.3,2.74,81.17,74.88,1.08
+20260603,82.5,82.9,81.5,81.6,7506823,80.41,1.48,81.3,75.04,0.57
 ```
 
 ## Latest TDCC Snapshot
@@ -172,19 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2374 | 佳能 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260602 | 2374 | 佳能 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260521 | 2374 | 佳能 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2374 | 佳能 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2374 | 佳能 | 9 | 9 | 5 | 9 | 9 | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 2374 | 佳能 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2374 | 佳能 | 90 | 2 | 15179790.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 2374 | 佳能 | 91 | 2 | 8537960.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

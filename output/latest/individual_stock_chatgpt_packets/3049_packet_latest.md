@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3049 精金
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:24 Asia/Taipei
+- generated_at: 2026-06-04 01:55:08 Asia/Taipei
 - stock_id: 3049
 - stock_name: 精金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,12 +58,12 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: breakout_initial
-- entry_style: breakout_follow
+- thesis_state: high_level_consolidation
+- entry_style: current_price_ok
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -76,7 +76,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -101,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 13.5
-- high: 14.4
-- low: 12.9
-- close: 14.4
-- volume: 32371295
-- ma5: 12.92
-- ema23_primary: 12.69
-- distance_to_ema23_pct: 13.52
-- ma20: 12.63
-- ma60: 12.93
-- ma120: 10.6
-- return_5d: 18.52
-- return_20d: 9.51
-- volume_ratio: 3.56
-- distance_to_ma20_pct_auxiliary: 13.97
-- distance_to_high_60_pct: -20
+- date: 20260603
+- open: 15.8
+- high: 15.8
+- low: 15.05
+- close: 15.8
+- volume: 55988858
+- ma5: 13.64
+- ema23_primary: 12.94
+- distance_to_ema23_pct: 22.06
+- ma20: 12.78
+- ma60: 12.95
+- ma120: 10.68
+- return_5d: 29.51
+- return_20d: 22.96
+- volume_ratio: 4.89
+- distance_to_ma20_pct_auxiliary: 23.61
+- distance_to_high_60_pct: -12.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,13.15,13.55,12.8,12.85,8504885,12.72,1.02,12.64,12.12,0.7
 20260507,12.55,13.35,12.55,13.1,8482171,12.75,2.73,12.72,12.19,0.69
 20260508,13.1,13.35,12.55,12.75,6791201,12.75,-0.02,12.73,12.26,0.57
 20260511,12.85,13.7,12.6,13.6,10301675,12.82,6.06,12.82,12.33,0.9
@@ -143,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,12.5,12.6,12.15,12.5,6122628,12.48,0.18,12.59,12.9,0.77
 20260601,12.95,13.5,12.7,13.1,18135107,12.53,4.55,12.57,12.91,2.15
 20260602,13.5,14.4,12.9,14.4,32371295,12.69,13.52,12.63,12.93,3.56
+20260603,15.8,15.8,15.05,15.8,55988858,12.94,22.06,12.78,12.95,4.89
 ```
 
 ## Latest TDCC Snapshot
@@ -172,17 +171,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3049 | 精金 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3049 | 精金 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3049 | 精金 | 2 | 2 | 2 | 2 | 2 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260603 | 3049 | 精金 | 3 | 1 | 3 | 3 | 3 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3049 | 精金 | 1 | 0 | 342550.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 3049 | 精金 | 1 | 0 | 699300.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

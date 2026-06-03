@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4916 事欣科
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:52 Asia/Taipei
+- generated_at: 2026-06-04 01:55:50 Asia/Taipei
 - stock_id: 4916
 - stock_name: 事欣科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -96,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 116
-- high: 116
-- low: 110
-- close: 114
-- volume: 4086731
-- ma5: 109.48
-- ema23_primary: 89.16
-- distance_to_ema23_pct: 27.86
-- ma20: 85.81
-- ma60: 69.24
-- ma120: 64.1
-- return_5d: 13.43
-- return_20d: 75.12
-- volume_ratio: 0.31
-- distance_to_ma20_pct_auxiliary: 32.85
-- distance_to_high_60_pct: -7.69
+- date: 20260603
+- open: 120
+- high: 124.5
+- low: 118
+- close: 124.5
+- volume: 3693035
+- ma5: 114.5
+- ema23_primary: 92.11
+- distance_to_ema23_pct: 35.17
+- ma20: 88.87
+- ma60: 70.29
+- ma120: 64.75
+- return_5d: 25.25
+- return_20d: 96.68
+- volume_ratio: 0.28
+- distance_to_ma20_pct_auxiliary: 40.09
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,66,66,62.6,63.3,4187329,62.72,0.93,62.81,61.61,0.56
 20260507,63.9,64.3,62.2,63.1,3414935,62.75,0.56,63.12,61.55,0.45
 20260508,63.6,66,61.7,62,7070240,62.69,-1.1,63.44,61.48,0.9
 20260511,64.7,67.7,62.6,67,9440717,63.05,6.27,63.95,61.52,1.15
@@ -138,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,108,112.5,104,112.5,6667076,83.98,33.95,80.58,67.33,0.51
 20260601,117,123.5,115.5,119,6365233,86.9,36.94,83.36,68.36,0.48
 20260602,116,116,110,114,4086731,89.16,27.86,85.81,69.24,0.31
+20260603,120,124.5,118,124.5,3693035,92.11,35.17,88.87,70.29,0.28
 ```
 
 ## Latest TDCC Snapshot
@@ -179,7 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 4916 | 事欣科 | 34 | 1 | 2095760.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 4916 | 事欣科 | 34 | 1 | 4762230.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

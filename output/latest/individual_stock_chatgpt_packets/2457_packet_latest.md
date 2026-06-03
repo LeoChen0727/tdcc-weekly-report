@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2457 飛宏
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:40 Asia/Taipei
+- generated_at: 2026-06-04 01:54:47 Asia/Taipei
 - stock_id: 2457
 - stock_name: 飛宏
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,14 +55,18 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
-- position_sizing: observe_only
+- entry_style: current_price_ok
+- position_sizing: starter_1_4
 
 ### management_plan
+- buy_first_tranche_now
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -72,7 +76,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -97,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 26.85
-- high: 26.85
-- low: 26
-- close: 26.5
-- volume: 4168094
-- ma5: 25.94
-- ema23_primary: 25.46
-- distance_to_ema23_pct: 4.09
-- ma20: 25.31
-- ma60: 25.55
-- ma120: 27.72
-- return_5d: 2.12
-- return_20d: 3.31
-- volume_ratio: 1.24
-- distance_to_ma20_pct_auxiliary: 4.7
-- distance_to_high_60_pct: -10.17
+- date: 20260603
+- open: 26.8
+- high: 29.15
+- low: 26.6
+- close: 29.15
+- volume: 8259703
+- ma5: 26.73
+- ema23_primary: 25.77
+- distance_to_ema23_pct: 13.13
+- ma20: 25.52
+- ma60: 25.56
+- ma120: 27.73
+- return_5d: 15.67
+- return_20d: 16.37
+- volume_ratio: 2.28
+- distance_to_ma20_pct_auxiliary: 14.25
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,25.7,25.8,24.7,25.05,2820282,24.99,0.24,24.64,26.9,1.05
 20260507,25.4,25.85,24.9,25.55,2868905,25.04,2.05,24.68,26.78,1.05
 20260508,25.5,25.55,24.2,24.25,4431797,24.97,-2.89,24.68,26.67,1.54
 20260511,24.5,25.5,24.3,25.5,3464600,25.02,1.94,24.76,26.61,1.19
@@ -139,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,25.4,26,25.15,26,3856330,25.23,3.05,25.16,25.62,1.21
 20260601,27,27.4,26.4,26.85,5181637,25.37,5.85,25.27,25.59,1.56
 20260602,26.85,26.85,26,26.5,4168094,25.46,4.09,25.31,25.55,1.24
+20260603,26.8,29.15,26.6,29.15,8259703,25.77,13.13,25.52,25.56,2.28
 ```
 
 ## Latest TDCC Snapshot
@@ -166,19 +169,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260603 | 2457 | 飛宏 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260603 | 2457 | 飛宏 | 2 | 1 | 3 | 4 | 4 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2457 | 飛宏 | 37 | 2 | 2747200.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260603 | 2457 | 飛宏 | 38 | 2 | 1509160.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

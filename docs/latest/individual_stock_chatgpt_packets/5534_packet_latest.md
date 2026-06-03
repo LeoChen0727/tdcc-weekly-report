@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5534 長虹
 
 ## Metadata
-- generated_at: 2026-06-02 23:28:26 Asia/Taipei
+- generated_at: 2026-06-04 01:56:05 Asia/Taipei
 - stock_id: 5534
 - stock_name: 長虹
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -97,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 74.7
-- high: 74.7
-- low: 73.5
-- close: 73.7
-- volume: 2209390
-- ma5: 74.44
-- ema23_primary: 76
-- distance_to_ema23_pct: -3.03
-- ma20: 76.22
-- ma60: 77.43
-- ma120: 78.79
-- return_5d: -1.86
-- return_20d: -5.03
-- volume_ratio: 2.3
-- distance_to_ma20_pct_auxiliary: -3.3
-- distance_to_high_60_pct: -13.5
+- date: 20260603
+- open: 73.9
+- high: 74
+- low: 72.7
+- close: 73.6
+- volume: 2112279
+- ma5: 74.14
+- ema23_primary: 75.8
+- distance_to_ema23_pct: -2.91
+- ma20: 76.01
+- ma60: 77.4
+- ma120: 78.75
+- return_5d: -2
+- return_20d: -5.28
+- volume_ratio: 2.04
+- distance_to_ma20_pct_auxiliary: -3.17
+- distance_to_high_60_pct: -13.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,77.7,78.2,77.3,77.7,607777,78.28,-0.74,79.17,77.67,0.61
 20260507,77.4,80,77.3,78.6,1120549,78.3,0.38,79.08,77.69,1.12
 20260508,78.6,79.5,78.4,78.4,942557,78.31,0.11,78.79,77.7,1.01
 20260511,78.4,79.8,77.8,79.4,715849,78.4,1.27,78.57,77.73,0.8
@@ -139,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,74.8,74.8,74.1,74.1,1148559,76.35,-2.95,76.56,77.44,1.32
 20260601,74.3,74.8,73.7,74.7,1101614,76.21,-1.98,76.41,77.45,1.24
 20260602,74.7,74.7,73.5,73.7,2209390,76,-3.03,76.22,77.43,2.3
+20260603,73.9,74,72.7,73.6,2112279,75.8,-2.91,76.01,77.4,2.04
 ```
 
 ## Latest TDCC Snapshot
@@ -178,7 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 5534 | 長虹 | 4 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 5534 | 長虹 | 4 | 0 | 2100.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

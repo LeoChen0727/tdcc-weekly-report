@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6139 亞翔
 
 ## Metadata
-- generated_at: 2026-06-02 23:28:39 Asia/Taipei
+- generated_at: 2026-06-04 01:56:11 Asia/Taipei
 - stock_id: 6139
 - stock_name: 亞翔
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 782
-- high: 789
-- low: 760
-- close: 762
-- volume: 3441594
-- ma5: 781.2
-- ema23_primary: 742.04
-- distance_to_ema23_pct: 2.69
-- ma20: 743.95
-- ma60: 655.68
-- ma120: 603.8
-- return_5d: -7.75
-- return_20d: 10.28
-- volume_ratio: 0.64
-- distance_to_ma20_pct_auxiliary: 2.43
-- distance_to_high_60_pct: -10.67
+- date: 20260603
+- open: 762
+- high: 798
+- low: 762
+- close: 784
+- volume: 2887793
+- ma5: 775.8
+- ema23_primary: 745.54
+- distance_to_ema23_pct: 5.16
+- ma20: 747.4
+- ma60: 659.98
+- ma120: 606.54
+- return_5d: -3.33
+- return_20d: 9.65
+- volume_ratio: 0.55
+- distance_to_ma20_pct_auxiliary: 4.9
+- distance_to_high_60_pct: -8.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,703,717,682,715,4233678,662.2,7.97,673.2,593.9,0.77
 20260507,729,740,710,721,3261150,667.1,8.08,681.55,596.1,0.6
 20260508,719,735,693,714,3093168,671.01,6.41,687,597.77,0.6
 20260511,719,719,655,679,6692308,671.68,1.09,689.15,599.5,1.34
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,781,792,768,784,3939440,736.89,6.39,736.3,647.45,0.74
 20260601,791,792,765,777,3006483,740.23,4.97,740.4,652,0.57
 20260602,782,789,760,762,3441594,742.04,2.69,743.95,655.68,0.64
+20260603,762,798,762,784,2887793,745.54,5.16,747.4,659.98,0.55
 ```
 
 ## Latest TDCC Snapshot
@@ -172,19 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6139 | 亞翔 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260602 | 6139 | 亞翔 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260521 | 6139 | 亞翔 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 6139 | 亞翔 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6139 | 亞翔 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 6139 | 亞翔 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6139 | 亞翔 | 220 | 5 | 25009810.0 | 1900.0 | 13163.06 | no_signal | 0 |  |
+| 20260603 | 6139 | 亞翔 | 221 | 5 | 26133150.0 | 1900.0 | 13754.29 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

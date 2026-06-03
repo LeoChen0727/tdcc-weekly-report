@@ -1,17 +1,17 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2324 仁寶
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:22 Asia/Taipei
+- generated_at: 2026-06-04 01:54:37 Asia/Taipei
 - stock_id: 2324
 - stock_name: 仁寶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
-- individual_report_md_exists: False
-- sell_strategy_summary_exists: False
+- individual_report_md_exists: True
+- sell_strategy_summary_exists: True
 - notes: TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
 
 ## Stable Read URLs
@@ -59,11 +59,11 @@
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: high_level_distribution_risk
-- entry_style: breakout_follow
+- entry_style: current_price_ok
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -100,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 44.3
-- high: 44.35
-- low: 43.1
-- close: 44.35
-- volume: 177995051
-- ma5: 37.66
-- ema23_primary: 33.12
-- distance_to_ema23_pct: 33.89
-- ma20: 32.06
-- ma60: 30.9
-- ma120: 30.82
-- return_5d: 31.99
-- return_20d: 51.37
-- volume_ratio: 1.26
-- distance_to_ma20_pct_auxiliary: 38.32
-- distance_to_high_60_pct: 0
+- date: 20260603
+- open: 45
+- high: 47.75
+- low: 43.3
+- close: 47.05
+- volume: 400804733
+- ma5: 40.39
+- ema23_primary: 34.29
+- distance_to_ema23_pct: 37.23
+- ma20: 32.95
+- ma60: 31.16
+- ma120: 30.97
+- return_5d: 40.87
+- return_20d: 61.13
+- volume_ratio: 2.51
+- distance_to_ma20_pct_auxiliary: 42.77
+- distance_to_high_60_pct: -1.47
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,29.5,29.5,28.75,29.2,42782855,29.82,-2.07,29.66,30.53,0.9
 20260507,29.3,29.5,29,29.45,49285993,29.79,-1.13,29.74,30.48,1.01
 20260508,29.9,30.25,29.15,29.65,60000149,29.77,-0.42,29.86,30.45,1.2
 20260511,29.9,31.1,29.25,30.8,81430532,29.86,3.15,29.99,30.41,1.55
@@ -142,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,35.25,36.85,35,36.7,709500533,31.35,17.05,30.75,30.48,5.52
 20260601,40.05,40.35,40.05,40.35,113043360,32.1,25.68,31.31,30.67,0.85
 20260602,44.3,44.35,43.1,44.35,177995051,33.12,33.89,32.06,30.9,1.26
+20260603,45,47.75,43.3,47.05,400804733,34.29,37.23,32.95,31.16,2.51
 ```
 
 ## Latest TDCC Snapshot
@@ -171,18 +171,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2324 | 仁寶 | true_breakout | 嚴格突破 | 61.0 |  |  |  |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 2324 | 仁寶 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2324 | 仁寶 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | mixed_flow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2324 | 仁寶 | 9 | 9 | 5 | 9 | 9 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260603 | 2324 | 仁寶 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2324 | 仁寶 | 76 | 4 | 16487150.0 | 46330.0 | 355.86 | no_signal | 0 |  |
+| 20260603 | 2324 | 仁寶 | 79 | 4 | 50451700.0 | 1075060.0 | 46.93 | mixed_flow | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

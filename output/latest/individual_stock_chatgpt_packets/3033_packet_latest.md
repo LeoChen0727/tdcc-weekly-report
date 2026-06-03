@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3033 威健
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:21 Asia/Taipei
+- generated_at: 2026-06-04 01:55:07 Asia/Taipei
 - stock_id: 3033
 - stock_name: 威健
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 48.85
-- high: 49.7
-- low: 48.45
-- close: 49.7
-- volume: 7798189
-- ma5: 49.93
-- ema23_primary: 46.6
-- distance_to_ema23_pct: 6.65
-- ma20: 47.97
-- ma60: 38.36
-- ma120: 34.57
-- return_5d: -1.19
-- return_20d: 28.92
-- volume_ratio: 0.32
-- distance_to_ma20_pct_auxiliary: 3.62
-- distance_to_high_60_pct: -10.13
+- date: 20260603
+- open: 50.5
+- high: 50.5
+- low: 49.6
+- close: 49.65
+- volume: 7582176
+- ma5: 49.72
+- ema23_primary: 46.86
+- distance_to_ema23_pct: 5.96
+- ma20: 48.33
+- ma60: 38.68
+- ma120: 34.73
+- return_5d: -2.07
+- return_20d: 17.1
+- volume_ratio: 0.34
+- distance_to_ma20_pct_auxiliary: 2.74
+- distance_to_high_60_pct: -10.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,40.8,42.4,40.45,42.4,51739018,35.59,19.12,35.38,32.84,5.85
 20260507,45,45.3,42.6,42.9,36045998,36.2,18.5,35.87,33.05,3.44
 20260508,42.4,45,41.95,43.85,21596063,36.84,19.03,36.41,33.27,1.89
 20260511,44.6,45.5,43.55,44,16760650,37.44,17.53,36.94,33.48,1.39
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,50.8,50.9,49.55,50.3,10625441,46.09,9.13,46.86,37.7,0.42
 20260601,50.3,50.5,48.05,48.85,17868088,46.32,5.46,47.41,38.03,0.72
 20260602,48.85,49.7,48.45,49.7,7798189,46.6,6.65,47.97,38.36,0.32
+20260603,50.5,50.5,49.6,49.65,7582176,46.86,5.96,48.33,38.68,0.34
 ```
 
 ## Latest TDCC Snapshot
@@ -172,17 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3033 | 威健 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3033 | 威健 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3033 | 威健 | 2 | 2 | 2 | 3 | 3 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 3033 | 威健 | 3 | 3 | 3 | 4 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3033 | 威健 | 32 | 0 | 6382260.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 3033 | 威健 | 32 | 0 | 3808910.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

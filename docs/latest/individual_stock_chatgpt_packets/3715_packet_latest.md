@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3715 定穎投控
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:18 Asia/Taipei
+- generated_at: 2026-06-04 01:55:34 Asia/Taipei
 - stock_id: 3715
 - stock_name: 定穎投控
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,18 +55,14 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: starter_position
-- action_rating_label_zh: 可小量試單
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
 - entry_style: pullback_to_23ema
-- position_sizing: starter_1_4
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -101,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 185
-- high: 185.5
-- low: 172
-- close: 173.5
-- volume: 12856675
-- ma5: 175.8
-- ema23_primary: 176.74
-- distance_to_ema23_pct: -1.84
-- ma20: 176.47
-- ma60: 177.17
-- ma120: 154.5
-- return_5d: -6.72
-- return_20d: -11.7
-- volume_ratio: 0.89
-- distance_to_ma20_pct_auxiliary: -1.69
-- distance_to_high_60_pct: -14.74
+- date: 20260603
+- open: 175
+- high: 179
+- low: 172.5
+- close: 174
+- volume: 6319028
+- ma5: 174.8
+- ema23_primary: 176.52
+- distance_to_ema23_pct: -1.43
+- ma20: 175.85
+- ma60: 177.51
+- ma120: 154.96
+- return_5d: -2.79
+- return_20d: -6.7
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: -1.05
+- distance_to_high_60_pct: -14.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,198,200,183,186.5,44004111,182.16,2.38,185.72,167.98,1.7
 20260507,189,192,185,189,19073946,182.73,3.43,185.45,168.63,0.77
 20260508,189,190.5,177,180.5,19061361,182.54,-1.12,185.12,169.26,0.79
 20260511,182,182,177,181.5,8846837,182.46,-0.52,184.88,169.9,0.38
@@ -143,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,173,179.5,171.5,173.5,9388270,176.59,-1.75,177.47,176.15,0.59
 20260601,176,185.5,173.5,182,15082932,177.04,2.8,177.62,176.77,0.94
 20260602,185,185.5,172,173.5,12856675,176.74,-1.84,176.47,177.17,0.89
+20260603,175,179,172.5,174,6319028,176.52,-1.43,175.85,177.51,0.51
 ```
 
 ## Latest TDCC Snapshot
@@ -170,19 +166,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3715 | 定穎投控 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3715 | 定穎投控 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3715 | 定穎投控 | 241 | 15 | 23442110.0 | 331820.0 | 70.65 | no_signal | 0 |  |
+| 20260603 | 3715 | 定穎投控 | 240 | 15 | 11616100.0 | 112750.0 | 103.03 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

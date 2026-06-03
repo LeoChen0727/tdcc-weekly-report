@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3289 宜特
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:42 Asia/Taipei
+- generated_at: 2026-06-04 01:55:17 Asia/Taipei
 - stock_id: 3289
 - stock_name: 宜特
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,11 +59,11 @@
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -76,7 +76,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -101,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 168.5
-- high: 169
-- low: 160.5
-- close: 164.5
-- volume: 164
-- ma5: 166.8
-- ema23_primary: 170.16
-- distance_to_ema23_pct: -3.33
-- ma20: 170.38
-- ma60: 161.05
-- ma120: 140.07
-- return_5d: -4.64
-- return_20d: -14.32
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: -3.45
-- distance_to_high_60_pct: -24.89
+- date: 20260603
+- open: 166
+- high: 180.5
+- low: 166
+- close: 180.5
+- volume: 175000
+- ma5: 169
+- ema23_primary: 171.02
+- distance_to_ema23_pct: 5.54
+- ma20: 170.4
+- ma60: 161.87
+- ma120: 140.69
+- return_5d: 6.49
+- return_20d: 0.28
+- volume_ratio: 0.09
+- distance_to_ma20_pct_auxiliary: 5.93
+- distance_to_high_60_pct: -17.58
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,192,194.5,175,180,8808000,177.48,1.42,182.85,148.99,1.54
 20260507,182,184.5,176,179,3753000,177.61,0.78,184.95,149.74,0.65
 20260508,172.5,183,171,175.5,4907000,177.43,-1.09,186.2,150.33,0.89
 20260511,177,186.5,172,181.5,5213000,177.77,2.1,187.5,151.11,1.01
@@ -143,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,168.5,171,165,168,168000,171.05,-1.78,173.12,159.9,0.05
 20260601,169,170,166,166.5,168,170.67,-2.45,171.75,160.53,0
 20260602,168.5,169,160.5,164.5,164,170.16,-3.33,170.38,161.05,0
+20260603,166,180.5,166,180.5,175000,171.02,5.54,170.4,161.87,0.09
 ```
 
 ## Latest TDCC Snapshot
@@ -172,12 +171,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 3289 | 宜特 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3289 | 宜特 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3289 | 宜特 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 3289 | 宜特 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

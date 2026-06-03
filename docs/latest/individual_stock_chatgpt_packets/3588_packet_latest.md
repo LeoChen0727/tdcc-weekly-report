@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3588 通嘉
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:06 Asia/Taipei
+- generated_at: 2026-06-04 01:55:28 Asia/Taipei
 - stock_id: 3588
 - stock_name: 通嘉
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,14 +55,18 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: healthy_pullback
 - entry_style: pullback_to_23ema
-- position_sizing: observe_only
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -71,6 +75,7 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -97,29 +102,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 64
-- high: 68
-- low: 61.8
-- close: 63.9
-- volume: 1320900
-- ma5: 63.1
-- ema23_primary: 61.74
-- distance_to_ema23_pct: 3.5
-- ma20: 62.05
-- ma60: 56.31
-- ma120: 53.52
-- return_5d: -1.84
-- return_20d: 2.24
-- volume_ratio: 1.8
-- distance_to_ma20_pct_auxiliary: 2.98
-- distance_to_high_60_pct: -10.75
+- date: 20260603
+- open: 63.9
+- high: 63.9
+- low: 62.3
+- close: 62.4
+- volume: 569598
+- ma5: 62.68
+- ema23_primary: 61.79
+- distance_to_ema23_pct: 0.98
+- ma20: 62.12
+- ma60: 56.53
+- ma120: 53.65
+- return_5d: -3.26
+- return_20d: 2.3
+- volume_ratio: 0.79
+- distance_to_ma20_pct_auxiliary: 0.45
+- distance_to_high_60_pct: -12.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,63,63.5,60.5,61,835888,58.33,4.58,58.62,53.22,0.46
 20260507,61.3,62.4,60.9,61.7,476199,58.61,5.27,59.15,53.27,0.26
 20260508,60.8,63,59,59.2,953592,58.66,0.92,59.49,53.36,0.52
 20260511,59.5,64.8,59.3,63.6,964880,59.07,7.67,60.06,53.51,0.52
@@ -139,6 +143,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,62.9,63.4,61.3,61.8,621229,61.35,0.73,61.85,55.8,0.9
 20260601,61.8,64.5,61.8,63.6,1013354,61.54,3.34,61.98,56.07,1.43
 20260602,64,68,61.8,63.9,1320900,61.74,3.5,62.05,56.31,1.8
+20260603,63.9,63.9,62.3,62.4,569598,61.79,0.98,62.12,56.53,0.79
 ```
 
 ## Latest TDCC Snapshot
@@ -166,14 +171,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260603 | 3588 | 通嘉 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260603 | 3588 | 通嘉 | 1 | 1 | 3 | 3 | 3 | repeated_but_no_breakout | 近 10 日上榜 3 次、近 20 日上榜 3 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6548 長科*
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:16 Asia/Taipei
+- generated_at: 2026-06-04 01:56:29 Asia/Taipei
 - stock_id: 6548
 - stock_name: 長科*
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -100,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 77.5
-- high: 82.5
-- low: 74.1
-- close: 81.1
-- volume: 80
-- ma5: 70.36
-- ema23_primary: 58.9
-- distance_to_ema23_pct: 37.69
-- ma20: 56.44
-- ma60: 52.12
-- ma120: 49.64
-- return_5d: 34.49
-- return_20d: 53.31
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: 43.71
-- distance_to_high_60_pct: -1.7
+- date: 20260603
+- open: 81.5
+- high: 89.2
+- low: 80.3
+- close: 89.2
+- volume: 85000
+- ma5: 75.98
+- ema23_primary: 61.42
+- distance_to_ema23_pct: 45.22
+- ma20: 58.3
+- ma60: 52.8
+- ma120: 50.05
+- return_5d: 45.99
+- return_20d: 72.2
+- volume_ratio: 0.03
+- distance_to_ma20_pct_auxiliary: 52.99
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,53.4,53.4,49.6,51.8,8830000,52.14,-0.66,52.96,50.16,0.72
 20260507,51.8,52.6,51.6,52,3955000,52.13,-0.25,53.12,50.02,0.33
 20260508,52.5,53.9,51.6,52.6,9813000,52.17,0.82,53.2,49.89,0.84
 20260511,53.5,54.5,52.6,53.7,8158000,52.3,2.68,53.3,49.82,0.71
@@ -142,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,66.5,68.4,64.6,68.2,67000,55.23,23.47,53.88,50.99,0.02
 20260601,71.3,75,71.3,75,75,56.88,31.85,55.02,51.53,0
 20260602,77.5,82.5,74.1,81.1,80,58.9,37.69,56.44,52.12,0
+20260603,81.5,89.2,80.3,89.2,85000,61.42,45.22,58.3,52.8,0.03
 ```
 
 ## Latest TDCC Snapshot
@@ -171,12 +171,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 6548 | 長科* | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 6548 | 長科* | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6548 | 長科* | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 6548 | 長科* | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

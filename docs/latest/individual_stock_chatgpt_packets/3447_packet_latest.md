@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3447 展達
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:53 Asia/Taipei
+- generated_at: 2026-06-04 01:55:22 Asia/Taipei
 - stock_id: 3447
 - stock_name: 展達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,8 +58,8 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: breakout_initial
-- entry_style: breakout_follow
+- thesis_state: unclear
+- entry_style: pullback_to_23ema
 - position_sizing: starter_1_4
 
 ### management_plan
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 39.35
-- high: 40.8
-- low: 39.15
-- close: 40.4
-- volume: 1095348
-- ma5: 37.72
-- ema23_primary: 37.81
-- distance_to_ema23_pct: 6.86
-- ma20: 37.6
-- ma60: 38.78
-- ma120: 42.83
-- return_5d: 8.31
-- return_20d: 3.59
-- volume_ratio: 3.67
-- distance_to_ma20_pct_auxiliary: 7.45
-- distance_to_high_60_pct: -7.02
+- date: 20260603
+- open: 41.2
+- high: 43.7
+- low: 40.6
+- close: 42.7
+- volume: 1445868
+- ma5: 39.05
+- ema23_primary: 38.21
+- distance_to_ema23_pct: 11.74
+- ma20: 37.81
+- ma60: 38.82
+- ma120: 42.75
+- return_5d: 18.45
+- return_20d: 11.2
+- volume_ratio: 4.02
+- distance_to_ma20_pct_auxiliary: 12.92
+- distance_to_high_60_pct: -2.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,39.05,39.1,38,38.4,211263,38.67,-0.71,38.49,40.31,1.03
 20260507,38.4,39.85,38.4,39.2,232020,38.72,1.24,38.51,40.19,1.12
 20260508,39.8,39.8,37.7,39.4,227097,38.78,1.61,38.57,40.04,1.08
 20260511,39.4,39.4,38.35,38.4,289872,38.74,-0.89,38.61,39.94,1.37
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,36.45,37.1,36.35,36.9,180864,37.48,-1.54,37.56,38.79,0.73
 20260601,36.9,39,36.9,38.6,460069,37.57,2.74,37.53,38.78,1.83
 20260602,39.35,40.8,39.15,40.4,1095348,37.81,6.86,37.6,38.78,3.67
+20260603,41.2,43.7,40.6,42.7,1445868,38.21,11.74,37.81,38.82,4.02
 ```
 
 ## Latest TDCC Snapshot
@@ -172,12 +172,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3447 | 展達 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | first_seen | calendar event: ex_dividend on 20260622; status=confirmed; proximity=within_30d |
+| 20260603 | 3447 | 展達 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | continued_2_3d | calendar event: ex_dividend on 20260622; status=confirmed; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3447 | 展達 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| 20260603 | 3447 | 展達 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

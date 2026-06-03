@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3047 訊舟
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:24 Asia/Taipei
+- generated_at: 2026-06-04 01:55:08 Asia/Taipei
 - stock_id: 3047
 - stock_name: 訊舟
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,15 +55,15 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: buy_now
-- action_rating_label_zh: 建議買進
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: breakout_initial
-- entry_style: breakout_follow
-- position_sizing: normal_position
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
-- buy_first_tranche_now
+- buy_first_tranche_near_support
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -104,29 +104,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 15.6
-- high: 16.95
-- low: 15.4
-- close: 16.95
-- volume: 6126437
-- ma5: 15.44
-- ema23_primary: 15.12
-- distance_to_ema23_pct: 12.1
-- ma20: 14.82
-- ma60: 15.46
+- date: 20260603
+- open: 17.5
+- high: 17.6
+- low: 16.6
+- close: 17
+- volume: 7063133
+- ma5: 15.86
+- ema23_primary: 15.28
+- distance_to_ema23_pct: 11.28
+- ma20: 14.95
+- ma60: 15.47
 - ma120: 16.87
-- return_5d: 12.25
-- return_20d: 13.38
-- volume_ratio: 3.59
-- distance_to_ma20_pct_auxiliary: 14.35
-- distance_to_high_60_pct: -1.74
+- return_5d: 14.09
+- return_20d: 17.24
+- volume_ratio: 3.54
+- distance_to_ma20_pct_auxiliary: 13.73
+- distance_to_high_60_pct: -3.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,15,15,14.4,14.5,1305444,15.34,-5.5,15.37,16.38,1.07
 20260507,14.55,14.8,14.4,14.75,1224032,15.29,-3.56,15.31,16.3,1
 20260508,14.7,14.95,14.3,14.4,1289480,15.22,-5.39,15.24,16.23,1.03
 20260511,14.3,14.75,14.25,14.65,1066547,15.17,-3.44,15.2,16.18,0.86
@@ -146,6 +145,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,14.95,15.15,14.85,15.1,1406158,14.91,1.28,14.68,15.47,1.01
 20260601,15.15,15.65,15,15.45,2202651,14.95,3.32,14.72,15.46,1.51
 20260602,15.6,16.95,15.4,16.95,6126437,15.12,12.1,14.82,15.46,3.59
+20260603,17.5,17.6,16.6,17,7063133,15.28,11.28,14.95,15.47,3.54
 ```
 
 ## Latest TDCC Snapshot
@@ -175,12 +175,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3047 | 訊舟 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3047 | 訊舟 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3047 | 訊舟 | 3 | 2 | 3 | 4 | 4 | continued_2_3d | 連續 3 個交易日上榜，訊號延續但仍需確認。 |
+| 20260603 | 3047 | 訊舟 | 4 | 3 | 4 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 5 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6805 富世達
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:42 Asia/Taipei
+- generated_at: 2026-06-04 01:56:41 Asia/Taipei
 - stock_id: 6805
 - stock_name: 富世達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,8 +58,8 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: high_level_distribution_risk
-- entry_style: breakout_follow
+- thesis_state: unclear
+- entry_style: pullback_to_23ema
 - position_sizing: starter_1_4
 
 ### management_plan
@@ -79,6 +79,7 @@
 - near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -93,7 +94,6 @@
 ### downgrade_reason
 - insufficient_tdcc_history
 - tdcc_distribution_warning
-- price_too_extended
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 2150
-- high: 2245
-- low: 2100
-- close: 2190
-- volume: 4685723
-- ma5: 1949
-- ema23_primary: 1887.39
-- distance_to_ema23_pct: 16.03
-- ma20: 1853.75
-- ma60: 1876.17
-- ma120: 1689.88
-- return_5d: 22.69
-- return_20d: 9.77
-- volume_ratio: 2.03
-- distance_to_ma20_pct_auxiliary: 18.14
-- distance_to_high_60_pct: -3.74
+- date: 20260603
+- open: 2240
+- high: 2260
+- low: 2020
+- close: 2085
+- volume: 3383927
+- ma5: 2018
+- ema23_primary: 1903.85
+- distance_to_ema23_pct: 9.51
+- ma20: 1864
+- ma60: 1880.17
+- ma120: 1694.17
+- return_5d: 19.83
+- return_20d: 10.9
+- volume_ratio: 1.52
+- distance_to_ma20_pct_auxiliary: 11.86
+- distance_to_high_60_pct: -8.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,2015,2015,1805,1880,5137849,1944.49,-3.32,1934.5,1785,1.99
 20260507,1925,1950,1875,1920,1763898,1942.45,-1.16,1936,1792.17,0.7
 20260508,1925,2035,1900,1980,2786603,1945.58,1.77,1943,1800.42,1.08
 20260511,2020,2055,1965,1995,1945868,1949.7,2.32,1949.5,1809.92,0.75
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,1835,1940,1800,1930,4063304,1836.23,5.11,1848.75,1860.33,1.83
 20260601,2040,2120,2040,2120,2968078,1859.88,13.99,1844,1868.25,1.32
 20260602,2150,2245,2100,2190,4685723,1887.39,16.03,1853.75,1876.17,2.03
+20260603,2240,2260,2020,2085,3383927,1903.85,9.51,1864,1880.17,1.52
 ```
 
 ## Latest TDCC Snapshot
@@ -172,17 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6805 | 富世達 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | call_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 6805 | 富世達 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6805 | 富世達 | 7 | 3 | 5 | 7 | 7 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260603 | 6805 | 富世達 | 1 | 1 | 4 | 7 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6805 | 富世達 | 159 | 7 | 56968550.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260603 | 6805 | 富世達 | 155 | 6 | 25051080.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

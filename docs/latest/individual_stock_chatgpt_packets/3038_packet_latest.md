@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3038 全台
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:22 Asia/Taipei
+- generated_at: 2026-06-04 01:55:07 Asia/Taipei
 - stock_id: 3038
 - stock_name: 全台
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 27
 - tdcc_history_status: tdcc_history_ready
@@ -59,7 +59,7 @@
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: observe_only
 
 ### management_plan
@@ -72,7 +72,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -97,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 24
-- high: 24.15
-- low: 23.3
-- close: 23.8
-- volume: 753666
-- ma5: 23.47
-- ema23_primary: 23.01
-- distance_to_ema23_pct: 3.42
-- ma20: 22.95
-- ma60: 22.37
-- ma120: 22.65
-- return_5d: 1.49
-- return_20d: 2.37
-- volume_ratio: 1.52
-- distance_to_ma20_pct_auxiliary: 3.68
-- distance_to_high_60_pct: -2.06
+- date: 20260603
+- open: 23.75
+- high: 25.2
+- low: 23.75
+- close: 25.2
+- volume: 1646760
+- ma5: 23.86
+- ema23_primary: 23.2
+- distance_to_ema23_pct: 8.64
+- ma20: 23.05
+- ma60: 22.41
+- ma120: 22.69
+- return_5d: 8.39
+- return_20d: 8.62
+- volume_ratio: 2.97
+- distance_to_ma20_pct_auxiliary: 9.3
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,23.3,23.45,23.1,23.2,477424,22.62,2.58,22.59,22.42,0.83
 20260507,23.2,23.4,23.05,23.3,402483,22.67,2.76,22.72,22.41,0.69
 20260508,23.25,23.3,22.75,22.85,405497,22.69,0.71,22.84,22.39,0.69
 20260511,22.8,22.85,22.4,22.5,484391,22.67,-0.76,22.94,22.38,0.8
@@ -139,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,23.6,23.85,23.1,23.2,516096,22.86,1.47,22.89,22.31,1.18
 20260601,23.3,24.3,23.25,23.8,1094047,22.94,3.74,22.93,22.35,2.3
 20260602,24,24.15,23.3,23.8,753666,23.01,3.42,22.95,22.37,1.52
+20260603,23.75,25.2,23.75,25.2,1646760,23.2,8.64,23.05,22.41,2.97
 ```
 
 ## Latest TDCC Snapshot

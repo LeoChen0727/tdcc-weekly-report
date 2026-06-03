@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6890 來億-KY
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:50 Asia/Taipei
+- generated_at: 2026-06-04 01:56:44 Asia/Taipei
 - stock_id: 6890
 - stock_name: 來億-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,20 +55,14 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: buy_now
-- action_rating_label_zh: 建議買進
+- action_rating: wait_pullback
+- action_rating_label_zh: 等待回檔
 - confidence_level: medium
-- thesis_state: breakout_confirmed
-- entry_style: breakout_follow
-- position_sizing: normal_position
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_support
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_now
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
-- take_profit_near_prior_high
-- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
@@ -79,10 +73,10 @@
 - decision_priority_high
 - decision_score_high
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -96,6 +90,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- price_too_extended
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -103,29 +98,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 177.5
-- high: 191.5
-- low: 175.5
-- close: 191.5
-- volume: 2485806
-- ma5: 174.7
-- ema23_primary: 168.35
-- distance_to_ema23_pct: 13.75
-- ma20: 166.35
-- ma60: 164.9
-- ma120: 202.62
-- return_5d: 13.31
-- return_20d: 21.2
-- volume_ratio: 3.51
-- distance_to_ma20_pct_auxiliary: 15.12
+- date: 20260603
+- open: 201
+- high: 210.5
+- low: 198
+- close: 210.5
+- volume: 4246125
+- ma5: 182.7
+- ema23_primary: 171.86
+- distance_to_ema23_pct: 22.48
+- ma20: 169.12
+- ma60: 165.44
+- ma120: 202.12
+- return_5d: 23.46
+- return_20d: 35.81
+- volume_ratio: 4.75
+- distance_to_ma20_pct_auxiliary: 24.46
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,160,160,154,155,530922,161.98,-4.31,159.88,177.83,0.79
 20260507,147,157,142,154.5,1352913,161.35,-4.25,159.62,176.5,1.9
 20260508,154.5,157.5,150,154,747248,160.74,-4.19,159.8,175.21,1.07
 20260511,153,163,152.5,161,551261,160.76,0.15,160.28,174.14,0.79
@@ -145,6 +139,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,171,171,167,167.5,509764,165.49,1.21,163.8,164.84,0.9
 20260601,169,177,169,174.5,930807,166.24,4.97,164.68,164.72,1.56
 20260602,177.5,191.5,175.5,191.5,2485806,168.35,13.75,166.35,164.9,3.51
+20260603,201,210.5,198,210.5,4246125,171.86,22.48,169.12,165.44,4.75
 ```
 
 ## Latest TDCC Snapshot
@@ -174,17 +169,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6890 | 來億-KY | true_breakout | 嚴格突破 | 114.0 |  |  | breakout_confirmed |  | call_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 6890 | 來億-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  | call_strong_inflow | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6890 | 來億-KY | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| 20260603 | 6890 | 來億-KY | 2 | 1 | 2 | 2 | 2 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6890 | 來億-KY | 26 | 0 | 1622920.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260603 | 6890 | 來億-KY | 26 | 0 | 4910980.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

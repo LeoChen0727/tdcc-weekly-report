@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2606 裕民
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:54 Asia/Taipei
+- generated_at: 2026-06-04 01:54:53 Asia/Taipei
 - stock_id: 2606
 - stock_name: 裕民
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 27
 - tdcc_history_status: tdcc_history_ready
@@ -100,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 72
-- high: 72
-- low: 69.7
-- close: 72
-- volume: 5864555
-- ma5: 71.26
-- ema23_primary: 66.77
-- distance_to_ema23_pct: 7.83
-- ma20: 66.56
-- ma60: 62.66
-- ma120: 62.54
-- return_5d: 2.86
-- return_20d: 14.65
-- volume_ratio: 0.77
-- distance_to_ma20_pct_auxiliary: 8.17
-- distance_to_high_60_pct: -1.23
+- date: 20260603
+- open: 72.5
+- high: 73
+- low: 70.7
+- close: 71.1
+- volume: 6649176
+- ma5: 70.98
+- ema23_primary: 67.13
+- distance_to_ema23_pct: 5.91
+- ma20: 66.91
+- ma60: 62.78
+- ma120: 62.62
+- return_5d: -1.93
+- return_20d: 10.75
+- volume_ratio: 0.87
+- distance_to_ma20_pct_auxiliary: 6.27
+- distance_to_high_60_pct: -2.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,64.6,65.5,64,64.2,6072604,61.66,4.12,61.9,61.75,1.56
 20260507,65.5,65.6,64.2,65.1,7348121,61.94,5.09,62.12,61.73,1.79
 20260508,65.3,66.5,64.9,65,6973994,62.2,4.5,62.33,61.77,1.62
 20260511,65.1,65.7,64.4,65.3,4072288,62.46,4.55,62.55,61.82,0.93
@@ -142,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,72.1,72.1,68.6,69,5406350,65.78,4.89,65.62,62.47,0.74
 20260601,68.8,72.1,68.5,71.9,6679569,66.29,8.46,66.1,62.56,0.89
 20260602,72,72,69.7,72,5864555,66.77,7.83,66.56,62.66,0.77
+20260603,72.5,73,70.7,71.1,6649176,67.13,5.91,66.91,62.78,0.87
 ```
 
 ## Latest TDCC Snapshot
@@ -178,18 +178,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2606 | 裕民 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: ex_dividend on 20260616; status=confirmed; proximity=within_14d |
-| 20260521 | 2606 | 裕民 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | stale_signal | calendar event: ex_dividend on 20260616; status=confirmed; proximity=within_14d |
+| 20260603 | 2606 | 裕民 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | calendar event: ex_dividend on 20260616; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2606 | 裕民 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 2606 | 裕民 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2606 | 裕民 | 42 | 1 | 3100470.0 | 5280.0 | 587.21 | no_signal | 0 |  |
+| 20260603 | 2606 | 裕民 | 42 | 1 | 1928410.0 | 6450.0 | 298.98 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

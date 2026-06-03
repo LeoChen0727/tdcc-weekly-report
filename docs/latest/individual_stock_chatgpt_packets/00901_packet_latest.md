@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00901 永豐智能車供應鏈
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:08 Asia/Taipei
+- generated_at: 2026-06-04 01:54:04 Asia/Taipei
 - stock_id: 00901
 - stock_name: 永豐智能車供應鏈
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260602
-- price_rows: 8
+- latest_price_date: 20260603
+- price_rows: 9
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -97,23 +97,23 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 47.72
-- high: 48.06
-- low: 46.63
-- close: 47.53
-- volume: 435714
-- ma5: 46.84
-- ema23_primary: 44.51
-- distance_to_ema23_pct: 6.79
-- ma20: 45.93
-- ma60: 45.93
-- ma120: 45.93
-- return_5d: 5.13
+- date: 20260603
+- open: 48.09
+- high: 48.56
+- low: 48.09
+- close: 48.39
+- volume: 443393
+- ma5: 47.15
+- ema23_primary: 44.83
+- distance_to_ema23_pct: 7.93
+- ma20: 46.21
+- ma60: 46.21
+- ma120: 46.21
+- return_5d: 3.24
 - return_20d: 
-- volume_ratio: 0.35
-- distance_to_ma20_pct_auxiliary: 3.48
-- distance_to_high_60_pct: -1.12
+- volume_ratio: 0.38
+- distance_to_ma20_pct_auxiliary: 4.73
+- distance_to_high_60_pct: -0.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -127,6 +127,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,46.48,46.9,46.18,46.81,720475,43.92,6.58,45.38,45.38,0.47
 20260601,47.69,48.07,47.37,47.68,397317,44.23,7.79,45.7,45.7,0.29
 20260602,47.72,48.06,46.63,47.53,435714,44.51,6.79,45.93,45.93,0.35
+20260603,48.09,48.56,48.09,48.39,443393,44.83,7.93,46.21,46.21,0.38
 ```
 
 ## Latest TDCC Snapshot

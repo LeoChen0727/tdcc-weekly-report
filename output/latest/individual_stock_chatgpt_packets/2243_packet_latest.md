@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2243 宏旭-KY
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:18 Asia/Taipei
+- generated_at: 2026-06-04 01:54:35 Asia/Taipei
 - stock_id: 2243
 - stock_name: 宏旭-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,12 +58,12 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: high_level_distribution_risk
-- entry_style: pullback_to_23ema
+- thesis_state: unclear
+- entry_style: current_price_ok
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -76,9 +76,9 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -93,7 +93,6 @@
 ### downgrade_reason
 - insufficient_tdcc_history
 - tdcc_distribution_warning
-- price_too_extended
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -101,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 29.35
-- high: 29.45
-- low: 27.1
-- close: 28
-- volume: 3049156
-- ma5: 26.77
-- ema23_primary: 24.29
-- distance_to_ema23_pct: 15.28
-- ma20: 23.71
-- ma60: 21.94
-- ma120: 16.73
-- return_5d: 19.15
-- return_20d: 7.69
-- volume_ratio: 2.27
-- distance_to_ma20_pct_auxiliary: 18.09
-- distance_to_high_60_pct: -6.67
+- date: 20260603
+- open: 27.95
+- high: 28.1
+- low: 26.35
+- close: 27
+- volume: 1123766
+- ma5: 27.42
+- ema23_primary: 24.51
+- distance_to_ema23_pct: 10.14
+- ma20: 23.74
+- ma60: 22.19
+- ma120: 16.87
+- return_5d: 13.68
+- return_20d: 2.27
+- volume_ratio: 0.83
+- distance_to_ma20_pct_auxiliary: 13.73
+- distance_to_high_60_pct: -10
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,26.1,26.55,25.3,26.4,930278,23.81,10.86,24.18,18.2,0.5
 20260507,26.5,26.95,25.7,26.4,1167660,24.03,9.86,24.48,18.45,0.62
 20260508,23.8,23.8,23.8,23.8,2037725,24.01,-0.88,24.53,18.65,1.08
 20260511,23.2,23.2,21.45,21.65,3155492,23.81,-9.09,24.49,18.82,1.75
@@ -143,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,24.85,27.3,24.85,27.3,2447888,23.4,16.64,23.35,21.37,1.89
 20260601,27.3,30,27.2,29.95,3608920,23.95,25.05,23.61,21.67,2.83
 20260602,29.35,29.45,27.1,28,3049156,24.29,15.28,23.71,21.94,2.27
+20260603,27.95,28.1,26.35,27,1123766,24.51,10.14,23.74,22.19,0.83
 ```
 
 ## Latest TDCC Snapshot
@@ -172,12 +171,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2243 | 宏旭-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2243 | 宏旭-KY | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2243 | 宏旭-KY | 4 | 1 | 4 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 2243 | 宏旭-KY | 1 | 1 | 4 | 4 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

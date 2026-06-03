@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5269 祥碩
 
 ## Metadata
-- generated_at: 2026-06-02 23:28:09 Asia/Taipei
+- generated_at: 2026-06-04 01:55:57 Asia/Taipei
 - stock_id: 5269
 - stock_name: 祥碩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,12 +58,12 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: breakout_initial
-- entry_style: breakout_follow
+- thesis_state: unclear
+- entry_style: current_price_ok
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -75,7 +75,6 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_volume_price_failure
@@ -101,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 1540
-- high: 1660
-- low: 1510
-- close: 1590
-- volume: 4122456
-- ma5: 1502
-- ema23_primary: 1436.38
-- distance_to_ema23_pct: 10.69
-- ma20: 1451
-- ma60: 1292.58
-- ma120: 1274.33
-- return_5d: 2.91
-- return_20d: 17.78
-- volume_ratio: 1.53
-- distance_to_ma20_pct_auxiliary: 9.58
-- distance_to_high_60_pct: -4.22
+- date: 20260603
+- open: 1635
+- high: 1635
+- low: 1565
+- close: 1575
+- volume: 1735399
+- ma5: 1518
+- ema23_primary: 1447.94
+- distance_to_ema23_pct: 8.78
+- ma20: 1462.75
+- ma60: 1297.42
+- ma120: 1276.67
+- return_5d: 5.35
+- return_20d: 17.54
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: 7.67
+- distance_to_high_60_pct: -5.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,1380,1380,1295,1340,1793097,1271.2,5.41,1257,1235.42,1.04
 20260507,1375,1395,1345,1370,1425296,1279.43,7.08,1270,1235.33,0.81
 20260508,1360,1440,1360,1410,3488152,1290.31,9.28,1286.25,1236.67,1.85
 20260511,1365,1435,1275,1390,3700684,1298.62,7.04,1300.25,1238.33,1.82
@@ -143,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,1485,1485,1450,1465,1052124,1413.55,3.64,1432.5,1281.5,0.4
 20260601,1470,1520,1465,1520,1419892,1422.42,6.86,1439,1287.42,0.55
 20260602,1540,1660,1510,1590,4122456,1436.38,10.69,1451,1292.58,1.53
+20260603,1635,1635,1565,1575,1735399,1447.94,8.78,1462.75,1297.42,0.65
 ```
 
 ## Latest TDCC Snapshot
@@ -172,18 +171,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 5269 | 祥碩 | true_breakout | 嚴格突破 | 100.0 |  |  | platform_breakout |  | call_strong_inflow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 5269 | 祥碩 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_strong_inflow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 5269 | 祥碩 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 5269 | 祥碩 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 5269 | 祥碩 | 9 | 9 | 5 | 9 | 9 | continued_many_days | 連續 9 個交易日上榜，需判斷是持續醞釀或訊號鈍化。 |
+| 20260603 | 5269 | 祥碩 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 5269 | 祥碩 | 159 | 0 | 67137740.0 | 0.0 |  | call_strong_inflow | 2 | 認購權證成交量與成交金額同步偏大，短線資金關注度高 |
+| 20260603 | 5269 | 祥碩 | 159 | 0 | 42347960.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

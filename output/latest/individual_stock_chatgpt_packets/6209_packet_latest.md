@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6209 今國光
 
 ## Metadata
-- generated_at: 2026-06-02 23:28:51 Asia/Taipei
+- generated_at: 2026-06-04 01:56:17 Asia/Taipei
 - stock_id: 6209
 - stock_name: 今國光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,15 +55,15 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
-- position_sizing: half_position
+- thesis_state: unclear
+- entry_style: current_price_ok
+- position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -75,9 +75,7 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -102,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 84.5
-- high: 84.6
-- low: 77.6
-- close: 79.2
-- volume: 12333284
-- ma5: 81.6
-- ema23_primary: 75.13
-- distance_to_ema23_pct: 5.42
-- ma20: 75.1
-- ma60: 63.24
-- ma120: 62.49
-- return_5d: -2.22
-- return_20d: 15.28
-- volume_ratio: 0.69
-- distance_to_ma20_pct_auxiliary: 5.46
-- distance_to_high_60_pct: -12.87
+- date: 20260603
+- open: 79
+- high: 82.4
+- low: 78.2
+- close: 80.6
+- volume: 7477921
+- ma5: 81.34
+- ema23_primary: 75.59
+- distance_to_ema23_pct: 6.63
+- ma20: 75.72
+- ma60: 63.64
+- ma120: 62.69
+- return_5d: -1.59
+- return_20d: 18.18
+- volume_ratio: 0.42
+- distance_to_ma20_pct_auxiliary: 6.44
+- distance_to_high_60_pct: -11.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,68.5,69,64.6,68.2,14048692,61.9,10.17,62.4,58.72,1.82
 20260507,68.9,74.3,68.3,72.2,19533542,62.76,15.04,63.28,58.71,2.29
 20260508,72.2,73.3,65.9,66,15090186,63.03,4.71,63.81,58.67,1.67
 20260511,68,68.3,64.5,65.8,7271001,63.26,4.01,64.36,58.67,0.78
@@ -144,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,81.3,81.9,80.3,81.7,6317834,73.87,10.59,73.47,62.33,0.37
 20260601,83.9,86.4,83.4,84.5,16659551,74.76,13.03,74.58,62.85,0.93
 20260602,84.5,84.6,77.6,79.2,12333284,75.13,5.42,75.1,63.24,0.69
+20260603,79,82.4,78.2,80.6,7477921,75.59,6.63,75.72,63.64,0.42
 ```
 
 ## Latest TDCC Snapshot
@@ -173,18 +171,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6209 | 今國光 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260521 | 6209 | 今國光 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 6209 | 今國光 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6209 | 今國光 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 6209 | 今國光 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6209 | 今國光 | 46 | 0 | 10885930.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 6209 | 今國光 | 46 | 0 | 3816880.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00971 野村美國研發龍頭
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:11 Asia/Taipei
+- generated_at: 2026-06-04 01:54:06 Asia/Taipei
 - stock_id: 00971
 - stock_name: 野村美國研發龍頭
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260602
-- price_rows: 8
+- latest_price_date: 20260603
+- price_rows: 9
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -97,23 +97,23 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 17.14
-- high: 17.14
-- low: 16.92
-- close: 17.1
-- volume: 675114
-- ma5: 16.96
-- ema23_primary: 16.83
-- distance_to_ema23_pct: 1.6
-- ma20: 16.91
-- ma60: 16.91
-- ma120: 16.91
-- return_5d: 1.54
+- date: 20260603
+- open: 17.19
+- high: 17.19
+- low: 17.11
+- close: 17.15
+- volume: 385457
+- ma5: 17.03
+- ema23_primary: 16.86
+- distance_to_ema23_pct: 1.73
+- ma20: 16.93
+- ma60: 16.93
+- ma120: 16.93
+- return_5d: 2.27
 - return_20d: 
-- volume_ratio: 0.92
-- distance_to_ma20_pct_auxiliary: 1.14
-- distance_to_high_60_pct: -0.35
+- volume_ratio: 0.55
+- distance_to_ma20_pct_auxiliary: 1.27
+- distance_to_high_60_pct: -0.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -127,6 +127,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,16.95,17.03,16.95,17.03,1330712,16.78,1.51,16.84,16.84,1.83
 20260601,17.07,17.16,17.07,17.14,829384,16.81,1.98,16.88,16.88,1.12
 20260602,17.14,17.14,16.92,17.1,675114,16.83,1.6,16.91,16.91,0.92
+20260603,17.19,17.19,17.11,17.15,385457,16.86,1.73,16.93,16.93,0.55
 ```
 
 ## Latest TDCC Snapshot

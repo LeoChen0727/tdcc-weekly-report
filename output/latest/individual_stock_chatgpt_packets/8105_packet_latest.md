@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8105 凌巨
 
 ## Metadata
-- generated_at: 2026-06-02 23:30:57 Asia/Taipei
+- generated_at: 2026-06-04 01:57:15 Asia/Taipei
 - stock_id: 8105
 - stock_name: 凌巨
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,14 +55,18 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: take_profit
-- action_rating_label_zh: 停利
-- confidence_level: low
-- thesis_state: breakout_confirmed
-- entry_style: breakout_follow
-- position_sizing: observe_only
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
+- confidence_level: medium
+- thesis_state: high_level_consolidation
+- entry_style: pullback_to_23ema
+- position_sizing: starter_1_4
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -71,8 +75,8 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -97,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 19.8
-- high: 21.2
-- low: 17.8
-- close: 21.2
-- volume: 44124975
-- ma5: 18.29
-- ema23_primary: 16.38
-- distance_to_ema23_pct: 29.46
-- ma20: 16.15
-- ma60: 14.29
-- ma120: 13.31
-- return_5d: 27.71
-- return_20d: 57.04
-- volume_ratio: 3.65
-- distance_to_ma20_pct_auxiliary: 31.25
-- distance_to_high_60_pct: 0
+- date: 20260603
+- open: 21.2
+- high: 21.85
+- low: 20.4
+- close: 20.6
+- volume: 40098908
+- ma5: 19.05
+- ema23_primary: 16.73
+- distance_to_ema23_pct: 23.15
+- ma20: 16.51
+- ma60: 14.42
+- ma120: 13.39
+- return_5d: 22.62
+- return_20d: 53.73
+- volume_ratio: 2.86
+- distance_to_ma20_pct_auxiliary: 24.75
+- distance_to_high_60_pct: -5.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,13.6,13.7,13.25,13.4,1259996,13.51,-0.82,13.78,13.03,0.52
 20260507,13.5,14,13.4,13.85,2016731,13.54,2.3,13.79,13.05,0.86
 20260508,13.85,14.3,13.45,13.55,2228695,13.54,0.08,13.78,13.07,0.99
 20260511,13.55,13.75,13.3,13.45,1849601,13.53,-0.61,13.76,13.1,0.85
@@ -139,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,17.1,17.9,16.85,17.55,9756849,15.63,12.27,15.46,14.03,1.08
 20260601,17.8,19.3,17.4,19.3,20015423,15.94,21.1,15.77,14.15,2.01
 20260602,19.8,21.2,17.8,21.2,44124975,16.38,29.46,16.15,14.29,3.65
+20260603,21.2,21.85,20.4,20.6,40098908,16.73,23.15,16.51,14.42,2.86
 ```
 
 ## Latest TDCC Snapshot
@@ -168,12 +172,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 8105 | 凌巨 | true_breakout | 嚴格突破 | 99.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 8105 | 凌巨 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 8105 | 凌巨 | 3 | 2 | 3 | 7 | 7 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260603 | 8105 | 凌巨 | 4 | 2 | 4 | 8 | 8 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

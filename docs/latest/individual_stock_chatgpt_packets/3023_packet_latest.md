@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3023 信邦
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:19 Asia/Taipei
+- generated_at: 2026-06-04 01:55:05 Asia/Taipei
 - stock_id: 3023
 - stock_name: 信邦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 316
-- high: 318
-- low: 306.5
-- close: 313
-- volume: 1688155
-- ma5: 312.2
-- ema23_primary: 302.64
-- distance_to_ema23_pct: 3.42
-- ma20: 305.95
-- ma60: 277.43
-- ma120: 245.22
-- return_5d: -0.95
-- return_20d: 8.3
-- volume_ratio: 0.74
-- distance_to_ma20_pct_auxiliary: 2.3
-- distance_to_high_60_pct: -3.1
+- date: 20260603
+- open: 319
+- high: 321
+- low: 310.5
+- close: 318
+- volume: 2455356
+- ma5: 313.4
+- ema23_primary: 303.92
+- distance_to_ema23_pct: 4.63
+- ma20: 306.57
+- ma60: 278.93
+- ma120: 246.05
+- return_5d: 1.92
+- return_20d: 4.09
+- volume_ratio: 1.14
+- distance_to_ma20_pct_auxiliary: 3.73
+- distance_to_high_60_pct: -1.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,296.5,306,295,305.5,5173612,277.64,10.03,280.2,254.94,2.27
 20260507,310,316,306,310,3489949,280.34,10.58,282.07,256.31,1.46
 20260508,306,307,298,302.5,2192440,282.18,7.2,283.6,257.61,0.9
 20260511,302,302.5,293,302,1522335,283.83,6.4,285,258.75,0.62
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,310,320,305,315.5,2810486,300.22,5.09,303.27,274.5,1.22
 20260601,316.5,321.5,313,318,1837382,301.7,5.4,304.75,276.11,0.79
 20260602,316,318,306.5,313,1688155,302.64,3.42,305.95,277.43,0.74
+20260603,319,321,310.5,318,2455356,303.92,4.63,306.57,278.93,1.14
 ```
 
 ## Latest TDCC Snapshot
@@ -172,18 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3023 | 信邦 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 3023 | 信邦 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3023 | 信邦 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3023 | 信邦 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 3023 | 信邦 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3023 | 信邦 | 15 | 0 | 4525900.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260603 | 3023 | 信邦 | 15 | 0 | 2564890.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

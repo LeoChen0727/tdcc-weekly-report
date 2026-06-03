@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6831 邁科
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:44 Asia/Taipei
+- generated_at: 2026-06-04 01:56:42 Asia/Taipei
 - stock_id: 6831
 - stock_name: 邁科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 123
+- latest_price_date: 20260603
+- price_rows: 124
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,7 +58,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_consolidation
+- thesis_state: unclear
 - entry_style: pullback_to_23ema
 - position_sizing: observe_only
 
@@ -76,6 +76,7 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -89,7 +90,6 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
-- price_too_extended
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -97,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 755
-- high: 755
-- low: 686
-- close: 686
-- volume: 3416371
-- ma5: 760
-- ema23_primary: 687.1
-- distance_to_ema23_pct: -0.16
-- ma20: 708.95
-- ma60: 505.29
-- ma120: 383.43
-- return_5d: -16.34
-- return_20d: 31.92
-- volume_ratio: 1.99
-- distance_to_ma20_pct_auxiliary: -3.24
-- distance_to_high_60_pct: -19.29
+- date: 20260603
+- open: 701
+- high: 743
+- low: 680
+- close: 726
+- volume: 2295577
+- ma5: 741.2
+- ema23_primary: 690.34
+- distance_to_ema23_pct: 5.17
+- ma20: 717.2
+- ma60: 512.45
+- ma120: 387.51
+- return_5d: -11.46
+- return_20d: 29.41
+- volume_ratio: 1.37
+- distance_to_ma20_pct_auxiliary: 1.23
+- distance_to_high_60_pct: -14.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,535,569,490,561,3268307,464.2,20.85,476.1,364.72,1.89
 20260507,590,594,550,559,2355430,472.1,18.41,483.12,369.91,1.35
 20260508,535,573,527,540,2677629,477.76,13.03,489.25,374.89,1.48
 20260511,543,594,537,594,2209867,487.44,21.86,497.45,380.82,1.19
@@ -139,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,808,809,717,742,2188736,680.4,9.05,686.2,492.03,1.43
 20260601,752,802,704,762,3210530,687.2,10.88,700.65,499.34,1.97
 20260602,755,755,686,686,3416371,687.1,-0.16,708.95,505.29,1.99
+20260603,701,743,680,726,2295577,690.34,5.17,717.2,512.45,1.37
 ```
 
 ## Latest TDCC Snapshot
@@ -178,7 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6831 | 邁科 | 19 | 0 | 7236050.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260603 | 6831 | 邁科 | 19 | 0 | 2434480.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

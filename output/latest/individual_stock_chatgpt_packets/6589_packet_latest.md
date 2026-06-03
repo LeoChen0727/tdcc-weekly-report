@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6589 台康生技
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:21 Asia/Taipei
+- generated_at: 2026-06-04 01:56:31 Asia/Taipei
 - stock_id: 6589
 - stock_name: 台康生技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 204
+- latest_price_date: 20260603
+- price_rows: 205
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -97,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 44
-- high: 44.3
-- low: 43
-- close: 44.05
-- volume: 1195985
-- ma5: 42.51
-- ema23_primary: 44.24
-- distance_to_ema23_pct: -0.44
-- ma20: 43.37
-- ma60: 50.08
-- ma120: 57.42
-- return_5d: 6.27
-- return_20d: -4.34
-- volume_ratio: 0.77
-- distance_to_ma20_pct_auxiliary: 1.57
-- distance_to_high_60_pct: -28.26
+- date: 20260603
+- open: 44.45
+- high: 44.8
+- low: 43.4
+- close: 44.8
+- volume: 979155
+- ma5: 43.3
+- ema23_primary: 44.29
+- distance_to_ema23_pct: 1.15
+- ma20: 43.33
+- ma60: 49.83
+- ma120: 57.17
+- return_5d: 9.67
+- return_20d: -1.65
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: 3.39
+- distance_to_high_60_pct: -26.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,46.5,46.5,45.5,45.55,577043,49.49,-7.96,49.09,55.76,0.5
 20260507,45.4,46.85,45.2,46.1,463523,49.21,-6.32,48.61,55.46,0.4
 20260508,46,46.65,45.1,45.35,679404,48.89,-7.24,48.16,55.16,0.59
 20260511,45.75,45.75,44.75,45.1,569679,48.57,-7.15,47.77,54.88,0.52
@@ -139,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,41.05,42.45,41,42.15,5758323,44.28,-4.82,43.55,50.61,3.9
 20260601,42.35,44.15,42.35,44,1568248,44.26,-0.59,43.47,50.37,1.04
 20260602,44,44.3,43,44.05,1195985,44.24,-0.44,43.37,50.08,0.77
+20260603,44.45,44.8,43.4,44.8,979155,44.29,1.15,43.33,49.83,0.63
 ```
 
 ## Latest TDCC Snapshot

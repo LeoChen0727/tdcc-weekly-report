@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1614 三洋電
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:49 Asia/Taipei
+- generated_at: 2026-06-04 01:54:22 Asia/Taipei
 - stock_id: 1614
 - stock_name: 三洋電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 27
 - tdcc_history_status: tdcc_history_ready
@@ -59,7 +59,7 @@
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: observe_only
 
 ### management_plan
@@ -72,7 +72,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -97,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 32.2
-- high: 32.8
-- low: 32.2
-- close: 32.7
-- volume: 72738
-- ma5: 31.71
-- ema23_primary: 31.49
-- distance_to_ema23_pct: 3.83
-- ma20: 31.34
-- ma60: 31.88
-- ma120: 33
-- return_5d: 6.17
-- return_20d: 3.15
-- volume_ratio: 0.93
-- distance_to_ma20_pct_auxiliary: 4.34
-- distance_to_high_60_pct: -2.82
+- date: 20260603
+- open: 32.7
+- high: 33.9
+- low: 32.7
+- close: 33.9
+- volume: 126475
+- ma5: 32.29
+- ema23_primary: 31.69
+- distance_to_ema23_pct: 6.96
+- ma20: 31.44
+- ma60: 31.89
+- ma120: 32.99
+- return_5d: 9.35
+- return_20d: 6.1
+- volume_ratio: 1.57
+- distance_to_ma20_pct_auxiliary: 7.83
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,31.85,32.05,31.75,31.95,79748,32.08,-0.4,32.06,32.77,1.34
 20260507,31.85,32.25,31.75,31.95,177589,32.07,-0.36,32.05,32.73,2.71
 20260508,32.25,32.25,31.85,32,72268,32.06,-0.19,32.05,32.68,1.06
 20260511,31.75,31.95,31.7,31.85,66337,32.04,-0.6,32.04,32.64,0.97
@@ -139,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,31.5,31.6,31.3,31.5,72790,31.31,0.6,31.27,31.93,0.95
 20260601,31.85,32.8,31.8,32.15,55401,31.38,2.44,31.29,31.9,0.73
 20260602,32.2,32.8,32.2,32.7,72738,31.49,3.83,31.34,31.88,0.93
+20260603,32.7,33.9,32.7,33.9,126475,31.69,6.96,31.44,31.89,1.57
 ```
 
 ## Latest TDCC Snapshot

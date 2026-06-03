@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6585 鼎基
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:20 Asia/Taipei
+- generated_at: 2026-06-04 01:56:31 Asia/Taipei
 - stock_id: 6585
 - stock_name: 鼎基
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,7 +59,7 @@
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: current_price_ok
+- entry_style: pullback_to_23ema
 - position_sizing: observe_only
 
 ### management_plan
@@ -72,6 +72,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -96,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 99.8
-- high: 104.5
-- low: 98.1
-- close: 102
-- volume: 527922
-- ma5: 97.8
-- ema23_primary: 94.09
-- distance_to_ema23_pct: 8.41
-- ma20: 93.83
-- ma60: 90.75
-- ma120: 90.5
-- return_5d: 6.58
-- return_20d: 20.28
-- volume_ratio: 2.3
-- distance_to_ma20_pct_auxiliary: 8.71
-- distance_to_high_60_pct: -2.86
+- date: 20260603
+- open: 102.5
+- high: 102.5
+- low: 99.2
+- close: 99.2
+- volume: 295668
+- ma5: 98.76
+- ema23_primary: 94.51
+- distance_to_ema23_pct: 4.96
+- ma20: 94.55
+- ma60: 90.96
+- ma120: 90.58
+- return_5d: 5.08
+- return_20d: 16.98
+- volume_ratio: 1.23
+- distance_to_ma20_pct_auxiliary: 4.92
+- distance_to_high_60_pct: -5.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,87.5,87.5,84.5,84.8,93858,87.86,-3.48,88.78,89.3,1.08
 20260507,85.9,88.6,85.9,88.3,145080,87.9,0.46,88.42,89.23,1.61
 20260508,97.1,97.1,91.2,94,1040394,88.4,6.33,88.41,89.26,7.46
 20260511,95,98,93.2,93.6,380370,88.84,5.36,88.45,89.31,2.49
@@ -138,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,99.3,99.3,96.2,97.4,184600,92.95,4.79,92.28,90.32,0.93
 20260601,97.9,99.9,96.8,98,187882,93.37,4.96,92.97,90.5,0.91
 20260602,99.8,104.5,98.1,102,527922,94.09,8.41,93.83,90.75,2.3
+20260603,102.5,102.5,99.2,99.2,295668,94.51,4.96,94.55,90.96,1.23
 ```
 
 ## Latest TDCC Snapshot
@@ -177,7 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6585 | 鼎基 | 1 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 6585 | 鼎基 | 1 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3706 神達
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:16 Asia/Taipei
+- generated_at: 2026-06-04 01:55:33 Asia/Taipei
 - stock_id: 3706
 - stock_name: 神達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,22 +55,29 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: reduce
-- action_rating_label_zh: 減碼
-- confidence_level: low
-- thesis_state: failed_breakout
-- entry_style: no_entry_now
-- position_sizing: reduce_position
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
+- confidence_level: medium
+- thesis_state: high_level_distribution_risk
+- entry_style: current_price_ok
+- position_sizing: starter_1_4
 
 ### management_plan
+- buy_first_tranche_now
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- price_structure_not_broken
 - revenue_not_deteriorating
-- acceptable_risk_reward
+- no_major_volume_price_failure
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -85,7 +92,7 @@
 ### downgrade_reason
 - insufficient_tdcc_history
 - tdcc_distribution_warning
-- volume_price_failure
+- price_too_extended
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -93,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 94.5
-- high: 97.3
-- low: 91.6
-- close: 95.2
-- volume: 68634143
-- ma5: 88.96
-- ema23_primary: 85.77
-- distance_to_ema23_pct: 11
-- ma20: 85.52
-- ma60: 82.52
-- ma120: 83.25
-- return_5d: 8.92
-- return_20d: 13.2
-- volume_ratio: 2.6
-- distance_to_ma20_pct_auxiliary: 11.32
-- distance_to_high_60_pct: -2.16
+- date: 20260603
+- open: 97.6
+- high: 103.5
+- low: 93.6
+- close: 100
+- volume: 99764313
+- ma5: 92.12
+- ema23_primary: 86.95
+- distance_to_ema23_pct: 15
+- ma20: 86.13
+- ma60: 82.84
+- ma120: 83.32
+- return_5d: 18.76
+- return_20d: 13.9
+- volume_ratio: 3.37
+- distance_to_ma20_pct_auxiliary: 16.1
+- distance_to_high_60_pct: -3.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,85.3,88.3,83.6,87.8,36666496,82.35,6.62,82.69,80.46,2.84
 20260507,88.4,88.7,86.8,87.4,27974163,82.77,5.6,83.09,80.56,2.06
 20260508,87.2,88.4,85.2,86.2,16332332,83.05,3.79,83.49,80.66,1.16
 20260511,86.9,89.2,85.7,86.8,21367106,83.36,4.12,83.68,80.79,1.55
@@ -135,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,84.6,90.5,84.6,88.8,61351414,84.13,5.55,84.44,82.03,2.91
 20260601,90.8,94.5,90.8,93.5,62080953,84.91,10.12,84.97,82.29,2.61
 20260602,94.5,97.3,91.6,95.2,68634143,85.77,11,85.52,82.52,2.6
+20260603,97.6,103.5,93.6,100,99764313,86.95,15,86.13,82.84,3.37
 ```
 
 ## Latest TDCC Snapshot
@@ -164,18 +171,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3706 | 神達 | true_breakout | 嚴格突破 | 112.0 |  |  | platform_breakout |  | call_inflow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 3706 | 神達 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_inflow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3706 | 神達 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3706 | 神達 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3706 | 神達 | 9 | 9 | 5 | 9 | 9 | continued_many_days | 連續 9 個交易日上榜，需判斷是持續醞釀或訊號鈍化。 |
+| 20260603 | 3706 | 神達 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3706 | 神達 | 112 | 4 | 28126180.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260603 | 3706 | 神達 | 112 | 4 | 36657510.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

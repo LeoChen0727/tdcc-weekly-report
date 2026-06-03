@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8215 明基材
 
 ## Metadata
-- generated_at: 2026-06-02 23:31:01 Asia/Taipei
+- generated_at: 2026-06-04 01:57:17 Asia/Taipei
 - stock_id: 8215
 - stock_name: 明基材
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,15 +55,15 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
-- position_sizing: half_position
+- thesis_state: unclear
+- entry_style: current_price_ok
+- position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -75,9 +75,7 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -102,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 32.5
-- high: 32.55
-- low: 30.15
-- close: 31.45
-- volume: 9361391
-- ma5: 30.23
-- ema23_primary: 28.48
-- distance_to_ema23_pct: 10.42
-- ma20: 28.61
-- ma60: 25.8
-- ma120: 22.9
-- return_5d: 6.97
-- return_20d: 10.74
-- volume_ratio: 1.7
-- distance_to_ma20_pct_auxiliary: 9.91
-- distance_to_high_60_pct: -3.38
+- date: 20260603
+- open: 31.5
+- high: 33.4
+- low: 31.3
+- close: 32.6
+- volume: 8734341
+- ma5: 30.91
+- ema23_primary: 28.82
+- distance_to_ema23_pct: 13.1
+- ma20: 28.68
+- ma60: 26.01
+- ma120: 23.01
+- return_5d: 11.64
+- return_20d: 4.49
+- volume_ratio: 1.59
+- distance_to_ma20_pct_auxiliary: 13.65
+- distance_to_high_60_pct: -2.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,30.95,31.2,29.95,31.2,8642517,26.08,19.63,26.43,23.2,1.81
 20260507,31.4,31.4,29.5,29.6,18151025,26.37,12.23,26.66,23.35,3.27
 20260508,29.3,29.4,27,27.05,5631124,26.43,2.34,26.79,23.47,1.02
 20260511,27.2,28.1,27.05,27.8,2891885,26.54,4.73,26.92,23.61,0.53
@@ -144,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,28.75,30.05,28.7,29.45,4652454,27.83,5.8,28.14,25.39,0.99
 20260601,29.2,32.35,29.2,32.35,18534621,28.21,14.67,28.46,25.6,3.33
 20260602,32.5,32.55,30.15,31.45,9361391,28.48,10.42,28.61,25.8,1.7
+20260603,31.5,33.4,31.3,32.6,8734341,28.82,13.1,28.68,26.01,1.59
 ```
 
 ## Latest TDCC Snapshot
@@ -173,18 +171,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 8215 | 明基材 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 8215 | 明基材 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 8215 | 明基材 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 8215 | 明基材 | 9 | 9 | 5 | 9 | 9 | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 8215 | 明基材 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 8215 | 明基材 | 2 | 0 | 1826000.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 8215 | 明基材 | 2 | 0 | 3010000.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5522 遠雄
 
 ## Metadata
-- generated_at: 2026-06-02 23:28:25 Asia/Taipei
+- generated_at: 2026-06-04 01:56:05 Asia/Taipei
 - stock_id: 5522
 - stock_name: 遠雄
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: starter_position
-- action_rating_label_zh: 可小量試單
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: breakout_initial
-- entry_style: breakout_follow
-- position_sizing: starter_1_4
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
 - buy_first_tranche_near_support
@@ -75,7 +75,9 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -100,29 +102,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 74.1
-- high: 75.1
-- low: 73.7
-- close: 75.1
-- volume: 1394974
-- ma5: 73.04
-- ema23_primary: 71.31
-- distance_to_ema23_pct: 5.31
-- ma20: 71.11
-- ma60: 70.23
-- ma120: 69.31
-- return_5d: 5.63
-- return_20d: 8.68
-- volume_ratio: 1.35
-- distance_to_ma20_pct_auxiliary: 5.62
-- distance_to_high_60_pct: 0
+- date: 20260603
+- open: 75.5
+- high: 76.7
+- low: 74
+- close: 76.2
+- volume: 1886766
+- ma5: 74.04
+- ema23_primary: 71.72
+- distance_to_ema23_pct: 6.25
+- ma20: 71.46
+- ma60: 70.39
+- ma120: 69.44
+- return_5d: 7.02
+- return_20d: 10.28
+- volume_ratio: 1.72
+- distance_to_ma20_pct_auxiliary: 6.63
+- distance_to_high_60_pct: -0.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,69.5,69.5,68.8,69.1,634649,69.73,-0.9,70.21,68.88,0.67
 20260507,68.6,70,68.1,69.7,1112313,69.72,-0.03,70.02,68.94,1.17
 20260508,70,70.4,69.5,70,1202130,69.75,0.36,69.83,68.97,1.24
 20260511,70.2,72.7,70.2,72.7,1618880,69.99,3.87,69.8,69.08,1.61
@@ -142,6 +143,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,72,72.7,71.5,72.7,1807328,70.68,2.86,70.56,69.96,1.93
 20260601,72.8,74.2,71.9,74.2,1485785,70.97,4.55,70.81,70.09,1.51
 20260602,74.1,75.1,73.7,75.1,1394974,71.31,5.31,71.11,70.23,1.35
+20260603,75.5,76.7,74,76.2,1886766,71.72,6.25,71.46,70.39,1.72
 ```
 
 ## Latest TDCC Snapshot
@@ -171,14 +173,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 5522 | 遠雄 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_many_days | calendar event: ex_dividend on 20260625; status=confirmed; proximity=within_30d |
-| 20260602 | 5522 | 遠雄 | pullback_rebound | 回檔後短線轉強 | 70.0 |  |  |  |  |  | continued_many_days | calendar event: ex_dividend on 20260625; status=confirmed; proximity=within_30d |
-| 20260602 | 5522 | 遠雄 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | continued_many_days | calendar event: ex_dividend on 20260625; status=confirmed; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260603 | 5522 | 遠雄 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | calendar event: ex_dividend on 20260625; status=confirmed; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 5522 | 遠雄 | 4 | 4 | 4 | 4 | 4 | continued_many_days | 連續 4 個交易日上榜，需判斷是持續醞釀或訊號鈍化。 |
+| 20260603 | 5522 | 遠雄 | 5 | 1 | 5 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 5 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

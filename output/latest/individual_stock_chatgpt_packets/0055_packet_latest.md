@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0055 元大MSCI金融
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:03 Asia/Taipei
+- generated_at: 2026-06-04 01:54:02 Asia/Taipei
 - stock_id: 0055
 - stock_name: 元大MSCI金融
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 139
+- latest_price_date: 20260603
+- price_rows: 140
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -55,15 +55,15 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: buy_now
-- action_rating_label_zh: 建議買進
-- confidence_level: high
-- thesis_state: breakout_confirmed
-- entry_style: breakout_follow
-- position_sizing: normal_position
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
+- confidence_level: medium
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
-- buy_first_tranche_now
+- buy_first_tranche_near_support
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -76,9 +76,8 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_priority_high
-- decision_score_high
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -103,29 +102,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 35.9
-- high: 36.59
-- low: 35.76
-- close: 36.59
-- volume: 1212516
-- ma5: 35.46
-- ema23_primary: 34.35
-- distance_to_ema23_pct: 6.52
-- ma20: 34.29
-- ma60: 33.29
-- ma120: 32.64
-- return_5d: 6.68
-- return_20d: 9.78
-- volume_ratio: 2.65
-- distance_to_ma20_pct_auxiliary: 6.7
-- distance_to_high_60_pct: 0
+- date: 20260603
+- open: 36.77
+- high: 38.63
+- low: 36.77
+- close: 38.61
+- volume: 2124175
+- ma5: 36.21
+- ema23_primary: 34.7
+- distance_to_ema23_pct: 11.26
+- ma20: 34.53
+- ma60: 33.39
+- ma120: 32.71
+- return_5d: 10.66
+- return_20d: 14.03
+- volume_ratio: 3.93
+- distance_to_ma20_pct_auxiliary: 11.82
+- distance_to_high_60_pct: -0.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,33.36,33.94,33.36,33.86,447176,33.18,2.05,33.29,32.88,1.38
 20260507,33.96,34.3,33.96,34.22,467289,33.27,2.87,33.34,32.91,1.4
 20260508,34.22,34.45,33.98,34.39,290682,33.36,3.09,33.4,32.95,0.85
 20260511,34.39,34.48,34,34,597317,33.41,1.76,33.44,32.98,1.64
@@ -145,6 +143,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,35.03,35.19,34.79,35.09,656462,33.99,3.25,33.99,33.18,1.63
 20260601,35.11,36.05,34.98,35.9,501145,34.15,5.14,34.13,33.23,1.22
 20260602,35.9,36.59,35.76,36.59,1212516,34.35,6.52,34.29,33.29,2.65
+20260603,36.77,38.63,36.77,38.61,2124175,34.7,11.26,34.53,33.39,3.93
 ```
 
 ## Latest TDCC Snapshot
@@ -170,12 +169,12 @@ no_rows,True
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 0055 | 元大MSCI金融 | true_breakout | 嚴格突破 | 148.0 |  |  | breakout_confirmed |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 0055 | 元大MSCI金融 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 0055 | 元大MSCI金融 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| 20260603 | 0055 | 元大MSCI金融 | 2 | 1 | 2 | 2 | 2 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

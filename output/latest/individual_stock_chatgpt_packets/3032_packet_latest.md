@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3032 偉訓
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:21 Asia/Taipei
+- generated_at: 2026-06-04 01:55:06 Asia/Taipei
 - stock_id: 3032
 - stock_name: 偉訓
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 274
+- latest_price_date: 20260603
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -100,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 91.5
-- high: 92.8
-- low: 86.4
-- close: 88
-- volume: 2840128
-- ma5: 90.08
-- ema23_primary: 81.22
-- distance_to_ema23_pct: 8.34
-- ma20: 81.92
-- ma60: 69.78
-- ma120: 72.53
-- return_5d: -2.22
-- return_20d: 33.33
-- volume_ratio: 1.03
-- distance_to_ma20_pct_auxiliary: 7.43
-- distance_to_high_60_pct: -5.98
+- date: 20260603
+- open: 88.5
+- high: 96.2
+- low: 88.4
+- close: 92.1
+- volume: 3347903
+- ma5: 90.38
+- ema23_primary: 82.13
+- distance_to_ema23_pct: 12.14
+- ma20: 83.19
+- ma60: 70.19
+- ma120: 72.61
+- return_5d: 1.66
+- return_20d: 38.5
+- volume_ratio: 1.16
+- distance_to_ma20_pct_auxiliary: 10.7
+- distance_to_high_60_pct: -4.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,66.7,67.7,65.4,66.5,899907,63.92,4.03,63.22,66.36,1.48
 20260507,66.6,73,66.4,71.7,2851493,64.57,11.04,63.61,66.34,3.86
 20260508,71.6,72.3,68,70.7,2347838,65.08,8.63,64,66.31,2.81
 20260511,71,77.7,70.7,77.7,4040512,66.13,17.49,64.68,66.4,3.98
@@ -142,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,91,91.6,89.7,90.5,1292771,79.66,13.6,79.44,68.96,0.49
 20260601,91.1,92.4,90.3,91,1755295,80.61,12.89,80.81,69.42,0.66
 20260602,91.5,92.8,86.4,88,2840128,81.22,8.34,81.92,69.78,1.03
+20260603,88.5,96.2,88.4,92.1,3347903,82.13,12.14,83.19,70.19,1.16
 ```
 
 ## Latest TDCC Snapshot
@@ -171,17 +171,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3032 | 偉訓 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3032 | 偉訓 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3032 | 偉訓 | 1 | 1 | 1 | 3 | 3 | repeated_but_no_breakout | 近 10 日上榜 3 日、近 20 日上榜 3 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 3032 | 偉訓 | 2 | 1 | 2 | 4 | 4 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3032 | 偉訓 | 13 | 0 | 553080.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 3032 | 偉訓 | 11 | 0 | 749500.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

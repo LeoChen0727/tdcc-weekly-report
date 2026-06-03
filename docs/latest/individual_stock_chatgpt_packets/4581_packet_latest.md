@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4581 光隆精密-KY
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:41 Asia/Taipei
+- generated_at: 2026-06-04 01:55:45 Asia/Taipei
 - stock_id: 4581
 - stock_name: 光隆精密-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 272
+- latest_price_date: 20260603
+- price_rows: 273
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -97,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
+- date: 20260603
 - open: 49.8
-- high: 49.8
+- high: 50.1
 - low: 49.8
-- close: 49.8
-- volume: 2117
-- ma5: 49.71
-- ema23_primary: 49.82
-- distance_to_ema23_pct: -0.05
-- ma20: 49.88
+- close: 49.9
+- volume: 15340
+- ma5: 49.73
+- ema23_primary: 49.83
+- distance_to_ema23_pct: 0.14
+- ma20: 49.84
 - ma60: 49.78
-- ma120: 50.7
-- return_5d: -0.6
-- return_20d: 0.2
-- volume_ratio: 0.09
-- distance_to_ma20_pct_auxiliary: -0.16
-- distance_to_high_60_pct: -5.68
+- ma120: 50.67
+- return_5d: 0.2
+- return_20d: -1.58
+- volume_ratio: 0.72
+- distance_to_ma20_pct_auxiliary: 0.13
+- distance_to_high_60_pct: -5.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,50.4,52.8,50.4,50.7,85010,50.03,1.34,50.2,50.11,4.72
 20260507,50.6,50.9,50.3,50.8,21098,50.1,1.41,50.25,50.09,1.12
 20260508,50.6,50.6,50,50,13221,50.09,-0.17,50.25,50.06,0.7
 20260511,50.7,51.5,50.4,51,16000,50.16,1.67,50.3,50.05,0.83
@@ -139,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,49.8,50.3,49.5,49.5,38008,49.83,-0.66,49.87,49.79,1.5
 20260601,49.3,50,49.3,49.8,22162,49.83,-0.05,49.87,49.79,0.86
 20260602,49.8,49.8,49.8,49.8,2117,49.82,-0.05,49.88,49.78,0.09
+20260603,49.8,50.1,49.8,49.9,15340,49.83,0.14,49.84,49.78,0.72
 ```
 
 ## Latest TDCC Snapshot

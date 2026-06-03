@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3596 智易
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:07 Asia/Taipei
+- generated_at: 2026-06-04 01:55:29 Asia/Taipei
 - stock_id: 3596
 - stock_name: 智易
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 195
-- high: 195
-- low: 189
-- close: 191.5
-- volume: 1810052
-- ma5: 189
-- ema23_primary: 183.05
-- distance_to_ema23_pct: 4.62
-- ma20: 183.35
-- ma60: 179.94
-- ma120: 180.79
-- return_5d: 0
-- return_20d: 16.06
-- volume_ratio: 0.81
-- distance_to_ma20_pct_auxiliary: 4.45
-- distance_to_high_60_pct: -10.51
+- date: 20260603
+- open: 193
+- high: 193
+- low: 189.5
+- close: 190.5
+- volume: 1473989
+- ma5: 189.4
+- ema23_primary: 183.67
+- distance_to_ema23_pct: 3.72
+- ma20: 184.43
+- ma60: 179.73
+- ma120: 180.85
+- return_5d: 1.06
+- return_20d: 12.72
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: 3.29
+- distance_to_high_60_pct: -10.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,168,169,164,169,1282121,169.66,-0.39,169.57,180.57,1.03
 20260507,170.5,171,167,167.5,1361555,169.48,-1.17,169.32,180.38,1.12
 20260508,169,178,168,178,6662872,170.19,4.59,169.6,180.37,4.46
 20260511,179.5,184,177.5,184,3460309,171.34,7.39,170.15,180.44,2.18
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,187.5,188,184.5,187.5,1241492,181.26,3.44,180.57,180.12,0.61
 20260601,191,195.5,188,193.5,3205909,182.28,6.16,182.03,180.1,1.48
 20260602,195,195,189,191.5,1810052,183.05,4.62,183.35,179.94,0.81
+20260603,193,193,189.5,190.5,1473989,183.67,3.72,184.43,179.73,0.66
 ```
 
 ## Latest TDCC Snapshot
@@ -172,18 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3596 | 智易 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 3596 | 智易 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3596 | 智易 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3596 | 智易 | 9 | 9 | 5 | 9 | 9 | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 3596 | 智易 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3596 | 智易 | 10 | 0 | 1647760.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 3596 | 智易 | 10 | 0 | 279810.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

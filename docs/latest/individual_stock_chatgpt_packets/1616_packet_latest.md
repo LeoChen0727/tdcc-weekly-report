@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1616 億泰
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:49 Asia/Taipei
+- generated_at: 2026-06-04 01:54:23 Asia/Taipei
 - stock_id: 1616
 - stock_name: 億泰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,7 +59,7 @@
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: observe_only
 
 ### management_plan
@@ -72,7 +72,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -97,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 22.35
-- high: 22.35
-- low: 21.85
-- close: 22.15
-- volume: 687374
-- ma5: 21.79
-- ema23_primary: 21.98
-- distance_to_ema23_pct: 0.77
-- ma20: 21.71
-- ma60: 23.19
-- ma120: 25.91
-- return_5d: 2.07
-- return_20d: -0.67
-- volume_ratio: 0.98
-- distance_to_ma20_pct_auxiliary: 2
-- distance_to_high_60_pct: -21.31
+- date: 20260603
+- open: 22.2
+- high: 24.35
+- low: 22.1
+- close: 24.35
+- volume: 3587222
+- ma5: 22.41
+- ema23_primary: 22.18
+- distance_to_ema23_pct: 9.79
+- ma20: 21.84
+- ma60: 23.13
+- ma120: 25.86
+- return_5d: 14.59
+- return_20d: 11.95
+- volume_ratio: 4.3
+- distance_to_ma20_pct_auxiliary: 11.47
+- distance_to_high_60_pct: -12.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,22.45,22.45,21.75,21.75,1000211,23.08,-5.77,23.01,25.33,2.04
 20260507,21.8,22.45,21.7,22.35,914342,23.02,-2.92,22.95,25.2,1.78
 20260508,22.6,22.85,22.15,22.15,929892,22.95,-3.48,22.88,25.08,1.7
 20260511,22.55,22.65,22.05,22.35,463857,22.9,-2.4,22.83,24.97,0.84
@@ -139,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,21.85,22.5,21.55,22,1057310,21.95,0.23,21.73,23.36,1.55
 20260601,22,22.5,21.9,22.15,718644,21.97,0.84,21.72,23.28,1.04
 20260602,22.35,22.35,21.85,22.15,687374,21.98,0.77,21.71,23.19,0.98
+20260603,22.2,24.35,22.1,24.35,3587222,22.18,9.79,21.84,23.13,4.3
 ```
 
 ## Latest TDCC Snapshot
@@ -178,7 +177,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1616 | 億泰 | 1 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 1616 | 億泰 | 1 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

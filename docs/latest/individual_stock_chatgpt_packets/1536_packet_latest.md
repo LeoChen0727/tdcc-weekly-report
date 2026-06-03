@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1536 和大
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:41 Asia/Taipei
+- generated_at: 2026-06-04 01:54:19 Asia/Taipei
 - stock_id: 1536
 - stock_name: 和大
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 54.4
-- high: 54.4
-- low: 51.3
-- close: 52.5
-- volume: 3679145
-- ma5: 52.04
-- ema23_primary: 51.76
-- distance_to_ema23_pct: 1.43
-- ma20: 51.95
-- ma60: 51.43
-- ma120: 55.38
-- return_5d: 2.94
-- return_20d: -7.08
-- volume_ratio: 0.99
-- distance_to_ma20_pct_auxiliary: 1.05
-- distance_to_high_60_pct: -8.38
+- date: 20260603
+- open: 52.7
+- high: 52.8
+- low: 51.7
+- close: 52
+- volume: 2388195
+- ma5: 52.5
+- ema23_primary: 51.78
+- distance_to_ema23_pct: 0.43
+- ma20: 51.82
+- ma60: 51.37
+- ma120: 55.34
+- return_5d: 4.63
+- return_20d: -4.76
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: 0.34
+- distance_to_high_60_pct: -9.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,57,57.1,54.3,54.6,3066297,51.95,5.09,51.15,54.25,1.41
 20260507,55.5,56.1,55.3,55.5,2251396,52.25,6.22,51.48,54.09,1.01
 20260508,55.6,55.7,52.8,53.7,2554876,52.37,2.54,51.75,53.95,1.1
 20260511,54,56.2,53.7,55.3,2053225,52.62,5.1,52.09,53.84,0.87
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,52,53.7,51.4,52.8,11270685,51.49,2.55,52.21,51.51,2.95
 20260601,53.5,55.6,52.7,53.9,6311008,51.69,4.28,52.15,51.49,1.67
 20260602,54.4,54.4,51.3,52.5,3679145,51.76,1.43,51.95,51.43,0.99
+20260603,52.7,52.8,51.7,52,2388195,51.78,0.43,51.82,51.37,0.65
 ```
 
 ## Latest TDCC Snapshot
@@ -172,18 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1536 | 和大 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 1536 | 和大 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 1536 | 和大 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1536 | 和大 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 1536 | 和大 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1536 | 和大 | 21 | 0 | 1183420.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 1536 | 和大 | 22 | 0 | 139860.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

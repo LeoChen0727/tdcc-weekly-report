@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6670 復盛應用
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:29 Asia/Taipei
+- generated_at: 2026-06-04 01:56:35 Asia/Taipei
 - stock_id: 6670
 - stock_name: 復盛應用
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -96,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 273.5
-- high: 278.5
-- low: 269.5
-- close: 278.5
-- volume: 689847
-- ma5: 266.4
-- ema23_primary: 262.6
-- distance_to_ema23_pct: 6.06
-- ma20: 262.32
-- ma60: 264.12
-- ma120: 263.97
-- return_5d: 9.43
-- return_20d: 8.37
-- volume_ratio: 1.5
-- distance_to_ma20_pct_auxiliary: 6.17
-- distance_to_high_60_pct: -0.89
+- date: 20260603
+- open: 275.5
+- high: 282.5
+- low: 275.5
+- close: 281.5
+- volume: 660906
+- ma5: 270.3
+- ema23_primary: 264.17
+- distance_to_ema23_pct: 6.56
+- ma20: 263.52
+- ma60: 264.32
+- ma120: 264.29
+- return_5d: 7.44
+- return_20d: 9.32
+- volume_ratio: 1.39
+- distance_to_ma20_pct_auxiliary: 6.82
+- distance_to_high_60_pct: -0.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,260,260,255,257.5,362160,258.9,-0.54,258.57,266.41,0.83
 20260507,257.5,260,256,258.5,379976,258.87,-0.14,258.4,266.24,0.87
 20260508,256,258,251.5,254,499223,258.46,-1.73,257.93,265.97,1.15
 20260511,254.5,263,254,262.5,471826,258.8,1.43,257.77,265.87,1.09
@@ -138,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,257.5,266,257.5,261.5,693883,260.17,0.51,260.45,263.77,1.59
 20260601,262.5,274,261.5,272,592434,261.15,4.15,261.25,263.94,1.32
 20260602,273.5,278.5,269.5,278.5,689847,262.6,6.06,262.32,264.12,1.5
+20260603,275.5,282.5,275.5,281.5,660906,264.17,6.56,263.52,264.32,1.39
 ```
 
 ## Latest TDCC Snapshot
@@ -177,7 +177,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6670 | 復盛應用 | 6 | 0 | 610080.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 6670 | 復盛應用 | 6 | 0 | 466920.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

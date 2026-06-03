@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2204 中華
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:14 Asia/Taipei
+- generated_at: 2026-06-04 01:54:34 Asia/Taipei
 - stock_id: 2204
 - stock_name: 中華
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -76,8 +76,6 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_priority_high
-- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -104,29 +102,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 53.4
-- high: 54.3
-- low: 53
-- close: 54
-- volume: 3003525
-- ma5: 53.38
-- ema23_primary: 53.4
-- distance_to_ema23_pct: 1.13
-- ma20: 53.2
-- ma60: 54.37
-- ma120: 56.38
-- return_5d: 1.5
-- return_20d: 0.56
-- volume_ratio: 1.77
-- distance_to_ma20_pct_auxiliary: 1.5
-- distance_to_high_60_pct: -6.74
+- date: 20260603
+- open: 54
+- high: 55.1
+- low: 53.7
+- close: 54.9
+- volume: 2890212
+- ma5: 53.84
+- ema23_primary: 53.52
+- distance_to_ema23_pct: 2.57
+- ma20: 53.24
+- ma60: 54.35
+- ma120: 56.34
+- return_5d: 4.37
+- return_20d: 1.67
+- volume_ratio: 1.62
+- distance_to_ma20_pct_auxiliary: 3.11
+- distance_to_high_60_pct: -5.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,54.4,54.4,53.9,54,1044420,54.39,-0.72,54.2,55.63,0.85
 20260507,54.5,55.2,54,55,1414862,54.44,1.02,54.2,55.62,1.15
 20260508,55.3,55.5,54.4,54.4,951391,54.44,-0.08,54.21,55.59,0.78
 20260511,54.5,54.5,53.9,54.1,1223826,54.41,-0.57,54.2,55.57,1.02
@@ -146,6 +143,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,53,54.1,53,53.8,2122191,53.32,0.9,53.23,54.44,1.29
 20260601,54.1,54.1,53.2,53.6,1539856,53.34,0.48,53.19,54.39,0.92
 20260602,53.4,54.3,53,54,3003525,53.4,1.13,53.2,54.37,1.77
+20260603,54,55.1,53.7,54.9,2890212,53.52,2.57,53.24,54.35,1.62
 ```
 
 ## Latest TDCC Snapshot
@@ -175,12 +173,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2204 | 中華 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2204 | 中華 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2204 | 中華 | 3 | 1 | 3 | 4 | 4 | continued_2_3d | 連續 3 個交易日上榜，訊號延續但仍需確認。 |
+| 20260603 | 2204 | 中華 | 4 | 1 | 4 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 5 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

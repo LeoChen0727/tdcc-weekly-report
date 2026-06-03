@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8104 錸寶
 
 ## Metadata
-- generated_at: 2026-06-02 23:30:57 Asia/Taipei
+- generated_at: 2026-06-04 01:57:15 Asia/Taipei
 - stock_id: 8104
 - stock_name: 錸寶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,7 +58,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: high_level_consolidation
 - entry_style: current_price_ok
 - position_sizing: observe_only
 
@@ -75,7 +75,6 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -89,6 +88,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- price_too_extended
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -96,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 40.65
-- high: 41.15
-- low: 39
-- close: 40.55
-- volume: 2984609
-- ma5: 40.28
-- ema23_primary: 36.65
-- distance_to_ema23_pct: 10.63
-- ma20: 35.91
-- ma60: 34.91
-- ma120: 34.64
-- return_5d: 16.02
-- return_20d: 15.53
-- volume_ratio: 1.23
-- distance_to_ma20_pct_auxiliary: 12.93
-- distance_to_high_60_pct: -6.78
+- date: 20260603
+- open: 40.45
+- high: 44.6
+- low: 39.6
+- close: 44.6
+- volume: 11336115
+- ma5: 41.75
+- ema23_primary: 37.32
+- distance_to_ema23_pct: 19.52
+- ma20: 36.41
+- ma60: 35.06
+- ma120: 34.77
+- return_5d: 19.73
+- return_20d: 29.09
+- volume_ratio: 3.83
+- distance_to_ma20_pct_auxiliary: 22.49
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,35.8,35.8,34.5,34.55,840396,34.77,-0.62,34.99,35.23,0.43
 20260507,34.9,35.3,34.55,34.6,633378,34.75,-0.44,35.12,35.17,0.32
 20260508,34.6,36,33.7,33.75,1030401,34.67,-2.65,35.23,35.09,0.51
 20260511,34,35.3,33.75,34.7,786349,34.67,0.08,35.36,34.97,0.39
@@ -138,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,43.3,43.5,40.95,41.15,15570788,35.83,14.85,35.27,34.68,7.71
 20260601,41.25,43,40.05,41.5,7200896,36.3,14.32,35.63,34.81,3.08
 20260602,40.65,41.15,39,40.55,2984609,36.65,10.63,35.91,34.91,1.23
+20260603,40.45,44.6,39.6,44.6,11336115,37.32,19.52,36.41,35.06,3.83
 ```
 
 ## Latest TDCC Snapshot

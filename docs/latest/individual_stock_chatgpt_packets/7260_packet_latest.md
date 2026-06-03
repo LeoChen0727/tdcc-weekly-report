@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7260 富喬國票57售02
 
 ## Metadata
-- generated_at: 2026-06-02 23:30:17 Asia/Taipei
+- generated_at: 2026-06-04 01:56:56 Asia/Taipei
 - stock_id: 7260
 - stock_name: 富喬國票57售02
 - packet_status: standard_180d_window_packet

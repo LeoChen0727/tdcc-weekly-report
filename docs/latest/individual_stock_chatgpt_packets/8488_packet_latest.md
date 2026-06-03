@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8488 吉源-KY
 
 ## Metadata
-- generated_at: 2026-06-02 23:31:14 Asia/Taipei
+- generated_at: 2026-06-04 01:57:23 Asia/Taipei
 - stock_id: 8488
 - stock_name: 吉源-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 247
+- latest_price_date: 20260603
+- price_rows: 248
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -97,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
+- date: 20260603
 - open: 10.2
 - high: 10.2
 - low: 10.2
 - close: 10.2
-- volume: 1001
-- ma5: 9.95
-- ema23_primary: 9.99
-- distance_to_ema23_pct: 2.12
+- volume: 1000
+- ma5: 10.04
+- ema23_primary: 10.01
+- distance_to_ema23_pct: 1.94
 - ma20: 9.99
 - ma60: 9.98
 - ma120: 10.01
-- return_5d: 4.08
-- return_20d: 0
+- return_5d: 4.51
+- return_20d: 0.99
 - volume_ratio: 0.02
-- distance_to_ma20_pct_auxiliary: 2.15
+- distance_to_ma20_pct_auxiliary: 2.1
 - distance_to_high_60_pct: -10.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260505,10.05,10.25,10.05,10.1,3000,10.1,0.01,10.1,9.98,0.07
 20260506,10.1,10.2,9.99,10.1,12000,10.1,0.01,10.11,9.98,0.26
 20260507,10.05,10.1,9.93,10.05,15000,10.1,-0.45,10.13,9.98,0.34
 20260508,10.1,10.1,10.1,10.1,2832,10.1,0.04,10.15,9.98,0.06
@@ -139,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,9.85,9.94,9.85,9.9,10010,9.95,-0.52,9.99,9.98,0.18
 20260601,9.9,10.15,9.9,10.15,22043,9.97,1.82,9.99,9.98,0.4
 20260602,10.2,10.2,10.2,10.2,1001,9.99,2.12,9.99,9.98,0.02
+20260603,10.2,10.2,10.2,10.2,1000,10.01,1.94,9.99,9.98,0.02
 ```
 
 ## Latest TDCC Snapshot

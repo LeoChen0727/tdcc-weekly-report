@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3550 聯穎
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:02 Asia/Taipei
+- generated_at: 2026-06-04 01:55:26 Asia/Taipei
 - stock_id: 3550
 - stock_name: 聯穎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: starter_position
-- action_rating_label_zh: 可小量試單
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: healthy_pullback
 - entry_style: pullback_to_23ema
-- position_sizing: starter_1_4
+- position_sizing: half_position
 
 ### management_plan
 - buy_first_tranche_near_support
@@ -75,6 +75,7 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -101,29 +102,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 21.8
-- high: 21.8
-- low: 20.45
-- close: 21
-- volume: 2600832
-- ma5: 20.66
-- ema23_primary: 20.68
-- distance_to_ema23_pct: 1.57
-- ma20: 20.9
-- ma60: 19.65
-- ma120: 17.58
-- return_5d: 2.94
-- return_20d: -10.64
-- volume_ratio: 0.8
-- distance_to_ma20_pct_auxiliary: 0.48
-- distance_to_high_60_pct: -14.29
+- date: 20260603
+- open: 21.5
+- high: 22.05
+- low: 20.85
+- close: 21.8
+- volume: 2995337
+- ma5: 20.98
+- ema23_primary: 20.77
+- distance_to_ema23_pct: 4.96
+- ma20: 20.88
+- ma60: 19.74
+- ma120: 17.65
+- return_5d: 7.92
+- return_20d: -2.02
+- volume_ratio: 1.08
+- distance_to_ma20_pct_auxiliary: 4.42
+- distance_to_high_60_pct: -11.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,24.25,24.5,21.9,22.25,12506891,20.17,10.33,20.24,18.75,2.67
 20260507,22.25,22.6,21.6,22,4017028,20.32,8.27,20.43,18.84,0.83
 20260508,22,22.4,20.7,21.35,3453534,20.41,4.63,20.5,18.91,0.75
 20260511,21.55,21.65,21,21.4,2973012,20.49,4.45,20.61,18.98,0.66
@@ -143,6 +143,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,20.15,20.95,20,20.65,1500106,20.57,0.38,21.02,19.51,0.42
 20260601,20.95,22.3,20.85,21.45,4852543,20.65,3.9,21.02,19.59,1.35
 20260602,21.8,21.8,20.45,21,2600832,20.68,1.57,20.9,19.65,0.8
+20260603,21.5,22.05,20.85,21.8,2995337,20.77,4.96,20.88,19.74,1.08
 ```
 
 ## Latest TDCC Snapshot
@@ -172,13 +173,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3550 | 聯穎 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260521 | 3550 | 聯穎 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3550 | 聯穎 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3550 | 聯穎 | 9 | 9 | 5 | 9 | 9 | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 3550 | 聯穎 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

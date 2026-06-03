@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4523 永彰
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:34 Asia/Taipei
+- generated_at: 2026-06-04 01:55:41 Asia/Taipei
 - stock_id: 4523
 - stock_name: 永彰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -97,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
+- date: 20260603
 - open: 30.2
-- high: 30.3
-- low: 29.4
-- close: 29.9
-- volume: 30
-- ma5: 29.55
-- ema23_primary: 29.46
-- distance_to_ema23_pct: 1.51
-- ma20: 29.29
-- ma60: 30.27
-- ma120: 30.19
-- return_5d: 4.18
-- return_20d: -4.01
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: 2.08
-- distance_to_high_60_pct: -15.3
+- high: 30.6
+- low: 29.75
+- close: 30.15
+- volume: 30000
+- ma5: 29.84
+- ema23_primary: 29.51
+- distance_to_ema23_pct: 2.16
+- ma20: 29.27
+- ma60: 30.21
+- ma120: 30.2
+- return_5d: 5.05
+- return_20d: -1.63
+- volume_ratio: 0.25
+- distance_to_ma20_pct_auxiliary: 3.02
+- distance_to_high_60_pct: -14.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,31.15,31.15,30.45,30.65,294000,30.6,0.18,30.45,30.94,1.26
 20260507,30.9,31.55,30.65,31,199000,30.63,1.21,30.5,30.94,0.86
 20260508,31.2,31.35,30.8,31,157000,30.66,1.11,30.57,30.97,0.69
 20260511,31.05,31.05,30.2,30.35,304000,30.63,-0.93,30.61,30.99,1.28
@@ -139,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,29.6,29.95,29.2,29.95,30000,29.34,2.07,29.37,30.37,0.19
 20260601,30,31,29.4,30.2,30,29.42,2.67,29.35,30.33,0
 20260602,30.2,30.3,29.4,29.9,30,29.46,1.51,29.29,30.27,0
+20260603,30.2,30.6,29.75,30.15,30000,29.51,2.16,29.27,30.21,0.25
 ```
 
 ## Latest TDCC Snapshot

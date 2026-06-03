@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6573 虹揚-KY
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:19 Asia/Taipei
+- generated_at: 2026-06-04 01:56:30 Asia/Taipei
 - stock_id: 6573
 - stock_name: 虹揚-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,7 +59,7 @@
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: high_level_distribution_risk
-- entry_style: breakout_follow
+- entry_style: pullback_to_23ema
 - position_sizing: starter_1_4
 
 ### management_plan
@@ -76,6 +76,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 
@@ -100,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 15.75
-- high: 17.3
-- low: 15.75
-- close: 17.3
-- volume: 1493678
-- ma5: 15.54
-- ema23_primary: 14.09
-- distance_to_ema23_pct: 22.8
-- ma20: 13.8
-- ma60: 13.33
+- date: 20260603
+- open: 18.35
+- high: 18.65
+- low: 17.7
+- close: 18.05
+- volume: 1866641
+- ma5: 16.45
+- ema23_primary: 14.42
+- distance_to_ema23_pct: 25.19
+- ma20: 14.07
+- ma60: 13.39
 - ma120: 14.37
-- return_5d: 24.01
-- return_20d: 33.08
-- volume_ratio: 2.87
-- distance_to_ma20_pct_auxiliary: 25.36
-- distance_to_high_60_pct: 0
+- return_5d: 33.7
+- return_20d: 43.25
+- volume_ratio: 3.07
+- distance_to_ma20_pct_auxiliary: 28.26
+- distance_to_high_60_pct: -3.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,13,13.1,12.6,12.6,121308,12.92,-2.46,12.73,13.65,0.65
 20260507,12.6,12.95,12.6,12.7,110099,12.9,-1.55,12.74,13.61,0.6
 20260508,12.7,12.8,12.4,12.7,128524,12.88,-1.42,12.77,13.57,0.73
 20260511,12.7,12.9,12.25,12.3,192523,12.83,-4.16,12.77,13.51,1.06
@@ -142,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,16.3,16.3,16.3,16.3,1776618,13.62,19.69,13.45,13.24,5.2
 20260601,15.7,16.55,14.7,15.75,2262385,13.8,14.16,13.59,13.27,5.02
 20260602,15.75,17.3,15.75,17.3,1493678,14.09,22.8,13.8,13.33,2.87
+20260603,18.35,18.65,17.7,18.05,1866641,14.42,25.19,14.07,13.39,3.07
 ```
 
 ## Latest TDCC Snapshot
@@ -171,12 +172,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6573 | 虹揚-KY | true_breakout | 嚴格突破 | 101.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 6573 | 虹揚-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6573 | 虹揚-KY | 4 | 1 | 4 | 4 | 4 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260603 | 6573 | 虹揚-KY | 5 | 1 | 5 | 5 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

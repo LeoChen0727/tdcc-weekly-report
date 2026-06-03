@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2357 華碩
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:27 Asia/Taipei
+- generated_at: 2026-06-04 01:54:40 Asia/Taipei
 - stock_id: 2357
 - stock_name: 華碩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,14 +55,18 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: take_profit
-- action_rating_label_zh: 停利
-- confidence_level: low
-- thesis_state: breakout_confirmed
-- entry_style: breakout_follow
-- position_sizing: observe_only
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
+- confidence_level: medium
+- thesis_state: high_level_consolidation
+- entry_style: current_price_ok
+- position_sizing: starter_1_4
 
 ### management_plan
+- buy_first_tranche_now
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -71,7 +75,6 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_tdcc_warning
@@ -97,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 914
-- high: 920
-- low: 883
-- close: 920
-- volume: 11557431
-- ma5: 782.2
-- ema23_primary: 696.21
-- distance_to_ema23_pct: 32.14
-- ma20: 691.7
-- ma60: 614.77
-- ma120: 577.7
-- return_5d: 31.62
-- return_20d: 55.93
-- volume_ratio: 1.69
-- distance_to_ma20_pct_auxiliary: 33.01
-- distance_to_high_60_pct: 0
+- date: 20260603
+- open: 954
+- high: 964
+- low: 899
+- close: 931
+- volume: 13575996
+- ma5: 828.2
+- ema23_primary: 715.78
+- distance_to_ema23_pct: 30.07
+- ma20: 706.8
+- ma60: 621.5
+- ma120: 580.45
+- return_5d: 32.81
+- return_20d: 48.01
+- volume_ratio: 1.91
+- distance_to_ma20_pct_auxiliary: 31.72
+- distance_to_high_60_pct: -3.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,598,634,596,629,8876828,586.95,7.16,589.45,556.81,2.18
 20260507,633,655,625,639,9859127,591.29,8.07,593.3,558.96,2.25
 20260508,640,670,638,650,9024005,596.18,9.03,597.4,561.34,1.91
 20260511,661,699,658,686,10283055,603.67,13.64,602.8,564.51,2.04
@@ -139,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,708,761,708,761,13953540,661.22,15.09,662.9,602.45,2.19
 20260601,837,837,837,837,4445549,675.87,23.84,675.2,608.07,0.69
 20260602,914,920,883,920,11557431,696.21,32.14,691.7,614.77,1.69
+20260603,954,964,899,931,13575996,715.78,30.07,706.8,621.5,1.91
 ```
 
 ## Latest TDCC Snapshot
@@ -168,18 +171,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2357 | 華碩 | true_breakout | 嚴格突破 | 87.0 |  |  | breakout_confirmed |  | call_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 2357 | 華碩 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2357 | 華碩 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2357 | 華碩 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2357 | 華碩 | 9 | 9 | 5 | 9 | 9 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260603 | 2357 | 華碩 | 10 | 10 | 5 | 10 | 10 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2357 | 華碩 | 69 | 1 | 26614840.0 | 4550.0 | 5849.42 | call_inflow | 1 |  |
+| 20260603 | 2357 | 華碩 | 73 | 1 | 28214510.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

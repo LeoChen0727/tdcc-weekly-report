@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6206 飛捷
 
 ## Metadata
-- generated_at: 2026-06-02 23:28:50 Asia/Taipei
+- generated_at: 2026-06-04 01:56:17 Asia/Taipei
 - stock_id: 6206
 - stock_name: 飛捷
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,18 +55,14 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: healthy_pullback
+- thesis_state: unclear
 - entry_style: pullback_to_23ema
-- position_sizing: half_position
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -75,7 +71,6 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -102,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 142.5
-- high: 143.5
-- low: 138
-- close: 142
-- volume: 1912937
-- ma5: 139.6
-- ema23_primary: 131.03
-- distance_to_ema23_pct: 8.37
-- ma20: 133.57
-- ma60: 113.3
-- ma120: 102.88
-- return_5d: 1.43
-- return_20d: 28.51
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: 6.31
-- distance_to_high_60_pct: -2.74
+- date: 20260603
+- open: 144.5
+- high: 145.5
+- low: 140
+- close: 141.5
+- volume: 2455369
+- ma5: 140.2
+- ema23_primary: 131.9
+- distance_to_ema23_pct: 7.28
+- ma20: 135.12
+- ma60: 114.08
+- ma120: 103.25
+- return_5d: 2.17
+- return_20d: 28.05
+- volume_ratio: 0.7
+- distance_to_ma20_pct_auxiliary: 4.72
+- distance_to_high_60_pct: -3.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,111,112.5,109.5,110.5,1023761,105.97,4.27,106.53,99.77,0.97
 20260507,111,119,110.5,117,3885536,106.89,9.46,107.2,100.19,3.26
 20260508,121,123.5,117.5,119,5367458,107.9,10.29,107.97,100.65,3.82
 20260511,128,130.5,127,130.5,5058880,109.78,18.87,109.38,101.3,3.12
@@ -144,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,141,141,137,137.5,1778545,128.99,6.6,130.47,111.59,0.54
 20260601,136.5,145.5,136.5,141.5,3174026,130.03,8.82,132,112.47,0.94
 20260602,142.5,143.5,138,142,1912937,131.03,8.37,133.57,113.3,0.56
+20260603,144.5,145.5,140,141.5,2455369,131.9,7.28,135.12,114.08,0.7
 ```
 
 ## Latest TDCC Snapshot
@@ -171,19 +166,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6206 | 飛捷 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6206 | 飛捷 | 4 | 4 | 4 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6206 | 飛捷 | 15 | 0 | 4480690.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 6206 | 飛捷 | 15 | 0 | 3672790.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

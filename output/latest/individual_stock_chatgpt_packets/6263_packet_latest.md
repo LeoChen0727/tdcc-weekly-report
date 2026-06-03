@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6263 普萊德
 
 ## Metadata
-- generated_at: 2026-06-02 23:28:58 Asia/Taipei
+- generated_at: 2026-06-04 01:56:21 Asia/Taipei
 - stock_id: 6263
 - stock_name: 普萊德
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,7 +59,7 @@
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: high_level_consolidation
-- entry_style: current_price_ok
+- entry_style: pullback_to_23ema
 - position_sizing: observe_only
 
 ### management_plan
@@ -72,6 +72,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -96,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 178.5
-- high: 184.5
-- low: 173.5
-- close: 182
-- volume: 179
-- ma5: 179.4
-- ema23_primary: 169.4
-- distance_to_ema23_pct: 7.44
-- ma20: 173.12
-- ma60: 144.15
-- ma120: 135.91
-- return_5d: -1.62
-- return_20d: 30.94
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: 5.13
-- distance_to_high_60_pct: -6.67
+- date: 20260603
+- open: 182.5
+- high: 183.5
+- low: 179.5
+- close: 180.5
+- volume: 182000
+- ma5: 178.7
+- ema23_primary: 170.33
+- distance_to_ema23_pct: 5.97
+- ma20: 175.3
+- ma60: 145.1
+- ma120: 136.3
+- return_5d: -1.9
+- return_20d: 31.75
+- volume_ratio: 0.35
+- distance_to_ma20_pct_auxiliary: 2.97
+- distance_to_high_60_pct: -7.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,140.5,140.5,137,137,136000,135.54,1.07,136.45,127.55,0.67
 20260507,138,142,136.5,139.5,168000,135.87,2.67,137.15,127.74,0.81
 20260508,142,153,140,153,746000,137.3,11.43,138.45,128.18,3.09
 20260511,168,168,168,168,285000,139.86,20.12,140.47,128.92,1.13
@@ -138,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,183.5,184.5,177,178.5,180000,167.6,6.51,169.07,142.31,0.34
 20260601,182,182,173,175.5,176,168.26,4.31,170.97,143.18,0
 20260602,178.5,184.5,173.5,182,179,169.4,7.44,173.12,144.15,0
+20260603,182.5,183.5,179.5,180.5,182000,170.33,5.97,175.3,145.1,0.35
 ```
 
 ## Latest TDCC Snapshot

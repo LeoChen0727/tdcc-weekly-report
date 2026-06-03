@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00940 元大台灣價值高息
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:10 Asia/Taipei
+- generated_at: 2026-06-04 01:54:05 Asia/Taipei
 - stock_id: 00940
 - stock_name: 元大台灣價值高息
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260602
-- price_rows: 8
+- latest_price_date: 20260603
+- price_rows: 9
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -59,7 +59,7 @@
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: observe_only
 
 ### management_plan
@@ -72,7 +72,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -97,23 +96,23 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 12.33
-- high: 12.49
-- low: 12.25
-- close: 12.49
-- volume: 65769164
-- ma5: 12.07
-- ema23_primary: 11.73
-- distance_to_ema23_pct: 6.47
-- ma20: 11.91
-- ma60: 11.91
-- ma120: 11.91
-- return_5d: 6.21
+- date: 20260603
+- open: 12.57
+- high: 12.74
+- low: 12.56
+- close: 12.7
+- volume: 28980060
+- ma5: 12.23
+- ema23_primary: 11.81
+- distance_to_ema23_pct: 7.52
+- ma20: 12
+- ma60: 12
+- ma120: 12
+- return_5d: 6.99
 - return_20d: 
-- volume_ratio: 1.44
-- distance_to_ma20_pct_auxiliary: 4.83
-- distance_to_high_60_pct: 0
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: 5.81
+- distance_to_high_60_pct: -0.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -127,6 +126,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,11.91,11.99,11.88,11.98,34068893,11.61,3.21,11.76,11.76,0.82
 20260601,12.05,12.27,12.05,12.27,48765678,11.66,5.21,11.83,11.83,1.14
 20260602,12.33,12.49,12.25,12.49,65769164,11.73,6.47,11.91,11.91,1.44
+20260603,12.57,12.74,12.56,12.7,28980060,11.81,7.52,12,12,0.66
 ```
 
 ## Latest TDCC Snapshot

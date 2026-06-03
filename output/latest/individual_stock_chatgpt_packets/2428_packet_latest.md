@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2428 興勤
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:36 Asia/Taipei
+- generated_at: 2026-06-04 01:54:45 Asia/Taipei
 - stock_id: 2428
 - stock_name: 興勤
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -96,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 285.5
-- high: 292
+- date: 20260603
+- open: 280
+- high: 280
 - low: 267
-- close: 276.5
-- volume: 2947816
-- ma5: 282
-- ema23_primary: 234.44
-- distance_to_ema23_pct: 17.94
-- ma20: 230.47
-- ma60: 188.33
-- ma120: 182.51
-- return_5d: 8.01
-- return_20d: 49.06
-- volume_ratio: 1.05
-- distance_to_ma20_pct_auxiliary: 19.97
-- distance_to_high_60_pct: -14
+- close: 271
+- volume: 1678641
+- ma5: 283
+- ema23_primary: 237.49
+- distance_to_ema23_pct: 14.11
+- ma20: 234.78
+- ma60: 190
+- ma120: 183.2
+- return_5d: 1.88
+- return_20d: 46.49
+- volume_ratio: 0.59
+- distance_to_ma20_pct_auxiliary: 15.43
+- distance_to_high_60_pct: -15.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,187,187.5,180,185,1038505,175.6,5.36,177.57,169.94,0.69
 20260507,185.5,194.5,183.5,188.5,2033394,176.67,6.7,179.2,170.19,1.43
 20260508,182,193,178,190.5,3916661,177.82,7.13,180.62,170.52,2.5
 20260511,191,196,185,193,1849860,179.09,7.77,181.82,170.95,1.19
@@ -138,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,321.5,321.5,291,292,7407540,225.85,29.29,220.88,184.72,2.85
 20260601,291,304.5,278,283,3957449,230.62,22.72,225.93,186.63,1.45
 20260602,285.5,292,267,276.5,2947816,234.44,17.94,230.47,188.33,1.05
+20260603,280,280,267,271,1678641,237.49,14.11,234.78,190,0.59
 ```
 
 ## Latest TDCC Snapshot
@@ -177,7 +177,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2428 | 興勤 | 20 | 0 | 5094890.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 2428 | 興勤 | 20 | 0 | 3624990.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

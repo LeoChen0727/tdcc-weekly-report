@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6669 緯穎
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:29 Asia/Taipei
+- generated_at: 2026-06-04 01:56:35 Asia/Taipei
 - stock_id: 6669
 - stock_name: 緯穎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,11 +59,11 @@
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -76,7 +76,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -101,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 5580
+- date: 20260603
+- open: 5550
 - high: 5675
-- low: 5315
-- close: 5475
-- volume: 1953015
-- ma5: 5292
-- ema23_primary: 5116.9
-- distance_to_ema23_pct: 7
-- ma20: 5271
-- ma60: 4396.42
-- ma120: 4253.58
-- return_5d: 3.69
-- return_20d: 15.14
-- volume_ratio: 0.82
-- distance_to_ma20_pct_auxiliary: 3.87
-- distance_to_high_60_pct: -6.89
+- low: 5420
+- close: 5600
+- volume: 1716435
+- ma5: 5397
+- ema23_primary: 5157.16
+- distance_to_ema23_pct: 8.59
+- ma20: 5302.5
+- ma60: 4419.5
+- ma120: 4262.17
+- return_5d: 10.34
+- return_20d: 12.68
+- volume_ratio: 0.73
+- distance_to_ma20_pct_auxiliary: 5.61
+- distance_to_high_60_pct: -4.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,4855,4985,4630,4970,2694820,4324.31,14.93,4231.75,3929.92,1.04
 20260507,5050,5060,4870,4880,2032564,4370.62,11.65,4297.25,3949.5,0.78
 20260508,4920,5250,4890,5200,4060772,4439.74,17.12,4378.25,3974.17,1.49
 20260511,5290,5345,5115,5340,2206874,4514.76,18.28,4463.75,4003.58,0.8
@@ -143,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,5130,5445,5075,5445,3282663,5045.2,7.92,5202.25,4348.75,1.36
 20260601,5715,5795,5460,5515,2252805,5084.35,8.47,5235,4375.5,0.94
 20260602,5580,5675,5315,5475,1953015,5116.9,7,5271,4396.42,0.82
+20260603,5550,5675,5420,5600,1716435,5157.16,8.59,5302.5,4419.5,0.73
 ```
 
 ## Latest TDCC Snapshot
@@ -172,18 +171,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6669 | 緯穎 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260602 | 6669 | 緯穎 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260603 | 6669 | 緯穎 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6669 | 緯穎 | 6 | 6 | 5 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 6669 | 緯穎 | 7 | 3 | 5 | 9 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6669 | 緯穎 | 415 | 38 | 39792800.0 | 231760.0 | 171.7 | no_signal | 0 |  |
+| 20260603 | 6669 | 緯穎 | 421 | 38 | 51656770.0 | 193900.0 | 266.41 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

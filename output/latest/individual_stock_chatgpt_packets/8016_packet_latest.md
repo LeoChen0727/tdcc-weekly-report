@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8016 矽創
 
 ## Metadata
-- generated_at: 2026-06-02 23:30:47 Asia/Taipei
+- generated_at: 2026-06-04 01:57:10 Asia/Taipei
 - stock_id: 8016
 - stock_name: 矽創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -100,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 309
-- high: 309
-- low: 296.5
-- close: 302
-- volume: 2799664
-- ma5: 303.6
-- ema23_primary: 278.44
-- distance_to_ema23_pct: 8.46
-- ma20: 284.4
-- ma60: 232.83
-- ma120: 209.76
-- return_5d: 4.32
-- return_20d: 28.78
-- volume_ratio: 0.83
-- distance_to_ma20_pct_auxiliary: 6.19
-- distance_to_high_60_pct: -2.58
+- date: 20260603
+- open: 307
+- high: 310
+- low: 303.5
+- close: 304
+- volume: 1975322
+- ma5: 304.2
+- ema23_primary: 280.57
+- distance_to_ema23_pct: 8.35
+- ma20: 287.52
+- ma60: 234.65
+- ma120: 210.77
+- return_5d: 1
+- return_20d: 25.88
+- volume_ratio: 0.58
+- distance_to_ma20_pct_auxiliary: 5.73
+- distance_to_high_60_pct: -1.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,239,242.5,235,241.5,1703636,219.92,9.81,219.62,203.12,1.11
 20260507,244,265.5,242,265.5,5281178,223.72,18.68,222.8,204.28,3.07
 20260508,271,279.5,262,273,7424424,227.82,19.83,226.3,205.55,3.63
 20260511,273,275.5,268,268.5,2551040,231.21,16.13,229.6,206.77,1.2
@@ -142,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,304,306,298,306,4044659,273.33,11.95,277.25,228.88,1.29
 20260601,306,310,298,309,3666800,276.3,11.84,281.02,230.97,1.12
 20260602,309,309,296.5,302,2799664,278.44,8.46,284.4,232.83,0.83
+20260603,307,310,303.5,304,1975322,280.57,8.35,287.52,234.65,0.58
 ```
 
 ## Latest TDCC Snapshot
@@ -171,18 +171,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 8016 | 矽創 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | first_seen | calendar event: ex_dividend on 20260615; status=confirmed; proximity=within_14d |
-| 20260602 | 8016 | 矽創 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | first_seen | calendar event: ex_dividend on 20260615; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260603 | 8016 | 矽創 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_strong_inflow | first_seen | calendar event: ex_dividend on 20260615; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 8016 | 矽創 | 1 | 1 | 2 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
+| 20260603 | 8016 | 矽創 | 1 | 1 | 1 | 2 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 8016 | 矽創 | 27 | 0 | 2510350.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 8016 | 矽創 | 27 | 0 | 5201440.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

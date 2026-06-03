@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6854 錼創科技-KY創
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:45 Asia/Taipei
+- generated_at: 2026-06-04 01:56:42 Asia/Taipei
 - stock_id: 6854
 - stock_name: 錼創科技-KY創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -100,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 148
-- high: 148
-- low: 142.5
-- close: 143.5
-- volume: 660047
-- ma5: 150.1
-- ema23_primary: 153.5
-- distance_to_ema23_pct: -6.52
-- ma20: 152.2
-- ma60: 150.57
-- ma120: 139.39
-- return_5d: -10.31
-- return_20d: -10.03
+- date: 20260603
+- open: 144
+- high: 146
+- low: 140.5
+- close: 141.5
+- volume: 653839
+- ma5: 147.3
+- ema23_primary: 152.5
+- distance_to_ema23_pct: -7.21
+- ma20: 151.57
+- ma60: 150.68
+- ma120: 139.47
+- return_5d: -9
+- return_20d: -8.12
 - volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: -5.72
-- distance_to_high_60_pct: -27.34
+- distance_to_ma20_pct_auxiliary: -6.65
+- distance_to_high_60_pct: -28.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,164,164,153.5,154,733138,156.94,-1.87,159.78,143.04,0.57
 20260507,154.5,161.5,153,153.5,525293,156.65,-2.01,160.38,143.48,0.41
 20260508,155,155,145,147,906397,155.85,-5.68,160.75,143.88,0.69
 20260511,147.5,147.5,143,145.5,529994,154.99,-6.12,161.15,144.28,0.41
@@ -142,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,156.5,158,151,151.5,518681,154.99,-2.25,153.4,150.12,0.59
 20260601,152,152,146,148,967441,154.41,-4.15,153,150.4,1.08
 20260602,148,148,142.5,143.5,660047,153.5,-6.52,152.2,150.57,0.73
+20260603,144,146,140.5,141.5,653839,152.5,-7.21,151.57,150.68,0.73
 ```
 
 ## Latest TDCC Snapshot
@@ -171,12 +171,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 6854 | 錼創科技-KY創 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 6854 | 錼創科技-KY創 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6854 | 錼創科技-KY創 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 6854 | 錼創科技-KY創 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

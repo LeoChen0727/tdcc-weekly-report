@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5285 界霖
 
 ## Metadata
-- generated_at: 2026-06-02 23:28:10 Asia/Taipei
+- generated_at: 2026-06-04 01:55:58 Asia/Taipei
 - stock_id: 5285
 - stock_name: 界霖
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,14 +55,18 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: high_level_consolidation
 - entry_style: current_price_ok
-- position_sizing: observe_only
+- position_sizing: starter_1_4
 
 ### management_plan
+- buy_first_tranche_now
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -96,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 91.8
-- high: 95
-- low: 88.3
+- date: 20260603
+- open: 91.4
+- high: 93.8
+- low: 90.1
 - close: 90.6
-- volume: 7510756
-- ma5: 90.04
-- ema23_primary: 77.2
-- distance_to_ema23_pct: 17.36
-- ma20: 77.61
-- ma60: 59.66
-- ma120: 55.44
-- return_5d: 1.12
-- return_20d: 61.5
-- volume_ratio: 1.67
-- distance_to_ma20_pct_auxiliary: 16.74
+- volume: 4458192
+- ma5: 90.16
+- ema23_primary: 78.32
+- distance_to_ema23_pct: 15.68
+- ma20: 79.34
+- ma60: 60.37
+- ma120: 55.76
+- return_5d: 0.67
+- return_20d: 62.08
+- volume_ratio: 0.95
+- distance_to_ma20_pct_auxiliary: 14.18
 - distance_to_high_60_pct: -5.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,56.5,56.7,55,55.9,354070,53.5,4.49,53.95,51.15,0.94
 20260507,56.1,58.2,56,57.6,576454,53.84,6.99,54.28,51.17,1.49
 20260508,58.4,62.3,57.1,61.7,1669682,54.49,13.22,54.79,51.27,3.6
 20260511,64.6,67.8,64.6,67.8,2931242,55.6,21.94,55.51,51.5,5.1
@@ -138,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,92.5,94,89.1,90.1,5421694,74.76,20.52,74.23,58.26,1.37
 20260601,89.5,90,85.2,89.4,3792816,75.98,17.66,75.89,58.95,0.92
 20260602,91.8,95,88.3,90.6,7510756,77.2,17.36,77.61,59.66,1.67
+20260603,91.4,93.8,90.1,90.6,4458192,78.32,15.68,79.34,60.37,0.95
 ```
 
 ## Latest TDCC Snapshot
@@ -165,14 +169,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260603 | 5285 | 界霖 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260603 | 5285 | 界霖 | 1 | 1 | 2 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 次、近 20 日上榜 4 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

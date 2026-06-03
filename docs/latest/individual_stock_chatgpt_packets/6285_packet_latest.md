@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6285 啟碁
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:02 Asia/Taipei
+- generated_at: 2026-06-04 01:56:22 Asia/Taipei
 - stock_id: 6285
 - stock_name: 啟碁
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,14 +55,18 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: high_level_consolidation
 - entry_style: current_price_ok
-- position_sizing: observe_only
+- position_sizing: starter_1_4
 
 ### management_plan
+- buy_first_tranche_now
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -96,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 315
-- high: 320.5
-- low: 303.5
+- date: 20260603
+- open: 309
+- high: 314
+- low: 303
 - close: 306
-- volume: 13205587
-- ma5: 310.9
-- ema23_primary: 280.12
-- distance_to_ema23_pct: 9.24
-- ma20: 283.02
-- ma60: 228.04
-- ma120: 180.01
-- return_5d: 0.49
+- volume: 10693104
+- ma5: 309.8
+- ema23_primary: 282.28
+- distance_to_ema23_pct: 8.4
+- ma20: 286.68
+- ma60: 230.38
+- ma120: 181.71
+- return_5d: -1.77
 - return_20d: 31.33
-- volume_ratio: 0.41
-- distance_to_ma20_pct_auxiliary: 8.12
+- volume_ratio: 0.34
+- distance_to_ma20_pct_auxiliary: 6.74
 - distance_to_high_60_pct: -9.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,235,238.5,222,233,31647686,219.57,6.12,231.68,194.68,0.87
 20260507,240.5,256,237,256,46404119,222.6,15,233.65,196.16,1.31
 20260508,250,270,241.5,247.5,49912937,224.68,10.16,234.72,197.34,1.42
 20260511,253,266.5,250.5,259,26743862,227.54,13.83,236.4,198.57,0.77
@@ -138,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,316,331,307.5,319,26333214,274.47,16.22,275,223.11,0.79
 20260601,321,321,308.5,314,17008580,277.77,13.04,279.38,225.68,0.52
 20260602,315,320.5,303.5,306,13205587,280.12,9.24,283.02,228.04,0.41
+20260603,309,314,303,306,10693104,282.28,8.4,286.68,230.38,0.34
 ```
 
 ## Latest TDCC Snapshot
@@ -165,19 +169,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260603 | 6285 | 啟碁 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260603 | 6285 | 啟碁 | 1 | 1 | 2 | 2 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6285 | 啟碁 | 219 | 18 | 28658700.0 | 227510.0 | 125.97 | no_signal | 0 |  |
+| 20260603 | 6285 | 啟碁 | 219 | 18 | 22701670.0 | 67540.0 | 336.12 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3645 達邁
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:10 Asia/Taipei
+- generated_at: 2026-06-04 01:55:30 Asia/Taipei
 - stock_id: 3645
 - stock_name: 達邁
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,18 +55,14 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: starter_position
-- action_rating_label_zh: 可小量試單
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
 - entry_style: pullback_to_23ema
-- position_sizing: starter_1_4
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -101,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 108
-- high: 108
-- low: 99.3
-- close: 101.5
-- volume: 5421162
-- ma5: 105.8
-- ema23_primary: 105.13
-- distance_to_ema23_pct: -3.45
-- ma20: 106.27
-- ma60: 93.39
-- ma120: 75.6
-- return_5d: -13.62
-- return_20d: 0.49
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: -4.49
-- distance_to_high_60_pct: -16.46
+- date: 20260603
+- open: 102
+- high: 102
+- low: 99.5
+- close: 100
+- volume: 3126673
+- ma5: 103.8
+- ema23_primary: 104.7
+- distance_to_ema23_pct: -4.49
+- ma20: 106.36
+- ma60: 93.91
+- ma120: 75.98
+- return_5d: -9.09
+- return_20d: 1.73
+- volume_ratio: 0.27
+- distance_to_ma20_pct_auxiliary: -5.98
+- distance_to_high_60_pct: -17.7
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,102.5,103,95,98.3,9286007,95.76,2.66,98.25,79.05,0.52
 20260507,99.2,99.5,95.2,97,4521704,95.86,1.19,99.28,79.48,0.25
 20260508,97.7,102,91.7,94.1,8983418,95.71,-1.69,100.24,79.93,0.5
 20260511,95.9,103,94.3,101,9961287,96.15,5.04,101.18,80.57,0.56
@@ -143,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,106.5,107.5,103.5,106.5,3804754,105.32,1.12,105.78,92,0.31
 20260601,107,108,104.5,107,4135290,105.46,1.46,106.25,92.74,0.34
 20260602,108,108,99.3,101.5,5421162,105.13,-3.45,106.27,93.39,0.45
+20260603,102,102,99.5,100,3126673,104.7,-4.49,106.36,93.91,0.27
 ```
 
 ## Latest TDCC Snapshot
@@ -170,19 +166,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3645 | 達邁 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3645 | 達邁 | 7 | 5 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3645 | 達邁 | 28 | 0 | 4328010.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 3645 | 達邁 | 28 | 0 | 2162970.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

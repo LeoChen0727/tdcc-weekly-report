@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1468 昶和
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:34 Asia/Taipei
+- generated_at: 2026-06-04 01:54:16 Asia/Taipei
 - stock_id: 1468
 - stock_name: 昶和
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -97,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
+- date: 20260603
 - open: 12
-- high: 12.1
+- high: 12.15
 - low: 11.8
-- close: 12.1
+- close: 12.15
 - volume: 55001
-- ma5: 12.06
+- ma5: 12.08
 - ema23_primary: 12.12
-- distance_to_ema23_pct: -0.16
+- distance_to_ema23_pct: 0.24
 - ma20: 12.15
-- ma60: 12.17
+- ma60: 12.15
 - ma120: 12.25
 - return_5d: 0.83
-- return_20d: 0
-- volume_ratio: 1.12
-- distance_to_ma20_pct_auxiliary: -0.45
-- distance_to_high_60_pct: -7.98
+- return_20d: -0.41
+- volume_ratio: 1.11
+- distance_to_ma20_pct_auxiliary: -0.02
+- distance_to_high_60_pct: -6.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,12.1,12.2,11.95,12.2,50000,12.21,-0.07,12.28,12.47,0.87
 20260507,12.2,12.55,12,12.5,63021,12.23,2.19,12.29,12.45,1.1
 20260508,12.4,12.45,12.15,12.45,50000,12.25,1.63,12.3,12.44,0.87
 20260511,12.4,12.5,12.25,12.45,48020,12.27,1.49,12.3,12.43,0.83
@@ -139,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,11.9,12.1,11.7,12.05,55001,12.12,-0.6,12.15,12.2,1.14
 20260601,11.95,12.1,11.75,12.1,56000,12.12,-0.17,12.15,12.18,1.15
 20260602,12,12.1,11.8,12.1,55001,12.12,-0.16,12.15,12.17,1.12
+20260603,12,12.15,11.8,12.15,55001,12.12,0.24,12.15,12.15,1.11
 ```
 
 ## Latest TDCC Snapshot

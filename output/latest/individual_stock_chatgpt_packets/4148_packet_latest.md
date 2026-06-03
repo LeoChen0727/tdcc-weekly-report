@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4148 全宇生技-KY
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:23 Asia/Taipei
+- generated_at: 2026-06-04 01:55:37 Asia/Taipei
 - stock_id: 4148
 - stock_name: 全宇生技-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 268
+- latest_price_date: 20260603
+- price_rows: 269
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,7 +59,7 @@
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: current_price_ok
+- entry_style: pullback_to_23ema
 - position_sizing: observe_only
 
 ### management_plan
@@ -72,6 +72,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -96,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 30.5
-- high: 31.1
-- low: 30.45
-- close: 31
-- volume: 27362
-- ma5: 30.88
-- ema23_primary: 33.91
-- distance_to_ema23_pct: -8.59
-- ma20: 34.08
-- ma60: 37.9
-- ma120: 38.14
-- return_5d: -3.28
-- return_20d: -13.89
-- volume_ratio: 0.33
-- distance_to_ma20_pct_auxiliary: -9.04
-- distance_to_high_60_pct: -30.96
+- date: 20260603
+- open: 31.75
+- high: 33
+- low: 31
+- close: 32.5
+- volume: 131177
+- ma5: 31.02
+- ema23_primary: 33.8
+- distance_to_ema23_pct: -3.83
+- ma20: 33.88
+- ma60: 37.83
+- ma120: 38.07
+- return_5d: 2.2
+- return_20d: -10.84
+- volume_ratio: 1.53
+- distance_to_ma20_pct_auxiliary: -4.08
+- distance_to_high_60_pct: -27.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,36.85,36.95,36.1,36.45,90824,38.16,-4.48,38.19,38.88,1.07
 20260507,36.35,36.5,36.1,36.4,47612,38.01,-4.25,37.94,38.85,0.62
 20260508,36.35,36.4,36.2,36.25,19083,37.87,-4.27,37.66,38.82,0.26
 20260511,37.4,39.45,37.4,38.4,145245,37.91,1.29,37.55,38.83,1.88
@@ -138,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,30.55,31.05,30.3,30.3,73605,34.52,-12.23,34.6,38.05,0.87
 20260601,30.45,30.7,30.1,30.4,64886,34.18,-11.05,34.33,37.97,0.77
 20260602,30.5,31.1,30.45,31,27362,33.91,-8.59,34.08,37.9,0.33
+20260603,31.75,33,31,32.5,131177,33.8,-3.83,33.88,37.83,1.53
 ```
 
 ## Latest TDCC Snapshot

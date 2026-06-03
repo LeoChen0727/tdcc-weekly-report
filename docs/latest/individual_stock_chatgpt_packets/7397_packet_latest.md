@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7397 環球晶凱基59購02
 
 ## Metadata
-- generated_at: 2026-06-02 23:30:34 Asia/Taipei
+- generated_at: 2026-06-04 01:57:04 Asia/Taipei
 - stock_id: 7397
 - stock_name: 環球晶凱基59購02
 - packet_status: standard_180d_window_packet

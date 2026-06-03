@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6753 龍德造船
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:37 Asia/Taipei
+- generated_at: 2026-06-04 01:56:38 Asia/Taipei
 - stock_id: 6753
 - stock_name: 龍德造船
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -97,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 130
-- high: 130
+- date: 20260603
+- open: 126
+- high: 127
 - low: 125
 - close: 125.5
-- volume: 971760
-- ma5: 126.4
-- ema23_primary: 129.36
-- distance_to_ema23_pct: -2.98
-- ma20: 129.38
-- ma60: 132.53
-- ma120: 135.07
-- return_5d: 2.03
-- return_20d: -13.15
-- volume_ratio: 0.69
-- distance_to_ma20_pct_auxiliary: -3
+- volume: 571336
+- ma5: 126.7
+- ema23_primary: 129.04
+- distance_to_ema23_pct: -2.74
+- ma20: 128.62
+- ma60: 132.31
+- ma120: 135.09
+- return_5d: 1.21
+- return_20d: -10.68
+- volume_ratio: 0.41
+- distance_to_ma20_pct_auxiliary: -2.43
 - distance_to_high_60_pct: -16.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,145,145,139,140.5,845876,137.74,2,137.35,137.56,0.61
 20260507,142,143,139,141,643991,138.01,2.16,137.95,137.52,0.46
 20260508,141.5,151,141.5,145,3707074,138.6,4.62,138.8,137.31,2.38
 20260511,140,140,130.5,131.5,4051785,138,-4.71,139.05,137.07,2.33
@@ -139,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,126.5,132,126.5,128.5,2066885,129.68,-0.91,130.72,132.93,1.48
 20260601,130,132,128,130,1566849,129.71,0.22,130.32,132.78,1.09
 20260602,130,130,125,125.5,971760,129.36,-2.98,129.38,132.53,0.69
+20260603,126,127,125,125.5,571336,129.04,-2.74,128.62,132.31,0.41
 ```
 
 ## Latest TDCC Snapshot
@@ -178,7 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6753 | 龍德造船 | 65 | 3 | 1167800.0 | 28500.0 | 40.98 | no_signal | 0 |  |
+| 20260603 | 6753 | 龍德造船 | 65 | 3 | 345230.0 | 28000.0 | 12.33 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7721 微程式
 
 ## Metadata
-- generated_at: 2026-06-02 23:30:38 Asia/Taipei
+- generated_at: 2026-06-04 01:57:06 Asia/Taipei
 - stock_id: 7721
 - stock_name: 微程式
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 198
+- latest_price_date: 20260603
+- price_rows: 199
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,18 +55,14 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: healthy_pullback
+- thesis_state: unclear
 - entry_style: pullback_to_23ema
-- position_sizing: half_position
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -75,7 +71,6 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -102,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 79.5
-- high: 80
-- low: 74.3
-- close: 75.7
-- volume: 1067636
-- ma5: 75.5
-- ema23_primary: 75.83
-- distance_to_ema23_pct: -0.17
-- ma20: 75.86
-- ma60: 70.78
-- ma120: 60.14
-- return_5d: -3.93
-- return_20d: -1.94
-- volume_ratio: 1.45
-- distance_to_ma20_pct_auxiliary: -0.22
-- distance_to_high_60_pct: -18.6
+- date: 20260603
+- open: 75.9
+- high: 79.7
+- low: 75.8
+- close: 77.5
+- volume: 658981
+- ma5: 75.98
+- ema23_primary: 75.97
+- distance_to_ema23_pct: 2.01
+- ma20: 76
+- ma60: 71.2
+- ma120: 60.38
+- return_5d: 3.2
+- return_20d: 3.47
+- volume_ratio: 0.9
+- distance_to_ma20_pct_auxiliary: 1.98
+- distance_to_high_60_pct: -16.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,78.5,78.9,74,74.9,738838,75.11,-0.28,80.46,62.45,0.68
 20260507,74.6,76.6,73.3,73.8,488809,75,-1.6,80.07,62.86,0.47
 20260508,73.8,74.5,72,72.1,349671,74.76,-3.55,79.48,63.26,0.35
 20260511,74.2,79.3,72,79.3,854636,75.14,5.54,79.25,63.78,0.85
@@ -144,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,74.2,74.5,71.8,72.8,792667,75.47,-3.53,75.83,69.92,1.12
 20260601,74.1,80,73.6,80,1787470,75.84,5.48,75.94,70.39,2.5
 20260602,79.5,80,74.3,75.7,1067636,75.83,-0.17,75.86,70.78,1.45
+20260603,75.9,79.7,75.8,77.5,658981,75.97,2.01,76,71.2,0.9
 ```
 
 ## Latest TDCC Snapshot
@@ -171,14 +166,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 7721 | 微程式 | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 7721 | 微程式 | 2 | 2 | 2 | 3 | 3 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

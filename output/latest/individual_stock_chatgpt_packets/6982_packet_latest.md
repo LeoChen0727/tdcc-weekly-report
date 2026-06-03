@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6982 大井泵浦
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:59 Asia/Taipei
+- generated_at: 2026-06-04 01:56:48 Asia/Taipei
 - stock_id: 6982
 - stock_name: 大井泵浦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,7 +59,7 @@
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: observe_only
 
 ### management_plan
@@ -72,7 +72,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -97,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 57.4
-- high: 57.4
-- low: 55.1
-- close: 56
-- volume: 56
-- ma5: 55.4
-- ema23_primary: 54.45
-- distance_to_ema23_pct: 2.84
-- ma20: 53.81
-- ma60: 53.84
-- ma120: 58.14
-- return_5d: -1.75
-- return_20d: 3.7
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: 4.07
-- distance_to_high_60_pct: -8.2
+- date: 20260603
+- open: 59.4
+- high: 61.6
+- low: 59.4
+- close: 61.6
+- volume: 61000
+- ma5: 56.68
+- ema23_primary: 55.05
+- distance_to_ema23_pct: 11.9
+- ma20: 54.24
+- ma60: 53.92
+- ma120: 58.12
+- return_5d: 11.59
+- return_20d: 16.23
+- volume_ratio: 1.25
+- distance_to_ma20_pct_auxiliary: 13.57
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,54,54.5,52.8,53,42000,54.37,-2.51,55.2,55.51,0.65
 20260507,53,53.1,52.3,53.1,19000,54.26,-2.14,55.27,55.36,0.29
 20260508,52.1,53,51,52.6,73000,54.12,-2.81,55.24,55.2,1.13
 20260511,52.6,53.5,52.3,53.1,63000,54.04,-1.73,55.19,55.06,0.96
@@ -139,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,56,56,55.1,55.4,55000,54.24,2.14,53.63,53.84,1.04
 20260601,56,56,54.7,55.1,55,54.31,1.45,53.71,53.85,0
 20260602,57.4,57.4,55.1,56,56,54.45,2.84,53.81,53.84,0
+20260603,59.4,61.6,59.4,61.6,61000,55.05,11.9,54.24,53.92,1.25
 ```
 
 ## Latest TDCC Snapshot

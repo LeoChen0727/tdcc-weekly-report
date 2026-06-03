@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5489 彩富
 
 ## Metadata
-- generated_at: 2026-06-02 23:28:22 Asia/Taipei
+- generated_at: 2026-06-04 01:56:03 Asia/Taipei
 - stock_id: 5489
 - stock_name: 彩富
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -97,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 38.7
-- high: 39.1
-- low: 38.7
-- close: 38.85
-- volume: 39
-- ma5: 38.95
-- ema23_primary: 39.72
-- distance_to_ema23_pct: -2.2
-- ma20: 39.78
+- date: 20260603
+- open: 38.85
+- high: 39.35
+- low: 38.85
+- close: 39.3
+- volume: 39000
+- ma5: 38.98
+- ema23_primary: 39.69
+- distance_to_ema23_pct: -0.98
+- ma20: 39.72
 - ma60: 40.11
-- ma120: 40.46
-- return_5d: -1.65
-- return_20d: -4.19
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: -2.34
-- distance_to_high_60_pct: -8.05
+- ma120: 40.45
+- return_5d: 0.38
+- return_20d: -3.08
+- volume_ratio: 0.99
+- distance_to_ma20_pct_auxiliary: -1.06
+- distance_to_high_60_pct: -6.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,40.55,40.75,40.15,40.55,75000,40.66,-0.26,40.88,40.62,1.08
 20260507,40.55,40.65,40.4,40.5,54000,40.64,-0.35,40.85,40.58,0.8
 20260508,40.2,40.65,40.2,40.5,43000,40.63,-0.32,40.84,40.54,0.66
 20260511,40.5,40.5,40,40.05,66000,40.58,-1.31,40.78,40.49,1.1
@@ -139,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,39,39.5,38.9,38.9,39000,39.89,-2.48,39.97,40.15,0.82
 20260601,39,39.35,38.6,38.85,39,39.8,-2.4,39.87,40.13,0
 20260602,38.7,39.1,38.7,38.85,39,39.72,-2.2,39.78,40.11,0
+20260603,38.85,39.35,38.85,39.3,39000,39.69,-0.98,39.72,40.11,0.99
 ```
 
 ## Latest TDCC Snapshot

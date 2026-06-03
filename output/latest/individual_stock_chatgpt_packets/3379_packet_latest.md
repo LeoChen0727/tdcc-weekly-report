@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3379 彬台
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:50 Asia/Taipei
+- generated_at: 2026-06-04 01:55:20 Asia/Taipei
 - stock_id: 3379
 - stock_name: 彬台
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 41.8
-- high: 41.8
-- low: 39.55
-- close: 40
-- volume: 40
-- ma5: 40.46
-- ema23_primary: 39.63
-- distance_to_ema23_pct: 0.92
-- ma20: 39.36
+- date: 20260603
+- open: 40.25
+- high: 40.8
+- low: 39.85
+- close: 39.85
+- volume: 40000
+- ma5: 40.29
+- ema23_primary: 39.65
+- distance_to_ema23_pct: 0.5
+- ma20: 39.42
 - ma60: 38.4
-- ma120: 43.59
-- return_5d: -3.03
-- return_20d: -0.37
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: 1.63
-- distance_to_high_60_pct: -8.05
+- ma120: 43.48
+- return_5d: -2.09
+- return_20d: 3.51
+- volume_ratio: 0.05
+- distance_to_ma20_pct_auxiliary: 1.08
+- distance_to_high_60_pct: -8.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,40.15,40.15,38.35,38.5,586000,37.74,2.02,37.14,39.81,1.07
 20260507,38.8,39,38.05,38.3,298000,37.78,1.37,37.15,39.57,0.54
 20260508,37.65,38.55,37,37.3,265000,37.74,-1.17,37.14,39.35,0.47
 20260511,37.3,37.3,36.2,36.6,342000,37.65,-2.78,37.13,39.14,0.61
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,39.8,41.5,39.75,40.8,41000,39.44,3.44,39.25,38.32,0.05
 20260601,41.9,42.5,41.15,41.35,42,39.6,4.42,39.37,38.39,0
 20260602,41.8,41.8,39.55,40,40,39.63,0.92,39.36,38.4,0
+20260603,40.25,40.8,39.85,39.85,40000,39.65,0.5,39.42,38.4,0.05
 ```
 
 ## Latest TDCC Snapshot
@@ -172,12 +172,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 3379 | 彬台 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3379 | 彬台 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3379 | 彬台 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 3379 | 彬台 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2388 威盛
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:31 Asia/Taipei
+- generated_at: 2026-06-04 01:54:42 Asia/Taipei
 - stock_id: 2388
 - stock_name: 威盛
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,18 +55,14 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: starter_position
-- action_rating_label_zh: 可小量試單
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
 - entry_style: pullback_to_23ema
-- position_sizing: starter_1_4
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -78,6 +74,7 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -93,7 +90,6 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
-- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -101,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 75
-- high: 78.5
-- low: 74.7
-- close: 75.4
-- volume: 11184383
-- ma5: 75.48
-- ema23_primary: 76
-- distance_to_ema23_pct: -0.79
-- ma20: 77.5
-- ma60: 65.2
-- ma120: 59.26
-- return_5d: -3.33
-- return_20d: -5.63
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: -2.71
-- distance_to_high_60_pct: -17.42
+- date: 20260603
+- open: 77.2
+- high: 77.6
+- low: 73.1
+- close: 73.4
+- volume: 9173996
+- ma5: 74.98
+- ema23_primary: 75.78
+- distance_to_ema23_pct: -3.14
+- ma20: 77.17
+- ma60: 65.66
+- ma120: 59.44
+- return_5d: -3.29
+- return_20d: -8.25
+- volume_ratio: 0.58
+- distance_to_ma20_pct_auxiliary: -4.89
+- distance_to_high_60_pct: -19.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,81.3,85.4,78.7,80,31338605,69.31,15.43,68.94,56.71,1.56
 20260507,79.9,80.3,75.2,75.6,17707276,69.83,8.26,69.99,57.03,0.86
 20260508,75,76.5,70.8,71.4,13102042,69.96,2.06,70.85,57.31,0.63
 20260511,72.1,78.3,71.4,76.7,12994023,70.52,8.76,72.01,57.73,0.61
@@ -143,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,76.1,77.3,75.1,76.9,6298461,76.17,0.96,78.14,64.2,0.32
 20260601,77.4,77.5,74.6,74.8,8687478,76.05,-1.65,77.72,64.71,0.5
 20260602,75,78.5,74.7,75.4,11184383,76,-0.79,77.5,65.2,0.66
+20260603,77.2,77.6,73.1,73.4,9173996,75.78,-3.14,77.17,65.66,0.58
 ```
 
 ## Latest TDCC Snapshot
@@ -170,20 +166,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2388 | 威盛 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260602 | 2388 | 威盛 | revenue_pullback | 營收成長股價回檔 | 83.0 |  |  |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2388 | 威盛 | 9 | 7 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2388 | 威盛 | 69 | 5 | 11302260.0 | 180460.0 | 62.63 | call_inflow | 1 |  |
+| 20260603 | 2388 | 威盛 | 68 | 5 | 6452350.0 | 67160.0 | 96.07 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

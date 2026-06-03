@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6592 和潤企業
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:21 Asia/Taipei
+- generated_at: 2026-06-04 01:56:31 Asia/Taipei
 - stock_id: 6592
 - stock_name: 和潤企業
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,8 +58,8 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: breakout_initial
-- entry_style: breakout_follow
+- thesis_state: unclear
+- entry_style: pullback_to_23ema
 - position_sizing: starter_1_4
 
 ### management_plan
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 61.4
-- high: 62.5
-- low: 61
-- close: 62.3
-- volume: 1408124
-- ma5: 60.9
-- ema23_primary: 61.08
-- distance_to_ema23_pct: 1.99
-- ma20: 60.73
-- ma60: 62.3
-- ma120: 61.6
-- return_5d: 2.98
-- return_20d: 1.47
-- volume_ratio: 2
-- distance_to_ma20_pct_auxiliary: 2.59
-- distance_to_high_60_pct: -6.32
+- date: 20260603
+- open: 62.3
+- high: 65.2
+- low: 62.1
+- close: 64.7
+- volume: 2007575
+- ma5: 61.76
+- ema23_primary: 61.38
+- distance_to_ema23_pct: 5.4
+- ma20: 60.89
+- ma60: 62.35
+- ma120: 61.61
+- return_5d: 7.12
+- return_20d: 5.37
+- volume_ratio: 2.57
+- distance_to_ma20_pct_auxiliary: 6.26
+- distance_to_high_60_pct: -2.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,62,62.1,61.1,61.4,465279,62.44,-1.67,62.78,62.1,0.9
 20260507,61.5,62.4,61.3,62.4,520455,62.44,-0.06,62.75,62.12,1
 20260508,62.4,62.4,60.5,60.7,1309354,62.3,-2.56,62.65,62.11,2.32
 20260511,60.9,61.1,60.6,60.9,628828,62.18,-2.06,62.56,62.12,1.09
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,60.4,60.4,59.9,60.4,931003,60.93,-0.87,60.69,62.15,1.52
 20260601,60.7,61.9,60.3,61.4,1255964,60.97,0.7,60.68,62.23,1.93
 20260602,61.4,62.5,61,62.3,1408124,61.08,1.99,60.73,62.3,2
+20260603,62.3,65.2,62.1,64.7,2007575,61.38,5.4,60.89,62.35,2.57
 ```
 
 ## Latest TDCC Snapshot
@@ -172,12 +172,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6592 | 和潤企業 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 6592 | 和潤企業 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6592 | 和潤企業 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260603 | 6592 | 和潤企業 | 3 | 3 | 3 | 3 | 3 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

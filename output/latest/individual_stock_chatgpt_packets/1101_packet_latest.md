@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1101 台泥
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:13 Asia/Taipei
+- generated_at: 2026-06-04 01:54:06 Asia/Taipei
 - stock_id: 1101
 - stock_name: 台泥
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 274
+- latest_price_date: 20260603
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -102,29 +102,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 24.55
-- high: 24.8
-- low: 24.4
-- close: 24.65
-- volume: 33068326
-- ma5: 24.22
-- ema23_primary: 24.36
-- distance_to_ema23_pct: 1.18
-- ma20: 24.46
-- ma60: 24.34
-- ma120: 24.35
-- return_5d: 2.92
-- return_20d: 2.28
-- volume_ratio: 1.06
-- distance_to_ma20_pct_auxiliary: 0.76
-- distance_to_high_60_pct: -6.63
+- date: 20260603
+- open: 24.65
+- high: 25.2
+- low: 24.45
+- close: 24.85
+- volume: 45323366
+- ma5: 24.42
+- ema23_primary: 24.4
+- distance_to_ema23_pct: 1.83
+- ma20: 24.45
+- ma60: 24.33
+- ma120: 24.36
+- return_5d: 4.19
+- return_20d: -0.8
+- volume_ratio: 1.45
+- distance_to_ma20_pct_auxiliary: 1.62
+- distance_to_high_60_pct: -5.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,24.25,25.4,24.1,25.05,44638336,24.52,2.16,24.78,24.8,1.48
 20260507,25.25,25.7,24.95,25.5,37443576,24.6,3.65,24.78,24.78,1.31
 20260508,25.6,25.7,24.95,25,27759197,24.64,1.48,24.78,24.76,1.01
 20260511,25.15,25.65,25.05,25.4,23860637,24.7,2.84,24.78,24.74,0.91
@@ -144,6 +143,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,24.1,24.4,23.9,24.4,49699249,24.32,0.34,24.43,24.35,1.62
 20260601,24.4,24.7,24.2,24.55,35557711,24.34,0.88,24.44,24.34,1.15
 20260602,24.55,24.8,24.4,24.65,33068326,24.36,1.18,24.46,24.34,1.06
+20260603,24.65,25.2,24.45,24.85,45323366,24.4,1.83,24.45,24.33,1.45
 ```
 
 ## Latest TDCC Snapshot
@@ -173,17 +173,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1101 | 台泥 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 1101 | 台泥 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1101 | 台泥 | 3 | 3 | 3 | 3 | 3 | continued_2_3d | 連續 3 個交易日上榜，訊號延續但仍需確認。 |
+| 20260603 | 1101 | 台泥 | 4 | 4 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 次、近 20 日上榜 4 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1101 | 台泥 | 37 | 2 | 1363960.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 1101 | 台泥 | 37 | 2 | 2943940.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3711 日月光投控
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:17 Asia/Taipei
+- generated_at: 2026-06-04 01:55:33 Asia/Taipei
 - stock_id: 3711
 - stock_name: 日月光投控
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -100,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 600
-- high: 608
-- low: 577
-- close: 590
-- volume: 27769330
-- ma5: 614.2
-- ema23_primary: 551.46
-- distance_to_ema23_pct: 6.99
-- ma20: 557.15
-- ma60: 451.38
-- ma120: 367
-- return_5d: -3.44
-- return_20d: 13.46
-- volume_ratio: 0.99
-- distance_to_ma20_pct_auxiliary: 5.9
-- distance_to_high_60_pct: -11.81
+- date: 20260603
+- open: 615
+- high: 636
+- low: 614
+- close: 618
+- volume: 28543715
+- ma5: 609.4
+- ema23_primary: 557.01
+- distance_to_ema23_pct: 10.95
+- ma20: 561.85
+- ma60: 455.98
+- ma120: 370.24
+- return_5d: -3.74
+- return_20d: 17.94
+- volume_ratio: 1.02
+- distance_to_ma20_pct_auxiliary: 9.99
+- distance_to_high_60_pct: -7.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,541,544,514,524,31498923,456.78,14.72,461.7,380.23,1.24
 20260507,548,558,534,540,24883728,463.71,16.45,469.55,383.99,0.98
 20260508,524,529,511,516,23722301,468.07,10.24,475.75,387.43,0.93
 20260511,526,546,513,537,22625012,473.81,13.34,482.95,391.43,0.88
@@ -142,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,642,644,608,611,43968378,543.14,12.49,549.85,442.88,1.53
 20260601,603,615,599,601,25834856,547.96,9.68,553.65,447.44,0.9
 20260602,600,608,577,590,27769330,551.46,6.99,557.15,451.38,0.99
+20260603,615,636,614,618,28543715,557.01,10.95,561.85,455.98,1.02
 ```
 
 ## Latest TDCC Snapshot
@@ -171,17 +171,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3711 | 日月光投控 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3711 | 日月光投控 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | put_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3711 | 日月光投控 | 3 | 3 | 3 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 3711 | 日月光投控 | 1 | 1 | 3 | 5 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3711 | 日月光投控 | 229 | 14 | 25343510.0 | 272080.0 | 93.15 | no_signal | 0 |  |
+| 20260603 | 3711 | 日月光投控 | 229 | 14 | 29705530.0 | 1028390.0 | 28.89 | put_inflow | -1 | 認售權證資金升溫，偏空或避險訊號 |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

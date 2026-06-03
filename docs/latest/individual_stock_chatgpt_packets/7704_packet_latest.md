@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7704 明遠精密
 
 ## Metadata
-- generated_at: 2026-06-02 23:30:36 Asia/Taipei
+- generated_at: 2026-06-04 01:57:05 Asia/Taipei
 - stock_id: 7704
 - stock_name: 明遠精密
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -97,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
+- date: 20260603
 - open: 62.4
 - high: 62.4
-- low: 60.3
-- close: 61.5
-- volume: 61
-- ma5: 61.26
-- ema23_primary: 62.46
-- distance_to_ema23_pct: -1.54
-- ma20: 63.01
-- ma60: 56.37
-- ma120: 50.92
-- return_5d: -9.16
-- return_20d: -4.35
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: -2.4
-- distance_to_high_60_pct: -18.65
+- low: 61.5
+- close: 62
+- volume: 62000
+- ma5: 61.24
+- ema23_primary: 62.42
+- distance_to_ema23_pct: -0.68
+- ma20: 63.04
+- ma60: 56.66
+- ma120: 51.07
+- return_5d: -0.16
+- return_20d: 0.98
+- volume_ratio: 0.28
+- distance_to_ma20_pct_auxiliary: -1.65
+- distance_to_high_60_pct: -17.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,64.9,64.9,61,61.4,279000,59.68,2.89,61.63,50.74,0.89
 20260507,61.6,61.6,58.5,58.5,255000,59.58,-1.81,61.73,50.94,0.82
 20260508,58.7,60,57.2,58.7,95000,59.5,-1.35,62.12,51.15,0.34
 20260511,60,60,57.9,58.3,124000,59.4,-1.86,62.24,51.37,0.47
@@ -139,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,60.6,60.6,58.7,60.1,59000,62.56,-3.94,63.22,55.77,0.24
 20260601,59.8,62.4,59.8,62.4,61,62.55,-0.24,63.15,56.08,0
 20260602,62.4,62.4,60.3,61.5,61,62.46,-1.54,63.01,56.37,0
+20260603,62.4,62.4,61.5,62,62000,62.42,-0.68,63.04,56.66,0.28
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2208 台船
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:15 Asia/Taipei
+- generated_at: 2026-06-04 01:54:34 Asia/Taipei
 - stock_id: 2208
 - stock_name: 台船
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,18 +55,14 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: starter_position
-- action_rating_label_zh: 可小量試單
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
 - entry_style: pullback_to_23ema
-- position_sizing: starter_1_4
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -78,6 +74,7 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -93,7 +90,6 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
-- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -101,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 18.35
-- high: 18.35
-- low: 17.7
-- close: 17.95
-- volume: 8285177
-- ma5: 18.02
-- ema23_primary: 18.94
-- distance_to_ema23_pct: -5.23
-- ma20: 19.03
-- ma60: 20.24
-- ma120: 20.82
-- return_5d: -1.64
-- return_20d: -11.79
-- volume_ratio: 1.4
-- distance_to_ma20_pct_auxiliary: -5.66
-- distance_to_high_60_pct: -20.22
+- date: 20260603
+- open: 18
+- high: 18.3
+- low: 17.85
+- close: 18.2
+- volume: 6351499
+- ma5: 18.04
+- ema23_primary: 18.88
+- distance_to_ema23_pct: -3.6
+- ma20: 18.93
+- ma60: 20.18
+- ma120: 20.79
+- return_5d: 0.55
+- return_20d: -9.68
+- volume_ratio: 1.04
+- distance_to_ma20_pct_auxiliary: -3.86
+- distance_to_high_60_pct: -19.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,20.4,20.5,20.15,20.15,3274135,20.52,-1.83,20.44,21.42,0.92
 20260507,20.4,20.8,20.1,20.8,4392847,20.55,1.23,20.45,21.39,1.21
 20260508,21.25,21.9,21.05,21.7,10171002,20.64,5.12,20.5,21.37,2.53
 20260511,21.1,21.1,20,20.2,9882198,20.61,-1.97,20.49,21.34,2.25
@@ -143,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,18.3,18.6,17.75,17.75,19111096,19.1,-7.06,19.24,20.37,3.57
 20260601,17.8,18.4,17.75,18.3,10265142,19.03,-3.84,19.15,20.31,1.81
 20260602,18.35,18.35,17.7,17.95,8285177,18.94,-5.23,19.03,20.24,1.4
+20260603,18,18.3,17.85,18.2,6351499,18.88,-3.6,18.93,20.18,1.04
 ```
 
 ## Latest TDCC Snapshot
@@ -170,14 +166,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2208 | 台船 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2208 | 台船 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

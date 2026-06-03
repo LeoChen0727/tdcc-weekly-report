@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8011 台通
 
 ## Metadata
-- generated_at: 2026-06-02 23:30:46 Asia/Taipei
+- generated_at: 2026-06-04 01:57:10 Asia/Taipei
 - stock_id: 8011
 - stock_name: 台通
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,8 +58,8 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: breakout_initial
-- entry_style: breakout_follow
+- thesis_state: unclear
+- entry_style: pullback_to_23ema
 - position_sizing: starter_1_4
 
 ### management_plan
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 18.9
-- high: 19.2
-- low: 18.5
-- close: 19.1
-- volume: 2337450
-- ma5: 18.25
-- ema23_primary: 18.65
-- distance_to_ema23_pct: 2.39
+- date: 20260603
+- open: 19.3
+- high: 19.6
+- low: 19.05
+- close: 19.6
+- volume: 2723293
+- ma5: 18.66
+- ema23_primary: 18.73
+- distance_to_ema23_pct: 4.63
 - ma20: 18.43
-- ma60: 19.72
-- ma120: 20.77
-- return_5d: 6.7
-- return_20d: -5.21
-- volume_ratio: 1.32
-- distance_to_ma20_pct_auxiliary: 3.61
-- distance_to_high_60_pct: -13.57
+- ma60: 19.7
+- ma120: 20.76
+- return_5d: 11.68
+- return_20d: -1.01
+- volume_ratio: 1.5
+- distance_to_ma20_pct_auxiliary: 6.38
+- distance_to_high_60_pct: -11.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,20.5,20.5,19.6,19.8,1757135,20.19,-1.91,20.36,20.48,0.79
 20260507,19.85,19.9,19.6,19.65,1548872,20.14,-2.44,20.29,20.45,0.75
 20260508,19.85,20.2,19.2,19.3,2091105,20.07,-3.84,20.19,20.42,1.02
 20260511,19.3,19.5,19.2,19.3,1060395,20.01,-3.53,20.13,20.4,0.53
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,17.9,18.15,17.8,18.05,925960,18.6,-2.94,18.51,19.77,0.54
 20260601,18.15,18.95,18.1,18.8,2363439,18.61,1,18.49,19.75,1.33
 20260602,18.9,19.2,18.5,19.1,2337450,18.65,2.39,18.43,19.72,1.32
+20260603,19.3,19.6,19.05,19.6,2723293,18.73,4.63,18.43,19.7,1.5
 ```
 
 ## Latest TDCC Snapshot
@@ -172,12 +172,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 8011 | 台通 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 67.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_30d |
+| 20260603 | 8011 | 台通 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 62.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 8011 | 台通 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260603 | 8011 | 台通 | 3 | 3 | 3 | 3 | 3 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

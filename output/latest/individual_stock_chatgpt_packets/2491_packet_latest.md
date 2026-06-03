@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2491 吉祥全
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:46 Asia/Taipei
+- generated_at: 2026-06-04 01:54:49 Asia/Taipei
 - stock_id: 2491
 - stock_name: 吉祥全
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,8 +58,8 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: breakout_confirmed
-- entry_style: breakout_follow
+- thesis_state: high_level_consolidation
+- entry_style: pullback_to_23ema
 - position_sizing: starter_1_4
 
 ### management_plan
@@ -76,6 +76,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -100,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 28.15
-- high: 28.15
-- low: 28.15
-- close: 28.15
-- volume: 2674787
-- ma5: 24.38
-- ema23_primary: 21.48
-- distance_to_ema23_pct: 31.03
-- ma20: 21.8
-- ma60: 17.81
-- ma120: 18.44
-- return_5d: 25.95
-- return_20d: 62.25
-- volume_ratio: 1.83
-- distance_to_ma20_pct_auxiliary: 29.16
+- date: 20260603
+- open: 30.95
+- high: 30.95
+- low: 30.95
+- close: 30.95
+- volume: 652320
+- ma5: 26.06
+- ema23_primary: 22.27
+- distance_to_ema23_pct: 38.96
+- ma20: 22.39
+- ma60: 18.05
+- ma120: 18.57
+- return_5d: 37.25
+- return_20d: 62.47
+- volume_ratio: 0.47
+- distance_to_ma20_pct_auxiliary: 38.23
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,18.5,19.05,18.3,19.05,2298533,16.07,18.51,15.82,16.27,7.36
 20260507,19.05,19.8,18.15,19.2,1753876,16.33,17.54,16.02,16.28,4.45
 20260508,18.8,21.1,18.8,21.1,2414190,16.73,26.11,16.33,16.33,4.72
 20260511,21.1,21.45,19.95,21,2163422,17.09,22.9,16.63,16.38,3.52
@@ -142,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,22.55,24.25,22.5,23.3,1649256,20.45,13.95,20.77,17.45,1.28
 20260601,23.55,25.6,23.55,25.6,2101521,20.88,22.62,21.25,17.61,1.53
 20260602,28.15,28.15,28.15,28.15,2674787,21.48,31.03,21.8,17.81,1.83
+20260603,30.95,30.95,30.95,30.95,652320,22.27,38.96,22.39,18.05,0.47
 ```
 
 ## Latest TDCC Snapshot
@@ -171,12 +172,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2491 | 吉祥全 | true_breakout | 嚴格突破 | 82.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2491 | 吉祥全 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 66.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2491 | 吉祥全 | 3 | 2 | 3 | 6 | 6 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260603 | 2491 | 吉祥全 | 1 | 1 | 3 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 次、近 20 日上榜 6 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

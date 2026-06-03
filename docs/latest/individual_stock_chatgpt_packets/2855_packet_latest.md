@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2855 統一證
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:08 Asia/Taipei
+- generated_at: 2026-06-04 01:55:00 Asia/Taipei
 - stock_id: 2855
 - stock_name: 統一證
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,22 +55,28 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: wait_pullback
-- action_rating_label_zh: 等待回檔
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: high_level_distribution_risk
-- entry_style: pullback_to_support
-- position_sizing: observe_only
+- entry_style: pullback_to_23ema
+- position_sizing: starter_1_4
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 
@@ -95,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 48.2
-- high: 50.5
-- low: 47.2
-- close: 49.45
-- volume: 21036034
-- ma5: 47.03
-- ema23_primary: 41.9
-- distance_to_ema23_pct: 18.02
-- ma20: 42.27
-- ma60: 35.89
-- ma120: 31.4
-- return_5d: 17.74
-- return_20d: 26.47
-- volume_ratio: 1.95
-- distance_to_ma20_pct_auxiliary: 17
-- distance_to_high_60_pct: -2.08
+- date: 20260603
+- open: 50.5
+- high: 54.3
+- low: 49.95
+- close: 54.3
+- volume: 16512897
+- ma5: 48.91
+- ema23_primary: 42.93
+- distance_to_ema23_pct: 26.47
+- ma20: 43.03
+- ma60: 36.3
+- ma120: 31.65
+- return_5d: 20.94
+- return_20d: 39.23
+- volume_ratio: 1.5
+- distance_to_ma20_pct_auxiliary: 26.19
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,39.55,40.2,38.75,39,12414996,34.64,12.6,34.23,31.9,1.57
 20260507,39.55,40.4,39.15,39.7,10161427,35.06,13.24,34.55,32.06,1.26
 20260508,40.35,40.55,39.05,40,11856512,35.47,12.77,34.98,32.23,1.47
 20260511,40.7,44,40.7,43.7,20966805,36.16,20.86,35.59,32.47,2.35
@@ -137,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,46.1,47.5,45.7,47.5,11633235,40.58,17.06,41.22,35.26,1.13
 20260601,47.75,49.35,47.75,48.2,11286256,41.21,16.95,41.75,35.57,1.09
 20260602,48.2,50.5,47.2,49.45,21036034,41.9,18.02,42.27,35.89,1.95
+20260603,50.5,54.3,49.95,54.3,16512897,42.93,26.47,43.03,36.3,1.5
 ```
 
 ## Latest TDCC Snapshot
@@ -166,12 +172,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2855 | 統一證 | true_breakout | 嚴格突破 | 98.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2855 | 統一證 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: ex_dividend on 20260623; status=confirmed; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2855 | 統一證 | 1 | 1 | 3 | 7 | 7 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
+| 20260603 | 2855 | 統一證 | 2 | 1 | 3 | 8 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

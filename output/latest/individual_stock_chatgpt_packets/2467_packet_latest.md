@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2467 志聖
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:42 Asia/Taipei
+- generated_at: 2026-06-04 01:54:48 Asia/Taipei
 - stock_id: 2467
 - stock_name: 志聖
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: healthy_pullback
+- thesis_state: unclear
 - entry_style: pullback_to_23ema
-- position_sizing: half_position
+- position_sizing: starter_1_4
 
 ### management_plan
 - buy_first_tranche_near_support
@@ -75,7 +75,6 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -102,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 637
-- high: 637
-- low: 582
-- close: 588
-- volume: 3530661
-- ma5: 623.6
-- ema23_primary: 595.75
-- distance_to_ema23_pct: -1.3
-- ma20: 604.05
-- ma60: 507.55
-- ma120: 381.8
-- return_5d: -11.98
-- return_20d: 2.98
-- volume_ratio: 1.26
-- distance_to_ma20_pct_auxiliary: -2.66
-- distance_to_high_60_pct: -15.03
+- date: 20260603
+- open: 600
+- high: 626
+- low: 599
+- close: 615
+- volume: 2340843
+- ma5: 615.2
+- ema23_primary: 597.35
+- distance_to_ema23_pct: 2.95
+- ma20: 606.45
+- ma60: 511.25
+- ma120: 385.21
+- return_5d: -6.39
+- return_20d: 8.47
+- volume_ratio: 0.85
+- distance_to_ma20_pct_auxiliary: 1.41
+- distance_to_high_60_pct: -11.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,580,583,537,567,3415457,522.69,8.48,544.05,408.45,1.05
 20260507,579,579,545,554,2177869,525.3,5.46,549.3,413.63,0.7
 20260508,555,564,524,537,1940823,526.27,2.04,551.48,418.3,0.68
 20260511,542,590,542,590,3671316,531.58,10.99,553.88,424.17,1.33
@@ -144,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,640,640,612,619,1559812,592.77,4.43,600.35,499.88,0.5
 20260601,634,647,625,637,1405177,596.45,6.8,603.2,504.42,0.5
 20260602,637,637,582,588,3530661,595.75,-1.3,604.05,507.55,1.26
+20260603,600,626,599,615,2340843,597.35,2.95,606.45,511.25,0.85
 ```
 
 ## Latest TDCC Snapshot
@@ -173,18 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2467 | 志聖 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | call_inflow | repeated_but_no_breakout | calendar event: ex_dividend on 20260618; status=confirmed; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260521 | 2467 | 志聖 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_inflow | repeated_but_no_breakout | calendar event: ex_dividend on 20260618; status=confirmed; proximity=within_30d |
+| 20260603 | 2467 | 志聖 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | repeated_but_no_breakout | calendar event: ex_dividend on 20260618; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2467 | 志聖 | 9 | 9 | 5 | 9 | 9 | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 2467 | 志聖 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2467 | 志聖 | 63 | 2 | 2688850.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260603 | 2467 | 志聖 | 63 | 2 | 1754470.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

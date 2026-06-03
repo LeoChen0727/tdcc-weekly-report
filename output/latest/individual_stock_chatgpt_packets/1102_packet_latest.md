@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1102 亞泥
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:13 Asia/Taipei
+- generated_at: 2026-06-04 01:54:06 Asia/Taipei
 - stock_id: 1102
 - stock_name: 亞泥
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -97,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 33.7
-- high: 34.4
-- low: 33.6
-- close: 33.8
-- volume: 26335137
-- ma5: 33.4
+- date: 20260603
+- open: 33.85
+- high: 34.45
+- low: 33.5
+- close: 34.2
+- volume: 16795242
+- ma5: 33.64
 - ema23_primary: 34.24
-- distance_to_ema23_pct: -1.29
-- ma20: 34.3
+- distance_to_ema23_pct: -0.11
+- ma20: 34.25
 - ma60: 34.78
-- ma120: 35.67
-- return_5d: 1.65
-- return_20d: -3.29
-- volume_ratio: 1.18
-- distance_to_ma20_pct_auxiliary: -1.46
-- distance_to_high_60_pct: -6.5
+- ma120: 35.64
+- return_5d: 3.64
+- return_20d: -2.84
+- volume_ratio: 0.73
+- distance_to_ma20_pct_auxiliary: -0.15
+- distance_to_high_60_pct: -5.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,34.95,35.3,34.9,35.2,6226612,35.27,-0.19,35.44,35.1,0.63
 20260507,35,35.3,34.95,34.95,7386318,35.24,-0.82,35.4,35.09,0.75
 20260508,34.95,35.35,34.9,34.95,6615592,35.22,-0.75,35.35,35.08,0.69
 20260511,35,35.05,34.6,34.65,8502942,35.17,-1.47,35.3,35.07,0.89
@@ -139,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,32.6,34,32.6,34,205245004,34.32,-0.94,34.41,34.8,9.83
 20260601,34,34.15,33.65,33.8,16350534,34.28,-1.4,34.36,34.79,0.77
 20260602,33.7,34.4,33.6,33.8,26335137,34.24,-1.29,34.3,34.78,1.18
+20260603,33.85,34.45,33.5,34.2,16795242,34.24,-0.11,34.25,34.78,0.73
 ```
 
 ## Latest TDCC Snapshot
@@ -178,7 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1102 | 亞泥 | 2 | 0 | 1120.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 1102 | 亞泥 | 2 | 0 | 1500.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2059 川湖
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:09 Asia/Taipei
+- generated_at: 2026-06-04 01:54:32 Asia/Taipei
 - stock_id: 2059
 - stock_name: 川湖
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,7 +59,7 @@
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: observe_only
 
 ### management_plan
@@ -72,7 +72,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -97,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 5130
-- high: 5205
-- low: 4985
-- close: 5075
-- volume: 361645
-- ma5: 4995
-- ema23_primary: 4753.57
-- distance_to_ema23_pct: 6.76
-- ma20: 4966.75
-- ma60: 4006.67
-- ma120: 3705.46
-- return_5d: 0.79
-- return_20d: 22.58
-- volume_ratio: 0.6
-- distance_to_ma20_pct_auxiliary: 2.18
-- distance_to_high_60_pct: -9.62
+- date: 20260603
+- open: 5200
+- high: 5375
+- low: 5045
+- close: 5350
+- volume: 510315
+- ma5: 5081
+- ema23_primary: 4803.27
+- distance_to_ema23_pct: 11.38
+- ma20: 5014.25
+- ma60: 4042.42
+- ma120: 3718.25
+- return_5d: 8.74
+- return_20d: 21.59
+- volume_ratio: 0.91
+- distance_to_ma20_pct_auxiliary: 6.7
+- distance_to_high_60_pct: -4.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,4280,4530,4090,4400,1317410,3793.4,15.99,3738.5,3423.92,1.5
 20260507,4840,4840,4840,4840,448657,3880.62,24.72,3814.75,3448.25,0.51
 20260508,5320,5320,5185,5320,1475214,4000.56,32.98,3917,3483.5,1.59
 20260511,5300,5615,5280,5520,1794792,4127.18,33.75,4025.25,3523.17,1.8
@@ -139,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,4920,5145,4825,5065,839930,4679.75,8.23,4862,3943.33,1.38
 20260601,5285,5345,5110,5215,720624,4724.35,10.39,4920,3977.42,1.18
 20260602,5130,5205,4985,5075,361645,4753.57,6.76,4966.75,4006.67,0.6
+20260603,5200,5375,5045,5350,510315,4803.27,11.38,5014.25,4042.42,0.91
 ```
 
 ## Latest TDCC Snapshot
@@ -178,7 +177,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2059 | 川湖 | 208 | 24 | 18082390.0 | 189360.0 | 95.49 | no_signal | 0 |  |
+| 20260603 | 2059 | 川湖 | 205 | 24 | 27584210.0 | 200350.0 | 137.68 | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8162 微矽電子-創
 
 ## Metadata
-- generated_at: 2026-06-02 23:30:59 Asia/Taipei
+- generated_at: 2026-06-04 01:57:16 Asia/Taipei
 - stock_id: 8162
 - stock_name: 微矽電子-創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 274
+- latest_price_date: 20260603
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,14 +55,18 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: high_level_consolidation
 - entry_style: current_price_ok
-- position_sizing: observe_only
+- position_sizing: starter_1_4
 
 ### management_plan
+- buy_first_tranche_now
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -96,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 82.7
-- high: 87.6
-- low: 78.2
-- close: 80.8
-- volume: 1620127
-- ma5: 76.62
-- ema23_primary: 62.87
-- distance_to_ema23_pct: 28.51
-- ma20: 61.81
-- ma60: 48.75
-- ma120: 42.65
-- return_5d: 10.08
-- return_20d: 55.38
-- volume_ratio: 1.73
-- distance_to_ma20_pct_auxiliary: 30.71
-- distance_to_high_60_pct: -7.76
+- date: 20260603
+- open: 80.8
+- high: 85
+- low: 75.5
+- close: 76.9
+- volume: 1108678
+- ma5: 77.8
+- ema23_primary: 64.04
+- distance_to_ema23_pct: 20.08
+- ma20: 63.02
+- ma60: 49.37
+- ma120: 43.01
+- return_5d: 8.31
+- return_20d: 45.64
+- volume_ratio: 1.19
+- distance_to_ma20_pct_auxiliary: 22.02
+- distance_to_high_60_pct: -12.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,53,57.2,52.3,52.8,1274197,46.89,12.61,46.73,41.09,1.12
 20260507,51.5,57.5,50.7,56.2,1073248,47.66,17.91,47.52,41.38,0.91
 20260508,56.1,58.9,53.9,54.7,898690,48.25,13.37,48.12,41.66,0.76
 20260511,56.7,57,54.8,55,776883,48.81,12.68,48.72,41.96,0.66
@@ -138,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,75.4,75.9,71.8,73.5,1161366,59.47,23.6,58.88,47.37,1.32
 20260601,74.3,80.8,73.5,80.8,792209,61.24,31.93,60.38,48.06,0.9
 20260602,82.7,87.6,78.2,80.8,1620127,62.87,28.51,61.81,48.75,1.73
+20260603,80.8,85,75.5,76.9,1108678,64.04,20.08,63.02,49.37,1.19
 ```
 
 ## Latest TDCC Snapshot
@@ -165,14 +169,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260603 | 8162 | 微矽電子-創 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260603 | 8162 | 微矽電子-創 | 1 | 1 | 2 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 次、近 20 日上榜 4 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

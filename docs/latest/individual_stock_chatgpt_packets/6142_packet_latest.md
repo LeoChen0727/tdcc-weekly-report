@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6142 友勁
 
 ## Metadata
-- generated_at: 2026-06-02 23:28:40 Asia/Taipei
+- generated_at: 2026-06-04 01:56:12 Asia/Taipei
 - stock_id: 6142
 - stock_name: 友勁
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -102,29 +102,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 8.59
-- high: 8.73
-- low: 8.3
-- close: 8.72
-- volume: 1133383
-- ma5: 8.33
-- ema23_primary: 8.43
-- distance_to_ema23_pct: 3.42
+- date: 20260603
+- open: 8.66
+- high: 8.97
+- low: 8.66
+- close: 8.92
+- volume: 716727
+- ma5: 8.52
+- ema23_primary: 8.47
+- distance_to_ema23_pct: 5.28
 - ma20: 8.3
-- ma60: 9.08
+- ma60: 9.06
 - ma120: 9.33
-- return_5d: 7.65
-- return_20d: -3.65
-- volume_ratio: 1.47
-- distance_to_ma20_pct_auxiliary: 5.03
-- distance_to_high_60_pct: -18.88
+- return_5d: 11.5
+- return_20d: 0.11
+- volume_ratio: 0.92
+- distance_to_ma20_pct_auxiliary: 7.44
+- distance_to_high_60_pct: -17.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,9.14,9.14,8.89,8.91,588333,9.17,-2.84,9.12,9.56,0.66
 20260507,8.89,8.94,8.8,8.85,744573,9.14,-3.21,9.1,9.54,0.83
 20260508,8.86,9,8.73,8.73,531641,9.11,-4.16,9.07,9.51,0.6
 20260511,8.92,8.92,8.59,8.6,834286,9.07,-5.15,9.04,9.5,0.94
@@ -144,6 +143,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,8.15,8.34,8.1,8.27,520379,8.39,-1.49,8.33,9.11,0.71
 20260601,8.39,8.79,8.27,8.52,1213144,8.41,1.36,8.32,9.09,1.56
 20260602,8.59,8.73,8.3,8.72,1133383,8.43,3.42,8.3,9.08,1.47
+20260603,8.66,8.97,8.66,8.92,716727,8.47,5.28,8.3,9.06,0.92
 ```
 
 ## Latest TDCC Snapshot
@@ -173,12 +173,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6142 | 友勁 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 6142 | 友勁 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6142 | 友勁 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260603 | 6142 | 友勁 | 1 | 1 | 2 | 2 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
 | status |

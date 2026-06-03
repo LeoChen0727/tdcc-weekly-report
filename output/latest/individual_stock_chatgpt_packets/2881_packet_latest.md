@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2881 富邦金
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:08 Asia/Taipei
+- generated_at: 2026-06-04 01:55:00 Asia/Taipei
 - stock_id: 2881
 - stock_name: 富邦金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,12 +58,12 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: breakout_initial
-- entry_style: breakout_follow
+- thesis_state: unclear
+- entry_style: current_price_ok
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -75,6 +75,7 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_tdcc_warning
@@ -100,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 110.5
-- high: 113.5
-- low: 109
-- close: 113.5
-- volume: 97486405
-- ma5: 110.8
-- ema23_primary: 100.31
-- distance_to_ema23_pct: 13.14
-- ma20: 99.66
-- ma60: 92.12
-- ma120: 93.32
-- return_5d: 9.66
-- return_20d: 23.1
-- volume_ratio: 1.72
-- distance_to_ma20_pct_auxiliary: 13.89
-- distance_to_high_60_pct: 0
+- date: 20260603
+- open: 115.5
+- high: 116
+- low: 111
+- close: 113
+- volume: 72033008
+- ma5: 111.4
+- ema23_primary: 101.37
+- distance_to_ema23_pct: 11.47
+- ma20: 100.67
+- ma60: 92.52
+- ma120: 93.49
+- return_5d: 2.73
+- return_20d: 21.77
+- volume_ratio: 1.22
+- distance_to_ma20_pct_auxiliary: 12.25
+- distance_to_high_60_pct: -2.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,93,94,92.4,92.8,24441556,89.35,3.86,88.81,89.83,1.01
 20260507,93.3,94.8,92.5,94.5,35427644,89.78,5.26,89.07,89.87,1.41
 20260508,94.5,96.9,94.1,96.7,58348270,90.36,7.02,89.48,89.94,2.17
 20260511,96.7,96.7,95.5,95.5,22797950,90.79,5.19,89.88,90.02,0.84
@@ -142,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,110.5,111,107,110,139031768,98.08,12.15,97.62,91.39,2.71
 20260601,109.5,112,107,110.5,87829038,99.12,11.49,98.59,91.73,1.65
 20260602,110.5,113.5,109,113.5,97486405,100.31,13.14,99.66,92.12,1.72
+20260603,115.5,116,111,113,72033008,101.37,11.47,100.67,92.52,1.22
 ```
 
 ## Latest TDCC Snapshot
@@ -171,18 +172,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2881 | 富邦金 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | no_signal | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 2881 | 富邦金 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2881 | 富邦金 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2881 | 富邦金 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 63.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2881 | 富邦金 | 9 | 9 | 5 | 9 | 9 | continued_many_days | 連續 9 個交易日上榜，需判斷是持續醞釀或訊號鈍化。 |
+| 20260603 | 2881 | 富邦金 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2881 | 富邦金 | 24 | 0 | 11177990.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 2881 | 富邦金 | 24 | 0 | 7870360.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

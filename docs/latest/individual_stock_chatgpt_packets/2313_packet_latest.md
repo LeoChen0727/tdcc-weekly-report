@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2313 華通
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:21 Asia/Taipei
+- generated_at: 2026-06-04 01:54:37 Asia/Taipei
 - stock_id: 2313
 - stock_name: 華通
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 284
-- high: 289
-- low: 268.5
-- close: 270.5
-- volume: 46492198
-- ma5: 275.6
-- ema23_primary: 264.43
-- distance_to_ema23_pct: 2.3
-- ma20: 262
-- ma60: 248.21
-- ma120: 191.91
-- return_5d: -4.92
-- return_20d: -1.46
-- volume_ratio: 0.54
-- distance_to_ma20_pct_auxiliary: 3.24
-- distance_to_high_60_pct: -11.46
+- date: 20260603
+- open: 275.5
+- high: 278
+- low: 266
+- close: 266.5
+- volume: 35476485
+- ma5: 272.5
+- ema23_primary: 264.6
+- distance_to_ema23_pct: 0.72
+- ma20: 262.82
+- ma60: 249.27
+- ma120: 193.44
+- return_5d: -5.5
+- return_20d: 6.6
+- volume_ratio: 0.43
+- distance_to_ma20_pct_auxiliary: 1.4
+- distance_to_high_60_pct: -12.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,274.5,274.5,247.5,250,105195489,247.9,0.85,254.7,226.18,1.26
 20260507,248,253,237,249.5,65353833,248.03,0.59,253.47,227.4,0.81
 20260508,245.5,259.5,239,253.5,86924245,248.49,2.02,252.07,228.66,1.08
 20260511,248,254.5,242,242,81477797,247.95,-2.4,249.88,229.88,1.02
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,271,284.5,265.5,284.5,84156366,262.23,8.49,261.52,245.93,0.92
 20260601,288.5,291.5,278.5,282,72392478,263.87,6.87,262.2,247.12,0.8
 20260602,284,289,268.5,270.5,46492198,264.43,2.3,262,248.21,0.54
+20260603,275.5,278,266,266.5,35476485,264.6,0.72,262.82,249.27,0.43
 ```
 
 ## Latest TDCC Snapshot
@@ -172,17 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2313 | 華通 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | put_inflow | stale_signal | calendar event: ex_dividend on 20260602; status=confirmed; proximity=within_3d |
+| 20260603 | 2313 | 華通 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: ex_dividend on 20260602; status=confirmed; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2313 | 華通 | 3 | 3 | 4 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 2313 | 華通 | 4 | 4 | 4 | 6 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2313 | 華通 | 331 | 48 | 57298190.0 | 1574600.0 | 36.39 | put_inflow | -1 | 認售權證資金升溫，偏空或避險訊號 |
+| 20260603 | 2313 | 華通 | 330 | 48 | 21669540.0 | 1342700.0 | 16.14 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

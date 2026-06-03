@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6426 統新
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:05 Asia/Taipei
+- generated_at: 2026-06-04 01:56:24 Asia/Taipei
 - stock_id: 6426
 - stock_name: 統新
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 271
-- high: 277
-- low: 250.5
-- close: 259
-- volume: 1361357
-- ma5: 266.8
-- ema23_primary: 255.1
-- distance_to_ema23_pct: 1.53
-- ma20: 262.85
-- ma60: 208.96
-- ma120: 158.62
-- return_5d: -10.23
-- return_20d: 5.71
-- volume_ratio: 0.42
-- distance_to_ma20_pct_auxiliary: -1.46
-- distance_to_high_60_pct: -11.9
+- date: 20260603
+- open: 268
+- high: 276
+- low: 242
+- close: 242.5
+- volume: 2717280
+- ma5: 259.2
+- ema23_primary: 254.05
+- distance_to_ema23_pct: -4.55
+- ma20: 263.12
+- ma60: 210.52
+- ma120: 160
+- return_5d: -13.55
+- return_20d: 2.32
+- volume_ratio: 0.86
+- distance_to_ma20_pct_auxiliary: -7.84
+- distance_to_high_60_pct: -17.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,267.5,267.5,232,237,4821530,210.61,12.53,218.03,170.89,1.22
 20260507,239,246,234,238.5,2566490,212.93,12.01,221.15,173.18,0.67
 20260508,234,262,231,262,6006348,217.02,20.72,225.28,175.68,1.53
 20260511,262,268.5,245.5,260,6010063,220.6,17.86,228.43,177.97,1.52
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,268,273,264.5,267,895708,253.63,5.27,259.95,204.99,0.25
 20260601,270,281,266.5,267,1425050,254.75,4.81,262.15,207,0.42
 20260602,271,277,250.5,259,1361357,255.1,1.53,262.85,208.96,0.42
+20260603,268,276,242,242.5,2717280,254.05,-4.55,263.12,210.52,0.86
 ```
 
 ## Latest TDCC Snapshot
@@ -172,13 +172,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6426 | 統新 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260602 | 6426 | 統新 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260603 | 6426 | 統新 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6426 | 統新 | 2 | 2 | 4 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 6426 | 統新 | 1 | 1 | 3 | 8 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

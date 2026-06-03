@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6438 迅得
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:06 Asia/Taipei
+- generated_at: 2026-06-04 01:56:24 Asia/Taipei
 - stock_id: 6438
 - stock_name: 迅得
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,18 +55,14 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: starter_position
-- action_rating_label_zh: 可小量試單
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
 - entry_style: pullback_to_23ema
-- position_sizing: starter_1_4
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -101,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 170
-- high: 170.5
-- low: 162.5
-- close: 164
-- volume: 1945680
-- ma5: 171.5
-- ema23_primary: 170.63
-- distance_to_ema23_pct: -3.89
-- ma20: 169.65
-- ma60: 169.56
-- ma120: 156.88
-- return_5d: -5.75
-- return_20d: -9.39
-- volume_ratio: 1.37
-- distance_to_ma20_pct_auxiliary: -3.33
-- distance_to_high_60_pct: -15.03
+- date: 20260603
+- open: 164.5
+- high: 166
+- low: 161
+- close: 161.5
+- volume: 1189007
+- ma5: 169.5
+- ema23_primary: 169.87
+- distance_to_ema23_pct: -4.93
+- ma20: 168.78
+- ma60: 169.76
+- ma120: 157.12
+- return_5d: -5.83
+- return_20d: -9.78
+- volume_ratio: 0.89
+- distance_to_ma20_pct_auxiliary: -4.31
+- distance_to_high_60_pct: -16.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,183,183.5,173.5,179,2772345,175.26,2.13,178.05,163.3,0.82
 20260507,180,180,173.5,174,2113487,175.16,-0.66,177.9,163.68,0.65
 20260508,175.5,175.5,169,170.5,1420766,174.77,-2.44,177.45,164.02,0.48
 20260511,171,175,170,171,996975,174.45,-1.98,177.03,164.42,0.36
@@ -143,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,176.5,179,174,175,1754175,171.12,2.27,170.72,169.02,1.18
 20260601,176,176.5,171,172.5,1376674,171.23,0.74,170.5,169.42,0.94
 20260602,170,170.5,162.5,164,1945680,170.63,-3.89,169.65,169.56,1.37
+20260603,164.5,166,161,161.5,1189007,169.87,-4.93,168.78,169.76,0.89
 ```
 
 ## Latest TDCC Snapshot
@@ -170,19 +166,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6438 | 迅得 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6438 | 迅得 | 4 | 4 | 4 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6438 | 迅得 | 41 | 0 | 4410460.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 6438 | 迅得 | 41 | 0 | 3046770.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

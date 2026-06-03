@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2369 菱生
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:28 Asia/Taipei
+- generated_at: 2026-06-04 01:54:40 Asia/Taipei
 - stock_id: 2369
 - stock_name: 菱生
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,11 +59,11 @@
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: current_price_ok
+- entry_style: pullback_to_23ema
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_now
+- buy_first_tranche_near_support
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -76,6 +76,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -100,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 39.35
-- high: 39.35
-- low: 35.9
-- close: 36.65
-- volume: 26454211
-- ma5: 39.31
-- ema23_primary: 34.12
-- distance_to_ema23_pct: 7.42
-- ma20: 33.28
-- ma60: 31.32
-- ma120: 28.25
-- return_5d: -2.79
-- return_20d: 10.39
-- volume_ratio: 1.06
-- distance_to_ma20_pct_auxiliary: 10.13
-- distance_to_high_60_pct: -12.74
+- date: 20260603
+- open: 36.65
+- high: 37.1
+- low: 34.85
+- close: 35.5
+- volume: 21429232
+- ma5: 38.38
+- ema23_primary: 34.23
+- distance_to_ema23_pct: 3.7
+- ma20: 33.46
+- ma60: 31.45
+- ma120: 28.38
+- return_5d: -11.58
+- return_20d: 11.29
+- volume_ratio: 0.87
+- distance_to_ma20_pct_auxiliary: 6.1
+- distance_to_high_60_pct: -15.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,34.25,34.25,31.6,31.9,29516138,30.77,3.66,31,29.18,1.75
 20260507,31.9,33.25,31.1,33,20027439,30.96,6.59,31.09,29.25,1.17
 20260508,32.8,33.75,30.25,30.7,20342123,30.94,-0.77,31.11,29.3,1.18
 20260511,30.9,31.95,30.7,31,11030333,30.94,0.18,31.11,29.36,0.66
@@ -142,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,40.05,41.45,39.2,40.3,48804998,33.36,20.81,32.68,30.91,1.96
 20260601,40.9,40.9,39.5,39.7,23872689,33.89,17.16,33.11,31.15,0.94
 20260602,39.35,39.35,35.9,36.65,26454211,34.12,7.42,33.28,31.32,1.06
+20260603,36.65,37.1,34.85,35.5,21429232,34.23,3.7,33.46,31.45,0.87
 ```
 
 ## Latest TDCC Snapshot
@@ -171,19 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2369 | 菱生 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260602 | 2369 | 菱生 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260521 | 2369 | 菱生 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2369 | 菱生 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2369 | 菱生 | 9 | 9 | 5 | 9 | 9 | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 2369 | 菱生 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2369 | 菱生 | 46 | 0 | 6819340.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 2369 | 菱生 | 46 | 0 | 9888510.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

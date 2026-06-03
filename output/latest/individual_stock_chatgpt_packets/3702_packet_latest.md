@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3702 大聯大
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:15 Asia/Taipei
+- generated_at: 2026-06-04 01:55:32 Asia/Taipei
 - stock_id: 3702
 - stock_name: 大聯大
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 118.5
-- high: 119.5
-- low: 115.5
-- close: 119
-- volume: 15652534
-- ma5: 119.4
-- ema23_primary: 113.51
-- distance_to_ema23_pct: 4.83
-- ma20: 115.1
-- ma60: 99.35
-- ma120: 81.47
-- return_5d: -2.06
-- return_20d: 16.1
-- volume_ratio: 1.04
-- distance_to_ma20_pct_auxiliary: 3.39
-- distance_to_high_60_pct: -6.67
+- date: 20260603
+- open: 120
+- high: 120
+- low: 116.5
+- close: 118
+- volume: 15454822
+- ma5: 118.9
+- ema23_primary: 113.89
+- distance_to_ema23_pct: 3.61
+- ma20: 115.8
+- ma60: 100.12
+- ma120: 81.88
+- return_5d: -2.07
+- return_20d: 13.46
+- volume_ratio: 0.99
+- distance_to_ma20_pct_auxiliary: 1.9
+- distance_to_high_60_pct: -7.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,103.5,104.5,102,104,4524344,97.2,7,98.45,83.54,0.28
 20260507,104,104,101.5,103.5,6236133,97.72,5.91,99.03,84.18,0.4
 20260508,105.5,113.5,105.5,113.5,25183767,99.04,14.6,100.14,84.99,1.53
 20260511,115,117.5,111.5,114,35239439,100.28,13.68,101.27,85.81,2.01
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,123,123,116.5,117.5,11002178,112.52,4.43,113.58,97.69,0.76
 20260601,117.5,120,116.5,118.5,9193934,113.01,4.85,114.28,98.55,0.64
 20260602,118.5,119.5,115.5,119,15652534,113.51,4.83,115.1,99.35,1.04
+20260603,120,120,116.5,118,15454822,113.89,3.61,115.8,100.12,0.99
 ```
 
 ## Latest TDCC Snapshot
@@ -172,18 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3702 | 大聯大 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260602 | 3702 | 大聯大 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260603 | 3702 | 大聯大 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3702 | 大聯大 | 6 | 6 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 3702 | 大聯大 | 7 | 5 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 8 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3702 | 大聯大 | 34 | 0 | 8255230.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260603 | 3702 | 大聯大 | 34 | 0 | 3834060.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6781 AES-KY
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:39 Asia/Taipei
+- generated_at: 2026-06-04 01:56:40 Asia/Taipei
 - stock_id: 6781
 - stock_name: AES-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -97,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 1205
-- high: 1205
-- low: 1100
-- close: 1130
-- volume: 1875312
-- ma5: 1171
-- ema23_primary: 1167.66
-- distance_to_ema23_pct: -3.23
-- ma20: 1191.25
-- ma60: 1093.82
-- ma120: 1170.66
-- return_5d: -9.24
-- return_20d: 0.89
-- volume_ratio: 0.98
-- distance_to_ma20_pct_auxiliary: -5.14
-- distance_to_high_60_pct: -17.52
+- date: 20260603
+- open: 1140
+- high: 1230
+- low: 1125
+- close: 1210
+- volume: 2259508
+- ma5: 1172
+- ema23_primary: 1171.19
+- distance_to_ema23_pct: 3.31
+- ma20: 1194.75
+- ma60: 1096.73
+- ma120: 1169.03
+- return_5d: 0.41
+- return_20d: 6.14
+- volume_ratio: 1.17
+- distance_to_ma20_pct_auxiliary: 1.28
+- distance_to_high_60_pct: -11.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,1145,1155,1075,1140,1972027,1089.76,4.61,1070.7,1078.98,1.06
 20260507,1165,1225,1155,1155,2766641,1095.19,5.46,1077.7,1077.4,1.43
 20260508,1180,1260,1180,1230,3561809,1106.43,11.17,1090.25,1077.9,1.75
 20260511,1265,1345,1240,1320,4359896,1124.23,17.41,1107.3,1081.07,1.99
@@ -139,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,1185,1210,1150,1160,1162296,1168.45,-0.72,1187.5,1089.23,0.63
 20260601,1180,1225,1175,1200,1537174,1171.08,2.47,1190.75,1092.23,0.82
 20260602,1205,1205,1100,1130,1875312,1167.66,-3.23,1191.25,1093.82,0.98
+20260603,1140,1230,1125,1210,2259508,1171.19,3.31,1194.75,1096.73,1.17
 ```
 
 ## Latest TDCC Snapshot
@@ -178,7 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6781 | AES-KY | 186 | 2 | 19746090.0 | 56000.0 | 352.61 | no_signal | 0 |  |
+| 20260603 | 6781 | AES-KY | 185 | 2 | 32255820.0 | 18600.0 | 1734.18 | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

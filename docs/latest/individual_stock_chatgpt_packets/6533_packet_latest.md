@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6533 晶心科
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:15 Asia/Taipei
+- generated_at: 2026-06-04 01:56:28 Asia/Taipei
 - stock_id: 6533
 - stock_name: 晶心科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 225
-- high: 243
-- low: 223.5
-- close: 241
-- volume: 2862076
-- ma5: 225.7
-- ema23_primary: 228.75
-- distance_to_ema23_pct: 5.36
-- ma20: 232.55
-- ma60: 212.08
-- ma120: 227.2
-- return_5d: 2.77
-- return_20d: -1.03
-- volume_ratio: 2.54
-- distance_to_ma20_pct_auxiliary: 3.63
-- distance_to_high_60_pct: -13.15
+- date: 20260603
+- open: 241
+- high: 241
+- low: 233
+- close: 236.5
+- volume: 1366915
+- ma5: 227.4
+- ema23_primary: 229.39
+- distance_to_ema23_pct: 3.1
+- ma20: 232.3
+- ma60: 212.68
+- ma120: 226.82
+- return_5d: 3.73
+- return_20d: -2.07
+- volume_ratio: 1.22
+- distance_to_ma20_pct_auxiliary: 1.81
+- distance_to_high_60_pct: -14.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,250.5,250.5,238,241.5,1499937,222.47,8.55,220.93,209.38,0.96
 20260507,245,251,241.5,246,1178396,224.43,9.61,224.05,209.42,0.73
 20260508,247,252.5,238,238.5,1292732,225.6,5.72,227.05,209.28,0.78
 20260511,240,260,235.5,253,1806939,227.89,11.02,230.95,209.52,1.04
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,221.5,223.5,217,219,508665,228.24,-4.05,233.5,210.87,0.46
 20260601,220,222.5,217.5,221,505431,227.63,-2.91,232.68,211.39,0.47
 20260602,225,243,223.5,241,2862076,228.75,5.36,232.55,212.08,2.54
+20260603,241,241,233,236.5,1366915,229.39,3.1,232.3,212.68,1.22
 ```
 
 ## Latest TDCC Snapshot
@@ -172,17 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6533 | 晶心科 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 6533 | 晶心科 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6533 | 晶心科 | 1 | 1 | 1 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 6533 | 晶心科 | 2 | 1 | 2 | 6 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6533 | 晶心科 | 8 | 0 | 970060.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 6533 | 晶心科 | 8 | 0 | 86250.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

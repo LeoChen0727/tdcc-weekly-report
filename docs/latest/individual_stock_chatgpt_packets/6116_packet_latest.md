@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6116 彩晶
 
 ## Metadata
-- generated_at: 2026-06-02 23:28:35 Asia/Taipei
+- generated_at: 2026-06-04 01:56:10 Asia/Taipei
 - stock_id: 6116
 - stock_name: 彩晶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,18 +55,14 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: starter_position
-- action_rating_label_zh: 可小量試單
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: high_level_consolidation
-- entry_style: breakout_follow
-- position_sizing: starter_1_4
+- entry_style: current_price_ok
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -100,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 20.65
-- high: 20.65
-- low: 19
-- close: 20.65
-- volume: 200560076
-- ma5: 17.32
-- ema23_primary: 12.9
-- distance_to_ema23_pct: 60.1
-- ma20: 12.28
-- ma60: 9.81
-- ma120: 9.16
-- return_5d: 51.28
-- return_20d: 142.66
-- volume_ratio: 1.25
-- distance_to_ma20_pct_auxiliary: 68.12
+- date: 20260603
+- open: 21.55
+- high: 22.7
+- low: 21.55
+- close: 22.7
+- volume: 108791284
+- ma5: 18.96
+- ema23_primary: 13.71
+- distance_to_ema23_pct: 65.51
+- ma20: 12.99
+- ma60: 10.04
+- ma120: 9.29
+- return_5d: 56.55
+- return_20d: 165.5
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: 74.74
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,8.6,8.72,8.39,8.55,21453968,8.51,0.43,8.61,8.58,0.98
 20260507,8.63,9.4,8.51,9.4,69808033,8.59,9.47,8.66,8.59,2.87
 20260508,9.37,9.77,9.02,9.2,84005911,8.64,6.5,8.68,8.61,3.21
 20260511,9.55,10.1,9.4,9.71,89842953,8.73,11.26,8.74,8.63,3.06
@@ -142,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,16.5,17.1,15.75,17.1,289351189,11.59,47.5,11.15,9.43,1.95
 20260601,18.25,18.8,18.25,18.8,58323262,12.19,54.18,11.68,9.61,0.39
 20260602,20.65,20.65,19,20.65,200560076,12.9,60.1,12.28,9.81,1.25
+20260603,21.55,22.7,21.55,22.7,108791284,13.71,65.51,12.99,10.04,0.66
 ```
 
 ## Latest TDCC Snapshot
@@ -169,19 +165,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6116 | 彩晶 | true_breakout | 嚴格突破 | 59.0 |  |  | platform_right_side |  | call_put_bullish | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6116 | 彩晶 | 7 | 7 | 5 | 7 | 7 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6116 | 彩晶 | 35 | 1 | 18093340.0 | 1540.0 | 11748.92 | call_put_bullish | 3 |  |
+| 20260603 | 6116 | 彩晶 | 35 | 1 | 17505500.0 | 11000.0 | 1591.41 | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

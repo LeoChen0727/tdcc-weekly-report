@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00954 中信日本半導體
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:11 Asia/Taipei
+- generated_at: 2026-06-04 01:54:05 Asia/Taipei
 - stock_id: 00954
 - stock_name: 中信日本半導體
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260602
-- price_rows: 8
+- latest_price_date: 20260603
+- price_rows: 9
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -59,7 +59,7 @@
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: observe_only
 
 ### management_plan
@@ -72,7 +72,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -97,23 +96,23 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 17.85
-- high: 18.07
-- low: 17.56
-- close: 18.07
-- volume: 3311813
-- ma5: 18.18
-- ema23_primary: 17.88
-- distance_to_ema23_pct: 1.07
-- ma20: 18.15
-- ma60: 18.15
-- ma120: 18.15
-- return_5d: -0.82
+- date: 20260603
+- open: 19.23
+- high: 19.73
+- low: 19.23
+- close: 19.72
+- volume: 6547219
+- ma5: 18.45
+- ema23_primary: 18.03
+- distance_to_ema23_pct: 9.36
+- ma20: 18.32
+- ma60: 18.32
+- ma120: 18.32
+- return_5d: 7.29
 - return_20d: 
-- volume_ratio: 0.69
-- distance_to_ma20_pct_auxiliary: -0.44
-- distance_to_high_60_pct: -3.58
+- volume_ratio: 1.31
+- distance_to_ma20_pct_auxiliary: 7.62
+- distance_to_high_60_pct: -0.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -127,6 +126,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,18.14,18.41,18.05,18.4,4381488,17.84,3.15,18.17,18.17,0.88
 20260601,18.4,18.4,18.04,18.11,5354761,17.86,1.39,18.16,18.16,1.07
 20260602,17.85,18.07,17.56,18.07,3311813,17.88,1.07,18.15,18.15,0.69
+20260603,19.23,19.73,19.23,19.72,6547219,18.03,9.36,18.32,18.32,1.31
 ```
 
 ## Latest TDCC Snapshot

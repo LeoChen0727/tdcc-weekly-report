@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6112 邁達特
 
 ## Metadata
-- generated_at: 2026-06-02 23:28:35 Asia/Taipei
+- generated_at: 2026-06-04 01:56:09 Asia/Taipei
 - stock_id: 6112
 - stock_name: 邁達特
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 47.5
-- high: 49.9
-- low: 46.4
-- close: 48.15
-- volume: 7470769
-- ma5: 44.42
-- ema23_primary: 44.1
-- distance_to_ema23_pct: 9.19
-- ma20: 43.47
-- ma60: 45.28
-- ma120: 45.81
-- return_5d: 13.83
-- return_20d: 1.26
-- volume_ratio: 6.52
-- distance_to_ma20_pct_auxiliary: 10.78
-- distance_to_high_60_pct: -4.84
+- date: 20260603
+- open: 49.7
+- high: 49.7
+- low: 47.85
+- close: 48.95
+- volume: 2756131
+- ma5: 45.77
+- ema23_primary: 44.5
+- distance_to_ema23_pct: 10
+- ma20: 43.55
+- ma60: 45.33
+- ma120: 45.82
+- return_5d: 16
+- return_20d: 3.82
+- volume_ratio: 2.21
+- distance_to_ma20_pct_auxiliary: 12.39
+- distance_to_high_60_pct: -3.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,47.9,48.5,47.05,47.15,722168,46.35,1.73,46.66,45.78,1.39
 20260507,46.2,46.2,44.2,45.2,1508603,46.25,-2.28,46.58,45.75,2.71
 20260508,44.75,45.3,44.35,44.35,919656,46.09,-3.79,46.48,45.72,1.58
 20260511,44.45,44.85,44.05,44.25,562133,45.94,-3.68,46.38,45.72,0.94
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,42.05,43.15,41.95,42.8,528097,43.43,-1.44,43.42,45.16,0.88
 20260601,43.2,47.05,43.2,47.05,4145789,43.73,7.6,43.44,45.23,5.25
 20260602,47.5,49.9,46.4,48.15,7470769,44.1,9.19,43.47,45.28,6.52
+20260603,49.7,49.7,47.85,48.95,2756131,44.5,10,43.55,45.33,2.21
 ```
 
 ## Latest TDCC Snapshot
@@ -172,19 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6112 | 邁達特 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  | call_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260602 | 6112 | 邁達特 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260602 | 6112 | 邁達特 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | call_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 6112 | 邁達特 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6112 | 邁達特 | 2 | 2 | 2 | 2 | 2 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260603 | 6112 | 邁達特 | 3 | 3 | 3 | 3 | 3 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6112 | 邁達特 | 4 | 0 | 2532290.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260603 | 6112 | 邁達特 | 4 | 0 | 3698950.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

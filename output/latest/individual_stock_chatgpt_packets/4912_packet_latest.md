@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4912 聯德控股-KY
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:52 Asia/Taipei
+- generated_at: 2026-06-04 01:55:50 Asia/Taipei
 - stock_id: 4912
 - stock_name: 聯德控股-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,18 +55,14 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: healthy_pullback
+- thesis_state: unclear
 - entry_style: pullback_to_23ema
-- position_sizing: half_position
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -75,7 +71,6 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -102,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 112.5
-- high: 112.5
-- low: 101.5
-- close: 102.5
-- volume: 3103914
-- ma5: 109.9
-- ema23_primary: 102.14
-- distance_to_ema23_pct: 0.35
-- ma20: 102.89
-- ma60: 92.82
-- ma120: 92.18
-- return_5d: -3.76
-- return_20d: 25.46
-- volume_ratio: 1.74
-- distance_to_ma20_pct_auxiliary: -0.38
-- distance_to_high_60_pct: -12.39
+- date: 20260603
+- open: 102.5
+- high: 102.5
+- low: 99.5
+- close: 100.5
+- volume: 1663907
+- ma5: 107.5
+- ema23_primary: 102
+- distance_to_ema23_pct: -1.47
+- ma20: 103.77
+- ma60: 92.99
+- ma120: 92.31
+- return_5d: -10.67
+- return_20d: 20.94
+- volume_ratio: 0.9
+- distance_to_ma20_pct_auxiliary: -3.15
+- distance_to_high_60_pct: -14.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,83.2,83.6,80.2,83.1,470121,85.66,-2.99,86.15,89.17,1.08
 20260507,91.4,91.4,91.4,91.4,1119469,86.14,6.11,86.19,89.09,2.37
 20260508,91.4,97.2,90.4,94.3,2058769,86.82,8.62,86.52,89.14,3.74
 20260511,95,98,94,95.1,1314208,87.51,8.68,86.97,89.24,2.21
@@ -144,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,111,115.5,107.5,115,2573868,101.07,13.78,100.22,92.18,1.71
 20260601,116.5,117,111.5,113.5,3213005,102.11,11.16,101.86,92.62,1.96
 20260602,112.5,112.5,101.5,102.5,3103914,102.14,0.35,102.89,92.82,1.74
+20260603,102.5,102.5,99.5,100.5,1663907,102,-1.47,103.77,92.99,0.9
 ```
 
 ## Latest TDCC Snapshot
@@ -171,14 +166,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 4912 | 聯德控股-KY | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: ex_dividend on 20260602; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 4912 | 聯德控股-KY | 5 | 1 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

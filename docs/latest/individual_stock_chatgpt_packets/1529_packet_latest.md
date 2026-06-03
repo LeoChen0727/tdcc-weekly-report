@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1529 樂事綠能
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:39 Asia/Taipei
+- generated_at: 2026-06-04 01:54:19 Asia/Taipei
 - stock_id: 1529
 - stock_name: 樂事綠能
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,7 +59,7 @@
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: observe_only
 
 ### management_plan
@@ -72,7 +72,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -97,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 22.75
-- high: 22.75
-- low: 22.05
-- close: 22.45
-- volume: 748063
-- ma5: 22.33
-- ema23_primary: 21.95
-- distance_to_ema23_pct: 2.27
-- ma20: 21.62
-- ma60: 23.67
-- ma120: 22.66
-- return_5d: 4.18
-- return_20d: -1.1
-- volume_ratio: 0.77
-- distance_to_ma20_pct_auxiliary: 3.85
-- distance_to_high_60_pct: -24.79
+- date: 20260603
+- open: 22.55
+- high: 24.65
+- low: 22.4
+- close: 24.65
+- volume: 2873040
+- ma5: 22.77
+- ema23_primary: 22.18
+- distance_to_ema23_pct: 11.15
+- ma20: 21.73
+- ma60: 23.63
+- ma120: 22.71
+- return_5d: 9.8
+- return_20d: 10.04
+- volume_ratio: 2.64
+- distance_to_ma20_pct_auxiliary: 13.44
+- distance_to_high_60_pct: -17.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,22.7,22.9,22.3,22.4,554321,23.19,-3.42,23.16,24.55,0.65
 20260507,22.75,22.9,22.5,22.85,646439,23.16,-1.35,23.07,24.51,0.78
 20260508,23.1,23.8,22.7,22.9,1494283,23.14,-1.04,22.97,24.48,1.78
 20260511,22.75,23.1,22.35,22.45,759131,23.08,-2.75,22.91,24.46,1
@@ -139,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,22.1,22.65,22,22.15,791275,21.84,1.4,21.64,23.73,0.79
 20260601,22.15,22.9,22.05,22.6,982385,21.91,3.17,21.63,23.7,1.02
 20260602,22.75,22.75,22.05,22.45,748063,21.95,2.27,21.62,23.67,0.77
+20260603,22.55,24.65,22.4,24.65,2873040,22.18,11.15,21.73,23.63,2.64
 ```
 
 ## Latest TDCC Snapshot

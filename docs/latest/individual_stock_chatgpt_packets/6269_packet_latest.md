@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6269 台郡
 
 ## Metadata
-- generated_at: 2026-06-02 23:28:59 Asia/Taipei
+- generated_at: 2026-06-04 01:56:21 Asia/Taipei
 - stock_id: 6269
 - stock_name: 台郡
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,11 +59,11 @@
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: high_level_distribution_risk
-- entry_style: breakout_follow
+- entry_style: current_price_ok
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -100,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 76
-- high: 76
-- low: 70.5
-- close: 74.9
-- volume: 42564190
-- ma5: 66.1
-- ema23_primary: 63.33
-- distance_to_ema23_pct: 18.28
-- ma20: 61.81
-- ma60: 61.67
-- ma120: 60.3
-- return_5d: 16.67
-- return_20d: 9.34
-- volume_ratio: 7.08
-- distance_to_ma20_pct_auxiliary: 21.18
-- distance_to_high_60_pct: -1.45
+- date: 20260603
+- open: 75.2
+- high: 80
+- low: 72.2
+- close: 77.5
+- volume: 24865302
+- ma5: 69.04
+- ema23_primary: 64.51
+- distance_to_ema23_pct: 20.14
+- ma20: 62.28
+- ma60: 61.97
+- ma120: 60.48
+- return_5d: 23.41
+- return_20d: 13.8
+- volume_ratio: 3.56
+- distance_to_ma20_pct_auxiliary: 24.44
+- distance_to_high_60_pct: -3.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,69.5,69.5,65.3,68.1,5339595,64.82,5.06,65.36,61.42,1.16
 20260507,68.9,68.9,66,66.4,3978606,64.95,2.23,65.47,61.51,0.87
 20260508,66.9,66.9,62.7,63.2,5013368,64.8,-2.48,65.34,61.58,1.09
 20260511,61.1,61.1,57.3,58,9567195,64.24,-9.71,65.02,61.55,1.95
@@ -142,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,62.3,63,61.7,62.9,2807130,61.65,2.02,61.43,61.16,0.66
 20260601,69.1,69.1,69.1,69.1,3699567,62.27,10.96,61.49,61.38,0.91
 20260602,76,76,70.5,74.9,42564190,63.33,18.28,61.81,61.67,7.08
+20260603,75.2,80,72.2,77.5,24865302,64.51,20.14,62.28,61.97,3.56
 ```
 
 ## Latest TDCC Snapshot
@@ -171,18 +171,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6269 | 台郡 | true_breakout | 嚴格突破 | 91.0 |  |  | breakout_confirmed |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 6269 | 台郡 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 6269 | 台郡 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6269 | 台郡 | 9 | 9 | 5 | 9 | 9 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260603 | 6269 | 台郡 | 10 | 10 | 5 | 10 | 10 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6269 | 台郡 | 26 | 0 | 19029510.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260603 | 6269 | 台郡 | 26 | 0 | 13590810.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

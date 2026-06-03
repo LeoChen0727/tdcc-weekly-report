@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6967 汎瑋材料
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:58 Asia/Taipei
+- generated_at: 2026-06-04 01:56:48 Asia/Taipei
 - stock_id: 6967
 - stock_name: 汎瑋材料
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 274
+- latest_price_date: 20260603
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -97,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 72
-- high: 72
-- low: 69.9
-- close: 70
-- volume: 70
-- ma5: 71.14
-- ema23_primary: 72.94
-- distance_to_ema23_pct: -4.03
-- ma20: 74.12
-- ma60: 71.54
-- ma120: 70.8
-- return_5d: -3.98
-- return_20d: -12.61
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: -5.56
-- distance_to_high_60_pct: -21.35
+- date: 20260603
+- open: 69.5
+- high: 71
+- low: 69.5
+- close: 69.7
+- volume: 70000
+- ma5: 70.62
+- ema23_primary: 72.67
+- distance_to_ema23_pct: -4.09
+- ma20: 73.28
+- ma60: 71.56
+- ma120: 70.88
+- return_5d: -3.6
+- return_20d: -19.61
+- volume_ratio: 0.58
+- distance_to_ma20_pct_auxiliary: -4.88
+- distance_to_high_60_pct: -21.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,82,87.6,81.8,86.7,633000,74.67,16.12,73.89,70.15,2.47
 20260507,86.8,89,84.2,84.4,481000,75.48,11.82,74.89,70.31,1.73
 20260508,81,81.6,76.2,76.4,486000,75.55,1.12,75.39,70.39,1.65
 20260511,77.8,79,76,76,253000,75.59,0.54,75.67,70.47,0.87
@@ -139,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,71.7,71.9,71,71.2,72000,73.42,-3.02,75.03,71.44,0.42
 20260601,71.4,72.8,70.9,70.9,72,73.21,-3.15,74.63,71.53,0
 20260602,72,72,69.9,70,70,72.94,-4.03,74.12,71.54,0
+20260603,69.5,71,69.5,69.7,70000,72.67,-4.09,73.28,71.56,0.58
 ```
 
 ## Latest TDCC Snapshot

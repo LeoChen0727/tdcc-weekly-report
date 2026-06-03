@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4510 高鋒
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:33 Asia/Taipei
+- generated_at: 2026-06-04 01:55:41 Asia/Taipei
 - stock_id: 4510
 - stock_name: 高鋒
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,11 +59,11 @@
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: current_price_ok
+- entry_style: pullback_to_23ema
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_now
+- buy_first_tranche_near_support
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -76,6 +76,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -100,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 55.9
-- high: 56.5
-- low: 51.7
-- close: 53.6
-- volume: 54
-- ma5: 50.91
-- ema23_primary: 48.98
-- distance_to_ema23_pct: 9.42
-- ma20: 48.75
-- ma60: 45.73
-- ma120: 44.82
-- return_5d: 3.28
-- return_20d: 10.74
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: 9.95
-- distance_to_high_60_pct: -5.13
+- date: 20260603
+- open: 53.6
+- high: 53.9
+- low: 50.5
+- close: 50.6
+- volume: 51000
+- ma5: 51.34
+- ema23_primary: 49.12
+- distance_to_ema23_pct: 3.01
+- ma20: 48.92
+- ma60: 45.87
+- ma120: 44.93
+- return_5d: 4.44
+- return_20d: 7.2
+- volume_ratio: 0.03
+- distance_to_ma20_pct_auxiliary: 3.43
+- distance_to_high_60_pct: -10.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,48.85,49.1,46.15,47.2,3810000,46.08,2.42,45.82,45.12,0.93
 20260507,47.55,47.95,46.95,46.95,1625000,46.16,1.72,46.05,45.06,0.39
 20260508,46.5,48.5,46.1,47,2247000,46.23,1.67,46.34,45.02,0.53
 20260511,47.85,48.3,47.15,47.15,1484000,46.3,1.83,46.65,44.98,0.35
@@ -142,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,48.3,51,48.05,50.4,50000,48.04,4.9,48.36,45.32,0.02
 20260601,51,54.9,50.2,54.3,54,48.57,11.81,48.49,45.53,0
 20260602,55.9,56.5,51.7,53.6,54,48.98,9.42,48.75,45.73,0
+20260603,53.6,53.9,50.5,50.6,51000,49.12,3.01,48.92,45.87,0.03
 ```
 
 ## Latest TDCC Snapshot
@@ -171,12 +172,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 4510 | 高鋒 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 4510 | 高鋒 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 4510 | 高鋒 | 9 | 9 | 5 | 9 | 9 | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 4510 | 高鋒 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

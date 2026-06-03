@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00972 野村日本動能高息
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:11 Asia/Taipei
+- generated_at: 2026-06-04 01:54:06 Asia/Taipei
 - stock_id: 00972
 - stock_name: 野村日本動能高息
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260602
-- price_rows: 8
+- latest_price_date: 20260603
+- price_rows: 9
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -97,23 +97,23 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 18.97
-- high: 18.97
-- low: 18.59
-- close: 18.96
-- volume: 718491
-- ma5: 19.14
+- date: 20260603
+- open: 19
+- high: 19.24
+- low: 19
+- close: 19.23
+- volume: 125044
+- ma5: 19.15
 - ema23_primary: 19.23
-- distance_to_ema23_pct: -1.4
+- distance_to_ema23_pct: 0
 - ma20: 19.2
 - ma60: 19.2
 - ma120: 19.2
-- return_5d: -1.91
+- return_5d: 0.05
 - return_20d: 
-- volume_ratio: 2.25
-- distance_to_ma20_pct_auxiliary: -1.24
-- distance_to_high_60_pct: -2.87
+- volume_ratio: 0.42
+- distance_to_ma20_pct_auxiliary: 0.15
+- distance_to_high_60_pct: -1.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -127,6 +127,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,19.2,19.5,19.2,19.5,276696,19.28,1.14,19.28,19.28,1.07
 20260601,19.5,19.5,18.96,18.96,284816,19.25,-1.52,19.23,19.23,1.09
 20260602,18.97,18.97,18.59,18.96,718491,19.23,-1.4,19.2,19.2,2.25
+20260603,19,19.24,19,19.23,125044,19.23,0,19.2,19.2,0.42
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009804 聯邦台精彩50
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:12 Asia/Taipei
+- generated_at: 2026-06-04 01:54:06 Asia/Taipei
 - stock_id: 009804
 - stock_name: 聯邦台精彩50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260602
-- price_rows: 8
+- latest_price_date: 20260603
+- price_rows: 9
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -59,7 +59,7 @@
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: observe_only
 
 ### management_plan
@@ -72,7 +72,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -97,23 +96,23 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 23.86
-- high: 24
-- low: 23.4
-- close: 23.74
-- volume: 986783
-- ma5: 23.35
-- ema23_primary: 22.26
-- distance_to_ema23_pct: 6.64
-- ma20: 22.9
-- ma60: 22.9
-- ma120: 22.9
-- return_5d: 5.42
+- date: 20260603
+- open: 24.07
+- high: 24.33
+- low: 24.06
+- close: 24.29
+- volume: 1177227
+- ma5: 23.56
+- ema23_primary: 22.43
+- distance_to_ema23_pct: 8.29
+- ma20: 23.05
+- ma60: 23.05
+- ma120: 23.05
+- return_5d: 4.34
 - return_20d: 
-- volume_ratio: 0.71
-- distance_to_ma20_pct_auxiliary: 3.68
-- distance_to_high_60_pct: -1.08
+- volume_ratio: 0.86
+- distance_to_ma20_pct_auxiliary: 5.37
+- distance_to_high_60_pct: -0.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -127,6 +126,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,23.02,23.43,23.02,23.36,859098,21.98,6.28,22.61,22.61,0.57
 20260601,23.56,23.99,23.56,23.75,1083347,22.13,7.34,22.78,22.78,0.75
 20260602,23.86,24,23.4,23.74,986783,22.26,6.64,22.9,22.9,0.71
+20260603,24.07,24.33,24.06,24.29,1177227,22.43,8.29,23.05,23.05,0.86
 ```
 
 ## Latest TDCC Snapshot

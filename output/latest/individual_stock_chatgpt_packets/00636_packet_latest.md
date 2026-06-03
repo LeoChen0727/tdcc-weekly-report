@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00636 國泰中國A50
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:04 Asia/Taipei
+- generated_at: 2026-06-04 01:54:02 Asia/Taipei
 - stock_id: 00636
 - stock_name: 國泰中國A50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260602
-- price_rows: 8
+- latest_price_date: 20260603
+- price_rows: 9
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -97,23 +97,23 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 28.5
-- high: 29.31
-- low: 28.45
-- close: 29.31
-- volume: 769237
-- ma5: 28.88
-- ema23_primary: 28.41
-- distance_to_ema23_pct: 3.17
-- ma20: 28.67
-- ma60: 28.67
-- ma120: 28.67
-- return_5d: 2.63
+- date: 20260603
+- open: 29.35
+- high: 29.67
+- low: 29.22
+- close: 29.51
+- volume: 1139830
+- ma5: 29.05
+- ema23_primary: 28.5
+- distance_to_ema23_pct: 3.54
+- ma20: 28.76
+- ma60: 28.76
+- ma120: 28.76
+- return_5d: 3
 - return_20d: 
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: 2.23
-- distance_to_high_60_pct: 0
+- volume_ratio: 1.27
+- distance_to_ma20_pct_auxiliary: 2.59
+- distance_to_high_60_pct: -0.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -127,6 +127,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,28.67,29.18,28.67,29.15,1116891,28.29,3.04,28.55,28.55,1.18
 20260601,29.08,29.08,28.54,28.73,533304,28.33,1.42,28.58,28.58,0.6
 20260602,28.5,29.31,28.45,29.31,769237,28.41,3.17,28.67,28.67,0.88
+20260603,29.35,29.67,29.22,29.51,1139830,28.5,3.54,28.76,28.76,1.27
 ```
 
 ## Latest TDCC Snapshot

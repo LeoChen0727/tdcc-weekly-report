@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2903 遠百
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:11 Asia/Taipei
+- generated_at: 2026-06-04 01:55:02 Asia/Taipei
 - stock_id: 2903
 - stock_name: 遠百
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -102,29 +102,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 21.8
-- high: 22.2
-- low: 21.75
-- close: 22.15
-- volume: 3333189
-- ma5: 21.91
-- ema23_primary: 22.17
-- distance_to_ema23_pct: -0.09
-- ma20: 22.14
-- ma60: 22.6
-- ma120: 22.6
-- return_5d: 0.23
-- return_20d: -1.34
-- volume_ratio: 1.56
-- distance_to_ma20_pct_auxiliary: 0.03
-- distance_to_high_60_pct: -6.34
+- date: 20260603
+- open: 22.2
+- high: 22.75
+- low: 22.1
+- close: 22.7
+- volume: 4901717
+- ma5: 22.07
+- ema23_primary: 22.21
+- distance_to_ema23_pct: 2.19
+- ma20: 22.16
+- ma60: 22.61
+- ma120: 22.59
+- return_5d: 3.65
+- return_20d: 1.34
+- volume_ratio: 2.14
+- distance_to_ma20_pct_auxiliary: 2.45
+- distance_to_high_60_pct: -4.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,22.5,22.5,22.2,22.4,1734218,22.57,-0.75,22.62,22.78,0.83
 20260507,22.4,22.4,22.25,22.25,1847572,22.54,-1.29,22.58,22.78,0.88
 20260508,22.35,22.35,22.15,22.15,2017490,22.51,-1.6,22.53,22.78,0.94
 20260511,22.25,22.3,22.15,22.25,1774837,22.49,-1.06,22.5,22.79,0.86
@@ -144,6 +143,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,21.8,21.85,21.6,21.8,2675875,22.2,-1.79,22.18,22.61,1.4
 20260601,21.8,21.95,21.65,21.9,3514165,22.17,-1.23,22.16,22.61,1.73
 20260602,21.8,22.2,21.75,22.15,3333189,22.17,-0.09,22.14,22.6,1.56
+20260603,22.2,22.75,22.1,22.7,4901717,22.21,2.19,22.16,22.61,2.14
 ```
 
 ## Latest TDCC Snapshot
@@ -173,12 +173,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2903 | 遠百 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2903 | 遠百 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 62.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2903 | 遠百 | 1 | 1 | 1 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
+| 20260603 | 2903 | 遠百 | 2 | 2 | 2 | 3 | 3 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7827 漢康-KY創
 
 ## Metadata
-- generated_at: 2026-06-02 23:30:46 Asia/Taipei
+- generated_at: 2026-06-04 01:57:10 Asia/Taipei
 - stock_id: 7827
 - stock_name: 漢康-KY創
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260602
-- price_rows: 3
+- latest_price_date: 20260603
+- price_rows: 4
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -96,12 +96,12 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 151.5
-- high: 167.5
-- low: 151.5
-- close: 166
-- volume: 1901199
+- date: 20260603
+- open: 167.5
+- high: 170
+- low: 155
+- close: 159
+- volume: 2455596
 - ma5: 
 - ema23_primary: 
 - distance_to_ema23_pct: 
@@ -121,6 +121,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,141,150,136,137,2545365,,,,,
 20260601,137,155,135,153.5,1579044,,,,,
 20260602,151.5,167.5,151.5,166,1901199,,,,,
+20260603,167.5,170,155,159,2455596,,,,,
 ```
 
 ## Latest TDCC Snapshot

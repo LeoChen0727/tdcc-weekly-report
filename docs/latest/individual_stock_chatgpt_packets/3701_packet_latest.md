@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3701 大眾控
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:15 Asia/Taipei
+- generated_at: 2026-06-04 01:55:32 Asia/Taipei
 - stock_id: 3701
 - stock_name: 大眾控
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 56.3
-- high: 56.9
-- low: 53.9
-- close: 56.6
-- volume: 1832558
-- ma5: 54.88
-- ema23_primary: 57.79
-- distance_to_ema23_pct: -2.06
-- ma20: 57.37
+- date: 20260603
+- open: 58
+- high: 58.9
+- low: 56.8
+- close: 58.3
+- volume: 3082529
+- ma5: 55.4
+- ema23_primary: 57.83
+- distance_to_ema23_pct: 0.81
+- ma20: 57.06
 - ma60: 60.44
-- ma120: 54.56
-- return_5d: -0.88
-- return_20d: -15.9
-- volume_ratio: 0.67
-- distance_to_ma20_pct_auxiliary: -1.34
-- distance_to_high_60_pct: -29.07
+- ma120: 54.78
+- return_5d: 4.67
+- return_20d: -9.61
+- volume_ratio: 1.2
+- distance_to_ma20_pct_auxiliary: 2.17
+- distance_to_high_60_pct: -26.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,67.2,67.3,62.4,64.5,6003905,64.74,-0.37,64.88,60.25,0.58
 20260507,64.5,64.5,62.6,62.6,3198915,64.56,-3.04,65.19,60.4,0.31
 20260508,62.6,63.7,59.7,60.9,2778426,64.26,-5.22,65.5,60.47,0.27
 20260511,61,64.8,60.6,62.9,2466415,64.14,-1.94,65.84,60.59,0.24
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,54.1,55.2,53,53.8,1574559,58.1,-7.4,58.45,60.65,0.54
 20260601,53.3,56.9,53.3,55.7,1986862,57.9,-3.8,57.91,60.51,0.71
 20260602,56.3,56.9,53.9,56.6,1832558,57.79,-2.06,57.37,60.44,0.67
+20260603,58,58.9,56.8,58.3,3082529,57.83,0.81,57.06,60.44,1.2
 ```
 
 ## Latest TDCC Snapshot
@@ -172,17 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 3701 | 大眾控 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3701 | 大眾控 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3701 | 大眾控 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 3701 | 大眾控 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3701 | 大眾控 | 2 | 0 | 186870.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 3701 | 大眾控 | 2 | 0 | 317320.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

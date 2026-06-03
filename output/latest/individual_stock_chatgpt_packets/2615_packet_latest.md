@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2615 萬海
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:56 Asia/Taipei
+- generated_at: 2026-06-04 01:54:54 Asia/Taipei
 - stock_id: 2615
 - stock_name: 萬海
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,11 +59,11 @@
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: current_price_ok
+- entry_style: pullback_to_23ema
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_now
+- buy_first_tranche_near_support
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -76,6 +76,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -100,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
+- date: 20260603
 - open: 84.5
-- high: 84.9
-- low: 82.5
-- close: 84.2
-- volume: 11276905
-- ma5: 82.62
-- ema23_primary: 80.02
-- distance_to_ema23_pct: 5.22
-- ma20: 79.65
-- ma60: 77.86
-- ma120: 77.81
-- return_5d: 3.31
-- return_20d: 9.35
-- volume_ratio: 0.93
-- distance_to_ma20_pct_auxiliary: 5.71
-- distance_to_high_60_pct: -1.98
+- high: 85.3
+- low: 83.2
+- close: 83.9
+- volume: 11443193
+- ma5: 83.04
+- ema23_primary: 80.34
+- distance_to_ema23_pct: 4.43
+- ma20: 79.95
+- ma60: 77.95
+- ma120: 77.84
+- return_5d: 2.57
+- return_20d: 7.84
+- volume_ratio: 0.92
+- distance_to_ma20_pct_auxiliary: 4.93
+- distance_to_high_60_pct: -2.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,77.6,77.9,77,77.8,6928494,76.06,2.28,75.86,76.76,0.91
 20260507,78,78.2,77.4,78.2,6669389,76.24,2.57,75.83,76.81,0.89
 20260508,78.1,78.1,76.3,76.5,7766212,76.26,0.31,75.75,76.85,1.05
 20260511,77.9,78.7,77.4,78.5,8832680,76.45,2.68,75.81,76.93,1.19
@@ -142,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,81.7,82.2,80.9,82,8878640,79.21,3.53,78.85,77.72,0.77
 20260601,83.6,85.9,83.6,84.4,17927785,79.64,5.98,79.29,77.77,1.5
 20260602,84.5,84.9,82.5,84.2,11276905,80.02,5.22,79.65,77.86,0.93
+20260603,84.5,85.3,83.2,83.9,11443193,80.34,4.43,79.95,77.95,0.92
 ```
 
 ## Latest TDCC Snapshot
@@ -171,18 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2615 | 萬海 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 2615 | 萬海 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2615 | 萬海 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2615 | 萬海 | 9 | 9 | 5 | 9 | 9 | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 2615 | 萬海 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2615 | 萬海 | 73 | 7 | 10720150.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260603 | 2615 | 萬海 | 72 | 7 | 13166440.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

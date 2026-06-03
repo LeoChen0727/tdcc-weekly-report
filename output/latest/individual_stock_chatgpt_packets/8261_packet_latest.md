@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8261 富鼎
 
 ## Metadata
-- generated_at: 2026-06-02 23:31:03 Asia/Taipei
+- generated_at: 2026-06-04 01:57:18 Asia/Taipei
 - stock_id: 8261
 - stock_name: 富鼎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,14 +55,18 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: high_level_consolidation
 - entry_style: current_price_ok
-- position_sizing: observe_only
+- position_sizing: starter_1_4
 
 ### management_plan
+- buy_first_tranche_now
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -96,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 176.5
-- high: 178.5
-- low: 161.5
-- close: 167.5
-- volume: 8981983
-- ma5: 181.5
-- ema23_primary: 154.55
-- distance_to_ema23_pct: 8.38
-- ma20: 152.72
-- ma60: 124.59
-- ma120: 108.27
-- return_5d: -13.44
-- return_20d: 34.54
-- volume_ratio: 0.85
-- distance_to_ma20_pct_auxiliary: 9.67
-- distance_to_high_60_pct: -21.18
+- date: 20260603
+- open: 171.5
+- high: 179.5
+- low: 168
+- close: 171
+- volume: 10152159
+- ma5: 176.7
+- ema23_primary: 155.92
+- distance_to_ema23_pct: 9.67
+- ma20: 155.18
+- ma60: 125.75
+- ma120: 108.92
+- return_5d: -12.31
+- return_20d: 40.16
+- volume_ratio: 0.93
+- distance_to_ma20_pct_auxiliary: 10.2
+- distance_to_high_60_pct: -19.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,127,127,120.5,122,3324741,116.32,4.88,117.72,105.36,0.75
 20260507,124.5,128.5,122.5,128,8069956,117.3,9.13,118.7,105.89,1.74
 20260508,126.5,127.5,120.5,126,4695505,118.02,6.76,119.6,106.4,0.98
 20260511,127,137.5,124.5,135,12187966,119.44,13.03,120.97,107.11,2.3
@@ -138,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,193,193,173.5,181,16747454,151.5,19.47,147.85,122.1,1.68
 20260601,182.5,188.5,172,174,9012092,153.37,13.45,150.57,123.43,0.87
 20260602,176.5,178.5,161.5,167.5,8981983,154.55,8.38,152.72,124.59,0.85
+20260603,171.5,179.5,168,171,10152159,155.92,9.67,155.18,125.75,0.93
 ```
 
 ## Latest TDCC Snapshot
@@ -165,19 +169,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260603 | 8261 | 富鼎 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260603 | 8261 | 富鼎 | 1 | 1 | 3 | 7 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 8261 | 富鼎 | 58 | 0 | 21718550.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 8261 | 富鼎 | 58 | 0 | 13773200.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

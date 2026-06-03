@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9938 百和
 
 ## Metadata
-- generated_at: 2026-06-02 23:31:26 Asia/Taipei
+- generated_at: 2026-06-04 01:57:29 Asia/Taipei
 - stock_id: 9938
 - stock_name: 百和
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,14 +55,20 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: reduce
-- action_rating_label_zh: 減碼
-- confidence_level: low
-- thesis_state: failed_breakout
-- entry_style: no_entry_now
-- position_sizing: reduce_position
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
+- confidence_level: medium
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
@@ -70,9 +76,11 @@
 
 ### entry_prerequisites
 - model_recommended
+- price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
+- no_major_volume_price_failure
 - acceptable_risk_reward
 
 ### post_entry_watch_items
@@ -87,7 +95,6 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
-- volume_price_failure
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -95,29 +102,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 44.1
-- high: 45.65
-- low: 43.95
-- close: 45.2
-- volume: 3915732
-- ma5: 43.33
-- ema23_primary: 43.92
-- distance_to_ema23_pct: 2.92
-- ma20: 43.9
-- ma60: 45.59
-- ma120: 48.93
-- return_5d: 6.1
-- return_20d: -0.33
-- volume_ratio: 1.65
-- distance_to_ma20_pct_auxiliary: 2.97
-- distance_to_high_60_pct: -9.96
+- date: 20260603
+- open: 45.25
+- high: 46.4
+- low: 45.05
+- close: 46
+- volume: 3429311
+- ma5: 44.06
+- ema23_primary: 44.09
+- distance_to_ema23_pct: 4.33
+- ma20: 43.92
+- ma60: 45.52
+- ma120: 48.85
+- return_5d: 8.62
+- return_20d: 0.88
+- volume_ratio: 1.4
+- distance_to_ma20_pct_auxiliary: 4.74
+- distance_to_high_60_pct: -8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,45.6,45.9,45.1,45.6,2009702,45.31,0.63,44.95,47.96,1.03
 20260507,45.7,45.75,45,45.6,2087301,45.34,0.58,44.95,47.87,1.07
 20260508,45.5,45.5,44.75,44.8,2090312,45.29,-1.09,44.92,47.77,1.05
 20260511,44.95,45.7,44.7,45.25,2137782,45.29,-0.09,44.91,47.7,1.05
@@ -137,6 +143,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,42.25,43.05,42.25,42.95,7674677,43.78,-1.89,43.95,45.77,3.36
 20260601,43.3,44.3,43.05,44.05,2880192,43.8,0.57,43.91,45.67,1.24
 20260602,44.1,45.65,43.95,45.2,3915732,43.92,2.92,43.9,45.59,1.65
+20260603,45.25,46.4,45.05,46,3429311,44.09,4.33,43.92,45.52,1.4
 ```
 
 ## Latest TDCC Snapshot
@@ -166,17 +173,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 9938 | 百和 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 9938 | 百和 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 9938 | 百和 | 2 | 1 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260603 | 9938 | 百和 | 3 | 2 | 3 | 3 | 3 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 9938 | 百和 | 5 | 0 | 101570.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 9938 | 百和 | 5 | 0 | 255030.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

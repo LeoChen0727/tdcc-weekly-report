@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3450 聯鈞
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:53 Asia/Taipei
+- generated_at: 2026-06-04 01:55:22 Asia/Taipei
 - stock_id: 3450
 - stock_name: 聯鈞
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: reduce
-- action_rating_label_zh: 減碼
-- confidence_level: low
-- thesis_state: failed_breakout
-- entry_style: no_entry_now
-- position_sizing: reduce_position
+- action_rating: wait_pullback
+- action_rating_label_zh: 等待回檔
+- confidence_level: medium
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_support
+- position_sizing: observe_only
 
 ### management_plan
 - exit_if_lost_23ema
@@ -70,8 +70,13 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_priority_high
+- decision_score_high
+- price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
+- no_major_volume_price_failure
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -85,7 +90,6 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
-- volume_price_failure
 - price_too_extended
 
 ### chatgpt_instruction
@@ -94,29 +98,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 555
-- high: 592
-- low: 540
+- date: 20260603
+- open: 590
+- high: 602
+- low: 539
 - close: 548
-- volume: 29356562
-- ma5: 511.9
-- ema23_primary: 445.42
-- distance_to_ema23_pct: 23.03
-- ma20: 449.7
-- ma60: 347.41
-- ma120: 304.65
-- return_5d: 3.4
-- return_20d: 50.14
-- volume_ratio: 2.17
-- distance_to_ma20_pct_auxiliary: 21.86
-- distance_to_high_60_pct: -7.43
+- volume: 19256280
+- ma5: 521.3
+- ema23_primary: 453.96
+- distance_to_ema23_pct: 20.71
+- ma20: 459.93
+- ma60: 351.83
+- ma120: 307.11
+- return_5d: 9.38
+- return_20d: 59.53
+- volume_ratio: 1.46
+- distance_to_ma20_pct_auxiliary: 19.15
+- distance_to_high_60_pct: -8.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,374,375,330,343.5,26217639,319.6,7.48,328.68,288.57,1.13
 20260507,346.5,377.5,330.5,377.5,29358610,324.42,16.36,333.98,290.55,1.22
 20260508,376,414.5,375,410,40990138,331.56,23.66,340,293.05,1.67
 20260511,426,438.5,391,428,30833196,339.59,26.03,346.07,295.98,1.26
@@ -136,6 +139,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,498,499,477,490.5,9193909,426.73,14.94,430.2,339.09,0.66
 20260601,497.5,539,497,539,10680566,436.09,23.6,440.55,343.06,0.79
 20260602,555,592,540,548,29356562,445.42,23.03,449.7,347.41,2.17
+20260603,590,602,539,548,19256280,453.96,20.71,459.93,351.83,1.46
 ```
 
 ## Latest TDCC Snapshot
@@ -165,17 +169,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3450 | 聯鈞 | true_breakout | 嚴格突破 | 97.0 |  |  | platform_breakout |  | call_inflow | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3450 | 聯鈞 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  | no_signal | continued_2_3d | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3450 | 聯鈞 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260603 | 3450 | 聯鈞 | 3 | 2 | 3 | 3 | 3 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3450 | 聯鈞 | 169 | 10 | 27794820.0 | 265770.0 | 104.58 | call_inflow | 1 |  |
+| 20260603 | 3450 | 聯鈞 | 169 | 10 | 20748920.0 | 42890.0 | 483.77 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

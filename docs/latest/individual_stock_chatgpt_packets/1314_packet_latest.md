@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1314 中石化
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:22 Asia/Taipei
+- generated_at: 2026-06-04 01:54:11 Asia/Taipei
 - stock_id: 1314
 - stock_name: 中石化
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 274
+- latest_price_date: 20260603
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: buy_now
-- action_rating_label_zh: 建議買進
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: breakout_initial
-- entry_style: breakout_follow
-- position_sizing: normal_position
+- thesis_state: unclear
+- entry_style: current_price_ok
+- position_sizing: starter_1_4
 
 ### management_plan
 - buy_first_tranche_now
@@ -76,10 +76,7 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_priority_high
-- decision_score_high
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -104,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 7.14
-- high: 7.54
-- low: 7.12
-- close: 7.53
-- volume: 70159841
-- ma5: 7.13
-- ema23_primary: 7.19
-- distance_to_ema23_pct: 4.71
-- ma20: 7.06
+- date: 20260603
+- open: 7.62
+- high: 8.28
+- low: 7.55
+- close: 8.08
+- volume: 180153414
+- ma5: 7.37
+- ema23_primary: 7.27
+- distance_to_ema23_pct: 11.21
+- ma20: 7.11
 - ma60: 7.76
 - ma120: 7.89
-- return_5d: 8.03
-- return_20d: 2.59
-- volume_ratio: 3.2
-- distance_to_ma20_pct_auxiliary: 6.61
-- distance_to_high_60_pct: -23.24
+- return_5d: 17.1
+- return_20d: 11.76
+- volume_ratio: 5.97
+- distance_to_ma20_pct_auxiliary: 13.71
+- distance_to_high_60_pct: -17.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,7.4,7.4,7.22,7.23,15355551,7.67,-5.69,7.64,8.09,0.65
 20260507,7.23,7.29,7.17,7.25,15765137,7.63,-5,7.59,8.08,0.69
 20260508,7.25,7.33,7.13,7.14,21973327,7.59,-5.93,7.54,8.06,1.02
 20260511,7.14,7.19,7.07,7.09,20804080,7.55,-6.08,7.51,8.04,1.13
@@ -146,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,7.11,7.12,7.02,7.04,18071555,7.17,-1.76,7.06,7.79,0.96
 20260601,7.1,7.2,7.02,7.1,27008579,7.16,-0.85,7.05,7.77,1.42
 20260602,7.14,7.54,7.12,7.53,70159841,7.19,4.71,7.06,7.76,3.2
+20260603,7.62,8.28,7.55,8.08,180153414,7.27,11.21,7.11,7.76,5.97
 ```
 
 ## Latest TDCC Snapshot
@@ -175,12 +172,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1314 | 中石化 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 1314 | 中石化 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1314 | 中石化 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| 20260603 | 1314 | 中石化 | 2 | 1 | 2 | 2 | 2 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

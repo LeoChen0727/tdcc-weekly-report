@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3491 昇達科
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:56 Asia/Taipei
+- generated_at: 2026-06-04 01:55:23 Asia/Taipei
 - stock_id: 3491
 - stock_name: 昇達科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -100,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 2150
-- high: 2175
-- low: 2000
-- close: 2070
-- volume: 2071
-- ma5: 2103
-- ema23_primary: 1893.03
-- distance_to_ema23_pct: 9.35
-- ma20: 1867.5
-- ma60: 1649.08
-- ma120: 1290.54
-- return_5d: -0.24
-- return_20d: 22.12
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: 10.84
-- distance_to_high_60_pct: -5.91
+- date: 20260603
+- open: 2030
+- high: 2095
+- low: 2005
+- close: 2020
+- volume: 2034000
+- ma5: 2091
+- ema23_primary: 1903.61
+- distance_to_ema23_pct: 6.11
+- ma20: 1887.5
+- ma60: 1660.92
+- ma120: 1303.1
+- return_5d: -2.88
+- return_20d: 24.69
+- volume_ratio: 0.94
+- distance_to_ma20_pct_auxiliary: 7.02
+- distance_to_high_60_pct: -8.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,1735,1740,1575,1620,1905000,1619.9,0.01,1685,1489.42,0.98
 20260507,1630,1685,1585,1620,1261000,1619.91,0.01,1676.5,1497.75,0.67
 20260508,1615,1695,1605,1655,1635000,1622.84,1.98,1671.25,1507.25,0.89
 20260511,1685,1820,1680,1820,4032000,1639.27,11.03,1671.5,1519.33,2.08
@@ -142,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,2120,2200,2120,2200,2188000,1850.75,18.87,1825.75,1627,0.93
 20260601,2180,2200,2085,2165,2141,1876.94,15.35,1848.75,1637.58,0
 20260602,2150,2175,2000,2070,2071,1893.03,9.35,1867.5,1649.08,0
+20260603,2030,2095,2005,2020,2034000,1903.61,6.11,1887.5,1660.92,0.94
 ```
 
 ## Latest TDCC Snapshot
@@ -171,12 +171,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 3491 | 昇達科 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3491 | 昇達科 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3491 | 昇達科 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 3491 | 昇達科 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

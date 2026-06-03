@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3005 神基
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:16 Asia/Taipei
+- generated_at: 2026-06-04 01:55:04 Asia/Taipei
 - stock_id: 3005
 - stock_name: 神基
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 108
-- high: 109.5
-- low: 106.5
-- close: 108.5
-- volume: 10565260
-- ma5: 105.1
-- ema23_primary: 102.59
-- distance_to_ema23_pct: 5.76
-- ma20: 101.48
-- ma60: 107.25
-- ma120: 112.08
-- return_5d: 4.33
-- return_20d: 10.49
-- volume_ratio: 1.76
-- distance_to_ma20_pct_auxiliary: 6.92
-- distance_to_high_60_pct: -22.22
+- date: 20260603
+- open: 112
+- high: 112.5
+- low: 109
+- close: 110.5
+- volume: 8390622
+- ma5: 106.6
+- ema23_primary: 103.25
+- distance_to_ema23_pct: 7.03
+- ma20: 102.13
+- ma60: 107.05
+- ma120: 111.96
+- return_5d: 7.28
+- return_20d: 13.33
+- volume_ratio: 1.34
+- distance_to_ma20_pct_auxiliary: 8.2
+- distance_to_high_60_pct: -20.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,98.8,98.8,97,97.5,2916447,101.17,-3.62,98.77,111.26,0.67
 20260507,97.7,99.3,97.5,99.1,2988182,100.99,-1.88,98.67,111,0.7
 20260508,99,100,97.5,98.2,3464878,100.76,-2.54,98.56,110.75,0.81
 20260511,98.7,99.8,97.5,99.8,2761284,100.68,-0.88,98.55,110.54,0.65
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,104,106.5,104,104,6037437,101.6,2.36,100.53,107.74,1.11
 20260601,104.5,108,104.5,107,6783063,102.05,4.85,100.97,107.5,1.21
 20260602,108,109.5,106.5,108.5,10565260,102.59,5.76,101.48,107.25,1.76
+20260603,112,112.5,109,110.5,8390622,103.25,7.03,102.13,107.05,1.34
 ```
 
 ## Latest TDCC Snapshot
@@ -172,17 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3005 | 神基 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3005 | 神基 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3005 | 神基 | 6 | 3 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 3005 | 神基 | 1 | 1 | 4 | 6 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3005 | 神基 | 29 | 0 | 10657130.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260603 | 3005 | 神基 | 29 | 0 | 7239720.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

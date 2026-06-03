@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9105 泰金寶-DR
 
 ## Metadata
-- generated_at: 2026-06-02 23:31:20 Asia/Taipei
+- generated_at: 2026-06-04 01:57:26 Asia/Taipei
 - stock_id: 9105
 - stock_name: 泰金寶-DR
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,11 +59,11 @@
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: high_level_distribution_risk
-- entry_style: breakout_follow
+- entry_style: current_price_ok
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -100,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 10.2
-- high: 10.6
-- low: 10.1
-- close: 10.5
-- volume: 271642439
-- ma5: 9.21
-- ema23_primary: 7.26
-- distance_to_ema23_pct: 44.71
-- ma20: 6.86
-- ma60: 6.05
-- ma120: 6.01
-- return_5d: 28.68
-- return_20d: 78.88
-- volume_ratio: 3.46
-- distance_to_ma20_pct_auxiliary: 53.05
-- distance_to_high_60_pct: -0.94
+- date: 20260603
+- open: 10.95
+- high: 11.55
+- low: 10.75
+- close: 11.55
+- volume: 120669604
+- ma5: 9.81
+- ema23_primary: 7.61
+- distance_to_ema23_pct: 51.7
+- ma20: 7.15
+- ma60: 6.15
+- ma120: 6.06
+- return_5d: 34.93
+- return_20d: 99.14
+- volume_ratio: 1.45
+- distance_to_ma20_pct_auxiliary: 61.58
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,5.88,5.94,5.74,5.8,20763811,5.74,0.96,5.69,5.76,0.87
 20260507,5.82,5.85,5.73,5.75,22493756,5.75,0.09,5.7,5.76,0.91
 20260508,5.72,5.81,5.6,5.68,19225977,5.74,-1.04,5.71,5.75,0.77
 20260511,5.75,5.85,5.7,5.8,17639696,5.74,0.96,5.73,5.74,0.7
@@ -142,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,8.89,9.17,8.55,8.8,120114525,6.71,31.07,6.44,5.91,2.13
 20260601,9,9.68,9,9.68,192788160,6.96,39.06,6.63,5.97,2.94
 20260602,10.2,10.6,10.1,10.5,271642439,7.26,44.71,6.86,6.05,3.46
+20260603,10.95,11.55,10.75,11.55,120669604,7.61,51.7,7.15,6.15,1.45
 ```
 
 ## Latest TDCC Snapshot
@@ -171,18 +171,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 9105 | 泰金寶-DR | true_breakout | 嚴格突破 | 86.0 |  |  | breakout_confirmed |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 9105 | 泰金寶-DR | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 9105 | 泰金寶-DR | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 9105 | 泰金寶-DR | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 9105 | 泰金寶-DR | 9 | 9 | 5 | 9 | 9 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260603 | 9105 | 泰金寶-DR | 10 | 10 | 5 | 10 | 10 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 9105 | 泰金寶-DR | 12 | 0 | 18670760.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260603 | 9105 | 泰金寶-DR | 12 | 0 | 3142220.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

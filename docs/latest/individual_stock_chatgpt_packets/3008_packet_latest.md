@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3008 大立光
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:16 Asia/Taipei
+- generated_at: 2026-06-04 01:55:04 Asia/Taipei
 - stock_id: 3008
 - stock_name: 大立光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -96,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 3780
-- high: 3850
-- low: 3705
-- close: 3850
-- volume: 1408889
-- ma5: 3626
-- ema23_primary: 3268.46
-- distance_to_ema23_pct: 17.79
-- ma20: 3246.5
-- ma60: 2689.17
-- ma120: 2510.58
-- return_5d: 5.05
-- return_20d: 51.28
-- volume_ratio: 0.64
-- distance_to_ma20_pct_auxiliary: 18.59
-- distance_to_high_60_pct: -0.65
+- date: 20260603
+- open: 3920
+- high: 4225
+- low: 3820
+- close: 3985
+- volume: 3706976
+- ma5: 3722
+- ema23_primary: 3328.17
+- distance_to_ema23_pct: 19.74
+- ma20: 3319.75
+- ma60: 2715.92
+- ma120: 2525.42
+- return_5d: 13.69
+- return_20d: 58.13
+- volume_ratio: 1.6
+- distance_to_ma20_pct_auxiliary: 20.04
+- distance_to_high_60_pct: -5.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,2550,2550,2490,2520,1403899,2511.82,0.33,2555.25,2402.08,0.72
 20260507,2535,2575,2535,2575,1194265,2517.08,2.3,2570,2404.33,0.61
 20260508,2585,2620,2530,2570,1447944,2521.49,1.92,2584.5,2406.75,0.73
 20260511,2600,2600,2525,2545,865599,2523.45,0.85,2596.25,2409,0.43
@@ -138,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,3515,3600,3450,3515,1477877,3159.28,11.26,3118.25,2638.83,0.68
 20260601,3630,3835,3630,3835,1342805,3215.59,19.26,3181.25,2664.33,0.62
 20260602,3780,3850,3705,3850,1408889,3268.46,17.79,3246.5,2689.17,0.64
+20260603,3920,4225,3820,3985,3706976,3328.17,19.74,3319.75,2715.92,1.6
 ```
 
 ## Latest TDCC Snapshot
@@ -177,7 +177,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3008 | 大立光 | 237 | 12 | 42810100.0 | 346930.0 | 123.4 | no_signal | 0 |  |
+| 20260603 | 3008 | 大立光 | 237 | 12 | 97797150.0 | 258020.0 | 379.03 | call_put_bullish | 3 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

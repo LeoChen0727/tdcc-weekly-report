@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5203 訊連
 
 ## Metadata
-- generated_at: 2026-06-02 23:28:03 Asia/Taipei
+- generated_at: 2026-06-04 01:55:55 Asia/Taipei
 - stock_id: 5203
 - stock_name: 訊連
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -76,8 +76,6 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_priority_high
-- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -104,29 +102,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
+- date: 20260603
 - open: 72
 - high: 72.3
-- low: 68.5
-- close: 70.6
-- volume: 1220593
-- ma5: 66.84
-- ema23_primary: 65.56
-- distance_to_ema23_pct: 7.69
-- ma20: 65.25
-- ma60: 64.15
-- ma120: 75.09
-- return_5d: 7.46
-- return_20d: 5.06
-- volume_ratio: 3.43
-- distance_to_ma20_pct_auxiliary: 8.2
-- distance_to_high_60_pct: -2.35
+- low: 70.3
+- close: 71.4
+- volume: 940952
+- ma5: 68.12
+- ema23_primary: 66.04
+- distance_to_ema23_pct: 8.11
+- ma20: 65.53
+- ma60: 64.28
+- ma120: 74.85
+- return_5d: 9.85
+- return_20d: 8.51
+- volume_ratio: 2.42
+- distance_to_ma20_pct_auxiliary: 8.96
+- distance_to_high_60_pct: -1.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,67.6,67.6,65.2,65.8,287693,64.68,1.74,64.06,67.7,1.04
 20260507,66.3,66.3,64.9,65.2,280818,64.72,0.74,64.17,67.36,1.03
 20260508,65.2,66.6,65.2,65.6,223344,64.79,1.24,64.35,67.03,0.83
 20260511,65.6,65.6,64.6,64.7,254857,64.79,-0.13,64.5,66.72,0.93
@@ -146,6 +143,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,64,65.2,64,64.6,156109,64.65,-0.08,64.92,63.85,0.63
 20260601,65.5,71,65.5,70,1538919,65.1,7.53,65.08,64.01,5.03
 20260602,72,72.3,68.5,70.6,1220593,65.56,7.69,65.25,64.15,3.43
+20260603,72,72.3,70.3,71.4,940952,66.04,8.11,65.53,64.28,2.42
 ```
 
 ## Latest TDCC Snapshot
@@ -175,12 +173,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 5203 | 訊連 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 5203 | 訊連 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 5203 | 訊連 | 2 | 1 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260603 | 5203 | 訊連 | 1 | 1 | 2 | 2 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
 | status |

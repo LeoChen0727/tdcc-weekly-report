@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2331 精英
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:23 Asia/Taipei
+- generated_at: 2026-06-04 01:54:38 Asia/Taipei
 - stock_id: 2331
 - stock_name: 精英
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,8 +58,8 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: breakout_initial
-- entry_style: breakout_follow
+- thesis_state: high_level_consolidation
+- entry_style: pullback_to_23ema
 - position_sizing: starter_1_4
 
 ### management_plan
@@ -76,6 +76,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -100,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 26
-- high: 26.5
-- low: 24.8
-- close: 25.6
-- volume: 36583316
-- ma5: 22.59
-- ema23_primary: 21.35
-- distance_to_ema23_pct: 19.9
-- ma20: 20.79
-- ma60: 21.63
-- ma120: 23.25
-- return_5d: 21.04
-- return_20d: 19.63
-- volume_ratio: 6.24
-- distance_to_ma20_pct_auxiliary: 23.14
-- distance_to_high_60_pct: -3.4
+- date: 20260603
+- open: 25.3
+- high: 25.3
+- low: 24.05
+- close: 24.6
+- volume: 12147649
+- ma5: 23.4
+- ema23_primary: 21.62
+- distance_to_ema23_pct: 13.78
+- ma20: 20.96
+- ma60: 21.64
+- ma120: 23.29
+- return_5d: 19.71
+- return_20d: 16.59
+- volume_ratio: 1.91
+- distance_to_ma20_pct_auxiliary: 17.34
+- distance_to_high_60_pct: -7.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,21.75,21.75,20.9,21.1,2369138,21.39,-1.37,21.26,23.41,1.16
 20260507,21.1,21.1,20.45,20.6,3201491,21.33,-3.41,21.2,23.27,1.52
 20260508,20.6,21.05,20.25,20.35,2481387,21.25,-4.22,21.14,23.15,1.16
 20260511,20.4,20.95,20.3,20.9,1752637,21.22,-1.49,21.11,23.05,0.81
@@ -142,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,20.6,22.2,20.45,22.2,11905864,20.65,7.5,20.39,21.59,3.13
 20260601,24,24.4,23.85,24.4,7498574,20.96,16.39,20.58,21.6,1.83
 20260602,26,26.5,24.8,25.6,36583316,21.35,19.9,20.79,21.63,6.24
+20260603,25.3,25.3,24.05,24.6,12147649,21.62,13.78,20.96,21.64,1.91
 ```
 
 ## Latest TDCC Snapshot
@@ -171,17 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2331 | 精英 | true_breakout | 嚴格突破 | 89.0 |  |  | platform_breakout |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2331 | 精英 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2331 | 精英 | 3 | 1 | 3 | 4 | 4 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260603 | 2331 | 精英 | 4 | 4 | 4 | 5 | 5 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2331 | 精英 | 21 | 0 | 3388380.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260603 | 2331 | 精英 | 23 | 0 | 1398900.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

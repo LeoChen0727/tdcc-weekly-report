@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7093 穩得台新5B購01
 
 ## Metadata
-- generated_at: 2026-06-02 23:30:13 Asia/Taipei
+- generated_at: 2026-06-04 01:56:55 Asia/Taipei
 - stock_id: 7093
 - stock_name: 穩得台新5B購01
 - packet_status: standard_180d_window_packet

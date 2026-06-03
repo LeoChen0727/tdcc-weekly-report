@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2913 農林
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:13 Asia/Taipei
+- generated_at: 2026-06-04 01:55:02 Asia/Taipei
 - stock_id: 2913
 - stock_name: 農林
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -102,29 +102,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 11.2
-- high: 11.3
-- low: 11
-- close: 11.3
-- volume: 2276195
-- ma5: 10.91
-- ema23_primary: 11.09
-- distance_to_ema23_pct: 1.91
-- ma20: 10.99
-- ma60: 11.7
-- ma120: 12.52
-- return_5d: 4.63
-- return_20d: 1.35
-- volume_ratio: 1.13
-- distance_to_ma20_pct_auxiliary: 2.84
-- distance_to_high_60_pct: -13.08
+- date: 20260603
+- open: 11.3
+- high: 11.55
+- low: 11.15
+- close: 11.5
+- volume: 5212484
+- ma5: 11.08
+- ema23_primary: 11.12
+- distance_to_ema23_pct: 3.39
+- ma20: 11.01
+- ma60: 11.68
+- ma120: 12.5
+- return_5d: 7.98
+- return_20d: 3.6
+- volume_ratio: 2.4
+- distance_to_ma20_pct_auxiliary: 4.47
+- distance_to_high_60_pct: -11.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,11.2,11.2,11.05,11.1,1855375,11.67,-4.92,11.72,12.33,0.86
 20260507,11.05,11.35,11.05,11.3,3140496,11.64,-2.95,11.66,12.3,1.38
 20260508,11.3,11.35,11.15,11.25,1645182,11.61,-3.1,11.62,12.26,0.74
 20260511,11.2,11.4,11.15,11.3,1300208,11.58,-2.45,11.58,12.23,0.6
@@ -144,6 +143,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,10.75,10.85,10.7,10.8,1965742,11.07,-2.4,10.98,11.75,1.06
 20260601,10.8,11.2,10.75,11.1,3473475,11.07,0.28,10.98,11.72,1.77
 20260602,11.2,11.3,11,11.3,2276195,11.09,1.91,10.99,11.7,1.13
+20260603,11.3,11.55,11.15,11.5,5212484,11.12,3.39,11.01,11.68,2.4
 ```
 
 ## Latest TDCC Snapshot
@@ -173,12 +173,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2913 | 農林 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2913 | 農林 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 65.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2913 | 農林 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260603 | 2913 | 農林 | 3 | 3 | 3 | 3 | 3 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

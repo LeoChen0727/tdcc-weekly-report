@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3483 力致
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:55 Asia/Taipei
+- generated_at: 2026-06-04 01:55:23 Asia/Taipei
 - stock_id: 3483
 - stock_name: 力致
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,20 +55,14 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: starter_position
-- action_rating_label_zh: 可小量試單
+- action_rating: wait_pullback
+- action_rating_label_zh: 等待回檔
 - confidence_level: medium
-- thesis_state: unclear
-- entry_style: current_price_ok
-- position_sizing: starter_1_4
+- thesis_state: high_level_consolidation
+- entry_style: pullback_to_support
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_now
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
-- take_profit_near_prior_high
-- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
@@ -80,7 +74,6 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -94,6 +87,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- price_too_extended
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -101,29 +95,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 103
-- high: 103
-- low: 98
-- close: 100.5
-- volume: 100
-- ma5: 97.72
-- ema23_primary: 93.76
-- distance_to_ema23_pct: 7.19
-- ma20: 92.88
-- ma60: 87.85
-- ma120: 88.98
-- return_5d: 2.13
-- return_20d: 6.01
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: 8.21
-- distance_to_high_60_pct: -5.19
+- date: 20260603
+- open: 102
+- high: 110.5
+- low: 102
+- close: 110.5
+- volume: 109000
+- ma5: 100.56
+- ema23_primary: 95.15
+- distance_to_ema23_pct: 16.13
+- ma20: 93.73
+- ma60: 88.19
+- ma120: 89.14
+- return_5d: 14.75
+- return_20d: 18.44
+- volume_ratio: 0.21
+- distance_to_ma20_pct_auxiliary: 17.89
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,95.6,96.3,93.1,93.3,1110000,90.5,3.1,90.51,86.22,0.59
 20260507,93.8,93.9,92.5,93.2,683000,90.72,2.73,91.3,86.3,0.36
 20260508,94.4,96.5,90.6,91.3,1290000,90.77,0.59,91.98,86.36,0.66
 20260511,92,92.1,90,90.9,683000,90.78,0.13,92.63,86.47,0.35
@@ -143,6 +136,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,96,96.9,94.6,95,95000,92.25,2.98,92.13,87.42,0.15
 20260601,97.3,104,97,103,101,93.14,10.58,92.59,87.69,0
 20260602,103,103,98,100.5,100,93.76,7.19,92.88,87.85,0
+20260603,102,110.5,102,110.5,109000,95.15,16.13,93.73,88.19,0.21
 ```
 
 ## Latest TDCC Snapshot
@@ -172,12 +166,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 3483 | 力致 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3483 | 力致 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3483 | 力致 | 9 | 9 | 5 | 9 | 9 | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 3483 | 力致 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

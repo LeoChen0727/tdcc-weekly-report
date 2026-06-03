@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3390 旭軟
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:50 Asia/Taipei
+- generated_at: 2026-06-04 01:55:20 Asia/Taipei
 - stock_id: 3390
 - stock_name: 旭軟
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -102,29 +102,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 29.05
-- high: 29.05
-- low: 27.5
-- close: 28.15
-- volume: 28
-- ma5: 28.66
-- ema23_primary: 27.5
-- distance_to_ema23_pct: 2.37
+- date: 20260603
+- open: 28.55
+- high: 28.85
+- low: 27.75
+- close: 28.1
+- volume: 28000
+- ma5: 28.32
+- ema23_primary: 27.55
+- distance_to_ema23_pct: 2
 - ma20: 27.86
-- ma60: 24.84
-- ma120: 24.17
-- return_5d: -2.09
-- return_20d: 10.39
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: 1.04
-- distance_to_high_60_pct: -8.9
+- ma60: 24.91
+- ma120: 24.23
+- return_5d: -5.7
+- return_20d: 0.18
+- volume_ratio: 0.02
+- distance_to_ma20_pct_auxiliary: 0.85
+- distance_to_high_60_pct: -9.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,25.85,28.05,25.3,28.05,5006000,25.06,11.92,25.15,23.48,2.19
 20260507,28,29,27.4,28.35,7247000,25.34,11.89,25.48,23.56,2.75
 20260508,28.3,28.5,27,27.1,2409000,25.48,6.34,25.73,23.63,0.88
 20260511,27.15,28.5,27.1,27.75,1835000,25.67,8.09,26,23.71,0.65
@@ -144,6 +143,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,28.8,28.8,28,28.1,28000,27.32,2.85,27.55,24.69,0.02
 20260601,28.3,29.5,28.2,28.75,29,27.44,4.78,27.73,24.78,0
 20260602,29.05,29.05,27.5,28.15,28,27.5,2.37,27.86,24.84,0
+20260603,28.55,28.85,27.75,28.1,28000,27.55,2,27.86,24.91,0.02
 ```
 
 ## Latest TDCC Snapshot
@@ -173,12 +173,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 3390 | 旭軟 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3390 | 旭軟 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3390 | 旭軟 | 9 | 9 | 5 | 9 | 9 | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 3390 | 旭軟 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

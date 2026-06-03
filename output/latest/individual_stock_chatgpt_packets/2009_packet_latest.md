@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2009 第一銅
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:04 Asia/Taipei
+- generated_at: 2026-06-04 01:54:29 Asia/Taipei
 - stock_id: 2009
 - stock_name: 第一銅
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,15 +55,15 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
-- position_sizing: half_position
+- thesis_state: unclear
+- entry_style: current_price_ok
+- position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -75,11 +75,8 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -95,6 +92,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -102,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 40.9
-- high: 41.9
-- low: 39.6
-- close: 41.1
-- volume: 4650616
-- ma5: 39.81
-- ema23_primary: 39.51
-- distance_to_ema23_pct: 4.03
-- ma20: 39.39
-- ma60: 40.15
-- ma120: 43.44
-- return_5d: 3.92
-- return_20d: 8.44
-- volume_ratio: 1.72
-- distance_to_ma20_pct_auxiliary: 4.33
-- distance_to_high_60_pct: -7.22
+- date: 20260603
+- open: 41.9
+- high: 45.2
+- low: 41.2
+- close: 45.2
+- volume: 15999181
+- ma5: 40.91
+- ema23_primary: 39.98
+- distance_to_ema23_pct: 13.05
+- ma20: 39.73
+- ma60: 40.18
+- ma120: 43.49
+- return_5d: 13.85
+- return_20d: 17.71
+- volume_ratio: 4.66
+- distance_to_ma20_pct_auxiliary: 13.76
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,38.35,38.55,37.9,38.4,1581101,39.33,-2.37,39.37,42.24,0.93
 20260507,39,39.3,38.5,39.3,2212577,39.33,-0.07,39.3,42.03,1.27
 20260508,39.05,39.05,37.8,37.9,2032902,39.21,-3.34,39.2,41.75,1.15
 20260511,38.8,40.2,38.6,39.6,4169151,39.24,0.91,39.16,41.57,2.17
@@ -144,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,39,40.15,39,39.4,2058853,39.3,0.25,39.12,40.22,0.83
 20260601,40.05,40.5,39.4,40.05,2553785,39.36,1.74,39.23,40.18,1.01
 20260602,40.9,41.9,39.6,41.1,4650616,39.51,4.03,39.39,40.15,1.72
+20260603,41.9,45.2,41.2,45.2,15999181,39.98,13.05,39.73,40.18,4.66
 ```
 
 ## Latest TDCC Snapshot
@@ -173,18 +171,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2009 | 第一銅 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 2009 | 第一銅 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2009 | 第一銅 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2009 | 第一銅 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2009 | 第一銅 | 9 | 9 | 5 | 9 | 9 | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 2009 | 第一銅 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2009 | 第一銅 | 42 | 0 | 1180760.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260603 | 2009 | 第一銅 | 41 | 0 | 1904040.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

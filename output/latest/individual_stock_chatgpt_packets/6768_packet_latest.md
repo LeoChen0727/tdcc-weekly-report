@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6768 志強-KY
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:38 Asia/Taipei
+- generated_at: 2026-06-04 01:56:39 Asia/Taipei
 - stock_id: 6768
 - stock_name: 志強-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,15 +55,15 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: buy_now
-- action_rating_label_zh: 建議買進
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: breakout_initial
-- entry_style: breakout_follow
-- position_sizing: normal_position
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
-- buy_first_tranche_now
+- buy_first_tranche_near_support
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -104,29 +104,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 87.3
-- high: 94.8
-- low: 86.7
-- close: 94
-- volume: 2390685
-- ma5: 86.08
-- ema23_primary: 85.19
-- distance_to_ema23_pct: 10.34
-- ma20: 85.6
-- ma60: 86.29
-- ma120: 96.78
-- return_5d: 11.64
-- return_20d: 17.94
-- volume_ratio: 2.94
-- distance_to_ma20_pct_auxiliary: 9.81
-- distance_to_high_60_pct: -7.39
+- date: 20260603
+- open: 95
+- high: 96.9
+- low: 93.4
+- close: 96.9
+- volume: 1849185
+- ma5: 88.86
+- ema23_primary: 86.16
+- distance_to_ema23_pct: 12.46
+- ma20: 86.46
+- ma60: 86.36
+- ma120: 96.64
+- return_5d: 16.75
+- return_20d: 21.58
+- volume_ratio: 2.14
+- distance_to_ma20_pct_auxiliary: 12.07
+- distance_to_high_60_pct: -4.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,81,81,77.1,79.7,827331,82.25,-3.1,81.24,90.94,1.01
 20260507,80,84.8,78.8,84.4,1328405,82.43,2.4,81.12,90.6,1.53
 20260508,83.5,87.5,83.5,87.5,1345888,82.85,5.62,81.39,90.33,1.67
 20260511,88,92.5,87,92,1587701,83.61,10.03,81.81,90.17,1.84
@@ -146,6 +145,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,82.9,84.1,82.9,84.1,282693,84.15,-0.06,84.53,86.44,0.39
 20260601,84.8,87.2,83.9,87,690392,84.39,3.1,84.89,86.32,0.95
 20260602,87.3,94.8,86.7,94,2390685,85.19,10.34,85.6,86.29,2.94
+20260603,95,96.9,93.4,96.9,1849185,86.16,12.46,86.46,86.36,2.14
 ```
 
 ## Latest TDCC Snapshot
@@ -175,17 +175,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6768 | 志強-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 6768 | 志強-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6768 | 志強-KY | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| 20260603 | 6768 | 志強-KY | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6768 | 志強-KY | 7 | 0 | 45540.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 6768 | 志強-KY | 7 | 0 | 50650.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

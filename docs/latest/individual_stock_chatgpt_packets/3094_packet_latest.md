@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3094 聯傑
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:30 Asia/Taipei
+- generated_at: 2026-06-04 01:55:11 Asia/Taipei
 - stock_id: 3094
 - stock_name: 聯傑
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 34.3
-- high: 35.5
-- low: 32.7
-- close: 33.75
-- volume: 1724141
-- ma5: 34.3
-- ema23_primary: 32.59
-- distance_to_ema23_pct: 3.56
-- ma20: 33.58
-- ma60: 27.31
-- ma120: 26.03
-- return_5d: -3.43
-- return_20d: 22.28
-- volume_ratio: 0.39
-- distance_to_ma20_pct_auxiliary: 0.51
-- distance_to_high_60_pct: -9.88
+- date: 20260603
+- open: 33.5
+- high: 33.6
+- low: 32.6
+- close: 32.7
+- volume: 1506207
+- ma5: 33.73
+- ema23_primary: 32.6
+- distance_to_ema23_pct: 0.31
+- ma20: 33.7
+- ma60: 27.46
+- ma120: 26.1
+- return_5d: -8.02
+- return_20d: 7.74
+- volume_ratio: 0.37
+- distance_to_ma20_pct_auxiliary: -2.95
+- distance_to_high_60_pct: -12.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,28.3,30.35,28.15,30.35,7112616,25.89,17.25,25.57,24.54,4.19
 20260507,32.85,33.35,32,33.35,7117486,26.51,25.81,26.06,24.64,3.49
 20260508,34.05,34.2,30.1,30.9,9979840,26.87,14.98,26.45,24.72,3.94
 20260511,31.15,32.5,30.5,30.9,2766138,27.21,13.56,26.86,24.81,1.04
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,35,35,33.6,33.95,1641857,32.35,4.96,32.97,26.96,0.37
 20260601,33.7,34.55,33.4,34,1803792,32.48,4.67,33.27,27.14,0.42
 20260602,34.3,35.5,32.7,33.75,1724141,32.59,3.56,33.58,27.31,0.39
+20260603,33.5,33.6,32.6,32.7,1506207,32.6,0.31,33.7,27.46,0.37
 ```
 
 ## Latest TDCC Snapshot
@@ -172,12 +172,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3094 | 聯傑 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: ex_dividend on 20260622; status=confirmed; proximity=within_30d |
+| 20260603 | 3094 | 聯傑 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: ex_dividend on 20260622; status=confirmed; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3094 | 聯傑 | 6 | 5 | 5 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 3094 | 聯傑 | 7 | 6 | 5 | 7 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

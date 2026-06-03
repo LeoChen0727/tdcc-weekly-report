@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00646 元大S&P500
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:04 Asia/Taipei
+- generated_at: 2026-06-04 01:54:02 Asia/Taipei
 - stock_id: 00646
 - stock_name: 元大S&P500
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260602
-- price_rows: 8
+- latest_price_date: 20260603
+- price_rows: 9
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -97,22 +97,22 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 74.7
-- high: 75.1
-- low: 74.7
-- close: 75
-- volume: 2455605
-- ma5: 74.62
-- ema23_primary: 74.42
-- distance_to_ema23_pct: 0.77
-- ma20: 74.56
-- ma60: 74.56
-- ma120: 74.56
-- return_5d: 0.74
+- date: 20260603
+- open: 75.15
+- high: 75.3
+- low: 75.1
+- close: 75.2
+- volume: 2199979
+- ma5: 74.79
+- ema23_primary: 74.49
+- distance_to_ema23_pct: 0.95
+- ma20: 74.63
+- ma60: 74.63
+- ma120: 74.63
+- return_5d: 1.14
 - return_20d: 
-- volume_ratio: 0.74
-- distance_to_ma20_pct_auxiliary: 0.6
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: 0.77
 - distance_to_high_60_pct: -0.13
 
 ## Recent Price Preview
@@ -127,6 +127,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,74.4,74.75,74.4,74.7,2590946,74.32,0.51,74.42,74.42,0.76
 20260601,74.85,75.05,74.75,74.95,3626592,74.37,0.78,74.49,74.49,1.05
 20260602,74.7,75.1,74.7,75,2455605,74.42,0.77,74.56,74.56,0.74
+20260603,75.15,75.3,75.1,75.2,2199979,74.49,0.95,74.63,74.63,0.69
 ```
 
 ## Latest TDCC Snapshot

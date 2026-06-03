@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6409 旭隼
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:03 Asia/Taipei
+- generated_at: 2026-06-04 01:56:23 Asia/Taipei
 - stock_id: 6409
 - stock_name: 旭隼
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,12 +58,12 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: breakout_initial
-- entry_style: breakout_follow
+- thesis_state: unclear
+- entry_style: current_price_ok
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -76,7 +76,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -101,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 712
-- high: 759
-- low: 702
-- close: 742
-- volume: 1760234
-- ma5: 714
-- ema23_primary: 725.07
-- distance_to_ema23_pct: 2.34
-- ma20: 725.1
-- ma60: 753.35
-- ma120: 862.18
-- return_5d: 6.61
-- return_20d: -5.36
-- volume_ratio: 1.47
-- distance_to_ma20_pct_auxiliary: 2.33
-- distance_to_high_60_pct: -14.71
+- date: 20260603
+- open: 746
+- high: 790
+- low: 727
+- close: 768
+- volume: 2053146
+- ma5: 726.2
+- ema23_primary: 728.65
+- distance_to_ema23_pct: 5.4
+- ma20: 723.6
+- ma60: 751.73
+- ma120: 858.92
+- return_5d: 8.63
+- return_20d: -3.76
+- volume_ratio: 1.67
+- distance_to_ma20_pct_auxiliary: 6.14
+- distance_to_high_60_pct: -9.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,797,809,778,798,1275261,774.59,3.02,766,809.78,1.42
 20260507,811,811,784,790,991799,775.87,1.82,768.55,806.92,1.08
 20260508,800,833,799,821,1620725,779.63,5.31,773.6,805.27,1.7
 20260511,809,809,747,764,2494620,778.33,-1.84,776.1,803.78,2.44
@@ -143,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,711,715,696,709,991985,724.49,-2.14,731.1,756.93,0.87
 20260601,713,718,697,713,1106779,723.53,-1.46,727.2,755.27,0.95
 20260602,712,759,702,742,1760234,725.07,2.34,725.1,753.35,1.47
+20260603,746,790,727,768,2053146,728.65,5.4,723.6,751.73,1.67
 ```
 
 ## Latest TDCC Snapshot
@@ -172,17 +171,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6409 | 旭隼 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | call_strong_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 6409 | 旭隼 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_put_bullish | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6409 | 旭隼 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| 20260603 | 6409 | 旭隼 | 2 | 1 | 2 | 2 | 2 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6409 | 旭隼 | 63 | 2 | 9697470.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260603 | 6409 | 旭隼 | 62 | 2 | 19967130.0 | 53180.0 | 375.46 | call_put_bullish | 3 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

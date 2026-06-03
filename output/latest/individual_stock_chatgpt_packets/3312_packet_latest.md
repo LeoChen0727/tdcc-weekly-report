@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3312 弘憶股
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:45 Asia/Taipei
+- generated_at: 2026-06-04 01:55:18 Asia/Taipei
 - stock_id: 3312
 - stock_name: 弘憶股
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,26 +55,21 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: starter_position
-- action_rating_label_zh: 可小量試單
+- action_rating: wait_pullback
+- action_rating_label_zh: 等待回檔
 - confidence_level: medium
 - thesis_state: high_level_consolidation
-- entry_style: breakout_follow
-- position_sizing: starter_1_4
+- entry_style: pullback_to_support
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
-- take_profit_near_prior_high
-- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_tdcc_warning
@@ -100,29 +95,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 60.6
-- high: 60.6
-- low: 60.6
-- close: 60.6
-- volume: 2777904
-- ma5: 53
-- ema23_primary: 48.21
-- distance_to_ema23_pct: 25.7
-- ma20: 47.95
-- ma60: 41.2
-- ma120: 39.75
-- return_5d: 14.77
-- return_20d: 44.11
-- volume_ratio: 0.6
-- distance_to_ma20_pct_auxiliary: 26.38
+- date: 20260603
+- open: 66.6
+- high: 66.6
+- low: 66.6
+- close: 66.6
+- volume: 2033846
+- ma5: 56.34
+- ema23_primary: 49.74
+- distance_to_ema23_pct: 33.89
+- ma20: 49.2
+- ma60: 41.73
+- ma120: 40
+- return_5d: 33.47
+- return_20d: 59.9
+- volume_ratio: 0.44
+- distance_to_ma20_pct_auxiliary: 35.37
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,42.7,42.8,41.3,41.65,1687102,40.5,2.83,41.11,37.91,0.56
 20260507,42,43,41.65,42.45,1517365,40.66,4.39,41.38,37.92,0.5
 20260508,42.6,43.3,41.05,41.75,1970910,40.75,2.44,41.66,37.94,0.63
 20260511,42.9,45.5,42.7,44.5,4732786,41.07,8.36,42.08,38.02,1.42
@@ -142,6 +136,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,49.75,50.6,48.4,50.1,3142666,46.35,8.08,46.34,40.38,0.72
 20260601,50.9,55.1,49.75,55.1,6614040,47.08,17.03,47.02,40.75,1.44
 20260602,60.6,60.6,60.6,60.6,2777904,48.21,25.7,47.95,41.2,0.6
+20260603,66.6,66.6,66.6,66.6,2033846,49.74,33.89,49.2,41.73,0.44
 ```
 
 ## Latest TDCC Snapshot
@@ -171,18 +166,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3312 | 弘憶股 | true_breakout | 嚴格突破 | 56.0 |  |  | base_building |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 3312 | 弘憶股 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3312 | 弘憶股 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3312 | 弘憶股 | 9 | 9 | 5 | 9 | 9 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260603 | 3312 | 弘憶股 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3312 | 弘憶股 | 4 | 0 | 821100.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 3312 | 弘憶股 | 4 | 0 | 429270.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

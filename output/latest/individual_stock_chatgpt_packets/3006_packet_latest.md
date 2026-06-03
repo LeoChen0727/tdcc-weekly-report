@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3006 晶豪科
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:16 Asia/Taipei
+- generated_at: 2026-06-04 01:55:04 Asia/Taipei
 - stock_id: 3006
 - stock_name: 晶豪科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: starter_position
-- action_rating_label_zh: 可小量試單
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: breakout_initial
-- entry_style: breakout_follow
-- position_sizing: starter_1_4
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
 - buy_first_tranche_near_support
@@ -75,10 +75,13 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -92,7 +95,6 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
-- price_too_extended
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -100,29 +102,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 254
-- high: 272
-- low: 249.5
-- close: 267.5
-- volume: 40169837
-- ma5: 249.5
-- ema23_primary: 225.27
-- distance_to_ema23_pct: 18.75
-- ma20: 231.2
-- ma60: 187.8
-- ma120: 158.34
-- return_5d: 15.55
-- return_20d: 46.98
-- volume_ratio: 1.29
-- distance_to_ma20_pct_auxiliary: 15.7
-- distance_to_high_60_pct: -1.65
+- date: 20260603
+- open: 273
+- high: 273.5
+- low: 255
+- close: 259.5
+- volume: 32842494
+- ma5: 253.2
+- ema23_primary: 228.12
+- distance_to_ema23_pct: 13.75
+- ma20: 234.18
+- ma60: 189.68
+- ma120: 159.85
+- return_5d: 7.68
+- return_20d: 29.75
+- volume_ratio: 1.06
+- distance_to_ma20_pct_auxiliary: 10.81
+- distance_to_high_60_pct: -5.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,200,200,193,200,33684152,169.17,18.22,164.93,166.07,1.59
 20260507,205,210,192,196.5,49732248,171.45,14.61,166.72,166.58,2.23
 20260508,196.5,215,194.5,202,43461379,174,16.09,169.07,166.99,1.82
 20260511,214,222,211.5,222,26736471,178,24.72,172.38,167.44,1.1
@@ -142,6 +143,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,251.5,253,241,246.5,20608782,218.84,12.64,223.07,184.08,0.68
 20260601,251.5,262,247.5,250,25907137,221.43,12.9,226.93,185.81,0.85
 20260602,254,272,249.5,267.5,40169837,225.27,18.75,231.2,187.8,1.29
+20260603,273,273.5,255,259.5,32842494,228.12,13.75,234.18,189.68,1.06
 ```
 
 ## Latest TDCC Snapshot
@@ -171,17 +173,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3006 | 晶豪科 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_many_days | calendar event: ex_dividend on 20260702; status=confirmed; proximity=within_30d |
+| 20260603 | 3006 | 晶豪科 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 63.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | calendar event: ex_dividend on 20260702; status=confirmed; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3006 | 晶豪科 | 8 | 2 | 5 | 8 | 8 | continued_many_days | 連續 8 個交易日上榜，需判斷是持續醞釀或訊號鈍化。 |
+| 20260603 | 3006 | 晶豪科 | 1 | 1 | 4 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 8 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3006 | 晶豪科 | 123 | 14 | 69746650.0 | 418930.0 | 166.49 | no_signal | 0 |  |
+| 20260603 | 3006 | 晶豪科 | 123 | 14 | 47472050.0 | 121650.0 | 390.23 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

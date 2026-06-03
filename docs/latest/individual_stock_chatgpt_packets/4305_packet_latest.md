@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4305 世坤
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:29 Asia/Taipei
+- generated_at: 2026-06-04 01:55:39 Asia/Taipei
 - stock_id: 4305
 - stock_name: 世坤
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260601
-- price_rows: 246
+- latest_price_date: 20260603
+- price_rows: 247
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -97,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260601
-- open: 43.9
-- high: 44
+- date: 20260603
+- open: 44.05
+- high: 44.5
 - low: 43.9
-- close: 43.95
-- volume: 44
+- close: 44
+- volume: 44000
 - ma5: 44.01
 - ema23_primary: 43.97
-- distance_to_ema23_pct: -0.05
-- ma20: 44.01
-- ma60: 43.71
+- distance_to_ema23_pct: 0.06
+- ma20: 44.02
+- ma60: 43.74
 - ma120: 43.03
-- return_5d: 0.11
-- return_20d: 1.27
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: -0.14
-- distance_to_high_60_pct: -4.66
+- return_5d: 0
+- return_20d: 0.57
+- volume_ratio: 2.4
+- distance_to_ma20_pct_auxiliary: -0.06
+- distance_to_high_60_pct: -4.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260429,43.4,43.75,43.4,43.75,2000,43.66,0.2,43.84,43.1,0.48
 20260430,43.75,43.75,43.75,43.75,3000,43.67,0.19,43.84,43.13,0.7
 20260504,43.75,43.75,43.75,43.75,2000,43.68,0.17,43.84,43.16,0.49
 20260506,44,44,44,44,2000,43.7,0.68,43.81,43.2,0.52
@@ -139,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260528,44.2,44.2,44,44,44000,43.97,0.06,43.95,43.66,3.04
 20260529,44,44,44,44,44000,43.97,0.06,43.98,43.69,2.68
 20260601,43.9,44,43.9,43.95,44,43.97,-0.05,44.01,43.71,0
+20260603,44.05,44.5,43.9,44,44000,43.97,0.06,44.02,43.74,2.4
 ```
 
 ## Latest TDCC Snapshot

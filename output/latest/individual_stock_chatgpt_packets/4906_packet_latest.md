@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4906 正文
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:51 Asia/Taipei
+- generated_at: 2026-06-04 01:55:50 Asia/Taipei
 - stock_id: 4906
 - stock_name: 正文
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -95,29 +95,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 53.5
-- high: 54.9
-- low: 51.1
-- close: 52.9
-- volume: 38166806
-- ma5: 49.61
-- ema23_primary: 42.74
-- distance_to_ema23_pct: 23.76
-- ma20: 41.95
-- ma60: 37.12
-- ma120: 32.28
-- return_5d: 23.45
-- return_20d: 49.44
-- volume_ratio: 1.05
-- distance_to_ma20_pct_auxiliary: 26.12
-- distance_to_high_60_pct: -3.64
+- date: 20260603
+- open: 53.4
+- high: 55.8
+- low: 51.7
+- close: 51.8
+- volume: 33350188
+- ma5: 51.02
+- ema23_primary: 43.5
+- distance_to_ema23_pct: 19.09
+- ma20: 42.77
+- ma60: 37.53
+- ma120: 32.49
+- return_5d: 15.75
+- return_20d: 47.16
+- volume_ratio: 0.89
+- distance_to_ma20_pct_auxiliary: 21.1
+- distance_to_high_60_pct: -7.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,36.25,36.25,34.25,35.2,11226870,35.84,-1.79,37.41,32.36,0.34
 20260507,37.95,38.7,37.9,38.7,20084641,36.08,7.26,37.38,32.54,0.63
 20260508,41.5,42.55,39.8,40,124068900,36.41,9.87,37.37,32.73,3.55
 20260511,40.8,41.6,38.85,40.3,44982311,36.73,9.72,37.37,32.93,1.35
@@ -137,6 +136,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,49.9,51.5,47.45,49.7,64823151,40.77,21.91,40.11,36.22,1.99
 20260601,50.4,54.6,49.35,53.4,57649914,41.82,27.69,41.07,36.68,1.65
 20260602,53.5,54.9,51.1,52.9,38166806,42.74,23.76,41.95,37.12,1.05
+20260603,53.4,55.8,51.7,51.8,33350188,43.5,19.09,42.77,37.53,0.89
 ```
 
 ## Latest TDCC Snapshot
@@ -166,17 +166,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 4906 | 正文 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 4906 | 正文 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 4906 | 正文 | 9 | 9 | 5 | 9 | 9 | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 4906 | 正文 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 4906 | 正文 | 42 | 0 | 17147930.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 4906 | 正文 | 43 | 0 | 11937090.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

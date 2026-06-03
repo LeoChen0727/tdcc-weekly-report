@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1326 台化
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:24 Asia/Taipei
+- generated_at: 2026-06-04 01:54:11 Asia/Taipei
 - stock_id: 1326
 - stock_name: 台化
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 54
-- high: 56.9
-- low: 52.8
-- close: 54.4
-- volume: 93193844
-- ma5: 49.79
-- ema23_primary: 47.97
-- distance_to_ema23_pct: 13.4
-- ma20: 47.09
-- ma60: 47.2
-- ma120: 41.84
-- return_5d: 22.25
-- return_20d: 5.02
-- volume_ratio: 3.32
-- distance_to_ma20_pct_auxiliary: 15.52
-- distance_to_high_60_pct: -4.39
+- date: 20260603
+- open: 56.5
+- high: 57.8
+- low: 53.8
+- close: 56.5
+- volume: 68914458
+- ma5: 52
+- ema23_primary: 48.68
+- distance_to_ema23_pct: 16.06
+- ma20: 47.37
+- ma60: 47.38
+- ma120: 42.03
+- return_5d: 24.31
+- return_20d: 10.78
+- volume_ratio: 2.26
+- distance_to_ma20_pct_auxiliary: 19.28
+- distance_to_high_60_pct: -2.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,52.3,52.9,50.8,51,21291741,49.66,2.7,50.24,46.11,0.56
 20260507,51,51.1,49.4,49.45,28788176,49.64,-0.38,50.45,46.2,0.76
 20260508,50,50.1,46.6,46.95,42319894,49.42,-4.99,50.52,46.25,1.11
 20260511,46.3,48.75,46.3,47.8,23048519,49.28,-3.01,50.64,46.34,0.6
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,45.95,49.9,45.8,49.9,67387982,46.81,6.61,46.81,46.86,3.09
 20260601,51.4,54.5,50,53.8,74407426,47.39,13.53,46.96,47.03,3.04
 20260602,54,56.9,52.8,54.4,93193844,47.97,13.4,47.09,47.2,3.32
+20260603,56.5,57.8,53.8,56.5,68914458,48.68,16.06,47.37,47.38,2.26
 ```
 
 ## Latest TDCC Snapshot
@@ -172,17 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1326 | 台化 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 1326 | 台化 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1326 | 台化 | 3 | 3 | 3 | 3 | 3 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260603 | 1326 | 台化 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1326 | 台化 | 108 | 6 | 24447770.0 | 37040.0 | 660.04 | call_inflow | 1 |  |
+| 20260603 | 1326 | 台化 | 109 | 6 | 24189730.0 | 22550.0 | 1072.72 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

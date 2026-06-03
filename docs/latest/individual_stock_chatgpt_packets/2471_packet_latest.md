@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2471 資通
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:43 Asia/Taipei
+- generated_at: 2026-06-04 01:54:48 Asia/Taipei
 - stock_id: 2471
 - stock_name: 資通
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 55
-- high: 55.8
+- date: 20260603
+- open: 54.2
+- high: 54.3
 - low: 53.4
 - close: 54.2
-- volume: 1229415
-- ma5: 52.26
-- ema23_primary: 51.62
-- distance_to_ema23_pct: 4.99
-- ma20: 51.3
-- ma60: 51.86
-- ma120: 51.28
-- return_5d: 6.48
-- return_20d: 2.85
-- volume_ratio: 3.11
-- distance_to_ma20_pct_auxiliary: 5.66
+- volume: 475550
+- ma5: 52.98
+- ema23_primary: 51.84
+- distance_to_ema23_pct: 4.56
+- ma20: 51.37
+- ma60: 51.93
+- ma120: 51.3
+- return_5d: 7.11
+- return_20d: 2.65
+- volume_ratio: 1.17
+- distance_to_ma20_pct_auxiliary: 5.52
 - distance_to_high_60_pct: -3.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,52.9,53.1,52.5,52.8,257485,52.42,0.73,52.6,51.64,1.05
 20260507,53.1,53.5,52.7,52.9,237826,52.46,0.85,52.65,51.64,0.95
 20260508,52.9,53.7,52.9,53.1,191080,52.51,1.12,52.69,51.66,0.75
 20260511,53.1,53.1,51,51.7,553232,52.44,-1.42,52.66,51.67,2.01
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,51,51.3,50.8,51.1,175268,51.1,0.01,51.12,51.66,0.71
 20260601,51.3,56.2,51.3,54.6,2251819,51.39,6.25,51.22,51.77,6.51
 20260602,55,55.8,53.4,54.2,1229415,51.62,4.99,51.3,51.86,3.11
+20260603,54.2,54.3,53.4,54.2,475550,51.84,4.56,51.37,51.93,1.17
 ```
 
 ## Latest TDCC Snapshot
@@ -172,12 +172,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2471 | 資通 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2471 | 資通 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2471 | 資通 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260603 | 2471 | 資通 | 1 | 1 | 2 | 2 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
 | status |

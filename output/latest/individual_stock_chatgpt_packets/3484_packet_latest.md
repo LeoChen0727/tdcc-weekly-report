@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3484 崧騰
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:55 Asia/Taipei
+- generated_at: 2026-06-04 01:55:23 Asia/Taipei
 - stock_id: 3484
 - stock_name: 崧騰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -97,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 44.4
+- date: 20260603
+- open: 45.25
 - high: 45.4
-- low: 44.2
-- close: 44.65
-- volume: 45
-- ma5: 43.81
-- ema23_primary: 44.06
-- distance_to_ema23_pct: 1.34
-- ma20: 43.8
-- ma60: 45
-- ma120: 46.96
-- return_5d: 2.29
-- return_20d: -0.67
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: 1.95
-- distance_to_high_60_pct: -7.08
+- low: 44.8
+- close: 45.05
+- volume: 45000
+- ma5: 44.18
+- ema23_primary: 44.14
+- distance_to_ema23_pct: 2.05
+- ma20: 43.77
+- ma60: 44.97
+- ma120: 46.92
+- return_5d: 4.28
+- return_20d: -1.21
+- volume_ratio: 0.23
+- distance_to_ma20_pct_auxiliary: 2.93
+- distance_to_high_60_pct: -6.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,45.25,45.6,44.55,45.6,314000,45.36,0.52,45.48,46.64,1.09
 20260507,44.95,45.35,44.75,45.35,592000,45.36,-0.03,45.41,46.56,1.97
 20260508,45.4,45.4,44.55,44.85,222000,45.32,-1.04,45.32,46.48,0.75
 20260511,44.7,44.7,43.75,43.8,541000,45.19,-3.08,45.23,46.37,1.74
@@ -139,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,43.2,43.9,42.95,43.7,43000,43.97,-0.62,43.83,45.05,0.19
 20260601,43.7,44.5,43.7,44.4,44,44.01,0.89,43.81,45.03,0
 20260602,44.4,45.4,44.2,44.65,45,44.06,1.34,43.8,45,0
+20260603,45.25,45.4,44.8,45.05,45000,44.14,2.05,43.77,44.97,0.23
 ```
 
 ## Latest TDCC Snapshot

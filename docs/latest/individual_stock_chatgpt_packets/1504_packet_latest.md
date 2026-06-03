@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1504 東元
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:36 Asia/Taipei
+- generated_at: 2026-06-04 01:54:17 Asia/Taipei
 - stock_id: 1504
 - stock_name: 東元
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 274
+- latest_price_date: 20260603
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,7 +58,7 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: high_level_distribution_risk
 - entry_style: current_price_ok
 - position_sizing: starter_1_4
 
@@ -78,7 +78,6 @@
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -93,6 +92,7 @@
 ### downgrade_reason
 - insufficient_tdcc_history
 - tdcc_distribution_warning
+- price_too_extended
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -100,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 76.6
-- high: 77.9
-- low: 74.4
-- close: 75.5
-- volume: 43492748
-- ma5: 74.18
-- ema23_primary: 71.03
-- distance_to_ema23_pct: 6.29
-- ma20: 71.9
-- ma60: 67.03
-- ma120: 75.56
-- return_5d: 4.14
-- return_20d: 10.22
-- volume_ratio: 1.46
-- distance_to_ma20_pct_auxiliary: 5.01
-- distance_to_high_60_pct: -5.62
+- date: 20260603
+- open: 76
+- high: 83
+- low: 75.5
+- close: 83
+- volume: 95894007
+- ma5: 76.62
+- ema23_primary: 72.03
+- distance_to_ema23_pct: 15.23
+- ma20: 72.69
+- ma60: 67.21
+- ma120: 75.52
+- return_5d: 17.23
+- return_20d: 23.33
+- volume_ratio: 2.86
+- distance_to_ma20_pct_auxiliary: 14.19
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,68.2,69.3,67.1,67.3,21955194,64.19,4.85,62.6,69.62,1.64
 20260507,67.9,74,67.9,74,43629834,65.01,13.84,63.28,69.4,2.88
 20260508,74.6,74.7,70.5,72.8,40799820,65.66,10.88,63.95,69.2,2.45
 20260511,73.6,73.8,71.7,72.6,14702877,66.23,9.61,64.59,69.05,0.86
@@ -142,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,73,77.5,73,75,176360584,69.89,7.31,71.05,66.86,6.19
 20260601,76,80,74.4,78.7,59156262,70.63,11.43,71.55,66.99,1.95
 20260602,76.6,77.9,74.4,75.5,43492748,71.03,6.29,71.9,67.03,1.46
+20260603,76,83,75.5,83,95894007,72.03,15.23,72.69,67.21,2.86
 ```
 
 ## Latest TDCC Snapshot
@@ -171,18 +171,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1504 | 東元 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_30d |
-| 20260521 | 1504 | 東元 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | stale_signal | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_30d |
+| 20260603 | 1504 | 東元 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_strong_inflow | stale_signal | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1504 | 東元 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 1504 | 東元 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1504 | 東元 | 87 | 5 | 16097880.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 1504 | 東元 | 88 | 5 | 32492030.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

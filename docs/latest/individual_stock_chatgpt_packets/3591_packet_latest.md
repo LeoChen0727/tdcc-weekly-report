@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3591 艾笛森
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:06 Asia/Taipei
+- generated_at: 2026-06-04 01:55:28 Asia/Taipei
 - stock_id: 3591
 - stock_name: 艾笛森
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 25.9
-- high: 25.9
-- low: 23.85
-- close: 24.9
-- volume: 2628929
-- ma5: 25.65
-- ema23_primary: 24.98
-- distance_to_ema23_pct: -0.31
-- ma20: 25.07
-- ma60: 22.82
-- ma120: 20.89
-- return_5d: -3.86
-- return_20d: 1.43
-- volume_ratio: 1.05
-- distance_to_ma20_pct_auxiliary: -0.68
-- distance_to_high_60_pct: -16.72
+- date: 20260603
+- open: 24.7
+- high: 25.5
+- low: 24.5
+- close: 24.8
+- volume: 1781255
+- ma5: 25.51
+- ema23_primary: 24.96
+- distance_to_ema23_pct: -0.65
+- ma20: 25.08
+- ma60: 22.95
+- ma120: 20.94
+- return_5d: -2.75
+- return_20d: 0.61
+- volume_ratio: 0.73
+- distance_to_ma20_pct_auxiliary: -1.11
+- distance_to_high_60_pct: -17.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,25.15,25.15,23.9,24.65,3406678,23.17,6.39,23.7,20.9,0.62
 20260507,25,25,24,24.4,2215244,23.27,4.85,23.8,20.97,0.43
 20260508,24.2,24.75,22.65,23.6,2578806,23.3,1.29,23.86,21.04,0.52
 20260511,23.6,24.15,23.25,23.3,1624549,23.3,0,23.91,21.1,0.33
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,26.25,26.45,25.75,25.95,1588389,24.91,4.19,24.93,22.56,0.62
 20260601,26.25,26.7,25.8,25.85,1378429,24.98,3.46,25.05,22.7,0.54
 20260602,25.9,25.9,23.85,24.9,2628929,24.98,-0.31,25.07,22.82,1.05
+20260603,24.7,25.5,24.5,24.8,1781255,24.96,-0.65,25.08,22.95,0.73
 ```
 
 ## Latest TDCC Snapshot
@@ -172,12 +172,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3591 | 艾笛森 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3591 | 艾笛森 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3591 | 艾笛森 | 6 | 6 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 日、近 20 日上榜 6 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 3591 | 艾笛森 | 7 | 7 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 7 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3257 虹冠電
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:40 Asia/Taipei
+- generated_at: 2026-06-04 01:55:16 Asia/Taipei
 - stock_id: 3257
 - stock_name: 虹冠電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -75,6 +75,7 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_tdcc_warning
@@ -100,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 66.1
-- high: 66.2
-- low: 61.3
-- close: 63.1
-- volume: 1701509
-- ma5: 65.06
-- ema23_primary: 58.51
-- distance_to_ema23_pct: 7.84
-- ma20: 57.42
-- ma60: 55.47
-- ma120: 60.26
-- return_5d: 5.52
-- return_20d: 13.69
-- volume_ratio: 1.09
-- distance_to_ma20_pct_auxiliary: 9.89
-- distance_to_high_60_pct: -11.38
+- date: 20260603
+- open: 63.5
+- high: 64.7
+- low: 61.8
+- close: 62.1
+- volume: 987003
+- ma5: 65.26
+- ema23_primary: 58.81
+- distance_to_ema23_pct: 5.6
+- ma20: 57.79
+- ma60: 55.54
+- ma120: 60.27
+- return_5d: 1.64
+- return_20d: 13.53
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: 7.46
+- distance_to_high_60_pct: -12.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,56,56.4,54.5,54.7,572096,54.44,0.47,53.95,57.1,1.72
 20260507,54.4,55.4,52.9,54.1,968832,54.42,-0.58,54.01,56.81,2.71
 20260508,54.4,55.2,53,54.9,480112,54.46,0.82,54.13,56.56,1.28
 20260511,54.9,55.9,54.5,55.3,472382,54.53,1.42,54.27,56.38,1.21
@@ -142,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,65.6,71.2,65,68.8,5484453,57.31,20.05,56.39,55.21,3.88
 20260601,67.1,67.9,66.1,66.7,1940952,58.09,14.82,57.04,55.38,1.3
 20260602,66.1,66.2,61.3,63.1,1701509,58.51,7.84,57.42,55.47,1.09
+20260603,63.5,64.7,61.8,62.1,987003,58.81,5.6,57.79,55.54,0.62
 ```
 
 ## Latest TDCC Snapshot
@@ -171,13 +172,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3257 | 虹冠電 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 3257 | 虹冠電 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3257 | 虹冠電 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3257 | 虹冠電 | 9 | 9 | 5 | 9 | 9 | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 3257 | 虹冠電 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

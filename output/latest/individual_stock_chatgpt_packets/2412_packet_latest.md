@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2412 中華電
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:34 Asia/Taipei
+- generated_at: 2026-06-04 01:54:43 Asia/Taipei
 - stock_id: 2412
 - stock_name: 中華電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 27
 - tdcc_history_status: tdcc_history_ready
@@ -102,29 +102,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 140
-- high: 142.5
-- low: 140
-- close: 142
-- volume: 19551793
-- ma5: 138.6
-- ema23_primary: 137.6
-- distance_to_ema23_pct: 3.2
-- ma20: 137.53
-- ma60: 136.17
-- ma120: 134.31
-- return_5d: 4.41
-- return_20d: 4.41
-- volume_ratio: 1.16
-- distance_to_ma20_pct_auxiliary: 3.25
-- distance_to_high_60_pct: -1.39
+- date: 20260603
+- open: 142
+- high: 143
+- low: 141
+- close: 141
+- volume: 13985894
+- ma5: 139.4
+- ema23_primary: 137.88
+- distance_to_ema23_pct: 2.26
+- ma20: 137.78
+- ma60: 136.24
+- ma120: 134.4
+- return_5d: 2.92
+- return_20d: 3.68
+- volume_ratio: 0.83
+- distance_to_ma20_pct_auxiliary: 2.34
+- distance_to_high_60_pct: -2.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,137,137,135.5,136,13304748,135.85,0.11,135.97,135.12,1.31
 20260507,135.5,136.5,135.5,135.5,14117194,135.82,-0.23,136.05,135.16,1.34
 20260508,136,136.5,135.5,136.5,9445587,135.87,0.46,136.12,135.21,0.91
 20260511,136.5,136.5,135.5,135.5,6670769,135.84,-0.25,136.12,135.24,0.64
@@ -144,6 +143,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,137.5,138.5,136.5,137,28220973,136.9,0.08,136.97,136,1.86
 20260601,137,142,137,140.5,27375453,137.2,2.41,137.22,136.08,1.69
 20260602,140,142.5,140,142,19551793,137.6,3.2,137.53,136.17,1.16
+20260603,142,143,141,141,13985894,137.88,2.26,137.78,136.24,0.83
 ```
 
 ## Latest TDCC Snapshot
@@ -180,17 +180,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2412 | 中華電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2412 | 中華電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2412 | 中華電 | 3 | 3 | 3 | 3 | 3 | continued_2_3d | 連續 3 個交易日上榜，訊號延續但仍需確認。 |
+| 20260603 | 2412 | 中華電 | 4 | 1 | 4 | 4 | 4 | repeated_but_no_breakout | 近 10 日上榜 4 次、近 20 日上榜 4 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2412 | 中華電 | 2 | 0 | 774200.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 2412 | 中華電 | 2 | 0 | 404160.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

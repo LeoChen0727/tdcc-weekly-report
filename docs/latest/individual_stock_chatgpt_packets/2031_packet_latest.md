@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2031 新光鋼
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:08 Asia/Taipei
+- generated_at: 2026-06-04 01:54:31 Asia/Taipei
 - stock_id: 2031
 - stock_name: 新光鋼
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,7 +59,7 @@
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: observe_only
 
 ### management_plan
@@ -72,7 +72,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -97,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 39.6
-- high: 39.8
-- low: 39.3
-- close: 39.65
-- volume: 926578
-- ma5: 39.27
-- ema23_primary: 39.21
-- distance_to_ema23_pct: 1.13
-- ma20: 38.97
-- ma60: 39.64
-- ma120: 39.11
-- return_5d: 2.06
-- return_20d: -2.7
-- volume_ratio: 0.89
-- distance_to_ma20_pct_auxiliary: 1.74
-- distance_to_high_60_pct: -4.57
+- date: 20260603
+- open: 39.85
+- high: 42.35
+- low: 39.5
+- close: 42.1
+- volume: 4234560
+- ma5: 39.92
+- ema23_primary: 39.45
+- distance_to_ema23_pct: 6.72
+- ma20: 39.11
+- ma60: 39.69
+- ma120: 39.13
+- return_5d: 8.37
+- return_20d: 6.85
+- volume_ratio: 3.75
+- distance_to_ma20_pct_auxiliary: 7.65
+- distance_to_high_60_pct: -0.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,40.45,40.45,39.25,39.4,2552878,40.1,-1.74,40.34,39.69,2.65
 20260507,39.45,39.8,39.1,39.75,774012,40.07,-0.8,40.26,39.7,0.85
 20260508,39.85,39.85,39.05,39.65,680846,40.03,-0.96,40.2,39.7,0.74
 20260511,39.75,40.45,39.6,39.9,884003,40.02,-0.31,40.15,39.71,0.95
@@ -139,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,38.6,39.5,38.6,39.35,1182549,39.11,0.61,39.07,39.56,1.13
 20260601,39.3,39.9,38.65,39.8,1190516,39.17,1.61,39.03,39.61,1.13
 20260602,39.6,39.8,39.3,39.65,926578,39.21,1.13,38.97,39.64,0.89
+20260603,39.85,42.35,39.5,42.1,4234560,39.45,6.72,39.11,39.69,3.75
 ```
 
 ## Latest TDCC Snapshot
@@ -178,7 +177,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2031 | 新光鋼 | 1 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 2031 | 新光鋼 | 1 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

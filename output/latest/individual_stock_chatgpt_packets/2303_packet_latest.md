@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2303 聯電
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:20 Asia/Taipei
+- generated_at: 2026-06-04 01:54:36 Asia/Taipei
 - stock_id: 2303
 - stock_name: 聯電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -96,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 147
-- high: 150
-- low: 133.5
-- close: 141.5
-- volume: 380584577
-- ma5: 143.5
-- ema23_primary: 115.66
-- distance_to_ema23_pct: 22.34
-- ma20: 116.5
-- ma60: 81.89
-- ma120: 69.3
-- return_5d: 8.43
-- return_20d: 70.28
-- volume_ratio: 1.27
-- distance_to_ma20_pct_auxiliary: 21.45
-- distance_to_high_60_pct: -9
+- date: 20260603
+- open: 141.5
+- high: 141.5
+- low: 130.5
+- close: 130.5
+- volume: 379788969
+- ma5: 140.9
+- ema23_primary: 116.9
+- distance_to_ema23_pct: 11.63
+- ma20: 118.46
+- ma60: 83.03
+- ma120: 70.01
+- return_5d: -9.06
+- return_20d: 42.78
+- volume_ratio: 1.24
+- distance_to_ma20_pct_auxiliary: 10.16
+- distance_to_high_60_pct: -16.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,88.5,91.4,87.8,91.4,256466477,72.78,25.59,72.03,64.79,1.19
 20260507,97.4,98.8,93,96.5,325904228,74.75,29.09,73.84,65.13,1.46
 20260508,96.5,98.8,89.9,91.3,219273944,76.13,19.92,75.41,65.52,0.95
 20260511,94.7,96.3,92,95,178723421,77.71,22.26,77.06,66.06,0.77
@@ -138,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,149,149,138,144.5,366515715,110.34,30.95,110.34,79.14,1.28
 20260601,143,155.5,140,146,289268747,113.32,28.84,113.58,80.57,1
 20260602,147,150,133.5,141.5,380584577,115.66,22.34,116.5,81.89,1.27
+20260603,141.5,141.5,130.5,130.5,379788969,116.9,11.63,118.46,83.03,1.24
 ```
 
 ## Latest TDCC Snapshot
@@ -177,7 +177,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2303 | 聯電 | 287 | 23 | 69567060.0 | 2003380.0 | 34.72 | put_inflow | -1 | 認售權證資金升溫，偏空或避險訊號 |
+| 20260603 | 2303 | 聯電 | 290 | 24 | 78051820.0 | 2184250.0 | 35.73 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

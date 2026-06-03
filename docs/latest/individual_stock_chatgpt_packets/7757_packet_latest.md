@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7757 金色三麥
 
 ## Metadata
-- generated_at: 2026-06-02 23:30:42 Asia/Taipei
+- generated_at: 2026-06-04 01:57:08 Asia/Taipei
 - stock_id: 7757
 - stock_name: 金色三麥
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,7 +59,7 @@
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: observe_only
 
 ### management_plan
@@ -72,7 +72,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -97,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
+- date: 20260603
 - open: 113
 - high: 113
-- low: 107.5
-- close: 110
-- volume: 110
-- ma5: 106.4
-- ema23_primary: 105.67
-- distance_to_ema23_pct: 4.1
-- ma20: 104.83
-- ma60: 107
-- ma120: 111.11
-- return_5d: 5.77
-- return_20d: 4.76
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: 4.94
-- distance_to_high_60_pct: -2.65
+- low: 110
+- close: 111.5
+- volume: 111000
+- ma5: 108
+- ema23_primary: 106.15
+- distance_to_ema23_pct: 5.04
+- ma20: 105.15
+- ma60: 107.02
+- ma120: 111.03
+- return_5d: 7.73
+- return_20d: 6.19
+- volume_ratio: 2.29
+- distance_to_ma20_pct_auxiliary: 6.04
+- distance_to_high_60_pct: -1.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,106,106,104.5,105,26000,107.35,-2.19,107.97,108.45,1.05
 20260507,105,105.5,105,105,13000,107.15,-2.01,107.75,108.31,0.52
 20260508,105.5,105.5,105,105.5,9000,107.02,-1.42,107.53,108.19,0.37
 20260511,105.5,106.5,104,104.5,58000,106.81,-2.16,107.3,108.06,2.18
@@ -139,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,104.5,105.5,104.5,104.5,105000,104.84,-0.33,104.35,106.92,2.19
 20260601,106,112,106,110,108,105.27,4.49,104.58,106.97,0
 20260602,113,113,107.5,110,110,105.67,4.1,104.83,107,0
+20260603,113,113,110,111.5,111000,106.15,5.04,105.15,107.02,2.29
 ```
 
 ## Latest TDCC Snapshot

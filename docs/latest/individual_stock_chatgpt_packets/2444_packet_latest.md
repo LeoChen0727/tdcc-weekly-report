@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2444 兆勁
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:39 Asia/Taipei
+- generated_at: 2026-06-04 01:54:46 Asia/Taipei
 - stock_id: 2444
 - stock_name: 兆勁
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,8 +58,8 @@
 - action_rating: scale_in
 - action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: breakout_initial
-- entry_style: breakout_follow
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
 - position_sizing: half_position
 
 ### management_plan
@@ -102,29 +102,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 12.6
-- high: 13.25
-- low: 12.35
-- close: 13.2
-- volume: 1135366
-- ma5: 12.54
-- ema23_primary: 12.87
-- distance_to_ema23_pct: 2.53
-- ma20: 12.94
-- ma60: 13.09
-- ma120: 12.65
-- return_5d: 6.02
-- return_20d: -3.65
-- volume_ratio: 1.41
-- distance_to_ma20_pct_auxiliary: 2.05
-- distance_to_high_60_pct: -13.73
+- date: 20260603
+- open: 13.3
+- high: 13.75
+- low: 12.85
+- close: 13.45
+- volume: 1842915
+- ma5: 12.77
+- ema23_primary: 12.92
+- distance_to_ema23_pct: 4.09
+- ma20: 12.92
+- ma60: 13.08
+- ma120: 12.67
+- return_5d: 9.35
+- return_20d: -2.54
+- volume_ratio: 2.14
+- distance_to_ma20_pct_auxiliary: 4.12
+- distance_to_high_60_pct: -12.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,13.6,13.8,13.5,13.8,683503,13.32,3.58,13.21,13.15,0.85
 20260507,13.8,14.25,13.7,13.85,627710,13.37,3.61,13.28,13.17,0.77
 20260508,13.9,14.2,13.15,13.15,1105713,13.35,-1.49,13.31,13.16,1.31
 20260511,13.15,13.45,12.85,12.9,890319,13.31,-3.09,13.34,13.17,1.03
@@ -144,6 +143,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,12.35,12.45,12.2,12.4,830683,12.88,-3.69,13.01,13.11,1.12
 20260601,12.55,12.7,12.1,12.5,1173837,12.84,-2.68,12.96,13.1,1.51
 20260602,12.6,13.25,12.35,13.2,1135366,12.87,2.53,12.94,13.09,1.41
+20260603,13.3,13.75,12.85,13.45,1842915,12.92,4.09,12.92,13.08,2.14
 ```
 
 ## Latest TDCC Snapshot
@@ -173,12 +173,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2444 | 兆勁 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2444 | 兆勁 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2444 | 兆勁 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| 20260603 | 2444 | 兆勁 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

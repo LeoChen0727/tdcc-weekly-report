@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2415 錩新
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:34 Asia/Taipei
+- generated_at: 2026-06-04 01:54:44 Asia/Taipei
 - stock_id: 2415
 - stock_name: 錩新
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -97,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 27.25
-- high: 27.75
-- low: 26.9
-- close: 27.6
-- volume: 219207
-- ma5: 27.05
-- ema23_primary: 27.16
-- distance_to_ema23_pct: 1.61
-- ma20: 27
-- ma60: 27.98
-- ma120: 27.31
-- return_5d: 3.18
-- return_20d: 2.22
-- volume_ratio: 1.28
-- distance_to_ma20_pct_auxiliary: 2.21
-- distance_to_high_60_pct: -11.96
+- date: 20260603
+- open: 27.7
+- high: 28.2
+- low: 27.7
+- close: 27.95
+- volume: 202236
+- ma5: 27.31
+- ema23_primary: 27.23
+- distance_to_ema23_pct: 2.65
+- ma20: 27.04
+- ma60: 28.02
+- ma120: 27.32
+- return_5d: 4.88
+- return_20d: 2.76
+- volume_ratio: 1.16
+- distance_to_ma20_pct_auxiliary: 3.37
+- distance_to_high_60_pct: -10.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,27.15,27.35,26.6,27.2,134694,27.89,-2.46,28.09,27.97,0.6
 20260507,27.3,27.8,27.25,27.6,124725,27.86,-0.94,27.98,27.98,0.62
 20260508,27.8,28.45,27.7,28,204206,27.87,0.45,27.94,28.01,1.03
 20260511,27.8,28.25,27.55,27.6,204539,27.85,-0.9,27.89,28.03,1.07
@@ -139,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,27,27.3,26.85,27,115128,27.12,-0.44,26.95,27.94,0.72
 20260601,27,27.35,26.85,27.15,222634,27.12,0.1,26.97,27.96,1.34
 20260602,27.25,27.75,26.9,27.6,219207,27.16,1.61,27,27.98,1.28
+20260603,27.7,28.2,27.7,27.95,202236,27.23,2.65,27.04,28.02,1.16
 ```
 
 ## Latest TDCC Snapshot

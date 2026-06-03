@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6449 鈺邦
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:07 Asia/Taipei
+- generated_at: 2026-06-04 01:56:25 Asia/Taipei
 - stock_id: 6449
 - stock_name: 鈺邦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -96,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 402
-- high: 402
-- low: 370
-- close: 372
-- volume: 960962
-- ma5: 384.6
-- ema23_primary: 290.33
-- distance_to_ema23_pct: 28.13
-- ma20: 280.6
-- ma60: 201.55
-- ma120: 186.12
-- return_5d: 5.68
-- return_20d: 116.28
-- volume_ratio: 0.4
-- distance_to_ma20_pct_auxiliary: 32.57
-- distance_to_high_60_pct: -14.38
+- date: 20260603
+- open: 365.5
+- high: 385
+- low: 364
+- close: 385
+- volume: 416692
+- ma5: 387.6
+- ema23_primary: 298.21
+- distance_to_ema23_pct: 29.1
+- ma20: 291.3
+- ma60: 205.25
+- ma120: 187.85
+- return_5d: 4.05
+- return_20d: 125.15
+- volume_ratio: 0.17
+- distance_to_ma20_pct_auxiliary: 32.17
+- distance_to_high_60_pct: -11.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,176.5,176.5,167,171,782154,165.85,3.1,167.55,163.75,0.81
 20260507,177,186.5,175,179,2641489,166.95,7.22,168.75,163.8,2.45
 20260508,179,193,178,183,2827466,168.29,8.74,169.88,164.06,2.37
 20260511,186,186,176.5,180.5,1340939,169.3,6.61,170.97,164.32,1.08
@@ -138,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,412.5,412.5,368,395,253211,271.25,45.62,258.35,193.88,0.1
 20260601,403.5,434.5,403.5,411,611765,282.9,45.28,270.6,198.08,0.25
 20260602,402,402,370,372,960962,290.33,28.13,280.6,201.55,0.4
+20260603,365.5,385,364,385,416692,298.21,29.1,291.3,205.25,0.17
 ```
 
 ## Latest TDCC Snapshot
@@ -177,7 +177,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6449 | 鈺邦 | 41 | 0 | 1803580.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 6449 | 鈺邦 | 41 | 0 | 1259040.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

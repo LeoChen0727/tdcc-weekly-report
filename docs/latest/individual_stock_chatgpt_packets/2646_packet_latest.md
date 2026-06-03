@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2646 星宇航空
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:59 Asia/Taipei
+- generated_at: 2026-06-04 01:54:55 Asia/Taipei
 - stock_id: 2646
 - stock_name: 星宇航空
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -102,29 +102,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 20.7
-- high: 21
-- low: 20.45
-- close: 20.9
-- volume: 9998727
-- ma5: 20.43
-- ema23_primary: 20.44
-- distance_to_ema23_pct: 2.27
-- ma20: 20.34
-- ma60: 20.85
-- ma120: 22.01
-- return_5d: 3.47
-- return_20d: 1.46
-- volume_ratio: 1.67
-- distance_to_ma20_pct_auxiliary: 2.74
-- distance_to_high_60_pct: -5.43
+- date: 20260603
+- open: 20.95
+- high: 21.6
+- low: 20.8
+- close: 21.05
+- volume: 13026765
+- ma5: 20.63
+- ema23_primary: 20.49
+- distance_to_ema23_pct: 2.75
+- ma20: 20.38
+- ma60: 20.83
+- ma120: 21.99
+- return_5d: 4.99
+- return_20d: 3.69
+- volume_ratio: 2.04
+- distance_to_ma20_pct_auxiliary: 3.29
+- distance_to_high_60_pct: -4.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,20.6,20.6,20.2,20.3,5153675,20.72,-2.02,20.68,21.62,1.12
 20260507,20.3,20.8,20.3,20.6,6103467,20.71,-0.52,20.64,21.58,1.3
 20260508,20.6,20.7,20.4,20.6,4015737,20.7,-0.48,20.62,21.54,0.85
 20260511,20.6,20.65,20.35,20.5,4829006,20.68,-0.88,20.59,21.5,1
@@ -144,6 +143,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,20.15,20.45,20.1,20.45,7943719,20.37,0.42,20.3,20.89,1.48
 20260601,20.5,20.8,20.25,20.7,11694180,20.39,1.51,20.33,20.87,2.04
 20260602,20.7,21,20.45,20.9,9998727,20.44,2.27,20.34,20.85,1.67
+20260603,20.95,21.6,20.8,21.05,13026765,20.49,2.75,20.38,20.83,2.04
 ```
 
 ## Latest TDCC Snapshot
@@ -173,19 +173,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2646 | 星宇航空 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260602 | 2646 | 星宇航空 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260602 | 2646 | 星宇航空 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2646 | 星宇航空 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2646 | 星宇航空 | 9 | 9 | 5 | 9 | 9 | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 2646 | 星宇航空 | 10 | 4 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2646 | 星宇航空 | 4 | 0 | 4270.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 2646 | 星宇航空 | 4 | 0 | 78540.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

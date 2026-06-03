@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2332 友訊
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:23 Asia/Taipei
+- generated_at: 2026-06-04 01:54:38 Asia/Taipei
 - stock_id: 2332
 - stock_name: 友訊
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 17
-- high: 17.4
-- low: 16.55
-- close: 17.3
-- volume: 9919798
-- ma5: 16.51
-- ema23_primary: 15.25
-- distance_to_ema23_pct: 13.44
-- ma20: 14.85
-- ma60: 14.96
+- date: 20260603
+- open: 17.6
+- high: 17.6
+- low: 16.75
+- close: 16.85
+- volume: 13710836
+- ma5: 16.76
+- ema23_primary: 15.38
+- distance_to_ema23_pct: 9.53
+- ma20: 14.98
+- ma60: 14.98
 - ma120: 15.36
-- return_5d: 11.61
-- return_20d: 22.26
-- volume_ratio: 1.58
-- distance_to_ma20_pct_auxiliary: 16.54
-- distance_to_high_60_pct: -0.57
+- return_5d: 8.01
+- return_20d: 19.5
+- volume_ratio: 2.03
+- distance_to_ma20_pct_auxiliary: 12.46
+- distance_to_high_60_pct: -4.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,14.25,14.25,13.7,14.1,4491732,14.59,-3.38,14.7,15.19,1.26
 20260507,14.05,14.35,13.95,14.2,3476232,14.56,-2.48,14.64,15.15,0.97
 20260508,14.2,14.55,13.9,13.95,3873771,14.51,-3.86,14.58,15.12,1.05
 20260511,14.05,14.05,13.7,13.8,3758556,14.45,-4.5,14.52,15.08,1.01
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,16.8,17.35,16.25,16.95,16845339,14.92,13.64,14.54,14.89,2.94
 20260601,17.1,17.1,16.55,16.7,6996956,15.06,10.86,14.69,14.93,1.18
 20260602,17,17.4,16.55,17.3,9919798,15.25,13.44,14.85,14.96,1.58
+20260603,17.6,17.6,16.75,16.85,13710836,15.38,9.53,14.98,14.98,2.03
 ```
 
 ## Latest TDCC Snapshot
@@ -172,17 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2332 | 友訊 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 63.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2332 | 友訊 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 63.0 |  |  | neckline_challenge |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2332 | 友訊 | 1 | 1 | 3 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 2332 | 友訊 | 2 | 2 | 4 | 8 | 8 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2332 | 友訊 | 2 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 2332 | 友訊 | 2 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

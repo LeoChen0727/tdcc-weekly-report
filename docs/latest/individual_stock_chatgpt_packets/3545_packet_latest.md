@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3545 敦泰
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:02 Asia/Taipei
+- generated_at: 2026-06-04 01:55:26 Asia/Taipei
 - stock_id: 3545
 - stock_name: 敦泰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 274
+- latest_price_date: 20260603
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 59.6
-- high: 60.7
-- low: 57.8
-- close: 59.5
-- volume: 2575492
-- ma5: 59.22
-- ema23_primary: 57.28
-- distance_to_ema23_pct: 3.88
-- ma20: 58
-- ma60: 51.1
-- ma120: 51.8
-- return_5d: -2.3
-- return_20d: 12.26
-- volume_ratio: 0.78
-- distance_to_ma20_pct_auxiliary: 2.59
-- distance_to_high_60_pct: -6.15
+- date: 20260603
+- open: 60
+- high: 60.1
+- low: 59
+- close: 59.1
+- volume: 1711319
+- ma5: 59.18
+- ema23_primary: 57.43
+- distance_to_ema23_pct: 2.91
+- ma20: 58.3
+- ma60: 51.33
+- ma120: 51.85
+- return_5d: -0.34
+- return_20d: 11.51
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: 1.36
+- distance_to_high_60_pct: -6.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,54.2,54.2,52,53,1752909,50.52,4.9,50.85,49.3,0.81
 20260507,53.4,54.8,53,53.9,1859122,50.81,6.09,51.08,49.25,0.85
 20260508,54,59.2,54,56.7,8326854,51.3,10.53,51.43,49.26,3.27
 20260511,57.1,58.2,55.6,57.6,4067471,51.82,11.15,51.91,49.31,1.53
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,59.2,59.7,57.8,59.5,2560899,56.85,4.67,57.26,50.7,0.81
 20260601,60.9,61.7,58.5,59.6,3052812,57.08,4.42,57.67,50.9,0.94
 20260602,59.6,60.7,57.8,59.5,2575492,57.28,3.88,58,51.1,0.78
+20260603,60,60.1,59,59.1,1711319,57.43,2.91,58.3,51.33,0.52
 ```
 
 ## Latest TDCC Snapshot
@@ -172,18 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3545 | 敦泰 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 3545 | 敦泰 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3545 | 敦泰 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3545 | 敦泰 | 9 | 9 | 5 | 9 | 9 | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 3545 | 敦泰 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3545 | 敦泰 | 15 | 0 | 781280.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 3545 | 敦泰 | 15 | 0 | 249800.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

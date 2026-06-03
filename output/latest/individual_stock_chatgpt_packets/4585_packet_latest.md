@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4585 達明
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:42 Asia/Taipei
+- generated_at: 2026-06-04 01:55:45 Asia/Taipei
 - stock_id: 4585
 - stock_name: 達明
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 159
+- latest_price_date: 20260603
+- price_rows: 160
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 378
-- high: 378
+- date: 20260603
+- open: 354.5
+- high: 357
 - low: 345
-- close: 351
-- volume: 1169305
-- ma5: 350.6
-- ema23_primary: 341.57
-- distance_to_ema23_pct: 2.76
-- ma20: 344.15
-- ma60: 319.72
-- ma120: 329.75
-- return_5d: -2.64
-- return_20d: 2.63
-- volume_ratio: 1.3
-- distance_to_ma20_pct_auxiliary: 1.99
-- distance_to_high_60_pct: -7.14
+- close: 347
+- volume: 569643
+- ma5: 350.1
+- ema23_primary: 342.02
+- distance_to_ema23_pct: 1.46
+- ma20: 344.6
+- ma60: 320.22
+- ma120: 330.12
+- return_5d: -0.72
+- return_20d: 2.66
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: 0.7
+- distance_to_high_60_pct: -8.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,345.5,356,331,338,973116,316.54,6.78,313.95,322.62,1.86
 20260507,343.5,346,335,337.5,750493,318.29,6.04,315.8,321.64,1.37
 20260508,338,345.5,327,329.5,585354,319.22,3.22,317.38,320.48,1.03
 20260511,332.5,348,331,342,651581,321.12,6.5,319.6,319.78,1.11
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,338.5,356,333.5,350.5,713779,337.91,3.73,342.3,318.29,0.79
 20260601,365,376,357,371.5,1444750,340.71,9.04,343.7,319.2,1.56
 20260602,378,378,345,351,1169305,341.57,2.76,344.15,319.72,1.3
+20260603,354.5,357,345,347,569643,342.02,1.46,344.6,320.22,0.65
 ```
 
 ## Latest TDCC Snapshot
@@ -172,17 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 4585 | 達明 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 4585 | 達明 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 4585 | 達明 | 2 | 1 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260603 | 4585 | 達明 | 1 | 1 | 2 | 2 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 4585 | 達明 | 25 | 0 | 1732610.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 4585 | 達明 | 25 | 0 | 1365640.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

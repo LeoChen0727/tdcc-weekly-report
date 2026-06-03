@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3518 柏騰
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:58 Asia/Taipei
+- generated_at: 2026-06-04 01:55:24 Asia/Taipei
 - stock_id: 3518
 - stock_name: 柏騰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 32.05
-- high: 33.8
-- low: 31.5
-- close: 33.75
-- volume: 1867067
-- ma5: 33.87
-- ema23_primary: 33.52
-- distance_to_ema23_pct: 0.7
-- ma20: 35.09
-- ma60: 27.96
-- ma120: 24.63
-- return_5d: -6.25
-- return_20d: -7.66
-- volume_ratio: 0.96
-- distance_to_ma20_pct_auxiliary: -3.83
-- distance_to_high_60_pct: -15.62
+- date: 20260603
+- open: 34
+- high: 34.7
+- low: 33
+- close: 33.45
+- volume: 1167178
+- ma5: 33.4
+- ema23_primary: 33.51
+- distance_to_ema23_pct: -0.18
+- ma20: 34.82
+- ma60: 28.17
+- ma120: 24.74
+- return_5d: -6.56
+- return_20d: -14.01
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: -3.94
+- distance_to_high_60_pct: -16.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,38.5,40,37,38.9,2497846,29.35,32.54,28.61,23.62,1.4
 20260507,40,40,37.7,37.85,1590089,30.06,25.92,29.47,23.88,0.86
 20260508,38,39.3,35,36,3209354,30.55,17.83,30.27,24.12,1.6
 20260511,35.8,39,34.1,37,2204909,31.09,19.01,31.11,24.39,1.05
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,35.5,35.5,33.2,33.35,1566535,33.64,-0.86,35.35,27.55,0.87
 20260601,33.45,34.05,31.15,31.9,3706175,33.5,-4.76,35.23,27.75,1.93
 20260602,32.05,33.8,31.5,33.75,1867067,33.52,0.7,35.09,27.96,0.96
+20260603,34,34.7,33,33.45,1167178,33.51,-0.18,34.82,28.17,0.62
 ```
 
 ## Latest TDCC Snapshot
@@ -172,12 +172,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3518 | 柏騰 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3518 | 柏騰 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3518 | 柏騰 | 1 | 1 | 4 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 3518 | 柏騰 | 2 | 2 | 4 | 6 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

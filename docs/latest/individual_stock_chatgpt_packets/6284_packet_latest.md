@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6284 佳邦
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:02 Asia/Taipei
+- generated_at: 2026-06-04 01:56:22 Asia/Taipei
 - stock_id: 6284
 - stock_name: 佳邦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -95,29 +95,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 116
-- high: 116
+- date: 20260603
+- open: 110
+- high: 111.5
 - low: 104.5
-- close: 110
-- volume: 108
-- ma5: 116.5
-- ema23_primary: 99.35
-- distance_to_ema23_pct: 10.72
-- ma20: 96.32
-- ma60: 86.22
-- ma120: 84.45
-- return_5d: -6.38
-- return_20d: 40.13
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: 14.2
-- distance_to_high_60_pct: -16.03
+- close: 106
+- volume: 107000
+- ma5: 115.1
+- ema23_primary: 99.91
+- distance_to_ema23_pct: 6.1
+- ma20: 97.73
+- ma60: 86.66
+- ma120: 84.66
+- return_5d: -6.19
+- return_20d: 36.25
+- volume_ratio: 0.06
+- distance_to_ma20_pct_auxiliary: 8.46
+- distance_to_high_60_pct: -19.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,79.1,79.2,76.5,77.8,1243000,80.9,-3.83,82.53,81.92,0.66
 20260507,79,82.4,78,81,2193000,80.91,0.12,82.4,81.79,1.14
 20260508,82,84.2,80.3,81.5,2208000,80.96,0.67,82.23,81.71,1.14
 20260511,82,82.4,79.2,82,1392000,81.04,1.18,82.05,81.67,0.73
@@ -137,6 +136,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,130,131,117,119.5,122000,96.78,23.47,92.8,85.09,0.06
 20260601,120,130.5,115,116,122,98.38,17.91,94.75,85.72,0
 20260602,116,116,104.5,110,108,99.35,10.72,96.32,86.22,0
+20260603,110,111.5,104.5,106,107000,99.91,6.1,97.73,86.66,0.06
 ```
 
 ## Latest TDCC Snapshot
@@ -166,12 +166,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 6284 | 佳邦 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 6284 | 佳邦 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6284 | 佳邦 | 9 | 9 | 5 | 9 | 9 | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 6284 | 佳邦 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

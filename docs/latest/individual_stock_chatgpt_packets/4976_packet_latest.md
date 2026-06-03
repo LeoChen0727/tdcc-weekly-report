@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4976 佳凌
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:59 Asia/Taipei
+- generated_at: 2026-06-04 01:55:53 Asia/Taipei
 - stock_id: 4976
 - stock_name: 佳凌
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,11 +59,11 @@
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -76,7 +76,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -101,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 32.4
-- high: 33.1
-- low: 31.3
-- close: 31.95
-- volume: 1015363
-- ma5: 31.48
-- ema23_primary: 31
-- distance_to_ema23_pct: 3.08
-- ma20: 30.95
-- ma60: 29.7
-- ma120: 30.3
-- return_5d: -0.78
-- return_20d: 8.49
-- volume_ratio: 0.87
-- distance_to_ma20_pct_auxiliary: 3.23
-- distance_to_high_60_pct: -5.33
+- date: 20260603
+- open: 32.05
+- high: 34.95
+- low: 31.95
+- close: 34.65
+- volume: 3453416
+- ma5: 32.23
+- ema23_primary: 31.3
+- distance_to_ema23_pct: 10.7
+- ma20: 31.25
+- ma60: 29.78
+- ma120: 30.32
+- return_5d: 12.14
+- return_20d: 20.73
+- volume_ratio: 2.64
+- distance_to_ma20_pct_auxiliary: 10.89
+- distance_to_high_60_pct: -0.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,29.65,29.65,28.45,28.7,560397,29.22,-1.78,29.31,29.62,0.94
 20260507,28.8,29.8,28.7,29.8,719489,29.27,1.81,29.39,29.58,1.19
 20260508,29.85,30.6,28.9,28.95,740359,29.24,-1,29.45,29.53,1.18
 20260511,29.05,29.15,28.65,29,465883,29.22,-0.76,29.5,29.5,0.73
@@ -143,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,31.05,31.55,30.75,31.5,788932,30.78,2.33,30.64,29.61,0.71
 20260601,31.5,32.45,31.3,32.3,1055416,30.91,4.5,30.82,29.67,0.93
 20260602,32.4,33.1,31.3,31.95,1015363,31,3.08,30.95,29.7,0.87
+20260603,32.05,34.95,31.95,34.65,3453416,31.3,10.7,31.25,29.78,2.64
 ```
 
 ## Latest TDCC Snapshot
@@ -172,13 +171,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 4976 | 佳凌 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 4976 | 佳凌 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 4976 | 佳凌 | pattern | 型態觀察 | 51.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 4976 | 佳凌 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 4976 | 佳凌 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2605 新興
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:54 Asia/Taipei
+- generated_at: 2026-06-04 01:54:53 Asia/Taipei
 - stock_id: 2605
 - stock_name: 新興
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 33.2
-- high: 33.6
-- low: 32.25
-- close: 33.2
-- volume: 8250200
-- ma5: 31.81
-- ema23_primary: 32.33
-- distance_to_ema23_pct: 2.7
-- ma20: 31.82
-- ma60: 35.62
-- ma120: 32.08
-- return_5d: 6.24
-- return_20d: -4.87
-- volume_ratio: 1.27
-- distance_to_ma20_pct_auxiliary: 4.35
-- distance_to_high_60_pct: -28.22
+- date: 20260603
+- open: 33.4
+- high: 33.65
+- low: 32.5
+- close: 33.1
+- volume: 9066203
+- ma5: 32.23
+- ema23_primary: 32.39
+- distance_to_ema23_pct: 2.19
+- ma20: 31.7
+- ma60: 35.6
+- ma120: 32.14
+- return_5d: 6.77
+- return_20d: -6.76
+- volume_ratio: 1.36
+- distance_to_ma20_pct_auxiliary: 4.42
+- distance_to_high_60_pct: -28.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,35.8,36.1,35.15,35.5,6454161,35.61,-0.31,35.48,35.45,0.73
 20260507,35.6,35.65,34.3,34.4,8249674,35.51,-3.13,35.26,35.5,0.99
 20260508,34.65,34.65,33,33.05,6967733,35.3,-6.39,34.96,35.56,0.83
 20260511,33.05,34.65,31.65,34.1,9083117,35.2,-3.14,34.69,35.64,1.06
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,31.4,31.6,30.2,30.2,10601528,32.16,-6.09,31.99,35.68,1.85
 20260601,30.5,33.2,30.5,33.2,16558677,32.25,2.96,31.9,35.65,2.66
 20260602,33.2,33.6,32.25,33.2,8250200,32.33,2.7,31.82,35.62,1.27
+20260603,33.4,33.65,32.5,33.1,9066203,32.39,2.19,31.7,35.6,1.36
 ```
 
 ## Latest TDCC Snapshot
@@ -172,17 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2605 | 新興 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 57.0 |  |  | neckline_challenge |  | call_put_bullish | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2605 | 新興 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 62.0 |  |  | neckline_challenge |  | call_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2605 | 新興 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260603 | 2605 | 新興 | 1 | 1 | 2 | 2 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2605 | 新興 | 87 | 6 | 5788180.0 | 40950.0 | 141.35 | call_put_bullish | 3 |  |
+| 20260603 | 2605 | 新興 | 85 | 5 | 5426570.0 | 6780.0 | 800.38 | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

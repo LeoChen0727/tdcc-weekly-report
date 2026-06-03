@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5478 智冠
 
 ## Metadata
-- generated_at: 2026-06-02 23:28:21 Asia/Taipei
+- generated_at: 2026-06-04 01:56:03 Asia/Taipei
 - stock_id: 5478
 - stock_name: 智冠
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,7 +59,7 @@
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: current_price_ok
+- entry_style: pullback_to_23ema
 - position_sizing: observe_only
 
 ### management_plan
@@ -72,6 +72,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -96,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 100.5
-- high: 104.5
-- low: 100.5
-- close: 104
-- volume: 103
-- ma5: 99.96
-- ema23_primary: 99.04
-- distance_to_ema23_pct: 5.01
-- ma20: 98.31
-- ma60: 101.21
-- ma120: 100.87
-- return_5d: 6.01
-- return_20d: 7.22
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: 5.79
-- distance_to_high_60_pct: -10.34
+- date: 20260603
+- open: 104
+- high: 104
+- low: 102
+- close: 103
+- volume: 103000
+- ma5: 101.16
+- ema23_primary: 99.37
+- distance_to_ema23_pct: 3.65
+- ma20: 98.63
+- ma60: 101.14
+- ma120: 100.91
+- return_5d: 6.19
+- return_20d: 6.63
+- volume_ratio: 0.78
+- distance_to_ma20_pct_auxiliary: 4.43
+- distance_to_high_60_pct: -11.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,97,97.6,96.4,96.6,107000,99.02,-2.44,98.53,102.7,0.78
 20260507,96.6,96.6,95.8,96,200000,98.77,-2.8,98.35,102.58,1.41
 20260508,96,96.5,95.6,96.3,102000,98.56,-2.29,98.22,102.47,0.74
 20260511,96.5,96.5,96.1,96.3,91000,98.37,-2.11,98.03,102.38,0.68
@@ -138,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,98,99.5,98,99,99000,98.46,0.55,97.79,101.29,0.71
 20260601,99,101.5,98.7,100,100,98.59,1.43,97.96,101.26,0
 20260602,100.5,104.5,100.5,104,103,99.04,5.01,98.31,101.21,0
+20260603,104,104,102,103,103000,99.37,3.65,98.63,101.14,0.78
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2347 聯強
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:25 Asia/Taipei
+- generated_at: 2026-06-04 01:54:39 Asia/Taipei
 - stock_id: 2347
 - stock_name: 聯強
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -102,29 +102,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 86.4
-- high: 94
-- low: 86.4
-- close: 91.5
-- volume: 20335561
-- ma5: 87.1
-- ema23_primary: 84.53
-- distance_to_ema23_pct: 8.24
-- ma20: 84.56
-- ma60: 80.78
-- ma120: 72.21
-- return_5d: 8.41
-- return_20d: 11.31
-- volume_ratio: 3.78
-- distance_to_ma20_pct_auxiliary: 8.2
-- distance_to_high_60_pct: -2.66
+- date: 20260603
+- open: 92.1
+- high: 93.9
+- low: 90
+- close: 91.1
+- volume: 17900040
+- ma5: 88.14
+- ema23_primary: 85.08
+- distance_to_ema23_pct: 7.07
+- ma20: 84.89
+- ma60: 81.12
+- ma120: 72.44
+- return_5d: 6.05
+- return_20d: 7.81
+- volume_ratio: 2.97
+- distance_to_ma20_pct_auxiliary: 7.31
+- distance_to_high_60_pct: -3.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,83.5,85.5,82.5,84.5,5265806,81.38,3.83,82.42,75.5,0.99
 20260507,84.1,84.6,83,83.9,5036414,81.59,2.83,82.56,75.79,0.99
 20260508,84.2,84.9,82.2,82.2,3652563,81.64,0.68,82.62,76.04,0.72
 20260511,83.8,87.5,83.3,86.4,5531043,82.04,5.32,82.97,76.39,1.07
@@ -144,6 +143,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,87.8,87.8,85.9,85.9,3864739,83.66,2.67,83.86,80.11,0.9
 20260601,85.4,86.9,84.4,86.5,6341095,83.9,3.1,84.1,80.42,1.42
 20260602,86.4,94,86.4,91.5,20335561,84.53,8.24,84.56,80.78,3.78
+20260603,92.1,93.9,90,91.1,17900040,85.08,7.07,84.89,81.12,2.97
 ```
 
 ## Latest TDCC Snapshot
@@ -173,19 +173,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2347 | 聯強 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  | call_inflow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260602 | 2347 | 聯強 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260602 | 2347 | 聯強 | true_breakout | 嚴格突破 | 131.0 |  |  | platform_breakout |  | call_inflow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2347 | 聯強 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2347 | 聯強 | 9 | 9 | 5 | 9 | 9 | continued_many_days | 連續 9 個交易日上榜，需判斷是持續醞釀或訊號鈍化。 |
+| 20260603 | 2347 | 聯強 | 10 | 3 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2347 | 聯強 | 6 | 0 | 1871670.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260603 | 2347 | 聯強 | 6 | 0 | 755850.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

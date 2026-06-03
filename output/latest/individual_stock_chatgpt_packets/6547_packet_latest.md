@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6547 高端疫苗
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:16 Asia/Taipei
+- generated_at: 2026-06-04 01:56:29 Asia/Taipei
 - stock_id: 6547
 - stock_name: 高端疫苗
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 46.05
-- high: 46.1
-- low: 44.9
-- close: 45.05
-- volume: 45
-- ma5: 45.17
-- ema23_primary: 47.28
-- distance_to_ema23_pct: -4.72
-- ma20: 47.42
-- ma60: 48.53
-- ma120: 43.12
-- return_5d: -2.07
-- return_20d: -9.08
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: -5.01
-- distance_to_high_60_pct: -26.39
+- date: 20260603
+- open: 45.35
+- high: 45.65
+- low: 44.4
+- close: 45.35
+- volume: 45000
+- ma5: 45.16
+- ema23_primary: 47.12
+- distance_to_ema23_pct: -3.75
+- ma20: 47.25
+- ma60: 48.67
+- ma120: 43.15
+- return_5d: -0.11
+- return_20d: -7.07
+- volume_ratio: 0.05
+- distance_to_ma20_pct_auxiliary: -4.03
+- distance_to_high_60_pct: -25.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,49.9,50.5,48.8,48.8,1833000,49.55,-1.52,50.67,45.14,0.57
 20260507,48.85,49.15,48.05,48.35,1510000,49.45,-2.23,50.12,45.26,0.47
 20260508,48,49.95,48,48.55,1699000,49.38,-1.68,49.49,45.43,0.54
 20260511,48.7,49.55,48.6,48.9,2257000,49.34,-0.89,49.16,45.62,0.81
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,44.4,45.6,44.3,45.2,45000,47.62,-5.08,47.84,48.21,0.04
 20260601,45.5,46.3,44.8,46,46,47.48,-3.12,47.65,48.37,0
 20260602,46.05,46.1,44.9,45.05,45,47.28,-4.72,47.42,48.53,0
+20260603,45.35,45.65,44.4,45.35,45000,47.12,-3.75,47.25,48.67,0.05
 ```
 
 ## Latest TDCC Snapshot
@@ -172,12 +172,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 6547 | 高端疫苗 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 6547 | 高端疫苗 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6547 | 高端疫苗 | 9 | 9 | 5 | 9 | 9 | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 6547 | 高端疫苗 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

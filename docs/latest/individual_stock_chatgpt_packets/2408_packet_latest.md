@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2408 南亞科
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:33 Asia/Taipei
+- generated_at: 2026-06-04 01:54:43 Asia/Taipei
 - stock_id: 2408
 - stock_name: 南亞科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,12 +58,12 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: high_level_consolidation
-- entry_style: breakout_follow
+- thesis_state: high_level_distribution_risk
+- entry_style: current_price_ok
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -77,7 +77,6 @@
 ### entry_prerequisites
 - price_structure_not_broken
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 
 ### post_entry_watch_items
@@ -92,6 +91,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- tdcc_distribution_warning
 - price_too_extended
 
 ### chatgpt_instruction
@@ -100,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 401
-- high: 419.5
-- low: 395
-- close: 419.5
-- volume: 171631936
-- ma5: 356.8
-- ema23_primary: 308.64
-- distance_to_ema23_pct: 35.92
-- ma20: 314
-- ma60: 255.46
-- ma120: 241.22
-- return_5d: 38.22
-- return_20d: 63.55
-- volume_ratio: 1.11
-- distance_to_ma20_pct_auxiliary: 33.6
-- distance_to_high_60_pct: 0
+- date: 20260603
+- open: 430
+- high: 430.5
+- low: 400
+- close: 401.5
+- volume: 151116427
+- ma5: 374.7
+- ema23_primary: 316.38
+- distance_to_ema23_pct: 26.9
+- ma20: 319.98
+- ma60: 258.27
+- ma120: 243.35
+- return_5d: 28.69
+- return_20d: 42.38
+- volume_ratio: 0.97
+- distance_to_ma20_pct_auxiliary: 25.48
+- distance_to_high_60_pct: -6.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,282,282,270.5,282,149468917,230.5,22.34,223.68,244.55,1.29
 20260507,293,296,278,287,197355586,235.21,22.02,226.88,244.38,1.63
 20260508,282,289,260,274,130863185,238.44,14.91,230.32,244,1.06
 20260511,300.5,301,296,301,108987498,243.65,23.54,234.62,243.57,0.88
@@ -142,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,347.5,351.5,338.5,347,140975644,291.03,19.23,298.62,250.31,0.89
 20260601,362,381.5,359.5,381.5,129059908,298.57,27.78,305.85,252.76,0.82
 20260602,401,419.5,395,419.5,171631936,308.64,35.92,314,255.46,1.11
+20260603,430,430.5,400,401.5,151116427,316.38,26.9,319.98,258.27,0.97
 ```
 
 ## Latest TDCC Snapshot
@@ -171,18 +171,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2408 | 南亞科 | true_breakout | 嚴格突破 | 64.0 |  |  | platform_right_side |  | put_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 2408 | 南亞科 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | put_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2408 | 南亞科 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2408 | 南亞科 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 63.0 |  |  | neckline_challenge |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2408 | 南亞科 | 9 | 9 | 5 | 9 | 9 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260603 | 2408 | 南亞科 | 10 | 10 | 5 | 10 | 10 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2408 | 南亞科 | 188 | 15 | 188639300.0 | 2052250.0 | 91.92 | put_inflow | -1 | 認售權證資金升溫，偏空或避險訊號；認購權證成交金額很大且認購/認售比偏高，需檢查標的是否高位追價或獲利結清；認購權證成交量與成交金額同步偏大，短線資金關注度高 |
+| 20260603 | 2408 | 南亞科 | 196 | 16 | 142370630.0 | 1544920.0 | 92.15 | no_signal | 0 | 認購權證成交金額很大且認購/認售比偏高，需檢查標的是否高位追價或獲利結清 |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

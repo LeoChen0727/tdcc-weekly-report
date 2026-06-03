@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00944 野村趨勢動能高息
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:10 Asia/Taipei
+- generated_at: 2026-06-04 01:54:05 Asia/Taipei
 - stock_id: 00944
 - stock_name: 野村趨勢動能高息
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260602
-- price_rows: 8
+- latest_price_date: 20260603
+- price_rows: 9
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -96,23 +96,23 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 20.7
-- high: 21
-- low: 20.42
-- close: 21
-- volume: 1083425
-- ma5: 20.36
-- ema23_primary: 19.58
-- distance_to_ema23_pct: 7.28
-- ma20: 19.99
-- ma60: 19.99
-- ma120: 19.99
-- return_5d: 6.92
+- date: 20260603
+- open: 21.08
+- high: 21.34
+- low: 21.08
+- close: 21.29
+- volume: 617790
+- ma5: 20.61
+- ema23_primary: 19.72
+- distance_to_ema23_pct: 7.97
+- ma20: 20.14
+- ma60: 20.14
+- ma120: 20.14
+- return_5d: 6.18
 - return_20d: 
-- volume_ratio: 1.01
-- distance_to_ma20_pct_auxiliary: 5.03
-- distance_to_high_60_pct: 0
+- volume_ratio: 0.61
+- distance_to_ma20_pct_auxiliary: 5.72
+- distance_to_high_60_pct: -0.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -126,6 +126,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,20.21,20.3,20.1,20.28,472794,19.34,4.85,19.73,19.73,0.45
 20260601,20.38,20.68,20.38,20.6,1167360,19.45,5.93,19.85,19.85,1.09
 20260602,20.7,21,20.42,21,1083425,19.58,7.28,19.99,19.99,1.01
+20260603,21.08,21.34,21.08,21.29,617790,19.72,7.97,20.14,20.14,0.61
 ```
 
 ## Latest TDCC Snapshot

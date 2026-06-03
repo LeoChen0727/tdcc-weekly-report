@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6189 豐藝
 
 ## Metadata
-- generated_at: 2026-06-02 23:28:47 Asia/Taipei
+- generated_at: 2026-06-04 01:56:15 Asia/Taipei
 - stock_id: 6189
 - stock_name: 豐藝
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,11 +59,11 @@
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -76,7 +76,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -101,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 50
-- high: 51.3
-- low: 49.7
-- close: 51.1
-- volume: 1558080
-- ma5: 50.3
-- ema23_primary: 49.56
-- distance_to_ema23_pct: 3.1
-- ma20: 49.56
-- ma60: 47.43
-- ma120: 46.58
-- return_5d: -1.35
-- return_20d: 3.55
-- volume_ratio: 1.14
-- distance_to_ma20_pct_auxiliary: 3.1
-- distance_to_high_60_pct: -3.04
+- date: 20260603
+- open: 52.3
+- high: 56.2
+- low: 51.2
+- close: 56.2
+- volume: 3972018
+- ma5: 51.52
+- ema23_primary: 50.11
+- distance_to_ema23_pct: 12.14
+- ma20: 49.94
+- ma60: 47.63
+- ma120: 46.66
+- return_5d: 12.18
+- return_20d: 15.16
+- volume_ratio: 2.63
+- distance_to_ma20_pct_auxiliary: 12.55
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,49.95,49.95,48.75,48.8,1017950,47.45,2.85,47.38,46.59,1.15
 20260507,48.95,49.1,48.35,48.35,993499,47.52,1.74,47.52,46.65,1.09
 20260508,48.5,49.2,48.2,49,745446,47.65,2.84,47.7,46.72,0.8
 20260511,49.5,49.7,47.8,48.2,1371872,47.69,1.06,47.84,46.79,1.4
@@ -143,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,50.6,51,50.2,50.3,772034,49.38,1.87,49.45,47.19,0.56
 20260601,50.3,50.9,49.6,49.9,1167419,49.42,0.97,49.48,47.31,0.87
 20260602,50,51.3,49.7,51.1,1558080,49.56,3.1,49.56,47.43,1.14
+20260603,52.3,56.2,51.2,56.2,3972018,50.11,12.14,49.94,47.63,2.63
 ```
 
 ## Latest TDCC Snapshot
@@ -172,13 +171,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6189 | 豐藝 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 6189 | 豐藝 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 6189 | 豐藝 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6189 | 豐藝 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 6189 | 豐藝 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

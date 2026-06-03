@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8454 富邦媒
 
 ## Metadata
-- generated_at: 2026-06-02 23:31:11 Asia/Taipei
+- generated_at: 2026-06-04 01:57:22 Asia/Taipei
 - stock_id: 8454
 - stock_name: 富邦媒
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,14 +55,18 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: take_profit
-- action_rating_label_zh: 停利
-- confidence_level: low
-- thesis_state: breakout_confirmed
-- entry_style: breakout_follow
-- position_sizing: observe_only
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
+- confidence_level: medium
+- thesis_state: high_level_consolidation
+- entry_style: pullback_to_23ema
+- position_sizing: starter_1_4
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -71,8 +75,8 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -97,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 237
-- high: 265.5
-- low: 231
-- close: 265.5
-- volume: 5770329
-- ma5: 227.8
-- ema23_primary: 202.57
-- distance_to_ema23_pct: 31.06
-- ma20: 200.3
-- ma60: 185.04
-- ma120: 193.37
-- return_5d: 41.22
-- return_20d: 48.32
-- volume_ratio: 3.58
-- distance_to_ma20_pct_auxiliary: 32.55
+- date: 20260603
+- open: 267
+- high: 292
+- low: 265
+- close: 292
+- volume: 6858476
+- ma5: 248
+- ema23_primary: 210.02
+- distance_to_ema23_pct: 39.03
+- ma20: 205.88
+- ma60: 186.89
+- ma120: 193.91
+- return_5d: 52.88
+- return_20d: 61.77
+- volume_ratio: 3.57
+- distance_to_ma20_pct_auxiliary: 41.83
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,181,181,178.5,180.5,633373,176.52,2.25,176.5,180.93,1.2
 20260507,179.5,192,178.5,189,1578785,177.56,6.44,176.85,180.85,2.67
 20260508,191,198,190,196,1665255,179.1,9.44,177.57,180.9,2.52
 20260511,198,200,193,194,927666,180.34,7.57,178.18,180.99,1.36
@@ -139,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,219,231,216,231,3691482,192.79,19.82,192.7,182.59,3.39
 20260601,240,254,236.5,241.5,6217906,196.85,22.68,195.97,183.64,4.58
 20260602,237,265.5,231,265.5,5770329,202.57,31.06,200.3,185.04,3.58
+20260603,267,292,265,292,6858476,210.02,39.03,205.88,186.89,3.57
 ```
 
 ## Latest TDCC Snapshot
@@ -168,12 +172,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 8454 | 富邦媒 | true_breakout | 嚴格突破 | 96.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: ex_dividend on 20260611; status=confirmed; proximity=within_14d |
+| 20260603 | 8454 | 富邦媒 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | continued_overheated | calendar event: ex_dividend on 20260611; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 8454 | 富邦媒 | 4 | 4 | 4 | 4 | 4 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260603 | 8454 | 富邦媒 | 5 | 1 | 5 | 5 | 5 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

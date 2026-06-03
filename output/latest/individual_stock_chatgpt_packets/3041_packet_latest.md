@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3041 揚智
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:23 Asia/Taipei
+- generated_at: 2026-06-04 01:55:07 Asia/Taipei
 - stock_id: 3041
 - stock_name: 揚智
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,11 +59,11 @@
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -76,7 +76,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -101,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 25.95
-- high: 26.25
-- low: 24.95
-- close: 25.65
-- volume: 1576802
-- ma5: 25.65
-- ema23_primary: 24.89
-- distance_to_ema23_pct: 3.05
-- ma20: 24.87
-- ma60: 23.67
-- ma120: 24.57
-- return_5d: -2.84
-- return_20d: 4.48
-- volume_ratio: 0.8
-- distance_to_ma20_pct_auxiliary: 3.14
-- distance_to_high_60_pct: -7.07
+- date: 20260603
+- open: 25.65
+- high: 26.65
+- low: 25.65
+- close: 26.5
+- volume: 2739875
+- ma5: 25.77
+- ema23_primary: 25.02
+- distance_to_ema23_pct: 5.89
+- ma20: 24.98
+- ma60: 23.72
+- ma120: 24.58
+- return_5d: 2.32
+- return_20d: 8.61
+- volume_ratio: 1.37
+- distance_to_ma20_pct_auxiliary: 6.11
+- distance_to_high_60_pct: -3.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,24.95,25.6,24.3,24.4,2056463,23.5,3.81,23.2,23.73,1.06
 20260507,24.7,25.65,24.1,24.65,3217474,23.6,4.45,23.33,23.69,1.57
 20260508,24.75,25.4,24.1,24.3,1936162,23.66,2.71,23.46,23.65,0.92
 20260511,24.5,25.25,24.2,24.7,1549456,23.75,4.02,23.63,23.63,0.72
@@ -143,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,25.65,26.35,25.15,25.65,1372519,24.75,3.65,24.73,23.58,0.7
 20260601,25.85,26.05,25.3,25.65,1271368,24.82,3.34,24.82,23.63,0.65
 20260602,25.95,26.25,24.95,25.65,1576802,24.89,3.05,24.87,23.67,0.8
+20260603,25.65,26.65,25.65,26.5,2739875,25.02,5.89,24.98,23.72,1.37
 ```
 
 ## Latest TDCC Snapshot
@@ -172,13 +171,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3041 | 揚智 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 3041 | 揚智 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3041 | 揚智 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3041 | 揚智 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 3041 | 揚智 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

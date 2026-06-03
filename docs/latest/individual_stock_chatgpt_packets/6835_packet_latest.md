@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6835 圓裕
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:44 Asia/Taipei
+- generated_at: 2026-06-04 01:56:42 Asia/Taipei
 - stock_id: 6835
 - stock_name: 圓裕
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 38.2
-- high: 38.35
-- low: 37.2
-- close: 37.75
-- volume: 215869
-- ma5: 38.56
-- ema23_primary: 38.43
-- distance_to_ema23_pct: -1.76
-- ma20: 38.29
-- ma60: 38.45
-- ma120: 38.84
-- return_5d: -1.31
-- return_20d: 0.4
-- volume_ratio: 0.42
-- distance_to_ma20_pct_auxiliary: -1.41
-- distance_to_high_60_pct: -6.79
+- date: 20260603
+- open: 37.75
+- high: 38.5
+- low: 37.75
+- close: 38.4
+- volume: 253200
+- ma5: 38.49
+- ema23_primary: 38.42
+- distance_to_ema23_pct: -0.06
+- ma20: 38.34
+- ma60: 38.43
+- ma120: 38.82
+- return_5d: -0.9
+- return_20d: 2.4
+- volume_ratio: 0.48
+- distance_to_ma20_pct_auxiliary: 0.17
+- distance_to_high_60_pct: -5.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,38.1,38.1,37.35,37.5,116274,38.53,-2.68,38.81,38.79,0.25
 20260507,37.7,38.15,37.1,37.5,272320,38.45,-2.46,38.77,38.78,0.6
 20260508,37.25,38.5,37.25,38.4,341557,38.44,-0.11,38.77,38.78,0.76
 20260511,38.4,38.7,37.5,37.5,141133,38.37,-2.25,38.71,38.78,0.32
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,39,39.2,38.55,39.1,609271,38.51,1.52,38.23,38.47,1.35
 20260601,39.3,39.4,38.2,38.2,1356968,38.49,-0.75,38.28,38.47,2.65
 20260602,38.2,38.35,37.2,37.75,215869,38.43,-1.76,38.29,38.45,0.42
+20260603,37.75,38.5,37.75,38.4,253200,38.42,-0.06,38.34,38.43,0.48
 ```
 
 ## Latest TDCC Snapshot
@@ -172,12 +172,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 6835 | 圓裕 | pattern | 型態觀察 |  |  |  | 預備發動型 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 6835 | 圓裕 | pattern | 型態觀察 |  |  |  | 預備發動型 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6835 | 圓裕 | 9 | 9 | 5 | 9 | 9 | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 6835 | 圓裕 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4169 泰宗
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:26 Asia/Taipei
+- generated_at: 2026-06-04 01:55:38 Asia/Taipei
 - stock_id: 4169
 - stock_name: 泰宗
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260602
-- price_rows: 39
+- latest_price_date: 20260603
+- price_rows: 40
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -97,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 156
-- high: 162
+- date: 20260603
+- open: 157
+- high: 157
 - low: 154
-- close: 160
-- volume: 192604
-- ma5: 156.5
-- ema23_primary: 155.97
-- distance_to_ema23_pct: 2.58
+- close: 155
+- volume: 174947
+- ma5: 157
+- ema23_primary: 155.89
+- distance_to_ema23_pct: -0.57
 - ma20: 154.45
-- ma60: 158.13
-- ma120: 158.13
-- return_5d: 3.23
+- ma60: 158.05
+- ma120: 158.05
+- return_5d: 1.64
 - return_20d: 0
-- volume_ratio: 1.22
-- distance_to_ma20_pct_auxiliary: 3.59
-- distance_to_high_60_pct: -11.6
+- volume_ratio: 1.15
+- distance_to_ma20_pct_auxiliary: 0.36
+- distance_to_high_60_pct: -14.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,158.5,159.5,155,155,285504,158.79,-2.39,161.65,161.65,0.55
 20260507,156.5,156.5,152.5,153,248635,158.31,-3.35,162.05,161.24,0.57
 20260508,154,160,153.5,156,172403,158.11,-1.34,161.43,161,0.45
 20260511,156,156.5,153,154,97623,157.77,-2.39,161.25,160.7,0.29
@@ -139,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,154.5,157.5,154,157,130894,155.34,1.07,154.5,158.07,0.85
 20260601,160,160.5,156.5,158.5,162506,155.6,1.86,154.45,158.08,1.05
 20260602,156,162,154,160,192604,155.97,2.58,154.45,158.13,1.22
+20260603,157,157,154,155,174947,155.89,-0.57,154.45,158.05,1.15
 ```
 
 ## Latest TDCC Snapshot

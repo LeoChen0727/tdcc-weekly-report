@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5871 中租-KY
 
 ## Metadata
-- generated_at: 2026-06-02 23:28:30 Asia/Taipei
+- generated_at: 2026-06-04 01:56:07 Asia/Taipei
 - stock_id: 5871
 - stock_name: 中租-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,12 +58,12 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: breakout_initial
-- entry_style: breakout_follow
+- thesis_state: unclear
+- entry_style: current_price_ok
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -76,7 +76,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -101,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 108.5
-- high: 115
-- low: 108
-- close: 114.5
-- volume: 24972554
-- ma5: 108.9
-- ema23_primary: 110.51
-- distance_to_ema23_pct: 3.61
-- ma20: 110.03
-- ma60: 110.41
-- ma120: 107.5
-- return_5d: 7.01
-- return_20d: -0.43
-- volume_ratio: 2.42
-- distance_to_ma20_pct_auxiliary: 4.07
-- distance_to_high_60_pct: -6.91
+- date: 20260603
+- open: 116
+- high: 119
+- low: 114
+- close: 117.5
+- volume: 26063548
+- ma5: 111
+- ema23_primary: 111.09
+- distance_to_ema23_pct: 5.77
+- ma20: 110.1
+- ma60: 110.68
+- ma120: 107.62
+- return_5d: 9.81
+- return_20d: 1.29
+- volume_ratio: 2.29
+- distance_to_ma20_pct_auxiliary: 6.72
+- distance_to_high_60_pct: -4.47
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,115.5,117,115,116,4646681,114.78,1.06,115.7,108.74,0.58
 20260507,116,117,114.5,114.5,5843837,114.75,-0.22,115.95,108.9,0.72
 20260508,115.5,115.5,110.5,112.5,11385514,114.57,-1.8,116.15,109.04,1.35
 20260511,112,113,111,112,6063393,114.35,-2.06,116.4,109.17,0.71
@@ -143,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,108,109.5,107,107.5,15423401,110.3,-2.54,110.38,110.03,1.7
 20260601,108.5,110,107.5,108.5,10456575,110.15,-1.49,110.05,110.17,1.13
 20260602,108.5,115,108,114.5,24972554,110.51,3.61,110.03,110.41,2.42
+20260603,116,119,114,117.5,26063548,111.09,5.77,110.1,110.68,2.29
 ```
 
 ## Latest TDCC Snapshot
@@ -172,18 +171,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 5871 | 中租-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 5871 | 中租-KY | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 5871 | 中租-KY | pattern | 型態觀察 |  |  |  | 接近突破型 |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 5871 | 中租-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 5871 | 中租-KY | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 5871 | 中租-KY | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 5871 | 中租-KY | 10 | 0 | 2526790.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260603 | 5871 | 中租-KY | 10 | 0 | 4080260.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

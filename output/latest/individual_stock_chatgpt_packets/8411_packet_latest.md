@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8411 福貞-KY
 
 ## Metadata
-- generated_at: 2026-06-02 23:31:07 Asia/Taipei
+- generated_at: 2026-06-04 01:57:20 Asia/Taipei
 - stock_id: 8411
 - stock_name: 福貞-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -97,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
+- date: 20260603
 - open: 12.05
 - high: 12.1
 - low: 11.95
-- close: 12.05
-- volume: 100884
-- ma5: 12.05
+- close: 12.1
+- volume: 85441
+- ma5: 12.06
 - ema23_primary: 12.11
-- distance_to_ema23_pct: -0.47
+- distance_to_ema23_pct: -0.05
 - ma20: 12.11
 - ma60: 12.21
 - ma120: 12.2
-- return_5d: 0.42
-- return_20d: 0
-- volume_ratio: 1.01
-- distance_to_ma20_pct_auxiliary: -0.52
-- distance_to_high_60_pct: -3.6
+- return_5d: 0.41
+- return_20d: -0.41
+- volume_ratio: 0.85
+- distance_to_ma20_pct_auxiliary: -0.08
+- distance_to_high_60_pct: -3.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,12.2,12.2,12.05,12.15,85356,12.24,-0.7,12.27,12.24,0.99
 20260507,12.15,12.35,12.05,12.35,91423,12.25,0.85,12.27,12.25,1.1
 20260508,12.35,12.35,12.15,12.25,63145,12.25,0.03,12.26,12.26,0.76
 20260511,12.2,12.25,12.1,12.25,91402,12.25,0.03,12.26,12.26,1.07
@@ -139,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,11.8,12.2,11.8,12.2,216025,12.11,0.75,12.12,12.21,2.14
 20260601,12.1,12.15,11.95,12.15,163810,12.11,0.31,12.11,12.21,1.56
 20260602,12.05,12.1,11.95,12.05,100884,12.11,-0.47,12.11,12.21,1.01
+20260603,12.05,12.1,11.95,12.1,85441,12.11,-0.05,12.11,12.21,0.85
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4968 立積
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:58 Asia/Taipei
+- generated_at: 2026-06-04 01:55:53 Asia/Taipei
 - stock_id: 4968
 - stock_name: 立積
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 119
-- high: 123
-- low: 117
-- close: 120
-- volume: 2908795
-- ma5: 117.1
-- ema23_primary: 116.58
-- distance_to_ema23_pct: 2.93
+- date: 20260603
+- open: 121.5
+- high: 122
+- low: 117.5
+- close: 117.5
+- volume: 1182686
+- ma5: 117.2
+- ema23_primary: 116.66
+- distance_to_ema23_pct: 0.72
 - ma20: 116.75
-- ma60: 112.42
-- ma120: 119.47
-- return_5d: 0.84
-- return_20d: -0.83
-- volume_ratio: 2.12
-- distance_to_ma20_pct_auxiliary: 2.78
-- distance_to_high_60_pct: -10.45
+- ma60: 112.47
+- ma120: 119.27
+- return_5d: 0.43
+- return_20d: 0
+- volume_ratio: 0.9
+- distance_to_ma20_pct_auxiliary: 0.64
+- distance_to_high_60_pct: -12.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,122.5,123,117,117.5,2325369,115.53,1.7,115.08,113.58,1
 20260507,118.5,121,116,119.5,1497247,115.86,3.14,115.65,113.49,0.64
 20260508,120,125.5,117.5,119.5,2217431,116.17,2.87,116.35,113.44,0.92
 20260511,121,123.5,119.5,121,1236844,116.57,3.8,117.17,113.47,0.51
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,119,119,115.5,116,990513,116.2,-0.18,116.7,112.33,0.72
 20260601,117.5,119,116,117,1175706,116.27,0.63,116.8,112.36,0.86
 20260602,119,123,117,120,2908795,116.58,2.93,116.75,112.42,2.12
+20260603,121.5,122,117.5,117.5,1182686,116.66,0.72,116.75,112.47,0.9
 ```
 
 ## Latest TDCC Snapshot
@@ -172,17 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 4968 | 立積 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 4968 | 立積 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 4968 | 立積 | 1 | 1 | 1 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
+| 20260603 | 4968 | 立積 | 2 | 1 | 2 | 3 | 3 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 4968 | 立積 | 38 | 3 | 2606770.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260603 | 4968 | 立積 | 37 | 3 | 1294680.0 | 2140.0 | 604.99 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

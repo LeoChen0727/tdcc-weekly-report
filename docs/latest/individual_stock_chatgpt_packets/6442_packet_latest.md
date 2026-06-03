@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6442 光聖
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:07 Asia/Taipei
+- generated_at: 2026-06-04 01:56:24 Asia/Taipei
 - stock_id: 6442
 - stock_name: 光聖
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,7 +59,7 @@
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: observe_only
 
 ### management_plan
@@ -72,7 +72,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -97,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 1925
-- high: 1960
-- low: 1860
-- close: 1880
-- volume: 2488564
-- ma5: 1909
-- ema23_primary: 1936.33
-- distance_to_ema23_pct: -2.91
-- ma20: 1911.5
-- ma60: 1970.58
-- ma120: 1729.92
-- return_5d: -17
-- return_20d: -8.74
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: -1.65
-- distance_to_high_60_pct: -23.58
+- date: 20260603
+- open: 1985
+- high: 2065
+- low: 1985
+- close: 2065
+- volume: 2930375
+- ma5: 1914
+- ema23_primary: 1947.05
+- distance_to_ema23_pct: 6.06
+- ma20: 1911.75
+- ma60: 1973.42
+- ma120: 1737.21
+- return_5d: 1.23
+- return_20d: 0.24
+- volume_ratio: 0.84
+- distance_to_ma20_pct_auxiliary: 8.02
+- distance_to_high_60_pct: -16.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,2070,2070,1860,2060,1611505,2052.08,0.39,2104,1980.67,0.56
 20260507,2075,2125,1950,2095,2671256,2055.66,1.91,2100.5,1989.42,0.94
 20260508,2050,2065,1965,1965,2513797,2048.1,-4.06,2093,1993.42,0.88
 20260511,1935,1990,1870,1950,3829499,2039.93,-4.41,2074.25,1996.17,1.34
@@ -139,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,1940,1940,1845,1845,3192701,1946.58,-5.22,1930.5,1975.92,0.97
 20260601,1855,1930,1835,1885,1936621,1941.45,-2.91,1920.5,1972.33,0.58
 20260602,1925,1960,1860,1880,2488564,1936.33,-2.91,1911.5,1970.58,0.73
+20260603,1985,2065,1985,2065,2930375,1947.05,6.06,1911.75,1973.42,0.84
 ```
 
 ## Latest TDCC Snapshot
@@ -178,7 +177,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6442 | 光聖 | 4 | 0 | 562200.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 6442 | 光聖 | 4 | 0 | 2301600.0 | 0.0 |  | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6515 穎崴
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:13 Asia/Taipei
+- generated_at: 2026-06-04 01:56:27 Asia/Taipei
 - stock_id: 6515
 - stock_name: 穎崴
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -96,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 8655
-- high: 8700
-- low: 7895
-- close: 8080
-- volume: 752319
-- ma5: 8873
-- ema23_primary: 9227.44
-- distance_to_ema23_pct: -12.44
-- ma20: 9449.75
-- ma60: 8646.42
-- ma120: 6088.33
-- return_5d: -9.26
-- return_20d: -19.64
-- volume_ratio: 1.69
-- distance_to_ma20_pct_auxiliary: -14.5
-- distance_to_high_60_pct: -29.68
+- date: 20260603
+- open: 8290
+- high: 8405
+- low: 8080
+- close: 8220
+- volume: 307043
+- ma5: 8558
+- ema23_primary: 9143.48
+- distance_to_ema23_pct: -10.1
+- ma20: 9354.25
+- ma60: 8695.92
+- ma120: 6133.25
+- return_5d: -16.08
+- return_20d: -18.85
+- volume_ratio: 0.7
+- distance_to_ma20_pct_auxiliary: -12.13
+- distance_to_high_60_pct: -28.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,10400,10410,9620,10130,490717,9438.34,7.33,9707.75,7112.58,1.36
 20260507,10130,10320,9855,9860,319508,9473.48,4.08,9810.25,7210,0.87
 20260508,9950,10190,9630,9630,282321,9486.52,1.51,9892,7305.5,0.76
 20260511,9790,10195,9545,10090,245882,9536.81,5.8,10000,7408.58,0.65
@@ -138,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,9205,9390,8665,8665,685628,9388.73,-7.71,9648.25,8521.67,1.63
 20260601,8820,8895,8575,8705,322592,9331.75,-6.72,9548.5,8591.33,0.76
 20260602,8655,8700,7895,8080,752319,9227.44,-12.44,9449.75,8646.42,1.69
+20260603,8290,8405,8080,8220,307043,9143.48,-10.1,9354.25,8695.92,0.7
 ```
 
 ## Latest TDCC Snapshot
@@ -177,7 +177,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6515 | 穎崴 | 17 | 0 | 155300.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 6515 | 穎崴 | 17 | 0 | 105650.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

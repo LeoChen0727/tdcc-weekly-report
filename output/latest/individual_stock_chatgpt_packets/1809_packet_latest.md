@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1809 中釉
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:01 Asia/Taipei
+- generated_at: 2026-06-04 01:54:28 Asia/Taipei
 - stock_id: 1809
 - stock_name: 中釉
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,18 +55,14 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: starter_position
-- action_rating_label_zh: 可小量試單
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: high_level_consolidation
-- entry_style: breakout_follow
-- position_sizing: starter_1_4
+- entry_style: current_price_ok
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -100,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 49.9
-- high: 52.6
-- low: 49.9
-- close: 52.6
-- volume: 7761848
-- ma5: 46.04
-- ema23_primary: 40.27
-- distance_to_ema23_pct: 30.6
-- ma20: 41.09
-- ma60: 31.64
-- ma120: 26.49
-- return_5d: 6.69
-- return_20d: 69.4
-- volume_ratio: 0.71
-- distance_to_ma20_pct_auxiliary: 28.03
-- distance_to_high_60_pct: 0
+- date: 20260603
+- open: 57.8
+- high: 57.8
+- low: 49.85
+- close: 56.2
+- volume: 44368140
+- ma5: 48.4
+- ema23_primary: 41.6
+- distance_to_ema23_pct: 35.09
+- ma20: 42.19
+- ma60: 32.15
+- ma120: 26.81
+- return_5d: 26.58
+- return_20d: 64.57
+- volume_ratio: 3.62
+- distance_to_ma20_pct_auxiliary: 33.21
+- distance_to_high_60_pct: -2.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,34.15,34.15,32.9,34.15,19148538,27.66,23.46,27.33,26.41,3.73
 20260507,37.3,37.4,33.25,34.5,39198080,28.23,22.2,27.74,26.56,5.64
 20260508,34.75,37.25,33.65,36,23648739,28.88,24.66,28.24,26.75,2.96
 20260511,36.25,39.6,35.2,39.6,12762844,29.77,33.01,28.94,27,1.5
@@ -142,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,43.3,44.2,41.2,43.55,8472822,38.36,13.53,39.02,30.81,0.77
 20260601,43.55,47.9,42.65,47.9,13633772,39.15,22.34,40.01,31.19,1.19
 20260602,49.9,52.6,49.9,52.6,7761848,40.27,30.6,41.09,31.64,0.71
+20260603,57.8,57.8,49.85,56.2,44368140,41.6,35.09,42.19,32.15,3.62
 ```
 
 ## Latest TDCC Snapshot
@@ -169,14 +165,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1809 | 中釉 | true_breakout | 嚴格突破 | 64.0 |  |  | platform_right_side |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1809 | 中釉 | 2 | 1 | 2 | 3 | 3 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

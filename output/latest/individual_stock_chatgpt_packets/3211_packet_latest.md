@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3211 順達
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:37 Asia/Taipei
+- generated_at: 2026-06-04 01:55:14 Asia/Taipei
 - stock_id: 3211
 - stock_name: 順達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,11 +59,11 @@
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -76,7 +76,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -101,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 436
-- high: 441.5
-- low: 416
-- close: 422
-- volume: 423
+- date: 20260603
+- open: 426
+- high: 464
+- low: 421
+- close: 464
+- volume: 446000
 - ma5: 440.1
-- ema23_primary: 402.03
-- distance_to_ema23_pct: 4.97
-- ma20: 399.02
-- ma60: 363.96
-- ma120: 332.44
-- return_5d: -10.02
-- return_20d: 16.41
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: 5.76
-- distance_to_high_60_pct: -14.31
+- ema23_primary: 407.2
+- distance_to_ema23_pct: 13.95
+- ma20: 403.5
+- ma60: 366.32
+- ma120: 334.1
+- return_5d: 0
+- return_20d: 23.9
+- volume_ratio: 0.08
+- distance_to_ma20_pct_auxiliary: 14.99
+- distance_to_high_60_pct: -5.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,365,376,355.5,374.5,11711000,363.45,3.04,370.2,333.84,1.13
 20260507,379.5,394,375,384,13447000,365.17,5.16,370.48,334.56,1.28
 20260508,385.5,398.5,370,381.5,15396000,366.53,4.08,371.23,335.4,1.41
 20260511,385.5,417,384.5,403,14014000,369.57,9.05,372.62,336.48,1.24
@@ -143,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,451.5,455,429,436,438000,396.96,9.83,392.2,359.88,0.07
 20260601,439.5,456,431,436,440,400.22,8.94,396.05,362.27,0
 20260602,436,441.5,416,422,423,402.03,4.97,399.02,363.96,0
+20260603,426,464,421,464,446000,407.2,13.95,403.5,366.32,0.08
 ```
 
 ## Latest TDCC Snapshot
@@ -172,12 +171,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 3211 | 順達 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3211 | 順達 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3211 | 順達 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 3211 | 順達 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

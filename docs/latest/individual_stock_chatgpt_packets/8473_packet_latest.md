@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8473 山林水
 
 ## Metadata
-- generated_at: 2026-06-02 23:31:13 Asia/Taipei
+- generated_at: 2026-06-04 01:57:23 Asia/Taipei
 - stock_id: 8473
 - stock_name: 山林水
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,21 +55,29 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: reduce
-- action_rating_label_zh: 減碼
-- confidence_level: low
-- thesis_state: failed_breakout
-- entry_style: no_entry_now
-- position_sizing: reduce_position
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
+- confidence_level: medium
+- thesis_state: high_level_distribution_risk
+- entry_style: current_price_ok
+- position_sizing: starter_1_4
 
 ### management_plan
+- buy_first_tranche_now
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- price_structure_not_broken
 - revenue_not_deteriorating
+- no_major_volume_price_failure
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -84,7 +92,6 @@
 ### downgrade_reason
 - insufficient_tdcc_history
 - tdcc_distribution_warning
-- volume_price_failure
 - price_too_extended
 
 ### chatgpt_instruction
@@ -93,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 55.7
-- high: 57
-- low: 53.9
-- close: 56
-- volume: 12715329
-- ma5: 50.12
-- ema23_primary: 42.2
-- distance_to_ema23_pct: 32.7
-- ma20: 40.15
-- ma60: 38.45
-- ma120: 37.84
-- return_5d: 33.02
-- return_20d: 59.09
-- volume_ratio: 4.92
-- distance_to_ma20_pct_auxiliary: 39.49
-- distance_to_high_60_pct: -1.75
+- date: 20260603
+- open: 55
+- high: 55.6
+- low: 53
+- close: 53.4
+- volume: 5761360
+- ma5: 52.23
+- ema23_primary: 43.14
+- distance_to_ema23_pct: 23.8
+- ma20: 41.06
+- ma60: 38.71
+- ma120: 37.98
+- return_5d: 24.62
+- return_20d: 51.92
+- volume_ratio: 2.02
+- distance_to_ma20_pct_auxiliary: 30.06
+- distance_to_high_60_pct: -6.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,35.2,35.4,35,35.15,566451,36.69,-4.18,36.65,37.46,1.16
 20260507,35.2,35.55,35.05,35.4,462526,36.58,-3.22,36.61,37.41,0.96
 20260508,35.7,35.7,34.15,34.6,905425,36.41,-4.98,36.53,37.35,1.78
 20260511,34.6,34.6,34.15,34.2,663733,36.23,-5.6,36.39,37.31,1.27
@@ -135,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,46.7,50.5,46.1,50.4,6820723,39.63,27.16,38.1,37.81,3.98
 20260601,52.4,55.4,50.8,55.4,6381007,40.95,35.29,39.1,38.14,3.2
 20260602,55.7,57,53.9,56,12715329,42.2,32.7,40.15,38.45,4.92
+20260603,55,55.6,53,53.4,5761360,43.14,23.8,41.06,38.71,2.02
 ```
 
 ## Latest TDCC Snapshot
@@ -164,13 +171,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 8473 | 山林水 | true_breakout | 嚴格突破 | 84.0 |  |  | platform_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 8473 | 山林水 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 8473 | 山林水 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 8473 | 山林水 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 8473 | 山林水 | 9 | 9 | 5 | 9 | 9 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260603 | 8473 | 山林水 | 10 | 10 | 5 | 10 | 10 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

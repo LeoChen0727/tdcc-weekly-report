@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6127 九豪
 
 ## Metadata
-- generated_at: 2026-06-02 23:28:37 Asia/Taipei
+- generated_at: 2026-06-04 01:56:11 Asia/Taipei
 - stock_id: 6127
 - stock_name: 九豪
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -100,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 78
-- high: 81.4
-- low: 73
-- close: 81.4
-- volume: 77
-- ma5: 68.16
-- ema23_primary: 56.19
-- distance_to_ema23_pct: 44.86
-- ma20: 54.21
-- ma60: 46.64
-- ma120: 40.85
-- return_5d: 42.31
-- return_20d: 71.37
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: 50.16
-- distance_to_high_60_pct: 0
+- date: 20260603
+- open: 79.8
+- high: 80.5
+- low: 74.4
+- close: 74.6
+- volume: 77000
+- ma5: 71.7
+- ema23_primary: 57.73
+- distance_to_ema23_pct: 29.23
+- ma20: 55.61
+- ma60: 47.26
+- ma120: 41.24
+- return_5d: 31.11
+- return_20d: 60.09
+- volume_ratio: 0.01
+- distance_to_ma20_pct_auxiliary: 34.15
+- distance_to_high_60_pct: -8.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,48.3,48.4,45.1,46.6,9353000,45.36,2.74,46.19,40.8,0.51
 20260507,46.1,50,45.5,48,18827000,45.58,5.32,46.6,40.99,1
 20260508,48.15,50.7,47.15,48.05,18220000,45.78,4.95,47.06,41.2,0.94
 20260511,48.3,48.4,45.6,47.5,7301000,45.92,3.43,47.3,41.38,0.38
@@ -142,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,63,67.3,60.4,67.3,64000,52.07,29.24,51.08,45.26,0.01
 20260601,74,74,73.2,74,74,53.9,37.29,52.52,45.9,0
 20260602,78,81.4,73,81.4,77,56.19,44.86,54.21,46.64,0
+20260603,79.8,80.5,74.4,74.6,77000,57.73,29.23,55.61,47.26,0.01
 ```
 
 ## Latest TDCC Snapshot
@@ -171,12 +171,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 6127 | 九豪 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 6127 | 九豪 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6127 | 九豪 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 6127 | 九豪 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

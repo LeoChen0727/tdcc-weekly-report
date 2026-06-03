@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1218 泰山
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:16 Asia/Taipei
+- generated_at: 2026-06-04 01:54:08 Asia/Taipei
 - stock_id: 1218
 - stock_name: 泰山
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 19.3
-- high: 19.5
-- low: 19.15
-- close: 19.4
-- volume: 1330682
-- ma5: 18.88
-- ema23_primary: 18.81
-- distance_to_ema23_pct: 3.16
-- ma20: 18.76
-- ma60: 18.95
-- ma120: 18.58
-- return_5d: 4.86
-- return_20d: 3.19
-- volume_ratio: 1.77
-- distance_to_ma20_pct_auxiliary: 3.43
-- distance_to_high_60_pct: -1.02
+- date: 20260603
+- open: 19.4
+- high: 19.65
+- low: 19.3
+- close: 19.6
+- volume: 1631090
+- ma5: 19.11
+- ema23_primary: 18.87
+- distance_to_ema23_pct: 3.86
+- ma20: 18.8
+- ma60: 18.97
+- ma120: 18.59
+- return_5d: 6.23
+- return_20d: 3.98
+- volume_ratio: 2.02
+- distance_to_ma20_pct_auxiliary: 4.28
+- distance_to_high_60_pct: -0.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,18.8,18.85,18.7,18.85,514458,18.98,-0.66,19.05,18.77,0.66
 20260507,18.75,19.15,18.75,19.05,789302,18.98,0.36,19.03,18.78,1.03
 20260508,19.1,19.2,19,19.1,794440,18.99,0.57,19.02,18.79,1.03
 20260511,19.2,19.2,19.05,19.15,558664,19,0.76,19.01,18.8,0.72
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,18.65,18.85,18.6,18.75,914125,18.7,0.26,18.7,18.9,1.4
 20260601,18.85,19.4,18.85,19.3,2222824,18.75,2.93,18.73,18.92,3.16
 20260602,19.3,19.5,19.15,19.4,1330682,18.81,3.16,18.76,18.95,1.77
+20260603,19.4,19.65,19.3,19.6,1631090,18.87,3.86,18.8,18.97,2.02
 ```
 
 ## Latest TDCC Snapshot
@@ -172,12 +172,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1218 | 泰山 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: ex_dividend on 20260612; status=confirmed; proximity=within_14d |
+| 20260603 | 1218 | 泰山 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: ex_dividend on 20260612; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1218 | 泰山 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260603 | 1218 | 泰山 | 1 | 1 | 2 | 2 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
 | status |

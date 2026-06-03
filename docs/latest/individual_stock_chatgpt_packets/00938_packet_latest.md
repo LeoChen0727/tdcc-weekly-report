@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00938 凱基優選30
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:10 Asia/Taipei
+- generated_at: 2026-06-04 01:54:05 Asia/Taipei
 - stock_id: 00938
 - stock_name: 凱基優選30
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260602
-- price_rows: 8
+- latest_price_date: 20260603
+- price_rows: 9
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -59,7 +59,7 @@
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: observe_only
 
 ### management_plan
@@ -72,7 +72,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -97,23 +96,23 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 22.21
-- high: 22.49
-- low: 22.18
-- close: 22.49
-- volume: 599824
-- ma5: 21.97
-- ema23_primary: 21.38
-- distance_to_ema23_pct: 5.19
-- ma20: 21.68
-- ma60: 21.68
-- ma120: 21.68
-- return_5d: 5.34
+- date: 20260603
+- open: 22.81
+- high: 23.22
+- low: 22.79
+- close: 23.21
+- volume: 1584308
+- ma5: 22.27
+- ema23_primary: 21.53
+- distance_to_ema23_pct: 7.78
+- ma20: 21.85
+- ma60: 21.85
+- ma120: 21.85
+- return_5d: 6.76
 - return_20d: 
-- volume_ratio: 0.4
-- distance_to_ma20_pct_auxiliary: 3.75
-- distance_to_high_60_pct: 0
+- volume_ratio: 1.05
+- distance_to_ma20_pct_auxiliary: 6.24
+- distance_to_high_60_pct: -0.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -127,6 +126,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,21.8,22.01,21.76,21.9,1410068,21.19,3.33,21.45,21.45,0.84
 20260601,22,22.24,21.9,22.23,1259745,21.28,4.46,21.56,21.56,0.78
 20260602,22.21,22.49,22.18,22.49,599824,21.38,5.19,21.68,21.68,0.4
+20260603,22.81,23.22,22.79,23.21,1584308,21.53,7.78,21.85,21.85,1.05
 ```
 
 ## Latest TDCC Snapshot

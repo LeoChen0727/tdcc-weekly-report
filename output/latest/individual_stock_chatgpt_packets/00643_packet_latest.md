@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00643 群益深証中小
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:04 Asia/Taipei
+- generated_at: 2026-06-04 01:54:02 Asia/Taipei
 - stock_id: 00643
 - stock_name: 群益深証中小
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260602
-- price_rows: 8
+- latest_price_date: 20260603
+- price_rows: 9
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -97,23 +97,23 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 19.75
-- high: 20.03
-- low: 19.44
-- close: 20.03
-- volume: 3477209
-- ma5: 20.18
+- date: 20260603
+- open: 20.04
+- high: 20.28
+- low: 19.96
+- close: 20.16
+- volume: 3455518
+- ma5: 20.12
 - ema23_primary: 20.19
-- distance_to_ema23_pct: -0.81
-- ma20: 20.23
-- ma60: 20.23
-- ma120: 20.23
-- return_5d: -2.05
+- distance_to_ema23_pct: -0.15
+- ma20: 20.22
+- ma60: 20.22
+- ma120: 20.22
+- return_5d: -1.42
 - return_20d: 
-- volume_ratio: 1.09
-- distance_to_ma20_pct_auxiliary: -0.99
-- distance_to_high_60_pct: -3.24
+- volume_ratio: 1.08
+- distance_to_ma20_pct_auxiliary: -0.31
+- distance_to_high_60_pct: -2.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -127,6 +127,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,20.34,20.47,20.05,20.34,2551836,20.24,0.49,20.33,20.33,0.86
 20260601,20.14,20.16,19.67,19.84,4248163,20.21,-1.82,20.26,20.26,1.35
 20260602,19.75,20.03,19.44,20.03,3477209,20.19,-0.81,20.23,20.23,1.09
+20260603,20.04,20.28,19.96,20.16,3455518,20.19,-0.15,20.22,20.22,1.08
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2915 潤泰全
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:13 Asia/Taipei
+- generated_at: 2026-06-04 01:55:02 Asia/Taipei
 - stock_id: 2915
 - stock_name: 潤泰全
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,11 +59,11 @@
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -76,7 +76,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -101,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 45.15
-- high: 46.15
-- low: 44.95
-- close: 45.9
-- volume: 2740986
-- ma5: 44.54
-- ema23_primary: 44.32
-- distance_to_ema23_pct: 3.57
-- ma20: 43.83
-- ma60: 46.1
-- ma120: 49.67
-- return_5d: 3.85
-- return_20d: 6.13
-- volume_ratio: 0.97
-- distance_to_ma20_pct_auxiliary: 4.73
-- distance_to_high_60_pct: -12.57
+- date: 20260603
+- open: 46
+- high: 47.95
+- low: 45.95
+- close: 47.75
+- volume: 5585286
+- ma5: 45.38
+- ema23_primary: 44.6
+- distance_to_ema23_pct: 7.05
+- ma20: 44.04
+- ma60: 46.02
+- ma120: 49.61
+- return_5d: 9.64
+- return_20d: 9.9
+- volume_ratio: 1.86
+- distance_to_ma20_pct_auxiliary: 8.42
+- distance_to_high_60_pct: -8.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,43.3,43.5,43.1,43.45,2046885,45.35,-4.2,45.16,48.64,0.8
 20260507,43.25,43.8,43.05,43.75,3202231,45.22,-3.25,44.95,48.52,1.21
 20260508,43.9,44.2,43.25,43.25,1858512,45.06,-4.01,44.74,48.4,0.69
 20260511,43.5,43.7,43.3,43.65,1113965,44.94,-2.87,44.58,48.28,0.42
@@ -143,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,44.15,44.95,44,44,3484979,44.08,-0.17,43.61,46.29,1.22
 20260601,44,45.35,43.9,45.25,3336048,44.17,2.43,43.7,46.19,1.19
 20260602,45.15,46.15,44.95,45.9,2740986,44.32,3.57,43.83,46.1,0.97
+20260603,46,47.95,45.95,47.75,5585286,44.6,7.05,44.04,46.02,1.86
 ```
 
 ## Latest TDCC Snapshot
@@ -172,12 +171,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2915 | 潤泰全 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2915 | 潤泰全 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2915 | 潤泰全 | 2 | 1 | 3 | 4 | 4 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260603 | 2915 | 潤泰全 | 3 | 1 | 4 | 5 | 5 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

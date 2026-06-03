@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8040 九暘
 
 ## Metadata
-- generated_at: 2026-06-02 23:30:49 Asia/Taipei
+- generated_at: 2026-06-04 01:57:11 Asia/Taipei
 - stock_id: 8040
 - stock_name: 九暘
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,7 +58,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: high_level_consolidation
 - entry_style: current_price_ok
 - position_sizing: observe_only
 
@@ -75,7 +75,6 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -89,6 +88,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- price_too_extended
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -96,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 113
-- high: 113.5
+- date: 20260603
+- open: 108
+- high: 110
 - low: 104
 - close: 105.5
-- volume: 107
-- ma5: 110.4
-- ema23_primary: 96.73
-- distance_to_ema23_pct: 9.06
-- ma20: 97.7
-- ma60: 69.82
-- ma120: 59.48
-- return_5d: -10.59
-- return_20d: 28.97
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: 7.98
+- volume: 106000
+- ma5: 108.9
+- ema23_primary: 97.47
+- distance_to_ema23_pct: 8.24
+- ma20: 98.95
+- ma60: 70.74
+- ma120: 59.95
+- return_5d: -6.64
+- return_20d: 30.89
+- volume_ratio: 0.05
+- distance_to_ma20_pct_auxiliary: 6.62
 - distance_to_high_60_pct: -19.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,89.9,89.9,79.7,80.6,10784000,65.18,23.66,64.12,53.82,3.68
 20260507,82,82.6,78.5,80,2531000,66.41,20.46,65.7,54.31,0.83
 20260508,80,84.7,77.5,77.8,3144000,67.36,15.49,67.16,54.79,0.98
 20260511,77,80.2,76.1,78,1579000,68.25,14.29,68.7,55.29,0.48
@@ -138,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,110,114,109.5,111.5,111000,94.43,18.07,94.61,67.84,0.03
 20260601,112,117.5,111,112.5,114,95.94,17.26,96.52,68.89,0
 20260602,113,113.5,104,105.5,107,96.73,9.06,97.7,69.82,0
+20260603,108,110,104,105.5,106000,97.47,8.24,98.95,70.74,0.05
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00932 兆豐永續高息等權
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:10 Asia/Taipei
+- generated_at: 2026-06-04 01:54:05 Asia/Taipei
 - stock_id: 00932
 - stock_name: 兆豐永續高息等權
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260602
-- price_rows: 8
+- latest_price_date: 20260603
+- price_rows: 9
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -59,7 +59,7 @@
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: observe_only
 
 ### management_plan
@@ -72,7 +72,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -97,23 +96,23 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 17.27
-- high: 17.56
-- low: 17.2
-- close: 17.56
-- volume: 4224268
-- ma5: 17.01
-- ema23_primary: 16.74
-- distance_to_ema23_pct: 4.88
-- ma20: 16.86
-- ma60: 16.86
-- ma120: 16.86
-- return_5d: 5.47
+- date: 20260603
+- open: 17.63
+- high: 17.94
+- low: 17.63
+- close: 17.91
+- volume: 1961575
+- ma5: 17.26
+- ema23_primary: 16.84
+- distance_to_ema23_pct: 6.36
+- ma20: 16.98
+- ma60: 16.98
+- ma120: 16.98
+- return_5d: 7.31
 - return_20d: 
-- volume_ratio: 1.45
-- distance_to_ma20_pct_auxiliary: 4.14
-- distance_to_high_60_pct: 0
+- volume_ratio: 0.7
+- distance_to_ma20_pct_auxiliary: 5.48
+- distance_to_high_60_pct: -0.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -127,6 +126,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,16.85,16.95,16.85,16.94,2917979,16.62,1.95,16.68,16.68,1.13
 20260601,17,17.26,16.99,17.25,3703974,16.67,3.49,16.76,16.76,1.36
 20260602,17.27,17.56,17.2,17.56,4224268,16.74,4.88,16.86,16.86,1.45
+20260603,17.63,17.94,17.63,17.91,1961575,16.84,6.36,16.98,16.98,0.7
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2338 光罩
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:24 Asia/Taipei
+- generated_at: 2026-06-04 01:54:38 Asia/Taipei
 - stock_id: 2338
 - stock_name: 光罩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 56.9
-- high: 57
-- low: 53.1
-- close: 54.5
-- volume: 8447087
-- ma5: 56.34
-- ema23_primary: 52.66
-- distance_to_ema23_pct: 3.49
-- ma20: 52.49
+- date: 20260603
+- open: 54.5
+- high: 54.5
+- low: 52.6
+- close: 53
+- volume: 6829173
+- ma5: 55.7
+- ema23_primary: 52.69
+- distance_to_ema23_pct: 0.59
+- ma20: 52.67
 - ma60: 49.37
-- ma120: 43.98
-- return_5d: -1.62
-- return_20d: 7.92
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: 3.82
-- distance_to_high_60_pct: -11.24
+- ma120: 44.12
+- return_5d: -5.69
+- return_20d: 7.29
+- volume_ratio: 0.71
+- distance_to_ma20_pct_auxiliary: 0.62
+- distance_to_high_60_pct: -13.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,50.8,51,48.5,49.4,5421276,47.79,3.36,47.68,45.87,0.79
 20260507,50.9,54.3,50.8,54.3,17928655,48.34,12.34,48.13,46.07,2.36
 20260508,54,57,50.2,51.5,22940351,48.6,5.97,48.44,46.26,2.67
 20260511,51.5,51.8,49.65,50,7673180,48.72,2.63,48.62,46.44,0.89
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,57.9,59.4,56.9,57.9,10061343,52.07,11.2,51.82,49.2,1.1
 20260601,59,60,56.9,57.2,11246181,52.5,8.96,52.3,49.34,1.17
 20260602,56.9,57,53.1,54.5,8447087,52.66,3.49,52.49,49.37,0.88
+20260603,54.5,54.5,52.6,53,6829173,52.69,0.59,52.67,49.37,0.71
 ```
 
 ## Latest TDCC Snapshot
@@ -172,18 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2338 | 光罩 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 2338 | 光罩 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2338 | 光罩 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2338 | 光罩 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 2338 | 光罩 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2338 | 光罩 | 15 | 1 | 5379430.0 | 108740.0 | 49.47 | no_signal | 0 |  |
+| 20260603 | 2338 | 光罩 | 15 | 1 | 2005690.0 | 307090.0 | 6.53 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

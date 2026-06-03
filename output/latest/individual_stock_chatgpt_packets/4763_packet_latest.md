@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4763 材料*-KY
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:48 Asia/Taipei
+- generated_at: 2026-06-04 01:55:48 Asia/Taipei
 - stock_id: 4763
 - stock_name: 材料*-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 268
+- latest_price_date: 20260603
+- price_rows: 269
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -97,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 42.9
-- high: 43.2
-- low: 41.95
-- close: 42.7
-- volume: 6983265
-- ma5: 41.58
-- ema23_primary: 42.25
-- distance_to_ema23_pct: 1.07
-- ma20: 41.94
-- ma60: 43.23
-- ma120: 47.21
-- return_5d: 1.91
-- return_20d: -1.61
-- volume_ratio: 1.06
-- distance_to_ma20_pct_auxiliary: 1.81
-- distance_to_high_60_pct: -12.14
+- date: 20260603
+- open: 43.15
+- high: 45
+- low: 42.7
+- close: 43.95
+- volume: 12735256
+- ma5: 42.09
+- ema23_primary: 42.39
+- distance_to_ema23_pct: 3.68
+- ma20: 42
+- ma60: 43.2
+- ma120: 47.11
+- return_5d: 6.16
+- return_20d: 2.81
+- volume_ratio: 1.83
+- distance_to_ma20_pct_auxiliary: 4.64
+- distance_to_high_60_pct: -9.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,43.85,43.85,42.55,42.75,5509393,43.64,-2.04,43.65,45.37,0.63
 20260507,42.25,42.3,41.5,41.95,9716163,43.5,-3.57,43.59,45.23,1.09
 20260508,41.9,42.55,41.35,41.9,6274617,43.37,-3.38,43.58,45.09,0.69
 20260511,41.85,42.3,41.7,41.95,5471131,43.25,-3,43.58,44.97,0.6
@@ -139,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,40.7,41.2,40.55,40.9,4558687,42.17,-3.01,41.99,43.26,0.72
 20260601,41.2,42.6,40.9,42.6,8802459,42.21,0.94,41.98,43.26,1.35
 20260602,42.9,43.2,41.95,42.7,6983265,42.25,1.07,41.94,43.23,1.06
+20260603,43.15,45,42.7,43.95,12735256,42.39,3.68,42,43.2,1.83
 ```
 
 ## Latest TDCC Snapshot
@@ -178,7 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 4763 | 材料*-KY | 63 | 3 | 3115630.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260603 | 4763 | 材料*-KY | 62 | 3 | 5965370.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

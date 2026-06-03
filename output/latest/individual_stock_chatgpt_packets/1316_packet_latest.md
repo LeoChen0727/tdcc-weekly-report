@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1316 上曜
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:23 Asia/Taipei
+- generated_at: 2026-06-04 01:54:11 Asia/Taipei
 - stock_id: 1316
 - stock_name: 上曜
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 274
+- latest_price_date: 20260603
+- price_rows: 275
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,18 +55,14 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: healthy_pullback
+- thesis_state: unclear
 - entry_style: pullback_to_23ema
-- position_sizing: half_position
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -75,7 +71,6 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -102,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 10.45
-- high: 10.45
-- low: 10.15
-- close: 10.3
-- volume: 1838612
-- ma5: 10.22
-- ema23_primary: 10.72
-- distance_to_ema23_pct: -3.91
-- ma20: 10.71
-- ma60: 11.66
-- ma120: 13.12
-- return_5d: 0.98
-- return_20d: -8.44
-- volume_ratio: 0.75
-- distance_to_ma20_pct_auxiliary: -3.87
-- distance_to_high_60_pct: -22.26
+- date: 20260603
+- open: 10.25
+- high: 10.75
+- low: 10.2
+- close: 10.65
+- volume: 3830830
+- ma5: 10.32
+- ema23_primary: 10.71
+- distance_to_ema23_pct: -0.59
+- ma20: 10.67
+- ma60: 11.62
+- ma120: 13.09
+- return_5d: 4.93
+- return_20d: -7.39
+- volume_ratio: 1.59
+- distance_to_ma20_pct_auxiliary: -0.21
+- distance_to_high_60_pct: -19.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,11.25,11.85,11.2,11.5,4857269,11.67,-1.46,11.65,12.62,1.92
 20260507,11.55,11.55,11.25,11.35,2466302,11.64,-2.52,11.61,12.57,0.95
 20260508,11.35,11.45,11.15,11.2,1780506,11.61,-3.51,11.57,12.52,0.68
 20260511,11.3,11.65,11.25,11.45,2066476,11.59,-1.24,11.53,12.48,0.78
@@ -144,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,10.3,10.4,10.1,10.1,2044604,10.79,-6.43,10.79,11.74,0.77
 20260601,10.15,10.45,10.05,10.35,2691756,10.76,-3.79,10.76,11.71,0.99
 20260602,10.45,10.45,10.15,10.3,1838612,10.72,-3.91,10.71,11.66,0.75
+20260603,10.25,10.75,10.2,10.65,3830830,10.71,-0.59,10.67,11.62,1.59
 ```
 
 ## Latest TDCC Snapshot
@@ -171,14 +166,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1316 | 上曜 | revenue_pullback | 營收成長股價回檔 | 62.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1316 | 上曜 | 4 | 4 | 4 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

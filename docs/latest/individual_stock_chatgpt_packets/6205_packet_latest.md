@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6205 詮欣
 
 ## Metadata
-- generated_at: 2026-06-02 23:28:50 Asia/Taipei
+- generated_at: 2026-06-04 01:56:17 Asia/Taipei
 - stock_id: 6205
 - stock_name: 詮欣
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,8 +58,8 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: high_level_distribution_risk
-- entry_style: breakout_follow
+- thesis_state: unclear
+- entry_style: pullback_to_23ema
 - position_sizing: starter_1_4
 
 ### management_plan
@@ -79,6 +79,7 @@
 - near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -93,7 +94,6 @@
 ### downgrade_reason
 - insufficient_tdcc_history
 - tdcc_distribution_warning
-- price_too_extended
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 81.2
-- high: 89.3
-- low: 79.9
-- close: 89.3
-- volume: 8792071
-- ma5: 81.3
-- ema23_primary: 80.65
-- distance_to_ema23_pct: 10.72
-- ma20: 81.94
-- ma60: 70.9
-- ma120: 60.46
-- return_5d: 7.59
-- return_20d: -9.06
-- volume_ratio: 2.23
-- distance_to_ma20_pct_auxiliary: 8.98
-- distance_to_high_60_pct: -14.55
+- date: 20260603
+- open: 89
+- high: 94
+- low: 87.6
+- close: 91.2
+- volume: 13657048
+- ma5: 83.34
+- ema23_primary: 81.53
+- distance_to_ema23_pct: 11.86
+- ma20: 81.8
+- ma60: 71.53
+- ma120: 60.89
+- return_5d: 12.59
+- return_20d: -3.08
+- volume_ratio: 3.57
+- distance_to_ma20_pct_auxiliary: 11.5
+- distance_to_high_60_pct: -12.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,103,104.5,91.7,94.1,15877388,78.21,20.32,77.63,61.4,1.78
 20260507,94.1,94.1,88.6,90.7,7825379,79.25,14.45,79.44,61.98,0.84
 20260508,90.7,91.2,84.3,84.9,4844701,79.72,6.5,80.83,62.51,0.51
 20260511,83.2,87.5,81,86.1,3335931,80.25,7.29,82.3,63.1,0.35
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,79,79.1,77.7,78,857091,79.74,-2.19,83.05,69.84,0.18
 20260601,78,81.5,77.7,81.2,1384344,79.87,1.67,82.39,70.3,0.32
 20260602,81.2,89.3,79.9,89.3,8792071,80.65,10.72,81.94,70.9,2.23
+20260603,89,94,87.6,91.2,13657048,81.53,11.86,81.8,71.53,3.57
 ```
 
 ## Latest TDCC Snapshot
@@ -172,12 +172,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6205 | 詮欣 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 6205 | 詮欣 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6205 | 詮欣 | 2 | 1 | 4 | 5 | 5 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260603 | 6205 | 詮欣 | 3 | 2 | 4 | 6 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1711 永光
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:51 Asia/Taipei
+- generated_at: 2026-06-04 01:54:24 Asia/Taipei
 - stock_id: 1711
 - stock_name: 永光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,7 +59,7 @@
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: observe_only
 
 ### management_plan
@@ -72,7 +72,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -97,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 49.7
-- high: 50.1
+- date: 20260603
+- open: 47.95
+- high: 48.45
 - low: 47
-- close: 47.95
-- volume: 11726763
-- ma5: 49.27
-- ema23_primary: 50.29
-- distance_to_ema23_pct: -4.66
-- ma20: 51.72
-- ma60: 45.39
-- ma120: 33.43
-- return_5d: -5.42
-- return_20d: -21.26
-- volume_ratio: 0.71
-- distance_to_ma20_pct_auxiliary: -7.28
-- distance_to_high_60_pct: -25.43
+- close: 47.4
+- volume: 8955389
+- ma5: 48.55
+- ema23_primary: 50.05
+- distance_to_ema23_pct: -5.3
+- ma20: 51.04
+- ma60: 45.73
+- ma120: 33.67
+- return_5d: -7.06
+- return_20d: -22.17
+- volume_ratio: 0.54
+- distance_to_ma20_pct_auxiliary: -7.14
+- distance_to_high_60_pct: -26.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,63,63,58.9,60.9,4591119,50.37,20.9,50.17,36.88,0.11
 20260507,63,63,61.7,62,5775077,51.34,20.76,51.61,37.54,0.15
 20260508,58,59,57.5,57.5,6846499,51.86,10.89,52.65,38.15,0.18
 20260511,57,59.3,54,54.2,40774228,52.05,4.13,53.42,38.7,1.12
@@ -139,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,49,49.9,48.35,49.1,10533672,50.61,-2.99,52.8,44.66,0.67
 20260601,49.1,51.3,49,49.35,12409628,50.51,-2.29,52.37,45.05,0.77
 20260602,49.7,50.1,47,47.95,11726763,50.29,-4.66,51.72,45.39,0.71
+20260603,47.95,48.45,47,47.4,8955389,50.05,-5.3,51.04,45.73,0.54
 ```
 
 ## Latest TDCC Snapshot
@@ -178,7 +177,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1711 | 永光 | 43 | 0 | 6077360.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260603 | 1711 | 永光 | 43 | 0 | 2167240.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

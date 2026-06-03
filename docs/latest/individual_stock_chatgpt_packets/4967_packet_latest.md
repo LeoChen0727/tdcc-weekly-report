@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4967 十銓
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:58 Asia/Taipei
+- generated_at: 2026-06-04 01:55:53 Asia/Taipei
 - stock_id: 4967
 - stock_name: 十銓
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,11 +59,11 @@
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -76,7 +76,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -101,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 295
-- high: 310
-- low: 290
-- close: 304.5
-- volume: 28823810
-- ma5: 281.4
-- ema23_primary: 274.14
-- distance_to_ema23_pct: 11.07
-- ma20: 279.65
-- ma60: 248.57
-- ma120: 216.98
-- return_5d: 12.36
-- return_20d: 5.36
-- volume_ratio: 2.33
-- distance_to_ma20_pct_auxiliary: 8.89
-- distance_to_high_60_pct: -5.73
+- date: 20260603
+- open: 314.5
+- high: 315.5
+- low: 295.5
+- close: 299
+- volume: 17780248
+- ma5: 287.8
+- ema23_primary: 276.22
+- distance_to_ema23_pct: 8.25
+- ma20: 279.7
+- ma60: 250.45
+- ma120: 218.37
+- return_5d: 11.98
+- return_20d: 0.34
+- volume_ratio: 1.52
+- distance_to_ma20_pct_auxiliary: 6.9
+- distance_to_high_60_pct: -7.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,303.5,313,292.5,298,31955345,256.58,16.14,250.2,228.64,1.74
 20260507,305,323,295,297,30686752,259.95,14.25,253.82,229.32,1.59
 20260508,296,309.5,283.5,298,17663841,263.12,13.26,257.73,230.12,0.89
 20260511,288.5,290,278,284.5,21393469,264.9,7.4,260.98,230.66,1.05
@@ -143,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,277.5,279,273,276,4992882,269.78,2.3,278.65,244.83,0.43
 20260601,280,290,278,289,12063317,271.39,6.49,278.88,246.65,1.04
 20260602,295,310,290,304.5,28823810,274.14,11.07,279.65,248.57,2.33
+20260603,314.5,315.5,295.5,299,17780248,276.22,8.25,279.7,250.45,1.52
 ```
 
 ## Latest TDCC Snapshot
@@ -172,20 +171,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 4967 | 十銓 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260602 | 4967 | 十銓 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260602 | 4967 | 十銓 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 4967 | 十銓 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 4967 | 十銓 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 4967 | 十銓 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 4967 | 十銓 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 4967 | 十銓 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 4967 | 十銓 | 50 | 1 | 40452180.0 | 30.0 | 1348406.0 | call_put_bullish | 3 |  |
+| 20260603 | 4967 | 十銓 | 50 | 1 | 30482800.0 | 1050.0 | 29031.24 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

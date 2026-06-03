@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2454 聯發科
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:40 Asia/Taipei
+- generated_at: 2026-06-04 01:54:46 Asia/Taipei
 - stock_id: 2454
 - stock_name: 聯發科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -96,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 4970
-- high: 4970
-- low: 4380
-- close: 4525
-- volume: 15626708
-- ma5: 4488
-- ema23_primary: 3697.34
-- distance_to_ema23_pct: 22.39
-- ma20: 3818.25
-- ma60: 2527.25
-- ma120: 2048.25
-- return_5d: 6.1
-- return_20d: 43.42
-- volume_ratio: 1.15
-- distance_to_ma20_pct_auxiliary: 18.51
-- distance_to_high_60_pct: -8.95
+- date: 20260603
+- open: 4540
+- high: 4650
+- low: 4420
+- close: 4545
+- volume: 10480184
+- ma5: 4469
+- ema23_primary: 3767.98
+- distance_to_ema23_pct: 20.62
+- ma20: 3874
+- ma60: 2573.58
+- ma120: 2074.5
+- return_5d: -2.05
+- return_20d: 32.51
+- volume_ratio: 0.86
+- distance_to_ma20_pct_auxiliary: 17.32
+- distance_to_high_60_pct: -8.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,3470,3470,3155,3430,39638460,2321.61,47.74,2215.25,1882.92,2.26
 20260507,3430,3430,3295,3420,8465341,2413.14,41.72,2307.25,1910.25,0.49
 20260508,3320,3670,3320,3630,9525653,2514.54,44.36,2410,1941.08,0.55
 20260511,3575,3985,3565,3880,8690923,2628.33,47.62,2525.25,1976.42,0.5
@@ -138,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,4460,4485,4235,4310,23109791,3537.29,21.84,3665.5,2434.17,1.84
 20260601,4440,4710,4440,4555,20083897,3622.1,25.76,3749.75,2481.42,1.5
 20260602,4970,4970,4380,4525,15626708,3697.34,22.39,3818.25,2527.25,1.15
+20260603,4540,4650,4420,4545,10480184,3767.98,20.62,3874,2573.58,0.86
 ```
 
 ## Latest TDCC Snapshot
@@ -177,7 +177,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2454 | 聯發科 | 482 | 41 | 68533720.0 | 1238930.0 | 55.32 | no_signal | 0 |  |
+| 20260603 | 2454 | 聯發科 | 479 | 41 | 56577930.0 | 1464920.0 | 38.62 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

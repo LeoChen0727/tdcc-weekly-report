@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1476 儒鴻
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:35 Asia/Taipei
+- generated_at: 2026-06-04 01:54:17 Asia/Taipei
 - stock_id: 1476
 - stock_name: 儒鴻
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,7 +59,7 @@
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: observe_only
 
 ### management_plan
@@ -72,7 +72,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -97,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 352.5
-- high: 356.5
-- low: 347.5
-- close: 351.5
-- volume: 2149468
-- ma5: 343.7
-- ema23_primary: 340.4
-- distance_to_ema23_pct: 3.26
-- ma20: 339.2
-- ma60: 345.19
-- ma120: 375.43
-- return_5d: 5.08
-- return_20d: 4.46
-- volume_ratio: 1.28
-- distance_to_ma20_pct_auxiliary: 3.63
-- distance_to_high_60_pct: -12.02
+- date: 20260603
+- open: 352
+- high: 361.5
+- low: 352
+- close: 360.5
+- volume: 1784548
+- ma5: 349.6
+- ema23_primary: 342.08
+- distance_to_ema23_pct: 5.39
+- ma20: 340.57
+- ma60: 344.63
+- ma120: 374.78
+- return_5d: 8.91
+- return_20d: 8.26
+- volume_ratio: 1.03
+- distance_to_ma20_pct_auxiliary: 5.85
+- distance_to_high_60_pct: -8.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,336.5,342.5,332,333,771954,340.37,-2.16,336.85,368.32,0.6
 20260507,331,338,331,335,992262,339.92,-1.45,337.3,367.14,0.78
 20260508,341.5,347.5,339,344,1515124,340.26,1.1,338,366.11,1.2
 20260511,344,352,343,345.5,1072470,340.7,1.41,338.85,365.25,0.83
@@ -139,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,345,346,337.5,342.5,1411037,338.16,1.28,337.73,346.5,0.94
 20260601,342.5,353,339,353,2955046,339.39,4.01,338.45,345.92,1.85
 20260602,352.5,356.5,347.5,351.5,2149468,340.4,3.26,339.2,345.19,1.28
+20260603,352,361.5,352,360.5,1784548,342.08,5.39,340.57,344.63,1.03
 ```
 
 ## Latest TDCC Snapshot
@@ -178,7 +177,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1476 | 儒鴻 | 15 | 0 | 4345350.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 1476 | 儒鴻 | 16 | 0 | 3600050.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

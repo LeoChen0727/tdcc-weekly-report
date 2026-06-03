@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8028 昇陽半導體
 
 ## Metadata
-- generated_at: 2026-06-02 23:30:47 Asia/Taipei
+- generated_at: 2026-06-04 01:57:10 Asia/Taipei
 - stock_id: 8028
 - stock_name: 昇陽半導體
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -96,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 351
-- high: 354
-- low: 333
-- close: 335
-- volume: 8161543
-- ma5: 332.2
-- ema23_primary: 283.66
-- distance_to_ema23_pct: 18.1
-- ma20: 279.75
-- ma60: 225.1
-- ma120: 199.88
-- return_5d: 7.72
-- return_20d: 39
-- volume_ratio: 0.54
-- distance_to_ma20_pct_auxiliary: 19.75
-- distance_to_high_60_pct: -8.22
+- date: 20260603
+- open: 348
+- high: 355.5
+- low: 335
+- close: 344.5
+- volume: 8947128
+- ma5: 339.5
+- ema23_primary: 288.73
+- distance_to_ema23_pct: 19.31
+- ma20: 285.15
+- ma60: 227.91
+- ma120: 201.4
+- return_5d: 11.85
+- return_20d: 45.67
+- volume_ratio: 0.6
+- distance_to_ma20_pct_auxiliary: 20.81
+- distance_to_high_60_pct: -5.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,243,247,230.5,236.5,14362009,217.66,8.65,215.75,190.65,0.77
 20260507,240,241.5,228.5,229,10197665,218.61,4.75,217.85,191.49,0.55
 20260508,230.5,241,225,226,13241198,219.22,3.09,218.88,192.35,0.74
 20260511,227.5,236,226,234,6507331,220.45,6.14,220.62,193.43,0.37
@@ -138,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,365,365,325,327,16378766,271.95,20.24,269.45,219.36,1.07
 20260601,329,359.5,327.5,356.5,15191948,279,27.78,275.05,222.48,0.99
 20260602,351,354,333,335,8161543,283.66,18.1,279.75,225.1,0.54
+20260603,348,355.5,335,344.5,8947128,288.73,19.31,285.15,227.91,0.6
 ```
 
 ## Latest TDCC Snapshot
@@ -177,7 +177,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 8028 | 昇陽半導體 | 176 | 2 | 16714190.0 | 103830.0 | 160.98 | no_signal | 0 |  |
+| 20260603 | 8028 | 昇陽半導體 | 174 | 2 | 14022250.0 | 38490.0 | 364.31 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2845 遠東銀
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:07 Asia/Taipei
+- generated_at: 2026-06-04 01:54:59 Asia/Taipei
 - stock_id: 2845
 - stock_name: 遠東銀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 12.1
-- high: 12.15
-- low: 12
-- close: 12.1
-- volume: 10123206
-- ma5: 11.97
-- ema23_primary: 12.1
-- distance_to_ema23_pct: 0.03
+- date: 20260603
+- open: 12.15
+- high: 12.45
+- low: 12.1
+- close: 12.35
+- volume: 20161771
+- ma5: 12.06
+- ema23_primary: 12.12
+- distance_to_ema23_pct: 1.92
 - ma20: 12.06
 - ma60: 12.32
-- ma120: 12.51
-- return_5d: 0.83
-- return_20d: -0.82
-- volume_ratio: 0.9
-- distance_to_ma20_pct_auxiliary: 0.33
-- distance_to_high_60_pct: -5.1
+- ma120: 12.5
+- return_5d: 3.78
+- return_20d: 0.82
+- volume_ratio: 1.69
+- distance_to_ma20_pct_auxiliary: 2.36
+- distance_to_high_60_pct: -3.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,12.3,12.3,12.2,12.25,7696815,12.4,-1.22,12.47,12.48,1.08
 20260507,12.25,12.3,12.2,12.25,12473381,12.39,-1.12,12.45,12.47,1.72
 20260508,12.3,12.3,12.2,12.2,6699191,12.37,-1.4,12.43,12.46,0.9
 20260511,12.2,12.25,12.15,12.2,12464838,12.36,-1.28,12.4,12.46,1.58
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,11.95,12,11.85,11.85,11510053,12.1,-2.03,12.07,12.33,1.08
 20260601,11.95,12.2,11.85,12.1,19201822,12.1,0.03,12.06,12.32,1.73
 20260602,12.1,12.15,12,12.1,10123206,12.1,0.03,12.06,12.32,0.9
+20260603,12.15,12.45,12.1,12.35,20161771,12.12,1.92,12.06,12.32,1.69
 ```
 
 ## Latest TDCC Snapshot
@@ -172,18 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2845 | 遠東銀 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260602 | 2845 | 遠東銀 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2845 | 遠東銀 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2845 | 遠東銀 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 2845 | 遠東銀 | 10 | 1 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2845 | 遠東銀 | 1 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 2845 | 遠東銀 | 1 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

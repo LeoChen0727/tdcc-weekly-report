@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6166 凌華
 
 ## Metadata
-- generated_at: 2026-06-02 23:28:43 Asia/Taipei
+- generated_at: 2026-06-04 01:56:13 Asia/Taipei
 - stock_id: 6166
 - stock_name: 凌華
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,18 +55,14 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: starter_position
-- action_rating_label_zh: 可小量試單
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: high_level_consolidation
-- entry_style: pullback_to_23ema
-- position_sizing: starter_1_4
+- entry_style: current_price_ok
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -76,7 +72,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -101,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 135
-- high: 135
-- low: 126.5
-- close: 132
-- volume: 2936838
-- ma5: 132.6
-- ema23_primary: 113.2
-- distance_to_ema23_pct: 16.6
-- ma20: 114.64
-- ma60: 82.38
-- ma120: 73.01
-- return_5d: -0.75
-- return_20d: 67.94
-- volume_ratio: 0.6
-- distance_to_ma20_pct_auxiliary: 15.14
-- distance_to_high_60_pct: -8.97
+- date: 20260603
+- open: 130.5
+- high: 131.5
+- low: 123
+- close: 127
+- volume: 3189514
+- ma5: 130.8
+- ema23_primary: 114.35
+- distance_to_ema23_pct: 11.06
+- ma20: 117.03
+- ma60: 83.45
+- ma120: 73.55
+- return_5d: -6.62
+- return_20d: 59.95
+- volume_ratio: 0.64
+- distance_to_ma20_pct_auxiliary: 8.52
+- distance_to_high_60_pct: -12.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,79.6,79.9,77.1,79.4,1342696,72.83,9.02,73.31,65.19,0.67
 20260507,85.1,87.3,83.9,86.5,7206065,73.97,16.94,74.67,65.55,3.08
 20260508,85,88.7,84.1,87.3,4415815,75.08,16.27,76,65.93,1.75
 20260511,93.4,93.4,85.6,92.7,4644859,76.55,21.1,77.55,66.44,1.7
@@ -143,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,135,135,128,132,2365202,109.5,20.55,109.42,79.96,0.48
 20260601,135,142,131.5,133.5,3698961,111.5,19.74,111.97,81.21,0.76
 20260602,135,135,126.5,132,2936838,113.2,16.6,114.64,82.38,0.6
+20260603,130.5,131.5,123,127,3189514,114.35,11.06,117.03,83.45,0.64
 ```
 
 ## Latest TDCC Snapshot
@@ -170,19 +165,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6166 | 凌華 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6166 | 凌華 | 2 | 2 | 2 | 3 | 3 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6166 | 凌華 | 4 | 0 | 272150.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 6166 | 凌華 | 4 | 0 | 110500.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9907 統一實
 
 ## Metadata
-- generated_at: 2026-06-02 23:31:22 Asia/Taipei
+- generated_at: 2026-06-04 01:57:27 Asia/Taipei
 - stock_id: 9907
 - stock_name: 統一實
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 16.25
-- high: 16.4
-- low: 16.25
-- close: 16.35
-- volume: 4422741
-- ma5: 16.03
-- ema23_primary: 16.47
-- distance_to_ema23_pct: -0.71
-- ma20: 16.31
-- ma60: 17.51
-- ma120: 17.97
-- return_5d: 3.15
-- return_20d: -7.1
-- volume_ratio: 0.95
-- distance_to_ma20_pct_auxiliary: 0.25
-- distance_to_high_60_pct: -13.95
+- date: 20260603
+- open: 16.5
+- high: 16.8
+- low: 16.45
+- close: 16.75
+- volume: 5255346
+- ma5: 16.21
+- ema23_primary: 16.49
+- distance_to_ema23_pct: 1.57
+- ma20: 16.28
+- ma60: 17.48
+- ma120: 17.95
+- return_5d: 5.68
+- return_20d: -3.18
+- volume_ratio: 1.16
+- distance_to_ma20_pct_auxiliary: 2.87
+- distance_to_high_60_pct: -11.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,17.5,17.5,17.3,17.3,7444099,17.87,-3.2,17.9,18.19,2.09
 20260507,17.3,17.35,17,17.25,4900610,17.82,-3.2,17.84,18.18,1.33
 20260508,17.25,17.25,17,17.1,3918226,17.76,-3.72,17.77,18.16,1.04
 20260511,17.15,17.15,16.9,17,4378947,17.7,-3.94,17.71,18.15,1.12
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,15.95,16,15.85,15.95,3229168,16.5,-3.35,16.45,17.6,0.71
 20260601,16.1,16.25,16.05,16.2,4822284,16.48,-1.69,16.37,17.55,1.04
 20260602,16.25,16.4,16.25,16.35,4422741,16.47,-0.71,16.31,17.51,0.95
+20260603,16.5,16.8,16.45,16.75,5255346,16.49,1.57,16.28,17.48,1.16
 ```
 
 ## Latest TDCC Snapshot
@@ -172,12 +172,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 9907 | 統一實 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 9907 | 統一實 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 57.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 9907 | 統一實 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| 20260603 | 9907 | 統一實 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

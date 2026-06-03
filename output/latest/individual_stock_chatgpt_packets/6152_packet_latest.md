@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6152 百一
 
 ## Metadata
-- generated_at: 2026-06-02 23:28:41 Asia/Taipei
+- generated_at: 2026-06-04 01:56:12 Asia/Taipei
 - stock_id: 6152
 - stock_name: 百一
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,18 +55,14 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: starter_position
-- action_rating_label_zh: 可小量試單
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
 - entry_style: pullback_to_23ema
-- position_sizing: starter_1_4
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -78,6 +74,7 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -93,7 +90,6 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
-- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -101,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 15.25
-- high: 15.5
-- low: 14.8
-- close: 15.3
-- volume: 1878035
-- ma5: 15.13
-- ema23_primary: 15.27
-- distance_to_ema23_pct: 0.23
-- ma20: 15.09
-- ma60: 16.45
-- ma120: 14.51
-- return_5d: 0.99
-- return_20d: 9.29
-- volume_ratio: 0.95
-- distance_to_ma20_pct_auxiliary: 1.39
-- distance_to_high_60_pct: -28.67
+- date: 20260603
+- open: 15.75
+- high: 16.25
+- low: 15.3
+- close: 15.8
+- volume: 3432500
+- ma5: 15.3
+- ema23_primary: 15.31
+- distance_to_ema23_pct: 3.2
+- ma20: 15.2
+- ma60: 16.38
+- ma120: 14.57
+- return_5d: 5.69
+- return_20d: 15.33
+- volume_ratio: 1.64
+- distance_to_ma20_pct_auxiliary: 3.98
+- distance_to_high_60_pct: -26.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,14,14.05,13.65,13.7,1233459,15.44,-11.25,15.76,16.74,0.32
 20260507,13.7,14.1,13.7,13.95,1283057,15.31,-8.9,15.63,16.74,0.34
 20260508,13.8,14.3,13.45,13.5,1795466,15.16,-10.96,15.39,16.75,0.52
 20260511,14.65,14.85,14.6,14.85,1249634,15.14,-1.88,15.24,16.78,0.4
@@ -143,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,15.3,15.45,15,15.3,1005560,15.28,0.15,14.97,16.6,0.53
 20260601,15.1,15.3,14.85,15.1,1804527,15.26,-1.06,15.03,16.52,0.94
 20260602,15.25,15.5,14.8,15.3,1878035,15.27,0.23,15.09,16.45,0.95
+20260603,15.75,16.25,15.3,15.8,3432500,15.31,3.2,15.2,16.38,1.64
 ```
 
 ## Latest TDCC Snapshot
@@ -170,14 +166,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6152 | 百一 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6152 | 百一 | 4 | 4 | 4 | 8 | 8 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | status |

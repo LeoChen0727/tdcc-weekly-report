@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3037 欣興
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:22 Asia/Taipei
+- generated_at: 2026-06-04 01:55:07 Asia/Taipei
 - stock_id: 3037
 - stock_name: 欣興
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -100,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 1050
-- high: 1050
-- low: 950
-- close: 975
-- volume: 29360754
-- ma5: 1037
-- ema23_primary: 917.99
-- distance_to_ema23_pct: 6.21
-- ma20: 924.7
-- ma60: 712.99
-- ma120: 501.94
-- return_5d: -10.14
-- return_20d: 7.97
-- volume_ratio: 1.02
-- distance_to_ma20_pct_auxiliary: 5.44
-- distance_to_high_60_pct: -13.72
+- date: 20260603
+- open: 976
+- high: 1010
+- low: 964
+- close: 1000
+- volume: 19513439
+- ma5: 1021
+- ema23_primary: 924.83
+- distance_to_ema23_pct: 8.13
+- ma20: 931.8
+- ma60: 722.46
+- ma120: 508.72
+- return_5d: -7.41
+- return_20d: 16.55
+- volume_ratio: 0.71
+- distance_to_ma20_pct_auxiliary: 7.32
+- distance_to_high_60_pct: -11.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,908,928,846,858,44744339,730.31,17.48,732.8,546.13,1.87
 20260507,875,905,862,896,26519253,744.12,20.41,746.6,554.94,1.14
 20260508,871,872,808,818,36009716,750.28,9.03,756.25,562.83,1.58
 20260511,830,889,822,861,28324275,759.51,13.36,767.4,570.88,1.25
@@ -142,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,1090,1095,1035,1055,21107426,900.34,17.18,914.15,693.69,0.7
 20260601,1070,1100,1025,1050,19127603,912.81,15.03,921.1,704.24,0.67
 20260602,1050,1050,950,975,29360754,917.99,6.21,924.7,712.99,1.02
+20260603,976,1010,964,1000,19513439,924.83,8.13,931.8,722.46,0.71
 ```
 
 ## Latest TDCC Snapshot
@@ -171,18 +171,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3037 | 欣興 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260602 | 3037 | 欣興 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260603 | 3037 | 欣興 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3037 | 欣興 | 1 | 1 | 1 | 2 | 2 | first_seen | 歷史上榜資料仍少，先當新訊號觀察。 |
+| 20260603 | 3037 | 欣興 | 2 | 2 | 2 | 3 | 3 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3037 | 欣興 | 217 | 40 | 13355510.0 | 194950.0 | 68.51 | call_inflow | 1 |  |
+| 20260603 | 3037 | 欣興 | 215 | 40 | 5482200.0 | 147130.0 | 37.26 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

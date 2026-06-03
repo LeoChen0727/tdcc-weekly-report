@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2379 瑞昱
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:30 Asia/Taipei
+- generated_at: 2026-06-04 01:54:41 Asia/Taipei
 - stock_id: 2379
 - stock_name: 瑞昱
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: buy_now
-- action_rating_label_zh: 建議買進
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: breakout_confirmed
-- entry_style: breakout_follow
-- position_sizing: normal_position
+- thesis_state: unclear
+- entry_style: current_price_ok
+- position_sizing: starter_1_4
 
 ### management_plan
 - buy_first_tranche_now
@@ -76,8 +76,6 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_priority_high
-- decision_score_high
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_tdcc_warning
@@ -103,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 612
-- high: 653
-- low: 602
-- close: 653
-- volume: 11499887
-- ma5: 608.2
-- ema23_primary: 576.32
-- distance_to_ema23_pct: 13.31
-- ma20: 576.25
-- ma60: 529.65
-- ma120: 516.77
-- return_5d: 10.68
-- return_20d: 22.51
-- volume_ratio: 2.1
-- distance_to_ma20_pct_auxiliary: 13.32
-- distance_to_high_60_pct: 0
+- date: 20260603
+- open: 685
+- high: 689
+- low: 642
+- close: 646
+- volume: 9907917
+- ma5: 616.4
+- ema23_primary: 582.12
+- distance_to_ema23_pct: 10.97
+- ma20: 581.35
+- ma60: 532.7
+- ma120: 517.81
+- return_5d: 6.78
+- return_20d: 18.75
+- volume_ratio: 1.72
+- distance_to_ma20_pct_auxiliary: 11.12
+- distance_to_high_60_pct: -6.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,543,548,533,544,4251080,529.72,2.7,535.8,497.74,1.13
 20260507,550,551,535,539,3701667,530.5,1.6,537.5,497.98,0.97
 20260508,555,592,551,592,9246415,535.62,10.53,541.5,499.32,2.25
 20260511,615,615,581,584,9832375,539.65,8.22,545.3,501,2.19
@@ -145,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,613,615,580,580,7108843,565.74,2.52,566.2,523.63,1.42
 20260601,595,610,583,609,5909157,569.34,6.97,570.25,526.37,1.17
 20260602,612,653,602,653,11499887,576.32,13.31,576.25,529.65,2.1
+20260603,685,689,642,646,9907917,582.12,10.97,581.35,532.7,1.72
 ```
 
 ## Latest TDCC Snapshot
@@ -174,18 +172,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2379 | 瑞昱 | true_breakout | 嚴格突破 | 128.0 |  |  | breakout_confirmed |  | call_strong_inflow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 2379 | 瑞昱 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_strong_inflow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2379 | 瑞昱 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2379 | 瑞昱 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2379 | 瑞昱 | 9 | 9 | 5 | 9 | 9 | continued_many_days | 連續 9 個交易日上榜，需判斷是持續醞釀或訊號鈍化。 |
+| 20260603 | 2379 | 瑞昱 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2379 | 瑞昱 | 55 | 0 | 21798620.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260603 | 2379 | 瑞昱 | 55 | 0 | 29988540.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00701 國泰股利精選30
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:05 Asia/Taipei
+- generated_at: 2026-06-04 01:54:03 Asia/Taipei
 - stock_id: 00701
 - stock_name: 國泰股利精選30
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260602
-- price_rows: 8
+- latest_price_date: 20260603
+- price_rows: 9
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -59,7 +59,7 @@
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: observe_only
 
 ### management_plan
@@ -72,7 +72,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -97,23 +96,23 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 34.68
-- high: 35.05
-- low: 34.5
-- close: 35.05
-- volume: 1728291
-- ma5: 34.25
-- ema23_primary: 32.93
-- distance_to_ema23_pct: 6.44
-- ma20: 33.59
-- ma60: 33.59
-- ma120: 33.59
-- return_5d: 6.57
+- date: 20260603
+- open: 35.2
+- high: 35.85
+- low: 35.05
+- close: 35.71
+- volume: 1411074
+- ma5: 34.62
+- ema23_primary: 33.16
+- distance_to_ema23_pct: 7.68
+- ma20: 33.82
+- ma60: 33.82
+- ma120: 33.82
+- return_5d: 5.37
 - return_20d: 
-- volume_ratio: 1.04
-- distance_to_ma20_pct_auxiliary: 4.36
-- distance_to_high_60_pct: 0
+- volume_ratio: 0.87
+- distance_to_ma20_pct_auxiliary: 5.58
+- distance_to_high_60_pct: -0.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -127,6 +126,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,33.53,34.22,33.53,34.08,1399785,32.56,4.68,33.15,33.15,0.88
 20260601,34.06,34.9,34.06,34.72,1934389,32.74,6.06,33.38,33.38,1.18
 20260602,34.68,35.05,34.5,35.05,1728291,32.93,6.44,33.59,33.59,1.04
+20260603,35.2,35.85,35.05,35.71,1411074,33.16,7.68,33.82,33.82,0.87
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1605 華新
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:47 Asia/Taipei
+- generated_at: 2026-06-04 01:54:22 Asia/Taipei
 - stock_id: 1605
 - stock_name: 華新
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,20 +55,14 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: wait_pullback
+- action_rating_label_zh: 等待回檔
 - confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
-- position_sizing: half_position
+- thesis_state: high_level_consolidation
+- entry_style: pullback_to_support
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
-- take_profit_near_prior_high
-- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
@@ -77,11 +71,9 @@
 ### entry_prerequisites
 - model_recommended
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -95,6 +87,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- price_too_extended
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -102,29 +95,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 39.7
-- high: 40.9
-- low: 38.7
-- close: 40.45
-- volume: 81787873
-- ma5: 38.48
-- ema23_primary: 35.85
-- distance_to_ema23_pct: 12.85
-- ma20: 35.91
-- ma60: 33.01
-- ma120: 34.15
-- return_5d: 8.88
-- return_20d: 24.85
-- volume_ratio: 1.3
-- distance_to_ma20_pct_auxiliary: 12.66
-- distance_to_high_60_pct: -2.29
+- date: 20260603
+- open: 41.55
+- high: 43.4
+- low: 40.7
+- close: 42.7
+- volume: 148415791
+- ma5: 39.52
+- ema23_primary: 36.42
+- distance_to_ema23_pct: 17.25
+- ma20: 36.41
+- ma60: 33.18
+- ma120: 34.26
+- return_5d: 13.87
+- return_20d: 30.98
+- volume_ratio: 2.16
+- distance_to_ma20_pct_auxiliary: 17.28
+- distance_to_high_60_pct: -1.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,33,33.25,32.25,32.6,31932815,31.59,3.19,31.61,33.28,1.11
 20260507,32.85,35.85,32.6,35.85,105026332,31.95,12.21,31.8,33.16,3.29
 20260508,36,36.05,32.65,33.75,116777785,32.1,5.15,31.91,32.99,3.15
 20260511,34.4,35.3,33.65,35,74486097,32.34,8.23,32.08,32.85,1.88
@@ -144,6 +136,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,36.65,39.1,36.6,38.75,102863649,35.04,10.59,35.1,32.76,1.81
 20260601,39.3,41.4,38.3,39.7,114616021,35.43,12.06,35.5,32.89,1.92
 20260602,39.7,40.9,38.7,40.45,81787873,35.85,12.85,35.91,33.01,1.3
+20260603,41.55,43.4,40.7,42.7,148415791,36.42,17.25,36.41,33.18,2.16
 ```
 
 ## Latest TDCC Snapshot
@@ -173,18 +166,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1605 | 華新 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 63.0 |  |  | neckline_challenge |  | call_inflow | repeated_but_no_breakout | calendar event: ex_dividend on 20260611; status=confirmed; proximity=within_14d |
-| 20260521 | 1605 | 華新 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_inflow | repeated_but_no_breakout | calendar event: ex_dividend on 20260611; status=confirmed; proximity=within_14d |
+| 20260603 | 1605 | 華新 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | call_inflow | repeated_but_no_breakout | calendar event: ex_dividend on 20260611; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1605 | 華新 | 9 | 9 | 5 | 9 | 9 | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 1605 | 華新 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1605 | 華新 | 140 | 5 | 31935050.0 | 5160.0 | 6188.96 | call_inflow | 1 |  |
+| 20260603 | 1605 | 華新 | 140 | 5 | 43520110.0 | 2150.0 | 20241.91 | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

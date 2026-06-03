@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3058 立德
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:26 Asia/Taipei
+- generated_at: 2026-06-04 01:55:09 Asia/Taipei
 - stock_id: 3058
 - stock_name: 立德
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,8 +58,8 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: breakout_initial
-- entry_style: breakout_follow
+- thesis_state: high_level_consolidation
+- entry_style: pullback_to_23ema
 - position_sizing: starter_1_4
 
 ### management_plan
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 9.99
-- high: 10
-- low: 9.33
-- close: 9.99
-- volume: 5209545
-- ma5: 8.81
-- ema23_primary: 8.62
-- distance_to_ema23_pct: 15.89
-- ma20: 8.41
+- date: 20260603
+- open: 10.1
+- high: 10.45
+- low: 9.6
+- close: 10.15
+- volume: 3630051
+- ma5: 9.23
+- ema23_primary: 8.75
+- distance_to_ema23_pct: 16.03
+- ma20: 8.51
 - ma60: 9.03
 - ma120: 9.63
-- return_5d: 21.83
-- return_20d: 16.84
-- volume_ratio: 4.27
-- distance_to_ma20_pct_auxiliary: 18.72
-- distance_to_high_60_pct: -8.77
+- return_5d: 25.62
+- return_20d: 22
+- volume_ratio: 2.7
+- distance_to_ma20_pct_auxiliary: 19.33
+- distance_to_high_60_pct: -7.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,8.6,8.6,8.05,8.32,1168373,8.96,-7.18,8.93,9.54,1.14
 20260507,8.3,8.41,8.28,8.4,706124,8.92,-5.79,8.89,9.5,0.7
 20260508,8.36,8.63,8.27,8.34,676963,8.87,-5.96,8.85,9.47,0.69
 20260511,8.36,8.36,8.27,8.3,529930,8.82,-5.91,8.81,9.44,0.57
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,8.2,8.76,8.15,8.51,2304813,8.42,1.1,8.3,9.03,2.67
 20260601,8.7,9.36,8.7,9.36,3241750,8.5,10.17,8.34,9.02,3.28
 20260602,9.99,10,9.33,9.99,5209545,8.62,15.89,8.41,9.03,4.27
+20260603,10.1,10.45,9.6,10.15,3630051,8.75,16.03,8.51,9.03,2.7
 ```
 
 ## Latest TDCC Snapshot
@@ -172,12 +172,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3058 | 立德 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3058 | 立德 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3058 | 立德 | 3 | 3 | 3 | 3 | 3 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260603 | 3058 | 立德 | 4 | 4 | 4 | 4 | 4 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

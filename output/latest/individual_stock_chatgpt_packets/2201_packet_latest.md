@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2201 裕隆
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:14 Asia/Taipei
+- generated_at: 2026-06-04 01:54:34 Asia/Taipei
 - stock_id: 2201
 - stock_name: 裕隆
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -102,29 +102,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 27.8
-- high: 28.2
-- low: 27.55
-- close: 28.15
-- volume: 4514327
-- ma5: 27.45
-- ema23_primary: 27.27
-- distance_to_ema23_pct: 3.23
-- ma20: 27.23
+- date: 20260603
+- open: 28.45
+- high: 29.55
+- low: 28.3
+- close: 29.15
+- volume: 8504285
+- ma5: 27.99
+- ema23_primary: 27.43
+- distance_to_ema23_pct: 6.29
+- ma20: 27.34
 - ma60: 27.4
-- ma120: 29.89
-- return_5d: 5.04
-- return_20d: 3.87
-- volume_ratio: 1.33
-- distance_to_ma20_pct_auxiliary: 3.36
-- distance_to_high_60_pct: -4.9
+- ma120: 29.84
+- return_5d: 10.21
+- return_20d: 7.37
+- volume_ratio: 2.29
+- distance_to_ma20_pct_auxiliary: 6.64
+- distance_to_high_60_pct: -1.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,27.3,27.4,26.95,27.15,2272199,27.31,-0.57,27.11,28.45,0.6
 20260507,27.05,27.8,27,27.7,4105622,27.34,1.32,27.11,28.39,1.05
 20260508,27.9,28.25,27.7,27.75,4559425,27.37,1.38,27.16,28.32,1.14
 20260511,28.1,28.15,27.7,27.75,3039397,27.4,1.26,27.23,28.27,0.79
@@ -144,6 +143,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,27.4,27.6,27.15,27.45,3495015,27.13,1.19,27.13,27.43,1.13
 20260601,27.35,28.05,26.75,27.85,5791756,27.19,2.43,27.18,27.42,1.76
 20260602,27.8,28.2,27.55,28.15,4514327,27.27,3.23,27.23,27.4,1.33
+20260603,28.45,29.55,28.3,29.15,8504285,27.43,6.29,27.34,27.4,2.29
 ```
 
 ## Latest TDCC Snapshot
@@ -173,17 +173,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2201 | 裕隆 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2201 | 裕隆 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2201 | 裕隆 | 4 | 4 | 4 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 日、近 20 日上榜 5 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 2201 | 裕隆 | 5 | 1 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 次、近 20 日上榜 6 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2201 | 裕隆 | 4 | 0 | 83150.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 2201 | 裕隆 | 4 | 0 | 253760.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

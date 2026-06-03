@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2351 順德
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:25 Asia/Taipei
+- generated_at: 2026-06-04 01:54:39 Asia/Taipei
 - stock_id: 2351
 - stock_name: 順德
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,7 +58,7 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: high_level_consolidation
 - entry_style: current_price_ok
 - position_sizing: starter_1_4
 
@@ -79,7 +79,6 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -93,6 +92,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- price_too_extended
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -100,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 202
-- high: 206
-- low: 192
-- close: 200
-- volume: 5245204
-- ma5: 211.7
-- ema23_primary: 186.15
-- distance_to_ema23_pct: 7.44
-- ma20: 190.3
-- ma60: 140.53
-- ma120: 110.79
-- return_5d: -7.41
-- return_20d: 25.39
-- volume_ratio: 0.58
-- distance_to_ma20_pct_auxiliary: 5.1
-- distance_to_high_60_pct: -14.16
+- date: 20260603
+- open: 206
+- high: 210.5
+- low: 202.5
+- close: 207.5
+- volume: 8945005
+- ma5: 207.4
+- ema23_primary: 187.93
+- distance_to_ema23_pct: 10.42
+- ma20: 192.85
+- ma60: 142.62
+- ma120: 111.85
+- return_5d: -9.39
+- return_20d: 32.59
+- volume_ratio: 0.98
+- distance_to_ma20_pct_auxiliary: 7.6
+- distance_to_high_60_pct: -10.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,163.5,164,153.5,156.5,8247946,137.66,13.68,140.25,107.14,0.76
 20260507,157.5,170.5,155.5,166.5,12114491,140.07,18.87,142.68,108.31,1.14
 20260508,179.5,183,170,183,14140300,143.64,27.4,145.97,109.83,1.29
 20260511,185,193,176.5,190.5,15183514,147.55,29.11,149.35,111.53,1.35
@@ -142,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,230.5,233,204,207.5,12661395,183.33,13.18,186.07,136.49,1.35
 20260601,211,211,198.5,202,6988644,184.89,9.26,188.28,138.54,0.76
 20260602,202,206,192,200,5245204,186.15,7.44,190.3,140.53,0.58
+20260603,206,210.5,202.5,207.5,8945005,187.93,10.42,192.85,142.62,0.98
 ```
 
 ## Latest TDCC Snapshot
@@ -171,18 +171,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2351 | 順德 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260602 | 2351 | 順德 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260603 | 2351 | 順德 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2351 | 順德 | 2 | 2 | 3 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 2351 | 順德 | 3 | 2 | 3 | 5 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2351 | 順德 | 66 | 0 | 7276890.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 2351 | 順德 | 66 | 0 | 17863440.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

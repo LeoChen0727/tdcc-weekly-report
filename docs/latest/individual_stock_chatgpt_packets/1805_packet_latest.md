@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1805 寶徠
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:00 Asia/Taipei
+- generated_at: 2026-06-04 01:54:27 Asia/Taipei
 - stock_id: 1805
 - stock_name: 寶徠
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 27
 - tdcc_history_status: tdcc_history_ready
@@ -59,7 +59,7 @@
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: observe_only
 
 ### management_plan
@@ -72,7 +72,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -97,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 10
-- high: 10.05
-- low: 9.97
-- close: 10.05
-- volume: 93981
-- ma5: 10.07
-- ema23_primary: 10.26
-- distance_to_ema23_pct: -2.05
-- ma20: 10.24
+- date: 20260603
+- open: 10.05
+- high: 11
+- low: 10
+- close: 11
+- volume: 460206
+- ma5: 10.27
+- ema23_primary: 10.32
+- distance_to_ema23_pct: 6.57
+- ma20: 10.25
 - ma60: 10.57
 - ma120: 11.16
-- return_5d: 0.5
-- return_20d: -6.51
-- volume_ratio: 0.7
-- distance_to_ma20_pct_auxiliary: -1.82
-- distance_to_high_60_pct: -17.28
+- return_5d: 10.22
+- return_20d: 2.33
+- volume_ratio: 3
+- distance_to_ma20_pct_auxiliary: 7.33
+- distance_to_high_60_pct: -9.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,10.75,10.75,10.6,10.75,98545,10.77,-0.16,10.78,11.05,0.99
 20260507,10.75,10.9,10.65,10.75,209985,10.77,-0.15,10.78,11.03,2
 20260508,10.8,10.9,10.7,10.75,99728,10.76,-0.14,10.77,11.01,0.93
 20260511,10.6,10.6,10.1,10.3,267651,10.73,-3.97,10.75,10.98,2.28
@@ -139,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,10.15,10.15,10.05,10.15,53941,10.3,-1.46,10.3,10.6,0.39
 20260601,10.05,10.05,9.98,10.05,143314,10.28,-2.23,10.27,10.58,1.04
 20260602,10,10.05,9.97,10.05,93981,10.26,-2.05,10.24,10.57,0.7
+20260603,10.05,11,10,11,460206,10.32,6.57,10.25,10.57,3
 ```
 
 ## Latest TDCC Snapshot

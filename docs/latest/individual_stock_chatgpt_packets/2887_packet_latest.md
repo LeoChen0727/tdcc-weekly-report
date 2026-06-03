@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2887 台新新光金
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:09 Asia/Taipei
+- generated_at: 2026-06-04 01:55:01 Asia/Taipei
 - stock_id: 2887
 - stock_name: 台新新光金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,12 +58,12 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: breakout_confirmed
-- entry_style: breakout_follow
+- thesis_state: high_level_distribution_risk
+- entry_style: current_price_ok
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -75,11 +75,9 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -94,6 +92,7 @@
 ### downgrade_reason
 - insufficient_tdcc_history
 - tdcc_distribution_warning
+- price_too_extended
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -101,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 24.45
-- high: 26.1
-- low: 24.3
-- close: 26.1
-- volume: 254723925
-- ma5: 24.07
-- ema23_primary: 23.88
-- distance_to_ema23_pct: 9.28
-- ma20: 23.7
-- ma60: 24.06
-- ma120: 22.87
-- return_5d: 10.59
-- return_20d: 10.13
-- volume_ratio: 1.87
-- distance_to_ma20_pct_auxiliary: 10.1
-- distance_to_high_60_pct: 0
+- date: 20260603
+- open: 26
+- high: 28.35
+- low: 25.65
+- close: 28.3
+- volume: 303603092
+- ma5: 25.07
+- ema23_primary: 24.25
+- distance_to_ema23_pct: 16.69
+- ma20: 23.92
+- ma60: 24.13
+- ma120: 22.96
+- return_5d: 21.46
+- return_20d: 18.16
+- volume_ratio: 2.11
+- distance_to_ma20_pct_auxiliary: 18.3
+- distance_to_high_60_pct: -0.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,24,24.15,23.7,23.95,150859945,24.05,-0.41,24.17,24.14,2.21
 20260507,24,24.15,23.9,24,88192165,24.04,-0.19,24.13,24.16,1.26
 20260508,24.1,24.2,23.75,23.8,110828395,24.02,-0.93,24.09,24.17,1.5
 20260511,23.85,23.9,23.45,23.45,98201596,23.98,-2.2,24.04,24.19,1.28
@@ -143,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,23.25,23.45,23,23.35,225036097,23.6,-1.05,23.53,24.03,1.84
 20260601,23.35,24.7,23.25,24.6,184994112,23.68,3.88,23.59,24.04,1.45
 20260602,24.45,26.1,24.3,26.1,254723925,23.88,9.28,23.7,24.06,1.87
+20260603,26,28.35,25.65,28.3,303603092,24.25,16.69,23.92,24.13,2.11
 ```
 
 ## Latest TDCC Snapshot
@@ -172,18 +171,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2887 | 台新新光金 | true_breakout | 嚴格突破 | 121.0 |  |  | breakout_confirmed |  | call_strong_inflow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 2887 | 台新新光金 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_strong_inflow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2887 | 台新新光金 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2887 | 台新新光金 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | base_building |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2887 | 台新新光金 | 9 | 9 | 5 | 9 | 9 | continued_many_days | 連續 9 個交易日上榜，需判斷是持續醞釀或訊號鈍化。 |
+| 20260603 | 2887 | 台新新光金 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2887 | 台新新光金 | 28 | 1 | 3968450.0 | 0.0 |  | call_strong_inflow | 2 |  |
+| 20260603 | 2887 | 台新新光金 | 27 | 1 | 10939970.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

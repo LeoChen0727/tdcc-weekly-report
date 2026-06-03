@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 006201 元大富櫃50
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:04 Asia/Taipei
+- generated_at: 2026-06-04 01:54:02 Asia/Taipei
 - stock_id: 006201
 - stock_name: 元大富櫃50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260602
-- price_rows: 8
+- latest_price_date: 20260603
+- price_rows: 9
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -97,23 +97,23 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 50.8
+- date: 20260603
+- open: 49.9
 - high: 50.8
-- low: 48.6
-- close: 49.55
-- volume: 50
-- ma5: 49.7
-- ema23_primary: 48.48
-- distance_to_ema23_pct: 2.21
-- ma20: 49.35
-- ma60: 49.35
-- ma120: 49.35
-- return_5d: 0.02
+- low: 49.9
+- close: 50.5
+- volume: 50000
+- ma5: 49.82
+- ema23_primary: 48.65
+- distance_to_ema23_pct: 3.81
+- ma20: 49.48
+- ma60: 49.48
+- ma120: 49.48
+- return_5d: 1.24
 - return_20d: 
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: 0.41
-- distance_to_high_60_pct: -3.22
+- volume_ratio: 1.3
+- distance_to_ma20_pct_auxiliary: 2.07
+- distance_to_high_60_pct: -1.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -127,6 +127,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,49.14,50.65,49.14,50.3,50000,48.2,4.35,49.15,49.15,1.01
 20260601,50.35,50.95,50.15,50.35,51,48.38,4.07,49.32,49.32,0
 20260602,50.8,50.8,48.6,49.55,50,48.48,2.21,49.35,49.35,0
+20260603,49.9,50.8,49.9,50.5,50000,48.65,3.81,49.48,49.48,1.3
 ```
 
 ## Latest TDCC Snapshot

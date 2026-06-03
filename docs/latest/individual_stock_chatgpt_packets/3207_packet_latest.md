@@ -1,17 +1,17 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3207 耀勝
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:36 Asia/Taipei
+- generated_at: 2026-06-04 01:55:14 Asia/Taipei
 - stock_id: 3207
 - stock_name: 耀勝
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
-- individual_report_md_exists: False
-- sell_strategy_summary_exists: False
+- individual_report_md_exists: True
+- sell_strategy_summary_exists: True
 - notes: TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
 
 ## Stable Read URLs
@@ -96,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 68
-- high: 74.5
-- low: 67.5
-- close: 71.7
-- volume: 72
-- ma5: 66.88
-- ema23_primary: 63.35
-- distance_to_ema23_pct: 13.18
-- ma20: 61.43
-- ma60: 65.65
+- date: 20260603
+- open: 73.1
+- high: 73.5
+- low: 69.5
+- close: 70.3
+- volume: 72000
+- ma5: 68
+- ema23_primary: 63.93
+- distance_to_ema23_pct: 9.96
+- ma20: 61.91
+- ma60: 65.46
 - ma120: 68.72
-- return_5d: 13.81
-- return_20d: 14.54
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: 16.72
-- distance_to_high_60_pct: -13.82
+- return_5d: 8.66
+- return_20d: 15.62
+- volume_ratio: 0.36
+- distance_to_ma20_pct_auxiliary: 13.56
+- distance_to_high_60_pct: -11.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,62.6,62.6,59.8,60.8,591000,65.12,-6.63,65.13,68.97,1.52
 20260507,61,61,60,60.6,228000,64.74,-6.4,64.75,68.79,0.6
 20260508,60.6,61.4,59.4,59.5,298000,64.31,-7.47,64.41,68.62,0.76
 20260511,59.6,59.7,58,59.2,343000,63.88,-7.33,64.1,68.44,0.87
@@ -138,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,65,66.7,64.9,65.1,66000,62.11,4.81,60.65,66,0.23
 20260601,65.1,67.9,64.6,67.9,67,62.59,8.48,60.98,65.81,0
 20260602,68,74.5,67.5,71.7,72,63.35,13.18,61.43,65.65,0
+20260603,73.1,73.5,69.5,70.3,72000,63.93,9.96,61.91,65.46,0.36
 ```
 
 ## Latest TDCC Snapshot

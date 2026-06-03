@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2427 三商電
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:36 Asia/Taipei
+- generated_at: 2026-06-04 01:54:44 Asia/Taipei
 - stock_id: 2427
 - stock_name: 三商電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,7 +59,7 @@
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: high_level_distribution_risk
-- entry_style: breakout_follow
+- entry_style: pullback_to_23ema
 - position_sizing: starter_1_4
 
 ### management_plan
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 22.1
-- high: 24.25
-- low: 21.85
-- close: 24.25
-- volume: 5407854
-- ma5: 21.5
-- ema23_primary: 21.32
-- distance_to_ema23_pct: 13.72
-- ma20: 21.04
-- ma60: 22.34
-- ma120: 24.51
-- return_5d: 18.29
-- return_20d: 12.01
-- volume_ratio: 5.59
-- distance_to_ma20_pct_auxiliary: 15.27
-- distance_to_high_60_pct: -7.09
+- date: 20260603
+- open: 24.7
+- high: 24.7
+- low: 23.55
+- close: 23.7
+- volume: 5302447
+- ma5: 22.18
+- ema23_primary: 21.52
+- distance_to_ema23_pct: 10.12
+- ma20: 21.15
+- ma60: 22.3
+- ma120: 24.47
+- return_5d: 16.75
+- return_20d: 10.49
+- volume_ratio: 4.4
+- distance_to_ma20_pct_auxiliary: 12.06
+- distance_to_high_60_pct: -6.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,22,22,21.35,21.45,546934,22.12,-3.04,21.98,23.91,0.91
 20260507,21.55,21.55,21.15,21.35,389951,22.06,-3.21,21.89,23.83,0.65
 20260508,21.35,22,21.3,21.55,843956,22.02,-2.12,21.81,23.76,1.35
 20260511,21.95,22.25,21.75,21.8,735341,22,-0.9,21.77,23.7,1.17
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,20.3,20.65,20.3,20.6,876421,20.97,-1.76,20.86,22.41,1.38
 20260601,20.6,22.1,20.6,22.05,2347631,21.06,4.71,20.91,22.37,3.21
 20260602,22.1,24.25,21.85,24.25,5407854,21.32,13.72,21.04,22.34,5.59
+20260603,24.7,24.7,23.55,23.7,5302447,21.52,10.12,21.15,22.3,4.4
 ```
 
 ## Latest TDCC Snapshot
@@ -172,12 +172,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2427 | 三商電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2427 | 三商電 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2427 | 三商電 | 2 | 2 | 2 | 2 | 2 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260603 | 2427 | 三商電 | 3 | 3 | 3 | 3 | 3 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

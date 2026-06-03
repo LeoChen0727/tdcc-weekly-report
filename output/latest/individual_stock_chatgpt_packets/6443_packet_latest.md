@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6443 元晶
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:07 Asia/Taipei
+- generated_at: 2026-06-04 01:56:25 Asia/Taipei
 - stock_id: 6443
 - stock_name: 元晶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 42.65
-- high: 43.5
-- low: 40.9
-- close: 42.55
-- volume: 31209248
-- ma5: 41.37
-- ema23_primary: 40.6
-- distance_to_ema23_pct: 4.81
-- ma20: 40.69
-- ma60: 41.79
-- ma120: 36.76
-- return_5d: 0.59
-- return_20d: 13.47
-- volume_ratio: 1.29
-- distance_to_ma20_pct_auxiliary: 4.56
-- distance_to_high_60_pct: -24.69
+- date: 20260603
+- open: 42.9
+- high: 43.9
+- low: 41.9
+- close: 42.9
+- volume: 31630731
+- ma5: 41.74
+- ema23_primary: 40.79
+- distance_to_ema23_pct: 5.17
+- ma20: 40.95
+- ma60: 41.7
+- ma120: 37
+- return_5d: 4.51
+- return_20d: 13.34
+- volume_ratio: 1.23
+- distance_to_ma20_pct_auxiliary: 4.77
+- distance_to_high_60_pct: -24.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,38,38,37.7,37.85,2500465,38.53,-1.76,37.65,42.23,0.19
 20260507,38.35,40.2,38.35,40.2,4095478,38.67,3.97,37.64,42.22,0.34
 20260508,41.4,41.4,39.05,39.95,3193755,38.77,3.04,37.78,42.23,0.33
 20260511,40.5,41.4,40,41.4,4246941,38.99,6.18,38.08,42.27,0.56
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,41,41.25,40.2,40.7,12008262,40.27,1.07,40.14,41.97,0.56
 20260601,40.85,43.2,40.2,42.1,25974649,40.42,4.15,40.44,41.91,1.14
 20260602,42.65,43.5,40.9,42.55,31209248,40.6,4.81,40.69,41.79,1.29
+20260603,42.9,43.9,41.9,42.9,31630731,40.79,5.17,40.95,41.7,1.23
 ```
 
 ## Latest TDCC Snapshot
@@ -172,13 +172,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6443 | 元晶 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 6443 | 元晶 | pattern | 型態觀察 |  |  |  | 接近突破型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 6443 | 元晶 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6443 | 元晶 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 6443 | 元晶 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2382 廣達
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:30 Asia/Taipei
+- generated_at: 2026-06-04 01:54:41 Asia/Taipei
 - stock_id: 2382
 - stock_name: 廣達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,12 +58,12 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: breakout_initial
-- entry_style: breakout_follow
+- thesis_state: high_level_distribution_risk
+- entry_style: current_price_ok
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -77,7 +77,6 @@
 ### entry_prerequisites
 - price_structure_not_broken
 - revenue_not_deteriorating
-- no_major_tdcc_warning
 - no_major_volume_price_failure
 
 ### post_entry_watch_items
@@ -92,6 +91,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- tdcc_distribution_warning
 - price_too_extended
 
 ### chatgpt_instruction
@@ -100,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 375
-- high: 409.5
-- low: 369.5
-- close: 400.5
-- volume: 151608396
-- ma5: 346.5
-- ema23_primary: 328.7
-- distance_to_ema23_pct: 21.84
-- ma20: 328.25
-- ma60: 311.25
-- ma120: 296.29
-- return_5d: 26.54
-- return_20d: 24.77
-- volume_ratio: 3.39
-- distance_to_ma20_pct_auxiliary: 22.01
-- distance_to_high_60_pct: -2.2
+- date: 20260603
+- open: 408.5
+- high: 438
+- low: 393
+- close: 417
+- volume: 111020362
+- ma5: 367.5
+- ema23_primary: 336.06
+- distance_to_ema23_pct: 24.09
+- ma20: 331.77
+- ma60: 313.38
+- ma120: 297.41
+- return_5d: 33.65
+- return_20d: 20.35
+- volume_ratio: 2.31
+- distance_to_ma20_pct_auxiliary: 25.69
+- distance_to_high_60_pct: -4.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,328,348,328,346.5,44808704,317.39,9.17,322.48,297.73,1.8
 20260507,349,352.5,341,344,23382815,319.61,7.63,324.3,298.68,1
 20260508,343.5,345.5,335.5,340.5,17406713,321.35,5.96,325.68,299.64,0.8
 20260511,350,350,341.5,343.5,14508377,323.19,6.28,326.77,300.7,0.7
@@ -142,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,315.5,339,315.5,339,87792646,317.6,6.74,321.55,307.88,2.52
 20260601,366,372.5,361,372.5,76692327,322.17,15.62,324.27,309.4,2.03
 20260602,375,409.5,369.5,400.5,151608396,328.7,21.84,328.25,311.25,3.39
+20260603,408.5,438,393,417,111020362,336.06,24.09,331.77,313.38,2.31
 ```
 
 ## Latest TDCC Snapshot
@@ -171,13 +171,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2382 | 廣達 | true_breakout | 嚴格突破 | 92.0 |  |  | platform_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 2382 | 廣達 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2382 | 廣達 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2382 | 廣達 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2382 | 廣達 | 9 | 9 | 5 | 9 | 9 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260603 | 2382 | 廣達 | 10 | 10 | 5 | 10 | 10 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

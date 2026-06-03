@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2348 海悅
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:25 Asia/Taipei
+- generated_at: 2026-06-04 01:54:39 Asia/Taipei
 - stock_id: 2348
 - stock_name: 海悅
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,7 +59,7 @@
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: observe_only
 
 ### management_plan
@@ -72,7 +72,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -97,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 69.9
-- high: 70.7
-- low: 69.3
-- close: 70.7
-- volume: 334763
-- ma5: 68.84
-- ema23_primary: 70.25
-- distance_to_ema23_pct: 0.64
-- ma20: 69.56
-- ma60: 74.1
-- ma120: 76.55
-- return_5d: 4.28
-- return_20d: -1.81
-- volume_ratio: 1.14
-- distance_to_ma20_pct_auxiliary: 1.63
-- distance_to_high_60_pct: -21.01
+- date: 20260603
+- open: 70.5
+- high: 76.6
+- low: 69.7
+- close: 74.8
+- volume: 923965
+- ma5: 70.22
+- ema23_primary: 70.63
+- distance_to_ema23_pct: 5.9
+- ma20: 69.75
+- ma60: 74.14
+- ma120: 76.47
+- return_5d: 10.16
+- return_20d: 5.2
+- volume_ratio: 2.87
+- distance_to_ma20_pct_auxiliary: 7.24
+- distance_to_high_60_pct: -16.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,71.5,71.8,70.6,71.1,330010,74.68,-4.79,75.31,75.73,1.04
 20260507,71.2,71.5,70.7,71.3,254195,74.39,-4.16,74.89,75.64,0.83
 20260508,71.7,71.7,70.4,70.9,311024,74.1,-4.32,74.59,75.5,1.06
 20260511,70.9,71.6,70.7,71,251697,73.84,-3.85,74.3,75.41,0.87
@@ -139,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,67.9,68.3,67.6,68.1,188375,70.24,-3.05,69.73,74.08,0.66
 20260601,68.2,69.9,68.2,69.9,338241,70.21,-0.45,69.63,74.09,1.18
 20260602,69.9,70.7,69.3,70.7,334763,70.25,0.64,69.56,74.1,1.14
+20260603,70.5,76.6,69.7,74.8,923965,70.63,5.9,69.75,74.14,2.87
 ```
 
 ## Latest TDCC Snapshot
@@ -178,7 +177,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2348 | 海悅 | 9 | 0 | 103100.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 2348 | 海悅 | 9 | 0 | 880560.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

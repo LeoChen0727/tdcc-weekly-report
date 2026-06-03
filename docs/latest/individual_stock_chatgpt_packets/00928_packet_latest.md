@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00928 中信上櫃ESG 30
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:10 Asia/Taipei
+- generated_at: 2026-06-04 01:54:05 Asia/Taipei
 - stock_id: 00928
 - stock_name: 中信上櫃ESG 30
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260602
-- price_rows: 8
+- latest_price_date: 20260603
+- price_rows: 9
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -97,23 +97,23 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 39.98
-- high: 40.03
-- low: 38.27
-- close: 38.9
-- volume: 39
-- ma5: 39.19
-- ema23_primary: 37.74
-- distance_to_ema23_pct: 3.07
-- ma20: 38.73
-- ma60: 38.73
-- ma120: 38.73
-- return_5d: 0.44
+- date: 20260603
+- open: 39.3
+- high: 40
+- low: 39.3
+- close: 39.71
+- volume: 40000
+- ma5: 39.27
+- ema23_primary: 37.9
+- distance_to_ema23_pct: 4.76
+- ma20: 38.84
+- ma60: 38.84
+- ma120: 38.84
+- return_5d: 0.97
 - return_20d: 
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: 0.45
-- distance_to_high_60_pct: -3.88
+- volume_ratio: 1.32
+- distance_to_ma20_pct_auxiliary: 2.25
+- distance_to_high_60_pct: -1.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -127,6 +127,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,38.6,39.85,38.6,39.59,39000,37.42,5.8,38.49,38.49,1.01
 20260601,39.64,40.47,39.53,39.98,40,37.63,6.23,38.7,38.7,0
 20260602,39.98,40.03,38.27,38.9,39,37.74,3.07,38.73,38.73,0
+20260603,39.3,40,39.3,39.71,40000,37.9,4.76,38.84,38.84,1.32
 ```
 
 ## Latest TDCC Snapshot

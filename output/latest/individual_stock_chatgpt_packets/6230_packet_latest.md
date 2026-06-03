@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6230 尼得科超眾
 
 ## Metadata
-- generated_at: 2026-06-02 23:28:55 Asia/Taipei
+- generated_at: 2026-06-04 01:56:19 Asia/Taipei
 - stock_id: 6230
 - stock_name: 尼得科超眾
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -97,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 147
-- high: 147
-- low: 138.5
-- close: 142
-- volume: 162702
-- ma5: 138
-- ema23_primary: 142.48
-- distance_to_ema23_pct: -0.34
-- ma20: 141.28
-- ma60: 153.37
-- ma120: 138.13
-- return_5d: -0.35
-- return_20d: -9.84
-- volume_ratio: 1.11
-- distance_to_ma20_pct_auxiliary: 0.51
-- distance_to_high_60_pct: -25.46
+- date: 20260603
+- open: 143
+- high: 148
+- low: 143
+- close: 143
+- volume: 178076
+- ma5: 139.2
+- ema23_primary: 142.52
+- distance_to_ema23_pct: 0.33
+- ma20: 140.55
+- ma60: 152.71
+- ma120: 138.35
+- return_5d: 4.38
+- return_20d: -9.21
+- volume_ratio: 1.19
+- distance_to_ma20_pct_auxiliary: 1.74
+- distance_to_high_60_pct: -23.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,159.5,160.5,154.5,157.5,118525,157.33,0.11,156.8,151.69,0.56
 20260507,159,159,152.5,155,198115,157.13,-1.36,157.25,152.2,0.93
 20260508,157,163.5,155,156.5,229431,157.08,-0.37,157.85,152.78,1.05
 20260511,161,161,151,154,161354,156.82,-1.8,158.32,153.32,0.73
@@ -139,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,134,136,134,135.5,74455,142.62,-4.99,142.75,154.28,0.53
 20260601,140.5,144.5,137.5,141.5,186664,142.52,-0.72,142.05,153.95,1.29
 20260602,147,147,138.5,142,162702,142.48,-0.34,141.28,153.37,1.11
+20260603,143,148,143,143,178076,142.52,0.33,140.55,152.71,1.19
 ```
 
 ## Latest TDCC Snapshot
@@ -178,7 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6230 | 尼得科超眾 | 3 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 6230 | 尼得科超眾 | 3 | 0 | 0.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

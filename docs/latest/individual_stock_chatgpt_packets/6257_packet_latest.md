@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6257 矽格
 
 ## Metadata
-- generated_at: 2026-06-02 23:28:58 Asia/Taipei
+- generated_at: 2026-06-04 01:56:20 Asia/Taipei
 - stock_id: 6257
 - stock_name: 矽格
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,18 +55,14 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: starter_position
-- action_rating_label_zh: 可小量試單
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
 - entry_style: pullback_to_23ema
-- position_sizing: starter_1_4
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -78,6 +74,7 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -93,7 +90,6 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
-- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -101,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
+- date: 20260603
 - open: 220.5
-- high: 227
-- low: 213.5
-- close: 215
-- volume: 13068896
-- ma5: 224.9
-- ema23_primary: 212.56
-- distance_to_ema23_pct: 1.15
-- ma20: 217.85
-- ma60: 177.8
-- ma120: 147.81
-- return_5d: -9.28
-- return_20d: 9.14
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: -1.31
-- distance_to_high_60_pct: -11.16
+- high: 234.5
+- low: 220
+- close: 230
+- volume: 15054832
+- ma5: 224.2
+- ema23_primary: 214.01
+- distance_to_ema23_pct: 7.47
+- ma20: 219.18
+- ma60: 179.45
+- ma120: 148.89
+- return_5d: -1.5
+- return_20d: 13.02
+- volume_ratio: 1.05
+- distance_to_ma20_pct_auxiliary: 4.94
+- distance_to_high_60_pct: -4.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,202.5,204.5,191,203.5,24188552,177.02,14.96,182.07,149.91,1.35
 20260507,205,218,197,213,26953081,180.02,18.32,184.2,151.23,1.5
 20260508,216,218.5,204,211,17813044,182.6,15.55,186.2,152.56,1.02
 20260511,210.5,214.5,204.5,212.5,11870597,185.09,14.81,188.03,153.93,0.69
@@ -143,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,234,236.5,224.5,227.5,13335409,211.68,7.47,215.5,174.88,0.86
 20260601,230,230,218,219.5,13427032,212.33,3.38,216.95,176.43,0.87
 20260602,220.5,227,213.5,215,13068896,212.56,1.15,217.85,177.8,0.88
+20260603,220.5,234.5,220,230,15054832,214.01,7.47,219.18,179.45,1.05
 ```
 
 ## Latest TDCC Snapshot
@@ -170,20 +166,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6257 | 矽格 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260602 | 6257 | 矽格 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6257 | 矽格 | 4 | 4 | 4 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6257 | 矽格 | 115 | 8 | 8871050.0 | 61570.0 | 144.08 | no_signal | 0 |  |
+| 20260603 | 6257 | 矽格 | 117 | 8 | 14477040.0 | 54430.0 | 265.98 | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

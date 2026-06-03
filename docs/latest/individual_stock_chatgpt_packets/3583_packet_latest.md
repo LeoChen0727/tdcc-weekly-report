@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3583 辛耘
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:05 Asia/Taipei
+- generated_at: 2026-06-04 01:55:28 Asia/Taipei
 - stock_id: 3583
 - stock_name: 辛耘
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,18 +55,14 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: starter_position
-- action_rating_label_zh: 可小量試單
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
 - entry_style: pullback_to_23ema
-- position_sizing: starter_1_4
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -101,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 874
-- high: 882
-- low: 835
+- date: 20260603
+- open: 857
+- high: 883
+- low: 843
 - close: 845
-- volume: 2265456
-- ma5: 866.4
-- ema23_primary: 843.83
-- distance_to_ema23_pct: 0.14
-- ma20: 872.45
-- ma60: 676.47
-- ma120: 504.73
-- return_5d: -6.94
-- return_20d: 6.42
-- volume_ratio: 0.72
-- distance_to_ma20_pct_auxiliary: -3.15
+- volume: 1341728
+- ma5: 860.2
+- ema23_primary: 843.92
+- distance_to_ema23_pct: 0.13
+- ma20: 874.55
+- ma60: 684.62
+- ma120: 509.13
+- return_5d: -3.54
+- return_20d: 5.23
+- volume_ratio: 0.44
+- distance_to_ma20_pct_auxiliary: -3.38
 - distance_to_high_60_pct: -16.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,805,812,756,803,3496478,711.4,12.88,747.6,506.22,1.05
 20260507,821,821,784,797,2562819,718.54,10.92,759.6,513.65,0.77
 20260508,804,813,773,788,1833135,724.33,8.79,768.4,521.15,0.58
 20260511,800,866,800,866,3749702,736.13,17.64,778.05,530.13,1.3
@@ -143,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,921,947,861,867,4881211,841.6,3.02,866.2,659.59,1.49
 20260601,867,880,851,867,1598854,843.72,2.76,869.9,668.38,0.5
 20260602,874,882,835,845,2265456,843.83,0.14,872.45,676.47,0.72
+20260603,857,883,843,845,1341728,843.92,0.13,874.55,684.62,0.44
 ```
 
 ## Latest TDCC Snapshot
@@ -170,19 +166,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3583 | 辛耘 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3583 | 辛耘 | 2 | 2 | 4 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3583 | 辛耘 | 99 | 2 | 11107680.0 | 32560.0 | 341.14 | no_signal | 0 |  |
+| 20260603 | 3583 | 辛耘 | 99 | 2 | 12215420.0 | 27900.0 | 437.83 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

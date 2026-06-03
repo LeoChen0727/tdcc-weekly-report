@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5452 佶優
 
 ## Metadata
-- generated_at: 2026-06-02 23:28:19 Asia/Taipei
+- generated_at: 2026-06-04 01:56:02 Asia/Taipei
 - stock_id: 5452
 - stock_name: 佶優
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,15 +55,15 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
-- position_sizing: half_position
+- thesis_state: unclear
+- entry_style: current_price_ok
+- position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -77,7 +77,6 @@
 ### entry_prerequisites
 - model_recommended
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -102,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 35.15
-- high: 35.6
-- low: 33.45
-- close: 34.15
-- volume: 34
-- ma5: 33.88
-- ema23_primary: 33.41
-- distance_to_ema23_pct: 2.23
-- ma20: 33.23
-- ma60: 33.49
-- ma120: 30.88
-- return_5d: 1.94
-- return_20d: 1.94
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: 2.78
-- distance_to_high_60_pct: -16.4
+- date: 20260603
+- open: 34.15
+- high: 36.2
+- low: 33.5
+- close: 35.35
+- volume: 35000
+- ma5: 34.38
+- ema23_primary: 33.57
+- distance_to_ema23_pct: 5.31
+- ma20: 33.31
+- ma60: 33.52
+- ma120: 30.99
+- return_5d: 7.61
+- return_20d: 5.21
+- volume_ratio: 0.03
+- distance_to_ma20_pct_auxiliary: 6.11
+- distance_to_high_60_pct: -13.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,33.85,34.5,32.45,33.6,3143000,33.11,1.48,33.25,32.75,1.14
 20260507,34.1,34.1,32.9,32.95,1958000,33.1,-0.44,33.25,32.77,0.7
 20260508,32.95,34.65,31.8,32.15,2946000,33.02,-2.63,33.23,32.79,1.04
 20260511,32.4,34,32.3,33.6,2878000,33.07,1.61,33.28,32.86,0.99
@@ -144,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,32.5,35.5,32.05,34.95,34000,33.18,5.34,33.05,33.4,0.03
 20260601,35.3,35.95,34.7,35.1,35,33.34,5.28,33.2,33.45,0
 20260602,35.15,35.6,33.45,34.15,34,33.41,2.23,33.23,33.49,0
+20260603,34.15,36.2,33.5,35.35,35000,33.57,5.31,33.31,33.52,0.03
 ```
 
 ## Latest TDCC Snapshot
@@ -173,12 +172,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 5452 | 佶優 | pattern | 型態觀察 |  |  |  | 預備發動型 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 5452 | 佶優 | pattern | 型態觀察 |  |  |  | 預備發動型 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 5452 | 佶優 | 9 | 9 | 5 | 9 | 9 | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 5452 | 佶優 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

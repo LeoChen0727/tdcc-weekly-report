@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3055 蔚華科
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:25 Asia/Taipei
+- generated_at: 2026-06-04 01:55:09 Asia/Taipei
 - stock_id: 3055
 - stock_name: 蔚華科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,18 +55,14 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: starter_position
-- action_rating_label_zh: 可小量試單
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
 - entry_style: pullback_to_23ema
-- position_sizing: starter_1_4
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -78,6 +74,7 @@
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
+- no_major_tdcc_warning
 - no_major_volume_price_failure
 - acceptable_risk_reward
 
@@ -93,7 +90,6 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
-- tdcc_distribution_warning
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -101,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 107
-- high: 107
-- low: 98.2
-- close: 102
-- volume: 3776567
-- ma5: 107.3
-- ema23_primary: 102.78
-- distance_to_ema23_pct: -0.76
-- ma20: 107.34
-- ma60: 79.11
-- ma120: 75.25
-- return_5d: -14.29
-- return_20d: 29.44
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: -4.97
-- distance_to_high_60_pct: -19.05
+- date: 20260603
+- open: 102.5
+- high: 109.5
+- low: 100.5
+- close: 100.5
+- volume: 2118158
+- ma5: 104.9
+- ema23_primary: 102.59
+- distance_to_ema23_pct: -2.03
+- ma20: 108.41
+- ma60: 79.73
+- ma120: 75.56
+- return_5d: -10.67
+- return_20d: 27.05
+- volume_ratio: 0.37
+- distance_to_ma20_pct_auxiliary: -7.3
+- distance_to_high_60_pct: -20.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,80.8,85.5,79.1,79.1,2599433,72.68,8.83,72.28,65.88,1.79
 20260507,81.2,87,79,87,3838243,73.87,17.77,73.63,66.11,2.39
 20260508,84.3,95.7,84.3,91.2,10370498,75.32,21.09,75.19,66.44,4.93
 20260511,100,100,99.7,100,2839306,77.37,29.24,77.22,67,1.27
@@ -143,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,108.5,110.5,105,108,2265445,102.33,5.54,104.66,77.69,0.41
 20260601,109,113.5,107,108.5,3392801,102.85,5.5,106.18,78.47,0.6
 20260602,107,107,98.2,102,3776567,102.78,-0.76,107.34,79.11,0.66
+20260603,102.5,109.5,100.5,100.5,2118158,102.59,-2.03,108.41,79.73,0.37
 ```
 
 ## Latest TDCC Snapshot
@@ -170,19 +166,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3055 | 蔚華科 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3055 | 蔚華科 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3055 | 蔚華科 | 8 | 0 | 916300.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 3055 | 蔚華科 | 8 | 0 | 132350.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

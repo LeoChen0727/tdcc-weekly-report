@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1477 聚陽
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:36 Asia/Taipei
+- generated_at: 2026-06-04 01:54:17 Asia/Taipei
 - stock_id: 1477
 - stock_name: 聚陽
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 222.5
-- high: 226
-- low: 220.5
-- close: 226
-- volume: 2459273
-- ma5: 219.6
-- ema23_primary: 219.6
-- distance_to_ema23_pct: 2.91
-- ma20: 218.47
-- ma60: 235.45
-- ma120: 272.3
-- return_5d: 6.6
-- return_20d: 7.11
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: 3.44
-- distance_to_high_60_pct: -26.86
+- date: 20260603
+- open: 227
+- high: 232
+- low: 224
+- close: 230.5
+- volume: 3502095
+- ma5: 222.6
+- ema23_primary: 220.51
+- distance_to_ema23_pct: 4.53
+- ma20: 219.38
+- ma60: 234.16
+- ma120: 271.59
+- return_5d: 6.96
+- return_20d: 8.47
+- volume_ratio: 1.23
+- distance_to_ma20_pct_auxiliary: 5.07
+- distance_to_high_60_pct: -23.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,211,216,208,212.5,2357738,224.06,-5.16,216.88,265.68,1.23
 20260507,212,224,212,220.5,3237566,223.77,-1.46,216.9,264.18,1.63
 20260508,223,225.5,218,221.5,2623338,223.58,-0.93,216.85,262.65,1.28
 20260511,223.5,226,215.5,218,2053360,223.11,-2.29,216.78,261.19,0.98
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,217.5,219.5,216,216.5,1746467,218.71,-1.01,217.15,238.24,0.62
 20260601,216.5,223.5,215.5,222.5,2962788,219.02,1.59,217.72,236.84,1.03
 20260602,222.5,226,220.5,226,2459273,219.6,2.91,218.47,235.45,0.88
+20260603,227,232,224,230.5,3502095,220.51,4.53,219.38,234.16,1.23
 ```
 
 ## Latest TDCC Snapshot
@@ -172,17 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1477 | 聚陽 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_inflow | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 1477 | 聚陽 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1477 | 聚陽 | 2 | 1 | 2 | 2 | 2 | continued_2_3d | 連續 2 個交易日上榜，訊號延續但仍需確認。 |
+| 20260603 | 1477 | 聚陽 | 3 | 1 | 3 | 3 | 3 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1477 | 聚陽 | 15 | 0 | 4501210.0 | 0.0 |  | call_inflow | 1 |  |
+| 20260603 | 1477 | 聚陽 | 15 | 0 | 7429440.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

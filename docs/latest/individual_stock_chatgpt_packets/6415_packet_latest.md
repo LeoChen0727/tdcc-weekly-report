@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6415 矽力*-KY
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:04 Asia/Taipei
+- generated_at: 2026-06-04 01:56:23 Asia/Taipei
 - stock_id: 6415
 - stock_name: 矽力*-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,11 +59,11 @@
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: high_level_consolidation
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -76,7 +76,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -101,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 597
-- high: 598
-- low: 564
-- close: 578
-- volume: 6658979
-- ma5: 613.8
-- ema23_primary: 526.76
-- distance_to_ema23_pct: 9.73
-- ma20: 529.8
-- ma60: 387.33
-- ma120: 310.69
-- return_5d: -8.25
-- return_20d: 32.57
-- volume_ratio: 0.79
-- distance_to_ma20_pct_auxiliary: 9.1
-- distance_to_high_60_pct: -16.59
+- date: 20260603
+- open: 594
+- high: 603
+- low: 584
+- close: 599
+- volume: 3778452
+- ma5: 600.6
+- ema23_primary: 532.78
+- distance_to_ema23_pct: 12.43
+- ma20: 538.55
+- ma60: 393.11
+- ma120: 313.97
+- return_5d: -9.92
+- return_20d: 41.27
+- volume_ratio: 0.45
+- distance_to_ma20_pct_auxiliary: 11.22
+- distance_to_high_60_pct: -13.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,450,450,413,424,3211814,370.58,14.41,363.75,305.23,0.42
 20260507,429,429,415,424.5,2237055,375.07,13.18,370,307.51,0.3
 20260508,426,438,419.5,425.5,2272485,379.28,12.19,377.18,309.61,0.31
 20260511,440,468,425,468,9060243,386.67,21.03,386.6,312.73,1.19
@@ -143,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,626,629,585,600,7824788,514.48,16.62,514.15,375.79,0.98
 20260601,600,636,593,606,7635267,522.11,16.07,522.7,381.93,0.93
 20260602,597,598,564,578,6658979,526.76,9.73,529.8,387.33,0.79
+20260603,594,603,584,599,3778452,532.78,12.43,538.55,393.11,0.45
 ```
 
 ## Latest TDCC Snapshot
@@ -172,17 +171,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6415 | 矽力*-KY | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260603 | 6415 | 矽力*-KY | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6415 | 矽力*-KY | 1 | 1 | 2 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 6415 | 矽力*-KY | 1 | 1 | 1 | 6 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6415 | 矽力*-KY | 116 | 1 | 15529560.0 | 18800.0 | 826.04 | call_inflow | 1 |  |
+| 20260603 | 6415 | 矽力*-KY | 116 | 1 | 9136870.0 | 21500.0 | 424.97 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

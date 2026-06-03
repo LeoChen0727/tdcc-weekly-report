@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3533 嘉澤
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:01 Asia/Taipei
+- generated_at: 2026-06-04 01:55:26 Asia/Taipei
 - stock_id: 3533
 - stock_name: 嘉澤
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -102,29 +102,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 2655
-- high: 2655
-- low: 2505
-- close: 2615
-- volume: 957544
-- ma5: 2610
-- ema23_primary: 2548.76
-- distance_to_ema23_pct: 2.6
-- ma20: 2583.5
-- ma60: 2324.42
-- ma120: 1872.38
-- return_5d: -0.95
-- return_20d: 5.02
-- volume_ratio: 0.53
-- distance_to_ma20_pct_auxiliary: 1.22
-- distance_to_high_60_pct: -11.51
+- date: 20260603
+- open: 2645
+- high: 2665
+- low: 2530
+- close: 2570
+- volume: 1216911
+- ma5: 2599
+- ema23_primary: 2550.53
+- distance_to_ema23_pct: 0.76
+- ma20: 2575.25
+- ma60: 2341.17
+- ma120: 1882.88
+- return_5d: -2.1
+- return_20d: -6.03
+- volume_ratio: 0.7
+- distance_to_ma20_pct_auxiliary: -0.2
+- distance_to_high_60_pct: -13.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,2610,2735,2530,2735,2293213,2452.18,11.53,2501.5,2016.25,1.46
 20260507,2850,2955,2800,2850,2271687,2485.33,14.67,2532.5,2038.67,1.42
 20260508,2850,2850,2675,2700,1770467,2503.22,7.86,2552,2059.33,1.09
 20260511,2680,2870,2655,2845,2086596,2531.7,12.37,2580.75,2082.92,1.25
@@ -144,6 +143,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,2570,2650,2525,2650,1613542,2530.71,4.71,2574,2287.58,0.85
 20260601,2675,2735,2605,2675,795297,2542.74,5.2,2577.25,2307.25,0.43
 20260602,2655,2655,2505,2615,957544,2548.76,2.6,2583.5,2324.42,0.53
+20260603,2645,2665,2530,2570,1216911,2550.53,0.76,2575.25,2341.17,0.7
 ```
 
 ## Latest TDCC Snapshot
@@ -173,17 +173,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 3533 | 嘉澤 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3533 | 嘉澤 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3533 | 嘉澤 | 9 | 9 | 5 | 9 | 9 | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 3533 | 嘉澤 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3533 | 嘉澤 | 164 | 3 | 24859550.0 | 94870.0 | 262.04 | no_signal | 0 |  |
+| 20260603 | 3533 | 嘉澤 | 165 | 3 | 14573770.0 | 28850.0 | 505.16 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

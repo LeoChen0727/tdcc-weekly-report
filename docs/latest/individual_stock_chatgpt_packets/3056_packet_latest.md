@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3056 富華新
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:26 Asia/Taipei
+- generated_at: 2026-06-04 01:55:09 Asia/Taipei
 - stock_id: 3056
 - stock_name: 富華新
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 13.4
-- high: 13.5
-- low: 13.25
-- close: 13.5
-- volume: 1413061
-- ma5: 13.33
-- ema23_primary: 13.62
-- distance_to_ema23_pct: -0.9
-- ma20: 13.48
-- ma60: 14.33
-- ma120: 15.98
-- return_5d: 0.75
-- return_20d: 0
-- volume_ratio: 0.94
-- distance_to_ma20_pct_auxiliary: 0.13
-- distance_to_high_60_pct: -20.35
+- date: 20260603
+- open: 13.5
+- high: 14.05
+- low: 13.35
+- close: 14
+- volume: 4286917
+- ma5: 13.47
+- ema23_primary: 13.65
+- distance_to_ema23_pct: 2.53
+- ma20: 13.52
+- ma60: 14.28
+- ma120: 15.93
+- return_5d: 5.26
+- return_20d: 6.06
+- volume_ratio: 2.7
+- distance_to_ma20_pct_auxiliary: 3.53
+- distance_to_high_60_pct: -15.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,13.5,13.5,13.2,13.2,2649953,14.3,-7.72,14.34,15.42,1.83
 20260507,13.2,13.7,13.2,13.55,1849181,14.24,-4.85,14.26,15.36,1.26
 20260508,13.55,13.55,13.35,13.4,884818,14.17,-5.44,14.19,15.3,0.61
 20260511,13.4,13.8,13.3,13.55,1547161,14.12,-4.03,14.12,15.24,1.05
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,13.2,13.35,13.15,13.25,1391535,13.66,-2.97,13.5,14.44,0.93
 20260601,13.2,13.55,13.15,13.4,2169157,13.63,-1.72,13.48,14.39,1.41
 20260602,13.4,13.5,13.25,13.5,1413061,13.62,-0.9,13.48,14.33,0.94
+20260603,13.5,14.05,13.35,14,4286917,13.65,2.53,13.52,14.28,2.7
 ```
 
 ## Latest TDCC Snapshot
@@ -172,17 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3056 | 富華新 | pattern | 型態觀察 | 53.0 |  |  | base_building |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3056 | 富華新 | pattern | 型態觀察 | 48.0 |  |  | base_building |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3056 | 富華新 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。 |
+| 20260603 | 3056 | 富華新 | 2 | 1 | 2 | 2 | 2 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3056 | 富華新 | 3 | 0 | 440.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 3056 | 富華新 | 3 | 0 | 38570.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

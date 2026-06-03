@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3066 李洲
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:27 Asia/Taipei
+- generated_at: 2026-06-04 01:55:09 Asia/Taipei
 - stock_id: 3066
 - stock_name: 李洲
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 21.3
-- high: 21.95
-- low: 20.75
-- close: 21.75
-- volume: 21
-- ma5: 21.25
-- ema23_primary: 20.18
-- distance_to_ema23_pct: 7.79
-- ma20: 19.8
-- ma60: 19.52
-- ma120: 16.97
-- return_5d: 4.32
-- return_20d: 16.31
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: 9.86
-- distance_to_high_60_pct: -13.69
+- date: 20260603
+- open: 21.9
+- high: 22.85
+- low: 21.65
+- close: 21.8
+- volume: 22000
+- ma5: 21.48
+- ema23_primary: 20.31
+- distance_to_ema23_pct: 7.32
+- ma20: 19.98
+- ma60: 19.59
+- ma120: 17.05
+- return_5d: 5.57
+- return_20d: 19.78
+- volume_ratio: 0.07
+- distance_to_ma20_pct_auxiliary: 9.12
+- distance_to_high_60_pct: -13.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,19.1,19.1,18.15,18.2,246000,19.13,-4.87,19.65,17.95,0.25
 20260507,18.45,19.3,18.4,18.65,485000,19.09,-2.32,19.63,18.01,0.5
 20260508,18.95,19.3,18.05,18.3,297000,19.03,-3.82,19.51,18.08,0.35
 20260511,18.75,18.85,17.95,18.45,390000,18.98,-2.78,19.44,18.14,0.51
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,21.55,22.4,21.15,21.45,22000,19.92,7.71,19.51,19.32,0.06
 20260601,21.45,22.2,21.15,21.35,22,20.03,6.56,19.64,19.41,0
 20260602,21.3,21.95,20.75,21.75,21,20.18,7.79,19.8,19.52,0
+20260603,21.9,22.85,21.65,21.8,22000,20.31,7.32,19.98,19.59,0.07
 ```
 
 ## Latest TDCC Snapshot
@@ -172,12 +172,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 3066 | 李洲 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 3066 | 李洲 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 3066 | 李洲 | 9 | 9 | 5 | 9 | 9 | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 3066 | 李洲 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9910 豐泰
 
 ## Metadata
-- generated_at: 2026-06-02 23:31:22 Asia/Taipei
+- generated_at: 2026-06-04 01:57:27 Asia/Taipei
 - stock_id: 9910
 - stock_name: 豐泰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,8 +58,8 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: high_level_distribution_risk
-- entry_style: breakout_follow
+- thesis_state: unclear
+- entry_style: pullback_to_23ema
 - position_sizing: starter_1_4
 
 ### management_plan
@@ -79,6 +79,7 @@
 - near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -93,7 +94,6 @@
 ### downgrade_reason
 - insufficient_tdcc_history
 - tdcc_distribution_warning
-- price_too_extended
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 71.8
-- high: 79
-- low: 71.6
-- close: 79
-- volume: 12399534
-- ma5: 71.26
-- ema23_primary: 71.55
-- distance_to_ema23_pct: 10.41
-- ma20: 70.62
-- ma60: 76.38
-- ma120: 91.79
-- return_5d: 17.04
-- return_20d: 14
-- volume_ratio: 3.99
-- distance_to_ma20_pct_auxiliary: 11.87
-- distance_to_high_60_pct: -15.78
+- date: 20260603
+- open: 79
+- high: 86.8
+- low: 77
+- close: 82.5
+- volume: 14216501
+- ma5: 74.32
+- ema23_primary: 72.47
+- distance_to_ema23_pct: 13.85
+- ma20: 71.31
+- ma60: 76.24
+- ma120: 91.4
+- return_5d: 22.77
+- return_20d: 19.91
+- volume_ratio: 3.87
+- distance_to_ma20_pct_auxiliary: 15.7
+- distance_to_high_60_pct: -9.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,69.3,69.3,67.7,68.8,2913085,75.07,-8.36,74.88,83.6,1.26
 20260507,68.5,70.8,68,70.1,3182357,74.66,-6.11,74.33,83.19,1.35
 20260508,71,74.4,70.7,73.8,3581786,74.59,-1.06,74.09,82.86,1.46
 20260511,74.4,77.5,73.8,74.4,2871152,74.57,-0.23,73.97,82.5,1.15
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,69,70.2,68,70.2,4100850,70.78,-0.82,70.08,77,1.58
 20260601,70,72,69.3,71.9,3159545,70.88,1.44,70.14,76.66,1.2
 20260602,71.8,79,71.6,79,12399534,71.55,10.41,70.62,76.38,3.99
+20260603,79,86.8,77,82.5,14216501,72.47,13.85,71.31,76.24,3.87
 ```
 
 ## Latest TDCC Snapshot
@@ -172,12 +172,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 9910 | 豐泰 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_breakout |  |  | continued_overheated | calendar event: ex_dividend on 20260615; status=confirmed; proximity=within_14d |
+| 20260603 | 9910 | 豐泰 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | base_building |  |  | stale_signal | calendar event: ex_dividend on 20260615; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 9910 | 豐泰 | 3 | 1 | 3 | 3 | 3 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260603 | 9910 | 豐泰 | 4 | 2 | 4 | 4 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00947 台新臺灣IC設計
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:10 Asia/Taipei
+- generated_at: 2026-06-04 01:54:05 Asia/Taipei
 - stock_id: 00947
 - stock_name: 台新臺灣IC設計
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260602
-- price_rows: 8
+- latest_price_date: 20260603
+- price_rows: 9
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -59,7 +59,7 @@
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: current_price_ok
+- entry_style: pullback_to_23ema
 - position_sizing: observe_only
 
 ### management_plan
@@ -72,6 +72,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -96,23 +97,23 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 40.94
-- high: 41.2
-- low: 39.6
-- close: 40.71
-- volume: 11176741
-- ma5: 39.13
-- ema23_primary: 37.54
-- distance_to_ema23_pct: 8.46
-- ma20: 38.43
-- ma60: 38.43
-- ma120: 38.43
-- return_5d: 7.73
+- date: 20260603
+- open: 41.29
+- high: 41.29
+- low: 40.07
+- close: 40.2
+- volume: 11684866
+- ma5: 39.42
+- ema23_primary: 37.76
+- distance_to_ema23_pct: 6.47
+- ma20: 38.63
+- ma60: 38.63
+- ma120: 38.63
+- return_5d: 3.77
 - return_20d: 
-- volume_ratio: 1.06
-- distance_to_ma20_pct_auxiliary: 5.93
-- distance_to_high_60_pct: -1.19
+- volume_ratio: 1.1
+- distance_to_ma20_pct_auxiliary: 4.07
+- distance_to_high_60_pct: -2.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -126,6 +127,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,38.15,39,37.99,38.81,8488817,36.99,4.93,37.77,37.77,0.84
 20260601,39.43,40.36,39.43,40.1,12014777,37.25,7.66,38.11,38.11,1.15
 20260602,40.94,41.2,39.6,40.71,11176741,37.54,8.46,38.43,38.43,1.06
+20260603,41.29,41.29,40.07,40.2,11684866,37.76,6.47,38.63,38.63,1.1
 ```
 
 ## Latest TDCC Snapshot

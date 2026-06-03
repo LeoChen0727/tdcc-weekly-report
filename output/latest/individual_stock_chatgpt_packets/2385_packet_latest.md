@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2385 群光
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:31 Asia/Taipei
+- generated_at: 2026-06-04 01:54:42 Asia/Taipei
 - stock_id: 2385
 - stock_name: 群光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,12 +58,12 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: breakout_initial
-- entry_style: breakout_follow
+- thesis_state: unclear
+- entry_style: current_price_ok
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -75,6 +75,7 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_tdcc_warning
@@ -100,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 141.5
-- high: 143.5
-- low: 138.5
-- close: 143.5
-- volume: 5327928
-- ma5: 137.6
-- ema23_primary: 131.76
-- distance_to_ema23_pct: 8.91
-- ma20: 131.78
-- ma60: 126.34
-- ma120: 122.27
-- return_5d: 7.89
-- return_20d: 10.38
-- volume_ratio: 1.24
-- distance_to_ma20_pct_auxiliary: 8.9
-- distance_to_high_60_pct: 0
+- date: 20260603
+- open: 144.5
+- high: 149.5
+- low: 142
+- close: 145.5
+- volume: 5761138
+- ma5: 139.6
+- ema23_primary: 132.9
+- distance_to_ema23_pct: 9.48
+- ma20: 132.62
+- ma60: 126.67
+- ma120: 122.48
+- return_5d: 7.38
+- return_20d: 13.23
+- volume_ratio: 1.33
+- distance_to_ma20_pct_auxiliary: 9.71
+- distance_to_high_60_pct: -2.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,131.5,131.5,128,128.5,5027164,124.81,2.95,124.97,122.83,1.23
 20260507,129,132.5,128.5,131,4440003,125.33,4.53,125.35,123.06,1.07
 20260508,132,134.5,131,134,4902522,126.05,6.31,125.83,123.34,1.16
 20260511,135,136.5,133.5,135,3835177,126.8,6.47,126.35,123.64,0.89
@@ -142,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,133,136,133,135.5,3427065,129.71,4.47,130.4,125.75,0.81
 20260601,136.5,142.5,136,141.5,6640551,130.69,8.27,131.1,126.04,1.55
 20260602,141.5,143.5,138.5,143.5,5327928,131.76,8.91,131.78,126.34,1.24
+20260603,144.5,149.5,142,145.5,5761138,132.9,9.48,132.62,126.67,1.33
 ```
 
 ## Latest TDCC Snapshot
@@ -171,18 +172,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2385 | 群光 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_many_days | calendar event: ex_dividend on 20260615; status=confirmed; proximity=within_14d |
-| 20260521 | 2385 | 群光 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | continued_many_days | calendar event: ex_dividend on 20260615; status=confirmed; proximity=within_14d |
+| 20260603 | 2385 | 群光 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | repeated_but_no_breakout | calendar event: ex_dividend on 20260615; status=confirmed; proximity=within_14d |
+| 20260603 | 2385 | 群光 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | calendar event: ex_dividend on 20260615; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2385 | 群光 | 9 | 9 | 5 | 9 | 9 | continued_many_days | 連續 9 個交易日上榜，需判斷是持續醞釀或訊號鈍化。 |
+| 20260603 | 2385 | 群光 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2385 | 群光 | 12 | 0 | 1595630.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 2385 | 群光 | 12 | 0 | 1891860.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

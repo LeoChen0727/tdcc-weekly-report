@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3317 尼克森
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:45 Asia/Taipei
+- generated_at: 2026-06-04 01:55:18 Asia/Taipei
 - stock_id: 3317
 - stock_name: 尼克森
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,7 +58,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_consolidation
+- thesis_state: unclear
 - entry_style: current_price_ok
 - position_sizing: observe_only
 
@@ -75,6 +75,7 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -88,7 +89,6 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
-- price_too_extended
 
 ### chatgpt_instruction
 - Open the report with action_rating_label_zh as the program-side action conclusion.
@@ -96,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 80.5
-- high: 82.4
-- low: 77.5
-- close: 82.2
-- volume: 80
-- ma5: 82.18
-- ema23_primary: 73.76
-- distance_to_ema23_pct: 11.45
-- ma20: 75.11
-- ma60: 58.85
-- ma120: 53.18
-- return_5d: -1.79
-- return_20d: 32.15
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: 9.45
-- distance_to_high_60_pct: -6.27
+- date: 20260603
+- open: 83
+- high: 84.9
+- low: 81
+- close: 81.5
+- volume: 83000
+- ma5: 82.02
+- ema23_primary: 74.4
+- distance_to_ema23_pct: 9.54
+- ma20: 75.94
+- ma60: 59.41
+- ma120: 53.46
+- return_5d: -0.97
+- return_20d: 25.58
+- volume_ratio: 0.02
+- distance_to_ma20_pct_auxiliary: 7.33
+- distance_to_high_60_pct: -7.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,62.8,65.9,61.5,64.9,12350000,54.98,18.05,54.62,50.2,2.87
 20260507,66.6,70,66,66.9,11615000,55.97,19.52,55.41,50.47,2.43
 20260508,66.2,66.5,62,62.2,5247000,56.49,10.11,56,50.68,1.07
 20260511,64,68.4,62.6,68.2,10889000,57.47,18.68,56.88,51,2.01
@@ -138,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,85.9,86.8,83.1,83.8,84000,72.37,15.8,73.06,57.69,0.01
 20260601,83.5,84,79.7,79.8,81,72.99,9.33,74.11,58.26,0
 20260602,80.5,82.4,77.5,82.2,80,73.76,11.45,75.11,58.85,0
+20260603,83,84.9,81,81.5,83000,74.4,9.54,75.94,59.41,0.02
 ```
 
 ## Latest TDCC Snapshot

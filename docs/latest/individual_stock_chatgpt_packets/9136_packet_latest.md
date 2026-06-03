@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9136 巨騰-DR
 
 ## Metadata
-- generated_at: 2026-06-02 23:31:20 Asia/Taipei
+- generated_at: 2026-06-04 01:57:26 Asia/Taipei
 - stock_id: 9136
 - stock_name: 巨騰-DR
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 258
+- latest_price_date: 20260603
+- price_rows: 259
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,11 +59,11 @@
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: high_level_distribution_risk
-- entry_style: breakout_follow
+- entry_style: current_price_ok
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -76,7 +76,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 
@@ -101,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 12.85
-- high: 13.35
-- low: 12.4
-- close: 13.3
-- volume: 4943337
-- ma5: 11.83
-- ema23_primary: 10.86
-- distance_to_ema23_pct: 22.42
-- ma20: 10.77
-- ma60: 9.39
-- ma120: 8.47
-- return_5d: 22.02
-- return_20d: 52.87
-- volume_ratio: 1.87
-- distance_to_ma20_pct_auxiliary: 23.45
-- distance_to_high_60_pct: -5.34
+- date: 20260603
+- open: 14.5
+- high: 14.6
+- low: 14.15
+- close: 14.6
+- volume: 5142626
+- ma5: 12.46
+- ema23_primary: 11.18
+- distance_to_ema23_pct: 30.64
+- ma20: 11.07
+- ma60: 9.51
+- ma120: 8.53
+- return_5d: 27.51
+- return_20d: 69.97
+- volume_ratio: 1.8
+- distance_to_ma20_pct_auxiliary: 31.83
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260410,8.74,8.74,8.33,8.59,1091228,9.16,-6.26,9.62,8.55,0.35
 20260413,8.59,9.2,8.59,8.99,1218188,9.15,-1.74,9.6,8.57,0.44
 20260414,9.08,9.45,8.95,9.24,1293564,9.16,0.91,9.6,8.59,0.48
 20260415,9.3,9.62,9.25,9.45,1846259,9.18,2.93,9.61,8.61,0.71
@@ -143,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,11.2,11.25,11.05,11.1,728201,10.51,5.66,10.41,9.24,0.3
 20260601,11.1,12.2,10.85,12.15,2084412,10.64,14.16,10.54,9.31,0.84
 20260602,12.85,13.35,12.4,13.3,4943337,10.86,22.42,10.77,9.39,1.87
+20260603,14.5,14.6,14.15,14.6,5142626,11.18,30.64,11.07,9.51,1.8
 ```
 
 ## Latest TDCC Snapshot
@@ -172,13 +171,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 9136 | 巨騰-DR | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260521 | 9136 | 巨騰-DR | pattern | 型態觀察 |  |  |  | 預備發動型 |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 9136 | 巨騰-DR | pattern | 型態觀察 |  |  |  | 預備發動型 |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 9136 | 巨騰-DR | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 9136 | 巨騰-DR | 9 | 9 | 5 | 9 | 9 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260603 | 9136 | 巨騰-DR | 10 | 10 | 5 | 10 | 10 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

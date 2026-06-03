@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6907 雅特力-KY
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:51 Asia/Taipei
+- generated_at: 2026-06-04 01:56:45 Asia/Taipei
 - stock_id: 6907
 - stock_name: 雅特力-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 214
+- latest_price_date: 20260603
+- price_rows: 215
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,7 +59,7 @@
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: observe_only
 
 ### management_plan
@@ -72,7 +72,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -97,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 131
-- high: 133
-- low: 122
-- close: 127.5
-- volume: 127
-- ma5: 122.3
-- ema23_primary: 121.65
-- distance_to_ema23_pct: 4.81
-- ma20: 122.05
-- ma60: 122.57
-- ma120: 113.5
-- return_5d: 4.94
-- return_20d: -0.78
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: 4.47
-- distance_to_high_60_pct: -27.14
+- date: 20260603
+- open: 130.5
+- high: 140
+- low: 130.5
+- close: 140
+- volume: 137000
+- ma5: 126.9
+- ema23_primary: 123.18
+- distance_to_ema23_pct: 13.65
+- ma20: 122.6
+- ma60: 123.32
+- ma120: 113.66
+- return_5d: 19.66
+- return_20d: 8.53
+- volume_ratio: 0.16
+- distance_to_ma20_pct_auxiliary: 14.19
+- distance_to_high_60_pct: -20
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,132,141,126.5,129,3286000,122.95,4.92,125.05,105.45,1.71
 20260507,133,139,129.5,132.5,1937000,123.75,7.07,125.75,105.63,0.97
 20260508,143,145.5,129.5,129.5,6371000,124.23,4.24,126.28,106.97,2.79
 20260511,131,138.5,129.5,133,1781000,124.96,6.44,126.85,108.48,0.75
@@ -139,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,120,123,115.5,121.5,119000,120.5,0.83,121.55,121.43,0.1
 20260601,124.5,130.5,122,128,127,121.12,5.68,122.1,122.01,0
 20260602,131,133,122,127.5,127,121.65,4.81,122.05,122.57,0
+20260603,130.5,140,130.5,140,137000,123.18,13.65,122.6,123.32,0.16
 ```
 
 ## Latest TDCC Snapshot

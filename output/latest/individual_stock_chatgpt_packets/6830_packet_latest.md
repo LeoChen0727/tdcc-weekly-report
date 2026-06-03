@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6830 汎銓
 
 ## Metadata
-- generated_at: 2026-06-02 23:29:43 Asia/Taipei
+- generated_at: 2026-06-04 01:56:41 Asia/Taipei
 - stock_id: 6830
 - stock_name: 汎銓
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,18 +55,14 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: healthy_pullback
+- thesis_state: unclear
 - entry_style: pullback_to_23ema
-- position_sizing: half_position
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -75,7 +71,6 @@
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
-- model_recommended
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -102,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 696
-- high: 704
-- low: 660
-- close: 661
-- volume: 1684687
-- ma5: 685.6
-- ema23_primary: 724.75
-- distance_to_ema23_pct: -8.8
-- ma20: 740.8
-- ma60: 650.08
-- ma120: 422.62
-- return_5d: -15.04
-- return_20d: -32.21
-- volume_ratio: 0.7
-- distance_to_ma20_pct_auxiliary: -10.77
-- distance_to_high_60_pct: -33.9
+- date: 20260603
+- open: 682
+- high: 720
+- low: 682
+- close: 714
+- volume: 2265168
+- ma5: 684.4
+- ema23_primary: 723.85
+- distance_to_ema23_pct: -1.36
+- ma20: 732.6
+- ma60: 655.36
+- ma120: 427.23
+- return_5d: -0.83
+- return_20d: -18.68
+- volume_ratio: 0.96
+- distance_to_ma20_pct_auxiliary: -2.54
+- distance_to_high_60_pct: -28.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,990,1000,878,878,3250118,752.91,16.61,799.45,493.3,2.23
 20260507,845,911,830,874,3183586,763,14.55,810.05,504.88,2.14
 20260508,881,884,787,787,2939296,765,2.88,817,515.06,1.84
 20260511,762,815,752,754,3114572,764.08,-1.32,819.7,524.68,1.8
@@ -144,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,715,716,675,678,1539894,734.86,-7.74,768.6,639.19,0.6
 20260601,678,685,650,683,1593903,730.54,-6.51,756.5,645.09,0.64
 20260602,696,704,660,661,1684687,724.75,-8.8,740.8,650.08,0.7
+20260603,682,720,682,714,2265168,723.85,-1.36,732.6,655.36,0.96
 ```
 
 ## Latest TDCC Snapshot
@@ -171,19 +166,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6830 | 汎銓 | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6830 | 汎銓 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6830 | 汎銓 | 31 | 2 | 2732900.0 | 8970.0 | 304.67 | call_inflow | 1 |  |
+| 20260603 | 6830 | 汎銓 | 31 | 2 | 1448800.0 | 12350.0 | 117.31 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

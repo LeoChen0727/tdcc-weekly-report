@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4545 銘鈺
 
 ## Metadata
-- generated_at: 2026-06-02 23:27:37 Asia/Taipei
+- generated_at: 2026-06-04 01:55:43 Asia/Taipei
 - stock_id: 4545
 - stock_name: 銘鈺
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,7 +59,7 @@
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: high_level_consolidation
-- entry_style: breakout_follow
+- entry_style: pullback_to_23ema
 - position_sizing: starter_1_4
 
 ### management_plan
@@ -76,6 +76,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -100,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 41.65
-- high: 46
-- low: 41
-- close: 42.4
-- volume: 1369984
-- ma5: 39.62
-- ema23_primary: 34.17
-- distance_to_ema23_pct: 24.09
-- ma20: 32.98
-- ma60: 31.8
-- ma120: 34
-- return_5d: 27.71
-- return_20d: 38.34
-- volume_ratio: 2.9
-- distance_to_ma20_pct_auxiliary: 28.54
-- distance_to_high_60_pct: -7.83
+- date: 20260603
+- open: 42.5
+- high: 43.1
+- low: 41.15
+- close: 42.05
+- volume: 533381
+- ma5: 40.73
+- ema23_primary: 34.83
+- distance_to_ema23_pct: 20.75
+- ma20: 33.59
+- ma60: 31.94
+- ma120: 34.08
+- return_5d: 15.21
+- return_20d: 40.87
+- volume_ratio: 1.09
+- distance_to_ma20_pct_auxiliary: 25.17
+- distance_to_high_60_pct: -8.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,31.95,31.95,29.2,29.85,227158,30.71,-2.79,30.66,32.31,1.39
 20260507,29.95,31,29.9,30.65,177162,30.7,-0.17,30.61,32.21,1.08
 20260508,31.35,31.35,30.05,30.05,128254,30.65,-1.95,30.57,32.09,0.77
 20260511,30.65,30.8,30.15,30.65,157172,30.65,0.01,30.55,31.99,0.95
@@ -142,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,38.9,39.15,38.1,38.5,543037,32.64,17.97,31.81,31.5,1.52
 20260601,38.6,42.35,38.6,42.05,1086731,33.42,25.82,32.4,31.66,2.67
 20260602,41.65,46,41,42.4,1369984,34.17,24.09,32.98,31.8,2.9
+20260603,42.5,43.1,41.15,42.05,533381,34.83,20.75,33.59,31.94,1.09
 ```
 
 ## Latest TDCC Snapshot
@@ -171,12 +172,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 4545 | 銘鈺 | true_breakout | 嚴格突破 | 98.0 |  |  | neckline_challenge |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 4545 | 銘鈺 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 4545 | 銘鈺 | 2 | 2 | 3 | 3 | 3 | continued_overheated | 連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。 |
+| 20260603 | 4545 | 銘鈺 | 1 | 1 | 3 | 3 | 3 | repeated_but_no_breakout | 近 10 日上榜 3 次、近 20 日上榜 3 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

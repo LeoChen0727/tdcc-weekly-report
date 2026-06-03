@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9103 美德醫療-DR
 
 ## Metadata
-- generated_at: 2026-06-02 23:31:20 Asia/Taipei
+- generated_at: 2026-06-04 01:57:26 Asia/Taipei
 - stock_id: 9103
 - stock_name: 美德醫療-DR
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,11 +59,11 @@
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -76,7 +76,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -101,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 5.27
-- high: 5.27
-- low: 5.14
-- close: 5.25
-- volume: 1216116
-- ma5: 5.27
-- ema23_primary: 5.08
-- distance_to_ema23_pct: 3.39
-- ma20: 5.03
+- date: 20260603
+- open: 5.26
+- high: 5.55
+- low: 5.22
+- close: 5.44
+- volume: 3071196
+- ma5: 5.28
+- ema23_primary: 5.11
+- distance_to_ema23_pct: 6.5
+- ma20: 5.07
 - ma60: 5.01
-- ma120: 4.96
-- return_5d: 0.77
-- return_20d: 13.15
-- volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: 4.29
-- distance_to_high_60_pct: -7.24
+- ma120: 4.97
+- return_5d: 0.18
+- return_20d: 17.49
+- volume_ratio: 1.41
+- distance_to_ma20_pct_auxiliary: 7.2
+- distance_to_high_60_pct: -3.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,4.65,4.65,4.59,4.63,537843,4.83,-4.1,4.83,5.18,0.69
 20260507,4.62,4.66,4.6,4.64,547254,4.81,-3.58,4.81,5.16,0.71
 20260508,4.75,4.9,4.72,4.86,2197590,4.82,0.91,4.8,5.14,2.57
 20260511,5.34,5.34,4.87,4.91,4308423,4.82,1.78,4.79,5.11,4.32
@@ -143,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,5.42,5.42,5.2,5.23,1289130,5.05,3.49,4.98,5.01,0.66
 20260601,5.27,5.27,5.12,5.16,1936736,5.06,1.93,5,5.01,0.96
 20260602,5.27,5.27,5.14,5.25,1216116,5.08,3.39,5.03,5.01,0.59
+20260603,5.26,5.55,5.22,5.44,3071196,5.11,6.5,5.07,5.01,1.41
 ```
 
 ## Latest TDCC Snapshot
@@ -172,17 +171,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 9103 | 美德醫療-DR | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 9103 | 美德醫療-DR | pattern | 型態觀察 | 51.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 9103 | 美德醫療-DR | 7 | 4 | 5 | 7 | 7 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 9103 | 美德醫療-DR | 8 | 1 | 5 | 8 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 9103 | 美德醫療-DR | 1 | 0 | 930.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 9103 | 美德醫療-DR | 1 | 0 | 150070.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

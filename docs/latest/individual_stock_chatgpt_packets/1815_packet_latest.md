@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1815 富喬
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:02 Asia/Taipei
+- generated_at: 2026-06-04 01:54:28 Asia/Taipei
 - stock_id: 1815
 - stock_name: 富喬
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 111.5
-- high: 113
-- low: 106
-- close: 109.5
-- volume: 110
-- ma5: 106.3
-- ema23_primary: 106.96
-- distance_to_ema23_pct: 2.37
-- ma20: 106.28
-- ma60: 107.78
-- ma120: 100.18
-- return_5d: 1.39
-- return_20d: -5.6
-- volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: 3.03
-- distance_to_high_60_pct: -15.44
+- date: 20260603
+- open: 110.5
+- high: 110.5
+- low: 106.5
+- close: 106.5
+- volume: 108000
+- ma5: 106.9
+- ema23_primary: 106.92
+- distance_to_ema23_pct: -0.39
+- ma20: 105.92
+- ma60: 107.79
+- ma120: 100.39
+- return_5d: 2.9
+- return_20d: -6.17
+- volume_ratio: 0.01
+- distance_to_ma20_pct_auxiliary: 0.54
+- distance_to_high_60_pct: -17.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,117.5,122,111,113.5,93899000,111.09,2.17,113.62,105.76,1.24
 20260507,115.5,117.5,110,110,53836000,111,-0.9,113.53,106.02,0.72
 20260508,110,110.5,105,107,35479000,110.67,-3.31,112.8,106.27,0.52
 20260511,108,114,107,110.5,34898000,110.65,-0.14,112.83,106.58,0.54
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,107.5,109,104.5,106,106000,106.52,-0.49,106.6,107.67,0
 20260601,108,113,107,109,110,106.73,2.13,106.6,107.76,0
 20260602,111.5,113,106,109.5,110,106.96,2.37,106.28,107.78,0
+20260603,110.5,110.5,106.5,106.5,108000,106.92,-0.39,105.92,107.79,0.01
 ```
 
 ## Latest TDCC Snapshot
@@ -172,12 +172,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 1815 | 富喬 | pattern | 型態觀察 |  |  |  | 預備發動型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 1815 | 富喬 | pattern | 型態觀察 |  |  |  | 預備發動型 |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1815 | 富喬 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 1815 | 富喬 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

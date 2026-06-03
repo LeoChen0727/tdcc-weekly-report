@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7332 宇峻統一5B購01
 
 ## Metadata
-- generated_at: 2026-06-02 23:30:25 Asia/Taipei
+- generated_at: 2026-06-04 01:57:00 Asia/Taipei
 - stock_id: 7332
 - stock_name: 宇峻統一5B購01
 - packet_status: standard_180d_window_packet

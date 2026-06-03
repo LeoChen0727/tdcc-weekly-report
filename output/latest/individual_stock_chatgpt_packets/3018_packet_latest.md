@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3018 隆銘綠能
 
 ## Metadata
-- generated_at: 2026-06-02 23:26:18 Asia/Taipei
+- generated_at: 2026-06-04 01:55:05 Asia/Taipei
 - stock_id: 3018
 - stock_name: 隆銘綠能
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 270
+- latest_price_date: 20260603
+- price_rows: 271
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -97,29 +97,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 9.54
-- high: 9.54
-- low: 9.42
-- close: 9.42
-- volume: 32369
-- ma5: 9.47
-- ema23_primary: 9.91
-- distance_to_ema23_pct: -4.97
-- ma20: 9.84
-- ma60: 11.02
-- ma120: 11.49
-- return_5d: -1.15
-- return_20d: -11.13
-- volume_ratio: 1.12
-- distance_to_ma20_pct_auxiliary: -4.3
-- distance_to_high_60_pct: -30.22
+- date: 20260603
+- open: 9.42
+- high: 9.99
+- low: 9.39
+- close: 9.99
+- volume: 36788
+- ma5: 9.54
+- ema23_primary: 9.92
+- distance_to_ema23_pct: 0.72
+- ma20: 9.82
+- ma60: 10.97
+- ma120: 11.48
+- return_5d: 4.06
+- return_20d: -4.4
+- volume_ratio: 1.26
+- distance_to_ma20_pct_auxiliary: 1.73
+- distance_to_high_60_pct: -23.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,10.6,10.6,10.4,10.45,34694,11,-5.01,10.87,11.86,0.88
 20260507,11.2,11.2,10.45,10.45,40601,10.96,-4.62,10.82,11.83,0.99
 20260508,10.45,10.45,10.1,10.15,54651,10.89,-6.78,10.76,11.8,1.26
 20260511,10.15,10.7,10.15,10.7,17993,10.87,-1.59,10.73,11.78,0.45
@@ -139,6 +138,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,9.42,9.81,9.42,9.42,21337,10,-5.76,9.96,11.15,0.73
 20260601,9.42,9.56,9.4,9.54,43556,9.96,-4.19,9.9,11.09,1.51
 20260602,9.54,9.54,9.42,9.42,32369,9.91,-4.97,9.84,11.02,1.12
+20260603,9.42,9.99,9.39,9.99,36788,9.92,0.72,9.82,10.97,1.26
 ```
 
 ## Latest TDCC Snapshot

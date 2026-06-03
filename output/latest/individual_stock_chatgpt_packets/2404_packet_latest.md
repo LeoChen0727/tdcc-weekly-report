@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2404 漢唐
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:33 Asia/Taipei
+- generated_at: 2026-06-04 01:54:43 Asia/Taipei
 - stock_id: 2404
 - stock_name: 漢唐
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 1175
+- date: 20260603
+- open: 1155
 - high: 1180
-- low: 1135
-- close: 1150
-- volume: 3749353
-- ma5: 1175
-- ema23_primary: 1095.53
-- distance_to_ema23_pct: 4.97
-- ma20: 1089.45
-- ma60: 997.22
-- ma120: 976.59
-- return_5d: -9.09
-- return_20d: 17.71
-- volume_ratio: 0.72
-- distance_to_ma20_pct_auxiliary: 5.56
-- distance_to_high_60_pct: -14.5
+- low: 1130
+- close: 1155
+- volume: 5099192
+- ma5: 1159
+- ema23_primary: 1100.49
+- distance_to_ema23_pct: 4.95
+- ma20: 1098
+- ma60: 998.13
+- ma120: 979.54
+- return_5d: -6.48
+- return_20d: 17.38
+- volume_ratio: 0.97
+- distance_to_ma20_pct_auxiliary: 5.19
+- distance_to_high_60_pct: -14.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,984,1000,965,984,3757729,960.38,2.46,961.45,958.12,0.81
 20260507,999,1005,985,997,3370283,963.43,3.48,966.1,958.85,0.73
 20260508,999,1050,996,1015,6940987,967.73,4.88,971.5,959.93,1.46
 20260511,1040,1040,986,1025,4977116,972.5,5.4,976.45,961.88,1.03
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,1200,1205,1150,1155,3394138,1082.91,6.66,1070.95,993.47,0.66
 20260601,1170,1175,1135,1175,2682577,1090.58,7.74,1080.8,996.38,0.52
 20260602,1175,1180,1135,1150,3749353,1095.53,4.97,1089.45,997.22,0.72
+20260603,1155,1180,1130,1155,5099192,1100.49,4.95,1098,998.13,0.97
 ```
 
 ## Latest TDCC Snapshot
@@ -172,19 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2404 | 漢唐 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260602 | 2404 | 漢唐 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260521 | 2404 | 漢唐 | pattern | 型態觀察 |  |  |  | 接近突破型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2404 | 漢唐 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2404 | 漢唐 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 2404 | 漢唐 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2404 | 漢唐 | 248 | 10 | 27235600.0 | 208530.0 | 130.61 | no_signal | 0 |  |
+| 20260603 | 2404 | 漢唐 | 248 | 10 | 34728660.0 | 36360.0 | 955.13 | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

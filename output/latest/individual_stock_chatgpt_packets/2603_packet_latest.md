@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2603 長榮
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:54 Asia/Taipei
+- generated_at: 2026-06-04 01:54:53 Asia/Taipei
 - stock_id: 2603
 - stock_name: 長榮
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,12 +55,12 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: starter_position
-- action_rating_label_zh: 可小量試單
+- action_rating: scale_in
+- action_rating_label_zh: 可分批買進
 - confidence_level: medium
-- thesis_state: breakout_initial
-- entry_style: breakout_follow
-- position_sizing: starter_1_4
+- thesis_state: healthy_pullback
+- entry_style: pullback_to_23ema
+- position_sizing: half_position
 
 ### management_plan
 - buy_first_tranche_near_support
@@ -77,6 +77,7 @@
 ### entry_prerequisites
 - model_recommended
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -101,29 +102,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 225
-- high: 231
-- low: 220.5
-- close: 231
-- volume: 35901526
-- ma5: 218.1
-- ema23_primary: 211.95
-- distance_to_ema23_pct: 8.99
-- ma20: 212.05
-- ma60: 207.39
-- ma120: 198.35
-- return_5d: 9.22
-- return_20d: 11.06
-- volume_ratio: 1.57
-- distance_to_ma20_pct_auxiliary: 8.94
-- distance_to_high_60_pct: 0
+- date: 20260603
+- open: 233
+- high: 242.5
+- low: 228.5
+- close: 237
+- volume: 38862223
+- ma5: 223.2
+- ema23_primary: 214.04
+- distance_to_ema23_pct: 10.73
+- ma20: 213.3
+- ma60: 207.83
+- ma120: 198.82
+- return_5d: 12.06
+- return_20d: 11.79
+- volume_ratio: 1.61
+- distance_to_ma20_pct_auxiliary: 11.11
+- distance_to_high_60_pct: -2.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,211,213.5,209,212,14157694,203.37,4.25,202.15,201.42,1.35
 20260507,212.5,214.5,211.5,213.5,10470314,204.21,4.55,202.72,201.78,1.01
 20260508,212.5,214,211,211.5,12482776,204.82,3.26,203.15,202.13,1.17
 20260511,213.5,215,212.5,214,9248306,205.58,4.09,203.72,202.6,0.87
@@ -143,6 +143,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,212.5,216.5,211,213,30658046,208.96,1.93,210,206.77,1.5
 20260601,217,225,216.5,224,38077211,210.22,6.56,210.9,207.01,1.76
 20260602,225,231,220.5,231,35901526,211.95,8.99,212.05,207.39,1.57
+20260603,233,242.5,228.5,237,38862223,214.04,10.73,213.3,207.83,1.61
 ```
 
 ## Latest TDCC Snapshot
@@ -172,17 +173,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2603 | 長榮 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_inflow | continued_2_3d | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_30d |
+| 20260603 | 2603 | 長榮 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | repeated_but_no_breakout | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2603 | 長榮 | 3 | 1 | 4 | 8 | 8 | continued_2_3d | 連續 3 個交易日上榜，訊號延續但仍需確認。 |
+| 20260603 | 2603 | 長榮 | 4 | 1 | 4 | 9 | 9 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 9 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2603 | 長榮 | 135 | 3 | 27479740.0 | 12580.0 | 2184.4 | call_inflow | 1 |  |
+| 20260603 | 2603 | 長榮 | 133 | 3 | 34413650.0 | 115380.0 | 298.26 | call_inflow | 1 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

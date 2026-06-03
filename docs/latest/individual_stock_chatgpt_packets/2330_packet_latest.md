@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2330 台積電
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:23 Asia/Taipei
+- generated_at: 2026-06-04 01:54:38 Asia/Taipei
 - stock_id: 2330
 - stock_name: 台積電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,11 +59,11 @@
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -76,7 +76,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -101,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 2390
-- high: 2400
-- low: 2360
-- close: 2380
-- volume: 41532527
-- ma5: 2337
-- ema23_primary: 2253.35
-- distance_to_ema23_pct: 5.62
-- ma20: 2273.75
-- ma60: 2067.83
-- ma120: 1868.38
-- return_5d: 4.85
-- return_20d: 5.78
-- volume_ratio: 0.98
-- distance_to_ma20_pct_auxiliary: 4.67
-- distance_to_high_60_pct: -1.45
+- date: 20260603
+- open: 2425
+- high: 2440
+- low: 2410
+- close: 2425
+- volume: 29219904
+- ma5: 2362
+- ema23_primary: 2267.66
+- distance_to_ema23_pct: 6.94
+- ma20: 2282.5
+- ma60: 2076.75
+- ma120: 1876.58
+- return_5d: 5.43
+- return_20d: 7.78
+- volume_ratio: 0.7
+- distance_to_ma20_pct_auxiliary: 6.24
+- distance_to_high_60_pct: -0.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,2250,2285,2240,2250,38026963,2095.37,7.38,2105.25,1938.33,0.86
 20260507,2335,2345,2310,2310,41966283,2113.25,9.31,2123.25,1946.5,0.96
 20260508,2300,2310,2265,2290,31730352,2127.98,7.61,2140,1954.58,0.73
 20260511,2265,2275,2235,2235,46172626,2136.9,4.59,2151.75,1962.25,1.06
@@ -143,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,2340,2375,2330,2355,104783831,2231.55,5.53,2263.25,2051.67,2.56
 20260601,2355,2415,2350,2355,60942792,2241.84,5.05,2267.25,2059.83,1.46
 20260602,2390,2400,2360,2380,41532527,2253.35,5.62,2273.75,2067.83,0.98
+20260603,2425,2440,2410,2425,29219904,2267.66,6.94,2282.5,2076.75,0.7
 ```
 
 ## Latest TDCC Snapshot
@@ -172,17 +171,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2330 | 台積電 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: ex_dividend on 20260611; status=confirmed; proximity=within_14d |
+| 20260603 | 2330 | 台積電 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: ex_dividend on 20260611; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2330 | 台積電 | 3 | 1 | 3 | 4 | 4 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 2330 | 台積電 | 4 | 2 | 4 | 5 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2330 | 台積電 | 919 | 202 | 229424950.0 | 3720080.0 | 61.67 | no_signal | 0 | 認購權證成交金額很大且認購/認售比偏高，需檢查標的是否高位追價或獲利結清；認購權證成交量與成交金額同步偏大，短線資金關注度高 |
+| 20260603 | 2330 | 台積電 | 913 | 202 | 177377370.0 | 2852460.0 | 62.18 | no_signal | 0 | 認購權證成交金額很大且認購/認售比偏高，需檢查標的是否高位追價或獲利結清；認購權證成交量與成交金額同步偏大，短線資金關注度高 |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

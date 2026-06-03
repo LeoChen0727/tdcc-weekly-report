@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00896 中信綠能及電動車
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:08 Asia/Taipei
+- generated_at: 2026-06-04 01:54:04 Asia/Taipei
 - stock_id: 00896
 - stock_name: 中信綠能及電動車
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260602
-- price_rows: 8
+- latest_price_date: 20260603
+- price_rows: 9
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -59,7 +59,7 @@
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: observe_only
 
 ### management_plan
@@ -72,7 +72,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -97,23 +96,23 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 30.85
-- high: 30.85
-- low: 29.02
-- close: 29.54
-- volume: 32108727
-- ma5: 28.83
-- ema23_primary: 27.65
-- distance_to_ema23_pct: 6.82
-- ma20: 28.35
-- ma60: 28.35
-- ma120: 28.35
-- return_5d: 5.61
+- date: 20260603
+- open: 29.87
+- high: 30.12
+- low: 29.8
+- close: 30.08
+- volume: 16001175
+- ma5: 29.14
+- ema23_primary: 27.86
+- distance_to_ema23_pct: 7.99
+- ma20: 28.54
+- ma60: 28.54
+- ma120: 28.54
+- return_5d: 5.32
 - return_20d: 
-- volume_ratio: 4.53
-- distance_to_ma20_pct_auxiliary: 4.21
-- distance_to_high_60_pct: -4.25
+- volume_ratio: 1.98
+- distance_to_ma20_pct_auxiliary: 5.4
+- distance_to_high_60_pct: -2.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -127,6 +126,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,28.39,28.94,28.39,28.8,4489166,27.31,5.46,27.98,27.98,1.26
 20260601,29.15,29.55,29.15,29.37,3261429,27.48,6.87,28.18,28.18,0.93
 20260602,30.85,30.85,29.02,29.54,32108727,27.65,6.82,28.35,28.35,4.53
+20260603,29.87,30.12,29.8,30.08,16001175,27.86,7.99,28.54,28.54,1.98
 ```
 
 ## Latest TDCC Snapshot

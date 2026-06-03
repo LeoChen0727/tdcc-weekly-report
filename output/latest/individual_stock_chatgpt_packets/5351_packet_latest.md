@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5351 鈺創
 
 ## Metadata
-- generated_at: 2026-06-02 23:28:15 Asia/Taipei
+- generated_at: 2026-06-04 01:56:00 Asia/Taipei
 - stock_id: 5351
 - stock_name: 鈺創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -100,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 90.2
-- high: 95.4
-- low: 88.8
-- close: 92.9
-- volume: 93
-- ma5: 86.8
-- ema23_primary: 81.12
-- distance_to_ema23_pct: 14.52
-- ma20: 82.56
-- ma60: 73.39
-- ma120: 62.82
-- return_5d: 13.02
-- return_20d: 25.37
+- date: 20260603
+- open: 95
+- high: 95
+- low: 90
+- close: 90.1
+- volume: 92000
+- ma5: 88.3
+- ema23_primary: 81.87
+- distance_to_ema23_pct: 10.05
+- ma20: 83.14
+- ma60: 74.04
+- ma120: 63.24
+- return_5d: 9.08
+- return_20d: 14.78
 - volume_ratio: 0
-- distance_to_ma20_pct_auxiliary: 12.52
-- distance_to_high_60_pct: -2.62
+- distance_to_ma20_pct_auxiliary: 8.36
+- distance_to_high_60_pct: -5.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,81,81.5,78.3,78.5,43132000,69.61,12.77,69.36,65.14,1.97
 20260507,79,79.9,75.4,77.3,37255000,70.25,10.03,69.67,65.39,1.59
 20260508,78,81.3,73.5,75.1,29521000,70.66,6.29,69.8,65.63,1.27
 20260511,78.1,81.5,77.5,80.1,29497000,71.44,12.12,70.27,65.95,1.27
@@ -142,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,85.1,87.3,84.1,86.2,86000,79.17,8.88,80.72,72.07,0
 20260601,87.5,93.8,87.1,89.7,90,80.05,12.05,81.62,72.75,0
 20260602,90.2,95.4,88.8,92.9,93,81.12,14.52,82.56,73.39,0
+20260603,95,95,90,90.1,92000,81.87,10.05,83.14,74.04,0
 ```
 
 ## Latest TDCC Snapshot
@@ -171,12 +171,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 5351 | 鈺創 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 5351 | 鈺創 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 5351 | 鈺創 | 9 | 9 | 5 | 9 | 9 | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 5351 | 鈺創 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

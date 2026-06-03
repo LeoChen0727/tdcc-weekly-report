@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1522 堤維西
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:38 Asia/Taipei
+- generated_at: 2026-06-04 01:54:18 Asia/Taipei
 - stock_id: 1522
 - stock_name: 堤維西
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -100,29 +100,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 32.85
-- high: 33.15
-- low: 32
-- close: 33.1
-- volume: 2790419
-- ma5: 32.11
-- ema23_primary: 31.23
-- distance_to_ema23_pct: 5.99
-- ma20: 30.83
-- ma60: 32.62
-- ma120: 39.97
-- return_5d: 13.75
-- return_20d: 4.42
-- volume_ratio: 1.13
-- distance_to_ma20_pct_auxiliary: 7.37
-- distance_to_high_60_pct: -22.03
+- date: 20260603
+- open: 33.1
+- high: 33.45
+- low: 32.8
+- close: 33.2
+- volume: 1698585
+- ma5: 33.03
+- ema23_primary: 31.39
+- distance_to_ema23_pct: 5.75
+- ma20: 30.93
+- ma60: 32.47
+- ma120: 39.84
+- return_5d: 16.08
+- return_20d: 6.92
+- volume_ratio: 0.68
+- distance_to_ma20_pct_auxiliary: 7.32
+- distance_to_high_60_pct: -19.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,31.7,31.9,31.05,31.05,1080544,32.32,-3.93,31.88,37.45,1.29
 20260507,31.1,34.15,31.05,34.15,3033993,32.47,5.16,31.97,37.18,3.16
 20260508,32.8,33.3,32,32.1,5454156,32.44,-1.05,32,36.89,4.53
 20260511,32,32,31.2,31.6,1798417,32.37,-2.38,32.01,36.6,1.42
@@ -142,6 +141,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,34.5,34.55,33.2,34.55,13169308,30.9,11.83,30.66,32.91,6.1
 20260601,33.95,33.95,32.65,32.85,5206287,31.06,5.77,30.76,32.77,2.19
 20260602,32.85,33.15,32,33.1,2790419,31.23,5.99,30.83,32.62,1.13
+20260603,33.1,33.45,32.8,33.2,1698585,31.39,5.75,30.93,32.47,0.68
 ```
 
 ## Latest TDCC Snapshot
@@ -171,18 +171,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1522 | 堤維西 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260602 | 1522 | 堤維西 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260603 | 1522 | 堤維西 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1522 | 堤維西 | 7 | 4 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 日、近 20 日上榜 7 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 1522 | 堤維西 | 8 | 2 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 8 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 1522 | 堤維西 | 2 | 0 | 163200.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 1522 | 堤維西 | 2 | 0 | 67740.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

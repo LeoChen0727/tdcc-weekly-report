@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2493 揚博
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:46 Asia/Taipei
+- generated_at: 2026-06-04 01:54:49 Asia/Taipei
 - stock_id: 2493
 - stock_name: 揚博
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -55,18 +55,14 @@
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
 ## ACTION_DECISION
-- action_rating: starter_position
-- action_rating_label_zh: 可小量試單
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
-- position_sizing: starter_1_4
+- entry_style: current_price_ok
+- position_sizing: observe_only
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -76,7 +72,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -101,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 154
-- high: 156.5
-- low: 146
-- close: 147
-- volume: 2801331
-- ma5: 156.2
-- ema23_primary: 142.27
-- distance_to_ema23_pct: 3.32
-- ma20: 141.68
-- ma60: 125.92
-- ma120: 118.4
-- return_5d: -10.09
-- return_20d: 8.09
-- volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: 3.76
-- distance_to_high_60_pct: -15.27
+- date: 20260603
+- open: 150
+- high: 161.5
+- low: 149.5
+- close: 161.5
+- volume: 6004976
+- ma5: 156.9
+- ema23_primary: 143.87
+- distance_to_ema23_pct: 12.25
+- ma20: 142.8
+- ma60: 126.86
+- ma120: 118.96
+- return_5d: 2.22
+- return_20d: 16.19
+- volume_ratio: 1.28
+- distance_to_ma20_pct_auxiliary: 13.1
+- distance_to_high_60_pct: -6.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,136.5,142,127,139,6839587,125.95,10.36,129.78,115.64,1.59
 20260507,142,145,140.5,141,6490247,127.21,10.84,131.05,116.11,1.43
 20260508,136.5,138,130,131.5,4012582,127.56,3.08,131.8,116.43,0.87
 20260511,131.5,131.5,128.5,129.5,1602783,127.73,1.39,132.32,116.77,0.35
@@ -143,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,163.5,166,158,160,4547361,140.83,13.62,139.68,124.27,0.97
 20260601,159,159,150,153,4523902,141.84,7.87,141.12,125.17,0.93
 20260602,154,156.5,146,147,2801331,142.27,3.32,141.68,125.92,0.59
+20260603,150,161.5,149.5,161.5,6004976,143.87,12.25,142.8,126.86,1.28
 ```
 
 ## Latest TDCC Snapshot
@@ -170,19 +165,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2493 | 揚博 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2493 | 揚博 | 2 | 2 | 4 | 6 | 6 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2493 | 揚博 | 57 | 1 | 4361230.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 2493 | 揚博 | 57 | 1 | 12636880.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

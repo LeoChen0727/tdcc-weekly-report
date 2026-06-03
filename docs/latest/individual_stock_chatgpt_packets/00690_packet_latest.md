@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00690 兆豐藍籌30
 
 ## Metadata
-- generated_at: 2026-06-02 23:24:05 Asia/Taipei
+- generated_at: 2026-06-04 01:54:03 Asia/Taipei
 - stock_id: 00690
 - stock_name: 兆豐藍籌30
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260602
-- price_rows: 8
+- latest_price_date: 20260603
+- price_rows: 9
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -97,23 +97,23 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 81.25
-- high: 81.9
-- low: 79
-- close: 80.6
-- volume: 882572
-- ma5: 80.12
-- ema23_primary: 76.35
-- distance_to_ema23_pct: 5.56
-- ma20: 78.73
-- ma60: 78.73
-- ma120: 78.73
-- return_5d: 3.13
+- date: 20260603
+- open: 81.3
+- high: 82.1
+- low: 81.1
+- close: 81.3
+- volume: 306334
+- ma5: 80.18
+- ema23_primary: 76.76
+- distance_to_ema23_pct: 5.91
+- ma20: 79.02
+- ma60: 79.02
+- ma120: 79.02
+- return_5d: 0.37
 - return_20d: 
-- volume_ratio: 1.05
-- distance_to_ma20_pct_auxiliary: 2.37
-- distance_to_high_60_pct: -1.59
+- volume_ratio: 0.39
+- distance_to_ma20_pct_auxiliary: 2.89
+- distance_to_high_60_pct: -0.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -127,6 +127,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,80.1,80.2,79.25,79.85,594356,75.5,5.76,78.03,78.03,0.68
 20260601,80.6,81.8,80.5,81.05,586085,75.97,6.69,78.46,78.46,0.7
 20260602,81.25,81.9,79,80.6,882572,76.35,5.56,78.73,78.73,1.05
+20260603,81.3,82.1,81.1,81.3,306334,76.76,5.91,79.02,79.02,0.39
 ```
 
 ## Latest TDCC Snapshot

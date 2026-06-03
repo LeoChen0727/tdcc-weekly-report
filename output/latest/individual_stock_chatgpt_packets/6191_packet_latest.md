@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6191 精成科
 
 ## Metadata
-- generated_at: 2026-06-02 23:28:48 Asia/Taipei
+- generated_at: 2026-06-04 01:56:15 Asia/Taipei
 - stock_id: 6191
 - stock_name: 精成科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -101,29 +101,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 97
-- high: 97.9
-- low: 95.8
-- close: 97
-- volume: 4531630
-- ma5: 97.06
-- ema23_primary: 96.95
-- distance_to_ema23_pct: 0.05
-- ma20: 95.43
-- ma60: 97.76
-- ma120: 105.64
-- return_5d: 0.83
-- return_20d: -3
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: 1.65
-- distance_to_high_60_pct: -16.38
+- date: 20260603
+- open: 97.7
+- high: 103.5
+- low: 97.3
+- close: 100.5
+- volume: 15277066
+- ma5: 97.56
+- ema23_primary: 97.24
+- distance_to_ema23_pct: 3.35
+- ma20: 95.48
+- ma60: 97.81
+- ma120: 105.39
+- return_5d: 2.55
+- return_20d: 1
+- volume_ratio: 2
+- distance_to_ma20_pct_auxiliary: 5.26
+- distance_to_high_60_pct: -13.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,101.5,103,98,99.5,9275294,102.12,-2.57,103.53,101.39,0.76
 20260507,100.5,101.5,99.1,100,5994714,101.95,-1.91,103.81,101.16,0.49
 20260508,100,100,94.2,95.5,13565521,101.41,-5.83,103.82,100.9,1.07
 20260511,96,96.7,94,94.8,6698206,100.86,-6.01,103.61,100.67,0.54
@@ -143,6 +142,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,98.3,98.8,96.4,97,6146258,97.01,-0.01,95.69,97.81,0.82
 20260601,97.6,98,96.2,96.2,5561748,96.94,-0.77,95.58,97.8,0.75
 20260602,97,97.9,95.8,97,4531630,96.95,0.05,95.43,97.76,0.62
+20260603,97.7,103.5,97.3,100.5,15277066,97.24,3.35,95.48,97.81,2
 ```
 
 ## Latest TDCC Snapshot
@@ -172,17 +172,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 6191 | 精成科 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 6191 | 精成科 | pattern | 型態觀察 |  |  |  | 預備發動型 |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6191 | 精成科 | 9 | 9 | 5 | 9 | 9 | stale_signal | 反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。 |
+| 20260603 | 6191 | 精成科 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 6191 | 精成科 | 62 | 3 | 1441640.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 6191 | 精成科 | 62 | 3 | 7011970.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

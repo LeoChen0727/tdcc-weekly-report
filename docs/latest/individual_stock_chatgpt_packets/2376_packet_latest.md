@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2376 技嘉
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:29 Asia/Taipei
+- generated_at: 2026-06-04 01:54:41 Asia/Taipei
 - stock_id: 2376
 - stock_name: 技嘉
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 275
+- latest_price_date: 20260603
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -96,29 +96,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 387.5
-- high: 395
-- low: 379.5
-- close: 390.5
-- volume: 25610532
-- ma5: 363.5
-- ema23_primary: 327.78
-- distance_to_ema23_pct: 19.14
-- ma20: 330.3
-- ma60: 278.17
-- ma120: 257.87
-- return_5d: 16.22
-- return_20d: 39.71
-- volume_ratio: 1.21
-- distance_to_ma20_pct_auxiliary: 18.23
-- distance_to_high_60_pct: -1.39
+- date: 20260603
+- open: 392
+- high: 402
+- low: 377
+- close: 399
+- volume: 23444363
+- ma5: 376.8
+- ema23_primary: 333.71
+- distance_to_ema23_pct: 19.56
+- ma20: 335.2
+- ma60: 281.17
+- ma120: 259.16
+- return_5d: 20
+- return_20d: 32.56
+- volume_ratio: 1.11
+- distance_to_ma20_pct_auxiliary: 19.03
+- distance_to_high_60_pct: -0.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,283,304.5,283,301,24158935,270.7,11.19,275.2,245.68,2.2
 20260507,311,316.5,300.5,309,24537224,273.89,12.82,278.43,246.82,2.1
 20260508,316,323.5,304.5,317,21918327,277.49,14.24,281.73,248.15,1.8
 20260511,329,333,317,324.5,20716173,281.4,15.31,284.82,249.68,1.67
@@ -138,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,350.5,371,350,370,33434927,316.17,17.03,319.35,272.41,1.82
 20260601,385,396,376.5,387,38916483,322.07,20.16,324.75,275.29,1.94
 20260602,387.5,395,379.5,390.5,25610532,327.78,19.14,330.3,278.17,1.21
+20260603,392,402,377,399,23444363,333.71,19.56,335.2,281.17,1.11
 ```
 
 ## Latest TDCC Snapshot
@@ -167,17 +167,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2376 | 技嘉 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 63.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2376 | 技嘉 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 58.0 |  |  | neckline_challenge |  | call_strong_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2376 | 技嘉 | 9 | 1 | 5 | 9 | 9 | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 2376 | 技嘉 | 1 | 1 | 4 | 9 | 9 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 9 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2376 | 技嘉 | 101 | 2 | 38127110.0 | 0.0 |  | no_signal | 0 |  |
+| 20260603 | 2376 | 技嘉 | 108 | 2 | 92043510.0 | 0.0 |  | call_strong_inflow | 2 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2352 佳世達
 
 ## Metadata
-- generated_at: 2026-06-02 23:25:25 Asia/Taipei
+- generated_at: 2026-06-04 01:54:39 Asia/Taipei
 - stock_id: 2352
 - stock_name: 佳世達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260602
-- price_rows: 269
+- latest_price_date: 20260603
+- price_rows: 270
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -95,29 +95,28 @@
 - Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
 
 ## Latest Price Snapshot
-- date: 20260602
-- open: 30.65
-- high: 31.5
-- low: 30.15
-- close: 31.5
-- volume: 21947683
-- ma5: 29.25
-- ema23_primary: 27.24
-- distance_to_ema23_pct: 15.65
-- ma20: 26.99
-- ma60: 25.11
-- ma120: 25.31
-- return_5d: 12.1
-- return_20d: 26.25
-- volume_ratio: 1.86
-- distance_to_ma20_pct_auxiliary: 16.72
+- date: 20260603
+- open: 33.75
+- high: 34.65
+- low: 33.7
+- close: 34.65
+- volume: 12684313
+- ma5: 30.67
+- ema23_primary: 27.85
+- distance_to_ema23_pct: 24.4
+- ma20: 27.43
+- ma60: 25.29
+- ma120: 25.36
+- return_5d: 25.77
+- return_20d: 34.04
+- volume_ratio: 1.07
+- distance_to_ma20_pct_auxiliary: 26.33
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,25.05,26,24.75,25.85,12612356,24.62,5,24.73,24.54,2.45
 20260507,25.85,25.85,25,25.2,8710887,24.67,2.16,24.8,24.54,1.63
 20260508,25.1,25.4,24.8,24.85,5032164,24.68,0.68,24.82,24.52,0.95
 20260511,25.2,25.8,24.9,25.7,8814119,24.77,3.77,24.91,24.53,1.59
@@ -137,6 +136,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,28.05,28.9,28,28.9,14114479,26.5,9.04,26.35,24.86,1.45
 20260601,29.4,31.5,29.2,30.65,27389242,26.85,14.16,26.66,24.98,2.51
 20260602,30.65,31.5,30.15,31.5,21947683,27.24,15.65,26.99,25.11,1.86
+20260603,33.75,34.65,33.7,34.65,12684313,27.85,24.4,27.43,25.29,1.07
 ```
 
 ## Latest TDCC Snapshot
@@ -166,17 +166,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260521 | 2352 | 佳世達 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 2352 | 佳世達 | pattern | 型態觀察 |  |  |  | 已突破但未過熱 |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2352 | 佳世達 | 9 | 9 | 5 | 9 | 9 | repeated_but_no_breakout | 近 10 日上榜 9 日、近 20 日上榜 9 日，尚未突破，需分辨醞釀或鈍化。 |
+| 20260603 | 2352 | 佳世達 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260602 | 2352 | 佳世達 | 15 | 1 | 4932660.0 | 71200.0 | 69.28 | no_signal | 0 |  |
+| 20260603 | 2352 | 佳世達 | 15 | 1 | 1187150.0 | 0.0 |  | no_signal | 0 |  |
 
 ## Interpretation Guardrails
 - ACTION_DECISION is the program-side action guidance for single-stock trading language.
