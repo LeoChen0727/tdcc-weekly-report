@@ -1310,8 +1310,23 @@ def main() -> int:
     fixed_pdf_manifest = read_json(FIXED_PDF_MANIFEST_JSON)
     fixed_pdf_validation = read_json(FIXED_PDF_VALIDATION_JSON)
 
-    main_price_date = freshness.get("main_price_date") or normalize_date(packet_manifest.get("main_price_date", ""))
-    report_ready = freshness.get("report_ready") or str(packet_manifest.get("report_ready", "")).strip()
+    manifest_main_price_date = (
+        normalize_date(fixed_pdf_manifest.get("main_price_date", ""))
+        or normalize_date(packet_manifest.get("main_price_date", ""))
+    )
+    freshness_main_price_date = freshness.get("main_price_date", "")
+    freshness_matches_manifest = (
+        bool(freshness_main_price_date)
+        and bool(manifest_main_price_date)
+        and freshness_main_price_date == manifest_main_price_date
+    )
+
+    main_price_date = manifest_main_price_date or freshness_main_price_date
+    report_ready = (
+        str(fixed_pdf_manifest.get("report_ready", "")).strip()
+        or str(packet_manifest.get("report_ready", "")).strip()
+        or (freshness.get("report_ready") if freshness_matches_manifest else "")
+    )
 
     if not main_price_date:
         raise RuntimeError("main_price_date is missing")
