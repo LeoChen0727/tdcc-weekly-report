@@ -2155,76 +2155,19 @@ signal_date,report_bucket,stock_id,stock_name,model_id,model_name_zh,model_group
 20260602,non_mainstream,7780,大研生醫*,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,48.0,46,食品工業,tdcc_distribution_penalty,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
 20260602,non_mainstream,9945,潤泰新,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,48.2,38,其他,tdcc_distribution_penalty,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
 20260602,non_mainstream,9958,世紀鋼,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,64.0,26,鋼鐵工業,,等待量價、TDCC、相對強弱至少一項轉強。
-20260602,mainstream,1530,亞崴,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,1,機器人自動化_電機機械待細分,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,1570,力肯,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,2,機器人自動化_電機機械待細分,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,2303,聯電,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,3,半導體業_待細分,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,2305,全友,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,4,電腦及週邊設備業_待細分,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,2312,金寶,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,5,其他電子業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,2317,鴻海,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,6,AI伺服器,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,2344,華邦電,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,7,記憶體儲存,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,2351,順德,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,8,半導體業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,2353,宏碁,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,9,電腦及週邊設備業_待細分,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,2356,英業達,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,10,AI伺服器,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,2357,華碩,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,11,電腦及週邊設備業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,2369,菱生,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,12,半導體業_待細分,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,2375,凱美,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,86.8,65,被動元件,kd_overheated|two_week_return_too_extended|bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,2376,技嘉,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,13,電腦及週邊設備業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,2408,南亞科,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,14,記憶體儲存,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,2428,興勤,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,15,被動元件,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,2441,超豐,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,16,半導體業_待細分,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,2454,聯發科,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,17,半導體業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,2481,強茂,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,18,功率元件/二極體,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,2484,希華,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,19,被動元件,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,2493,揚博,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,20,電子零組件業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,2495,普安,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,21,電腦及週邊設備業_待細分,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,3042,晶技,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,22,被動元件,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,3135,凌航,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,23,半導體業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,3149,正達,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,24,光電業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,3189,景碩,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,25,PCB_CCL_ABF材料,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,3229,晟鈦,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,26,電子零組件業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,3317,尼克森,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,27,半導體業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,3491,昇達科,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,28,低軌衛星,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,3528,安馳,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,29,電子通路業_待細分,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,3532,台勝科,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,30,半導體業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,3537,堡達,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,31,電子零組件業_待細分,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,3556,禾瑞亞,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,32,半導體業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,3624,光頡,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,33,被動元件,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,3673,TPK-KY,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,34,光電業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,4542,科嶠,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,99.3,61,電子零組件業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,4555,氣立,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,35,機器人自動化_電機機械待細分,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,4906,正文,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,36,網通交換器,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,4939,亞電,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,37,電子零組件業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,6127,九豪,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,38,電子零組件業_待細分,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,6175,立敦,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,39,電子零組件業_待細分,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,6196,帆宣,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,40,半導體設備_CoWoS,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,6224,聚鼎,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,41,電子零組件業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,6265,方土昶,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,42,電子通路業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,6284,佳邦,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,43,電子零組件業_待細分,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,6290,良維,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,44,電子零組件業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,6405,悅城,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,45,光電業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,6411,晶焱,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,98.2,62,半導體業_待細分,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,6435,大中,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,46,半導體業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,6706,惠特,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,47,光電業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,6862,三集瑞-KY,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,48,被動元件,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,6870,騰雲,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,49,數位雲端_待細分,kd_overheated|bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,7709,榮田,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,50,機器人自動化_電機機械待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,8028,昇陽半導體,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,51,半導體設備_CoWoS,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,8110,華東,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,97.3,63,半導體業_待細分,one_week_return_too_extended,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,8150,南茂,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,91.3,64,記憶體儲存,one_week_return_too_extended,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,8162,微矽電子-創,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,52,半導體業_待細分,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,8163,達方,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,53,電腦及週邊設備業_待細分,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,8182,加高,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,54,電子零組件業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,8255,朋程,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,55,機器人自動化_電機機械待細分,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,8261,富鼎,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,56,功率元件/二極體,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,8289,泰藝,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,57,電子零組件業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,8358,金居,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,58,PCB_CCL_ABF材料,kd_overheated,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,8454,富邦媒,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,59,數位雲端_待細分,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,mainstream,8477,創業家,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,60,數位雲端_待細分,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,non_mainstream,5284,jpp-KY,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,1,其他,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,non_mainstream,5864,致和證,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,2,金融保險業,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,non_mainstream,6005,群益證,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,3,金融保險業,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,non_mainstream,6015,宏遠證,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,4,金融業,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260602,non_mainstream,8473,山林水,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,99.8,5,綠能環保,kd_overheated|bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260602,mainstream,2312,金寶,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,1,其他電子業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260602,mainstream,2344,華邦電,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,2,記憶體儲存,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260602,mainstream,2369,菱生,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,3,半導體業_待細分,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260602,mainstream,2375,凱美,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,87.3,13,被動元件,kd_overheated|two_week_return_too_extended|bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260602,mainstream,2484,希華,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,4,被動元件,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260602,mainstream,2495,普安,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,5,電腦及週邊設備業_待細分,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260602,mainstream,4906,正文,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,6,網通交換器,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260602,mainstream,6127,九豪,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,7,電子零組件業_待細分,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260602,mainstream,6175,立敦,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,8,電子零組件業_待細分,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260602,mainstream,6265,方土昶,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,9,電子通路業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260602,mainstream,6284,佳邦,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,10,電子零組件業_待細分,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260602,mainstream,6706,惠特,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,11,光電業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260602,mainstream,8028,昇陽半導體,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,12,半導體設備_CoWoS,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
 20260602,mainstream,1536,和大,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,54,車用電子,,等待量價、TDCC、相對強弱至少一項轉強。
 20260602,mainstream,1560,中砂,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,65.1,13,半導體設備_CoWoS,,等待量價、TDCC、相對強弱至少一項轉強。
 20260602,mainstream,1590,亞德客-KY,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,21,機器人,,等待量價、TDCC、相對強弱至少一項轉強。
@@ -2360,170 +2303,205 @@ signal_date,report_bucket,stock_id,stock_name,model_id,model_name_zh,model_group
 20260602,non_mainstream,9914,美利達,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,58.0,48,運動休閒,,等待量價、TDCC、相對強弱至少一項轉強。
 20260602,non_mainstream,9938,百和,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,51.3,49,其他,false_breakout_risk_penalty,確認放量站上頸線/平台壓力，且收盤靠近高點。
 20260602,non_mainstream,9958,世紀鋼,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,64.0,28,鋼鐵工業,,等待量價、TDCC、相對強弱至少一項轉強。
-20260602,mainstream,1303,南亞,volume_range_breakout,帶量突破模型,pdf_core_model,61.2,76,玻纖布,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,1471,首利,volume_range_breakout,帶量突破模型,pdf_core_model,66.2,66,電子零組件業_待細分,,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,1528,恩德,volume_range_breakout,帶量突破模型,pdf_core_model,73.6,44,重電電網,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,1540,喬福,volume_range_breakout,帶量突破模型,pdf_core_model,71.0,52,機器人自動化_電機機械待細分,false_breakout_risk_penalty,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260602,mainstream,1608,華榮,volume_range_breakout,帶量突破模型,pdf_core_model,82.9,22,重電電網_電器電纜待細分,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260602,mainstream,1611,中電,volume_range_breakout,帶量突破模型,pdf_core_model,54.6,90,重電電網_電器電纜待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,2323,中環,volume_range_breakout,帶量突破模型,pdf_core_model,87.9,9,光電業_待細分,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260602,mainstream,2328,廣宇,volume_range_breakout,帶量突破模型,pdf_core_model,80.9,25,電子零組件業_待細分,false_breakout_risk_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,2331,精英,volume_range_breakout,帶量突破模型,pdf_core_model,95.0,3,電腦及週邊設備業_待細分,,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,2347,聯強,volume_range_breakout,帶量突破模型,pdf_core_model,96.4,2,電子通路業_待細分,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260602,mainstream,2349,錸德,volume_range_breakout,帶量突破模型,pdf_core_model,44.2,98,光電業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,2353,宏碁,volume_range_breakout,帶量突破模型,pdf_core_model,90.2,6,電腦及週邊設備業_待細分,20d_return_high_score_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,2354,鴻準,volume_range_breakout,帶量突破模型,pdf_core_model,56.7,85,散熱液冷,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,2356,英業達,volume_range_breakout,帶量突破模型,pdf_core_model,80.2,27,AI伺服器,20d_return_high_score_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,2357,華碩,volume_range_breakout,帶量突破模型,pdf_core_model,87.7,10,電腦及週邊設備業_待細分,,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,2362,藍天,volume_range_breakout,帶量突破模型,pdf_core_model,86.1,13,電腦及週邊設備業_待細分,,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,2377,微星,volume_range_breakout,帶量突破模型,pdf_core_model,56.6,86,電腦及週邊設備業_待細分,20d_return_high_score_penalty | tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,2379,瑞昱,volume_range_breakout,帶量突破模型,pdf_core_model,83.8,19,半導體業_待細分,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260602,mainstream,2382,廣達,volume_range_breakout,帶量突破模型,pdf_core_model,81.6,24,AI伺服器,,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,2387,精元,volume_range_breakout,帶量突破模型,pdf_core_model,66.8,62,電腦及週邊設備業_待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260602,mainstream,2390,云辰,volume_range_breakout,帶量突破模型,pdf_core_model,59.2,82,其他電子業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,2405,輔信,volume_range_breakout,帶量突破模型,pdf_core_model,86.0,15,電腦及週邊設備業_待細分,,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,2409,友達,volume_range_breakout,帶量突破模型,pdf_core_model,70.6,54,光電業_待細分,20d_return_high_score_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,2427,三商電,volume_range_breakout,帶量突破模型,pdf_core_model,83.0,20,資訊服務業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,2451,創見,volume_range_breakout,帶量突破模型,pdf_core_model,75.2,39,記憶體儲存,false_breakout_risk_penalty,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260602,mainstream,2460,建通,volume_range_breakout,帶量突破模型,pdf_core_model,70.1,56,電子零組件業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,2461,光群雷,volume_range_breakout,帶量突破模型,pdf_core_model,77.1,31,其他電子業_待細分,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260602,mainstream,2462,良得電,volume_range_breakout,帶量突破模型,pdf_core_model,86.9,11,電子零組件業_待細分,,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,2468,華經,volume_range_breakout,帶量突破模型,pdf_core_model,72.0,48,資訊服務業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,2471,資通,volume_range_breakout,帶量突破模型,pdf_core_model,56.4,87,資訊服務業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,2480,敦陽科,volume_range_breakout,帶量突破模型,pdf_core_model,52.7,93,資訊服務業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,2491,吉祥全,volume_range_breakout,帶量突破模型,pdf_core_model,76.5,33,光電業_待細分,,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,2498,宏達電,volume_range_breakout,帶量突破模型,pdf_core_model,76.2,35,通信網路業_待細分,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260602,mainstream,3002,歐格,volume_range_breakout,帶量突破模型,pdf_core_model,94.0,4,電腦及週邊設備業_待細分,,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,3005,神基,volume_range_breakout,帶量突破模型,pdf_core_model,55.3,88,電腦及週邊設備業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,3011,今皓,volume_range_breakout,帶量突破模型,pdf_core_model,55.1,89,電子零組件業_待細分,tdcc_distribution_penalty | false_breakout_risk_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,3013,晟銘電,volume_range_breakout,帶量突破模型,pdf_core_model,70.4,55,電腦及週邊設備業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,3015,全漢,volume_range_breakout,帶量突破模型,pdf_core_model,74.4,41,電源_BBU,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260602,mainstream,3021,鴻名,volume_range_breakout,帶量突破模型,pdf_core_model,75.0,40,電子零組件業_待細分,20d_return_high_score_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,3022,威強電,volume_range_breakout,帶量突破模型,pdf_core_model,75.8,37,電腦及週邊設備業_待細分,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260602,mainstream,3029,零壹,volume_range_breakout,帶量突破模型,pdf_core_model,78.0,29,資訊服務業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,3034,聯詠,volume_range_breakout,帶量突破模型,pdf_core_model,86.1,14,半導體業_待細分,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260602,mainstream,3046,建碁,volume_range_breakout,帶量突破模型,pdf_core_model,69.7,57,電腦及週邊設備業_待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260602,mainstream,3047,訊舟,volume_range_breakout,帶量突破模型,pdf_core_model,86.5,12,通信網路業_待細分,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260602,mainstream,3049,精金,volume_range_breakout,帶量突破模型,pdf_core_model,84.1,16,光電業_待細分,,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,3050,鈺德,volume_range_breakout,帶量突破模型,pdf_core_model,80.2,28,光電業_待細分,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260602,mainstream,3051,力特,volume_range_breakout,帶量突破模型,pdf_core_model,48.0,96,光電業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,3058,立德,volume_range_breakout,帶量突破模型,pdf_core_model,84.0,17,電子零組件業_待細分,,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,3060,銘異,volume_range_breakout,帶量突破模型,pdf_core_model,88.0,7,電腦及週邊設備業_待細分,,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,3135,凌航,volume_range_breakout,帶量突破模型,pdf_core_model,66.4,65,半導體業_待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260602,mainstream,3231,緯創,volume_range_breakout,帶量突破模型,pdf_core_model,75.5,38,AI伺服器,20d_return_high_score_penalty | tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,3321,同泰,volume_range_breakout,帶量突破模型,pdf_core_model,72.9,46,電子零組件業_待細分,,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,3338,泰碩,volume_range_breakout,帶量突破模型,pdf_core_model,80.5,26,電子零組件業_待細分,,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,3380,明泰,volume_range_breakout,帶量突破模型,pdf_core_model,65.5,67,通信網路業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,3447,展達,volume_range_breakout,帶量突破模型,pdf_core_model,67.9,60,通信網路業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,3450,聯鈞,volume_range_breakout,帶量突破模型,pdf_core_model,82.0,23,CPO光通訊,false_breakout_risk_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,3515,華擎,volume_range_breakout,帶量突破模型,pdf_core_model,74.2,42,電腦及週邊設備業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,3535,晶彩科,volume_range_breakout,帶量突破模型,pdf_core_model,62.9,73,光電業_待細分,tdcc_distribution_penalty | false_breakout_risk_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,3607,谷崧,volume_range_breakout,帶量突破模型,pdf_core_model,63.6,72,電子零組件業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,3653,健策,volume_range_breakout,帶量突破模型,pdf_core_model,51.5,94,電子零組件業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,3706,神達,volume_range_breakout,帶量突破模型,pdf_core_model,60.8,78,AI伺服器,tdcc_distribution_penalty | false_breakout_risk_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,4526,東台,volume_range_breakout,帶量突破模型,pdf_core_model,68.4,58,機器人自動化_電機機械待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260602,mainstream,4540,全球傳動,volume_range_breakout,帶量突破模型,pdf_core_model,53.2,92,機器人自動化_電機機械待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,4545,銘鈺,volume_range_breakout,帶量突破模型,pdf_core_model,50.9,95,電子零組件業_待細分,20d_return_high_score_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,4915,致伸,volume_range_breakout,帶量突破模型,pdf_core_model,64.1,70,電子零組件業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,4938,和碩,volume_range_breakout,帶量突破模型,pdf_core_model,64.5,69,AI伺服器,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,4967,十銓,volume_range_breakout,帶量突破模型,pdf_core_model,74.0,43,半導體業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,4968,立積,volume_range_breakout,帶量突破模型,pdf_core_model,53.3,91,半導體業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,5203,訊連,volume_range_breakout,帶量突破模型,pdf_core_model,73.2,45,資訊服務業_待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260602,mainstream,5269,祥碩,volume_range_breakout,帶量突破模型,pdf_core_model,66.7,63,半導體業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,5388,中磊,volume_range_breakout,帶量突破模型,pdf_core_model,71.5,50,網通交換器,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,5484,慧友,volume_range_breakout,帶量突破模型,pdf_core_model,61.2,77,光電業_待細分,20d_return_high_score_penalty | tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,6112,邁達特,volume_range_breakout,帶量突破模型,pdf_core_model,76.0,36,資訊服務業_待細分,tdcc_distribution_penalty | false_breakout_risk_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,6117,迎廣,volume_range_breakout,帶量突破模型,pdf_core_model,45.8,97,電腦及週邊設備業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,6155,鈞寶,volume_range_breakout,帶量突破模型,pdf_core_model,72.7,47,電子零組件業_待細分,20d_return_high_score_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,6164,華興,volume_range_breakout,帶量突破模型,pdf_core_model,67.5,61,光電業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,6205,詮欣,volume_range_breakout,帶量突破模型,pdf_core_model,65.2,68,電子零組件業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,6213,聯茂,volume_range_breakout,帶量突破模型,pdf_core_model,44.0,99,PCB_CCL_ABF材料,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,6214,精誠,volume_range_breakout,帶量突破模型,pdf_core_model,83.9,18,資訊服務業_待細分,,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,6226,光鼎,volume_range_breakout,帶量突破模型,pdf_core_model,60.2,81,光電業_待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260602,mainstream,6269,台郡,volume_range_breakout,帶量突破模型,pdf_core_model,78.0,30,電子零組件業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,6409,旭隼,volume_range_breakout,帶量突破模型,pdf_core_model,60.5,80,其他電子業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,6412,群電,volume_range_breakout,帶量突破模型,pdf_core_model,66.5,64,電源_BBU,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260602,mainstream,6451,訊芯-KY,volume_range_breakout,帶量突破模型,pdf_core_model,72.0,49,半導體業_待細分,20d_return_high_score_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,6526,達發,volume_range_breakout,帶量突破模型,pdf_core_model,71.2,51,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
-20260602,mainstream,6533,晶心科,volume_range_breakout,帶量突破模型,pdf_core_model,60.6,79,半導體業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,6573,虹揚-KY,volume_range_breakout,帶量突破模型,pdf_core_model,56.8,84,半導體業_待細分,20d_return_high_score_penalty | tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,6689,伊雲谷,volume_range_breakout,帶量突破模型,pdf_core_model,88.0,8,數位雲端_待細分,,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,6698,旭暉應材,volume_range_breakout,帶量突破模型,pdf_core_model,63.9,71,其他電子業_待細分,20d_return_high_score_penalty | tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,6805,富世達,volume_range_breakout,帶量突破模型,pdf_core_model,68.4,59,散熱液冷,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,6933,AMAX-KY,volume_range_breakout,帶量突破模型,pdf_core_model,58.5,83,電腦及週邊設備業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,8070,長華*,volume_range_breakout,帶量突破模型,pdf_core_model,97.9,1,電子通路業_待細分,,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,8072,陞泰,volume_range_breakout,帶量突破模型,pdf_core_model,94.0,5,電子通路業_待細分,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260602,mainstream,8105,凌巨,volume_range_breakout,帶量突破模型,pdf_core_model,76.3,34,光電業_待細分,20d_return_high_score_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,8112,至上,volume_range_breakout,帶量突破模型,pdf_core_model,70.7,53,電子通路業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,8215,明基材,volume_range_breakout,帶量突破模型,pdf_core_model,61.7,75,光電業_待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260602,mainstream,8271,宇瞻,volume_range_breakout,帶量突破模型,pdf_core_model,62.8,74,記憶體儲存,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,8454,富邦媒,volume_range_breakout,帶量突破模型,pdf_core_model,76.6,32,數位雲端_待細分,20d_return_high_score_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,mainstream,9912,偉聯,volume_range_breakout,帶量突破模型,pdf_core_model,83.0,21,電腦及週邊設備業_待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260602,non_mainstream,0055,元大MSCI金融,volume_range_breakout,帶量突破模型,pdf_core_model,76.4,23,指數/ETF/ETN商品,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260602,non_mainstream,1104,環泥,volume_range_breakout,帶量突破模型,pdf_core_model,64.3,52,水泥工業,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,non_mainstream,1210,大成,volume_range_breakout,帶量突破模型,pdf_core_model,58.6,56,食品工業,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,non_mainstream,1218,泰山,volume_range_breakout,帶量突破模型,pdf_core_model,50.0,64,食品工業,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,non_mainstream,1229,聯華,volume_range_breakout,帶量突破模型,pdf_core_model,71.7,29,食品工業,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,non_mainstream,1301,台塑,volume_range_breakout,帶量突破模型,pdf_core_model,67.2,44,塑膠工業,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,non_mainstream,1303,南亞,volume_range_breakout,帶量突破模型,pdf_core_model,61.2,55,玻纖布,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,non_mainstream,1307,三芳,volume_range_breakout,帶量突破模型,pdf_core_model,81.4,14,塑膠工業,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260602,non_mainstream,1308,亞聚,volume_range_breakout,帶量突破模型,pdf_core_model,67.8,43,塑膠工業,false_breakout_risk_penalty,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260602,non_mainstream,1310,台苯,volume_range_breakout,帶量突破模型,pdf_core_model,64.6,51,塑膠工業,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,non_mainstream,1313,聯成,volume_range_breakout,帶量突破模型,pdf_core_model,84.1,10,塑膠工業,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260602,non_mainstream,1314,中石化,volume_range_breakout,帶量突破模型,pdf_core_model,86.8,7,塑膠工業,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260602,non_mainstream,1319,東陽,volume_range_breakout,帶量突破模型,pdf_core_model,71.0,32,汽車工業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260602,non_mainstream,1326,台化,volume_range_breakout,帶量突破模型,pdf_core_model,56.4,57,塑膠工業,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,non_mainstream,1409,新纖,volume_range_breakout,帶量突破模型,pdf_core_model,70.0,36,紡織纖維,20d_return_high_score_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,non_mainstream,1440,南紡,volume_range_breakout,帶量突破模型,pdf_core_model,72.0,28,紡織纖維,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,non_mainstream,1449,佳和,volume_range_breakout,帶量突破模型,pdf_core_model,69.5,38,紡織纖維,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260602,non_mainstream,1455,集盛,volume_range_breakout,帶量突破模型,pdf_core_model,64.7,50,紡織纖維,false_breakout_risk_penalty,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260602,non_mainstream,1460,宏遠,volume_range_breakout,帶量突破模型,pdf_core_model,82.2,12,紡織纖維,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260602,non_mainstream,1709,和益,volume_range_breakout,帶量突破模型,pdf_core_model,66.3,46,化學工業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260602,non_mainstream,1710,東聯,volume_range_breakout,帶量突破模型,pdf_core_model,67.1,45,化學工業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260602,non_mainstream,1714,和桐,volume_range_breakout,帶量突破模型,pdf_core_model,72.6,27,化學工業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260602,non_mainstream,1718,中纖,volume_range_breakout,帶量突破模型,pdf_core_model,88.0,6,化學工業,,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,non_mainstream,1904,正隆,volume_range_breakout,帶量突破模型,pdf_core_model,62.4,54,造紙工業,false_breakout_risk_penalty,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260602,non_mainstream,2009,第一銅,volume_range_breakout,帶量突破模型,pdf_core_model,78.2,18,鋼鐵工業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260602,non_mainstream,2104,國際中橡,volume_range_breakout,帶量突破模型,pdf_core_model,81.9,13,橡膠工業,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260602,non_mainstream,2105,正新,volume_range_breakout,帶量突破模型,pdf_core_model,70.7,34,橡膠工業,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,non_mainstream,2106,建大,volume_range_breakout,帶量突破模型,pdf_core_model,69.3,40,橡膠工業,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,non_mainstream,2204,中華,volume_range_breakout,帶量突破模型,pdf_core_model,65.5,48,汽車工業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260602,non_mainstream,2211,長榮鋼,volume_range_breakout,帶量突破模型,pdf_core_model,73.2,25,鋼鐵工業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260602,non_mainstream,2243,宏旭-KY,volume_range_breakout,帶量突破模型,pdf_core_model,53.5,60,汽車工業,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,non_mainstream,2497,怡利電,volume_range_breakout,帶量突破模型,pdf_core_model,49.6,65,汽車工業,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,non_mainstream,2547,日勝生,volume_range_breakout,帶量突破模型,pdf_core_model,62.9,53,建材營造,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,non_mainstream,2597,潤弘,volume_range_breakout,帶量突破模型,pdf_core_model,85.5,8,建材營造,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260602,non_mainstream,2601,益航,volume_range_breakout,帶量突破模型,pdf_core_model,77.4,20,貿易百貨,,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,non_mainstream,2637,慧洋-KY,volume_range_breakout,帶量突破模型,pdf_core_model,71.2,31,航運業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260602,non_mainstream,2646,星宇航空,volume_range_breakout,帶量突破模型,pdf_core_model,76.4,24,航運業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260602,non_mainstream,2809,京城銀,volume_range_breakout,帶量突破模型,pdf_core_model,70.0,37,金融保險業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260602,non_mainstream,2820,華票,volume_range_breakout,帶量突破模型,pdf_core_model,71.0,33,金融保險業,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,non_mainstream,2836,高雄銀,volume_range_breakout,帶量突破模型,pdf_core_model,71.4,30,金融保險業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260602,non_mainstream,2855,統一證,volume_range_breakout,帶量突破模型,pdf_core_model,52.6,61,金融保險業,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,non_mainstream,2867,三商壽,volume_range_breakout,帶量突破模型,pdf_core_model,88.4,5,金融保險業,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260602,non_mainstream,2880,華南金,volume_range_breakout,帶量突破模型,pdf_core_model,77.8,19,金融保險業,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,non_mainstream,2883,凱基金,volume_range_breakout,帶量突破模型,pdf_core_model,96.9,1,金融保險業,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260602,non_mainstream,2886,兆豐金,volume_range_breakout,帶量突破模型,pdf_core_model,79.0,17,金融保險業,false_breakout_risk_penalty,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260602,non_mainstream,2887,台新新光金,volume_range_breakout,帶量突破模型,pdf_core_model,76.9,22,金融保險業,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,non_mainstream,2889,國票金,volume_range_breakout,帶量突破模型,pdf_core_model,56.3,58,金融保險業,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,non_mainstream,2903,遠百,volume_range_breakout,帶量突破模型,pdf_core_model,70.2,35,貿易百貨,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260602,non_mainstream,2912,統一超,volume_range_breakout,帶量突破模型,pdf_core_model,80.1,16,貿易百貨,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260602,non_mainstream,3346,麗清,volume_range_breakout,帶量突破模型,pdf_core_model,68.0,42,汽車工業,20d_return_high_score_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,non_mainstream,4807,日成-KY,volume_range_breakout,帶量突破模型,pdf_core_model,84.3,9,貿易百貨,,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,non_mainstream,5871,中租-KY,volume_range_breakout,帶量突破模型,pdf_core_model,72.7,26,其他,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,non_mainstream,6005,群益證,volume_range_breakout,帶量突破模型,pdf_core_model,81.2,15,金融保險業,,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,non_mainstream,6505,台塑化,volume_range_breakout,帶量突破模型,pdf_core_model,92.5,2,油電燃氣業,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260602,non_mainstream,6592,和潤企業,volume_range_breakout,帶量突破模型,pdf_core_model,66.1,47,其他,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,non_mainstream,6768,志強-KY,volume_range_breakout,帶量突破模型,pdf_core_model,83.9,11,運動休閒,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260602,non_mainstream,6885,全福生技,volume_range_breakout,帶量突破模型,pdf_core_model,89.7,4,生技醫療業,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260602,non_mainstream,6890,來億-KY,volume_range_breakout,帶量突破模型,pdf_core_model,90.6,3,運動休閒,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260602,non_mainstream,8473,山林水,volume_range_breakout,帶量突破模型,pdf_core_model,50.5,63,綠能環保,20d_return_high_score_penalty | tdcc_distribution_penalty | false_breakout_risk_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,non_mainstream,9105,泰金寶-DR,volume_range_breakout,帶量突破模型,pdf_core_model,64.9,49,存託憑證,20d_return_high_score_penalty | tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,non_mainstream,9136,巨騰-DR,volume_range_breakout,帶量突破模型,pdf_core_model,55.7,59,DR_or_foreign_listing,20d_return_high_score_penalty | tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,non_mainstream,9802,鈺齊-KY,volume_range_breakout,帶量突破模型,pdf_core_model,77.2,21,運動休閒,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260602,non_mainstream,9904,寶成,volume_range_breakout,帶量突破模型,pdf_core_model,51.2,62,運動休閒,tdcc_distribution_penalty | false_breakout_risk_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,non_mainstream,9910,豐泰,volume_range_breakout,帶量突破模型,pdf_core_model,68.3,41,運動休閒,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
-20260602,non_mainstream,9941,裕融,volume_range_breakout,帶量突破模型,pdf_core_model,69.5,39,其他,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,1303,南亞,volume_range_breakout,帶量突破模型,pdf_core_model,61.2,98,玻纖布,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,1471,首利,volume_range_breakout,帶量突破模型,pdf_core_model,66.2,94,電子零組件業_待細分,,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,1528,恩德,volume_range_breakout,帶量突破模型,pdf_core_model,73.6,75,重電電網,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,1540,喬福,volume_range_breakout,帶量突破模型,pdf_core_model,72.0,79,機器人自動化_電機機械待細分,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
+20260602,mainstream,1608,華榮,volume_range_breakout,帶量突破模型,pdf_core_model,82.9,48,重電電網_電器電纜待細分,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
+20260602,mainstream,1611,中電,volume_range_breakout,帶量突破模型,pdf_core_model,54.6,108,重電電網_電器電纜待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,2312,金寶,volume_range_breakout,帶量突破模型,pdf_core_model,28.0,119,其他電子業_待細分,false_breakout_risk | overheated_breakout | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
+20260602,mainstream,2323,中環,volume_range_breakout,帶量突破模型,pdf_core_model,91.0,18,光電業_待細分,,next day holds breakout area; volume does not collapse; TDCC not distribution_warning
+20260602,mainstream,2328,廣宇,volume_range_breakout,帶量突破模型,pdf_core_model,80.9,50,電子零組件業_待細分,false_breakout_risk_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,2331,精英,volume_range_breakout,帶量突破模型,pdf_core_model,95.0,10,電腦及週邊設備業_待細分,,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,2332,友訊,volume_range_breakout,帶量突破模型,pdf_core_model,79.0,56,通信網路業_待細分,,next day holds breakout area; volume does not collapse; TDCC not distribution_warning
+20260602,mainstream,2347,聯強,volume_range_breakout,帶量突破模型,pdf_core_model,96.4,7,電子通路業_待細分,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
+20260602,mainstream,2349,錸德,volume_range_breakout,帶量突破模型,pdf_core_model,44.2,117,光電業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,2352,佳世達,volume_range_breakout,帶量突破模型,pdf_core_model,79.0,57,電腦及週邊設備業_待細分,,next day holds breakout area; volume does not collapse; TDCC not distribution_warning
+20260602,mainstream,2353,宏碁,volume_range_breakout,帶量突破模型,pdf_core_model,90.2,32,電腦及週邊設備業_待細分,20d_return_high_score_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,2354,鴻準,volume_range_breakout,帶量突破模型,pdf_core_model,56.7,104,散熱液冷,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,2356,英業達,volume_range_breakout,帶量突破模型,pdf_core_model,80.2,51,AI伺服器,20d_return_high_score_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,2357,華碩,volume_range_breakout,帶量突破模型,pdf_core_model,87.7,34,電腦及週邊設備業_待細分,,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,2362,藍天,volume_range_breakout,帶量突破模型,pdf_core_model,86.1,37,電腦及週邊設備業_待細分,,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,2377,微星,volume_range_breakout,帶量突破模型,pdf_core_model,56.6,105,電腦及週邊設備業_待細分,20d_return_high_score_penalty | tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,2379,瑞昱,volume_range_breakout,帶量突破模型,pdf_core_model,99.0,1,半導體業_待細分,,next day holds breakout area; volume does not collapse; TDCC not distribution_warning
+20260602,mainstream,2382,廣達,volume_range_breakout,帶量突破模型,pdf_core_model,84.0,40,AI伺服器,overheated_breakout | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
+20260602,mainstream,2387,精元,volume_range_breakout,帶量突破模型,pdf_core_model,84.0,41,電腦及週邊設備業_待細分,,next day holds breakout area; volume does not collapse; TDCC not distribution_warning
+20260602,mainstream,2390,云辰,volume_range_breakout,帶量突破模型,pdf_core_model,87.0,35,其他電子業_待細分,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
+20260602,mainstream,2405,輔信,volume_range_breakout,帶量突破模型,pdf_core_model,86.0,39,電腦及週邊設備業_待細分,,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,2409,友達,volume_range_breakout,帶量突破模型,pdf_core_model,70.6,85,光電業_待細分,20d_return_high_score_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,2427,三商電,volume_range_breakout,帶量突破模型,pdf_core_model,91.0,19,資訊服務業_待細分,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
+20260602,mainstream,2439,美律,volume_range_breakout,帶量突破模型,pdf_core_model,92.0,15,通信網路業_待細分,,confirm close above MA20/EMA23 and avoid long upper shadow
+20260602,mainstream,2450,神腦,volume_range_breakout,帶量突破模型,pdf_core_model,80.0,52,通信網路業_待細分,,confirm close above MA20/EMA23 and avoid long upper shadow
+20260602,mainstream,2451,創見,volume_range_breakout,帶量突破模型,pdf_core_model,75.2,67,記憶體儲存,false_breakout_risk_penalty,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
+20260602,mainstream,2459,敦吉,volume_range_breakout,帶量突破模型,pdf_core_model,96.0,8,其他電子業_待細分,,confirm close above MA20/EMA23 and avoid long upper shadow
+20260602,mainstream,2460,建通,volume_range_breakout,帶量突破模型,pdf_core_model,91.0,20,電子零組件業_待細分,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
+20260602,mainstream,2461,光群雷,volume_range_breakout,帶量突破模型,pdf_core_model,91.0,21,其他電子業_待細分,,next day holds breakout area; volume does not collapse; TDCC not distribution_warning
+20260602,mainstream,2462,良得電,volume_range_breakout,帶量突破模型,pdf_core_model,99.0,2,電子零組件業_待細分,,confirm close above MA20/EMA23 and avoid long upper shadow
+20260602,mainstream,2468,華經,volume_range_breakout,帶量突破模型,pdf_core_model,91.0,22,資訊服務業_待細分,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
+20260602,mainstream,2471,資通,volume_range_breakout,帶量突破模型,pdf_core_model,56.4,106,資訊服務業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,2474,可成,volume_range_breakout,帶量突破模型,pdf_core_model,80.0,53,其他電子業_待細分,overheated_breakout | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
+20260602,mainstream,2480,敦陽科,volume_range_breakout,帶量突破模型,pdf_core_model,52.7,111,資訊服務業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,2491,吉祥全,volume_range_breakout,帶量突破模型,pdf_core_model,76.5,60,光電業_待細分,,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,2498,宏達電,volume_range_breakout,帶量突破模型,pdf_core_model,95.0,11,通信網路業_待細分,,next day holds breakout area; volume does not collapse; TDCC not distribution_warning
+20260602,mainstream,3002,歐格,volume_range_breakout,帶量突破模型,pdf_core_model,94.0,13,電腦及週邊設備業_待細分,,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,3005,神基,volume_range_breakout,帶量突破模型,pdf_core_model,55.3,107,電腦及週邊設備業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,3011,今皓,volume_range_breakout,帶量突破模型,pdf_core_model,91.0,23,電子零組件業_待細分,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
+20260602,mainstream,3013,晟銘電,volume_range_breakout,帶量突破模型,pdf_core_model,72.0,80,電腦及週邊設備業_待細分,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
+20260602,mainstream,3015,全漢,volume_range_breakout,帶量突破模型,pdf_core_model,74.4,73,電源_BBU,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260602,mainstream,3021,鴻名,volume_range_breakout,帶量突破模型,pdf_core_model,75.0,68,電子零組件業_待細分,20d_return_high_score_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,3022,威強電,volume_range_breakout,帶量突破模型,pdf_core_model,92.0,16,電腦及週邊設備業_待細分,,next day holds breakout area; volume does not collapse; TDCC not distribution_warning
+20260602,mainstream,3029,零壹,volume_range_breakout,帶量突破模型,pdf_core_model,91.0,24,資訊服務業_待細分,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
+20260602,mainstream,3034,聯詠,volume_range_breakout,帶量突破模型,pdf_core_model,86.1,38,半導體業_待細分,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
+20260602,mainstream,3046,建碁,volume_range_breakout,帶量突破模型,pdf_core_model,69.7,86,電腦及週邊設備業_待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260602,mainstream,3047,訊舟,volume_range_breakout,帶量突破模型,pdf_core_model,91.0,25,通信網路業_待細分,,next day holds breakout area; volume does not collapse; TDCC not distribution_warning
+20260602,mainstream,3049,精金,volume_range_breakout,帶量突破模型,pdf_core_model,91.0,26,光電業_待細分,,confirm close above MA20/EMA23 and avoid long upper shadow
+20260602,mainstream,3050,鈺德,volume_range_breakout,帶量突破模型,pdf_core_model,84.0,42,光電業_待細分,,next day holds breakout area; volume does not collapse; TDCC not distribution_warning
+20260602,mainstream,3051,力特,volume_range_breakout,帶量突破模型,pdf_core_model,48.0,114,光電業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,3058,立德,volume_range_breakout,帶量突破模型,pdf_core_model,91.0,27,電子零組件業_待細分,,confirm close above MA20/EMA23 and avoid long upper shadow
+20260602,mainstream,3059,華晶科,volume_range_breakout,帶量突破模型,pdf_core_model,80.0,54,光電業_待細分,overheated_breakout | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
+20260602,mainstream,3060,銘異,volume_range_breakout,帶量突破模型,pdf_core_model,91.0,28,電腦及週邊設備業_待細分,,next day holds breakout area; volume does not collapse; TDCC not distribution_warning
+20260602,mainstream,3135,凌航,volume_range_breakout,帶量突破模型,pdf_core_model,66.4,93,半導體業_待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260602,mainstream,3231,緯創,volume_range_breakout,帶量突破模型,pdf_core_model,75.5,66,AI伺服器,20d_return_high_score_penalty | tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,3311,閎暉,volume_range_breakout,帶量突破模型,pdf_core_model,76.0,62,通信網路業_待細分,,next day holds breakout area; volume does not collapse; TDCC not distribution_warning
+20260602,mainstream,3321,同泰,volume_range_breakout,帶量突破模型,pdf_core_model,72.9,77,電子零組件業_待細分,,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,3338,泰碩,volume_range_breakout,帶量突破模型,pdf_core_model,91.0,29,電子零組件業_待細分,,confirm close above MA20/EMA23 and avoid long upper shadow
+20260602,mainstream,3380,明泰,volume_range_breakout,帶量突破模型,pdf_core_model,87.0,36,通信網路業_待細分,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
+20260602,mainstream,3447,展達,volume_range_breakout,帶量突破模型,pdf_core_model,91.0,30,通信網路業_待細分,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
+20260602,mainstream,3450,聯鈞,volume_range_breakout,帶量突破模型,pdf_core_model,82.0,49,CPO光通訊,false_breakout_risk_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,3515,華擎,volume_range_breakout,帶量突破模型,pdf_core_model,99.0,3,電腦及週邊設備業_待細分,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
+20260602,mainstream,3535,晶彩科,volume_range_breakout,帶量突破模型,pdf_core_model,62.9,96,光電業_待細分,tdcc_distribution_penalty | false_breakout_risk_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,3607,谷崧,volume_range_breakout,帶量突破模型,pdf_core_model,99.0,4,電子零組件業_待細分,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
+20260602,mainstream,3653,健策,volume_range_breakout,帶量突破模型,pdf_core_model,51.5,112,電子零組件業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,3673,TPK-KY,volume_range_breakout,帶量突破模型,pdf_core_model,46.0,115,光電業_待細分,overheated_breakout | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
+20260602,mainstream,3679,新至陞,volume_range_breakout,帶量突破模型,pdf_core_model,72.0,81,電子零組件業_待細分,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
+20260602,mainstream,3706,神達,volume_range_breakout,帶量突破模型,pdf_core_model,75.0,69,AI伺服器,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
+20260602,mainstream,4526,東台,volume_range_breakout,帶量突破模型,pdf_core_model,68.4,89,機器人自動化_電機機械待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260602,mainstream,4540,全球傳動,volume_range_breakout,帶量突破模型,pdf_core_model,53.2,110,機器人自動化_電機機械待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,4545,銘鈺,volume_range_breakout,帶量突破模型,pdf_core_model,50.9,113,電子零組件業_待細分,20d_return_high_score_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,4904,遠傳,volume_range_breakout,帶量突破模型,pdf_core_model,76.0,63,通信網路業_待細分,,confirm close above MA20/EMA23 and avoid long upper shadow
+20260602,mainstream,4915,致伸,volume_range_breakout,帶量突破模型,pdf_core_model,92.0,17,電子零組件業_待細分,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
+20260602,mainstream,4935,茂林-KY,volume_range_breakout,帶量突破模型,pdf_core_model,83.0,46,光電業_待細分,,confirm close above MA20/EMA23 and avoid long upper shadow
+20260602,mainstream,4938,和碩,volume_range_breakout,帶量突破模型,pdf_core_model,99.0,5,AI伺服器,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
+20260602,mainstream,4967,十銓,volume_range_breakout,帶量突破模型,pdf_core_model,74.0,74,半導體業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,4968,立積,volume_range_breakout,帶量突破模型,pdf_core_model,53.3,109,半導體業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,5203,訊連,volume_range_breakout,帶量突破模型,pdf_core_model,73.2,76,資訊服務業_待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260602,mainstream,5269,祥碩,volume_range_breakout,帶量突破模型,pdf_core_model,66.7,91,半導體業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,5388,中磊,volume_range_breakout,帶量突破模型,pdf_core_model,71.5,83,網通交換器,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,5484,慧友,volume_range_breakout,帶量突破模型,pdf_core_model,61.2,99,光電業_待細分,20d_return_high_score_penalty | tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,6112,邁達特,volume_range_breakout,帶量突破模型,pdf_core_model,76.0,64,資訊服務業_待細分,tdcc_distribution_penalty | false_breakout_risk_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,6115,鎰勝,volume_range_breakout,帶量突破模型,pdf_core_model,76.0,65,電子零組件業_待細分,,confirm close above MA20/EMA23 and avoid long upper shadow
+20260602,mainstream,6117,迎廣,volume_range_breakout,帶量突破模型,pdf_core_model,45.8,116,電腦及週邊設備業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,6120,達運,volume_range_breakout,帶量突破模型,pdf_core_model,79.0,58,光電業_待細分,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
+20260602,mainstream,6155,鈞寶,volume_range_breakout,帶量突破模型,pdf_core_model,72.7,78,電子零組件業_待細分,20d_return_high_score_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,6164,華興,volume_range_breakout,帶量突破模型,pdf_core_model,67.5,90,光電業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,6205,詮欣,volume_range_breakout,帶量突破模型,pdf_core_model,65.2,95,電子零組件業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,6213,聯茂,volume_range_breakout,帶量突破模型,pdf_core_model,44.0,118,PCB_CCL_ABF材料,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,6214,精誠,volume_range_breakout,帶量突破模型,pdf_core_model,84.0,43,資訊服務業_待細分,overheated_breakout | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
+20260602,mainstream,6226,光鼎,volume_range_breakout,帶量突破模型,pdf_core_model,60.2,102,光電業_待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260602,mainstream,6269,台郡,volume_range_breakout,帶量突破模型,pdf_core_model,84.0,44,電子零組件業_待細分,overheated_breakout | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
+20260602,mainstream,6272,驊陞,volume_range_breakout,帶量突破模型,pdf_core_model,95.0,12,電子零組件業_待細分,,confirm close above MA20/EMA23 and avoid long upper shadow
+20260602,mainstream,6409,旭隼,volume_range_breakout,帶量突破模型,pdf_core_model,60.5,101,其他電子業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,6412,群電,volume_range_breakout,帶量突破模型,pdf_core_model,66.5,92,電源_BBU,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260602,mainstream,6451,訊芯-KY,volume_range_breakout,帶量突破模型,pdf_core_model,72.0,82,半導體業_待細分,20d_return_high_score_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,6526,達發,volume_range_breakout,帶量突破模型,pdf_core_model,71.2,84,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260602,mainstream,6533,晶心科,volume_range_breakout,帶量突破模型,pdf_core_model,60.6,100,半導體業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,6573,虹揚-KY,volume_range_breakout,帶量突破模型,pdf_core_model,69.0,87,半導體業_待細分,overheated_breakout | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
+20260602,mainstream,6606,建德工業,volume_range_breakout,帶量突破模型,pdf_core_model,96.0,9,機器人自動化_電機機械待細分,,confirm close above MA20/EMA23 and avoid long upper shadow
+20260602,mainstream,6689,伊雲谷,volume_range_breakout,帶量突破模型,pdf_core_model,88.0,33,數位雲端_待細分,,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,6698,旭暉應材,volume_range_breakout,帶量突破模型,pdf_core_model,69.0,88,其他電子業_待細分,overheated_breakout | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
+20260602,mainstream,6722,輝創,volume_range_breakout,帶量突破模型,pdf_core_model,80.0,55,其他電子業_待細分,,confirm close above MA20/EMA23 and avoid long upper shadow
+20260602,mainstream,6776,展碁國際,volume_range_breakout,帶量突破模型,pdf_core_model,84.0,45,電子通路業_待細分,,confirm close above MA20/EMA23 and avoid long upper shadow
+20260602,mainstream,6805,富世達,volume_range_breakout,帶量突破模型,pdf_core_model,75.0,70,散熱液冷,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
+20260602,mainstream,6933,AMAX-KY,volume_range_breakout,帶量突破模型,pdf_core_model,58.5,103,電腦及週邊設備業_待細分,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,8070,長華*,volume_range_breakout,帶量突破模型,pdf_core_model,97.9,6,電子通路業_待細分,,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,8072,陞泰,volume_range_breakout,帶量突破模型,pdf_core_model,94.0,14,電子通路業_待細分,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
+20260602,mainstream,8101,華冠,volume_range_breakout,帶量突破模型,pdf_core_model,91.0,31,通信網路業_待細分,,confirm close above MA20/EMA23 and avoid long upper shadow
+20260602,mainstream,8105,凌巨,volume_range_breakout,帶量突破模型,pdf_core_model,76.3,61,光電業_待細分,20d_return_high_score_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,8112,至上,volume_range_breakout,帶量突破模型,pdf_core_model,75.0,71,電子通路業_待細分,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
+20260602,mainstream,8215,明基材,volume_range_breakout,帶量突破模型,pdf_core_model,61.7,97,光電業_待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260602,mainstream,8271,宇瞻,volume_range_breakout,帶量突破模型,pdf_core_model,75.0,72,記憶體儲存,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
+20260602,mainstream,8454,富邦媒,volume_range_breakout,帶量突破模型,pdf_core_model,76.6,59,數位雲端_待細分,20d_return_high_score_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,mainstream,9912,偉聯,volume_range_breakout,帶量突破模型,pdf_core_model,83.0,47,電腦及週邊設備業_待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260602,non_mainstream,0055,元大MSCI金融,volume_range_breakout,帶量突破模型,pdf_core_model,96.0,5,指數/ETF/ETN商品,,next day holds breakout area; volume does not collapse; TDCC not distribution_warning
+20260602,non_mainstream,1104,環泥,volume_range_breakout,帶量突破模型,pdf_core_model,64.3,70,水泥工業,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,non_mainstream,1210,大成,volume_range_breakout,帶量突破模型,pdf_core_model,58.6,74,食品工業,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,non_mainstream,1218,泰山,volume_range_breakout,帶量突破模型,pdf_core_model,76.0,44,食品工業,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
+20260602,non_mainstream,1229,聯華,volume_range_breakout,帶量突破模型,pdf_core_model,91.0,13,食品工業,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
+20260602,non_mainstream,1301,台塑,volume_range_breakout,帶量突破模型,pdf_core_model,67.2,63,塑膠工業,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,non_mainstream,1303,南亞,volume_range_breakout,帶量突破模型,pdf_core_model,61.2,73,玻纖布,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,non_mainstream,1307,三芳,volume_range_breakout,帶量突破模型,pdf_core_model,84.0,30,塑膠工業,,next day holds breakout area; volume does not collapse; TDCC not distribution_warning
+20260602,non_mainstream,1308,亞聚,volume_range_breakout,帶量突破模型,pdf_core_model,67.8,62,塑膠工業,false_breakout_risk_penalty,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
+20260602,non_mainstream,1310,台苯,volume_range_breakout,帶量突破模型,pdf_core_model,64.6,69,塑膠工業,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,non_mainstream,1313,聯成,volume_range_breakout,帶量突破模型,pdf_core_model,84.1,29,塑膠工業,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
+20260602,non_mainstream,1314,中石化,volume_range_breakout,帶量突破模型,pdf_core_model,91.0,14,塑膠工業,,next day holds breakout area; volume does not collapse; TDCC not distribution_warning
+20260602,non_mainstream,1319,東陽,volume_range_breakout,帶量突破模型,pdf_core_model,83.0,35,汽車工業,,next day holds breakout area; volume does not collapse; TDCC not distribution_warning
+20260602,non_mainstream,1326,台化,volume_range_breakout,帶量突破模型,pdf_core_model,65.0,68,塑膠工業,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
+20260602,non_mainstream,1409,新纖,volume_range_breakout,帶量突破模型,pdf_core_model,70.0,57,紡織纖維,20d_return_high_score_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,non_mainstream,1416,廣豐,volume_range_breakout,帶量突破模型,pdf_core_model,88.0,21,其他業,,confirm close above MA20/EMA23 and avoid long upper shadow
+20260602,non_mainstream,1423,利華,volume_range_breakout,帶量突破模型,pdf_core_model,96.0,6,紡織纖維,,confirm close above MA20/EMA23 and avoid long upper shadow
+20260602,non_mainstream,1440,南紡,volume_range_breakout,帶量突破模型,pdf_core_model,99.0,1,紡織纖維,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
+20260602,non_mainstream,1449,佳和,volume_range_breakout,帶量突破模型,pdf_core_model,69.5,59,紡織纖維,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260602,non_mainstream,1455,集盛,volume_range_breakout,帶量突破模型,pdf_core_model,75.0,48,紡織纖維,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
+20260602,non_mainstream,1460,宏遠,volume_range_breakout,帶量突破模型,pdf_core_model,82.2,36,紡織纖維,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
+20260602,non_mainstream,1467,南緯,volume_range_breakout,帶量突破模型,pdf_core_model,84.0,31,紡織纖維,,confirm close above MA20/EMA23 and avoid long upper shadow
+20260602,non_mainstream,1524,耿鼎,volume_range_breakout,帶量突破模型,pdf_core_model,79.0,39,汽車工業,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
+20260602,non_mainstream,1709,和益,volume_range_breakout,帶量突破模型,pdf_core_model,66.3,65,化學工業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260602,non_mainstream,1710,東聯,volume_range_breakout,帶量突破模型,pdf_core_model,67.1,64,化學工業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260602,non_mainstream,1714,和桐,volume_range_breakout,帶量突破模型,pdf_core_model,72.6,51,化學工業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260602,non_mainstream,1718,中纖,volume_range_breakout,帶量突破模型,pdf_core_model,88.0,22,化學工業,,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,non_mainstream,1904,正隆,volume_range_breakout,帶量突破模型,pdf_core_model,62.4,72,造紙工業,false_breakout_risk_penalty,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
+20260602,non_mainstream,2008,高興昌,volume_range_breakout,帶量突破模型,pdf_core_model,88.0,23,鋼鐵工業,,confirm close above MA20/EMA23 and avoid long upper shadow
+20260602,non_mainstream,2009,第一銅,volume_range_breakout,帶量突破模型,pdf_core_model,78.2,41,鋼鐵工業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260602,non_mainstream,2104,國際中橡,volume_range_breakout,帶量突破模型,pdf_core_model,87.0,25,橡膠工業,,next day holds breakout area; volume does not collapse; TDCC not distribution_warning
+20260602,non_mainstream,2105,正新,volume_range_breakout,帶量突破模型,pdf_core_model,96.0,7,橡膠工業,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
+20260602,non_mainstream,2106,建大,volume_range_breakout,帶量突破模型,pdf_core_model,91.0,15,橡膠工業,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
+20260602,non_mainstream,2204,中華,volume_range_breakout,帶量突破模型,pdf_core_model,65.5,67,汽車工業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260602,non_mainstream,2211,長榮鋼,volume_range_breakout,帶量突破模型,pdf_core_model,73.2,49,鋼鐵工業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260602,non_mainstream,2243,宏旭-KY,volume_range_breakout,帶量突破模型,pdf_core_model,53.5,77,汽車工業,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,non_mainstream,2497,怡利電,volume_range_breakout,帶量突破模型,pdf_core_model,49.6,80,汽車工業,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,non_mainstream,2547,日勝生,volume_range_breakout,帶量突破模型,pdf_core_model,62.9,71,建材營造,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,non_mainstream,2597,潤弘,volume_range_breakout,帶量突破模型,pdf_core_model,85.5,27,建材營造,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
+20260602,non_mainstream,2601,益航,volume_range_breakout,帶量突破模型,pdf_core_model,77.4,42,貿易百貨,,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,non_mainstream,2603,長榮,volume_range_breakout,帶量突破模型,pdf_core_model,95.0,8,航運業,,next day holds breakout area; volume does not collapse; TDCC not distribution_warning
+20260602,non_mainstream,2637,慧洋-KY,volume_range_breakout,帶量突破模型,pdf_core_model,71.2,54,航運業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260602,non_mainstream,2646,星宇航空,volume_range_breakout,帶量突破模型,pdf_core_model,84.0,32,航運業,,next day holds breakout area; volume does not collapse; TDCC not distribution_warning
+20260602,non_mainstream,2809,京城銀,volume_range_breakout,帶量突破模型,pdf_core_model,70.0,58,金融保險業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260602,non_mainstream,2820,華票,volume_range_breakout,帶量突破模型,pdf_core_model,76.0,45,金融保險業,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
+20260602,non_mainstream,2836,高雄銀,volume_range_breakout,帶量突破模型,pdf_core_model,71.4,53,金融保險業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260602,non_mainstream,2855,統一證,volume_range_breakout,帶量突破模型,pdf_core_model,71.0,55,金融保險業,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
+20260602,non_mainstream,2867,三商壽,volume_range_breakout,帶量突破模型,pdf_core_model,88.4,20,金融保險業,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
+20260602,non_mainstream,2880,華南金,volume_range_breakout,帶量突破模型,pdf_core_model,91.0,16,金融保險業,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
+20260602,non_mainstream,2881,富邦金,volume_range_breakout,帶量突破模型,pdf_core_model,95.0,9,金融保險業,,next day holds breakout area; volume does not collapse; TDCC not distribution_warning
+20260602,non_mainstream,2883,凱基金,volume_range_breakout,帶量突破模型,pdf_core_model,99.0,2,金融保險業,,next day holds breakout area; volume does not collapse; TDCC not distribution_warning
+20260602,non_mainstream,2886,兆豐金,volume_range_breakout,帶量突破模型,pdf_core_model,79.0,40,金融保險業,false_breakout_risk_penalty,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
+20260602,non_mainstream,2887,台新新光金,volume_range_breakout,帶量突破模型,pdf_core_model,95.0,10,金融保險業,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
+20260602,non_mainstream,2889,國票金,volume_range_breakout,帶量突破模型,pdf_core_model,56.3,75,金融保險業,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,non_mainstream,2903,遠百,volume_range_breakout,帶量突破模型,pdf_core_model,70.2,56,貿易百貨,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260602,non_mainstream,2905,三商,volume_range_breakout,帶量突破模型,pdf_core_model,84.0,33,貿易百貨,,confirm close above MA20/EMA23 and avoid long upper shadow
+20260602,non_mainstream,2908,特力,volume_range_breakout,帶量突破模型,pdf_core_model,92.0,12,貿易百貨,,confirm close above MA20/EMA23 and avoid long upper shadow
+20260602,non_mainstream,2912,統一超,volume_range_breakout,帶量突破模型,pdf_core_model,80.1,38,貿易百貨,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
+20260602,non_mainstream,3346,麗清,volume_range_breakout,帶量突破模型,pdf_core_model,68.0,61,汽車工業,20d_return_high_score_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,non_mainstream,4807,日成-KY,volume_range_breakout,帶量突破模型,pdf_core_model,84.3,28,貿易百貨,,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,non_mainstream,5871,中租-KY,volume_range_breakout,帶量突破模型,pdf_core_model,72.7,50,其他,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,non_mainstream,5876,上海商銀,volume_range_breakout,帶量突破模型,pdf_core_model,76.0,46,金融保險業,,confirm close above MA20/EMA23 and avoid long upper shadow
+20260602,non_mainstream,5880,合庫金,volume_range_breakout,帶量突破模型,pdf_core_model,76.0,47,金融保險業,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
+20260602,non_mainstream,6005,群益證,volume_range_breakout,帶量突破模型,pdf_core_model,81.2,37,金融保險業,,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,non_mainstream,6505,台塑化,volume_range_breakout,帶量突破模型,pdf_core_model,92.5,11,油電燃氣業,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
+20260602,non_mainstream,6585,鼎基,volume_range_breakout,帶量突破模型,pdf_core_model,72.0,52,其他業,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
+20260602,non_mainstream,6592,和潤企業,volume_range_breakout,帶量突破模型,pdf_core_model,66.1,66,其他,tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,non_mainstream,6670,復盛應用,volume_range_breakout,帶量突破模型,pdf_core_model,87.0,26,運動休閒,,confirm close above MA20/EMA23 and avoid long upper shadow
+20260602,non_mainstream,6768,志強-KY,volume_range_breakout,帶量突破模型,pdf_core_model,83.9,34,運動休閒,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
+20260602,non_mainstream,6885,全福生技,volume_range_breakout,帶量突破模型,pdf_core_model,91.0,17,生技醫療業,,next day holds breakout area; volume does not collapse; TDCC not distribution_warning
+20260602,non_mainstream,6890,來億-KY,volume_range_breakout,帶量突破模型,pdf_core_model,99.0,3,運動休閒,,next day holds breakout area; volume does not collapse; TDCC not distribution_warning
+20260602,non_mainstream,6957,裕慶-KY,volume_range_breakout,帶量突破模型,pdf_core_model,99.0,4,其他業,,confirm close above MA20/EMA23 and avoid long upper shadow
+20260602,non_mainstream,8473,山林水,volume_range_breakout,帶量突破模型,pdf_core_model,50.5,79,綠能環保,20d_return_high_score_penalty | tdcc_distribution_penalty | false_breakout_risk_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,non_mainstream,9105,泰金寶-DR,volume_range_breakout,帶量突破模型,pdf_core_model,69.0,60,存託憑證,overheated_breakout | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
+20260602,non_mainstream,9110,越南控-DR,volume_range_breakout,帶量突破模型,pdf_core_model,91.0,18,DR_or_foreign_listing,,confirm close above MA20/EMA23 and avoid long upper shadow
+20260602,non_mainstream,9136,巨騰-DR,volume_range_breakout,帶量突破模型,pdf_core_model,55.7,76,DR_or_foreign_listing,20d_return_high_score_penalty | tdcc_distribution_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,non_mainstream,9802,鈺齊-KY,volume_range_breakout,帶量突破模型,pdf_core_model,77.2,43,運動休閒,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
+20260602,non_mainstream,9904,寶成,volume_range_breakout,帶量突破模型,pdf_core_model,51.2,78,運動休閒,tdcc_distribution_penalty | false_breakout_risk_penalty,以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。
+20260602,non_mainstream,9910,豐泰,volume_range_breakout,帶量突破模型,pdf_core_model,91.0,19,運動休閒,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
+20260602,non_mainstream,9941,裕融,volume_range_breakout,帶量突破模型,pdf_core_model,88.0,24,其他,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
 20260602,mainstream,1504,東元,w_bottom_right_side,W底右側模型,pdf_core_model,42.0,2,機器人自動化_電機機械待細分,tdcc_distribution_penalty | second_attack_weaker_watch,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
 20260602,mainstream,1590,亞德客-KY,w_bottom_right_side,W底右側模型,pdf_core_model,70.0,1,機器人,,等待量價、TDCC、相對強弱至少一項轉強。
 20260602,non_mainstream,1810,和成,w_bottom_right_side,W底右側模型,pdf_core_model,61.2,1,玻璃陶瓷,second_attack_weaker_watch,確認放量站上頸線/平台壓力，且收盤靠近高點。

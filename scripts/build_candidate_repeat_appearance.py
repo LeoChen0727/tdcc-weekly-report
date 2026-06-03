@@ -189,18 +189,20 @@ def label_and_note(
     stale: bool,
 ) -> tuple[str, str]:
     if overheated and consecutive_any_days >= 2:
-        return "continued_overheated", "連續上榜但短期漲幅或乖離過熱，精華追蹤應降級。"
+        return "continued_overheated", "連續上榜但短線過熱，需避免追高並等待量價重新確認。"
     if first_seen == main_date or appear_20d <= 1:
-        return "first_seen", "首次上榜，屬於新訊號，需等量價、TDCC 與 benchmark 確認。"
+        return "first_seen", "首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。"
     if stale:
-        return "stale_signal", "反覆上榜但量價、TDCC 或相對強弱未改善，視為訊號鈍化。"
+        return "stale_signal", "反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。"
     if 2 <= consecutive_any_days <= 3:
-        return "continued_2_3d", f"連續 {consecutive_any_days} 個交易日上榜，訊號延續但仍需確認。"
+        return "continued_2_3d", f"連續 {consecutive_any_days} 日上榜，訊號延續，但仍需量價與籌碼確認。"
     if (appear_10d >= 3 or appear_20d >= 5) and not broke_out:
-        return "repeated_but_no_breakout", f"近 10 日上榜 {appear_10d} 日、近 20 日上榜 {appear_20d} 日，尚未突破，需分辨醞釀或鈍化。"
+        return "repeated_but_no_breakout", (
+            f"近 10 日上榜 {appear_10d} 次、近 20 日上榜 {appear_20d} 次，但尚未有效突破，需等待攻擊確認。"
+        )
     if consecutive_any_days >= 4:
-        return "continued_many_days", f"連續 {consecutive_any_days} 個交易日上榜，需判斷是持續醞釀或訊號鈍化。"
-    return "first_seen", "歷史上榜資料仍少，先當新訊號觀察。"
+        return "continued_many_days", f"連續 {consecutive_any_days} 日上榜，需區分醞釀延續或訊號鈍化。"
+    return "first_seen", "首次上榜或資料有限，需後續確認。"
 
 
 def build_repeat_table(log: pd.DataFrame, candidates: pd.DataFrame, main_date: str) -> pd.DataFrame:
@@ -285,12 +287,12 @@ def write_markdown(repeat: pd.DataFrame, main_date: str, history_days: int) -> N
         f"- alias_signal_log: `{SIGNAL_LOG_ALIAS.as_posix()}`",
         "",
         "## Label Rules",
-        "- first_seen: 首次上榜，新訊號需確認。",
-        "- continued_2_3d: 連續 2-3 個交易日上榜，訊號延續。",
-        "- continued_many_days: 連續多日上榜，需判斷醞釀或鈍化。",
-        "- repeated_but_no_breakout: 近 10/20 日反覆上榜但尚未突破。",
-        "- continued_overheated: 連續上榜但股價已過熱，應降級。",
-        "- stale_signal: 反覆上榜但量價、TDCC 或 benchmark 未改善。",
+        "- first_seen: 首次上榜，新訊號，需確認量價、TDCC 與 benchmark。",
+        "- continued_2_3d: 連續 2-3 日上榜，訊號延續但仍需確認。",
+        "- continued_many_days: 連續多日上榜，需區分醞釀延續或訊號鈍化。",
+        "- repeated_but_no_breakout: 近 10/20 日反覆上榜但尚未有效突破。",
+        "- continued_overheated: 連續上榜但短線過熱，避免追高。",
+        "- stale_signal: 反覆上榜且量價、TDCC 或 benchmark 未同步轉強。",
         "",
         "## Current Repeat Appearance",
         "",
@@ -354,11 +356,10 @@ def main() -> int:
     main_date, date_notes = resolve_candidate_signal_date(candidates, preferred_date)
     if main_date not in set(log["signal_date"].astype(str)):
         latest_log_date = max(set(log["signal_date"].astype(str))) if not log.empty else ""
-        if latest_log_date:
-            date_notes.append(
-                f"resolved signal_date={main_date} not found in signal log; using latest signal log date={latest_log_date}"
-            )
-            main_date = latest_log_date
+        raise RuntimeError(
+            f"resolved signal_date={main_date} not found in signal log; latest signal log date={latest_log_date}. "
+            "Run update_daily_candidate_signal_log.py before build_candidate_repeat_appearance.py."
+        )
     for note in date_notes:
         print(f"WARNING: {note}")
 

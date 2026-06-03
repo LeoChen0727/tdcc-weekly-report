@@ -191,6 +191,9 @@ STRUCTURAL_BUCKET_ZH = {
 SCORE_COMPONENT_ZH_REPLACEMENTS = {
     "base=50": "基礎分=50",
     "type=neckline_volume_breakout": "類型=頸線帶量突破",
+    "type=platform_volume_breakout": "類型=平台帶量突破",
+    "type=range_breakout_volume": "類型=盤整區間帶量突破",
+    "type=strict_high_breakout": "類型=波段高點帶量突破",
     "type=strict_60d_volume_breakout": "類型=60日高點帶量突破",
     "type=平台_volume_breakout": "類型=平台帶量突破",
     "volume_score=": "量能分數=",
@@ -419,7 +422,7 @@ def add_same_model_repeat_display_and_ranks(df: pd.DataFrame) -> pd.DataFrame:
         )
         ranks = new_sorted.groupby(["report_bucket", "model_id"], dropna=False).cumcount() + 1
         out.loc[new_sorted.index, "model_rank_new_signal"] = ranks.astype(str).values
-        out.loc[new_sorted.index, "display_rank_new_signal"] = [f"新進榜#{int(rank)}" for rank in ranks]
+        out.loc[new_sorted.index, "display_rank_new_signal"] = [f"新進榜 #{int(rank)}" for rank in ranks]
 
     if repeated_mask.any():
         repeated_sorted = out[repeated_mask].sort_values(
@@ -428,7 +431,7 @@ def add_same_model_repeat_display_and_ranks(df: pd.DataFrame) -> pd.DataFrame:
         )
         ranks = repeated_sorted.groupby(["report_bucket", "model_id"], dropna=False).cumcount() + 1
         out.loc[repeated_sorted.index, "model_rank_repeated_signal"] = ranks.astype(str).values
-        out.loc[repeated_sorted.index, "display_rank_repeated_signal"] = [f"重複榜#{int(rank)}" for rank in ranks]
+        out.loc[repeated_sorted.index, "display_rank_repeated_signal"] = [f"連續榜 #{int(rank)}" for rank in ranks]
 
     return out.drop(columns=["_score_num", "_rank_num", "_consec_num", "_count10_num", "_stock_id_sort"], errors="ignore")
 
@@ -993,7 +996,7 @@ def score_hot_theme_pullback(row: pd.Series) -> tuple[float, list[str], list[str
     score, comps, risks = model_score_common(row)
     labels = hot_theme_label(row)
     score += 12
-    comps.append(f"hot theme tag +12:{labels or 'present'}")
+    comps.append(f"熱門族群標籤 +12:{labels or '已具備'}")
     if near_ema23_or_support(row):
         score += 10
         comps.append("near 23EMA/support +10")
@@ -1948,7 +1951,7 @@ def attach_same_model_repeat(signals: pd.DataFrame, model_log: pd.DataFrame) -> 
         ).reset_index(drop=True)
         repeat["same_model_repeat_rank"] = repeat.groupby(["report_bucket", "model_id"], dropna=False).cumcount() + 1
         repeat["model_rank_repeated_signal"] = repeat["same_model_repeat_rank"].astype(str)
-        repeat["display_rank_repeated_signal"] = repeat["same_model_repeat_rank"].map(lambda rank: f"重複榜#{int(rank)}")
+        repeat["display_rank_repeated_signal"] = repeat["same_model_repeat_rank"].map(lambda rank: f"連續榜 #{int(rank)}")
         repeat = repeat.drop(columns=["_consec", "_count10", "_score"])
     return out, repeat
 
@@ -2101,7 +2104,12 @@ def append_volume_breakout_signals(signals: pd.DataFrame, candidates: pd.DataFra
         return signals
     lookup = candidate_lookup(candidates)
     rows: list[dict[str, Any]] = []
-    valid_statuses = {"selected", "selected_but_routed_to_other_category", "not_selected_by_candidate_model"}
+    valid_statuses = {
+        "selected",
+        "selected_as_strict_breakout",
+        "selected_but_routed_to_other_category",
+        "not_selected_by_candidate_model",
+    }
     valid_types = {
         "range_breakout_volume",
         "platform_volume_breakout",
@@ -2490,6 +2498,9 @@ PDF_TOKEN_ZH = {
     "no_signal": "無明確權證訊號",
     "true_breakout": "嚴格突破",
     "volume_breakout": "帶量突破",
+    "platform_volume_breakout": "平台帶量突破",
+    "neckline_volume_breakout": "頸線帶量突破",
+    "strict_60d_volume_breakout": "60日高點帶量突破",
     "range_breakout_volume": "帶量突破盤整區間",
     "range_breakout_watch": "接近盤整上緣觀察",
     "ma_reclaim_volume_attack": "帶量站回均線",

@@ -75,9 +75,7 @@ def build_stock_day_frame() -> pd.DataFrame:
         df["prev_5d_avg_volume_ratio_vs_prev20"] = df["volume"].shift(1).rolling(5, min_periods=5).mean() / df["volume_ma20_prev"]
 
         # Future high over the start day and the next 5 trading days.
-        future_high = pd.concat([df["high"].shift(-i) for i in range(FORWARD_DAYS + 1)], axis=1).max(axis=1)
-        future_high_offset = pd.concat([df["high"].shift(-i) for i in range(FORWARD_DAYS + 1)], axis=1).idxmax(axis=1)
-        # idxmax returns the column label from concat, which is duplicated/opaque. Recompute with numpy-like loop.
+        future_high = df["high"].iloc[::-1].rolling(FORWARD_DAYS + 1, min_periods=1).max().iloc[::-1]
         offsets: list[int | None] = []
         highs = df["high"].to_list()
         for idx in range(len(df)):
@@ -95,38 +93,23 @@ def build_stock_day_frame() -> pd.DataFrame:
         df["weekly_10pct_surge_hit"] = df["future_5d_high_from_start_low_pct"] >= 10.0
         df["next_open"] = df["open"].shift(-1)
         df["signal_close_to_next_open_gap_pct"] = (df["next_open"] / df["close"] - 1.0) * 100.0
-        highs = df["high"].to_list()
-        lows = df["low"].to_list()
-        next_opens = df["next_open"].to_list()
         next_open_future_cols: dict[str, list[float | None]] = {}
         for window in NEXT_OPEN_WINDOWS:
-            next_open_future_high: list[float | None] = []
-            next_open_future_low: list[float | None] = []
-            next_open_future_close: list[float | None] = []
-            for idx, next_open in enumerate(next_opens):
-                if pd.isna(next_open) or next_open <= 0:
-                    next_open_future_high.append(None)
-                    next_open_future_low.append(None)
-                    next_open_future_close.append(None)
-                    continue
-                # Practical entry is D+1 open. Measure the highest tradable price from D+1 through D+window.
-                future_window = highs[idx + 1 : idx + window + 1]
-                future_low_window = lows[idx + 1 : idx + window + 1]
-                close_idx = idx + window
-                next_open_future_high.append(max(future_window) if future_window else None)
-                next_open_future_low.append(min(future_low_window) if future_low_window else None)
-                next_open_future_close.append(float(df["close"].iloc[close_idx]) if close_idx < len(df) else None)
+            # Practical entry is D+1 open.  Measure D+1..D+window
+            # with vectorized reverse rolling windows instead of per-row loops.
+            future_high_w = df["high"].shift(-1).iloc[::-1].rolling(window, min_periods=1).max().iloc[::-1]
+            future_low_w = df["low"].shift(-1).iloc[::-1].rolling(window, min_periods=1).min().iloc[::-1]
+            future_close_w = df["close"].shift(-window)
+            invalid_entry = df["next_open"].isna() | (df["next_open"] <= 0)
+            future_high_w = future_high_w.mask(invalid_entry)
+            future_low_w = future_low_w.mask(invalid_entry)
+            future_close_w = future_close_w.mask(invalid_entry)
             high_col = f"next_open_to_d{window}_high"
             low_col = f"next_open_to_d{window}_low"
-            ret_col = f"next_open_to_d{window}_high_return_pct"
-            low_ret_col = f"next_open_to_d{window}_low_return_pct"
-            hit_col = f"next_open_to_d{window}_high_10pct_hit"
             close_col = f"next_open_to_d{window}_close"
-            close_ret_col = f"next_open_to_d{window}_close_return_pct"
-            close_win_col = f"next_open_to_d{window}_close_win"
-            next_open_future_cols[high_col] = next_open_future_high
-            next_open_future_cols[low_col] = next_open_future_low
-            next_open_future_cols[close_col] = next_open_future_close
+            next_open_future_cols[high_col] = future_high_w
+            next_open_future_cols[low_col] = future_low_w
+            next_open_future_cols[close_col] = future_close_w
         next_open_future_df = pd.DataFrame(next_open_future_cols, index=df.index)
         for window in NEXT_OPEN_WINDOWS:
             high_col = f"next_open_to_d{window}_high"

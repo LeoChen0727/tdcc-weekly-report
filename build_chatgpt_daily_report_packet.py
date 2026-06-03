@@ -15,6 +15,7 @@ REPO_RAW_PREFIX = "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-rep
 
 LATEST_DIR = Path("output/latest")
 HISTORY_REPORT_DIR = Path("output/history/reports")
+DOCS_LATEST_DIR = Path("docs/latest")
 
 DATA_FRESHNESS_CSV = LATEST_DIR / "data_freshness_latest.csv"
 DATA_FRESHNESS_MD = LATEST_DIR / "data_freshness_latest.md"
@@ -111,6 +112,7 @@ FULL_CN_PDF = LATEST_DIR / "完整候選股清單_完整版表格.pdf"
 
 PACKET_LATEST_OLD = LATEST_DIR / "CHATGPT_DAILY_REPORT_PACKET.txt"
 PACKET_LATEST = LATEST_DIR / "chatgpt_daily_report_packet_latest.txt"
+DOCS_PACKET_LATEST = DOCS_LATEST_DIR / "chatgpt_daily_report_packet_latest.txt"
 PACKET_MANIFEST = LATEST_DIR / "chatgpt_daily_report_packet_manifest.json"
 
 DISPLAY_TOKEN_MAP = {
@@ -137,11 +139,96 @@ DISPLAY_TOKEN_MAP = {
 }
 
 
+DISPLAY_TOKEN_SUBSTRING_MAP = {
+    "short_term_specialty_not_six_category": "短線專項（非六大分類）",
+    "tdcc_short_term_continuation_d5_d10": "TDCC短線延續模型 D+5/D+10",
+    "tdcc_short_term_edge": "TDCC短線延續",
+    "semiconductor_equipment_theme": "半導體設備族群",
+    "semiconductor_theme": "半導體族群",
+    "consumer_electronics_theme": "消費電子族群",
+    "passive_component_theme": "被動元件族群",
+    "memory_theme": "記憶體族群",
+    "power_discrete_theme": "功率元件族群",
+    "core_mainstream_theme": "核心主流題材",
+    "mainstream_growth_theme": "主流成長題材",
+    "theme_context_unavailable": "族群脈絡不足",
+    "structural_theme_bucket": "結構族群",
+    "hot_theme_tag": "熱門族群標籤",
+    "bottom_or_low_zone_volume_reversal": "低位爆量反轉",
+    "long_base_low_zone_volume_reversal": "長底低位爆量反轉",
+    "low_to_mid_reclaim_volume_attack": "低中位站回放量攻擊",
+    "mid_range_volume_attack": "中位放量攻擊",
+    "near_high_volume_attack": "近高放量攻擊",
+    "high_zone_extension_or_chase": "高位延伸或追價",
+    "strict_red_close_near_high": "強紅K收近高",
+    "relaxed_red_small_upper_shadow": "紅K小上影",
+    "invalid_intraday_range": "日內區間資料不足",
+    "insufficient_position_history": "位階歷史不足",
+    "overheated_after_tdcc": "TDCC後股價過熱",
+    "phase_overheated_after_tdcc": "TDCC後股價過熱階段",
+    "price_leading_tdcc": "股價領先TDCC",
+    "tdcc_leading_price": "TDCC領先股價",
+    "tdcc_price_confirmed": "TDCC與股價確認",
+    "tdcc_price_divergence": "TDCC與股價背離",
+    "continued_overheated": "連續過熱",
+    "insufficient_data": "資料不足",
+    "other electronics": "其他電子",
+    "semiconductor equipment": "半導體設備",
+    "semiconductor": "半導體",
+    "power discrete": "功率元件",
+    "networking": "網通",
+    "biotechnology": "生技",
+    "connector/cable": "連接器/線材",
+    "memory": "記憶體",
+}
+
+
+def is_machine_readable_packet_line(line: str) -> bool:
+    lowered = line.lower()
+    machine_markers = [
+        "raw_url:",
+        "_raw_url:",
+        "_path:",
+        "path:",
+        "http://",
+        "https://",
+        "chart_path",
+        "chart_url",
+        "file_path",
+        "fields:",
+    ]
+    return any(marker in lowered for marker in machine_markers)
+
+
 def sanitize_display_text(text: str) -> str:
-    for raw, label in DISPLAY_TOKEN_MAP.items():
-        pattern = rf"(?<![A-Za-z0-9_]){re.escape(raw)}(?![A-Za-z0-9_])"
-        text = re.sub(pattern, label, text)
-    return text
+    sanitized_lines: list[str] = []
+    substring_items = sorted(
+        DISPLAY_TOKEN_SUBSTRING_MAP.items(),
+        key=lambda item: len(item[0]),
+        reverse=True,
+    )
+    for line in text.splitlines():
+        if not is_machine_readable_packet_line(line):
+            line = line.replace("memory-based interpretations", "舊記憶解讀")
+            for raw, label in substring_items:
+                line = line.replace(raw, label)
+            for raw, label in DISPLAY_TOKEN_MAP.items():
+                pattern = rf"(?<![A-Za-z0-9_]){re.escape(raw)}(?![A-Za-z0-9_])"
+                line = re.sub(pattern, label, line)
+            line = line.replace("記憶體-based interpretation", "舊記憶解讀")
+            line = line.replace("記憶體-based interpretations", "舊記憶解讀")
+        sanitized_lines.append(line)
+    return "\n".join(sanitized_lines) + ("\n" if text.endswith("\n") else "")
+
+
+DISPLAY_TOKEN_SUBSTRING_MAP.update(
+    {
+        "tdcc_distribution_penalty": "TDCC轉弱扣分",
+        "false_breakout_risk_penalty": "假突破風險扣分",
+        "continued_many_days": "連續多日上榜",
+        "repeated_but_no_breakout": "反覆上榜未突破",
+    }
+)
 
 
 DISPLAY_TOKEN_MAP.update(
@@ -810,12 +897,15 @@ def main() -> int:
     PACKET_LATEST.write_text(packet_text, encoding="utf-8")
     PACKET_LATEST_OLD.write_text(packet_text, encoding="utf-8")
     history_packet.write_text(packet_text, encoding="utf-8")
+    DOCS_PACKET_LATEST.parent.mkdir(parents=True, exist_ok=True)
+    DOCS_PACKET_LATEST.write_text(packet_text, encoding="utf-8")
 
     write_packet_manifest(main_date, report_ready, paths)
 
     print(f"Saved: {PACKET_LATEST}")
     print(f"Saved: {PACKET_LATEST_OLD}")
     print(f"Saved: {history_packet}")
+    print(f"Saved: {DOCS_PACKET_LATEST}")
     print(f"Saved: {PACKET_MANIFEST}")
 
     return 0

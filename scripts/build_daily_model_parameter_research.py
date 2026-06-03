@@ -200,9 +200,9 @@ def rule_specs() -> list[RuleSpec]:
                 specs.append(
                     RuleSpec(
                         "volume_range_breakout",
-                        "Volume range breakout",
+                        "帶量突破模型",
                         f"w{window}_vol{vol:g}_width{max_width}",
-                        f"{window}d range breakout + volume ratio >= {vol:g} + range width <= {max_width}%",
+                        f"{window}日盤整區間突破 + 量比 >= {vol:g} + 區間寬度 <= {max_width}%",
                         "pdf_core_model",
                         lambda d, window=window, vol=vol, max_width=max_width: (
                             (d["volume_ratio_prev20"] >= vol)
@@ -210,7 +210,7 @@ def rule_specs() -> list[RuleSpec]:
                             & (d[f"range_width_{window}d_pct"] <= max_width)
                             & d["close_above_open"]
                         ),
-                        "Primary condition is volume plus range breakout. Gain size is not a veto in this model.",
+                        "主條件是量能放大與盤整區間突破。漲幅大小不作為此模型的否決條件。",
                     )
                 )
 
@@ -219,16 +219,16 @@ def rule_specs() -> list[RuleSpec]:
             specs.append(
                 RuleSpec(
                     "price_pullback_23ema",
-                    "Price pullback near 23EMA",
+                    "股價回檔模型",
                     f"ema{low:g}_{high:g}_volmax{vol_max:g}",
-                    f"Distance to 23EMA {low:g}% to {high:g}% + rising 23EMA + volume ratio <= {vol_max:g}",
+                    f"距 23EMA {low:g}% 至 {high:g}% + 23EMA 向上 + 量比 <= {vol_max:g}",
                     "pdf_core_model",
                     lambda d, low=low, high=high, vol_max=vol_max: (
                         between(d["distance_ema23_pct"], low, high)
                         & (d["ema23_slope_5d_pct"] > 0)
                         & (d["volume_ratio_prev20"] <= vol_max)
                     ),
-                    "Pullback model does not require breakout; it searches for structure support and low-volume pullback.",
+                    "回檔模型不要求突破；主軸是結構支撐與量縮回檔。",
                 )
             )
 
@@ -236,16 +236,16 @@ def rule_specs() -> list[RuleSpec]:
         specs.append(
             RuleSpec(
                 "revenue_unreacted_range_proxy",
-                "Revenue strong but price not reacted proxy",
+                "營收爆發但股價尚未反應模型",
                 f"range23_tol{tolerance}",
-                f"Price within 23d range +/- {tolerance}% proxy; actual revenue confirmation comes from daily candidate layer",
+                f"股價位於 23 日區間上下 {tolerance}% 內；營收確認由每日候選決策層提供",
                 "pdf_core_model",
                 lambda d, tolerance=tolerance: (
                     (d["close"] >= d["range_low_23d_prev"] * (1 - tolerance / 100))
                     & (d["close"] <= d["range_high_23d_prev"] * (1 + tolerance / 100))
                     & (d["range_width_23d_pct"] <= 20)
                 ),
-                "First-pass proxy because historical revenue feature panel is not complete enough for full backtest.",
+                "歷史營收 feature panel 尚未完整，這裡先用價格未反應區間作第一版近似條件。",
             )
         )
 
@@ -253,12 +253,12 @@ def rule_specs() -> list[RuleSpec]:
         specs.append(
             RuleSpec(
                 "w_bottom_right_side",
-                "W-bottom right-side proxy",
+                "W底右側模型",
                 f"wproxy_vol{vol:g}",
-                f"W-bottom proxy + higher right-side structure + volume ratio >= {vol:g}",
+                f"W底近似條件 + 右側結構墊高 + 量比 >= {vol:g}",
                 "pdf_core_model",
                 lambda d, vol=vol: d["w_bottom_proxy"] & (d["volume_ratio_prev20"] >= vol),
-                "Simple technical proxy for right-side W-bottom research; requires chart confirmation before promotion.",
+                "W底右側研究近似條件；正式升級仍需要圖形品質確認。",
             )
         )
 
@@ -267,16 +267,16 @@ def rule_specs() -> list[RuleSpec]:
             specs.append(
                 RuleSpec(
                     "near_high_neckline_challenge",
-                    "Near high or neckline challenge",
+                    "接近前高 / 頸線挑戰模型",
                     f"near{dist}_vol{vol:g}",
-                    f"Within {dist}% below 60d high + volume ratio >= {vol:g} + rising 23EMA",
+                    f"距 60 日高點下方 {dist}% 內 + 量比 >= {vol:g} + 23EMA 向上",
                     "pdf_core_model",
                     lambda d, dist=dist, vol=vol: (
                         between(d["near_60d_high_pct"], -dist, 0)
                         & (d["volume_ratio_prev20"] >= vol)
                         & (d["ema23_slope_5d_pct"] > 0)
                     ),
-                    "Designed to catch 1-5 trading days before breakout; not a strict breakout model.",
+                    "用來提前 1 到 5 個交易日觀察突破前壓力挑戰；不是嚴格突破模型。",
                 )
             )
 
@@ -286,9 +286,9 @@ def rule_specs() -> list[RuleSpec]:
                 specs.append(
                     RuleSpec(
                         "platform_strengthening",
-                        "Platform strengthening",
+                        "平台整理轉強模型",
                         f"w{window}_near{near}_vol{vol:g}",
-                        f"{window}d range width <= 18% + within {near}% of range high + volume ratio >= {vol:g} + solid red candle",
+                        f"{window}日區間寬度 <= 18% + 距區間上緣 {near}% 內 + 量比 >= {vol:g} + 實體紅K",
                         "pdf_core_model",
                         lambda d, window=window, near=near, vol=vol: (
                             (d[f"range_width_{window}d_pct"] <= 18)
@@ -296,7 +296,7 @@ def rule_specs() -> list[RuleSpec]:
                             & (d["volume_ratio_prev20"] >= vol)
                             & d["solid_red_candle"]
                         ),
-                        "Platform model looks for contraction then renewed volume near upper range.",
+                        "平台模型尋找波動收斂後、接近上緣時量能回升的型態。",
                     )
                 )
 
@@ -304,9 +304,9 @@ def rule_specs() -> list[RuleSpec]:
         specs.append(
             RuleSpec(
                 "pullback_short_reclaim",
-                "Pullback short-term reclaim",
+                "回檔後短線轉強模型",
                 f"prior20up_reclaim_vol{vol:g}",
-                f"Prior 20d return >= 10% + distance to 23EMA -1% to 6% + MACD hist > 0 + volume ratio >= {vol:g}",
+                f"前 20 日漲幅 >= 10% + 距 23EMA -1% 至 6% + MACD 柱狀體 > 0 + 量比 >= {vol:g}",
                 "pdf_core_model",
                 lambda d, vol=vol: (
                     (d["return_20d_pct"] >= 10)
@@ -314,7 +314,7 @@ def rule_specs() -> list[RuleSpec]:
                     & trueish(d["macd_hist_gt0"])
                     & (d["volume_ratio_prev20"] >= vol)
                 ),
-                "Finds stocks that pulled back without breaking structure and are reclaiming momentum.",
+                "尋找前段上漲後回檔未破結構、並重新恢復短線動能的股票。",
             )
         )
 
@@ -322,9 +322,9 @@ def rule_specs() -> list[RuleSpec]:
         specs.append(
             RuleSpec(
                 "tdcc_stealth_accumulation",
-                "TDCC stealth accumulation",
+                "TDCC潛伏吸籌模型",
                 f"tdcc_up{consecutive}_range10",
-                f"TDCC consecutive up weeks >= {consecutive} + price within 23d range +/-10% + 20d return <= 20%",
+                f"TDCC 連續增加週數 >= {consecutive} + 股價位於 23 日區間上下 10% 內 + 20 日漲幅 <= 20%",
                 "pdf_core_model",
                 lambda d, consecutive=consecutive: (
                     trueish(d["tdcc_history_available"])
@@ -333,7 +333,7 @@ def rule_specs() -> list[RuleSpec]:
                     & (d["close"] <= d["range_high_23d_prev"] * 1.10)
                     & (d["return_20d_pct"] <= 20)
                 ),
-                "Uses local TDCC history only; phase filtering should be upgraded when full historical phase panel is available.",
+                "目前使用本地 TDCC 歷史資料；完整歷史 phase panel 可用後再升級 phase 篩選。",
             )
         )
 
@@ -341,9 +341,9 @@ def rule_specs() -> list[RuleSpec]:
         [
             RuleSpec(
                 "tdcc_short_term_continuation_d5_d10",
-                "TDCC short-term continuation D+5/D+10",
+                "TDCC短線延續模型 D+5/D+10",
                 "all_thresholds_up_ret5_10_30_macd",
-                "All thresholds up + 5d return 10-30% + MACD hist > 0",
+                "四級距同步增加 + 5日漲幅 10% 至 30% + MACD 柱狀體 > 0",
                 "pdf_specialty_section",
                 lambda d: (
                     trueish(d["tdcc_history_available"])
@@ -351,13 +351,13 @@ def rule_specs() -> list[RuleSpec]:
                     & between(d["return_5d_pct"], 10, 30)
                     & trueish(d["macd_hist_gt0"])
                 ),
-                "Short-term continuation specialty, not a low-position accumulation model.",
+                "短線延續專項，不是低位吸籌模型。",
             ),
             RuleSpec(
                 "tdcc_short_term_continuation_d5_d10",
-                "TDCC short-term continuation D+5/D+10",
+                "TDCC短線延續模型 D+5/D+10",
                 "high_thresholds_ret5_10_30_ret10_20_50_kd",
-                "High thresholds up + 5d return 10-30% + 10d return 20-50% + KD bullish not overheated",
+                "高級距增加 + 5日漲幅 10% 至 30% + 10日漲幅 20% 至 50% + KD 多方但未過熱",
                 "pdf_specialty_section",
                 lambda d: (
                     trueish(d["tdcc_history_available"])
@@ -366,20 +366,20 @@ def rule_specs() -> list[RuleSpec]:
                     & between(d["return_10d_pct"], 20, 50)
                     & trueish(d["kd_bullish_not_overheated"])
                 ),
-                "Short-term continuation research; use next-open D+1 to D+10 statistics.",
+                "短線延續研究；報酬統計使用訊號日隔天開盤到 D+1 至 D+10。",
             ),
             RuleSpec(
                 "short_term_surge_d5_d10",
-                "Short-term surge D+5/D+10",
+                "短線急漲 D+5/D+10 研究",
                 "ret5_10_30_vol5_ge1_5_macd",
-                "5d return 10-30% + 5d average volume ratio >= 1.5 + MACD hist > 0",
+                "5日漲幅 10% 至 30% + 5日平均量比 >= 1.5 + MACD 柱狀體 > 0",
                 "research_only_not_pdf_core",
                 lambda d: (
                     between(d["return_5d_pct"], 10, 30)
                     & (d["start_5d_avg_volume_ratio_vs_prev20"] >= 1.5)
                     & trueish(d["macd_hist_gt0"])
                 ),
-                "Momentum research list; entry assumptions must use next trading day open.",
+                "動能研究名單；進場假設必須使用訊號日後下一交易日開盤。",
             ),
         ]
     )
@@ -388,12 +388,12 @@ def rule_specs() -> list[RuleSpec]:
         specs.append(
             RuleSpec(
                 "explosive_volume_red_candle",
-                "Explosive volume red candle",
+                "爆天量紅K研究",
                 f"vol{vol:g}_solid_red",
-                f"Volume ratio >= {vol:g} + solid red candle + small upper shadow + close near high",
+                f"量比 >= {vol:g} + 實體紅K + 上影線小 + 收盤接近日高",
                 "research_only_not_pdf_core",
                 lambda d, vol=vol: (d["volume_ratio_prev20"] >= vol) & d["solid_red_candle"],
-                "Research-only until parameters are validated; not a core PDF recommendation model yet.",
+                "研究用模型，參數驗證成熟前不納入核心 PDF 推薦模型。",
             )
         )
 
@@ -490,7 +490,7 @@ def write_markdown(summary: pd.DataFrame, detail: pd.DataFrame, coverage: dict[s
         "",
         "- This is first-pass parameter research using the current repo price history.",
         "- If sample_status is `small_sample_review_only` or `insufficient_sample`, do not treat the parameter as a final model weight.",
-        "- Revenue historical panel is not complete in price history, so `revenue_unreacted_range_proxy` only validates the price-range component.",
+        "- Revenue historical panel is not complete in price history, so the revenue-unreacted research row only validates the price-range component.",
         "",
         "## Top Parameter Sets By Avg Close Return",
         "",

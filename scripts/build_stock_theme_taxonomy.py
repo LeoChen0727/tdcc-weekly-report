@@ -885,6 +885,43 @@ def report_membership_fields(industry_label: str, theme_label: str, effective_la
     }
 
 
+MAINSTREAM_MEMBERSHIP_ZH = {
+    "core_mainstream": "\u4e3b\u6d41",
+    "non_mainstream": "\u975e\u4e3b\u6d41",
+    "both": "\u90fd\u6709",
+    "theme_unknown": "\u975e\u4e3b\u6d41",
+    "": "\u975e\u4e3b\u6d41",
+}
+
+
+def mainstream_membership_zh(effective_label: str, membership: dict[str, str] | None = None) -> str:
+    """User-facing report membership: 主流 / 非主流 / 都有.
+
+    This is a display contract for reports and the manual Excel template.  It
+    must be available in the taxonomy itself so later stages do not recreate
+    routing logic or drop unclassified rows.
+    """
+    membership = membership or {}
+    mainstream = compact_text(membership.get("mainstream_report_eligible", "")).lower() == "true"
+    non_mainstream = compact_text(membership.get("non_mainstream_report_eligible", "")).lower() == "true"
+    dual = compact_text(membership.get("dual_report_membership_flag", "")).lower() == "true"
+    if dual or (mainstream and non_mainstream):
+        return "\u90fd\u6709"
+    if mainstream:
+        return "\u4e3b\u6d41"
+    if non_mainstream:
+        return "\u975e\u4e3b\u6d41"
+    return MAINSTREAM_MEMBERSHIP_ZH.get(normalize_mainstream(effective_label), "\u975e\u4e3b\u6d41")
+
+
+def hot_theme_slots(primary_theme: Any, secondary_themes: Any, slot_count: int = 5) -> list[str]:
+    """Return up to five user-facing hot theme labels for taxonomy outputs."""
+    themes = [display_theme(item) for item in split_themes(primary_theme, secondary_themes)]
+    themes = [theme for theme in themes if theme]
+    themes = list(dict.fromkeys(themes))
+    return (themes + [""] * slot_count)[:slot_count]
+
+
 def decode_industry_code(value: str) -> str:
     code = compact_text(value)
     if not code:
@@ -1244,6 +1281,7 @@ def build_taxonomy() -> pd.DataFrame:
         secondary = display_theme_list(secondary)
         hot_primary = display_theme(hot_primary)
         hot_secondary = display_theme_list(hot_secondary)
+        hot_slots = hot_theme_slots(hot_primary, hot_secondary)
         concept_tags = display_theme_list(concept_tags)
         rows.append(
             {
@@ -1254,6 +1292,12 @@ def build_taxonomy() -> pd.DataFrame:
                 "basic_theme": basic_theme,
                 "hot_primary_theme": hot_primary,
                 "hot_secondary_themes": hot_secondary,
+                "mainstream_membership": mainstream_membership_zh(effective_mainstream, membership),
+                "hot_theme_1": hot_slots[0],
+                "hot_theme_2": hot_slots[1],
+                "hot_theme_3": hot_slots[2],
+                "hot_theme_4": hot_slots[3],
+                "hot_theme_5": hot_slots[4],
                 "has_hot_theme": has_hot_theme,
                 "primary_theme": primary,
                 "secondary_themes": secondary,
@@ -1277,18 +1321,29 @@ def build_taxonomy() -> pd.DataFrame:
 
 def build_template(taxonomy: pd.DataFrame, rows_per_sheet: int = 500, write_files: bool = True) -> pd.DataFrame:
     """Build the user-fillable taxonomy workbook with simple readable columns."""
-    label_map = {"core_mainstream": "\u4e3b\u6d41", "non_mainstream": "\u975e\u4e3b\u6d41", "both": "\u90fd\u6709", "theme_unknown": ""}
     basic_theme = taxonomy["basic_theme"] if "basic_theme" in taxonomy.columns else taxonomy.get("industry", pd.Series([""] * len(taxonomy)))
-    hot_primary = taxonomy["hot_primary_theme"] if "hot_primary_theme" in taxonomy.columns else taxonomy.get("primary_theme", pd.Series([""] * len(taxonomy)))
-    hot_secondary_source = (
-        taxonomy["hot_secondary_themes"]
-        if "hot_secondary_themes" in taxonomy.columns
-        else taxonomy.get("secondary_themes", pd.Series([""] * len(taxonomy)))
-    )
-    hot_secondary = hot_secondary_source.map(split_themes)
-    mainstream_display = taxonomy["effective_mainstream_label"].map(label_map).fillna("")
+    if "mainstream_membership" in taxonomy.columns:
+        mainstream_display = taxonomy["mainstream_membership"]
+    else:
+        mainstream_display = taxonomy.apply(
+            lambda row: mainstream_membership_zh(
+                row.get("effective_mainstream_label", ""),
+                {
+                    "mainstream_report_eligible": row.get("mainstream_report_eligible", ""),
+                    "non_mainstream_report_eligible": row.get("non_mainstream_report_eligible", ""),
+                    "dual_report_membership_flag": row.get("dual_report_membership_flag", ""),
+                },
+            ),
+            axis=1,
+        )
+    hot_theme_columns = {
+        f"hot_theme_{idx}": taxonomy[f"hot_theme_{idx}"] if f"hot_theme_{idx}" in taxonomy.columns else pd.Series([""] * len(taxonomy))
+        for idx in range(1, 6)
+    }
     if "dual_report_membership_flag" in taxonomy.columns:
         mainstream_display = mainstream_display.mask(taxonomy["dual_report_membership_flag"].astype(str).eq("True"), "都有")
+    if "mainstream_membership" in taxonomy.columns:
+        mainstream_display = taxonomy["mainstream_membership"]
     template = pd.DataFrame(
         {
             "\u80a1\u7968\u4ee3\u865f": taxonomy["stock_id"],
@@ -1296,11 +1351,11 @@ def build_template(taxonomy: pd.DataFrame, rows_per_sheet: int = 500, write_file
             "\u4e0a\u5e02\u6ac3\u7522\u696d": taxonomy["industry"],
             "\u57fa\u672c\u65cf\u7fa4": basic_theme,
             "\u4e3b\u6d41/\u975e\u4e3b\u6d41": mainstream_display,
-            "\u71b1\u9580\u65cf\u7fa41": hot_primary,
-            "\u71b1\u9580\u65cf\u7fa42": hot_secondary.map(lambda x: x[0] if len(x) > 0 else ""),
-            "\u71b1\u9580\u65cf\u7fa43": hot_secondary.map(lambda x: x[1] if len(x) > 1 else ""),
-            "\u71b1\u9580\u65cf\u7fa44": hot_secondary.map(lambda x: x[2] if len(x) > 2 else ""),
-            "\u71b1\u9580\u65cf\u7fa45": hot_secondary.map(lambda x: x[3] if len(x) > 3 else ""),
+            "\u71b1\u9580\u65cf\u7fa41": hot_theme_columns["hot_theme_1"],
+            "\u71b1\u9580\u65cf\u7fa42": hot_theme_columns["hot_theme_2"],
+            "\u71b1\u9580\u65cf\u7fa43": hot_theme_columns["hot_theme_3"],
+            "\u71b1\u9580\u65cf\u7fa44": hot_theme_columns["hot_theme_4"],
+            "\u71b1\u9580\u65cf\u7fa45": hot_theme_columns["hot_theme_5"],
             "\u5099\u8a3b": taxonomy["notes"],
         }
     )

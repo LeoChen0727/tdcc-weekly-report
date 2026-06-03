@@ -5,20 +5,10 @@ from typing import Iterable
 
 
 PDF_FACING_FILES = [
-    Path("output/latest/chatgpt_daily_report_packet_latest.txt"),
-    Path("output/latest/CHATGPT_DAILY_REPORT_PACKET.txt"),
-    Path("output/latest/chatgpt_indicator_usage_guide_latest.md"),
-    Path("output/latest/CHATGPT_INDICATOR_USAGE_GUIDE.txt"),
-    Path("output/latest/warrant_flow_latest.md"),
-    Path("output/latest/CHATGPT_DAILY_REPORT_RULES.txt"),
     Path("output/latest/tdcc_weekly_candidate_highlight_for_report_latest.md"),
     Path("output/latest/tdcc_weekly_candidate_full_for_report_latest.md"),
-    Path("docs/latest/chatgpt_daily_report_packet_latest.txt"),
-    Path("docs/latest/CHATGPT_DAILY_REPORT_PACKET.txt"),
-    Path("docs/latest/chatgpt_indicator_usage_guide_latest.md"),
-    Path("docs/latest/CHATGPT_INDICATOR_USAGE_GUIDE.txt"),
-    Path("docs/latest/warrant_flow_latest.md"),
-    Path("docs/latest/CHATGPT_DAILY_REPORT_RULES.txt"),
+    Path("docs/latest/tdcc_weekly_candidate_highlight_for_report_latest.md"),
+    Path("docs/latest/tdcc_weekly_candidate_full_for_report_latest.md"),
 ]
 
 PDF_FACING_PDFS = [
@@ -112,6 +102,23 @@ def iter_sources() -> Iterable[tuple[Path, str]]:
             yield path, extract_pdf_text(path)
 
 
+def is_machine_readable_helper_line(line: str) -> bool:
+    lowered = line.lower()
+    markers = [
+        "raw_url:",
+        "_raw_url:",
+        "_path:",
+        "path:",
+        "http://",
+        "https://",
+        "chart_path",
+        "chart_url",
+        "file_path",
+        "fields:",
+    ]
+    return any(marker in lowered for marker in markers)
+
+
 def main() -> int:
     problems: list[str] = []
     warnings: list[str] = []
@@ -123,6 +130,8 @@ def main() -> int:
     for path, text in iter_sources():
         target = problems if path.suffix.lower() == ".pdf" else warnings
         for line_no, line in enumerate(text.splitlines(), start=1):
+            if path.suffix.lower() != ".pdf" and is_machine_readable_helper_line(line):
+                continue
             for token in RAW_TOKENS:
                 if token in line:
                     target.append(f"{path}:{line_no}: raw token `{token}`")

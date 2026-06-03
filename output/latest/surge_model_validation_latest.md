@@ -1,6 +1,6 @@
 # Surge Model Validation Latest
 
-generated_at: 2026-05-30 20:02:32 Asia/Taipei
+generated_at: 2026-06-03 21:00:02 Asia/Taipei
 status: pass
 
 ## Errors

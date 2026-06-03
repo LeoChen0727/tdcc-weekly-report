@@ -4,8 +4,8 @@
 - main_price_date: `20260602`
 - readme_main_price_date: ``
 - readme_index_main_price_date: ``
-- model_signal_rows: `846`
-- volume_watch_rows: `1`
+- model_signal_rows: `824`
+- volume_watch_rows: `300`
 - volume_theme_other_rows: `0`
 - group_rotation_rows: `13`
 - taxonomy_rows: `2375`
@@ -20,7 +20,7 @@
 
 ## Warnings
 
-- volume watch signal_date mismatch: expected 20260602, got ['20260529']; stale auxiliary table ignored for date gating
+- none
 
 ## Details
 
@@ -28,10 +28,10 @@
 {
   "main_price_date": "20260602",
   "effective_model_signal_date": "20260602",
-  "model_signal_rows": 846,
-  "raw_model_signal_rows": 846,
-  "volume_watch_rows": 1,
-  "volume_theme_stock_rows": 1,
+  "model_signal_rows": 824,
+  "raw_model_signal_rows": 824,
+  "volume_watch_rows": 300,
+  "volume_theme_stock_rows": 300,
   "group_rotation_rows": 13,
   "taxonomy_rows": 2375,
   "taxonomy_template_csv_rows": 2375,
@@ -56,7 +56,7 @@
   ],
   "missing_volume_columns": [],
   "volume_signal_dates": [
-    "20260529"
+    "20260602"
   ],
   "volume_theme_other_rows": 0,
   "group_rotation_invalid_models": [],

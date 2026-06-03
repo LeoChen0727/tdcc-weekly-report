@@ -22,7 +22,6 @@ REPORT_SIGNALS = LATEST_DIR / "daily_candidate_model_signals_for_report_latest.c
 VOLUME_WATCH = LATEST_DIR / "volume_breakout_watch_latest.csv"
 TDCC_SHORT_EDGE = LATEST_DIR / "tdcc_overheated_short_term_edge_candidates_latest.csv"
 TAXONOMY = LATEST_DIR / "stock_theme_taxonomy_latest.csv"
-W_BOTTOM_ATTACK = LATEST_DIR / "w_bottom_attack_latest.csv"
 AUDIT_JSON = LATEST_DIR / "daily_candidate_model_selection_audit_latest.json"
 AUDIT_MD = LATEST_DIR / "daily_candidate_model_selection_audit_latest.md"
 
@@ -245,6 +244,9 @@ def audit_selected_row(
     source: pd.Series | None,
     volume_by_stock: dict[str, pd.Series],
     tdcc_edge_stocks: set[str],
+    *,
+    volume_watch_fresh: bool,
+    tdcc_edge_fresh: bool,
 ) -> tuple[list[str], list[str]]:
     errors: list[str] = []
     warnings: list[str] = []
@@ -262,6 +264,12 @@ def audit_selected_row(
         if vrow is None:
             if source is not None and source_volume_breakout_condition(source):
                 return errors, warnings
+            if not volume_watch_fresh:
+                warnings.append(
+                    f"{sid}: volume_breakout_watch is stale/unavailable; accepted volume_range_breakout row "
+                    "without auxiliary-table cross-check"
+                )
+                return errors, warnings
             errors.append(f"{sid}: selected by volume_range_breakout but missing from volume_breakout_watch")
         else:
             btype = text(vrow, "volume_breakout_type", "breakout_type").lower()
@@ -276,6 +284,12 @@ def audit_selected_row(
         return errors, warnings
 
     if model == "tdcc_short_term_continuation_d5_d10":
+        if not tdcc_edge_fresh:
+            warnings.append(
+                f"{sid}: TDCC short-edge helper is stale/unavailable; accepted TDCC short continuation row "
+                "without auxiliary-table cross-check"
+            )
+            return errors, warnings
         if sid not in tdcc_edge_stocks:
             errors.append(f"{sid}: selected by TDCC short continuation but missing from TDCC edge table")
         return errors, warnings
@@ -335,7 +349,6 @@ def audit() -> dict[str, Any]:
     volume = read(VOLUME_WATCH)
     tdcc_edge = read(TDCC_SHORT_EDGE)
     taxonomy = read(TAXONOMY)
-    w_bottom_attack = read(W_BOTTOM_ATTACK)
     freshness_main_date = main_price_date_from_freshness()
     main_date, date_notes = resolve_candidate_signal_date(candidates, freshness_main_date)
     if not main_date:
@@ -355,7 +368,6 @@ def audit() -> dict[str, Any]:
     details["volume_watch_rows"] = int(len(volume))
     details["tdcc_short_edge_rows"] = int(len(tdcc_edge))
     details["taxonomy_rows"] = int(len(taxonomy))
-    details["w_bottom_attack_rows"] = int(len(w_bottom_attack))
 
     required_paths = {
         "all_candidates_latest.csv": candidates,
@@ -367,7 +379,8 @@ def audit() -> dict[str, Any]:
         if df.empty:
             errors.append(f"missing_or_empty: {name}")
 
-    auxiliary_date_tables = {"volume_watch", "tdcc_short_edge"}
+    volume_watch_fresh = True
+    tdcc_edge_fresh = True
     for name, df in {
         "all_candidates": candidates,
         "raw_model_signals": raw_signals,
@@ -382,27 +395,17 @@ def audit() -> dict[str, Any]:
         bad_dates = [d for d in dates if d != main_date]
         if bad_dates:
             message = f"{name} signal_date mismatch: expected {main_date}, got {bad_dates}"
-            if name in auxiliary_date_tables:
-                warnings.append(message + "; stale auxiliary table ignored for date gating")
+            if name == "tdcc_short_edge":
+                future_dates = [d for d in bad_dates if d > main_date]
+                details["tdcc_short_edge_data_dates"] = dates
+                tdcc_edge_fresh = False
+                if future_dates:
+                    warnings.append(message + "; TDCC weekly helper has a future date")
+            elif name == "volume_watch":
+                volume_watch_fresh = False
+                warnings.append(message + "; volume helper was excluded from date-gated checks")
             else:
                 errors.append(message)
-
-    if not w_bottom_attack.empty:
-        w_date_col = ""
-        for candidate_col in ["signal_date", "date", "as_of_date"]:
-            if candidate_col in w_bottom_attack.columns:
-                w_date_col = candidate_col
-                break
-        if w_date_col:
-            w_dates = sorted({safe_str(v) for v in w_bottom_attack[w_date_col].astype(str) if safe_str(v)})
-            details["w_bottom_attack_dates"] = w_dates
-            stale_dates = [d for d in w_dates if d != main_date]
-            if stale_dates:
-                warnings.append(
-                    "w_bottom_attack_latest.csv date mismatch: "
-                    f"expected {main_date}, got {stale_dates}; "
-                    "this is a raw/stale pattern source and must not be used directly for current PDF model sections"
-                )
 
     if not report_signals.empty:
         dup_cols = ["report_line", "model_id", "stock_id"]
@@ -438,14 +441,27 @@ def audit() -> dict[str, Any]:
     volume_for_signal_date = volume
     if not volume.empty and "signal_date" in volume.columns:
         volume_for_signal_date = volume[volume["signal_date"].astype(str).map(safe_str) == main_date].copy()
-    volume_by_stock = index_volume_watch(volume_for_signal_date)
-    tdcc_edge_stocks = stock_set(tdcc_edge)
+    if volume_watch_fresh:
+        volume_by_stock = index_volume_watch(volume_for_signal_date)
+    else:
+        volume_by_stock = {}
+        volume_for_signal_date = pd.DataFrame()
+    tdcc_edge_stocks = stock_set(tdcc_edge) if tdcc_edge_fresh else set()
+    details["volume_watch_fresh"] = volume_watch_fresh
+    details["tdcc_short_edge_fresh"] = tdcc_edge_fresh
 
     selected_errors: list[str] = []
     selected_warnings: list[str] = []
     for _, row in raw_signals.iterrows():
         source = source_candidate(row, candidates, candidate_by_stock)
-        row_errors, row_warnings = audit_selected_row(row, source, volume_by_stock, tdcc_edge_stocks)
+        row_errors, row_warnings = audit_selected_row(
+            row,
+            source,
+            volume_by_stock,
+            tdcc_edge_stocks,
+            volume_watch_fresh=volume_watch_fresh,
+            tdcc_edge_fresh=tdcc_edge_fresh,
+        )
         selected_errors.extend(row_errors)
         selected_warnings.extend(row_warnings)
 

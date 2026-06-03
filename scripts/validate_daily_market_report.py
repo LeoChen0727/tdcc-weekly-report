@@ -25,6 +25,14 @@ PDF_MANIFEST_JSON = LATEST_DIR / "daily_market_pdf_report_manifest_latest.json"
 
 CURATED_PDF = LATEST_DIR / "daily_market_curated_report_latest.pdf"
 FULL_TABLE_PDF = LATEST_DIR / "daily_market_full_table_report_latest.pdf"
+MODEL_SUMMARY_CSV = LATEST_DIR / "daily_candidate_model_summary_for_report_latest.csv"
+MODEL_REPORT_SIGNALS_CSV = LATEST_DIR / "daily_candidate_model_signals_for_report_latest.csv"
+MODEL_LINE_PDFS = {
+    "mainstream_highlight": LATEST_DIR / "mainstream_daily_recommendation_highlight_latest.pdf",
+    "mainstream_full": LATEST_DIR / "mainstream_full_candidate_list_latest.pdf",
+    "non_mainstream_highlight": LATEST_DIR / "non_mainstream_daily_recommendation_highlight_latest.pdf",
+    "non_mainstream_full": LATEST_DIR / "non_mainstream_full_candidate_list_latest.pdf",
+}
 VALIDATION_JSON = LATEST_DIR / "daily_market_report_validation_latest.json"
 VALIDATION_MD = LATEST_DIR / "daily_market_report_validation_latest.md"
 DOCS_VALIDATION_MD = DOCS_LATEST_DIR / "daily_market_report_validation_latest.md"
@@ -409,6 +417,126 @@ def check_decision_layer_watchlist(errors: list[str]) -> None:
         errors.append("2347 appears in front watchlist despite stale/no-confirmation warning")
 
 
+def check_model_line_pdfs(errors: list[str], warnings: list[str]) -> dict[str, dict[str, Any]]:
+    infos: dict[str, dict[str, Any]] = {}
+    for label, path in MODEL_LINE_PDFS.items():
+        info = pdf_info(path)
+        infos[label] = {
+            "path": path.as_posix(),
+            "exists": info["exists"],
+            "size_bytes": info["size_bytes"],
+            "pages": info["pages"],
+        }
+        check_pdf_basic(label, info, errors, warnings)
+    return infos
+
+
+def check_model_summary_for_report(errors: list[str]) -> dict[str, Any]:
+    summary = {
+        "path": MODEL_SUMMARY_CSV.as_posix(),
+        "exists": MODEL_SUMMARY_CSV.exists(),
+        "rows": 0,
+        "models_by_report_line": {},
+    }
+    if not MODEL_SUMMARY_CSV.exists():
+        errors.append(f"missing {MODEL_SUMMARY_CSV}")
+        return summary
+    required = {
+        "report_line",
+        "model_id",
+        "model_name_zh",
+        "model_registry_order",
+        "new_signal_stock_display",
+        "new_signal_rank_label_zh",
+        "display_rank_new_signal",
+        "model_rank_new_signal",
+        "repeated_signal_stock_display",
+        "repeated_signal_rank_label_zh",
+        "display_rank_repeated_signal",
+        "model_rank_repeated_signal",
+        "operation_reminder_zh",
+    }
+    try:
+        df = pd.read_csv(MODEL_SUMMARY_CSV, dtype=str).fillna("")
+    except Exception as exc:
+        errors.append(f"failed to read {MODEL_SUMMARY_CSV}: {exc}")
+        return summary
+    summary["rows"] = int(len(df))
+    missing = required - set(df.columns)
+    if missing:
+        errors.append(f"model summary missing columns: {sorted(missing)}")
+        return summary
+    report_lines = set(df["report_line"].astype(str))
+    if report_lines != {"mainstream", "non_mainstream"}:
+        errors.append(f"model summary invalid report_line values: {sorted(report_lines)}")
+    dupes = df.duplicated(["report_line", "model_id"])
+    if dupes.any():
+        rows = df.loc[dupes, ["report_line", "model_id"]].head(10).to_dict("records")
+        errors.append(f"model summary duplicate report_line/model_id rows: {rows}")
+    for report_line in ["mainstream", "non_mainstream"]:
+        part = df[df["report_line"].eq(report_line)].copy()
+        summary["models_by_report_line"][report_line] = int(len(part))
+        if len(part) != 10:
+            errors.append(f"{report_line}: expected 10 fixed model summary rows, got {len(part)}")
+        if not part["new_signal_rank_label_zh"].astype(str).str.contains("新進榜|今日無候選|^-?$", regex=True).all():
+            errors.append(f"{report_line}: new_signal_rank_label_zh has invalid labels")
+        if not part["repeated_signal_rank_label_zh"].astype(str).str.contains("連續榜|累計榜|重複|今日無候選|^-?$", regex=True).all():
+            errors.append(f"{report_line}: repeated_signal_rank_label_zh has invalid labels")
+    return summary
+
+
+def check_model_report_signals_for_report(errors: list[str]) -> dict[str, Any]:
+    summary = {
+        "path": MODEL_REPORT_SIGNALS_CSV.as_posix(),
+        "exists": MODEL_REPORT_SIGNALS_CSV.exists(),
+        "rows": 0,
+        "duplicate_report_model_stock_rows": 0,
+    }
+    if not MODEL_REPORT_SIGNALS_CSV.exists():
+        errors.append(f"missing {MODEL_REPORT_SIGNALS_CSV}")
+        return summary
+    required = {
+        "report_line",
+        "model_id",
+        "stock_id",
+        "model_name_zh",
+        "display_rank",
+        "model_rank",
+        "same_model_repeat_status",
+        "same_model_repeat_status_zh",
+        "display_rank_new_signal",
+        "display_rank_repeated_signal",
+        "model_rank_new_signal",
+        "model_rank_repeated_signal",
+        "why_selected_human_zh",
+        "operation_reminder_zh",
+    }
+    try:
+        df = pd.read_csv(MODEL_REPORT_SIGNALS_CSV, dtype=str).fillna("")
+    except Exception as exc:
+        errors.append(f"failed to read {MODEL_REPORT_SIGNALS_CSV}: {exc}")
+        return summary
+    summary["rows"] = int(len(df))
+    missing = required - set(df.columns)
+    if missing:
+        errors.append(f"model report signals missing columns: {sorted(missing)}")
+        return summary
+    report_lines = set(df["report_line"].astype(str))
+    if report_lines - {"mainstream", "non_mainstream"}:
+        errors.append(f"model report signals invalid report_line values: {sorted(report_lines)}")
+    duplicate_count = int(df.duplicated(["report_line", "model_id", "stock_id"]).sum())
+    summary["duplicate_report_model_stock_rows"] = duplicate_count
+    if duplicate_count:
+        dupes = df[df.duplicated(["report_line", "model_id", "stock_id"], keep=False)]
+        rows = dupes[["report_line", "model_id", "stock_id"]].head(10).to_dict("records")
+        errors.append(f"model report signals duplicate report_line/model_id/stock_id rows: {rows}")
+    if df["why_selected_human_zh"].astype(str).str.strip().eq("").any():
+        errors.append("model report signals has blank why_selected_human_zh rows")
+    if df["operation_reminder_zh"].astype(str).str.strip().eq("").any():
+        errors.append("model report signals has blank operation_reminder_zh rows")
+    return summary
+
+
 def validate() -> tuple[dict[str, Any], list[str], list[str]]:
     errors: list[str] = []
     warnings: list[str] = []
@@ -418,6 +546,9 @@ def validate() -> tuple[dict[str, Any], list[str], list[str]]:
 
     curated = pdf_info(CURATED_PDF)
     full = pdf_info(FULL_TABLE_PDF)
+    model_line_pdf_infos = check_model_line_pdfs(errors, warnings)
+    model_summary_info = check_model_summary_for_report(errors)
+    model_report_signal_info = check_model_report_signals_for_report(errors)
 
     check_pdf_basic("curated", curated, errors, warnings)
     check_pdf_basic("full_table", full, errors, warnings)
@@ -457,6 +588,9 @@ def validate() -> tuple[dict[str, Any], list[str], list[str]]:
             "size_bytes": full["size_bytes"],
             "pages": full["pages"],
         },
+        "model_line_pdfs": model_line_pdf_infos,
+        "model_summary_for_report": model_summary_info,
+        "model_report_signals_for_report": model_report_signal_info,
         "checks": {
             "pdf_exists": curated["exists"] and full["exists"],
             "pdf_size_reasonable": (
@@ -473,6 +607,10 @@ def validate() -> tuple[dict[str, Any], list[str], list[str]]:
             "report_date_matches": not any("main_price_date" in err or "all_candidates date" in err for err in errors),
             "catalyst_layer_columns_present": not any("catalyst" in err or "similar_to_shihsinko" in err for err in errors),
             "repeat_appearance_columns_present": not any("repeat appearance" in err or "連續上榜" in err or "近5日上榜" in err for err in errors),
+            "model_line_pdfs_exist": all(item["exists"] for item in model_line_pdf_infos.values()),
+            "model_summary_fixed_rows": not any("model summary" in err for err in errors),
+            "model_report_signals_deduped": model_report_signal_info.get("duplicate_report_model_stock_rows", 0) == 0,
+            "model_report_signals_pdf_facing_fields_present": not any("model report signals missing columns" in err for err in errors),
         },
         "errors": errors,
         "warnings": warnings,

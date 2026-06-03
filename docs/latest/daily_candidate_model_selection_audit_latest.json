@@ -1,15 +1,13 @@
 {
   "status": "pass",
   "details": {
-    "main_price_date": "20260601",
+    "main_price_date": "20260602",
     "effective_candidate_signal_date": "20260602",
-    "date_notes": [
-      "preferred_date=20260601 differs from candidate signal_date=20260602; using candidate signal_date"
-    ],
+    "date_notes": [],
     "all_candidates_rows": 787,
-    "raw_model_signal_rows": 846,
-    "report_model_signal_rows": 846,
-    "volume_watch_rows": 1,
+    "raw_model_signal_rows": 881,
+    "report_model_signal_rows": 881,
+    "volume_watch_rows": 300,
     "tdcc_short_edge_rows": 100,
     "taxonomy_rows": 2375,
     "w_bottom_attack_rows": 248,
@@ -23,7 +21,7 @@
       "20260602"
     ],
     "volume_watch_dates": [
-      "20260529"
+      "20260602"
     ],
     "tdcc_short_edge_dates": [
       "20260529"
@@ -38,7 +36,7 @@
     "selected_condition_error_count": 0,
     "selected_condition_warning_count": 0,
     "expected_core_model_signal_rows": 735,
-    "actual_core_model_signal_rows": 776,
+    "actual_core_model_signal_rows": 811,
     "missing_core_model_condition_hits": [],
     "extra_core_model_rows_from_external_sources": [
       "mainstream/hot_theme_pullback/1513",
@@ -77,13 +75,48 @@
       "mainstream/hot_theme_pullback/8039",
       "mainstream/hot_theme_pullback/8046",
       "mainstream/hot_theme_pullback/8996",
+      "mainstream/volume_range_breakout/2312",
+      "mainstream/volume_range_breakout/2332",
+      "mainstream/volume_range_breakout/2352",
+      "mainstream/volume_range_breakout/2439",
+      "mainstream/volume_range_breakout/2450",
+      "mainstream/volume_range_breakout/2459",
+      "mainstream/volume_range_breakout/2474",
+      "mainstream/volume_range_breakout/3059",
+      "mainstream/volume_range_breakout/3311",
+      "mainstream/volume_range_breakout/3673",
+      "mainstream/volume_range_breakout/3679",
+      "mainstream/volume_range_breakout/4904",
+      "mainstream/volume_range_breakout/4935",
+      "mainstream/volume_range_breakout/6115",
+      "mainstream/volume_range_breakout/6120",
+      "mainstream/volume_range_breakout/6272",
+      "mainstream/volume_range_breakout/6606",
+      "mainstream/volume_range_breakout/6722",
+      "mainstream/volume_range_breakout/6776",
+      "mainstream/volume_range_breakout/8101",
       "non_mainstream/hot_theme_pullback/1536",
       "non_mainstream/hot_theme_pullback/1717",
       "non_mainstream/hot_theme_pullback/1802",
       "non_mainstream/hot_theme_pullback/2634",
-      "non_mainstream/hot_theme_pullback/3033"
+      "non_mainstream/hot_theme_pullback/3033",
+      "non_mainstream/volume_range_breakout/1416",
+      "non_mainstream/volume_range_breakout/1423",
+      "non_mainstream/volume_range_breakout/1467",
+      "non_mainstream/volume_range_breakout/1524",
+      "non_mainstream/volume_range_breakout/2008",
+      "non_mainstream/volume_range_breakout/2603",
+      "non_mainstream/volume_range_breakout/2881",
+      "non_mainstream/volume_range_breakout/2905",
+      "non_mainstream/volume_range_breakout/2908",
+      "non_mainstream/volume_range_breakout/5876",
+      "non_mainstream/volume_range_breakout/5880",
+      "non_mainstream/volume_range_breakout/6585",
+      "non_mainstream/volume_range_breakout/6670",
+      "non_mainstream/volume_range_breakout/6957",
+      "non_mainstream/volume_range_breakout/9110"
     ],
-    "expected_volume_breakout_stock_count": 163,
+    "expected_volume_breakout_stock_count": 198,
     "missing_volume_breakout_model_stocks": [],
     "expected_tdcc_short_stock_count": 70,
     "missing_tdcc_short_model_stocks": [],
@@ -92,8 +125,6 @@
   },
   "errors": [],
   "warnings": [
-    "freshness main_price_date=20260601 differs from candidate signal_date=20260602; auditing candidate-model internal consistency against candidate signal_date",
-    "volume_watch signal_date mismatch: expected 20260602, got ['20260529']; stale auxiliary table ignored for date gating",
     "tdcc_short_edge signal_date mismatch: expected 20260602, got ['20260529']; stale auxiliary table ignored for date gating",
     "w_bottom_attack_latest.csv date mismatch: expected 20260602, got ['20260521']; this is a raw/stale pattern source and must not be used directly for current PDF model sections"
   ]

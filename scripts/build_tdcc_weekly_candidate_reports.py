@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import math
 import re
+import shutil
 import sys
 from pathlib import Path
 from typing import Any
@@ -50,6 +51,23 @@ TDCC_FULL_REPORT_RANK_SECTION_LIMIT = 100
 README_PATHS = [
     LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT.txt",
     DOCS_LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT.txt",
+]
+
+DOCS_SYNC_PATHS = [
+    WEEKLY_INCREASE_CSV,
+    WEEKLY_INCREASE_MD,
+    CONSECUTIVE_CSV,
+    CONSECUTIVE_MD,
+    MODEL_CROSS_CSV,
+    MODEL_CROSS_MD,
+    HIGHLIGHT_FOR_REPORT_CSV,
+    HIGHLIGHT_FOR_REPORT_MD,
+    FULL_FOR_REPORT_CSV,
+    FULL_FOR_REPORT_MD,
+    HIGHLIGHT_MD,
+    FULL_MD,
+    HIGHLIGHT_PDF,
+    FULL_PDF,
 ]
 
 DELTA_COLS = [
@@ -349,6 +367,20 @@ def pdf_display_cell(row: pd.Series, column: str) -> str:
     return clean_pdf_text(row.get(column))
 
 
+def pdf_display_table(df: pd.DataFrame, columns: list[str], limit: int | None = None) -> pd.DataFrame:
+    """Return a human-facing table with translated headers and display-safe cells."""
+    if limit is not None:
+        df = df.head(limit)
+    rows: list[dict[str, str]] = []
+    for _, row in df.iterrows():
+        display_row: dict[str, str] = {}
+        for column in columns:
+            header = PDF_HEADER_ZH.get(column, clean_pdf_text(column) or column)
+            display_row[header] = pdf_display_cell(row, column)
+        rows.append(display_row)
+    return pd.DataFrame(rows, columns=[PDF_HEADER_ZH.get(c, clean_pdf_text(c) or c) for c in columns])
+
+
 def theme_display_from_raw(value: Any) -> str:
     text = safe_str(value).strip()
     if not text:
@@ -551,6 +583,9 @@ def build_model_cross(
     daily = daily_models.copy()
     daily["stock_id"] = daily["stock_id"].astype(str).str.strip()
     daily["model_id"] = daily.get("model_id", "").map(safe_str)
+    daily = daily[daily["model_id"].isin(TDCC_FULL_REPORT_ALLOWED_MODEL_CROSS_IDS)].copy()
+    if daily.empty:
+        return pd.DataFrame(columns=MODEL_CROSS_COLUMNS)
     daily["display_rank_num"] = daily.get("display_rank", daily.get("model_rank", "")).map(to_number)
     daily["model_score_num"] = daily.get("model_score", "").map(to_number)
     daily = daily.sort_values(
@@ -736,13 +771,14 @@ def list_type_zh(value: Any) -> str:
 
 def write_md_table(df: pd.DataFrame, path: Path, title: str, columns: list[str], limit: int | None = None) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
+    display_df = pdf_display_table(df, columns, limit=limit)
     content = [
         f"# {title}",
         "",
         f"- generated_at: {pd.Timestamp.now(tz='Asia/Taipei').strftime('%Y-%m-%d %H:%M:%S Asia/Taipei')}",
         f"- rows: {len(df)}",
         "",
-        markdown_table(df, columns, limit=limit),
+        markdown_table(display_df, list(display_df.columns), limit=None),
         "",
     ]
     path.write_text("\n".join(content), encoding="utf-8")
@@ -764,7 +800,7 @@ def write_report_md(df: pd.DataFrame, path: Path, title: str, max_rows_per_secti
             lines += [
                 f"## {section}",
                 "",
-                markdown_table(show, columns, limit=None),
+                markdown_table(pdf_display_table(show, columns), [PDF_HEADER_ZH.get(c, clean_pdf_text(c) or c) for c in columns], limit=None),
                 "",
             ]
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -1092,13 +1128,23 @@ def validate_outputs(highlight: pd.DataFrame, full: pd.DataFrame) -> None:
         count = len(full[full["section_id"] == section])
         if count > TDCC_FULL_REPORT_RANK_SECTION_LIMIT:
             raise RuntimeError(f"{section} has {count} rows; expected <= {TDCC_FULL_REPORT_RANK_SECTION_LIMIT}.")
-    model_rows = full[full["model_id"].map(safe_str) != ""]
-    bad_models = sorted(set(model_rows["model_id"].map(safe_str)) - TDCC_FULL_REPORT_ALLOWED_MODEL_CROSS_IDS)
-    if bad_models:
-        raise RuntimeError(f"Full TDCC report contains unsupported model cross sections: {bad_models}")
+    for report_name, report_df in [("highlight", highlight), ("full", full)]:
+        model_rows = report_df[report_df["model_id"].map(safe_str) != ""]
+        bad_models = sorted(set(model_rows["model_id"].map(safe_str)) - TDCC_FULL_REPORT_ALLOWED_MODEL_CROSS_IDS)
+        if bad_models:
+            raise RuntimeError(f"{report_name} TDCC report contains unsupported model cross sections: {bad_models}")
     for path in [HIGHLIGHT_PDF, FULL_PDF]:
         if not path.exists() or path.stat().st_size < 10_000:
             raise RuntimeError(f"TDCC PDF not generated or too small: {path}")
+
+
+def sync_docs_latest() -> None:
+    DOCS_LATEST_DIR.mkdir(parents=True, exist_ok=True)
+    for src in DOCS_SYNC_PATHS:
+        if not src.exists():
+            continue
+        dst = DOCS_LATEST_DIR / src.name
+        shutil.copyfile(src, dst)
 
 
 def main() -> int:
@@ -1147,6 +1193,7 @@ def main() -> int:
     upsert_readme_fields(fields)
     append_tracking_packet(fields)
     validate_outputs(highlight, full)
+    sync_docs_latest()
 
     print(f"latest_signal_date={meta.get('latest_signal_date', '')}")
     for path in [

@@ -54,6 +54,7 @@ WEEKLY_SURGE_STRICT_CANDIDATES_CSV = LATEST_DIR / "weekly_surge_strict_parameter
 NON_REVENUE_MOMENTUM_CSV = LATEST_DIR / "non_revenue_momentum_watch_latest.csv"
 MARKET_ABNORMAL_STATUS_CSV = LATEST_DIR / "market_abnormal_status_latest.csv"
 MODEL_REPORT_SIGNALS_CSV = LATEST_DIR / "daily_candidate_model_signals_for_report_latest.csv"
+MODEL_SUMMARY_FOR_REPORT_CSV = LATEST_DIR / "daily_candidate_model_summary_for_report_latest.csv"
 TECHNICAL_SNAPSHOT_CSV = LATEST_DIR / "individual_stock_technical_snapshot_latest.csv"
 PDF_KLINE_CHART_STATUS_CSV = LATEST_DIR / "pdf_kline_chart_status_latest.csv"
 PDF_KLINE_DIR = LATEST_DIR / "charts" / "pdf_kline"
@@ -2541,7 +2542,7 @@ def section_rank_text(row: pd.Series) -> str:
 def first_page_rows(df: pd.DataFrame) -> list[list[Any]]:
     rows = [["模型", "第一名標的", "分數 / 榜別排名", "入選原因", "風險 / 操作提醒"]]
     if df.empty:
-        rows.append(["資料不足", "無", "", "PDF-ready model signal table 尚未產生", "資料不足 / 僅能觀察"])
+        rows.append(["資料不足", "無", "", "報告用模型訊號表尚未產生", "資料不足 / 僅能觀察"])
         return rows
     first = first_page_best_rows(df)
     for _, row in first.iterrows():
@@ -2616,7 +2617,7 @@ def model_signal_card(
 def model_detail_rows(df: pd.DataFrame) -> list[list[Any]]:
     rows = [["模型", "榜別", "排名", "股票", "分數", "入選原因", "風險 / 操作提醒"]]
     if df.empty:
-        rows.append(["資料不足", "", "", "", "", "PDF-ready model signal table 尚未產生", "資料不足 / 僅能觀察"])
+        rows.append(["資料不足", "", "", "", "", "報告用模型訊號表尚未產生", "資料不足 / 僅能觀察"])
         return rows
     for _, row in df.iterrows():
         rows.append(
@@ -2704,6 +2705,7 @@ def append_theme_event_watch_section(story: list[Any], style_map: dict[str, Para
 def build_model_line_pdf(report_line: str, full: bool, main_date: str, path: Path) -> None:
     style_map = styles()
     signals = load_model_report_signals()
+    model_summary = _load_model_summary_for_report()
     tech_map = load_technical_snapshot()
     chart_map = load_pdf_kline_chart_map()
     part = signals[signals.get("report_line", "").astype(str).eq(report_line)].copy() if not signals.empty else signals
@@ -2719,7 +2721,7 @@ def build_model_line_pdf(report_line: str, full: bool, main_date: str, path: Pat
     )
     story: list[Any] = []
     story.append(para(f"{main_date} {title}", style_map["title"]))
-    story.append(para("資料來源：repo PDF-ready model signal table；不同模型不混成單一排名。", style_map["subtitle"]))
+    story.append(para("資料來源：報告用模型訊號表；不同模型不混成單一排名。", style_map["subtitle"]))
     story.append(para("各模型第一名摘要", style_map["h1"]))
     story.append(make_table(first_page_rows(part), style_map, [3.1 * cm, 3.1 * cm, 2.2 * cm, 5.0 * cm, 5.0 * cm]))
     story.append(PageBreak())
@@ -2753,7 +2755,7 @@ def _rank_for_display(row: pd.Series) -> str:
 def _first_page_rows_clean(df: pd.DataFrame) -> list[list[Any]]:
     rows = [["模型", "第一名標的", "分數 / 排名", "入選優點", "風險 / 操作提醒"]]
     if df.empty:
-        rows.append(["資料不足", "-", "", "PDF-ready model signal table 未產出", "資料不足 / 僅能觀察"])
+        rows.append(["資料不足", "-", "", "報告用模型訊號表未產出", "資料不足 / 僅能觀察"])
         return rows
     first = first_page_best_rows(df)
     for _, row in first.iterrows():
@@ -2772,7 +2774,7 @@ def _first_page_rows_clean(df: pd.DataFrame) -> list[list[Any]]:
 def _model_detail_rows_clean(df: pd.DataFrame) -> list[list[Any]]:
     rows = [["模型", "榜別", "排名", "標的", "分數", "入選優點", "風險 / 操作提醒"]]
     if df.empty:
-        rows.append(["資料不足", "", "", "-", "", "PDF-ready model signal table 未產出", "資料不足 / 僅能觀察"])
+        rows.append(["資料不足", "", "", "-", "", "報告用模型訊號表未產出", "資料不足 / 僅能觀察"])
         return rows
     for _, row in df.iterrows():
         rows.append(
@@ -2903,7 +2905,7 @@ def build_model_line_pdf(report_line: str, full: bool, main_date: str, path: Pat
     )
     story: list[Any] = []
     story.append(para(f"{main_date} {title}", style_map["title"]))
-    story.append(para("資料來源：repo PDF-ready model signal table；各模型獨立呈現，不混成單一總排名。", style_map["subtitle"]))
+    story.append(para("資料來源：報告用模型訊號表；各模型獨立呈現，不混成單一總排名。", style_map["subtitle"]))
     story.append(para("各模型第一名摘要", style_map["h1"]))
     story.append(make_table(_first_page_rows_clean(part), style_map, [3.1 * cm, 3.1 * cm, 2.2 * cm, 5.0 * cm, 5.0 * cm]))
     story.append(PageBreak())
@@ -2947,7 +2949,7 @@ def _display_final(*values: Any, fallback: str = "欄位尚未完成 / 暫用現
 def _first_page_rows_final(df: pd.DataFrame) -> list[list[Any]]:
     rows = [["模型", "第一名標的", "分數 / 排名", "入選優點", "風險 / 操作提醒"]]
     if df.empty:
-        rows.append(["資料不足", "-", "-", "PDF-ready model signal table 無資料", "資料不足 / 僅能觀察"])
+        rows.append(["資料不足", "-", "-", "報告用模型訊號表無資料", "資料不足 / 僅能觀察"])
         return rows
     first = first_page_best_rows(df)
     for _, row in first.iterrows():
@@ -2966,7 +2968,7 @@ def _first_page_rows_final(df: pd.DataFrame) -> list[list[Any]]:
 def _model_detail_rows_final(df: pd.DataFrame) -> list[list[Any]]:
     rows = [["模型", "榜別", "排名", "標的", "分數", "入選優點", "風險 / 操作提醒"]]
     if df.empty:
-        rows.append(["資料不足", "", "", "-", "", "PDF-ready model signal table 無資料", "資料不足 / 僅能觀察"])
+        rows.append(["資料不足", "", "", "-", "", "報告用模型訊號表無資料", "資料不足 / 僅能觀察"])
         return rows
     for _, row in df.iterrows():
         rows.append(
@@ -3100,7 +3102,7 @@ def build_model_line_pdf(report_line: str, full: bool, main_date: str, path: Pat
     )
     story: list[Any] = []
     story.append(para(f"{main_date} {title_prefix}{title_suffix}", style_map["title"]))
-    story.append(para("資料來源：repo PDF-ready model signal table；同一模型同一股票已去重，並依新進榜 / 重複進榜分段呈現。", style_map["subtitle"]))
+    story.append(para("資料來源：報告用模型訊號表；同一模型同一股票已去重，並依新進榜 / 重複進榜分段呈現。", style_map["subtitle"]))
     story.append(para("各模型第一名摘要", style_map["h1"]))
     story.append(make_table(_first_page_rows_final(part), style_map, [3.1 * cm, 3.1 * cm, 2.2 * cm, 5.0 * cm, 5.0 * cm]))
     story.append(PageBreak())
@@ -3275,7 +3277,7 @@ def _rows_for_model_section(df: pd.DataFrame, model_name: str, section: str, lim
 def _summary_rows_for_section(df: pd.DataFrame, section: str) -> list[list[Any]]:
     rows = [["模型", "第一名標的", "分數", "榜別排名", "入選優點", "風險 / 操作提醒"]]
     if df.empty:
-        rows.append(["資料不足", "-", "-", "-", "PDF-ready 表無資料", "資料不足 / 僅能觀察"])
+        rows.append(["資料不足", "-", "-", "-", "報告用欄位無資料", "資料不足 / 僅能觀察"])
         return rows
     for model_name in _model_names_in_report_order(df):
         picked = _rows_for_model_section(df, model_name, section, 1)
@@ -3294,6 +3296,69 @@ def _summary_rows_for_section(df: pd.DataFrame, section: str) -> list[list[Any]]
         )
     if len(rows) == 1:
         rows.append(["本段無資料", "-", "-", "-", f"今日沒有{_repeat_label(section)}資料", ""])
+    return rows
+
+
+def _load_model_summary_for_report() -> pd.DataFrame:
+    df = read_csv_safe(MODEL_SUMMARY_FOR_REPORT_CSV, dtype=str, keep_default_na=False)
+    if df.empty:
+        return df
+    if "model_registry_order" in df.columns:
+        df["_order"] = pd.to_numeric(df["model_registry_order"], errors="coerce").fillna(9999)
+        df = df.sort_values(["report_line", "_order", "model_name_zh"], kind="stable")
+    return df
+
+
+def _summary_stock_text(row: pd.Series, prefix: str) -> str:
+    display = _pdf_human_text(row.get(f"{prefix}_signal_stock_display"), row.get(f"{prefix}_stock_display"), fallback="")
+    if display and display != "資料不足 / 暫用現有資料":
+        return display
+    stock_id = safe_str(row.get(f"{prefix}_stock_id"))
+    stock_name = safe_str(row.get(f"{prefix}_stock_name"))
+    if stock_id or stock_name:
+        return f"{stock_id} {stock_name}".strip()
+    return "今日無候選"
+
+
+def _summary_score_text(row: pd.Series, prefix: str) -> str:
+    return _pdf_human_text(row.get(f"{prefix}_signal_model_score"), row.get(f"{prefix}_model_score"), fallback="-", limit=10)
+
+
+def _summary_rank_text(row: pd.Series, prefix: str) -> str:
+    if prefix == "new":
+        return _pdf_human_text(row.get("new_signal_rank_label_zh"), row.get("new_rank_label"), fallback="-", limit=18)
+    return _pdf_human_text(row.get("repeated_signal_rank_label_zh"), row.get("repeated_rank_label"), fallback="-", limit=18)
+
+
+def _fixed_model_summary_rows(summary: pd.DataFrame, report_line: str) -> list[list[Any]]:
+    rows = [[
+        "模型",
+        "新進榜第一名",
+        "新進分數",
+        "新進排名",
+        "連續/累計第一名",
+        "連續分數",
+        "連續排名",
+        "重點提醒",
+    ]]
+    if summary.empty:
+        rows.append(["資料不足", "今日無候選", "-", "-", "今日無候選", "-", "-", "daily_candidate_model_summary_for_report_latest.csv 無資料。"])
+        return rows
+    part = summary[summary.get("report_line", "").astype(str).eq(report_line)].copy()
+    if part.empty:
+        rows.append(["資料不足", "今日無候選", "-", "-", "今日無候選", "-", "-", f"{report_line} 無模型摘要資料。"])
+        return rows
+    for _, row in part.iterrows():
+        rows.append([
+            _pdf_human_text(row.get("model_name_zh"), fallback="模型名稱尚未完成", limit=24),
+            _summary_stock_text(row, "new"),
+            _summary_score_text(row, "new"),
+            _summary_rank_text(row, "new"),
+            _summary_stock_text(row, "repeated"),
+            _summary_score_text(row, "repeated"),
+            _summary_rank_text(row, "repeated"),
+            _pdf_human_text(row.get("operation_reminder_zh"), fallback="依程式端模型條件與風險欄位管理。", limit=58),
+        ])
     return rows
 
 
@@ -3431,7 +3496,7 @@ def build_model_line_pdf(report_line: str, full: bool, main_date: str, path: Pat
     )
     story: list[Any] = []
     story.append(para(f"{main_date} {title_prefix}{title_suffix}", style_map["title"]))
-    story.append(para("資料來源：repo PDF-ready model signal table；同一模型內分成新進榜與連續/累計進榜，並各自使用程式端排名。", style_map["subtitle"]))
+    story.append(para("資料來源：報告用模型訊號表；同一模型內分成新進榜與連續/累計進榜，並各自使用程式端排名。", style_map["subtitle"]))
 
     story.append(para("各模型新進榜第一名摘要", style_map["h1"]))
     story.append(make_table(_summary_rows_for_section(part, "new"), style_map, [2.8 * cm, 2.8 * cm, 1.4 * cm, 2.0 * cm, 5.2 * cm, 5.0 * cm]))
@@ -3612,7 +3677,7 @@ def _rows_for_model_section(df: pd.DataFrame, model_name: str, section: str, lim
 def _summary_rows_for_section(df: pd.DataFrame, section: str) -> list[list[Any]]:
     rows = [["\u6a21\u578b", "\u7b2c\u4e00\u540d\u6a19\u7684", "\u5206\u6578", "\u6392\u540d", "\u5165\u9078\u539f\u56e0", "\u98a8\u96aa/\u64cd\u4f5c\u63d0\u9192"]]
     if df.empty:
-        rows.append(["\u8cc7\u6599\u4e0d\u8db3", "-", "-", "-", "PDF-ready \u6b04\u4f4d\u7121\u8cc7\u6599", "\u8cc7\u6599\u4e0d\u8db3 / \u50c5\u80fd\u89c0\u5bdf"])
+        rows.append(["\u8cc7\u6599\u4e0d\u8db3", "-", "-", "-", "\u5831\u544a\u7528\u6b04\u4f4d\u7121\u8cc7\u6599", "\u8cc7\u6599\u4e0d\u8db3 / \u50c5\u80fd\u89c0\u5bdf"])
         return rows
     for model_name in _model_names_in_report_order(df):
         picked = _rows_for_model_section(df, model_name, section, 1)
@@ -3758,6 +3823,7 @@ def _append_group_rotation_section_readable(story: list[Any], style_map: dict[st
 def build_model_line_pdf(report_line: str, full: bool, main_date: str, path: Path) -> None:
     style_map = styles()
     signals = load_model_report_signals()
+    model_summary = _load_model_summary_for_report()
     tech_map = load_technical_snapshot()
     chart_map = load_pdf_kline_chart_map()
     part = signals[signals.get("report_line", "").astype(str).eq(report_line)].copy() if not signals.empty else signals
@@ -3766,12 +3832,9 @@ def build_model_line_pdf(report_line: str, full: bool, main_date: str, path: Pat
     doc = SimpleDocTemplate(str(path), pagesize=A4, leftMargin=1.5 * cm, rightMargin=1.5 * cm, topMargin=1.2 * cm, bottomMargin=1.2 * cm)
     story: list[Any] = []
     story.append(para(f"{main_date} {title_prefix}{title_suffix}", style_map["title"]))
-    story.append(para("\u8cc7\u6599\u4f86\u6e90\uff1arepo PDF-ready model signal table\uff1b\u540c\u4e00\u6a21\u578b\u5167\u5206\u6210\u65b0\u9032\u699c\u8207\u9023\u7e8c/\u7d2f\u8a08\u9032\u699c\uff0c\u4e26\u5404\u81ea\u4f7f\u7528\u7a0b\u5f0f\u7aef\u6392\u540d\u3002", style_map["subtitle"]))
-    story.append(para("\u5404\u6a21\u578b\u65b0\u9032\u699c\u7b2c\u4e00\u540d\u6458\u8981", style_map["h1"]))
-    story.append(make_table(_summary_rows_for_section(part, "new"), style_map, [2.8 * cm, 2.8 * cm, 1.4 * cm, 2.0 * cm, 5.2 * cm, 5.0 * cm]))
-    story.append(Spacer(1, 0.25 * cm))
-    story.append(para("\u5404\u6a21\u578b\u9023\u7e8c/\u7d2f\u8a08\u9032\u699c\u7b2c\u4e00\u540d\u6458\u8981", style_map["h1"]))
-    story.append(make_table(_summary_rows_for_section(part, "repeated"), style_map, [2.8 * cm, 2.8 * cm, 1.4 * cm, 2.0 * cm, 5.2 * cm, 5.0 * cm]))
+    story.append(para("資料來源：報告用模型訊號表；同一模型內分成新進榜與連續/累計進榜，並各自使用程式端排名。", style_map["subtitle"]))
+    story.append(para("各模型新進榜 / 連續榜固定摘要", style_map["h1"]))
+    story.append(make_table(_fixed_model_summary_rows(model_summary, report_line), style_map, [2.5 * cm, 2.2 * cm, 1.25 * cm, 1.45 * cm, 2.2 * cm, 1.25 * cm, 1.45 * cm, 5.2 * cm]))
     story.append(PageBreak())
     limit = None if full else 5
     story.append(para("\u5b8c\u6574\u6a21\u578b\u6e05\u55ae" if full else "\u5404\u6a21\u578b\u4ee3\u8868\u80a1\u5206\u6790", style_map["h1"]))
