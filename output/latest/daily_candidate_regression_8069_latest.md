@@ -4,7 +4,7 @@
 - stock_name: `元太`
 - status: `pass`
 - raw_universe: `True`
-- raw_history_rows: `279`
+- raw_history_rows: `280`
 - first_early_entry_date: `20260507`
 - first_neckline_challenge_date: `20260508`
 - first_strict_breakout_date: `20260512`
