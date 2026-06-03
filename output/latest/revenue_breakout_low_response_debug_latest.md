@@ -1,6 +1,6 @@
 # 營收爆發低反應股 Debug Report
 
-- 產生時間：`2026-06-03 23:11:12 Asia/Taipei`
+- 產生時間：`2026-06-04 01:43:57 Asia/Taipei`
 
 ## 診斷統計
 
@@ -8,7 +8,7 @@
 |---|---:|
 | raw_revenue_rows | 0 |
 | standardized_revenue_rows | 0 |
-| price_rows | 573256 |
+| price_rows | 575227 |
 | tdcc_rows | 1972 |
 | tdcc_trend_rows | 1972 |
 | tdcc_strong_accumulation_count | 470 |

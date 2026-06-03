@@ -4,10 +4,10 @@
 - main_price_date: `20260603`
 - readme_main_price_date: ``
 - readme_index_main_price_date: ``
-- model_signal_rows: `736`
-- volume_watch_rows: `507`
+- model_signal_rows: `676`
+- volume_watch_rows: `1`
 - volume_theme_other_rows: `0`
-- group_rotation_rows: `25`
+- group_rotation_rows: `26`
 - taxonomy_rows: `2376`
 - taxonomy_template_csv_rows: `2376`
 - taxonomy_template_xlsx_rows: `2376`
@@ -20,7 +20,7 @@
 
 ## Warnings
 
-- none
+- volume watch signal_date mismatch: expected 20260603, got ['20250711']; stale auxiliary table ignored for date gating
 
 ## Details
 
@@ -28,11 +28,11 @@
 {
   "main_price_date": "20260603",
   "effective_model_signal_date": "20260603",
-  "model_signal_rows": 736,
-  "raw_model_signal_rows": 736,
-  "volume_watch_rows": 507,
-  "volume_theme_stock_rows": 507,
-  "group_rotation_rows": 25,
+  "model_signal_rows": 676,
+  "raw_model_signal_rows": 676,
+  "volume_watch_rows": 1,
+  "volume_theme_stock_rows": 1,
+  "group_rotation_rows": 26,
   "taxonomy_rows": 2376,
   "taxonomy_template_csv_rows": 2376,
   "taxonomy_template_xlsx_rows": 2376,
@@ -56,11 +56,11 @@
   ],
   "missing_volume_columns": [],
   "volume_signal_dates": [
-    "20260603"
+    "20250711"
   ],
   "volume_theme_other_rows": 0,
   "group_rotation_invalid_models": [],
-  "group_rotation_slow_rows": 22,
+  "group_rotation_slow_rows": 23,
   "group_rotation_launch_rows": 3,
   "missing_required_taxonomy_columns": [],
   "taxonomy_duplicate_stock_id_rows": 0,
