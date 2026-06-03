@@ -1,6 +1,6 @@
 # 官方每日價格資料抓取狀態
 
-- 產生時間：`2026-06-04 00:56:18 Asia/Taipei`
+- 產生時間：`2026-06-04 01:42:07 Asia/Taipei`
 - target_date：`20260604`
 - saved_price_date：`20260604`
 - is_target_date：`True`
@@ -25,14 +25,14 @@
 
 - Start official daily price fetch target_date=20260604
 - ===== Fetch price for date 20260604 =====
-- Loaded universe rows=6070
+- Loaded universe rows=6822
 - Trying TWSE batch source=TWSE_RWD_JSON_MI_INDEX date=20260604
 - GET https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260604&type=ALLBUT0999&response=json -> status=200, chars=25
 - TWSE_RWD_JSON_MI_INDEX: parsed TWSE rows=0
 - Trying TWSE batch source=TWSE_RWD_CSV_MI_INDEX date=20260604
 - GET https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260604&type=ALLBUT0999&response=csv -> status=200, chars=0
 - Trying TWSE batch source=TWSE_LEGACY_JSON_MI_INDEX date=20260604
-- GET https://www.twse.com.tw/exchangeReport/MI_INDEX?response=json&date=20260604&type=ALLBUT0999 -> status=200, chars=26
+- GET https://www.twse.com.tw/exchangeReport/MI_INDEX?response=json&date=20260604&type=ALLBUT0999 -> status=200, chars=25
 - TWSE_LEGACY_JSON_MI_INDEX: parsed TWSE rows=0
 - Trying TWSE batch source=TWSE_OPENAPI_STOCK_DAY_ALL date=20260604
 - GET https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL -> status=200, chars=308108
