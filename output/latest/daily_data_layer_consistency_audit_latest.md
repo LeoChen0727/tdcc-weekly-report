@@ -2,12 +2,12 @@
 
 - status: `pass`
 - main_price_date: `20260603`
-- readme_main_price_date: `20260603`
-- readme_index_main_price_date: `20260603`
-- model_signal_rows: `676`
-- volume_watch_rows: `1`
+- readme_main_price_date: ``
+- readme_index_main_price_date: ``
+- model_signal_rows: `829`
+- volume_watch_rows: `507`
 - volume_theme_other_rows: `0`
-- group_rotation_rows: `26`
+- group_rotation_rows: `24`
 - taxonomy_rows: `2376`
 - taxonomy_template_csv_rows: `2376`
 - taxonomy_template_xlsx_rows: `2376`
@@ -20,28 +20,25 @@
 
 ## Warnings
 
-- volume watch signal_date mismatch: expected 20260603, got ['20250711']; stale auxiliary table ignored for date gating
+- none
 
 ## Details
 
 ```json
 {
   "main_price_date": "20260603",
-  "readme_main_price_date": "20260603",
-  "readme_report_ready": "True",
-  "readme_index_main_price_date": "20260603",
-  "readme_index_report_ready": "True",
   "effective_model_signal_date": "20260603",
-  "model_signal_rows": 676,
-  "raw_model_signal_rows": 676,
-  "volume_watch_rows": 1,
-  "volume_theme_stock_rows": 1,
-  "group_rotation_rows": 26,
+  "model_signal_rows": 829,
+  "raw_model_signal_rows": 829,
+  "volume_watch_rows": 507,
+  "volume_theme_stock_rows": 507,
+  "group_rotation_rows": 24,
   "taxonomy_rows": 2376,
   "taxonomy_template_csv_rows": 2376,
   "taxonomy_template_xlsx_rows": 2376,
   "docs_taxonomy_template_csv_rows": 2376,
   "docs_taxonomy_template_xlsx_rows": 2376,
+  "market_timing_packet_main_price_date": "20260603",
   "missing_required_model_columns": [],
   "blank_required_model_columns": {},
   "model_signal_dates": [
@@ -60,11 +57,11 @@
   ],
   "missing_volume_columns": [],
   "volume_signal_dates": [
-    "20250711"
+    "20260603"
   ],
   "volume_theme_other_rows": 0,
   "group_rotation_invalid_models": [],
-  "group_rotation_slow_rows": 23,
+  "group_rotation_slow_rows": 21,
   "group_rotation_launch_rows": 3,
   "missing_required_taxonomy_columns": [],
   "taxonomy_duplicate_stock_id_rows": 0,

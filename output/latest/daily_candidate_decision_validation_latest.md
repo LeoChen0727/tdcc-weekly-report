@@ -2,9 +2,9 @@
 
 - status: `pass`
 - main_price_date: `20260603`
-- decision_rows: `543`
-- decision_md_lines: `237`
-- decision_packet_lines: `226`
+- decision_rows: `522`
+- decision_md_lines: `336`
+- decision_packet_lines: `231`
 - regression_2484_status: `pass`
 
 ## Errors

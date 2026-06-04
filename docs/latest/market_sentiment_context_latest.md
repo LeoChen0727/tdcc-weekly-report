@@ -1,6 +1,6 @@
 # Market Sentiment Context
 
-- generated_at: `2026-06-04 01:51:35 Asia/Taipei`
+- generated_at: `2026-06-04 19:33:56 Asia/Taipei`
 - date: `20260603`
 - sample_status: `insufficient_history`
 - data_quality_note: 資料不足 / 僅能觀察：VIX 或散戶小台歷史樣本未達 60 筆，不能判斷是否達歷史極端。
@@ -9,7 +9,7 @@
 
 - Taiwan VIX latest: `34.94`
 - 252D high / low: `41.5` / `25.68`
-- 252D percentile: `53.25%`
+- 252D percentile: `52.56%`
 - 504D percentile: `-`
 - z-score 252D: `0.29`
 - vix_return_5d / 10d / 20d: `1.25%` / `-5.34%` / `-8.8%`
@@ -20,7 +20,7 @@ VIX interpretation: VIX must be read with TWSE / TPEx position, market_regime, P
 
 ## Retail MTX Historical Context
 
-- retail_mtx_net_oi_proxy latest: `11,026`
+- retail_mtx_net_oi_proxy latest: `15,922`
 - proxy method: `negative_sum_of_three_institution_mtx_net_oi`
 - 252D high / low: `-` / `-`
 - 252D percentile: `-`
@@ -41,11 +41,11 @@ Retail MTX interpretation: retail positioning is a contrarian sentiment proxy on
 
 - combined_sentiment_interpretation: `insufficient_history_observe_only`
 - sentiment_warning_level: `insufficient`
-- foreign_tx_futures_net_oi: `-66,772`
-- foreign_futures_net_oi: `-636,347` (whole futures exposure background only, not TX direction)
-- put_call_oi_ratio_pct: `217.69%`
+- foreign_tx_futures_net_oi: `-69,476`
+- foreign_futures_net_oi: `-656,037` (whole futures exposure background only, not TX direction)
+- put_call_oi_ratio_pct: `140.41%`
 
-???? / ?????VIX ????????????????????????????????????????
+資料不足 / 僅能觀察：目前 VIX / 散戶小台缺少足夠歷史分位資料，不可作為反指標結論。
 
 ## Usage Boundary
 

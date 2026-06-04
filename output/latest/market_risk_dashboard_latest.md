@@ -1,45 +1,45 @@
-# Market Risk Dashboard
+# 市場風險與大盤期權背景
 
-- generated_at: `2026-06-04 01:51:33 Asia/Taipei`
+- generated_at: `2026-06-04 19:33:31 Asia/Taipei`
 - data_date: `20260603`
 - market_regime: `strong_bull`
-- risk_level: `high_risk`
-- risk_score: `5`
+- risk_level: `elevated_risk`
+- risk_score: `3`
 - futures_options_source_status: `ready`
 
-## Data Status
+## 資料狀態
 
-This report uses official market index data already stored in the repo plus TAIFEX open data for futures, options, put/call ratio, and Taiwan VIX. It is a market-background dashboard, not a trading instruction.
+本報告使用已收錄的官方大盤指數資料，以及期交所期貨、選擇權、Put/Call 與 Taiwan VIX 資料。定位是市場風險背景，不是個股買賣指令。
 
 | source | status | rows | latest_date |
 | --- | --- | ---: | --- |
-| institutional_fo | ok | 3 | 20260603 |
-| futures_contracts | ok | 66 | 20260603 |
-| options_call_put | ok | 30 | 20260603 |
-| put_call_ratio | ok | 23 | 20260603 |
-| taiwan_vix | ok | 65 | 20260603 |
+| institutional_fo | ok | 3 | 20260604 |
+| futures_contracts | ok | 66 | 20260604 |
+| options_call_put | ok | 30 | 20260604 |
+| put_call_ratio | ok | 23 | 20260604 |
+| taiwan_vix | ok | 66 | 20260604 |
 
-## Market Index Regime
+## 大盤指數結構
 
 | index | close | 5d | 20d | MA20 | MA60 | regime |
 | --- | --- | --- | --- | --- | --- | --- |
 | TWSE | 46,459.16 | +4.98% | +12.93% | True | True | strong_bull |
 | TPEx | 446.82 | +1.51% | +8.90% | True | True | strong_bull |
 
-## Futures / Options Positioning
+## 期貨選擇權部位
 
 | indicator | value | state |
 | --- | --- | --- |
-| Foreign TX futures net OI | -66,772 | foreign_heavy_net_short |
-| Dealer TX futures net OI | +2,474 |  |
-| Trust TX futures net OI | +51,304 |  |
-| Retail MTX net OI proxy | +11,026 | retail_net_long_watch |
-| Foreign TXO call net OI | +2,667 |  |
-| Foreign TXO put net OI | +7,029 |  |
-| TXO put/call OI ratio | 217.69% | heavy_put_hedge |
+| Foreign TX futures net OI | -69,476 | foreign_heavy_net_short |
+| Dealer TX futures net OI | +3,219 |  |
+| Trust TX futures net OI | +51,858 |  |
+| Retail MTX net OI proxy | +15,922 | retail_net_long_watch |
+| Foreign TXO call net OI | +1,961 |  |
+| Foreign TXO put net OI | +7,841 |  |
+| TXO put/call OI ratio | 140.41% | neutral |
 | Taiwan VIX | 34.94 | risk_elevated |
 
-## Upcoming Macro Event Calendar
+## 近期總經事件日曆
 
 - 20260528 US_GDP: GDP (Second Estimate) and Corporate Profits, 1st Quarter 2026 (days=-7, importance=medium)
 - 20260528 US_PCE_personal_income: Personal Income and Outlays, April 2026 (days=-7, importance=high)
@@ -50,9 +50,9 @@ This report uses official market index data already stored in the repo plus TAIF
 - 20260625 US_PCE_personal_income: Personal Income and Outlays, May 2026 (days=21, importance=high)
 - 20260707 US_trade: U.S. International Trade in Goods and Services, May 2026 (days=33, importance=medium)
 
-## Six-Month Technical Charts
+## 半年技術圖表
 
-The PDF version of this dashboard must include six-month charts for index trend, fear/option indicators, foreign futures positioning, and retail mini-TAIEX futures proxy positioning. If a source has insufficient history, the PDF still includes a placeholder chart and states the limitation.
+PDF 固定納入半年圖表，包含指數趨勢、波動/期權指標、外資台指期部位與散戶小台 proxy。若資料不足，圖表或文字會明確標示限制。
 
 Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available with volume/turnover overlay. TPEx / OTC: standard OHLC K-line data is available with volume/turnover overlay.
 
@@ -61,39 +61,38 @@ Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available wi
 - chart: `output/latest/charts/market_regime/foreign_futures_net_oi_6m.png`
 - chart: `output/latest/charts/market_regime/retail_mtx_proxy_6m.png`
 
-## Technical / Pattern Notes
+## 技術與型態重點
 
 - TWSE / TAIEX: strong_bull; close 46,459.16; 6M range 27,468.53-46,459.16; distance from 6M high +0.00%; above MA20=True, above MA60=True.
 - TPEx / OTC: strong_bull; close 446.82; 6M range 259.39-446.82; distance from 6M high +0.00%; above MA20=True, above MA60=True.
 
-## Retail Mini-TAIEX Futures Proxy
+## 散戶小台 proxy
 
-- This is a contrarian sentiment proxy, calculated as the negative of the three-institution net open interest in mini-TAIEX futures.
-- latest_proxy_value: `+11,026`
+- 這是反向情緒輔助指標，以三大法人小台淨未平倉的反向 proxy 估算。
+- latest_proxy_value: `+15,922`
 - state: `retail_net_long_watch`
-- Positive proxy values mean non-three-institution accounts are net long MTX; crowded net-long readings are treated as a caution signal, not a standalone short signal.
-- Negative proxy values mean non-three-institution accounts are net short MTX; extreme net-short readings may support contrarian risk-on interpretation, but still need index confirmation.
+- proxy 為正代表非三大法人帳戶偏多；擁擠偏多只能視為追高風險，不是單獨放空訊號。
+- proxy 為負代表非三大法人帳戶偏空；極端偏空可列反彈觀察，但仍需指數與廣度確認。
 
-## Risk Notes
+## 風險提醒
 
 - TWSE strong bull
 - TPEx strong bull
 - Taiwan VIX elevated
-- TXO put/call OI hedge high
 - Foreign TX futures heavy net short
 - Retail MTX proxy net long watch
 
-## Usage Boundary
+## 使用邊界
 
-- Use this dashboard as market background for Taiwan index futures and portfolio exposure review.
-- Do not treat a single futures/options indicator as a buy or sell signal.
-- Keep this report separate from the daily all-market candidate-stock report; that report may cite market regime only as background.
+- 本報告用於判斷大盤風險、台指期背景與部位曝險節奏。
+- 不可把單一 VIX、Put/Call、外資期貨或散戶小台指標當成買賣訊號。
+- 每日全市場候選股可引用大盤背景，但個股是否入選仍以各模型條件為準。
 
 <!-- MARKET_SENTIMENT_CONTEXT_START -->
 ## VIX Historical Context
 
 - Taiwan VIX latest: `34.94`
-- 252D high / low / percentile: `41.5` / `25.68` / `53.25%`
+- 252D high / low / percentile: `41.5` / `25.68` / `52.56%`
 - 504D percentile: `-`
 - z-score: `0.29`
 - vix_return_5d / 10d / 20d: `1.25%` / `-5.34%` / `-8.8%`
@@ -102,7 +101,7 @@ Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available wi
 
 ## Retail MTX Historical Context
 
-- retail_mtx_net_oi_proxy latest: `11,026`
+- retail_mtx_net_oi_proxy latest: `15,922`
 - proxy method: `negative_sum_of_three_institution_mtx_net_oi`
 - 252D high / low / percentile: `-` / `-` / `-`
 - 504D percentile: `-`
