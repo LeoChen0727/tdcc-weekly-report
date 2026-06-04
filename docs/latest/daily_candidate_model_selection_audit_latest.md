@@ -2,13 +2,13 @@
 
 - status: `pass`
 - main_price_date: `20260603`
-- all_candidates_rows: `353`
-- raw_model_signal_rows: `661`
-- report_model_signal_rows: `661`
+- all_candidates_rows: `522`
+- raw_model_signal_rows: `865`
+- report_model_signal_rows: `865`
 - selected_condition_error_count: `0`
 - selected_condition_warning_count: `0`
 - expected_volume_breakout_stock_count: `282`
-- expected_tdcc_short_stock_count: `13`
+- expected_tdcc_short_stock_count: `49`
 
 ## Errors
 

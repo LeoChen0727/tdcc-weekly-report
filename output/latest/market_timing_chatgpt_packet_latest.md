@@ -185,3 +185,35 @@
 - allowed_changes = reporting_only
 - forbidden_changes = core_weight_change
 - reason = market timing event samples still need mature D+10 / D+20 accumulation before formal weighting.
+
+<!-- MARKET_SENTIMENT_CONTEXT_START -->
+## MARKET_SENTIMENT_CONTEXT
+
+market_sentiment_context:
+  taiwan_vix:
+    latest: 34.94
+    percentile_252d: 52.5641
+    percentile_504d: 
+    rank_label: middle_range
+    context_label: normal_range
+    index_interpretation: trend_supported_no_extreme_vix
+  retail_mtx:
+    latest_proxy: 15922.0
+    proxy_method: negative_sum_of_three_institution_mtx_net_oi
+    percentile_252d: 
+    percentile_504d: 
+    rank_label: insufficient_history
+    context_label: insufficient_history
+    index_interpretation: insufficient_history_observe_only
+  combined:
+    combined_sentiment_interpretation: insufficient_history_observe_only
+    sentiment_warning_level: insufficient
+    sample_status: insufficient_history
+    data_quality_note: 資料不足 / 僅能觀察：VIX 或散戶小台歷史樣本未達 60 筆，不能判斷是否達歷史極端。
+
+ChatGPT-friendly summary:
+- VIX context: normal_range / trend_supported_no_extreme_vix
+- Retail MTX context: insufficient_history / insufficient_history_observe_only
+- Combined: insufficient_history_observe_only (warning=insufficient)
+- VIX / PutCall / retail MTX are auxiliary context only; cross-check market_regime and foreign_tx_futures_net_oi.
+<!-- MARKET_SENTIMENT_CONTEXT_END -->
