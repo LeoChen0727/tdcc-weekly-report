@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-04 21:47:21 Asia/Taipei",
+  "generated_at": "2026-06-04 22:45:15 Asia/Taipei",
   "main_price_date": "20260603",
   "report_ready": "True",
   "repo_artifacts_are_sources_not_final_chatgpt_deliverables": true,
@@ -13,8 +13,8 @@
   ],
   "summary_pdf_kline_policy": "local_price_redraw_first",
   "summary_pdf_kline_status": "generated",
-  "summary_pdf_kline_total_charts": 30,
-  "summary_pdf_kline_local_price_redraw_count": 30,
+  "summary_pdf_kline_total_charts": 15,
+  "summary_pdf_kline_local_price_redraw_count": 15,
   "summary_pdf_kline_chart_path_fallback_count": 0,
   "summary_pdf_kline_missing_count": 0,
   "summary_pdf_kline_status_md_path": "output/latest/pdf_kline_chart_status_latest.md",

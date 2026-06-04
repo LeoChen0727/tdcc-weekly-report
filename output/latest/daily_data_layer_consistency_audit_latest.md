@@ -2,17 +2,17 @@
 
 - status: `pass`
 - main_price_date: `20260603`
-- readme_main_price_date: `20260603`
-- readme_index_main_price_date: `20260603`
-- model_signal_rows: `829`
+- readme_main_price_date: ``
+- readme_index_main_price_date: ``
+- model_signal_rows: `661`
 - volume_watch_rows: `507`
 - volume_theme_other_rows: `0`
-- group_rotation_rows: `24`
-- taxonomy_rows: `2376`
-- taxonomy_template_csv_rows: `2376`
-- taxonomy_template_xlsx_rows: `2376`
-- docs_taxonomy_template_csv_rows: `2376`
-- docs_taxonomy_template_xlsx_rows: `2376`
+- group_rotation_rows: `6`
+- taxonomy_rows: `2370`
+- taxonomy_template_csv_rows: `2370`
+- taxonomy_template_xlsx_rows: `2370`
+- docs_taxonomy_template_csv_rows: `2370`
+- docs_taxonomy_template_xlsx_rows: `2370`
 
 ## Errors
 
@@ -27,21 +27,17 @@
 ```json
 {
   "main_price_date": "20260603",
-  "readme_main_price_date": "20260603",
-  "readme_report_ready": "True",
-  "readme_index_main_price_date": "20260603",
-  "readme_index_report_ready": "True",
   "effective_model_signal_date": "20260603",
-  "model_signal_rows": 829,
-  "raw_model_signal_rows": 829,
+  "model_signal_rows": 661,
+  "raw_model_signal_rows": 661,
   "volume_watch_rows": 507,
   "volume_theme_stock_rows": 507,
-  "group_rotation_rows": 24,
-  "taxonomy_rows": 2376,
-  "taxonomy_template_csv_rows": 2376,
-  "taxonomy_template_xlsx_rows": 2376,
-  "docs_taxonomy_template_csv_rows": 2376,
-  "docs_taxonomy_template_xlsx_rows": 2376,
+  "group_rotation_rows": 6,
+  "taxonomy_rows": 2370,
+  "taxonomy_template_csv_rows": 2370,
+  "taxonomy_template_xlsx_rows": 2370,
+  "docs_taxonomy_template_csv_rows": 2370,
+  "docs_taxonomy_template_xlsx_rows": 2370,
   "market_timing_packet_main_price_date": "20260603",
   "missing_required_model_columns": [],
   "blank_required_model_columns": {},
@@ -65,8 +61,8 @@
   ],
   "volume_theme_other_rows": 0,
   "group_rotation_invalid_models": [],
-  "group_rotation_slow_rows": 21,
-  "group_rotation_launch_rows": 3,
+  "group_rotation_slow_rows": 5,
+  "group_rotation_launch_rows": 1,
   "missing_required_taxonomy_columns": [],
   "taxonomy_duplicate_stock_id_rows": 0,
   "taxonomy_unresolved_basic_theme_rows": 0,
