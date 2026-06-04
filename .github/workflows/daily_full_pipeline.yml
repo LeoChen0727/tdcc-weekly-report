@@ -334,6 +334,7 @@ jobs:
           python scripts/fetch_futures_options_indicators.py
           python scripts/build_market_regime_dashboard.py
           python scripts/validate_market_regime_dashboard.py
+          python scripts/build_market_timing_technical_backtest.py
           python scripts/build_market_sentiment_context.py
           python scripts/validate_market_sentiment_context.py
 

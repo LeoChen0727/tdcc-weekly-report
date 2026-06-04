@@ -192,6 +192,15 @@ PDF_TOKEN_ZH = {
     "breakout": "突破",
     "hot_theme_tag": "熱門族群標籤",
     "hot theme tag": "熱門族群標籤",
+    "dividend_calendar": "股利日曆",
+    "calendar_ex_right": "除權息日",
+    "ex_right": "除權息",
+    "calendar_event": "事件日曆",
+    "calendar": "事件日曆",
+    "core_mainstream": "核心主流題材",
+    "low_reaction": "低反應",
+    "already_reacted": "利多已反應",
+    "catalyst_overheated": "催化過熱",
     "core_mainstream_overheated": "核心主流過熱",
     "non_mainstream_overheated": "非主流過熱",
     "non_mainstream_single_name": "非主流單一個股",
@@ -1094,16 +1103,16 @@ def confirm_text(row: pd.Series) -> str:
 
 
 def catalyst_brief(row: pd.Series) -> str:
-    catalyst_tags = clean_text(row.get("catalyst_tags", ""), 70)
-    tags = clean_text(row.get("fundamental_catalyst_tags", ""), 70)
-    event_tags = clean_text(row.get("event_catalyst_tags", ""), 60)
-    calendar_tags = clean_text(row.get("event_calendar_tags", ""), 60)
+    catalyst_tags = clean_text(display_zh(row.get("catalyst_tags", "")), 70)
+    tags = clean_text(display_zh(row.get("fundamental_catalyst_tags", "")), 70)
+    event_tags = clean_text(display_zh(row.get("event_catalyst_tags", "")), 60)
+    calendar_tags = clean_text(display_zh(row.get("event_calendar_tags", "")), 60)
     nearest_event = clean_text(row.get("nearest_event_date", ""), 16)
-    nearest_event_type = clean_text(row.get("nearest_event_type", ""), 40)
+    nearest_event_type = clean_text(display_zh(row.get("nearest_event_type", "")), 40)
     score = clean_text(row.get("catalyst_strength_score", "")) or clean_text(row.get("fundamental_catalyst_score", ""))
     theme_score = clean_text(row.get("theme_strength_score", ""))
-    reaction_level = clean_text(row.get("price_reaction_level", ""))
-    quality = clean_text(row.get("catalyst_quality", ""))
+    reaction_level = clean_text(display_zh(row.get("price_reaction_level", "")), 40)
+    quality = clean_text(display_zh(row.get("catalyst_quality", "")), 40)
     low_reaction = is_truthy(row.get("low_reaction_after_catalyst", ""))
     already = is_truthy(row.get("already_reacted_to_catalyst", "")) or is_truthy(row.get("catalyst_overheated", ""))
     similar = is_truthy(row.get("similar_to_shihsinko_flag", ""))
@@ -1112,9 +1121,9 @@ def catalyst_brief(row: pd.Series) -> str:
 
     parts: list[str] = []
     if score:
-        parts.append(f"score {score}")
+        parts.append(f"催化分 {score}")
     if theme_score:
-        parts.append(f"theme {theme_score}/5")
+        parts.append(f"題材強度 {theme_score}/5")
     if catalyst_tags:
         parts.append(catalyst_tags)
     if tags:
@@ -1124,9 +1133,9 @@ def catalyst_brief(row: pd.Series) -> str:
     if calendar_tags:
         parts.append(calendar_tags)
     if nearest_event:
-        parts.append(f"calendar {nearest_event_type or 'event'} {nearest_event}")
+        parts.append(f"事件日曆 {nearest_event_type or '事件'} {nearest_event}")
     if reaction_level:
-        parts.append(f"reaction {reaction_level}")
+        parts.append(f"價格反應 {reaction_level}")
     if similar:
         parts.append("類事欣科型")
     elif revenue_unconfirmed:

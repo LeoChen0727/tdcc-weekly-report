@@ -565,7 +565,7 @@ def candidate_line_group(row: pd.Series) -> tuple[str, str, bool, str]:
     if cat in {"range_rebound", "near_high", "neckline_challenge"} or is_near_high(row):
         return "mainstream_theme_candidate" if theme_supported else "individual_quality_candidate", "range_near_high_watch", overlap, "區間轉強 / 前高挑戰"
     if risk:
-        return "risk_downgraded_candidate", "risk", overlap, "?? / ?? / ??"
+        return "risk_downgraded_candidate", "risk", overlap, "降級 / 鈍化 / 風險"
     if cat == "revenue_pullback":
         return "latent_watch_candidate", "individual_revenue_pullback_watch", False, "營收成長股價回檔"
     if cat == "revenue_breakout_low_response":

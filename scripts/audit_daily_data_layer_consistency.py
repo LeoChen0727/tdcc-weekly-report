@@ -40,6 +40,7 @@ REQUIRED_VOLUME_COLUMNS = {
 }
 
 UNREADABLE_PATTERN = re.compile(r"\ufffd|\?\?\?")
+MOJIBAKE_PATTERN = re.compile(r"[\ue000-\uf8ff]|\ufffd|ï¿½|銝|甇|撌|脫||||")
 RAW_SLUG_PATTERN = re.compile(r"(^|[\s|/、,;])([a-z]+(?:_[a-z0-9]+){1,})(?=$|[\s|/、,;])")
 REQUIRED_MODEL_DISPLAY_COLUMNS = {
     "report_bucket_zh",
@@ -116,6 +117,17 @@ def _market_timing_packet_main_date() -> str:
     text = _read_text(MARKET_TIMING_PACKET)
     match = re.search(r"(?m)^-\s*main_price_date:\s*(\d{8})\s*$", text)
     return match.group(1) if match else ""
+
+
+def _market_timing_packet_mojibake_lines(limit: int = 10) -> list[str]:
+    text = _read_text(MARKET_TIMING_PACKET)
+    hits: list[str] = []
+    for line_no, line in enumerate(text.splitlines(), 1):
+        if MOJIBAKE_PATTERN.search(line):
+            hits.append(f"{line_no}: {line[:160]}")
+            if len(hits) >= limit:
+                break
+    return hits
 
 
 def _bad_text_rows(df: pd.DataFrame, cols: list[str]) -> dict[str, int]:
@@ -274,6 +286,9 @@ def audit(include_readme: bool = False) -> dict[str, object]:
             f"market timing packet main_price_date mismatch: expected {main_date}, "
             f"got {market_timing_packet_date or 'missing'}"
         )
+    elif bad_packet_lines := _market_timing_packet_mojibake_lines():
+        details["market_timing_packet_mojibake_lines"] = bad_packet_lines
+        errors.append(f"market timing packet contains mojibake/private-use text: {bad_packet_lines[:3]}")
 
     if signals.empty:
         errors.append("daily_candidate_model_signals_for_report_latest.csv is empty")

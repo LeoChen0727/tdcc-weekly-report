@@ -98,6 +98,7 @@ FINAL_COLUMNS = [
     "signal_date",
     "main_price_date",
     "source_date",
+    "raw_source_date",
     "category",
     "category_cn",
     "breakout_type",
@@ -415,7 +416,9 @@ def canonicalize_candidate_dates(df: pd.DataFrame) -> tuple[pd.DataFrame, str, l
     Category source files may carry stale scan dates, source event dates, or the
     workflow execution date.  `all_candidates_latest` is the canonical daily
     candidate table, so `date` and `signal_date` must match `main_price_date`.
-    The original source date is retained in `source_date` for diagnostics.
+    If a raw source table is newer than the accepted market date because a
+    copied/future price snapshot was rejected upstream, keep the original value
+    in `raw_source_date` and cap `source_date` to `main_price_date`.
     """
     df = df.copy()
 
@@ -435,6 +438,14 @@ def canonicalize_candidate_dates(df: pd.DataFrame) -> tuple[pd.DataFrame, str, l
             original_date,
         )
 
+    if "raw_source_date" not in df.columns:
+        df["raw_source_date"] = df["source_date"]
+    else:
+        df["raw_source_date"] = df["raw_source_date"].where(
+            df["raw_source_date"].astype(str).str.strip() != "",
+            df["source_date"],
+        )
+
     # Do not use raw stock_price_history max date directly here.  The raw
     # history can contain a future calendar-date snapshot whose OHLCV copied
     # the prior trading day.  `data_freshness_latest` owns that quality check.
@@ -442,7 +453,17 @@ def canonicalize_candidate_dates(df: pd.DataFrame) -> tuple[pd.DataFrame, str, l
     extra_notes: list[str] = []
     if preferred_date:
         df["source_date"] = df["source_date"].map(normalize_date)
-        stale_mask = (df["source_date"].map(safe_str) != "") & (df["source_date"] != preferred_date)
+        df["raw_source_date"] = df["raw_source_date"].map(normalize_date)
+
+        future_mask = (df["source_date"].map(safe_str) != "") & (df["source_date"] > preferred_date)
+        future_count = int(future_mask.sum())
+        if future_count:
+            df.loc[future_mask, "source_date"] = preferred_date
+            extra_notes.append(
+                f"capped_future_source_rows={future_count} effective_source_date={preferred_date}"
+            )
+
+        stale_mask = (df["source_date"].map(safe_str) != "") & (df["source_date"] < preferred_date)
         stale_count = int(stale_mask.sum())
         if stale_count:
             df = df[~stale_mask].copy()
