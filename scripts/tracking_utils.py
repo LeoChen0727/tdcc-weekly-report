@@ -246,6 +246,45 @@ def resolve_candidate_signal_date(candidates: pd.DataFrame, preferred_date: str 
     return preferred, notes
 
 
+def normalize_report_candidate_dates(df: pd.DataFrame, preferred_date: str = "") -> pd.DataFrame:
+    """Keep report-facing candidate dates aligned with the accepted price date.
+
+    `build_all_candidates_latest.py` is responsible for source-level date
+    gating.  Later enrichment scripts rewrite the same table to add warrant,
+    catalyst, repeat, theme, and decision fields; those rewrites must not
+    reintroduce stale source dates or the workflow execution date into public
+    report columns.
+    """
+    out = df.copy()
+    if out.empty:
+        return out
+
+    target_date = normalize_date(preferred_date) or main_price_date_from_freshness()
+    if not target_date:
+        return out
+
+    if "source_date" in out.columns:
+        source_values = out["source_date"].map(normalize_date)
+    elif "date" in out.columns:
+        source_values = out["date"].map(normalize_date)
+    else:
+        source_values = pd.Series([""] * len(out), index=out.index, dtype="object")
+
+    if "raw_source_date" not in out.columns:
+        out["raw_source_date"] = source_values
+    else:
+        out["raw_source_date"] = out["raw_source_date"].where(
+            out["raw_source_date"].astype(str).str.strip() != "",
+            source_values,
+        )
+        out["raw_source_date"] = out["raw_source_date"].map(normalize_date)
+
+    for col in ["main_price_date", "signal_date", "date", "source_date"]:
+        out[col] = target_date
+
+    return out
+
+
 def main_price_date_from_freshness() -> str:
     freshness = read_csv(LATEST_DIR / "data_freshness_latest.csv", dtype=str)
     if not freshness.empty:

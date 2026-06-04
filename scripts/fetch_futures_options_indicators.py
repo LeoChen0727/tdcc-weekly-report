@@ -14,6 +14,7 @@ from tracking_utils import (
     DATA_DIR,
     append_update_csv,
     latest_price_date,
+    main_price_date_from_freshness,
     month_starts_back,
     normalize_date,
     now_text,
@@ -222,6 +223,17 @@ def latest_row(df: pd.DataFrame, date_col: str = "日期") -> pd.Series | None:
     return work.iloc[-1]
 
 
+def latest_row_at_or_before(df: pd.DataFrame, target_date: str, date_col: str = "日期") -> pd.Series | None:
+    if df.empty or date_col not in df.columns:
+        return None
+    work = df.copy()
+    work[date_col] = work[date_col].map(normalize_date)
+    work = work[(work[date_col] != "") & (work[date_col] <= target_date)].sort_values(date_col)
+    if work.empty:
+        return None
+    return work.iloc[-1]
+
+
 def build_indicator_row(
     institutional_fo: pd.DataFrame,
     futures_contracts: pd.DataFrame,
@@ -231,11 +243,14 @@ def build_indicator_row(
     source_status: dict[str, Any],
 ) -> pd.DataFrame:
     pc = latest_row(put_call_ratio)
-    vix_latest = latest_row(vix, "date")
     fo_date = latest_date_from_df(institutional_fo) if not institutional_fo.empty else ""
     pc_date = safe_str(pc.get("日期", "")) if pc is not None else ""
+    report_date = main_price_date_from_freshness() or latest_price_date()
+    date = max([d for d in [fo_date, pc_date] if d] or [report_date])
+    if report_date and date > report_date:
+        date = report_date
+    vix_latest = latest_row_at_or_before(vix, date, "date")
     vix_date = safe_str(vix_latest.get("date", "")) if vix_latest is not None else ""
-    date = max([d for d in [fo_date, pc_date, vix_date] if d] or [latest_price_date()])
     retail_mtx = retail_mtx_proxy_from_institutional_net_oi(futures_contracts)
 
     row = {
@@ -274,7 +289,8 @@ def build_indicator_row(
     }
 
     row["foreign_txo_synthetic_net_oi"] = row["foreign_txo_call_net_oi"] - row["foreign_txo_put_net_oi"]
-    row["source_status"] = "ready" if all(source_status.get(k) == "ok" for k in SOURCES) else "partial"
+    core_sources_ready = all(source_status.get(k) == "ok" for k in SOURCES)
+    row["source_status"] = "ready" if core_sources_ready and vix_latest is not None else "partial"
     return pd.DataFrame([row])
 
 

@@ -16,6 +16,7 @@ from tracking_utils import (  # noqa: E402
     main_price_date_from_freshness,
     normalize_code,
     normalize_date,
+    normalize_report_candidate_dates,
     now_text,
     read_csv,
     resolve_candidate_signal_date,
@@ -339,6 +340,7 @@ def rewrite_all_candidates(candidates: pd.DataFrame, repeat: pd.DataFrame) -> pd
         if col not in out.columns:
             out[col] = ""
     out[merge_cols] = out[merge_cols].fillna("")
+    out = normalize_report_candidate_dates(out, main_price_date_from_freshness())
     write_csv(out, ALL_CANDIDATES)
     try:
         with pd.ExcelWriter(ALL_CANDIDATES_XLSX, engine="openpyxl") as writer:

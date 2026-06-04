@@ -321,10 +321,6 @@ jobs:
         run: |
           python build_data_freshness_latest.py
 
-      - name: Audit daily data layer consistency
-        run: |
-          python scripts/audit_daily_data_layer_consistency.py
-
       - name: Update market benchmark history
         run: |
           python scripts/update_market_index_history.py
@@ -337,6 +333,10 @@ jobs:
           python scripts/build_market_timing_technical_backtest.py
           python scripts/build_market_sentiment_context.py
           python scripts/validate_market_sentiment_context.py
+
+      - name: Audit daily data layer consistency
+        run: |
+          python scripts/audit_daily_data_layer_consistency.py
 
       - name: Build daily short-term specialty packet
         run: |

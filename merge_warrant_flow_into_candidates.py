@@ -1,10 +1,15 @@
 from __future__ import annotations
 
 from pathlib import Path
+import sys
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
 import pandas as pd
+
+sys.path.insert(0, str(Path(__file__).resolve().parent / "scripts"))
+
+from tracking_utils import main_price_date_from_freshness, normalize_report_candidate_dates  # noqa: E402
 
 
 LATEST_DIR = Path("output/latest")
@@ -217,6 +222,7 @@ def merge_warrant_flow() -> tuple[pd.DataFrame, str]:
         if "_stock_id_for_merge" in candidates.columns:
             candidates = candidates.drop(columns=["_stock_id_for_merge"])
 
+        candidates = normalize_report_candidate_dates(candidates, main_price_date_from_freshness())
         candidates.to_csv(ALL_CANDIDATES_CSV, index=False, encoding="utf-8-sig")
         write_excel_and_md(candidates)
 
@@ -231,6 +237,7 @@ def merge_warrant_flow() -> tuple[pd.DataFrame, str]:
         if "_stock_id_for_merge" in candidates.columns:
             candidates = candidates.drop(columns=["_stock_id_for_merge"])
 
+        candidates = normalize_report_candidate_dates(candidates, main_price_date_from_freshness())
         candidates.to_csv(ALL_CANDIDATES_CSV, index=False, encoding="utf-8-sig")
         write_excel_and_md(candidates)
 
@@ -257,6 +264,7 @@ def merge_warrant_flow() -> tuple[pd.DataFrame, str]:
     if suffix_cols:
         merged = merged.drop(columns=suffix_cols)
 
+    merged = normalize_report_candidate_dates(merged, main_price_date_from_freshness())
     merged.to_csv(ALL_CANDIDATES_CSV, index=False, encoding="utf-8-sig")
     write_excel_and_md(merged)
 

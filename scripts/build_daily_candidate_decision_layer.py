@@ -14,6 +14,7 @@ from tracking_utils import (  # noqa: E402
     main_price_date_from_freshness,
     normalize_code,
     normalize_date,
+    normalize_report_candidate_dates,
     now_text,
     read_csv,
     resolve_candidate_signal_date,
@@ -1031,6 +1032,7 @@ def rewrite_all_candidates(candidates: pd.DataFrame, decision: pd.DataFrame, mai
         # the workflow execution date.
         for col in ["main_price_date", "signal_date", "date"]:
             out[col] = canonical_date
+    out = normalize_report_candidate_dates(out, canonical_date)
     write_csv(out, ALL_CANDIDATES)
     try:
         with pd.ExcelWriter(ALL_CANDIDATES_XLSX, engine="openpyxl") as writer:

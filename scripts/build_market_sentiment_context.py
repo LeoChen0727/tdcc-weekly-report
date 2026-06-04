@@ -16,6 +16,7 @@ from tracking_utils import (  # noqa: E402
     HISTORY_DIR,
     LATEST_DIR,
     append_update_csv,
+    main_price_date_from_freshness,
     normalize_date,
     now_text,
     read_csv,
@@ -138,6 +139,7 @@ def _pct_rank(values: pd.Series, latest: float) -> float:
     return float((clean <= latest).sum() / len(clean) * 100)
 
 
+
 def _window_stats(series: pd.Series, latest_value: Any) -> dict[str, Any]:
     clean = pd.to_numeric(series, errors="coerce").dropna()
     latest = _num(latest_value)
@@ -148,7 +150,7 @@ def _window_stats(series: pd.Series, latest_value: Any) -> dict[str, Any]:
     result: dict[str, Any] = {
         "count": count,
         "sample_status": "insufficient_history",
-        "data_quality_note": "資料不足 / 僅能觀察",
+        "data_quality_note": "資料不足 / 僅能觀察：歷史樣本未達 60 筆，不能輸出分位結論。",
         "high_252d": "",
         "low_252d": "",
         "percentile_252d": "",
@@ -163,7 +165,7 @@ def _window_stats(series: pd.Series, latest_value: Any) -> dict[str, Any]:
     window_252 = clean.tail(min(252, count))
     result["sample_status"] = "short_history" if count < 252 else "ready_252d"
     result["data_quality_note"] = (
-        "short_history: historical sample is below 252 trading days"
+        "short_history：可輸出短樣本分位，但未達 252 個交易日完整歷史。"
         if count < 252
         else "ready_252d"
     )
@@ -181,7 +183,6 @@ def _window_stats(series: pd.Series, latest_value: Any) -> dict[str, Any]:
         result["low_504d"] = float(window_504.min())
         result["percentile_504d"] = _pct_rank(window_504, latest)
     return result
-
 
 def _vix_labels(stats: dict[str, Any]) -> tuple[str, str]:
     pct = _num(stats.get("percentile_252d"))
@@ -318,8 +319,9 @@ def _combined_interpretation(row: dict[str, Any]) -> tuple[str, str]:
     return combined, level
 
 
+
 def _latest_row(df: pd.DataFrame, date_col: str = "date") -> pd.Series:
-    if df.empty:
+    if df.empty or date_col not in df.columns:
         return pd.Series(dtype=object)
     work = df.copy()
     work[date_col] = work[date_col].map(normalize_date)
@@ -328,6 +330,18 @@ def _latest_row(df: pd.DataFrame, date_col: str = "date") -> pd.Series:
         return pd.Series(dtype=object)
     return work.sort_values(date_col).iloc[-1]
 
+
+def _latest_row_at_or_before(df: pd.DataFrame, target_date: str, date_col: str = "date") -> pd.Series:
+    if df.empty or date_col not in df.columns:
+        return pd.Series(dtype=object)
+    work = df.copy()
+    work[date_col] = work[date_col].map(normalize_date)
+    work = work[work[date_col].astype(str).str.len().eq(8)]
+    if target_date:
+        work = work[work[date_col] <= target_date]
+    if work.empty:
+        return pd.Series(dtype=object)
+    return work.sort_values(date_col).iloc[-1]
 
 def _load_vix_history(latest: pd.Series) -> pd.DataFrame:
     raw = read_csv(TAIWAN_VIX_HISTORY, dtype=str)
@@ -529,14 +543,25 @@ def _index_context(date: str, market_regime_row: pd.Series) -> dict[str, Any]:
     return result
 
 
+
 def _context_row() -> tuple[dict[str, Any], pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     futures = read_csv(FUTURES_OPTIONS_LATEST, dtype=str)
     market_regime = read_csv(MARKET_REGIME_LATEST, dtype=str)
-    latest_futures = _latest_row(futures)
-    latest_regime = _latest_row(market_regime)
-    date = normalize_date(latest_futures.get("date", "")) or normalize_date(latest_regime.get("date", ""))
+    target_date = normalize_date(main_price_date_from_freshness())
+    latest_futures = _latest_row_at_or_before(futures, target_date)
+    latest_regime = _latest_row_at_or_before(market_regime, target_date)
+    date = target_date or normalize_date(latest_futures.get("date", "")) or normalize_date(latest_regime.get("date", ""))
     if not date:
-        raise RuntimeError("Cannot build market sentiment context: latest futures/options date is missing.")
+        raise RuntimeError("Cannot build market sentiment context: main price date and futures/options date are missing.")
+    if latest_futures.empty:
+        raise RuntimeError(f"Cannot build market sentiment context: no futures/options row at or before main_price_date={date}.")
+    if latest_regime.empty:
+        raise RuntimeError(f"Cannot build market sentiment context: no market regime row at or before main_price_date={date}.")
+
+    latest_futures = latest_futures.copy()
+    latest_futures["date"] = date
+    latest_regime = latest_regime.copy()
+    latest_regime["date"] = date
 
     vix_history = _load_vix_history(latest_futures)
     retail_history = _load_retail_mtx_history(latest_futures)
@@ -614,7 +639,6 @@ def _context_row() -> tuple[dict[str, Any], pd.DataFrame, pd.DataFrame, pd.DataF
 
     return row, vix_history, retail_history, futures_history
 
-
 def _fmt(value: Any, suffix: str = "") -> str:
     num = _num(value)
     if num is None:
@@ -624,6 +648,7 @@ def _fmt(value: Any, suffix: str = "") -> str:
     else:
         text = f"{num:.2f}".rstrip("0").rstrip(".")
     return f"{text}{suffix}"
+
 
 
 def _markdown(row: dict[str, Any]) -> str:
@@ -677,7 +702,7 @@ def _markdown(row: dict[str, Any]) -> str:
         "",
     ]
     if row.get("sample_status") == "insufficient_history":
-        lines.append("資料不足 / 僅能觀察：VIX 或散戶小台缺少足夠歷史分位資料，不可作為反指標結論。")
+        lines.append("資料不足 / 僅能觀察：目前 VIX / 散戶小台缺少足夠歷史分位資料，不可作為反指標結論。")
         lines.append("")
     lines.extend(
         [
@@ -689,7 +714,6 @@ def _markdown(row: dict[str, Any]) -> str:
         ]
     )
     return "\n".join(lines) + "\n"
-
 
 def _update_marked_section(path: Path, section: str) -> None:
     existing = path.read_text(encoding="utf-8") if path.exists() else ""

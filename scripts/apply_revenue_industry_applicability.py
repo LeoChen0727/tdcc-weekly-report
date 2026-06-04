@@ -7,7 +7,16 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from tracking_utils import LATEST_DIR, is_construction_like, now_text, recognition_type, safe_str, write_csv  # noqa: E402
+from tracking_utils import (  # noqa: E402
+    LATEST_DIR,
+    is_construction_like,
+    main_price_date_from_freshness,
+    normalize_report_candidate_dates,
+    now_text,
+    recognition_type,
+    safe_str,
+    write_csv,
+)
 
 
 ALL_CANDIDATES = LATEST_DIR / "all_candidates_latest.csv"
@@ -58,6 +67,7 @@ def main() -> int:
         if "note" in df.columns:
             df.loc[target_mask, "note"] = df.loc[target_mask, "note"].astype(str) + "；營建/交屋認列型營收需基本面確認"
 
+    df = normalize_report_candidate_dates(df, main_price_date_from_freshness())
     write_csv(df, ALL_CANDIDATES)
 
     lines = [

@@ -29,7 +29,9 @@ from tracking_utils import (
     classify_market_regime,
     fmt_pct,
     load_market_index_history,
+    main_price_date_from_freshness,
     now_text,
+    normalize_date,
     read_csv,
     safe_str,
     to_number,
@@ -60,6 +62,30 @@ def latest_index_rows() -> pd.DataFrame:
     if df.empty:
         return pd.DataFrame()
     return df.sort_values(["index_code", "date"]).groupby("index_code", as_index=False).tail(1)
+
+
+def filter_index_history_to_as_of(index_history: pd.DataFrame, as_of_date: str) -> pd.DataFrame:
+    if index_history.empty or not as_of_date or "date" not in index_history.columns:
+        return index_history
+    work = index_history.copy()
+    work["date"] = work["date"].map(normalize_date)
+    filtered = work[work["date"] <= as_of_date].copy()
+    if filtered.empty:
+        raise RuntimeError(f"market index history has no rows at or before main_price_date={as_of_date}")
+    return filtered
+
+
+def latest_indicator_row_at_or_before(indicators_df: pd.DataFrame, as_of_date: str) -> pd.Series:
+    if indicators_df.empty:
+        raise FileNotFoundError(f"Missing or empty {INDICATORS_CSV}. Run scripts/fetch_futures_options_indicators.py first.")
+    if not as_of_date or "date" not in indicators_df.columns:
+        return indicators_df.iloc[-1]
+    work = indicators_df.copy()
+    work["date"] = work["date"].map(normalize_date)
+    filtered = work[work["date"] <= as_of_date].copy()
+    if filtered.empty:
+        raise RuntimeError(f"futures/options indicators have no rows at or before main_price_date={as_of_date}")
+    return filtered.sort_values("date").iloc[-1]
 
 
 def row_for_index(rows: pd.DataFrame, code: str) -> pd.Series | None:
@@ -780,21 +806,21 @@ def build_pdf(markdown_text: str, output_path: Path, chart_paths: list[Path]) ->
 
 
 def main() -> int:
+    as_of_date = normalize_date(main_price_date_from_freshness())
     index_history = load_market_index_history(update_if_missing=True)
-    if index_history.empty:
+    index_history_for_context = filter_index_history_to_as_of(index_history, as_of_date)
+    if index_history_for_context.empty:
         index_rows = pd.DataFrame()
     else:
-        index_rows = index_history.sort_values(["index_code", "date"]).groupby("index_code", as_index=False).tail(1)
+        index_rows = index_history_for_context.sort_values(["index_code", "date"]).groupby("index_code", as_index=False).tail(1)
     indicators_df = read_csv(INDICATORS_CSV, dtype=str)
-    if indicators_df.empty:
-        raise FileNotFoundError(f"Missing or empty {INDICATORS_CSV}. Run scripts/fetch_futures_options_indicators.py first.")
-    indicators = indicators_df.iloc[-1]
+    indicators = latest_indicator_row_at_or_before(indicators_df, as_of_date)
     source_status = json.loads(SOURCE_STATUS_JSON.read_text(encoding="utf-8")) if SOURCE_STATUS_JSON.exists() else {}
     regime_df = build_regime_row(index_rows, indicators)
     write_csv(regime_df, MARKET_REGIME_CSV)
 
-    chart_paths = build_chart_outputs(index_history)
-    md = build_markdown(index_rows, indicators, regime_df.iloc[0], source_status, index_history, chart_paths)
+    chart_paths = build_chart_outputs(index_history_for_context)
+    md = build_markdown(index_rows, indicators, regime_df.iloc[0], source_status, index_history_for_context, chart_paths)
     REPORT_MD.write_text(md, encoding="utf-8")
     build_pdf(md, REPORT_PDF, chart_paths)
     DOCS_LATEST_DIR.mkdir(parents=True, exist_ok=True)

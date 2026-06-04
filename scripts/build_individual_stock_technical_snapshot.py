@@ -6,7 +6,15 @@ from typing import Any
 
 import pandas as pd
 
-from tracking_utils import LATEST_DIR, main_price_date_from_freshness, normalize_code, read_csv, safe_str, write_csv
+from tracking_utils import (
+    LATEST_DIR,
+    main_price_date_from_freshness,
+    normalize_code,
+    normalize_date,
+    read_csv,
+    safe_str,
+    write_csv,
+)
 
 
 PRICE_DIR = Path("data/stock_price_history")
@@ -274,12 +282,25 @@ def compute_snapshot(path: Path, signal_date: str, fallback_name: str = "") -> d
     }
 
 
-def candidate_universe() -> dict[str, str]:
+def current_signal_rows(df: pd.DataFrame, signal_date: str) -> pd.DataFrame:
+    if df.empty:
+        return df
+    date_col = next((col for col in ["signal_date", "main_price_date", "date", "source_date"] if col in df.columns), "")
+    if not date_col:
+        return df
+    work = df.copy()
+    work["_candidate_signal_date"] = work[date_col].map(normalize_date)
+    work = work[work["_candidate_signal_date"].eq(signal_date)].copy()
+    return work.drop(columns=["_candidate_signal_date"], errors="ignore")
+
+
+def candidate_universe(signal_date: str) -> dict[str, str]:
     names: dict[str, str] = {}
     for path in [ALL_CANDIDATES, MODEL_SIGNALS]:
         df = read_csv(path, dtype={"stock_id": str})
         if df.empty:
             continue
+        df = current_signal_rows(df, signal_date)
         for _, row in df.iterrows():
             code = normalize_code(row.get("stock_id", ""))
             if code:
@@ -319,7 +340,7 @@ def write_md(df: pd.DataFrame) -> None:
 
 def main() -> int:
     signal_date = main_price_date_from_freshness()
-    names = candidate_universe()
+    names = candidate_universe(signal_date)
     rows: list[dict[str, Any]] = []
     for stock_id, name in sorted(names.items()):
         path = PRICE_DIR / f"{stock_id}.csv"

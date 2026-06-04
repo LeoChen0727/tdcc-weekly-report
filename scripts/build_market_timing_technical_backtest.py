@@ -19,6 +19,7 @@ from tracking_utils import (  # noqa: E402
     STOCK_PRICE_HISTORY_DIR,
     classify_market_regime,
     load_market_index_history,
+    main_price_date_from_freshness,
     markdown_table,
     normalize_date,
     now_text,
@@ -48,6 +49,19 @@ DAILY_SIGNAL_LOG = Path("output/history/daily_candidates/daily_candidate_signal_
 
 HORIZONS = [1, 3, 5, 10, 20, 40, 60]
 INDEX_LIST = ["TWSE", "TPEX"]
+
+
+def effective_main_price_date() -> str:
+    return normalize_date(main_price_date_from_freshness())
+
+
+def filter_feature_to_as_of(feature: pd.DataFrame, as_of_date: str) -> pd.DataFrame:
+    if feature.empty or not as_of_date:
+        return feature
+    filtered = feature[feature["trade_date"].map(normalize_date) <= as_of_date].copy()
+    if filtered.empty:
+        raise RuntimeError(f"market technical feature panel has no rows at or before main_price_date={as_of_date}")
+    return filtered
 
 
 def pct(current: Any, base: Any) -> float:
@@ -799,6 +813,7 @@ def summarize_composites(events: pd.DataFrame) -> pd.DataFrame:
     return summarize_events(composites)
 
 
+
 def current_state_summary(feature: pd.DataFrame) -> pd.DataFrame:
     if feature.empty:
         return pd.DataFrame()
@@ -859,13 +874,13 @@ def write_backtest_md(summary: pd.DataFrame, path: Path, title: str, intro: list
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
-
 def format_for_md(df: pd.DataFrame) -> pd.DataFrame:
     out = df.copy()
     for col in out.columns:
         if any(token in col for token in ["avg_", "median_", "win_rate", "lift_", "ret_", "mfe", "mae", "drawdown", "time_to"]):
             out[col] = pd.to_numeric(out[col], errors="coerce").map(lambda x: "" if pd.isna(x) else f"{x:.2f}")
     return out
+
 
 
 def write_regime_md(summary: pd.DataFrame) -> None:
@@ -898,12 +913,13 @@ def write_packet(feature: pd.DataFrame, events: pd.DataFrame, backtest: pd.DataF
     for horizon in HORIZONS:
         mature_counts[f"mature_d{horizon}_count"] = int(events[f"mature_d{horizon}"].astype(bool).sum()) if not events.empty and f"mature_d{horizon}" in events.columns else 0
 
+    main_price_date = feature["trade_date"].max() if not feature.empty else ""
     lines = [
         "# MARKET TIMING CHATGPT PACKET",
         "",
         "## Metadata",
         f"- generated_at: {now_text()}",
-        f"- main_price_date: {feature['trade_date'].max() if not feature.empty else ''}",
+        f"- main_price_date: {main_price_date}",
         f"- index_list: {', '.join(sorted(feature['index_id'].dropna().unique())) if not feature.empty else ''}",
         f"- data_range: {feature['trade_date'].min() if not feature.empty else ''} ~ {feature['trade_date'].max() if not feature.empty else ''}",
         f"- source_files: data/market_index_history.csv, data/market_index_ohlc_history.csv, {BREADTH_HISTORY.as_posix()}, {EVENT_LOG.as_posix()}",
@@ -943,7 +959,7 @@ def write_packet(feature: pd.DataFrame, events: pd.DataFrame, backtest: pd.DataF
             "- D+1 / D+3: 適合檢查短線轉折、假突破、KD 高低檔交叉。",
             "- D+5 / D+10: 適合檢查 MACD 翻正、站回 MA20、期權極端後回歸。",
             "- D+20 / D+40 / D+60: 適合檢查均線黃金交叉與中期趨勢事件。",
-            "- 樣本不足時只能標示待回測假設，目前只作為觀察，不作為模型加權依據。",
+            "- 樣本不足或 pending 時只能標示待回測假設，目前只作為觀察，不作為模型加權依據。",
             "",
             "## Data Quality Notes",
             f"- missing_fields: {', '.join(sorted(set(data_notes))) if data_notes else 'none'}",
@@ -963,7 +979,6 @@ def write_packet(feature: pd.DataFrame, events: pd.DataFrame, backtest: pd.DataF
     )
     PACKET_MD.write_text("\n".join(lines), encoding="utf-8")
 
-
 def main() -> int:
     MARKET_TIMING_DIR.mkdir(parents=True, exist_ok=True)
     feature, notes = normalize_index_history()
@@ -978,6 +993,8 @@ def main() -> int:
     feature = merge_breadth(feature, breadth)
     feature = add_regime_and_risk(feature)
     feature = add_market_context_events(feature)
+    as_of_date = effective_main_price_date()
+    feature = filter_feature_to_as_of(feature, as_of_date)
     write_csv(feature, FEATURE_PANEL)
 
     events = build_event_log(feature)

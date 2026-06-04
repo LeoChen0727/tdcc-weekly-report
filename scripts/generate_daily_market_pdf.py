@@ -306,6 +306,9 @@ def clean_text(text: Any, limit: int | None = None) -> str:
     result = re.sub(r"\s+", " ", result).strip()
     for old in sorted(FORBIDDEN_WORD_REPLACEMENTS, key=len, reverse=True):
         result = result.replace(old, FORBIDDEN_WORD_REPLACEMENTS[old])
+    display_map = globals().get("PDF_DISPLAY_TOKEN_ZH_FINAL", {})
+    for raw, zh in sorted(display_map.items(), key=lambda item: len(item[0]), reverse=True):
+        result = re.sub(rf"(?<![A-Za-z0-9_]){re.escape(raw)}(?![A-Za-z0-9_])", zh, result)
     if limit and len(result) > limit:
         result = result[: max(0, limit - 1)] + "…"
     return result
@@ -2328,6 +2331,8 @@ def build_full_table_pdf(df: pd.DataFrame, freshness: dict[str, Any], main_date:
 
     story.append(PageBreak())
     story.append(para("各分類清單", style_map["h1"]))
+    category_order_text = "分類順序：" + " → ".join(CATEGORY_LABEL[cat] for cat in CATEGORY_ORDER)
+    story.append(para(category_order_text, style_map["normal"]))
     for cat, part in category_groups(df):
         label = CATEGORY_LABEL[cat]
         story.append(para(label, style_map["h2"]))
@@ -3180,14 +3185,13 @@ def _rank_for_section(row: pd.Series, section: str) -> str:
             break
     if not rank:
         return "-"
-    label = _repeat_label(section)
     for token in ["連續/累計進榜", "連續榜", "累計榜", "重複進榜", "新進榜", "#"]:
         rank = rank.replace(token, " ")
     rank = re.sub(r"\s+", " ", rank).strip()
     match = re.search(r"\d+(?:\.0+)?", rank)
     if match:
-        return f"{label} #{int(float(match.group(0)))}"
-    return f"{label} {clean_text(rank, 12)}" if rank else "-"
+        return f"#{int(float(match.group(0)))}"
+    return clean_text(rank, 12) if rank else "-"
 
 
 def _rank_sort_number(row: pd.Series, section: str) -> float:
@@ -3577,14 +3581,13 @@ def _rank_for_section(row: pd.Series, section: str) -> str:
             break
     if not rank:
         return "-"
-    label = _repeat_label(section)
     for token in ["連續/累計進榜", "連續榜", "累計榜", "重複進榜", "新進榜", "#"]:
         rank = rank.replace(token, " ")
     rank = re.sub(r"\s+", " ", rank).strip()
     match = re.search(r"\d+(?:\.0+)?", rank)
     if match:
-        return f"{label} #{int(float(match.group(0)))}"
-    return f"{label} {clean_text(rank, 12)}" if rank else "-"
+        return f"#{int(float(match.group(0)))}"
+    return clean_text(rank, 12) if rank else "-"
 
 
 def _rank_sort_number(row: pd.Series, section: str) -> float:

@@ -13,6 +13,7 @@ from tracking_utils import (  # noqa: E402
     LATEST_DIR,
     main_price_date_from_freshness,
     normalize_code,
+    normalize_report_candidate_dates,
     now_text,
     read_csv,
     safe_str,
@@ -865,6 +866,7 @@ def write_markdown(theme_df: pd.DataFrame, two_line: pd.DataFrame, main_date: st
 
 
 def rewrite_all_candidates(enriched: pd.DataFrame) -> None:
+    enriched = normalize_report_candidate_dates(enriched, main_price_date_from_freshness())
     write_csv(enriched, ALL_CANDIDATES)
     try:
         with pd.ExcelWriter(ALL_CANDIDATES_XLSX, engine="openpyxl") as writer:

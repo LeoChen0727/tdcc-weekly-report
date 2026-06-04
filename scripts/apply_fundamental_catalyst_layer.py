@@ -9,6 +9,8 @@ import re
 
 import pandas as pd
 
+from tracking_utils import main_price_date_from_freshness, normalize_report_candidate_dates
+
 
 LATEST_DIR = Path("output/latest")
 DATA_DIR = Path("data")
@@ -955,6 +957,7 @@ def main() -> int:
 
     extra_cols = [col for col in df.columns if col not in CATALYST_COLUMNS]
     out_df = df[extra_cols + CATALYST_COLUMNS]
+    out_df = normalize_report_candidate_dates(out_df, main_price_date_from_freshness())
     write_csv(out_df, ALL_CANDIDATES)
     write_xlsx(out_df, ALL_CANDIDATES_XLSX)
     OUTPUT_MD.write_text(

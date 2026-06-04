@@ -251,6 +251,20 @@ def check_raw_slug_terms(label: str, text: str, errors: list[str]) -> None:
 
 
 def check_category_order(label: str, text: str, errors: list[str]) -> None:
+    order_line_match = re.search(r"分類順序[:：]\s*(.+)", text)
+    if order_line_match:
+        order_line = order_line_match.group(1)
+        positions = [(category, order_line.find(category)) for category in CATEGORY_ORDER]
+        missing = [category for category, pos in positions if pos < 0]
+        if missing:
+            for category in missing:
+                errors.append(f"{label}: missing category in order line: {category}")
+            return
+        actual = [category for category, _ in sorted(positions, key=lambda item: item[1])]
+        if actual != CATEGORY_ORDER:
+            errors.append(f"{label}: category order is wrong: {actual}")
+        return
+
     start_marker = "各分類清單" if label == "full_table" else "分類解讀"
     start_pos = normalize_for_search(text).find(normalize_for_search(start_marker))
     if start_pos >= 0:
