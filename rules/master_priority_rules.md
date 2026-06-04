@@ -85,15 +85,18 @@ Do not mix task types:
 
 Daily candidate reports are not holdings management. Holdings reports are not full-market ranking reports. Market reports are not stock recommendation lists.
 
-## Program-Side Action Decisions
+## Program-Side Action Display Fields
 
-When program-side packets or CSVs provide `action_rating`, `action_rating_label_zh`, `entry_style`, `position_sizing`, `management_plan`, `entry_prerequisites`, `post_entry_watch_items`, `downgrade_reason`, `confidence_level`, or `thesis_state`, these fields are the primary source for trading-language output.
+When program-side packets or CSVs provide PDF-facing display fields, formal reports must use those fields instead of raw internal model fields.
 
-- `entry_prerequisites` are the conditions required before the first tranche. They should already be satisfied or explicitly listed as missing.
-- `post_entry_watch_items` are post-entry management checks such as next monthly revenue, next TDCC update, sector follow-through, and warrant overheat checks.
-- Do not convert all `post_entry_watch_items` into buy-before blockers.
-- If `action_rating` is `buy_now`, `scale_in`, or `starter_position`, do not rewrite it as `wait_pullback`, `wait_reclaim`, or generic "wait for confirmation" unless current repo price, volume, TDCC, or fundamental data directly contradicts the action decision.
-- If downgrading a program-side action, state the original `action_rating`, the downgraded action, and the concrete contradictory data or `downgrade_reason`.
+For single-stock reports:
+
+- `ACTION_DISPLAY` is the visible report contract.
+- `ACTION_DECISION` is internal model context only.
+- Formal PDF / Markdown prose must not print raw enum values or internal field names such as `action_rating`, `starter_position`, `decision_score`, `model_slug`, `packet`, `raw field name`, or `程式端欄位`.
+- Use `action_rating_display_zh`, `action_summary_zh`, `entry_strategy_zh`, `position_sizing_zh`, `add_position_strategy_zh`, `take_profit_strategy_zh`, `risk_control_zh`, `post_entry_watch_zh`, `final_decision_zh`, `score_interpretation_zh`, and `model_category_display_zh`.
+- If display text is missing, write `資料不足 / 暫用現有資料`; do not expose raw internal values.
+- Do not convert all post-entry watch items into buy-before blockers.
 
 ## Pipeline Runtime Separation
 

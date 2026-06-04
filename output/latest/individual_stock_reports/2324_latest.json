@@ -1,12 +1,18 @@
 {
-  "generated_at": "2026-06-02 23:34:16 Asia/Taipei",
+  "generated_at": "2026-06-04 08:43:53 Asia/Taipei",
   "status": "generated",
   "stock_id": "2324",
   "stock_name": "仁寶",
-  "main_price_date": "20260602",
+  "main_price_date": "20260603",
   "analysis_days": 126,
-  "available_price_days": 275,
+  "available_price_days": 276,
   "priority": "僅觀察 / 暫避降級",
+  "action_rating_display_zh": "可小量試單",
+  "action_summary_zh": "符合型態觀察，價格結構尚未破壞，程式端評級為「可小量試單」。",
+  "entry_strategy_zh": "目前價位可建立第一筆；第一筆部位以「試單 1/4 部位」執行。",
+  "position_sizing_zh": "試單 1/4 部位；不得一次買滿，後續依支撐、站回或突破條件加碼。",
+  "risk_control_zh": "TDCC 轉弱警示、股價乖離過大",
+  "final_decision_zh": "符合型態觀察，價格結構尚未破壞，程式端評級為「可小量試單」。 進場：目前價位可建立第一筆；第一筆部位以「試單 1/4 部位」執行。 追蹤：下一次月營收、下一週 TDCC 更新、23EMA 是否守穩或快速站回、量價是否延續、前高突破品質、族群與 benchmark 強弱、事件題材是否延續、權證是否過熱 風控：TDCC 轉弱警示、股價乖離過大",
   "latest_md_path": "output/latest/individual_stock_reports/2324_latest.md",
   "latest_pdf_path": "output/latest/individual_stock_reports/2324_latest.pdf",
   "latest_chart_path": "output/latest/individual_stock_reports/2324_latest.png",
@@ -25,6 +31,6 @@
   "sell_strategy_summary_path": "output/history/sell_strategy_backtest/2324_sell_strategy_summary.md",
   "sell_strategy_performance_latest_csv": "output/latest/sell_strategy_performance_latest.csv",
   "sell_strategy_performance_latest_md": "output/latest/sell_strategy_performance_latest.md",
-  "history_md_path": "output/history/individual_stock_reports/20260602_2324.md",
-  "history_pdf_path": "output/history/individual_stock_reports/20260602_2324.pdf"
+  "history_md_path": "output/history/individual_stock_reports/20260603_2324.md",
+  "history_pdf_path": "output/history/individual_stock_reports/20260603_2324.pdf"
 }

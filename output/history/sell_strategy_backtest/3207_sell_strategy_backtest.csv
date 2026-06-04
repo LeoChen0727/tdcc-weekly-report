@@ -1,21 +1,21 @@
 stock_id,stock_name,entry_date,strategy_key,strategy_name,entry_price,exit_date,exit_price,return_pct,mfe_pct,mae_pct,holding_days,reference_level,mature,status,generated_at
-3207,耀勝,20260602,prior_high,碰前高賣,71.7,,,,,,0,74.5,False,level_unavailable,2026-06-02 23:34:14 Asia/Taipei
-3207,耀勝,20260602,high_20d,碰 20日高賣,71.7,,,,,,0,74.5,False,level_unavailable,2026-06-02 23:34:14 Asia/Taipei
-3207,耀勝,20260602,high_60d,碰 60日高賣,71.7,,,,,,0,83.2,False,level_unavailable,2026-06-02 23:34:14 Asia/Taipei
-3207,耀勝,20260602,high_120d,碰 120日高賣,71.7,,,,,,0,89.4,False,level_unavailable,2026-06-02 23:34:14 Asia/Taipei
-3207,耀勝,20260602,resistance_scale_out,壓力區分批賣,71.7,,,,,,0,89.4,False,level_unavailable,2026-06-02 23:34:14 Asia/Taipei
-3207,耀勝,20260602,broker_target_median,券商目標價中位數賣,,,,,,,,,False,source_unavailable_or_not_implemented,2026-06-02 23:34:14 Asia/Taipei
-3207,耀勝,20260602,broker_target_average,券商目標價平均數賣,,,,,,,,,False,source_unavailable_or_not_implemented,2026-06-02 23:34:14 Asia/Taipei
-3207,耀勝,20260602,tdcc_weakening,TDCC 大戶轉弱賣,,,,,,,,,False,source_unavailable_or_not_implemented,2026-06-02 23:34:14 Asia/Taipei
-3207,耀勝,20260602,shareholders_surge,股東人數暴增賣,,,,,,,,,False,source_unavailable_or_not_implemented,2026-06-02 23:34:14 Asia/Taipei
-3207,耀勝,20260602,margin_surge,融資快速增加賣,,,,,,,,,False,source_unavailable_or_not_implemented,2026-06-02 23:34:14 Asia/Taipei
-3207,耀勝,20260602,break_ema23,跌破 EMA23 賣,71.7,,,,,,0,,False,pending,2026-06-02 23:34:14 Asia/Taipei
-3207,耀勝,20260602,break_ma20,跌破 MA20 輔助觀察賣,71.7,,,,,,0,,False,pending,2026-06-02 23:34:14 Asia/Taipei
-3207,耀勝,20260602,break_neckline,跌破頸線賣,71.7,,,,,,0,,False,pending,2026-06-02 23:34:14 Asia/Taipei
-3207,耀勝,20260602,break_breakout_low,跌破突破K低點賣,71.7,,,,,,0,67.5,False,pending,2026-06-02 23:34:14 Asia/Taipei
-3207,耀勝,20260602,high_volume_black,放量長黑賣,71.7,,,,,,0,,False,pending,2026-06-02 23:34:14 Asia/Taipei
-3207,耀勝,20260602,fixed_d5,固定 D+5 賣,71.7,,,,,,0,,False,pending,2026-06-02 23:34:14 Asia/Taipei
-3207,耀勝,20260602,fixed_d10,固定 D+10 賣,71.7,,,,,,0,,False,pending,2026-06-02 23:34:14 Asia/Taipei
-3207,耀勝,20260602,fixed_d20,固定 D+20 賣,71.7,,,,,,0,,False,pending,2026-06-02 23:34:14 Asia/Taipei
-3207,耀勝,20260602,atr_trailing_stop,ATR trailing stop 賣,71.7,,,,,,0,,False,pending,2026-06-02 23:34:14 Asia/Taipei
-3207,耀勝,20260602,percent_trailing_stop,固定百分比 trailing stop 賣,71.7,,,,,,0,,False,pending,2026-06-02 23:34:14 Asia/Taipei
+3207,耀勝,20260603,prior_high,前高壓力區,70.3,,,,,,0,74.5,False,level_unavailable,2026-06-04 08:43:57 Asia/Taipei
+3207,耀勝,20260603,high_20d,近 20 日高點,70.3,,,,,,0,74.5,False,level_unavailable,2026-06-04 08:43:57 Asia/Taipei
+3207,耀勝,20260603,high_60d,近 60 日高點,70.3,,,,,,0,79.1,False,level_unavailable,2026-06-04 08:43:57 Asia/Taipei
+3207,耀勝,20260603,high_120d,近 120 日高點,70.3,,,,,,0,89.4,False,level_unavailable,2026-06-04 08:43:57 Asia/Taipei
+3207,耀勝,20260603,resistance_scale_out,壓力區分批停利,70.3,,,,,,0,89.4,False,level_unavailable,2026-06-04 08:43:57 Asia/Taipei
+3207,耀勝,20260603,broker_target_median,券商目標價中位數,,,,,,,,,False,source_unavailable_or_not_implemented,2026-06-04 08:43:57 Asia/Taipei
+3207,耀勝,20260603,broker_target_average,券商目標價平均數,,,,,,,,,False,source_unavailable_or_not_implemented,2026-06-04 08:43:57 Asia/Taipei
+3207,耀勝,20260603,tdcc_weakening,TDCC 轉弱風險,,,,,,,,,False,source_unavailable_or_not_implemented,2026-06-04 08:43:57 Asia/Taipei
+3207,耀勝,20260603,shareholders_surge,股東人數增加風險,,,,,,,,,False,source_unavailable_or_not_implemented,2026-06-04 08:43:57 Asia/Taipei
+3207,耀勝,20260603,margin_surge,融資增加風險,,,,,,,,,False,source_unavailable_or_not_implemented,2026-06-04 08:43:57 Asia/Taipei
+3207,耀勝,20260603,break_ema23,跌破 EMA23,70.3,,,,,,0,,False,pending,2026-06-04 08:43:57 Asia/Taipei
+3207,耀勝,20260603,break_ma20,跌破 MA20,70.3,,,,,,0,,False,pending,2026-06-04 08:43:57 Asia/Taipei
+3207,耀勝,20260603,break_neckline,跌破頸線,70.3,,,,,,0,,False,pending,2026-06-04 08:43:57 Asia/Taipei
+3207,耀勝,20260603,break_breakout_low,跌破突破 K 低點,70.3,,,,,,0,69.5,False,pending,2026-06-04 08:43:57 Asia/Taipei
+3207,耀勝,20260603,high_volume_black,爆量長黑,70.3,,,,,,0,,False,pending,2026-06-04 08:43:57 Asia/Taipei
+3207,耀勝,20260603,fixed_d5,固定 D+5 檢查,70.3,,,,,,0,,False,pending,2026-06-04 08:43:57 Asia/Taipei
+3207,耀勝,20260603,fixed_d10,固定 D+10 檢查,70.3,,,,,,0,,False,pending,2026-06-04 08:43:57 Asia/Taipei
+3207,耀勝,20260603,fixed_d20,固定 D+20 檢查,70.3,,,,,,0,,False,pending,2026-06-04 08:43:57 Asia/Taipei
+3207,耀勝,20260603,atr_trailing_stop,ATR 移動停損,70.3,,,,,,0,,False,pending,2026-06-04 08:43:57 Asia/Taipei
+3207,耀勝,20260603,percent_trailing_stop,百分比移動停損,70.3,,,,,,0,,False,pending,2026-06-04 08:43:57 Asia/Taipei

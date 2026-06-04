@@ -11,6 +11,57 @@ DOCS_LATEST_DIR = Path("docs/latest")
 DATA_FRESHNESS_CSV = LATEST_DIR / "data_freshness_latest.csv"
 STOCK_PRICE_HISTORY_DIR = Path("data/stock_price_history")
 
+ACTION_DISPLAY_REQUIRED_FIELDS = [
+    "action_rating_display_zh",
+    "action_summary_zh",
+    "entry_strategy_zh",
+    "position_sizing_zh",
+    "add_position_strategy_zh",
+    "take_profit_strategy_zh",
+    "risk_control_zh",
+    "post_entry_watch_zh",
+    "final_decision_zh",
+    "score_interpretation_zh",
+    "model_category_display_zh",
+]
+
+FORBIDDEN_REPORT_TOKENS = [
+    "ACTION_DECISION",
+    "action_rating",
+    "starter_position",
+    "scale_in",
+    "buy_now",
+    "wait_pullback",
+    "wait_reclaim",
+    "decision_score",
+    "daily_candidate_decision",
+    "model_slug",
+    "raw field",
+    "raw field name",
+    "already_priced_in=True",
+    "insufficient_sample",
+    "report_ready",
+    "\u7a0b\u5f0f\u7aef\u6b04\u4f4d",
+]
+
+MOJIBAKE_MARKER_CODEPOINTS = {
+    0xFFFD,
+    0x5697, 0x876F, 0x7508, 0x9788, 0x96FF, 0x6498, 0x95AE, 0x6468,
+    0x7485, 0x61BF, 0x981D, 0x8751, 0x875A, 0x876C, 0x9908, 0x922D, 0x929D,
+}
+
+
+def has_mojibake(text: str) -> bool:
+    if "?" * 4 in text:
+        return True
+    for ch in text:
+        codepoint = ord(ch)
+        if codepoint in MOJIBAKE_MARKER_CODEPOINTS:
+            return True
+        if 0xE000 <= codepoint <= 0xF8FF:
+            return True
+    return False
+
 
 def normalize_date(value: object) -> str:
     text = str(value or "").strip()
@@ -92,6 +143,47 @@ def latest_price_date_from_stock_history(stock_id: str) -> str:
     return latest_price_date_from_csv_window(path)
 
 
+def extract_pdf_text(path: Path) -> str:
+    try:
+        from pypdf import PdfReader
+    except Exception as exc:  # pragma: no cover - dependency failure should be visible in CI.
+        raise RuntimeError(f"pypdf unavailable while validating {path}: {exc}") from exc
+    reader = PdfReader(str(path))
+    return "\n".join(page.extract_text() or "" for page in reader.pages)
+
+
+def validate_action_display_packet(stock_id: str, path: Path) -> list[str]:
+    errors: list[str] = []
+    if not path.exists():
+        return errors
+    text = path.read_text(encoding="utf-8", errors="replace")
+    if "## ACTION_DISPLAY" not in text:
+        errors.append(f"{stock_id}: packet missing ACTION_DISPLAY section: {path}")
+    for field in ACTION_DISPLAY_REQUIRED_FIELDS:
+        if f"- {field}:" not in text:
+            errors.append(f"{stock_id}: packet ACTION_DISPLAY missing {field}: {path}")
+    return errors
+
+
+def validate_report_display_text(stock_id: str, path: Path) -> list[str]:
+    errors: list[str] = []
+    if not path.exists():
+        return errors
+    if path.suffix.lower() == ".pdf":
+        try:
+            text = extract_pdf_text(path)
+        except Exception as exc:
+            return [f"{stock_id}: cannot extract PDF text from {path}: {exc}"]
+    else:
+        text = path.read_text(encoding="utf-8", errors="replace")
+    for token in FORBIDDEN_REPORT_TOKENS:
+        if token and token in text:
+            errors.append(f"{stock_id}: formal report exposes internal token {token!r}: {path}")
+    if has_mojibake(text):
+        errors.append(f"{stock_id}: formal report contains mojibake/private-use text: {path}")
+    return errors
+
+
 def validate_stock(stock_id: str, main_price_date: str) -> list[str]:
     errors: list[str] = []
     checks = [
@@ -136,12 +228,28 @@ def validate_stock(stock_id: str, main_price_date: str) -> list[str]:
                 f"{stock_id}: {label} date mismatch: expected {main_price_date}, got {actual} ({path})"
             )
 
+    packet_paths = [
+        LATEST_DIR / "individual_stock_chatgpt_packets" / f"{stock_id}_packet_latest.md",
+        DOCS_LATEST_DIR / "individual_stock_chatgpt_packets" / f"{stock_id}_packet_latest.md",
+    ]
+    for path in packet_paths:
+        errors.extend(validate_action_display_packet(stock_id, path))
+
+    report_paths = [
+        LATEST_DIR / "individual_stock_reports" / f"{stock_id}_latest.md",
+        DOCS_LATEST_DIR / "individual_stock_reports" / f"{stock_id}_latest.md",
+        LATEST_DIR / "individual_stock_reports" / f"{stock_id}_latest.pdf",
+        DOCS_LATEST_DIR / "individual_stock_reports" / f"{stock_id}_latest.pdf",
+    ]
+    for path in report_paths:
+        errors.extend(validate_report_display_text(stock_id, path))
+
     return errors
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Validate per-stock ChatGPT packet and 180d price windows match latest main price date."
+        description="Validate per-stock ChatGPT packet, price windows, and investor-facing report display text."
     )
     parser.add_argument("--stock-id", action="append", default=[], help="Stock id. May be repeated.")
     parser.add_argument("--all", action="store_true", help="Validate every stock id in the packet index.")

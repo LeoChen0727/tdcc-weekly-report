@@ -39,6 +39,7 @@ from tdcc_stock_history_utils import (
     plot_tdcc_history_chart,
     tdcc_history_analysis,
 )
+from action_decision_utils import compute_action_decision
 
 
 OWNER_REPO = "LeoChen0727/tdcc-weekly-report"
@@ -82,8 +83,8 @@ CATEGORY_LABEL = {
     "true_breakout": "嚴格突破",
     "range_rebound": "區間內轉強 / 挑戰前高觀察",
     "near_resistance": "區間內轉強 / 挑戰前高觀察",
-    "abnormal_volume_up": "區間內轉強 / 挑戰前高觀察",
-    "revenue_breakout_low_response": "營收爆發低反應股",
+    "abnormal_volume_up": "帶量突破 / 放量攻擊",
+    "revenue_breakout_low_response": "營收爆發但股價尚未反應",
     "revenue_pullback": "營收成長股價回檔",
     "pullback_rebound": "回檔後短線轉強",
     "pattern": "型態觀察",
@@ -635,8 +636,8 @@ def candidate_summary(candidate_rows: pd.DataFrame) -> tuple[str, list[dict[str,
         score_rank = " / ".join(
             part
             for part in [
-                f"score {fmt_num(row.get('score'), 1)}" if clean_text(row.get("score")) else "",
-                f"rank {fmt_num(row.get('rank'), 0)}" if clean_text(row.get("rank")) else "",
+                f"分數 {fmt_num(row.get('score'), 1)}" if clean_text(row.get("score")) else "",
+                f"排名 {fmt_num(row.get('rank'), 0)}" if clean_text(row.get("rank")) else "",
                 clean_text(row.get("revaluation_priority")),
             ]
             if part and part != "-"
@@ -681,7 +682,8 @@ def revenue_summary(candidate_rows: pd.DataFrame) -> dict[str, str]:
     note = clean_text(row.get("revenue_acceleration_note")) or clean_text(row.get("note"), 160)
     already = clean_text(row.get("already_priced_in"))
     if already:
-        note = f"{note}；already_priced_in={already}" if note else f"already_priced_in={already}"
+        already_text = "利多可能已部分反映" if already.lower() == "true" else "尚未標記利多已反映"
+        note = f"{note}；{already_text}" if note else already_text
     return {
         "status": "使用今日候選資料中的營收欄位判斷。",
         "latest_yoy": latest,
@@ -751,6 +753,37 @@ def warrant_summary(warrant: dict[str, Any]) -> dict[str, str]:
     }
 
 
+def build_action_context(
+    candidate_rows: pd.DataFrame,
+    price_metrics: dict[str, Any],
+    tdcc_info: dict[str, str],
+    warrant_info: dict[str, str],
+) -> dict[str, str]:
+    if candidate_rows.empty:
+        source: dict[str, Any] = {}
+    else:
+        source_df = candidate_rows.copy()
+        for score_col in ["decision_score", "model_score", "score", "pattern_score"]:
+            if score_col in source_df.columns:
+                source_df["_action_score"] = pd.to_numeric(source_df[score_col], errors="coerce").fillna(-999)
+                source_df = source_df.sort_values("_action_score", ascending=False)
+                break
+        source = {str(k): v for k, v in source_df.iloc[0].to_dict().items()}
+
+    source.update(
+        {
+            "volume_ratio": price_metrics.get("volume_ratio", ""),
+            "return_5d": price_metrics.get("return_5d", ""),
+            "return_20d": price_metrics.get("return_20d", ""),
+            "distance_to_ma20_pct": price_metrics.get("distance_ma20", ""),
+            "distance_to_ema23_pct": price_metrics.get("distance_ema23", ""),
+            "tdcc_status": tdcc_info.get("signal", ""),
+            "warrant_flow_signal": warrant_info.get("signal", ""),
+        }
+    )
+    return compute_action_decision(source)
+
+
 def overall_priority(
     metrics: dict[str, Any],
     candidate_rows: pd.DataFrame,
@@ -792,42 +825,43 @@ def build_risks(
     warrant_info: dict[str, str],
     candidate_rows: pd.DataFrame,
 ) -> list[str]:
-    risks = list(price_metrics.get("price_risks") or [])
+    risks = [display_text(item) for item in list(price_metrics.get("price_risks") or []) if display_text(item, default="")]
     if tdcc_info.get("signal") == "distribution_warning":
-        risks.append("TDCC 顯示大戶轉弱，需降低訊號可信度。")
+        risks.append("TDCC 大戶籌碼轉弱，若價格同步跌破支撐需降低部位。")
     if warrant_info.get("signal") in RISK_WARRANT_SIGNALS:
-        risks.append("權證訊號偏風險或過熱，不能只看短線熱度。")
+        risks.append("權證訊號偏空或多空混合，不能單獨作為買進理由。")
     if not candidate_rows.empty and "already_priced_in" in candidate_rows.columns:
         if any(str(x).lower() == "true" for x in candidate_rows["already_priced_in"].tolist()):
-            risks.append("候選資料標記 already_priced_in=True，代表部分利多可能已反映。")
+            risks.append("部分利多可能已反映，追價前需確認量價與支撐沒有轉弱。")
     clean: list[str] = []
     for item in risks:
-        if item not in clean:
+        item = display_text(item, default="")
+        if item and item not in clean:
             clean.append(item)
     return clean[:6]
 
 
 SELL_STRATEGIES = [
-    ("prior_high", "碰前高賣"),
-    ("high_20d", "碰 20日高賣"),
-    ("high_60d", "碰 60日高賣"),
-    ("high_120d", "碰 120日高賣"),
-    ("resistance_scale_out", "壓力區分批賣"),
-    ("broker_target_median", "券商目標價中位數賣"),
-    ("broker_target_average", "券商目標價平均數賣"),
-    ("tdcc_weakening", "TDCC 大戶轉弱賣"),
-    ("shareholders_surge", "股東人數暴增賣"),
-    ("margin_surge", "融資快速增加賣"),
-    ("break_ema23", "跌破 EMA23 賣"),
-    ("break_ma20", "跌破 MA20 輔助觀察賣"),
-    ("break_neckline", "跌破頸線賣"),
-    ("break_breakout_low", "跌破突破K低點賣"),
-    ("high_volume_black", "放量長黑賣"),
-    ("fixed_d5", "固定 D+5 賣"),
-    ("fixed_d10", "固定 D+10 賣"),
-    ("fixed_d20", "固定 D+20 賣"),
-    ("atr_trailing_stop", "ATR trailing stop 賣"),
-    ("percent_trailing_stop", "固定百分比 trailing stop 賣"),
+    ("prior_high", "前高壓力區"),
+    ("high_20d", "近 20 日高點"),
+    ("high_60d", "近 60 日高點"),
+    ("high_120d", "近 120 日高點"),
+    ("resistance_scale_out", "壓力區分批停利"),
+    ("broker_target_median", "券商目標價中位數"),
+    ("broker_target_average", "券商目標價平均數"),
+    ("tdcc_weakening", "TDCC 轉弱風險"),
+    ("shareholders_surge", "股東人數增加風險"),
+    ("margin_surge", "融資增加風險"),
+    ("break_ema23", "跌破 EMA23"),
+    ("break_ma20", "跌破 MA20"),
+    ("break_neckline", "跌破頸線"),
+    ("break_breakout_low", "跌破突破 K 低點"),
+    ("high_volume_black", "爆量長黑"),
+    ("fixed_d5", "固定 D+5 檢查"),
+    ("fixed_d10", "固定 D+10 檢查"),
+    ("fixed_d20", "固定 D+20 檢查"),
+    ("atr_trailing_stop", "ATR 移動停損"),
+    ("percent_trailing_stop", "百分比移動停損"),
 ]
 
 
@@ -1487,6 +1521,8 @@ def styles() -> dict[str, ParagraphStyle]:
 
 
 def paragraph(text: Any, style: ParagraphStyle) -> Paragraph:
+    if "display_text" in globals():
+        text = display_text(text)
     return Paragraph(html.escape(clean_text(text)), style)
 
 
@@ -1732,245 +1768,285 @@ def append_tdcc_history_pdf_section(
     story.append(pdf_table(conclusion_rows, [4.0 * cm, 13.5 * cm], style_map))
 
 
+
+RAW_DISPLAY_REPLACEMENTS = {
+    "strong_accumulation": "大戶強累積",
+    "mild_accumulation": "大戶溫和增加",
+    "distribution_warning": "大戶轉弱警示",
+    "neutral": "中性",
+    "no_signal": "無明確訊號",
+    "call_strong_inflow": "認購明確偏多",
+    "call_inflow": "認購偏多",
+    "call_put_bullish": "權證偏多",
+    "put_inflow": "認售偏多",
+    "mixed_flow": "權證多空混合",
+    "true_breakout": "嚴格突破",
+    "range_rebound": "區間內轉強",
+    "near_resistance": "接近前高 / 頸線挑戰",
+    "abnormal_volume_up": "帶量突破 / 放量攻擊",
+    "revenue_breakout_low_response": "營收爆發但股價尚未反應",
+    "revenue_pullback": "營收成長股價回檔",
+    "pullback_rebound": "回檔後短線轉強",
+    "pattern": "型態觀察",
+    "insufficient_sample": "樣本不足 / 僅能觀察",
+    "insufficient_tdcc_history": "TDCC 歷史不足 / 僅能觀察",
+    "tdcc_leading_price": "大戶增加但股價尚未明顯反應",
+    "tdcc_price_confirmed": "籌碼與價格已有初步確認",
+    "price_leading_tdcc": "股價領先籌碼",
+    "overheated_after_tdcc": "籌碼強但股價已過熱",
+    "tdcc_price_divergence": "籌碼與價格背離",
+    "already_priced_in": "利多可能已反映",
+}
+
+MOJIBAKE_MARKER_CODEPOINTS = (
+    0xFFFD, 0x5697, 0x876F, 0x7508, 0x9788, 0x96FF, 0x6498, 0x95AE, 0x6468, 0x7485, 0x61BF, 0x981D,
+    0x8751, 0x875A, 0x876C, 0x9908, 0x922D, 0x929D,
+)
+MOJIBAKE_MARKERS = tuple(chr(codepoint) for codepoint in MOJIBAKE_MARKER_CODEPOINTS)
+
+
+def looks_mojibake(value: Any) -> bool:
+    text = safe_str(value)
+    if not text:
+        return False
+    if "?" * 4 in text:
+        return True
+    if any(marker in text for marker in MOJIBAKE_MARKERS):
+        return True
+    return any(0xE000 <= ord(ch) <= 0xF8FF for ch in text)
+
+
+def display_text(value: Any, default: str = "資料不足 / 暫用現有資料", limit: int | None = None) -> str:
+    text = clean_text(value)
+    if not text:
+        return default
+    for raw, zh in RAW_DISPLAY_REPLACEMENTS.items():
+        text = re.sub(rf"(?<![A-Za-z0-9_]){re.escape(raw)}(?![A-Za-z0-9_])", zh, text)
+    if looks_mojibake(text):
+        return default
+    if limit and len(text) > limit:
+        return text[: max(0, limit - 1)].rstrip() + "…"
+    return text
+
+
+def action_field(action_decision: dict[str, Any], key: str, default: str = "資料不足 / 暫用現有資料") -> str:
+    return display_text(action_decision.get(key), default=default)
+
+
+def clean_join(items: list[str], default: str = "資料不足 / 暫用現有資料") -> str:
+    cleaned = [display_text(item, default="") for item in items]
+    cleaned = [item for item in cleaned if item]
+    return "；".join(dict.fromkeys(cleaned)) or default
+
+
+def report_data_status(freshness: dict[str, str], price_metrics: dict[str, Any]) -> str:
+    date = display_text(freshness.get("main_price_date") or price_metrics.get("date"), default="資料日期未確認")
+    days = int(price_metrics.get("available_days") or 0)
+    if days >= DEFAULT_PRICE_CHART_DAYS:
+        return f"價格資料基準日為 {date}，近半年價格資料可用。"
+    return f"價格資料基準日為 {date}，可用資料約 {days} 日，技術判斷需保守。"
+
+
+def markdown_table(rows: list[list[Any]]) -> list[str]:
+    if not rows:
+        return []
+    safe_rows = [[display_text(cell, default="-") for cell in row] for row in rows]
+    widths = [max(len(str(row[col])) for row in safe_rows) for col in range(len(safe_rows[0]))]
+    output = []
+    output.append("| " + " | ".join(str(cell).ljust(widths[i]) for i, cell in enumerate(safe_rows[0])) + " |")
+    output.append("| " + " | ".join("---" for _ in safe_rows[0]) + " |")
+    for row in safe_rows[1:]:
+        output.append("| " + " | ".join(str(cell).ljust(widths[i]) for i, cell in enumerate(row)) + " |")
+    return output
+
+
 def build_markdown(
+    path: Path,
     stock_id: str,
     stock_name: str,
-    days: int,
     freshness: dict[str, str],
-    main_date: str,
     price_metrics: dict[str, Any],
-    candidate_intro: str,
-    candidate_items: list[dict[str, str]],
     revenue: dict[str, str],
     tdcc: dict[str, str],
     warrant: dict[str, str],
-    priority: str,
     risks: list[str],
-    chart_path: Path,
-    tdcc_history: dict[str, Any],
-    tdcc_chart_path: Path | None,
-    sell_framework: dict[str, Any],
-    paths: ReportPaths,
-) -> str:
-    page_pdf_url = pages_url(paths.docs_pdf)
-    raw_pdf_url = raw_url(paths.latest_pdf)
-    lines = [
-        f"# 個股分析報告 - {stock_id} {stock_name}",
+    chart_path: str | None,
+    candidate_summary: list[dict[str, str]],
+    action_decision: dict[str, Any] | None = None,
+) -> None:
+    action_decision = action_decision or {}
+    main_date = display_text(freshness.get("main_price_date"), default="資料日期未確認")
+    days = int(price_metrics.get("available_days") or 0)
+    candidate_intro = candidate_summary[0].get("reason", "") if candidate_summary else "今日未進入主要候選模型，僅依價格與籌碼資料分析。"
+
+    lines: list[str] = [
+        f"# {stock_id} {stock_name} 單一個股分析報告",
         "",
-        f"- 產生時間：`{now_text()}`",
-        f"- 主資料日期：`{main_date}`",
-        f"- 分析天數：`{days}`",
-        f"- 報告狀態：`generated`",
-        f"- PDF Pages URL：{page_pdf_url}",
-        f"- PDF Raw URL：{raw_pdf_url}",
+        f"- 產出時間：{now_text()}",
+        f"- 資料基準日：{main_date}",
+        f"- 價格資料：約 {days} 個交易日",
         "",
-        "## 一、資料狀態",
+        "## 一、核心操作結論",
         "",
-        f"- report_ready：`{freshness.get('report_ready', '-')}`",
-        f"- 日價資料：`{price_metrics.get('available_days', 0)}` 筆，最新日期 `{price_metrics.get('latest_date', '-')}`",
-        f"- 候選分類狀態：{candidate_intro}",
-        f"- TDCC：{tdcc['signal']} / {tdcc['status']}",
-        f"- 權證：{warrant['signal']} / {warrant['status']}",
+        f"- 操作評級：**{action_field(action_decision, 'action_rating_display_zh')}**",
+        f"- 模型定位：{action_field(action_decision, 'model_category_display_zh')}",
+        f"- 核心判斷：{action_field(action_decision, 'action_summary_zh')}",
+        f"- 進場策略：{action_field(action_decision, 'entry_strategy_zh')}",
+        f"- 部位建議：{action_field(action_decision, 'position_sizing_zh')}",
+        f"- 加碼規則：{action_field(action_decision, 'add_position_strategy_zh')}",
+        f"- 停利策略：{action_field(action_decision, 'take_profit_strategy_zh')}",
+        f"- 風控條件：{action_field(action_decision, 'risk_control_zh')}",
+        f"- 買進後追蹤：{action_field(action_decision, 'post_entry_watch_zh')}",
+        f"- 分數解讀：{action_field(action_decision, 'score_interpretation_zh')}",
         "",
-        "## 二、個股總結",
+        "## 二、資料基準與價格位置",
         "",
-        f"- 綜合優先度：**{priority}**",
-        f"- 價格狀態：{price_metrics.get('price_state', '-')}",
-        "- 本報告只依公開市場資料與系統訊號分析，非買賣建議。",
-        "",
-        "## 三、價格與型態",
-        "",
-        f"![{stock_id} price chart]({chart_path.as_posix()})",
-        "",
-        "| 指標 | 數值 |",
-        "|---|---:|",
-        f"| 收盤價 | {fmt_num(price_metrics.get('close'))} |",
-        f"| 1日 / 5日 / 20日 | {fmt_pct(price_metrics.get('return_1d'))} / {fmt_pct(price_metrics.get('return_5d'))} / {fmt_pct(price_metrics.get('return_20d'))} |",
-        f"| 60日 / 120日 | {fmt_pct(price_metrics.get('return_60d'))} / {fmt_pct(price_metrics.get('return_120d'))} |",
-        f"| 23EMA 主觀察線 | {fmt_num(price_metrics.get('ema23'))} |",
-        f"| 股價與 23EMA | {price_metrics.get('ema23_position', '-')} / 距離 {fmt_pct(price_metrics.get('distance_ema23'))} |",
-        f"| 23EMA 5日斜率 | {fmt_pct(price_metrics.get('ema23_slope_5d'))}（{price_metrics.get('ema23_slope_label', '-')}） |",
-        f"| 23EMA 回測狀態 | {price_metrics.get('ema23_support_status', '-')} |",
-        f"| 距 60 日高點 | {fmt_pct(price_metrics.get('distance_high_60'))} |",
-        f"| 量比 | {fmt_num(price_metrics.get('volume_ratio'), 2)}x |",
-        "",
-        technical_time_signal_markdown(price_metrics),
-        "",
-        "## 四、候選分類訊號",
+        f"- 資料狀態：{report_data_status(freshness, price_metrics)}",
+        f"- 候選摘要：{display_text(candidate_intro)}",
+        f"- TDCC：{display_text(tdcc.get('signal'))} / {display_text(tdcc.get('status'))}",
+        f"- 權證：{display_text(warrant.get('signal'))} / {display_text(warrant.get('status'))}",
         "",
     ]
-    if candidate_items:
-        lines.extend(["| 分類 | 分數 / 排名 / priority | TDCC | 權證 | 精簡理由 |", "|---|---|---|---|---|"])
-        for item in candidate_items:
-            lines.append(
-                f"| {item['category']} | {item['score_rank']} | {item['tdcc']} | {item['warrant']} | {item['note']} |"
-            )
-    else:
-        lines.append(candidate_intro)
+    if chart_path:
+        lines.extend([f"![近半年 K 線圖]({chart_path})", ""])
 
-    lines.extend(
-        [
-            "",
-            "## 五、營收判斷",
-            "",
-            f"- 狀態：{revenue['status']}",
-            f"- 單月 YoY：{revenue['latest_yoy']}",
-            f"- 累計 YoY：{revenue['cumulative_yoy']}",
-            f"- 說明：{revenue['note']}",
-            "",
-            "## 六、TDCC 判斷",
-            "",
-            f"- 訊號：{tdcc['signal']}",
-            f"- 判讀：{tdcc['status']}",
-            f"- 400 張以上：{tdcc['over_400']}",
-            f"- 1000 張以上：{tdcc['over_1000']}",
-            f"- 說明：{tdcc['note']}",
-            "",
-            "## 七、權證判斷",
-            "",
-            f"- 日期：{warrant['date']}",
-            f"- 訊號：{warrant['signal']}",
-            f"- 分數：{warrant['score']}",
-            f"- 判讀：{warrant['status']}",
-            f"- 說明：{warrant['note']}",
-            "",
-            "## 八、風險提醒",
-            "",
-            bullet_list(risks),
-            "",
-            tdcc_history_markdown(tdcc_history, tdcc_chart_path),
-            "",
-            sell_framework_markdown(sell_framework),
-            "",
-            "## 九、明日觀察條件",
-            "",
-            bullet_list(price_metrics.get("confirmation", [])),
-            "",
-        ]
-    )
-    return "\n".join(lines)
+    rows = [
+        ["項目", "數值", "項目", "數值"],
+        ["收盤價", fmt_num(price_metrics.get("close")), "量比", f"{fmt_num(price_metrics.get('volume_ratio'), 2)}x"],
+        ["1日 / 5日報酬", f"{fmt_pct(price_metrics.get('return_1d'))} / {fmt_pct(price_metrics.get('return_5d'))}", "20日 / 60日報酬", f"{fmt_pct(price_metrics.get('return_20d'))} / {fmt_pct(price_metrics.get('return_60d'))}"],
+        ["23EMA", fmt_num(price_metrics.get("ema23")), "距 23EMA", fmt_pct(price_metrics.get("distance_ema23"))],
+        ["23EMA 斜率", f"{fmt_pct(price_metrics.get('ema23_slope_5d'))} / {display_text(price_metrics.get('ema23_slope_label'), default='-')}", "距 60日高點", fmt_pct(price_metrics.get("distance_high_60"))],
+        ["23EMA 狀態", display_text(price_metrics.get("ema23_support_status"), default="-"), "價格狀態", display_text(price_metrics.get("price_state"), default="-")],
+    ]
+    lines.extend(markdown_table(rows))
+
+    lines.extend(["", "## 三、模型與候選資料", ""])
+    if candidate_summary:
+        rows = [["分類 / 模型", "分數 / 排名 / 優先度", "TDCC", "權證", "入選理由"]]
+        for row in candidate_summary[:6]:
+            rows.append([
+                row.get("category", "-"),
+                f"{row.get('score', '-')} / {row.get('rank', '-')} / {row.get('priority', '-')}",
+                row.get("tdcc", "-"),
+                row.get("warrant", "-"),
+                row.get("reason", "-"),
+            ])
+        lines.extend(markdown_table(rows))
+    else:
+        lines.append("今日沒有主要候選模型資料，僅能依價格、TDCC 與權證資料輔助判斷。")
+
+    lines.extend(["", "## 四、營收、TDCC、權證摘要", ""])
+    rows = [
+        ["面向", "狀態", "重點"],
+        ["營收", revenue.get("status", "-"), f"最新 YoY {revenue.get('latest_yoy', '-')}；累計 YoY {revenue.get('cumulative_yoy', '-')}；{revenue.get('note', '-')}"] ,
+        ["TDCC", tdcc.get("signal", "-"), f"400張以上 {tdcc.get('over_400', '-')}；1000張以上 {tdcc.get('over_1000', '-')}；{tdcc.get('note', '-')}"] ,
+        ["權證", warrant.get("signal", "-"), f"分數 {warrant.get('score', '-')}；{warrant.get('note', '-')}"] ,
+    ]
+    lines.extend(markdown_table(rows))
+
+    lines.extend(["", "## 五、主要風險與管理", ""])
+    risk_text = clean_join(risks, default="目前沒有明確重大風險，但仍需依支撐、TDCC 與量價變化管理。")
+    lines.append(f"- 風險控管：{risk_text}")
+    lines.append(f"- 最終結論：{action_field(action_decision, 'final_decision_zh')}")
+    path.write_text("\n".join(lines).strip() + "\n", encoding="utf-8")
 
 
 def build_pdf(
+    path: Path,
     stock_id: str,
     stock_name: str,
-    days: int,
     freshness: dict[str, str],
-    main_date: str,
     price_metrics: dict[str, Any],
-    candidate_intro: str,
-    candidate_items: list[dict[str, str]],
     revenue: dict[str, str],
     tdcc: dict[str, str],
     warrant: dict[str, str],
-    priority: str,
     risks: list[str],
-    chart_path: Path,
-    tdcc_history: dict[str, Any],
-    tdcc_chart_path: Path | None,
-    sell_framework: dict[str, Any],
-    path: Path,
+    chart_path: str | None,
+    candidate_summary: list[dict[str, str]],
+    action_decision: dict[str, Any] | None = None,
 ) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
+    action_decision = action_decision or {}
     style_map = styles()
     doc = SimpleDocTemplate(
         str(path),
         pagesize=A4,
-        rightMargin=1.25 * cm,
-        leftMargin=1.25 * cm,
-        topMargin=1.15 * cm,
-        bottomMargin=1.1 * cm,
-        title=f"{stock_id} {stock_name} individual stock report",
+        rightMargin=1.4 * cm,
+        leftMargin=1.4 * cm,
+        topMargin=1.3 * cm,
+        bottomMargin=1.2 * cm,
     )
     story: list[Any] = []
-    story.append(paragraph(f"個股分析報告 - {stock_id} {stock_name}", style_map["title"]))
-    story.append(paragraph(f"主資料日期 {main_date}｜產生時間 {now_text()}｜分析天數 {days}", style_map["subtitle"]))
-    story.append(paragraph(f"綜合優先度：{priority}", style_map["h1"]))
-    story.append(paragraph(price_metrics.get("price_state", "-"), style_map["normal"]))
-    story.append(paragraph("本報告只依公開市場資料與系統訊號分析，非買賣建議。", style_map["small"]))
+    main_date = display_text(freshness.get("main_price_date"), default="資料日期未確認")
+    days = int(price_metrics.get("available_days") or 0)
+    candidate_intro = candidate_summary[0].get("reason", "") if candidate_summary else "今日未進入主要候選模型，僅依價格與籌碼資料分析。"
 
-    story.append(paragraph("一、資料狀態", style_map["h1"]))
-    status_rows = [
-        ["項目", "狀態"],
-        ["report_ready", freshness.get("report_ready", "-")],
-        ["日價資料", f"{price_metrics.get('available_days', 0)} 筆，最新日期 {price_metrics.get('latest_date', '-')}"],
-        ["候選分類", candidate_intro],
-        ["TDCC", f"{tdcc['signal']} / {tdcc['status']}"],
-        ["權證", f"{warrant['signal']} / {warrant['status']}"],
-    ]
-    story.append(pdf_table(status_rows, [3.0 * cm, 14.5 * cm], style_map))
-    story.append(Spacer(1, 0.2 * cm))
+    story.append(paragraph(f"{stock_id} {stock_name} 單一個股分析報告", style_map["title"]))
+    story.append(paragraph(f"資料基準日：{main_date}；產出時間：{now_text()}；價格資料：約 {days} 個交易日", style_map["subtitle"]))
+    story.append(Spacer(1, 0.25 * cm))
+    story.append(paragraph("一、核心操作結論", style_map["h1"]))
+    story.append(paragraph(f"操作評級：{action_field(action_decision, 'action_rating_display_zh')}", style_map["h2"]))
+    story.append(paragraph(action_field(action_decision, "action_summary_zh"), style_map["normal"]))
+    story.append(pdf_table([
+        ["項目", "內容"],
+        ["模型定位", action_field(action_decision, "model_category_display_zh")],
+        ["進場策略", action_field(action_decision, "entry_strategy_zh")],
+        ["部位建議", action_field(action_decision, "position_sizing_zh")],
+        ["加碼規則", action_field(action_decision, "add_position_strategy_zh")],
+        ["停利策略", action_field(action_decision, "take_profit_strategy_zh")],
+        ["風控條件", action_field(action_decision, "risk_control_zh")],
+        ["買進後追蹤", action_field(action_decision, "post_entry_watch_zh")],
+        ["分數解讀", action_field(action_decision, "score_interpretation_zh")],
+    ], [3.0 * cm, 14.0 * cm], style_map))
 
-    story.append(paragraph("二、價格與型態", style_map["h1"]))
-    if chart_path.exists():
-        story.append(PdfImage(str(chart_path), width=17.2 * cm, height=10.2 * cm))
-        story.append(Spacer(1, 0.15 * cm))
-    price_rows = [
-        ["指標", "數值", "指標", "數值"],
+    story.append(paragraph("二、資料基準與價格位置", style_map["h1"]))
+    story.append(pdf_table([
+        ["項目", "內容"],
+        ["資料狀態", report_data_status(freshness, price_metrics)],
+        ["候選摘要", display_text(candidate_intro)],
+        ["TDCC", f"{display_text(tdcc.get('signal'))} / {display_text(tdcc.get('status'))}"],
+        ["權證", f"{display_text(warrant.get('signal'))} / {display_text(warrant.get('status'))}"],
+    ], [3.0 * cm, 14.0 * cm], style_map))
+    if chart_path and Path(chart_path).exists():
+        story.append(Spacer(1, 0.2 * cm))
+        story.append(PdfImage(str(chart_path), width=17.0 * cm, height=8.0 * cm))
+
+    rows = [
+        ["項目", "數值", "項目", "數值"],
         ["收盤價", fmt_num(price_metrics.get("close")), "量比", f"{fmt_num(price_metrics.get('volume_ratio'), 2)}x"],
-        ["1日 / 5日", f"{fmt_pct(price_metrics.get('return_1d'))} / {fmt_pct(price_metrics.get('return_5d'))}", "20日 / 60日", f"{fmt_pct(price_metrics.get('return_20d'))} / {fmt_pct(price_metrics.get('return_60d'))}"],
-        ["23EMA 主觀察線", fmt_num(price_metrics.get("ema23")), "股價與23EMA", f"{price_metrics.get('ema23_position', '-')} / {fmt_pct(price_metrics.get('distance_ema23'))}"],
-        ["23EMA 5日斜率", f"{fmt_pct(price_metrics.get('ema23_slope_5d'))} / {price_metrics.get('ema23_slope_label', '-')}", "距60日高點", fmt_pct(price_metrics.get("distance_high_60"))],
-        ["23EMA 回測狀態", price_metrics.get("ema23_support_status", "-"), "輔助均線", "MA20 / MA60 後端保留"],
+        ["1日 / 5日報酬", f"{fmt_pct(price_metrics.get('return_1d'))} / {fmt_pct(price_metrics.get('return_5d'))}", "20日 / 60日報酬", f"{fmt_pct(price_metrics.get('return_20d'))} / {fmt_pct(price_metrics.get('return_60d'))}"],
+        ["23EMA", fmt_num(price_metrics.get("ema23")), "距 23EMA", fmt_pct(price_metrics.get("distance_ema23"))],
+        ["23EMA 斜率", f"{fmt_pct(price_metrics.get('ema23_slope_5d'))} / {display_text(price_metrics.get('ema23_slope_label'), default='-')}", "距 60日高點", fmt_pct(price_metrics.get("distance_high_60"))],
+        ["23EMA 狀態", display_text(price_metrics.get("ema23_support_status"), default="-"), "價格狀態", display_text(price_metrics.get("price_state"), default="-")],
     ]
-    story.append(pdf_table(price_rows, [3.2 * cm, 5.6 * cm, 3.2 * cm, 5.5 * cm], style_map))
+    story.append(pdf_table(rows, [4.0 * cm, 4.5 * cm, 4.0 * cm, 4.5 * cm], style_map))
 
-    append_technical_time_signal_pdf_section(story, style_map, price_metrics)
-
-    story.append(paragraph("三、候選分類訊號", style_map["h1"]))
-    if candidate_items:
-        rows = [["分類", "分數 / 排名 / priority", "TDCC", "權證", "精簡理由"]]
-        rows.extend([[i["category"], i["score_rank"], i["tdcc"], i["warrant"], i["note"]] for i in candidate_items])
-        story.append(pdf_table(rows, [3.3 * cm, 3.2 * cm, 2.5 * cm, 2.5 * cm, 6.0 * cm], style_map))
+    story.append(paragraph("三、模型與候選資料", style_map["h1"]))
+    if candidate_summary:
+        rows = [["分類 / 模型", "分數 / 排名 / 優先度", "TDCC", "權證", "入選理由"]]
+        for row in candidate_summary[:6]:
+            rows.append([
+                row.get("category", "-"),
+                f"{row.get('score', '-')} / {row.get('rank', '-')} / {row.get('priority', '-')}",
+                row.get("tdcc", "-"),
+                row.get("warrant", "-"),
+                row.get("reason", "-"),
+            ])
+        story.append(pdf_table(rows, [3.4 * cm, 3.0 * cm, 2.4 * cm, 2.4 * cm, 5.8 * cm], style_map))
     else:
-        story.append(paragraph(candidate_intro, style_map["normal"]))
+        story.append(paragraph("今日沒有主要候選模型資料，僅能依價格、TDCC 與權證資料輔助判斷。", style_map["normal"]))
 
-    story.append(PageBreak())
-    story.append(paragraph("四、營收判斷", style_map["h1"]))
-    revenue_rows = [
-        ["項目", "內容"],
-        ["狀態", revenue["status"]],
-        ["單月 YoY", revenue["latest_yoy"]],
-        ["累計 YoY", revenue["cumulative_yoy"]],
-        ["說明", revenue["note"]],
-    ]
-    story.append(pdf_table(revenue_rows, [3.0 * cm, 14.5 * cm], style_map))
+    story.append(paragraph("四、營收、TDCC、權證摘要", style_map["h1"]))
+    story.append(pdf_table([
+        ["面向", "狀態", "重點"],
+        ["營收", revenue.get("status", "-"), f"最新 YoY {revenue.get('latest_yoy', '-')}；累計 YoY {revenue.get('cumulative_yoy', '-')}；{revenue.get('note', '-')}"] ,
+        ["TDCC", tdcc.get("signal", "-"), f"400張以上 {tdcc.get('over_400', '-')}；1000張以上 {tdcc.get('over_1000', '-')}；{tdcc.get('note', '-')}"] ,
+        ["權證", warrant.get("signal", "-"), f"分數 {warrant.get('score', '-')}；{warrant.get('note', '-')}"] ,
+    ], [2.6 * cm, 3.0 * cm, 11.4 * cm], style_map))
 
-    story.append(paragraph("五、TDCC 判斷", style_map["h1"]))
-    tdcc_rows = [
-        ["項目", "內容"],
-        ["訊號", tdcc["signal"]],
-        ["判讀", tdcc["status"]],
-        ["400 張以上", tdcc["over_400"]],
-        ["1000 張以上", tdcc["over_1000"]],
-        ["說明", tdcc["note"]],
-    ]
-    story.append(pdf_table(tdcc_rows, [3.0 * cm, 14.5 * cm], style_map))
-
-    story.append(paragraph("六、權證判斷", style_map["h1"]))
-    warrant_rows = [
-        ["項目", "內容"],
-        ["日期", warrant["date"]],
-        ["訊號 / 分數", f"{warrant['signal']} / {warrant['score']}"],
-        ["判讀", warrant["status"]],
-        ["說明", warrant["note"]],
-    ]
-    story.append(pdf_table(warrant_rows, [3.0 * cm, 14.5 * cm], style_map))
-
-    story.append(paragraph("七、風險提醒", style_map["h1"]))
-    for item in risks:
-        story.append(paragraph(f"- {item}", style_map["normal"]))
-
-    append_tdcc_history_pdf_section(story, style_map, tdcc_history, tdcc_chart_path)
-    append_sell_framework_pdf_section(story, style_map, sell_framework)
-
-    story.append(paragraph("八、明日觀察條件", style_map["h1"]))
-    for item in price_metrics.get("confirmation", []):
-        story.append(paragraph(f"- {item}", style_map["normal"]))
-
+    story.append(paragraph("五、主要風險與管理", style_map["h1"]))
+    story.append(paragraph(clean_join(risks, default="目前沒有明確重大風險，但仍需依支撐、TDCC 與量價變化管理。"), style_map["normal"]))
+    story.append(paragraph(f"最終結論：{action_field(action_decision, 'final_decision_zh')}", style_map["normal"]))
     doc.build(story)
-
-
 def pages_url(path: Path) -> str:
     if path.as_posix().startswith("docs/"):
         rel = path.relative_to("docs").as_posix()
@@ -2037,9 +2113,11 @@ def write_manifest(
     tdcc_history: dict[str, Any] | None = None,
     tdcc_chart_path: Path | None = None,
     sell_outputs: dict[str, str] | None = None,
+    action_decision: dict[str, Any] | None = None,
 ) -> None:
     tdcc_history = tdcc_history or {}
     sell_outputs = sell_outputs or {}
+    action_decision = action_decision or {}
     tdcc_status = tdcc_history.get("status", {})
     manifest = {
         "generated_at": now_text(),
@@ -2050,6 +2128,12 @@ def write_manifest(
         "analysis_days": days,
         "available_price_days": price_metrics.get("available_days", 0),
         "priority": priority,
+        "action_rating_display_zh": action_decision.get("action_rating_display_zh", ""),
+        "action_summary_zh": action_decision.get("action_summary_zh", ""),
+        "entry_strategy_zh": action_decision.get("entry_strategy_zh", ""),
+        "position_sizing_zh": action_decision.get("position_sizing_zh", ""),
+        "risk_control_zh": action_decision.get("risk_control_zh", ""),
+        "final_decision_zh": action_decision.get("final_decision_zh", ""),
         "latest_md_path": paths.latest_md.as_posix(),
         "latest_pdf_path": paths.latest_pdf.as_posix(),
         "latest_chart_path": paths.latest_png.as_posix(),
@@ -2102,6 +2186,7 @@ def generate(stock_id_input: str, days: int) -> ReportPaths:
     tdcc = tdcc_summary(tdcc_raw, candidate_rows)
     warrant = warrant_summary(warrant_row)
     priority = overall_priority(price_metrics, candidate_rows, tdcc, warrant)
+    action_decision = build_action_context(candidate_rows, price_metrics, tdcc, warrant)
     risks = build_risks(price_metrics, tdcc, warrant, candidate_rows)
     tdcc_history = tdcc_history_analysis(stock_id)
     sell_framework = build_sell_framework(
@@ -2129,46 +2214,33 @@ def generate(stock_id_input: str, days: int) -> ReportPaths:
     )
     if not tdcc_chart_created and tdcc_chart_path.exists():
         tdcc_chart_path.unlink()
-    md = build_markdown(
+    build_markdown(
+        path=paths.latest_md,
         stock_id=stock_id,
         stock_name=stock_name,
-        days=days,
         freshness=freshness,
-        main_date=main_date,
         price_metrics=price_metrics,
-        candidate_intro=candidate_intro,
-        candidate_items=candidate_items,
         revenue=revenue,
         tdcc=tdcc,
         warrant=warrant,
-        priority=priority,
         risks=risks,
-        chart_path=paths.latest_png,
-        tdcc_history=tdcc_history,
-        tdcc_chart_path=tdcc_chart_path if tdcc_chart_created else None,
-        sell_framework=sell_framework,
-        paths=paths,
+        chart_path=paths.latest_png.as_posix(),
+        candidate_summary=candidate_items,
+        action_decision=action_decision,
     )
-    paths.latest_md.write_text(md, encoding="utf-8")
     build_pdf(
+        path=paths.latest_pdf,
         stock_id=stock_id,
         stock_name=stock_name,
-        days=days,
         freshness=freshness,
-        main_date=main_date,
         price_metrics=price_metrics,
-        candidate_intro=candidate_intro,
-        candidate_items=candidate_items,
         revenue=revenue,
         tdcc=tdcc,
         warrant=warrant,
-        priority=priority,
         risks=risks,
         chart_path=paths.latest_png,
-        tdcc_history=tdcc_history,
-        tdcc_chart_path=tdcc_chart_path if tdcc_chart_created else None,
-        sell_framework=sell_framework,
-        path=paths.latest_pdf,
+        candidate_summary=candidate_items,
+        action_decision=action_decision,
     )
     write_manifest(
         paths,
@@ -2181,6 +2253,7 @@ def generate(stock_id_input: str, days: int) -> ReportPaths:
         tdcc_history=tdcc_history,
         tdcc_chart_path=tdcc_chart_path if tdcc_chart_created else None,
         sell_outputs=sell_outputs,
+        action_decision=action_decision,
     )
     copy_outputs(paths)
 

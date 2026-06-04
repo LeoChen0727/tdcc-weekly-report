@@ -1,11 +1,14 @@
 from __future__ import annotations
 
 import math
+import re
 from collections.abc import Mapping
 from typing import Any
 
 from tracking_utils import safe_str, to_number
 
+
+DISPLAY_FALLBACK = "資料不足 / 僅能觀察"
 
 ACTION_COLUMNS = [
     "action_rating",
@@ -18,6 +21,18 @@ ACTION_COLUMNS = [
     "downgrade_reason",
     "confidence_level",
     "thesis_state",
+    "action_rating_display_zh",
+    "action_summary_zh",
+    "entry_strategy_zh",
+    "position_sizing_zh",
+    "add_position_strategy_zh",
+    "take_profit_strategy_zh",
+    "risk_control_zh",
+    "post_entry_watch_zh",
+    "final_decision_zh",
+    "score_interpretation_zh",
+    "model_category_display_zh",
+    "entry_prerequisites_zh",
 ]
 
 ACTION_LABELS = {
@@ -42,6 +57,116 @@ POST_ENTRY_WATCH_ITEMS = [
     "event_follow_through",
     "warrant_overheat_check",
 ]
+
+CATEGORY_LABELS = {
+    "true_breakout": "嚴格突破",
+    "strict_breakout": "嚴格突破",
+    "volume_range_breakout": "帶量突破模型",
+    "range_breakout_volume": "帶量突破模型",
+    "volume_breakout": "帶量突破模型",
+    "volume_attack": "放量攻擊",
+    "hot_theme_pullback": "熱門族群回檔模型",
+    "theme_pullback": "熱門族群回檔模型",
+    "revenue_growth_pullback": "營收成長股價回檔",
+    "revenue_pullback": "營收成長股價回檔",
+    "revenue_breakout_low_response": "營收爆發但股價尚未反應",
+    "tdcc_pre_move": "TDCC 潛伏吸籌模型",
+    "tdcc_quiet_accumulation": "TDCC 潛伏吸籌模型",
+    "tdcc_short_term_edge": "TDCC 短線延續模型 D+5/D+10",
+    "range_rebound": "區間內轉強 / 挑戰前高觀察",
+    "pullback_rebound": "回檔後短線轉強",
+    "w_bottom_right_side": "W 底右側模型",
+    "w_bottom_attack": "W 底右側模型",
+    "platform_turn_strong": "平台整理轉強模型",
+    "near_high_neckline": "接近前高 / 頸線挑戰模型",
+    "near_resistance": "接近前高 / 頸線挑戰模型",
+    "short_term_specialty": "短線專項",
+    "pattern": "型態觀察",
+}
+
+ENTRY_STYLE_LABELS = {
+    "current_price_ok": "目前價位可建立第一筆",
+    "pullback_to_23ema": "回測 23EMA 附近",
+    "pullback_to_support": "回測支撐區",
+    "reclaim_23ema": "等待站回 23EMA",
+    "breakout_follow": "突破後順勢追蹤",
+    "post_breakout_retest": "突破後回測不破",
+    "no_entry_now": "目前沒有新買條件",
+}
+
+POSITION_SIZE_LABELS = {
+    "normal_position": "正常部位",
+    "half_position": "半部位",
+    "starter_1_3": "試單 1/3 部位",
+    "starter_1_4": "試單 1/4 部位",
+    "observe_only": "僅觀察",
+    "reduce_position": "降低部位",
+    "exit_position": "退出部位",
+}
+
+MANAGEMENT_LABELS = {
+    "buy_first_tranche_now": "可建立第一筆部位",
+    "buy_first_tranche_near_support": "接近支撐區可建立第一筆部位",
+    "add_on_23ema_hold": "守住 23EMA 後再加碼",
+    "add_on_reclaim_23ema": "站回 23EMA 後再加碼",
+    "add_on_breakout": "放量突破後再加碼",
+    "take_profit_near_prior_high": "接近前高或壓力區分批停利",
+    "take_profit_on_volume_price_failure": "爆量不漲、長上影或量價背離時優先停利",
+    "exit_if_lost_23ema": "跌破 23EMA 且 1 到 3 日內無法收回時退出",
+    "exit_if_lost_recent_low": "跌破近期低點時退出",
+    "exit_if_revenue_breaks": "營收或基本面轉弱時降低部位",
+    "exit_if_tdcc_and_price_both_weaken": "TDCC 與價格同步轉弱時退出",
+}
+
+PREREQUISITE_LABELS = {
+    "model_recommended": "符合模型推薦條件",
+    "decision_priority_high": "追蹤優先級高",
+    "decision_score_high": "模型分數高",
+    "price_structure_not_broken": "價格結構未破壞",
+    "near_23ema_or_support": "接近 23EMA 或支撐區",
+    "revenue_not_deteriorating": "營收沒有明顯轉弱",
+    "no_major_tdcc_warning": "沒有重大 TDCC 轉弱警示",
+    "no_major_volume_price_failure": "沒有重大量價失敗",
+    "acceptable_risk_reward": "風險報酬可接受",
+}
+
+WATCH_LABELS = {
+    "next_monthly_revenue": "下一次月營收",
+    "next_tdcc_update": "下一週 TDCC 更新",
+    "23ema_hold_or_reclaim": "23EMA 是否守穩或快速站回",
+    "volume_price_confirmation": "量價是否延續",
+    "prior_high_breakout_quality": "前高突破品質",
+    "sector_benchmark_strength": "族群與 benchmark 強弱",
+    "event_follow_through": "事件題材是否延續",
+    "warrant_overheat_check": "權證是否過熱",
+}
+
+DOWNGRADE_LABELS = {
+    "insufficient_price_data": "價格資料不足",
+    "insufficient_tdcc_history": "TDCC 歷史不足",
+    "tdcc_distribution_warning": "TDCC 轉弱警示",
+    "volume_price_failure": "量價失敗",
+    "below_23ema_not_reclaimed": "跌破 23EMA 尚未站回",
+    "revenue_deceleration": "營收成長放緩",
+    "benchmark_weak": "弱於 benchmark",
+    "price_too_extended": "股價乖離過大",
+    "risk_reward_unfavorable": "風險報酬不佳",
+    "event_unverified": "事件尚未確認",
+    "breakout_failed": "突破失敗",
+}
+
+THESIS_LABELS = {
+    "healthy_pullback": "健康回檔",
+    "momentum_reset": "動能重置",
+    "breakout_initial": "初步突破",
+    "breakout_confirmed": "突破確認",
+    "post_breakout_retest": "突破後回測",
+    "high_level_consolidation": "高檔整理",
+    "high_level_distribution_risk": "高檔籌碼鬆動風險",
+    "failed_breakout": "突破失敗",
+    "trend_failure_risk": "趨勢失敗風險",
+    "unclear": "訊號不明",
+}
 
 
 def _get(row: Mapping[str, Any], *names: str) -> str:
@@ -76,6 +201,144 @@ def _contains_any(text: str, needles: list[str]) -> bool:
 
 def _join(items: list[str]) -> str:
     return "|".join(dict.fromkeys([item for item in items if item]))
+
+
+def _split_items(value: str) -> list[str]:
+    text = safe_str(value)
+    if not text:
+        return []
+    return [part.strip() for part in re.split(r"[|,;、\n]+", text) if part.strip()]
+
+
+def _translate_items(items: list[str] | str, mapping: Mapping[str, str], fallback: str = DISPLAY_FALLBACK) -> str:
+    if isinstance(items, str):
+        raw_items = _split_items(items)
+    else:
+        raw_items = [safe_str(item) for item in items if safe_str(item)]
+
+    labels: list[str] = []
+    for item in raw_items:
+        label = mapping.get(item) or mapping.get(item.lower())
+        if label:
+            labels.append(label)
+    if labels:
+        return "、".join(dict.fromkeys(labels))
+    return fallback
+
+
+def re_has_slug(text: str) -> bool:
+    return bool(re.search(r"\b[a-z]+_[a-z0-9_]+\b", safe_str(text)))
+
+
+def _first_display_value(row: Mapping[str, Any], *names: str) -> str:
+    for name in names:
+        value = _get(row, name)
+        if value:
+            return value
+    return ""
+
+
+def _category_display(row: Mapping[str, Any], category: str) -> str:
+    direct = _first_display_value(
+        row,
+        "model_name_zh",
+        "category_cn",
+        "category_zh",
+        "source_category_zh",
+        "category_display_zh",
+    )
+    if direct and not re_has_slug(direct):
+        return direct
+
+    for token in _split_items(category):
+        label = CATEGORY_LABELS.get(token.lower())
+        if label:
+            return label
+    return "模型分類尚未完成"
+
+
+def _score_interpretation(score: float, action_rating: str) -> str:
+    if math.isnan(score):
+        score_text = "目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。"
+    elif score >= 82:
+        score_text = "模型分數偏高，代表條件完整度較高。"
+    elif score >= 68:
+        score_text = "模型分數中上，代表條件具備但仍需依風控執行。"
+    else:
+        score_text = "模型分數偏低，僅適合作為低部位觀察。"
+
+    if action_rating in {"buy_now", "scale_in", "starter_position"}:
+        return f"{score_text} 目前可依部位規則建立第一筆，後續用風控與追蹤項目管理。"
+    if action_rating in {"wait_pullback", "wait_reclaim"}:
+        return f"{score_text} 目前以等待條件改善為主，不應把追蹤項目誤當成已完成確認。"
+    if action_rating in {"take_profit", "reduce", "avoid"}:
+        return f"{score_text} 目前風險條件較高，應優先控管部位與失效條件。"
+    return f"{score_text} 目前以既有部位管理與條件追蹤為主。"
+
+
+def _build_display_fields(
+    row: Mapping[str, Any],
+    *,
+    action_rating: str,
+    score: float,
+    category: str,
+    entry_style: str,
+    position_sizing: str,
+    management_plan: list[str],
+    entry_prerequisites: list[str],
+    downgrade_reasons: list[str],
+    post_entry_watch_items: list[str],
+    confidence: str,
+    thesis_state: str,
+) -> dict[str, str]:
+    action_label = ACTION_LABELS.get(action_rating, DISPLAY_FALLBACK)
+    category_label = _category_display(row, category)
+    thesis_label = THESIS_LABELS.get(thesis_state, "訊號不明")
+    entry_label = ENTRY_STYLE_LABELS.get(entry_style, "進場條件尚未完成")
+    position_label = POSITION_SIZE_LABELS.get(position_sizing, "僅觀察")
+    management_text = _translate_items(management_plan, MANAGEMENT_LABELS)
+    prerequisite_text = _translate_items(entry_prerequisites, PREREQUISITE_LABELS)
+    watch_text = _translate_items(post_entry_watch_items, WATCH_LABELS)
+    downgrade_text = _translate_items(downgrade_reasons, DOWNGRADE_LABELS)
+    score_text = _score_interpretation(score, action_rating)
+
+    if action_rating in {"buy_now", "scale_in", "starter_position"}:
+        summary = f"符合{category_label}，價格結構尚未破壞，程式端評級為「{action_label}」。"
+    elif action_rating == "wait_pullback":
+        summary = f"{category_label}條件仍可追蹤，但目前風險報酬不佳，需等待回檔到支撐區。"
+    elif action_rating == "wait_reclaim":
+        summary = f"{category_label}條件仍可追蹤，但需先站回關鍵均線或壓力區。"
+    elif action_rating in {"take_profit", "reduce", "avoid"}:
+        summary = f"{category_label}已出現風險控管條件，程式端評級為「{action_label}」。"
+    else:
+        summary = f"{category_label}目前屬於{thesis_label}，以條件追蹤為主。"
+
+    if management_text == DISPLAY_FALLBACK:
+        management_text = "依 23EMA、支撐壓力、量價與 TDCC 變化分批管理。"
+    if watch_text == DISPLAY_FALLBACK:
+        watch_text = "追蹤下一次營收、TDCC 更新、23EMA 守穩與族群強弱。"
+    if downgrade_text == DISPLAY_FALLBACK:
+        downgrade_text = "跌破 23EMA 或近期低點、量價失敗、營收轉弱或 TDCC 與價格同步轉弱時降低部位。"
+
+    entry_strategy = f"{entry_label}；第一筆部位以「{position_label}」執行。"
+    position_text = f"{position_label}；不得一次買滿，後續依支撐、站回或突破條件加碼。"
+    take_profit_text = "接近前高或壓力區先分批停利；若爆量不漲、長上影或量價背離，優先收回風險。"
+    final_decision = f"{summary} 進場：{entry_strategy} 追蹤：{watch_text} 風控：{downgrade_text}"
+
+    return {
+        "action_rating_display_zh": action_label,
+        "action_summary_zh": summary,
+        "entry_strategy_zh": entry_strategy,
+        "position_sizing_zh": position_text,
+        "add_position_strategy_zh": management_text,
+        "take_profit_strategy_zh": take_profit_text,
+        "risk_control_zh": downgrade_text,
+        "post_entry_watch_zh": watch_text,
+        "final_decision_zh": final_decision,
+        "score_interpretation_zh": score_text,
+        "model_category_display_zh": category_label,
+        "entry_prerequisites_zh": prerequisite_text,
+    }
 
 
 def compute_action_decision(row: Mapping[str, Any]) -> dict[str, str]:
@@ -130,10 +393,10 @@ def compute_action_decision(row: Mapping[str, Any]) -> dict[str, str]:
     )
     below_reclaim_needed = _contains_any(
         text_blob,
-        ["below_23ema_not_reclaimed", "lost_23ema", "wait_reclaim", "跌破23ema未收回", "跌破未站回"],
+        ["below_23ema_not_reclaimed", "lost_23ema", "wait_reclaim"],
     )
-    revenue_deceleration = _contains_any(text_blob, ["revenue_deceleration", "revenue_breaks", "營收轉弱"])
-    benchmark_weak = _contains_any(text_blob, ["benchmark_weak", "benchmark lag", "benchmark落後"])
+    revenue_deceleration = _contains_any(text_blob, ["revenue_deceleration", "revenue_breaks"])
+    benchmark_weak = _contains_any(text_blob, ["benchmark_weak", "benchmark lag"])
     insufficient_price = _contains_any(text_blob, ["insufficient_price_data"])
     insufficient_tdcc = _contains_any(text_blob, ["insufficient_tdcc_history"])
     risk_reward_unfavorable = _contains_any(text_blob, ["risk_reward_unfavorable"])
@@ -154,7 +417,10 @@ def compute_action_decision(row: Mapping[str, Any]) -> dict[str, str]:
         (not math.isnan(return_20d) and return_20d >= 30)
         or (not math.isnan(distance_to_ma20) and distance_to_ma20 >= 18)
         or (not math.isnan(distance_to_ema23) and distance_to_ema23 >= 15)
-        or _contains_any(text_blob, ["continued_overheated", "mainstream_overheated", "overheated_after_tdcc", "already_priced_in", "priced_in=true"])
+        or _contains_any(
+            text_blob,
+            ["continued_overheated", "mainstream_overheated", "overheated_after_tdcc", "already_priced_in", "priced_in=true"],
+        )
     )
     near_support = (
         "pullback" in category
@@ -190,7 +456,7 @@ def compute_action_decision(row: Mapping[str, Any]) -> dict[str, str]:
     if _contains_any(text_blob, ["event_unverified", "catalyst_unverified"]):
         downgrade_reasons.append("event_unverified")
 
-    entry_prerequisites = []
+    entry_prerequisites: list[str] = []
     if model_recommended:
         entry_prerequisites.append("model_recommended")
     if priority_high:
@@ -294,6 +560,21 @@ def compute_action_decision(row: Mapping[str, Any]) -> dict[str, str]:
     else:
         thesis_state = "unclear"
 
+    display_fields = _build_display_fields(
+        row,
+        action_rating=action_rating,
+        score=score,
+        category=category,
+        entry_style=entry_style,
+        position_sizing=position_sizing,
+        management_plan=management_plan,
+        entry_prerequisites=entry_prerequisites,
+        downgrade_reasons=downgrade_reasons,
+        post_entry_watch_items=POST_ENTRY_WATCH_ITEMS,
+        confidence=confidence,
+        thesis_state=thesis_state,
+    )
+
     return {
         "action_rating": action_rating,
         "action_rating_label_zh": ACTION_LABELS[action_rating],
@@ -305,4 +586,5 @@ def compute_action_decision(row: Mapping[str, Any]) -> dict[str, str]:
         "downgrade_reason": _join(downgrade_reasons),
         "confidence_level": confidence,
         "thesis_state": thesis_state,
+        **display_fields,
     }

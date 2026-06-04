@@ -25,57 +25,58 @@ For price/pattern analysis, continue to read the 180-trading-day price window be
 
 For the main K-line chart in the individual stock PDF/report, draw only the latest half-year trading window by default: `126` trading days. Do not make the main report chart 180 days unless the user explicitly asks for a longer view.
 
-## ACTION_DECISION Is Binding
+## ACTION_DISPLAY Is The PDF Contract
 
-The individual stock packet may contain `## ACTION_DECISION`. This is the program-side action decision for report language.
+The individual stock packet may contain both `## ACTION_DISPLAY` and `## ACTION_DECISION`.
 
-Use these fields directly:
+Formal investor-facing PDF / Markdown reports must use `ACTION_DISPLAY` fields only:
 
+- `action_rating_display_zh`
+- `model_category_display_zh`
+- `score_interpretation_zh`
+- `action_summary_zh`
+- `entry_strategy_zh`
+- `position_sizing_zh`
+- `add_position_strategy_zh`
+- `take_profit_strategy_zh`
+- `risk_control_zh`
+- `post_entry_watch_zh`
+- `final_decision_zh`
+
+`ACTION_DECISION` is internal model context. Do not print raw internal field names or raw enum values in formal report prose.
+
+Forbidden in formal PDF / Markdown prose:
+
+- `ACTION_DECISION`
 - `action_rating`
-- `action_rating_label_zh`
-- `confidence_level`
-- `thesis_state`
-- `entry_style`
-- `position_sizing`
-- `management_plan`
-- `entry_prerequisites`
-- `post_entry_watch_items`
-- `downgrade_reason`
+- `starter_position`
+- `scale_in`
+- `buy_now`
+- `wait_pullback`
+- `wait_reclaim`
+- `decision_score`
+- `daily_candidate_decision`
+- `model_slug`
+- `packet`
+- `raw field name`
+- `程式端欄位`
 
-Allowed `action_rating` values:
-
-- `buy_now`: 建議買進
-- `scale_in`: 可分批買進
-- `starter_position`: 可小量試單
-- `wait_pullback`: 等待回檔
-- `wait_reclaim`: 等待站回
-- `hold_only`: 已持有續抱
-- `take_profit`: 停利
-- `reduce`: 減碼
-- `avoid`: 不建議買進 / 避開
+If a display field is missing, write `資料不足 / 暫用現有資料`; do not expose the raw internal value.
 
 ## Entry Versus Management
 
-Separate first-entry requirements from after-entry monitoring:
+Separate first-entry language from after-entry monitoring:
 
-- `entry_prerequisites` are buy-first-tranche requirements.
-- `post_entry_watch_items` are management checks after entry.
+- `entry_strategy_zh` describes first-tranche entry conditions and entry style.
+- `post_entry_watch_zh` describes management checks after entry.
 
-Do not turn `next_monthly_revenue`, `next_tdcc_update`, sector follow-through, event follow-through, or warrant overheat checks into automatic pre-entry blockers unless the packet lists them in `entry_prerequisites`.
-
-If `action_rating` is `buy_now`, `scale_in`, or `starter_position`, do not downgrade it to "等待買點", "等待確認", `wait_pullback`, or `wait_reclaim` unless current repo data directly contradicts `ACTION_DECISION`.
-
-If a downgrade is necessary, the report must state:
-
-- original program-side `action_rating`
-- downgraded action
-- concrete contradiction or `downgrade_reason`
+Do not turn `next_monthly_revenue`, `next_tdcc_update`, sector follow-through, event follow-through, or warrant overheat checks into automatic pre-entry blockers unless the display text explicitly says they are first-entry blockers.
 
 ## Required Report Behavior
 
-The opening conclusion must quote `action_rating_label_zh`.
+The opening conclusion must quote `action_rating_display_zh`.
 
-For `buy_now`, `scale_in`, and `starter_position`, the report must state:
+For 建議買進 / 可分批買進 / 可小量試單, the report must state:
 
 - whether the first tranche can be entered now
 - suggested position size
