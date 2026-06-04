@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0062 富邦台50
 
 ## Metadata
-- generated_at: 2026-06-04 21:48:04 Asia/Taipei
+- generated_at: 2026-06-05 01:25:02 Asia/Taipei
 - stock_id: 0062
 - stock_name: 富邦台50
 - packet_status: insufficient_price_data

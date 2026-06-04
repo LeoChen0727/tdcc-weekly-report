@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7262 櫃200群益5B售02
 
 ## Metadata
-- generated_at: 2026-06-04 21:51:09 Asia/Taipei
+- generated_at: 2026-06-05 01:27:55 Asia/Taipei
 - stock_id: 7262
 - stock_name: 櫃200群益5B售02
 - packet_status: standard_180d_window_packet

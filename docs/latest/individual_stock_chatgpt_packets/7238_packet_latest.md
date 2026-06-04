@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7238 中光電國票57售03
 
 ## Metadata
-- generated_at: 2026-06-04 21:51:08 Asia/Taipei
+- generated_at: 2026-06-05 01:27:54 Asia/Taipei
 - stock_id: 7238
 - stock_name: 中光電國票57售03
 - packet_status: standard_180d_window_packet
