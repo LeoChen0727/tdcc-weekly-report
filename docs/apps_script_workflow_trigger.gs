@@ -146,6 +146,8 @@ function triggerResearchBacktestPipeline() {
     run_catalyst_performance: "true",
     run_msci_rebalance: "true",
     run_tdcc_signal_performance: "true",
+    run_tdcc_short_term_edge: "true",
+    run_short_term_specialty_packet: "true",
     run_model_parameter_research: "true",
   });
   Utilities.sleep(5000);

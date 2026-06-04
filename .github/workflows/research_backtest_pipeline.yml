@@ -39,6 +39,14 @@ on:
         description: "Run TDCC normalized signal performance/effectiveness backtest"
         required: false
         default: "true"
+      run_tdcc_short_term_edge:
+        description: "Run TDCC overheated short-term edge research"
+        required: false
+        default: "true"
+      run_short_term_specialty_packet:
+        description: "Run short-term specialty ChatGPT packet rebuild"
+        required: false
+        default: "true"
       run_model_parameter_research:
         description: "Run daily candidate model parameter research"
         required: false
@@ -81,6 +89,7 @@ jobs:
           python scripts/build_market_timing_technical_backtest.py
 
       - name: Build TDCC overheated short-term edge
+        if: ${{ github.event.inputs.run_tdcc_short_term_edge == 'true' }}
         run: |
           python scripts/build_tdcc_overheated_short_term_edge.py
 
@@ -110,6 +119,7 @@ jobs:
           python scripts/research_explosive_volume_up.py
 
       - name: Build short-term specialty packet
+        if: ${{ github.event.inputs.run_short_term_specialty_packet == 'true' }}
         run: |
           python scripts/build_daily_short_term_specialty_packet.py
 
