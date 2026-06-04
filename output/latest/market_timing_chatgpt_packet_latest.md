@@ -1,7 +1,7 @@
 # MARKET TIMING CHATGPT PACKET
 
 ## Metadata
-- generated_at: 2026-06-04 23:03:46 Asia/Taipei
+- generated_at: 2026-06-04 23:11:19 Asia/Taipei
 - main_price_date: 20260603
 - index_list: TPEX, TWSE
 - data_range: 20241202 ~ 20260603
@@ -12,7 +12,7 @@
 | index_id | trade_date | close | ret_5d | ret_20d | market_regime | risk_level | trend_summary | momentum_summary | kd_summary | volatility_summary | volume_flow_summary | breadth_summary | futures_options_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | TPEX | 20260603 | 446.82 | 1.51 | 8.90 | strong_bull | low_risk | 多頭 | 中性 | 中性 | 正常 | 中性 | 擴散 | 期權資料已整合 |
-| TWSE | 20260603 | 46459.16 | 4.98 | 12.93 | strong_bull | elevated_risk | 多頭 | 增強 | 中性 | 放大 | 健康 | 擴散 | 期權資料已整合 |
+| TWSE | 20260603 | 46459.16 | 4.98 | 12.93 | strong_bull | elevated_risk | 多頭 | 增強 | 中性 | 放大 | 中性 | 擴散 | 期權資料已整合 |
 
 ## Six-Layer Technical Summary
 ### 趨勢 / 均線
@@ -42,27 +42,24 @@
 ## Active Technical Events
 | event_date | index_id | event_name | event_group | close_on_event | market_regime | risk_level |
 | --- | --- | --- | --- | --- | --- | --- |
+| 20260528 | TWSE | ma20_slope_up_price_above_ma20_ma60 | trend_ma | 43636.44 | strong_bull | low_risk |
+| 20260528 | TWSE | composite_bull_confirmation | composite_signal | 43636.44 | strong_bull | low_risk |
 | 20260528 | TPEX | ma20_slope_up_price_above_ma20_ma60 | trend_ma | 432.48 | strong_bull | low_risk |
 | 20260528 | TWSE | adx_trend_plus_di_dominant | trend_ma | 43636.44 | strong_bull | low_risk |
-| 20260528 | TWSE | composite_bull_confirmation | composite_signal | 43636.44 | strong_bull | low_risk |
-| 20260528 | TWSE | ma20_slope_up_price_above_ma20_ma60 | trend_ma | 43636.44 | strong_bull | low_risk |
-| 20260529 | TWSE | ma20_slope_up_price_above_ma20_ma60 | trend_ma | 44732.94 | strong_bull | low_risk |
-| 20260529 | TWSE | composite_bull_confirmation | composite_signal | 44732.94 | strong_bull | low_risk |
-| 20260529 | TWSE | adx_trend_plus_di_dominant | trend_ma | 44732.94 | strong_bull | low_risk |
 | 20260529 | TPEX | ma20_slope_up_price_above_ma20_ma60 | trend_ma | 443.64 | strong_bull | low_risk |
-| 20260601 | TWSE | composite_bull_confirmation | composite_signal | 45337.91 | strong_bull | low_risk |
-| 20260601 | TPEX | composite_bull_confirmation | composite_signal | 446.02 | strong_bull | low_risk |
-| 20260601 | TPEX | ma20_slope_up_price_above_ma20_ma60 | trend_ma | 446.02 | strong_bull | low_risk |
+| 20260529 | TWSE | adx_trend_plus_di_dominant | trend_ma | 44732.94 | strong_bull | low_risk |
+| 20260529 | TWSE | composite_bull_confirmation | composite_signal | 44732.94 | strong_bull | low_risk |
+| 20260529 | TWSE | ma20_slope_up_price_above_ma20_ma60 | trend_ma | 44732.94 | strong_bull | low_risk |
+| 20260601 | TWSE | ma20_slope_up_price_above_ma20_ma60 | trend_ma | 45337.91 | strong_bull | low_risk |
 | 20260601 | TWSE | adx_trend_plus_di_dominant | trend_ma | 45337.91 | strong_bull | low_risk |
 | 20260601 | TWSE | bb_upper_breakout_long_upper_shadow | volatility_channel | 45337.91 | strong_bull | low_risk |
-| 20260601 | TWSE | ma20_slope_up_price_above_ma20_ma60 | trend_ma | 45337.91 | strong_bull | low_risk |
-| 20260602 | TWSE | ma20_slope_up_price_above_ma20_ma60 | trend_ma | 45557.31 | strong_bull | elevated_risk |
-| 20260602 | TWSE | composite_bull_confirmation | composite_signal | 45557.31 | strong_bull | elevated_risk |
-| 20260602 | TWSE | rsi14_overbought_70 | momentum | 45557.31 | strong_bull | elevated_risk |
-| 20260602 | TPEX | ma20_slope_up_price_above_ma20_ma60 | trend_ma | 440.64 | strong_bull | low_risk |
+| 20260601 | TPEX | composite_bull_confirmation | composite_signal | 446.02 | strong_bull | low_risk |
+| 20260601 | TPEX | ma20_slope_up_price_above_ma20_ma60 | trend_ma | 446.02 | strong_bull | low_risk |
 | 20260602 | TPEX | composite_bull_confirmation | composite_signal | 440.64 | strong_bull | low_risk |
+| 20260602 | TPEX | ma20_slope_up_price_above_ma20_ma60 | trend_ma | 440.64 | strong_bull | low_risk |
 | 20260602 | TWSE | adx_trend_plus_di_dominant | trend_ma | 45557.31 | strong_bull | elevated_risk |
-| 20260603 | TWSE | composite_bull_confirmation | composite_signal | 46459.16 | strong_bull | elevated_risk |
+| 20260602 | TWSE | ma20_slope_up_price_above_ma20_ma60 | trend_ma | 45557.31 | strong_bull | elevated_risk |
+| 20260602 | TWSE | rsi14_overbought_70 | momentum | 45557.31 | strong_bull | elevated_risk |
 | 20260603 | TWSE | ma20_slope_up_price_above_ma20_ma60 | trend_ma | 46459.16 | strong_bull | elevated_risk |
 | 20260603 | TPEX | ma20_slope_up_price_above_ma20_ma60 | trend_ma | 446.82 | strong_bull | low_risk |
 | 20260603 | TWSE | adx_trend_plus_di_dominant | trend_ma | 46459.16 | strong_bull | elevated_risk |
@@ -72,7 +69,7 @@
 | event_name | index_id | sample_count | mature_d5_count | avg_ret_d5 | win_rate_d5 | mature_d10_count | avg_ret_d10 | win_rate_d10 | mature_d20_count | avg_ret_d20 | win_rate_d20 | best_horizon | sample_status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | composite_bull_confirmation | TPEX | 2 | 0 |  |  | 0 |  |  | 0 |  |  | D+1 | D+1:insufficient_sample;D+3:pending_only;D+5:pending_only;D+10:pending_only;D+20:pending_only;D+40:pending_only;D+60:pending_only |
-| composite_bull_confirmation | TWSE | 75 | 70 | 0.91 | 64.29 | 68 | 2.16 | 69.12 | 66 | 5.17 | 86.36 | D+60 | D+1:ok;D+3:ok;D+5:ok;D+10:ok;D+20:ok;D+40:ok;D+60:ok |
+| composite_bull_confirmation | TWSE | 57 | 55 | 0.68 | 58.18 | 53 | 0.92 | 58.49 | 51 | 3.29 | 80.39 | D+60 | D+1:ok;D+3:ok;D+5:ok;D+10:ok;D+20:ok;D+40:ok;D+60:ok |
 | kd_high_death_cross | TPEX | 17 | 17 | 1.65 | 82.35 | 17 | 2.97 | 76.47 | 16 | 4.68 | 81.25 | D+60 | D+1:insufficient_sample;D+3:insufficient_sample;D+5:insufficient_sample;D+10:insufficient_sample;D+20:insufficient_sample;D+40:insufficient_sample;D+60:insufficient_sample |
 | kd_high_death_cross | TWSE | 29 | 29 | 0.70 | 58.62 | 29 | 2.14 | 68.97 | 28 | 3.66 | 82.14 | D+60 | D+1:insufficient_sample;D+3:insufficient_sample;D+5:insufficient_sample;D+10:insufficient_sample;D+20:insufficient_sample;D+40:ok;D+60:ok |
 | kd_low_golden_cross | TPEX | 6 | 6 | 2.06 | 83.33 | 6 | 2.75 | 83.33 | 6 | 4.26 | 83.33 | D+60 | D+1:insufficient_sample;D+3:insufficient_sample;D+5:insufficient_sample;D+10:insufficient_sample;D+20:insufficient_sample;D+40:insufficient_sample;D+60:insufficient_sample |
@@ -103,7 +100,7 @@
 | event_name | index_id | sample_count | mature_d5_count | avg_ret_d5 | win_rate_d5 | mature_d10_count | avg_ret_d10 | win_rate_d10 | best_horizon | sample_status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | composite_bull_confirmation | TPEX | 2 | 0 |  |  | 0 |  |  | D+1 | D+1:insufficient_sample;D+3:pending_only;D+5:pending_only;D+10:pending_only;D+20:pending_only;D+40:pending_only;D+60:pending_only |
-| composite_bull_confirmation | TWSE | 75 | 70 | 0.91 | 64.29 | 68 | 2.16 | 69.12 | D+60 | D+1:ok;D+3:ok;D+5:ok;D+10:ok;D+20:ok;D+40:ok;D+60:ok |
+| composite_bull_confirmation | TWSE | 57 | 55 | 0.68 | 58.18 | 53 | 0.92 | 58.49 | D+60 | D+1:ok;D+3:ok;D+5:ok;D+10:ok;D+20:ok;D+40:ok;D+60:ok |
 
 ## Regime Sensitivity
 | event_name | index_id | market_regime | sample_count | mature_d5_count | avg_ret_d5 | win_rate_d5 | mature_d10_count | avg_ret_d10 | sample_status |
@@ -123,9 +120,9 @@
 | bb_upper_breakout_long_upper_shadow | TWSE | mild_bull | 1 | 1 | -3.61 | 0.00 | 1 | -1.49 | insufficient_sample |
 | bb_upper_breakout_long_upper_shadow | TWSE | strong_bull | 9 | 8 | 1.77 | 87.50 | 7 | 1.93 | insufficient_sample |
 | composite_bull_confirmation | TPEX | strong_bull | 2 | 0 |  |  | 0 |  | pending_only |
-| composite_bull_confirmation | TWSE | mild_bull | 15 | 15 | 1.48 | 66.67 | 15 | 3.28 | insufficient_sample |
+| composite_bull_confirmation | TWSE | mild_bull | 20 | 20 | 0.80 | 60.00 | 20 | 1.17 | insufficient_sample |
 | composite_bull_confirmation | TWSE | range_bound | 2 | 2 | 1.39 | 100.00 | 2 | 0.98 | insufficient_sample |
-| composite_bull_confirmation | TWSE | strong_bull | 58 | 53 | 0.74 | 62.26 | 51 | 1.87 | ok |
+| composite_bull_confirmation | TWSE | strong_bull | 35 | 33 | 0.56 | 54.55 | 31 | 0.75 | ok |
 | golden_cross_ma20_ma60 | TPEX | mild_bull | 1 | 1 | 1.45 | 100.00 | 1 | -0.68 | insufficient_sample |
 | golden_cross_ma20_ma60 | TPEX | strong_bull | 2 | 2 | 1.46 | 50.00 | 2 | 1.13 | insufficient_sample |
 | golden_cross_ma20_ma60 | TWSE | correction | 1 | 1 | -0.24 | 0.00 | 1 | -1.67 | insufficient_sample |
@@ -177,11 +174,11 @@
 
 ## Data Quality Notes
 - missing_fields: TWSE_history_had_large_gap_keep_latest_continuous_segment
-- pending_events: 102
+- pending_events: 99
 - benchmark_available: TWSE/TPEX index history available=True
 - regime_available: True
 - breadth_available: True
-- mature_counts: {'mature_d1_count': 1237, 'mature_d3_count': 1225, 'mature_d5_count': 1217, 'mature_d10_count': 1192, 'mature_d20_count': 1140, 'mature_d40_count': 1022, 'mature_d60_count': 991}
+- mature_counts: {'mature_d1_count': 1220, 'mature_d3_count': 1210, 'mature_d5_count': 1202, 'mature_d10_count': 1177, 'mature_d20_count': 1125, 'mature_d40_count': 1014, 'mature_d60_count': 983}
 
 ## Model Tuning Recommendation
 - tuning_status = not_ready

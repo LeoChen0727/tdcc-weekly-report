@@ -20,9 +20,9 @@
 | bb_upper_breakout_long_upper_shadow | TWSE | mild_bull | 1 | 1 | -3.61 | 0.00 | 1 | -1.49 | 0.00 | insufficient_sample |
 | bb_upper_breakout_long_upper_shadow | TWSE | strong_bull | 9 | 8 | 1.77 | 87.50 | 7 | 1.93 | 71.43 | insufficient_sample |
 | composite_bull_confirmation | TPEX | strong_bull | 2 | 0 |  |  | 0 |  |  | pending_only |
-| composite_bull_confirmation | TWSE | mild_bull | 15 | 15 | 1.48 | 66.67 | 15 | 3.28 | 73.33 | insufficient_sample |
+| composite_bull_confirmation | TWSE | mild_bull | 20 | 20 | 0.80 | 60.00 | 20 | 1.17 | 55.00 | insufficient_sample |
 | composite_bull_confirmation | TWSE | range_bound | 2 | 2 | 1.39 | 100.00 | 2 | 0.98 | 100.00 | insufficient_sample |
-| composite_bull_confirmation | TWSE | strong_bull | 58 | 53 | 0.74 | 62.26 | 51 | 1.87 | 66.67 | ok |
+| composite_bull_confirmation | TWSE | strong_bull | 35 | 33 | 0.56 | 54.55 | 31 | 0.75 | 58.06 | ok |
 | golden_cross_ma20_ma60 | TPEX | mild_bull | 1 | 1 | 1.45 | 100.00 | 1 | -0.68 | 0.00 | insufficient_sample |
 | golden_cross_ma20_ma60 | TPEX | strong_bull | 2 | 2 | 1.46 | 50.00 | 2 | 1.13 | 50.00 | insufficient_sample |
 | golden_cross_ma20_ma60 | TWSE | correction | 1 | 1 | -0.24 | 0.00 | 1 | -1.67 | 0.00 | insufficient_sample |
