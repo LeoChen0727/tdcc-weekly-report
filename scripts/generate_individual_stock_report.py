@@ -1615,7 +1615,7 @@ def tdcc_history_markdown(analysis: dict[str, Any], tdcc_chart_path: Path | None
     status: dict[str, Any] = analysis.get("status", {})
     latest = analysis.get("latest")
     backtest: pd.DataFrame = analysis.get("backtest", pd.DataFrame())
-    latest_phase = analysis.get("phase", "insufficient_tdcc_history")
+    latest_phase = display_text(analysis.get("phase", "insufficient_tdcc_history"))
     weeks = latest_tdcc_weeks(latest)
     lines = [
         "## TDCC 歷史籌碼 × 股價反應分析",
@@ -1630,7 +1630,7 @@ def tdcc_history_markdown(analysis: dict[str, Any], tdcc_chart_path: Path | None
         f"- TDCC-price phase：`{latest_phase}`",
     ]
     if status.get("insufficient_tdcc_history"):
-        lines.append("- 狀態：`insufficient_tdcc_history`，TDCC 週資料不足，不能硬下結論。")
+        lines.append("- 狀態：TDCC 歷史不足 / 僅能觀察，TDCC 週資料不足，不能硬下結論。")
     if tdcc_chart_path and tdcc_chart_path.exists():
         lines.extend(["", f"![TDCC history]({tdcc_chart_path.as_posix()})"])
     else:
@@ -1644,7 +1644,7 @@ def tdcc_history_markdown(analysis: dict[str, Any], tdcc_chart_path: Path | None
         for row in table_rows[1:]:
             lines.append("| " + " | ".join(row) + " |")
     else:
-        lines.append("| - | - | - | - | - | - | - | - | - | - | - | - | insufficient_tdcc_history |")
+        lines.append("| - | - | - | - | - | - | - | - | - | - | - | - | TDCC 歷史不足 / 僅能觀察 |")
 
     lines.extend(["", "### TDCC 趨勢判讀", ""])
     if latest is None:
@@ -1658,19 +1658,19 @@ def tdcc_history_markdown(analysis: dict[str, Any], tdcc_chart_path: Path | None
                 f"- 散戶比例是否下降：`{'NA' if not safe_str(latest.get('retail_ratio_change_1w')) else fmt_num(latest.get('retail_ratio_change_1w'))}`。",
                 f"- 股東人數是否下降或上升：`{'NA' if not safe_str(latest.get('total_shareholders_change_1w')) else fmt_num(latest.get('total_shareholders_change_1w'))}`。",
                 f"- 是否出現集中化：`{format_bool(not math.isnan(weeks) and weeks >= 2 and str(latest.get('high_thresholds_up')).lower() == 'true')}`。",
-                f"- 股價反應階段：`{analysis.get('price_reaction_stage', '-')}`。",
+                f"- 股價反應階段：`{display_text(analysis.get('price_reaction_stage', '-'))}`。",
             ]
         )
 
     lines.extend(["", "### 該股歷史類似型態回測", ""])
     if backtest.empty:
-        lines.append("- `insufficient_sample`")
+        lines.append("- 樣本不足 / 僅能觀察")
     else:
         row = backtest.iloc[0]
         lines.extend(
             [
-                f"- phase：`{safe_str(row.get('phase'))}`",
-                f"- sample_count：`{safe_str(row.get('sample_count'))}` / sample_status：`{safe_str(row.get('sample_status'))}`",
+                f"- phase：`{display_text(row.get('phase'), default='資料不足 / 僅能觀察')}`",
+                f"- sample_count：`{safe_str(row.get('sample_count'))}` / sample_status：`{display_text(row.get('sample_status'), default='資料不足 / 僅能觀察')}`",
                 f"- avg_ret_d5 / d10 / d20：{fmt_pct(row.get('avg_ret_d5'))} / {fmt_pct(row.get('avg_ret_d10'))} / {fmt_pct(row.get('avg_ret_d20'))}",
                 f"- win_rate_d10：{fmt_pct(row.get('win_rate_d10'))}",
                 f"- avg_relative_ret_d10：{fmt_pct(row.get('avg_relative_ret_d10'))}",
@@ -1683,11 +1683,11 @@ def tdcc_history_markdown(analysis: dict[str, Any], tdcc_chart_path: Path | None
             "",
             "### 結論",
             "",
-            f"- TDCC 支持度：{analysis.get('tdcc_support', '資料不足')}",
-            f"- 股價反應階段：{analysis.get('price_reaction_stage', '資料不足')}",
-            f"- 是否符合潛伏吸籌：{analysis.get('is_quiet_accumulation', '樣本不足')}",
-            f"- 是否可視為加分因子：{analysis.get('is_positive_factor', '只能觀察')}",
-            f"- 主要風險：{' / '.join(analysis.get('main_risks', []))}",
+            f"- TDCC 支持度：{display_text(analysis.get('tdcc_support', '資料不足'))}",
+            f"- 股價反應階段：{display_text(analysis.get('price_reaction_stage', '資料不足'))}",
+            f"- 是否符合潛伏吸籌：{display_text(analysis.get('is_quiet_accumulation', '樣本不足'))}",
+            f"- 是否可視為加分因子：{display_text(analysis.get('is_positive_factor', '只能觀察'))}",
+            f"- 主要風險：{clean_join(analysis.get('main_risks', []), default='資料不足 / 僅能觀察')}",
         ]
     )
     return "\n".join(lines)
@@ -1712,7 +1712,7 @@ def append_tdcc_history_pdf_section(
         ["連續 2/3 週資料", f"{format_bool(not math.isnan(weeks) and weeks >= 2)} / {format_bool(not math.isnan(weeks) and weeks >= 3)}"],
         ["價格資料對齊", format_bool(status.get("price_aligned"))],
         ["benchmark 可用", format_bool(status.get("benchmark_available"))],
-        ["TDCC-price phase", analysis.get("phase", "insufficient_tdcc_history")],
+        ["TDCC-price phase", display_text(analysis.get("phase", "insufficient_tdcc_history"))],
     ]
     story.append(pdf_table(status_rows, [4.3 * cm, 13.2 * cm], style_map))
     story.append(Spacer(1, 0.15 * cm))
@@ -1735,20 +1735,20 @@ def append_tdcc_history_pdf_section(
             f"連續增加 {fmt_num(latest.get('tdcc_consecutive_up_weeks'), 0)} 週；"
             f"高級距同步增加={format_bool(latest.get('high_thresholds_up'))}；"
             f"四級距同步增加={format_bool(latest.get('four_thresholds_sync_up'))}；"
-            f"股價反應階段={analysis.get('price_reaction_stage', '-')}。"
+            f"股價反應階段={display_text(analysis.get('price_reaction_stage', '-'))}。"
         )
     story.append(paragraph(trend_text, style_map["normal"]))
 
     story.append(paragraph("該股歷史類似型態回測", style_map["h2"]))
     if backtest.empty:
-        story.append(paragraph("insufficient_sample", style_map["normal"]))
+        story.append(paragraph("樣本不足 / 僅能觀察", style_map["normal"]))
     else:
         row = backtest.iloc[0]
         backtest_rows = [
             ["phase", "sample", "avg D5/D10/D20", "win D10", "rel D10", "MFE/MAE D10"],
             [
-                row.get("phase", "-"),
-                f"{row.get('sample_count', 0)} / {row.get('sample_status', '-')}",
+                display_text(row.get("phase", "-")),
+                f"{row.get('sample_count', 0)} / {display_text(row.get('sample_status', '-'))}",
                 f"{fmt_pct(row.get('avg_ret_d5'))} / {fmt_pct(row.get('avg_ret_d10'))} / {fmt_pct(row.get('avg_ret_d20'))}",
                 fmt_pct(row.get("win_rate_d10")),
                 fmt_pct(row.get("avg_relative_ret_d10")),
@@ -1759,11 +1759,11 @@ def append_tdcc_history_pdf_section(
 
     conclusion_rows = [
         ["結論項目", "判斷"],
-        ["TDCC 支持度", analysis.get("tdcc_support", "資料不足")],
-        ["股價反應階段", analysis.get("price_reaction_stage", "資料不足")],
-        ["是否符合潛伏吸籌", analysis.get("is_quiet_accumulation", "樣本不足")],
-        ["是否可視為加分因子", analysis.get("is_positive_factor", "只能觀察")],
-        ["主要風險", " / ".join(analysis.get("main_risks", []))],
+        ["TDCC 支持度", display_text(analysis.get("tdcc_support", "資料不足"))],
+        ["股價反應階段", display_text(analysis.get("price_reaction_stage", "資料不足"))],
+        ["是否符合潛伏吸籌", display_text(analysis.get("is_quiet_accumulation", "樣本不足"))],
+        ["是否可視為加分因子", display_text(analysis.get("is_positive_factor", "只能觀察"))],
+        ["主要風險", clean_join(analysis.get("main_risks", []), default="資料不足 / 僅能觀察")],
     ]
     story.append(pdf_table(conclusion_rows, [4.0 * cm, 13.5 * cm], style_map))
 

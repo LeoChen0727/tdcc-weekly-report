@@ -162,6 +162,8 @@ def validate_action_display_packet(stock_id: str, path: Path) -> list[str]:
     for field in ACTION_DISPLAY_REQUIRED_FIELDS:
         if f"- {field}:" not in text:
             errors.append(f"{stock_id}: packet ACTION_DISPLAY missing {field}: {path}")
+    if has_mojibake(text):
+        errors.append(f"{stock_id}: packet contains mojibake/private-use text: {path}")
     return errors
 
 
@@ -260,26 +262,27 @@ def main() -> int:
     args = parse_args()
     main_price_date = read_main_price_date()
     stock_ids = [str(x).strip() for x in args.stock_id if str(x).strip()]
+    skipped_non_current: list[str] = []
     if args.all:
         index_path = LATEST_DIR / "individual_stock_chatgpt_packet_index.csv"
         if not index_path.exists():
             raise SystemExit(f"ERROR: Missing packet index: {index_path}")
         with index_path.open("r", encoding="utf-8-sig", newline="") as fh:
-            stock_ids.extend(str(row.get("stock_id", "")).strip() for row in csv.DictReader(fh))
+            for row in csv.DictReader(fh):
+                stock_id = str(row.get("stock_id", "")).strip()
+                if not stock_id:
+                    continue
+                if args.stock_id:
+                    stock_ids.append(stock_id)
+                    continue
+                latest_price_date = normalize_date(row.get("latest_price_date"))
+                if latest_price_date == main_price_date:
+                    stock_ids.append(stock_id)
+                else:
+                    skipped_non_current.append(stock_id)
     stock_ids = sorted(set(x for x in stock_ids if x))
     if not stock_ids:
         raise SystemExit("ERROR: Provide --stock-id or --all.")
-
-    skipped_non_current: list[str] = []
-    if args.all and not args.stock_id:
-        current_stock_ids: list[str] = []
-        for stock_id in stock_ids:
-            history_latest = latest_price_date_from_stock_history(stock_id)
-            if history_latest == main_price_date:
-                current_stock_ids.append(stock_id)
-            else:
-                skipped_non_current.append(stock_id)
-        stock_ids = current_stock_ids
 
     errors: list[str] = []
     for stock_id in stock_ids:

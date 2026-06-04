@@ -8,7 +8,7 @@ from typing import Any
 from tracking_utils import safe_str, to_number
 
 
-DISPLAY_FALLBACK = "資料不足 / 僅能觀察"
+DISPLAY_FALLBACK = "資料不足 / 暫用現有資料"
 
 ACTION_COLUMNS = [
     "action_rating",
@@ -67,14 +67,14 @@ CATEGORY_LABELS = {
     "volume_attack": "放量攻擊",
     "hot_theme_pullback": "熱門族群回檔模型",
     "theme_pullback": "熱門族群回檔模型",
-    "revenue_growth_pullback": "營收成長股價回檔",
-    "revenue_pullback": "營收成長股價回檔",
-    "revenue_breakout_low_response": "營收爆發但股價尚未反應",
+    "revenue_growth_pullback": "營收成長股價回檔模型",
+    "revenue_pullback": "營收成長股價回檔模型",
+    "revenue_breakout_low_response": "營收爆發但股價尚未反應模型",
     "tdcc_pre_move": "TDCC 潛伏吸籌模型",
     "tdcc_quiet_accumulation": "TDCC 潛伏吸籌模型",
     "tdcc_short_term_edge": "TDCC 短線延續模型 D+5/D+10",
     "range_rebound": "區間內轉強 / 挑戰前高觀察",
-    "pullback_rebound": "回檔後短線轉強",
+    "pullback_rebound": "回檔後短線轉強模型",
     "w_bottom_right_side": "W 底右側模型",
     "w_bottom_attack": "W 底右側模型",
     "platform_turn_strong": "平台整理轉強模型",
@@ -85,13 +85,13 @@ CATEGORY_LABELS = {
 }
 
 ENTRY_STYLE_LABELS = {
-    "current_price_ok": "目前價位可建立第一筆",
+    "current_price_ok": "目前價位可評估第一筆",
     "pullback_to_23ema": "回測 23EMA 附近",
     "pullback_to_support": "回測支撐區",
     "reclaim_23ema": "等待站回 23EMA",
     "breakout_follow": "突破後順勢追蹤",
-    "post_breakout_retest": "突破後回測不破",
-    "no_entry_now": "目前沒有新買條件",
+    "post_breakout_retest": "突破後回測確認",
+    "no_entry_now": "目前不適合新買",
 }
 
 POSITION_SIZE_LABELS = {
@@ -106,49 +106,49 @@ POSITION_SIZE_LABELS = {
 
 MANAGEMENT_LABELS = {
     "buy_first_tranche_now": "可建立第一筆部位",
-    "buy_first_tranche_near_support": "接近支撐區可建立第一筆部位",
-    "add_on_23ema_hold": "守住 23EMA 後再加碼",
-    "add_on_reclaim_23ema": "站回 23EMA 後再加碼",
-    "add_on_breakout": "放量突破後再加碼",
-    "take_profit_near_prior_high": "接近前高或壓力區分批停利",
-    "take_profit_on_volume_price_failure": "爆量不漲、長上影或量價背離時優先停利",
-    "exit_if_lost_23ema": "跌破 23EMA 且 1 到 3 日內無法收回時退出",
+    "buy_first_tranche_near_support": "接近支撐時可建立第一筆部位",
+    "add_on_23ema_hold": "守住 23EMA 後再評估加碼",
+    "add_on_reclaim_23ema": "站回 23EMA 後再評估加碼",
+    "add_on_breakout": "放量突破後再評估加碼",
+    "take_profit_near_prior_high": "接近前高或壓力區可分批停利",
+    "take_profit_on_volume_price_failure": "量價失敗或爆量不漲時降低部位",
+    "exit_if_lost_23ema": "跌破 23EMA 且 1 至 3 日內無法收回時退出",
     "exit_if_lost_recent_low": "跌破近期低點時退出",
-    "exit_if_revenue_breaks": "營收或基本面轉弱時降低部位",
+    "exit_if_revenue_breaks": "營收或財報明顯轉弱時降低部位",
     "exit_if_tdcc_and_price_both_weaken": "TDCC 與價格同步轉弱時退出",
 }
 
 PREREQUISITE_LABELS = {
-    "model_recommended": "符合模型推薦條件",
+    "model_recommended": "已符合模型條件",
     "decision_priority_high": "追蹤優先級高",
     "decision_score_high": "模型分數高",
     "price_structure_not_broken": "價格結構未破壞",
     "near_23ema_or_support": "接近 23EMA 或支撐區",
-    "revenue_not_deteriorating": "營收沒有明顯轉弱",
-    "no_major_tdcc_warning": "沒有重大 TDCC 轉弱警示",
+    "revenue_not_deteriorating": "營收未明顯轉弱",
+    "no_major_tdcc_warning": "沒有重大 TDCC 轉弱警訊",
     "no_major_volume_price_failure": "沒有重大量價失敗",
     "acceptable_risk_reward": "風險報酬可接受",
 }
 
 WATCH_LABELS = {
     "next_monthly_revenue": "下一次月營收",
-    "next_tdcc_update": "下一週 TDCC 更新",
-    "23ema_hold_or_reclaim": "23EMA 是否守穩或快速站回",
-    "volume_price_confirmation": "量價是否延續",
+    "next_tdcc_update": "下一次 TDCC 更新",
+    "23ema_hold_or_reclaim": "23EMA 是否守住或快速站回",
+    "volume_price_confirmation": "量價是否延續確認",
     "prior_high_breakout_quality": "前高突破品質",
     "sector_benchmark_strength": "族群與 benchmark 強弱",
-    "event_follow_through": "事件題材是否延續",
+    "event_follow_through": "事件催化是否延續",
     "warrant_overheat_check": "權證是否過熱",
 }
 
 DOWNGRADE_LABELS = {
     "insufficient_price_data": "價格資料不足",
     "insufficient_tdcc_history": "TDCC 歷史不足",
-    "tdcc_distribution_warning": "TDCC 轉弱警示",
+    "tdcc_distribution_warning": "TDCC 轉弱警訊",
     "volume_price_failure": "量價失敗",
     "below_23ema_not_reclaimed": "跌破 23EMA 尚未站回",
     "revenue_deceleration": "營收成長放緩",
-    "benchmark_weak": "弱於 benchmark",
+    "benchmark_weak": "落後 benchmark",
     "price_too_extended": "股價乖離過大",
     "risk_reward_unfavorable": "風險報酬不佳",
     "event_unverified": "事件尚未確認",
@@ -161,8 +161,8 @@ THESIS_LABELS = {
     "breakout_initial": "初步突破",
     "breakout_confirmed": "突破確認",
     "post_breakout_retest": "突破後回測",
-    "high_level_consolidation": "高檔整理",
-    "high_level_distribution_risk": "高檔籌碼鬆動風險",
+    "high_level_consolidation": "高位整理",
+    "high_level_distribution_risk": "高位派發風險",
     "failed_breakout": "突破失敗",
     "trend_failure_risk": "趨勢失敗風險",
     "unclear": "訊號不明",
@@ -218,7 +218,8 @@ def _translate_items(items: list[str] | str, mapping: Mapping[str, str], fallbac
 
     labels: list[str] = []
     for item in raw_items:
-        label = mapping.get(item) or mapping.get(item.lower())
+        key = item.lower()
+        label = mapping.get(item) or mapping.get(key)
         if label:
             labels.append(label)
     if labels:
@@ -254,25 +255,25 @@ def _category_display(row: Mapping[str, Any], category: str) -> str:
         label = CATEGORY_LABELS.get(token.lower())
         if label:
             return label
-    return "模型分類尚未完成"
+    return "單一個股分析"
 
 
 def _score_interpretation(score: float, action_rating: str) -> str:
     if math.isnan(score):
         score_text = "目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。"
     elif score >= 82:
-        score_text = "模型分數偏高，代表條件完整度較高。"
+        score_text = "模型分數高，代表條件集中度較強。"
     elif score >= 68:
-        score_text = "模型分數中上，代表條件具備但仍需依風控執行。"
+        score_text = "模型分數中上，代表條件有支持，但仍需依風控管理。"
     else:
         score_text = "模型分數偏低，僅適合作為低部位觀察。"
 
     if action_rating in {"buy_now", "scale_in", "starter_position"}:
-        return f"{score_text} 目前可依部位規則建立第一筆，後續用風控與追蹤項目管理。"
+        return f"{score_text} 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。"
     if action_rating in {"wait_pullback", "wait_reclaim"}:
-        return f"{score_text} 目前以等待條件改善為主，不應把追蹤項目誤當成已完成確認。"
+        return f"{score_text} 目前還沒有新的第一筆買點，需等待回檔或站回條件成立。"
     if action_rating in {"take_profit", "reduce", "avoid"}:
-        return f"{score_text} 目前風險條件較高，應優先控管部位與失效條件。"
+        return f"{score_text} 目前以風險管理為主，不適合新買第一筆。"
     return f"{score_text} 目前以既有部位管理與條件追蹤為主。"
 
 
@@ -303,27 +304,43 @@ def _build_display_fields(
     score_text = _score_interpretation(score, action_rating)
 
     if action_rating in {"buy_now", "scale_in", "starter_position"}:
-        summary = f"符合{category_label}，價格結構尚未破壞，程式端評級為「{action_label}」。"
+        summary = f"符合 {category_label}，價格結構尚未破壞，操作評級為「{action_label}」。"
     elif action_rating == "wait_pullback":
-        summary = f"{category_label}條件仍可追蹤，但目前風險報酬不佳，需等待回檔到支撐區。"
+        summary = f"{category_label} 條件有支持，但目前風險報酬不佳，操作評級為「等待回檔」。"
     elif action_rating == "wait_reclaim":
-        summary = f"{category_label}條件仍可追蹤，但需先站回關鍵均線或壓力區。"
+        summary = f"{category_label} 條件有支持，但價格尚未修復關鍵線，操作評級為「等待站回」。"
     elif action_rating in {"take_profit", "reduce", "avoid"}:
-        summary = f"{category_label}已出現風險控管條件，程式端評級為「{action_label}」。"
+        summary = f"{category_label} 已出現風險管理訊號，操作評級為「{action_label}」。"
     else:
-        summary = f"{category_label}目前屬於{thesis_label}，以條件追蹤為主。"
+        summary = f"{category_label} 目前屬於「{thesis_label}」，以既有部位管理與條件追蹤為主。"
 
     if management_text == DISPLAY_FALLBACK:
-        management_text = "依 23EMA、支撐壓力、量價與 TDCC 變化分批管理。"
+        management_text = "依 23EMA、支撐壓力、量價與 TDCC 變化管理。"
     if watch_text == DISPLAY_FALLBACK:
-        watch_text = "追蹤下一次營收、TDCC 更新、23EMA 守穩與族群強弱。"
+        watch_text = "追蹤下一次營收、TDCC 更新、23EMA 防守與量價延續。"
     if downgrade_text == DISPLAY_FALLBACK:
-        downgrade_text = "跌破 23EMA 或近期低點、量價失敗、營收轉弱或 TDCC 與價格同步轉弱時降低部位。"
+        downgrade_text = "若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。"
 
-    entry_strategy = f"{entry_label}；第一筆部位以「{position_label}」執行。"
-    position_text = f"{position_label}；不得一次買滿，後續依支撐、站回或突破條件加碼。"
-    take_profit_text = "接近前高或壓力區先分批停利；若爆量不漲、長上影或量價背離，優先收回風險。"
-    final_decision = f"{summary} 進場：{entry_strategy} 追蹤：{watch_text} 風控：{downgrade_text}"
+    if action_rating in {"buy_now", "scale_in", "starter_position"} and position_sizing != "observe_only":
+        entry_strategy = f"{entry_label}；可依「{position_label}」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。"
+    elif action_rating == "hold_only":
+        entry_strategy = "已持有以續抱管理為主；新買需等待重新出現進場條件。"
+    elif action_rating == "wait_pullback":
+        entry_strategy = "目前等待回檔，不建立新部位；回測支撐或 23EMA 不破後再評估。"
+    elif action_rating == "wait_reclaim":
+        entry_strategy = "目前等待站回，不建立新部位；站回 23EMA 或關鍵壓力後再評估。"
+    elif action_rating == "take_profit":
+        entry_strategy = "目前進入停利管理，不建議新買第一筆。"
+    elif action_rating == "reduce":
+        entry_strategy = "目前風險升高，以降低部位為主，不建議新買。"
+    elif action_rating == "avoid":
+        entry_strategy = "目前不建議新買。"
+    else:
+        entry_strategy = "目前僅觀察，等待新的模型條件或價格結構確認。"
+
+    position_text = f"{position_label}；部位大小需依支撐距離、波動與模型確認度控制。"
+    take_profit_text = "接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。"
+    final_decision = f"{summary} 進場策略：{entry_strategy} 追蹤項目：{watch_text} 風控：{downgrade_text}"
 
     return {
         "action_rating_display_zh": action_label,
@@ -346,8 +363,6 @@ def compute_action_decision(row: Mapping[str, Any]) -> dict[str, str]:
     stage = _get(row, "pattern_stage", "pattern").lower()
     priority = _get(row, "decision_priority", "priority")
     score = _num(row, "decision_score", "model_score", "score", "pattern_score")
-    volume_ratio = _num(row, "volume_ratio")
-    return_5d = _num(row, "return_5d", "return_5d_pct")
     return_20d = _num(row, "return_20d", "return_20d_pct")
     distance_to_ma20 = _num(row, "distance_to_ma20_pct", "gap_ma20_pct")
     distance_to_ema23 = _num(row, "distance_to_ema23_pct")
@@ -419,7 +434,13 @@ def compute_action_decision(row: Mapping[str, Any]) -> dict[str, str]:
         or (not math.isnan(distance_to_ema23) and distance_to_ema23 >= 15)
         or _contains_any(
             text_blob,
-            ["continued_overheated", "mainstream_overheated", "overheated_after_tdcc", "already_priced_in", "priced_in=true"],
+            [
+                "continued_overheated",
+                "mainstream_overheated",
+                "overheated_after_tdcc",
+                "already_priced_in",
+                "priced_in=true",
+            ],
         )
     )
     near_support = (
@@ -495,7 +516,7 @@ def compute_action_decision(row: Mapping[str, Any]) -> dict[str, str]:
     else:
         action_rating = "hold_only"
 
-    if action_rating in {"avoid", "reduce"}:
+    if action_rating in {"avoid", "reduce", "take_profit", "hold_only"}:
         entry_style = "no_entry_now"
     elif action_rating == "wait_reclaim":
         entry_style = "reclaim_23ema"
@@ -533,7 +554,12 @@ def compute_action_decision(row: Mapping[str, Any]) -> dict[str, str]:
     if action_rating in {"buy_now", "scale_in", "starter_position", "hold_only", "take_profit"}:
         management_plan.extend(["take_profit_near_prior_high", "take_profit_on_volume_price_failure"])
     management_plan.extend(
-        ["exit_if_lost_23ema", "exit_if_lost_recent_low", "exit_if_revenue_breaks", "exit_if_tdcc_and_price_both_weaken"]
+        [
+            "exit_if_lost_23ema",
+            "exit_if_lost_recent_low",
+            "exit_if_revenue_breaks",
+            "exit_if_tdcc_and_price_both_weaken",
+        ]
     )
 
     if action_rating in {"buy_now", "scale_in"} and not downgrade_reasons and score_high:

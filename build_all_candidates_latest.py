@@ -439,7 +439,20 @@ def canonicalize_candidate_dates(df: pd.DataFrame) -> tuple[pd.DataFrame, str, l
     # history can contain a future calendar-date snapshot whose OHLCV copied
     # the prior trading day.  `data_freshness_latest` owns that quality check.
     preferred_date = main_price_date_from_freshness() or latest_stock_price_history_date()
+    extra_notes: list[str] = []
+    if preferred_date:
+        df["source_date"] = df["source_date"].map(normalize_date)
+        stale_mask = (df["source_date"].map(safe_str) != "") & (df["source_date"] != preferred_date)
+        stale_count = int(stale_mask.sum())
+        if stale_count:
+            df = df[~stale_mask].copy()
+            extra_notes.append(f"dropped_stale_source_rows={stale_count} expected_source_date={preferred_date}")
+
     signal_date, notes = resolve_candidate_signal_date(df, preferred_date)
+    if preferred_date:
+        notes = extra_notes + [note for note in notes if note != "no_preferred_date"]
+        if "source_date_gate=" not in " ".join(notes):
+            notes.append(f"source_date_gate={preferred_date}")
     if signal_date:
         df["date"] = signal_date
         df["signal_date"] = signal_date

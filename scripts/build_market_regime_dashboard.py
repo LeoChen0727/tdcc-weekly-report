@@ -636,7 +636,7 @@ def build_markdown(
     ]
 
     lines = [
-        "# Market Risk Dashboard",
+        "# 市場風險與大盤期權背景",
         "",
         f"- generated_at: `{now_text()}`",
         f"- data_date: `{safe_str(regime.get('date', ''))}`",
@@ -645,9 +645,9 @@ def build_markdown(
         f"- risk_score: `{safe_str(regime.get('risk_score', ''))}`",
         f"- futures_options_source_status: `{safe_str(indicators.get('source_status', 'missing'))}`",
         "",
-        "## Data Status",
+        "## 資料狀態",
         "",
-        "This report uses official market index data already stored in the repo plus TAIFEX open data for futures, options, put/call ratio, and Taiwan VIX. It is a market-background dashboard, not a trading instruction.",
+        "本報告使用已收錄的官方大盤指數資料，以及期交所期貨、選擇權、Put/Call 與 Taiwan VIX 資料。定位是市場風險背景，不是個股買賣指令。",
         "",
         "| source | status | rows | latest_date |",
         "| --- | --- | ---: | --- |",
@@ -658,15 +658,15 @@ def build_markdown(
     lines.extend(
         [
             "",
-            "## Market Index Regime",
+            "## 大盤指數結構",
             "",
             markdown_table(index_table),
             "",
-            "## Futures / Options Positioning",
+            "## 期貨選擇權部位",
             "",
             markdown_table(inst_table),
             "",
-            "## Upcoming Macro Event Calendar",
+            "## 近期總經事件日曆",
             "",
         ]
     )
@@ -674,9 +674,9 @@ def build_markdown(
     lines.extend(
         [
             "",
-            "## Six-Month Technical Charts",
+            "## 半年技術圖表",
             "",
-            "The PDF version of this dashboard must include six-month charts for index trend, fear/option indicators, foreign futures positioning, and retail mini-TAIEX futures proxy positioning. If a source has insufficient history, the PDF still includes a placeholder chart and states the limitation.",
+            "PDF 固定納入半年圖表，包含指數趨勢、波動/期權指標、外資台指期部位與散戶小台 proxy。若資料不足，圖表或文字會明確標示限制。",
             "",
             index_ohlc_data_status_note(index_history),
             "",
@@ -687,7 +687,7 @@ def build_markdown(
     lines.extend(
         [
             "",
-            "## Technical / Pattern Notes",
+            "## 技術與型態重點",
             "",
         ]
     )
@@ -697,19 +697,19 @@ def build_markdown(
     lines.extend(
         [
             "",
-            "## Retail Mini-TAIEX Futures Proxy",
+            "## 散戶小台 proxy",
             "",
-            "- This is a contrarian sentiment proxy, calculated as the negative of the three-institution net open interest in mini-TAIEX futures.",
+            "- 這是反向情緒輔助指標，以三大法人小台淨未平倉的反向 proxy 估算。",
             f"- latest_proxy_value: `{clean_signed(retail_proxy)}`",
             f"- state: `{retail_state}`",
-            "- Positive proxy values mean non-three-institution accounts are net long MTX; crowded net-long readings are treated as a caution signal, not a standalone short signal.",
-            "- Negative proxy values mean non-three-institution accounts are net short MTX; extreme net-short readings may support contrarian risk-on interpretation, but still need index confirmation.",
+            "- proxy 為正代表非三大法人帳戶偏多；擁擠偏多只能視為追高風險，不是單獨放空訊號。",
+            "- proxy 為負代表非三大法人帳戶偏空；極端偏空可列反彈觀察，但仍需指數與廣度確認。",
         ]
     )
     lines.extend(
         [
             "",
-            "## Risk Notes",
+            "## 風險提醒",
             "",
         ]
     )
@@ -718,15 +718,15 @@ def build_markdown(
         for reason in reasons:
             lines.append(f"- {reason}")
     else:
-        lines.append("- No major risk note generated.")
+        lines.append("- 今日未產生重大額外風險提醒。")
     lines.extend(
         [
             "",
-            "## Usage Boundary",
+            "## 使用邊界",
             "",
-            "- Use this dashboard as market background for Taiwan index futures and portfolio exposure review.",
-            "- Do not treat a single futures/options indicator as a buy or sell signal.",
-            "- Keep this report separate from the daily all-market candidate-stock report; that report may cite market regime only as background.",
+            "- 本報告用於判斷大盤風險、台指期背景與部位曝險節奏。",
+            "- 不可把單一 VIX、Put/Call、外資期貨或散戶小台指標當成買賣訊號。",
+            "- 每日全市場候選股可引用大盤背景，但個股是否入選仍以各模型條件為準。",
         ]
     )
     return "\n".join(lines) + "\n"
@@ -765,12 +765,12 @@ def build_pdf(markdown_text: str, output_path: Path, chart_paths: list[Path]) ->
                 text = "• " + text[2:]
             story.append(Paragraph(text, styles["BodyTW"]))
     story.append(PageBreak())
-    story.append(Paragraph("Six-Month Technical Charts", styles["TitleTW"]))
+    story.append(Paragraph("半年技術圖表", styles["TitleTW"]))
     story.append(Spacer(1, 8))
     for idx, chart_path in enumerate(chart_paths, start=1):
         if not chart_path.exists():
             continue
-        story.append(Paragraph(f"Chart {idx}: {chart_path.name}", styles["HeadingTW"]))
+        story.append(Paragraph(f"圖表 {idx}", styles["HeadingTW"]))
         if chart_path.name in {FOREIGN_FUTURES_CHART.name, RETAIL_MTX_PROXY_CHART.name}:
             story.append(Image(str(chart_path), width=17.5 * cm, height=7.6 * cm))
         else:

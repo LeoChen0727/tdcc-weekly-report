@@ -27,6 +27,7 @@ CURATED_PDF = LATEST_DIR / "daily_market_curated_report_latest.pdf"
 FULL_TABLE_PDF = LATEST_DIR / "daily_market_full_table_report_latest.pdf"
 MODEL_SUMMARY_CSV = LATEST_DIR / "daily_candidate_model_summary_for_report_latest.csv"
 MODEL_REPORT_SIGNALS_CSV = LATEST_DIR / "daily_candidate_model_signals_for_report_latest.csv"
+TECHNICAL_SNAPSHOT_CSV = LATEST_DIR / "individual_stock_technical_snapshot_latest.csv"
 MODEL_LINE_PDFS = {
     "mainstream_highlight": LATEST_DIR / "mainstream_daily_recommendation_highlight_latest.pdf",
     "mainstream_full": LATEST_DIR / "mainstream_full_candidate_list_latest.pdf",
@@ -205,6 +206,50 @@ def check_forbidden_terms(label: str, text: str, errors: list[str]) -> None:
             errors.append(f"{label}: debug/read-flow term appears in formal PDF text: {term}")
 
 
+def check_duplicate_rank_labels(label: str, text: str, errors: list[str]) -> None:
+    compact = normalize_for_search(text)
+    duplicated_patterns = [
+        "新進榜#新進榜",
+        "新進榜新進榜",
+        "連續榜#連續榜",
+        "連續榜連續榜",
+        "累計榜#累計榜",
+        "累計榜累計榜",
+        "重複進榜#重複進榜",
+        "重複進榜重複進榜",
+    ]
+    for pattern in duplicated_patterns:
+        if normalize_for_search(pattern) in compact:
+            errors.append(f"{label}: duplicate rank label appears in PDF text: {pattern}")
+
+
+def check_raw_slug_terms(label: str, text: str, errors: list[str]) -> None:
+    raw_terms = [
+        "call_strong_inflow",
+        "call_put_bullish",
+        "call_inflow",
+        "mixed_flow",
+        "no_signal",
+        "range_rebound",
+        "revenue_pullback",
+        "revenue_breakout_low_response",
+        "pullback_rebound",
+        "short_term_specialty",
+        "mild_accumulation",
+        "strong_accumulation",
+        "tdcc_short_term_edge",
+        "hot_theme_pullback",
+        "non_mainstream",
+        "mainstream",
+        "insufficient_data",
+        "neckline",
+    ]
+    compact = normalize_for_search(text)
+    for term in raw_terms:
+        if normalize_for_search(term) in compact:
+            errors.append(f"{label}: raw slug appears in formal PDF text: {term}")
+
+
 def check_category_order(label: str, text: str, errors: list[str]) -> None:
     start_marker = "各分類清單" if label == "full_table" else "分類解讀"
     start_pos = normalize_for_search(text).find(normalize_for_search(start_marker))
@@ -283,8 +328,52 @@ def check_candidate_date(errors: list[str], main_date: str) -> None:
                 f"all_candidates authoritative dates do not contain main_price_date {main_date}; "
                 f"date_sets={date_sets}"
             )
+        if main_date:
+            for col, values in date_sets.items():
+                bad_values = [value for value in values if value != main_date]
+                if bad_values:
+                    errors.append(f"all_candidates {col} contains non-current dates: {bad_values[:10]}")
+            if "source_date" in df.columns:
+                source_values = sorted({normalize_date_value(value) for value in df["source_date"].tolist()} - {""})
+                bad_source_values = [value for value in source_values if value != main_date]
+                if bad_source_values:
+                    examples = (
+                        df[df["source_date"].map(normalize_date_value).isin(bad_source_values)]
+                        [["stock_id", "stock_name", "category", "source_date"]]
+                        .head(10)
+                        .to_dict("records")
+                    )
+                    errors.append(
+                        f"all_candidates source_date contains stale dates: {bad_source_values[:10]} examples={examples}"
+                    )
     except Exception as exc:
         errors.append(f"failed to inspect all_candidates date: {exc}")
+
+
+def check_technical_snapshot_date(errors: list[str], main_date: str) -> None:
+    if not TECHNICAL_SNAPSHOT_CSV.exists():
+        errors.append(f"missing {TECHNICAL_SNAPSHOT_CSV}")
+        return
+    if not main_date:
+        return
+    try:
+        df = pd.read_csv(TECHNICAL_SNAPSHOT_CSV, dtype=str, keep_default_na=False).fillna("")
+    except Exception as exc:
+        errors.append(f"failed to inspect technical snapshot date: {exc}")
+        return
+    if "signal_date" not in df.columns:
+        errors.append("technical snapshot missing signal_date")
+        return
+    values = sorted({normalize_date_value(value) for value in df["signal_date"].tolist()} - {""})
+    bad_values = [value for value in values if value != main_date]
+    if bad_values:
+        examples = (
+            df[df["signal_date"].map(normalize_date_value).isin(bad_values)]
+            [["stock_id", "stock_name", "signal_date"]]
+            .head(10)
+            .to_dict("records")
+        )
+        errors.append(f"technical snapshot contains non-current signal_date: {bad_values[:10]} examples={examples}")
 
 
 def check_catalyst_columns(errors: list[str]) -> None:
@@ -450,6 +539,8 @@ def check_model_line_pdfs(errors: list[str], warnings: list[str]) -> dict[str, d
             "pages": info["pages"],
         }
         check_pdf_basic(label, info, errors, warnings)
+        check_duplicate_rank_labels(label, info["text"], errors)
+        check_raw_slug_terms(label, info["text"], errors)
     return infos
 
 
@@ -500,10 +591,25 @@ def check_model_summary_for_report(errors: list[str]) -> dict[str, Any]:
         summary["models_by_report_line"][report_line] = int(len(part))
         if len(part) != 10:
             errors.append(f"{report_line}: expected 10 fixed model summary rows, got {len(part)}")
-        if not part["new_signal_rank_label_zh"].astype(str).str.contains("新進榜|今日無候選|^-?$", regex=True).all():
-            errors.append(f"{report_line}: new_signal_rank_label_zh has invalid labels")
-        if not part["repeated_signal_rank_label_zh"].astype(str).str.contains("連續榜|累計榜|重複|今日無候選|^-?$", regex=True).all():
-            errors.append(f"{report_line}: repeated_signal_rank_label_zh has invalid labels")
+        no_candidate = "今日無候選"
+        new_prefix = "新進榜 #"
+        repeated_prefixes = (
+            "連續榜 #",
+            "累計榜 #",
+            "重複進榜 #",
+        )
+        valid_new_labels = part["new_signal_rank_label_zh"].astype(str).str.strip().apply(
+            lambda value: value in {"", "-", no_candidate} or value.startswith(new_prefix)
+        )
+        if not valid_new_labels.all():
+            bad = part.loc[~valid_new_labels, ["report_line", "model_id", "new_signal_rank_label_zh"]].head(10).to_dict("records")
+            errors.append(f"{report_line}: new_signal_rank_label_zh has invalid labels: {bad}")
+        valid_repeated_labels = part["repeated_signal_rank_label_zh"].astype(str).str.strip().apply(
+            lambda value: value in {"", "-", no_candidate} or value.startswith(repeated_prefixes)
+        )
+        if not valid_repeated_labels.all():
+            bad = part.loc[~valid_repeated_labels, ["report_line", "model_id", "repeated_signal_rank_label_zh"]].head(10).to_dict("records")
+            errors.append(f"{report_line}: repeated_signal_rank_label_zh has invalid labels: {bad}")
     return summary
 
 
@@ -514,6 +620,7 @@ def check_model_report_signals_for_report(errors: list[str]) -> dict[str, Any]:
         "rows": 0,
         "duplicate_report_model_stock_rows": 0,
     }
+    main_date = safe_str(read_freshness().get("main_price_date", ""))
     if not MODEL_REPORT_SIGNALS_CSV.exists():
         errors.append(f"missing {MODEL_REPORT_SIGNALS_CSV}")
         return summary
@@ -552,6 +659,34 @@ def check_model_report_signals_for_report(errors: list[str]) -> dict[str, Any]:
         dupes = df[df.duplicated(["report_line", "model_id", "stock_id"], keep=False)]
         rows = dupes[["report_line", "model_id", "stock_id"]].head(10).to_dict("records")
         errors.append(f"model report signals duplicate report_line/model_id/stock_id rows: {rows}")
+    if main_date:
+        for col in ["signal_date", "date", "main_price_date"]:
+            if col in df.columns:
+                values = sorted({normalize_date_value(value) for value in df[col].tolist()} - {""})
+                bad_values = [value for value in values if value != main_date]
+                if bad_values:
+                    examples = (
+                        df[df[col].map(normalize_date_value).isin(bad_values)]
+                        [["report_line", "model_id", "stock_id", col]]
+                        .head(10)
+                        .to_dict("records")
+                    )
+                    errors.append(
+                        f"model report signals {col} contains non-current dates: {bad_values[:10]} examples={examples}"
+                    )
+        if "source_date" in df.columns:
+            source_values = sorted({normalize_date_value(value) for value in df["source_date"].tolist()} - {""})
+            bad_source_values = [value for value in source_values if value != main_date]
+            if bad_source_values:
+                examples = (
+                    df[df["source_date"].map(normalize_date_value).isin(bad_source_values)]
+                    [["report_line", "model_id", "stock_id", "source_date"]]
+                    .head(10)
+                    .to_dict("records")
+                )
+                errors.append(
+                    f"model report signals source_date contains stale dates: {bad_source_values[:10]} examples={examples}"
+                )
     if df["why_selected_human_zh"].astype(str).str.strip().eq("").any():
         errors.append("model report signals has blank why_selected_human_zh rows")
     if df["operation_reminder_zh"].astype(str).str.strip().eq("").any():
@@ -580,6 +715,10 @@ def validate() -> tuple[dict[str, Any], list[str], list[str]]:
     check_category_order("full_table", full["text"], errors)
     check_forbidden_terms("curated", curated["text"], errors)
     check_forbidden_terms("full_table", full["text"], errors)
+    check_duplicate_rank_labels("curated", curated["text"], errors)
+    check_duplicate_rank_labels("full_table", full["text"], errors)
+    check_raw_slug_terms("curated", curated["text"], errors)
+    check_raw_slug_terms("full_table", full["text"], errors)
     check_no_total_ranking("curated", curated["text"], errors)
     check_no_total_ranking("full_table", full["text"], errors)
     check_score_rank_priority("curated", curated["text"], errors)
@@ -587,6 +726,7 @@ def validate() -> tuple[dict[str, Any], list[str], list[str]]:
     check_report_date("curated", curated["text"], main_date, errors)
     check_report_date("full_table", full["text"], main_date, errors)
     check_candidate_date(errors, main_date)
+    check_technical_snapshot_date(errors, main_date)
     check_catalyst_columns(errors)
     check_repeat_appearance_columns(errors)
     check_repeat_appearance_in_pdf("curated", curated["text"], errors)

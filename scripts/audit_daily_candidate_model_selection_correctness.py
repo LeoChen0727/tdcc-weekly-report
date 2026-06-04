@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import math
+from datetime import datetime
 from pathlib import Path
 from typing import Any
 
@@ -80,6 +81,27 @@ def flag(row: pd.Series | dict[str, Any], *cols: str) -> bool:
 
 def is_true(value: Any) -> bool:
     return safe_str(value).strip().lower() in {"1", "1.0", "true", "yes", "y", "t"}
+
+
+def yyyymmdd_delta_days(later: str, earlier: str) -> int | None:
+    try:
+        later_dt = datetime.strptime(str(later), "%Y%m%d")
+        earlier_dt = datetime.strptime(str(earlier), "%Y%m%d")
+    except ValueError:
+        return None
+    return (later_dt - earlier_dt).days
+
+
+def weekly_helper_fresh(main_date: str, dates: list[str], *, max_lag_days: int = 7) -> bool:
+    """TDCC helpers are weekly data, so same-week data is current for daily reports."""
+    clean_dates = [safe_str(d).strip() for d in dates if safe_str(d).strip()]
+    if not clean_dates or not main_date:
+        return False
+    if any(d > main_date for d in clean_dates):
+        return False
+    latest_date = max(clean_dates)
+    delta = yyyymmdd_delta_days(main_date, latest_date)
+    return delta is not None and 0 <= delta <= max_lag_days
 
 
 def read(path: Path) -> pd.DataFrame:
@@ -398,9 +420,12 @@ def audit() -> dict[str, Any]:
             if name == "tdcc_short_edge":
                 future_dates = [d for d in bad_dates if d > main_date]
                 details["tdcc_short_edge_data_dates"] = dates
-                tdcc_edge_fresh = False
+                tdcc_edge_fresh = weekly_helper_fresh(main_date, dates)
                 if future_dates:
+                    tdcc_edge_fresh = False
                     warnings.append(message + "; TDCC weekly helper has a future date")
+                elif not tdcc_edge_fresh:
+                    warnings.append(message + "; TDCC weekly helper is outside the accepted weekly window")
             elif name == "volume_watch":
                 volume_watch_fresh = False
                 warnings.append(message + "; volume helper was excluded from date-gated checks")
@@ -449,6 +474,8 @@ def audit() -> dict[str, Any]:
     tdcc_edge_stocks = stock_set(tdcc_edge) if tdcc_edge_fresh else set()
     details["volume_watch_fresh"] = volume_watch_fresh
     details["tdcc_short_edge_fresh"] = tdcc_edge_fresh
+    if "tdcc_short_edge_dates" in details:
+        details["tdcc_short_edge_weekly_window_days"] = 7
 
     selected_errors: list[str] = []
     selected_warnings: list[str] = []

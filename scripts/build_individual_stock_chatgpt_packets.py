@@ -286,6 +286,13 @@ def numeric_text(value: Any) -> str:
     return f"{number:.2f}".rstrip("0").rstrip(".")
 
 
+def bullet_kv(label: str, value: Any) -> str:
+    text = numeric_text(value)
+    if not text:
+        return f"- {label}:"
+    return f"- {label}: {text}"
+
+
 def csv_block(df: pd.DataFrame, columns: list[str], limit: int | None = None) -> list[str]:
     existing = [col for col in columns if col in df.columns]
     if not existing or df.empty:
@@ -615,23 +622,23 @@ def build_packet(
         "- Treat post-entry watch display text as management items, not as buy-before blockers.",
         "",
         "## Latest Price Snapshot",
-        f"- date: {pick_value(latest_price, ['date', 'trade_date'])}",
-        f"- open: {numeric_text(pick_value(latest_price, ['open']))}",
-        f"- high: {numeric_text(pick_value(latest_price, ['high']))}",
-        f"- low: {numeric_text(pick_value(latest_price, ['low']))}",
-        f"- close: {numeric_text(pick_value(latest_price, ['close']))}",
-        f"- volume: {numeric_text(pick_value(latest_price, ['volume']))}",
-        f"- ma5: {numeric_text(pick_value(latest_price, ['ma5']))}",
-        f"- ema23_primary: {numeric_text(pick_value(latest_price, ['ema23']))}",
-        f"- distance_to_ema23_pct: {numeric_text(pick_value(latest_price, ['distance_to_ema23_pct']))}",
-        f"- ma20: {numeric_text(pick_value(latest_price, ['ma20']))}",
-        f"- ma60: {numeric_text(pick_value(latest_price, ['ma60']))}",
-        f"- ma120: {numeric_text(pick_value(latest_price, ['ma120']))}",
-        f"- return_5d: {numeric_text(pick_value(latest_price, ['return_5d']))}",
-        f"- return_20d: {numeric_text(pick_value(latest_price, ['return_20d']))}",
-        f"- volume_ratio: {numeric_text(pick_value(latest_price, ['volume_ratio']))}",
-        f"- distance_to_ma20_pct_auxiliary: {numeric_text(pick_value(latest_price, ['distance_to_ma20_pct']))}",
-        f"- distance_to_high_60_pct: {numeric_text(pick_value(latest_price, ['distance_to_high_60_pct']))}",
+        bullet_kv("date", pick_value(latest_price, ["date", "trade_date"])),
+        bullet_kv("open", pick_value(latest_price, ["open"])),
+        bullet_kv("high", pick_value(latest_price, ["high"])),
+        bullet_kv("low", pick_value(latest_price, ["low"])),
+        bullet_kv("close", pick_value(latest_price, ["close"])),
+        bullet_kv("volume", pick_value(latest_price, ["volume"])),
+        bullet_kv("ma5", pick_value(latest_price, ["ma5"])),
+        bullet_kv("ema23_primary", pick_value(latest_price, ["ema23"])),
+        bullet_kv("distance_to_ema23_pct", pick_value(latest_price, ["distance_to_ema23_pct"])),
+        bullet_kv("ma20", pick_value(latest_price, ["ma20"])),
+        bullet_kv("ma60", pick_value(latest_price, ["ma60"])),
+        bullet_kv("ma120", pick_value(latest_price, ["ma120"])),
+        bullet_kv("return_5d", pick_value(latest_price, ["return_5d"])),
+        bullet_kv("return_20d", pick_value(latest_price, ["return_20d"])),
+        bullet_kv("volume_ratio", pick_value(latest_price, ["volume_ratio"])),
+        bullet_kv("distance_to_ma20_pct_auxiliary", pick_value(latest_price, ["distance_to_ma20_pct"])),
+        bullet_kv("distance_to_high_60_pct", pick_value(latest_price, ["distance_to_high_60_pct"])),
         "",
         "## Recent Price Preview",
         f"This is a short preview only. For K-line/chart work read price_window_{price_days}_txt_* above.",

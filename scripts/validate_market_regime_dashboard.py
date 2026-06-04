@@ -94,13 +94,13 @@ def main() -> int:
 
     md = Path("output/latest/market_risk_dashboard_latest.md").read_text(encoding="utf-8")
     for marker in [
-        "Market Risk Dashboard",
-        "Market Index Regime",
-        "Futures / Options Positioning",
-        "Six-Month Technical Charts",
-        "Technical / Pattern Notes",
-        "Retail Mini-TAIEX Futures Proxy",
-        "Usage Boundary",
+        "市場風險與大盤期權背景",
+        "大盤指數結構",
+        "期貨選擇權部位",
+        "半年技術圖表",
+        "技術與型態重點",
+        "散戶小台 proxy",
+        "使用邊界",
     ]:
         if marker not in md:
             return fail(f"dashboard missing marker: {marker}")

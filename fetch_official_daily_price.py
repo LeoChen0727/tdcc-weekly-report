@@ -9,6 +9,7 @@ import io
 import json
 import math
 import re
+import shutil
 import time
 from typing import Any
 
@@ -745,7 +746,12 @@ def fetch_tpex_batch(date_text: str, log: list[str]) -> pd.DataFrame:
     return best
 
 
-def get_latest_existing_daily_file() -> Path | None:
+def daily_file_date(path: Path) -> str:
+    match = re.search(r"20\d{6}", path.name)
+    return match.group(0) if match else ""
+
+
+def get_latest_existing_daily_file(before_date: str | None = None) -> Path | None:
     candidates = []
 
     if DATA_DIR.exists():
@@ -755,15 +761,96 @@ def get_latest_existing_daily_file() -> Path | None:
         p for p in candidates
         if re.search(r"20\d{6}", p.name)
     ]
+    if before_date:
+        candidates = [p for p in candidates if daily_file_date(p) < before_date]
 
     if not candidates:
         return None
 
-    def key(path: Path) -> str:
-        match = re.search(r"20\d{6}", path.name)
-        return match.group(0) if match else ""
+    return sorted(candidates, key=daily_file_date)[-1]
 
-    return sorted(candidates, key=key)[-1]
+
+def detect_stale_markets_against_previous(
+    df: pd.DataFrame,
+    target_date: str,
+    log: list[str],
+    same_threshold: float = 0.98,
+    min_common_rows: int = 300,
+) -> tuple[pd.DataFrame, dict[str, Any]]:
+    """Remove market segments that exactly duplicate the previous trading day.
+
+    Exchange fallback endpoints can return the latest available TPEx data while
+    the target-date TWSE data is already available. Keeping those rows under the
+    target date pollutes per-stock history with fake candles, so the fetch layer
+    rejects stale market segments before writing the daily file.
+    """
+    report: dict[str, Any] = {
+        "previous_file": "",
+        "stale_markets": [],
+        "stale_market_rows": 0,
+        "market_same_ratios": {},
+        "data_quality_note": "",
+    }
+    if df.empty:
+        return df, report
+
+    previous_file = get_latest_existing_daily_file(before_date=target_date)
+    if not previous_file:
+        return df, report
+
+    report["previous_file"] = previous_file.as_posix()
+    try:
+        previous = pd.read_csv(previous_file, dtype=str).fillna("")
+    except Exception as exc:
+        log.append(f"Stale market check skipped: cannot read previous file {previous_file}: {exc}")
+        return df, report
+
+    required = {"stock_id", "market", "open", "high", "low", "close", "volume"}
+    if not required.issubset(set(previous.columns)) or not required.issubset(set(df.columns)):
+        log.append("Stale market check skipped: missing required columns")
+        return df, report
+
+    compare_cols = ["open", "high", "low", "close", "volume"]
+    keep_mask = pd.Series(True, index=df.index)
+    stale_markets: list[str] = []
+    stale_rows = 0
+    for market, current_part in df.groupby(df["market"].astype(str), sort=True):
+        if not market:
+            continue
+        previous_part = previous[previous["market"].astype(str).eq(market)]
+        merged = previous_part[["stock_id"] + compare_cols].merge(
+            current_part[["stock_id"] + compare_cols],
+            on="stock_id",
+            suffixes=("_prev", "_cur"),
+        )
+        if len(merged) < min_common_rows:
+            continue
+        same = pd.Series(True, index=merged.index)
+        for col in compare_cols:
+            prev = pd.to_numeric(merged[f"{col}_prev"], errors="coerce")
+            cur = pd.to_numeric(merged[f"{col}_cur"], errors="coerce")
+            same &= (prev - cur).abs().fillna(math.inf) <= 1e-9
+        ratio = float(same.mean()) if len(same) else 0.0
+        report["market_same_ratios"][market] = ratio
+        if ratio >= same_threshold:
+            stale_markets.append(market)
+            stale_rows += int(len(current_part))
+            keep_mask.loc[current_part.index] = False
+            log.append(
+                f"Reject stale {market} target-date rows: {ratio:.1%} match previous file {previous_file.name}"
+            )
+
+    if stale_markets:
+        report["stale_markets"] = stale_markets
+        report["stale_market_rows"] = stale_rows
+        report["data_quality_note"] = (
+            "partial_market_stale_rejected: "
+            + ",".join(stale_markets)
+            + f" matched previous trading day file {previous_file.name}"
+        )
+        df = df[keep_mask].copy().reset_index(drop=True)
+
+    return df, report
 
 
 def load_existing_universe() -> pd.DataFrame:
@@ -928,6 +1015,19 @@ def save_price_data(df: pd.DataFrame, saved_date: str) -> dict[str, str]:
     return paths
 
 
+def publish_previous_valid_latest(target_date: str, log: list[str]) -> dict[str, str]:
+    previous_file = get_latest_existing_daily_file(before_date=target_date)
+    if not previous_file or not previous_file.exists():
+        return {}
+    OUTPUT_LATEST.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(previous_file, LATEST_PRICE_CSV)
+    log.append(f"Published previous valid daily price file as latest: {previous_file}")
+    return {
+        "previous_valid_csv": str(previous_file),
+        "latest_csv": str(LATEST_PRICE_CSV),
+    }
+
+
 def write_report(result: dict[str, Any], log: list[str]) -> None:
     OUTPUT_LATEST.mkdir(parents=True, exist_ok=True)
     OUTPUT_DEBUG.mkdir(parents=True, exist_ok=True)
@@ -945,6 +1045,11 @@ def write_report(result: dict[str, Any], log: list[str]) -> None:
     lines.append(f"- tpex_rows：`{result.get('tpex_rows', 0)}`")
     lines.append(f"- total_rows：`{result.get('total_rows', 0)}`")
     lines.append(f"- full_market_ok：`{result.get('full_market_ok', False)}`")
+    if result.get("data_quality_note"):
+        lines.append(f"- data_quality_note：{result.get('data_quality_note')}")
+    if result.get("stale_markets"):
+        lines.append(f"- stale_markets：`{', '.join(result.get('stale_markets', []))}`")
+        lines.append(f"- stale_market_rows：`{result.get('stale_market_rows', 0)}`")
     lines.append("")
 
     if result.get("paths"):
@@ -994,6 +1099,27 @@ def main() -> int:
     # 這版的精神：今天跑，就盡最大努力寫今天資料。
     # 如果批次 + fallback 有抓到足夠資料，就寫 target_date。
     # 不再偷偷沿用昨天。
+    stale_report: dict[str, Any] = {}
+    if not df.empty:
+        df, stale_report = detect_stale_markets_against_previous(df, target_date, log)
+        status["total_rows"] = int(len(df))
+        status["twse_rows"] = int((df["market"].astype(str) == "TWSE").sum()) if "market" in df.columns else 0
+        status["tpex_rows"] = int((df["market"].astype(str) == "TPEx").sum()) if "market" in df.columns else 0
+        status["twse_ok"] = status["twse_rows"] >= MIN_TWSE_ROWS
+        status["tpex_ok"] = status["tpex_rows"] >= MIN_TPEX_ROWS
+        status["full_market_ok"] = (
+            status["twse_ok"]
+            and status["tpex_ok"]
+            and status["total_rows"] >= MIN_FULL_ROWS
+            and not stale_report.get("stale_markets")
+        )
+        if stale_report.get("stale_markets"):
+            attempts[-1] = status | {
+                "stale_markets": stale_report.get("stale_markets", []),
+                "stale_market_rows": stale_report.get("stale_market_rows", 0),
+                "data_quality_note": stale_report.get("data_quality_note", ""),
+            }
+
     if not df.empty and len(df) >= 1:
         paths = save_price_data(df, target_date)
 
@@ -1020,6 +1146,10 @@ def main() -> int:
             "tpex_rows": status.get("tpex_rows", 0),
             "total_rows": status.get("total_rows", 0),
             "full_market_ok": full_market_ok,
+            "stale_markets": stale_report.get("stale_markets", []),
+            "stale_market_rows": stale_report.get("stale_market_rows", 0),
+            "data_quality_note": stale_report.get("data_quality_note", ""),
+            "market_same_ratios": stale_report.get("market_same_ratios", {}),
             "attempts": attempts,
             "paths": paths,
         }
@@ -1037,19 +1167,25 @@ def main() -> int:
         return 0
 
     # 真的完全沒有抓到，才不寫今日資料
+    previous_paths = publish_previous_valid_latest(target_date, log)
+    previous_date = daily_file_date(Path(previous_paths.get("previous_valid_csv", ""))) if previous_paths else ""
     result = {
         "generated_at": now_taipei().strftime("%Y-%m-%d %H:%M:%S Asia/Taipei"),
         "target_date": target_date,
-        "saved_price_date": "",
+        "saved_price_date": previous_date,
         "is_target_date": False,
         "result": "failed_no_target_data",
-        "reason": "目標日官方來源與 fallback 都沒有取得任何可用日線資料；未寫入今日價格檔。",
+        "reason": "目標日官方來源與 fallback 都沒有取得任何可用日線資料；latest 保留上一個有效交易日。",
         "twse_rows": status.get("twse_rows", 0),
         "tpex_rows": status.get("tpex_rows", 0),
         "total_rows": status.get("total_rows", 0),
         "full_market_ok": False,
+        "stale_markets": stale_report.get("stale_markets", []),
+        "stale_market_rows": stale_report.get("stale_market_rows", 0),
+        "data_quality_note": stale_report.get("data_quality_note", ""),
+        "market_same_ratios": stale_report.get("market_same_ratios", {}),
         "attempts": attempts,
-        "paths": {},
+        "paths": previous_paths,
     }
 
     write_report(result, log)

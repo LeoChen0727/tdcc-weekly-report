@@ -185,7 +185,9 @@ PDF_TOKEN_ZH = {
     "call_put_bullish": "權證偏多",
     "put_inflow": "認售流入",
     "put_strong_inflow": "認售強流入",
+    "mixed_flow": "權證多空混合",
     "no_signal": "無明確權證訊號",
+    "insufficient_data": "資料不足",
     "neckline": "頸線",
     "breakout": "突破",
     "hot_theme_tag": "熱門族群標籤",
@@ -220,57 +222,29 @@ PDF_TOKEN_ZH = {
 }
 
 
+def safe_str(value: Any) -> str:
+    if value is None:
+        return ""
+    if isinstance(value, float) and math.isnan(value):
+        return ""
+    text = str(value).strip()
+    if text.lower() in {"nan", "none", "nat"}:
+        return ""
+    return text
+
+
 def display_zh(value: Any, fallback: str = "") -> str:
     text = safe_str(value)
     if not text:
         return fallback
-    clean_map = {
-        "true_breakout": "嚴格突破",
-        "range_rebound": "區間轉強",
-        "near_resistance": "接近壓力",
-        "abnormal_volume_up": "異常放量上漲",
-        "revenue_breakout_low_response": "營收爆發但股價尚未反應",
-        "revenue_pullback": "營收成長股價回檔",
-        "pullback_rebound": "回檔後短線轉強",
-        "pattern": "型態觀察",
-        "short_term_specialty": "短線專項",
-        "hot_theme_pullback": "熱門族群回檔",
-        "volume_breakout": "帶量突破",
-        "range_breakout_volume": "帶量突破盤整區間",
-        "range_breakout_watch": "接近盤整上緣觀察",
-        "ma_reclaim_volume_attack": "帶量站回均線",
-        "near_high_volume_watch": "接近前高放量觀察",
-        "strict_high_breakout": "帶量突破波段高點",
-        "failed_range_breakout_risk": "盤整區間假突破風險",
-        "mainstream": "主流",
-        "non_mainstream": "非主流",
-        "mainstream_leader": "主流領先族群",
-        "mainstream_follow_through": "主流延伸族群",
-        "emerging_theme": "新興族群",
-        "single_name_signal": "單一個股訊號",
-        "weak_theme": "弱族群",
-        "mainstream_overheated": "主流過熱",
-        "strong_accumulation": "大戶強累積",
-        "mild_accumulation": "大戶溫和增加",
-        "neutral": "中性",
-        "distribution_warning": "大戶轉弱警示",
-        "call_strong_inflow": "認購強流入",
-        "call_inflow": "認購流入",
-        "call_put_bullish": "權證偏多",
-        "put_inflow": "認售流入",
-        "put_strong_inflow": "認售強流入",
-        "no_signal": "無明確訊號",
-        "neckline": "頸線",
-        "breakout": "突破",
-        "hot_theme_tag": "熱門族群標籤",
-        "hot theme tag": "熱門族群標籤",
-        "new_model_signal": "新進榜",
-        "repeated_same_model_signal": "重複進榜",
-    }
+    clean_map = dict(PDF_TOKEN_ZH)
     out = text
     for src in sorted(clean_map, key=len, reverse=True):
-        out = out.replace(src, clean_map[src])
-    return out or fallback
+        out = re.sub(rf"(?<![A-Za-z0-9_]){re.escape(src)}(?![A-Za-z0-9_])", clean_map[src], out)
+    if "_" in out and not any("\u4e00" <= ch <= "\u9fff" for ch in out):
+        return fallback or "欄位尚未完成 / 暫用現有資料"
+    return out
+
 
 FORBIDDEN_WORD_REPLACEMENTS = {
     "持股": "候選名單",
@@ -289,20 +263,6 @@ def now_taipei() -> datetime:
 
 def now_text() -> str:
     return now_taipei().strftime("%Y-%m-%d %H:%M:%S Asia/Taipei")
-
-
-def safe_str(value: Any) -> str:
-    if value is None:
-        return ""
-    try:
-        if pd.isna(value):
-            return ""
-    except Exception:
-        pass
-    text = str(value).strip()
-    if text.lower() in {"nan", "none", "nat"}:
-        return ""
-    return text
 
 
 def safe_float(value: Any, default: float = math.nan) -> float:
@@ -3195,25 +3155,30 @@ def _repeat_key(row: pd.Series) -> str:
 
 
 def _repeat_label(section: str) -> str:
-    return "連續/累計進榜" if section == "repeated" else "新進榜"
+    return "連續榜" if section == "repeated" else "新進榜"
 
 
 def _rank_for_section(row: pd.Series, section: str) -> str:
-    if section == "repeated":
-        rank = safe_str(row.get("display_rank_repeated_signal")) or safe_str(row.get("model_rank_repeated_signal"))
-    else:
-        rank = safe_str(row.get("display_rank_new_signal")) or safe_str(row.get("model_rank_new_signal"))
+    fields = (
+        ["display_rank_repeated_signal", "model_rank_repeated_signal", "display_rank", "model_rank"]
+        if section == "repeated"
+        else ["display_rank_new_signal", "model_rank_new_signal", "display_rank", "model_rank"]
+    )
+    rank = ""
+    for field in fields:
+        rank = safe_str(row.get(field)).strip()
+        if rank:
+            break
     if not rank:
-        rank = safe_str(row.get("display_rank")) or safe_str(row.get("model_rank"))
-    try:
-        if re.fullmatch(r"\d+(\.0+)?", rank):
-            rank = str(int(float(rank)))
-    except Exception:
-        pass
-    prefix = "連續榜#" if section == "repeated" else "新進榜#"
-    if rank and not rank.startswith(prefix) and not rank.startswith(_repeat_label(section)):
-        rank = f"{prefix}{rank}"
-    return rank or "-"
+        return "-"
+    label = _repeat_label(section)
+    for token in ["連續/累計進榜", "連續榜", "累計榜", "重複進榜", "新進榜", "#"]:
+        rank = rank.replace(token, " ")
+    rank = re.sub(r"\s+", " ", rank).strip()
+    match = re.search(r"\d+(?:\.0+)?", rank)
+    if match:
+        return f"{label} #{int(float(match.group(0)))}"
+    return f"{label} {clean_text(rank, 12)}" if rank else "-"
 
 
 def _rank_sort_number(row: pd.Series, section: str) -> float:
@@ -3587,7 +3552,7 @@ def _pdf_human_text(*values: Any, fallback: str = "\u8cc7\u6599\u4e0d\u8db3 / \u
 
 
 def _repeat_label(section: str) -> str:
-    return "\u9023\u7e8c/\u7d2f\u8a08\u9032\u699c" if section == "repeated" else "\u65b0\u9032\u699c"
+    return "連續榜" if section == "repeated" else "新進榜"
 
 
 def _rank_for_section(row: pd.Series, section: str) -> str:
@@ -3601,12 +3566,16 @@ def _rank_for_section(row: pd.Series, section: str) -> str:
         rank = safe_str(row.get(field)).strip()
         if rank:
             break
-    if re.fullmatch(r"\d+(\.0+)?", rank or ""):
-        rank = str(int(float(rank)))
-    prefix = "\u9023\u7e8c\u699c#" if section == "repeated" else "\u65b0\u9032\u699c#"
-    if rank and not rank.startswith(prefix):
-        rank = f"{prefix}{rank}"
-    return rank or "-"
+    if not rank:
+        return "-"
+    label = _repeat_label(section)
+    for token in ["連續/累計進榜", "連續榜", "累計榜", "重複進榜", "新進榜", "#"]:
+        rank = rank.replace(token, " ")
+    rank = re.sub(r"\s+", " ", rank).strip()
+    match = re.search(r"\d+(?:\.0+)?", rank)
+    if match:
+        return f"{label} #{int(float(match.group(0)))}"
+    return f"{label} {clean_text(rank, 12)}" if rank else "-"
 
 
 def _rank_sort_number(row: pd.Series, section: str) -> float:

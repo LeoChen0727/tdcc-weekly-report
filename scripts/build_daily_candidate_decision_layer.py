@@ -62,6 +62,39 @@ CATEGORY_CN = {
     "pattern": "型態觀察",
 }
 
+TDCC_STATUS_ZH = {
+    "strong_accumulation": "大戶強累積",
+    "mild_accumulation": "大戶溫和增加",
+    "neutral": "中性",
+    "distribution_warning": "大戶轉弱",
+    "insufficient_data": "資料不足",
+}
+
+WARRANT_SIGNAL_ZH = {
+    "call_strong_inflow": "認購強流入",
+    "call_inflow": "認購偏多",
+    "call_put_bullish": "權證偏多",
+    "put_inflow": "認售偏多",
+    "put_strong_inflow": "認售強流入",
+    "put_call_bearish": "權證偏空",
+    "mixed_flow": "權證多空混合",
+    "warrant_overheat": "權證過熱",
+    "call_profit_exit_risk": "認購獲利了結風險",
+    "no_signal": "無明確訊號",
+}
+
+PATTERN_STAGE_ZH = {
+    "breakout_confirmed": "突破確認",
+    "neckline_breakout": "突破頸線",
+    "platform_breakout": "突破平台",
+    "neckline_challenge": "挑戰頸線",
+    "platform_right_side": "平台右側轉強",
+    "w_bottom_right_side": "W底右側",
+    "early_entry_watch": "早期進場觀察",
+    "pullback_entry_zone": "回檔買點區",
+    "failed_breakout": "突破失敗",
+}
+
 PRIORITY_SORT = {
     "A_priority_watch": 1,
     "B_confirm_needed": 2,
@@ -400,6 +433,11 @@ def warrant_tag(row: pd.Series) -> str:
     return signal or ""
 
 
+def zh_lookup(value: str, mapping: dict[str, str]) -> str:
+    raw = safe_str(value)
+    return mapping.get(raw, raw)
+
+
 def combined_text(row: pd.Series, names: list[str]) -> str:
     return " ".join(first_text(row, [name]) for name in names).lower()
 
@@ -605,7 +643,7 @@ def build_reasons(row: pd.Series, pattern_category: str, pattern_route: str, tdc
     if category in CATEGORY_CN:
         reasons.append(CATEGORY_CN[category])
     if pattern_route and pattern_route != "no_pattern_stage":
-        reasons.append(f"型態={pattern_route}")
+        reasons.append(f"型態={zh_lookup(pattern_route, PATTERN_STAGE_ZH)}")
     if not math.isnan(score):
         reasons.append(f"分類分數={score:.0f}")
     if not math.isnan(volume_ratio):
@@ -615,10 +653,10 @@ def build_reasons(row: pd.Series, pattern_category: str, pattern_route: str, tdc
     if not math.isnan(ret20):
         reasons.append(f"20日漲幅={ret20:.2f}%")
     if tdcc_status:
-        reasons.append(f"TDCC={tdcc_status}")
+        reasons.append(f"TDCC={zh_lookup(tdcc_status, TDCC_STATUS_ZH)}")
     wt = warrant_tag(row)
     if wt:
-        reasons.append(f"權證={wt}")
+        reasons.append(f"權證={zh_lookup(wt, WARRANT_SIGNAL_ZH)}")
     return reasons[:8]
 
 
@@ -631,9 +669,9 @@ def next_confirmation_for(
 ) -> str:
     stage = first_text(row, ["pattern_stage", "pattern"]).lower()
     if risk_handling_bucket == "hard_exclusion":
-        return "??????????TDCC ?????????????????"
+        return "排除或降級：TDCC 轉弱、過熱或主要風險尚未解除。"
     if risk_handling_bucket == "high_momentum_risk_follow":
-        return "??????????????????????????????????? D+5/D+10 ???"
+        return "高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。"
     if "tdcc_distribution_warning" in downgrade_flags:
         return "先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。"
     if "revenue_no_warrant_stale_no_breakout" in downgrade_flags:

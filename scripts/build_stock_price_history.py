@@ -213,33 +213,36 @@ def load_all_daily_prices() -> pd.DataFrame:
 
 def load_latest_trading_daily_prices() -> pd.DataFrame:
     """Load the newest daily price file that has usable trading rows."""
-    for path in sorted(DATA_DAILY_PRICE_DIR.glob("*.csv"), reverse=True):
-        normalized = normalize_daily_price_file(path)
-        if not normalized.empty:
-            return normalized
+    all_prices = load_all_daily_prices()
+    if not all_prices.empty:
+        latest_date = all_prices["date"].astype(str).max()
+        return all_prices[all_prices["date"].astype(str).eq(latest_date)].copy()
     return pd.DataFrame(columns=BASE_COLUMNS)
 
 
-def drop_stale_duplicate_dates(df: pd.DataFrame, same_threshold: float = 0.98, min_common_rows: int = 500) -> pd.DataFrame:
-    """Drop synthetic date snapshots that duplicate the previous trading day.
+def drop_stale_duplicate_dates(df: pd.DataFrame, same_threshold: float = 0.98, min_common_rows: int = 300) -> pd.DataFrame:
+    """Drop synthetic date/market snapshots that duplicate the previous day.
 
     Some fallback fetches write a file with the requested date even when the
-    exchange has only published the previous trading day's prices. These rows
-    should not enter per-stock histories, otherwise packet/PDF readers see fake
-    weekend or pre-market candles.
+    exchange has only published the previous trading day's prices. The stale
+    segment can affect TPEx while TWSE is already fresh, so this filter works
+    per market instead of dropping or keeping an entire date.
     """
     if df.empty:
         return df
-    keep_dates: list[str] = []
-    previous: pd.DataFrame | None = None
-    previous_date = ""
+    keep_mask = pd.Series(True, index=df.index)
+    previous_by_market: dict[str, tuple[str, pd.DataFrame]] = {}
     compare_cols = ["open", "high", "low", "close", "volume"]
     for date in sorted(df["date"].dropna().astype(str).unique()):
         current = df[df["date"].astype(str).eq(date)].copy()
-        drop_current = False
-        if previous is not None:
+        current_keep_mask = pd.Series(True, index=current.index)
+        for market, market_current in current.groupby(current["market"].astype(str), sort=True):
+            previous_info = previous_by_market.get(market)
+            if previous_info is None:
+                continue
+            previous_date, previous = previous_info
             merged = previous[["stock_id"] + compare_cols].merge(
-                current[["stock_id"] + compare_cols],
+                market_current[["stock_id"] + compare_cols],
                 on="stock_id",
                 suffixes=("_prev", "_cur"),
             )
@@ -252,15 +255,15 @@ def drop_stale_duplicate_dates(df: pd.DataFrame, same_threshold: float = 0.98, m
                 same_ratio = float(same.mean()) if len(same) else 0.0
                 if same_ratio >= same_threshold:
                     print(
-                        f"Skip stale duplicate daily price date {date}: "
+                        f"Skip stale duplicate daily price date {date} market {market}: "
                         f"{same_ratio:.1%} rows match previous kept date {previous_date}"
                     )
-                    drop_current = True
-        if not drop_current:
-            keep_dates.append(date)
-            previous = current
-            previous_date = date
-    return df[df["date"].astype(str).isin(keep_dates)].copy()
+                    current_keep_mask.loc[market_current.index] = False
+                    keep_mask.loc[market_current.index] = False
+        kept_current = current[current_keep_mask]
+        for market, market_current in kept_current.groupby(kept_current["market"].astype(str), sort=True):
+            previous_by_market[market] = (date, market_current.copy())
+    return df[keep_mask].copy()
 
 
 def rolling_mean(series: pd.Series, window: int) -> pd.Series:

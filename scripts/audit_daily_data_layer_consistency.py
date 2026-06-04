@@ -26,6 +26,7 @@ TAXONOMY_TEMPLATE_XLSX = LATEST_DIR / "stock_theme_manual_fill_template_latest.x
 DOCS_LATEST_DIR = Path("docs/latest")
 DOCS_TAXONOMY_TEMPLATE_CSV = DOCS_LATEST_DIR / "stock_theme_manual_fill_template_latest.csv"
 DOCS_TAXONOMY_TEMPLATE_XLSX = DOCS_LATEST_DIR / "stock_theme_manual_fill_template_latest.xlsx"
+MARKET_TIMING_PACKET = LATEST_DIR / "market_timing_chatgpt_packet_latest.md"
 
 REQUIRED_VOLUME_COLUMNS = {
     "volume_breakout_priority",
@@ -103,6 +104,18 @@ TAXONOMY_SANITY_CASES = {
 
 def _safe_read(path: Path) -> pd.DataFrame:
     return read_csv(path, dtype=str, keep_default_na=False)
+
+
+def _read_text(path: Path) -> str:
+    if not path.exists():
+        return ""
+    return path.read_text(encoding="utf-8-sig", errors="replace")
+
+
+def _market_timing_packet_main_date() -> str:
+    text = _read_text(MARKET_TIMING_PACKET)
+    match = re.search(r"(?m)^-\s*main_price_date:\s*(\d{8})\s*$", text)
+    return match.group(1) if match else ""
 
 
 def _bad_text_rows(df: pd.DataFrame, cols: list[str]) -> dict[str, int]:
@@ -251,6 +264,16 @@ def audit(include_readme: bool = False) -> dict[str, object]:
     details["taxonomy_template_xlsx_rows"] = _template_xlsx_rows(TAXONOMY_TEMPLATE_XLSX)
     details["docs_taxonomy_template_csv_rows"] = len(docs_taxonomy_template_csv)
     details["docs_taxonomy_template_xlsx_rows"] = _template_xlsx_rows(DOCS_TAXONOMY_TEMPLATE_XLSX)
+
+    market_timing_packet_date = _market_timing_packet_main_date()
+    details["market_timing_packet_main_price_date"] = market_timing_packet_date
+    if not MARKET_TIMING_PACKET.exists():
+        errors.append(f"{MARKET_TIMING_PACKET} is missing")
+    elif market_timing_packet_date != main_date:
+        errors.append(
+            f"market timing packet main_price_date mismatch: expected {main_date}, "
+            f"got {market_timing_packet_date or 'missing'}"
+        )
 
     if signals.empty:
         errors.append("daily_candidate_model_signals_for_report_latest.csv is empty")

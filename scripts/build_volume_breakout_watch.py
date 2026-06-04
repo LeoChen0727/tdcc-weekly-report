@@ -5,6 +5,7 @@ from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 from concurrent.futures import ThreadPoolExecutor
+from functools import partial
 import argparse
 import math
 import os
@@ -362,7 +363,24 @@ def detect_volume_breakout(row: pd.Series) -> BreakoutSignal | None:
     return BreakoutSignal(event_type=event_type, score=round(score, 2), notes=notes, scope=scope)
 
 
-def build_latest_price_signal_frame() -> pd.DataFrame:
+def _select_latest_signal_row(df: pd.DataFrame, target_date: str) -> pd.Series | None:
+    """Return the row that is eligible for latest outputs.
+
+    Latest report files must not silently fall back to stale per-stock history.
+    If the report main_price_date is known, only that exact trading-date row is
+    eligible.  Historical scans/backtests remain handled separately.
+    """
+    if df.empty:
+        return None
+    if target_date:
+        dated = df[df["date"].map(normalize_date).eq(target_date)]
+        if dated.empty:
+            return None
+        return dated.iloc[-1]
+    return df.iloc[-1]
+
+
+def build_latest_price_signal_frame(target_date: str = "") -> pd.DataFrame:
     rows: list[dict[str, Any]] = []
     for path in sorted(PRICE_HISTORY_DIR.glob("*.csv")):
         df = read_csv(path)
@@ -373,7 +391,9 @@ def build_latest_price_signal_frame() -> pd.DataFrame:
         df = add_price_metrics(df)
         if df.empty:
             continue
-        row = df.iloc[-1]
+        row = _select_latest_signal_row(df, target_date)
+        if row is None:
+            continue
         signal = detect_volume_breakout(row)
         if signal is None:
             continue
@@ -716,7 +736,7 @@ def build_event_log() -> pd.DataFrame:
     return pd.DataFrame(events)
 
 
-def _process_price_history_path(path: Path) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+def _process_price_history_path(path: Path, target_date: str = "") -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     latest_rows: list[dict[str, Any]] = []
     events: list[dict[str, Any]] = []
     df = read_csv(path)
@@ -728,9 +748,9 @@ def _process_price_history_path(path: Path) -> tuple[list[dict[str, Any]], list[
     if df.empty:
         return latest_rows, events
 
-    latest_row = df.iloc[-1]
-    latest_signal = detect_volume_breakout(latest_row)
-    if latest_signal is not None:
+    latest_row = _select_latest_signal_row(df, target_date)
+    latest_signal = detect_volume_breakout(latest_row) if latest_row is not None else None
+    if latest_row is not None and latest_signal is not None:
         latest_rows.append(
             {
                 "signal_date": normalize_date(latest_row.get("date")),
@@ -888,19 +908,20 @@ def _process_price_history_path(path: Path) -> tuple[list[dict[str, Any]], list[
     return latest_rows, events
 
 
-def build_latest_and_event_frames(max_workers: int | None = None) -> tuple[pd.DataFrame, pd.DataFrame]:
+def build_latest_and_event_frames(target_date: str = "", max_workers: int | None = None) -> tuple[pd.DataFrame, pd.DataFrame]:
     paths = sorted(PRICE_HISTORY_DIR.glob("*.csv"))
     workers = max_workers or min(12, max(2, (os.cpu_count() or 4)))
     latest_rows: list[dict[str, Any]] = []
     event_rows: list[dict[str, Any]] = []
+    worker = partial(_process_price_history_path, target_date=target_date)
     with ThreadPoolExecutor(max_workers=workers) as executor:
-        for latest_part, events_part in executor.map(_process_price_history_path, paths):
+        for latest_part, events_part in executor.map(worker, paths):
             latest_rows.extend(latest_part)
             event_rows.extend(events_part)
     return pd.DataFrame(latest_rows), pd.DataFrame(event_rows)
 
 
-def _process_latest_path(path: Path) -> list[dict[str, Any]]:
+def _process_latest_path(path: Path, target_date: str = "") -> list[dict[str, Any]]:
     df = read_csv(path)
     if df.empty or len(df) < 40:
         return []
@@ -909,7 +930,9 @@ def _process_latest_path(path: Path) -> list[dict[str, Any]]:
     df = add_price_metrics(df)
     if df.empty:
         return []
-    row = df.iloc[-1]
+    row = _select_latest_signal_row(df, target_date)
+    if row is None:
+        return []
     signal = detect_volume_breakout(row)
     if signal is None:
         return []
@@ -949,25 +972,19 @@ def _process_latest_path(path: Path) -> list[dict[str, Any]]:
     ]
 
 
-def build_latest_frame_fast(max_workers: int | None = None) -> pd.DataFrame:
+def build_latest_frame_fast(target_date: str = "", max_workers: int | None = None) -> pd.DataFrame:
     paths = sorted(PRICE_HISTORY_DIR.glob("*.csv"))
     workers = max_workers or min(12, max(2, (os.cpu_count() or 4)))
     latest_rows: list[dict[str, Any]] = []
+    worker = partial(_process_latest_path, target_date=target_date)
     with ThreadPoolExecutor(max_workers=workers) as executor:
-        for latest_part in executor.map(_process_latest_path, paths):
+        for latest_part in executor.map(worker, paths):
             latest_rows.extend(latest_part)
     return pd.DataFrame(latest_rows)
 
 
 def filter_latest_to_effective_signal_date(latest: pd.DataFrame, main_date: str) -> tuple[pd.DataFrame, str]:
-    """Filter latest price-derived signals without dropping all rows on non-trading main dates.
-
-    READ_ME_FIRST/main_price_date can point at a report/calendar date while
-    individual stock price history is only updated through the latest trading
-    day.  If no signal exists exactly on main_date, use the newest signal_date
-    not later than main_date.  This keeps real breakout signals, such as a
-    Friday price event when the report date is Saturday, from disappearing.
-    """
+    """Filter latest price-derived signals to the report trading date."""
     if latest.empty or "signal_date" not in latest.columns:
         return latest, main_date
     out = latest.copy()
@@ -978,8 +995,7 @@ def filter_latest_to_effective_signal_date(latest: pd.DataFrame, main_date: str)
     if main_date and main_date in available:
         effective_date = main_date
     elif main_date:
-        eligible = [d for d in available if d <= main_date]
-        effective_date = eligible[-1] if eligible else available[-1]
+        return out.iloc[0:0].copy(), main_date
     else:
         effective_date = available[-1]
     return out[out["signal_date"] == effective_date].copy(), effective_date
@@ -1353,7 +1369,7 @@ def main() -> int:
     main_date = latest_main_date()
 
     if args.latest_only:
-        latest = build_latest_frame_fast()
+        latest = build_latest_frame_fast(target_date=main_date)
         latest, effective_date = filter_latest_to_effective_signal_date(latest, main_date)
         watch = merge_context(latest)
         summary = latest_only_summary()
@@ -1375,11 +1391,11 @@ def main() -> int:
 
     full_rebuild = os.environ.get("VOLUME_BREAKOUT_FULL_REBUILD", "").strip().lower() in {"1", "true", "yes"}
     if EVENT_LOG_CSV.exists() and not full_rebuild:
-        latest = build_latest_frame_fast()
+        latest = build_latest_frame_fast(target_date=main_date)
         events = read_csv(EVENT_LOG_CSV)
         events = append_latest_events_to_history(events, latest)
     else:
-        latest, events = build_latest_and_event_frames()
+        latest, events = build_latest_and_event_frames(target_date=main_date)
     latest, effective_date = filter_latest_to_effective_signal_date(latest, main_date)
     watch = merge_context(latest)
     if not events.empty and "volume_breakout_type" in events.columns:

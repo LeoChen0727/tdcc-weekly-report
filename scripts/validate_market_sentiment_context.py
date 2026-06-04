@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import re
 import sys
 from pathlib import Path
 
@@ -8,7 +9,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from build_market_sentiment_context import REQUIRED_CONTEXT_COLUMNS  # noqa: E402
-from tracking_utils import HISTORY_DIR, LATEST_DIR  # noqa: E402
+from tracking_utils import HISTORY_DIR, LATEST_DIR, main_price_date_from_freshness  # noqa: E402
 
 
 LATEST_CSV = LATEST_DIR / "market_sentiment_context_latest.csv"
@@ -31,6 +32,11 @@ def _read_text(path: Path) -> str:
     return path.read_text(encoding="utf-8", errors="replace")
 
 
+def _packet_main_price_date(text: str) -> str:
+    match = re.search(r"(?m)^-\s*main_price_date:\s*(\d{8})\s*$", text)
+    return match.group(1) if match else ""
+
+
 def main() -> None:
     errors: list[str] = []
 
@@ -41,6 +47,7 @@ def main() -> None:
 
     if LATEST_CSV.exists():
         df = pd.read_csv(LATEST_CSV, dtype=str).fillna("")
+        expected_main_date = main_price_date_from_freshness()
         if len(df) != 1:
             errors.append(f"{LATEST_CSV} must have exactly 1 row, got {len(df)}")
         missing_cols = [col for col in REQUIRED_CONTEXT_COLUMNS if col not in df.columns]
@@ -48,6 +55,10 @@ def main() -> None:
             errors.append(f"{LATEST_CSV} missing columns: {missing_cols}")
         if not df.empty:
             row = df.iloc[0].to_dict()
+            if expected_main_date and row.get("date", "") != expected_main_date:
+                errors.append(
+                    f"{LATEST_CSV} date mismatch: expected {expected_main_date}, got {row.get('date', '')}"
+                )
             sample_status = row.get("sample_status", "")
             combined = row.get("combined_sentiment_interpretation", "")
             warning = row.get("sentiment_warning_level", "")
@@ -89,6 +100,14 @@ def main() -> None:
     packet = _read_text(MARKET_TIMING_PACKET_MD)
     if MARKET_TIMING_PACKET_MD.exists() and "MARKET_SENTIMENT_CONTEXT" not in packet:
         errors.append(f"{MARKET_TIMING_PACKET_MD} missing MARKET_SENTIMENT_CONTEXT")
+    if MARKET_TIMING_PACKET_MD.exists():
+        expected_main_date = main_price_date_from_freshness()
+        packet_main_date = _packet_main_price_date(packet)
+        if expected_main_date and packet_main_date != expected_main_date:
+            errors.append(
+                f"{MARKET_TIMING_PACKET_MD} main_price_date mismatch: "
+                f"expected {expected_main_date}, got {packet_main_date or 'missing'}"
+            )
 
     if errors:
         print("Market sentiment context validation failed:")

@@ -165,6 +165,9 @@ def compute_snapshot(path: Path, signal_date: str, fallback_name: str = "") -> d
     df["cmf_calc"] = mfv.rolling(20).sum() / volume.rolling(20).sum().replace(0, math.nan)
 
     latest = df.iloc[-1]
+    latest_date = safe_str(latest.get("date"))
+    if signal_date and latest_date != signal_date:
+        return None
     stock_id = normalize_code(latest.get("stock_id", path.stem))
     stock_name = safe_str(latest.get("stock_name", "")) or fallback_name
     close_v = num(latest.get("close"))
