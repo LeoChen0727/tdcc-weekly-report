@@ -1,46 +1,46 @@
 # Daily Theme Status History
 
-- generated_at: `2026-06-04 19:53:12 Asia/Taipei`
+- generated_at: `2026-06-04 21:43:06 Asia/Taipei`
 - latest_signal_date: `20260603`
-- latest_rows: `670`
-- history_rows: `3013`
+- latest_rows: `690`
+- history_rows: `3033`
 - purpose: Persist stock-level mainstream/non-mainstream and volume-attack labels by signal date for no-lookahead backtests.
 - caveat: Historical rows begin when this tracker starts unless older snapshots are backfilled from archived artifacts.
 
 ## Theme Status Group Counts
 | theme_status_group | count |
 | --- | --- |
-| mainstream_overheated | 444 |
-| mainstream_supported | 182 |
-| non_mainstream | 42 |
-| weak_or_unknown | 2 |
+| mainstream_overheated | 442 |
+| mainstream_supported | 194 |
+| non_mainstream | 51 |
+| weak_or_unknown | 3 |
 
 ## Theme Final Status Counts
 | theme_final_status | count |
 | --- | --- |
-| mainstream_overheated | 444 |
-| mainstream_follow_through | 108 |
-| single_name_signal | 42 |
-| mainstream_leader | 41 |
-| emerging_theme | 33 |
-| weak_theme | 2 |
+| mainstream_overheated | 442 |
+| mainstream_follow_through | 133 |
+| single_name_signal | 51 |
+| mainstream_leader | 37 |
+| emerging_theme | 24 |
+| weak_theme | 3 |
 
 ## Volume Attack Theme Status Counts
 | theme_volume_attack_status | count |
 | --- | --- |
-| overheated_volume_theme | 338 |
-| blank | 163 |
-| non_mainstream_volume_watch | 124 |
-| single_stock_volume_attack | 34 |
-| early_mainstream_candidate | 6 |
-| watch_volume_theme | 5 |
+| overheated_volume_theme | 350 |
+| blank | 183 |
+| non_mainstream_volume_watch | 103 |
+| single_stock_volume_attack | 45 |
+| watch_volume_theme | 6 |
+| early_mainstream_candidate | 3 |
 
 ## Latest Stock-Level Rows
 | signal_date | stock_id | stock_name | theme_name | theme_final_status | theme_status_group | theme_volume_attack_status | candidate_source_type | decision_priority | volume_breakout_type | selection_status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260603 | 1301 | 台塑 | 塑膠工業 | mainstream_overheated | mainstream_overheated | overheated_volume_theme | risk_downgraded_candidate |  | volume_expansion_watch | not_selected_by_candidate_model |
 | 20260603 | 1304 | 台聚 | 塑膠工業 | mainstream_overheated | mainstream_overheated | overheated_volume_theme | risk_downgraded_candidate |  | platform_volume_breakout | not_selected_by_candidate_model |
-| 20260603 | 1305 | 華夏 | 塑膠工業 | mainstream_overheated | mainstream_overheated | overheated_volume_theme | risk_downgraded_candidate |  | right_side_volume_attack | not_selected_by_candidate_model |
+| 20260603 | 1305 | 華夏 | 塑膠工業 | mainstream_overheated | mainstream_overheated | overheated_volume_theme | latent_watch_candidate | B_confirm_needed | right_side_volume_attack | selected_but_routed_to_other_category |
 | 20260603 | 1307 | 三芳 | 塑膠工業 | mainstream_overheated | mainstream_overheated | overheated_volume_theme | individual_quality_candidate | B_confirm_needed | platform_volume_breakout | selected_but_routed_to_other_category |
 | 20260603 | 1308 | 亞聚 | 塑膠工業 | mainstream_overheated | mainstream_overheated | overheated_volume_theme | risk_downgraded_candidate |  | platform_volume_breakout | not_selected_by_candidate_model |
 | 20260603 | 1309 | 台達化 | 塑膠工業 | mainstream_overheated | mainstream_overheated | overheated_volume_theme | risk_downgraded_candidate | C_watch_only | right_side_volume_attack | selected_but_routed_to_other_category |

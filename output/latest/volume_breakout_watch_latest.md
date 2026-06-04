@@ -1,12 +1,12 @@
 # Volume Breakout Watch
 
-- generated_at: `2026-06-04 19:52:25 Asia/Taipei`
+- generated_at: `2026-06-04 21:42:11 Asia/Taipei`
 - main_price_date: `20260603`
 - total_watch_rows: `507`
-- priority_distribution: `{'D_risk_downgrade': 286, 'B_confirm_needed': 125, 'C_watch_only': 75, 'A_valid_breakout_watch': 21}`
+- priority_distribution: `{'D_risk_downgrade': 287, 'B_confirm_needed': 123, 'C_watch_only': 76, 'A_valid_breakout_watch': 21}`
 - type_distribution: `{'volume_expansion_watch': 111, 'loose_platform_volume_watch': 101, 'platform_volume_breakout': 79, 'neckline_volume_breakout': 74, 'strict_60d_volume_breakout': 56, 'right_side_volume_attack': 34, 'loose_ma_reclaim_volume_watch': 30, 'loose_right_side_volume_watch': 17, 'abnormal_volume_up': 5}`
 - scope_distribution: `{'confirmed_attack': 153, 'volume_attack': 150, 'broad_watch': 148, 'strict_breakout': 56}`
-- selection_status_distribution: `{'not_selected_by_candidate_model': 307, 'selected_but_routed_to_other_category': 151, 'selected_as_strict_breakout': 49}`
+- selection_status_distribution: `{'not_selected_by_candidate_model': 302, 'selected_but_routed_to_other_category': 156, 'selected_as_strict_breakout': 49}`
 
 ## Interpretation
 
@@ -91,12 +91,12 @@
 | 70 | 1517 | 利奇 | platform_volume_breakout | confirmed_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 1.8772 | 6.5327 | 3.4146 | 4.950495049504955 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
 | 71 | 6561 | 是方 | platform_volume_breakout | confirmed_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 1.8478 | 7.5391 | 13.5135 | 7.401619548231286 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
 | 72 | 9927 | 泰銘 | platform_volume_breakout | confirmed_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 1.6763 | 3.7037 | 2.1898 | 3.1155630846284144 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
-| 73 | 2884 | 玉山金 | platform_volume_breakout | confirmed_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 1.6176 | 5.939 | 3.6107 | 4.076322636600183 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
-| 74 | 1580 | 新麥 | platform_volume_breakout | confirmed_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 1.6054 | 3.2787 | 2.8571 | 2.480683204554701 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
-| 75 | 2373 | 震旦行 | platform_volume_breakout | confirmed_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 1.5839 | 1.2069 | 2.087 | 2.955362623870905 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
-| 76 | 1532 | 勤美 | platform_volume_breakout | confirmed_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 1.5818 | 6.7308 | 7.767 | 6.679481018740985 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
-| 77 | 2849 | 安泰銀 | neckline_volume_breakout | confirmed_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 3.1819 | 1.4493 | 0.3584 | 3.0738082090925767 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
-| 78 | 6721 | 信實 | neckline_volume_breakout | confirmed_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 2.9475 | 1.3559 | 4.7285 | 2.3446859489987926 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
-| 79 | 6556 | 勝品 | neckline_volume_breakout | confirmed_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 2.4115 | 4.5977 | 2.6798 | 3.5930273923870493 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
-| 80 | 4526 | 東台 | neckline_volume_breakout | confirmed_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 1.8502 | 11.8899 | 20.8108 | 15.600956875929416 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 73 | 1580 | 新麥 | platform_volume_breakout | confirmed_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 1.6054 | 3.2787 | 2.8571 | 2.480683204554701 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 74 | 2373 | 震旦行 | platform_volume_breakout | confirmed_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 1.5839 | 1.2069 | 2.087 | 2.955362623870905 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 75 | 1532 | 勤美 | platform_volume_breakout | confirmed_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 1.5818 | 6.7308 | 7.767 | 6.679481018740985 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 76 | 2849 | 安泰銀 | neckline_volume_breakout | confirmed_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 3.1819 | 1.4493 | 0.3584 | 3.0738082090925767 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 77 | 6721 | 信實 | neckline_volume_breakout | confirmed_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 2.9475 | 1.3559 | 4.7285 | 2.3446859489987926 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 78 | 6556 | 勝品 | neckline_volume_breakout | confirmed_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 2.4115 | 4.5977 | 2.6798 | 3.5930273923870493 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 79 | 4526 | 東台 | neckline_volume_breakout | confirmed_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 1.8502 | 11.8899 | 20.8108 | 15.600956875929416 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
+| 80 | 6242 | 立康 | neckline_volume_breakout | confirmed_attack | B_confirm_needed | not_selected_by_candidate_model |  |  |  |  |  | 1.9788 | 0.3942 | 0.2625 | 1.0582010582010692 | not_in_candidate_model | confirm close above MA20/EMA23 and avoid long upper shadow |
 

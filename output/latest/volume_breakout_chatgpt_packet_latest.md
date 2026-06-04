@@ -1,13 +1,13 @@
 # VOLUME BREAKOUT CHATGPT PACKET
 
 ## Metadata
-- generated_at: `2026-06-04 19:52:25 Asia/Taipei`
+- generated_at: `2026-06-04 21:42:11 Asia/Taipei`
 - main_price_date: `20260603`
 - watch_rows: `507`
 - strict_60d_volume_breakout_count: `56`
 - broad_recall_watch_count: `148`
-- selected_but_routed_to_other_category_count: `151`
-- not_selected_by_candidate_model_count: `307`
+- selected_but_routed_to_other_category_count: `156`
+- not_selected_by_candidate_model_count: `302`
 - watch_csv_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/volume_breakout_watch_latest.csv
 - watch_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/volume_breakout_watch_latest.md
 - backtest_csv_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/volume_breakout_backtest_latest.csv
