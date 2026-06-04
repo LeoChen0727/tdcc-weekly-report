@@ -1,36 +1,44 @@
 {
-  "generated_at": "2026-06-04 22:34:53 Asia/Taipei",
-  "target_date": "20260604",
+  "generated_at": "2026-06-05 01:11:02 Asia/Taipei",
+  "target_date": "20260605",
   "saved_price_date": "20260604",
-  "is_target_date": true,
-  "result": "success_target_full_market",
-  "reason": "成功取得目標日 TWSE + TPEx 官方日線資料。",
-  "twse_rows": 1235,
-  "tpex_rows": 5471,
-  "total_rows": 6706,
-  "full_market_ok": true,
-  "stale_markets": [],
-  "stale_market_rows": 0,
-  "data_quality_note": "",
+  "is_target_date": false,
+  "result": "failed_no_target_data",
+  "reason": "目標日官方來源與 fallback 都沒有取得任何可用日線資料；latest 保留上一個有效交易日。",
+  "twse_rows": 0,
+  "tpex_rows": 0,
+  "total_rows": 0,
+  "full_market_ok": false,
+  "stale_markets": [
+    "TPEx",
+    "TWSE"
+  ],
+  "stale_market_rows": 6706,
+  "data_quality_note": "partial_market_stale_rejected: TPEx,TWSE matched previous trading day file daily_price_20260604.csv",
   "market_same_ratios": {
-    "TPEx": 0.00596252129471891,
-    "TWSE": 0.0
+    "TPEx": 1.0,
+    "TWSE": 0.9862348178137652
   },
   "attempts": [
     {
-      "date": "20260604",
-      "twse_rows": 1235,
-      "tpex_rows": 5471,
-      "total_rows": 6706,
-      "twse_ok": true,
-      "tpex_ok": true,
-      "full_market_ok": true,
-      "universe_rows": 6706
+      "date": "20260605",
+      "twse_rows": 0,
+      "tpex_rows": 0,
+      "total_rows": 0,
+      "twse_ok": false,
+      "tpex_ok": false,
+      "full_market_ok": false,
+      "universe_rows": 6706,
+      "stale_markets": [
+        "TPEx",
+        "TWSE"
+      ],
+      "stale_market_rows": 6706,
+      "data_quality_note": "partial_market_stale_rejected: TPEx,TWSE matched previous trading day file daily_price_20260604.csv"
     }
   ],
   "paths": {
-    "dated_csv": "data/daily_price/20260604.csv",
-    "dated_alt_csv": "data/daily_price/daily_price_20260604.csv",
+    "previous_valid_csv": "data/daily_price/daily_price_20260604.csv",
     "latest_csv": "output/latest/official_daily_price_latest.csv"
   }
 }
