@@ -65,6 +65,7 @@ jobs:
 
     env:
       TARGET_BRANCH: ${{ github.ref_name }}
+      ANY_RESEARCH_SELECTED: ${{ github.event.inputs.run_market_timing == 'true' || github.event.inputs.run_weekly_surge == 'true' || github.event.inputs.run_explosive_volume == 'true' || github.event.inputs.run_surge_model == 'true' || github.event.inputs.run_signal_performance == 'true' || github.event.inputs.run_volume_breakout == 'true' || github.event.inputs.run_catalyst_performance == 'true' || github.event.inputs.run_msci_rebalance == 'true' || github.event.inputs.run_tdcc_signal_performance == 'true' || github.event.inputs.run_tdcc_short_term_edge == 'true' || github.event.inputs.run_short_term_specialty_packet == 'true' || github.event.inputs.run_model_parameter_research == 'true' }}
 
     steps:
       - name: Checkout repository
@@ -78,6 +79,7 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
+        if: ${{ env.ANY_RESEARCH_SELECTED == 'true' }}
         run: |
           python -m pip install --upgrade pip
           pip install pandas requests tabulate matplotlib pillow openpyxl lxml html5lib beautifulsoup4 reportlab pypdf
@@ -159,6 +161,7 @@ jobs:
           python scripts/build_msci_taiwan_rebalance_backtest.py
 
       - name: Rebuild ChatGPT route files
+        if: ${{ env.ANY_RESEARCH_SELECTED == 'true' }}
         run: |
           python scripts/build_chatgpt_indicator_usage_guide.py
           python build_chatgpt_daily_report_packet.py
@@ -166,6 +169,7 @@ jobs:
           python publish_chatgpt_report_readme_and_check.py
 
       - name: Commit research and backtest outputs
+        if: ${{ env.ANY_RESEARCH_SELECTED == 'true' }}
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
