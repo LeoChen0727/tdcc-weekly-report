@@ -135,6 +135,18 @@ function triggerTdccWeeklyReport() {
   logLatestWorkflowRuns_("tdcc_weekly.yml");
 }
 
+function triggerEventCatalystUpdate() {
+  dispatchWorkflow_("event_catalyst_update.yml");
+  Utilities.sleep(5000);
+  logLatestWorkflowRuns_("event_catalyst_update.yml");
+}
+
+function triggerWeeklyThemeReview() {
+  dispatchWorkflow_("weekly_theme_review.yml");
+  Utilities.sleep(5000);
+  logLatestWorkflowRuns_("weekly_theme_review.yml");
+}
+
 function triggerResearchBacktestPipeline() {
   dispatchWorkflow_("research_backtest_pipeline.yml", {
     run_market_timing: "true",

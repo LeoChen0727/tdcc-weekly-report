@@ -78,6 +78,10 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Validate Apps Script workflow triggers
+        run: |
+          python scripts/validate_apps_script_workflow_triggers.py
+
       - name: Install dependencies
         if: ${{ env.ANY_RESEARCH_SELECTED == 'true' }}
         run: |
