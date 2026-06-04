@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0090 富邦特選高股息30
 
 ## Metadata
-- generated_at: 2026-06-05 01:25:04 Asia/Taipei
+- generated_at: 2026-06-05 02:36:51 Asia/Taipei
 - stock_id: 0090
 - stock_name: 富邦特選高股息30
 - packet_status: insufficient_price_data

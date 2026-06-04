@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7336 高端統一65購01
 
 ## Metadata
-- generated_at: 2026-06-05 01:27:59 Asia/Taipei
+- generated_at: 2026-06-05 02:39:53 Asia/Taipei
 - stock_id: 7336
 - stock_name: 高端統一65購01
 - packet_status: standard_180d_window_packet
