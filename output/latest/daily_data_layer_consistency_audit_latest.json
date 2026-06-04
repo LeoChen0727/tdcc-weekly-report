@@ -4,10 +4,6 @@
   "warnings": [],
   "details": {
     "main_price_date": "20260603",
-    "readme_main_price_date": "20260603",
-    "readme_report_ready": "True",
-    "readme_index_main_price_date": "20260603",
-    "readme_index_report_ready": "True",
     "effective_model_signal_date": "20260603",
     "model_signal_rows": 865,
     "raw_model_signal_rows": 865,
