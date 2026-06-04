@@ -12,6 +12,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 
 import build_daily_candidate_model_layer as model_layer  # noqa: E402
 from build_daily_candidate_model_layer import (  # noqa: E402
+    MODEL_SCORE_PROFILES,
     annotate_frontpage_uniqueness,
     attach_model_recommendations,
     attach_same_model_repeat,
@@ -29,6 +30,8 @@ from build_daily_candidate_model_layer import (  # noqa: E402
     cond_w_bottom_right,
     model_score_common,
     report_bucket,
+    score_pullback,
+    score_volume_breakout,
     update_model_signal_log,
 )
 
@@ -82,6 +85,29 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         self.assertEqual(params.loc["short_term_surge_d5_d10", "pdf_visibility"], "research_only_not_pdf_core")
         self.assertEqual(params.loc["explosive_volume_red_candle", "pdf_visibility"], "research_only_not_pdf_core")
         self.assertEqual(params.loc["disposition_attention_event_tag", "pdf_visibility"], "pdf_risk_tag_only")
+
+    def test_formal_pdf_models_do_not_share_legacy_common_scoring(self) -> None:
+        offenders = [
+            spec.model_id
+            for spec in build_specs()
+            if spec.pdf_visibility == "pdf_core_model" and spec.score_func is model_score_common
+        ]
+        self.assertEqual(offenders, [])
+
+    def test_model_score_profiles_are_independent_and_visible(self) -> None:
+        params = build_parameter_table(build_specs()).set_index("model_id")
+        self.assertEqual(params.loc["volume_range_breakout", "score_profile_id"], "volume_range_breakout")
+        self.assertEqual(params.loc["price_pullback_23ema", "score_profile_id"], "price_pullback_23ema")
+        self.assertEqual(params.loc["tdcc_stealth_accumulation", "score_profile_id"], "tdcc_stealth_accumulation")
+        self.assertNotEqual(
+            params.loc["volume_range_breakout", "volume_ratio_bonus_per_1x"],
+            params.loc["price_pullback_23ema", "volume_ratio_bonus_per_1x"],
+        )
+        self.assertNotEqual(
+            params.loc["tdcc_stealth_accumulation", "tdcc_positive_bonus"],
+            params.loc["volume_range_breakout", "tdcc_positive_bonus"],
+        )
+        self.assertIn("legacy_common", MODEL_SCORE_PROFILES)
 
     def test_pdf_models_use_next_open_entry_basis(self) -> None:
         params = build_parameter_table(build_specs())
@@ -336,11 +362,11 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             false_breakout_risk="True",
             return_20d="85",
         )
-        score, _components, risks = model_score_common(row)
+        score, _components, risks = score_volume_breakout(row)
         self.assertTrue(cond_volume_breakout(row))
         self.assertLess(score, 70)
-        self.assertIn("tdcc_distribution_penalty", risks)
-        self.assertIn("false_breakout_risk_penalty", risks)
+        self.assertTrue(any(str(risk).startswith("tdcc_distribution_penalty") for risk in risks))
+        self.assertTrue(any(str(risk).startswith("false_breakout_risk_penalty") for risk in risks))
 
     def test_same_stock_can_enter_multiple_models(self) -> None:
         row = make_row(
@@ -450,7 +476,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             structural_theme_bucket="traditional_textile_theme",
             theme_structural_status="non_mainstream_theme",
         )
-        self.assertEqual(model_score_common(mainstream)[0], model_score_common(non_mainstream)[0])
+        self.assertEqual(score_pullback(mainstream)[0], score_pullback(non_mainstream)[0])
         self.assertEqual(report_bucket(mainstream), "mainstream")
         self.assertEqual(report_bucket(non_mainstream), "non_mainstream")
 

@@ -141,6 +141,8 @@ WARRANT_SIGNAL_ZH = {
 
 RISK_TAG_ZH = {
     "false_breakout_risk": "假突破風險",
+    "false_breakout_risk_penalty": "假突破風險扣分",
+    "tdcc_distribution_penalty": "TDCC轉弱扣分",
     "tdcc_distribution_warning": "TDCC轉弱警示",
     "continued_overheated": "連續過熱",
     "overheated_breakout": "短線過熱突破",
@@ -190,6 +192,21 @@ STRUCTURAL_BUCKET_ZH = {
 
 SCORE_COMPONENT_ZH_REPLACEMENTS = {
     "base=50": "基礎分=50",
+    "profile=volume_range_breakout": "參數=帶量突破模型",
+    "profile=price_pullback_23ema": "參數=股價回檔模型",
+    "profile=hot_theme_pullback": "參數=熱門族群回檔模型",
+    "profile=revenue_unreacted_range": "參數=營收爆發但股價尚未反應模型",
+    "profile=w_bottom_right_side": "參數=W底右側模型",
+    "profile=near_high_neckline_challenge": "參數=接近前高/頸線挑戰模型",
+    "profile=platform_strengthening": "參數=平台整理轉強模型",
+    "profile=pullback_short_reclaim": "參數=回檔後短線轉強模型",
+    "profile=tdcc_stealth_accumulation": "參數=TDCC潛伏吸籌模型",
+    "platform/neckline breakout": "平台/頸線突破",
+    "volume started expanding": "量能開始放大",
+    "near neckline from below": "由下方接近頸線",
+    "neckline just reclaimed": "剛站回頸線",
+    "approaching neckline": "接近頸線",
+    "breakout close near high": "突破K收盤接近日高",
     "type=neckline_volume_breakout": "類型=頸線帶量突破",
     "type=platform_volume_breakout": "類型=平台帶量突破",
     "type=range_breakout_volume": "類型=盤整區間帶量突破",
@@ -269,6 +286,151 @@ class ModelSpec:
     operation_guidance_zh: str
     condition_func: Callable[[pd.Series], bool]
     score_func: Callable[[pd.Series], tuple[float, list[str], list[str]]]
+
+
+@dataclass(frozen=True)
+class ScoreProfile:
+    """Independent scoring parameters for one stock-selection model.
+
+    Feature helpers can be shared, but parameter values must not be shared
+    across models.  Backtests should tune these profiles one model at a time.
+    """
+
+    model_id: str
+    base_score: float = 50.0
+    volume_ratio_bonus_per_1x: float = 0.0
+    volume_ratio_bonus_cap: float = 0.0
+    tdcc_positive_bonus: float = 0.0
+    warrant_bullish_bonus: float = 0.0
+    strong_revenue_bonus: float = 0.0
+    lower_position_bonus: float = 0.0
+    lower_position_max_off_60d_low_pct: float = 25.0
+    high_return_penalty_threshold_20d: float = math.inf
+    high_return_penalty: float = 0.0
+    tdcc_distribution_penalty: float = 0.0
+    false_breakout_penalty: float = 0.0
+
+
+MODEL_SCORE_PROFILES: dict[str, ScoreProfile] = {
+    "volume_range_breakout": ScoreProfile(
+        "volume_range_breakout",
+        volume_ratio_bonus_per_1x=5.0,
+        volume_ratio_bonus_cap=20.0,
+        tdcc_positive_bonus=8.0,
+        warrant_bullish_bonus=6.0,
+        strong_revenue_bonus=5.0,
+        lower_position_bonus=5.0,
+        tdcc_distribution_penalty=6.0,
+        false_breakout_penalty=8.0,
+    ),
+    "price_pullback_23ema": ScoreProfile(
+        "price_pullback_23ema",
+        volume_ratio_bonus_per_1x=1.0,
+        volume_ratio_bonus_cap=5.0,
+        tdcc_positive_bonus=8.0,
+        warrant_bullish_bonus=5.0,
+        strong_revenue_bonus=8.0,
+        lower_position_bonus=5.0,
+        tdcc_distribution_penalty=8.0,
+        false_breakout_penalty=4.0,
+    ),
+    "hot_theme_pullback": ScoreProfile(
+        "hot_theme_pullback",
+        volume_ratio_bonus_per_1x=1.0,
+        volume_ratio_bonus_cap=5.0,
+        tdcc_positive_bonus=8.0,
+        warrant_bullish_bonus=5.0,
+        strong_revenue_bonus=3.0,
+        lower_position_bonus=4.0,
+        tdcc_distribution_penalty=6.0,
+        false_breakout_penalty=4.0,
+    ),
+    "revenue_unreacted_range": ScoreProfile(
+        "revenue_unreacted_range",
+        volume_ratio_bonus_per_1x=1.0,
+        volume_ratio_bonus_cap=5.0,
+        tdcc_positive_bonus=6.0,
+        warrant_bullish_bonus=3.0,
+        strong_revenue_bonus=12.0,
+        lower_position_bonus=6.0,
+        high_return_penalty_threshold_20d=25.0,
+        high_return_penalty=8.0,
+        tdcc_distribution_penalty=8.0,
+        false_breakout_penalty=4.0,
+    ),
+    "w_bottom_right_side": ScoreProfile(
+        "w_bottom_right_side",
+        volume_ratio_bonus_per_1x=1.5,
+        volume_ratio_bonus_cap=6.0,
+        tdcc_positive_bonus=6.0,
+        warrant_bullish_bonus=3.0,
+        strong_revenue_bonus=3.0,
+        lower_position_bonus=8.0,
+        high_return_penalty_threshold_20d=35.0,
+        high_return_penalty=5.0,
+        tdcc_distribution_penalty=6.0,
+        false_breakout_penalty=5.0,
+    ),
+    "near_high_neckline_challenge": ScoreProfile(
+        "near_high_neckline_challenge",
+        volume_ratio_bonus_per_1x=3.0,
+        volume_ratio_bonus_cap=12.0,
+        tdcc_positive_bonus=6.0,
+        warrant_bullish_bonus=5.0,
+        strong_revenue_bonus=4.0,
+        lower_position_bonus=0.0,
+        tdcc_distribution_penalty=6.0,
+        false_breakout_penalty=6.0,
+    ),
+    "platform_strengthening": ScoreProfile(
+        "platform_strengthening",
+        volume_ratio_bonus_per_1x=2.5,
+        volume_ratio_bonus_cap=10.0,
+        tdcc_positive_bonus=7.0,
+        warrant_bullish_bonus=4.0,
+        strong_revenue_bonus=4.0,
+        lower_position_bonus=4.0,
+        tdcc_distribution_penalty=6.0,
+        false_breakout_penalty=6.0,
+    ),
+    "pullback_short_reclaim": ScoreProfile(
+        "pullback_short_reclaim",
+        volume_ratio_bonus_per_1x=2.0,
+        volume_ratio_bonus_cap=8.0,
+        tdcc_positive_bonus=6.0,
+        warrant_bullish_bonus=4.0,
+        strong_revenue_bonus=3.0,
+        lower_position_bonus=3.0,
+        tdcc_distribution_penalty=6.0,
+        false_breakout_penalty=4.0,
+    ),
+    "tdcc_stealth_accumulation": ScoreProfile(
+        "tdcc_stealth_accumulation",
+        volume_ratio_bonus_per_1x=0.5,
+        volume_ratio_bonus_cap=3.0,
+        tdcc_positive_bonus=14.0,
+        warrant_bullish_bonus=2.0,
+        strong_revenue_bonus=4.0,
+        lower_position_bonus=7.0,
+        high_return_penalty_threshold_20d=20.0,
+        high_return_penalty=8.0,
+        tdcc_distribution_penalty=12.0,
+        false_breakout_penalty=4.0,
+    ),
+    "legacy_common": ScoreProfile(
+        "legacy_common",
+        volume_ratio_bonus_per_1x=4.0,
+        volume_ratio_bonus_cap=15.0,
+        tdcc_positive_bonus=8.0,
+        warrant_bullish_bonus=6.0,
+        strong_revenue_bonus=6.0,
+        lower_position_bonus=5.0,
+        high_return_penalty_threshold_20d=35.0,
+        high_return_penalty=5.0,
+        tdcc_distribution_penalty=8.0,
+        false_breakout_penalty=8.0,
+    ),
+}
 
 
 def text(row: pd.Series, *names: str) -> str:
@@ -925,43 +1087,67 @@ def tdcc_distribution(row: pd.Series) -> bool:
     return tdcc_status(row) == "distribution_warning" or "tdcc_distribution_warning" in text(row, "downgrade_flags")
 
 
-def model_score_common(row: pd.Series) -> tuple[float, list[str], list[str]]:
-    score = 50.0
-    comps: list[str] = ["base=50"]
+def score_from_profile(row: pd.Series, profile: ScoreProfile) -> tuple[float, list[str], list[str]]:
+    score = float(profile.base_score)
+    comps: list[str] = [f"base={profile.base_score:g}", f"profile={profile.model_id}"]
     risks: list[str] = []
     vol = num(row, "volume_ratio")
-    if not math.isnan(vol):
-        add = min(15, max(0, (vol - 1) * 4))
+    if not math.isnan(vol) and profile.volume_ratio_bonus_per_1x > 0 and profile.volume_ratio_bonus_cap > 0:
+        add = min(profile.volume_ratio_bonus_cap, max(0, (vol - 1) * profile.volume_ratio_bonus_per_1x))
         score += add
         comps.append(f"volume_ratio:{vol:.2f}x +{add:.1f}")
     if tdcc_positive(row):
-        score += 8
-        comps.append("TDCC positive +8")
+        score += profile.tdcc_positive_bonus
+        if profile.tdcc_positive_bonus:
+            comps.append(f"TDCC positive +{profile.tdcc_positive_bonus:g}")
     if warrant_signal(row) in BULLISH_WARRANT:
-        score += 6
-        comps.append("warrant bullish +6")
+        score += profile.warrant_bullish_bonus
+        if profile.warrant_bullish_bonus:
+            comps.append(f"warrant bullish +{profile.warrant_bullish_bonus:g}")
     if strong_revenue(row):
-        score += 6
-        comps.append("revenue strong +6")
+        score += profile.strong_revenue_bonus
+        if profile.strong_revenue_bonus:
+            comps.append(f"revenue strong +{profile.strong_revenue_bonus:g}")
     off_low = num(row, "off_60d_low_pct")
     ret20 = num(row, "return_20d", "return_20d_pct")
-    if not math.isnan(off_low) and off_low <= 25:
-        score += 5
-        comps.append("lower position +5")
-    if not math.isnan(ret20) and ret20 > 35:
-        score -= 5
-        risks.append("20d_return_high_score_penalty")
+    if (
+        profile.lower_position_bonus
+        and not math.isnan(off_low)
+        and off_low <= profile.lower_position_max_off_60d_low_pct
+    ):
+        score += profile.lower_position_bonus
+        comps.append(f"lower position +{profile.lower_position_bonus:g}")
+    if (
+        profile.high_return_penalty
+        and not math.isnan(ret20)
+        and ret20 > profile.high_return_penalty_threshold_20d
+    ):
+        score -= profile.high_return_penalty
+        risks.append(f"20d_return_high_score_penalty:{profile.high_return_penalty:g}")
     if tdcc_distribution(row):
-        score -= 8
-        risks.append("tdcc_distribution_penalty")
+        score -= profile.tdcc_distribution_penalty
+        if profile.tdcc_distribution_penalty:
+            risks.append(f"tdcc_distribution_penalty:{profile.tdcc_distribution_penalty:g}")
     if flag(row, "false_breakout_risk"):
-        score -= 8
-        risks.append("false_breakout_risk_penalty")
+        score -= profile.false_breakout_penalty
+        if profile.false_breakout_penalty:
+            risks.append(f"false_breakout_risk_penalty:{profile.false_breakout_penalty:g}")
     return score, comps, risks
 
 
+def model_score_common(row: pd.Series) -> tuple[float, list[str], list[str]]:
+    """Legacy neutral scoring entrypoint.
+
+    Formal daily models must call their own ScoreProfile through their own
+    score_* function.  This remains only for compatibility with historical
+    tests and ad-hoc diagnostics.
+    """
+
+    return score_from_profile(row, MODEL_SCORE_PROFILES["legacy_common"])
+
+
 def score_volume_breakout(row: pd.Series) -> tuple[float, list[str], list[str]]:
-    score, comps, risks = model_score_common(row)
+    score, comps, risks = score_from_profile(row, MODEL_SCORE_PROFILES["volume_range_breakout"])
     if flag(row, "platform_breakout_flag") or flag(row, "neckline_breakout_flag"):
         score += 10
         comps.append("platform/neckline breakout +10")
@@ -976,7 +1162,7 @@ def score_volume_breakout(row: pd.Series) -> tuple[float, list[str], list[str]]:
 
 
 def score_pullback(row: pd.Series) -> tuple[float, list[str], list[str]]:
-    score, comps, risks = model_score_common(row)
+    score, comps, risks = score_from_profile(row, MODEL_SCORE_PROFILES["price_pullback_23ema"])
     if near_ema23_or_platform(row):
         score += 10
         comps.append("near 23EMA/platform +10")
@@ -993,7 +1179,7 @@ def score_pullback(row: pd.Series) -> tuple[float, list[str], list[str]]:
 
 
 def score_hot_theme_pullback(row: pd.Series) -> tuple[float, list[str], list[str]]:
-    score, comps, risks = model_score_common(row)
+    score, comps, risks = score_from_profile(row, MODEL_SCORE_PROFILES["hot_theme_pullback"])
     labels = hot_theme_label(row)
     score += 12
     comps.append(f"熱門族群標籤 +12:{labels or '已具備'}")
@@ -1014,7 +1200,7 @@ def score_hot_theme_pullback(row: pd.Series) -> tuple[float, list[str], list[str
 
 
 def score_w_bottom(row: pd.Series) -> tuple[float, list[str], list[str]]:
-    score, comps, risks = model_score_common(row)
+    score, comps, risks = score_from_profile(row, MODEL_SCORE_PROFILES["w_bottom_right_side"])
     second_low_gap = num(row, "second_low_gap_pct")
     neckline_distance = num(row, "distance_to_neckline_pct")
     vol = num(row, "volume_ratio")
@@ -1083,6 +1269,105 @@ def score_w_bottom(row: pd.Series) -> tuple[float, list[str], list[str]]:
     if not math.isnan(red_body2_vs_1) and red_body2_vs_1 >= 1.2:
         score += 3
         comps.append("second attack red-body improvement +3")
+    return score, comps, risks
+
+
+def score_revenue_unreacted(row: pd.Series) -> tuple[float, list[str], list[str]]:
+    score, comps, risks = score_from_profile(row, MODEL_SCORE_PROFILES["revenue_unreacted_range"])
+    if in_recent_range(row, 5):
+        score += 10
+        comps.append("price in 23-day range +10")
+    if near_range_high(row, 5):
+        score += 6
+        comps.append("near platform breakout +6")
+    if text(row, "fundamental_catalyst_tags").lower().find("eps") >= 0:
+        score += 5
+        comps.append("EPS confirmation tag +5")
+    if text(row, "fundamental_catalyst_tags").lower().find("gross_margin") >= 0:
+        score += 5
+        comps.append("gross margin confirmation tag +5")
+    if text(row, "event_catalyst_tags", "fundamental_catalyst_tags"):
+        score += 3
+        comps.append("catalyst tag +3")
+    return score, comps, risks
+
+
+def score_neckline_challenge(row: pd.Series) -> tuple[float, list[str], list[str]]:
+    score, comps, risks = score_from_profile(row, MODEL_SCORE_PROFILES["near_high_neckline_challenge"])
+    distance = num(row, "distance_to_neckline_pct", "distance_to_prior_high_pct", "distance_to_previous_60d_high_pct")
+    if not math.isnan(distance):
+        if -2 <= distance <= 0:
+            score += 10
+            comps.append("pressure distance 0-2% +10")
+        elif -5 <= distance < -2:
+            score += 6
+            comps.append("pressure distance 2-5% +6")
+    if ema23_slope_proxy_up(row):
+        score += 5
+        comps.append("EMA23 slope proxy up +5")
+    if num(row, "volume_ratio") >= 1.2:
+        score += 4
+        comps.append("volume started expanding +4")
+    return score, comps, risks
+
+
+def score_platform_strength(row: pd.Series) -> tuple[float, list[str], list[str]]:
+    score, comps, risks = score_from_profile(row, MODEL_SCORE_PROFILES["platform_strengthening"])
+    width = num(row, "platform_width_pct", "short_platform_width_pct")
+    days = num(row, "days_in_range", "platform_days", "range_window")
+    if not math.isnan(width) and 3 <= width <= 18:
+        score += 8
+        comps.append("controlled platform width +8")
+    if not math.isnan(days) and days >= 15:
+        score += 6
+        comps.append("longer platform duration +6")
+    if near_range_high(row, 5):
+        score += 5
+        comps.append("near range high +5")
+    if flag(row, "red_candle_flag") or flag(row, "solid_red_candle_flag"):
+        score += 4
+        comps.append("solid red candle +4")
+    return score, comps, risks
+
+
+def score_pullback_short_reclaim(row: pd.Series) -> tuple[float, list[str], list[str]]:
+    score, comps, risks = score_from_profile(row, MODEL_SCORE_PROFILES["pullback_short_reclaim"])
+    if ema23_slope_proxy_up(row):
+        score += 6
+        comps.append("EMA23 slope proxy up +6")
+    if flag(row, "ma20_reclaim_flag") or flag(row, "ema23_reclaim_flag") or flag(row, "pullback_right_side"):
+        score += 8
+        comps.append("reclaim after pullback +8")
+    vol = num(row, "volume_ratio")
+    if not math.isnan(vol) and vol >= 1.5:
+        score += 4
+        comps.append("re-attack volume +4")
+    if flag(row, "macd_turn_up_flag") or flag(row, "kd_turn_up_flag"):
+        score += 4
+        comps.append("momentum turn-up +4")
+    return score, comps, risks
+
+
+def score_tdcc_stealth(row: pd.Series) -> tuple[float, list[str], list[str]]:
+    score, comps, risks = score_from_profile(row, MODEL_SCORE_PROFILES["tdcc_stealth_accumulation"])
+    phase = text(row, "tdcc_price_phase").lower()
+    if phase == "tdcc_leading_price":
+        score += 12
+        comps.append("tdcc leading price +12")
+    if in_recent_range(row, 10):
+        score += 8
+        comps.append("price still in recent range +8")
+    weeks = num(row, "tdcc_consecutive_up_weeks", "consecutive_tdcc_up_weeks")
+    if not math.isnan(weeks):
+        if weeks >= 3:
+            score += 7
+            comps.append("TDCC consecutive up 3w+ +7")
+        elif weeks >= 2:
+            score += 4
+            comps.append("TDCC consecutive up 2w +4")
+    if flag(row, "all_thresholds_up") or flag(row, "high_thresholds_up"):
+        score += 7
+        comps.append("high holder thresholds up +7")
     return score, comps, risks
 
 
@@ -1481,7 +1766,7 @@ def build_specs() -> list[ModelSpec]:
             "不得只因尚未突破否決；但營收未經獲利品質確認時應降低排名或標示風險。",
             "用來尋找營收已改善但價格尚未完全反應的股票；突破平台或量價轉強是後續加碼/確認條件。",
             cond_revenue_unreacted,
-            model_score_common,
+            score_revenue_unreacted,
         ),
         ModelSpec(
             "w_bottom_right_side",
@@ -1505,7 +1790,7 @@ def build_specs() -> list[ModelSpec]:
             "已有效突破者不應留在本模型，應移至帶量突破或嚴格突破。",
             "用於觀察即將挑戰壓力的股票；若隔日突破且收盤站上，轉入突破模型。",
             cond_neckline_challenge,
-            model_score_common,
+            score_neckline_challenge,
         ),
         ModelSpec(
             "platform_strengthening",
@@ -1517,7 +1802,7 @@ def build_specs() -> list[ModelSpec]:
             "已明確突破者不應留在平台整理轉強，應改歸帶量突破。",
             "用於平台內轉強觀察；突破上緣後才轉入突破模型。",
             cond_platform_strength,
-            model_score_common,
+            score_platform_strength,
         ),
         ModelSpec(
             "pullback_short_reclaim",
@@ -1529,7 +1814,7 @@ def build_specs() -> list[ModelSpec]:
             "結構已破壞者不得納入。",
             "用於抓回檔後恢復動能的股票；若再跌破23EMA且站不回需退出/降風險。",
             cond_pullback_short_strength,
-            model_score_common,
+            score_pullback_short_reclaim,
         ),
         ModelSpec(
             "tdcc_stealth_accumulation",
@@ -1541,13 +1826,15 @@ def build_specs() -> list[ModelSpec]:
             "price_leading_tdcc與overheated_after_tdcc不可混入潛伏吸籌模型。",
             "用於突破前尋找籌碼先行但價格尚未完全反應的股票；帶量突破後應轉入突破模型。",
             cond_tdcc_stealth,
-            model_score_common,
+            score_tdcc_stealth,
         ),
     ]
 
 def build_parameter_table(specs: list[ModelSpec]) -> pd.DataFrame:
-    rows = [
-        {
+    rows: list[dict[str, Any]] = []
+    for spec in specs:
+        profile = MODEL_SCORE_PROFILES.get(spec.model_id)
+        row: dict[str, Any] = {
             "model_id": spec.model_id,
             "model_name_zh": spec.model_name_zh,
             "pdf_visibility": spec.pdf_visibility,
@@ -1558,8 +1845,47 @@ def build_parameter_table(specs: list[ModelSpec]) -> pd.DataFrame:
             "operation_guidance": spec.operation_guidance_zh,
             "parameter_status": "initial_program_rule_pending_backtest_optimization",
         }
-        for spec in specs
-    ]
+        if profile:
+            row.update(
+                {
+                    "score_profile_id": profile.model_id,
+                    "base_score": profile.base_score,
+                    "volume_ratio_bonus_per_1x": profile.volume_ratio_bonus_per_1x,
+                    "volume_ratio_bonus_cap": profile.volume_ratio_bonus_cap,
+                    "tdcc_positive_bonus": profile.tdcc_positive_bonus,
+                    "warrant_bullish_bonus": profile.warrant_bullish_bonus,
+                    "strong_revenue_bonus": profile.strong_revenue_bonus,
+                    "lower_position_bonus": profile.lower_position_bonus,
+                    "lower_position_max_off_60d_low_pct": profile.lower_position_max_off_60d_low_pct,
+                    "high_return_penalty_threshold_20d": (
+                        "" if math.isinf(profile.high_return_penalty_threshold_20d) else profile.high_return_penalty_threshold_20d
+                    ),
+                    "high_return_penalty": profile.high_return_penalty,
+                    "tdcc_distribution_penalty": profile.tdcc_distribution_penalty,
+                    "false_breakout_penalty": profile.false_breakout_penalty,
+                    "score_profile_scope": "model_specific",
+                }
+            )
+        else:
+            row.update(
+                {
+                    "score_profile_id": "",
+                    "base_score": "",
+                    "volume_ratio_bonus_per_1x": "",
+                    "volume_ratio_bonus_cap": "",
+                    "tdcc_positive_bonus": "",
+                    "warrant_bullish_bonus": "",
+                    "strong_revenue_bonus": "",
+                    "lower_position_bonus": "",
+                    "lower_position_max_off_60d_low_pct": "",
+                    "high_return_penalty_threshold_20d": "",
+                    "high_return_penalty": "",
+                    "tdcc_distribution_penalty": "",
+                    "false_breakout_penalty": "",
+                    "score_profile_scope": "not_applicable",
+                }
+            )
+        rows.append(row)
     rows.extend(
         [
             {
@@ -2413,67 +2739,6 @@ def append_tdcc_short_term(signals: pd.DataFrame, signal_date: str) -> pd.DataFr
     return combined
 
 
-def build_report_ready_model_signals(signals: pd.DataFrame) -> pd.DataFrame:
-    """Collapse duplicate source rows for report rendering.
-
-    Raw model signals may carry several source rows for the same stock and the
-    same displayed model, especially when one stock enters from several original
-    categories. Reports should show that as one row with merged source context,
-    not as repeated stock rows inside the same model table.
-    """
-    if signals.empty:
-        return signals.copy()
-
-    work = signals.copy()
-    for col in [
-        "signal_date",
-        "report_bucket",
-        "model_name_zh",
-        "model_id",
-        "stock_id",
-        "model_score",
-        "model_rank",
-        "original_category",
-        "source_row_index",
-        "next_confirmation",
-        "score_components",
-        "risk_penalty_tags",
-    ]:
-        if col not in work.columns:
-            work[col] = ""
-
-    work["_rank_num"] = pd.to_numeric(work["model_rank"], errors="coerce").fillna(999999)
-    work["_score_num"] = pd.to_numeric(work["model_score"], errors="coerce").fillna(-999999)
-    work = work.sort_values(
-        ["report_bucket", "model_name_zh", "stock_id", "_rank_num", "_score_num"],
-        ascending=[True, True, True, True, False],
-    )
-
-    grouped_rows: list[dict[str, Any]] = []
-    for (_, _, _), part in work.groupby(["report_bucket", "model_name_zh", "stock_id"], dropna=False, sort=False):
-        best = part.iloc[0].copy()
-        row = best.to_dict()
-        row["merged_same_model_source_count"] = len(part)
-        row["merged_model_ids"] = _join_unique(part["model_id"])
-        row["merged_source_row_indices"] = _join_unique(part["source_row_index"])
-        row["merged_source_categories"] = _join_unique(part["original_category"])
-        row["merged_next_confirmations"] = _join_unique(part["next_confirmation"])
-        row["merged_score_components"] = _join_unique(part["score_components"])
-        row["merged_risk_penalty_tags"] = _join_unique(part["risk_penalty_tags"])
-        row["report_model_key"] = safe_str(best.get("model_name_zh")) or safe_str(best.get("model_id"))
-        grouped_rows.append(row)
-
-    out = pd.DataFrame(grouped_rows).drop(columns=["_rank_num", "_score_num"], errors="ignore")
-    out["_bucket_order"] = out["report_bucket"].map({"mainstream": 1, "non_mainstream": 2, "unclassified": 3}).fillna(9)
-    out["_score_num"] = pd.to_numeric(out["model_score"], errors="coerce").fillna(0)
-    out = out.sort_values(
-        ["report_bucket", "model_name_zh", "_score_num", "stock_id"],
-        ascending=[True, True, False, True],
-    ).reset_index(drop=True)
-    out["model_rank"] = out.groupby(["report_bucket", "model_name_zh"], dropna=False).cumcount() + 1
-    return out.drop(columns=["_bucket_order", "_score_num"], errors="ignore")
-
-
 PDF_TOKEN_ZH = {
     "non_mainstream": "非主流",
     "mainstream": "主流",
@@ -2667,7 +2932,16 @@ def zh_tag_list_clean(value: Any, mapping: dict[str, str] | None = None, fallbac
         key = item.strip()
         if not key:
             continue
-        label = mapping.get(key) or PDF_TOKEN_ZH.get(key) or translate_pdf_text(key)
+        suffix = ""
+        lookup_key = key
+        if ":" in key:
+            possible_key, possible_suffix = key.split(":", 1)
+            if possible_key.strip():
+                lookup_key = possible_key.strip()
+                suffix = ":" + possible_suffix.strip()
+        label = mapping.get(lookup_key) or PDF_TOKEN_ZH.get(lookup_key) or translate_pdf_text(lookup_key)
+        if suffix:
+            label = f"{label}{suffix}"
         if RAW_PDF_TOKEN_RE.search(label):
             label = "欄位尚未完成 / 暫用現有資料"
         if label and label not in labels:
