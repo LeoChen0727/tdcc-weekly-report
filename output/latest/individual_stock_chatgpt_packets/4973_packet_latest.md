@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4973 廣穎
 
 ## Metadata
-- generated_at: 2026-06-05 02:38:43 Asia/Taipei
+- generated_at: 2026-06-05 03:12:35 Asia/Taipei
 - stock_id: 4973
 - stock_name: 廣穎
 - packet_status: standard_180d_window_packet

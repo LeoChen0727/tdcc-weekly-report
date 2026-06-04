@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3360 尚立
 
 ## Metadata
-- generated_at: 2026-06-05 02:38:09 Asia/Taipei
+- generated_at: 2026-06-05 03:11:55 Asia/Taipei
 - stock_id: 3360
 - stock_name: 尚立
 - packet_status: standard_180d_window_packet

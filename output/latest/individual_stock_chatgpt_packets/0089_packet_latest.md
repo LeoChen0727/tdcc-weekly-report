@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0089 中信綠能及電動車
 
 ## Metadata
-- generated_at: 2026-06-05 02:36:51 Asia/Taipei
+- generated_at: 2026-06-05 03:10:23 Asia/Taipei
 - stock_id: 0089
 - stock_name: 中信綠能及電動車
 - packet_status: insufficient_price_data

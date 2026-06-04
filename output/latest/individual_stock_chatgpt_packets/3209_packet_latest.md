@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3209 全科
 
 ## Metadata
-- generated_at: 2026-06-05 02:38:03 Asia/Taipei
+- generated_at: 2026-06-05 03:11:48 Asia/Taipei
 - stock_id: 3209
 - stock_name: 全科
 - packet_status: standard_180d_window_packet

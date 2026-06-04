@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6805 富世達
 
 ## Metadata
-- generated_at: 2026-06-05 02:39:33 Asia/Taipei
+- generated_at: 2026-06-05 03:13:33 Asia/Taipei
 - stock_id: 6805
 - stock_name: 富世達
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1711 永光
 
 ## Metadata
-- generated_at: 2026-06-05 02:37:11 Asia/Taipei
+- generated_at: 2026-06-05 03:10:47 Asia/Taipei
 - stock_id: 1711
 - stock_name: 永光
 - packet_status: standard_180d_window_packet

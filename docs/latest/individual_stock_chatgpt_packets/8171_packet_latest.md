@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8171 天宇
 
 ## Metadata
-- generated_at: 2026-06-05 02:40:10 Asia/Taipei
+- generated_at: 2026-06-05 03:14:17 Asia/Taipei
 - stock_id: 8171
 - stock_name: 天宇
 - packet_status: standard_180d_window_packet

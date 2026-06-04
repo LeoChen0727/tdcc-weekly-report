@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9944 新麗
 
 ## Metadata
-- generated_at: 2026-06-05 02:40:24 Asia/Taipei
+- generated_at: 2026-06-05 03:14:33 Asia/Taipei
 - stock_id: 9944
 - stock_name: 新麗
 - packet_status: standard_180d_window_packet

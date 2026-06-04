@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6451 訊芯-KY
 
 ## Metadata
-- generated_at: 2026-06-05 02:39:17 Asia/Taipei
+- generated_at: 2026-06-05 03:13:14 Asia/Taipei
 - stock_id: 6451
 - stock_name: 訊芯-KY
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2101 南港
 
 ## Metadata
-- generated_at: 2026-06-05 02:37:20 Asia/Taipei
+- generated_at: 2026-06-05 03:10:58 Asia/Taipei
 - stock_id: 2101
 - stock_name: 南港
 - packet_status: standard_180d_window_packet

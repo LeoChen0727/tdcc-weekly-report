@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7820 立盈
 
 ## Metadata
-- generated_at: 2026-06-05 02:40:03 Asia/Taipei
+- generated_at: 2026-06-05 03:14:09 Asia/Taipei
 - stock_id: 7820
 - stock_name: 立盈
 - packet_status: standard_180d_window_packet

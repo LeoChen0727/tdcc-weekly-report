@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2429 銘旺科
 
 ## Metadata
-- generated_at: 2026-06-05 02:37:32 Asia/Taipei
+- generated_at: 2026-06-05 03:11:12 Asia/Taipei
 - stock_id: 2429
 - stock_name: 銘旺科
 - packet_status: standard_180d_window_packet

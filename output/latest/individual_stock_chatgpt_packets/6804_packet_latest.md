@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6804 明係
 
 ## Metadata
-- generated_at: 2026-06-05 02:39:33 Asia/Taipei
+- generated_at: 2026-06-05 03:13:33 Asia/Taipei
 - stock_id: 6804
 - stock_name: 明係
 - packet_status: standard_180d_window_packet

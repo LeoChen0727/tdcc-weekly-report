@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7712 博盛半導體
 
 ## Metadata
-- generated_at: 2026-06-05 02:39:59 Asia/Taipei
+- generated_at: 2026-06-05 03:14:04 Asia/Taipei
 - stock_id: 7712
 - stock_name: 博盛半導體
 - packet_status: standard_180d_window_packet

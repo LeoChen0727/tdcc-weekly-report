@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5468 凱鈺
 
 ## Metadata
-- generated_at: 2026-06-05 02:38:53 Asia/Taipei
+- generated_at: 2026-06-05 03:12:46 Asia/Taipei
 - stock_id: 5468
 - stock_name: 凱鈺
 - packet_status: standard_180d_window_packet
