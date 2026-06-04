@@ -1,9 +1,9 @@
 {
   "status": "pass",
   "main_price_date": "20260603",
-  "theme_rows": 55,
-  "two_line_rows": 522,
-  "all_candidate_rows": 522,
+  "theme_rows": 52,
+  "two_line_rows": 375,
+  "all_candidate_rows": 375,
   "errors": [],
   "warnings": [
     "2347 exists but was not found in an expected individual/latent/risk line group"
