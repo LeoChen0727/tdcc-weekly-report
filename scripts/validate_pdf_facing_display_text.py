@@ -64,6 +64,7 @@ RAW_TOKENS = [
     "mainstream_leader",
     "mainstream_follow_through",
     "single_name_signal",
+    "core_mainstream",
     "non_mainstream",
     "other electronics",
     "semiconductor equipment",
