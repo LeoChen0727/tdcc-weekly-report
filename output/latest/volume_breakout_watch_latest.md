@@ -1,6 +1,6 @@
 # Volume Breakout Watch
 
-- generated_at: `2026-06-04 22:40:36 Asia/Taipei`
+- generated_at: `2026-06-05 00:56:59 Asia/Taipei`
 - main_price_date: `20260603`
 - total_watch_rows: `507`
 - priority_distribution: `{'D_risk_downgrade': 287, 'B_confirm_needed': 125, 'C_watch_only': 75, 'A_valid_breakout_watch': 20}`

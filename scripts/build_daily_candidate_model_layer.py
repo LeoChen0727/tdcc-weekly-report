@@ -522,25 +522,6 @@ FRONTPAGE_DUPLICATE_REASON_ZH = {
 }
 
 
-def same_model_repeat_status_zh(value: Any) -> str:
-    raw = safe_str(value)
-    if not raw:
-        return ""
-    return SAME_MODEL_REPEAT_STATUS_ZH.get(raw, "欄位尚未完成 / 暫用現有資料")
-
-
-def same_model_repeat_note_zh(row: pd.Series) -> str:
-    status = safe_str(row.get("same_model_repeat_status", ""))
-    if status == "new_model_signal":
-        return "本模型今日新進榜；用新進榜排名呈現。"
-    if status == "repeated_same_model_signal":
-        days = safe_str(row.get("same_model_consecutive_days", "")) or "0"
-        count5 = safe_str(row.get("same_model_appear_count_5d", "")) or "0"
-        count10 = safe_str(row.get("same_model_appear_count_10d", "")) or "0"
-        return f"同模型連續{days}天；近5日{count5}次、近10日{count10}次；移至重複進榜表，不作扣分。"
-    return "欄位尚未完成 / 暫用現有資料"
-
-
 def add_same_model_repeat_display_and_ranks(df: pd.DataFrame) -> pd.DataFrame:
     out = df.copy()
     required_cols = [
@@ -596,62 +577,6 @@ def add_same_model_repeat_display_and_ranks(df: pd.DataFrame) -> pd.DataFrame:
         out.loc[repeated_sorted.index, "display_rank_repeated_signal"] = [f"連續榜 #{int(rank)}" for rank in ranks]
 
     return out.drop(columns=["_score_num", "_rank_num", "_consec_num", "_count10_num", "_stock_id_sort"], errors="ignore")
-
-
-def apply_display_columns(df: pd.DataFrame) -> pd.DataFrame:
-    if df.empty:
-        return df.copy()
-    out = df.copy()
-
-    def preserve_existing_display(name: str, candidate: pd.Series) -> pd.Series:
-        existing = column_or_default(out, name)
-        usable = existing.astype(str).str.strip().ne("") & ~existing.astype(str).str.contains("欄位尚未完成", na=False)
-        return existing.where(usable, candidate)
-
-    out["report_bucket_zh"] = column_or_default(out, "report_bucket").map(REPORT_BUCKET_ZH).fillna("欄位尚未完成")
-    source_category_zh = column_or_default(out, "original_category").map(CATEGORY_ZH)
-    source_category_zh = source_category_zh.mask(source_category_zh.isna() | source_category_zh.eq(""), out.get("model_name_zh", ""))
-    out["source_category_zh"] = source_category_zh.replace("", "欄位尚未完成").fillna("欄位尚未完成")
-    primary = column_or_default(out, "effective_primary_theme")
-    out["effective_primary_theme_zh"] = primary.map(lambda value: value if has_cjk(value) else zh_or_pending(value, STRUCTURAL_BUCKET_ZH))
-    structural = column_or_default(out, "effective_structural_theme_bucket")
-    out["effective_structural_theme_bucket_zh"] = structural.map(lambda value: zh_or_pending(value, STRUCTURAL_BUCKET_ZH))
-    out["tdcc_status_zh"] = column_or_default(out, "tdcc_status").map(lambda value: zh_or_pending(value, TDCC_STATUS_ZH))
-    out["warrant_flow_signal_zh"] = column_or_default(out, "warrant_flow_signal").map(lambda value: zh_or_pending(value, WARRANT_SIGNAL_ZH))
-    out["risk_tags_zh"] = preserve_existing_display("risk_tags_zh", column_or_default(out, "risk_penalty_tags").map(lambda value: zh_tag_list(value, RISK_TAG_ZH)))
-    out["downgrade_flags_zh"] = preserve_existing_display("downgrade_flags_zh", column_or_default(out, "downgrade_flags").map(lambda value: zh_tag_list(value, RISK_TAG_ZH)))
-    out["next_confirmation_zh"] = preserve_existing_display("next_confirmation_zh", column_or_default(out, "next_confirmation").map(zh_text_or_pending))
-    out["recommended_usage_zh"] = preserve_existing_display("recommended_usage_zh", column_or_default(out, "recommended_usage").map(zh_text_or_pending))
-    out["why_selected_zh"] = preserve_existing_display("why_selected_zh", column_or_default(out, "why_selected").map(zh_text_or_pending))
-    out["score_components_zh"] = column_or_default(out, "score_components").map(score_components_zh)
-    out["same_model_repeat_status_zh"] = column_or_default(out, "same_model_repeat_status").map(same_model_repeat_status_zh)
-    out["same_model_repeat_note_zh"] = out.apply(same_model_repeat_note_zh, axis=1)
-    if "frontpage_duplicate_reason" in out.columns:
-        out["frontpage_duplicate_reason_zh"] = column_or_default(out, "frontpage_duplicate_reason").map(
-            lambda value: FRONTPAGE_DUPLICATE_REASON_ZH.get(safe_str(value), "")
-        )
-    if "merged_source_categories" in out.columns:
-        out["merged_source_categories_zh"] = out["merged_source_categories"].map(lambda value: zh_tag_list(value, CATEGORY_ZH))
-        out["source_hit_labels_zh"] = preserve_existing_display("source_hit_labels_zh", out["merged_source_categories_zh"])
-    if "merged_risk_penalty_tags" in out.columns:
-        out["merged_risk_penalty_tags_zh"] = out["merged_risk_penalty_tags"].map(lambda value: zh_tag_list(value, RISK_TAG_ZH))
-        out["risk_tags_zh"] = out["merged_risk_penalty_tags_zh"].where(out["merged_risk_penalty_tags_zh"].astype(str).ne(""), out["risk_tags_zh"])
-    display_defaults = {
-        "risk_tags_zh": "未見重大風險標籤",
-        "downgrade_flags_zh": "無明確降級旗標",
-        "source_hit_labels_zh": "模型主條件",
-        "next_confirmation_zh": "依量價、支撐壓力與籌碼變化追蹤",
-        "recommended_usage_zh": "模型條件成立，依支撐壓力與風控管理",
-        "why_selected_zh": "依模型主條件入選",
-        "same_model_repeat_status_zh": "欄位尚未完成 / 暫用現有資料",
-        "same_model_repeat_note_zh": "欄位尚未完成 / 暫用現有資料",
-        "effective_primary_theme_zh": "未分類族群 / 暫用產業分類",
-        "effective_structural_theme_bucket_zh": "未分類族群 / 暫用產業分類",
-    }
-    for col, default in display_defaults.items():
-        text = column_or_default(out, col).astype(str).str.strip()
-        out[col] = column_or_default(out, col).where(text.ne(""), default)
-    return out
 
 
 def tdcc_direction_from_changes(changes: list[float]) -> str:
@@ -720,46 +645,6 @@ def latest_tdcc_summary(stock_id: str) -> dict[str, Any]:
         result["tdcc_big_holder_summary_zh"] = "大戶籌碼中性，需看價格、量能與族群。"
         result["tdcc_risk_text_zh"] = "籌碼未形成明確方向。"
     return result
-
-
-def attach_report_contract_columns(df: pd.DataFrame) -> pd.DataFrame:
-    if df.empty:
-        return df.copy()
-    out = df.copy()
-    out["report_line"] = column_or_default(out, "report_bucket")
-    out["display_rank"] = column_or_default(out, "model_rank")
-    out["source_hit_count"] = column_or_default(out, "merged_same_model_source_count", "1")
-    out["source_hit_labels"] = column_or_default(out, "merged_source_categories")
-    out["source_row_indices"] = column_or_default(out, "merged_source_row_indices")
-    out["why_selected"] = column_or_default(out, "score_components")
-    out["risk_tags"] = column_or_default(out, "merged_risk_penalty_tags")
-    out["risk_tags"] = out["risk_tags"].where(out["risk_tags"].astype(str).ne(""), column_or_default(out, "risk_penalty_tags"))
-    out["downgrade_flags"] = column_or_default(out, "risk_tags")
-    out["recommended_usage_zh"] = column_or_default(out, "model_operation_guidance").map(zh_text_or_pending)
-    out["why_selected_zh"] = column_or_default(out, "score_components_zh").map(zh_text_or_pending)
-    out["next_confirmation_zh"] = column_or_default(out, "merged_next_confirmations").map(zh_text_or_pending)
-    out["source_hit_labels_zh"] = column_or_default(out, "merged_source_categories_zh").map(zh_text_or_pending)
-    out["downgrade_flags_zh"] = column_or_default(out, "merged_risk_penalty_tags_zh").map(lambda v: zh_text_or_pending(v) if safe_str(v) else "")
-
-    tdcc_rows = [latest_tdcc_summary(stock_id) for stock_id in column_or_default(out, "stock_id")]
-    tdcc_df = pd.DataFrame(tdcc_rows, index=out.index)
-    for col in tdcc_df.columns:
-        out[col] = tdcc_df[col]
-    text_defaults = {
-        "risk_tags_zh": "未見重大風險標籤",
-        "downgrade_flags_zh": "無明確降級旗標",
-        "source_hit_labels_zh": "模型主條件",
-        "next_confirmation_zh": "依量價、支撐壓力與籌碼變化追蹤",
-        "recommended_usage_zh": "模型條件成立，依支撐壓力與風控管理",
-        "why_selected_zh": "依模型主條件入選",
-    }
-    for col, default in text_defaults.items():
-        if col not in out.columns:
-            out[col] = default
-        else:
-            text = out[col].astype(str).str.strip()
-            out[col] = out[col].where(text.ne(""), default)
-    return out
 
 
 @lru_cache(maxsize=4096)

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import ast
 import sys
 import tempfile
 import unittest
@@ -93,6 +94,46 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             if spec.pdf_visibility == "pdf_core_model" and spec.score_func is model_score_common
         ]
         self.assertEqual(offenders, [])
+
+    def test_pdf_core_models_have_independent_condition_and_score_functions(self) -> None:
+        specs = [spec for spec in build_specs() if spec.pdf_visibility == "pdf_core_model"]
+        condition_names = [spec.condition_func.__name__ for spec in specs]
+        score_names = [spec.score_func.__name__ for spec in specs]
+        self.assertEqual(len(condition_names), len(set(condition_names)))
+        self.assertEqual(len(score_names), len(set(score_names)))
+        self.assertNotIn("model_score_common", score_names)
+        self.assertEqual(
+            {spec.model_id for spec in specs},
+            {
+                "volume_range_breakout",
+                "price_pullback_23ema",
+                "hot_theme_pullback",
+                "revenue_unreacted_range",
+                "w_bottom_right_side",
+                "near_high_neckline_challenge",
+                "platform_strengthening",
+                "pullback_short_reclaim",
+                "tdcc_stealth_accumulation",
+            },
+        )
+
+    def test_pdf_facing_helpers_are_not_duplicated(self) -> None:
+        source_path = ROOT / "scripts" / "build_daily_candidate_model_layer.py"
+        tree = ast.parse(source_path.read_text(encoding="utf-8"))
+        names = [
+            node.name
+            for node in tree.body
+            if isinstance(node, ast.FunctionDef)
+            and node.name
+            in {
+                "same_model_repeat_status_zh",
+                "same_model_repeat_note_zh",
+                "apply_display_columns",
+                "attach_report_contract_columns",
+            }
+        ]
+        for name in set(names):
+            self.assertEqual(names.count(name), 1, name)
 
     def test_model_score_profiles_are_independent_and_visible(self) -> None:
         params = build_parameter_table(build_specs()).set_index("model_id")
@@ -709,7 +750,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
     def test_output_has_effective_theme_fields_and_clean_guidance(self) -> None:
         row = make_row(
             stock_id="9998",
-            next_confirmation="???????????????????? D+5/D+10 ???",
+            next_confirmation="依D+5/D+10統計與短線支撐管理",
             effective_primary_theme="機器人自動化",
             structural_theme_bucket="robotics_automation_theme",
             mainstream_report_eligible="True",
@@ -719,6 +760,46 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         self.assertIn("effective_structural_theme_bucket", out.columns)
         self.assertIn("model_operation_guidance", out.columns)
         self.assertFalse(out["next_confirmation"].astype(str).str.contains(r"\?\?\?", regex=True).any())
+
+    def test_report_ready_pdf_facing_columns_are_human_readable(self) -> None:
+        signals = pd.DataFrame(
+            [
+                {
+                    "signal_date": "20260530",
+                    "report_bucket": "mainstream",
+                    "stock_id": "2374",
+                    "stock_name": "佳能",
+                    "model_id": "volume_breakout_range",
+                    "model_name_zh": "volume_breakout_range",
+                    "model_score": "80",
+                    "model_rank": "2",
+                    "original_category": "range_rebound",
+                    "source_row_index": "46",
+                    "next_confirmation": "call_strong_inflow / neckline",
+                    "score_components": "volume_ratio=2.0|tdcc_status=strong_accumulation",
+                    "risk_penalty_tags": "false_breakout_risk",
+                    "tdcc_status": "strong_accumulation",
+                    "warrant_flow_signal": "call_strong_inflow",
+                }
+            ]
+        )
+        report_ready = model_layer.attach_report_contract_columns(
+            model_layer.build_report_ready_model_signals(signals)
+        )
+        for col in [
+            "model_name_zh",
+            "source_hit_labels_zh",
+            "why_selected_zh",
+            "why_selected_human_zh",
+            "risk_tags_zh",
+            "next_confirmation_zh",
+            "recommended_usage_zh",
+            "warrant_flow_signal_zh",
+        ]:
+            self.assertIn(col, report_ready.columns)
+            text = " ".join(report_ready[col].astype(str))
+            self.assertNotRegex(text, r"\?\?\?|[a-z]+(?:_[a-z0-9]+){1,}")
+        self.assertIn("帶量突破模型", report_ready["model_name_zh"].iloc[0])
 
 
 if __name__ == "__main__":

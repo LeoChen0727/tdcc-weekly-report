@@ -1,6 +1,6 @@
 # ChatGPT Indicator Usage Guide
 
-- generated_at: `2026-06-04 15:11:20 UTC`
+- generated_at: `2026-06-05 00:58:17 台北標準時間`
 - main_price_date: `20260603`
 - purpose: Use program-side classifications first. ChatGPT should explain and synthesize, not re-rank from memory.
 - rule: If memory, PDF, or ad-hoc interpretation conflicts with program-side fields, use the structured program-side fields.
@@ -30,7 +30,7 @@
 ## Program-Side Classification Coverage
 | layer | file | classification fields | current buckets | ChatGPT use |
 | --- | --- | --- | --- | --- |
-| Independent daily candidate models | output/latest/daily_candidate_model_layer_packet_latest.md | daily_candidate_model_parameters, daily_report_model_registry, daily_candidate_model_summary_for_report, daily_candidate_model_signals, model_rank, report_bucket, selection_semantics | models=16 / registry=10 / fixed_summary=20 / raw_signals=661 / report_signals=661 / packet=ready | Main condition met means selected into that model. Score/risk ranks inside the model. Use model_signals_for_report for model sections and daily_candidate_model_summary_for_report for fixed first-page new/repeated representatives. |
+| Independent daily candidate models | output/latest/daily_candidate_model_layer_packet_latest.md | daily_candidate_model_parameters, daily_report_model_registry, daily_candidate_model_summary_for_report, daily_candidate_model_signals, model_rank, report_bucket, selection_semantics | models=16 / registry=10 / fixed_summary=20 / raw_signals=697 / report_signals=697 / packet=ready | Main condition met means selected into that model. Score/risk ranks inside the model. Use model_signals_for_report for model sections and daily_candidate_model_summary_for_report for fixed first-page new/repeated representatives. |
 | Daily candidate fixed model summary | output/latest/daily_candidate_model_summary_for_report_latest.csv | report_line, model_id, model_registry_order, new_stock_display, new_rank_label, repeated_stock_display, repeated_rank_label | rows=20 / mainstream=10; non_mainstream=10 | First-page curated PDF contract. Render every registry model applicable to the report line; show no candidate when no new/repeated stock exists. Do not let models disappear from the first page. |
 | Daily candidate front-page unique representatives | output/latest/daily_candidate_frontpage_unique_latest.csv | frontpage_unique_rank, report_bucket, stock_id, primary_model_id, model_hit_count, model_hits | rows=291 / non_mainstream=261; mainstream=30 | Legacy first-page unique table. Prefer daily_candidate_model_summary_for_report_latest.csv for fixed per-model new/repeated summaries. |
 | Daily candidate same-model repeat | output/latest/daily_candidate_same_model_repeat_latest.csv | same_model_consecutive_days, same_model_appear_count_5d, same_model_appear_count_10d, same_model_repeat_status | rows=234 / non_mainstream=167; mainstream=67 | Persistence table only. Same-stock same-model repeat is not a score penalty or veto; curated/front-page tables may prefer new_model_signal and list repeated names separately. |
