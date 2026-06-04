@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0083 國泰費城半導體
 
 ## Metadata
-- generated_at: 2026-06-04 01:54:03 Asia/Taipei
+- generated_at: 2026-06-04 21:48:05 Asia/Taipei
 - stock_id: 0083
 - stock_name: 國泰費城半導體
 - packet_status: insufficient_price_data
@@ -54,12 +54,28 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DISPLAY
+- pdf_visible: true
+- action_rating_display_zh: 已持有續抱
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+
 ## ACTION_DECISION
+- pdf_visible: false
+- internal_use_only: true
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: current_price_ok
+- entry_style: no_entry_now
 - position_sizing: observe_only
 
 ### management_plan
@@ -91,28 +107,28 @@
 - none
 
 ### chatgpt_instruction
-- Open the report with action_rating_label_zh as the program-side action conclusion.
-- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
-- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+- Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
+- Do not print ACTION_DECISION, action_rating, starter_position, decision_score, model_slug, packet, raw field, or 程式端欄位 in investor-facing PDF prose.
+- Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 
-- open: 
-- high: 
-- low: 
-- close: 
-- volume: 
-- ma5: 
-- ema23_primary: 
-- distance_to_ema23_pct: 
-- ma20: 
-- ma60: 
-- ma120: 
-- return_5d: 
-- return_20d: 
-- volume_ratio: 
-- distance_to_ma20_pct_auxiliary: 
-- distance_to_high_60_pct: 
+- date:
+- open:
+- high:
+- low:
+- close:
+- volume:
+- ma5:
+- ema23_primary:
+- distance_to_ema23_pct:
+- ma20:
+- ma60:
+- ma120:
+- return_5d:
+- return_20d:
+- volume_ratio:
+- distance_to_ma20_pct_auxiliary:
+- distance_to_high_60_pct:
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -152,14 +168,14 @@ no_rows,True
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal | warrant_flow_score | warrant_flow_warning |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 0083 | 國泰費城半導體 | 21 | 11 | 7727450.0 | 619400.0 | 12.48 | call_put_bullish | 3 |  |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260604 | 0083 | 國泰費城半導體 | 21 | 11 | 4989770.0 | 1253960.0 | 3.98 | put_inflow |
 
 ## Interpretation Guardrails
-- ACTION_DECISION is the program-side action guidance for single-stock trading language.
-- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
-- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
+- ACTION_DISPLAY is the PDF-visible report language contract.
+- ACTION_DECISION is internal model context only; do not print its raw field names or raw values in investor-facing prose.
+- Use entry_strategy_zh, position_sizing_zh, add_position_strategy_zh, take_profit_strategy_zh, risk_control_zh, and post_entry_watch_zh for report text.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.

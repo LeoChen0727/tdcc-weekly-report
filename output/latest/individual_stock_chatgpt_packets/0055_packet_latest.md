@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0055 元大MSCI金融
 
 ## Metadata
-- generated_at: 2026-06-04 01:54:02 Asia/Taipei
+- generated_at: 2026-06-04 21:48:03 Asia/Taipei
 - stock_id: 0055
 - stock_name: 元大MSCI金融
 - packet_status: standard_180d_window_packet
@@ -54,21 +54,31 @@
 - If tdcc_rows < 8, mark insufficient_tdcc_history and do not make 8-12 week TDCC backtest conclusions.
 - External news can supplement events, but must not replace repo price history or repo TDCC history as primary data.
 
+## ACTION_DISPLAY
+- pdf_visible: true
+- action_rating_display_zh: 減碼
+- model_category_display_zh: 嚴格突破
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
+- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「減碼」。
+- entry_strategy_zh: 目前風險升高，以降低部位為主，不建議新買。
+- position_sizing_zh: 降低部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
+- risk_control_zh: 量價失敗
+- post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
+- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「減碼」。 進場策略：目前風險升高，以降低部位為主，不建議新買。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：量價失敗
+
 ## ACTION_DECISION
-- action_rating: scale_in
-- action_rating_label_zh: 可分批買進
-- confidence_level: medium
-- thesis_state: healthy_pullback
-- entry_style: pullback_to_23ema
-- position_sizing: half_position
+- pdf_visible: false
+- internal_use_only: true
+- action_rating: reduce
+- action_rating_label_zh: 減碼
+- confidence_level: low
+- thesis_state: failed_breakout
+- entry_style: no_entry_now
+- position_sizing: reduce_position
 
 ### management_plan
-- buy_first_tranche_near_support
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
-- take_profit_near_prior_high
-- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
@@ -76,11 +86,10 @@
 
 ### entry_prerequisites
 - model_recommended
-- price_structure_not_broken
-- near_23ema_or_support
+- decision_priority_high
+- decision_score_high
 - revenue_not_deteriorating
 - no_major_tdcc_warning
-- no_major_volume_price_failure
 - acceptable_risk_reward
 
 ### post_entry_watch_items
@@ -94,12 +103,12 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- volume_price_failure
 
 ### chatgpt_instruction
-- Open the report with action_rating_label_zh as the program-side action conclusion.
-- Do not downgrade buy_now / scale_in / starter_position to wait_pullback unless current repo price, volume, or TDCC data contradicts ACTION_DECISION.
-- Treat post_entry_watch_items as post-entry monitoring, not as buy-before requirements.
+- Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
+- Do not print ACTION_DECISION, action_rating, starter_position, decision_score, model_slug, packet, raw field, or 程式端欄位 in investor-facing PDF prose.
+- Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
 - date: 20260603
@@ -169,12 +178,12 @@ no_rows,True
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 0055 | 元大MSCI金融 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260603 | 0055 | 元大MSCI金融 | true_breakout | 嚴格突破 | 132.0 |  |  | platform_breakout |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 0055 | 元大MSCI金融 | 2 | 1 | 2 | 2 | 2 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260603 | 0055 | 元大MSCI金融 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |
@@ -182,9 +191,9 @@ no_rows,True
 | no rows |
 
 ## Interpretation Guardrails
-- ACTION_DECISION is the program-side action guidance for single-stock trading language.
-- If action_rating is buy_now / scale_in / starter_position, do not rewrite it as waiting for confirmation unless current repo price, TDCC, or volume data directly contradicts it.
-- entry_prerequisites are first-tranche requirements. post_entry_watch_items are post-entry monitoring checks, not buy-before blockers.
+- ACTION_DISPLAY is the PDF-visible report language contract.
+- ACTION_DECISION is internal model context only; do not print its raw field names or raw values in investor-facing prose.
+- Use entry_strategy_zh, position_sizing_zh, add_position_strategy_zh, take_profit_strategy_zh, risk_control_zh, and post_entry_watch_zh for report text.
 - For K-line or technical conclusions, use PRICE_WINDOW data first; do not rely on external price websites unless repo price data is unavailable.
 - For TDCC conclusions, use TDCC_WINDOW data first; if tdcc_history_status=insufficient_tdcc_history, only make short-term observations.
 - Candidate Context shows whether the stock entered the daily model; absence from candidates does not mean price/TDCC raw data is unavailable.
