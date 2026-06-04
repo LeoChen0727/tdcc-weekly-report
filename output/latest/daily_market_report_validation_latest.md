@@ -1,6 +1,6 @@
 # Daily Market PDF Validation
 
-- generated_at: `2026-06-05 01:24:15 Asia/Taipei`
+- generated_at: `2026-06-05 02:13:23 Asia/Taipei`
 - status: `pass`
 - main_price_date: `20260603`
 

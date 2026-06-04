@@ -148,6 +148,16 @@ FORBIDDEN_DISPLAY_TOKENS = [
     "call_put_bullish",
     "non_mainstream",
     "mainstream",
+    "near 23EMA/support",
+    "pullback volume not chasing",
+    "pullback entry zone",
+    "pullback not volume-chasing",
+    "EMA23 slope proxy up",
+    "re-attack volume",
+    "price in 23-day range",
+    "price still in recent range",
+    "EPS confirmation tag",
+    "catalyst tag",
 ]
 
 

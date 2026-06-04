@@ -316,6 +316,7 @@ jobs:
       - name: Audit daily candidate model selection correctness
         run: |
           python scripts/audit_daily_candidate_model_selection_correctness.py
+          python scripts/audit_daily_candidate_pipeline_integrity.py
 
       - name: Update daily theme status history
         run: |
@@ -428,6 +429,8 @@ jobs:
           cp output/latest/daily_candidate_model_layer_validation_latest.md docs/latest/daily_candidate_model_layer_validation_latest.md || true
           cp output/latest/daily_candidate_model_selection_audit_latest.json docs/latest/daily_candidate_model_selection_audit_latest.json || true
           cp output/latest/daily_candidate_model_selection_audit_latest.md docs/latest/daily_candidate_model_selection_audit_latest.md || true
+          cp output/latest/daily_candidate_pipeline_integrity_audit_latest.json docs/latest/daily_candidate_pipeline_integrity_audit_latest.json || true
+          cp output/latest/daily_candidate_pipeline_integrity_audit_latest.md docs/latest/daily_candidate_pipeline_integrity_audit_latest.md || true
           cp output/latest/daily_candidate_group_rotation_latest.csv docs/latest/daily_candidate_group_rotation_latest.csv || true
           cp output/latest/daily_candidate_group_rotation_latest.md docs/latest/daily_candidate_group_rotation_latest.md || true
           cp output/latest/individual_stock_technical_snapshot_latest.csv docs/latest/individual_stock_technical_snapshot_latest.csv || true

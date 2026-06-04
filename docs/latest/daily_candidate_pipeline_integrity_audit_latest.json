@@ -1,0 +1,58 @@
+{
+  "status": "pass",
+  "errors": [],
+  "warnings": [],
+  "details": {
+    "main_price_date": "20260603",
+    "selection_audit_status": "pass",
+    "selection_audit": {
+      "main_price_date": "20260603",
+      "effective_candidate_signal_date": "20260603",
+      "all_candidates_rows": 522,
+      "raw_model_signal_rows": 865,
+      "report_model_signal_rows": 865,
+      "volume_watch_rows": 507,
+      "tdcc_short_edge_rows": 76,
+      "volume_watch_fresh": true,
+      "tdcc_short_edge_fresh": true,
+      "selected_condition_error_count": 0,
+      "selected_condition_warning_count": 0
+    },
+    "stock_model_spec_count": 9,
+    "stock_model_spec_ids": [
+      "volume_range_breakout",
+      "price_pullback_23ema",
+      "hot_theme_pullback",
+      "revenue_unreacted_range",
+      "w_bottom_right_side",
+      "near_high_neckline_challenge",
+      "platform_strengthening",
+      "pullback_short_reclaim",
+      "tdcc_stealth_accumulation"
+    ],
+    "registry_active_model_count": 10,
+    "registry_pdf_model_count": 10,
+    "registry_model_ids": [
+      "hot_theme_pullback",
+      "near_high_neckline_challenge",
+      "platform_strengthening",
+      "price_pullback_23ema",
+      "pullback_short_reclaim",
+      "revenue_unreacted_range",
+      "tdcc_short_term_continuation_d5_d10",
+      "tdcc_stealth_accumulation",
+      "volume_range_breakout",
+      "w_bottom_right_side"
+    ],
+    "summary_expected_model_line_rows": 20,
+    "summary_actual_model_line_rows": 20,
+    "report_signal_dates": [
+      "20260603"
+    ],
+    "same_report_line_model_stock_duplicates": 0,
+    "pdf_facing_text_leak_counts": {},
+    "taxonomy_rows": 2376,
+    "taxonomy_blank_basic_theme_rows": 0,
+    "taxonomy_blank_report_line_memberships": 0
+  }
+}
