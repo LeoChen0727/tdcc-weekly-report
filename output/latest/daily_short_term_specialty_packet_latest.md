@@ -1,7 +1,7 @@
 # DAILY SHORT-TERM SPECIALTY PACKET
 
 ## Metadata
-- generated_at: `2026-06-04 14:43:17 UTC`
+- generated_at: `2026-06-04 14:52:28 UTC`
 - main_price_date: `20260603`
 - purpose: Force daily reports to include short-term specialty sections that are not part of the fixed six candidate categories.
 - market_abnormal_status_path: `output/latest/market_abnormal_status_latest.csv`
@@ -26,8 +26,8 @@
 ### D+5 Stats
 | rule_name | mature_count | win_rate_close_to_close_pct | avg_relative_return_vs_benchmark_pct | win_rate_next_open_to_close_pct | avg_next_open_relative_return_vs_benchmark_pct | sample_status |
 | --- | --- | --- | --- | --- | --- | --- |
-| all_thresholds_overheated + 1w return 10~30 + MACD hist > 0 | 25 | 76.0 | 3.884922722173117 | 76.0 | 3.6060465705459475 | insufficient_sample |
-| phase_overheated_after_tdcc + KD bullish K<90 + 1w return 10~30 + 2w return 20~50 | 15 | 66.66666666666666 | -0.5549434999963627 | 66.66666666666666 | -0.5136114568738805 | insufficient_sample |
+| all_thresholds_overheated + 1w return 10~30 + MACD hist > 0 | 38 | 73.68421052631578 | 3.884922722173117 | 76.0 | 3.6060465705459475 | ok_initial_sample |
+| phase_overheated_after_tdcc + KD bullish K<90 + 1w return 10~30 + 2w return 20~50 | 22 | 72.72727272727273 | -0.5549434999963627 | 66.66666666666666 | -0.5136114568738805 | insufficient_sample |
 | phase_overheated_after_tdcc + Bollinger width pct<=80 + 2w return 20~50 + TDCC 1w | 2 | 0.0 | -9.208780404858407 | 0.0 | -17.915295523445234 | insufficient_sample |
 
 ### D+10 Stats
@@ -41,25 +41,25 @@
 | stock_id | stock_name | theme | tdcc_price_phase |
 | --- | --- | --- | --- |
 | 2375 | 凱美 | passive components | overheated_after_tdcc |
+| 8358 | 金居 | other | overheated_after_tdcc |
+| 3189 | 景碩 | other | overheated_after_tdcc |
+| 3042 | 晶技 | other | overheated_after_tdcc |
 | 2495 | 普安 | other | overheated_after_tdcc |
 | 2484 | 希華 | other | overheated_after_tdcc |
+| 2305 | 全友 | other | overheated_after_tdcc |
 | 6127 | 九豪 | other | overheated_after_tdcc |
+| 8473 | 山林水 | other | overheated_after_tdcc |
+| 3532 | 台勝科 | other | overheated_after_tdcc |
+| 5864 | 致和證 | other | overheated_after_tdcc |
+| 2428 | 興勤 | other | overheated_after_tdcc |
+| 6870 | 騰雲 | other | overheated_after_tdcc |
 | 6284 | 佳邦 | other | overheated_after_tdcc |
 | 2312 | 金寶 | other | overheated_after_tdcc |
 | 6175 | 立敦 | other | overheated_after_tdcc |
+| 8289 | 泰藝 | other | overheated_after_tdcc |
 | 2369 | 菱生 | other | overheated_after_tdcc |
-| 6706 | 惠特 | other | price_leading_tdcc |
-| 4906 | 正文 | networking | overheated_after_tdcc |
-| 6265 | 方土昶 | other | price_leading_tdcc |
-| 2344 | 華邦電 | memory | overheated_after_tdcc |
-| 8028 | 昇陽半導體 | semiconductor equipment/materials | overheated_after_tdcc |
-| 2495 | 普安 | other | overheated_after_tdcc |
-| 2484 | 希華 | other | overheated_after_tdcc |
-| 6127 | 九豪 | other | overheated_after_tdcc |
-| 2312 | 金寶 | other | overheated_after_tdcc |
-| 2369 | 菱生 | other | overheated_after_tdcc |
-| 4906 | 正文 | networking | overheated_after_tdcc |
-| 2344 | 華邦電 | memory | overheated_after_tdcc |
+| 8261 | 富鼎 | power discrete/diodes | overheated_after_tdcc |
+| 2356 | 英業達 | other | overheated_after_tdcc |
 
 ## Next-Open +10pct Touch Strict Parameter Research
 

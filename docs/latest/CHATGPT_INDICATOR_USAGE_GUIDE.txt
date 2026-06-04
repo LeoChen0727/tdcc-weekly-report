@@ -1,6 +1,6 @@
 # ChatGPT Indicator Usage Guide
 
-- generated_at: `2026-06-04 14:45:14 UTC`
+- generated_at: `2026-06-04 14:52:30 UTC`
 - main_price_date: `20260603`
 - purpose: Use program-side classifications first. ChatGPT should explain and synthesize, not re-rank from memory.
 - rule: If memory, PDF, or ad-hoc interpretation conflicts with program-side fields, use the structured program-side fields.
@@ -43,7 +43,7 @@
 | TDCC strength | output/latest/tdcc_strength_ranking_top_latest.csv | tdcc_strength_score, tdcc_price_phase, risk_bucket, theme_mainstream_status | strong_but_pre_move=22; strong_but_divergent=19; insufficient_data=7; strong_but_overheated=1; strong_confirmed=1 | Strength list only. It is not the pre-move list. |
 | TDCC pre-move / ABM | output/latest/tdcc_pre_move_abm_top_latest.csv | tracking_priority, accumulation_label, tdcc_price_phase, setup_type, trigger_to_watch | C_weak_or_discounted=27; B_confirm_needed=23 | Use for hidden accumulation candidates, subject to mature-sample caveats. |
 | TDCC risk list | output/latest/tdcc_top_risk_list_latest.csv | risk_group, tdcc_price_phase, risk_bucket | strong_but_late=20; strong_but_overheated=20; strong_but_divergent=20 | Use to avoid mislabeling late/overheated/divergent names as accumulation. |
-| TDCC overheated short-term edge | output/latest/tdcc_overheated_short_term_edge_latest.csv | horizon, mature_count, win_rate_close_to_close_pct, avg_relative_return_vs_benchmark_pct, win_rate_next_open_to_close_pct, avg_next_open_relative_return_vs_benchmark_pct | stats_rows=6 / current_candidates=20 | Standalone D+5/D+10 reporting-only specialty. Do not mix into the six-category ranking or core weights. |
+| TDCC overheated short-term edge | output/latest/tdcc_overheated_short_term_edge_latest.csv | horizon, mature_count, win_rate_close_to_close_pct, avg_relative_return_vs_benchmark_pct, win_rate_next_open_to_close_pct, avg_next_open_relative_return_vs_benchmark_pct | stats_rows=6 / current_candidates=76 | Standalone D+5/D+10 reporting-only specialty. Do not mix into the six-category ranking or core weights. |
 | Non-revenue momentum watch | output/latest/non_revenue_momentum_watch_latest.csv | non_revenue_momentum_type, revenue_confirmation_status, theme_final_status, theme_volume_attack_status, volume_breakout_type, next_confirmation | rows=129 / D_overheated_or_failed_risk=122; A_fund_flow_confirmed_revenue_unconfirmed=7 | Specialty overlay for stocks moving on price/theme/fund flow before revenue/EPS confirmation. It is not a seventh core category. |
 | MSCI Taiwan rebalance event tag | output/latest/msci_taiwan_rebalance_backtest_latest.csv | msci_index_segment, action, effective_date, entry_date, ret_d5_return, ret_d10_return, ret_d15_return, ret_d20_return, sample_status | addition=59; deletion=59 / ok=70; pending_no_next_trade=34; price_history_starts_after_event=14 | Event tag and research layer only. Entry is first trading day after effective date open; exits are D+5/D+10/D+15/D+20 close. Do not treat MSCI addition/deletion as a standalone buy/sell signal. |
 | Warrant flow | output/latest/warrant_flow_by_stock_latest.csv | warrant_flow_signal, warrant_flow_score, warrant_flow_warning | empty | Auxiliary only. Do not make warrant-only conclusions. |

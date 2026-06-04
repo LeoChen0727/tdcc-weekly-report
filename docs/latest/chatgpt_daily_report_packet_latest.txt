@@ -1,6 +1,6 @@
 CHATGPT DAILY REPORT PACKET
 
-generated_at: 2026-06-04 22:45:15 Asia/Taipei
+generated_at: 2026-06-04 22:52:30 Asia/Taipei
 repo: LeoChen0727/tdcc-weekly-report
 main_price_date: 20260603
 report_ready: True
@@ -85,7 +85,7 @@ EMBEDDED DAILY SHORT-TERM SPECIALTY PACKET
 # DAILY SHORT-TERM SPECIALTY PACKET
 
 ## Metadata
-- generated_at: `2026-06-04 14:43:17 UTC`
+- generated_at: `2026-06-04 14:52:28 UTC`
 - main_price_date: `20260603`
 - purpose: Force daily reports to include short-term specialty sections that are not part of the fixed six candidate categories.
 - market_abnormal_status_path: `output/latest/market_abnormal_status_latest.csv`
@@ -110,8 +110,8 @@ EMBEDDED DAILY SHORT-TERM SPECIALTY PACKET
 ### D+5 Stats
 | rule_name | mature_count | win_rate_close_to_close_pct | avg_relative_return_vs_benchmark_pct | win_rate_next_open_to_close_pct | avg_next_open_relative_return_vs_benchmark_pct | sample_status |
 | --- | --- | --- | --- | --- | --- | --- |
-| all_thresholds_overheated + 1w return 10~30 + MACD hist > 0 | 25 | 76.0 | 3.884922722173117 | 76.0 | 3.6060465705459475 | insufficient_sample |
-| TDCC後股價過熱階段 + KD bullish K<90 + 1w return 10~30 + 2w return 20~50 | 15 | 66.66666666666666 | -0.5549434999963627 | 66.66666666666666 | -0.5136114568738805 | insufficient_sample |
+| all_thresholds_overheated + 1w return 10~30 + MACD hist > 0 | 38 | 73.68421052631578 | 3.884922722173117 | 76.0 | 3.6060465705459475 | ok_initial_sample |
+| TDCC後股價過熱階段 + KD bullish K<90 + 1w return 10~30 + 2w return 20~50 | 22 | 72.72727272727273 | -0.5549434999963627 | 66.66666666666666 | -0.5136114568738805 | insufficient_sample |
 | TDCC後股價過熱階段 + Bollinger width pct<=80 + 2w return 20~50 + TDCC 1w | 2 | 0.0 | -9.208780404858407 | 0.0 | -17.915295523445234 | insufficient_sample |
 
 ### D+10 Stats
@@ -125,25 +125,25 @@ EMBEDDED DAILY SHORT-TERM SPECIALTY PACKET
 | stock_id | stock_name | theme | tdcc_price_phase |
 | --- | --- | --- | --- |
 | 2375 | 凱美 | passive components | TDCC後股價過熱 |
+| 8358 | 金居 | other | TDCC後股價過熱 |
+| 3189 | 景碩 | other | TDCC後股價過熱 |
+| 3042 | 晶技 | other | TDCC後股價過熱 |
 | 2495 | 普安 | other | TDCC後股價過熱 |
 | 2484 | 希華 | other | TDCC後股價過熱 |
+| 2305 | 全友 | other | TDCC後股價過熱 |
 | 6127 | 九豪 | other | TDCC後股價過熱 |
+| 8473 | 山林水 | other | TDCC後股價過熱 |
+| 3532 | 台勝科 | other | TDCC後股價過熱 |
+| 5864 | 致和證 | other | TDCC後股價過熱 |
+| 2428 | 興勤 | other | TDCC後股價過熱 |
+| 6870 | 騰雲 | other | TDCC後股價過熱 |
 | 6284 | 佳邦 | other | TDCC後股價過熱 |
 | 2312 | 金寶 | other | TDCC後股價過熱 |
 | 6175 | 立敦 | other | TDCC後股價過熱 |
+| 8289 | 泰藝 | other | TDCC後股價過熱 |
 | 2369 | 菱生 | other | TDCC後股價過熱 |
-| 6706 | 惠特 | other | 股價領先TDCC |
-| 4906 | 正文 | 網通 | TDCC後股價過熱 |
-| 6265 | 方土昶 | other | 股價領先TDCC |
-| 2344 | 華邦電 | 記憶體 | TDCC後股價過熱 |
-| 8028 | 昇陽半導體 | 半導體設備/materials | TDCC後股價過熱 |
-| 2495 | 普安 | other | TDCC後股價過熱 |
-| 2484 | 希華 | other | TDCC後股價過熱 |
-| 6127 | 九豪 | other | TDCC後股價過熱 |
-| 2312 | 金寶 | other | TDCC後股價過熱 |
-| 2369 | 菱生 | other | TDCC後股價過熱 |
-| 4906 | 正文 | 網通 | TDCC後股價過熱 |
-| 2344 | 華邦電 | 記憶體 | TDCC後股價過熱 |
+| 8261 | 富鼎 | 功率元件/diodes | TDCC後股價過熱 |
+| 2356 | 英業達 | other | TDCC後股價過熱 |
 
 ## Next-Open +10pct Touch Strict Parameter Research
 
@@ -486,7 +486,7 @@ performance_csv_path: output/history/daily_signals/daily_candidate_signal_perfor
 summary_latest_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_signal_performance_summary_latest.md
 weekly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_weekly_latest.pdf
 monthly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_monthly_latest.pdf
-last_updated_at: 2026-06-04 22:45:15 Asia/Taipei
+last_updated_at: 2026-06-04 22:52:30 Asia/Taipei
 status: generated
 
 CANDIDATE REPEAT APPEARANCE

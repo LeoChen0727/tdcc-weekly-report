@@ -6,7 +6,7 @@ astrology_forbidden_opening_heading_keys=data_status,flow_status,repo_entry_stat
 astrology_market_data_note_rule=market_data_status_may_appear_only_as_one_sentence_in_wealth_stock_section_or_final_data_note
 main_price_date=20260603
 report_ready=True
-commit_sha=ffdefc4932e4d004740b7f9edd03ece865e0582d
+commit_sha=2aaa4ec0ed29c5be32700cebb36793ea3c485e7c
 readme_latest_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT.txt
 readme_latest_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/READ_ME_FIRST_DAILY_REPORT.txt
 readme_index_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT_INDEX.txt
@@ -45,7 +45,7 @@ repo_artifacts_do_not_satisfy_chatgpt_pdf_delivery=True
 do_not_paste_full_text_instead_of_required_pdf=True
 preferred_chatgpt_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/chatgpt_daily_report_packet_latest.txt
 packet_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/chatgpt_daily_report_packet_latest.txt
-packet_commit_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/ffdefc4932e4d004740b7f9edd03ece865e0582d/output/history/reports/20260603_CHATGPT_DAILY_REPORT_PACKET.txt
+packet_commit_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/2aaa4ec0ed29c5be32700cebb36793ea3c485e7c/output/history/reports/20260603_CHATGPT_DAILY_REPORT_PACKET.txt
 packet_latest_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/chatgpt_daily_report_packet_latest.txt
 packet_github_api_url=https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/chatgpt_daily_report_packet_latest.txt?ref=main
 summary_latest_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_summary_latest.md
