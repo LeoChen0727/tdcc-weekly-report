@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6690 安碁資訊
 
 ## Metadata
-- generated_at: 2026-06-05 03:13:27 Asia/Taipei
+- generated_at: 2026-06-05 21:08:36 Asia/Taipei
 - stock_id: 6690
 - stock_name: 安碁資訊
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 187
-- high: 187.5
-- low: 182.5
-- close: 183
-- volume: 184000
-- ma5: 179.6
-- ema23_primary: 172.8
-- distance_to_ema23_pct: 5.9
-- ma20: 171.4
-- ma60: 169.07
-- ma120: 168.53
-- return_5d: 7.96
-- return_20d: 8.61
-- volume_ratio: 1.9
-- distance_to_ma20_pct_auxiliary: 6.77
-- distance_to_high_60_pct: -5.43
+- date: 20260605
+- open: 185
+- high: 185.5
+- low: 180.5
+- close: 182
+- volume: 183000
+- ma5: 184.6
+- ema23_primary: 174.35
+- distance_to_ema23_pct: 4.39
+- ma20: 172.7
+- ma60: 169.75
+- ma120: 168.75
+- return_5d: 6.74
+- return_20d: 7.06
+- volume_ratio: 1.73
+- distance_to_ma20_pct_auxiliary: 5.39
+- distance_to_high_60_pct: -5.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,169,170,168.5,169,62000,168.2,0.47,168.72,166.49,0.97
-20260508,170,172,168.5,170,126000,168.35,0.98,168.78,166.57,1.86
 20260511,172,172,167.5,168,103000,168.32,-0.19,168.75,166.66,1.47
 20260512,168,168,166.5,168,64000,168.3,-0.18,168.68,166.77,0.9
 20260513,168,168,166,167.5,64000,168.23,-0.43,168.6,166.87,0.9
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,174,187.5,174,187.5,185,170.45,10,169.82,168.46,0
 20260602,187,193.5,184,187.5,188,171.87,9.09,170.68,168.8,0
 20260603,187,187.5,182.5,183,184000,172.8,5.9,171.4,169.07,1.9
+20260604,187,187.5,182.5,183,184000,173.65,5.38,172.1,169.42,1.79
+20260605,185,185.5,180.5,182,183000,174.35,4.39,172.7,169.75,1.73
 ```
 
 ## Latest TDCC Snapshot

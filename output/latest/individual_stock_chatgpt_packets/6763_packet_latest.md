@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6763 綠界科技*
 
 ## Metadata
-- generated_at: 2026-06-05 03:13:31 Asia/Taipei
+- generated_at: 2026-06-05 21:08:39 Asia/Taipei
 - stock_id: 6763
 - stock_name: 綠界科技*
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 45.2
-- high: 45.95
-- low: 44.25
-- close: 45.8
-- volume: 45000
-- ma5: 44.19
-- ema23_primary: 45.35
-- distance_to_ema23_pct: 0.99
-- ma20: 45.19
-- ma60: 47.27
-- ma120: 51.38
-- return_5d: 5.77
-- return_20d: -4.48
-- volume_ratio: 0.21
-- distance_to_ma20_pct_auxiliary: 1.35
-- distance_to_high_60_pct: -9.66
+- date: 20260605
+- open: 46.35
+- high: 50.4
+- low: 46.35
+- close: 50.4
+- volume: 50000
+- ma5: 46.23
+- ema23_primary: 45.8
+- distance_to_ema23_pct: 10.03
+- ma20: 45.2
+- ma60: 47.24
+- ma120: 51.21
+- return_5d: 16.53
+- return_20d: 6.22
+- volume_ratio: 0.28
+- distance_to_ma20_pct_auxiliary: 11.49
+- distance_to_high_60_pct: -0.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,48.65,48.65,47.75,48.45,396000,48.18,0.57,48.12,49.51,1.09
-20260508,48.4,48.5,47.25,47.45,338000,48.12,-1.39,48.16,49.4,0.94
 20260511,47.3,47.9,46.95,47.05,312000,48.03,-2.04,48.15,49.3,0.86
 20260512,47.1,47.1,46.5,46.8,423000,47.93,-2.35,48.11,49.21,1.13
 20260513,46.8,46.8,46.25,46.25,353000,47.79,-3.21,47.92,49.11,0.99
@@ -155,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,43.25,44.8,42.75,44.45,44,45.36,-2.01,45.48,47.45,0
 20260602,44.35,45.25,44,44.7,45,45.31,-1.34,45.3,47.37,0
 20260603,45.2,45.95,44.25,45.8,45000,45.35,0.99,45.19,47.27,0.21
+20260604,45.2,45.95,44.25,45.8,45000,45.39,0.91,45.06,47.22,0.23
+20260605,46.35,50.4,46.35,50.4,50000,45.8,10.03,45.2,47.24,0.28
 ```
 
 ## Latest TDCC Snapshot

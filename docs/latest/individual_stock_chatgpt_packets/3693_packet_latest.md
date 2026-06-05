@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3693 營邦
 
 ## Metadata
-- generated_at: 2026-06-05 03:12:10 Asia/Taipei
+- generated_at: 2026-06-05 21:07:29 Asia/Taipei
 - stock_id: 3693
 - stock_name: 營邦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 601
-- high: 606
-- low: 584
-- close: 588
-- volume: 592000
-- ma5: 591.8
-- ema23_primary: 588.51
-- distance_to_ema23_pct: -0.09
-- ma20: 580.15
-- ma60: 565.76
-- ma120: 451.92
-- return_5d: 0.17
-- return_20d: -11.45
-- volume_ratio: 0.51
-- distance_to_ma20_pct_auxiliary: 1.35
-- distance_to_high_60_pct: -22.12
+- date: 20260605
+- open: 573
+- high: 577
+- low: 541
+- close: 569
+- volume: 560000
+- ma5: 595
+- ema23_primary: 586.85
+- distance_to_ema23_pct: -3.04
+- ma20: 574.35
+- ma60: 572.26
+- ma120: 456.7
+- return_5d: -2.07
+- return_20d: -5.64
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: -0.93
+- distance_to_high_60_pct: -24.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,681,700,653,670,2751000,621.19,7.86,643.55,511.15,0.95
-20260508,670,680,603,603,3365000,619.67,-2.69,645.9,514.89,1.18
 20260511,575,591,555,582,2512000,616.53,-5.6,646.7,518.29,0.89
 20260512,601,605,570,593,1805000,614.57,-3.51,645.25,521.89,0.66
 20260513,583,588,558,569,1189000,610.78,-6.84,642.55,524.96,0.47
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,588,639,583,632,617,587.7,7.54,587,560.26,0
 20260602,655,656,593,598,623,588.56,1.6,583.95,563.1,0
 20260603,601,606,584,588,592000,588.51,-0.09,580.15,565.76,0.51
+20260604,601,606,584,588,592000,588.47,-0.08,576.05,569.12,0.57
+20260605,573,577,541,569,560000,586.85,-3.04,574.35,572.26,0.62
 ```
 
 ## Latest TDCC Snapshot

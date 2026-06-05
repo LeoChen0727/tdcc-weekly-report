@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6573 虹揚-KY
 
 ## Metadata
-- generated_at: 2026-06-05 03:13:20 Asia/Taipei
+- generated_at: 2026-06-05 21:08:30 Asia/Taipei
 - stock_id: 6573
 - stock_name: 虹揚-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,14 +59,14 @@
 - action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 單一個股分析
 - score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足、股價乖離過大
+- risk_control_zh: TDCC 歷史不足
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_consolidation
+- thesis_state: unclear
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -91,6 +91,7 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -104,7 +105,6 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
-- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 18.35
-- high: 18.65
-- low: 17.7
-- close: 18.05
-- volume: 1866641
-- ma5: 16.45
-- ema23_primary: 14.42
-- distance_to_ema23_pct: 25.19
-- ma20: 14.07
-- ma60: 13.39
+- date: 20260605
+- open: 16.55
+- high: 16.6
+- low: 15.8
+- close: 16.1
+- volume: 615211
+- ma5: 16.9
+- ema23_primary: 14.78
+- distance_to_ema23_pct: 8.94
+- ma20: 14.47
+- ma60: 13.51
 - ma120: 14.37
-- return_5d: 33.7
-- return_20d: 43.25
-- volume_ratio: 3.07
-- distance_to_ma20_pct_auxiliary: 28.26
-- distance_to_high_60_pct: -3.22
+- return_5d: -1.23
+- return_20d: 26.77
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: 11.25
+- distance_to_high_60_pct: -13.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,12.6,12.95,12.6,12.7,110099,12.9,-1.55,12.74,13.61,0.6
-20260508,12.7,12.8,12.4,12.7,128524,12.88,-1.42,12.77,13.57,0.73
 20260511,12.7,12.9,12.25,12.3,192523,12.83,-4.16,12.77,13.51,1.06
 20260512,12.5,13.5,12.25,13.5,375267,12.89,4.73,12.83,13.47,1.91
 20260513,13.5,13.75,12.3,13.65,412225,12.95,5.38,12.9,13.44,1.94
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,15.7,16.55,14.7,15.75,2262385,13.8,14.16,13.59,13.27,5.02
 20260602,15.75,17.3,15.75,17.3,1493678,14.09,22.8,13.8,13.33,2.87
 20260603,18.35,18.65,17.7,18.05,1866641,14.42,25.19,14.07,13.39,3.07
+20260604,15.75,17.3,15.75,17.3,1493678,14.66,18.02,14.3,13.46,2.21
+20260605,16.55,16.6,15.8,16.1,615211,14.78,8.94,14.47,13.51,0.88
 ```
 
 ## Latest TDCC Snapshot

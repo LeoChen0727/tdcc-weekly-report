@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8150 南茂
 
 ## Metadata
-- generated_at: 2026-06-05 03:14:17 Asia/Taipei
+- generated_at: 2026-06-05 21:09:17 Asia/Taipei
 - stock_id: 8150
 - stock_name: 南茂
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 99.4
-- high: 104.5
-- low: 95.7
-- close: 95.8
-- volume: 50209005
-- ma5: 103.38
-- ema23_primary: 88.42
-- distance_to_ema23_pct: 8.35
-- ma20: 89.57
-- ma60: 73.04
-- ma120: 63.84
-- return_5d: 2.02
-- return_20d: 7.4
-- volume_ratio: 1.01
-- distance_to_ma20_pct_auxiliary: 6.96
-- distance_to_high_60_pct: -15.96
+- date: 20260605
+- open: 96.7
+- high: 99.3
+- low: 92.8
+- close: 96.8
+- volume: 34134453
+- ma5: 99.26
+- ema23_primary: 89.89
+- distance_to_ema23_pct: 7.68
+- ma20: 89.8
+- ma60: 74.33
+- ma120: 64.75
+- return_5d: -14.34
+- return_20d: 4.42
+- volume_ratio: 0.75
+- distance_to_ma20_pct_auxiliary: 7.8
+- distance_to_high_60_pct: -15.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,90,98.1,84.5,98.1,80749867,72.73,34.89,71.97,63.51,2
-20260508,100.5,103,88.3,92.7,101806451,74.39,24.61,73.59,64.02,2.26
 20260511,95,97.9,90.3,91,51675179,75.78,20.09,75.07,64.53,1.1
 20260512,90.4,90.6,86.1,87,34358540,76.71,13.41,76.28,65.02,0.72
 20260513,85.1,89.4,84.6,85.5,28772358,77.44,10.4,77.4,65.5,0.59
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,113,114,103,106.5,108776821,86.76,22.75,88.52,71.88,2.22
 20260602,104.5,110,97.3,98.6,61264270,87.75,12.37,89.24,72.47,1.2
 20260603,99.4,104.5,95.7,95.8,50209005,88.42,8.35,89.57,73.04,1.01
+20260604,104.5,110,97.3,98.6,61264270,89.27,10.46,89.59,73.71,1.25
+20260605,96.7,99.3,92.8,96.8,34134453,89.89,7.68,89.8,74.33,0.75
 ```
 
 ## Latest TDCC Snapshot
@@ -191,9 +191,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260604 | 8150 | 南茂 | 156 | 2 | 27185200.0 | 0.0 |  | call_inflow |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6840 東研信超
 
 ## Metadata
-- generated_at: 2026-06-05 03:13:35 Asia/Taipei
+- generated_at: 2026-06-05 21:08:42 Asia/Taipei
 - stock_id: 6840
 - stock_name: 東研信超
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 77.9
-- high: 77.9
-- low: 72.1
-- close: 72.7
-- volume: 75000
-- ma5: 67.36
-- ema23_primary: 65.72
-- distance_to_ema23_pct: 10.62
-- ma20: 64.45
-- ma60: 64.82
-- ma120: 64.56
-- return_5d: 15.58
-- return_20d: 8.67
-- volume_ratio: 0.87
-- distance_to_ma20_pct_auxiliary: 12.8
-- distance_to_high_60_pct: -6.68
+- date: 20260605
+- open: 70.2
+- high: 70.2
+- low: 68
+- close: 69.5
+- volume: 69000
+- ma5: 70.44
+- ema23_primary: 66.57
+- distance_to_ema23_pct: 4.41
+- ma20: 64.98
+- ma60: 65.31
+- ma120: 64.79
+- return_5d: 9.62
+- return_20d: 7.09
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: 6.96
+- distance_to_high_60_pct: -10.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,67.4,68.5,66.7,66.7,88000,67.99,-1.89,69.58,64.89,0.4
-20260508,65.7,65.9,64.6,64.9,219000,67.73,-4.18,69.5,64.8,1
 20260511,64.8,67.3,64,66,148000,67.59,-2.35,69.52,64.72,0.68
 20260512,66.1,66.3,64,64,143000,67.29,-4.88,69.39,64.65,0.66
 20260513,64,64,62.3,62.3,100000,66.87,-6.84,68.94,64.58,0.52
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,63.5,66,63.4,65.4,65,64.46,1.45,63.95,64.44,0
 20260602,71.9,71.9,71.9,71.9,72,65.08,10.47,64.16,64.62,0
 20260603,77.9,77.9,72.1,72.7,75000,65.72,10.62,64.45,64.82,0.87
+20260604,77.9,77.9,72.1,72.7,75000,66.3,9.65,64.75,65.11,0.87
+20260605,70.2,70.2,68,69.5,69000,66.57,4.41,64.98,65.31,0.88
 ```
 
 ## Latest TDCC Snapshot

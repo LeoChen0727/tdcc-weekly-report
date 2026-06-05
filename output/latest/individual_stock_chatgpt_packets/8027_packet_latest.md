@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8027 鈦昇
 
 ## Metadata
-- generated_at: 2026-06-05 03:14:10 Asia/Taipei
+- generated_at: 2026-06-05 21:09:12 Asia/Taipei
 - stock_id: 8027
 - stock_name: 鈦昇
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 288
+- date: 20260605
+- open: 287
 - high: 293
-- low: 281
-- close: 291
-- volume: 289000
-- ma5: 271.1
-- ema23_primary: 241.21
-- distance_to_ema23_pct: 20.64
-- ma20: 250.4
-- ma60: 176.96
-- ma120: 141.14
-- return_5d: 16.63
-- return_20d: 48.85
-- volume_ratio: 0.09
-- distance_to_ma20_pct_auxiliary: 16.21
-- distance_to_high_60_pct: -2.02
+- low: 279.5
+- close: 293
+- volume: 286000
+- ma5: 287.1
+- ema23_primary: 249.33
+- distance_to_ema23_pct: 17.52
+- ma20: 259.25
+- ma60: 183.62
+- ma120: 144.29
+- return_5d: 13.35
+- return_20d: 44.34
+- volume_ratio: 0.1
+- distance_to_ma20_pct_auxiliary: 13.02
+- distance_to_high_60_pct: -1.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,202.5,206,198,204,3403000,165.28,23.43,164.1,128.93,0.24
-20260508,206,212,195,203,3025000,168.42,20.53,166.75,130.44,0.23
 20260511,210,223,205.5,223,4200000,172.97,28.92,170.28,132.29,0.33
 20260512,230,242.5,227.5,241.5,4272000,178.68,35.16,175.1,134.46,0.34
 20260513,234.5,251,233,250,3072000,184.63,35.41,180.5,136.68,0.25
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,266.5,283,266.5,283,277,232.97,21.48,241.85,170.66,0
 20260602,297,297,269,277.5,278,236.68,17.25,245.62,173.68,0
 20260603,288,293,281,291,289000,241.21,20.64,250.4,176.96,0.09
+20260604,288,293,281,291,289000,245.36,18.6,254.75,180.31,0.09
+20260605,287,293,279.5,293,286000,249.33,17.52,259.25,183.62,0.1
 ```
 
 ## Latest TDCC Snapshot

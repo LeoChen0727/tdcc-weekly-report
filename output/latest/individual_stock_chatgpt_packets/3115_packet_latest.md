@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3115 富榮綱
 
 ## Metadata
-- generated_at: 2026-06-05 03:11:44 Asia/Taipei
+- generated_at: 2026-06-05 21:07:08 Asia/Taipei
 - stock_id: 3115
 - stock_name: 富榮綱
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 271
+- latest_price_date: 20260605
+- price_rows: 273
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 9
-- high: 9.31
-- low: 9
-- close: 9.31
+- date: 20260605
+- open: 8.68
+- high: 9.78
+- low: 8.68
+- close: 9.78
 - volume: 9000
-- ma5: 8.62
-- ema23_primary: 8.92
-- distance_to_ema23_pct: 4.37
-- ma20: 8.9
-- ma60: 9.52
-- ma120: 9.96
-- return_5d: 19.36
-- return_20d: -4.61
-- volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: 4.59
-- distance_to_high_60_pct: -16.88
+- ma5: 9.18
+- ema23_primary: 9.02
+- distance_to_ema23_pct: 8.41
+- ma20: 8.89
+- ma60: 9.5
+- ma120: 9.93
+- return_5d: 17.97
+- return_20d: 1.24
+- volume_ratio: 0.48
+- distance_to_ma20_pct_auxiliary: 10.07
+- distance_to_high_60_pct: -12.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,9.7,9.87,9.51,9.75,8000,9.89,-1.38,9.88,9.95,0.24
-20260508,9.7,9.7,9.66,9.66,7000,9.87,-2.1,9.89,9.94,0.21
 20260511,9.66,9.89,9.66,9.87,28000,9.87,0.02,9.91,9.93,0.82
 20260512,9.99,9.99,9.33,9.59,19000,9.84,-2.59,9.91,9.92,0.55
 20260513,9.36,9.65,9.36,9.59,4000,9.82,-2.37,9.9,9.9,0.12
@@ -155,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,8.11,8.63,8.11,8.63,8,8.88,-2.87,8.97,9.55,0
 20260602,8.65,8.96,8.65,8.88,9,8.88,-0.05,8.92,9.53,0
 20260603,9,9.31,9,9.31,9000,8.92,4.37,8.9,9.52,0.49
+20260604,9,9.31,9,9.31,9000,8.95,3.99,8.88,9.51,0.49
+20260605,8.68,9.78,8.68,9.78,9000,9.02,8.41,8.89,9.5,0.48
 ```
 
 ## Latest TDCC Snapshot

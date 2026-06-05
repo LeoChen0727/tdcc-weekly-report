@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00905 FT臺灣Smart
 
 ## Metadata
-- generated_at: 2026-06-05 03:10:23 Asia/Taipei
+- generated_at: 2026-06-05 21:06:00 Asia/Taipei
 - stock_id: 00905
 - stock_name: FT臺灣Smart
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260603
-- price_rows: 9
+- latest_price_date: 20260605
+- price_rows: 11
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 28.03
-- high: 28.2
-- low: 28
-- close: 28.12
-- volume: 1327384
-- ma5: 27.44
-- ema23_primary: 26.34
-- distance_to_ema23_pct: 6.74
-- ma20: 26.98
-- ma60: 26.98
-- ma120: 26.98
-- return_5d: 3.65
+- date: 20260605
+- open: 27.36
+- high: 27.46
+- low: 26.53
+- close: 27.18
+- volume: 2799747
+- ma5: 27.67
+- ema23_primary: 26.51
+- distance_to_ema23_pct: 2.52
+- ma20: 27.06
+- ma60: 27.06
+- ma120: 27.06
+- return_5d: -0.15
 - return_20d:
-- volume_ratio: 0.69
-- distance_to_ma20_pct_auxiliary: 4.23
-- distance_to_high_60_pct: -0.28
+- volume_ratio: 1.41
+- distance_to_ma20_pct_auxiliary: 0.45
+- distance_to_high_60_pct: -3.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -144,6 +144,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,27.5,27.89,27.5,27.76,1388845,26.05,6.56,26.72,26.72,0.69
 20260602,27.84,27.9,27.12,27.64,1842757,26.18,5.57,26.84,26.84,0.93
 20260603,28.03,28.2,28,28.12,1327384,26.34,6.74,26.98,26.98,0.69
+20260604,27.84,27.9,27.12,27.64,1842757,26.45,4.49,27.05,27.05,0.97
+20260605,27.36,27.46,26.53,27.18,2799747,26.51,2.52,27.06,27.06,1.41
 ```
 
 ## Latest TDCC Snapshot

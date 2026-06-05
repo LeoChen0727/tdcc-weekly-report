@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6291 沛亨
 
 ## Metadata
-- generated_at: 2026-06-05 03:13:11 Asia/Taipei
+- generated_at: 2026-06-05 21:08:22 Asia/Taipei
 - stock_id: 6291
 - stock_name: 沛亨
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,14 +59,14 @@
 - action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 單一個股分析
 - score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足、股價乖離過大
+- risk_control_zh: TDCC 歷史不足
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_consolidation
+- thesis_state: unclear
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -91,6 +91,7 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -104,7 +105,6 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
-- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 629
-- high: 650
-- low: 614
-- close: 615
-- volume: 632000
-- ma5: 643.2
-- ema23_primary: 545.68
-- distance_to_ema23_pct: 12.7
-- ma20: 542.23
-- ma60: 435.97
-- ma120: 322.68
-- return_5d: -4.65
-- return_20d: 40.25
-- volume_ratio: 0.48
-- distance_to_ma20_pct_auxiliary: 13.42
-- distance_to_high_60_pct: -14.35
+- date: 20260605
+- open: 603
+- high: 606
+- low: 568
+- close: 606
+- volume: 590000
+- ma5: 620.8
+- ema23_primary: 556.01
+- distance_to_ema23_pct: 8.99
+- ma20: 555.77
+- ma60: 447.76
+- ma120: 329.97
+- return_5d: -10.75
+- return_20d: 29.49
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: 9.04
+- distance_to_high_60_pct: -15.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,471,482,467,482,1466000,422.01,14.21,433.52,344.64,0.69
-20260508,485,510,466.5,468,3372000,425.85,9.9,438.85,348.37,1.53
 20260511,468,488,455,471.5,1918000,429.65,9.74,442.55,352.28,0.89
 20260512,510,518,509,518,2123000,437.01,18.53,446.6,357,0.99
 20260513,503,536,488,489.5,3443000,441.39,10.9,450.57,361.34,1.58
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,662,666,647,648,653,532.05,21.79,524.88,424.33,0
 20260602,650,657,591,620,611,539.38,14.95,533.4,430.14,0
 20260603,629,650,614,615,632000,545.68,12.7,542.23,435.97,0.48
+20260604,629,650,614,615,632000,551.46,11.52,548.88,442.07,0.49
+20260605,603,606,568,606,590000,556.01,8.99,555.77,447.76,0.52
 ```
 
 ## Latest TDCC Snapshot

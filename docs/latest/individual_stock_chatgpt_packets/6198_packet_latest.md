@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6198 瑞築
 
 ## Metadata
-- generated_at: 2026-06-05 03:13:03 Asia/Taipei
+- generated_at: 2026-06-05 21:08:15 Asia/Taipei
 - stock_id: 6198
 - stock_name: 瑞築
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 265
+- latest_price_date: 20260605
+- price_rows: 267
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 20.25
-- high: 20.4
-- low: 20.25
-- close: 20.25
-- volume: 20000
-- ma5: 20.62
-- ema23_primary: 21.43
-- distance_to_ema23_pct: -5.52
-- ma20: 21.56
-- ma60: 21.81
-- ma120: 24.26
-- return_5d: -5.15
-- return_20d: -5.81
-- volume_ratio: 0.93
-- distance_to_ma20_pct_auxiliary: -6.08
-- distance_to_high_60_pct: -15.98
+- date: 20260605
+- open: 20.9
+- high: 20.9
+- low: 20.4
+- close: 20.65
+- volume: 21000
+- ma5: 20.39
+- ema23_primary: 21.28
+- distance_to_ema23_pct: -2.95
+- ma20: 21.42
+- ma60: 21.73
+- ma120: 24.16
+- return_5d: -0.48
+- return_20d: -5.06
+- volume_ratio: 1.19
+- distance_to_ma20_pct_auxiliary: -3.58
+- distance_to_high_60_pct: -14.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,21.1,22.1,21.1,22,101000,22.04,-0.2,22.01,23.06,2.58
-20260507,21.7,22.35,21.6,21.75,20000,22.02,-1.22,22.02,22.99,0.5
 20260508,22.5,22.6,21.7,21.7,16000,21.99,-1.33,22.02,22.92,0.4
 20260511,22.45,22.95,21.7,21.7,24000,21.97,-1.22,21.99,22.84,0.58
 20260512,21.8,22.5,21.8,21.9,38000,21.96,-0.28,21.97,22.77,0.88
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,20.3,20.8,20.2,20.4,20,21.64,-5.75,21.68,21.94,0
 20260602,20.55,20.7,20.4,20.4,21,21.54,-5.29,21.62,21.87,0
 20260603,20.25,20.4,20.25,20.25,20000,21.43,-5.52,21.56,21.81,0.93
+20260604,20.25,20.4,20.25,20.25,20000,21.33,-5.08,21.47,21.76,1.14
+20260605,20.9,20.9,20.4,20.65,21000,21.28,-2.95,21.42,21.73,1.19
 ```
 
 ## Latest TDCC Snapshot

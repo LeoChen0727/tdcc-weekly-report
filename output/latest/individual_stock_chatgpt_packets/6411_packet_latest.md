@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6411 晶焱
 
 ## Metadata
-- generated_at: 2026-06-05 03:13:11 Asia/Taipei
+- generated_at: 2026-06-05 21:08:22 Asia/Taipei
 - stock_id: 6411
 - stock_name: 晶焱
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 100
-- high: 104
-- low: 100
-- close: 100.5
-- volume: 102000
-- ma5: 105.6
-- ema23_primary: 93.41
-- distance_to_ema23_pct: 7.59
-- ma20: 92.23
-- ma60: 82.53
-- ma120: 81.31
-- return_5d: -0.49
-- return_20d: 24.23
-- volume_ratio: 0.15
-- distance_to_ma20_pct_auxiliary: 8.96
-- distance_to_high_60_pct: -14.47
+- date: 20260605
+- open: 97.8
+- high: 101.5
+- low: 96.1
+- close: 99
+- volume: 98000
+- ma5: 101.3
+- ema23_primary: 94.42
+- distance_to_ema23_pct: 4.85
+- ma20: 94.13
+- ma60: 83.27
+- ma120: 81.66
+- return_5d: -10
+- return_20d: 24.06
+- volume_ratio: 0.16
+- distance_to_ma20_pct_auxiliary: 5.17
+- distance_to_high_60_pct: -15.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,81.5,82.2,81.3,81.8,453000,78.81,3.79,78.69,79.27,1.01
-20260508,79.7,80.5,77.1,79.8,944000,78.9,1.15,78.89,79.19,1.95
 20260511,79.9,84.3,79,82.4,756000,79.19,4.06,79.08,79.16,1.52
 20260512,83.2,84.5,81.4,84.5,954000,79.63,6.12,79.5,79.23,1.82
 20260513,84.8,85,81,82,642000,79.83,2.72,79.78,79.25,1.18
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,112,114.5,105,106.5,109,92.11,15.62,90.35,81.91,0
 20260602,106.5,106.5,97.3,100,101,92.77,7.79,91.25,82.21,0
 20260603,100,104,100,100.5,102000,93.41,7.59,92.23,82.53,0.15
+20260604,100,104,100,100.5,102000,94,6.91,93.17,82.92,0.16
+20260605,97.8,101.5,96.1,99,98000,94.42,4.85,94.13,83.27,0.16
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2408 南亞科
 
 ## Metadata
-- generated_at: 2026-06-05 03:11:10 Asia/Taipei
+- generated_at: 2026-06-05 21:06:39 Asia/Taipei
 - stock_id: 2408
 - stock_name: 南亞科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 430
-- high: 430.5
-- low: 400
-- close: 401.5
-- volume: 151116427
-- ma5: 374.7
-- ema23_primary: 316.38
-- distance_to_ema23_pct: 26.9
-- ma20: 319.98
-- ma60: 258.27
-- ma120: 243.35
-- return_5d: 28.69
-- return_20d: 42.38
-- volume_ratio: 0.97
-- distance_to_ma20_pct_auxiliary: 25.48
-- distance_to_high_60_pct: -6.74
+- date: 20260605
+- open: 370
+- high: 374
+- low: 355.5
+- close: 360
+- volume: 121599979
+- ma5: 396.4
+- ema23_primary: 327.89
+- distance_to_ema23_pct: 9.79
+- ma20: 330.9
+- ma60: 263.91
+- ma120: 247.35
+- return_5d: 3.75
+- return_20d: 31.39
+- volume_ratio: 0.79
+- distance_to_ma20_pct_auxiliary: 8.79
+- distance_to_high_60_pct: -16.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,293,296,278,287,197355586,235.21,22.02,226.88,244.38,1.63
-20260508,282,289,260,274,130863185,238.44,14.91,230.32,244,1.06
 20260511,300.5,301,296,301,108987498,243.65,23.54,234.62,243.57,0.88
 20260512,312.5,325,301,321,217595653,250.1,28.35,239.4,244.03,1.67
 20260513,311.5,322.5,303,321,106103420,256.01,25.39,244.45,244.75,0.83
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,362,381.5,359.5,381.5,129059908,298.57,27.78,305.85,252.76,0.82
 20260602,401,419.5,395,419.5,171631936,308.64,35.92,314,255.46,1.11
 20260603,430,430.5,400,401.5,151116427,316.38,26.9,319.98,258.27,0.97
+20260604,401,419.5,395,419.5,171631936,324.97,29.09,326.6,261.76,1.11
+20260605,370,374,355.5,360,121599979,327.89,9.79,330.9,263.91,0.79
 ```
 
 ## Latest TDCC Snapshot
@@ -191,9 +191,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260604 | 2408 | 南亞科 | 202 | 16 | 266301220.0 | 657480.0 | 405.03 | call_inflow |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

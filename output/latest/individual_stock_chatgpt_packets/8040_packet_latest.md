@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8040 九暘
 
 ## Metadata
-- generated_at: 2026-06-05 03:14:11 Asia/Taipei
+- generated_at: 2026-06-05 21:09:12 Asia/Taipei
 - stock_id: 8040
 - stock_name: 九暘
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 108
-- high: 110
-- low: 104
-- close: 105.5
-- volume: 106000
-- ma5: 108.9
-- ema23_primary: 97.47
-- distance_to_ema23_pct: 8.24
-- ma20: 98.95
-- ma60: 70.74
-- ma120: 59.95
-- return_5d: -6.64
-- return_20d: 30.89
+- date: 20260605
+- open: 102.5
+- high: 103.5
+- low: 96.5
+- close: 102.5
+- volume: 100000
+- ma5: 106.3
+- ema23_primary: 98.5
+- distance_to_ema23_pct: 4.06
+- ma20: 101.46
+- ma60: 72.63
+- ma120: 60.85
+- return_5d: -8.07
+- return_20d: 31.75
 - volume_ratio: 0.05
-- distance_to_ma20_pct_auxiliary: 6.62
-- distance_to_high_60_pct: -19.16
+- distance_to_ma20_pct_auxiliary: 1.02
+- distance_to_high_60_pct: -21.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,82,82.6,78.5,80,2531000,66.41,20.46,65.7,54.31,0.83
-20260508,80,84.7,77.5,77.8,3144000,67.36,15.49,67.16,54.79,0.98
 20260511,77,80.2,76.1,78,1579000,68.25,14.29,68.7,55.29,0.48
 20260512,77.2,82.8,76.2,81.5,2203000,69.35,17.51,70.19,55.88,0.66
 20260513,80.6,84.3,79.1,82.4,2988000,70.44,16.98,71.66,56.48,0.88
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,112,117.5,111,112.5,114,95.94,17.26,96.52,68.89,0
 20260602,113,113.5,104,105.5,107,96.73,9.06,97.7,69.82,0
 20260603,108,110,104,105.5,106000,97.47,8.24,98.95,70.74,0.05
+20260604,108,110,104,105.5,106000,98.13,7.51,100.22,71.72,0.05
+20260605,102.5,103.5,96.5,102.5,100000,98.5,4.06,101.46,72.63,0.05
 ```
 
 ## Latest TDCC Snapshot

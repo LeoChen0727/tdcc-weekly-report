@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4555 氣立
 
 ## Metadata
-- generated_at: 2026-06-05 03:12:23 Asia/Taipei
+- generated_at: 2026-06-05 21:07:41 Asia/Taipei
 - stock_id: 4555
 - stock_name: 氣立
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,14 +59,14 @@
 - action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 單一個股分析
 - score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足、股價乖離過大
+- risk_control_zh: TDCC 歷史不足
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_consolidation
+- thesis_state: unclear
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -91,6 +91,7 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -104,7 +105,6 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
-- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 53.9
-- high: 57
-- low: 53.8
-- close: 56.1
-- volume: 947680
-- ma5: 56.6
-- ema23_primary: 48.97
-- distance_to_ema23_pct: 14.55
-- ma20: 48.09
-- ma60: 41
-- ma120: 40.08
-- return_5d: 4.47
-- return_20d: 32.31
-- volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: 16.66
-- distance_to_high_60_pct: -8.78
+- date: 20260605
+- open: 53.5
+- high: 55.1
+- low: 52.5
+- close: 52.8
+- volume: 587830
+- ma5: 54.76
+- ema23_primary: 49.67
+- distance_to_ema23_pct: 6.3
+- ma20: 49.19
+- ma60: 41.64
+- ma120: 40.29
+- return_5d: -9.12
+- return_20d: 23.8
+- volume_ratio: 0.35
+- distance_to_ma20_pct_auxiliary: 7.34
+- distance_to_high_60_pct: -14.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,43.85,44.2,41.65,42,394575,39.7,5.79,39.81,37.69,0.8
-20260508,42.1,43.1,41.4,42.65,367604,39.95,6.76,40.15,37.73,0.72
 20260511,43.2,43.2,41.6,42.65,199946,40.17,6.17,40.48,37.78,0.39
 20260512,42.65,42.65,41.85,42.5,240690,40.37,5.28,40.77,37.85,0.46
 20260513,42.75,42.75,41.1,41.4,169608,40.45,2.34,40.92,37.9,0.35
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,58.5,60.2,57,57.1,1526791,47.82,19.4,46.82,40.37,0.97
 20260602,56.5,56.7,52,53.9,1683155,48.33,11.53,47.4,40.67,1.02
 20260603,53.9,57,53.8,56.1,947680,48.97,14.55,48.09,41,0.59
+20260604,56.5,56.7,52,53.9,1683155,49.39,9.14,48.68,41.33,1.01
+20260605,53.5,55.1,52.5,52.8,587830,49.67,6.3,49.19,41.64,0.35
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5471 松翰
 
 ## Metadata
-- generated_at: 2026-06-05 03:12:47 Asia/Taipei
+- generated_at: 2026-06-05 21:08:01 Asia/Taipei
 - stock_id: 5471
 - stock_name: 松翰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -117,30 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 53
-- high: 53.6
-- low: 52.2
-- close: 52.7
-- volume: 1762362
-- ma5: 53.62
-- ema23_primary: 50.64
-- distance_to_ema23_pct: 4.07
-- ma20: 51.5
-- ma60: 44.77
-- ma120: 40.29
-- return_5d: -5.56
-- return_20d: 20.05
-- volume_ratio: 0.4
-- distance_to_ma20_pct_auxiliary: 2.33
-- distance_to_high_60_pct: -9.45
+- date: 20260605
+- open: 51.7
+- high: 52.1
+- low: 50.3
+- close: 51.2
+- volume: 1272064
+- ma5: 52.44
+- ema23_primary: 50.83
+- distance_to_ema23_pct: 0.72
+- ma20: 52.22
+- ma60: 45.12
+- ma120: 40.59
+- return_5d: -5.36
+- return_20d: 12.9
+- volume_ratio: 0.29
+- distance_to_ma20_pct_auxiliary: -1.95
+- distance_to_high_60_pct: -12.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,44.5,45.3,43.4,44.1,1269025,42.39,4.02,42.41,40.98,0.75
-20260508,44.2,45.95,43.1,45.35,1866419,42.64,6.35,42.69,41.1,1.05
 20260511,46.1,49.85,45.5,49.85,6607148,43.24,15.28,43.2,41.33,3.17
 20260512,50.6,53.8,49.1,52.4,10914492,44.01,19.08,43.79,41.61,4.17
 20260513,52.3,53.1,50.3,50.3,4613166,44.53,12.96,44.24,41.85,1.64
@@ -159,6 +157,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,54.4,54.5,52.7,53.1,2996860,50.26,5.66,50.65,44.47,0.69
 20260602,52.8,53.1,51.7,52.6,2373564,50.45,4.26,51.06,44.63,0.54
 20260603,53,53.6,52.2,52.7,1762362,50.64,4.07,51.5,44.77,0.4
+20260604,52.8,53.1,51.7,52.6,2373564,50.8,3.54,51.92,44.95,0.53
+20260605,51.7,52.1,50.3,51.2,1272064,50.83,0.72,52.22,45.12,0.29
 ```
 
 ## Latest TDCC Snapshot
@@ -188,13 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 5471 | 松翰 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260603 | 5471 | 松翰 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260605 | 5471 | 松翰 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 5471 | 松翰 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260605 | 5471 | 松翰 | 11 | 11 | 5 | 10 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1440 南紡
 
 ## Metadata
-- generated_at: 2026-06-05 03:10:34 Asia/Taipei
+- generated_at: 2026-06-05 21:06:09 Asia/Taipei
 - stock_id: 1440
 - stock_name: 南紡
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -64,9 +64,9 @@
 - position_sizing_zh: 試單 1/4 部位；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足、TDCC 轉弱警訊、股價乖離過大
+- risk_control_zh: TDCC 歷史不足、TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可小量試單」。 進場策略：回測 23EMA 附近；可依「試單 1/4 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊、股價乖離過大
+- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可小量試單」。 進場策略：回測 23EMA 附近；可依「試單 1/4 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: high_level_distribution_risk
+- thesis_state: unclear
 - entry_style: pullback_to_23ema
 - position_sizing: starter_1_4
 
@@ -95,6 +95,7 @@
 - near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -109,7 +110,6 @@
 ### downgrade_reason
 - insufficient_tdcc_history
 - tdcc_distribution_warning
-- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -117,30 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 15
-- high: 15.6
-- low: 14.8
-- close: 15.6
-- volume: 21199239
-- ma5: 13.44
-- ema23_primary: 12.58
-- distance_to_ema23_pct: 23.97
-- ma20: 12.18
-- ma60: 12.68
+- date: 20260605
+- open: 14.65
+- high: 14.7
+- low: 13.85
+- close: 14.25
+- volume: 10042672
+- ma5: 14.24
+- ema23_primary: 12.85
+- distance_to_ema23_pct: 10.93
+- ma20: 12.37
+- ma60: 12.73
 - ma120: 13.1
-- return_5d: 29.46
-- return_20d: 24.3
-- volume_ratio: 4.63
-- distance_to_ma20_pct_auxiliary: 28.08
-- distance_to_high_60_pct: 0
+- return_5d: 13.55
+- return_20d: 16.33
+- volume_ratio: 1.75
+- distance_to_ma20_pct_auxiliary: 15.2
+- distance_to_high_60_pct: -8.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,12.55,12.55,12.25,12.4,3386115,12.84,-3.45,12.97,13.05,1.68
-20260508,12.4,12.45,12.15,12.25,2036232,12.79,-4.25,12.95,13.02,0.99
 20260511,12.2,12.25,12.1,12.15,1805387,12.74,-4.63,12.92,12.99,0.86
 20260512,12.2,12.2,11.9,12.05,2707050,12.68,-4.99,12.85,12.97,1.37
 20260513,12.05,12.05,11.75,11.85,1958338,12.61,-6.05,12.76,12.95,1.07
@@ -159,6 +157,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,12.45,13.3,12.15,12.95,7678964,12.14,6.7,11.95,12.61,2.81
 20260602,12.95,14.2,12.85,14.2,18715974,12.31,15.36,12.03,12.63,5.22
 20260603,15,15.6,14.8,15.6,21199239,12.58,23.97,12.18,12.68,4.63
+20260604,12.95,14.2,12.85,14.2,18715974,12.72,11.65,12.27,12.7,3.5
+20260605,14.65,14.7,13.85,14.25,10042672,12.85,10.93,12.37,12.73,1.75
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 1440 | 南紡 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | continued_overheated | calendar event: ex_dividend on 20260716; status=confirmed; proximity=within_60d |
+| 20260605 | 1440 | 南紡 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: ex_dividend on 20260716; status=confirmed; proximity=within_60d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 1440 | 南紡 | 4 | 1 | 4 | 6 | 6 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260605 | 1440 | 南紡 | 5 | 2 | 5 | 7 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

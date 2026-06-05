@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8440 綠電
 
 ## Metadata
-- generated_at: 2026-06-05 03:14:23 Asia/Taipei
+- generated_at: 2026-06-05 21:09:23 Asia/Taipei
 - stock_id: 8440
 - stock_name: 綠電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 23.2
-- high: 24.45
-- low: 23.2
-- close: 24.25
-- volume: 24000
-- ma5: 23.48
-- ema23_primary: 22.78
-- distance_to_ema23_pct: 6.45
-- ma20: 22.57
-- ma60: 22.77
-- ma120: 24.26
-- return_5d: 0.21
-- return_20d: 14.93
+- date: 20260605
+- open: 24.25
+- high: 24.25
+- low: 23
+- close: 23.15
+- volume: 23000
+- ma5: 23.59
+- ema23_primary: 22.92
+- distance_to_ema23_pct: 0.99
+- ma20: 22.89
+- ma60: 22.73
+- ma120: 24.24
+- return_5d: -1.28
+- return_20d: 14.6
 - volume_ratio: 0.09
-- distance_to_ma20_pct_auxiliary: 7.46
-- distance_to_high_60_pct: -6.37
+- distance_to_ma20_pct_auxiliary: 1.16
+- distance_to_high_60_pct: -10.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,21,21,20.6,20.85,188000,22.01,-5.26,21.96,23.67,1.71
-20260508,20.85,20.85,19.9,20.2,323000,21.86,-7.58,21.86,23.55,2.6
 20260511,20.6,20.9,20.2,20.7,149000,21.76,-4.88,21.77,23.46,1.17
 20260512,20.9,20.9,20,20.55,127000,21.66,-5.13,21.69,23.38,0.98
 20260513,20.6,22.6,20.6,22.6,482000,21.74,3.96,21.68,23.33,3.29
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,23.6,23.6,22.85,23.15,23,22.6,2.43,22.3,22.81,0
 20260602,23.1,23.55,22.8,23.15,23,22.65,2.23,22.41,22.78,0
 20260603,23.2,24.45,23.2,24.25,24000,22.78,6.45,22.57,22.77,0.09
+20260604,23.2,24.45,23.2,24.25,24000,22.9,5.88,22.74,22.76,0.09
+20260605,24.25,24.25,23,23.15,23000,22.92,0.99,22.89,22.73,0.09
 ```
 
 ## Latest TDCC Snapshot

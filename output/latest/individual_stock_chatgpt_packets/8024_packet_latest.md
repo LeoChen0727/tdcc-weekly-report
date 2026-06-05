@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8024 佑華
 
 ## Metadata
-- generated_at: 2026-06-05 03:14:10 Asia/Taipei
+- generated_at: 2026-06-05 21:09:12 Asia/Taipei
 - stock_id: 8024
 - stock_name: 佑華
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
+- date: 20260605
 - open: 12.45
-- high: 12.45
-- low: 12.15
-- close: 12.4
+- high: 12.5
+- low: 12.1
+- close: 12.45
 - volume: 12000
-- ma5: 12.47
-- ema23_primary: 12.52
-- distance_to_ema23_pct: -0.99
-- ma20: 12.43
+- ma5: 12.41
+- ema23_primary: 12.51
+- distance_to_ema23_pct: -0.46
+- ma20: 12.42
 - ma60: 12.72
 - ma120: 12.74
-- return_5d: -2.36
-- return_20d: -1.98
-- volume_ratio: 0.21
-- distance_to_ma20_pct_auxiliary: -0.2
-- distance_to_high_60_pct: -10.79
+- return_5d: -0.4
+- return_20d: 0.4
+- volume_ratio: 0.24
+- distance_to_ma20_pct_auxiliary: 0.22
+- distance_to_high_60_pct: -10.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,12.75,12.75,12.4,12.5,102000,12.78,-2.21,12.86,12.96,1.43
-20260508,12.5,12.75,12.3,12.4,70000,12.75,-2.75,12.84,12.93,0.94
 20260511,12.65,12.65,12.2,12.3,103000,12.71,-3.25,12.8,12.92,1.4
 20260512,12.35,12.7,12.25,12.45,85000,12.69,-1.9,12.76,12.89,1.22
 20260513,12.35,12.45,12.25,12.3,81000,12.66,-2.84,12.7,12.88,1.13
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,12.4,12.5,12,12.4,12,12.55,-1.17,12.46,12.73,0
 20260602,12.5,12.5,12.15,12.4,12,12.53,-1.08,12.44,12.73,0
 20260603,12.45,12.45,12.15,12.4,12000,12.52,-0.99,12.43,12.72,0.21
+20260604,12.45,12.45,12.15,12.4,12000,12.51,-0.91,12.42,12.72,0.23
+20260605,12.45,12.5,12.1,12.45,12000,12.51,-0.46,12.42,12.72,0.24
 ```
 
 ## Latest TDCC Snapshot

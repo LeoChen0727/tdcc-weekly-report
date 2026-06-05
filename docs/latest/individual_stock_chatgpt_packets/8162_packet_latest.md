@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8162 微矽電子-創
 
 ## Metadata
-- generated_at: 2026-06-05 03:14:17 Asia/Taipei
+- generated_at: 2026-06-05 21:09:17 Asia/Taipei
 - stock_id: 8162
 - stock_name: 微矽電子-創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 275
+- latest_price_date: 20260605
+- price_rows: 277
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,14 +59,14 @@
 - action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 單一個股分析
 - score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足、股價乖離過大
+- risk_control_zh: TDCC 歷史不足
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_consolidation
+- thesis_state: unclear
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -91,6 +91,7 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -104,7 +105,6 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
-- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 80.8
-- high: 85
-- low: 75.5
-- close: 76.9
-- volume: 1108678
-- ma5: 77.8
-- ema23_primary: 64.04
-- distance_to_ema23_pct: 20.08
-- ma20: 63.02
-- ma60: 49.37
-- ma120: 43.01
-- return_5d: 8.31
-- return_20d: 45.64
-- volume_ratio: 1.19
-- distance_to_ma20_pct_auxiliary: 22.02
-- distance_to_high_60_pct: -12.21
+- date: 20260605
+- open: 75.9
+- high: 75.9
+- low: 68.3
+- close: 70.7
+- volume: 845372
+- ma5: 78
+- ema23_primary: 65.88
+- distance_to_ema23_pct: 7.32
+- ma20: 65.05
+- ma60: 50.64
+- ma120: 43.7
+- return_5d: -3.81
+- return_20d: 29.25
+- volume_ratio: 0.89
+- distance_to_ma20_pct_auxiliary: 8.69
+- distance_to_high_60_pct: -19.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,51.5,57.5,50.7,56.2,1073248,47.66,17.91,47.52,41.38,0.91
-20260508,56.1,58.9,53.9,54.7,898690,48.25,13.37,48.12,41.66,0.76
 20260511,56.7,57,54.8,55,776883,48.81,12.68,48.72,41.96,0.66
 20260512,56.8,56.8,52.3,54.2,768683,49.26,10.03,49.3,42.26,0.64
 20260513,53.5,53.8,52.6,53.3,258056,49.6,7.46,49.84,42.54,0.22
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,74.3,80.8,73.5,80.8,792209,61.24,31.93,60.38,48.06,0.9
 20260602,82.7,87.6,78.2,80.8,1620127,62.87,28.51,61.81,48.75,1.73
 20260603,80.8,85,75.5,76.9,1108678,64.04,20.08,63.02,49.37,1.19
+20260604,82.7,87.6,78.2,80.8,1620127,65.44,23.47,64.25,50.09,1.69
+20260605,75.9,75.9,68.3,70.7,845372,65.88,7.32,65.05,50.64,0.89
 ```
 
 ## Latest TDCC Snapshot

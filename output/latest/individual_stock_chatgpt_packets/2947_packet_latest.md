@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2947 振宇五金
 
 ## Metadata
-- generated_at: 2026-06-05 03:11:35 Asia/Taipei
+- generated_at: 2026-06-05 21:07:00 Asia/Taipei
 - stock_id: 2947
 - stock_name: 振宇五金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 267
+- latest_price_date: 20260605
+- price_rows: 269
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 77.5
-- high: 77.7
-- low: 77.4
-- close: 77.4
-- volume: 78000
-- ma5: 77.46
-- ema23_primary: 77.88
-- distance_to_ema23_pct: -0.61
-- ma20: 78.06
-- ma60: 78.09
-- ma120: 80.03
-- return_5d: -0.39
-- return_20d: -0.9
-- volume_ratio: 2.27
-- distance_to_ma20_pct_auxiliary: -0.85
-- distance_to_high_60_pct: -3.85
+- date: 20260605
+- open: 77.8
+- high: 77.8
+- low: 76.5
+- close: 76.5
+- volume: 77000
+- ma5: 77.22
+- ema23_primary: 77.72
+- distance_to_ema23_pct: -1.58
+- ma20: 77.89
+- ma60: 78.01
+- ma120: 79.96
+- return_5d: -1.16
+- return_20d: -2.8
+- volume_ratio: 1.85
+- distance_to_ma20_pct_auxiliary: -1.79
+- distance_to_high_60_pct: -4.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,77.8,78.5,77.8,78.5,5000,78.06,0.57,77.97,79.05,0.26
-20260507,78.5,78.7,78.5,78.7,4000,78.11,0.75,77.92,78.98,0.2
 20260508,78.7,78.7,78.7,78.7,13000,78.16,0.69,77.95,78.91,0.68
 20260511,78.7,78.8,78.1,78.4,42000,78.18,0.28,77.97,78.86,2
 20260512,78.5,79,78.4,78.4,28000,78.2,0.26,78,78.8,1.38
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,77.2,77.5,77.2,77.5,77,77.97,-0.61,78.14,78.21,0
 20260602,77.5,77.5,77.3,77.3,77,77.92,-0.79,78.09,78.14,0
 20260603,77.5,77.7,77.4,77.4,78000,77.88,-0.61,78.06,78.09,2.27
+20260604,77.5,77.7,77.4,77.4,78000,77.84,-0.56,78,78.04,2.05
+20260605,77.8,77.8,76.5,76.5,77000,77.72,-1.58,77.89,78.01,1.85
 ```
 
 ## Latest TDCC Snapshot

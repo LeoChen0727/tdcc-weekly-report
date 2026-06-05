@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009820 元大納斯達克精選
 
 ## Metadata
-- generated_at: 2026-06-05 03:10:25 Asia/Taipei
+- generated_at: 2026-06-05 21:06:01 Asia/Taipei
 - stock_id: 009820
 - stock_name: 元大納斯達克精選
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260603
-- price_rows: 9
+- latest_price_date: 20260605
+- price_rows: 11
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 10.86
-- high: 10.89
-- low: 10.84
-- close: 10.89
-- volume: 23979402
-- ma5: 10.59
-- ema23_primary: 10.37
-- distance_to_ema23_pct: 4.97
-- ma20: 10.45
-- ma60: 10.45
-- ma120: 10.45
-- return_5d: 6.24
+- date: 20260605
+- open: 10.46
+- high: 10.5
+- low: 10.41
+- close: 10.45
+- volume: 30920825
+- ma5: 10.74
+- ema23_primary: 10.42
+- distance_to_ema23_pct: 0.33
+- ma20: 10.49
+- ma60: 10.49
+- ma120: 10.49
+- return_5d: 0.58
 - return_20d:
-- volume_ratio: 0.67
-- distance_to_ma20_pct_auxiliary: 4.19
-- distance_to_high_60_pct: 0
+- volume_ratio: 0.82
+- distance_to_ma20_pct_auxiliary: -0.36
+- distance_to_high_60_pct: -4.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -144,6 +144,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,10.6,10.69,10.6,10.69,33966383,10.28,3.98,10.33,10.33,0.98
 20260602,10.75,10.85,10.75,10.84,57757795,10.33,4.97,10.4,10.4,1.54
 20260603,10.86,10.89,10.84,10.89,23979402,10.37,4.97,10.45,10.45,0.67
+20260604,10.75,10.85,10.75,10.84,57757795,10.41,4.1,10.49,10.49,1.51
+20260605,10.46,10.5,10.41,10.45,30920825,10.42,0.33,10.49,10.49,0.82
 ```
 
 ## Latest TDCC Snapshot

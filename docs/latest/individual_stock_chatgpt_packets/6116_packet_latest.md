@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6116 彩晶
 
 ## Metadata
-- generated_at: 2026-06-05 03:12:55 Asia/Taipei
+- generated_at: 2026-06-05 21:08:09 Asia/Taipei
 - stock_id: 6116
 - stock_name: 彩晶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 21.55
-- high: 22.7
-- low: 21.55
-- close: 22.7
-- volume: 108791284
-- ma5: 18.96
-- ema23_primary: 13.71
-- distance_to_ema23_pct: 65.51
-- ma20: 12.99
-- ma60: 10.04
-- ma120: 9.29
-- return_5d: 56.55
-- return_20d: 165.5
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: 74.74
-- distance_to_high_60_pct: 0
+- date: 20260605
+- open: 18.45
+- high: 18.45
+- low: 18.45
+- close: 18.45
+- volume: 18628794
+- ma5: 20.25
+- ema23_primary: 14.64
+- distance_to_ema23_pct: 26.03
+- ma20: 14.02
+- ma60: 10.41
+- ma120: 9.49
+- return_5d: 7.89
+- return_20d: 100.54
+- volume_ratio: 0.11
+- distance_to_ma20_pct_auxiliary: 31.64
+- distance_to_high_60_pct: -18.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,8.63,9.4,8.51,9.4,69808033,8.59,9.47,8.66,8.59,2.87
-20260508,9.37,9.77,9.02,9.2,84005911,8.64,6.5,8.68,8.61,3.21
 20260511,9.55,10.1,9.4,9.71,89842953,8.73,11.26,8.74,8.63,3.06
 20260512,9.73,10.65,9.69,10.65,134250146,8.89,19.83,8.84,8.67,3.78
 20260513,10.85,11.7,10.65,11.25,497020914,9.08,23.84,8.96,8.72,8.46
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,18.25,18.8,18.25,18.8,58323262,12.19,54.18,11.68,9.61,0.39
 20260602,20.65,20.65,19,20.65,200560076,12.9,60.1,12.28,9.81,1.25
 20260603,21.55,22.7,21.55,22.7,108791284,13.71,65.51,12.99,10.04,0.66
+20260604,20.65,20.65,19,20.65,200560076,14.29,44.48,13.55,10.25,1.17
+20260605,18.45,18.45,18.45,18.45,18628794,14.64,26.03,14.02,10.41,0.11
 ```
 
 ## Latest TDCC Snapshot
@@ -191,9 +191,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260604 | 6116 | 彩晶 | 35 | 1 | 3781490.0 | 199950.0 | 18.91 | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

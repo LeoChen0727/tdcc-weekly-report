@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1512 瑞利
 
 ## Metadata
-- generated_at: 2026-06-05 03:10:39 Asia/Taipei
+- generated_at: 2026-06-05 21:06:13 Asia/Taipei
 - stock_id: 1512
 - stock_name: 瑞利
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 6.96
-- high: 7.2
-- low: 6.9
-- close: 7.11
-- volume: 259158
-- ma5: 6.9
+- date: 20260605
+- open: 7.29
+- high: 7.58
+- low: 7.07
+- close: 7.08
+- volume: 160391
+- ma5: 6.98
 - ema23_primary: 7.04
-- distance_to_ema23_pct: 0.94
-- ma20: 7.01
-- ma60: 7.33
-- ma120: 7.53
-- return_5d: 4.25
-- return_20d: -3.27
-- volume_ratio: 2.04
+- distance_to_ema23_pct: 0.56
+- ma20: 6.98
+- ma60: 7.32
+- ma120: 7.52
+- return_5d: 5.04
+- return_20d: -3.67
+- volume_ratio: 1.19
 - distance_to_ma20_pct_auxiliary: 1.45
-- distance_to_high_60_pct: -16.45
+- distance_to_high_60_pct: -16.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,7.3,7.34,7.24,7.28,105493,7.4,-1.65,7.36,7.58,1
-20260508,7.45,7.45,7.2,7.35,48022,7.4,-0.65,7.36,7.57,0.47
 20260511,7.23,7.3,7.2,7.21,123610,7.38,-2.33,7.34,7.55,1.19
 20260512,7.21,7.21,7.1,7.13,176493,7.36,-3.14,7.34,7.54,1.7
 20260513,7.14,7.18,7.02,7.03,147339,7.33,-4.14,7.33,7.52,1.4
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,6.74,6.8,6.5,6.8,264414,7.05,-3.48,7.04,7.33,2.27
 20260602,6.77,6.96,6.7,6.96,148212,7.04,-1.11,7.02,7.33,1.23
 20260603,6.96,7.2,6.9,7.11,259158,7.04,0.94,7.01,7.33,2.04
+20260604,6.77,6.96,6.7,6.96,148212,7.04,-1.09,6.99,7.32,1.15
+20260605,7.29,7.58,7.07,7.08,160391,7.04,0.56,6.98,7.32,1.19
 ```
 
 ## Latest TDCC Snapshot

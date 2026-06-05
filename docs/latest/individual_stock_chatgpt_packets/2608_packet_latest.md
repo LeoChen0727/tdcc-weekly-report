@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2608 嘉里大榮
 
 ## Metadata
-- generated_at: 2026-06-05 03:11:23 Asia/Taipei
+- generated_at: 2026-06-05 21:06:50 Asia/Taipei
 - stock_id: 2608
 - stock_name: 嘉里大榮
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 29.95
-- high: 30.05
-- low: 29.75
-- close: 29.95
-- volume: 540341
-- ma5: 29.36
-- ema23_primary: 29.49
-- distance_to_ema23_pct: 1.55
-- ma20: 29.34
-- ma60: 30.3
-- ma120: 31.6
-- return_5d: 4.72
-- return_20d: 0
-- volume_ratio: 1.13
-- distance_to_ma20_pct_auxiliary: 2.08
-- distance_to_high_60_pct: -5.82
+- date: 20260605
+- open: 30.2
+- high: 30.35
+- low: 29.95
+- close: 30.1
+- volume: 260648
+- ma5: 29.79
+- ema23_primary: 29.56
+- distance_to_ema23_pct: 1.82
+- ma20: 29.33
+- ma60: 30.26
+- ma120: 31.53
+- return_5d: 3.44
+- return_20d: 0.33
+- volume_ratio: 0.55
+- distance_to_ma20_pct_auxiliary: 2.62
+- distance_to_high_60_pct: -5.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,29.85,30,29.85,30,329140,30.46,-1.52,30.5,31.2,1.07
-20260508,30.1,30.1,29.95,30,357470,30.43,-1.4,30.46,31.16,1.13
 20260511,30,30,29.9,29.95,330875,30.39,-1.43,30.41,31.11,1.02
 20260512,30.15,30.15,29.8,29.8,247364,30.34,-1.77,30.36,31.07,0.75
 20260513,29.8,29.8,29.65,29.7,445807,30.28,-1.93,30.3,31.02,1.32
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,29.1,29.55,28.8,29.4,583982,29.42,-0.08,29.35,30.35,1.24
 20260602,29.4,29.75,29.3,29.75,403058,29.45,1.02,29.34,30.33,0.85
 20260603,29.95,30.05,29.75,29.95,540341,29.49,1.55,29.34,30.3,1.13
+20260604,29.4,29.75,29.3,29.75,403058,29.51,0.8,29.33,30.28,0.83
+20260605,30.2,30.35,29.95,30.1,260648,29.56,1.82,29.33,30.26,0.55
 ```
 
 ## Latest TDCC Snapshot

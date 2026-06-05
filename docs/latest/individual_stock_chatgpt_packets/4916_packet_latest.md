@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4916 事欣科
 
 ## Metadata
-- generated_at: 2026-06-05 03:12:32 Asia/Taipei
+- generated_at: 2026-06-05 21:07:48 Asia/Taipei
 - stock_id: 4916
 - stock_name: 事欣科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 120
-- high: 124.5
-- low: 118
-- close: 124.5
-- volume: 3693035
-- ma5: 114.5
-- ema23_primary: 92.11
-- distance_to_ema23_pct: 35.17
-- ma20: 88.87
-- ma60: 70.29
-- ma120: 64.75
-- return_5d: 25.25
-- return_20d: 96.68
-- volume_ratio: 0.28
-- distance_to_ma20_pct_auxiliary: 40.09
-- distance_to_high_60_pct: 0
+- date: 20260605
+- open: 122
+- high: 122
+- low: 111
+- close: 120
+- volume: 3292659
+- ma5: 118.3
+- ema23_primary: 96.1
+- distance_to_ema23_pct: 24.87
+- ma20: 94.31
+- ma60: 72.3
+- ma120: 65.92
+- return_5d: 6.67
+- return_20d: 93.55
+- volume_ratio: 0.25
+- distance_to_ma20_pct_auxiliary: 27.23
+- distance_to_high_60_pct: -3.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,63.9,64.3,62.2,63.1,3414935,62.75,0.56,63.12,61.55,0.45
-20260508,63.6,66,61.7,62,7070240,62.69,-1.1,63.44,61.48,0.9
 20260511,64.7,67.7,62.6,67,9440717,63.05,6.27,63.95,61.52,1.15
 20260512,67.9,69.5,66.9,68.4,10916516,63.49,7.73,64.47,61.63,1.27
 20260513,67.5,67.7,64.7,65.2,5730833,63.64,2.46,64.81,61.64,0.66
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,117,123.5,115.5,119,6365233,86.9,36.94,83.36,68.36,0.48
 20260602,116,116,110,114,4086731,89.16,27.86,85.81,69.24,0.31
 20260603,120,124.5,118,124.5,3693035,92.11,35.17,88.87,70.29,0.28
+20260604,116,116,110,114,4086731,93.93,21.37,91.42,71.26,0.31
+20260605,122,122,111,120,3292659,96.1,24.87,94.31,72.3,0.25
 ```
 
 ## Latest TDCC Snapshot
@@ -193,9 +193,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260604 | 4916 | 事欣科 | 34 | 1 | 2152180.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4137 麗豐-KY
 
 ## Metadata
-- generated_at: 2026-06-05 03:12:15 Asia/Taipei
+- generated_at: 2026-06-05 21:07:33 Asia/Taipei
 - stock_id: 4137
 - stock_name: 麗豐-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 107
-- high: 109
-- low: 106
-- close: 108.5
-- volume: 292526
-- ma5: 105.2
-- ema23_primary: 105.13
-- distance_to_ema23_pct: 3.21
-- ma20: 104.8
-- ma60: 106.72
-- ma120: 105.22
-- return_5d: 6.37
-- return_20d: 1.88
-- volume_ratio: 1.18
-- distance_to_ma20_pct_auxiliary: 3.53
-- distance_to_high_60_pct: -6.06
+- date: 20260605
+- open: 112.5
+- high: 116
+- low: 112
+- close: 115.5
+- volume: 690719
+- ma5: 108.5
+- ema23_primary: 106.06
+- distance_to_ema23_pct: 8.9
+- ma20: 105.12
+- ma60: 106.67
+- ma120: 105.42
+- return_5d: 12.14
+- return_20d: 7.44
+- volume_ratio: 2.56
+- distance_to_ma20_pct_auxiliary: 9.87
+- distance_to_high_60_pct: -0.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,106,107.5,106,107.5,278263,107.14,0.34,107.6,107.88,1.75
-20260508,108,108,106,107.5,202153,107.17,0.31,107.65,107.92,1.22
 20260511,107.5,108.5,106.5,107,182976,107.15,-0.14,107.53,107.97,1.14
 20260512,107.5,108,105,105,392375,106.97,-1.84,107.3,108.01,2.31
 20260513,105.5,107,104.5,105,463787,106.81,-1.69,107.12,108.04,2.47
@@ -155,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,103.5,106.5,103,106.5,490749,104.71,1.71,104.7,106.92,2.05
 20260602,106.5,107.5,105.5,106,229357,104.82,1.13,104.7,106.8,0.93
 20260603,107,109,106,108.5,292526,105.13,3.21,104.8,106.72,1.18
+20260604,106.5,107.5,105.5,106,229357,105.2,0.76,104.72,106.57,0.93
+20260605,112.5,116,112,115.5,690719,106.06,8.9,105.12,106.67,2.56
 ```
 
 ## Latest TDCC Snapshot

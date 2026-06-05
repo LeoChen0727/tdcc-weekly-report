@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3026 禾伸堂
 
 ## Metadata
-- generated_at: 2026-06-05 03:11:38 Asia/Taipei
+- generated_at: 2026-06-05 21:07:02 Asia/Taipei
 - stock_id: 3026
 - stock_name: 禾伸堂
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 638
-- high: 650
-- low: 628
-- close: 640
-- volume: 1133009
-- ma5: 641.6
-- ema23_primary: 469.85
-- distance_to_ema23_pct: 36.21
-- ma20: 461.85
-- ma60: 270.71
-- ma120: 188.16
-- return_5d: 5.26
-- return_20d: 134.43
-- volume_ratio: 0.22
-- distance_to_ma20_pct_auxiliary: 38.57
-- distance_to_high_60_pct: -8.44
+- date: 20260605
+- open: 595
+- high: 640
+- low: 562
+- close: 626
+- volume: 1633575
+- ma5: 647.6
+- ema23_primary: 496.63
+- distance_to_ema23_pct: 26.05
+- ma20: 494.15
+- ma60: 288.51
+- ma120: 197.09
+- return_5d: -2.34
+- return_20d: 89.7
+- volume_ratio: 0.43
+- distance_to_ma20_pct_auxiliary: 26.68
+- distance_to_high_60_pct: -10.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,300,300,296,300,9326609,221.02,35.73,232.07,156.17,0.94
-20260508,313.5,330,297,330,22732968,230.1,43.41,239.4,159.93,2.24
 20260511,329,351.5,311,329.5,31292625,238.39,38.22,246.18,163.68,2.88
 20260512,328.5,339,325,330,2669187,246.02,34.13,252.03,167.47,0.26
 20260513,316,334,316,325,1645034,252.6,28.66,256.8,171.17,0.18
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,671,699,665,672,1634588,436.6,53.92,423.43,252.85,0.25
 20260602,640,650,605,650,3276908,454.39,43.05,443.5,261.87,0.53
 20260603,638,650,628,640,1133009,469.85,36.21,461.85,270.71,0.22
+20260604,640,650,605,650,3276908,484.87,34.06,479.35,279.82,0.68
+20260605,595,640,562,626,1633575,496.63,26.05,494.15,288.51,0.43
 ```
 
 ## Latest TDCC Snapshot
@@ -191,9 +191,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260604 | 3026 | 禾伸堂 | 63 | 0 | 3734440.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

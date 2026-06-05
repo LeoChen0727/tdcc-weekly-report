@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2069 運錩
 
 ## Metadata
-- generated_at: 2026-06-05 03:10:57 Asia/Taipei
+- generated_at: 2026-06-05 21:06:28 Asia/Taipei
 - stock_id: 2069
 - stock_name: 運錩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 19.55
-- high: 19.9
-- low: 19.55
-- close: 19.85
-- volume: 582341
-- ma5: 19.46
-- ema23_primary: 19.37
-- distance_to_ema23_pct: 2.48
-- ma20: 19.55
-- ma60: 19
-- ma120: 18.69
-- return_5d: 3.39
-- return_20d: 5.87
-- volume_ratio: 1.1
-- distance_to_ma20_pct_auxiliary: 1.55
-- distance_to_high_60_pct: -5.25
+- date: 20260605
+- open: 20.3
+- high: 20.35
+- low: 19.85
+- close: 20.35
+- volume: 930190
+- ma5: 19.84
+- ema23_primary: 19.48
+- distance_to_ema23_pct: 4.49
+- ma20: 19.62
+- ma60: 19.04
+- ma120: 18.75
+- return_5d: 6.27
+- return_20d: 3.83
+- volume_ratio: 1.76
+- distance_to_ma20_pct_auxiliary: 3.69
+- distance_to_high_60_pct: -2.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,18.75,19,18.45,18.9,462236,18.75,0.8,18.72,18.86,1.49
-20260508,19.6,20,19.4,19.6,908234,18.82,4.14,18.76,18.84,2.59
 20260511,19.8,20.95,19.8,20.45,1218345,18.96,7.88,18.86,18.83,3.02
 20260512,20.75,20.75,19.95,20.2,584575,19.06,5.98,18.95,18.83,1.39
 20260513,20.2,20.2,19.8,20,384395,19.14,4.5,19.02,18.84,0.89
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,19.1,19.65,19.1,19.6,345925,19.29,1.6,19.43,18.96,0.68
 20260602,19.65,19.7,19.25,19.7,463446,19.33,1.94,19.49,18.98,0.89
 20260603,19.55,19.9,19.55,19.85,582341,19.37,2.48,19.55,19,1.1
+20260604,19.65,19.7,19.25,19.7,463446,19.4,1.56,19.59,19.02,0.88
+20260605,20.3,20.35,19.85,20.35,930190,19.48,4.49,19.62,19.04,1.76
 ```
 
 ## Latest TDCC Snapshot

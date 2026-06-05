@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2478 大毅
 
 ## Metadata
-- generated_at: 2026-06-05 03:11:16 Asia/Taipei
+- generated_at: 2026-06-05 21:06:44 Asia/Taipei
 - stock_id: 2478
 - stock_name: 大毅
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 142
-- high: 143
-- low: 136.5
-- close: 137
-- volume: 1292660
-- ma5: 138
-- ema23_primary: 109.86
-- distance_to_ema23_pct: 24.71
-- ma20: 107.44
-- ma60: 80.7
-- ma120: 72.06
-- return_5d: 14.17
-- return_20d: 78.62
-- volume_ratio: 0.16
-- distance_to_ma20_pct_auxiliary: 27.52
-- distance_to_high_60_pct: -10.16
+- date: 20260605
+- open: 134.5
+- high: 150
+- low: 126
+- close: 150
+- volume: 4349162
+- ma5: 143.4
+- ema23_primary: 115.73
+- distance_to_ema23_pct: 29.61
+- ma20: 114.17
+- ma60: 83.33
+- ma120: 73.52
+- return_5d: 7.91
+- return_20d: 92.06
+- volume_ratio: 0.6
+- distance_to_ma20_pct_auxiliary: 31.38
+- distance_to_high_60_pct: -1.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,78,83,76,80.1,13294545,70.42,13.74,70.69,66.97,3.03
-20260508,80.3,83.8,77.9,78.1,11626145,71.06,9.9,71.49,67.14,2.36
 20260511,78.2,79,74.5,77.9,3442347,71.63,8.75,72.22,67.34,0.69
 20260512,77.8,81.9,76.6,80,5812609,72.33,10.6,72.89,67.65,1.13
 20260513,78.6,82,77.3,80.9,4335269,73.05,10.75,73.53,67.98,0.83
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,140.5,152.5,140.5,144,3472752,104.15,38.26,101.12,78.38,0.39
 20260602,144,145,130,143,3194844,107.39,33.16,104.42,79.58,0.38
 20260603,142,143,136.5,137,1292660,109.86,24.71,107.44,80.7,0.16
+20260604,144,145,130,143,3194844,112.62,26.98,110.58,81.98,0.42
+20260605,134.5,150,126,150,4349162,115.73,29.61,114.17,83.33,0.6
 ```
 
 ## Latest TDCC Snapshot
@@ -191,9 +191,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260604 | 2478 | 大毅 | 17 | 0 | 2289060.0 | 0.0 |  | call_inflow |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

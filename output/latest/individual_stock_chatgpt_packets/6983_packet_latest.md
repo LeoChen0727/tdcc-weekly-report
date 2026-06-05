@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6983 華洋精機
 
 ## Metadata
-- generated_at: 2026-06-05 03:13:42 Asia/Taipei
+- generated_at: 2026-06-05 21:08:48 Asia/Taipei
 - stock_id: 6983
 - stock_name: 華洋精機
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 144
+- latest_price_date: 20260605
+- price_rows: 146
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 360
-- high: 375
-- low: 356
-- close: 366
-- volume: 363000
-- ma5: 371.6
-- ema23_primary: 384.87
-- distance_to_ema23_pct: -4.9
-- ma20: 386.15
-- ma60: 383.05
-- ma120: 382.27
-- return_5d: -14.88
-- return_20d: -4.06
-- volume_ratio: 1.7
-- distance_to_ma20_pct_auxiliary: -5.22
-- distance_to_high_60_pct: -29.62
+- date: 20260605
+- open: 356
+- high: 361
+- low: 347.5
+- close: 361
+- volume: 352000
+- ma5: 363.7
+- ema23_primary: 381.44
+- distance_to_ema23_pct: -5.36
+- ma20: 384.35
+- ma60: 382.45
+- ma120: 381.98
+- return_5d: -5.37
+- return_20d: -5.37
+- volume_ratio: 1.5
+- distance_to_ma20_pct_auxiliary: -6.08
+- distance_to_high_60_pct: -30.58
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20251013,391,400,372,381.5,157161,381.5,0,381.5,381.5,1
-20251014,391,400,372,381.5,157161,381.5,0,381.5,381.5,1
 20251016,391,400,372,381.5,157161,381.5,0,381.5,381.5,1
 20251020,391,400,372,381.5,157161,381.5,0,381.5,381.5,1
 20251021,391,400,372,381.5,157161,381.5,0,381.5,381.5,1
@@ -155,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,380,398,361.5,370.5,374,389.46,-4.87,388.25,383.75,0
 20260602,370.5,370.5,345.5,355,356,386.58,-8.17,386.93,383.31,0
 20260603,360,375,356,366,363000,384.87,-4.9,386.15,383.05,1.7
+20260604,360,375,356,366,363000,383.3,-4.51,385.38,382.79,1.62
+20260605,356,361,347.5,361,352000,381.44,-5.36,384.35,382.45,1.5
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00692 富邦公司治理
 
 ## Metadata
-- generated_at: 2026-06-05 03:10:21 Asia/Taipei
+- generated_at: 2026-06-05 21:05:58 Asia/Taipei
 - stock_id: 00692
 - stock_name: 富邦公司治理
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260603
-- price_rows: 9
+- latest_price_date: 20260605
+- price_rows: 11
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 92.6
-- high: 93.2
-- low: 92.6
-- close: 93.15
-- volume: 1354666
-- ma5: 90.68
-- ema23_primary: 87.33
-- distance_to_ema23_pct: 6.67
-- ma20: 89.1
-- ma60: 89.1
-- ma120: 89.1
-- return_5d: 4.6
+- date: 20260605
+- open: 91.85
+- high: 91.85
+- low: 89.5
+- close: 90.4
+- volume: 2950078
+- ma5: 91.51
+- ema23_primary: 87.9
+- distance_to_ema23_pct: 2.84
+- ma20: 89.43
+- ma60: 89.43
+- ma120: 89.43
+- return_5d: -0.06
 - return_20d:
-- volume_ratio: 0.81
-- distance_to_ma20_pct_auxiliary: 4.55
-- distance_to_high_60_pct: -0.05
+- volume_ratio: 1.6
+- distance_to_ma20_pct_auxiliary: 1.08
+- distance_to_high_60_pct: -3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -144,6 +144,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,90.6,92.3,90.6,91.1,1818851,86.38,5.47,88.19,88.19,1.11
 20260602,91.4,91.85,90.45,91.45,2259743,86.8,5.36,88.59,88.59,1.32
 20260603,92.6,93.2,92.6,93.15,1354666,87.33,6.67,89.1,89.1,0.81
+20260604,91.4,91.85,90.45,91.45,2259743,87.67,4.31,89.33,89.33,1.3
+20260605,91.85,91.85,89.5,90.4,2950078,87.9,2.84,89.43,89.43,1.6
 ```
 
 ## Latest TDCC Snapshot

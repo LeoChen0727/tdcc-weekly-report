@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5704 老爺知
 
 ## Metadata
-- generated_at: 2026-06-05 03:12:51 Asia/Taipei
+- generated_at: 2026-06-05 21:08:05 Asia/Taipei
 - stock_id: 5704
 - stock_name: 老爺知
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
+- date: 20260605
 - open: 21
-- high: 21.35
+- high: 21.4
 - low: 21
-- close: 21.25
+- close: 21.15
 - volume: 21000
-- ma5: 21.24
-- ema23_primary: 21.38
-- distance_to_ema23_pct: -0.59
-- ma20: 21.34
-- ma60: 21.68
-- ma120: 23.43
-- return_5d: 0.47
-- return_20d: -1.85
-- volume_ratio: 1.04
-- distance_to_ma20_pct_auxiliary: -0.45
-- distance_to_high_60_pct: -10.15
+- ma5: 21.21
+- ema23_primary: 21.35
+- distance_to_ema23_pct: -0.93
+- ma20: 21.31
+- ma60: 21.66
+- ma120: 23.34
+- return_5d: -0.24
+- return_20d: -1.63
+- volume_ratio: 1.05
+- distance_to_ma20_pct_auxiliary: -0.75
+- distance_to_high_60_pct: -10.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,21.6,21.75,21.45,21.6,35000,21.76,-0.73,21.83,21.97,0.51
-20260508,21.55,21.6,21.5,21.5,10000,21.74,-1.1,21.82,21.94,0.15
 20260511,21.4,21.7,21.4,21.45,13000,21.71,-1.22,21.8,21.92,0.19
 20260512,21.45,21.5,21.3,21.4,17000,21.69,-1.33,21.73,21.91,0.37
 20260513,21.4,21.9,21.3,21.9,6000,21.71,0.9,21.68,21.9,0.17
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,21.1,21.4,21,21.15,21,21.4,-1.17,21.38,21.7,0
 20260602,21.3,21.3,20.9,21.25,21,21.39,-0.64,21.36,21.69,0
 20260603,21,21.35,21,21.25,21000,21.38,-0.59,21.34,21.68,1.04
+20260604,21,21.35,21,21.25,21000,21.37,-0.54,21.33,21.67,1.08
+20260605,21,21.4,21,21.15,21000,21.35,-0.93,21.31,21.66,1.05
 ```
 
 ## Latest TDCC Snapshot

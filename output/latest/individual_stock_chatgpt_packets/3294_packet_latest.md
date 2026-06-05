@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3294 英濟
 
 ## Metadata
-- generated_at: 2026-06-05 03:11:52 Asia/Taipei
+- generated_at: 2026-06-05 21:07:14 Asia/Taipei
 - stock_id: 3294
 - stock_name: 英濟
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,14 +59,14 @@
 - action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 單一個股分析
 - score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足、股價乖離過大
+- risk_control_zh: TDCC 歷史不足
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_consolidation
+- thesis_state: unclear
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -88,9 +88,11 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -104,7 +106,6 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
-- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 41.5
-- high: 41.8
-- low: 40.3
-- close: 40.75
-- volume: 41000
-- ma5: 40.33
-- ema23_primary: 37.7
-- distance_to_ema23_pct: 8.1
-- ma20: 37.33
-- ma60: 34.67
+- date: 20260605
+- open: 39.4
+- high: 39.4
+- low: 37.7
+- close: 38.3
+- volume: 38000
+- ma5: 40.23
+- ema23_primary: 37.98
+- distance_to_ema23_pct: 0.84
+- ma20: 38.2
+- ma60: 34.79
 - ma120: 37.06
-- return_5d: 2.39
-- return_20d: 33.83
+- return_5d: -4.73
+- return_20d: 26.61
 - volume_ratio: 0.02
-- distance_to_ma20_pct_auxiliary: 9.16
-- distance_to_high_60_pct: -9.34
+- distance_to_ma20_pct_auxiliary: 0.26
+- distance_to_high_60_pct: -14.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,30.7,31.45,30.4,31.35,689000,31.95,-1.89,31.82,34.69,1.14
-20260508,31.7,32.25,30.25,30.25,898000,31.81,-4.91,31.74,34.53,1.42
 20260511,30.4,30.85,30.3,30.7,557000,31.72,-3.21,31.7,34.4,0.86
 20260512,31.1,31.1,30.45,31.1,461000,31.67,-1.79,31.63,34.3,0.73
 20260513,30.9,30.9,30.1,30.2,505000,31.55,-4.26,31.49,34.2,0.79
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,41,42.95,40.15,40.2,41,37.08,8.42,36.3,34.56,0
 20260602,40.45,42.6,40.25,41.15,42,37.42,9.97,36.81,34.62,0
 20260603,41.5,41.8,40.3,40.75,41000,37.7,8.1,37.33,34.67,0.02
+20260604,41.5,41.8,40.3,40.75,41000,37.95,7.38,37.8,34.76,0.02
+20260605,39.4,39.4,37.7,38.3,38000,37.98,0.84,38.2,34.79,0.02
 ```
 
 ## Latest TDCC Snapshot

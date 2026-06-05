@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5206 坤悅
 
 ## Metadata
-- generated_at: 2026-06-05 03:12:37 Asia/Taipei
+- generated_at: 2026-06-05 21:07:53 Asia/Taipei
 - stock_id: 5206
 - stock_name: 坤悅
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 21.7
-- high: 21.85
-- low: 21.5
-- close: 21.65
-- volume: 22000
-- ma5: 21.67
-- ema23_primary: 22.84
-- distance_to_ema23_pct: -5.21
-- ma20: 22.82
-- ma60: 25.49
-- ma120: 28.25
-- return_5d: -0.46
-- return_20d: -6.48
-- volume_ratio: 0.27
-- distance_to_ma20_pct_auxiliary: -5.11
-- distance_to_high_60_pct: -27.59
+- date: 20260605
+- open: 22.55
+- high: 24.15
+- low: 22.55
+- close: 23.6
+- volume: 23000
+- ma5: 22.06
+- ema23_primary: 22.81
+- distance_to_ema23_pct: 3.45
+- ma20: 22.64
+- ma60: 25.3
+- ma120: 28.1
+- return_5d: 9.26
+- return_20d: -2.88
+- volume_ratio: 0.61
+- distance_to_ma20_pct_auxiliary: 4.26
+- distance_to_high_60_pct: -21.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,24.8,25.45,24.4,24.55,708000,25.02,-1.89,25,27.73,3.89
-20260508,23.5,24.5,23,24.3,240000,24.96,-2.65,24.77,27.64,1.24
 20260511,24.4,24.65,24.2,24.5,55000,24.92,-1.7,24.55,27.55,0.28
 20260512,24.5,24.5,23.9,24.2,73000,24.86,-2.67,24.32,27.46,0.37
 20260513,23.9,23.9,23.5,23.75,60000,24.77,-4.12,24.09,27.35,0.3
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,21.6,21.8,21.5,21.7,22,23.06,-5.9,22.98,25.74,0
 20260602,21.7,21.8,21.5,21.7,22,22.95,-5.44,22.89,25.62,0
 20260603,21.7,21.85,21.5,21.65,22000,22.84,-5.21,22.82,25.49,0.27
+20260604,21.7,21.85,21.5,21.65,22000,22.74,-4.79,22.67,25.38,0.45
+20260605,22.55,24.15,22.55,23.6,23000,22.81,3.45,22.64,25.3,0.61
 ```
 
 ## Latest TDCC Snapshot

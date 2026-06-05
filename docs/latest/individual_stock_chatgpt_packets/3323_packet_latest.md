@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3323 加百裕
 
 ## Metadata
-- generated_at: 2026-06-05 03:11:53 Asia/Taipei
+- generated_at: 2026-06-05 21:07:15 Asia/Taipei
 - stock_id: 3323
 - stock_name: 加百裕
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 38.3
-- high: 39.95
-- low: 38
-- close: 38.95
+- date: 20260605
+- open: 39.7
+- high: 40.7
+- low: 37.3
+- close: 37.8
 - volume: 39000
-- ma5: 38.28
-- ema23_primary: 36.52
-- distance_to_ema23_pct: 6.65
-- ma20: 36.35
-- ma60: 34.88
-- ma120: 37.27
-- return_5d: 1.17
-- return_20d: 11.44
+- ma5: 38.65
+- ema23_primary: 36.81
+- distance_to_ema23_pct: 2.68
+- ma20: 36.72
+- ma60: 35.04
+- ma120: 37.24
+- return_5d: -0.26
+- return_20d: 8.78
 - volume_ratio: 0.04
-- distance_to_ma20_pct_auxiliary: 7.16
-- distance_to_high_60_pct: -3.83
+- distance_to_ma20_pct_auxiliary: 2.94
+- distance_to_high_60_pct: -7.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,35.3,35.35,34.55,34.55,993000,34.32,0.66,33.88,35.4,0.71
-20260508,35,36.65,34.3,34.75,1961000,34.36,1.14,34,35.33,1.33
 20260511,35.05,37.25,34.95,36.3,3595000,34.52,5.15,34.2,35.31,2.21
 20260512,36.95,37.7,36.1,37,4076000,34.73,6.54,34.45,35.3,2.26
 20260513,36.6,37.5,35.5,35.5,2200000,34.79,2.03,34.61,35.22,1.17
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,38.5,40.5,38.45,39.6,40,36.15,9.54,36,34.79,0
 20260602,39.6,40.35,37.15,37.95,39,36.3,4.54,36.15,34.83,0
 20260603,38.3,39.95,38,38.95,39000,36.52,6.65,36.35,34.88,0.04
+20260604,38.3,39.95,38,38.95,39000,36.72,6.06,36.57,34.98,0.04
+20260605,39.7,40.7,37.3,37.8,39000,36.81,2.68,36.72,35.04,0.04
 ```
 
 ## Latest TDCC Snapshot

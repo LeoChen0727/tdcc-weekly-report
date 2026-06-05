@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2886 兆豐金
 
 ## Metadata
-- generated_at: 2026-06-05 03:11:32 Asia/Taipei
+- generated_at: 2026-06-05 21:06:57 Asia/Taipei
 - stock_id: 2886
 - stock_name: 兆豐金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -117,30 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 41.6
-- high: 42.45
-- low: 40.9
-- close: 41.65
-- volume: 51809254
-- ma5: 40.92
-- ema23_primary: 40.14
-- distance_to_ema23_pct: 3.75
-- ma20: 40.05
-- ma60: 39.53
-- ma120: 39.86
-- return_5d: 5.58
-- return_20d: 5.31
-- volume_ratio: 1.41
-- distance_to_ma20_pct_auxiliary: 4
-- distance_to_high_60_pct: -1.88
+- date: 20260605
+- open: 41.85
+- high: 42.35
+- low: 41.55
+- close: 41.95
+- volume: 31754413
+- ma5: 41.69
+- ema23_primary: 40.41
+- distance_to_ema23_pct: 3.8
+- ma20: 40.24
+- ma60: 39.62
+- ma120: 39.89
+- return_5d: 4.88
+- return_20d: 4.35
+- volume_ratio: 0.8
+- distance_to_ma20_pct_auxiliary: 4.26
+- distance_to_high_60_pct: -1.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,39.4,40,39.4,39.65,20903142,39.48,0.42,39.59,39.43,0.82
-20260508,40,40.2,39.65,40.2,21349073,39.54,1.66,39.61,39.45,0.87
 20260511,40.2,40.5,40,40.1,20510621,39.59,1.29,39.62,39.47,0.84
 20260512,40.1,40.1,39.2,39.2,23345675,39.56,-0.9,39.62,39.47,0.95
 20260513,39.35,39.8,39.1,39.55,18309724,39.56,-0.02,39.62,39.48,0.74
@@ -159,6 +157,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,40.2,41.45,40.1,41.45,49587396,39.85,4.01,39.81,39.45,1.54
 20260602,41.2,42.4,41.05,41.7,69614925,40.01,4.23,39.94,39.49,1.98
 20260603,41.6,42.45,40.9,41.65,51809254,40.14,3.75,40.05,39.53,1.41
+20260604,41.2,42.4,41.05,41.7,69614925,40.27,3.54,40.15,39.58,1.77
+20260605,41.85,42.35,41.55,41.95,31754413,40.41,3.8,40.24,39.62,0.8
 ```
 
 ## Latest TDCC Snapshot
@@ -188,18 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 2886 | 兆豐金 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260603 | 2886 | 兆豐金 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260605 | 2886 | 兆豐金 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 2886 | 兆豐金 | 10 | 1 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260605 | 2886 | 兆豐金 | 11 | 2 | 5 | 10 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260604 | 2886 | 兆豐金 | 2 | 0 | 935400.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

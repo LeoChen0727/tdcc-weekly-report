@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2368 金像電
 
 ## Metadata
-- generated_at: 2026-06-05 03:11:07 Asia/Taipei
+- generated_at: 2026-06-05 21:06:36 Asia/Taipei
 - stock_id: 2368
 - stock_name: 金像電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -117,30 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 1360
-- high: 1400
-- low: 1350
-- close: 1385
-- volume: 7490127
-- ma5: 1322
-- ema23_primary: 1323.31
-- distance_to_ema23_pct: 4.66
-- ma20: 1344
-- ma60: 1170.77
-- ma120: 925.89
-- return_5d: 0.73
-- return_20d: -4.15
-- volume_ratio: 1.19
-- distance_to_ma20_pct_auxiliary: 3.05
-- distance_to_high_60_pct: -8.88
+- date: 20260605
+- open: 1290
+- high: 1350
+- low: 1270
+- close: 1315
+- volume: 5359587
+- ma5: 1315
+- ema23_primary: 1318.93
+- distance_to_ema23_pct: -0.3
+- ma20: 1334.5
+- ma60: 1187.63
+- ma120: 937.29
+- return_5d: -0.38
+- return_20d: -1.13
+- volume_ratio: 0.84
+- distance_to_ma20_pct_auxiliary: -1.46
+- distance_to_high_60_pct: -13.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,1460,1470,1435,1450,4092588,1264.06,14.71,1280.5,992.6,0.66
-20260508,1460,1460,1305,1330,7086129,1269.56,4.76,1292.25,1003.23,1.16
 20260511,1310,1410,1305,1400,5404968,1280.43,9.34,1307.75,1014.88,0.91
 20260512,1400,1465,1390,1390,4642474,1289.56,7.79,1324.5,1026.28,0.79
 20260513,1390,1440,1310,1350,9273875,1294.6,4.28,1334.5,1036.2,1.54
@@ -159,6 +157,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,1345,1350,1300,1325,4844214,1321.58,0.26,1357.25,1151.9,0.8
 20260602,1330,1330,1235,1275,7260097,1317.7,-3.24,1347,1160.88,1.17
 20260603,1360,1400,1350,1385,7490127,1323.31,4.66,1344,1170.77,1.19
+20260604,1330,1330,1235,1275,7260097,1319.29,-3.36,1335.25,1179.33,1.13
+20260605,1290,1350,1270,1315,5359587,1318.93,-0.3,1334.5,1187.63,0.84
 ```
 
 ## Latest TDCC Snapshot
@@ -188,18 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 2368 | 金像電 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260603 | 2368 | 金像電 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260605 | 2368 | 金像電 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: ex_dividend on 20260623; status=confirmed; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 2368 | 金像電 | 10 | 7 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260605 | 2368 | 金像電 | 11 | 8 | 5 | 10 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260604 | 2368 | 金像電 | 257 | 24 | 31013940.0 | 593450.0 | 52.26 | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

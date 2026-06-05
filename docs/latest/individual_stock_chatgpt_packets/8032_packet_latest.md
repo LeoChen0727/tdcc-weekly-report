@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8032 光菱
 
 ## Metadata
-- generated_at: 2026-06-05 03:14:10 Asia/Taipei
+- generated_at: 2026-06-05 21:09:12 Asia/Taipei
 - stock_id: 8032
 - stock_name: 光菱
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 46.6
-- high: 46.95
-- low: 45.55
-- close: 46.75
-- volume: 46000
-- ma5: 44.87
-- ema23_primary: 42.95
-- distance_to_ema23_pct: 8.85
-- ma20: 43.23
-- ma60: 38.58
-- ma120: 38.17
-- return_5d: 1.74
-- return_20d: 11.84
-- volume_ratio: 0.43
-- distance_to_ma20_pct_auxiliary: 8.14
-- distance_to_high_60_pct: -0.74
+- date: 20260605
+- open: 45.75
+- high: 45.75
+- low: 44.3
+- close: 45.25
+- volume: 45000
+- ma5: 45.83
+- ema23_primary: 43.43
+- distance_to_ema23_pct: 4.19
+- ma20: 43.68
+- ma60: 38.94
+- ma120: 38.31
+- return_5d: 4.75
+- return_20d: 10.23
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: 3.59
+- distance_to_high_60_pct: -3.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,42.25,43.1,41.8,41.9,293000,38.38,9.17,38.05,36.55,1.06
-20260508,41.9,41.95,40.4,41.05,95000,38.6,6.34,38.41,36.6,0.34
 20260511,40.3,41.95,40.25,41.95,198000,38.88,7.89,38.8,36.68,0.69
 20260512,42.55,44,42.1,42.65,392000,39.2,8.81,39.04,36.78,1.37
 20260513,42.6,42.6,41,41.15,130000,39.36,4.55,39.25,36.85,0.47
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,43.2,45.3,43,43.75,44,42.23,3.59,42.79,38.23,0
 20260602,43.75,46.65,43.15,46.65,45,42.6,9.5,42.98,38.4,0
 20260603,46.6,46.95,45.55,46.75,46000,42.95,8.85,43.23,38.58,0.43
+20260604,46.6,46.95,45.55,46.75,46000,43.27,8.05,43.47,38.78,0.49
+20260605,45.75,45.75,44.3,45.25,45000,43.43,4.19,43.68,38.94,0.49
 ```
 
 ## Latest TDCC Snapshot

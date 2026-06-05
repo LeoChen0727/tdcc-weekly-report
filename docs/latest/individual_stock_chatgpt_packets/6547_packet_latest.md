@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6547 高端疫苗
 
 ## Metadata
-- generated_at: 2026-06-05 03:13:19 Asia/Taipei
+- generated_at: 2026-06-05 21:08:29 Asia/Taipei
 - stock_id: 6547
 - stock_name: 高端疫苗
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 45.35
-- high: 45.65
-- low: 44.4
-- close: 45.35
-- volume: 45000
-- ma5: 45.16
+- date: 20260605
+- open: 51.5
+- high: 51.5
+- low: 47.2
+- close: 48.7
+- volume: 49000
+- ma5: 46.09
 - ema23_primary: 47.12
-- distance_to_ema23_pct: -3.75
-- ma20: 47.25
-- ma60: 48.67
-- ma120: 43.15
-- return_5d: -0.11
-- return_20d: -7.07
-- volume_ratio: 0.05
-- distance_to_ma20_pct_auxiliary: -4.03
-- distance_to_high_60_pct: -25.9
+- distance_to_ema23_pct: 3.36
+- ma20: 47.11
+- ma60: 49.02
+- ma120: 43.23
+- return_5d: 7.74
+- return_20d: 0.31
+- volume_ratio: 0.06
+- distance_to_ma20_pct_auxiliary: 3.38
+- distance_to_high_60_pct: -20.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,48.85,49.15,48.05,48.35,1510000,49.45,-2.23,50.12,45.26,0.47
-20260508,48,49.95,48,48.55,1699000,49.38,-1.68,49.49,45.43,0.54
 20260511,48.7,49.55,48.6,48.9,2257000,49.34,-0.89,49.16,45.62,0.81
 20260512,49.1,49.3,48.2,48.25,1581000,49.25,-2.03,48.8,45.8,0.6
 20260513,48.25,49.2,47.85,47.9,1572000,49.14,-2.51,48.62,45.98,0.66
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,45.5,46.3,44.8,46,46,47.48,-3.12,47.65,48.37,0
 20260602,46.05,46.1,44.9,45.05,45,47.28,-4.72,47.42,48.53,0
 20260603,45.35,45.65,44.4,45.35,45000,47.12,-3.75,47.25,48.67,0.05
+20260604,45.35,45.65,44.4,45.35,45000,46.97,-3.45,47.1,48.83,0.05
+20260605,51.5,51.5,47.2,48.7,49000,47.12,3.36,47.11,49.02,0.06
 ```
 
 ## Latest TDCC Snapshot

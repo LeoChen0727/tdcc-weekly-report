@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2337 旺宏
 
 ## Metadata
-- generated_at: 2026-06-05 03:11:04 Asia/Taipei
+- generated_at: 2026-06-05 21:06:34 Asia/Taipei
 - stock_id: 2337
 - stock_name: 旺宏
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -117,30 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 177.5
-- high: 177.5
-- low: 162
-- close: 162
-- volume: 58191754
-- ma5: 166.3
-- ema23_primary: 156.96
-- distance_to_ema23_pct: 3.21
-- ma20: 158.25
-- ma60: 143.2
-- ma120: 104.13
-- return_5d: 4.18
-- return_20d: -5.81
-- volume_ratio: 0.35
-- distance_to_ma20_pct_auxiliary: 2.37
-- distance_to_high_60_pct: -10
+- date: 20260605
+- open: 148
+- high: 150
+- low: 141
+- close: 150
+- volume: 54586699
+- ma5: 166.1
+- ema23_primary: 157.8
+- distance_to_ema23_pct: -4.94
+- ma20: 158.65
+- ma60: 145.58
+- ma120: 106.28
+- return_5d: -9.91
+- return_20d: -1.96
+- volume_ratio: 0.34
+- distance_to_ma20_pct_auxiliary: -5.45
+- distance_to_high_60_pct: -16.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,172,172,160,164.5,235421135,146.25,12.48,146.28,124.08,1.17
-20260508,160,164.5,149,153,169291306,146.81,4.21,146.82,125.09,0.84
 20260511,161,162.5,156,159.5,149221688,147.87,7.86,147.5,126.2,0.75
 20260512,159.5,159.5,151.5,153,137568955,148.3,3.17,147.78,127.34,0.69
 20260513,149,168,147,168,239709627,149.94,12.05,148.4,128.73,1.2
@@ -159,6 +157,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,169.5,175,166,167.5,190490552,154.78,8.22,158,141.08,1.09
 20260602,173,180,170,175.5,247731538,156.5,12.14,158.75,142.21,1.39
 20260603,177.5,177.5,162,162,58191754,156.96,3.21,158.25,143.2,0.35
+20260604,173,180,170,175.5,247731538,158.51,10.72,158.8,144.59,1.47
+20260605,148,150,141,150,54586699,157.8,-4.94,158.65,145.58,0.34
 ```
 
 ## Latest TDCC Snapshot
@@ -188,18 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 2337 | 旺宏 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260603 | 2337 | 旺宏 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260605 | 2337 | 旺宏 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 2337 | 旺宏 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260605 | 2337 | 旺宏 | 11 | 11 | 5 | 10 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260604 | 2337 | 旺宏 | 87 | 21 | 8763110.0 | 18420.0 | 475.74 | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

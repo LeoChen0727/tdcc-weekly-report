@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2441 超豐
 
 ## Metadata
-- generated_at: 2026-06-05 03:11:13 Asia/Taipei
+- generated_at: 2026-06-05 21:06:42 Asia/Taipei
 - stock_id: 2441
 - stock_name: 超豐
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 135.5
-- high: 140
-- low: 134
-- close: 137
-- volume: 8526994
-- ma5: 138.2
-- ema23_primary: 117.6
-- distance_to_ema23_pct: 16.5
-- ma20: 115.03
-- ma60: 98.23
-- ma120: 93.23
-- return_5d: 0.74
-- return_20d: 47
-- volume_ratio: 0.48
-- distance_to_ma20_pct_auxiliary: 19.1
-- distance_to_high_60_pct: -7.43
+- date: 20260605
+- open: 135
+- high: 135
+- low: 128.5
+- close: 131.5
+- volume: 7320562
+- ma5: 134.8
+- ema23_primary: 120.01
+- distance_to_ema23_pct: 9.57
+- ma20: 119.11
+- ma60: 99.98
+- ma120: 94.27
+- return_5d: -7.07
+- return_20d: 45.3
+- volume_ratio: 0.41
+- distance_to_ma20_pct_auxiliary: 10.4
+- distance_to_high_60_pct: -11.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,94,94.2,92.6,93.4,5439141,90.8,2.87,91.06,89.68,0.46
-20260508,93.5,93.9,88.6,90.5,7727829,90.77,-0.3,90.88,89.65,0.65
 20260511,91,93.7,90.4,92.4,5850903,90.91,1.64,90.86,89.7,0.49
 20260512,93,97.2,91.8,96.5,19024611,91.38,5.61,90.93,89.87,1.53
 20260513,96,98.8,95,97.3,23794346,91.87,5.91,91.25,90.06,1.81
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,143,143,135,137.5,14977794,114.18,20.42,110.84,96.65,0.81
 20260602,136,137.5,129.5,134,11087947,115.83,15.68,112.84,97.42,0.61
 20260603,135.5,140,134,137,8526994,117.6,16.5,115.03,98.23,0.48
+20260604,136,137.5,129.5,134,11087947,118.97,12.64,117.06,99.15,0.62
+20260605,135,135,128.5,131.5,7320562,120.01,9.57,119.11,99.98,0.41
 ```
 
 ## Latest TDCC Snapshot
@@ -191,9 +191,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260604 | 2441 | 超豐 | 75 | 0 | 6160190.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

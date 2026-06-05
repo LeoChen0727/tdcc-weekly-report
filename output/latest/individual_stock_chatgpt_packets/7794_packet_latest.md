@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7794 宏碁智新
 
 ## Metadata
-- generated_at: 2026-06-05 03:14:08 Asia/Taipei
+- generated_at: 2026-06-05 21:09:10 Asia/Taipei
 - stock_id: 7794
 - stock_name: 宏碁智新
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 168
+- latest_price_date: 20260605
+- price_rows: 170
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 32.9
-- high: 34
-- low: 32.75
-- close: 33.25
-- volume: 33000
-- ma5: 30.68
-- ema23_primary: 30.52
-- distance_to_ema23_pct: 8.94
-- ma20: 29.9
-- ma60: 30.61
-- ma120: 29.75
-- return_5d: 16.26
-- return_20d: 1.37
-- volume_ratio: 0.61
-- distance_to_ma20_pct_auxiliary: 11.19
-- distance_to_high_60_pct: -25.95
+- date: 20260605
+- open: 33.55
+- high: 34.9
+- low: 32.95
+- close: 34.9
+- volume: 34000
+- ma5: 32.79
+- ema23_primary: 31.1
+- distance_to_ema23_pct: 12.23
+- ma20: 30.2
+- ma60: 30.78
+- ma120: 29.84
+- return_5d: 20.76
+- return_20d: 11.86
+- volume_ratio: 0.87
+- distance_to_ma20_pct_auxiliary: 15.54
+- distance_to_high_60_pct: -22.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,32.8,32.8,30.8,30.9,261000,32.69,-5.49,33.12,30.31,1.27
-20260508,31.6,32,31,31.2,104000,32.57,-4.21,33.23,30.34,0.5
 20260511,31,31,30.45,30.6,137000,32.41,-5.57,33.32,30.37,0.64
 20260512,30.65,30.7,30.55,30.65,43000,32.26,-4.99,33.41,30.4,0.2
 20260513,30.65,30.65,30.15,30.3,45000,32.1,-5.6,33.48,30.43,0.21
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,28.9,29.8,28.7,29.8,29,30.05,-0.83,29.9,30.47,0
 20260602,30,32.75,30,32.75,32,30.27,8.18,29.88,30.53,0
 20260603,32.9,34,32.75,33.25,33000,30.52,8.94,29.9,30.61,0.61
+20260604,32.9,34,32.75,33.25,33000,30.75,8.13,30.02,30.68,0.78
+20260605,33.55,34.9,32.95,34.9,34000,31.1,12.23,30.2,30.78,0.87
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3714 富采
 
 ## Metadata
-- generated_at: 2026-06-05 03:12:12 Asia/Taipei
+- generated_at: 2026-06-05 21:07:31 Asia/Taipei
 - stock_id: 3714
 - stock_name: 富采
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -117,30 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 70.1
-- high: 74.1
-- low: 69.8
-- close: 70
-- volume: 33042843
-- ma5: 71.26
-- ema23_primary: 71.28
-- distance_to_ema23_pct: -1.8
-- ma20: 71.84
-- ma60: 62.33
-- ma120: 48.75
-- return_5d: -5.79
-- return_20d: -4.5
-- volume_ratio: 0.9
-- distance_to_ma20_pct_auxiliary: -2.56
-- distance_to_high_60_pct: -19.63
+- date: 20260605
+- open: 68.6
+- high: 70.8
+- low: 65.5
+- close: 70.2
+- volume: 17072196
+- ma5: 70.04
+- ema23_primary: 71.03
+- distance_to_ema23_pct: -1.17
+- ma20: 71.69
+- ma60: 63.4
+- ma120: 49.38
+- return_5d: -3.57
+- return_20d: -1.27
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: -2.07
+- distance_to_high_60_pct: -19.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,73.7,74,70.5,71.4,29673234,67.11,6.39,69.75,51.28,0.7
-20260508,71,78.2,71,71.1,66254983,67.44,5.42,70.44,51.86,1.54
 20260511,68.8,69.6,64.6,67.9,41901115,67.48,0.62,71.23,52.41,1.02
 20260512,68.5,74.6,68,73.7,52502869,68,8.38,72.06,53.04,1.29
 20260513,72.5,73.2,69.1,70,28941639,68.17,2.69,72.42,53.61,0.69
@@ -159,6 +157,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,73.5,74.2,71.5,71.6,19876127,71.6,0,72.28,61.3,0.49
 20260602,71.8,72.5,68.1,69.2,22648423,71.4,-3.08,72,61.81,0.6
 20260603,70.1,74.1,69.8,70,33042843,71.28,-1.8,71.84,62.33,0.9
+20260604,71.8,72.5,68.1,69.2,22648423,71.11,-2.69,71.73,62.86,0.62
+20260605,68.6,70.8,65.5,70.2,17072196,71.03,-1.17,71.69,63.4,0.5
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 3714 | 富采 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260605 | 3714 | 富采 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 3714 | 富采 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260605 | 3714 | 富采 | 11 | 11 | 5 | 10 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

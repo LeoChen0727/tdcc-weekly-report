@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00858 永豐美國500大
 
 ## Metadata
-- generated_at: 2026-06-05 03:10:22 Asia/Taipei
+- generated_at: 2026-06-05 21:05:59 Asia/Taipei
 - stock_id: 00858
 - stock_name: 永豐美國500大
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260603
-- price_rows: 9
+- latest_price_date: 20260605
+- price_rows: 11
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 36.21
-- high: 36.23
-- low: 36.16
-- close: 36.19
+- date: 20260605
+- open: 36.04
+- high: 36.13
+- low: 36.03
+- close: 36.1
 - volume: 36000
-- ma5: 36.02
-- ema23_primary: 35.9
-- distance_to_ema23_pct: 0.81
-- ma20: 35.96
-- ma60: 35.96
-- ma120: 35.96
-- return_5d: 0.78
+- ma5: 36.13
+- ema23_primary: 35.94
+- distance_to_ema23_pct: 0.45
+- ma20: 36
+- ma60: 36
+- ma120: 36
+- return_5d: 0.14
 - return_20d:
-- volume_ratio: 1.29
-- distance_to_ma20_pct_auxiliary: 0.63
-- distance_to_high_60_pct: -0.11
+- volume_ratio: 1.22
+- distance_to_ma20_pct_auxiliary: 0.29
+- distance_to_high_60_pct: -0.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -144,6 +144,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,36.05,36.1,36.01,36.1,36,35.86,0.67,35.92,35.92,0
 20260602,35.91,36.05,35.91,36.05,36,35.87,0.49,35.93,35.93,0
 20260603,36.21,36.23,36.16,36.19,36000,35.9,0.81,35.96,35.96,1.29
+20260604,36.21,36.23,36.16,36.19,36000,35.93,0.74,35.98,35.98,1.25
+20260605,36.04,36.13,36.03,36.1,36000,35.94,0.45,36,36,1.22
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7744 崴寶
 
 ## Metadata
-- generated_at: 2026-06-05 03:14:06 Asia/Taipei
+- generated_at: 2026-06-05 21:09:08 Asia/Taipei
 - stock_id: 7744
 - stock_name: 崴寶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 258
+- latest_price_date: 20260605
+- price_rows: 260
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 500
-- high: 500
-- low: 476
-- close: 480.5
-- volume: 485000
-- ma5: 490.9
-- ema23_primary: 511.23
-- distance_to_ema23_pct: -6.01
-- ma20: 525.62
-- ma60: 498.48
-- ma120: 416.79
-- return_5d: -3.32
-- return_20d: -14.5
-- volume_ratio: 1.74
-- distance_to_ma20_pct_auxiliary: -8.59
-- distance_to_high_60_pct: -22.25
+- date: 20260605
+- open: 464
+- high: 464.5
+- low: 450
+- close: 455
+- volume: 455000
+- ma5: 484
+- ema23_primary: 504.19
+- distance_to_ema23_pct: -9.76
+- ma20: 516.4
+- ma60: 499.65
+- ma120: 419.87
+- return_5d: -7.52
+- return_20d: -19.33
+- volume_ratio: 1.45
+- distance_to_ma20_pct_auxiliary: -11.89
+- distance_to_high_60_pct: -26.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,573,573,545,556,133000,512.22,8.55,514.95,457.74,0.64
-20260508,536,573,534,564,127000,516.54,9.19,519.27,462.05,0.64
 20260511,585,585,548,553,207000,519.58,6.43,522.12,466.22,1.04
 20260512,550,563,540,555,112000,522.53,6.21,525.8,470.58,0.57
 20260513,549,609,548,598,250000,528.82,13.08,531.85,475.52,1.23
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,493,520,493,504,507,515.29,-2.19,533.3,497.27,0
 20260602,515,540,490,500,515,514.02,-2.73,529.7,497.95,0
 20260603,500,500,476,480.5,485000,511.23,-6.01,525.62,498.48,1.74
+20260604,500,500,476,480.5,485000,508.67,-5.54,521.85,499.55,1.64
+20260605,464,464.5,450,455,455000,504.19,-9.76,516.4,499.65,1.45
 ```
 
 ## Latest TDCC Snapshot

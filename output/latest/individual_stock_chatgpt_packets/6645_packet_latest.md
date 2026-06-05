@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6645 金萬林-創
 
 ## Metadata
-- generated_at: 2026-06-05 03:13:24 Asia/Taipei
+- generated_at: 2026-06-05 21:08:33 Asia/Taipei
 - stock_id: 6645
 - stock_name: 金萬林-創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 11.8
-- high: 12.05
-- low: 11.8
-- close: 11.95
-- volume: 71844
-- ma5: 11.85
-- ema23_primary: 12.24
-- distance_to_ema23_pct: -2.37
-- ma20: 12.18
-- ma60: 13.11
-- ma120: 15.5
-- return_5d: 0.42
-- return_20d: -6.64
-- volume_ratio: 1.22
-- distance_to_ma20_pct_auxiliary: -1.89
-- distance_to_high_60_pct: -25.55
+- date: 20260605
+- open: 11.85
+- high: 12.95
+- low: 11.85
+- close: 12.95
+- volume: 217683
+- ma5: 12.02
+- ema23_primary: 12.26
+- distance_to_ema23_pct: 5.62
+- ma20: 12.12
+- ma60: 13.03
+- ma120: 15.39
+- return_5d: 8.37
+- return_20d: -0.38
+- volume_ratio: 3.22
+- distance_to_ma20_pct_auxiliary: 6.85
+- distance_to_high_60_pct: -11.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,12.8,12.9,12.75,12.9,48851,13.24,-2.59,13.09,14.75,1.02
-20260508,12.8,13.05,12.7,13,39775,13.22,-1.69,13.07,14.67,0.81
 20260511,12.95,12.95,12.7,12.95,20292,13.2,-1.9,13.04,14.59,0.42
 20260512,12.8,12.9,12.7,12.9,20462,13.18,-2.09,13.02,14.51,0.44
 20260513,12.9,12.9,12.6,12.85,22580,13.15,-2.27,13.01,14.44,0.54
@@ -155,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,11.95,11.95,11.5,11.7,111212,12.31,-4.98,12.28,13.26,1.9
 20260602,11.45,11.75,11.45,11.75,40933,12.27,-4.21,12.22,13.18,0.7
 20260603,11.8,12.05,11.8,11.95,71844,12.24,-2.37,12.18,13.11,1.22
+20260604,11.45,11.75,11.45,11.75,40933,12.2,-3.68,12.12,13.06,0.7
+20260605,11.85,12.95,11.85,12.95,217683,12.26,5.62,12.12,13.03,3.22
 ```
 
 ## Latest TDCC Snapshot

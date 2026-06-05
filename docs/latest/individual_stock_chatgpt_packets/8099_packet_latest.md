@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8099 大世科
 
 ## Metadata
-- generated_at: 2026-06-05 03:14:15 Asia/Taipei
+- generated_at: 2026-06-05 21:09:16 Asia/Taipei
 - stock_id: 8099
 - stock_name: 大世科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 63.2
-- high: 63.3
-- low: 61.5
-- close: 63
-- volume: 62000
-- ma5: 61.92
-- ema23_primary: 61.66
-- distance_to_ema23_pct: 2.17
-- ma20: 60.66
-- ma60: 62.6
-- ma120: 66.83
-- return_5d: 5.88
-- return_20d: 0.16
-- volume_ratio: 0.75
-- distance_to_ma20_pct_auxiliary: 3.85
-- distance_to_high_60_pct: -13.46
+- date: 20260605
+- open: 63.6
+- high: 70.2
+- low: 62.6
+- close: 70.2
+- volume: 68000
+- ma5: 64.2
+- ema23_primary: 62.48
+- distance_to_ema23_pct: 12.36
+- ma20: 61.17
+- ma60: 62.83
+- ma120: 66.7
+- return_5d: 14.52
+- return_20d: 14.52
+- volume_ratio: 0.79
+- distance_to_ma20_pct_auxiliary: 14.76
+- distance_to_high_60_pct: -3.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,62.1,62.4,61.8,61.8,32000,64.95,-4.86,66.86,64.65,0.18
-20260508,62.5,62.5,61.3,61.3,29000,64.65,-5.18,66.64,64.49,0.17
 20260511,63.1,63.1,60.4,61,79000,64.35,-5.2,66.32,64.34,0.48
 20260512,60.5,60.8,59.8,60,305000,63.98,-6.23,65.82,64.17,1.83
 20260513,60.8,60.8,59,60,106000,63.65,-5.74,65.23,64,0.67
@@ -155,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,61.9,64.9,61.9,62.2,63,61.45,1.23,60.73,62.61,0
 20260602,62.1,63.7,61.9,62.6,63,61.54,1.72,60.66,62.59,0
 20260603,63.2,63.3,61.5,63,62000,61.66,2.17,60.66,62.6,0.75
+20260604,63.2,63.3,61.5,63,62000,61.78,1.98,60.73,62.65,0.74
+20260605,63.6,70.2,62.6,70.2,68000,62.48,12.36,61.17,62.83,0.79
 ```
 
 ## Latest TDCC Snapshot

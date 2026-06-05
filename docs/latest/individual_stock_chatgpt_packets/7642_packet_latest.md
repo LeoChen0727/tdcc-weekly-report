@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7642 昶瑞機電
 
 ## Metadata
-- generated_at: 2026-06-05 03:14:03 Asia/Taipei
+- generated_at: 2026-06-05 21:09:06 Asia/Taipei
 - stock_id: 7642
 - stock_name: 昶瑞機電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 65.7
-- high: 66.7
-- low: 65.7
-- close: 66.6
-- volume: 67000
-- ma5: 66.32
-- ema23_primary: 68.28
-- distance_to_ema23_pct: -2.47
-- ma20: 69.09
-- ma60: 71.01
-- ma120: 76.52
-- return_5d: 0
-- return_20d: -4.17
-- volume_ratio: 1.34
-- distance_to_ma20_pct_auxiliary: -3.61
-- distance_to_high_60_pct: -13.39
+- date: 20260605
+- open: 75.5
+- high: 80.3
+- low: 74.3
+- close: 76.6
+- volume: 77000
+- ma5: 68.5
+- ema23_primary: 68.85
+- distance_to_ema23_pct: 11.26
+- ma20: 68.77
+- ma60: 70.9
+- ma120: 76.28
+- return_5d: 15.54
+- return_20d: 4.36
+- volume_ratio: 1.91
+- distance_to_ma20_pct_auxiliary: 11.39
+- distance_to_high_60_pct: -4.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,73.5,76.4,73.5,76.4,211000,69.94,9.23,69.75,74.32,5.08
-20260508,75.8,75.8,72.2,73.4,128000,70.23,4.51,69.7,74.14,2.7
 20260511,73.5,73.5,70.2,72,44000,70.38,2.3,69.65,73.96,0.91
 20260512,73.9,73.9,70.3,70.7,32000,70.41,0.42,69.56,73.8,0.68
 20260513,69.6,69.6,68.5,69,15000,70.29,-1.83,69.44,73.61,0.32
@@ -155,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,66.6,67,66.4,66.8,67,68.67,-2.72,69.11,71.33,0
 20260602,66.7,66.7,65.4,65.9,66,68.44,-3.71,69.24,71.17,0
 20260603,65.7,66.7,65.7,66.6,67000,68.28,-2.47,69.09,71.01,1.34
+20260604,65.7,66.7,65.7,66.6,67000,68.14,-2.27,68.61,70.88,1.56
+20260605,75.5,80.3,74.3,76.6,77000,68.85,11.26,68.77,70.9,1.91
 ```
 
 ## Latest TDCC Snapshot

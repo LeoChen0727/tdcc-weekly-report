@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5604 中連
 
 ## Metadata
-- generated_at: 2026-06-05 03:12:51 Asia/Taipei
+- generated_at: 2026-06-05 21:08:05 Asia/Taipei
 - stock_id: 5604
 - stock_name: 中連
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 272
+- latest_price_date: 20260605
+- price_rows: 274
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 30.7
-- high: 30.9
-- low: 30.6
-- close: 30.7
+- date: 20260605
+- open: 31
+- high: 31.6
+- low: 30.8
+- close: 31.45
 - volume: 31000
-- ma5: 30.85
-- ema23_primary: 31.61
-- distance_to_ema23_pct: -2.87
-- ma20: 31.34
-- ma60: 33.29
-- ma120: 35.4
-- return_5d: -2.23
-- return_20d: -2.85
-- volume_ratio: 1.3
-- distance_to_ma20_pct_auxiliary: -2.03
-- distance_to_high_60_pct: -14.48
+- ma5: 30.88
+- ema23_primary: 31.53
+- distance_to_ema23_pct: -0.24
+- ma20: 31.32
+- ma60: 33.17
+- ma120: 35.29
+- return_5d: 1.45
+- return_20d: -0.16
+- volume_ratio: 1.48
+- distance_to_ma20_pct_auxiliary: 0.43
+- distance_to_high_60_pct: -12.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,31.4,31.5,31,31.1,87000,33.34,-6.72,33.53,35.25,2.79
-20260508,31.2,31.65,31.1,31.5,34000,33.19,-5.09,33.35,35.14,1.06
 20260511,31.15,31.5,31.15,31.4,30000,33.04,-4.96,33.17,35.03,0.9
 20260512,31.4,31.9,31.4,31.9,13000,32.94,-3.17,33.04,34.91,0.4
 20260513,31.5,31.95,31.5,31.95,13000,32.86,-2.77,32.91,34.8,0.4
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,31,31,30.6,30.8,31,31.78,-3.07,31.43,33.44,0
 20260602,30.8,30.8,30.6,30.75,31,31.69,-2.97,31.38,33.37,0
 20260603,30.7,30.9,30.6,30.7,31000,31.61,-2.87,31.34,33.29,1.3
+20260604,30.7,30.9,30.6,30.7,31000,31.53,-2.64,31.32,33.23,1.47
+20260605,31,31.6,30.8,31.45,31000,31.53,-0.24,31.32,33.17,1.48
 ```
 
 ## Latest TDCC Snapshot

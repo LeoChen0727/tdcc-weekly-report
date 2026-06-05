@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6244 茂迪
 
 ## Metadata
-- generated_at: 2026-06-05 03:13:08 Asia/Taipei
+- generated_at: 2026-06-05 21:08:19 Asia/Taipei
 - stock_id: 6244
 - stock_name: 茂迪
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 29.7
-- high: 31.8
-- low: 29.3
-- close: 31.25
-- volume: 31000
-- ma5: 30.34
-- ema23_primary: 29.35
-- distance_to_ema23_pct: 6.48
+- date: 20260605
+- open: 30.2
+- high: 30.6
+- low: 28.25
+- close: 28.7
+- volume: 29000
+- ma5: 30.3
+- ema23_primary: 29.44
+- distance_to_ema23_pct: -2.51
 - ma20: 29.44
-- ma60: 28.94
-- ma120: 26.13
-- return_5d: 6.47
-- return_20d: 13.43
+- ma60: 28.91
+- ma120: 26.35
+- return_5d: -4.49
+- return_20d: -3.37
 - volume_ratio: 0.01
-- distance_to_ma20_pct_auxiliary: 6.15
-- distance_to_high_60_pct: -9.29
+- distance_to_ma20_pct_auxiliary: -2.51
+- distance_to_high_60_pct: -16.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,27.95,30.3,27.7,30.3,12935000,28.02,8.14,27.75,28.7,1.42
-20260508,31,31.25,28.9,29.7,18966000,28.16,5.47,27.96,28.82,1.94
 20260511,30.2,30.55,29.2,29.9,8399000,28.3,5.64,28.17,28.93,0.85
 20260512,30,30.75,29.4,29.4,6799000,28.39,3.54,28.34,29.05,0.68
 20260513,29.4,31.1,28.55,29.4,20783000,28.48,3.24,28.46,29.14,1.94
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,30.6,31.7,30,30.6,31,29.13,5.05,29.16,29.02,0
 20260602,30.7,30.8,28.6,29.7,30,29.18,1.8,29.25,28.97,0
 20260603,29.7,31.8,29.3,31.25,31000,29.35,6.48,29.44,28.94,0.01
+20260604,29.7,31.8,29.3,31.25,31000,29.51,5.91,29.49,28.95,0.01
+20260605,30.2,30.6,28.25,28.7,29000,29.44,-2.51,29.44,28.91,0.01
 ```
 
 ## Latest TDCC Snapshot

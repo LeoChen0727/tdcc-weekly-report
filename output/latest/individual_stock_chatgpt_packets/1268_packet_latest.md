@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1268 漢來美食
 
 ## Metadata
-- generated_at: 2026-06-05 03:10:29 Asia/Taipei
+- generated_at: 2026-06-05 21:06:05 Asia/Taipei
 - stock_id: 1268
 - stock_name: 漢來美食
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 169
-- high: 170.5
+- date: 20260605
+- open: 170.5
+- high: 171
 - low: 169
 - close: 170.5
 - volume: 170000
-- ma5: 169
-- ema23_primary: 164.63
-- distance_to_ema23_pct: 3.57
-- ma20: 164.28
-- ma60: 159.5
-- ma120: 159.75
+- ma5: 169.9
+- ema23_primary: 165.57
+- distance_to_ema23_pct: 2.98
+- ma20: 165.65
+- ma60: 159.91
+- ma120: 159.95
 - return_5d: 1.19
-- return_20d: 10.36
-- volume_ratio: 1.23
-- distance_to_ma20_pct_auxiliary: 3.79
+- return_20d: 7.57
+- volume_ratio: 1.15
+- distance_to_ma20_pct_auxiliary: 2.93
 - distance_to_high_60_pct: -2.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,155,155.5,154.5,155,24000,156.14,-0.73,156.43,158.08,1.45
-20260508,158,160,158,158.5,117000,156.34,1.38,156.5,158.07,5.34
 20260511,160,160,159,159.5,93000,156.6,1.85,156.55,158.09,3.65
 20260512,160,160,158.5,159.5,37000,156.84,1.7,156.6,158.12,1.43
 20260513,160,160,159,159,21000,157.02,1.26,156.6,158.11,0.81
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,168.5,171,168.5,169,170,163.65,3.27,162.75,159.19,0
 20260602,169,169.5,168.5,169,169,164.1,2.99,163.47,159.35,0
 20260603,169,170.5,169,170.5,170000,164.63,3.57,164.28,159.5,1.23
+20260604,169,170.5,169,170.5,170000,165.12,3.26,165.05,159.71,1.17
+20260605,170.5,171,169,170.5,170000,165.57,2.98,165.65,159.91,1.15
 ```
 
 ## Latest TDCC Snapshot

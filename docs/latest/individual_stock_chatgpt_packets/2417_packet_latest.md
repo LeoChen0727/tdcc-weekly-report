@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2417 圓剛
 
 ## Metadata
-- generated_at: 2026-06-05 03:11:11 Asia/Taipei
+- generated_at: 2026-06-05 21:06:40 Asia/Taipei
 - stock_id: 2417
 - stock_name: 圓剛
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -117,30 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 52.6
-- high: 52.6
-- low: 50.7
-- close: 50.8
-- volume: 3335377
-- ma5: 50.75
-- ema23_primary: 49.05
-- distance_to_ema23_pct: 3.57
-- ma20: 49.99
-- ma60: 42.75
-- ma120: 40.34
-- return_5d: 1.2
-- return_20d: -5.58
-- volume_ratio: 0.82
-- distance_to_ma20_pct_auxiliary: 1.62
-- distance_to_high_60_pct: -13.61
+- date: 20260605
+- open: 48.4
+- high: 49.45
+- low: 47.65
+- close: 48.8
+- volume: 1826246
+- ma5: 51.5
+- ema23_primary: 49.25
+- distance_to_ema23_pct: -0.92
+- ma20: 49.93
+- ma60: 43.28
+- ma120: 40.58
+- return_5d: -0.41
+- return_20d: -3.17
+- volume_ratio: 0.45
+- distance_to_ma20_pct_auxiliary: -2.27
+- distance_to_high_60_pct: -17.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,53.3,53.6,51.3,51.6,6681938,44.07,17.09,43.69,38.73,1.74
-20260508,50.6,53.6,49.85,50.4,4972850,44.6,13.01,44.27,38.91,1.24
 20260511,50.7,52,49.3,51,3299620,45.13,13,44.8,39.1,0.81
 20260512,51.1,51.9,48.5,50.4,3563232,45.57,10.6,45.27,39.31,0.85
 20260513,50.3,50.3,48.65,49,1833190,45.86,6.86,45.69,39.48,0.44
@@ -159,6 +157,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,49.8,53.9,49.8,53.9,13058097,48.61,10.89,50.39,42.2,2.58
 20260602,54.2,54.4,51.3,52,9722890,48.89,6.36,50.14,42.49,1.93
 20260603,52.6,52.6,50.7,50.8,3335377,49.05,3.57,49.99,42.75,0.82
+20260604,54.2,54.4,51.3,52,9722890,49.3,5.49,50.01,43.05,2.29
+20260605,48.4,49.45,47.65,48.8,1826246,49.25,-0.92,49.93,43.28,0.45
 ```
 
 ## Latest TDCC Snapshot
@@ -188,13 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 2417 | 圓剛 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260603 | 2417 | 圓剛 | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260605 | 2417 | 圓剛 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 2417 | 圓剛 | 10 | 2 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260605 | 2417 | 圓剛 | 11 | 3 | 5 | 10 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

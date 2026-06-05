@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3516 亞帝歐
 
 ## Metadata
-- generated_at: 2026-06-05 03:12:00 Asia/Taipei
+- generated_at: 2026-06-05 21:07:21 Asia/Taipei
 - stock_id: 3516
 - stock_name: 亞帝歐
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
+- date: 20260605
 - open: 23.2
-- high: 23.95
+- high: 23.65
 - low: 23.2
 - close: 23.55
 - volume: 23000
-- ma5: 23.27
-- ema23_primary: 22.63
-- distance_to_ema23_pct: 4.07
-- ma20: 22.93
-- ma60: 20.68
-- ma120: 20.25
-- return_5d: 0.21
-- return_20d: 17.46
+- ma5: 23.41
+- ema23_primary: 22.78
+- distance_to_ema23_pct: 3.39
+- ma20: 23.25
+- ma60: 20.81
+- ma120: 20.32
+- return_5d: 1.51
+- return_20d: 14.88
 - volume_ratio: 0.09
-- distance_to_ma20_pct_auxiliary: 2.72
+- distance_to_ma20_pct_auxiliary: 1.29
 - distance_to_high_60_pct: -8.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,20.25,20.25,19.95,20.15,61000,20,0.75,20.14,19.62,0.35
-20260508,20.35,21,20.15,20.5,132000,20.04,2.28,20.19,19.63,0.74
 20260511,20.5,21.5,20.5,21.2,224000,20.14,5.27,20.27,19.65,1.19
 20260512,20.95,21.5,20.6,21,166000,20.21,3.91,20.35,19.67,0.85
 20260513,23.1,23.1,23.1,23.1,509000,20.45,12.95,20.53,19.72,2.36
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,22.95,23.5,22.95,23.25,23,22.49,3.37,22.61,20.54,0
 20260602,23.2,23.35,22.95,23.15,23,22.55,2.68,22.75,20.61,0
 20260603,23.2,23.95,23.2,23.55,23000,22.63,4.07,22.93,20.68,0.09
+20260604,23.2,23.95,23.2,23.55,23000,22.71,3.71,23.1,20.74,0.09
+20260605,23.2,23.65,23.2,23.55,23000,22.78,3.39,23.25,20.81,0.09
 ```
 
 ## Latest TDCC Snapshot

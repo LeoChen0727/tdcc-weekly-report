@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3093 港建*
 
 ## Metadata
-- generated_at: 2026-06-05 03:11:44 Asia/Taipei
+- generated_at: 2026-06-05 21:07:07 Asia/Taipei
 - stock_id: 3093
 - stock_name: 港建*
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,14 +59,14 @@
 - action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 單一個股分析
 - score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足
+- risk_control_zh: TDCC 歷史不足、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: high_level_consolidation
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -88,11 +88,9 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -106,6 +104,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -113,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 51.5
-- high: 56.1
-- low: 51.3
-- close: 56.1
-- volume: 54000
-- ma5: 52.76
-- ema23_primary: 54.46
-- distance_to_ema23_pct: 3.01
-- ma20: 53.78
-- ma60: 54.04
-- ma120: 39.93
-- return_5d: 2.56
-- return_20d: -13.29
-- volume_ratio: 0.06
-- distance_to_ma20_pct_auxiliary: 4.3
-- distance_to_high_60_pct: -27.61
+- date: 20260605
+- open: 61.5
+- high: 64
+- low: 58.6
+- close: 64
+- volume: 62000
+- ma5: 55.84
+- ema23_primary: 55.38
+- distance_to_ema23_pct: 15.57
+- ma20: 53.7
+- ma60: 54.93
+- ma120: 40.52
+- return_5d: 22.14
+- return_20d: 8.11
+- volume_ratio: 0.1
+- distance_to_ma20_pct_auxiliary: 19.18
+- distance_to_high_60_pct: -17.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,65.2,67.1,62.5,62.6,2830000,60.08,4.19,64.88,45.71,0.52
-20260508,62.6,63.9,58.5,59.2,1856000,60.01,-1.35,64.66,46.26,0.35
 20260511,59.8,61.7,59,59.5,1258000,59.97,-0.78,64.45,46.82,0.26
 20260512,59.1,59.4,57,57.5,1464000,59.76,-3.79,64.2,47.35,0.32
 20260513,58.3,58.3,52.6,53.8,1931000,59.27,-9.22,63.45,47.82,0.43
@@ -155,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,52.5,53.1,51.6,52,52,54.61,-4.78,54.86,53.25,0
 20260602,52.1,52.1,50,51,51,54.31,-6.09,54.22,53.63,0
 20260603,51.5,56.1,51.3,56.1,54000,54.46,3.01,53.78,54.04,0.06
+20260604,51.5,56.1,51.3,56.1,54000,54.6,2.75,53.46,54.41,0.07
+20260605,61.5,64,58.6,64,62000,55.38,15.57,53.7,54.93,0.1
 ```
 
 ## Latest TDCC Snapshot

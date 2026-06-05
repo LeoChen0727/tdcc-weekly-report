@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5386 青雲
 
 ## Metadata
-- generated_at: 2026-06-05 03:12:44 Asia/Taipei
+- generated_at: 2026-06-05 21:07:59 Asia/Taipei
 - stock_id: 5386
 - stock_name: 青雲
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 560
-- high: 562
-- low: 537
-- close: 547
-- volume: 549000
-- ma5: 571
-- ema23_primary: 493.84
-- distance_to_ema23_pct: 10.77
-- ma20: 496.82
-- ma60: 396.05
-- ma120: 251.15
-- return_5d: -6.81
-- return_20d: 15.16
-- volume_ratio: 0.99
-- distance_to_ma20_pct_auxiliary: 10.1
-- distance_to_high_60_pct: -12.9
+- date: 20260605
+- open: 530
+- high: 530
+- low: 487
+- close: 511
+- volume: 500000
+- ma5: 549
+- ema23_primary: 499.33
+- distance_to_ema23_pct: 2.34
+- ma20: 500.12
+- ma60: 403.68
+- ma120: 258.77
+- return_5d: -13.83
+- return_20d: 8.72
+- volume_ratio: 1.09
+- distance_to_ma20_pct_auxiliary: 2.17
+- distance_to_high_60_pct: -18.63
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,522,522,522,522,1829000,378.82,37.79,377.23,290.7,0.66
-20260508,483,497.5,470,470,1137000,386.42,21.63,384.75,297.1,0.41
 20260511,423,453,423,439.5,985000,390.85,12.45,389.77,302.85,0.35
 20260512,435,448,425,448,494000,395.61,13.24,395.68,308.58,0.17
 20260513,436,453,410.5,415,560000,397.22,4.47,398.27,313.6,0.2
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,616,619,578,581,597,482.64,20.38,487.15,385.89,0
 20260602,586,596,541,559,569,489,14.31,493.23,391.27,0
 20260603,560,562,537,547,549000,493.84,10.77,496.82,396.05,0.99
+20260604,560,562,537,547,549000,498.27,9.78,498.07,400.4,1.12
+20260605,530,530,487,511,500000,499.33,2.34,500.12,403.68,1.09
 ```
 
 ## Latest TDCC Snapshot

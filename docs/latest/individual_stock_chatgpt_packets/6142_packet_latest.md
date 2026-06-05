@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6142 友勁
 
 ## Metadata
-- generated_at: 2026-06-05 03:12:58 Asia/Taipei
+- generated_at: 2026-06-05 21:08:11 Asia/Taipei
 - stock_id: 6142
 - stock_name: 友勁
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 8.66
-- high: 8.97
-- low: 8.66
-- close: 8.92
-- volume: 716727
-- ma5: 8.52
-- ema23_primary: 8.47
-- distance_to_ema23_pct: 5.28
-- ma20: 8.3
-- ma60: 9.06
-- ma120: 9.33
-- return_5d: 11.5
-- return_20d: 0.11
-- volume_ratio: 0.92
-- distance_to_ma20_pct_auxiliary: 7.44
-- distance_to_high_60_pct: -17.02
+- date: 20260605
+- open: 8.82
+- high: 8.82
+- low: 8.64
+- close: 8.71
+- volume: 333777
+- ma5: 8.72
+- ema23_primary: 8.51
+- distance_to_ema23_pct: 2.34
+- ma20: 8.29
+- ma60: 9.04
+- ma120: 9.32
+- return_5d: 5.32
+- return_20d: -0.23
+- volume_ratio: 0.42
+- distance_to_ma20_pct_auxiliary: 5
+- distance_to_high_60_pct: -18.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,8.89,8.94,8.8,8.85,744573,9.14,-3.21,9.1,9.54,0.83
-20260508,8.86,9,8.73,8.73,531641,9.11,-4.16,9.07,9.51,0.6
 20260511,8.92,8.92,8.59,8.6,834286,9.07,-5.15,9.04,9.5,0.94
 20260512,8.6,8.61,8.49,8.52,894880,9.02,-5.56,9,9.48,1
 20260513,8.8,8.8,8.3,8.39,765928,8.97,-6.45,8.96,9.45,0.84
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,8.39,8.79,8.27,8.52,1213144,8.41,1.36,8.32,9.09,1.56
 20260602,8.59,8.73,8.3,8.72,1133383,8.43,3.42,8.3,9.08,1.47
 20260603,8.66,8.97,8.66,8.92,716727,8.47,5.28,8.3,9.06,0.92
+20260604,8.59,8.73,8.3,8.72,1133383,8.49,2.67,8.3,9.05,1.42
+20260605,8.82,8.82,8.64,8.71,333777,8.51,2.34,8.29,9.04,0.42
 ```
 
 ## Latest TDCC Snapshot

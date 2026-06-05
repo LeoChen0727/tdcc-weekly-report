@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6936 永鴻生技
 
 ## Metadata
-- generated_at: 2026-06-05 03:13:40 Asia/Taipei
+- generated_at: 2026-06-05 21:08:47 Asia/Taipei
 - stock_id: 6936
 - stock_name: 永鴻生技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 262
+- latest_price_date: 20260605
+- price_rows: 264
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 33.7
-- high: 33.85
-- low: 33.7
-- close: 33.7
-- volume: 25226
-- ma5: 33.28
-- ema23_primary: 33.64
-- distance_to_ema23_pct: 0.18
-- ma20: 33.5
-- ma60: 34.25
-- ma120: 34.99
-- return_5d: 2.28
-- return_20d: -2.74
-- volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: 0.6
-- distance_to_high_60_pct: -6.26
+- date: 20260605
+- open: 34.25
+- high: 35
+- low: 34.25
+- close: 34.55
+- volume: 164285
+- ma5: 33.81
+- ema23_primary: 33.72
+- distance_to_ema23_pct: 2.46
+- ma20: 33.49
+- ma60: 34.24
+- ma120: 34.98
+- return_5d: 5.02
+- return_20d: 0.73
+- volume_ratio: 2.68
+- distance_to_ma20_pct_auxiliary: 3.16
+- distance_to_high_60_pct: -3.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,34.6,34.6,33.95,34.1,86878,34.71,-1.76,34.91,35.02,1.79
-20260508,34.1,34.4,34.05,34.3,45687,34.68,-1.09,34.89,34.99,0.92
 20260511,34.25,34.45,34.05,34.2,50825,34.64,-1.27,34.84,34.97,1.03
 20260512,34.2,34.2,33.85,33.95,66318,34.58,-1.82,34.76,34.93,1.32
 20260513,33.95,33.95,33.7,33.75,60561,34.51,-2.21,34.67,34.9,1.16
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,32.95,33.4,32.95,33.4,34100,33.63,-0.68,33.6,34.3,0.61
 20260602,33.5,33.75,33.25,33.7,59545,33.63,0.2,33.55,34.28,1.04
 20260603,33.7,33.85,33.7,33.7,25226,33.64,0.18,33.5,34.25,0.44
+20260604,33.5,33.75,33.25,33.7,59545,33.64,0.17,33.48,34.24,1.07
+20260605,34.25,35,34.25,34.55,164285,33.72,2.46,33.49,34.24,2.68
 ```
 
 ## Latest TDCC Snapshot

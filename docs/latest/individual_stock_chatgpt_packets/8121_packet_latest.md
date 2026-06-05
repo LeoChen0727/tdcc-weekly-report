@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8121 越峰
 
 ## Metadata
-- generated_at: 2026-06-05 03:14:16 Asia/Taipei
+- generated_at: 2026-06-05 21:09:17 Asia/Taipei
 - stock_id: 8121
 - stock_name: 越峰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,14 +59,14 @@
 - action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 單一個股分析
 - score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足
+- risk_control_zh: TDCC 歷史不足、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: high_level_consolidation
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -91,7 +91,6 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -105,6 +104,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 38.9
-- high: 40.3
-- low: 38.55
-- close: 39
-- volume: 39000
-- ma5: 39.56
-- ema23_primary: 36.29
-- distance_to_ema23_pct: 7.46
-- ma20: 36.82
-- ma60: 29.54
-- ma120: 28.98
-- return_5d: -4.88
-- return_20d: 26.83
+- date: 20260605
+- open: 40.7
+- high: 41.8
+- low: 38.4
+- close: 40.75
+- volume: 40000
+- ma5: 39.42
+- ema23_primary: 36.87
+- distance_to_ema23_pct: 10.52
+- ma20: 37.62
+- ma60: 30.07
+- ma120: 29.21
+- return_5d: 0.74
+- return_20d: 32.31
 - volume_ratio: 0.03
-- distance_to_ma20_pct_auxiliary: 5.92
-- distance_to_high_60_pct: -10.34
+- distance_to_ma20_pct_auxiliary: 8.31
+- distance_to_high_60_pct: -6.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,30.35,33.75,30.3,32.85,2575000,28.12,16.81,27.78,26.36,1.85
-20260508,32.15,32.7,30.5,30.8,1566000,28.35,8.66,28.14,26.39,1.07
 20260511,32.5,33.85,30.5,33.85,3454000,28.8,17.52,28.64,26.49,2.14
 20260512,35,35.4,32.6,34,3628000,29.24,16.29,29.09,26.62,2.04
 20260513,33.15,35.2,32,33.8,1952000,29.62,14.12,29.52,26.73,1.05
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,40.45,40.55,39.4,39.6,40,35.8,10.61,36.12,29.1,0
 20260602,40.2,40.2,37.5,38.75,38,36.05,7.5,36.41,29.32,0
 20260603,38.9,40.3,38.55,39,39000,36.29,7.46,36.82,29.54,0.03
+20260604,38.9,40.3,38.55,39,39000,36.52,6.79,37.13,29.79,0.03
+20260605,40.7,41.8,38.4,40.75,40000,36.87,10.52,37.62,30.07,0.03
 ```
 
 ## Latest TDCC Snapshot

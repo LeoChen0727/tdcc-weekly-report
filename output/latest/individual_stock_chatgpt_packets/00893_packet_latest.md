@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00893 國泰智能電動車
 
 ## Metadata
-- generated_at: 2026-06-05 03:10:23 Asia/Taipei
+- generated_at: 2026-06-05 21:05:59 Asia/Taipei
 - stock_id: 00893
 - stock_name: 國泰智能電動車
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260603
-- price_rows: 9
+- latest_price_date: 20260605
+- price_rows: 11
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 47.9
-- high: 48.08
-- low: 47.86
-- close: 47.96
-- volume: 1301397
-- ma5: 47.47
-- ema23_primary: 46.23
-- distance_to_ema23_pct: 3.74
-- ma20: 46.96
-- ma60: 46.96
-- ma120: 46.96
-- return_5d: 0.97
+- date: 20260605
+- open: 47.03
+- high: 47.09
+- low: 46.68
+- close: 47.01
+- volume: 663022
+- ma5: 47.34
+- ema23_primary: 46.36
+- distance_to_ema23_pct: 1.41
+- ma20: 46.97
+- ma60: 46.97
+- ma120: 46.97
+- return_5d: -2.23
 - return_20d:
-- volume_ratio: 0.85
-- distance_to_ma20_pct_auxiliary: 2.13
-- distance_to_high_60_pct: -0.25
+- volume_ratio: 0.46
+- distance_to_ma20_pct_auxiliary: 0.08
+- distance_to_high_60_pct: -2.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -144,6 +144,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,47.55,47.7,47.55,47.63,1002527,45.98,3.58,46.8,46.8,0.62
 20260602,47.6,47.6,46.72,47.06,1185068,46.07,2.14,46.84,46.84,0.76
 20260603,47.9,48.08,47.86,47.96,1301397,46.23,3.74,46.96,46.96,0.85
+20260604,47.6,47.6,46.72,47.06,1185068,46.3,1.64,46.97,46.97,0.79
+20260605,47.03,47.09,46.68,47.01,663022,46.36,1.41,46.97,46.97,0.46
 ```
 
 ## Latest TDCC Snapshot

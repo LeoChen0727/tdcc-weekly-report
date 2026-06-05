@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8374 羅昇
 
 ## Metadata
-- generated_at: 2026-06-05 03:14:20 Asia/Taipei
+- generated_at: 2026-06-05 21:09:20 Asia/Taipei
 - stock_id: 8374
 - stock_name: 羅昇
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -117,30 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 101
-- high: 105.5
-- low: 100.5
-- close: 101
-- volume: 1631542
-- ma5: 104.6
-- ema23_primary: 99.35
-- distance_to_ema23_pct: 1.66
-- ma20: 101.06
-- ma60: 84
-- ma120: 83.98
-- return_5d: -6.48
-- return_20d: 10.99
-- volume_ratio: 0.47
-- distance_to_ma20_pct_auxiliary: -0.05
-- distance_to_high_60_pct: -14.77
+- date: 20260605
+- open: 100
+- high: 106.5
+- low: 98.3
+- close: 98.3
+- volume: 3283268
+- ma5: 103.06
+- ema23_primary: 99.46
+- distance_to_ema23_pct: -1.17
+- ma20: 102.11
+- ma60: 84.97
+- ma120: 84.41
+- return_5d: -7.26
+- return_20d: 10.95
+- volume_ratio: 0.91
+- distance_to_ma20_pct_auxiliary: -3.74
+- distance_to_high_60_pct: -17.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,91.1,92.3,89,90.5,1191295,81.41,11.16,81.19,78.83,0.82
-20260508,91.5,93,87.5,88.6,1167794,82.01,8.03,82.09,78.72,0.79
 20260511,88.8,91.7,88,89.5,864822,82.64,8.3,82.97,78.74,0.57
 20260512,90,91.5,88.2,91.2,940815,83.35,9.42,83.97,78.86,0.6
 20260513,91.3,91.3,87.3,90.3,1105010,83.93,7.59,84.56,78.97,0.71
@@ -159,6 +157,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,108,114,106,112,4619522,98.94,13.2,99.95,83.19,1.31
 20260602,109.5,109.5,101,102,2560755,99.2,2.82,100.56,83.59,0.73
 20260603,101,105.5,100.5,101,1631542,99.35,1.66,101.06,84,0.47
+20260604,109.5,109.5,101,102,2560755,99.57,2.44,101.63,84.54,0.73
+20260605,100,106.5,98.3,98.3,3283268,99.46,-1.17,102.11,84.97,0.91
 ```
 
 ## Latest TDCC Snapshot
@@ -188,18 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 8374 | 羅昇 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260603 | 8374 | 羅昇 | revenue_pullback | 營收成長股價回檔 | 83.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260605 | 8374 | 羅昇 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 8374 | 羅昇 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260605 | 8374 | 羅昇 | 11 | 11 | 5 | 10 | 11 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 11 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260604 | 8374 | 羅昇 | 14 | 0 | 194730.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

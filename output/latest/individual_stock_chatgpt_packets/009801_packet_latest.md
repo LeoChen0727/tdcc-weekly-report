@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009801 中信美國創新科技
 
 ## Metadata
-- generated_at: 2026-06-05 03:10:25 Asia/Taipei
+- generated_at: 2026-06-05 21:06:01 Asia/Taipei
 - stock_id: 009801
 - stock_name: 中信美國創新科技
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260603
-- price_rows: 9
+- latest_price_date: 20260605
+- price_rows: 11
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 12.82
-- high: 12.9
-- low: 12.82
-- close: 12.9
-- volume: 1518223
-- ma5: 12.61
-- ema23_primary: 12.36
-- distance_to_ema23_pct: 4.41
-- ma20: 12.46
-- ma60: 12.46
-- ma120: 12.46
-- return_5d: 4.12
+- date: 20260605
+- open: 12.57
+- high: 12.57
+- low: 12.51
+- close: 12.56
+- volume: 559449
+- ma5: 12.7
+- ema23_primary: 12.4
+- distance_to_ema23_pct: 1.3
+- ma20: 12.49
+- ma60: 12.49
+- ma120: 12.49
+- return_5d: 0.08
 - return_20d:
-- volume_ratio: 1.35
-- distance_to_ma20_pct_auxiliary: 3.52
-- distance_to_high_60_pct: 0
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: 0.55
+- distance_to_high_60_pct: -2.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -144,6 +144,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,12.55,12.63,12.55,12.62,1328648,12.27,2.85,12.36,12.36,1.25
 20260602,12.63,12.7,12.6,12.7,1127558,12.31,3.2,12.41,12.41,1.05
 20260603,12.82,12.9,12.82,12.9,1518223,12.36,4.41,12.46,12.46,1.35
+20260604,12.63,12.7,12.6,12.7,1127558,12.38,2.55,12.48,12.48,1
+20260605,12.57,12.57,12.51,12.56,559449,12.4,1.3,12.49,12.49,0.52
 ```
 
 ## Latest TDCC Snapshot

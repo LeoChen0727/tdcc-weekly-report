@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4114 健喬
 
 ## Metadata
-- generated_at: 2026-06-05 03:12:13 Asia/Taipei
+- generated_at: 2026-06-05 21:07:32 Asia/Taipei
 - stock_id: 4114
 - stock_name: 健喬
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 30.4
-- high: 30.45
-- low: 30.1
-- close: 30.35
-- volume: 30000
-- ma5: 30.17
-- ema23_primary: 30.59
-- distance_to_ema23_pct: -0.78
-- ma20: 30.61
-- ma60: 30.99
-- ma120: 31.64
-- return_5d: 0.33
-- return_20d: -1.94
-- volume_ratio: 0.06
-- distance_to_ma20_pct_auxiliary: -0.83
-- distance_to_high_60_pct: -5.75
+- date: 20260605
+- open: 30.65
+- high: 30.85
+- low: 30.55
+- close: 30.7
+- volume: 31000
+- ma5: 30.34
+- ema23_primary: 30.58
+- distance_to_ema23_pct: 0.4
+- ma20: 30.56
+- ma60: 30.98
+- ma120: 31.61
+- return_5d: 1.82
+- return_20d: -0.81
+- volume_ratio: 0.08
+- distance_to_ma20_pct_auxiliary: 0.47
+- distance_to_high_60_pct: -4.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,30.9,31.1,30.9,31.05,821000,31.16,-0.34,31.25,31.49,0.88
-20260508,31,31.35,30.85,30.95,931000,31.14,-0.61,31.25,31.46,0.98
 20260511,31,31.1,30.9,31,851000,31.13,-0.41,31.25,31.43,0.89
 20260512,31.25,31.3,31.05,31.15,966000,31.13,0.07,31.24,31.42,1
 20260513,31.05,31.05,30.8,30.85,968000,31.11,-0.82,31.22,31.41,0.99
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,30.05,30.15,29.9,30.1,30,30.65,-1.78,30.66,31.03,0
 20260602,30.1,30.4,30.05,30.2,30,30.61,-1.34,30.64,31.01,0
 20260603,30.4,30.45,30.1,30.35,30000,30.59,-0.78,30.61,30.99,0.06
+20260604,30.4,30.45,30.1,30.35,30000,30.57,-0.71,30.57,30.98,0.07
+20260605,30.65,30.85,30.55,30.7,31000,30.58,0.4,30.56,30.98,0.08
 ```
 
 ## Latest TDCC Snapshot

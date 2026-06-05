@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9912 偉聯
 
 ## Metadata
-- generated_at: 2026-06-05 03:14:30 Asia/Taipei
+- generated_at: 2026-06-05 21:09:29 Asia/Taipei
 - stock_id: 9912
 - stock_name: 偉聯
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 272
+- latest_price_date: 20260605
+- price_rows: 274
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 12.45
+- date: 20260605
+- open: 12.55
 - high: 12.55
-- low: 12.4
+- low: 12.45
 - close: 12.55
-- volume: 83415
-- ma5: 12.48
+- volume: 22958
+- ma5: 12.49
 - ema23_primary: 12.49
-- distance_to_ema23_pct: 0.49
-- ma20: 12.46
-- ma60: 12.51
-- ma120: 12.32
+- distance_to_ema23_pct: 0.47
+- ma20: 12.45
+- ma60: 12.52
+- ma120: 12.33
 - return_5d: 0.8
 - return_20d: -0.79
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: 0.7
+- volume_ratio: 0.09
+- distance_to_ma20_pct_auxiliary: 0.82
 - distance_to_high_60_pct: -3.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,12.65,12.7,12.45,12.65,174716,12.57,0.6,12.56,12.38,1.72
-20260508,12.45,12.7,12.45,12.65,34830,12.58,0.55,12.57,12.39,0.34
 20260511,12.65,12.65,12.25,12.35,168331,12.56,-1.68,12.55,12.39,1.6
 20260512,12.25,12.5,12.15,12.2,171237,12.53,-2.64,12.53,12.4,1.56
 20260513,12,12.4,11.85,12.35,82810,12.52,-1.33,12.52,12.41,0.75
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,12.15,12.5,12.15,12.45,53350,12.49,-0.29,12.49,12.49,0.4
 20260602,12.4,12.5,12.35,12.45,1459971,12.48,-0.27,12.47,12.5,7.47
 20260603,12.45,12.55,12.4,12.55,83415,12.49,0.49,12.46,12.51,0.45
+20260604,12.4,12.5,12.35,12.45,1459971,12.49,-0.29,12.45,12.51,5.83
+20260605,12.55,12.55,12.45,12.55,22958,12.49,0.47,12.45,12.52,0.09
 ```
 
 ## Latest TDCC Snapshot

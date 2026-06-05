@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6166 凌華
 
 ## Metadata
-- generated_at: 2026-06-05 03:13:00 Asia/Taipei
+- generated_at: 2026-06-05 21:08:12 Asia/Taipei
 - stock_id: 6166
 - stock_name: 凌華
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -116,30 +116,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 130.5
-- high: 131.5
-- low: 123
-- close: 127
-- volume: 3189514
-- ma5: 130.8
-- ema23_primary: 114.35
-- distance_to_ema23_pct: 11.06
-- ma20: 117.03
-- ma60: 83.45
-- ma120: 73.55
-- return_5d: -6.62
-- return_20d: 59.95
-- volume_ratio: 0.64
-- distance_to_ma20_pct_auxiliary: 8.52
-- distance_to_high_60_pct: -12.41
+- date: 20260605
+- open: 133
+- high: 134
+- low: 127.5
+- close: 133
+- volume: 4149059
+- ma5: 131.5
+- ema23_primary: 117.26
+- distance_to_ema23_pct: 13.43
+- ma20: 121.58
+- ma60: 85.84
+- ma120: 74.73
+- return_5d: 0.76
+- return_20d: 52.35
+- volume_ratio: 0.87
+- distance_to_ma20_pct_auxiliary: 9.39
+- distance_to_high_60_pct: -8.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,85.1,87.3,83.9,86.5,7206065,73.97,16.94,74.67,65.55,3.08
-20260508,85,88.7,84.1,87.3,4415815,75.08,16.27,76,65.93,1.75
 20260511,93.4,93.4,85.6,92.7,4644859,76.55,21.1,77.55,66.44,1.7
 20260512,96.5,101.5,93.2,101.5,5663520,78.63,29.09,79.33,67.13,1.94
 20260513,107.5,111.5,102.5,111.5,8698467,81.37,37.03,81.29,67.95,2.75
@@ -158,6 +156,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,135,142,131.5,133.5,3698961,111.5,19.74,111.97,81.21,0.76
 20260602,135,135,126.5,132,2936838,113.2,16.6,114.64,82.38,0.6
 20260603,130.5,131.5,123,127,3189514,114.35,11.06,117.03,83.45,0.64
+20260604,135,135,126.5,132,2936838,115.82,13.97,119.3,84.66,0.61
+20260605,133,134,127.5,133,4149059,117.26,13.43,121.58,85.84,0.87
 ```
 
 ## Latest TDCC Snapshot
@@ -187,18 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 6166 | 凌華 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260603 | 6166 | 凌華 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260605 | 6166 | 凌華 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 6166 | 凌華 | 3 | 2 | 3 | 4 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260605 | 6166 | 凌華 | 4 | 3 | 4 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 5 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260604 | 6166 | 凌華 | 4 | 0 | 111400.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

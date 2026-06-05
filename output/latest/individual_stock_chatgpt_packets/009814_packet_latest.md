@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009814 富邦標普500
 
 ## Metadata
-- generated_at: 2026-06-05 03:10:25 Asia/Taipei
+- generated_at: 2026-06-05 21:06:01 Asia/Taipei
 - stock_id: 009814
 - stock_name: 富邦標普500
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260603
-- price_rows: 9
+- latest_price_date: 20260605
+- price_rows: 11
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 11.12
-- high: 11.16
-- low: 11.1
-- close: 11.1
+- date: 20260605
+- open: 11.02
+- high: 11.07
+- low: 11.02
+- close: 11.06
 - volume: 11000
-- ma5: 11.07
-- ema23_primary: 11.01
-- distance_to_ema23_pct: 0.84
+- ma5: 11.09
+- ema23_primary: 11.02
+- distance_to_ema23_pct: 0.38
 - ma20: 11.04
 - ma60: 11.04
 - ma120: 11.04
-- return_5d: 0.91
+- return_5d: 0
 - return_20d:
-- volume_ratio: 1.29
-- distance_to_ma20_pct_auxiliary: 0.57
-- distance_to_high_60_pct: -0.54
+- volume_ratio: 1.22
+- distance_to_ma20_pct_auxiliary: 0.14
+- distance_to_high_60_pct: -0.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -144,6 +144,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,11.1,11.12,11.08,11.1,11,10.99,1.01,11.02,11.02,0
 20260602,11.08,11.12,11.05,11.11,11,11,1.01,11.03,11.03,0
 20260603,11.12,11.16,11.1,11.1,11000,11.01,0.84,11.04,11.04,1.29
+20260604,11.12,11.16,11.1,11.1,11000,11.01,0.77,11.04,11.04,1.25
+20260605,11.02,11.07,11.02,11.06,11000,11.02,0.38,11.04,11.04,1.22
 ```
 
 ## Latest TDCC Snapshot

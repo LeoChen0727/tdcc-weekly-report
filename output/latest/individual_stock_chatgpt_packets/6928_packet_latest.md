@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6928 攸泰科技
 
 ## Metadata
-- generated_at: 2026-06-05 03:13:40 Asia/Taipei
+- generated_at: 2026-06-05 21:08:46 Asia/Taipei
 - stock_id: 6928
 - stock_name: 攸泰科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 47.75
-- high: 47.95
-- low: 47.1
-- close: 47.8
-- volume: 174315
-- ma5: 47.43
-- ema23_primary: 47.3
-- distance_to_ema23_pct: 1.05
-- ma20: 47.19
-- ma60: 47.5
-- ma120: 49.74
-- return_5d: 2.03
-- return_20d: -5.53
-- volume_ratio: 1.32
-- distance_to_ma20_pct_auxiliary: 1.29
-- distance_to_high_60_pct: -16.58
+- date: 20260605
+- open: 47.25
+- high: 47.25
+- low: 46.1
+- close: 46.6
+- volume: 116225
+- ma5: 47.62
+- ema23_primary: 47.28
+- distance_to_ema23_pct: -1.44
+- ma20: 46.85
+- ma60: 47.45
+- ma120: 49.68
+- return_5d: -0.85
+- return_20d: -6.61
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: -0.54
+- distance_to_high_60_pct: -18.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,50.6,51.3,50.6,51.2,160745,48.42,5.73,48.04,48.84,0.86
-20260508,51.5,51.5,49.3,49.9,117617,48.55,2.79,48.25,48.78,0.63
 20260511,48.55,49.4,48.2,48.5,153591,48.54,-0.09,48.4,48.75,0.81
 20260512,48.5,48.5,47.15,47.65,122816,48.47,-1.69,48.49,48.72,0.65
 20260513,47.6,47.6,46.1,46.1,130873,48.27,-4.5,48.43,48.65,0.71
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,47.7,49.55,47.1,48.2,325132,47.21,2.09,47.56,47.59,1.84
 20260602,48.15,48.15,47,47.75,165848,47.26,1.04,47.33,47.55,1.04
 20260603,47.75,47.95,47.1,47.8,174315,47.3,1.05,47.19,47.5,1.32
+20260604,48.15,48.15,47,47.75,165848,47.34,0.86,47.02,47.5,1.25
+20260605,47.25,47.25,46.1,46.6,116225,47.28,-1.44,46.85,47.45,0.88
 ```
 
 ## Latest TDCC Snapshot

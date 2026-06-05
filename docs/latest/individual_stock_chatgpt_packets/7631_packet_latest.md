@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7631 聚賢研發-創
 
 ## Metadata
-- generated_at: 2026-06-05 03:14:03 Asia/Taipei
+- generated_at: 2026-06-05 21:09:06 Asia/Taipei
 - stock_id: 7631
 - stock_name: 聚賢研發-創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 265
+- latest_price_date: 20260605
+- price_rows: 267
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 122.5
-- high: 128.5
-- low: 122.5
-- close: 127
-- volume: 19114
-- ma5: 124.9
-- ema23_primary: 125.36
-- distance_to_ema23_pct: 1.31
+- date: 20260605
+- open: 127
+- high: 127
+- low: 124
+- close: 126.5
+- volume: 18315
+- ma5: 125.7
+- ema23_primary: 125.43
+- distance_to_ema23_pct: 0.85
 - ma20: 125.28
-- ma60: 122.21
-- ma120: 124.36
-- return_5d: 0.79
-- return_20d: -0.39
-- volume_ratio: 0.41
-- distance_to_ma20_pct_auxiliary: 1.38
-- distance_to_high_60_pct: -15.33
+- ma60: 122.73
+- ma120: 124.3
+- return_5d: 1.2
+- return_20d: 2.43
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: 0.98
+- distance_to_high_60_pct: -15.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,129,129.5,127.5,128,77030,126.01,1.58,127.38,120.43,0.72
-20260508,127.5,127.5,120,123.5,143812,125.8,-1.83,128.05,120.44,1.3
 20260511,123.5,131.5,122,128.5,107597,126.03,1.96,128.93,120.54,0.98
 20260512,122,129,120.5,127.5,153762,126.15,1.07,129.88,120.63,1.32
 20260513,128,128,123.5,126,30156,126.14,-0.11,130.25,120.72,0.29
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,126,127.5,125,125,20894,125.23,-0.18,125.4,121.73,0.4
 20260602,125,126.5,124,125,15500,125.21,-0.17,125.3,121.93,0.31
 20260603,122.5,128.5,122.5,127,19114,125.36,1.31,125.28,122.21,0.41
+20260604,125,126.5,124,125,15500,125.33,-0.26,125.12,122.46,0.36
+20260605,127,127,124,126.5,18315,125.43,0.85,125.28,122.73,0.5
 ```
 
 ## Latest TDCC Snapshot

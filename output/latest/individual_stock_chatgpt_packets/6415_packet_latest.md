@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6415 矽力*-KY
 
 ## Metadata
-- generated_at: 2026-06-05 03:13:12 Asia/Taipei
+- generated_at: 2026-06-05 21:08:23 Asia/Taipei
 - stock_id: 6415
 - stock_name: 矽力*-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -116,30 +116,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 594
-- high: 603
-- low: 584
-- close: 599
-- volume: 3778452
-- ma5: 600.6
-- ema23_primary: 532.78
-- distance_to_ema23_pct: 12.43
-- ma20: 538.55
-- ma60: 393.11
-- ma120: 313.97
-- return_5d: -9.92
-- return_20d: 41.27
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: 11.22
-- distance_to_high_60_pct: -13.56
+- date: 20260605
+- open: 574
+- high: 590
+- low: 556
+- close: 582
+- volume: 4298180
+- ma5: 588.6
+- ema23_primary: 540.34
+- distance_to_ema23_pct: 7.71
+- ma20: 554.05
+- ma60: 404.35
+- ma120: 320.26
+- return_5d: -3
+- return_20d: 36.78
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: 5.04
+- distance_to_high_60_pct: -16.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,429,429,415,424.5,2237055,375.07,13.18,370,307.51,0.3
-20260508,426,438,419.5,425.5,2272485,379.28,12.19,377.18,309.61,0.31
 20260511,440,468,425,468,9060243,386.67,21.03,386.6,312.73,1.19
 20260512,488,492,462,476.5,10896270,394.16,20.89,396.77,315.85,1.37
 20260513,476.5,492,454,467.5,6977727,400.27,16.8,406.68,318.71,0.87
@@ -158,6 +156,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,600,636,593,606,7635267,522.11,16.07,522.7,381.93,0.93
 20260602,597,598,564,578,6658979,526.76,9.73,529.8,387.33,0.79
 20260603,594,603,584,599,3778452,532.78,12.43,538.55,393.11,0.45
+20260604,597,598,564,578,6658979,536.55,7.72,546.23,398.86,0.77
+20260605,574,590,556,582,4298180,540.34,7.71,554.05,404.35,0.49
 ```
 
 ## Latest TDCC Snapshot
@@ -187,18 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 6415 | 矽力*-KY | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260603 | 6415 | 矽力*-KY | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260605 | 6415 | 矽力*-KY | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 6415 | 矽力*-KY | 1 | 1 | 1 | 6 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260605 | 6415 | 矽力*-KY | 2 | 2 | 2 | 6 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260604 | 6415 | 矽力*-KY | 115 | 1 | 4345140.0 | 21870.0 | 198.68 | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

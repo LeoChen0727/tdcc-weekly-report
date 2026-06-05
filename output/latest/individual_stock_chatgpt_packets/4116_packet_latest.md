@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4116 明基醫
 
 ## Metadata
-- generated_at: 2026-06-05 03:12:13 Asia/Taipei
+- generated_at: 2026-06-05 21:07:32 Asia/Taipei
 - stock_id: 4116
 - stock_name: 明基醫
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 37.45
-- high: 38.2
-- low: 37
-- close: 38
+- date: 20260605
+- open: 38.6
+- high: 38.65
+- low: 38.15
+- close: 38.15
 - volume: 38000
-- ma5: 37.37
+- ma5: 37.73
 - ema23_primary: 38.11
-- distance_to_ema23_pct: -0.3
-- ma20: 37.95
-- ma60: 39.21
-- ma120: 41.49
-- return_5d: 1.47
-- return_20d: -4.04
-- volume_ratio: 0.98
-- distance_to_ma20_pct_auxiliary: 0.13
-- distance_to_high_60_pct: -9.52
+- distance_to_ema23_pct: 0.11
+- ma20: 37.83
+- ma60: 39.15
+- ma120: 41.37
+- return_5d: 2.42
+- return_20d: -2.68
+- volume_ratio: 1
+- distance_to_ma20_pct_auxiliary: 0.86
+- distance_to_high_60_pct: -9.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,39.4,39.95,39.3,39.45,53000,39.93,-1.2,40.01,40.55,1.55
-20260508,39.45,39.45,39.15,39.2,37000,39.87,-1.68,39.99,40.47,1.08
 20260511,39.3,39.3,38.85,38.9,76000,39.79,-2.23,39.96,40.41,2.07
 20260512,38.8,38.8,38.55,38.8,42000,39.71,-2.28,39.92,40.37,1.1
 20260513,38.8,38.8,38.3,38.4,57000,39.6,-3.02,39.87,40.3,1.44
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,37,37.5,37,37.35,37,38.21,-2.26,38.17,39.3,0
 20260602,37.35,37.35,37,37.15,37,38.12,-2.56,38.03,39.25,0
 20260603,37.45,38.2,37,38,38000,38.11,-0.3,37.95,39.21,0.98
+20260604,37.45,38.2,37,38,38000,38.1,-0.28,37.88,39.18,1
+20260605,38.6,38.65,38.15,38.15,38000,38.11,0.11,37.83,39.15,1
 ```
 
 ## Latest TDCC Snapshot

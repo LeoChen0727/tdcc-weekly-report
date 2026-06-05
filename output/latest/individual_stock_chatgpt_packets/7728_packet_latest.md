@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7728 光焱科技
 
 ## Metadata
-- generated_at: 2026-06-05 03:14:05 Asia/Taipei
+- generated_at: 2026-06-05 21:09:08 Asia/Taipei
 - stock_id: 7728
 - stock_name: 光焱科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 707
-- high: 765
-- low: 707
-- close: 763
+- date: 20260605
+- open: 766
+- high: 766
+- low: 725
+- close: 757
 - volume: 742000
-- ma5: 753.2
-- ema23_primary: 744.89
-- distance_to_ema23_pct: 2.43
-- ma20: 742.2
-- ma60: 751.93
-- ma120: 685.62
-- return_5d: 3.53
-- return_20d: -1.17
-- volume_ratio: 2.14
-- distance_to_ma20_pct_auxiliary: 2.8
-- distance_to_high_60_pct: -22.14
+- ma5: 747.6
+- ema23_primary: 747.29
+- distance_to_ema23_pct: 1.3
+- ma20: 740.25
+- ma60: 754.78
+- ma120: 691.85
+- return_5d: -1.69
+- return_20d: -5.38
+- volume_ratio: 1.91
+- distance_to_ma20_pct_auxiliary: 2.26
+- distance_to_high_60_pct: -22.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,777,777,714,759,389000,756.78,0.29,773.35,770.28,0.92
-20260508,796,805,743,800,252000,760.38,5.21,772.3,773.2,0.63
 20260511,808,808,775,781,175000,762.1,2.48,768.5,774.97,0.46
 20260512,770,780,750,750,190000,761.09,-1.46,765.2,775.1,0.51
 20260513,749,762,739,747,77000,759.92,-1.7,760,773.95,0.22
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,752,770,740,740,756,745.82,-0.78,747.35,752.62,0
 20260602,744,746,714,715,724,743.25,-3.8,742.65,751.83,0
 20260603,707,765,707,763,742000,744.89,2.43,742.2,751.93,2.14
+20260604,707,765,707,763,742000,746.4,2.22,742.4,753.28,2.04
+20260605,766,766,725,757,742000,747.29,1.3,740.25,754.78,1.91
 ```
 
 ## Latest TDCC Snapshot

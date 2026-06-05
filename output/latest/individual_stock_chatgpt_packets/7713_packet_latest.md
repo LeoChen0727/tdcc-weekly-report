@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7713 威力德生醫
 
 ## Metadata
-- generated_at: 2026-06-05 03:14:04 Asia/Taipei
+- generated_at: 2026-06-05 21:09:07 Asia/Taipei
 - stock_id: 7713
 - stock_name: 威力德生醫
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 264
+- latest_price_date: 20260605
+- price_rows: 266
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 71.9
-- high: 73.9
-- low: 71.9
-- close: 72.4
+- date: 20260605
+- open: 72.4
+- high: 72.4
+- low: 71
+- close: 71.9
 - volume: 72000
-- ma5: 70.7
-- ema23_primary: 68.87
-- distance_to_ema23_pct: 5.13
-- ma20: 68.52
-- ma60: 68.89
-- ma120: 70.64
-- return_5d: 7.74
-- return_20d: 7.74
-- volume_ratio: 2.15
-- distance_to_ma20_pct_auxiliary: 5.66
-- distance_to_high_60_pct: -2.03
+- ma5: 72.7
+- ema23_primary: 69.39
+- distance_to_ema23_pct: 3.62
+- ma20: 68.95
+- ma60: 68.95
+- ma120: 70.61
+- return_5d: 6.99
+- return_20d: 4.81
+- volume_ratio: 1.93
+- distance_to_ma20_pct_auxiliary: 4.28
+- distance_to_high_60_pct: -2.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,67.2,67.2,66.8,67.1,4000,67.85,-1.11,67.31,69.47,0.3
-20260507,68,69,68,68.6,62000,67.91,1.01,67.38,69.43,3.99
 20260508,68.2,68.9,68.2,68.9,7000,68,1.33,67.52,69.41,0.45
 20260512,68,69,68,68.5,23000,68.04,0.68,67.61,69.38,1.69
 20260513,67.7,68,67.6,68,4000,68.03,-0.05,67.61,69.34,0.3
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,67.2,73.9,66.9,73.9,72,68.15,8.44,67.99,68.8,0
 20260602,73.9,73.9,70.6,72.9,72,68.55,6.35,68.26,68.85,0
 20260603,71.9,73.9,71.9,72.4,72000,68.87,5.13,68.52,68.89,2.15
+20260604,71.9,73.9,71.9,72.4,72000,69.16,4.68,68.78,68.94,1.95
+20260605,72.4,72.4,71,71.9,72000,69.39,3.62,68.95,68.95,1.93
 ```
 
 ## Latest TDCC Snapshot

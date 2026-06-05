@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7282 宏捷科群益5C售01
 
 ## Metadata
-- generated_at: 2026-06-05 03:13:54 Asia/Taipei
+- generated_at: 2026-06-05 21:08:58 Asia/Taipei
 - stock_id: 7282
 - stock_name: 宏捷科群益5C售01
 - packet_status: standard_180d_window_packet

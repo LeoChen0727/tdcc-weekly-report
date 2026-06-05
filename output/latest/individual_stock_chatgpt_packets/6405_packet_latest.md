@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6405 悅城
 
 ## Metadata
-- generated_at: 2026-06-05 03:13:11 Asia/Taipei
+- generated_at: 2026-06-05 21:08:22 Asia/Taipei
 - stock_id: 6405
 - stock_name: 悅城
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,14 +59,14 @@
 - action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 單一個股分析
 - score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足、股價乖離過大
+- risk_control_zh: TDCC 歷史不足
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_consolidation
+- thesis_state: unclear
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -91,6 +91,7 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -104,7 +105,6 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
-- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 77.3
-- high: 77.3
-- low: 74.7
-- close: 76.5
-- volume: 437269
-- ma5: 77.74
-- ema23_primary: 64.8
-- distance_to_ema23_pct: 18.05
-- ma20: 65.71
-- ma60: 46.08
-- ma120: 37.7
-- return_5d: -5.56
-- return_20d: 37.59
-- volume_ratio: 0.23
-- distance_to_ma20_pct_auxiliary: 16.42
-- distance_to_high_60_pct: -14.14
+- date: 20260605
+- open: 78.7
+- high: 79.5
+- low: 73.4
+- close: 76
+- volume: 370210
+- ma5: 76.76
+- ema23_primary: 66.58
+- distance_to_ema23_pct: 14.15
+- ma20: 67.03
+- ma60: 47.62
+- ma120: 38.55
+- return_5d: -4.76
+- return_20d: 18.01
+- volume_ratio: 0.22
+- distance_to_ma20_pct_auxiliary: 13.39
+- distance_to_high_60_pct: -14.7
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,55.6,61.1,55.6,61.1,2192638,43.96,39,42.29,35.14,0.91
-20260508,63.1,67.2,62.1,64.4,2973689,45.66,41.04,43.68,35.7,1.22
 20260511,58.5,58.5,58,58,821975,46.69,24.23,44.75,36.17,0.34
 20260512,60.1,60.1,55.5,58.2,984261,47.65,22.15,45.93,36.65,0.41
 20260513,58.5,63,58.5,60.1,718572,48.68,23.45,47.16,37.16,0.3
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,86,86,77.9,79.7,682746,62.64,27.23,63.95,44.62,0.25
 20260602,80.3,80.3,73.9,75.8,397359,63.74,18.92,64.67,45.34,0.19
 20260603,77.3,77.3,74.7,76.5,437269,64.8,18.05,65.71,46.08,0.23
+20260604,80.3,80.3,73.9,75.8,397359,65.72,15.34,66.44,46.85,0.22
+20260605,78.7,79.5,73.4,76,370210,66.58,14.15,67.03,47.62,0.22
 ```
 
 ## Latest TDCC Snapshot

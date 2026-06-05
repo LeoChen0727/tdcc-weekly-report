@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4995 晶達
 
 ## Metadata
-- generated_at: 2026-06-05 03:12:36 Asia/Taipei
+- generated_at: 2026-06-05 21:07:52 Asia/Taipei
 - stock_id: 4995
 - stock_name: 晶達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 46.8
-- high: 46.8
-- low: 46.2
-- close: 46.75
-- volume: 47000
-- ma5: 45.67
-- ema23_primary: 45.3
-- distance_to_ema23_pct: 3.2
-- ma20: 45.61
-- ma60: 42.98
-- ma120: 41.97
-- return_5d: 4.12
-- return_20d: 3.89
-- volume_ratio: 0.91
-- distance_to_ma20_pct_auxiliary: 2.49
-- distance_to_high_60_pct: -8.33
+- date: 20260605
+- open: 45.6
+- high: 46.15
+- low: 44.7
+- close: 46.15
+- volume: 46000
+- ma5: 46.35
+- ema23_primary: 45.48
+- distance_to_ema23_pct: 1.47
+- ma20: 45.77
+- ma60: 43.17
+- ma120: 42.06
+- return_5d: 2.1
+- return_20d: 4.41
+- volume_ratio: 1.12
+- distance_to_ma20_pct_auxiliary: 0.82
+- distance_to_high_60_pct: -9.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,45,46.35,45,45.5,111000,42.74,6.47,42.66,41.46,2.07
-20260508,44.3,44.5,43,44.2,195000,42.86,3.13,42.81,41.5,3.23
 20260511,44.25,44.6,44,44.1,38000,42.96,2.65,42.94,41.56,0.64
 20260512,44,45.1,43.5,45.1,68000,43.14,4.54,43.13,41.64,1.09
 20260513,44.5,44.5,43.8,44.05,46000,43.22,1.93,43.25,41.7,0.74
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,45.1,47,44.5,45.9,46,45.08,1.83,45.41,42.8,0
 20260602,46.3,46.45,45.95,46.2,46,45.17,2.28,45.52,42.89,0
 20260603,46.8,46.8,46.2,46.75,47000,45.3,3.2,45.61,42.98,0.91
+20260604,46.8,46.8,46.2,46.75,47000,45.42,2.92,45.67,43.09,0.97
+20260605,45.6,46.15,44.7,46.15,46000,45.48,1.47,45.77,43.17,1.12
 ```
 
 ## Latest TDCC Snapshot

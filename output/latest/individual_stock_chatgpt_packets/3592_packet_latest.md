@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3592 瑞鼎
 
 ## Metadata
-- generated_at: 2026-06-05 03:12:05 Asia/Taipei
+- generated_at: 2026-06-05 21:07:25 Asia/Taipei
 - stock_id: 3592
 - stock_name: 瑞鼎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 283
-- high: 283
-- low: 280
-- close: 280
-- volume: 553682
-- ma5: 280
-- ema23_primary: 265.26
-- distance_to_ema23_pct: 5.55
-- ma20: 266.7
-- ma60: 239.8
-- ma120: 232.57
-- return_5d: -0.36
-- return_20d: 18.9
-- volume_ratio: 0.41
-- distance_to_ma20_pct_auxiliary: 4.99
-- distance_to_high_60_pct: -2.1
+- date: 20260605
+- open: 275.5
+- high: 277
+- low: 268
+- close: 271.5
+- volume: 782755
+- ma5: 279.9
+- ema23_primary: 267.02
+- distance_to_ema23_pct: 1.68
+- ma20: 269.3
+- ma60: 241.96
+- ma120: 233.62
+- return_5d: -2.86
+- return_20d: 5.03
+- volume_ratio: 0.64
+- distance_to_ma20_pct_auxiliary: 0.82
+- distance_to_high_60_pct: -5.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,238.5,243,236,242.5,1068723,234.72,3.31,236.38,227.03,1.25
-20260508,247,262,247,258.5,2731957,236.7,9.21,238.07,227.38,2.8
 20260511,274.5,274.5,257,263.5,2486508,238.94,10.28,239.85,227.91,2.31
 20260512,265,267.5,259.5,261,1534049,240.78,8.4,241.4,228.54,1.36
 20260513,258.5,268,257,259.5,1973563,242.34,7.08,242.88,229.03,1.63
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,272,285,272,285,1533025,262.33,8.64,262.45,237.91,1.08
 20260602,283,283,278,281.5,708448,263.93,6.66,264.48,238.9,0.5
 20260603,283,283,280,280,553682,265.26,5.55,266.7,239.8,0.41
+20260604,283,283,278,281.5,708448,266.62,5.58,268.65,240.98,0.54
+20260605,275.5,277,268,271.5,782755,267.02,1.68,269.3,241.96,0.64
 ```
 
 ## Latest TDCC Snapshot
@@ -192,9 +192,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260604 | 3592 | 瑞鼎 | 9 | 0 | 268220.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

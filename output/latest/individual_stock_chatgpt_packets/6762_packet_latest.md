@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6762 達亞
 
 ## Metadata
-- generated_at: 2026-06-05 03:13:31 Asia/Taipei
+- generated_at: 2026-06-05 21:08:39 Asia/Taipei
 - stock_id: 6762
 - stock_name: 達亞
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 244
+- latest_price_date: 20260604
+- price_rows: 245
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
+- date: 20260604
 - open: 178
 - high: 178
 - low: 178
 - close: 178
 - volume: 177000
-- ma5: 175.6
-- ema23_primary: 171.23
-- distance_to_ema23_pct: 3.95
-- ma20: 167.53
-- ma60: 165.65
-- ma120: 175
-- return_5d: -5.32
-- return_20d: 25.35
-- volume_ratio: 2.53
-- distance_to_ma20_pct_auxiliary: 6.25
+- ma5: 175.2
+- ema23_primary: 171.79
+- distance_to_ema23_pct: 3.61
+- ma20: 169.25
+- ma60: 165.87
+- ma120: 175.02
+- return_5d: -1.11
+- return_20d: 24.04
+- volume_ratio: 2.28
+- distance_to_ma20_pct_auxiliary: 5.17
 - distance_to_high_60_pct: -10.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,149,149,140,143.5,25000,160.03,-10.33,161.07,167.69,3.36
 20260504,148,148,145,145,2000,158.78,-8.68,160.22,166.97,0.28
 20260505,145,147,145,145,5000,157.63,-8.01,159.22,166.3,0.68
 20260506,140,144.5,138,144.5,18000,156.54,-7.69,158.62,165.62,2.21
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260528,172,172,164,172,167000,170.12,1.1,164.38,165.32,3.1
 20260529,172,176,172,176,174000,170.61,3.16,165.72,165.48,2.81
 20260603,178,178,178,178,177000,171.23,3.95,167.53,165.65,2.53
+20260604,178,178,178,178,177000,171.79,3.61,169.25,165.87,2.28
 ```
 
 ## Latest TDCC Snapshot

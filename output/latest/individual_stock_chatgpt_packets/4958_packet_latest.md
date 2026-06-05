@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4958 臻鼎-KY
 
 ## Metadata
-- generated_at: 2026-06-05 03:12:34 Asia/Taipei
+- generated_at: 2026-06-05 21:07:50 Asia/Taipei
 - stock_id: 4958
 - stock_name: 臻鼎-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -116,30 +116,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 516
-- high: 524
-- low: 505
-- close: 510
-- volume: 8477422
-- ma5: 515.8
-- ema23_primary: 460.17
-- distance_to_ema23_pct: 10.83
-- ma20: 466.43
-- ma60: 331.23
-- ma120: 247.15
-- return_5d: -4.14
-- return_20d: 23.79
-- volume_ratio: 0.21
-- distance_to_ma20_pct_auxiliary: 9.34
-- distance_to_high_60_pct: -10.21
+- date: 20260605
+- open: 480
+- high: 513
+- low: 450
+- close: 504
+- volume: 8176859
+- ma5: 520.4
+- ema23_primary: 468.39
+- distance_to_ema23_pct: 7.6
+- ma20: 476.23
+- ma60: 342.79
+- ma120: 253.24
+- return_5d: -2.14
+- return_20d: 25.69
+- volume_ratio: 0.22
+- distance_to_ma20_pct_auxiliary: 5.83
+- distance_to_high_60_pct: -11.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,415,429.5,403,427,47730420,337.84,26.39,334.73,242.75,0.85
-20260508,427,427.5,392,401,43760993,343.1,16.87,341.6,246.47,0.78
 20260511,405,424.5,397,412,41454268,348.84,18.1,348.95,250.07,0.74
 20260512,417,434,406,407,40077766,353.69,15.07,356.43,253.8,0.7
 20260513,405,445,404,442.5,72787309,361.09,22.55,365.98,258.16,1.23
@@ -158,6 +156,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,542,555,541,548,12673360,449.78,21.84,456.85,319.94,0.29
 20260602,548,548,501,520,13270682,455.64,14.13,461.52,325.65,0.31
 20260603,516,524,505,510,8477422,460.17,10.83,466.43,331.23,0.21
+20260604,548,548,501,520,13270682,465.15,11.79,471.07,337.19,0.34
+20260605,480,513,450,504,8176859,468.39,7.6,476.23,342.79,0.22
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 4958 | 臻鼎-KY | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | first_seen | calendar event: ex_dividend on 20260608; status=confirmed; proximity=within_3d |
+| 20260605 | 4958 | 臻鼎-KY | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: ex_dividend on 20260608; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 4958 | 臻鼎-KY | 1 | 1 | 2 | 2 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260605 | 4958 | 臻鼎-KY | 2 | 2 | 3 | 3 | 3 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260604 | 4958 | 臻鼎-KY | 269 | 17 | 13536640.0 | 284680.0 | 47.55 | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

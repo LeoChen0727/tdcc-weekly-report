@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1708 東鹼
 
 ## Metadata
-- generated_at: 2026-06-05 03:10:46 Asia/Taipei
+- generated_at: 2026-06-05 21:06:19 Asia/Taipei
 - stock_id: 1708
 - stock_name: 東鹼
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -116,30 +116,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 39.9
-- high: 43.35
-- low: 39.6
-- close: 43.35
-- volume: 20426879
-- ma5: 39.22
-- ema23_primary: 39.67
-- distance_to_ema23_pct: 9.27
-- ma20: 39.49
-- ma60: 40.48
-- ma120: 37.06
-- return_5d: 12.74
-- return_20d: 10.59
-- volume_ratio: 4.99
-- distance_to_ma20_pct_auxiliary: 9.78
-- distance_to_high_60_pct: -8.64
+- date: 20260605
+- open: 47
+- high: 49.95
+- low: 46.6
+- close: 49.1
+- volume: 42986218
+- ma5: 41.99
+- ema23_primary: 40.44
+- distance_to_ema23_pct: 21.41
+- ma20: 40.15
+- ma60: 40.75
+- ma120: 37.25
+- return_5d: 28.53
+- return_20d: 31.99
+- volume_ratio: 7.17
+- distance_to_ma20_pct_auxiliary: 22.29
+- distance_to_high_60_pct: -1.7
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,39.2,39.2,37.7,38.1,4980963,40.35,-5.58,40.3,39.15,0.95
-20260508,38.1,38.7,37.15,37.2,3689998,40.09,-7.21,40.19,39.2,0.73
 20260511,38.65,40.4,38.55,40.15,6248057,40.09,0.14,40.22,39.31,1.2
 20260512,39.95,41.8,39.25,41.75,4377500,40.23,3.77,40.22,39.45,0.87
 20260513,41.35,42.35,41.1,41.6,3175429,40.35,3.11,40.23,39.58,0.64
@@ -158,6 +156,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,38.3,38.9,38,38.6,2369318,39.33,-1.85,39.32,40.31,0.74
 20260602,38.6,39.65,38.1,39.45,3566312,39.34,0.29,39.28,40.37,1.11
 20260603,39.9,43.35,39.6,43.35,20426879,39.67,9.27,39.49,40.48,4.99
+20260604,38.6,39.65,38.1,39.45,3566312,39.65,-0.51,39.55,40.53,0.89
+20260605,47,49.95,46.6,49.1,42986218,40.44,21.41,40.15,40.75,7.17
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 1708 | 東鹼 | true_breakout | 嚴格突破 | 117.0 |  |  | neckline_breakout |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260605 | 1708 | 東鹼 | true_breakout | 嚴格突破 | 94.0 |  |  | platform_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 1708 | 東鹼 | 10 | 1 | 5 | 10 | 10 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260605 | 1708 | 東鹼 | 11 | 2 | 5 | 10 | 11 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260604 | 1708 | 東鹼 | 23 | 0 | 8409420.0 | 0.0 |  | call_strong_inflow |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

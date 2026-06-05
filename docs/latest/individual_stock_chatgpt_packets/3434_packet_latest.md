@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3434 哲固
 
 ## Metadata
-- generated_at: 2026-06-05 03:11:57 Asia/Taipei
+- generated_at: 2026-06-05 21:07:18 Asia/Taipei
 - stock_id: 3434
 - stock_name: 哲固
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 27
 - tdcc_history_status: tdcc_history_ready
@@ -59,14 +59,14 @@
 - action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 單一個股分析
 - score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 股價乖離過大
+- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_consolidation
+- thesis_state: unclear
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -91,6 +91,7 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -103,7 +104,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- price_too_extended
+- none
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -111,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 34.6
-- high: 36.45
-- low: 33.5
-- close: 35.9
-- volume: 36000
-- ma5: 31.6
-- ema23_primary: 29.98
-- distance_to_ema23_pct: 19.76
-- ma20: 29.37
-- ma60: 29.3
-- ma120: 30.28
-- return_5d: 23.79
-- return_20d: 23.16
-- volume_ratio: 0.76
-- distance_to_ma20_pct_auxiliary: 22.22
-- distance_to_high_60_pct: -1.51
+- date: 20260605
+- open: 35
+- high: 36
+- low: 33.1
+- close: 34
+- volume: 34000
+- ma5: 33.82
+- ema23_primary: 30.77
+- distance_to_ema23_pct: 10.51
+- ma20: 29.98
+- ma60: 29.53
+- ma120: 30.33
+- return_5d: 15.45
+- return_20d: 18.67
+- volume_ratio: 0.78
+- distance_to_ma20_pct_auxiliary: 13.4
+- distance_to_high_60_pct: -6.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,29.05,29.15,29,29.05,37000,29.55,-1.68,29.83,29.61,0.23
-20260508,29.45,29.45,28.65,28.65,104000,29.47,-2.79,29.85,29.51,0.65
 20260511,28.55,28.8,28.55,28.65,55000,29.4,-2.56,29.87,29.45,0.34
 20260512,28.6,28.9,28.5,28.65,68000,29.34,-2.35,29.85,29.41,0.44
 20260513,28.65,28.65,28.3,28.4,71000,29.26,-2.95,29.8,29.37,0.46
@@ -153,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,29.45,30.45,29.45,30.15,30,29.1,3.6,28.85,29.13,0
 20260602,30,33.15,30,33.15,33,29.44,12.6,29.04,29.2,0
 20260603,34.6,36.45,33.5,35.9,36000,29.98,19.76,29.37,29.3,0.76
+20260604,34.6,36.45,33.5,35.9,36000,30.47,17.82,29.71,29.43,0.76
+20260605,35,36,33.1,34,34000,30.77,10.51,29.98,29.53,0.78
 ```
 
 ## Latest TDCC Snapshot

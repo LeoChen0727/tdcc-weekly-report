@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2724 藝舍-KY
 
 ## Metadata
-- generated_at: 2026-06-05 03:11:27 Asia/Taipei
+- generated_at: 2026-06-05 21:06:53 Asia/Taipei
 - stock_id: 2724
 - stock_name: 藝舍-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 250
+- latest_price_date: 20260605
+- price_rows: 252
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 12.2
-- high: 13.5
+- date: 20260605
+- open: 12.3
+- high: 12.3
 - low: 12.2
-- close: 13.5
+- close: 12.3
 - volume: 12000
-- ma5: 13.45
-- ema23_primary: 14.52
-- distance_to_ema23_pct: -7.01
-- ma20: 14.1
-- ma60: 17.04
-- ma120: 17.97
-- return_5d: -4.26
-- return_20d: -15.62
-- volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: -4.26
-- distance_to_high_60_pct: -34.47
+- ma5: 13.09
+- ema23_primary: 14.26
+- distance_to_ema23_pct: -13.72
+- ma20: 13.86
+- ma60: 16.83
+- ma120: 17.96
+- return_5d: -10.87
+- return_20d: -17.45
+- volume_ratio: 0.6
+- distance_to_ma20_pct_auxiliary: -11.22
+- distance_to_high_60_pct: -40.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,14.4,15.8,14.4,15.8,6000,17.41,-9.27,17.43,18.88,0.55
-20260504,15.8,15.8,14.6,14.9,24000,17.21,-13.4,17.24,18.79,2.05
 20260505,15.15,15.15,14.3,14.8,13000,17,-12.97,17.06,18.72,1.07
 20260506,14.5,14.5,13.85,14.35,6000,16.78,-14.5,16.85,18.62,0.5
 20260507,14.45,14.45,13.8,14.35,11000,16.58,-13.45,16.64,18.51,0.91
@@ -155,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,13.1,13.1,13.1,13.1,13000,14.75,-11.2,14.36,17.26,0.62
 20260601,13.05,13.05,13,13.05,13,14.61,-10.68,14.22,17.14,0
 20260603,12.2,13.5,12.2,13.5,12000,14.52,-7.01,14.1,17.04,0.59
+20260604,12.2,13.5,12.2,13.5,12000,14.43,-6.46,13.98,16.94,0.58
+20260605,12.3,12.3,12.2,12.3,12000,14.26,-13.72,13.86,16.83,0.6
 ```
 
 ## Latest TDCC Snapshot

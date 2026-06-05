@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3322 建舜電
 
 ## Metadata
-- generated_at: 2026-06-05 03:11:53 Asia/Taipei
+- generated_at: 2026-06-05 21:07:15 Asia/Taipei
 - stock_id: 3322
 - stock_name: 建舜電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 14.5
-- high: 14.55
-- low: 14.1
-- close: 14.35
+- date: 20260605
+- open: 14.6
+- high: 14.95
+- low: 14
+- close: 14.25
 - volume: 14000
-- ma5: 13.63
-- ema23_primary: 13.36
-- distance_to_ema23_pct: 7.4
-- ma20: 13.21
+- ma5: 14.15
+- ema23_primary: 13.51
+- distance_to_ema23_pct: 5.47
+- ma20: 13.32
 - ma60: 13.39
-- ma120: 14.41
-- return_5d: 8.71
-- return_20d: 9.96
+- ma120: 14.44
+- return_5d: 8.78
+- return_20d: 8.78
 - volume_ratio: 0.02
-- distance_to_ma20_pct_auxiliary: 8.59
-- distance_to_high_60_pct: -7.72
+- distance_to_ma20_pct_auxiliary: 7
+- distance_to_high_60_pct: -6.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,13.35,13.45,13.15,13.45,749000,13.6,-1.08,13.63,14.15,0.63
-20260508,13.5,13.6,13,13.1,1182000,13.56,-3.36,13.64,14.1,0.98
 20260511,13.2,13.4,13.05,13.15,537000,13.52,-2.75,13.63,14.06,0.45
 20260512,13.35,13.8,13.15,13.8,981000,13.55,1.88,13.66,14.04,0.82
 20260513,13.65,14.05,13.3,13.85,3647000,13.57,2.06,13.7,14.01,2.7
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,13.1,13.6,13.1,13.5,13,13.18,2.44,13.1,13.42,0
 20260602,13.5,14.3,13.3,14.3,14,13.27,7.75,13.15,13.41,0
 20260603,14.5,14.55,14.1,14.35,14000,13.36,7.4,13.21,13.39,0.02
+20260604,14.5,14.55,14.1,14.35,14000,13.44,6.74,13.26,13.4,0.02
+20260605,14.6,14.95,14,14.25,14000,13.51,5.47,13.32,13.39,0.02
 ```
 
 ## Latest TDCC Snapshot

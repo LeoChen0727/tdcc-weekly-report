@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6674 鋐寶科技
 
 ## Metadata
-- generated_at: 2026-06-05 03:13:26 Asia/Taipei
+- generated_at: 2026-06-05 21:08:35 Asia/Taipei
 - stock_id: 6674
 - stock_name: 鋐寶科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 18.15
-- high: 18.85
-- low: 17.85
-- close: 18.45
-- volume: 98019
-- ma5: 18.18
-- ema23_primary: 18.02
-- distance_to_ema23_pct: 2.38
-- ma20: 17.79
-- ma60: 18.33
-- ma120: 19.3
-- return_5d: 2.79
-- return_20d: 0.82
-- volume_ratio: 2.05
-- distance_to_ma20_pct_auxiliary: 3.72
-- distance_to_high_60_pct: -10.87
+- date: 20260605
+- open: 18.55
+- high: 18.6
+- low: 18.05
+- close: 18.4
+- volume: 29000
+- ma5: 18.22
+- ema23_primary: 18.05
+- distance_to_ema23_pct: 1.91
+- ma20: 17.76
+- ma60: 18.31
+- ma120: 19.26
+- return_5d: 1.1
+- return_20d: 0
+- volume_ratio: 0.58
+- distance_to_ma20_pct_auxiliary: 3.59
+- distance_to_high_60_pct: -11.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,18.55,18.65,18.45,18.55,23021,18.69,-0.75,18.8,18.99,0.56
-20260508,18.5,18.5,18.2,18.4,20017,18.67,-1.42,18.8,18.97,0.5
 20260511,18.25,18.3,18.05,18.1,17261,18.62,-2.79,18.77,18.93,0.43
 20260512,18.35,18.45,17.9,17.9,33190,18.56,-3.55,18.71,18.9,0.82
 20260513,17.85,17.85,17.2,17.4,70000,18.46,-5.75,18.63,18.85,1.64
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,18.3,18.5,17.65,18.15,87507,17.98,0.97,17.8,18.36,2.09
 20260602,18.25,18.35,17.8,18.05,57400,17.98,0.38,17.78,18.34,1.31
 20260603,18.15,18.85,17.85,18.45,98019,18.02,2.38,17.79,18.33,2.05
+20260604,18.25,18.35,17.8,18.05,57400,18.02,0.15,17.76,18.32,1.16
+20260605,18.55,18.6,18.05,18.4,29000,18.05,1.91,17.76,18.31,0.58
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4556 旭然
 
 ## Metadata
-- generated_at: 2026-06-05 03:12:24 Asia/Taipei
+- generated_at: 2026-06-05 21:07:41 Asia/Taipei
 - stock_id: 4556
 - stock_name: 旭然
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 274
+- latest_price_date: 20260605
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 39.2
-- high: 40
-- low: 39.15
-- close: 39.5
-- volume: 40000
-- ma5: 39.17
-- ema23_primary: 38.83
-- distance_to_ema23_pct: 1.74
-- ma20: 40.42
-- ma60: 33.94
-- ma120: 30
-- return_5d: 2.07
-- return_20d: -8.67
-- volume_ratio: 0.09
-- distance_to_ma20_pct_auxiliary: -2.28
-- distance_to_high_60_pct: -16.93
+- date: 20260605
+- open: 44.5
+- high: 45.95
+- low: 40.6
+- close: 43.7
+- volume: 44000
+- ma5: 40.34
+- ema23_primary: 39.28
+- distance_to_ema23_pct: 11.24
+- ma20: 40.3
+- ma60: 34.44
+- ma120: 30.29
+- return_5d: 11.62
+- return_20d: 3.31
+- volume_ratio: 0.17
+- distance_to_ma20_pct_auxiliary: 8.44
+- distance_to_high_60_pct: -8.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,43.45,47.55,42.55,43.35,2470000,34.9,24.2,34.11,30.01,2.24
-20260508,39.2,43.3,39.1,42.3,1163000,35.52,19.08,34.86,30.22,1
 20260511,42.3,46,41.5,45.55,1093000,36.36,25.29,35.76,30.51,0.9
 20260512,45.3,46.8,43.95,44.25,965000,37.01,19.55,36.62,30.79,0.77
 20260513,43.2,43.35,41.85,42.1,435000,37.44,12.45,37.38,31.03,0.34
@@ -155,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,40.4,40.95,39.2,39.95,40,38.74,3.13,40.62,33.56,0
 20260602,40.8,40.8,38.5,39.05,39,38.76,0.74,40.61,33.74,0
 20260603,39.2,40,39.15,39.5,40000,38.83,1.74,40.42,33.94,0.09
+20260604,39.2,40,39.15,39.5,40000,38.88,1.59,40.23,34.16,0.13
+20260605,44.5,45.95,40.6,43.7,44000,39.28,11.24,40.3,34.44,0.17
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2010 春源
 
 ## Metadata
-- generated_at: 2026-06-05 03:10:54 Asia/Taipei
+- generated_at: 2026-06-05 21:06:25 Asia/Taipei
 - stock_id: 2010
 - stock_name: 春源
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -117,30 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 23.7
-- high: 24.15
-- low: 23.55
-- close: 24.05
-- volume: 2086504
-- ma5: 23.49
-- ema23_primary: 23.42
-- distance_to_ema23_pct: 2.68
-- ma20: 23.1
-- ma60: 24.17
-- ma120: 22.74
-- return_5d: 4.79
-- return_20d: -3.22
-- volume_ratio: 0.96
-- distance_to_ma20_pct_auxiliary: 4.11
-- distance_to_high_60_pct: -8.56
+- date: 20260605
+- open: 24.05
+- high: 24.35
+- low: 23.95
+- close: 24.25
+- volume: 1761427
+- ma5: 23.83
+- ema23_primary: 23.5
+- distance_to_ema23_pct: 3.19
+- ma20: 23.08
+- ma60: 24.22
+- ma120: 22.8
+- return_5d: 4.3
+- return_20d: 3.63
+- volume_ratio: 0.93
+- distance_to_ma20_pct_auxiliary: 5.08
+- distance_to_high_60_pct: -7.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,24.95,24.95,24.7,24.85,1350966,24.75,0.39,24.89,23.96,0.85
-20260508,24.6,24.6,23.3,23.4,7813178,24.64,-5.04,24.81,24,4.06
 20260511,23.2,23.5,23,23.4,2375161,24.54,-4.64,24.72,24.03,1.24
 20260512,23.35,23.35,22.9,23.1,3375206,24.42,-5.4,24.6,24.05,1.73
 20260513,23.2,23.2,22.95,23.05,1297756,24.3,-5.16,24.48,24.06,0.67
@@ -159,6 +157,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,23.3,23.8,23.1,23.75,2284999,23.35,1.72,23.2,24.14,1.07
 20260602,23.75,23.75,23.4,23.55,1867234,23.37,0.79,23.14,24.15,0.87
 20260603,23.7,24.15,23.55,24.05,2086504,23.42,2.68,23.1,24.17,0.96
+20260604,23.75,23.75,23.4,23.55,1867234,23.43,0.5,23.04,24.19,0.85
+20260605,24.05,24.35,23.95,24.25,1761427,23.5,3.19,23.08,24.22,0.93
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 2010 | 春源 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260605 | 2010 | 春源 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 2010 | 春源 | 4 | 1 | 4 | 4 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260605 | 2010 | 春源 | 5 | 2 | 5 | 5 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6872 浩宇生醫
 
 ## Metadata
-- generated_at: 2026-06-05 03:13:36 Asia/Taipei
+- generated_at: 2026-06-05 21:08:43 Asia/Taipei
 - stock_id: 6872
 - stock_name: 浩宇生醫
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 16.85
-- high: 17.1
-- low: 16.85
-- close: 16.95
+- date: 20260605
+- open: 17
+- high: 17.25
+- low: 16.75
+- close: 17.1
 - volume: 17000
-- ma5: 17.27
-- ema23_primary: 17.84
-- distance_to_ema23_pct: -5.01
-- ma20: 17.92
-- ma60: 17.79
-- ma120: 18.95
-- return_5d: -5.31
-- return_20d: -7.63
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: -5.41
-- distance_to_high_60_pct: -16.91
+- ma5: 17.08
+- ema23_primary: 17.71
+- distance_to_ema23_pct: -3.46
+- ma20: 17.81
+- ma60: 17.76
+- ma120: 18.88
+- return_5d: -1.72
+- return_20d: -5
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: -4
+- distance_to_high_60_pct: -16.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,18.5,18.5,18.2,18.2,77000,18.26,-0.34,18.31,18.3,1.28
-20260508,18.1,18.5,18,18,32000,18.24,-1.32,18.37,18.27,0.53
 20260511,18.4,19.2,18,18,139000,18.22,-1.21,18.43,18.23,2.09
 20260512,19.1,19.1,18,18.25,109000,18.22,0.15,18.43,18.21,1.68
 20260513,18.1,18.9,18.1,18.1,63000,18.21,-0.62,18.43,18.18,1
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,17.4,17.4,17.1,17.1,17,17.98,-4.9,18.05,17.85,0
 20260602,17.1,17.3,17,17.3,17,17.92,-3.48,17.99,17.82,0
 20260603,16.85,17.1,16.85,16.95,17000,17.84,-5.01,17.92,17.79,0.45
+20260604,16.85,17.1,16.85,16.95,17000,17.77,-4.61,17.86,17.77,0.49
+20260605,17,17.25,16.75,17.1,17000,17.71,-3.46,17.81,17.76,0.5
 ```
 
 ## Latest TDCC Snapshot

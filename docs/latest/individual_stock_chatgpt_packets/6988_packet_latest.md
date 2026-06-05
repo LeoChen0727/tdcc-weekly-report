@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6988 威力暘-創
 
 ## Metadata
-- generated_at: 2026-06-05 03:13:43 Asia/Taipei
+- generated_at: 2026-06-05 21:08:48 Asia/Taipei
 - stock_id: 6988
 - stock_name: 威力暘-創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 264
+- latest_price_date: 20260605
+- price_rows: 266
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 15.05
-- high: 15.1
-- low: 14.7
-- close: 14.7
-- volume: 34041
-- ma5: 15.5
-- ema23_primary: 15.64
-- distance_to_ema23_pct: -6.04
-- ma20: 15.9
-- ma60: 14.91
+- date: 20260605
+- open: 14.75
+- high: 15
+- low: 14.35
+- close: 14.35
+- volume: 45020
+- ma5: 14.96
+- ema23_primary: 15.5
+- distance_to_ema23_pct: -7.44
+- ma20: 15.95
+- ma60: 14.93
 - ma120: 15.43
-- return_5d: -10.64
-- return_20d: 2.08
-- volume_ratio: 0.37
-- distance_to_ma20_pct_auxiliary: -7.56
-- distance_to_high_60_pct: -19.01
+- return_5d: -9.18
+- return_20d: -1.03
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: -10.02
+- distance_to_high_60_pct: -20.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,14.7,14.7,14.15,14.15,34000,14.33,-1.23,14.37,15.54,0.8
-20260508,14.2,15.1,14.2,14.5,114320,14.34,1.11,14.35,15.46,2.46
 20260511,15,15.25,14.5,14.9,92000,14.39,3.56,14.35,15.39,1.84
 20260512,15,15.6,15,15.1,90431,14.45,4.52,14.37,15.32,1.69
 20260513,15.5,16,15.25,15.25,143200,14.51,5.07,14.38,15.24,2.42
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,15.75,16.1,15.3,15.35,77314,15.78,-2.72,15.84,14.89,0.8
 20260602,15.4,15.4,15.05,15.2,33020,15.73,-3.37,15.89,14.91,0.35
 20260603,15.05,15.1,14.7,14.7,34041,15.64,-6.04,15.9,14.91,0.37
+20260604,15.4,15.4,15.05,15.2,33020,15.61,-2.61,15.96,14.93,0.36
+20260605,14.75,15,14.35,14.35,45020,15.5,-7.44,15.95,14.93,0.51
 ```
 
 ## Latest TDCC Snapshot

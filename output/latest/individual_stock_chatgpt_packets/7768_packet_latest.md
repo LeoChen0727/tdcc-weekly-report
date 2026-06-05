@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7768 頌勝科技
 
 ## Metadata
-- generated_at: 2026-06-05 03:14:07 Asia/Taipei
+- generated_at: 2026-06-05 21:09:09 Asia/Taipei
 - stock_id: 7768
 - stock_name: 頌勝科技
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260603
-- price_rows: 20
+- latest_price_date: 20260605
+- price_rows: 22
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 428
-- high: 444
-- low: 415.5
-- close: 430
-- volume: 581041
-- ma5: 403.6
-- ema23_primary: 385.65
-- distance_to_ema23_pct: 11.5
-- ma20: 375.68
-- ma60: 375.68
-- ma120: 375.68
-- return_5d: 12.71
-- return_20d:
-- volume_ratio: 1.05
-- distance_to_ma20_pct_auxiliary: 14.46
-- distance_to_high_60_pct: -3.15
+- date: 20260605
+- open: 415.5
+- high: 415.5
+- low: 396.5
+- close: 406.5
+- volume: 251741
+- ma5: 421.7
+- ema23_primary: 390.63
+- distance_to_ema23_pct: 4.06
+- ma20: 380.68
+- ma60: 379.45
+- ma120: 379.45
+- return_5d: 7.4
+- return_20d: 16.14
+- volume_ratio: 0.53
+- distance_to_ma20_pct_auxiliary: 6.78
+- distance_to_high_60_pct: -8.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,388,408,380,384.5,1832285,,,,,
-20260508,368,381,348,350,1027633,,,,,
 20260511,350,365,330,354,733381,,,,,
 20260512,355,355,334,336,578562,,,,,
 20260513,341,347,333.5,341.5,423313,372.86,-8.41,353.2,353.2,0.46
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,400,416,400,416,1078769,377.41,10.23,369.75,369.75,2.05
 20260602,421,440,418.5,428,1008845,381.62,12.15,372.82,372.82,1.83
 20260603,428,444,415.5,430,581041,385.65,11.5,375.68,375.68,1.05
+20260604,421,440,418.5,428,1008845,389.18,9.97,377.85,378.17,1.97
+20260605,415.5,415.5,396.5,406.5,251741,390.63,4.06,380.68,379.45,0.53
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6855 數泓科
 
 ## Metadata
-- generated_at: 2026-06-05 03:13:35 Asia/Taipei
+- generated_at: 2026-06-05 21:08:42 Asia/Taipei
 - stock_id: 6855
 - stock_name: 數泓科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 251
+- latest_price_date: 20260605
+- price_rows: 253
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,14 +59,14 @@
 - action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 單一個股分析
 - score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足、股價乖離過大
+- risk_control_zh: TDCC 歷史不足
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_consolidation
+- thesis_state: unclear
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -91,6 +91,7 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -104,7 +105,6 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
-- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 133.5
-- high: 136
-- low: 126
-- close: 133
-- volume: 132000
-- ma5: 118.9
-- ema23_primary: 110.89
-- distance_to_ema23_pct: 19.93
-- ma20: 108.33
-- ma60: 109.76
-- ma120: 111.19
-- return_5d: 19.82
-- return_20d: 26.67
-- volume_ratio: 3.01
-- distance_to_ma20_pct_auxiliary: 22.78
-- distance_to_high_60_pct: -2.21
+- date: 20260605
+- open: 127
+- high: 131
+- low: 127
+- close: 130
+- volume: 130000
+- ma5: 128.5
+- ema23_primary: 114.17
+- distance_to_ema23_pct: 13.86
+- ma20: 111.03
+- ma60: 110.11
+- ma120: 111.6
+- return_5d: 21.5
+- return_20d: 25
+- volume_ratio: 2.34
+- distance_to_ma20_pct_auxiliary: 17.09
+- distance_to_high_60_pct: -4.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,105,106,104.5,105,20000,107.43,-2.27,107.28,112.67,1.25
-20260508,104,104,103,104,6000,107.15,-2.94,107,112.54,0.37
 20260511,106.5,106.5,105,105,5000,106.97,-1.84,106.75,112.31,0.31
 20260512,104,105,103.5,105,7000,106.8,-1.69,106.5,112.15,0.44
 20260513,104.5,105.5,104,105,11000,106.65,-1.55,106.2,111.98,0.69
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,117.5,117.5,117.5,117.5,118,107.06,9.76,105.72,109.28,0
 20260602,129,129,129,129,129,108.88,18.47,106.92,109.48,0
 20260603,133.5,136,126,133,132000,110.89,19.93,108.33,109.76,3.01
+20260604,133.5,136,126,133,132000,112.74,17.97,109.72,109.94,2.67
+20260605,127,131,127,130,130000,114.17,13.86,111.03,110.11,2.34
 ```
 
 ## Latest TDCC Snapshot

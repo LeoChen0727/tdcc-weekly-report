@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8478 東哥遊艇
 
 ## Metadata
-- generated_at: 2026-06-05 03:14:25 Asia/Taipei
+- generated_at: 2026-06-05 21:09:24 Asia/Taipei
 - stock_id: 8478
 - stock_name: 東哥遊艇
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 155.5
-- high: 158.5
-- low: 153.5
-- close: 158
-- volume: 515697
-- ma5: 154.2
-- ema23_primary: 157.12
-- distance_to_ema23_pct: 0.56
-- ma20: 156.3
-- ma60: 162.57
-- ma120: 175.4
-- return_5d: 5.33
-- return_20d: -6.78
-- volume_ratio: 2
-- distance_to_ma20_pct_auxiliary: 1.09
-- distance_to_high_60_pct: -14.59
+- date: 20260605
+- open: 159
+- high: 168
+- low: 157.5
+- close: 162.5
+- volume: 624965
+- ma5: 157
+- ema23_primary: 157.37
+- distance_to_ema23_pct: 3.26
+- ma20: 155.3
+- ma60: 162.4
+- ma120: 174.77
+- return_5d: 6.21
+- return_20d: -3.85
+- volume_ratio: 2.18
+- distance_to_ma20_pct_auxiliary: 4.64
+- distance_to_high_60_pct: -12.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,169,169,166.5,168,166592,168.42,-0.25,169.32,168.66,0.79
-20260508,168,169.5,166.5,169,107116,168.47,0.32,169.8,168.33,0.51
 20260511,169,169,163,163,340960,168.01,-2.98,169.85,167.97,1.53
 20260512,164.5,164.5,160,160,313050,167.35,-4.39,169.32,167.62,1.51
 20260513,166,169.5,163.5,165,661488,167.15,-1.29,169.12,167.35,2.9
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,154,159,151.5,155.5,295617,157.28,-1.13,157.55,162.85,1.21
 20260602,155.5,155.5,152.5,154.5,219856,157.04,-1.62,156.88,162.7,0.88
 20260603,155.5,158.5,153.5,158,515697,157.12,0.56,156.3,162.57,2
+20260604,155.5,155.5,152.5,154.5,219856,156.9,-1.53,155.62,162.5,0.84
+20260605,159,168,157.5,162.5,624965,157.37,3.26,155.3,162.4,2.18
 ```
 
 ## Latest TDCC Snapshot
@@ -192,9 +192,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260604 | 8478 | 東哥遊艇 | 10 | 0 | 1450.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

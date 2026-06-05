@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8422 可寧衛*
 
 ## Metadata
-- generated_at: 2026-06-05 03:14:22 Asia/Taipei
+- generated_at: 2026-06-05 21:09:22 Asia/Taipei
 - stock_id: 8422
 - stock_name: 可寧衛*
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 269
+- latest_price_date: 20260605
+- price_rows: 271
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 27.4
-- high: 28.3
-- low: 27.1
+- date: 20260605
+- open: 28.5
+- high: 28.5
+- low: 27.75
 - close: 28.1
-- volume: 19432395
-- ma5: 27.35
-- ema23_primary: 27.41
-- distance_to_ema23_pct: 2.53
-- ma20: 27.02
-- ma60: 28.58
-- ma120: 30.64
-- return_5d: 2.93
-- return_20d: 0.9
-- volume_ratio: 1.93
-- distance_to_ma20_pct_auxiliary: 3.99
+- volume: 11395793
+- ma5: 27.72
+- ema23_primary: 27.46
+- distance_to_ema23_pct: 2.33
+- ma20: 26.98
+- ma60: 28.5
+- ma120: 30.71
+- return_5d: 4.46
+- return_20d: 0.72
+- volume_ratio: 1.13
+- distance_to_ma20_pct_auxiliary: 4.15
 - distance_to_high_60_pct: -11.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,27.85,28.4,27.15,28.4,16925306,28.91,-1.78,28.86,30.9,1.55
-20260508,28.4,28.6,27.7,27.9,7641789,28.83,-3.23,28.79,30.72,0.72
 20260511,27.75,28.15,27.6,27.95,7448103,28.76,-2.81,28.73,30.57,0.7
 20260512,28,28,27.5,27.55,7711602,28.66,-3.86,28.66,30.43,0.72
 20260513,27.55,27.55,27.1,27.1,8639103,28.53,-5,28.57,30.29,0.8
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,27,28.4,27,27.7,15510946,27.34,1.3,27.06,28.73,1.67
 20260602,27.95,27.95,26.75,27.35,14062178,27.34,0.02,27.01,28.65,1.47
 20260603,27.4,28.3,27.1,28.1,19432395,27.41,2.53,27.02,28.58,1.93
+20260604,27.95,27.95,26.75,27.35,14062178,27.4,-0.19,26.97,28.54,1.42
+20260605,28.5,28.5,27.75,28.1,11395793,27.46,2.33,26.98,28.5,1.13
 ```
 
 ## Latest TDCC Snapshot
@@ -192,9 +192,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260604 | 8422 | 可寧衛* | 85 | 12 | 2681960.0 | 0.0 |  | call_inflow |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2356 英業達
 
 ## Metadata
-- generated_at: 2026-06-05 03:11:06 Asia/Taipei
+- generated_at: 2026-06-05 21:06:35 Asia/Taipei
 - stock_id: 2356
 - stock_name: 英業達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 82.5
-- high: 88.6
-- low: 81
-- close: 85.4
-- volume: 198106662
-- ma5: 75.46
-- ema23_primary: 61.41
-- distance_to_ema23_pct: 39.06
-- ma20: 59.62
-- ma60: 49.27
-- ma120: 46.79
-- return_5d: 37.74
-- return_20d: 73.58
-- volume_ratio: 1.82
-- distance_to_ma20_pct_auxiliary: 43.23
-- distance_to_high_60_pct: -3.61
+- date: 20260605
+- open: 76.5
+- high: 79.2
+- low: 73.2
+- close: 76.8
+- volume: 113333484
+- ma5: 80.12
+- ema23_primary: 64.16
+- distance_to_ema23_pct: 19.7
+- ma20: 62.52
+- ma60: 50.55
+- ma120: 47.36
+- return_5d: 9.4
+- return_20d: 54.99
+- volume_ratio: 0.9
+- distance_to_ma20_pct_auxiliary: 22.84
+- distance_to_high_60_pct: -13.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,49.55,50.6,48.5,49.95,42154048,46.13,8.29,46.32,44.23,1.53
-20260508,50,51,48.85,49.55,37330101,46.41,6.76,46.61,44.3,1.32
 20260511,50.3,50.5,49.1,50.2,30489247,46.73,7.43,46.9,44.39,1.06
 20260512,50.4,50.4,47.75,48.7,29010252,46.89,3.86,47.11,44.47,0.98
 20260513,48.65,53.5,48.4,52.8,139195372,47.38,11.43,47.52,44.61,3.94
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,71.5,77.2,69.2,77.2,241053678,57.29,34.75,56.13,47.9,2.76
 20260602,77,83.5,75.3,80.6,295984374,59.23,36.07,57.81,48.54,2.92
 20260603,82.5,88.6,81,85.4,198106662,61.41,39.06,59.62,49.27,1.82
+20260604,77,83.5,75.3,80.6,295984374,63.01,27.91,61.16,49.95,2.43
+20260605,76.5,79.2,73.2,76.8,113333484,64.16,19.7,62.52,50.55,0.9
 ```
 
 ## Latest TDCC Snapshot
@@ -191,9 +191,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260604 | 2356 | 英業達 | 79 | 6 | 32599670.0 | 433820.0 | 75.15 | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

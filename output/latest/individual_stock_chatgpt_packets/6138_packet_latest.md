@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6138 茂達
 
 ## Metadata
-- generated_at: 2026-06-05 03:12:57 Asia/Taipei
+- generated_at: 2026-06-05 21:08:10 Asia/Taipei
 - stock_id: 6138
 - stock_name: 茂達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,14 +59,14 @@
 - action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 單一個股分析
 - score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足、股價乖離過大
+- risk_control_zh: TDCC 歷史不足
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_consolidation
+- thesis_state: unclear
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -88,9 +88,11 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -104,7 +106,6 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
-- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 333.5
-- high: 337.5
-- low: 328
-- close: 330.5
-- volume: 333000
-- ma5: 340.2
-- ema23_primary: 309.58
-- distance_to_ema23_pct: 6.76
-- ma20: 312.93
-- ma60: 256.7
-- ma120: 243.04
-- return_5d: -7.03
-- return_20d: 31.94
-- volume_ratio: 0.25
-- distance_to_ma20_pct_auxiliary: 5.62
-- distance_to_high_60_pct: -13.82
+- date: 20260605
+- open: 321.5
+- high: 327
+- low: 311
+- close: 323.5
+- volume: 319000
+- ma5: 333.3
+- ema23_primary: 312.34
+- distance_to_ema23_pct: 3.57
+- ma20: 319.5
+- ma60: 260.27
+- ma120: 244.64
+- return_5d: -6.37
+- return_20d: 24.18
+- volume_ratio: 0.26
+- distance_to_ma20_pct_auxiliary: 1.25
+- distance_to_high_60_pct: -15.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,251.5,270,249,262,1833000,238.62,9.8,237.03,232.55,2.3
-20260508,258,274,258,260.5,1650000,240.44,8.34,239.05,232.44,1.91
 20260511,265,286,254,285,2313000,244.15,16.73,242.3,232.87,2.39
 20260512,291,298,281.5,289.5,2968000,247.93,16.77,245.72,233.53,2.69
 20260513,285,293.5,279,287.5,1592000,251.23,14.44,249,233.99,1.36
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,349.5,354.5,342,353,349,305.74,15.46,305.05,253.15,0
 20260602,356,356,322,329,334,307.68,6.93,308.93,254.91,0
 20260603,333.5,337.5,328,330.5,333000,309.58,6.76,312.93,256.7,0.25
+20260604,333.5,337.5,328,330.5,333000,311.33,6.16,316.35,258.59,0.26
+20260605,321.5,327,311,323.5,319000,312.34,3.57,319.5,260.27,0.26
 ```
 
 ## Latest TDCC Snapshot

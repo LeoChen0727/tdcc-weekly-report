@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6683 雍智科技
 
 ## Metadata
-- generated_at: 2026-06-05 03:13:27 Asia/Taipei
+- generated_at: 2026-06-05 21:08:35 Asia/Taipei
 - stock_id: 6683
 - stock_name: 雍智科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 1760
-- high: 1855
-- low: 1700
-- close: 1715
-- volume: 1764000
-- ma5: 1708
-- ema23_primary: 1810.22
-- distance_to_ema23_pct: -5.26
-- ma20: 1875
-- ma60: 1673.8
-- ma120: 1104.47
-- return_5d: -3.65
-- return_20d: -28.39
-- volume_ratio: 1.83
-- distance_to_ma20_pct_auxiliary: -8.53
-- distance_to_high_60_pct: -33.14
+- date: 20260605
+- open: 1650
+- high: 1660
+- low: 1520
+- close: 1610
+- volume: 1591000
+- ma5: 1700
+- ema23_primary: 1786.26
+- distance_to_ema23_pct: -9.87
+- ma20: 1811.5
+- ma60: 1697.83
+- ma120: 1124.43
+- return_5d: -3.3
+- return_20d: -27.15
+- volume_ratio: 1.44
+- distance_to_ma20_pct_auxiliary: -11.12
+- distance_to_high_60_pct: -37.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,2380,2385,2250,2385,237000,1918.63,24.31,1961.5,1329.47,0.28
-20260508,2320,2320,2150,2210,257000,1942.91,13.75,1992.25,1357.57,0.33
 20260511,2160,2300,2160,2270,275000,1970.17,15.22,2020.75,1385.8,0.43
 20260512,2285,2410,2270,2370,246000,2003.48,18.29,2046.75,1414.75,0.39
 20260513,2135,2135,2135,2135,114000,2014.44,5.98,2063.75,1438.73,0.18
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,1660,1775,1650,1715,1712,1825.59,-6.06,1950,1645,0
 20260602,1725,1770,1660,1745,1718,1818.88,-4.06,1909,1660.33,0
 20260603,1760,1855,1700,1715,1764000,1810.22,-5.26,1875,1673.8,1.83
+20260604,1760,1855,1700,1715,1764000,1802.29,-4.84,1841.5,1687.43,1.7
+20260605,1650,1660,1520,1610,1591000,1786.26,-9.87,1811.5,1697.83,1.44
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009808 華南永昌優選50
 
 ## Metadata
-- generated_at: 2026-06-05 03:10:25 Asia/Taipei
+- generated_at: 2026-06-05 21:06:01 Asia/Taipei
 - stock_id: 009808
 - stock_name: 華南永昌優選50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260603
-- price_rows: 9
+- latest_price_date: 20260605
+- price_rows: 11
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
+- date: 20260605
 - open: 31.1
-- high: 31.72
-- low: 31.1
-- close: 31.66
-- volume: 821571
-- ma5: 30.72
-- ema23_primary: 29.47
-- distance_to_ema23_pct: 7.42
-- ma20: 30.1
-- ma60: 30.1
-- ma120: 30.1
-- return_5d: 5.32
+- high: 31.1
+- low: 30.29
+- close: 30.72
+- volume: 1470930
+- ma5: 31.09
+- ema23_primary: 29.7
+- distance_to_ema23_pct: 3.43
+- ma20: 30.24
+- ma60: 30.24
+- ma120: 30.24
+- return_5d: 0.85
 - return_20d:
-- volume_ratio: 0.69
-- distance_to_ma20_pct_auxiliary: 5.19
-- distance_to_high_60_pct: -0.19
+- volume_ratio: 1.22
+- distance_to_ma20_pct_auxiliary: 1.58
+- distance_to_high_60_pct: -3.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -143,6 +144,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,30.5,31.18,30.5,30.94,1375680,29.11,6.28,29.74,29.74,1.09
 20260602,31,31.15,30.73,31.07,1082987,29.28,6.13,29.9,29.9,0.87
 20260603,31.1,31.72,31.1,31.66,821571,29.47,7.42,30.1,30.1,0.69
+20260604,31,31.15,30.73,31.07,1082987,29.61,4.94,30.2,30.2,0.92
+20260605,31.1,31.1,30.29,30.72,1470930,29.7,3.43,30.24,30.24,1.22
 ```
 
 ## Latest TDCC Snapshot

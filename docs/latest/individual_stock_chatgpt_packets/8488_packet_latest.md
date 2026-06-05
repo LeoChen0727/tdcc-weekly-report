@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8488 吉源-KY
 
 ## Metadata
-- generated_at: 2026-06-05 03:14:26 Asia/Taipei
+- generated_at: 2026-06-05 21:09:25 Asia/Taipei
 - stock_id: 8488
 - stock_name: 吉源-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 248
+- latest_price_date: 20260605
+- price_rows: 250
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 10.2
-- high: 10.2
-- low: 10.2
-- close: 10.2
-- volume: 1000
-- ma5: 10.04
+- date: 20260605
+- open: 10
+- high: 10
+- low: 9.82
+- close: 9.87
+- volume: 6822
+- ma5: 10.12
 - ema23_primary: 10.01
-- distance_to_ema23_pct: 1.94
+- distance_to_ema23_pct: -1.39
 - ma20: 9.99
 - ma60: 9.98
 - ma120: 10.01
-- return_5d: 4.51
-- return_20d: 0.99
-- volume_ratio: 0.02
-- distance_to_ma20_pct_auxiliary: 2.1
-- distance_to_high_60_pct: -10.92
+- return_5d: -0.3
+- return_20d: -1.79
+- volume_ratio: 0.13
+- distance_to_ma20_pct_auxiliary: -1.17
+- distance_to_high_60_pct: -13.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,10.1,10.2,9.99,10.1,12000,10.1,0.01,10.11,9.98,0.26
-20260507,10.05,10.1,9.93,10.05,15000,10.1,-0.45,10.13,9.98,0.34
 20260508,10.1,10.1,10.1,10.1,2832,10.1,0.04,10.15,9.98,0.06
 20260511,10.1,10.1,9.99,10,4000,10.09,-0.87,10.16,9.98,0.14
 20260512,9.99,10,9.91,9.91,22000,10.07,-1.62,10.17,9.98,0.76
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,9.9,10.15,9.9,10.15,22043,9.97,1.82,9.99,9.98,0.4
 20260602,10.2,10.2,10.2,10.2,1001,9.99,2.12,9.99,9.98,0.02
 20260603,10.2,10.2,10.2,10.2,1000,10.01,1.94,9.99,9.98,0.02
+20260604,10.2,10.2,10.2,10.2,1001,10.02,1.78,10,9.99,0.02
+20260605,10,10,9.82,9.87,6822,10.01,-1.39,9.99,9.98,0.13
 ```
 
 ## Latest TDCC Snapshot

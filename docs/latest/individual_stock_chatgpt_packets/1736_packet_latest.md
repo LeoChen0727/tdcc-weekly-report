@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1736 喬山
 
 ## Metadata
-- generated_at: 2026-06-05 03:10:49 Asia/Taipei
+- generated_at: 2026-06-05 21:06:21 Asia/Taipei
 - stock_id: 1736
 - stock_name: 喬山
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 120
-- high: 120.5
-- low: 115.5
-- close: 116
-- volume: 958771
-- ma5: 117.6
-- ema23_primary: 119.95
-- distance_to_ema23_pct: -3.29
-- ma20: 120.45
-- ma60: 122.73
-- ma120: 135.22
-- return_5d: -0.43
-- return_20d: -5.69
-- volume_ratio: 1.43
-- distance_to_ma20_pct_auxiliary: -3.69
-- distance_to_high_60_pct: -17.73
+- date: 20260605
+- open: 111.5
+- high: 111.5
+- low: 108.5
+- close: 110.5
+- volume: 528284
+- ma5: 116.2
+- ema23_primary: 119.01
+- distance_to_ema23_pct: -7.15
+- ma20: 119.12
+- ma60: 122.12
+- ma120: 134.42
+- return_5d: -7.53
+- return_20d: -11.6
+- volume_ratio: 0.8
+- distance_to_ma20_pct_auxiliary: -7.24
+- distance_to_high_60_pct: -20.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,123,130.5,123,130,825575,123.31,5.43,120.75,128.79,0.89
-20260508,128.5,128.5,123,125,462371,123.45,1.26,120.92,128.47,0.5
 20260511,126,126,123,124,576094,123.49,0.41,121.08,128.07,0.63
 20260512,124,125,119,120,819837,123.2,-2.6,121.17,127.64,0.89
 20260513,116.5,118,114.5,117.5,838955,122.73,-4.26,121.15,127.17,0.9
@@ -155,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,120.5,123,116,118.5,1154556,120.52,-1.68,121.17,123.46,1.77
 20260602,118,122,117,118,611445,120.31,-1.92,120.8,123.17,0.95
 20260603,120,120.5,115.5,116,958771,119.95,-3.29,120.45,122.73,1.43
+20260604,118,122,117,118,611445,119.79,-1.49,119.85,122.42,0.93
+20260605,111.5,111.5,108.5,110.5,528284,119.01,-7.15,119.12,122.12,0.8
 ```
 
 ## Latest TDCC Snapshot
@@ -192,9 +191,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260604 | 1736 | 喬山 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

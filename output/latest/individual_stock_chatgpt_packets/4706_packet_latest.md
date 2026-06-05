@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4706 大恭
 
 ## Metadata
-- generated_at: 2026-06-05 03:12:26 Asia/Taipei
+- generated_at: 2026-06-05 21:07:44 Asia/Taipei
 - stock_id: 4706
 - stock_name: 大恭
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 264
+- latest_price_date: 20260604
+- price_rows: 265
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
+- date: 20260604
 - open: 31.6
 - high: 32
 - low: 31.5
 - close: 31.95
 - volume: 32000
-- ma5: 31.91
-- ema23_primary: 31.64
-- distance_to_ema23_pct: 0.97
-- ma20: 31.59
-- ma60: 31.17
-- ma120: 30.48
-- return_5d: 2.4
-- return_20d: 0.47
-- volume_ratio: 1.49
-- distance_to_ma20_pct_auxiliary: 1.15
+- ma5: 31.9
+- ema23_primary: 31.67
+- distance_to_ema23_pct: 0.89
+- ma20: 31.64
+- ma60: 31.2
+- ma120: 30.5
+- return_5d: -0.16
+- return_20d: 3.57
+- volume_ratio: 1.41
+- distance_to_ma20_pct_auxiliary: 0.97
 - distance_to_high_60_pct: -7.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,31.5,31.5,30.3,30.85,8000,31.66,-2.57,31.84,30.76,0.42
 20260507,30.85,32,30.85,31.8,21000,31.68,0.39,31.9,30.79,1.06
 20260508,31.8,31.8,31.1,31.1,18000,31.63,-1.67,31.88,30.8,1.01
 20260511,31.1,31.1,30.3,30.9,18000,31.57,-2.11,31.88,30.8,0.99
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,32.5,32.5,31.5,31.5,32,31.61,-0.36,31.61,31.12,0
 20260602,31.5,32.4,31.5,31.6,32,31.61,-0.04,31.58,31.14,0
 20260603,31.6,32,31.5,31.95,32000,31.64,0.97,31.59,31.17,1.49
+20260604,31.6,32,31.5,31.95,32000,31.67,0.89,31.64,31.2,1.41
 ```
 
 ## Latest TDCC Snapshot

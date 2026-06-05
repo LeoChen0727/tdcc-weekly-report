@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2504 國產
 
 ## Metadata
-- generated_at: 2026-06-05 03:11:19 Asia/Taipei
+- generated_at: 2026-06-05 21:06:46 Asia/Taipei
 - stock_id: 2504
 - stock_name: 國產
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -117,30 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 35.5
-- high: 36.05
-- low: 35.35
-- close: 35.9
-- volume: 4775773
-- ma5: 35.14
-- ema23_primary: 35.09
-- distance_to_ema23_pct: 2.31
-- ma20: 34.79
-- ma60: 36
-- ma120: 36.33
-- return_5d: 2.72
-- return_20d: 3.46
-- volume_ratio: 2.04
-- distance_to_ma20_pct_auxiliary: 3.18
-- distance_to_high_60_pct: -7.95
+- date: 20260605
+- open: 36.15
+- high: 36.7
+- low: 35.8
+- close: 36.3
+- volume: 4459675
+- ma5: 35.62
+- ema23_primary: 35.2
+- distance_to_ema23_pct: 3.12
+- ma20: 34.88
+- ma60: 35.96
+- ma120: 36.34
+- return_5d: 4.91
+- return_20d: 4.46
+- volume_ratio: 1.74
+- distance_to_ma20_pct_auxiliary: 4.07
+- distance_to_high_60_pct: -6.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,34.55,35,34.5,35,1976265,35.78,-2.19,35.79,36.59,0.9
-20260508,35,35.2,34.65,34.75,2022384,35.7,-2.66,35.69,36.57,0.91
 20260511,34.95,35.1,34.75,34.8,1532149,35.62,-2.31,35.6,36.57,0.68
 20260512,34.8,34.8,34.4,34.6,2178602,35.54,-2.64,35.53,36.56,0.96
 20260513,34.45,34.45,34.15,34.4,2223765,35.44,-2.94,35.41,36.54,1
@@ -159,6 +157,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,34.95,35.65,34.95,35.5,3251652,35,1.43,34.71,36.09,1.48
 20260602,35.6,35.8,35.2,35.2,3748557,35.02,0.52,34.73,36.04,1.68
 20260603,35.5,36.05,35.35,35.9,4775773,35.09,2.31,34.79,36,2.04
+20260604,35.6,35.8,35.2,35.2,3748557,35.1,0.28,34.8,35.97,1.54
+20260605,36.15,36.7,35.8,36.3,4459675,35.2,3.12,34.88,35.96,1.74
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 2504 | 國產 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_14d |
+| 20260605 | 2504 | 國產 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 2504 | 國產 | 3 | 2 | 3 | 4 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260605 | 2504 | 國產 | 4 | 3 | 4 | 5 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

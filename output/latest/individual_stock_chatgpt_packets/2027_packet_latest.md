@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2027 大成鋼
 
 ## Metadata
-- generated_at: 2026-06-05 03:10:55 Asia/Taipei
+- generated_at: 2026-06-05 21:06:26 Asia/Taipei
 - stock_id: 2027
 - stock_name: 大成鋼
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -116,30 +116,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 43.35
-- high: 44.35
-- low: 42.2
-- close: 43.85
-- volume: 35447430
-- ma5: 42.82
-- ema23_primary: 41.08
-- distance_to_ema23_pct: 6.75
-- ma20: 41.13
-- ma60: 38.59
-- ma120: 37.76
-- return_5d: 3.3
-- return_20d: 14.04
-- volume_ratio: 1.06
-- distance_to_ma20_pct_auxiliary: 6.61
-- distance_to_high_60_pct: -2.01
+- date: 20260605
+- open: 44.5
+- high: 44.5
+- low: 43.35
+- close: 43.8
+- volume: 22945418
+- ma5: 43.63
+- ema23_primary: 41.5
+- distance_to_ema23_pct: 5.54
+- ma20: 41.57
+- ma60: 38.83
+- ma120: 37.84
+- return_5d: 5.16
+- return_20d: 10.61
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: 5.36
+- distance_to_high_60_pct: -2.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,38.55,39.2,38.25,39.1,30542417,37.64,3.89,37.61,37.44,1.37
-20260508,39.1,39.8,38.65,39.6,33348864,37.8,4.76,37.67,37.42,1.47
 20260511,40,40.45,39.5,39.95,30077425,37.98,5.19,37.78,37.44,1.34
 20260512,40.2,40.25,39.4,39.7,23834355,38.12,4.14,37.85,37.46,1.05
 20260513,39.05,39.05,37.6,38.1,40973530,38.12,-0.05,37.83,37.45,1.74
@@ -158,6 +156,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,42.05,43.2,41.6,43.2,28077068,40.57,6.48,40.57,38.37,0.88
 20260602,43.6,43.65,42.05,43.65,33817082,40.83,6.92,40.86,38.49,1.02
 20260603,43.35,44.35,42.2,43.85,35447430,41.08,6.75,41.13,38.59,1.06
+20260604,43.6,43.65,42.05,43.65,33817082,41.29,5.71,41.36,38.7,1.01
+20260605,44.5,44.5,43.35,43.8,22945418,41.5,5.54,41.57,38.83,0.69
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 2027 | 大成鋼 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260605 | 2027 | 大成鋼 | pattern | 型態觀察 | 51.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 2027 | 大成鋼 | 10 | 10 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260605 | 2027 | 大成鋼 | 11 | 11 | 5 | 10 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260604 | 2027 | 大成鋼 | 68 | 0 | 12494130.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

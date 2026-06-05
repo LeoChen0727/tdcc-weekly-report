@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6517 保勝光學
 
 ## Metadata
-- generated_at: 2026-06-05 03:13:17 Asia/Taipei
+- generated_at: 2026-06-05 21:08:27 Asia/Taipei
 - stock_id: 6517
 - stock_name: 保勝光學
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 60.9
-- high: 62.5
-- low: 60.6
-- close: 61.4
-- volume: 62000
-- ma5: 59.7
-- ema23_primary: 59.71
-- distance_to_ema23_pct: 2.83
-- ma20: 59.54
-- ma60: 58.53
-- ma120: 62.01
-- return_5d: 3.89
-- return_20d: 4.07
-- volume_ratio: 0.27
-- distance_to_ma20_pct_auxiliary: 3.12
-- distance_to_high_60_pct: -4.06
+- date: 20260605
+- open: 62.7
+- high: 69.3
+- low: 62.5
+- close: 69.3
+- volume: 68000
+- ma5: 62.52
+- ema23_primary: 60.64
+- distance_to_ema23_pct: 14.29
+- ma20: 60.23
+- ma60: 58.84
+- ma120: 62.12
+- return_5d: 17.46
+- return_20d: 19.48
+- volume_ratio: 0.31
+- distance_to_ma20_pct_auxiliary: 15.05
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,60.1,60.1,58.6,58.8,131000,58.73,0.11,58.92,59.62,0.57
-20260508,58.8,59.9,57.7,58,179000,58.67,-1.15,59.01,59.4,0.77
 20260511,57.9,57.9,57,57,194000,58.53,-2.62,58.99,59.18,0.84
 20260512,57,57,56,56.3,204000,58.35,-3.51,58.88,59.01,0.9
 20260513,56,56.2,55.2,56.2,109000,58.17,-3.38,58.75,58.85,0.49
@@ -155,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,59.6,61.4,58,60.5,60,59.51,1.66,59.41,58.45,0
 20260602,60.6,60.8,59.2,60,60,59.55,0.75,59.42,58.48,0
 20260603,60.9,62.5,60.6,61.4,62000,59.71,2.83,59.54,58.53,0.27
+20260604,60.9,62.5,60.6,61.4,62000,59.85,2.59,59.67,58.63,0.27
+20260605,62.7,69.3,62.5,69.3,68000,60.64,14.29,60.23,58.84,0.31
 ```
 
 ## Latest TDCC Snapshot

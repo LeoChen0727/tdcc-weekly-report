@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6271 同欣電
 
 ## Metadata
-- generated_at: 2026-06-05 03:13:09 Asia/Taipei
+- generated_at: 2026-06-05 21:08:21 Asia/Taipei
 - stock_id: 6271
 - stock_name: 同欣電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 253
-- high: 253
-- low: 247.5
-- close: 250
-- volume: 1916071
-- ma5: 247.7
-- ema23_primary: 217.26
-- distance_to_ema23_pct: 15.07
-- ma20: 212.78
-- ma60: 180.38
-- ma120: 159.67
-- return_5d: -1.77
-- return_20d: 39.28
-- volume_ratio: 0.22
-- distance_to_ma20_pct_auxiliary: 17.5
-- distance_to_high_60_pct: -6.89
+- date: 20260605
+- open: 248
+- high: 248
+- low: 226.5
+- close: 236.5
+- volume: 2111406
+- ma5: 246.6
+- ema23_primary: 221.32
+- distance_to_ema23_pct: 6.86
+- ma20: 219
+- ma60: 183.62
+- ma120: 161.68
+- return_5d: -4.25
+- return_20d: 30.3
+- volume_ratio: 0.25
+- distance_to_ma20_pct_auxiliary: 7.99
+- distance_to_high_60_pct: -11.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,181.5,182.5,178,180,6450379,173.79,3.57,178.45,162.38,0.7
-20260508,181.5,185.5,178,181.5,7838365,174.43,4.05,178.88,163,0.87
 20260511,183,185.5,178.5,185.5,5440818,175.35,5.79,179.57,163.75,0.62
 20260512,186.5,186.5,182.5,183,4248441,175.99,3.98,180.12,164.53,0.49
 20260513,182,182.5,178.5,182,3615782,176.49,3.12,180.43,165.18,0.43
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,252,252,245,247.5,2612029,211.08,17.25,205.65,177.31,0.28
 20260602,251.5,253.5,240,249.5,3641722,214.28,16.44,209.25,178.86,0.4
 20260603,253,253,247.5,250,1916071,217.26,15.07,212.78,180.38,0.22
+20260604,251.5,253.5,240,249.5,3641722,219.94,13.44,216.25,182.14,0.42
+20260605,248,248,226.5,236.5,2111406,221.32,6.86,219,183.62,0.25
 ```
 
 ## Latest TDCC Snapshot
@@ -191,9 +191,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260604 | 6271 | 同欣電 | 118 | 0 | 1398200.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

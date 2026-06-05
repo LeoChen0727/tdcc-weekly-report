@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4402 郡都開發
 
 ## Metadata
-- generated_at: 2026-06-05 03:12:18 Asia/Taipei
+- generated_at: 2026-06-05 21:07:37 Asia/Taipei
 - stock_id: 4402
 - stock_name: 郡都開發
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 12
-- high: 12.1
-- low: 11.85
-- close: 12.1
-- volume: 12000
-- ma5: 11.97
-- ema23_primary: 12.65
-- distance_to_ema23_pct: -4.32
-- ma20: 12.21
-- ma60: 15.09
-- ma120: 17.32
-- return_5d: 2.98
-- return_20d: -12.95
-- volume_ratio: 0.22
-- distance_to_ma20_pct_auxiliary: -0.88
-- distance_to_high_60_pct: -36.81
+- date: 20260605
+- open: 12.1
+- high: 13.35
+- low: 12.1
+- close: 13.35
+- volume: 13000
+- ma5: 12.33
+- ema23_primary: 12.66
+- distance_to_ema23_pct: 5.42
+- ma20: 12.12
+- ma60: 14.9
+- ma120: 17.24
+- return_5d: 11.72
+- return_20d: -3.26
+- volume_ratio: 0.26
+- distance_to_ma20_pct_auxiliary: 10.19
+- distance_to_high_60_pct: -30.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,13.55,13.65,13.35,13.5,92000,15.31,-11.82,15.35,17.41,1.47
-20260508,13.6,14.25,13.5,13.8,30000,15.18,-9.11,15.18,17.31,0.48
 20260511,13.95,14.3,13.2,13.75,82000,15.06,-8.72,15.02,17.21,1.28
 20260512,13.35,13.5,12.5,12.5,192000,14.85,-15.83,14.8,17.09,2.7
 20260513,12.5,12.85,12.2,12.4,84000,14.65,-15.34,14.59,16.97,1.17
@@ -155,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,11.95,12.1,11.9,12.1,12,12.76,-5.17,12.41,15.32,0
 20260602,12.1,12.15,11.95,12,12,12.7,-5.48,12.3,15.21,0
 20260603,12,12.1,11.85,12.1,12000,12.65,-4.32,12.21,15.09,0.22
+20260604,12,12.1,11.85,12.1,12000,12.6,-3.97,12.14,14.98,0.24
+20260605,12.1,13.35,12.1,13.35,13000,12.66,5.42,12.12,14.9,0.26
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6527 明達醫
 
 ## Metadata
-- generated_at: 2026-06-05 03:13:18 Asia/Taipei
+- generated_at: 2026-06-05 21:08:28 Asia/Taipei
 - stock_id: 6527
 - stock_name: 明達醫
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 70.5
-- high: 71.3
-- low: 70.2
-- close: 71
+- date: 20260605
+- open: 70.7
+- high: 72
+- low: 70
+- close: 71.3
 - volume: 71000
-- ma5: 70.12
-- ema23_primary: 70.1
-- distance_to_ema23_pct: 1.28
+- ma5: 70.76
+- ema23_primary: 70.27
+- distance_to_ema23_pct: 1.46
 - ma20: 70.17
-- ma60: 70.85
-- ma120: 73.79
-- return_5d: 0.85
-- return_20d: 0
-- volume_ratio: 1.49
-- distance_to_ma20_pct_auxiliary: 1.18
-- distance_to_high_60_pct: -5.96
+- ma60: 70.71
+- ma120: 73.66
+- return_5d: 1.86
+- return_20d: -0.7
+- volume_ratio: 1.4
+- distance_to_ma20_pct_auxiliary: 1.61
+- distance_to_high_60_pct: -4.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,70.6,71,70.5,70.6,57000,69.84,1.09,69.59,72.42,1.15
-20260508,70,71.8,70,71.8,27000,70.01,2.56,69.68,72.35,0.54
 20260511,70.9,70.9,67.8,68.6,123000,69.89,-1.84,69.49,72.25,2.26
 20260512,70.9,70.9,67.9,70,93000,69.9,0.15,69.47,72.17,1.63
 20260513,69.5,70.5,69,70.5,23000,69.95,0.79,69.47,72.08,0.41
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,70,70.3,69.5,70,70,69.98,0.03,70.11,71.02,0
 20260602,69.8,71,67.8,70.5,70,70.02,0.68,70.17,70.95,0
 20260603,70.5,71.3,70.2,71,71000,70.1,1.28,70.17,70.85,1.49
+20260604,70.5,71.3,70.2,71,71000,70.18,1.17,70.19,70.77,1.47
+20260605,70.7,72,70,71.3,71000,70.27,1.46,70.17,70.71,1.4
 ```
 
 ## Latest TDCC Snapshot

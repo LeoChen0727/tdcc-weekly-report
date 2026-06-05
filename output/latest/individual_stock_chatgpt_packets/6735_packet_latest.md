@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6735 美達科技
 
 ## Metadata
-- generated_at: 2026-06-05 03:13:30 Asia/Taipei
+- generated_at: 2026-06-05 21:08:38 Asia/Taipei
 - stock_id: 6735
 - stock_name: 美達科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 100
-- high: 109.5
-- low: 99.8
-- close: 109.5
-- volume: 106000
-- ma5: 105.82
-- ema23_primary: 110.57
-- distance_to_ema23_pct: -0.97
-- ma20: 116.83
-- ma60: 90.86
-- ma120: 75.42
-- return_5d: -0.91
-- return_20d: -17.67
+- date: 20260605
+- open: 104.5
+- high: 104.5
+- low: 98.3
+- close: 100.5
+- volume: 100000
+- ma5: 104.62
+- ema23_primary: 109.65
+- distance_to_ema23_pct: -8.34
+- ma20: 114.25
+- ma60: 92.59
+- ma120: 76.12
+- return_5d: -6.51
+- return_20d: -20.55
 - volume_ratio: 0.19
-- distance_to_ma20_pct_auxiliary: -6.27
-- distance_to_high_60_pct: -26.76
+- distance_to_ma20_pct_auxiliary: -12.04
+- distance_to_high_60_pct: -32.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,127.5,135,127.5,135,434000,104.77,28.86,102.88,73.1,0.4
-20260508,129,130.5,126.5,126.5,338000,106.58,18.69,106,74.12,0.31
 20260511,126.5,128,122,125,327000,108.11,15.62,108.75,75.17,0.3
 20260512,130,137,125.5,135.5,447000,110.4,22.74,111.82,76.39,0.41
 20260513,131.5,140,131.5,139,494000,112.78,23.25,115.17,77.67,0.45
@@ -155,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,107,107,103,104,104,111.67,-6.87,119.65,89.28,0
 20260602,104,104,97.1,99.6,99,110.67,-10,118,89.98,0
 20260603,100,109.5,99.8,109.5,106000,110.57,-0.97,116.83,90.86,0.19
+20260604,100,109.5,99.8,109.5,106000,110.48,-0.89,115.56,91.8,0.2
+20260605,104.5,104.5,98.3,100.5,100000,109.65,-8.34,114.25,92.59,0.19
 ```
 
 ## Latest TDCC Snapshot

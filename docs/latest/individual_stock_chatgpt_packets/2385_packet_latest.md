@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2385 群光
 
 ## Metadata
-- generated_at: 2026-06-05 03:11:08 Asia/Taipei
+- generated_at: 2026-06-05 21:06:38 Asia/Taipei
 - stock_id: 2385
 - stock_name: 群光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,7 +58,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
 - model_category_display_zh: 區間內轉強 / 挑戰前高觀察
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
@@ -92,6 +92,8 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_priority_high
+- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -118,30 +120,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 144.5
-- high: 149.5
-- low: 142
-- close: 145.5
-- volume: 5761138
-- ma5: 139.6
-- ema23_primary: 132.9
-- distance_to_ema23_pct: 9.48
-- ma20: 132.62
-- ma60: 126.67
-- ma120: 122.48
-- return_5d: 7.38
-- return_20d: 13.23
-- volume_ratio: 1.33
-- distance_to_ma20_pct_auxiliary: 9.71
-- distance_to_high_60_pct: -2.68
+- date: 20260605
+- open: 144
+- high: 146.5
+- low: 141.5
+- close: 143
+- volume: 6144936
+- ma5: 143.4
+- ema23_primary: 134.55
+- distance_to_ema23_pct: 6.28
+- ma20: 133.7
+- ma60: 127.33
+- ma120: 122.91
+- return_5d: 5.54
+- return_20d: 6.72
+- volume_ratio: 1.39
+- distance_to_ma20_pct_auxiliary: 6.96
+- distance_to_high_60_pct: -4.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,129,132.5,128.5,131,4440003,125.33,4.53,125.35,123.06,1.07
-20260508,132,134.5,131,134,4902522,126.05,6.31,125.83,123.34,1.16
 20260511,135,136.5,133.5,135,3835177,126.8,6.47,126.35,123.64,0.89
 20260512,132.5,135,130,135,7142331,127.48,5.9,126.85,123.96,1.58
 20260513,132.5,132.5,129,129,3297926,127.61,1.09,127.1,124.16,0.72
@@ -160,6 +160,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,136.5,142.5,136,141.5,6640551,130.69,8.27,131.1,126.04,1.55
 20260602,141.5,143.5,138.5,143.5,5327928,131.76,8.91,131.78,126.34,1.24
 20260603,144.5,149.5,142,145.5,5761138,132.9,9.48,132.62,126.67,1.33
+20260604,141.5,143.5,138.5,143.5,5327928,133.79,7.26,133.25,127.01,1.22
+20260605,144,146.5,141.5,143,6144936,134.55,6.28,133.7,127.33,1.39
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +191,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 2385 | 群光 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | repeated_but_no_breakout | calendar event: ex_dividend on 20260615; status=confirmed; proximity=within_14d |
+| 20260605 | 2385 | 群光 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | calendar event: ex_dividend on 20260615; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 2385 | 群光 | 10 | 1 | 5 | 10 | 10 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260605 | 2385 | 群光 | 11 | 2 | 5 | 10 | 11 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 11 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260604 | 2385 | 群光 | 13 | 0 | 1264270.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

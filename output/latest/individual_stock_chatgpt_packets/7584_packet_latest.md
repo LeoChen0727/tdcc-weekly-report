@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7584 樂意
 
 ## Metadata
-- generated_at: 2026-06-05 03:14:03 Asia/Taipei
+- generated_at: 2026-06-05 21:09:06 Asia/Taipei
 - stock_id: 7584
 - stock_name: 樂意
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 275
+- latest_price_date: 20260605
+- price_rows: 277
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 24.25
-- high: 25.35
-- low: 24.25
-- close: 25.25
-- volume: 25000
-- ma5: 24.14
-- ema23_primary: 27.45
-- distance_to_ema23_pct: -8.02
-- ma20: 27.64
-- ma60: 31.46
-- ma120: 35.51
-- return_5d: 8.14
-- return_20d: -22.31
+- date: 20260605
+- open: 25.9
+- high: 27
+- low: 25
+- close: 26.4
+- volume: 26000
+- ma5: 24.82
+- ema23_primary: 27.19
+- distance_to_ema23_pct: -2.92
+- ma20: 26.89
+- ma60: 31.16
+- ma120: 35.3
+- return_5d: 7.76
+- return_20d: -20.6
 - volume_ratio: 1.2
-- distance_to_ma20_pct_auxiliary: -8.64
-- distance_to_high_60_pct: -30.54
+- distance_to_ma20_pct_auxiliary: -1.83
+- distance_to_high_60_pct: -27.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,32.9,33.9,32.9,33.3,26000,33.09,0.64,32.85,34.74,0.92
-20260508,33,33.3,32.9,33.25,9000,33.1,0.44,32.84,34.64,0.35
 20260511,33.25,33.75,32.8,32.8,5000,33.08,-0.84,32.79,34.58,0.2
 20260512,32.7,32.8,32,32,6000,32.99,-3,32.76,34.51,0.26
 20260513,31.05,31.05,30.7,30.7,21000,32.8,-6.39,32.66,34.39,0.91
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,24.25,24.25,23.5,23.6,24,28.02,-15.77,28.46,31.87,0
 20260602,24.25,24.25,23.25,23.6,24,27.65,-14.65,28,31.64,0
 20260603,24.25,25.35,24.25,25.25,25000,27.45,-8.02,27.64,31.46,1.2
+20260604,24.25,25.35,24.25,25.25,25000,27.27,-7.4,27.23,31.3,1.2
+20260605,25.9,27,25,26.4,26000,27.19,-2.92,26.89,31.16,1.2
 ```
 
 ## Latest TDCC Snapshot

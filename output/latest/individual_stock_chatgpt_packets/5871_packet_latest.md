@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5871 中租-KY
 
 ## Metadata
-- generated_at: 2026-06-05 03:12:52 Asia/Taipei
+- generated_at: 2026-06-05 21:08:06 Asia/Taipei
 - stock_id: 5871
 - stock_name: 中租-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -117,30 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 116
-- high: 119
-- low: 114
-- close: 117.5
-- volume: 26063548
-- ma5: 111
-- ema23_primary: 111.09
-- distance_to_ema23_pct: 5.77
-- ma20: 110.1
-- ma60: 110.68
-- ma120: 107.62
-- return_5d: 9.81
-- return_20d: 1.29
-- volume_ratio: 2.29
-- distance_to_ma20_pct_auxiliary: 6.72
-- distance_to_high_60_pct: -4.47
+- date: 20260605
+- open: 119
+- high: 119.5
+- low: 116
+- close: 118
+- volume: 21923664
+- ma5: 114.6
+- ema23_primary: 111.93
+- distance_to_ema23_pct: 5.42
+- ma20: 110.38
+- ma60: 111.17
+- ma120: 107.87
+- return_5d: 9.77
+- return_20d: 4.89
+- volume_ratio: 1.7
+- distance_to_ma20_pct_auxiliary: 6.91
+- distance_to_high_60_pct: -4.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,116,117,114.5,114.5,5843837,114.75,-0.22,115.95,108.9,0.72
-20260508,115.5,115.5,110.5,112.5,11385514,114.57,-1.8,116.15,109.04,1.35
 20260511,112,113,111,112,6063393,114.35,-2.06,116.4,109.17,0.71
 20260512,111.5,112,109,109.5,10668810,113.95,-3.9,116.38,109.28,1.23
 20260513,111,111,107,107.5,8684794,113.41,-5.21,116.1,109.33,1.03
@@ -159,6 +157,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,108.5,110,107.5,108.5,10456575,110.15,-1.49,110.05,110.17,1.13
 20260602,108.5,115,108,114.5,24972554,110.51,3.61,110.03,110.41,2.42
 20260603,116,119,114,117.5,26063548,111.09,5.77,110.1,110.68,2.29
+20260604,108.5,115,108,114.5,24972554,111.38,2.81,110.1,110.93,2.02
+20260605,119,119.5,116,118,21923664,111.93,5.42,110.38,111.17,1.7
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 5871 | 中租-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260605 | 5871 | 中租-KY | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 5871 | 中租-KY | 10 | 2 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260605 | 5871 | 中租-KY | 11 | 3 | 5 | 10 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260604 | 5871 | 中租-KY | 10 | 0 | 3322430.0 | 0.0 |  | call_inflow |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

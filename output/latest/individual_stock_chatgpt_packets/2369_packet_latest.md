@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2369 菱生
 
 ## Metadata
-- generated_at: 2026-06-05 03:11:07 Asia/Taipei
+- generated_at: 2026-06-05 21:06:36 Asia/Taipei
 - stock_id: 2369
 - stock_name: 菱生
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -117,30 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 36.65
-- high: 37.1
-- low: 34.85
-- close: 35.5
-- volume: 21429232
-- ma5: 38.38
-- ema23_primary: 34.23
-- distance_to_ema23_pct: 3.7
-- ma20: 33.46
-- ma60: 31.45
-- ma120: 28.38
-- return_5d: -11.58
-- return_20d: 11.29
-- volume_ratio: 0.87
-- distance_to_ma20_pct_auxiliary: 6.1
-- distance_to_high_60_pct: -15.48
+- date: 20260605
+- open: 35.15
+- high: 35.2
+- low: 33.3
+- close: 34.9
+- volume: 10572193
+- ma5: 36.68
+- ema23_primary: 34.47
+- distance_to_ema23_pct: 1.24
+- ma20: 33.85
+- ma60: 31.79
+- ma120: 28.64
+- return_5d: -13.4
+- return_20d: 13.68
+- volume_ratio: 0.43
+- distance_to_ma20_pct_auxiliary: 3.09
+- distance_to_high_60_pct: -16.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,31.9,33.25,31.1,33,20027439,30.96,6.59,31.09,29.25,1.17
-20260508,32.8,33.75,30.25,30.7,20342123,30.94,-0.77,31.11,29.3,1.18
 20260511,30.9,31.95,30.7,31,11030333,30.94,0.18,31.11,29.36,0.66
 20260512,31.05,31.45,30,31.2,10320942,30.96,0.76,31.08,29.45,0.63
 20260513,30.55,30.75,30,30.45,6876758,30.92,-1.52,31,29.54,0.43
@@ -159,6 +157,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,40.9,40.9,39.5,39.7,23872689,33.89,17.16,33.11,31.15,0.94
 20260602,39.35,39.35,35.9,36.65,26454211,34.12,7.42,33.28,31.32,1.06
 20260603,36.65,37.1,34.85,35.5,21429232,34.23,3.7,33.46,31.45,0.87
+20260604,39.35,39.35,35.9,36.65,26454211,34.43,6.44,33.64,31.64,1.06
+20260605,35.15,35.2,33.3,34.9,10572193,34.47,1.24,33.85,31.79,0.43
 ```
 
 ## Latest TDCC Snapshot
@@ -188,18 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 2369 | 菱生 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260603 | 2369 | 菱生 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260605 | 2369 | 菱生 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 2369 | 菱生 | 10 | 10 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260605 | 2369 | 菱生 | 11 | 11 | 5 | 10 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260604 | 2369 | 菱生 | 46 | 0 | 4459960.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

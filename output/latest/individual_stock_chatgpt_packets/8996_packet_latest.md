@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8996 高力
 
 ## Metadata
-- generated_at: 2026-06-05 03:14:29 Asia/Taipei
+- generated_at: 2026-06-05 21:09:27 Asia/Taipei
 - stock_id: 8996
 - stock_name: 高力
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -117,30 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 1090
+- date: 20260605
+- open: 1120
 - high: 1155
-- low: 1085
-- close: 1095
-- volume: 3008464
-- ma5: 1075
-- ema23_primary: 1094.18
-- distance_to_ema23_pct: 0.07
-- ma20: 1080.7
-- ma60: 1028.78
-- ma120: 851.35
-- return_5d: -9.88
-- return_20d: -6.01
-- volume_ratio: 0.98
-- distance_to_ma20_pct_auxiliary: 1.32
-- distance_to_high_60_pct: -16.41
+- low: 1065
+- close: 1125
+- volume: 2885310
+- ma5: 1073
+- ema23_primary: 1093.37
+- distance_to_ema23_pct: 2.89
+- ma20: 1084.95
+- ma60: 1040.55
+- ma120: 860.75
+- return_5d: 3.21
+- return_20d: 10.84
+- volume_ratio: 0.99
+- distance_to_ma20_pct_auxiliary: 3.69
+- distance_to_high_60_pct: -14.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,1160,1160,1070,1075,3857848,1107.01,-2.89,1147.5,951.58,1.37
-20260508,1055,1065,1000,1015,3937724,1099.34,-7.67,1147.75,955.55,1.42
 20260511,1025,1065,1010,1055,3040869,1095.65,-3.71,1148.5,960.68,1.14
 20260512,1095,1110,1050,1055,2887103,1092.26,-3.41,1146.5,965.38,1.1
 20260513,1055,1095,1010,1025,2388327,1086.65,-5.67,1142,968.85,0.96
@@ -159,6 +157,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,1080,1100,1040,1045,2391569,1098.12,-4.84,1091.2,1018.93,0.75
 20260602,1050,1080,1030,1050,2096821,1094.11,-4.03,1084.2,1023.48,0.67
 20260603,1090,1155,1085,1095,3008464,1094.18,0.07,1080.7,1028.78,0.98
+20260604,1050,1080,1030,1050,2096821,1090.5,-3.71,1079.45,1034.62,0.7
+20260605,1120,1155,1065,1125,2885310,1093.37,2.89,1084.95,1040.55,0.99
 ```
 
 ## Latest TDCC Snapshot
@@ -188,14 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 8996 | 高力 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260603 | 8996 | 高力 | pullback_rebound | 回檔後短線轉強 | 70.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260603 | 8996 | 高力 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260605 | 8996 | 高力 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 8996 | 高力 | 10 | 4 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260605 | 8996 | 高力 | 11 | 5 | 5 | 10 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

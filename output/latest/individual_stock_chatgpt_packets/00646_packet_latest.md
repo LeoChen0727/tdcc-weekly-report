@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00646 元大S&P500
 
 ## Metadata
-- generated_at: 2026-06-05 03:10:21 Asia/Taipei
+- generated_at: 2026-06-05 21:05:58 Asia/Taipei
 - stock_id: 00646
 - stock_name: 元大S&P500
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260603
-- price_rows: 9
+- latest_price_date: 20260605
+- price_rows: 11
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 75.15
-- high: 75.3
-- low: 75.1
-- close: 75.2
-- volume: 2199979
-- ma5: 74.79
-- ema23_primary: 74.49
-- distance_to_ema23_pct: 0.95
-- ma20: 74.63
-- ma60: 74.63
-- ma120: 74.63
-- return_5d: 1.14
+- date: 20260605
+- open: 74.6
+- high: 74.8
+- low: 74.6
+- close: 74.7
+- volume: 1848908
+- ma5: 74.97
+- ema23_primary: 74.55
+- distance_to_ema23_pct: 0.21
+- ma20: 74.67
+- ma60: 74.67
+- ma120: 74.67
+- return_5d: 0
 - return_20d:
-- volume_ratio: 0.69
-- distance_to_ma20_pct_auxiliary: 0.77
-- distance_to_high_60_pct: -0.13
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: 0.04
+- distance_to_high_60_pct: -0.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -144,6 +144,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,74.85,75.05,74.75,74.95,3626592,74.37,0.78,74.49,74.49,1.05
 20260602,74.7,75.1,74.7,75,2455605,74.42,0.77,74.56,74.56,0.74
 20260603,75.15,75.3,75.1,75.2,2199979,74.49,0.95,74.63,74.63,0.69
+20260604,74.7,75.1,74.7,75,2455605,74.53,0.63,74.67,74.67,0.79
+20260605,74.6,74.8,74.6,74.7,1848908,74.55,0.21,74.67,74.67,0.62
 ```
 
 ## Latest TDCC Snapshot

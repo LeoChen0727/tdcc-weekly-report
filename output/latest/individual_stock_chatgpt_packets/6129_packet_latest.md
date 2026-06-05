@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6129 普誠
 
 ## Metadata
-- generated_at: 2026-06-05 03:12:56 Asia/Taipei
+- generated_at: 2026-06-05 21:08:10 Asia/Taipei
 - stock_id: 6129
 - stock_name: 普誠
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 16.4
-- high: 17.95
-- low: 16.25
-- close: 17.55
-- volume: 17000
-- ma5: 16.51
-- ema23_primary: 16.12
-- distance_to_ema23_pct: 8.88
-- ma20: 15.88
-- ma60: 15.96
-- ma120: 15.45
-- return_5d: 15.08
-- return_20d: 0.57
-- volume_ratio: 0.04
-- distance_to_ma20_pct_auxiliary: 10.55
-- distance_to_high_60_pct: -6.65
+- date: 20260605
+- open: 16.65
+- high: 16.85
+- low: 16.15
+- close: 16.4
+- volume: 16000
+- ma5: 16.96
+- ema23_primary: 16.25
+- distance_to_ema23_pct: 0.91
+- ma20: 15.93
+- ma60: 16.05
+- ma120: 15.5
+- return_5d: -1.2
+- return_20d: 1.55
+- volume_ratio: 0.05
+- distance_to_ma20_pct_auxiliary: 2.97
+- distance_to_high_60_pct: -12.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,17.45,17.45,16.7,16.75,1676000,16.66,0.55,16.74,15.8,1.38
-20260508,16.7,16.7,16.1,16.15,1166000,16.62,-2.81,16.78,15.8,0.96
 20260511,16.15,16.75,16.1,16.4,597000,16.6,-1.2,16.81,15.82,0.49
 20260512,16.5,16.5,16.05,16.1,1041000,16.56,-2.76,16.81,15.83,0.84
 20260513,16,16.2,15.7,15.85,622000,16.5,-3.93,16.79,15.84,0.5
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,17.3,17.45,16.75,16.9,17,15.95,5.95,15.96,15.89,0
 20260602,16.6,16.65,16.15,16.4,16,15.99,2.57,15.87,15.92,0
 20260603,16.4,17.95,16.25,17.55,17000,16.12,8.88,15.88,15.96,0.04
+20260604,16.4,17.95,16.25,17.55,17000,16.24,8.08,15.91,16.02,0.04
+20260605,16.65,16.85,16.15,16.4,16000,16.25,0.91,15.93,16.05,0.05
 ```
 
 ## Latest TDCC Snapshot

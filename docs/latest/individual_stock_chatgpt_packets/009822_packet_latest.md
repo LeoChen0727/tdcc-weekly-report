@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009822 華南永昌未來金融
 
 ## Metadata
-- generated_at: 2026-06-05 03:10:25 Asia/Taipei
+- generated_at: 2026-06-05 21:06:01 Asia/Taipei
 - stock_id: 009822
 - stock_name: 華南永昌未來金融
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260603
-- price_rows: 1
+- latest_price_date: 20260605
+- price_rows: 3
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -112,11 +112,11 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 9.9
-- high: 9.93
-- low: 9.87
-- close: 9.88
+- date: 20260605
+- open: 9.64
+- high: 9.77
+- low: 9.64
+- close: 9.65
 - volume: 10000
 - ma5:
 - ema23_primary:
@@ -135,6 +135,8 @@ This is a short preview only. For K-line/chart work read price_window_180_txt_* 
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
 20260603,9.9,9.93,9.87,9.88,10000,,,,,
+20260604,9.9,9.93,9.87,9.88,10000,,,,,
+20260605,9.64,9.77,9.64,9.65,10000,,,,,
 ```
 
 ## Latest TDCC Snapshot

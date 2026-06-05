@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4551 智伸科
 
 ## Metadata
-- generated_at: 2026-06-05 03:12:23 Asia/Taipei
+- generated_at: 2026-06-05 21:07:41 Asia/Taipei
 - stock_id: 4551
 - stock_name: 智伸科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 154
-- high: 157
-- low: 151
-- close: 151.5
-- volume: 1123529
-- ma5: 153.6
-- ema23_primary: 149.24
-- distance_to_ema23_pct: 1.51
-- ma20: 151
-- ma60: 137.75
-- ma120: 128.32
-- return_5d: 0
-- return_20d: 12.22
-- volume_ratio: 1.01
-- distance_to_ma20_pct_auxiliary: 0.33
-- distance_to_high_60_pct: -8.73
+- date: 20260605
+- open: 149
+- high: 150.5
+- low: 140
+- close: 141.5
+- volume: 1367225
+- ma5: 150.3
+- ema23_primary: 148.84
+- distance_to_ema23_pct: -4.93
+- ma20: 152.2
+- ma60: 138.85
+- ma120: 128.84
+- return_5d: -9
+- return_20d: 4.81
+- volume_ratio: 1.17
+- distance_to_ma20_pct_auxiliary: -7.03
+- distance_to_high_60_pct: -14.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,135,136.5,133.5,135,562411,134.55,0.33,136.4,128.14,0.98
-20260508,135,137.5,132.5,135,637560,134.59,0.3,136.5,128.44,1.1
 20260511,143,148.5,143,148.5,1251180,135.75,9.39,137.12,129.02,2.03
 20260512,151,161.5,151,155.5,2686587,137.4,13.18,138.03,129.66,3.71
 20260513,153.5,156.5,150.5,153,1121295,138.7,10.31,138.78,130.17,1.49
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,158,158,152,153.5,908144,148.72,3.21,149.68,136.78,0.82
 20260602,154,155.5,150.5,152.5,943237,149.04,2.32,150.18,137.26,0.85
 20260603,154,157,151,151.5,1123529,149.24,1.51,151,137.75,1.01
+20260604,154,155.5,150.5,152.5,943237,149.51,2,151.88,138.44,0.83
+20260605,149,150.5,140,141.5,1367225,148.84,-4.93,152.2,138.85,1.17
 ```
 
 ## Latest TDCC Snapshot
@@ -192,9 +192,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260604 | 4551 | 智伸科 | 23 | 0 | 577090.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

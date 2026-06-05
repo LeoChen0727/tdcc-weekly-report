@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4807 日成-KY
 
 ## Metadata
-- generated_at: 2026-06-05 03:12:30 Asia/Taipei
+- generated_at: 2026-06-05 21:07:47 Asia/Taipei
 - stock_id: 4807
 - stock_name: 日成-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 274
+- latest_price_date: 20260605
+- price_rows: 276
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -116,30 +116,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 31.5
-- high: 33.3
-- low: 31.45
-- close: 32.15
-- volume: 1101613
-- ma5: 29.08
-- ema23_primary: 24.59
-- distance_to_ema23_pct: 30.76
-- ma20: 24.92
-- ma60: 19.14
-- ma120: 18.54
-- return_5d: 28.34
-- return_20d: 50.59
-- volume_ratio: 2.12
-- distance_to_ma20_pct_auxiliary: 29
-- distance_to_high_60_pct: -3.45
+- date: 20260605
+- open: 36.15
+- high: 38.85
+- low: 35.35
+- close: 38.5
+- volume: 1767811
+- ma5: 32.37
+- ema23_primary: 26.26
+- distance_to_ema23_pct: 46.64
+- ma20: 26.28
+- ma60: 19.75
+- ma120: 18.82
+- return_5d: 37.99
+- return_20d: 78.65
+- volume_ratio: 2.7
+- distance_to_ma20_pct_auxiliary: 46.51
+- distance_to_high_60_pct: -0.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,21.5,21.5,20.6,21.1,189228,17.88,18.01,17.11,16.81,0.69
-20260508,20.6,21.65,20.55,21.55,147157,18.18,18.5,17.48,16.87,0.52
 20260511,21.3,23.7,21.25,23.7,504384,18.64,27.11,17.95,16.97,1.66
 20260512,23.7,25.75,23.4,25.6,544305,19.22,33.17,18.45,17.09,1.7
 20260513,24.45,25.6,24.2,25.05,170866,19.71,27.09,18.95,17.21,0.54
@@ -158,6 +156,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,27.9,29.95,27.4,28.7,749541,23.23,23.54,23.89,18.65,1.62
 20260602,28.7,31.55,28.5,31.25,1272861,23.9,30.76,24.38,18.89,2.62
 20260603,31.5,33.3,31.45,32.15,1101613,24.59,30.76,24.92,19.14,2.12
+20260604,28.7,31.55,28.5,31.25,1272861,25.14,24.29,25.43,19.39,2.22
+20260605,36.15,38.85,35.35,38.5,1767811,26.26,46.64,26.28,19.75,2.7
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 4807 | 日成-KY | true_breakout | 嚴格突破 | 87.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260605 | 4807 | 日成-KY | true_breakout | 嚴格突破 | 86.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 4807 | 日成-KY | 2 | 2 | 3 | 3 | 3 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260605 | 4807 | 日成-KY | 3 | 3 | 4 | 4 | 4 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

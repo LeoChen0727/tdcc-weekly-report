@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6931 青松健康
 
 ## Metadata
-- generated_at: 2026-06-05 03:13:40 Asia/Taipei
+- generated_at: 2026-06-05 21:08:46 Asia/Taipei
 - stock_id: 6931
 - stock_name: 青松健康
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 39.9
-- high: 41.5
-- low: 39.7
-- close: 40.8
-- volume: 130260
-- ma5: 40.08
-- ema23_primary: 42.09
-- distance_to_ema23_pct: -3.05
-- ma20: 41.12
-- ma60: 47.12
-- ma120: 53.43
-- return_5d: 2.13
-- return_20d: -5.56
-- volume_ratio: 0.95
-- distance_to_ma20_pct_auxiliary: -0.77
-- distance_to_high_60_pct: -25.14
+- date: 20260605
+- open: 41
+- high: 42
+- low: 40.9
+- close: 41.3
+- volume: 73294
+- ma5: 40.38
+- ema23_primary: 41.85
+- distance_to_ema23_pct: -1.32
+- ma20: 40.81
+- ma60: 46.75
+- ma120: 52.99
+- return_5d: 3.51
+- return_20d: -5.28
+- volume_ratio: 0.6
+- distance_to_ma20_pct_auxiliary: 1.2
+- distance_to_high_60_pct: -24.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,43.15,44.1,41.5,43.7,311828,48.33,-9.57,48.76,51.38,1.48
-20260508,43.7,44.5,43,43.6,115555,47.93,-9.04,48.44,51.14,0.55
 20260511,43.85,43.85,42.5,42.5,145264,47.48,-10.49,47.97,50.91,0.68
 20260512,42.5,42.6,41.8,42.1,120656,47.03,-10.49,47.57,50.69,0.57
 20260513,41.85,43,41.3,42.2,142953,46.63,-9.5,47.16,50.47,0.69
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,40,40.55,39.55,40,85172,42.41,-5.69,41.47,47.52,0.57
 20260602,40,40,39.55,39.9,60383,42.2,-5.45,41.23,47.32,0.43
 20260603,39.9,41.5,39.7,40.8,130260,42.09,-3.05,41.12,47.12,0.95
+20260604,40,40,39.55,39.9,60383,41.9,-4.78,40.92,46.92,0.49
+20260605,41,42,40.9,41.3,73294,41.85,-1.32,40.81,46.75,0.6
 ```
 
 ## Latest TDCC Snapshot

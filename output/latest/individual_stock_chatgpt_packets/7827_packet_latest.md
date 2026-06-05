@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7827 漢康-KY創
 
 ## Metadata
-- generated_at: 2026-06-05 03:14:09 Asia/Taipei
+- generated_at: 2026-06-05 21:09:11 Asia/Taipei
 - stock_id: 7827
 - stock_name: 漢康-KY創
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260603
-- price_rows: 4
+- latest_price_date: 20260605
+- price_rows: 6
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 167.5
-- high: 170
+- date: 20260605
+- open: 161.5
+- high: 162
 - low: 155
-- close: 159
-- volume: 2455596
-- ma5:
-- ema23_primary:
-- distance_to_ema23_pct:
-- ma20:
-- ma60:
-- ma120:
-- return_5d:
+- close: 159.5
+- volume: 1198813
+- ma5: 160.8
+- ema23_primary: 145.46
+- distance_to_ema23_pct: 9.65
+- ma20: 156.83
+- ma60: 156.83
+- ma120: 156.83
+- return_5d: 16.42
 - return_20d:
-- volume_ratio:
-- distance_to_ma20_pct_auxiliary:
-- distance_to_high_60_pct:
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: 1.7
+- distance_to_high_60_pct: -6.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -138,6 +139,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,137,155,135,153.5,1579044,,,,,
 20260602,151.5,167.5,151.5,166,1901199,,,,,
 20260603,167.5,170,155,159,2455596,,,,,
+20260604,151.5,167.5,151.5,166,1901199,144.19,15.13,156.3,156.3,0.92
+20260605,161.5,162,155,159.5,1198813,145.46,9.65,156.83,156.83,0.62
 ```
 
 ## Latest TDCC Snapshot

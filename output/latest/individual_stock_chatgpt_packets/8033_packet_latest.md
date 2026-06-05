@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8033 雷虎
 
 ## Metadata
-- generated_at: 2026-06-05 03:14:10 Asia/Taipei
+- generated_at: 2026-06-05 21:09:12 Asia/Taipei
 - stock_id: 8033
 - stock_name: 雷虎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 136
-- high: 136.5
-- low: 134
+- date: 20260605
+- open: 134.5
+- high: 135.5
+- low: 131.5
 - close: 134.5
-- volume: 2390104
-- ma5: 137.9
-- ema23_primary: 139.72
-- distance_to_ema23_pct: -3.74
-- ma20: 139.5
-- ma60: 142.55
-- ma120: 144.81
-- return_5d: -0.37
-- return_20d: -10.63
-- volume_ratio: 0.52
-- distance_to_ma20_pct_auxiliary: -3.58
+- volume: 2281999
+- ma5: 136.4
+- ema23_primary: 139
+- distance_to_ema23_pct: -3.24
+- ma20: 137.5
+- ma60: 142.5
+- ma120: 144.69
+- return_5d: -5.94
+- return_20d: -15.41
+- volume_ratio: 0.55
+- distance_to_ma20_pct_auxiliary: -2.18
 - distance_to_high_60_pct: -17.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,150,154,146.5,151.5,3431441,147.57,2.66,146.25,145.72,0.7
-20260508,152.5,164,152.5,159,12296051,148.52,7.05,147.65,145.78,2.3
 20260511,146.5,147.5,143.5,144,11105416,148.15,-2.8,148.35,145.76,1.92
 20260512,144,144,139.5,141.5,3783032,147.59,-4.13,148.93,145.82,0.64
 20260513,142,144,139,140,2996694,146.96,-4.74,149.07,145.85,0.51
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,146,147.5,139.5,141,6791840,140.58,0.3,141.2,143.06,1.46
 20260602,140.5,140.5,134.5,136,4262714,140.2,-2.99,140.3,142.82,0.91
 20260603,136,136.5,134,134.5,2390104,139.72,-3.74,139.5,142.55,0.52
+20260604,140.5,140.5,134.5,136,4262714,139.41,-2.45,138.72,142.54,0.91
+20260605,134.5,135.5,131.5,134.5,2281999,139,-3.24,137.5,142.5,0.55
 ```
 
 ## Latest TDCC Snapshot
@@ -192,9 +192,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260604 | 8033 | 雷虎 | 4 | 0 | 122850.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

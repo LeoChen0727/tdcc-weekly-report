@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2948 寶陞
 
 ## Metadata
-- generated_at: 2026-06-05 03:11:35 Asia/Taipei
+- generated_at: 2026-06-05 21:07:00 Asia/Taipei
 - stock_id: 2948
 - stock_name: 寶陞
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 248
+- latest_price_date: 20260604
+- price_rows: 249
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
+- date: 20260604
 - open: 37.9
 - high: 37.9
 - low: 37.9
 - close: 37.9
 - volume: 38000
-- ma5: 37.73
-- ema23_primary: 37.78
-- distance_to_ema23_pct: 0.32
-- ma20: 37.65
-- ma60: 38.67
+- ma5: 37.94
+- ema23_primary: 37.79
+- distance_to_ema23_pct: 0.29
+- ma20: 37.64
+- ma60: 38.64
 - ma120: 38.59
-- return_5d: 5.28
+- return_5d: 2.85
 - return_20d: -0.52
-- volume_ratio: 2.11
-- distance_to_ma20_pct_auxiliary: 0.66
+- volume_ratio: 1.93
+- distance_to_ma20_pct_auxiliary: 0.69
 - distance_to_high_60_pct: -8.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260505,37.95,38.1,37.95,38.1,4000,38.75,-1.68,38.88,39.16,0.67
 20260506,37.9,38,37.8,37.8,7000,38.67,-2.25,38.82,39.15,1.12
 20260507,38,38.1,38,38.1,8000,38.62,-1.35,38.77,39.14,1.24
 20260511,38.1,38.1,38,38.1,6000,38.58,-1.24,38.74,39.14,0.9
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260529,38,38,38,38,38000,37.76,0.64,37.66,38.72,2.28
 20260602,36.35,37.9,36.35,37.9,37,37.77,0.35,37.66,38.7,0
 20260603,37.9,37.9,37.9,37.9,38000,37.78,0.32,37.65,38.67,2.11
+20260604,37.9,37.9,37.9,37.9,38000,37.79,0.29,37.64,38.64,1.93
 ```
 
 ## Latest TDCC Snapshot

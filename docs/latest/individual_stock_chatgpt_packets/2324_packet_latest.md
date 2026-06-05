@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2324 仁寶
 
 ## Metadata
-- generated_at: 2026-06-05 03:11:03 Asia/Taipei
+- generated_at: 2026-06-05 21:06:33 Asia/Taipei
 - stock_id: 2324
 - stock_name: 仁寶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 45
-- high: 47.75
-- low: 43.3
-- close: 47.05
-- volume: 400804733
-- ma5: 40.39
-- ema23_primary: 34.29
-- distance_to_ema23_pct: 37.23
-- ma20: 32.95
-- ma60: 31.16
-- ma120: 30.97
-- return_5d: 40.87
-- return_20d: 61.13
-- volume_ratio: 2.51
-- distance_to_ma20_pct_auxiliary: 42.77
-- distance_to_high_60_pct: -1.47
+- date: 20260605
+- open: 40.7
+- high: 41.8
+- low: 39.1
+- close: 41.4
+- volume: 194674146
+- ma5: 43.5
+- ema23_primary: 35.65
+- distance_to_ema23_pct: 16.14
+- ma20: 34.29
+- ma60: 31.54
+- ma120: 31.19
+- return_5d: 12.81
+- return_20d: 39.63
+- volume_ratio: 1.13
+- distance_to_ma20_pct_auxiliary: 20.74
+- distance_to_high_60_pct: -13.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,29.3,29.5,29,29.45,49285993,29.79,-1.13,29.74,30.48,1.01
-20260508,29.9,30.25,29.15,29.65,60000149,29.77,-0.42,29.86,30.45,1.2
 20260511,29.9,31.1,29.25,30.8,81430532,29.86,3.15,29.99,30.41,1.55
 20260512,30.7,30.75,29.3,29.9,51063743,29.86,0.12,30.04,30.37,0.95
 20260513,29.4,31.75,29.4,31.3,116518119,29.98,4.39,30.12,30.36,2.02
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,40.05,40.35,40.05,40.35,113043360,32.1,25.68,31.31,30.67,0.85
 20260602,44.3,44.35,43.1,44.35,177995051,33.12,33.89,32.06,30.9,1.26
 20260603,45,47.75,43.3,47.05,400804733,34.29,37.23,32.95,31.16,2.51
+20260604,44.3,44.35,43.1,44.35,177995051,35.12,26.27,33.7,31.38,1.07
+20260605,40.7,41.8,39.1,41.4,194674146,35.65,16.14,34.29,31.54,1.13
 ```
 
 ## Latest TDCC Snapshot
@@ -191,9 +191,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260604 | 2324 | 仁寶 | 87 | 4 | 19768440.0 | 975430.0 | 20.27 | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

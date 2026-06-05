@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4994 傳奇
 
 ## Metadata
-- generated_at: 2026-06-05 03:12:36 Asia/Taipei
+- generated_at: 2026-06-05 21:07:52 Asia/Taipei
 - stock_id: 4994
 - stock_name: 傳奇
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 88
-- high: 88
-- low: 85.6
-- close: 87.2
-- volume: 45937
-- ma5: 89.14
-- ema23_primary: 92.21
-- distance_to_ema23_pct: -5.44
-- ma20: 92.25
-- ma60: 95.56
-- ma120: 97.68
-- return_5d: -2.57
-- return_20d: -11.02
-- volume_ratio: 0.9
-- distance_to_ma20_pct_auxiliary: -5.48
-- distance_to_high_60_pct: -16.55
+- date: 20260605
+- open: 87
+- high: 87.7
+- low: 86.5
+- close: 87.6
+- volume: 19013
+- ma5: 87.9
+- ema23_primary: 91.45
+- distance_to_ema23_pct: -4.21
+- ma20: 91.18
+- ma60: 95.12
+- ma120: 97.55
+- return_5d: -3.74
+- return_20d: -10.52
+- volume_ratio: 0.24
+- distance_to_ma20_pct_auxiliary: -3.93
+- distance_to_high_60_pct: -16.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,98.2,99,97.2,98.5,18937,98.12,0.38,98.78,98.95,0.78
-20260508,98.5,98.9,96.6,97.9,14513,98.1,-0.21,98.69,98.86,0.6
 20260511,98,98.1,95.8,98,11994,98.1,-0.1,98.62,98.77,0.5
 20260512,98,98.4,95.8,96.1,20236,97.93,-1.87,98.45,98.66,0.82
 20260513,95,96.1,94.1,96.1,15998,97.78,-1.71,98.28,98.54,0.64
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,91.3,91.3,87.5,90.1,46687,93.16,-3.28,93.22,96.12,2.04
 20260602,89.8,89.9,81.1,87.3,552431,92.67,-5.79,92.8,95.83,11.15
 20260603,88,88,85.6,87.2,45937,92.21,-5.44,92.25,95.56,0.9
+20260604,89.8,89.9,81.1,87.3,552431,91.8,-4.9,91.69,95.33,7.12
+20260605,87,87.7,86.5,87.6,19013,91.45,-4.21,91.18,95.12,0.24
 ```
 
 ## Latest TDCC Snapshot

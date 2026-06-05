@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-06-05 03:15:41 Asia/Taipei",
+  "generated_at": "2026-06-05 21:10:31 Asia/Taipei",
   "status": "generated",
   "stock_id": "2330",
   "stock_name": "台積電",
-  "main_price_date": "20260603",
+  "main_price_date": "20260605",
   "analysis_days": 126,
-  "available_price_days": 276,
+  "available_price_days": 278,
   "priority": "降級 / 暫避",
   "action_rating_display_zh": "可小量試單",
   "action_summary_zh": "符合 型態觀察，價格結構尚未破壞，操作評級為「可小量試單」。",
-  "entry_strategy_zh": "目前價位可評估第一筆；可依「試單 1/4 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。",
+  "entry_strategy_zh": "回測 23EMA 附近；可依「試單 1/4 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。",
   "position_sizing_zh": "試單 1/4 部位；部位大小需依支撐距離、波動與模型確認度控制。",
   "risk_control_zh": "TDCC 轉弱警訊",
-  "final_decision_zh": "符合 型態觀察，價格結構尚未破壞，操作評級為「可小量試單」。 進場策略：目前價位可評估第一筆；可依「試單 1/4 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊",
+  "final_decision_zh": "符合 型態觀察，價格結構尚未破壞，操作評級為「可小量試單」。 進場策略：回測 23EMA 附近；可依「試單 1/4 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 轉弱警訊",
   "latest_md_path": "output/latest/individual_stock_reports/2330_latest.md",
   "latest_pdf_path": "output/latest/individual_stock_reports/2330_latest.pdf",
   "latest_chart_path": "output/latest/individual_stock_reports/2330_latest.png",
@@ -31,6 +31,6 @@
   "sell_strategy_summary_path": "output/history/sell_strategy_backtest/2330_sell_strategy_summary.md",
   "sell_strategy_performance_latest_csv": "output/latest/sell_strategy_performance_latest.csv",
   "sell_strategy_performance_latest_md": "output/latest/sell_strategy_performance_latest.md",
-  "history_md_path": "output/history/individual_stock_reports/20260603_2330.md",
-  "history_pdf_path": "output/history/individual_stock_reports/20260603_2330.pdf"
+  "history_md_path": "output/history/individual_stock_reports/20260605_2330.md",
+  "history_pdf_path": "output/history/individual_stock_reports/20260605_2330.pdf"
 }

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6881 潤德
 
 ## Metadata
-- generated_at: 2026-06-05 03:13:37 Asia/Taipei
+- generated_at: 2026-06-05 21:08:44 Asia/Taipei
 - stock_id: 6881
 - stock_name: 潤德
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 258
+- latest_price_date: 20260605
+- price_rows: 260
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 268
-- high: 268.5
-- low: 268
-- close: 268
-- volume: 267000
-- ma5: 269.1
-- ema23_primary: 266.39
-- distance_to_ema23_pct: 0.61
-- ma20: 270.57
-- ma60: 250.86
-- ma120: 239.51
-- return_5d: 0.56
-- return_20d: -0.19
-- volume_ratio: 2.67
-- distance_to_ma20_pct_auxiliary: -0.95
-- distance_to_high_60_pct: -5.63
+- date: 20260605
+- open: 266
+- high: 269
+- low: 266
+- close: 269
+- volume: 269000
+- ma5: 268.1
+- ema23_primary: 266.73
+- distance_to_ema23_pct: 0.85
+- ma20: 270.2
+- ma60: 252.28
+- ma120: 240.15
+- return_5d: -0.55
+- return_20d: -1.65
+- volume_ratio: 2.15
+- distance_to_ma20_pct_auxiliary: -0.44
+- distance_to_high_60_pct: -5.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260505,284,284,267.5,271,17000,251.55,7.73,251.12,237.32,1.25
-20260506,272,273.5,271.5,273.5,17000,253.38,7.94,253,238.07,1.24
 20260507,278,278,274,275,8000,255.18,7.77,254.85,238.82,0.59
 20260508,272,272,263,270,17000,256.42,5.3,256.38,239.48,1.2
 20260511,270,272.5,270,272.5,4000,257.76,5.72,258,240.18,0.28
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,255,268.5,255,267,262,266.03,0.36,270.32,249.52,0
 20260602,259.5,268.5,259.5,268.5,266,266.24,0.85,270.6,250.19,0
 20260603,268,268.5,268,268,267000,266.39,0.61,270.57,250.86,2.67
+20260604,268,268.5,268,268,267000,266.52,0.56,270.43,251.53,2.38
+20260605,266,269,266,269,269000,266.73,0.85,270.2,252.28,2.15
 ```
 
 ## Latest TDCC Snapshot

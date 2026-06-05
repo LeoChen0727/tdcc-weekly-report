@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5202 力新
 
 ## Metadata
-- generated_at: 2026-06-05 03:12:37 Asia/Taipei
+- generated_at: 2026-06-05 21:07:53 Asia/Taipei
 - stock_id: 5202
 - stock_name: 力新
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,14 +59,14 @@
 - action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 單一個股分析
 - score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足
+- risk_control_zh: TDCC 歷史不足、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: high_level_consolidation
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -91,7 +91,6 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -105,6 +104,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 13.75
-- high: 13.85
-- low: 13.15
-- close: 13.45
-- volume: 13000
-- ma5: 12.91
-- ema23_primary: 12.61
-- distance_to_ema23_pct: 6.69
-- ma20: 12.4
-- ma60: 13.2
-- ma120: 14.57
-- return_5d: 18.5
-- return_20d: 3.46
-- volume_ratio: 0.12
-- distance_to_ma20_pct_auxiliary: 8.47
-- distance_to_high_60_pct: -11.51
+- date: 20260605
+- open: 16
+- high: 16.2
+- low: 15.1
+- close: 15.75
+- volume: 16000
+- ma5: 13.82
+- ema23_primary: 12.93
+- distance_to_ema23_pct: 21.78
+- ma20: 12.55
+- ma60: 13.22
+- ma120: 14.52
+- return_5d: 29.1
+- return_20d: 20.69
+- volume_ratio: 0.17
+- distance_to_ma20_pct_auxiliary: 25.47
+- distance_to_high_60_pct: -2.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,13.05,13.1,12.95,13.1,177000,13.38,-2.08,13.32,13.95,0.61
-20260508,13.1,13.1,12.9,13.05,175000,13.35,-2.25,13.33,13.89,0.6
 20260511,13.05,13.15,12.95,13.05,237000,13.33,-2.07,13.35,13.85,0.8
 20260512,13.05,13.05,12.8,12.9,190000,13.29,-2.94,13.36,13.81,0.64
 20260513,12.9,12.9,12.6,12.6,231000,13.23,-4.78,13.35,13.77,0.78
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,12.3,13.1,12.3,12.8,13,12.43,2.99,12.36,13.22,0
 20260602,13,13.8,12.95,13.65,13,12.53,8.94,12.38,13.21,0
 20260603,13.75,13.85,13.15,13.45,13000,12.61,6.69,12.4,13.2,0.12
+20260604,13.75,13.85,13.15,13.45,13000,12.68,6.1,12.42,13.19,0.13
+20260605,16,16.2,15.1,15.75,16000,12.93,21.78,12.55,13.22,0.17
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6968 萬達寵物
 
 ## Metadata
-- generated_at: 2026-06-05 03:13:42 Asia/Taipei
+- generated_at: 2026-06-05 21:08:48 Asia/Taipei
 - stock_id: 6968
 - stock_name: 萬達寵物
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 42.6
-- high: 42.65
-- low: 41.85
-- close: 42.4
-- volume: 42000
-- ma5: 42.73
-- ema23_primary: 43.5
-- distance_to_ema23_pct: -2.54
-- ma20: 43.35
-- ma60: 45.02
-- ma120: 48.81
-- return_5d: -1.28
-- return_20d: -1.51
-- volume_ratio: 0.83
-- distance_to_ma20_pct_auxiliary: -2.2
-- distance_to_high_60_pct: -14
+- date: 20260605
+- open: 43.8
+- high: 43.8
+- low: 43.35
+- close: 43.45
+- volume: 43000
+- ma5: 42.77
+- ema23_primary: 43.41
+- distance_to_ema23_pct: 0.08
+- ma20: 43.37
+- ma60: 44.91
+- ma120: 48.62
+- return_5d: 1.05
+- return_20d: 1.76
+- volume_ratio: 0.9
+- distance_to_ma20_pct_auxiliary: 0.18
+- distance_to_high_60_pct: -11.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,43.1,43.2,42.65,42.8,83000,44.62,-4.08,44.81,46.7,1.23
-20260508,42.6,43.05,42.55,42.7,52000,44.46,-3.96,44.65,46.58,0.77
 20260511,42.75,45.4,42.75,44.3,183000,44.45,-0.33,44.58,46.51,2.4
 20260512,44.35,44.5,43.05,43.5,47000,44.37,-1.96,44.45,46.42,0.61
 20260513,43.5,44,43,43,30000,44.26,-2.84,44.24,46.33,0.39
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,42.6,43.2,42.6,43,43,43.7,-1.59,43.4,45.19,0
 20260602,42.8,43,42.45,42.6,43,43.6,-2.3,43.39,45.1,0
 20260603,42.6,42.65,41.85,42.4,42000,43.5,-2.54,43.35,45.02,0.83
+20260604,42.6,42.65,41.85,42.4,42000,43.41,-2.33,43.34,44.97,0.87
+20260605,43.8,43.8,43.35,43.45,43000,43.41,0.08,43.37,44.91,0.9
 ```
 
 ## Latest TDCC Snapshot

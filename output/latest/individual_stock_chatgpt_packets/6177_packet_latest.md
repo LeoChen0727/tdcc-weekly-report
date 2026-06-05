@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6177 達麗
 
 ## Metadata
-- generated_at: 2026-06-05 03:13:01 Asia/Taipei
+- generated_at: 2026-06-05 21:08:13 Asia/Taipei
 - stock_id: 6177
 - stock_name: 達麗
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -117,30 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 43.25
-- high: 44.65
-- low: 42.65
-- close: 44.2
-- volume: 2322612
-- ma5: 43
+- date: 20260605
+- open: 44.65
+- high: 45.8
+- low: 44.6
+- close: 45.45
+- volume: 1732991
+- ma5: 43.85
 - ema23_primary: 44.26
-- distance_to_ema23_pct: -0.14
-- ma20: 44.55
-- ma60: 45.8
-- ma120: 47.62
-- return_5d: 3.88
-- return_20d: -2.96
-- volume_ratio: 1.31
-- distance_to_ma20_pct_auxiliary: -0.79
-- distance_to_high_60_pct: -11.95
+- distance_to_ema23_pct: 2.68
+- ma20: 44.34
+- ma60: 45.77
+- ma120: 47.58
+- return_5d: 7.19
+- return_20d: -2.88
+- volume_ratio: 0.97
+- distance_to_ma20_pct_auxiliary: 2.51
+- distance_to_high_60_pct: -9.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,45.4,46.2,45.05,45.95,1312055,45.93,0.05,45.76,46.77,1.21
-20260508,46,47.35,46,46.8,1554038,46,1.74,45.75,46.76,1.37
 20260511,46.8,47.2,46.55,47.05,1221437,46.09,2.09,45.74,46.76,1.04
 20260512,47.05,47.5,46.95,47.25,1299811,46.19,2.3,45.77,46.76,1.09
 20260513,48,48.3,46.35,46.55,2271295,46.22,0.72,45.8,46.74,1.84
@@ -159,6 +157,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,42.45,43.7,42.1,43.6,1553593,44.38,-1.76,44.74,45.88,0.93
 20260602,43.8,43.8,42.85,43,1344905,44.27,-2.86,44.62,45.83,0.79
 20260603,43.25,44.65,42.65,44.2,2322612,44.26,-0.14,44.55,45.8,1.31
+20260604,43.8,43.8,42.85,43,1344905,44.16,-2.62,44.41,45.77,0.76
+20260605,44.65,45.8,44.6,45.45,1732991,44.26,2.68,44.34,45.77,0.97
 ```
 
 ## Latest TDCC Snapshot
@@ -188,19 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 6177 | 達麗 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260603 | 6177 | 達麗 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260603 | 6177 | 達麗 | revenue_breakout_low_response | 營收爆發低反應股 | 15.0 | 18.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260605 | 6177 | 達麗 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 6177 | 達麗 | 10 | 1 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260605 | 6177 | 達麗 | 11 | 2 | 5 | 10 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260604 | 6177 | 達麗 | 7 | 0 | 83740.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

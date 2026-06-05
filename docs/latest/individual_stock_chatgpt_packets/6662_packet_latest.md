@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6662 樂斯科
 
 ## Metadata
-- generated_at: 2026-06-05 03:13:25 Asia/Taipei
+- generated_at: 2026-06-05 21:08:34 Asia/Taipei
 - stock_id: 6662
 - stock_name: 樂斯科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 272
+- latest_price_date: 20260605
+- price_rows: 274
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 29.15
-- high: 29.15
-- low: 28.55
-- close: 29.1
-- volume: 29000
-- ma5: 28.77
-- ema23_primary: 29.21
-- distance_to_ema23_pct: -0.38
-- ma20: 29.32
+- date: 20260605
+- open: 28.8
+- high: 30
+- low: 28.8
+- close: 29.5
+- volume: 30000
+- ma5: 29.06
+- ema23_primary: 29.23
+- distance_to_ema23_pct: 0.94
+- ma20: 29.3
 - ma60: 29.46
-- ma120: 30.04
-- return_5d: -0.51
-- return_20d: -0.34
-- volume_ratio: 1.95
-- distance_to_ma20_pct_auxiliary: -0.77
-- distance_to_high_60_pct: -10.19
+- ma120: 30.02
+- return_5d: 3.15
+- return_20d: 0
+- volume_ratio: 1.89
+- distance_to_ma20_pct_auxiliary: 0.67
+- distance_to_high_60_pct: -8.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,29.2,29.8,29.2,29.5,14000,29.61,-0.37,29.76,29.67,1.2
-20260508,29.45,29.6,29.2,29.5,24000,29.6,-0.34,29.79,29.66,1.9
 20260511,29.45,31,29.45,30.45,13000,29.67,2.62,29.77,29.65,1.1
 20260512,29.8,30.4,29.8,30,7000,29.7,1.01,29.78,29.65,0.61
 20260513,29.9,29.9,29.9,29.9,1000,29.72,0.62,29.78,29.64,0.09
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,29,29,28.8,28.8,29,29.26,-1.57,29.38,29.5,0
 20260602,28.8,28.8,28.8,28.8,29,29.22,-1.44,29.33,29.48,0
 20260603,29.15,29.15,28.55,29.1,29000,29.21,-0.38,29.32,29.46,1.95
+20260604,29.15,29.15,28.55,29.1,29000,29.2,-0.34,29.3,29.46,1.86
+20260605,28.8,30,28.8,29.5,30000,29.23,0.94,29.3,29.46,1.89
 ```
 
 ## Latest TDCC Snapshot

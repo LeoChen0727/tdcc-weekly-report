@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3673 TPK-KY
 
 ## Metadata
-- generated_at: 2026-06-05 03:12:09 Asia/Taipei
+- generated_at: 2026-06-05 21:07:28 Asia/Taipei
 - stock_id: 3673
 - stock_name: TPK-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 93
-- high: 98.9
-- low: 91.8
-- close: 94
-- volume: 55556531
-- ma5: 88.56
-- ema23_primary: 76.53
-- distance_to_ema23_pct: 22.84
-- ma20: 75
-- ma60: 59.74
-- ma120: 50.52
-- return_5d: 6.94
-- return_20d: 57.98
-- volume_ratio: 1.58
-- distance_to_ma20_pct_auxiliary: 25.33
-- distance_to_high_60_pct: -4.95
+- date: 20260605
+- open: 86.1
+- high: 88.4
+- low: 82.7
+- close: 86
+- volume: 23409882
+- ma5: 90.7
+- ema23_primary: 78.5
+- distance_to_ema23_pct: 9.56
+- ma20: 77.92
+- ma60: 61.43
+- ma120: 51.31
+- return_5d: -0.35
+- return_20d: 45.76
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: 10.36
+- distance_to_high_60_pct: -13.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,59.8,61.9,58.6,60.5,8460050,58.65,3.16,61.77,48.33,0.5
-20260508,61.8,62.3,58.5,59,8371463,58.68,0.55,62.16,48.65,0.51
 20260511,59.9,60.5,59,59.8,5735038,58.77,1.75,62.65,48.99,0.35
 20260512,60.6,63.5,60.4,60.6,16345624,58.92,2.84,62.92,49.37,1
 20260513,61.3,66.6,60.8,66.6,27239377,59.56,11.81,63.23,49.84,1.58
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,87.5,94.9,87.4,89.5,48207223,73.39,21.96,71.8,57.97,1.55
 20260602,88,92.4,83.3,92,49966718,74.94,22.77,73.28,58.84,1.51
 20260603,93,98.9,91.8,94,55556531,76.53,22.84,75,59.74,1.58
+20260604,88,92.4,83.3,92,49966718,77.81,18.23,76.58,60.64,1.34
+20260605,86.1,88.4,82.7,86,23409882,78.5,9.56,77.92,61.43,0.62
 ```
 
 ## Latest TDCC Snapshot
@@ -191,9 +191,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260604 | 3673 | TPK-KY | 53 | 0 | 25573100.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

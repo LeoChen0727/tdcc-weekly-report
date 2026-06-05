@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6907 雅特力-KY
 
 ## Metadata
-- generated_at: 2026-06-05 03:13:38 Asia/Taipei
+- generated_at: 2026-06-05 21:08:45 Asia/Taipei
 - stock_id: 6907
 - stock_name: 雅特力-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 215
+- latest_price_date: 20260605
+- price_rows: 217
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,14 +59,14 @@
 - action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 單一個股分析
 - score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足
+- risk_control_zh: TDCC 歷史不足、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: high_level_consolidation
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -91,7 +91,6 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -105,6 +104,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 130.5
-- high: 140
-- low: 130.5
-- close: 140
-- volume: 137000
-- ma5: 126.9
-- ema23_primary: 123.18
-- distance_to_ema23_pct: 13.65
-- ma20: 122.6
-- ma60: 123.32
-- ma120: 113.66
-- return_5d: 19.66
-- return_20d: 8.53
-- volume_ratio: 0.16
-- distance_to_ma20_pct_auxiliary: 14.19
-- distance_to_high_60_pct: -20
+- date: 20260605
+- open: 152.5
+- high: 169
+- low: 150
+- close: 169
+- volume: 162000
+- ma5: 140.9
+- ema23_primary: 128.29
+- distance_to_ema23_pct: 31.74
+- ma20: 124.95
+- ma60: 125.06
+- ma120: 114.21
+- return_5d: 39.09
+- return_20d: 30.5
+- volume_ratio: 0.35
+- distance_to_ma20_pct_auxiliary: 35.25
+- distance_to_high_60_pct: -3.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,133,139,129.5,132.5,1937000,123.75,7.07,125.75,105.63,0.97
-20260508,143,145.5,129.5,129.5,6371000,124.23,4.24,126.28,106.97,2.79
 20260511,131,138.5,129.5,133,1781000,124.96,6.44,126.85,108.48,0.75
 20260512,134.5,135,125,126,1475000,125.05,0.76,127,109.84,0.61
 20260513,126,128,121.5,122,777000,124.79,-2.24,126.72,111.11,0.32
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,124.5,130.5,122,128,127,121.12,5.68,122.1,122.01,0
 20260602,131,133,122,127.5,127,121.65,4.81,122.05,122.57,0
 20260603,130.5,140,130.5,140,137000,123.18,13.65,122.6,123.32,0.16
+20260604,130.5,140,130.5,140,137000,124.58,12.37,122.97,123.94,0.18
+20260605,152.5,169,150,169,162000,128.29,31.74,124.95,125.06,0.35
 ```
 
 ## Latest TDCC Snapshot

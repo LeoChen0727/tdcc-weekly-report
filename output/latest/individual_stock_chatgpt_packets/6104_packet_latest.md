@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6104 創惟
 
 ## Metadata
-- generated_at: 2026-06-05 03:12:54 Asia/Taipei
+- generated_at: 2026-06-05 21:08:08 Asia/Taipei
 - stock_id: 6104
 - stock_name: 創惟
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
+- date: 20260605
 - open: 102
-- high: 105
-- low: 99.7
+- high: 103
+- low: 98
 - close: 103
-- volume: 103000
-- ma5: 100.44
-- ema23_primary: 99.45
-- distance_to_ema23_pct: 3.57
-- ma20: 100
-- ma60: 96.12
-- ma120: 96.9
+- volume: 101000
+- ma5: 102.3
+- ema23_primary: 100.02
+- distance_to_ema23_pct: 2.98
+- ma20: 100.09
+- ma60: 96.55
+- ma120: 97.1
 - return_5d: 4.04
-- return_20d: 4.04
-- volume_ratio: 0.08
-- distance_to_ma20_pct_auxiliary: 3.01
+- return_20d: 0.98
+- volume_ratio: 0.1
+- distance_to_ma20_pct_auxiliary: 2.9
 - distance_to_high_60_pct: -5.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,99.6,104,98.7,102,3121000,96.57,5.62,95.37,95.45,1.42
-20260508,102,106,100.5,102,3863000,97.02,5.13,96,95.48,1.64
 20260511,103.5,104.5,99.9,103,2495000,97.52,5.62,96.72,95.52,1.02
 20260512,104,104,100.5,102,1782000,97.89,4.19,97.43,95.59,0.71
 20260513,101,105,100,100.5,2213000,98.11,2.43,98.04,95.6,0.86
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,99.1,103,98.8,101.5,102,98.96,2.57,99.67,95.88,0
 20260602,102.5,104,99.1,101,102,99.13,1.89,99.8,95.99,0
 20260603,102,105,99.7,103,103000,99.45,3.57,100,96.12,0.08
+20260604,102,105,99.7,103,103000,99.75,3.26,100.05,96.36,0.09
+20260605,102,103,98,103,101000,100.02,2.98,100.09,96.55,0.1
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2375 凱美
 
 ## Metadata
-- generated_at: 2026-06-05 03:11:08 Asia/Taipei
+- generated_at: 2026-06-05 21:06:37 Asia/Taipei
 - stock_id: 2375
 - stock_name: 凱美
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 161.5
-- high: 162.5
-- low: 155
-- close: 155.5
-- volume: 3008943
-- ma5: 162
-- ema23_primary: 127.19
-- distance_to_ema23_pct: 22.26
-- ma20: 123.32
-- ma60: 95.65
-- ma120: 94.22
-- return_5d: 5.78
-- return_20d: 75.31
-- volume_ratio: 0.18
-- distance_to_ma20_pct_auxiliary: 26.09
-- distance_to_high_60_pct: -11.9
+- date: 20260605
+- open: 142.5
+- high: 156
+- low: 132
+- close: 156
+- volume: 3597799
+- ma5: 160.1
+- ema23_primary: 132.29
+- distance_to_ema23_pct: 17.92
+- ma20: 130.16
+- ma60: 98.31
+- ma120: 95.34
+- return_5d: -6.31
+- return_20d: 72.57
+- volume_ratio: 0.22
+- distance_to_ma20_pct_auxiliary: 19.85
+- distance_to_high_60_pct: -11.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,91,96.5,88.2,91.3,11589793,85.25,7.1,85.48,83.95,2.22
-20260508,92.1,95.5,89.5,90.4,9064706,85.68,5.51,86.11,83.88,1.61
 20260511,90,91.8,86.5,91.5,4904848,86.16,6.2,86.79,83.89,0.85
 20260512,91.5,95.9,89.6,94.8,10395859,86.88,9.11,87.25,84.05,1.71
 20260513,93.8,96.4,91.7,96,7092583,87.64,9.54,87.79,84.23,1.19
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,163.5,175,158,164,7997735,121.17,35.34,116.36,93.2,0.47
 20260602,160.5,162.5,150,162.5,4694639,124.62,30.4,119.98,94.49,0.27
 20260603,161.5,162.5,155,155.5,3008943,127.19,22.26,123.32,95.65,0.18
+20260604,160.5,162.5,150,162.5,4694639,130.13,24.87,126.88,97.05,0.28
+20260605,142.5,156,132,156,3597799,132.29,17.92,130.16,98.31,0.22
 ```
 
 ## Latest TDCC Snapshot
@@ -193,9 +193,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260604 | 2375 | 凱美 | 33 | 1 | 1725980.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

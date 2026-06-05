@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00927 群益半導體收益
 
 ## Metadata
-- generated_at: 2026-06-05 03:10:24 Asia/Taipei
+- generated_at: 2026-06-05 21:06:00 Asia/Taipei
 - stock_id: 00927
 - stock_name: 群益半導體收益
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260603
-- price_rows: 9
+- latest_price_date: 20260605
+- price_rows: 11
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 41.25
-- high: 41.55
-- low: 40.71
-- close: 40.79
-- volume: 19065872
-- ma5: 40.8
-- ema23_primary: 38.53
-- distance_to_ema23_pct: 5.85
+- date: 20260605
+- open: 39.46
+- high: 39.63
+- low: 38.27
+- close: 39.13
+- volume: 19617176
+- ma5: 40.57
+- ema23_primary: 38.76
+- distance_to_ema23_pct: 0.96
 - ma20: 39.98
 - ma60: 39.98
 - ma120: 39.98
-- return_5d: -0.17
+- return_5d: -4.63
 - return_20d:
-- volume_ratio: 0.75
-- distance_to_ma20_pct_auxiliary: 2.01
-- distance_to_high_60_pct: -2.79
+- volume_ratio: 0.79
+- distance_to_ma20_pct_auxiliary: -2.13
+- distance_to_high_60_pct: -6.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -144,6 +144,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,41.46,41.96,41,41.26,23129545,38.1,8.29,39.75,39.75,0.88
 20260602,41.56,41.87,39.88,40.83,26247093,38.33,6.53,39.88,39.88,1
 20260603,41.25,41.55,40.71,40.79,19065872,38.53,5.85,39.98,39.98,0.75
+20260604,41.56,41.87,39.88,40.83,26247093,38.73,5.43,40.07,40.07,1.03
+20260605,39.46,39.63,38.27,39.13,19617176,38.76,0.96,39.98,39.98,0.79
 ```
 
 ## Latest TDCC Snapshot

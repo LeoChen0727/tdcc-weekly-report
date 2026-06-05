@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2495 普安
 
 ## Metadata
-- generated_at: 2026-06-05 03:11:18 Asia/Taipei
+- generated_at: 2026-06-05 21:06:46 Asia/Taipei
 - stock_id: 2495
 - stock_name: 普安
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 53
-- high: 53.8
-- low: 51.4
-- close: 52.8
-- volume: 25449948
-- ma5: 50.83
-- ema23_primary: 44.4
-- distance_to_ema23_pct: 18.93
-- ma20: 42.45
-- ma60: 39.08
-- ma120: 35.12
-- return_5d: 4.35
-- return_20d: 23.8
-- volume_ratio: 1.96
-- distance_to_ma20_pct_auxiliary: 24.4
-- distance_to_high_60_pct: -1.86
+- date: 20260605
+- open: 50.1
+- high: 50.4
+- low: 48
+- close: 49.5
+- volume: 6580184
+- ma5: 51.28
+- ema23_primary: 45.37
+- distance_to_ema23_pct: 9.1
+- ma20: 43.62
+- ma60: 39.78
+- ma120: 35.52
+- return_5d: -3.88
+- return_20d: 34.51
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: 13.49
+- distance_to_high_60_pct: -7.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,42.95,43,40.7,40.85,8317650,40.05,2.01,41.31,35.7,0.61
-20260508,39,39.05,36.8,36.8,16485885,39.78,-7.48,41.34,35.71,1.21
 20260511,36.15,37.05,36.1,36.35,4989778,39.49,-7.95,41.31,35.73,0.37
 20260512,36.5,36.75,36.05,36.1,3115655,39.21,-7.93,41.15,35.79,0.24
 20260513,36.05,36.05,34.8,35.5,4037788,38.9,-8.74,40.87,35.84,0.36
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,50.6,52.6,49.05,50.9,15163420,42.91,18.62,41.44,38.36,1.28
 20260602,51.2,53,48.75,51.6,15066170,43.63,18.26,41.94,38.71,1.22
 20260603,53,53.8,51.4,52.8,25449948,44.4,18.93,42.45,39.08,1.96
+20260604,51.2,53,48.75,51.6,15066170,45,14.67,42.98,39.45,1.13
+20260605,50.1,50.4,48,49.5,6580184,45.37,9.1,43.62,39.78,0.51
 ```
 
 ## Latest TDCC Snapshot
@@ -191,9 +191,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260604 | 2495 | 普安 | 23 | 0 | 4232150.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

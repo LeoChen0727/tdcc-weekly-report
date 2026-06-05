@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6171 大城地產
 
 ## Metadata
-- generated_at: 2026-06-05 03:13:00 Asia/Taipei
+- generated_at: 2026-06-05 21:08:13 Asia/Taipei
 - stock_id: 6171
 - stock_name: 大城地產
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 137
+- latest_price_date: 20260605
+- price_rows: 139
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 23.65
-- high: 23.65
-- low: 23.05
-- close: 23.5
-- volume: 23000
-- ma5: 23.35
-- ema23_primary: 24.14
-- distance_to_ema23_pct: -2.64
-- ma20: 23.91
-- ma60: 25.77
-- ma120: 26.91
-- return_5d: 0
-- return_20d: -7.84
-- volume_ratio: 1.11
-- distance_to_ma20_pct_auxiliary: -1.71
-- distance_to_high_60_pct: -17.11
+- date: 20260605
+- open: 24.55
+- high: 24.55
+- low: 23.95
+- close: 24.25
+- volume: 24000
+- ma5: 23.55
+- ema23_primary: 24.1
+- distance_to_ema23_pct: 0.63
+- ma20: 23.83
+- ma60: 25.65
+- ma120: 26.84
+- return_5d: 3.63
+- return_20d: 0
+- volume_ratio: 1.21
+- distance_to_ma20_pct_auxiliary: 1.75
+- distance_to_high_60_pct: -14.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260504,25.5,25.5,25,25.05,17000,26.04,-3.8,25.95,27.02,0.44
-20260505,25.05,25.05,24.15,24.25,49000,25.89,-6.34,25.83,26.96,1.23
 20260506,24.25,24.7,24.25,24.4,6000,25.77,-5.3,25.73,26.9,0.15
 20260507,24.2,24.4,24.15,24.35,22000,25.65,-5.06,25.61,26.84,0.58
 20260508,24.25,24.35,24.25,24.35,17000,25.54,-4.66,25.52,26.79,0.46
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,23.1,23.4,23.05,23.15,23,24.27,-4.62,24.12,25.91,0
 20260602,23.25,23.85,23.2,23.35,23,24.19,-3.49,24.01,25.83,0
 20260603,23.65,23.65,23.05,23.5,23000,24.14,-2.64,23.91,25.77,1.11
+20260604,23.65,23.65,23.05,23.5,23000,24.08,-2.42,23.83,25.7,1.09
+20260605,24.55,24.55,23.95,24.25,24000,24.1,0.63,23.83,25.65,1.21
 ```
 
 ## Latest TDCC Snapshot

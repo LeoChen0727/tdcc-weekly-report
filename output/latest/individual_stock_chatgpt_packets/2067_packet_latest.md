@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2067 嘉鋼
 
 ## Metadata
-- generated_at: 2026-06-05 03:10:57 Asia/Taipei
+- generated_at: 2026-06-05 21:06:28 Asia/Taipei
 - stock_id: 2067
 - stock_name: 嘉鋼
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 6.5
-- high: 6.5
-- low: 6.45
-- close: 6.46
-- volume: 6000
-- ma5: 6.52
-- ema23_primary: 6.84
-- distance_to_ema23_pct: -5.5
-- ma20: 6.84
-- ma60: 7.37
-- ma120: 8.77
-- return_5d: -3.29
-- return_20d: -5.28
-- volume_ratio: 0.27
-- distance_to_ma20_pct_auxiliary: -5.58
-- distance_to_high_60_pct: -27.9
+- date: 20260605
+- open: 6.53
+- high: 6.54
+- low: 6.52
+- close: 6.53
+- volume: 7000
+- ma5: 6.49
+- ema23_primary: 6.78
+- distance_to_ema23_pct: -3.71
+- ma20: 6.76
+- ma60: 7.3
+- ma120: 8.7
+- return_5d: -0.46
+- return_20d: -13.05
+- volume_ratio: 0.43
+- distance_to_ma20_pct_auxiliary: -3.45
+- distance_to_high_60_pct: -22.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,6.83,7.04,6.82,7.04,45000,7.32,-3.81,7.16,8.43,0.53
-20260508,6.79,7.51,6.68,7.51,95000,7.33,2.39,7.15,8.38,1.06
 20260511,7.51,7.51,6.85,7.24,96000,7.33,-1.18,7.15,8.33,1.05
 20260512,6.91,7.23,6.91,7.04,23000,7.3,-3.6,7.13,8.28,0.27
 20260513,6.92,7.13,6.92,7.12,33000,7.29,-2.3,7.12,8.24,0.38
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,6.5,6.7,6.42,6.5,6,6.9,-5.85,6.89,7.46,0
 20260602,6.5,6.6,6.45,6.5,6,6.87,-5.39,6.86,7.41,0
 20260603,6.5,6.5,6.45,6.46,6000,6.84,-5.5,6.84,7.37,0.27
+20260604,6.5,6.5,6.45,6.46,6000,6.8,-5.07,6.81,7.33,0.29
+20260605,6.53,6.54,6.52,6.53,7000,6.78,-3.71,6.76,7.3,0.43
 ```
 
 ## Latest TDCC Snapshot

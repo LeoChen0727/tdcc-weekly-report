@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00904 新光臺灣半導體30
 
 ## Metadata
-- generated_at: 2026-06-05 03:10:23 Asia/Taipei
+- generated_at: 2026-06-05 21:06:00 Asia/Taipei
 - stock_id: 00904
 - stock_name: 新光臺灣半導體30
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260603
-- price_rows: 9
+- latest_price_date: 20260605
+- price_rows: 11
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 43.11
-- high: 43.5
-- low: 42.73
-- close: 42.95
-- volume: 1529631
-- ma5: 42.52
-- ema23_primary: 40.88
-- distance_to_ema23_pct: 5.07
+- date: 20260605
+- open: 41.51
+- high: 41.65
+- low: 40.25
+- close: 41.1
+- volume: 3867108
+- ma5: 42.48
+- ema23_primary: 41.03
+- distance_to_ema23_pct: 0.16
 - ma20: 41.86
 - ma60: 41.86
 - ma120: 41.86
-- return_5d: 1.42
+- return_5d: -3.18
 - return_20d:
-- volume_ratio: 0.61
-- distance_to_ma20_pct_auxiliary: 2.61
-- distance_to_high_60_pct: -1.26
+- volume_ratio: 1.5
+- distance_to_ma20_pct_auxiliary: -1.82
+- distance_to_high_60_pct: -5.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -144,6 +144,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,43,43.3,42.63,42.97,2759008,40.51,6.08,41.58,41.58,1.02
 20260602,43.23,43.41,42,42.68,2087578,40.69,4.89,41.72,41.72,0.8
 20260603,43.11,43.5,42.73,42.95,1529631,40.88,5.07,41.86,41.86,0.61
+20260604,43.23,43.41,42,42.68,2087578,41.03,4.03,41.94,41.94,0.85
+20260605,41.51,41.65,40.25,41.1,3867108,41.03,0.16,41.86,41.86,1.5
 ```
 
 ## Latest TDCC Snapshot

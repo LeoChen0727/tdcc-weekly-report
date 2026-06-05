@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4972 湯石照明
 
 ## Metadata
-- generated_at: 2026-06-05 03:12:35 Asia/Taipei
+- generated_at: 2026-06-05 21:07:51 Asia/Taipei
 - stock_id: 4972
 - stock_name: 湯石照明
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 16.5
-- high: 16.55
-- low: 16.4
-- close: 16.55
+- date: 20260605
+- open: 17
+- high: 17.05
+- low: 16.85
+- close: 16.95
 - volume: 17000
-- ma5: 16.51
-- ema23_primary: 16.53
-- distance_to_ema23_pct: 0.1
-- ma20: 16.45
-- ma60: 17.01
-- ma120: 17.55
-- return_5d: 0.61
-- return_20d: 0.3
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: 0.62
-- distance_to_high_60_pct: -8.56
+- ma5: 16.62
+- ema23_primary: 16.57
+- distance_to_ema23_pct: 2.3
+- ma20: 16.48
+- ma60: 16.98
+- ma120: 17.52
+- return_5d: 3.04
+- return_20d: 3.04
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: 2.87
+- distance_to_high_60_pct: -6.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,16.4,16.5,16.35,16.45,57000,16.84,-2.29,16.78,17.47,0.93
-20260508,16.5,16.5,16.4,16.45,64000,16.8,-2.1,16.73,17.45,1.02
 20260511,16.45,16.5,16.4,16.45,53000,16.77,-1.93,16.69,17.42,0.87
 20260512,16.45,16.45,16.4,16.45,46000,16.75,-1.77,16.66,17.39,0.77
 20260513,16.5,16.5,16.35,16.4,25000,16.72,-1.9,16.63,17.36,0.42
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,16.45,16.8,16.45,16.55,17,16.53,0.09,16.44,17.04,0
 20260602,16.6,16.6,16.3,16.5,16,16.53,-0.19,16.45,17.02,0
 20260603,16.5,16.55,16.4,16.55,17000,16.53,0.1,16.45,17.01,0.62
+20260604,16.5,16.55,16.4,16.55,17000,16.53,0.09,16.45,16.99,0.67
+20260605,17,17.05,16.85,16.95,17000,16.57,2.3,16.48,16.98,0.74
 ```
 
 ## Latest TDCC Snapshot

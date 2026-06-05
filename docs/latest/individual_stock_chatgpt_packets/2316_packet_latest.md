@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2316 楠梓電
 
 ## Metadata
-- generated_at: 2026-06-05 03:11:03 Asia/Taipei
+- generated_at: 2026-06-05 21:06:33 Asia/Taipei
 - stock_id: 2316
 - stock_name: 楠梓電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -116,30 +116,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 160
-- high: 167.5
-- low: 159.5
-- close: 166.5
-- volume: 4809593
-- ma5: 166.1
-- ema23_primary: 147.46
-- distance_to_ema23_pct: 12.91
-- ma20: 147
-- ma60: 120.28
-- ma120: 110.55
+- date: 20260605
+- open: 162
+- high: 171
+- low: 161.5
+- close: 167
+- volume: 10573085
+- ma5: 164.3
+- ema23_primary: 150.12
+- distance_to_ema23_pct: 11.24
+- ma20: 151.95
+- ma60: 122.76
+- ma120: 111.36
 - return_5d: -0.89
-- return_20d: 42.31
-- volume_ratio: 0.48
-- distance_to_ma20_pct_auxiliary: 13.27
-- distance_to_high_60_pct: -11.44
+- return_20d: 48.44
+- volume_ratio: 1.02
+- distance_to_ma20_pct_auxiliary: 9.9
+- distance_to_high_60_pct: -11.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,119,119.5,115,116.5,5141966,112.61,3.46,115,104.12,0.6
-20260508,117,117,110,112.5,5313455,112.6,-0.09,115.25,104.4,0.64
 20260511,116,123.5,115.5,123.5,6313377,113.51,8.81,115.53,104.82,0.79
 20260512,130,135.5,130,135.5,3238045,115.34,17.48,116.65,105.53,0.44
 20260513,140,146,135.5,142.5,22249523,117.6,21.17,117.85,106.28,2.8
@@ -158,6 +156,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,171.5,175,164,166,6644660,144.34,15.01,142.38,117.94,0.66
 20260602,167,167,157.5,161,4585696,145.73,10.48,144.53,119.06,0.45
 20260603,160,167.5,159.5,166.5,4809593,147.46,12.91,147,120.28,0.48
+20260604,167,167,157.5,161,4585696,148.59,8.35,149.22,121.52,0.46
+20260605,162,171,161.5,167,10573085,150.12,11.24,151.95,122.76,1.02
 ```
 
 ## Latest TDCC Snapshot
@@ -187,18 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 2316 | 楠梓電 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260603 | 2316 | 楠梓電 | revenue_pullback | 營收成長股價回檔 | 77.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260605 | 2316 | 楠梓電 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 2316 | 楠梓電 | 2 | 2 | 2 | 4 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260605 | 2316 | 楠梓電 | 3 | 3 | 3 | 5 | 5 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260604 | 2316 | 楠梓電 | 89 | 2 | 14227970.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

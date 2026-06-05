@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1256 鮮活果汁-KY
 
 ## Metadata
-- generated_at: 2026-06-05 03:10:28 Asia/Taipei
+- generated_at: 2026-06-05 21:06:04 Asia/Taipei
 - stock_id: 1256
 - stock_name: 鮮活果汁-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 204
-- high: 208
-- low: 201.5
-- close: 201.5
-- volume: 218291
-- ma5: 203.5
-- ema23_primary: 187.31
-- distance_to_ema23_pct: 7.57
-- ma20: 188.88
-- ma60: 167.16
-- ma120: 159.25
-- return_5d: 4.95
-- return_20d: 22.87
-- volume_ratio: 1.13
-- distance_to_ma20_pct_auxiliary: 6.68
-- distance_to_high_60_pct: -7.78
+- date: 20260605
+- open: 203.5
+- high: 203.5
+- low: 180
+- close: 181
+- volume: 470872
+- ma5: 199.6
+- ema23_primary: 187.99
+- distance_to_ema23_pct: -3.72
+- ma20: 190.88
+- ma60: 168.14
+- ma120: 160.15
+- return_5d: -11.92
+- return_20d: 2.84
+- volume_ratio: 2.24
+- distance_to_ma20_pct_auxiliary: -5.17
+- distance_to_high_60_pct: -17.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,166.5,168,165,168,86182,159.87,5.09,159.1,157.61,1.44
-20260508,171.5,177,169.5,176,235864,161.21,9.17,160.4,157.83,3.41
 20260511,176,181.5,174.5,177,142853,162.53,8.9,161.62,158.17,1.93
 20260512,193,193,186.5,186.5,327744,164.52,13.36,163.43,158.67,3.71
 20260513,199,199,187.5,191,316998,166.73,14.56,165.38,159.22,3.1
@@ -154,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,212,218.5,205,209.5,385723,184.48,13.56,185.1,166.01,2.16
 20260602,212,212,201.5,203,188250,186.02,9.13,187,166.57,1.01
 20260603,204,208,201.5,201.5,218291,187.31,7.57,188.88,167.16,1.13
+20260604,212,212,201.5,203,188250,188.62,7.62,190.62,167.86,0.95
+20260605,203.5,203.5,180,181,470872,187.99,-3.72,190.88,168.14,2.24
 ```
 
 ## Latest TDCC Snapshot

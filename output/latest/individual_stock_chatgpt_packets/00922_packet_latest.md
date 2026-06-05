@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00922 國泰台灣領袖50
 
 ## Metadata
-- generated_at: 2026-06-05 03:10:24 Asia/Taipei
+- generated_at: 2026-06-05 21:06:00 Asia/Taipei
 - stock_id: 00922
 - stock_name: 國泰台灣領袖50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260603
-- price_rows: 9
+- latest_price_date: 20260605
+- price_rows: 11
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 40.64
-- high: 41.07
-- low: 40.64
-- close: 40.91
-- volume: 13086669
-- ma5: 39.82
-- ema23_primary: 38.22
-- distance_to_ema23_pct: 7.05
-- ma20: 39.12
-- ma60: 39.12
-- ma120: 39.12
-- return_5d: 4.18
+- date: 20260605
+- open: 39.98
+- high: 40.11
+- low: 38.97
+- close: 39.69
+- volume: 16353254
+- ma5: 40.18
+- ema23_primary: 38.48
+- distance_to_ema23_pct: 3.14
+- ma20: 39.26
+- ma60: 39.26
+- ma120: 39.26
+- return_5d: 0.13
 - return_20d:
-- volume_ratio: 0.96
-- distance_to_ma20_pct_auxiliary: 4.57
-- distance_to_high_60_pct: -0.39
+- volume_ratio: 1.18
+- distance_to_ma20_pct_auxiliary: 1.09
+- distance_to_high_60_pct: -3.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -144,6 +144,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,39.81,40.5,39.81,40.11,11730275,37.78,6.17,38.73,38.73,0.86
 20260602,40.29,40.37,39.57,40.1,13752500,37.97,5.61,38.9,38.9,1.01
 20260603,40.64,41.07,40.64,40.91,13086669,38.22,7.05,39.12,39.12,0.96
+20260604,40.29,40.37,39.57,40.1,13752500,38.37,4.5,39.22,39.22,1.01
+20260605,39.98,40.11,38.97,39.69,16353254,38.48,3.14,39.26,39.26,1.18
 ```
 
 ## Latest TDCC Snapshot

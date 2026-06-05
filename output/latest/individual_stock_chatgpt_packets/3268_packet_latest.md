@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3268 海德威
 
 ## Metadata
-- generated_at: 2026-06-05 03:11:50 Asia/Taipei
+- generated_at: 2026-06-05 21:07:13 Asia/Taipei
 - stock_id: 3268
 - stock_name: 海德威
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 275
+- latest_price_date: 20260605
+- price_rows: 277
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,14 +59,14 @@
 - action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 單一個股分析
 - score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足、股價乖離過大
+- risk_control_zh: TDCC 歷史不足
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: high_level_consolidation
+- thesis_state: unclear
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -91,6 +91,7 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
+- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -104,7 +105,6 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
-- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 20.35
-- high: 21.2
-- low: 19.6
-- close: 21.2
-- volume: 21000
-- ma5: 18.69
-- ema23_primary: 17.92
-- distance_to_ema23_pct: 18.29
-- ma20: 17.95
-- ma60: 16.71
-- ma120: 16.93
-- return_5d: 22.19
-- return_20d: 19.77
-- volume_ratio: 0.11
-- distance_to_ma20_pct_auxiliary: 18.12
-- distance_to_high_60_pct: 0
+- date: 20260605
+- open: 20.5
+- high: 20.7
+- low: 19.5
+- close: 20.3
+- volume: 20000
+- ma5: 19.91
+- ema23_primary: 18.37
+- distance_to_ema23_pct: 10.5
+- ma20: 18.13
+- ma60: 16.9
+- ma120: 16.97
+- return_5d: 12.78
+- return_20d: 10.63
+- volume_ratio: 0.22
+- distance_to_ma20_pct_auxiliary: 11.95
+- distance_to_high_60_pct: -4.25
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,18.5,19.45,18.3,19.45,1288000,17.12,13.59,17.19,16.18,4.9
-20260508,19.45,19.6,18.35,18.35,721000,17.23,6.53,17.4,16.2,2.43
 20260511,18.55,18.8,17.8,18.5,197000,17.33,6.74,17.55,16.22,0.66
 20260512,18.9,18.9,17.75,17.75,243000,17.37,2.21,17.57,16.24,0.9
 20260513,17.85,17.9,17.3,17.35,94000,17.36,-0.09,17.61,16.26,0.39
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,18.55,18.55,17.55,17.55,18,17.47,0.45,17.68,16.56,0
 20260602,17.5,19.3,17.35,19.3,19,17.62,9.51,17.77,16.62,0
 20260603,20.35,21.2,19.6,21.2,21000,17.92,18.29,17.95,16.71,0.11
+20260604,20.35,21.2,19.6,21.2,21000,18.2,16.51,18.04,16.81,0.17
+20260605,20.5,20.7,19.5,20.3,20000,18.37,10.5,18.13,16.9,0.22
 ```
 
 ## Latest TDCC Snapshot

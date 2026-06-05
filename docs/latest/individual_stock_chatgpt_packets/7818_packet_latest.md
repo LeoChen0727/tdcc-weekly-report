@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7818 溢泰實業
 
 ## Metadata
-- generated_at: 2026-06-05 03:14:09 Asia/Taipei
+- generated_at: 2026-06-05 21:09:11 Asia/Taipei
 - stock_id: 7818
 - stock_name: 溢泰實業
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260603
-- price_rows: 13
+- latest_price_date: 20260605
+- price_rows: 15
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 65.8
-- high: 66
-- low: 64.8
-- close: 65.5
-- volume: 455462
-- ma5: 65.68
-- ema23_primary: 65.23
-- distance_to_ema23_pct: 0.41
-- ma20: 65.95
-- ma60: 65.95
-- ma120: 65.95
-- return_5d: -1.21
+- date: 20260605
+- open: 65.2
+- high: 65.2
+- low: 64
+- close: 64.3
+- volume: 238454
+- ma5: 65.34
+- ema23_primary: 65.19
+- distance_to_ema23_pct: -1.36
+- ma20: 65.83
+- ma60: 65.83
+- ma120: 65.83
+- return_5d: -2.28
 - return_20d:
-- volume_ratio: 0.52
-- distance_to_ma20_pct_auxiliary: -0.69
-- distance_to_high_60_pct: -5.35
+- volume_ratio: 0.3
+- distance_to_ma20_pct_auxiliary: -2.32
+- distance_to_high_60_pct: -7.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -148,6 +148,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,66,66.5,64.6,65.5,300023,65.16,0.52,66.02,66.02,0.31
 20260602,65.7,66,65,65.7,323565,65.21,0.76,65.99,65.99,0.35
 20260603,65.8,66,64.8,65.5,455462,65.23,0.41,65.95,65.95,0.52
+20260604,65.7,66,65,65.7,323565,65.27,0.66,65.94,65.94,0.38
+20260605,65.2,65.2,64,64.3,238454,65.19,-1.36,65.83,65.83,0.3
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8048 德勝
 
 ## Metadata
-- generated_at: 2026-06-05 03:14:11 Asia/Taipei
+- generated_at: 2026-06-05 21:09:13 Asia/Taipei
 - stock_id: 8048
 - stock_name: 德勝
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 62.3
-- high: 64.9
+- date: 20260605
+- open: 64.7
+- high: 64.7
 - low: 62.1
-- close: 64
-- volume: 64000
-- ma5: 62.18
-- ema23_primary: 62.28
-- distance_to_ema23_pct: 2.77
-- ma20: 62.27
-- ma60: 60.79
-- ma120: 58.91
-- return_5d: 0.63
-- return_20d: 4.58
-- volume_ratio: 0.26
-- distance_to_ma20_pct_auxiliary: 2.77
-- distance_to_high_60_pct: -16.67
+- close: 63
+- volume: 63000
+- ma5: 63
+- ema23_primary: 62.47
+- distance_to_ema23_pct: 0.85
+- ma20: 62.4
+- ma60: 60.92
+- ma120: 58.9
+- return_5d: 2.44
+- return_20d: 1.61
+- volume_ratio: 0.29
+- distance_to_ma20_pct_auxiliary: 0.97
+- distance_to_high_60_pct: -17.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,61.3,63,60.3,62.6,343000,61.92,1.1,62.83,59.43,0.3
-20260508,62.2,63.3,60.5,62,375000,61.93,0.12,63.2,59.58,0.33
 20260511,64.3,64.5,61,61.8,542000,61.92,-0.19,63.48,59.73,0.48
 20260512,63.3,64.7,62.1,63.4,695000,62.04,2.19,63.77,59.9,0.61
 20260513,62.5,62.7,61.4,61.6,360000,62,-0.65,63.91,60.02,0.32
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,61.5,63.6,61.3,62,63,62.13,-0.21,62.16,60.8,0
 20260602,62.2,62.2,61,62,62,62.12,-0.19,62.13,60.77,0
 20260603,62.3,64.9,62.1,64,64000,62.28,2.77,62.27,60.79,0.26
+20260604,62.3,64.9,62.1,64,64000,62.42,2.53,62.34,60.87,0.27
+20260605,64.7,64.7,62.1,63,63000,62.47,0.85,62.4,60.92,0.29
 ```
 
 ## Latest TDCC Snapshot

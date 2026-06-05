@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6206 飛捷
 
 ## Metadata
-- generated_at: 2026-06-05 03:13:04 Asia/Taipei
+- generated_at: 2026-06-05 21:08:16 Asia/Taipei
 - stock_id: 6206
 - stock_name: 飛捷
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -117,30 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 144.5
-- high: 145.5
-- low: 140
+- date: 20260605
+- open: 140
+- high: 143.5
+- low: 137
 - close: 141.5
-- volume: 2455369
-- ma5: 140.2
-- ema23_primary: 131.9
-- distance_to_ema23_pct: 7.28
-- ma20: 135.12
-- ma60: 114.08
-- ma120: 103.25
-- return_5d: 2.17
-- return_20d: 28.05
-- volume_ratio: 0.7
-- distance_to_ma20_pct_auxiliary: 4.72
+- volume: 1904333
+- ma5: 141.7
+- ema23_primary: 133.47
+- distance_to_ema23_pct: 6.01
+- ma20: 137.5
+- ma60: 115.56
+- ma120: 104.04
+- return_5d: 2.91
+- return_20d: 18.91
+- volume_ratio: 0.59
+- distance_to_ma20_pct_auxiliary: 2.91
 - distance_to_high_60_pct: -3.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,111,119,110.5,117,3885536,106.89,9.46,107.2,100.19,3.26
-20260508,121,123.5,117.5,119,5367458,107.9,10.29,107.97,100.65,3.82
 20260511,128,130.5,127,130.5,5058880,109.78,18.87,109.38,101.3,3.12
 20260512,135,142,132.5,140,9680659,112.3,24.66,111.28,102.13,4.69
 20260513,138.5,141.5,137,138.5,3607355,114.48,20.98,113.05,102.93,1.63
@@ -159,6 +157,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,136.5,145.5,136.5,141.5,3174026,130.03,8.82,132,112.47,0.94
 20260602,142.5,143.5,138,142,1912937,131.03,8.37,133.57,113.3,0.56
 20260603,144.5,145.5,140,141.5,2455369,131.9,7.28,135.12,114.08,0.7
+20260604,142.5,143.5,138,142,1912937,132.74,6.97,136.38,114.89,0.56
+20260605,140,143.5,137,141.5,1904333,133.47,6.01,137.5,115.56,0.59
 ```
 
 ## Latest TDCC Snapshot
@@ -188,18 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 6206 | 飛捷 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260603 | 6206 | 飛捷 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260605 | 6206 | 飛捷 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260603 | 6206 | 飛捷 | 5 | 3 | 5 | 6 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260605 | 6206 | 飛捷 | 6 | 4 | 5 | 7 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260604 | 6206 | 飛捷 | 15 | 0 | 1676640.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

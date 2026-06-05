@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2472 立隆電
 
 ## Metadata
-- generated_at: 2026-06-05 03:11:16 Asia/Taipei
+- generated_at: 2026-06-05 21:06:44 Asia/Taipei
 - stock_id: 2472
 - stock_name: 立隆電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 367
-- high: 382.5
-- low: 356
-- close: 359
-- volume: 2869665
-- ma5: 374.6
-- ema23_primary: 284.51
-- distance_to_ema23_pct: 26.18
-- ma20: 279.9
-- ma60: 191.89
-- ma120: 151.33
-- return_5d: 6.37
-- return_20d: 92.49
-- volume_ratio: 0.21
-- distance_to_ma20_pct_auxiliary: 28.26
-- distance_to_high_60_pct: -12.01
+- date: 20260605
+- open: 340
+- high: 367
+- low: 315
+- close: 363.5
+- volume: 3424196
+- ma5: 374.9
+- ema23_primary: 298.39
+- distance_to_ema23_pct: 21.82
+- ma20: 295.93
+- ma60: 200.82
+- ma120: 155.82
+- return_5d: -2.02
+- return_20d: 64.11
+- volume_ratio: 0.26
+- distance_to_ma20_pct_auxiliary: 22.84
+- distance_to_high_60_pct: -10.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,191,205,188,201.5,9532418,170.9,17.91,176.88,137.41,1.82
-20260508,198.5,221.5,197.5,221.5,10762892,175.12,26.49,180.68,139.24,1.98
 20260511,219,228,203.5,225,16591811,179.27,25.51,184.53,141.19,2.75
 20260512,221.5,234,209.5,223,16652302,182.92,21.91,187.55,143.2,2.48
 20260513,219,234,218,233.5,11128528,187.13,24.78,190.3,145.28,1.55
@@ -154,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,383,408,383,392,3708970,268.45,46.03,261.7,183.32,0.27
 20260602,387,387,353,380,4684429,277.74,36.82,271.27,187.79,0.34
 20260603,367,382.5,356,359,2869665,284.51,26.18,279.9,191.89,0.21
+20260604,387,387,353,380,4684429,292.47,29.93,288.82,196.52,0.35
+20260605,340,367,315,363.5,3424196,298.39,21.82,295.93,200.82,0.26
 ```
 
 ## Latest TDCC Snapshot
@@ -191,9 +191,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260604 | 2472 | 立隆電 | 103 | 2 | 3869180.0 | 5600.0 | 690.92 | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

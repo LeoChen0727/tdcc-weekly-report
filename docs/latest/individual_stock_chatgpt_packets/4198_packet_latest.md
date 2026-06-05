@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4198 欣大健康
 
 ## Metadata
-- generated_at: 2026-06-05 03:12:18 Asia/Taipei
+- generated_at: 2026-06-05 21:07:36 Asia/Taipei
 - stock_id: 4198
 - stock_name: 欣大健康
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 265
+- latest_price_date: 20260605
+- price_rows: 267
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 38.45
-- high: 38.65
-- low: 38.45
-- close: 38.65
-- volume: 39000
-- ma5: 38.11
-- ema23_primary: 38.54
-- distance_to_ema23_pct: 0.28
-- ma20: 38.53
-- ma60: 38.75
-- ma120: 36.88
-- return_5d: -2.89
-- return_20d: -1.65
-- volume_ratio: 2.28
-- distance_to_ma20_pct_auxiliary: 0.32
-- distance_to_high_60_pct: -7.31
+- date: 20260605
+- open: 36.5
+- high: 37.75
+- low: 36.5
+- close: 37.75
+- volume: 37000
+- ma5: 38.49
+- ema23_primary: 38.48
+- distance_to_ema23_pct: -1.91
+- ma20: 38.33
+- ma60: 38.71
+- ma120: 36.89
+- return_5d: 0.67
+- return_20d: -5.39
+- volume_ratio: 1.86
+- distance_to_ma20_pct_auxiliary: -1.52
+- distance_to_high_60_pct: -9.47
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260506,40.4,40.4,40.4,40.4,1000,38.76,4.23,39.15,37.54,0.14
-20260507,38.4,39.9,38.1,39.9,19000,38.86,2.69,39.21,37.69,2.44
 20260508,38.2,38.8,38,38,6000,38.78,-2.02,39.12,37.79,0.81
 20260511,37.15,37.8,37.15,37.8,3000,38.7,-2.33,38.97,37.9,0.4
 20260512,34.8,37.5,34.8,37.5,4000,38.6,-2.85,38.8,37.98,0.54
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,38,39.15,37,38.65,38,38.51,0.36,38.56,38.8,0
 20260602,38.8,39.2,37.45,38.75,38,38.53,0.57,38.56,38.78,0
 20260603,38.45,38.65,38.45,38.65,39000,38.54,0.28,38.53,38.75,2.28
+20260604,38.45,38.65,38.45,38.65,39000,38.55,0.26,38.44,38.76,2.05
+20260605,36.5,37.75,36.5,37.75,37000,38.48,-1.91,38.33,38.71,1.86
 ```
 
 ## Latest TDCC Snapshot

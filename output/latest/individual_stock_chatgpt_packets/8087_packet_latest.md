@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8087 麗升能源
 
 ## Metadata
-- generated_at: 2026-06-05 03:14:14 Asia/Taipei
+- generated_at: 2026-06-05 21:09:15 Asia/Taipei
 - stock_id: 8087
 - stock_name: 麗升能源
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,30 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 33.7
-- high: 34.7
-- low: 33.6
-- close: 34.45
-- volume: 34000
-- ma5: 33.46
-- ema23_primary: 33.62
-- distance_to_ema23_pct: 2.48
-- ma20: 33.58
-- ma60: 33.88
-- ma120: 32.99
-- return_5d: 6.82
-- return_20d: 4.08
-- volume_ratio: 0.42
-- distance_to_ma20_pct_auxiliary: 2.58
-- distance_to_high_60_pct: -13.01
+- date: 20260605
+- open: 35.35
+- high: 35.65
+- low: 35.25
+- close: 35.6
+- volume: 35000
+- ma5: 34.43
+- ema23_primary: 33.85
+- distance_to_ema23_pct: 5.18
+- ma20: 33.79
+- ma60: 33.94
+- ma120: 32.97
+- return_5d: 8.04
+- return_20d: 7.88
+- volume_ratio: 0.44
+- distance_to_ma20_pct_auxiliary: 5.35
+- distance_to_high_60_pct: -10.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,33,33.1,32.85,32.85,50000,33.84,-2.92,34.32,33.26,0.84
-20260508,32.85,34.95,32.8,33,52000,33.77,-2.28,34.28,33.32,0.85
 20260511,35.5,36.3,34,34,281000,33.79,0.62,34.33,33.4,3.98
 20260512,33.7,33.7,31.25,33.2,142000,33.74,-1.6,34.18,33.47,1.91
 20260513,33,33.2,32.85,33,54000,33.68,-2.01,33.96,33.54,0.86
@@ -155,6 +152,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,33.3,34.8,32.9,33.85,34,33.52,0.99,33.49,33.96,0
 20260602,34.1,34.15,33.6,33.8,34,33.54,0.77,33.52,33.9,0
 20260603,33.7,34.7,33.6,34.45,34000,33.62,2.48,33.58,33.88,0.42
+20260604,33.7,34.7,33.6,34.45,34000,33.69,2.27,33.66,33.91,0.42
+20260605,35.35,35.65,35.25,35.6,35000,33.85,5.18,33.79,33.94,0.44
 ```
 
 ## Latest TDCC Snapshot

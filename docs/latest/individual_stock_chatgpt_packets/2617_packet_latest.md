@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2617 台航
 
 ## Metadata
-- generated_at: 2026-06-05 03:11:24 Asia/Taipei
+- generated_at: 2026-06-05 21:06:51 Asia/Taipei
 - stock_id: 2617
 - stock_name: 台航
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260603
-- price_rows: 276
+- latest_price_date: 20260605
+- price_rows: 278
 - latest_tdcc_date: 20260529
 - tdcc_rows: 5
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,30 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260603
-- open: 29.65
-- high: 29.75
-- low: 29.25
-- close: 29.7
-- volume: 814479
-- ma5: 29.32
-- ema23_primary: 29.3
-- distance_to_ema23_pct: 1.36
+- date: 20260605
+- open: 29.5
+- high: 29.8
+- low: 29.4
+- close: 29.6
+- volume: 868568
+- ma5: 29.59
+- ema23_primary: 29.34
+- distance_to_ema23_pct: 0.88
 - ma20: 29.12
-- ma60: 30.12
-- ma120: 30.54
-- return_5d: 3.12
+- ma60: 30.06
+- ma120: 30.51
+- return_5d: 2.25
 - return_20d: 0.68
-- volume_ratio: 1.01
-- distance_to_ma20_pct_auxiliary: 1.98
-- distance_to_high_60_pct: -10.94
+- volume_ratio: 1.1
+- distance_to_ma20_pct_auxiliary: 1.66
+- distance_to_high_60_pct: -11.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,29.6,29.95,29.55,29.8,950641,29.98,-0.59,29.99,30.7,1.28
-20260508,29.75,29.75,29.3,29.4,1156747,29.93,-1.77,29.94,30.66,1.47
 20260511,29.3,29.4,29.2,29.25,968419,29.87,-2.08,29.88,30.63,1.18
 20260512,29.25,29.45,29.1,29.1,640272,29.81,-2.37,29.82,30.61,0.78
 20260513,29.2,29.35,29.05,29.15,494129,29.75,-2.03,29.77,30.58,0.62
@@ -155,6 +153,8 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260601,28.95,29.7,28.95,29.65,1672299,29.24,1.39,29.1,30.2,2.17
 20260602,29.7,29.7,29.15,29.5,927269,29.27,0.8,29.11,30.15,1.17
 20260603,29.65,29.75,29.25,29.7,814479,29.3,1.36,29.12,30.12,1.01
+20260604,29.7,29.7,29.15,29.5,927269,29.32,0.62,29.11,30.1,1.15
+20260605,29.5,29.8,29.4,29.6,868568,29.34,0.88,29.12,30.06,1.1
 ```
 
 ## Latest TDCC Snapshot
@@ -192,9 +192,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260604 | 2617 | 台航 | 4 | 0 | 2640.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

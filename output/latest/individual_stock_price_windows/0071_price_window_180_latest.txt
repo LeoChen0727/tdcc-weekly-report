@@ -1,3 +1,0 @@
-# PRICE_WINDOW_0
-
-status=no_rows
