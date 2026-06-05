@@ -15,6 +15,7 @@ AUDIT_MD = LATEST_DIR / "daily_data_layer_consistency_audit_latest.md"
 README_TXT = LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT.txt"
 README_INDEX_JSON = LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT_INDEX.json"
 CHATGPT_DAILY_RULES = LATEST_DIR / "CHATGPT_DAILY_REPORT_RULES.txt"
+INDIVIDUAL_STOCK_READ_PROTOCOL = LATEST_DIR / "individual_stock_read_protocol_latest.md"
 
 MODEL_SIGNALS = LATEST_DIR / "daily_candidate_model_signals_for_report_latest.csv"
 RAW_MODEL_SIGNALS = LATEST_DIR / "daily_candidate_model_signals_latest.csv"
@@ -248,6 +249,42 @@ def _validate_raw_api_before_pages(label: str, order: list[str], errors: list[st
             errors.append(f"{label} puts {family} Pages before raw/API: first={family_items[0]}")
 
 
+def _validate_template_group_raw_api_before_pages(
+    label: str,
+    order: list[str],
+    group_tokens: list[str],
+    errors: list[str],
+) -> None:
+    group_items = [
+        item
+        for item in order
+        if all(token.lower() in item.lower() for token in group_tokens)
+    ]
+    if not group_items:
+        errors.append(f"{label} missing order group: {'/'.join(group_tokens)}")
+        return
+    first = group_items[0].lower()
+    if "pages_url" in first:
+        errors.append(f"{label} puts Pages before raw/API for {'/'.join(group_tokens)}: first={group_items[0]}")
+
+
+def _validate_individual_stock_read_protocol(errors: list[str], details: dict[str, object]) -> None:
+    text = _read_text(INDIVIDUAL_STOCK_READ_PROTOCOL)
+    details["individual_stock_read_protocol_present"] = bool(text)
+    if not text:
+        errors.append("individual_stock_read_protocol_latest.md is missing or unreadable")
+        return
+    bad_patterns = [
+        "| individual_chatgpt_packet | `https://LeoChen0727.github.io/",
+        "| price_window_180_html | `https://LeoChen0727.github.io/",
+        "| price_window_180_txt | `https://LeoChen0727.github.io/",
+    ]
+    hits = [pattern for pattern in bad_patterns if pattern in text]
+    details["individual_stock_protocol_pages_first_count"] = len(hits)
+    if hits:
+        errors.append("individual_stock_read_protocol_latest.md still documents Pages-first read order")
+
+
 def _validate_chatgpt_daily_rules_read_order(errors: list[str], details: dict[str, object]) -> None:
     text = _read_text(CHATGPT_DAILY_RULES)
     details["chatgpt_daily_rules_present"] = bool(text)
@@ -291,8 +328,10 @@ def audit(include_readme: bool = False) -> dict[str, object]:
             errors.append("preferred_chatgpt_url points to GitHub Pages; daily packet preference must be raw/API")
         readme_order = _split_order(readme_kv.get("readme_cache_bypass_order", ""))
         readme_index_order = _split_order(readme_index.get("recommended_read_order", []))
+        individual_order = _split_order(readme_kv.get("individual_stock_primary_read_order", ""))
         details["readme_cache_bypass_order"] = readme_order
         details["readme_index_recommended_read_order"] = readme_index_order
+        details["individual_stock_primary_read_order"] = individual_order
         if readme_order:
             _validate_raw_api_before_pages("README readme_cache_bypass_order", readme_order, errors)
         else:
@@ -301,6 +340,21 @@ def audit(include_readme: bool = False) -> dict[str, object]:
             _validate_raw_api_before_pages("README index recommended_read_order", readme_index_order, errors)
         else:
             errors.append("README index recommended_read_order is missing")
+        if individual_order:
+            _validate_template_group_raw_api_before_pages(
+                "README individual_stock_primary_read_order",
+                individual_order,
+                ["individual_stock_chatgpt_packet"],
+                errors,
+            )
+            _validate_template_group_raw_api_before_pages(
+                "README individual_stock_primary_read_order",
+                individual_order,
+                ["individual_stock_price_window_180_html"],
+                errors,
+            )
+        else:
+            errors.append("README individual_stock_primary_read_order is missing")
         if not readme_kv:
             errors.append("READ_ME_FIRST_DAILY_REPORT.txt is missing or unreadable")
         elif readme_main_date != main_date:
@@ -312,6 +366,7 @@ def audit(include_readme: bool = False) -> dict[str, object]:
         elif readme_index_main_date != main_date:
             errors.append(f"README index main_price_date mismatch: expected {main_date}, got {readme_index_main_date}")
         _validate_chatgpt_daily_rules_read_order(errors, details)
+        _validate_individual_stock_read_protocol(errors, details)
 
     signals = _safe_read(MODEL_SIGNALS)
     raw_signals = _safe_read(RAW_MODEL_SIGNALS)
