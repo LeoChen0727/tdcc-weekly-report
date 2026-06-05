@@ -95,6 +95,19 @@ def main() -> int:
     if bad_daily_values:
         errors.append(f"Apps Script daily dispatch inputs must be false: {bad_daily_values}")
 
+    research_text = read_text(WORKFLOW_DIR / research_workflow)
+    forbidden_research_auto_commit_patterns = [
+        r"git add\s+scripts/",
+        r"git add\s+\.github/workflows/",
+        r"git add\s+\.github\\workflows\\",
+    ]
+    for pattern in forbidden_research_auto_commit_patterns:
+        if re.search(pattern, research_text):
+            errors.append(
+                "Research workflow must not auto-stage code/workflow files during output commits: "
+                f"{pattern}"
+            )
+
     required_functions = {
         "triggerDailyStockMonitor",
         "triggerDailyFullPipeline",
