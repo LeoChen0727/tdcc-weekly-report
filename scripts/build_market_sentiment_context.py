@@ -30,6 +30,7 @@ FUTURES_OPTIONS_LATEST = LATEST_DIR / "futures_options_indicators_latest.csv"
 MARKET_REGIME_LATEST = LATEST_DIR / "market_regime_latest.csv"
 MARKET_RISK_DASHBOARD_MD = LATEST_DIR / "market_risk_dashboard_latest.md"
 MARKET_TIMING_PACKET_MD = LATEST_DIR / "market_timing_chatgpt_packet_latest.md"
+DOCS_MARKET_TIMING_PACKET_MD = DOCS_LATEST_DIR / "market_timing_chatgpt_packet_latest.md"
 MARKET_INDEX_HISTORY = DATA_DIR / "market_index_history.csv"
 
 TAIWAN_VIX_HISTORY = DATA_DIR / "futures_options" / "taiwan_vix_history.csv"
@@ -727,6 +728,29 @@ def _update_marked_section(path: Path, section: str) -> None:
     path.write_text(updated, encoding="utf-8")
 
 
+def _packet_main_price_date(path: Path) -> str:
+    if not path.exists():
+        return ""
+    text = path.read_text(encoding="utf-8", errors="replace")
+    match = re.search(r"(?m)^-\s*main_price_date:\s*`?(\d{8})`?\s*$", text)
+    return match.group(1) if match else ""
+
+
+def _ensure_daily_market_timing_packet(expected_date: str) -> None:
+    current_date = _packet_main_price_date(MARKET_TIMING_PACKET_MD)
+    if current_date == expected_date:
+        return
+    from build_market_timing_chatgpt_packet import build as build_market_timing_packet
+
+    build_market_timing_packet()
+    rebuilt_date = _packet_main_price_date(MARKET_TIMING_PACKET_MD)
+    if rebuilt_date != expected_date:
+        raise RuntimeError(
+            "market_timing_chatgpt_packet_latest.md date mismatch after rebuild: "
+            f"expected {expected_date}, got {rebuilt_date or 'missing'}"
+        )
+
+
 def _dashboard_section(row: dict[str, Any]) -> str:
     return "\n".join(
         [
@@ -797,6 +821,10 @@ def _packet_section(row: dict[str, Any]) -> str:
 
 def build() -> pd.DataFrame:
     row, _, _, _ = _context_row()
+    expected_date = safe_str(row.get("date", ""))
+    if expected_date:
+        _ensure_daily_market_timing_packet(expected_date)
+
     df = pd.DataFrame([{col: row.get(col, "") for col in REQUIRED_CONTEXT_COLUMNS}])
     write_csv(df, MARKET_SENTIMENT_CONTEXT_CSV)
     write_csv(df, DOCS_MARKET_SENTIMENT_CONTEXT_CSV)
@@ -810,11 +838,13 @@ def build() -> pd.DataFrame:
 
     _update_marked_section(MARKET_RISK_DASHBOARD_MD, _dashboard_section(row))
     _update_marked_section(MARKET_TIMING_PACKET_MD, _packet_section(row))
+    _update_marked_section(DOCS_MARKET_TIMING_PACKET_MD, _packet_section(row))
 
     print(f"Saved: {MARKET_SENTIMENT_CONTEXT_CSV}")
     print(f"Saved: {MARKET_SENTIMENT_CONTEXT_MD}")
     print(f"Updated: {MARKET_RISK_DASHBOARD_MD}")
     print(f"Updated: {MARKET_TIMING_PACKET_MD}")
+    print(f"Updated: {DOCS_MARKET_TIMING_PACKET_MD}")
     return df
 
 

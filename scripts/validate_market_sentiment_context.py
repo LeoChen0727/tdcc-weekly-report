@@ -33,7 +33,7 @@ def _read_text(path: Path) -> str:
 
 
 def _packet_main_price_date(text: str) -> str:
-    match = re.search(r"(?m)^-\s*main_price_date:\s*(\d{8})\s*$", text)
+    match = re.search(r"(?m)^-\s*main_price_date:\s*`?(\d{8})`?\s*$", text)
     return match.group(1) if match else ""
 
 

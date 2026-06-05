@@ -508,7 +508,8 @@ def build_guide() -> str:
     lines.append("")
 
     lines.append("### Market / index timing report")
-    lines.append("- Use `market_timing_chatgpt_packet_latest.md`, `market_regime_latest.csv`, and market timing backtest files.")
+    lines.append("- Use `market_timing_chatgpt_packet_latest.md` for daily market context.")
+    lines.append("- Use `market_timing_backtest_chatgpt_packet_latest.md`, `market_timing_backtest_latest.csv`, and regime effectiveness files only for backtest/model tracking tasks.")
     lines.append("- If `sample_status` is `insufficient_sample` or `pending_only`, say it is a hypothesis/observation, not a proven timing signal.")
     lines.append("- Use `market_regime` and `risk_level` to adjust how aggressively daily candidates should be discussed.")
     lines.append("")
@@ -545,6 +546,7 @@ def build_guide() -> str:
         ["daily_candidate_decision_latest.csv", file_status(LATEST_DIR / "daily_candidate_decision_latest.csv"), str(len(daily_decision))],
         ["tdcc_chatgpt_tracking_packet_latest.md", file_status(LATEST_DIR / "tdcc_chatgpt_tracking_packet_latest.md"), "-"],
         ["market_timing_chatgpt_packet_latest.md", file_status(LATEST_DIR / "market_timing_chatgpt_packet_latest.md"), "-"],
+        ["market_timing_backtest_chatgpt_packet_latest.md", file_status(LATEST_DIR / "market_timing_backtest_chatgpt_packet_latest.md"), "-"],
         ["surge_model_chatgpt_packet_latest.md", file_status(LATEST_DIR / "surge_model_chatgpt_packet_latest.md"), "-"],
         ["warrant_flow_by_stock_latest.csv", file_status(LATEST_DIR / "warrant_flow_by_stock_latest.csv"), str(len(warrant))],
         ["chip_flow_positive_streak_latest.csv", file_status(LATEST_DIR / "chip_flow_positive_streak_latest.csv"), str(len(chip))],

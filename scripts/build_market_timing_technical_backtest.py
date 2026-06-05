@@ -41,7 +41,7 @@ REGIME_CSV = LATEST_DIR / "market_timing_regime_effectiveness_latest.csv"
 REGIME_MD = LATEST_DIR / "market_timing_regime_effectiveness_latest.md"
 COMPOSITE_CSV = LATEST_DIR / "market_timing_composite_backtest_latest.csv"
 COMPOSITE_MD = LATEST_DIR / "market_timing_composite_backtest_latest.md"
-PACKET_MD = LATEST_DIR / "market_timing_chatgpt_packet_latest.md"
+PACKET_MD = LATEST_DIR / "market_timing_backtest_chatgpt_packet_latest.md"
 
 FUTURES_OPTIONS_CSV = LATEST_DIR / "futures_options_indicators_latest.csv"
 MARKET_REGIME_CSV = LATEST_DIR / "market_regime_latest.csv"
@@ -915,11 +915,12 @@ def write_packet(feature: pd.DataFrame, events: pd.DataFrame, backtest: pd.DataF
 
     main_price_date = feature["trade_date"].max() if not feature.empty else ""
     lines = [
-        "# MARKET TIMING CHATGPT PACKET",
+        "# MARKET TIMING BACKTEST CHATGPT PACKET",
         "",
         "## Metadata",
         f"- generated_at: {now_text()}",
         f"- main_price_date: {main_price_date}",
+        "- packet_source: market_timing_technical_backtest",
         f"- index_list: {', '.join(sorted(feature['index_id'].dropna().unique())) if not feature.empty else ''}",
         f"- data_range: {feature['trade_date'].min() if not feature.empty else ''} ~ {feature['trade_date'].max() if not feature.empty else ''}",
         f"- source_files: data/market_index_history.csv, data/market_index_ohlc_history.csv, {BREADTH_HISTORY.as_posix()}, {EVENT_LOG.as_posix()}",
@@ -985,7 +986,10 @@ def main() -> int:
     if feature.empty:
         write_csv(pd.DataFrame(), FEATURE_PANEL)
         write_csv(pd.DataFrame(), EVENT_LOG)
-        PACKET_MD.write_text("# MARKET TIMING CHATGPT PACKET\n\nmarket_index_history_missing\n", encoding="utf-8")
+        PACKET_MD.write_text(
+            "# MARKET TIMING BACKTEST CHATGPT PACKET\n\nmarket_index_history_missing\n",
+            encoding="utf-8",
+        )
         return 0
 
     breadth = build_market_breadth_history()
