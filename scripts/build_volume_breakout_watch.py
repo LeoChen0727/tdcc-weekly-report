@@ -217,6 +217,7 @@ def add_price_metrics(df: pd.DataFrame) -> pd.DataFrame:
     df["previous_60d_high_calc"] = df["high"].shift(1).rolling(60, min_periods=60).max()
     df["previous_20d_low_calc"] = df["low"].shift(1).rolling(20, min_periods=20).min()
     df["previous_60d_low_calc"] = df["low"].shift(1).rolling(60, min_periods=60).min()
+    df["previous_close_calc"] = df["close"].shift(1)
     df["distance_to_ma20_calc"] = (df["close"] / df["ma20"] - 1.0) * 100.0
     df["distance_to_ma60_calc"] = (df["close"] / df["ma60"] - 1.0) * 100.0
     df["distance_to_previous_20d_high_calc"] = (df["close"] / df["previous_20d_high_calc"] - 1.0) * 100.0
@@ -235,16 +236,24 @@ class BreakoutSignal:
     scope: str = ""
 
 
+def normalize_volume_ma20_lots(value: Any) -> float:
+    raw = safe_float(value)
+    if math.isnan(raw):
+        return math.nan
+    return raw / 1000.0 if raw >= 100000 else raw
+
+
+def bottom_volume_breakout_level(value: Any) -> float:
+    prev20 = safe_float(value)
+    if math.isnan(prev20) or prev20 <= 0:
+        return math.nan
+    return prev20 * 1.02
+
+
 def scope_for_event_type(event_type: Any) -> str:
     text = safe_str(event_type)
-    if text == "strict_60d_volume_breakout":
-        return "strict_breakout"
-    if text in {"platform_volume_breakout", "neckline_volume_breakout"}:
-        return "confirmed_attack"
-    if text in {"abnormal_volume_up", "right_side_volume_attack", "volume_expansion_watch"}:
-        return "volume_attack"
-    if text.startswith("loose_"):
-        return "broad_watch"
+    if text == "bottom_volume_attack":
+        return "bottom_volume_attack"
     return ""
 
 
@@ -252,115 +261,52 @@ def detect_volume_breakout(row: pd.Series) -> BreakoutSignal | None:
     close = safe_float(row.get("close"))
     open_ = safe_float(row.get("open"))
     high = safe_float(row.get("high"))
-    ma20 = safe_float(row.get("ma20"))
-    ma60 = safe_float(row.get("ma60"))
-    ema23 = safe_float(row.get("ema23"))
+    low = safe_float(row.get("low"))
     volume_ratio = safe_float(row.get("volume_ratio"))
-    ret_1d = safe_float(row.get("return_1d"), safe_float(row.get("daily_return_calc")))
-    ret_5d = safe_float(row.get("return_5d"))
-    ret_20d = safe_float(row.get("return_20d"))
     prev20 = safe_float(row.get("previous_20d_high_calc"))
-    prev60 = safe_float(row.get("previous_60d_high_calc"))
-    dist_ma20 = safe_float(row.get("distance_to_ma20_calc"))
-    dist_prev20 = safe_float(row.get("distance_to_previous_20d_high_calc"))
+    prev_close = safe_float(row.get("previous_close_calc"))
+    volume_ma20_lots = normalize_volume_ma20_lots(row.get("volume_ma20"))
     close_pos = safe_float(row.get("close_position_in_range"))
     upper_shadow = safe_float(row.get("upper_shadow_pct"))
 
-    if any(math.isnan(x) for x in [close, high, volume_ratio, prev20]):
+    breakout_level = bottom_volume_breakout_level(prev20)
+    if any(math.isnan(x) for x in [close, open_, high, low, volume_ratio, breakout_level, volume_ma20_lots]):
         return None
-    above_ma = (math.isnan(ma20) or close >= ma20) and (math.isnan(ema23) or close >= ema23)
-    near_high_close = math.isnan(close_pos) or close_pos >= 0.70
-    close_above_open = math.isnan(open_) or close >= open_
+    bullish_candle = close > open_ or (close == open_ and not math.isnan(prev_close) and close > prev_close)
+    if not (close >= breakout_level and volume_ratio >= 2.0 and volume_ma20_lots >= 1000 and bullish_candle):
+        return None
 
     notes: list[str] = []
-    event_type = ""
-    scope = ""
-    score = 0.0
-
-    if not math.isnan(prev60) and close > prev60 and volume_ratio >= 1.5 and near_high_close:
-        event_type = "strict_60d_volume_breakout"
-        scope = "strict_breakout"
-        score = 92
-        notes.append("close_above_previous_60d_high")
-    elif close > prev20 and volume_ratio >= 1.5 and near_high_close and above_ma:
-        event_type = "platform_volume_breakout"
-        scope = "confirmed_attack"
-        score = 84
-        notes.append("close_above_previous_20d_high")
-    elif not math.isnan(prev60) and close >= prev60 * 0.95 and volume_ratio >= 1.5 and above_ma and close_above_open:
-        event_type = "neckline_volume_breakout"
-        scope = "confirmed_attack"
-        score = 76
-        notes.append("near_previous_60d_high_with_volume")
-    elif volume_ratio >= 3.0 and ret_1d >= 5 and above_ma and close_above_open:
-        event_type = "abnormal_volume_up"
-        scope = "volume_attack"
-        score = 68
-        notes.append("abnormal_volume_and_price_up")
-    elif volume_ratio >= 1.2 and ret_1d >= 4 and above_ma and near_high_close:
-        event_type = "right_side_volume_attack"
-        scope = "volume_attack"
-        score = 62
-        notes.append("right_side_attack_with_volume")
-    elif volume_ratio >= 1.5 and above_ma and ret_1d > 0:
-        event_type = "volume_expansion_watch"
-        scope = "volume_attack"
-        score = 55
-        notes.append("volume_expansion_above_ma")
-    elif (
-        not math.isnan(dist_prev20)
-        and -6 <= dist_prev20 <= 2
-        and volume_ratio >= 1.10
-        and above_ma
-        and (close_above_open or near_high_close)
-    ):
-        event_type = "loose_platform_volume_watch"
-        scope = "broad_watch"
-        score = 50
-        notes.append("loose_platform_or_neckline_area")
-    elif (
-        volume_ratio >= 1.05
-        and ret_5d >= 3
-        and above_ma
-        and near_high_close
-        and (math.isnan(dist_ma20) or -3 <= dist_ma20 <= 18)
-    ):
-        event_type = "loose_right_side_volume_watch"
-        scope = "broad_watch"
-        score = 48
-        notes.append("loose_right_side_follow_through")
-    elif (
-        volume_ratio >= 1.10
-        and ret_1d >= 0
-        and above_ma
-        and (math.isnan(dist_ma20) or -2 <= dist_ma20 <= 8)
-    ):
-        event_type = "loose_ma_reclaim_volume_watch"
-        scope = "broad_watch"
-        score = 45
-        notes.append("loose_ma_reclaim_or_support_volume")
-    else:
-        return None
-
-    if volume_ratio >= 2.0:
-        score += 4
-        notes.append("volume_ratio_ge_2")
-    if ret_5d >= 8:
-        score += 3
-        notes.append("five_day_momentum")
-    if not math.isnan(dist_ma20) and dist_ma20 > 20:
-        score -= 15
-        notes.append("far_above_ma20")
-    if ret_20d > 30:
-        score -= 15
-        notes.append("twenty_day_overheated")
+    score = 35.0
+    notes.append("close_ge_prior20_high_102pct")
+    notes.append("volume_ratio_ge_2")
+    notes.append("volume_ma20_lots_ge_1000")
+    breakout_pct = (close / breakout_level - 1.0) * 100.0
+    score += min(12.0, max(0.0, breakout_pct * 1.5))
+    score += min(20.0, max(0.0, (volume_ratio - 2.0) * 4.0))
+    if not math.isnan(close_pos):
+        if close_pos >= 0.97:
+            score += 5
+            notes.append("close_near_day_high")
+        elif close_pos >= 0.85:
+            score += 3
+            notes.append("close_high_position")
+        elif close_pos >= 0.70:
+            score += 1
+            notes.append("close_above_mid_high")
+    if high > low and close > open_:
+        body_ratio = (close - open_) / (high - low)
+        if body_ratio >= 0.65:
+            score += 5
+            notes.append("strong_red_body")
+        elif body_ratio >= 0.35:
+            score += 2
+            notes.append("red_body_confirmed")
     if upper_shadow >= 3:
-        score -= 10
-        notes.append("long_upper_shadow_risk")
-    if not near_high_close:
-        score -= 8
-        notes.append("not_close_near_high")
-    return BreakoutSignal(event_type=event_type, score=round(score, 2), notes=notes, scope=scope)
+        score -= 6
+        notes.append("long_upper_shadow_quality_penalty")
+    score = max(0.0, min(100.0, score))
+    return BreakoutSignal(event_type="bottom_volume_attack", score=round(score, 2), notes=notes, scope="bottom_volume_attack")
 
 
 def _select_latest_signal_row(df: pd.DataFrame, target_date: str) -> pd.Series | None:
@@ -429,8 +375,8 @@ def build_latest_price_signal_frame(target_date: str = "") -> pd.DataFrame:
                 "volume_watch_scope": signal.scope,
                 "volume_breakout_score": signal.score,
                 "volume_breakout_notes": "|".join(signal.notes),
-                "false_breakout_risk_calc": "True" if "long_upper_shadow_risk" in signal.notes or "not_close_near_high" in signal.notes else "False",
-                "overheated_breakout": "True" if safe_float(row.get("return_20d")) > 30 or safe_float(row.get("distance_to_ma20_calc")) > 20 else "False",
+                "false_breakout_risk_calc": "False",
+                "overheated_breakout": "False",
             }
         )
     return pd.DataFrame(rows)
@@ -518,77 +464,32 @@ def classify_watch(df: pd.DataFrame) -> pd.DataFrame:
     rows: list[dict[str, Any]] = []
     for _, row in df.iterrows():
         d = row.to_dict()
-        selected = safe_str(row.get("category")) or safe_str(row.get("original_category"))
-        decision_priority = safe_str(row.get("decision_priority"))
         tdcc_status = safe_str(row.get("tdcc_status"))
         repeat_label = safe_str(row.get("repeat_appear_label"))
-        event_type = safe_str(row.get("volume_breakout_type"))
-        watch_scope = safe_str(row.get("volume_watch_scope"))
-        score = safe_float(row.get("volume_breakout_score"), 0)
-        ret_20d = safe_float(row.get("return_20d"))
-        dist_ma20 = safe_float(row.get("distance_to_ma20_pct"))
-        volume_ratio = safe_float(row.get("volume_ratio"))
-        false_breakout = safe_bool(row.get("false_breakout_risk")) or safe_bool(row.get("false_breakout_risk_calc"))
-        overheated = safe_bool(row.get("overheated_breakout")) or ret_20d > 30 or dist_ma20 > 20
 
         risk_flags: list[str] = []
-        if not selected:
-            risk_flags.append("not_in_candidate_model")
         if tdcc_status == "distribution_warning":
             risk_flags.append("tdcc_distribution_warning")
         if repeat_label in {"stale_signal", "continued_overheated"}:
             risk_flags.append(repeat_label)
-        if false_breakout:
-            risk_flags.append("false_breakout_risk")
-        if overheated:
-            risk_flags.append("overheated_breakout")
+        notes = safe_str(row.get("volume_breakout_notes"))
+        if "long_upper_shadow_quality_penalty" in notes:
+            risk_flags.append("long_upper_shadow_quality_penalty")
         if safe_str(row.get("already_priced_in")).lower() == "true":
             risk_flags.append("already_priced_in")
-        if decision_priority == "D_risk_downgrade":
-            risk_flags.append("decision_layer_downgrade")
 
-        if "not_in_candidate_model" in risk_flags:
-            selection_status = "not_selected_by_candidate_model"
-            not_selected_reason = "volume breakout detected from price history but not selected by existing candidate filters"
-        elif selected == "true_breakout":
-            selection_status = "selected_as_strict_breakout"
-            not_selected_reason = ""
-        elif selected:
-            selection_status = "selected_but_routed_to_other_category"
-            not_selected_reason = f"routed_to_{selected}; strict_breakout_requires_60d_high_breakout"
-        else:
-            selection_status = "unknown"
-            not_selected_reason = ""
-
-        severe_risk = any(x in risk_flags for x in ["overheated_breakout", "tdcc_distribution_warning", "false_breakout_risk", "decision_layer_downgrade"])
-        priority = "B_confirm_needed"
-        if severe_risk:
-            priority = "D_risk_downgrade"
-        elif event_type == "strict_60d_volume_breakout" and not risk_flags and score >= 85:
-            priority = "A_valid_breakout_watch"
-        elif event_type in {"platform_volume_breakout", "neckline_volume_breakout"} and not risk_flags and score >= 70:
-            priority = "A_valid_breakout_watch"
-        elif watch_scope == "broad_watch":
-            priority = "C_watch_only" if "not_in_candidate_model" in risk_flags else "B_confirm_needed"
-        elif "not_in_candidate_model" in risk_flags:
-            priority = "B_confirm_needed"
-        elif event_type in {"right_side_volume_attack", "volume_expansion_watch", "abnormal_volume_up"}:
-            priority = "C_watch_only"
-
-        if priority == "A_valid_breakout_watch":
-            next_confirmation = "next day holds breakout area; volume does not collapse; TDCC not distribution_warning"
-        elif priority == "B_confirm_needed":
-            next_confirmation = "confirm close above MA20/EMA23 and avoid long upper shadow"
-        elif priority == "C_watch_only":
-            next_confirmation = "broad recall only: wait for platform/neckline breakout, stronger volume, and benchmark-relative strength"
-        else:
-            next_confirmation = "selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
+        priority = "A_bottom_volume_attack"
+        if "tdcc_distribution_warning" in risk_flags:
+            priority = "B_bottom_volume_attack_with_risk"
+        next_confirmation = (
+            "以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。"
+        )
 
         d.update(
             {
                 "volume_breakout_priority": priority,
-                "selection_status": selection_status,
-                "not_selected_reason": not_selected_reason,
+                "selection_status": "selected",
+                "not_selected_reason": "",
                 "risk_flags": "|".join(dict.fromkeys(risk_flags)),
                 "next_volume_breakout_confirmation": next_confirmation,
             }
@@ -597,7 +498,7 @@ def classify_watch(df: pd.DataFrame) -> pd.DataFrame:
     out = pd.DataFrame(rows)
     if out.empty:
         return out
-    order = {"A_valid_breakout_watch": 0, "B_confirm_needed": 1, "C_watch_only": 2, "D_risk_downgrade": 3}
+    order = {"A_bottom_volume_attack": 0, "B_bottom_volume_attack_with_risk": 1}
     out["_priority_order"] = out["volume_breakout_priority"].map(order).fillna(9)
     out["_score"] = pd.to_numeric(out["volume_breakout_score"], errors="coerce").fillna(0)
     out = out.sort_values(["_priority_order", "_score", "volume_ratio"], ascending=[True, False, False]).drop(columns=["_priority_order", "_score"])
@@ -616,79 +517,21 @@ def build_event_log() -> pd.DataFrame:
         df = add_price_metrics(df)
         close = pd.to_numeric(df["close"], errors="coerce")
         open_ = pd.to_numeric(df["open"], errors="coerce")
-        high = pd.to_numeric(df["high"], errors="coerce")
-        ma20 = pd.to_numeric(df["ma20"], errors="coerce")
-        ema23 = pd.to_numeric(df["ema23"], errors="coerce")
         volume_ratio = pd.to_numeric(df["volume_ratio"], errors="coerce")
-        ret_1d = pd.to_numeric(df.get("return_1d", df.get("daily_return_calc")), errors="coerce")
-        ret_5d = pd.to_numeric(df.get("return_5d"), errors="coerce")
+        prev_close = pd.to_numeric(df["previous_close_calc"], errors="coerce")
         prev20 = pd.to_numeric(df["previous_20d_high_calc"], errors="coerce")
-        prev60 = pd.to_numeric(df["previous_60d_high_calc"], errors="coerce")
-        dist_ma20 = pd.to_numeric(df["distance_to_ma20_calc"], errors="coerce")
-        dist_prev20 = pd.to_numeric(df["distance_to_previous_20d_high_calc"], errors="coerce")
-        close_pos = pd.to_numeric(df["close_position_in_range"], errors="coerce").fillna(1)
-        above_ma = ((ma20.isna()) | (close >= ma20)) & ((ema23.isna()) | (close >= ema23))
-        near_high_close = close_pos >= 0.70
-        close_above_open = (open_.isna()) | (close >= open_)
-
-        strict = (close > prev60) & (volume_ratio >= 1.5) & near_high_close
-        platform = (~strict) & (close > prev20) & (volume_ratio >= 1.5) & near_high_close & above_ma
-        neckline = (~strict) & (~platform) & (close >= prev60 * 0.95) & (volume_ratio >= 1.5) & above_ma & close_above_open
-        abnormal = (~strict) & (~platform) & (~neckline) & (volume_ratio >= 3.0) & (ret_1d >= 5) & above_ma & close_above_open
-        right_side = (~strict) & (~platform) & (~neckline) & (~abnormal) & (volume_ratio >= 1.2) & (ret_1d >= 4) & above_ma & near_high_close
-        expansion = (~strict) & (~platform) & (~neckline) & (~abnormal) & (~right_side) & (volume_ratio >= 1.5) & above_ma & (ret_1d > 0)
-        loose_platform = (
-            (~strict)
-            & (~platform)
-            & (~neckline)
-            & (~abnormal)
-            & (~right_side)
-            & (~expansion)
-            & (dist_prev20 >= -6)
-            & (dist_prev20 <= 2)
-            & (volume_ratio >= 1.10)
-            & above_ma
-            & (close_above_open | near_high_close)
+        volume_ma20 = pd.to_numeric(df["volume_ma20"], errors="coerce")
+        volume_ma20_lots = volume_ma20.where(volume_ma20 < 100000, volume_ma20 / 1000.0)
+        breakout_level = prev20 * 1.02
+        bullish = (close > open_) | ((close == open_) & (close > prev_close))
+        bottom_volume_attack = (
+            (close >= breakout_level)
+            & (volume_ratio >= 2.0)
+            & (volume_ma20_lots >= 1000)
+            & bullish
         )
-        loose_right_side = (
-            (~strict)
-            & (~platform)
-            & (~neckline)
-            & (~abnormal)
-            & (~right_side)
-            & (~expansion)
-            & (~loose_platform)
-            & (volume_ratio >= 1.05)
-            & (ret_5d >= 3)
-            & above_ma
-            & near_high_close
-            & ((dist_ma20.isna()) | ((dist_ma20 >= -3) & (dist_ma20 <= 18)))
-        )
-        loose_ma_reclaim = (
-            (~strict)
-            & (~platform)
-            & (~neckline)
-            & (~abnormal)
-            & (~right_side)
-            & (~expansion)
-            & (~loose_platform)
-            & (~loose_right_side)
-            & (volume_ratio >= 1.10)
-            & (ret_1d >= 0)
-            & above_ma
-            & ((dist_ma20.isna()) | ((dist_ma20 >= -2) & (dist_ma20 <= 8)))
-        )
-
         event_type = pd.Series("", index=df.index, dtype="object")
-        event_type.loc[strict] = "strict_60d_volume_breakout"
-        event_type.loc[platform] = "platform_volume_breakout"
-        event_type.loc[neckline] = "neckline_volume_breakout"
-        event_type.loc[abnormal] = "abnormal_volume_up"
-        event_type.loc[right_side] = "right_side_volume_attack"
-        event_type.loc[expansion] = "volume_expansion_watch"
-        event_type.loc[loose_platform] = "loose_platform_volume_watch"
-        event_type.loc[loose_right_side] = "loose_right_side_volume_watch"
-        event_type.loc[loose_ma_reclaim] = "loose_ma_reclaim_volume_watch"
+        event_type.loc[bottom_volume_attack] = "bottom_volume_attack"
 
         event_indices = event_type[event_type != ""].index.tolist()
         for idx in event_indices:
@@ -713,8 +556,8 @@ def build_event_log() -> pd.DataFrame:
                 "return_5d_before": row.get("return_5d"),
                 "return_20d_before": row.get("return_20d"),
                 "distance_to_ma20_pct": row.get("distance_to_ma20_calc"),
-                "false_breakout_risk": "True" if "long_upper_shadow_risk" in signal_notes or "not_close_near_high" in signal_notes else "False",
-                "overheated_breakout": "True" if safe_float(row.get("return_20d")) > 30 or safe_float(row.get("distance_to_ma20_calc")) > 20 else "False",
+                "false_breakout_risk": "False",
+                "overheated_breakout": "False",
                 "close_on_event": close,
             }
             for horizon in HORIZONS:
@@ -773,6 +616,7 @@ def _process_price_history_path(path: Path, target_date: str = "") -> tuple[list
                 "ma20": latest_row.get("ma20"),
                 "ma60": latest_row.get("ma60"),
                 "ema23": latest_row.get("ema23"),
+                "volume_ma20": latest_row.get("volume_ma20"),
                 "previous_20d_high": latest_row.get("previous_20d_high_calc"),
                 "previous_60d_high": latest_row.get("previous_60d_high_calc"),
                 "previous_20d_low": latest_row.get("previous_20d_low_calc"),
@@ -781,8 +625,8 @@ def _process_price_history_path(path: Path, target_date: str = "") -> tuple[list
                 "volume_watch_scope": latest_signal.scope,
                 "volume_breakout_score": latest_signal.score,
                 "volume_breakout_notes": "|".join(latest_signal.notes),
-                "false_breakout_risk_calc": "True" if "long_upper_shadow_risk" in latest_signal.notes or "not_close_near_high" in latest_signal.notes else "False",
-                "overheated_breakout": "True" if safe_float(latest_row.get("return_20d")) > 30 or safe_float(latest_row.get("distance_to_ma20_calc")) > 20 else "False",
+                "false_breakout_risk_calc": "False",
+                "overheated_breakout": "False",
             }
         )
 
@@ -791,78 +635,22 @@ def _process_price_history_path(path: Path, target_date: str = "") -> tuple[list
 
     close_s = pd.to_numeric(df["close"], errors="coerce")
     open_s = pd.to_numeric(df["open"], errors="coerce")
-    ma20 = pd.to_numeric(df["ma20"], errors="coerce")
-    ema23 = pd.to_numeric(df["ema23"], errors="coerce")
     volume_ratio = pd.to_numeric(df["volume_ratio"], errors="coerce")
-    ret_1d = pd.to_numeric(df.get("return_1d", df.get("daily_return_calc")), errors="coerce")
-    ret_5d = pd.to_numeric(df.get("return_5d"), errors="coerce")
+    prev_close = pd.to_numeric(df["previous_close_calc"], errors="coerce")
     prev20 = pd.to_numeric(df["previous_20d_high_calc"], errors="coerce")
-    prev60 = pd.to_numeric(df["previous_60d_high_calc"], errors="coerce")
-    dist_ma20 = pd.to_numeric(df["distance_to_ma20_calc"], errors="coerce")
-    dist_prev20 = pd.to_numeric(df["distance_to_previous_20d_high_calc"], errors="coerce")
-    close_pos = pd.to_numeric(df["close_position_in_range"], errors="coerce").fillna(1)
-    above_ma = ((ma20.isna()) | (close_s >= ma20)) & ((ema23.isna()) | (close_s >= ema23))
-    near_high_close = close_pos >= 0.70
-    close_above_open = (open_s.isna()) | (close_s >= open_s)
-
-    strict = (close_s > prev60) & (volume_ratio >= 1.5) & near_high_close
-    platform = (~strict) & (close_s > prev20) & (volume_ratio >= 1.5) & near_high_close & above_ma
-    neckline = (~strict) & (~platform) & (close_s >= prev60 * 0.95) & (volume_ratio >= 1.5) & above_ma & close_above_open
-    abnormal = (~strict) & (~platform) & (~neckline) & (volume_ratio >= 3.0) & (ret_1d >= 5) & above_ma & close_above_open
-    right_side = (~strict) & (~platform) & (~neckline) & (~abnormal) & (volume_ratio >= 1.2) & (ret_1d >= 4) & above_ma & near_high_close
-    expansion = (~strict) & (~platform) & (~neckline) & (~abnormal) & (~right_side) & (volume_ratio >= 1.5) & above_ma & (ret_1d > 0)
-    loose_platform = (
-        (~strict)
-        & (~platform)
-        & (~neckline)
-        & (~abnormal)
-        & (~right_side)
-        & (~expansion)
-        & (dist_prev20 >= -6)
-        & (dist_prev20 <= 2)
-        & (volume_ratio >= 1.10)
-        & above_ma
-        & (close_above_open | near_high_close)
-    )
-    loose_right_side = (
-        (~strict)
-        & (~platform)
-        & (~neckline)
-        & (~abnormal)
-        & (~right_side)
-        & (~expansion)
-        & (~loose_platform)
-        & (volume_ratio >= 1.05)
-        & (ret_5d >= 3)
-        & above_ma
-        & near_high_close
-        & ((dist_ma20.isna()) | ((dist_ma20 >= -3) & (dist_ma20 <= 18)))
-    )
-    loose_ma_reclaim = (
-        (~strict)
-        & (~platform)
-        & (~neckline)
-        & (~abnormal)
-        & (~right_side)
-        & (~expansion)
-        & (~loose_platform)
-        & (~loose_right_side)
-        & (volume_ratio >= 1.10)
-        & (ret_1d >= 0)
-        & above_ma
-        & ((dist_ma20.isna()) | ((dist_ma20 >= -2) & (dist_ma20 <= 8)))
+    volume_ma20 = pd.to_numeric(df["volume_ma20"], errors="coerce")
+    volume_ma20_lots = volume_ma20.where(volume_ma20 < 100000, volume_ma20 / 1000.0)
+    breakout_level = prev20 * 1.02
+    bullish = (close_s > open_s) | ((close_s == open_s) & (close_s > prev_close))
+    bottom_volume_attack = (
+        (close_s >= breakout_level)
+        & (volume_ratio >= 2.0)
+        & (volume_ma20_lots >= 1000)
+        & bullish
     )
 
     event_type = pd.Series("", index=df.index, dtype="object")
-    event_type.loc[strict] = "strict_60d_volume_breakout"
-    event_type.loc[platform] = "platform_volume_breakout"
-    event_type.loc[neckline] = "neckline_volume_breakout"
-    event_type.loc[abnormal] = "abnormal_volume_up"
-    event_type.loc[right_side] = "right_side_volume_attack"
-    event_type.loc[expansion] = "volume_expansion_watch"
-    event_type.loc[loose_platform] = "loose_platform_volume_watch"
-    event_type.loc[loose_right_side] = "loose_right_side_volume_watch"
-    event_type.loc[loose_ma_reclaim] = "loose_ma_reclaim_volume_watch"
+    event_type.loc[bottom_volume_attack] = "bottom_volume_attack"
 
     event_indices = event_type[event_type != ""].index.tolist()
     for idx in event_indices:
@@ -885,8 +673,8 @@ def _process_price_history_path(path: Path, target_date: str = "") -> tuple[list
             "return_5d_before": row.get("return_5d"),
             "return_20d_before": row.get("return_20d"),
             "distance_to_ma20_pct": row.get("distance_to_ma20_calc"),
-            "false_breakout_risk": "True" if "long_upper_shadow_risk" in signal_notes or "not_close_near_high" in signal_notes else "False",
-            "overheated_breakout": "True" if safe_float(row.get("return_20d")) > 30 or safe_float(row.get("distance_to_ma20_calc")) > 20 else "False",
+            "false_breakout_risk": "False",
+            "overheated_breakout": "False",
             "close_on_event": close_value,
         }
         for horizon in HORIZONS:
@@ -958,6 +746,7 @@ def _process_latest_path(path: Path, target_date: str = "") -> list[dict[str, An
             "ma20": row.get("ma20"),
             "ma60": row.get("ma60"),
             "ema23": row.get("ema23"),
+            "volume_ma20": row.get("volume_ma20"),
             "previous_20d_high": row.get("previous_20d_high_calc"),
             "previous_60d_high": row.get("previous_60d_high_calc"),
             "previous_20d_low": row.get("previous_20d_low_calc"),
@@ -966,8 +755,8 @@ def _process_latest_path(path: Path, target_date: str = "") -> list[dict[str, An
             "volume_watch_scope": signal.scope,
             "volume_breakout_score": signal.score,
             "volume_breakout_notes": "|".join(signal.notes),
-            "false_breakout_risk_calc": "True" if "long_upper_shadow_risk" in signal.notes or "not_close_near_high" in signal.notes else "False",
-            "overheated_breakout": "True" if safe_float(row.get("return_20d")) > 30 or safe_float(row.get("distance_to_ma20_calc")) > 20 else "False",
+            "false_breakout_risk_calc": "False",
+            "overheated_breakout": "False",
         }
     ]
 
@@ -1019,8 +808,8 @@ def append_latest_events_to_history(events: pd.DataFrame, latest: pd.DataFrame) 
             "return_5d_before": row.get("return_5d"),
             "return_20d_before": row.get("return_20d"),
             "distance_to_ma20_pct": row.get("distance_to_ma20_pct"),
-            "false_breakout_risk": row.get("false_breakout_risk_calc"),
-            "overheated_breakout": row.get("overheated_breakout"),
+            "false_breakout_risk": "False",
+            "overheated_breakout": "False",
             "close_on_event": close_value,
         }
         for horizon in HORIZONS:
@@ -1053,10 +842,6 @@ def summarize_backtest(events: pd.DataFrame) -> pd.DataFrame:
     group_specs = [("volume_breakout_type", events.groupby("volume_breakout_type", dropna=False))]
     if "volume_watch_scope" in events.columns:
         group_specs.append(("volume_watch_scope", events.groupby("volume_watch_scope", dropna=False)))
-    if "false_breakout_risk" in events.columns:
-        group_specs.append(("false_breakout_risk", events.groupby("false_breakout_risk", dropna=False)))
-    if "overheated_breakout" in events.columns:
-        group_specs.append(("overheated_breakout", events.groupby("overheated_breakout", dropna=False)))
     for group_name, grouped in group_specs:
         for value, part in grouped:
             row: dict[str, Any] = {"group_name": group_name, "group_value": safe_str(value), "sample_count": len(part)}
@@ -1174,7 +959,7 @@ def write_watch_md(watch: pd.DataFrame, main_date: str) -> None:
         "next_volume_breakout_confirmation",
     ]
     lines = [
-        "# Volume Breakout Watch",
+        "# Bottom Volume Attack Watch",
         "",
         f"- generated_at: `{now_text()}`",
         f"- main_price_date: `{main_date}`",
@@ -1186,10 +971,12 @@ def write_watch_md(watch: pd.DataFrame, main_date: str) -> None:
         "",
         "## Interpretation",
         "",
-        "- `strict_60d_volume_breakout` is the strict breakout bucket used by the original breakout list.",
-        "- `platform_volume_breakout`, `neckline_volume_breakout`, and `right_side_volume_attack` are volume-confirmed attacks that may be routed to range rebound or pattern watch instead of strict breakout.",
-        "- Loose event types are broad recall rows. They intentionally catch early W-bottom/right-side/platform setups, then rely on score, TDCC, repeat appearance, and overheat risk for ranking.",
-        "- This list is a visibility and backtest layer. It is not a standalone buy list.",
+        "- Official model type is `bottom_volume_attack` only.",
+        "- Hard gates: close >= prior 20 trading day high excluding signal day * 1.02, volume_ratio >= 2.0, 20D average volume >= 1000 lots, and bullish candle.",
+        "- No 60D-high gate, no moving-average gate, no same-day fake-breakout classification, and no selected/watch/risk sub-status.",
+        "- Long upper shadow or TDCC deterioration can reduce score or add risk tags, but they do not change the model hit into another model.",
+        "- Entry basis for research/reporting is next trading day open after the signal date.",
+        "- This list is a model-selected universe and backtest layer. It is not standalone buy advice.",
         "",
         "## Top Watch List",
         "",
@@ -1239,34 +1026,33 @@ def write_backtest_md(summary: pd.DataFrame, events: pd.DataFrame, main_date: st
 
 
 def write_packet(watch: pd.DataFrame, summary: pd.DataFrame, main_date: str) -> None:
-    strict_count = int((watch.get("volume_breakout_type", pd.Series(dtype=str)) == "strict_60d_volume_breakout").sum()) if not watch.empty else 0
-    broad_count = int((watch.get("volume_watch_scope", pd.Series(dtype=str)) == "broad_watch").sum()) if not watch.empty else 0
-    selected_other_count = int((watch.get("selection_status", pd.Series(dtype=str)) == "selected_but_routed_to_other_category").sum()) if not watch.empty else 0
-    not_selected_count = int((watch.get("selection_status", pd.Series(dtype=str)) == "not_selected_by_candidate_model").sum()) if not watch.empty else 0
+    bottom_count = int((watch.get("volume_breakout_type", pd.Series(dtype=str)) == "bottom_volume_attack").sum()) if not watch.empty else 0
+    risk_count = int(watch.get("risk_flags", pd.Series(dtype=str)).map(lambda v: bool(safe_str(v))).sum()) if not watch.empty else 0
     lines = [
-        "# VOLUME BREAKOUT CHATGPT PACKET",
+        "# BOTTOM VOLUME ATTACK CHATGPT PACKET",
         "",
         "## Metadata",
         f"- generated_at: `{now_text()}`",
         f"- main_price_date: `{main_date}`",
         f"- watch_rows: `{len(watch)}`",
-        f"- strict_60d_volume_breakout_count: `{strict_count}`",
-        f"- broad_recall_watch_count: `{broad_count}`",
-        f"- selected_but_routed_to_other_category_count: `{selected_other_count}`",
-        f"- not_selected_by_candidate_model_count: `{not_selected_count}`",
+        f"- bottom_volume_attack_count: `{bottom_count}`",
+        f"- selected_rows: `{len(watch)}`",
+        f"- rows_with_risk_tags: `{risk_count}`",
         f"- watch_csv_raw_url: {raw_url(WATCH_CSV)}",
         f"- watch_md_raw_url: {raw_url(WATCH_MD)}",
         f"- backtest_csv_raw_url: {raw_url(BACKTEST_CSV)}",
         f"- backtest_md_raw_url: {raw_url(BACKTEST_MD)}",
         "",
-        "## Why Strict Breakout May Look Empty",
+        "## Model Definition",
         "",
-        "- `breakout_latest.csv` only reflects strict 60-day volume-confirmed breakout logic.",
-        "- Many volume attacks are routed to `range_rebound` or `pattern_watch` when they are near a neckline/platform but not a strict 60-day breakout.",
-        "- Broad recall rows are intentionally listed to reduce missed W-bottom/right-side/platform setups; they must be ranked by score and risk context before interpretation.",
-        "- ChatGPT should read this packet when the user asks about 帶量突破 / 放量突破 / 放量攻擊.",
+        "- Model display name: 底部放量攻擊模型.",
+        "- Hard gates: close >= prior 20 trading day high excluding signal day * 1.02; volume_ratio >= 2.0; 20D average volume >= 1000 lots; bullish candle.",
+        "- The model intentionally does not require a 60D high breakout or moving-average reclaim.",
+        "- The model emits selected rows only. Risk flags and score components are ranking/operation context, not a separate watch/risk status.",
+        "- Same-day fake breakout is not confirmed on the signal date. Do not label a selected row as failed breakout until later price action confirms failure.",
+        "- Research entry basis is signal date next trading day open.",
         "",
-        "## Top Volume Breakout Watch",
+        "## Top Bottom Volume Attack",
         "",
         *table_lines(
             watch,
@@ -1290,24 +1076,6 @@ def write_packet(watch: pd.DataFrame, summary: pd.DataFrame, main_date: str) -> 
                 "next_volume_breakout_confirmation",
             ],
             limit=40,
-        ),
-        "",
-        "## Not Selected / Routed Elsewhere Diagnostics",
-        "",
-        *table_lines(
-            watch[watch.get("selection_status", "") != "selected_as_strict_breakout"] if not watch.empty and "selection_status" in watch.columns else pd.DataFrame(),
-            [
-                "stock_id",
-                "stock_name",
-                "volume_breakout_type",
-                "volume_watch_scope",
-                "selection_status",
-                "not_selected_reason",
-                "category",
-                "pattern_stage",
-                "risk_flags",
-            ],
-            limit=30,
         ),
         "",
         "## Backtest Summary",
@@ -1334,13 +1102,11 @@ def write_packet(watch: pd.DataFrame, summary: pd.DataFrame, main_date: str) -> 
         "",
         "## Rules",
         "",
-        "- This layer is for visibility and performance tracking, not standalone buy advice.",
-        "- Broad recall rows are allowed to be noisy. Treat them as a second-layer universe, not as strict breakouts.",
-        "- Use `volume_breakout_priority` to separate valid watch, confirmation-needed, watch-only, and risk-downgrade names.",
-        "- Do not call a stock strict breakout unless `volume_breakout_type=strict_60d_volume_breakout` or original `category=true_breakout`.",
-        "- If `selection_status=selected_but_routed_to_other_category`, explain the route instead of saying the model missed it.",
-        "- If `selection_status=not_selected_by_candidate_model`, list the price-derived signal and its `not_selected_reason`.",
-        "- TDCC distribution, stale repeat appearance, long upper shadows, and overheating should downgrade the interpretation.",
+        "- Do not mix this model with W-bottom, neckline watch, MA reclaim, strict 60D high breakout, or pullback models.",
+        "- Do not use price moved too much, short-term overheat, or not breaking 60D high as hard vetoes for this model.",
+        "- A long upper shadow can reduce attack quality once; avoid duplicate penalties for the same candle issue.",
+        "- TDCC, warrant, revenue, consolidation length, breakout magnitude, and position context are ranking components.",
+        "- If the stock falls back below the prior-20D-high breakout threshold after entry, later reports may tag failure or reduce risk.",
         "",
     ]
     PACKET_MD.write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
@@ -1348,7 +1114,12 @@ def write_packet(watch: pd.DataFrame, summary: pd.DataFrame, main_date: str) -> 
 
 def latest_only_summary() -> pd.DataFrame:
     if BACKTEST_CSV.exists():
-        return read_csv(BACKTEST_CSV)
+        summary = read_csv(BACKTEST_CSV)
+        if not summary.empty and "group_value" in summary.columns:
+            bottom = summary[summary["group_value"].map(safe_str).eq("bottom_volume_attack")].copy()
+            if not bottom.empty:
+                return bottom
+        return summary.head(0)
     return pd.DataFrame()
 
 
@@ -1396,6 +1167,8 @@ def main() -> int:
         events = append_latest_events_to_history(events, latest)
     else:
         latest, events = build_latest_and_event_frames(target_date=main_date)
+    if not events.empty and "volume_breakout_type" in events.columns:
+        events = events[events["volume_breakout_type"].map(safe_str).eq("bottom_volume_attack")].copy()
     latest, effective_date = filter_latest_to_effective_signal_date(latest, main_date)
     watch = merge_context(latest)
     if not events.empty and "volume_breakout_type" in events.columns:

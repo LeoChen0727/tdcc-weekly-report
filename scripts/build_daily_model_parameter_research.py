@@ -77,7 +77,11 @@ def add_price_structure_features(df: pd.DataFrame) -> pd.DataFrame:
 
     out["ema23_prev5"] = groups["ema23"].shift(5)
     out["ema23_slope_5d_pct"] = (out["ema23"] / out["ema23_prev5"] - 1.0) * 100.0
+    out["previous_close"] = groups["close"].shift(1)
     out["close_above_open"] = out["close"] > out["open"]
+    out["bullish_attack_candle"] = (out["close"] > out["open"]) | (
+        out["close"].eq(out["open"]) & (out["close"] > out["previous_close"])
+    )
     candle_range = (out["high"] - out["low"]).replace(0, pd.NA)
     out["body_ratio"] = (out["close"] - out["open"]).abs() / candle_range
     out["upper_shadow_ratio"] = (out["high"] - out[["close", "open"]].max(axis=1)) / candle_range
@@ -93,6 +97,16 @@ def add_price_structure_features(df: pd.DataFrame) -> pd.DataFrame:
     # 20-day denominator. Keep the alias local to this research script so the
     # parameter rules read consistently.
     out["volume_ratio_prev20"] = out["start_day_volume_ratio_vs_prev20"]
+    volume_ma20 = (
+        groups["volume"]
+        .shift(1)
+        .rolling(20, min_periods=10)
+        .mean()
+        .reset_index(level=0, drop=True)
+    )
+    # Some sources store raw shares, others store lots. Normalize only clearly
+    # share-denominated values so the liquidity rule remains stable.
+    out["volume_ma20_lots"] = volume_ma20.where(volume_ma20 < 100000, volume_ma20 / 1000.0)
 
     for window in [10, 20, 23, 30, 60]:
         high = groups["high"].shift(1).rolling(window, min_periods=max(5, min(window, 20))).max().reset_index(level=0, drop=True)
@@ -194,23 +208,23 @@ def build_research_frame() -> pd.DataFrame:
 def rule_specs() -> list[RuleSpec]:
     specs: list[RuleSpec] = []
 
-    for window in [10, 20, 30]:
-        for vol in [1.2, 1.5, 2.0, 3.0]:
-            for max_width in [12, 18, 25]:
+    for breakout_pct in [1.0, 2.0, 3.0]:
+        for vol in [2.0, 3.0, 5.0]:
+            for min_lots in [500, 1000, 2000]:
                 specs.append(
                     RuleSpec(
                         "volume_range_breakout",
-                        "帶量突破模型",
-                        f"w{window}_vol{vol:g}_width{max_width}",
-                        f"{window}日盤整區間突破 + 量比 >= {vol:g} + 區間寬度 <= {max_width}%",
+                        "底部放量攻擊模型",
+                        f"prior20x{1 + breakout_pct / 100:.2f}_vol{vol:g}_minvol{min_lots}",
+                        f"收盤突破前20日高點 {breakout_pct:g}% + 量比 >= {vol:g} + 20日均量 >= {min_lots}張 + 實體紅K",
                         "pdf_core_model",
-                        lambda d, window=window, vol=vol, max_width=max_width: (
+                        lambda d, breakout_pct=breakout_pct, vol=vol, min_lots=min_lots: (
                             (d["volume_ratio_prev20"] >= vol)
-                            & (d[f"range_breakout_{window}d_pct"] > 0)
-                            & (d[f"range_width_{window}d_pct"] <= max_width)
-                            & d["close_above_open"]
+                            & (d["range_breakout_20d_pct"] >= breakout_pct)
+                            & (d["volume_ma20_lots"] >= min_lots)
+                            & d["bullish_attack_candle"]
                         ),
-                        "主條件是量能放大與盤整區間突破。漲幅大小不作為此模型的否決條件。",
+                        "主條件是前20日高點突破、量能放大、流動性與實體紅K。漲幅、過熱、均線與60日高點不作為此模型否決條件。",
                     )
                 )
 

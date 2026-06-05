@@ -54,7 +54,7 @@ THEME_NAME_COLUMNS = [
     "theme_group",
 ]
 
-SELECTED_TYPES = {"strict_60d_volume_breakout", "platform_volume_breakout", "neckline_volume_breakout"}
+SELECTED_TYPES = {"bottom_volume_attack"}
 WATCH_TYPES = {
     "right_side_volume_attack",
     "abnormal_volume_up",
@@ -111,7 +111,7 @@ def is_selected_row(row: pd.Series) -> bool:
     priority = safe_str(row.get("volume_breakout_priority", ""))
     if event_type in SELECTED_TYPES:
         return True
-    if selection.startswith("selected") and priority in {"A_valid_breakout_watch", "B_confirm_needed"}:
+    if selection.startswith("selected") and priority in {"A_bottom_volume_attack", "B_bottom_volume_attack_with_risk"}:
         return True
     return False
 
@@ -136,6 +136,8 @@ def is_failed_row(row: pd.Series) -> bool:
 
 def volume_type_bucket(event_type: Any) -> str:
     text = safe_str(event_type)
+    if text == "bottom_volume_attack":
+        return "bottom_volume_attack"
     if text == "strict_60d_volume_breakout":
         return "strict_high_breakout"
     if text in {"platform_volume_breakout", "neckline_volume_breakout"}:
@@ -364,11 +366,11 @@ def build_theme_layer(stocks: pd.DataFrame) -> pd.DataFrame:
                 "theme_volume_attack_status": status,
                 "theme_stock_count": int(part["stock_id"].nunique()) if "stock_id" in part.columns else int(len(part)),
                 "volume_attack_count": int(len(part)),
-                "range_breakout_volume_count": int(part["volume_breakout_type"].isin(["platform_volume_breakout", "neckline_volume_breakout"]).sum()),
+                "range_breakout_volume_count": int((part["volume_breakout_type"] == "bottom_volume_attack").sum()),
                 "range_breakout_watch_count": int(part["volume_breakout_type"].isin(["loose_platform_volume_watch"]).sum()),
                 "ma_reclaim_volume_attack_count": int(part["volume_breakout_type"].isin(["loose_ma_reclaim_volume_watch"]).sum()),
                 "near_high_volume_watch_count": int(part["volume_breakout_type"].isin(["right_side_volume_attack", "loose_right_side_volume_watch"]).sum()),
-                "strict_high_breakout_count": int((part["volume_breakout_type"] == "strict_60d_volume_breakout").sum()),
+                "strict_high_breakout_count": 0,
                 "failed_range_breakout_risk_count": int((part["is_volume_attack_failed"] == "True").sum()),
                 "avg_volume_ratio": round(float(volume_ratio.mean()), 4) if not volume_ratio.dropna().empty else "",
                 "median_volume_ratio": round(float(volume_ratio.median()), 4) if not volume_ratio.dropna().empty else "",

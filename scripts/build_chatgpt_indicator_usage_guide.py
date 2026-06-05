@@ -366,7 +366,7 @@ def build_guide() -> str:
             "output/latest/volume_breakout_watch_latest.csv",
             "volume_breakout_type, volume_watch_scope, volume_breakout_priority, selection_status, not_selected_reason, risk_flags, next_volume_breakout_confirmation",
             f"{count_values(volume_breakout, 'volume_breakout_priority')} / {count_values(volume_breakout, 'volume_breakout_type')}",
-            "Use when asked about 帶量突破 / 放量突破 / 放量攻擊. Strict breakout is only one subset.",
+            "Use when asked about 底部放量攻擊 / 放量突破. The core condition is prior-20-day-high breakout with large volume; strict 60-day breakout is a separate concept.",
         ],
         [
             "Stock theme taxonomy",

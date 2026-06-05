@@ -2,10 +2,10 @@
 
 - status: `pass`
 - main_price_date: `20260603`
-- readme_main_price_date: `20260603`
-- readme_index_main_price_date: `20260603`
-- model_signal_rows: `865`
-- volume_watch_rows: `507`
+- readme_main_price_date: ``
+- readme_index_main_price_date: ``
+- model_signal_rows: `639`
+- volume_watch_rows: `56`
 - volume_theme_other_rows: `0`
 - group_rotation_rows: `24`
 - taxonomy_rows: `2376`
@@ -27,15 +27,11 @@
 ```json
 {
   "main_price_date": "20260603",
-  "readme_main_price_date": "20260603",
-  "readme_report_ready": "True",
-  "readme_index_main_price_date": "20260603",
-  "readme_index_report_ready": "True",
   "effective_model_signal_date": "20260603",
-  "model_signal_rows": 865,
-  "raw_model_signal_rows": 865,
-  "volume_watch_rows": 507,
-  "volume_theme_stock_rows": 507,
+  "model_signal_rows": 639,
+  "raw_model_signal_rows": 639,
+  "volume_watch_rows": 56,
+  "volume_theme_stock_rows": 56,
   "group_rotation_rows": 24,
   "taxonomy_rows": 2376,
   "taxonomy_template_csv_rows": 2376,

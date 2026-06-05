@@ -9,8 +9,10 @@ from typing import Any
 import pandas as pd
 
 from build_daily_candidate_model_layer import (
+    active_price_attack_for_early_models,
     build_signals,
     build_specs,
+    cond_volume_breakout,
     cond_pullback,
     cond_w_bottom_right,
 )
@@ -28,19 +30,10 @@ AUDIT_MD = LATEST_DIR / "daily_candidate_model_selection_audit_latest.md"
 
 
 VALID_VOLUME_TYPES = {
-    "range_breakout_volume",
-    "platform_volume_breakout",
-    "neckline_volume_breakout",
-    "strict_high_breakout",
-    "strict_60d_volume_breakout",
-    "true_breakout",
-    "breakout",
+    "bottom_volume_attack",
 }
 VALID_VOLUME_STATUSES = {
     "selected",
-    "selected_as_strict_breakout",
-    "selected_but_routed_to_other_category",
-    "not_selected_by_candidate_model",
 }
 POSITIVE_TDCC = {"strong_accumulation", "mild_accumulation", "tdcc_price_confirmed", "tdcc_leading_price"}
 CONFIRMED_STAGES = {"breakout_confirmed", "platform_breakout", "neckline_breakout"}
@@ -236,29 +229,11 @@ def strong_revenue(row: pd.Series) -> bool:
 
 
 def source_volume_breakout_condition(row: pd.Series) -> bool:
-    vol = num(row, "volume_ratio")
-    if math.isnan(vol) or vol < 1.5:
-        return False
-    btype = text(row, "volume_breakout_type", "breakout_type").lower()
-    return (
-        btype in VALID_VOLUME_TYPES
-        or flag(row, "platform_breakout_flag")
-        or flag(row, "neckline_breakout_flag")
-        or flag(row, "volume_confirmed_breakout")
-    )
+    return cond_volume_breakout(row)
 
 
 def active_attack(row: pd.Series) -> bool:
-    vol = num(row, "volume_ratio")
-    ret5 = num(row, "return_5d", "return_5d_pct")
-    ret20 = num(row, "return_20d", "return_20d_pct")
-    return (
-        source_volume_breakout_condition(row)
-        or flag(row, "volume_confirmed_breakout")
-        or (not math.isnan(vol) and vol >= 2.5)
-        or (not math.isnan(ret5) and ret5 >= 8)
-        or (not math.isnan(ret20) and ret20 >= 20)
-    )
+    return active_price_attack_for_early_models(row)
 
 
 def audit_selected_row(
@@ -301,8 +276,8 @@ def audit_selected_row(
             if status not in VALID_VOLUME_STATUSES:
                 errors.append(f"{sid}: volume selection_status not valid for selected model: {status}")
             vol = num(vrow, "volume_ratio")
-            if math.isnan(vol) or vol < 1.5:
-                errors.append(f"{sid}: volume breakout selected but volume_ratio < 1.5")
+            if math.isnan(vol) or vol < 2.0:
+                errors.append(f"{sid}: bottom volume attack selected but volume_ratio < 2.0")
         return errors, warnings
 
     if model == "tdcc_short_term_continuation_d5_d10":
@@ -565,8 +540,7 @@ def audit() -> dict[str, Any]:
             if cond_w_bottom_right(row) and not already_confirmed_breakout(row):
                 if (sid, "w_bottom_right_side") not in current_model_keys:
                     review_missing_w.append(sid)
-            vol = num(row, "volume_ratio")
-            if (not math.isnan(vol) and vol >= 1.5 and already_confirmed_breakout(row)):
+            if source_volume_breakout_condition(row):
                 if (sid, "volume_range_breakout") not in current_model_keys:
                     review_missing_breakout.append(sid)
         details["review_missing_w_bottom_candidates"] = sorted(set(review_missing_w))[:50]

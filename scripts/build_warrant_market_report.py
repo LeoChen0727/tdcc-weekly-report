@@ -125,8 +125,9 @@ CATEGORY_LABEL_ZH = {
     "short_term_specialty": "短線專項",
     "tdcc_short_term_edge": "TDCC短線延續",
     "non_revenue_momentum": "營收未確認但題材先動",
-    "volume_range_breakout": "帶量突破盤整區間",
-    "volume_breakout": "帶量突破",
+    "volume_range_breakout": "底部放量攻擊",
+    "bottom_volume_attack": "底部放量攻擊",
+    "volume_breakout": "底部放量攻擊",
     "hot_theme_pullback": "熱門族群回檔",
 }
 

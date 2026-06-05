@@ -69,7 +69,7 @@ def test_high_return_without_close_edge_is_intraday_watch() -> None:
             [
                 base_row(
                     model_id="volume_range_breakout",
-                    parameter_set_id="w20_vol1.5_width18",
+                    parameter_set_id="prior20x1.02_vol2_minvol1000",
                     best_close_win_rate_pct=41.0,
                     best_avg_close_return_pct=0.5,
                 )
@@ -79,7 +79,7 @@ def test_high_return_without_close_edge_is_intraday_watch() -> None:
             [
                 detail_row(
                     model_id="volume_range_breakout",
-                    parameter_set_id="w20_vol1.5_width18",
+                    parameter_set_id="prior20x1.02_vol2_minvol1000",
                     avg_high_return_pct=10.0,
                     high_5pct_hit_rate_pct=50.0,
                 )

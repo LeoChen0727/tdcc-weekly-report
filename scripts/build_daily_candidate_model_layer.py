@@ -156,6 +156,9 @@ RISK_TAG_ZH = {
     "benchmark_weak": "弱於大盤 / benchmark",
     "insufficient_tdcc_history": "TDCC歷史不足",
     "insufficient_price_data": "價格資料不足",
+    "long_upper_shadow_quality_penalty": "長上影攻擊品質扣分",
+    "A_bottom_volume_attack": "底部放量攻擊A級",
+    "B_bottom_volume_attack_with_risk": "底部放量攻擊但有風險標籤",
 }
 
 STRUCTURAL_BUCKET_ZH = {
@@ -192,7 +195,8 @@ STRUCTURAL_BUCKET_ZH = {
 
 SCORE_COMPONENT_ZH_REPLACEMENTS = {
     "base=50": "基礎分=50",
-    "profile=volume_range_breakout": "參數=帶量突破模型",
+    "base=35": "基礎分=35",
+    "profile=volume_range_breakout": "參數=底部放量攻擊模型",
     "profile=price_pullback_23ema": "參數=股價回檔模型",
     "profile=hot_theme_pullback": "參數=熱門族群回檔模型",
     "profile=revenue_unreacted_range": "參數=營收爆發但股價尚未反應模型",
@@ -212,6 +216,24 @@ SCORE_COMPONENT_ZH_REPLACEMENTS = {
     "type=range_breakout_volume": "類型=盤整區間帶量突破",
     "type=strict_high_breakout": "類型=波段高點帶量突破",
     "type=strict_60d_volume_breakout": "類型=60日高點帶量突破",
+    "type=bottom_volume_attack": "類型=底部放量攻擊",
+    "breakout_pct": "突破幅度",
+    "close_ge_prior20_high_102pct": "收盤突破前20日高點2%以上",
+    "volume_ma20_lots_ge_1000": "20日均量>=1000張",
+    "close_above_mid_high": "收盤高於日內中高位",
+    "breakout_magnitude": "突破幅度",
+    "close_near_day_high": "收盤接近日高",
+    "close_high_position": "收盤位於日內高位",
+    "strong_red_body": "實體紅K",
+    "red_body_confirmed": "紅K確認",
+    "base_width_controlled": "盤整寬度收斂",
+    "base_width_acceptable": "盤整寬度可接受",
+    "base_duration_20d_plus": "盤整20日以上",
+    "base_duration_10d_plus": "盤整10日以上",
+    "long_upper_shadow_quality_penalty": "長上影攻擊品質扣分",
+    "volume_breakout_notes": "放量攻擊註記",
+    "A_bottom_volume_attack": "底部放量攻擊A級",
+    "B_bottom_volume_attack_with_risk": "底部放量攻擊但有風險標籤",
     "type=平台_volume_breakout": "類型=平台帶量突破",
     "volume_score=": "量能分數=",
     "close_above_previous_20d_high": "收盤站上20日前高",
@@ -321,14 +343,15 @@ class ScoreProfile:
 MODEL_SCORE_PROFILES: dict[str, ScoreProfile] = {
     "volume_range_breakout": ScoreProfile(
         "volume_range_breakout",
-        volume_ratio_bonus_per_1x=5.0,
+        base_score=35.0,
+        volume_ratio_bonus_per_1x=4.0,
         volume_ratio_bonus_cap=20.0,
         tdcc_positive_bonus=8.0,
         warrant_bullish_bonus=6.0,
         strong_revenue_bonus=5.0,
         lower_position_bonus=5.0,
         tdcc_distribution_penalty=6.0,
-        false_breakout_penalty=8.0,
+        false_breakout_penalty=0.0,
     ),
     "price_pullback_23ema": ScoreProfile(
         "price_pullback_23ema",
@@ -865,6 +888,83 @@ def close_above_open(row: pd.Series) -> bool:
     return not math.isnan(close) and not math.isnan(open_) and close > open_
 
 
+def previous_close_price(row: pd.Series) -> float:
+    return num(row, "previous_close", "prev_close", "close_prev", "close_1d_ago")
+
+
+def previous_20d_high_ex_today(row: pd.Series) -> float:
+    value = num(
+        row,
+        "previous_20d_high_ex_today",
+        "prior_20d_high",
+        "previous_20d_high",
+        "high_20_ex_today",
+    )
+    today_high = num(row, "high")
+    close = close_price(row)
+    if not math.isnan(value) and not math.isnan(today_high) and not math.isnan(close):
+        # If an upstream high_20 field appears to include today's spike, fall
+        # back to the available platform high so today's bar cannot raise its
+        # own breakout threshold.
+        platform_high = num(row, "platform_high", "short_platform_high", "range_high")
+        if value >= today_high * 0.999 and not math.isnan(platform_high) and platform_high < value:
+            return platform_high
+    return value
+
+
+def volume_ma20_lots(row: pd.Series) -> float:
+    value = num(row, "volume_ma20_lots", "avg_volume_20d_lots")
+    if not math.isnan(value):
+        return value
+    value = num(row, "volume_ma20", "avg_volume_20d")
+    if math.isnan(value):
+        return math.nan
+    # Repo price histories may carry shares while report tables usually carry
+    # lots. Normalize only clearly share-scale values.
+    return value / 1000.0 if value >= 100000 else value
+
+
+def bottom_volume_attack_bullish_candle(row: pd.Series) -> bool:
+    close = close_price(row)
+    open_ = num(row, "open")
+    prev_close = previous_close_price(row)
+    if math.isnan(close) or math.isnan(open_):
+        return False
+    if close > open_:
+        return True
+    return close == open_ and not math.isnan(prev_close) and close > prev_close
+
+
+def bottom_volume_attack_breakout_level(row: pd.Series) -> float:
+    return previous_20d_high_ex_today(row)
+
+
+def bottom_volume_attack_breakout_pct(row: pd.Series) -> float:
+    close = close_price(row)
+    level = bottom_volume_attack_breakout_level(row)
+    if math.isnan(close) or math.isnan(level) or level <= 0:
+        return math.nan
+    return (close / level - 1) * 100
+
+
+def close_position_in_day_range(row: pd.Series) -> float:
+    close = close_price(row)
+    high = num(row, "high")
+    low = num(row, "low")
+    if any(math.isnan(v) for v in [close, high, low]) or high <= low:
+        return math.nan
+    return (close - low) / (high - low)
+
+
+def upper_shadow_pct_of_close(row: pd.Series) -> float:
+    close = close_price(row)
+    open_ = num(row, "open")
+    high = num(row, "high")
+    if any(math.isnan(v) for v in [close, open_, high]) or close <= 0:
+        return math.nan
+    return (high - max(close, open_)) / close * 100
+
+
 def red_solid_candle(row: pd.Series) -> bool:
     close = close_price(row)
     open_ = num(row, "open")
@@ -1040,16 +1140,47 @@ def model_score_common(row: pd.Series) -> tuple[float, list[str], list[str]]:
 
 def score_volume_breakout(row: pd.Series) -> tuple[float, list[str], list[str]]:
     score, comps, risks = score_from_profile(row, MODEL_SCORE_PROFILES["volume_range_breakout"])
-    if flag(row, "platform_breakout_flag") or flag(row, "neckline_breakout_flag"):
-        score += 10
-        comps.append("platform/neckline breakout +10")
-    if flag(row, "breakout_close_near_high_flag"):
+    breakout_pct = bottom_volume_attack_breakout_pct(row)
+    if not math.isnan(breakout_pct):
+        add = min(12.0, max(0.0, breakout_pct - 2.0) * 2.0)
+        if add:
+            score += add
+            comps.append(f"breakout_magnitude:{breakout_pct:.2f}% +{add:.1f}")
+    close_pos = close_position_in_day_range(row)
+    if not math.isnan(close_pos):
+        if close_pos >= 0.90:
+            score += 6
+            comps.append("close_near_day_high +6")
+        elif close_pos >= 0.75:
+            score += 3
+            comps.append("close_high_position +3")
+    if red_solid_candle(row):
         score += 5
-        comps.append("close near high +5")
-    width = num(row, "platform_width_pct", "short_platform_width_pct")
-    if not math.isnan(width) and 3 <= width <= 15:
-        score += 5
-        comps.append("clean base width +5")
+        comps.append("strong_red_body +5")
+    elif bottom_volume_attack_bullish_candle(row):
+        score += 2
+        comps.append("red_body_confirmed +2")
+    width = num(row, "platform_width_pct", "short_platform_width_pct", "range_width_pct")
+    if not math.isnan(width):
+        if 3 <= width <= 15:
+            score += 6
+            comps.append("base_width_controlled +6")
+        elif 15 < width <= 25:
+            score += 2
+            comps.append("base_width_acceptable +2")
+    days = num(row, "days_in_range", "platform_days", "range_window")
+    if not math.isnan(days):
+        if days >= 20:
+            score += 6
+            comps.append("base_duration_20d_plus +6")
+        elif days >= 10:
+            score += 3
+            comps.append("base_duration_10d_plus +3")
+    upper_shadow = upper_shadow_pct_of_close(row)
+    if not math.isnan(upper_shadow) and upper_shadow > 3.0:
+        penalty = min(8.0, (upper_shadow - 3.0) * 1.5)
+        score -= penalty
+        risks.append(f"long_upper_shadow_quality_penalty:{penalty:.1f}")
     return score, comps, risks
 
 
@@ -1265,17 +1396,30 @@ def score_tdcc_stealth(row: pd.Series) -> tuple[float, list[str], list[str]]:
 
 def cond_volume_breakout(row: pd.Series) -> bool:
     vol = num(row, "volume_ratio")
-    breakout_type = text(row, "volume_breakout_type", "breakout_type").lower()
-    range_breakout_type = breakout_type in {
-        "range_breakout_volume",
-        "platform_volume_breakout",
-        "neckline_volume_breakout",
-        "strict_60d_volume_breakout",
-        "true_breakout",
-        "breakout",
-    }
-    range_breakout_flag = flag(row, "platform_breakout_flag") or flag(row, "neckline_breakout_flag") or flag(row, "volume_confirmed_breakout")
-    return not math.isnan(vol) and vol >= 1.5 and (range_breakout_type or range_breakout_flag)
+    volume_ma20 = volume_ma20_lots(row)
+    breakout_level = bottom_volume_attack_breakout_level(row)
+    close = close_price(row)
+    if any(math.isnan(v) for v in [vol, volume_ma20, breakout_level, close]):
+        return False
+    return (
+        close >= breakout_level * 1.02
+        and vol >= 2.0
+        and volume_ma20 >= 1000
+        and bottom_volume_attack_bullish_candle(row)
+    )
+
+
+def active_price_attack_for_early_models(row: pd.Series) -> bool:
+    vol = num(row, "volume_ratio")
+    ret5 = num(row, "return_5d", "return_5d_pct")
+    ret20 = num(row, "return_20d", "return_20d_pct")
+    return (
+        cond_volume_breakout(row)
+        or flag(row, "volume_confirmed_breakout")
+        or (not math.isnan(vol) and vol >= 2.5)
+        or (not math.isnan(ret5) and ret5 >= 8)
+        or (not math.isnan(ret20) and ret20 >= 20)
+    )
 
 
 def cond_pullback(row: pd.Series) -> bool:
@@ -1290,16 +1434,7 @@ def cond_hot_theme_pullback(row: pd.Series) -> bool:
 
 
 def cond_revenue_unreacted(row: pd.Series) -> bool:
-    vol = num(row, "volume_ratio")
-    ret5 = num(row, "return_5d", "return_5d_pct")
-    ret20 = num(row, "return_20d", "return_20d_pct")
-    active_attack = cond_volume_breakout(row) or flag(row, "volume_confirmed_breakout")
-    if not math.isnan(vol) and vol >= 2.5:
-        active_attack = True
-    if not math.isnan(ret5) and ret5 >= 8:
-        active_attack = True
-    if not math.isnan(ret20) and ret20 >= 20:
-        active_attack = True
+    active_attack = active_price_attack_for_early_models(row)
     return strong_revenue(row) and in_recent_range(row, 5) and not active_attack
 
 
@@ -1614,13 +1749,13 @@ def build_specs() -> list[ModelSpec]:
     return [
         ModelSpec(
             "volume_range_breakout",
-            "帶量突破模型",
+            "底部放量攻擊模型",
             "pdf_core_model",
             "signal_date_next_open",
-            "量比 >= 1.5，且股價有效突破近期盤整區間 / 平台上緣 / 壓力區。",
-            "突破前高或平台、收盤站上突破區、量比越高、盤整時間越久、TDCC越好、營收越好、位階越低可加分。",
-            "不得用漲幅過大、中位爆量、高位爆量直接否決；風險只作排名與操作提醒。",
-            "以訊號日隔天開盤為進場原點；跌回突破區、爆量長上影或跌破支撐為退出/降風險條件。",
+            "以前20個交易日最高價（不含訊號日）為突破基準；收盤價 >= 基準 * 1.02，量比 >= 2.0，20日均量 >= 1000張，且為實體紅K或漲停式紅K。",
+            "量比越高、突破幅度越大、盤整時間越久、盤整品質越乾淨、TDCC越好、權證偏多、營收越好、位階越低、收盤越接近日高可加分。",
+            "不得用60日高點、均線、漲幅過大、高位爆量、同日假突破、watch/risk子狀態直接否決；風險只作扣分與操作提醒。",
+            "以訊號日隔天開盤為進場原點；用跌回突破區、支撐失守、量價失敗或長上影品質風險管理。",
             cond_volume_breakout,
             score_volume_breakout,
         ),
@@ -2322,19 +2457,8 @@ def append_volume_breakout_signals(signals: pd.DataFrame, candidates: pd.DataFra
         return signals
     lookup = candidate_lookup(candidates)
     rows: list[dict[str, Any]] = []
-    valid_statuses = {
-        "selected",
-        "selected_as_strict_breakout",
-        "selected_but_routed_to_other_category",
-        "not_selected_by_candidate_model",
-    }
-    valid_types = {
-        "range_breakout_volume",
-        "platform_volume_breakout",
-        "neckline_volume_breakout",
-        "strict_high_breakout",
-        "strict_60d_volume_breakout",
-    }
+    valid_statuses = {"selected"}
+    valid_types = {"bottom_volume_attack"}
     for idx, row in df.iterrows():
         breakout_type = text(row, "volume_breakout_type", "breakout_type").lower()
         selection_status = text(row, "selection_status").lower()
@@ -2345,19 +2469,22 @@ def append_volume_breakout_signals(signals: pd.DataFrame, candidates: pd.DataFra
             continue
         candidate_row = lookup.get(stock_id)
         source = candidate_row if candidate_row is not None else taxonomy_or_source(stock_id, row)
-        score = to_number(row.get("volume_breakout_score", ""))
-        if math.isnan(score):
-            score = 50
-        risks: list[str] = []
-        if flag(row, "false_breakout_risk_calc") or flag(row, "false_breakout_risk"):
-            risks.append("false_breakout_risk")
-        if flag(row, "overheated_breakout"):
-            risks.append("overheated_breakout")
+        score_source = source.to_dict() if isinstance(source, pd.Series) else {}
+        score_source.update(row.to_dict())
+        score, comps, risks = score_volume_breakout(pd.Series(score_source))
+        raw_risks = text(row, "risk_flags", "risk_penalty_tags")
+        for risk in re.split(r"[|,;]+", raw_risks):
+            item = risk.strip()
+            if item:
+                risks.append(item)
         priority = text(row, "volume_breakout_priority")
-        if priority.startswith("D_"):
+        if priority.startswith("B_"):
             risks.append(priority)
         notes = text(row, "volume_breakout_notes")
-        comps = [f"type={breakout_type}", f"volume_score={row.get('volume_breakout_score','')}".strip()]
+        breakout_pct = bottom_volume_attack_breakout_pct(pd.Series(score_source))
+        comps = [f"type={breakout_type}", f"volume_ratio={row.get('volume_ratio','')}".strip(), *comps]
+        if not math.isnan(breakout_pct):
+            comps.append(f"breakout_pct={breakout_pct:.2f}%")
         if notes:
             comps.append(notes)
         rows.append(
@@ -2378,7 +2505,7 @@ def append_volume_breakout_signals(signals: pd.DataFrame, candidates: pd.DataFra
                 "dual_report_membership_flag": dual_report_membership_flag_value(source),
                 "report_bucket": external_report_bucket(row, source),
                 "model_id": "volume_range_breakout",
-                "model_name_zh": "帶量突破模型",
+                "model_name_zh": "底部放量攻擊模型",
                 "model_group": "pdf_core_model",
                 "main_condition_met": "True",
                 "entry_basis": "signal_date_next_open",
@@ -2394,10 +2521,10 @@ def append_volume_breakout_signals(signals: pd.DataFrame, candidates: pd.DataFra
                 "return_5d": num(row, "return_5d", "return_5d_pct"),
                 "return_20d": num(row, "return_20d", "return_20d_pct"),
                 "next_confirmation": text(row, "next_volume_breakout_confirmation") or text(source, "next_confirmation"),
-                "model_main_conditions": "Volume ratio and confirmed range/platform/neckline/high breakout.",
-                "model_add_score_items": "Higher volume ratio, stronger breakout quality, longer base, TDCC, warrant, revenue, lower position.",
-                "model_forbidden_veto": "Do not veto only because the stock was routed to another category or looks overheated; risk is ranking/operation guidance.",
-                "model_operation_guidance": "Signal date next open is the entry basis; use breakout zone and 23EMA/platform as failure lines.",
+                "model_main_conditions": "以前20個交易日最高價（不含訊號日）為突破基準；收盤價 >= 基準 * 1.02，量比 >= 2.0，20日均量 >= 1000張，且為實體紅K或漲停式紅K。",
+                "model_add_score_items": "量比越高、突破幅度越大、盤整時間越久、盤整品質越乾淨、TDCC越好、權證偏多、營收越好、位階越低、收盤越接近日高可加分。",
+                "model_forbidden_veto": "不得用60日高點、均線、漲幅過大、高位爆量、同日假突破、watch/risk子狀態直接否決；風險只作扣分與操作提醒。",
+                "model_operation_guidance": "以訊號日隔天開盤為進場原點；用跌回突破區、支撐失守、量價失敗或長上影品質風險管理。",
                 "selection_semantics": "volume_breakout_condition_met_from_dedicated_table",
             }
         )
@@ -2719,7 +2846,7 @@ PDF_TOKEN_ZH = {
 }
 
 MODEL_NAME_ZH_BY_ID = {
-    "volume_range_breakout": "帶量突破模型",
+    "volume_range_breakout": "底部放量攻擊模型",
     "price_pullback_23ema": "股價回檔模型",
     "hot_theme_pullback": "熱門族群回檔模型",
     "revenue_unreacted_range": "營收爆發但股價尚未反應模型",
@@ -2735,7 +2862,7 @@ MODEL_NAME_ZH_BY_ID = {
 }
 
 MODEL_HUMAN_REASON_ZH = {
-    "volume_range_breakout": "符合帶量突破模型，量能明顯放大並突破或挑戰關鍵壓力，後續依突破區與量價延續管理。",
+    "volume_range_breakout": "符合底部放量攻擊模型，收盤有效站上前20日高點突破基準，量能明顯放大，後續依突破區與量價品質管理。",
     "price_pullback_23ema": "符合股價回檔模型，股價接近23EMA或支撐區，回測後轉強。",
     "hot_theme_pullback": "符合熱門族群回檔模型，具熱門族群標籤，股價回測23EMA或支撐後轉強。",
     "revenue_unreacted_range": "符合營收爆發但股價尚未反應模型，營收動能較強且股價仍在整理區。",
@@ -2750,7 +2877,7 @@ MODEL_HUMAN_REASON_ZH = {
 }
 
 MODEL_OPERATION_REMINDER_ZH = {
-    "volume_range_breakout": "若跌回突破區或量價失敗，應降低部位或退出；突破後以支撐與壓力管理。",
+    "volume_range_breakout": "以訊號日隔天開盤為進場假設；若跌回突破區、跌破支撐或量價失敗，應降低部位或退出。",
     "price_pullback_23ema": "回檔模型不要求先突破；若跌破23EMA或支撐且無法快速收回，需降低風險。",
     "hot_theme_pullback": "熱門族群回檔以族群標籤與23EMA附近支撐為主；若族群退潮或跌破支撐需降風險。",
     "tdcc_stealth_accumulation": "TDCC為加分與追蹤項，不可單獨作為買進理由；若價格跌破支撐或量價失敗需降風險。",

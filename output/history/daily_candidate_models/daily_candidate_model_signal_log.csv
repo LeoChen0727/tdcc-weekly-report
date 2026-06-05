@@ -2934,287 +2934,61 @@ signal_date,report_bucket,stock_id,stock_name,model_id,model_name_zh,model_group
 20260603,non_mainstream,6589,台康生技,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.0,25,生技醫療業,,等待量價、TDCC、相對強弱至少一項轉強。
 20260603,non_mainstream,9914,美利達,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.0,38,運動休閒,,等待量價、TDCC、相對強弱至少一項轉強。
 20260603,non_mainstream,9938,百和,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.0,39,其他,,等待量價、TDCC、相對強弱至少一項轉強。
-20260603,mainstream,1503,士電,volume_range_breakout,帶量突破模型,pdf_core_model,99.0,1,重電電網,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,mainstream,1504,東元,volume_range_breakout,帶量突破模型,pdf_core_model,99.0,2,機器人自動化_電機機械待細分,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,mainstream,1513,中興電,volume_range_breakout,帶量突破模型,pdf_core_model,99.0,3,重電電網,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,mainstream,1514,亞力,volume_range_breakout,帶量突破模型,pdf_core_model,83.0,56,重電電網,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,mainstream,1515,力山,volume_range_breakout,帶量突破模型,pdf_core_model,76.8,65,機器人自動化_電機機械待細分,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,mainstream,1517,利奇,volume_range_breakout,帶量突破模型,pdf_core_model,84.0,44,機器人自動化_電機機械待細分,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,mainstream,1519,華城,volume_range_breakout,帶量突破模型,pdf_core_model,80.0,59,重電電網,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,mainstream,1529,樂事綠能,volume_range_breakout,帶量突破模型,pdf_core_model,91.0,22,機器人自動化_電機機械待細分,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,mainstream,1532,勤美,volume_range_breakout,帶量突破模型,pdf_core_model,84.0,45,機器人自動化_電機機械待細分,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,mainstream,1580,新麥,volume_range_breakout,帶量突破模型,pdf_core_model,84.0,46,機器人自動化_電機機械待細分,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,mainstream,1603,華電,volume_range_breakout,帶量突破模型,pdf_core_model,91.0,23,重電電網_電器電纜待細分,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,mainstream,1604,聲寶,volume_range_breakout,帶量突破模型,pdf_core_model,88.0,33,重電電網_電器電纜待細分,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,mainstream,1605,華新,volume_range_breakout,帶量突破模型,pdf_core_model,84.0,47,重電電網,overheated_breakout | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,mainstream,1608,華榮,volume_range_breakout,帶量突破模型,pdf_core_model,99.0,4,重電電網_電器電纜待細分,,next day holds breakout area; volume does not collapse; TDCC not distribution_warning
-20260603,mainstream,1609,大亞,volume_range_breakout,帶量突破模型,pdf_core_model,99.0,5,重電電網,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,mainstream,1611,中電,volume_range_breakout,帶量突破模型,pdf_core_model,91.0,24,重電電網_電器電纜待細分,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,mainstream,1612,宏泰,volume_range_breakout,帶量突破模型,pdf_core_model,96.0,14,重電電網,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,mainstream,1614,三洋電,volume_range_breakout,帶量突破模型,pdf_core_model,95.0,17,重電電網_電器電纜待細分,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,mainstream,1616,億泰,volume_range_breakout,帶量突破模型,pdf_core_model,91.0,25,重電電網_電器電纜待細分,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,mainstream,1617,榮星,volume_range_breakout,帶量突破模型,pdf_core_model,75.0,71,重電電網_電器電纜待細分,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,mainstream,1618,合機,volume_range_breakout,帶量突破模型,pdf_core_model,99.0,6,重電電網,,next day holds breakout area; volume does not collapse; TDCC not distribution_warning
-20260603,mainstream,2312,金寶,volume_range_breakout,帶量突破模型,pdf_core_model,49.0,119,其他電子業_待細分,overheated_breakout | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,mainstream,2323,中環,volume_range_breakout,帶量突破模型,pdf_core_model,76.0,67,光電業_待細分,overheated_breakout | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,mainstream,2324,仁寶,volume_range_breakout,帶量突破模型,pdf_core_model,69.0,86,電腦及週邊設備業_待細分,overheated_breakout | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,mainstream,2342,茂矽,volume_range_breakout,帶量突破模型,pdf_core_model,64.3,99,半導體業_待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260603,mainstream,2347,聯強,volume_range_breakout,帶量突破模型,pdf_core_model,69.8,83,電子通路業_待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260603,mainstream,2349,錸德,volume_range_breakout,帶量突破模型,pdf_core_model,84.0,48,光電業_待細分,overheated_breakout | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,mainstream,2352,佳世達,volume_range_breakout,帶量突破模型,pdf_core_model,77.2,64,電腦及週邊設備業_待細分,,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,mainstream,2353,宏碁,volume_range_breakout,帶量突破模型,pdf_core_model,69.8,84,電腦及週邊設備業_待細分,,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,mainstream,2354,鴻準,volume_range_breakout,帶量突破模型,pdf_core_model,71.0,80,散熱液冷,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,mainstream,2356,英業達,volume_range_breakout,帶量突破模型,pdf_core_model,31.0,124,AI伺服器,false_breakout_risk | overheated_breakout | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,mainstream,2364,倫飛,volume_range_breakout,帶量突破模型,pdf_core_model,99.0,7,電腦及週邊設備業_待細分,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,mainstream,2371,大同,volume_range_breakout,帶量突破模型,pdf_core_model,66.5,96,機器人自動化_電機機械待細分,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,mainstream,2373,震旦行,volume_range_breakout,帶量突破模型,pdf_core_model,84.0,49,其他電子業_待細分,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,mainstream,2382,廣達,volume_range_breakout,帶量突破模型,pdf_core_model,50.0,116,AI伺服器,false_breakout_risk | overheated_breakout | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,mainstream,2390,云辰,volume_range_breakout,帶量突破模型,pdf_core_model,69.0,87,其他電子業_待細分,false_breakout_risk | overheated_breakout | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,mainstream,2392,正崴,volume_range_breakout,帶量突破模型,pdf_core_model,95.0,18,電子零組件業_待細分,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,mainstream,2397,友通,volume_range_breakout,帶量突破模型,pdf_core_model,62.0,101,電腦及週邊設備業_待細分,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,mainstream,2405,輔信,volume_range_breakout,帶量突破模型,pdf_core_model,69.0,88,電腦及週邊設備業_待細分,overheated_breakout | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,mainstream,2406,國碩,volume_range_breakout,帶量突破模型,pdf_core_model,91.0,26,光電業_待細分,,next day holds breakout area; volume does not collapse; TDCC not distribution_warning
-20260603,mainstream,2409,友達,volume_range_breakout,帶量突破模型,pdf_core_model,77.8,62,光電業_待細分,,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,mainstream,2431,聯昌,volume_range_breakout,帶量突破模型,pdf_core_model,91.0,27,電子零組件業_待細分,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,mainstream,2440,太空梭,volume_range_breakout,帶量突破模型,pdf_core_model,84.7,42,電子零組件業_待細分,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260603,mainstream,2450,神腦,volume_range_breakout,帶量突破模型,pdf_core_model,72.0,78,通信網路業_待細分,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,mainstream,2451,創見,volume_range_breakout,帶量突破模型,pdf_core_model,67.2,94,記憶體儲存,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260603,mainstream,2457,飛宏,volume_range_breakout,帶量突破模型,pdf_core_model,91.0,28,電子零組件業_待細分,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,mainstream,2462,良得電,volume_range_breakout,帶量突破模型,pdf_core_model,63.0,100,電子零組件業_待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260603,mainstream,2468,華經,volume_range_breakout,帶量突破模型,pdf_core_model,75.2,70,資訊服務業_待細分,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,mainstream,2474,可成,volume_range_breakout,帶量突破模型,pdf_core_model,74.0,76,其他電子業_待細分,false_breakout_risk | overheated_breakout | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,mainstream,2477,美隆電,volume_range_breakout,帶量突破模型,pdf_core_model,91.0,29,其他電子業_待細分,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,mainstream,2483,百容,volume_range_breakout,帶量突破模型,pdf_core_model,69.8,85,電子零組件業_待細分,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,mainstream,2486,一詮,volume_range_breakout,帶量突破模型,pdf_core_model,59.7,104,光電業_待細分,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,mainstream,2493,揚博,volume_range_breakout,帶量突破模型,pdf_core_model,85.1,41,電子零組件業_待細分,,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,mainstream,3008,大立光,volume_range_breakout,帶量突破模型,pdf_core_model,31.0,125,車用電子,false_breakout_risk | overheated_breakout | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,mainstream,3011,今皓,volume_range_breakout,帶量突破模型,pdf_core_model,51.6,114,電子零組件業_待細分,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,mainstream,3015,全漢,volume_range_breakout,帶量突破模型,pdf_core_model,99.0,8,電源_BBU,,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,mainstream,3021,鴻名,volume_range_breakout,帶量突破模型,pdf_core_model,69.0,89,電子零組件業_待細分,overheated_breakout | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,mainstream,3027,盛達,volume_range_breakout,帶量突破模型,pdf_core_model,93.0,20,通信網路業_待細分,,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,mainstream,3038,全台,volume_range_breakout,帶量突破模型,pdf_core_model,99.0,9,光電業_待細分,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,mainstream,3043,科風,volume_range_breakout,帶量突破模型,pdf_core_model,70.8,82,其他電子業_待細分,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,mainstream,3049,精金,volume_range_breakout,帶量突破模型,pdf_core_model,99.0,10,光電業_待細分,,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,mainstream,3050,鈺德,volume_range_breakout,帶量突破模型,pdf_core_model,91.0,30,光電業_待細分,,next day holds breakout area; volume does not collapse; TDCC not distribution_warning
-20260603,mainstream,3058,立德,volume_range_breakout,帶量突破模型,pdf_core_model,67.2,95,電子零組件業_待細分,,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,mainstream,3059,華晶科,volume_range_breakout,帶量突破模型,pdf_core_model,61.5,103,光電業_待細分,,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,mainstream,3149,正達,volume_range_breakout,帶量突破模型,pdf_core_model,41.0,123,光電業_待細分,false_breakout_risk | overheated_breakout | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,mainstream,3231,緯創,volume_range_breakout,帶量突破模型,pdf_core_model,51.8,112,AI伺服器,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,mainstream,3288,點晶,volume_range_breakout,帶量突破模型,pdf_core_model,65.0,97,電子零組件業_待細分,overheated_breakout | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,mainstream,3308,聯德,volume_range_breakout,帶量突破模型,pdf_core_model,83.5,55,電子零組件業_待細分,,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,mainstream,3311,閎暉,volume_range_breakout,帶量突破模型,pdf_core_model,75.0,72,通信網路業_待細分,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,mainstream,3312,弘憶股,volume_range_breakout,帶量突破模型,pdf_core_model,87.3,38,電子通路業_待細分,,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,mainstream,3376,新日興,volume_range_breakout,帶量突破模型,pdf_core_model,88.0,34,電子零組件業_待細分,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,mainstream,3380,明泰,volume_range_breakout,帶量突破模型,pdf_core_model,87.0,39,通信網路業_待細分,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,mainstream,3406,玉晶光,volume_range_breakout,帶量突破模型,pdf_core_model,81.8,58,車用電子,,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,mainstream,3447,展達,volume_range_breakout,帶量突破模型,pdf_core_model,75.0,73,通信網路業_待細分,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,mainstream,3550,聯穎,volume_range_breakout,帶量突破模型,pdf_core_model,96.0,15,電子零組件業_待細分,,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,mainstream,3570,大塚,volume_range_breakout,帶量突破模型,pdf_core_model,95.0,19,資訊服務業_待細分,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,mainstream,3607,谷崧,volume_range_breakout,帶量突破模型,pdf_core_model,49.1,117,電子零組件業_待細分,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,mainstream,3611,鼎翰,volume_range_breakout,帶量突破模型,pdf_core_model,68.0,91,電腦及週邊設備業_待細分,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,mainstream,3617,碩天,volume_range_breakout,帶量突破模型,pdf_core_model,72.5,77,其他電子業_待細分,false_breakout_risk_penalty:8,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260603,mainstream,3622,洋華,volume_range_breakout,帶量突破模型,pdf_core_model,88.0,35,光電業_待細分,,next day holds breakout area; volume does not collapse; TDCC not distribution_warning
-20260603,mainstream,3673,TPK-KY,volume_range_breakout,帶量突破模型,pdf_core_model,28.0,126,光電業_待細分,false_breakout_risk | overheated_breakout | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,mainstream,3701,大眾控,volume_range_breakout,帶量突破模型,pdf_core_model,46.6,121,電腦及週邊設備業_待細分,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,mainstream,3706,神達,volume_range_breakout,帶量突破模型,pdf_core_model,65.0,98,AI伺服器,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,mainstream,4526,東台,volume_range_breakout,帶量突破模型,pdf_core_model,79.0,61,機器人自動化_電機機械待細分,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,mainstream,4532,瑞智,volume_range_breakout,帶量突破模型,pdf_core_model,84.0,50,機器人自動化_電機機械待細分,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,mainstream,4568,科際精密,volume_range_breakout,帶量突破模型,pdf_core_model,76.0,68,機器人自動化_電機機械待細分,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,mainstream,4588,玖鼎電力,volume_range_breakout,帶量突破模型,pdf_core_model,99.0,11,其他電子業_待細分,,next day holds breakout area; volume does not collapse; TDCC not distribution_warning
-20260603,mainstream,4938,和碩,volume_range_breakout,帶量突破模型,pdf_core_model,47.9,120,AI伺服器,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,mainstream,4942,嘉彰,volume_range_breakout,帶量突破模型,pdf_core_model,68.0,92,光電業_待細分,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,mainstream,4967,十銓,volume_range_breakout,帶量突破模型,pdf_core_model,51.6,115,半導體業_待細分,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,mainstream,4976,佳凌,volume_range_breakout,帶量突破模型,pdf_core_model,99.0,12,光電業_待細分,,next day holds breakout area; volume does not collapse; TDCC not distribution_warning
-20260603,mainstream,4999,鑫禾,volume_range_breakout,帶量突破模型,pdf_core_model,87.0,40,電子零組件業_待細分,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,mainstream,5203,訊連,volume_range_breakout,帶量突破模型,pdf_core_model,76.5,66,資訊服務業_待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260603,mainstream,5225,東科-KY,volume_range_breakout,帶量突破模型,pdf_core_model,91.0,31,其他電子業_待細分,,next day holds breakout area; volume does not collapse; TDCC not distribution_warning
-20260603,mainstream,5285,界霖,volume_range_breakout,帶量突破模型,pdf_core_model,77.5,63,半導體業_待細分,,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,mainstream,6112,邁達特,volume_range_breakout,帶量突破模型,pdf_core_model,51.8,113,資訊服務業_待細分,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,mainstream,6115,鎰勝,volume_range_breakout,帶量突破模型,pdf_core_model,95.3,16,電子零組件業_待細分,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260603,mainstream,6120,達運,volume_range_breakout,帶量突破模型,pdf_core_model,75.0,74,光電業_待細分,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,mainstream,6136,富爾特,volume_range_breakout,帶量突破模型,pdf_core_model,88.0,36,通信網路業_待細分,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,mainstream,6139,亞翔,volume_range_breakout,帶量突破模型,pdf_core_model,58.4,105,其他電子業_待細分,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,mainstream,6164,華興,volume_range_breakout,帶量突破模型,pdf_core_model,75.0,75,光電業_待細分,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,mainstream,6189,豐藝,volume_range_breakout,帶量突破模型,pdf_core_model,99.0,13,電子通路業_待細分,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,mainstream,6214,精誠,volume_range_breakout,帶量突破模型,pdf_core_model,67.6,93,資訊服務業_待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260603,mainstream,6269,台郡,volume_range_breakout,帶量突破模型,pdf_core_model,54.9,109,電子零組件業_待細分,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,mainstream,6272,驊陞,volume_range_breakout,帶量突破模型,pdf_core_model,84.0,51,電子零組件業_待細分,overheated_breakout | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,mainstream,6282,康舒,volume_range_breakout,帶量突破模型,pdf_core_model,89.0,32,電子零組件業_待細分,,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,mainstream,6442,光聖,volume_range_breakout,帶量突破模型,pdf_core_model,53.1,111,通信網路業_待細分,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,mainstream,6451,訊芯-KY,volume_range_breakout,帶量突破模型,pdf_core_model,62.0,102,半導體業_待細分,,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,mainstream,6456,GIS-KY,volume_range_breakout,帶量突破模型,pdf_core_model,55.4,108,光電業_待細分,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,mainstream,6556,勝品,volume_range_breakout,帶量突破模型,pdf_core_model,80.0,60,光電業_待細分,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,mainstream,6558,興能高,volume_range_breakout,帶量突破模型,pdf_core_model,46.6,122,其他電子業_待細分,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,mainstream,6561,是方,volume_range_breakout,帶量突破模型,pdf_core_model,84.0,52,通信網路業_待細分,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,mainstream,6577,勁豐,volume_range_breakout,帶量突破模型,pdf_core_model,76.0,69,電腦及週邊設備業_待細分,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,mainstream,6606,建德工業,volume_range_breakout,帶量突破模型,pdf_core_model,72.0,79,機器人自動化_電機機械待細分,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,mainstream,6698,旭暉應材,volume_range_breakout,帶量突破模型,pdf_core_model,49.1,118,其他電子業_待細分,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,mainstream,6855,數泓科,volume_range_breakout,帶量突破模型,pdf_core_model,84.0,53,其他電子業_待細分,overheated_breakout | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,mainstream,6916,華凌,volume_range_breakout,帶量突破模型,pdf_core_model,88.0,37,光電業_待細分,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,mainstream,7788,松川精密,volume_range_breakout,帶量突破模型,pdf_core_model,57.7,107,電子零組件業_待細分,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,mainstream,7828,創新服務,volume_range_breakout,帶量突破模型,pdf_core_model,58.0,106,半導體業_待細分,overheated_breakout | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,mainstream,8070,長華*,volume_range_breakout,帶量突破模型,pdf_core_model,93.0,21,電子通路業_待細分,,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,mainstream,8072,陞泰,volume_range_breakout,帶量突破模型,pdf_core_model,82.1,57,電子通路業_待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260603,mainstream,8101,華冠,volume_range_breakout,帶量突破模型,pdf_core_model,69.0,90,通信網路業_待細分,overheated_breakout | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,mainstream,8104,錸寶,volume_range_breakout,帶量突破模型,pdf_core_model,84.0,54,光電業_待細分,overheated_breakout | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,mainstream,8112,至上,volume_range_breakout,帶量突破模型,pdf_core_model,53.4,110,電子通路業_待細分,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,mainstream,8215,明基材,volume_range_breakout,帶量突破模型,pdf_core_model,71.0,81,光電業_待細分,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,mainstream,8454,富邦媒,volume_range_breakout,帶量突破模型,pdf_core_model,84.1,43,數位雲端_待細分,,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,non_mainstream,0050,元大台灣50,volume_range_breakout,帶量突破模型,pdf_core_model,56.1,150,指數/ETF/ETN商品,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260603,non_mainstream,0055,元大MSCI金融,volume_range_breakout,帶量突破模型,pdf_core_model,99.0,2,指數/ETF/ETN商品,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,0061,元大寶滬深,volume_range_breakout,帶量突破模型,pdf_core_model,68.0,129,指數/ETF/ETN商品,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,1103,嘉泥,volume_range_breakout,帶量突破模型,pdf_core_model,76.0,95,水泥工業,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,non_mainstream,1104,環泥,volume_range_breakout,帶量突破模型,pdf_core_model,67.6,138,水泥工業,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,non_mainstream,1110,東泥,volume_range_breakout,帶量突破模型,pdf_core_model,91.0,27,水泥工業,,next day holds breakout area; volume does not collapse; TDCC not distribution_warning
-20260603,non_mainstream,1201,味全,volume_range_breakout,帶量突破模型,pdf_core_model,88.0,42,食品工業,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,non_mainstream,1210,大成,volume_range_breakout,帶量突破模型,pdf_core_model,72.0,115,食品工業,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,1217,愛之味,volume_range_breakout,帶量突破模型,pdf_core_model,88.0,43,食品工業,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,non_mainstream,1218,泰山,volume_range_breakout,帶量突破模型,pdf_core_model,88.0,44,食品工業,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,non_mainstream,1304,台聚,volume_range_breakout,帶量突破模型,pdf_core_model,91.0,28,塑膠工業,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,non_mainstream,1307,三芳,volume_range_breakout,帶量突破模型,pdf_core_model,91.0,29,塑膠工業,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,1308,亞聚,volume_range_breakout,帶量突破模型,pdf_core_model,87.0,62,塑膠工業,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,non_mainstream,1310,台苯,volume_range_breakout,帶量突破模型,pdf_core_model,91.0,30,塑膠工業,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,1312,國喬,volume_range_breakout,帶量突破模型,pdf_core_model,76.0,96,塑膠工業,overheated_breakout | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,1313,聯成,volume_range_breakout,帶量突破模型,pdf_core_model,91.0,31,塑膠工業,,next day holds breakout area; volume does not collapse; TDCC not distribution_warning
-20260603,non_mainstream,1314,中石化,volume_range_breakout,帶量突破模型,pdf_core_model,91.0,32,塑膠工業,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,non_mainstream,1319,東陽,volume_range_breakout,帶量突破模型,pdf_core_model,75.0,108,汽車工業,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,1324,地球,volume_range_breakout,帶量突破模型,pdf_core_model,88.0,45,塑膠工業,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,non_mainstream,1326,台化,volume_range_breakout,帶量突破模型,pdf_core_model,75.0,109,塑膠工業,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,1340,勝悅-KY,volume_range_breakout,帶量突破模型,pdf_core_model,91.0,33,塑膠工業,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,non_mainstream,1342,八貫,volume_range_breakout,帶量突破模型,pdf_core_model,96.3,18,其他,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260603,non_mainstream,1409,新纖,volume_range_breakout,帶量突破模型,pdf_core_model,64.2,144,紡織纖維,,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,non_mainstream,1416,廣豐,volume_range_breakout,帶量突破模型,pdf_core_model,88.0,46,其他,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,1423,利華,volume_range_breakout,帶量突破模型,pdf_core_model,68.0,130,紡織纖維,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,1432,大魯閣,volume_range_breakout,帶量突破模型,pdf_core_model,88.0,47,運動休閒,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,non_mainstream,1434,福懋,volume_range_breakout,帶量突破模型,pdf_core_model,91.0,34,紡織纖維,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,1440,南紡,volume_range_breakout,帶量突破模型,pdf_core_model,84.0,70,紡織纖維,overheated_breakout | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,1442,名軒,volume_range_breakout,帶量突破模型,pdf_core_model,88.0,48,建材營造,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,non_mainstream,1444,力麗,volume_range_breakout,帶量突破模型,pdf_core_model,84.0,71,紡織纖維,overheated_breakout | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,1446,宏和,volume_range_breakout,帶量突破模型,pdf_core_model,88.0,49,紡織纖維,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,non_mainstream,1447,力鵬,volume_range_breakout,帶量突破模型,pdf_core_model,69.0,127,紡織纖維,overheated_breakout | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,1455,集盛,volume_range_breakout,帶量突破模型,pdf_core_model,75.0,110,紡織纖維,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,1457,宜進,volume_range_breakout,帶量突破模型,pdf_core_model,93.0,22,紡織纖維,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260603,non_mainstream,1460,宏遠,volume_range_breakout,帶量突破模型,pdf_core_model,99.0,3,紡織纖維,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,1464,得力,volume_range_breakout,帶量突破模型,pdf_core_model,88.0,50,紡織纖維,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,non_mainstream,1465,偉全,volume_range_breakout,帶量突破模型,pdf_core_model,68.0,131,紡織纖維,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,1467,南緯,volume_range_breakout,帶量突破模型,pdf_core_model,91.0,35,紡織纖維,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,non_mainstream,1524,耿鼎,volume_range_breakout,帶量突破模型,pdf_core_model,71.0,124,汽車工業,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,1708,東鹼,volume_range_breakout,帶量突破模型,pdf_core_model,100.0,1,化學工業,,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,non_mainstream,1709,和益,volume_range_breakout,帶量突破模型,pdf_core_model,77.8,94,化學工業,false_breakout_risk_penalty:8,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260603,non_mainstream,1710,東聯,volume_range_breakout,帶量突破模型,pdf_core_model,76.0,97,化學工業,overheated_breakout | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,1714,和桐,volume_range_breakout,帶量突破模型,pdf_core_model,99.0,4,化學工業,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,non_mainstream,1718,中纖,volume_range_breakout,帶量突破模型,pdf_core_model,85.8,68,化學工業,,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,non_mainstream,1722,台肥,volume_range_breakout,帶量突破模型,pdf_core_model,84.0,72,化學工業,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,1723,中碳,volume_range_breakout,帶量突破模型,pdf_core_model,93.5,21,化學工業,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260603,non_mainstream,1725,元禎,volume_range_breakout,帶量突破模型,pdf_core_model,87.0,63,化學工業,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,non_mainstream,1733,五鼎,volume_range_breakout,帶量突破模型,pdf_core_model,68.0,132,生技醫療業,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,1777,生泰,volume_range_breakout,帶量突破模型,pdf_core_model,68.0,133,生技醫療業,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,1805,寶徠,volume_range_breakout,帶量突破模型,pdf_core_model,98.0,15,建材營造,,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,non_mainstream,1808,潤隆,volume_range_breakout,帶量突破模型,pdf_core_model,83.0,82,建材營造,,next day holds breakout area; volume does not collapse; TDCC not distribution_warning
-20260603,non_mainstream,1809,中釉,volume_range_breakout,帶量突破模型,pdf_core_model,82.0,85,玻璃陶瓷,,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,non_mainstream,1903,士紙,volume_range_breakout,帶量突破模型,pdf_core_model,75.8,104,造紙工業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260603,non_mainstream,1904,正隆,volume_range_breakout,帶量突破模型,pdf_core_model,98.0,16,造紙工業,,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,non_mainstream,1905,華紙,volume_range_breakout,帶量突破模型,pdf_core_model,90.0,41,造紙工業,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,non_mainstream,1906,寶隆,volume_range_breakout,帶量突破模型,pdf_core_model,93.0,23,造紙工業,,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,non_mainstream,1907,永豐餘,volume_range_breakout,帶量突破模型,pdf_core_model,75.5,105,造紙工業,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,non_mainstream,1909,榮成,volume_range_breakout,帶量突破模型,pdf_core_model,93.0,24,造紙工業,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260603,non_mainstream,2009,第一銅,volume_range_breakout,帶量突破模型,pdf_core_model,99.0,5,鋼鐵工業,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,non_mainstream,2017,官田鋼,volume_range_breakout,帶量突破模型,pdf_core_model,91.0,36,鋼鐵工業,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,2031,新光鋼,volume_range_breakout,帶量突破模型,pdf_core_model,99.0,6,鋼鐵工業,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,2032,新鋼,volume_range_breakout,帶量突破模型,pdf_core_model,76.0,98,鋼鐵工業,,next day holds breakout area; volume does not collapse; TDCC not distribution_warning
-20260603,non_mainstream,2103,台橡,volume_range_breakout,帶量突破模型,pdf_core_model,79.0,91,橡膠工業,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,2105,正新,volume_range_breakout,帶量突破模型,pdf_core_model,75.0,111,橡膠工業,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,2108,南帝,volume_range_breakout,帶量突破模型,pdf_core_model,85.3,69,橡膠工業,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,non_mainstream,2201,裕隆,volume_range_breakout,帶量突破模型,pdf_core_model,75.0,112,汽車工業,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,2243,宏旭-KY,volume_range_breakout,帶量突破模型,pdf_core_model,63.0,146,汽車工業,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,non_mainstream,2348,海悅,volume_range_breakout,帶量突破模型,pdf_core_model,91.0,37,其他業,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,non_mainstream,2442,新美齊,volume_range_breakout,帶量突破模型,pdf_core_model,84.0,73,建材營造,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,non_mainstream,2504,國產,volume_range_breakout,帶量突破模型,pdf_core_model,88.0,51,建材營造,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,2511,太子,volume_range_breakout,帶量突破模型,pdf_core_model,88.0,52,建材營造,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,non_mainstream,2514,龍邦,volume_range_breakout,帶量突破模型,pdf_core_model,73.8,114,其他,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260603,non_mainstream,2538,基泰,volume_range_breakout,帶量突破模型,pdf_core_model,84.0,74,建材營造,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,non_mainstream,2539,櫻花建,volume_range_breakout,帶量突破模型,pdf_core_model,51.5,156,建材營造,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,non_mainstream,2547,日勝生,volume_range_breakout,帶量突破模型,pdf_core_model,53.7,154,建材營造,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,non_mainstream,2597,潤弘,volume_range_breakout,帶量突破模型,pdf_core_model,66.6,140,建材營造,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260603,non_mainstream,2601,益航,volume_range_breakout,帶量突破模型,pdf_core_model,61.6,147,貿易百貨,,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,non_mainstream,2603,長榮,volume_range_breakout,帶量突破模型,pdf_core_model,71.0,125,航運業,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,2637,慧洋-KY,volume_range_breakout,帶量突破模型,pdf_core_model,79.7,90,航運業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260603,non_mainstream,2646,星宇航空,volume_range_breakout,帶量突破模型,pdf_core_model,72.0,116,航運業,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,2704,國賓,volume_range_breakout,帶量突破模型,pdf_core_model,72.0,117,觀光餐旅,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,2727,王品,volume_range_breakout,帶量突破模型,pdf_core_model,92.0,25,觀光餐旅,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,non_mainstream,2731,雄獅,volume_range_breakout,帶量突破模型,pdf_core_model,79.0,92,觀光餐旅,false_breakout_risk_penalty:8,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260603,non_mainstream,2739,寒舍,volume_range_breakout,帶量突破模型,pdf_core_model,88.0,53,觀光餐旅,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,non_mainstream,2801,彰銀,volume_range_breakout,帶量突破模型,pdf_core_model,76.0,99,金融保險業,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,2816,旺旺保,volume_range_breakout,帶量突破模型,pdf_core_model,99.0,7,金融保險業,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,non_mainstream,2820,華票,volume_range_breakout,帶量突破模型,pdf_core_model,72.0,118,金融保險業,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,2832,台產,volume_range_breakout,帶量突破模型,pdf_core_model,76.0,100,金融保險業,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,non_mainstream,2834,臺企銀,volume_range_breakout,帶量突破模型,pdf_core_model,88.0,54,金融保險業,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,2836,高雄銀,volume_range_breakout,帶量突破模型,pdf_core_model,73.9,113,金融保險業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260603,non_mainstream,2838,聯邦銀,volume_range_breakout,帶量突破模型,pdf_core_model,68.0,134,金融保險業,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,2845,遠東銀,volume_range_breakout,帶量突破模型,pdf_core_model,84.0,75,金融保險業,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,2849,安泰銀,volume_range_breakout,帶量突破模型,pdf_core_model,80.0,87,金融保險業,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,non_mainstream,2852,第一保,volume_range_breakout,帶量突破模型,pdf_core_model,96.0,19,金融保險業,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,non_mainstream,2855,統一證,volume_range_breakout,帶量突破模型,pdf_core_model,66.7,139,金融保險業,tdcc_distribution_penalty:6 | false_breakout_risk_penalty:8,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,non_mainstream,2867,三商壽,volume_range_breakout,帶量突破模型,pdf_core_model,88.0,55,金融保險業,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,2880,華南金,volume_range_breakout,帶量突破模型,pdf_core_model,87.0,64,金融保險業,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,2883,凱基金,volume_range_breakout,帶量突破模型,pdf_core_model,99.0,8,金融保險業,,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,non_mainstream,2884,玉山金,volume_range_breakout,帶量突破模型,pdf_core_model,84.0,76,金融保險業,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,2887,台新新光金,volume_range_breakout,帶量突破模型,pdf_core_model,99.0,9,金融保險業,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,2889,國票金,volume_range_breakout,帶量突破模型,pdf_core_model,88.0,56,金融保險業,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,2890,永豐金,volume_range_breakout,帶量突破模型,pdf_core_model,91.0,38,金融保險業,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,2897,王道銀行,volume_range_breakout,帶量突破模型,pdf_core_model,75.9,103,金融保險業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
-20260603,non_mainstream,2903,遠百,volume_range_breakout,帶量突破模型,pdf_core_model,88.0,57,貿易百貨,,next day holds breakout area; volume does not collapse; TDCC not distribution_warning
-20260603,non_mainstream,2905,三商,volume_range_breakout,帶量突破模型,pdf_core_model,84.0,77,貿易百貨,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,non_mainstream,2912,統一超,volume_range_breakout,帶量突破模型,pdf_core_model,87.0,65,貿易百貨,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,2913,農林,volume_range_breakout,帶量突破模型,pdf_core_model,88.0,58,貿易百貨,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,non_mainstream,2915,潤泰全,volume_range_breakout,帶量突破模型,pdf_core_model,87.0,66,貿易百貨,,next day holds breakout area; volume does not collapse; TDCC not distribution_warning
-20260603,non_mainstream,3056,富華新,volume_range_breakout,帶量突破模型,pdf_core_model,84.0,78,建材營造,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260603,non_mainstream,3346,麗清,volume_range_breakout,帶量突破模型,pdf_core_model,82.2,84,汽車工業,,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,non_mainstream,3703,欣陸,volume_range_breakout,帶量突破模型,pdf_core_model,84.0,79,建材營造,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,4142,國光生,volume_range_breakout,帶量突破模型,pdf_core_model,75.2,106,生技醫療業,false_breakout_risk_penalty:8,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260603,non_mainstream,4164,承業醫,volume_range_breakout,帶量突破模型,pdf_core_model,68.5,128,生技醫療業,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,non_mainstream,4306,炎洲,volume_range_breakout,帶量突破模型,pdf_core_model,99.0,10,塑膠工業,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,non_mainstream,4426,利勤,volume_range_breakout,帶量突破模型,pdf_core_model,88.0,59,紡織纖維,,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,non_mainstream,4536,拓凱,volume_range_breakout,帶量突破模型,pdf_core_model,68.0,135,運動休閒,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,4720,德淵,volume_range_breakout,帶量突破模型,pdf_core_model,63.2,145,化學工業,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,non_mainstream,4763,材料*-KY,volume_range_breakout,帶量突破模型,pdf_core_model,57.8,149,化學工業,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,non_mainstream,4807,日成-KY,volume_range_breakout,帶量突破模型,pdf_core_model,81.8,86,貿易百貨,,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,non_mainstream,5522,遠雄,volume_range_breakout,帶量突破模型,pdf_core_model,92.0,26,建材營造,,next day holds breakout area; volume does not collapse; TDCC not distribution_warning
-20260603,non_mainstream,5871,中租-KY,volume_range_breakout,帶量突破模型,pdf_core_model,91.0,39,其他,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,5878,台名,volume_range_breakout,帶量突破模型,pdf_core_model,72.0,119,金融保險業,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,5880,合庫金,volume_range_breakout,帶量突破模型,pdf_core_model,58.8,148,金融保險業,tdcc_distribution_penalty:6 | false_breakout_risk_penalty:8,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,non_mainstream,6005,群益證,volume_range_breakout,帶量突破模型,pdf_core_model,71.9,123,金融保險業,,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,non_mainstream,6024,群益期,volume_range_breakout,帶量突破模型,pdf_core_model,72.0,120,金融保險業,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,6242,立康,volume_range_breakout,帶量突破模型,pdf_core_model,76.0,101,生技醫療業,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,non_mainstream,6505,台塑化,volume_range_breakout,帶量突破模型,pdf_core_model,75.2,107,油電燃氣業,false_breakout_risk_penalty:8,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260603,non_mainstream,6585,鼎基,volume_range_breakout,帶量突破模型,pdf_core_model,78.5,93,其他,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,non_mainstream,6592,和潤企業,volume_range_breakout,帶量突破模型,pdf_core_model,88.0,60,其他業,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,non_mainstream,6605,帝寶,volume_range_breakout,帶量突破模型,pdf_core_model,71.0,126,汽車工業,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,6721,信實,volume_range_breakout,帶量突破模型,pdf_core_model,80.0,88,其他業,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,non_mainstream,6754,匯僑設計,volume_range_breakout,帶量突破模型,pdf_core_model,68.0,136,居家生活,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,6768,志強-KY,volume_range_breakout,帶量突破模型,pdf_core_model,91.0,40,運動休閒,,next day holds breakout area; volume does not collapse; TDCC not distribution_warning
-20260603,non_mainstream,6873,泓德能源,volume_range_breakout,帶量突破模型,pdf_core_model,82.7,83,綠能環保,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260603,non_mainstream,6890,來億-KY,volume_range_breakout,帶量突破模型,pdf_core_model,99.0,11,運動休閒,,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,non_mainstream,6901,鑽石投資,volume_range_breakout,帶量突破模型,pdf_core_model,55.5,151,其他,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,non_mainstream,6957,裕慶-KY,volume_range_breakout,帶量突破模型,pdf_core_model,65.0,142,其他業,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,7708,全家餐飲,volume_range_breakout,帶量突破模型,pdf_core_model,72.0,121,觀光餐旅,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,7713,威力德生醫,volume_range_breakout,帶量突破模型,pdf_core_model,72.0,122,生技醫療業,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,7716,昱臺國際,volume_range_breakout,帶量突破模型,pdf_core_model,76.0,102,航運業,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,non_mainstream,8077,洛碁,volume_range_breakout,帶量突破模型,pdf_core_model,99.0,12,觀光餐旅,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,non_mainstream,8341,日友,volume_range_breakout,帶量突破模型,pdf_core_model,68.0,137,綠能環保,false_breakout_risk | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,8429,金麗-KY,volume_range_breakout,帶量突破模型,pdf_core_model,87.0,67,貿易百貨,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260603,non_mainstream,8473,山林水,volume_range_breakout,帶量突破模型,pdf_core_model,55.3,153,綠能環保,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,non_mainstream,9103,美德醫療-DR,volume_range_breakout,帶量突破模型,pdf_core_model,66.0,141,DR_or_foreign_listing,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,non_mainstream,9110,越南控-DR,volume_range_breakout,帶量突破模型,pdf_core_model,80.0,89,DR_or_foreign_listing,overheated_breakout | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,9136,巨騰-DR,volume_range_breakout,帶量突破模型,pdf_core_model,65.0,143,DR_or_foreign_listing,overheated_breakout | D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,9910,豐泰,volume_range_breakout,帶量突破模型,pdf_core_model,52.6,155,運動休閒,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,non_mainstream,9917,中保科,volume_range_breakout,帶量突破模型,pdf_core_model,83.1,81,其他,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
-20260603,non_mainstream,9919,康那香,volume_range_breakout,帶量突破模型,pdf_core_model,55.5,152,其他,tdcc_distribution_penalty:6 | false_breakout_risk_penalty:8,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,non_mainstream,9927,泰銘,volume_range_breakout,帶量突破模型,pdf_core_model,84.0,80,其他業,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,non_mainstream,9933,中鼎,volume_range_breakout,帶量突破模型,pdf_core_model,99.0,13,其他,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,9934,成霖,volume_range_breakout,帶量突破模型,pdf_core_model,98.0,17,居家生活,,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
-20260603,non_mainstream,9935,慶豐富,volume_range_breakout,帶量突破模型,pdf_core_model,88.0,61,居家生活,,confirm close above MA20/EMA23 and avoid long upper shadow
-20260603,non_mainstream,9941,裕融,volume_range_breakout,帶量突破模型,pdf_core_model,99.0,14,其他,D_risk_downgrade,"selected breakout with risk tags; use next-open entry basis, manage by breakout-area hold, upper-shadow failure, and volume follow-through"
-20260603,non_mainstream,9958,世紀鋼,volume_range_breakout,帶量突破模型,pdf_core_model,93.8,20,鋼鐵工業,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
+20260603,mainstream,1503,士電,volume_range_breakout,底部放量攻擊模型,pdf_core_model,56.7,25,重電電網,tdcc_distribution_penalty:6 | tdcc_distribution_warning | continued_overheated | B_bottom_volume_attack_with_risk,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,mainstream,1504,東元,volume_range_breakout,底部放量攻擊模型,pdf_core_model,64.9,17,機器人自動化_電機機械待細分,tdcc_distribution_penalty:6 | tdcc_distribution_warning | continued_overheated | B_bottom_volume_attack_with_risk,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,mainstream,1513,中興電,volume_range_breakout,底部放量攻擊模型,pdf_core_model,66.6,16,重電電網,tdcc_distribution_penalty:6 | tdcc_distribution_warning | continued_overheated | B_bottom_volume_attack_with_risk,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,mainstream,1529,樂事綠能,volume_range_breakout,底部放量攻擊模型,pdf_core_model,63.7,19,機器人自動化_電機機械待細分,,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,mainstream,1605,華新,volume_range_breakout,底部放量攻擊模型,pdf_core_model,60.9,22,重電電網,,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,mainstream,1608,華榮,volume_range_breakout,底部放量攻擊模型,pdf_core_model,91.2,2,重電電網_電器電纜待細分,,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,mainstream,1609,大亞,volume_range_breakout,底部放量攻擊模型,pdf_core_model,67.9,13,重電電網,tdcc_distribution_penalty:6 | tdcc_distribution_warning | B_bottom_volume_attack_with_risk,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,mainstream,1612,宏泰,volume_range_breakout,底部放量攻擊模型,pdf_core_model,89.1,3,重電電網,,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,mainstream,1618,合機,volume_range_breakout,底部放量攻擊模型,pdf_core_model,66.9,14,重電電網,,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,mainstream,2323,中環,volume_range_breakout,底部放量攻擊模型,pdf_core_model,95.8,1,光電業_待細分,continued_overheated,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,mainstream,2324,仁寶,volume_range_breakout,底部放量攻擊模型,pdf_core_model,63.2,21,電腦及週邊設備業_待細分,,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,mainstream,2349,錸德,volume_range_breakout,底部放量攻擊模型,pdf_core_model,69.5,12,光電業_待細分,tdcc_distribution_penalty:6 | tdcc_distribution_warning | stale_signal | B_bottom_volume_attack_with_risk,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,mainstream,2390,云辰,volume_range_breakout,底部放量攻擊模型,pdf_core_model,72.1,10,其他電子業_待細分,tdcc_distribution_penalty:6 | tdcc_distribution_warning | continued_overheated | B_bottom_volume_attack_with_risk,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,mainstream,2405,輔信,volume_range_breakout,底部放量攻擊模型,pdf_core_model,79.1,8,電腦及週邊設備業_待細分,,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,mainstream,2457,飛宏,volume_range_breakout,底部放量攻擊模型,pdf_core_model,79.5,7,電子零組件業_待細分,continued_overheated,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,mainstream,2474,可成,volume_range_breakout,底部放量攻擊模型,pdf_core_model,60.7,23,其他電子業_待細分,long_upper_shadow_quality_penalty:0.8 | long_upper_shadow_quality_penalty,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,mainstream,3021,鴻名,volume_range_breakout,底部放量攻擊模型,pdf_core_model,63.5,20,電子零組件業_待細分,,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,mainstream,3049,精金,volume_range_breakout,底部放量攻擊模型,pdf_core_model,88.6,4,光電業_待細分,continued_overheated,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,mainstream,3050,鈺德,volume_range_breakout,底部放量攻擊模型,pdf_core_model,84.6,5,光電業_待細分,,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,mainstream,3311,閎暉,volume_range_breakout,底部放量攻擊模型,pdf_core_model,71.1,11,通信網路業_待細分,,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,mainstream,3706,神達,volume_range_breakout,底部放量攻擊模型,pdf_core_model,52.3,26,AI伺服器,tdcc_distribution_penalty:6 | long_upper_shadow_quality_penalty:0.8 | tdcc_distribution_warning | stale_signal | long_upper_shadow_quality_penalty | B_bottom_volume_attack_with_risk,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,mainstream,4976,佳凌,volume_range_breakout,底部放量攻擊模型,pdf_core_model,66.9,15,光電業_待細分,,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,mainstream,6120,達運,volume_range_breakout,底部放量攻擊模型,pdf_core_model,50.9,27,光電業_待細分,,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,mainstream,6189,豐藝,volume_range_breakout,底部放量攻擊模型,pdf_core_model,63.8,18,電子通路業_待細分,tdcc_distribution_penalty:6 | tdcc_distribution_warning | stale_signal | B_bottom_volume_attack_with_risk,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,mainstream,8101,華冠,volume_range_breakout,底部放量攻擊模型,pdf_core_model,76.2,9,通信網路業_待細分,,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,mainstream,8104,錸寶,volume_range_breakout,底部放量攻擊模型,pdf_core_model,58.4,24,光電業_待細分,tdcc_distribution_penalty:6 | tdcc_distribution_warning | stale_signal | B_bottom_volume_attack_with_risk,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,mainstream,8454,富邦媒,volume_range_breakout,底部放量攻擊模型,pdf_core_model,82.3,6,數位雲端_待細分,continued_overheated,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,non_mainstream,1304,台聚,volume_range_breakout,底部放量攻擊模型,pdf_core_model,66.1,21,塑膠工業,,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,non_mainstream,1307,三芳,volume_range_breakout,底部放量攻擊模型,pdf_core_model,70.1,15,塑膠工業,,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,non_mainstream,1310,台苯,volume_range_breakout,底部放量攻擊模型,pdf_core_model,62.7,25,塑膠工業,tdcc_distribution_penalty:6 | tdcc_distribution_warning | B_bottom_volume_attack_with_risk,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,non_mainstream,1312,國喬,volume_range_breakout,底部放量攻擊模型,pdf_core_model,63.0,24,塑膠工業,,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,non_mainstream,1313,聯成,volume_range_breakout,底部放量攻擊模型,pdf_core_model,73.3,10,塑膠工業,,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,non_mainstream,1314,中石化,volume_range_breakout,底部放量攻擊模型,pdf_core_model,86.2,5,塑膠工業,continued_overheated,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,non_mainstream,1434,福懋,volume_range_breakout,底部放量攻擊模型,pdf_core_model,71.6,13,紡織纖維,,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,non_mainstream,1440,南紡,volume_range_breakout,底部放量攻擊模型,pdf_core_model,72.5,11,紡織纖維,tdcc_distribution_penalty:6 | tdcc_distribution_warning | continued_overheated | B_bottom_volume_attack_with_risk,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,non_mainstream,1444,力麗,volume_range_breakout,底部放量攻擊模型,pdf_core_model,72.5,12,紡織纖維,tdcc_distribution_penalty:6 | tdcc_distribution_warning | stale_signal | B_bottom_volume_attack_with_risk,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,non_mainstream,1447,力鵬,volume_range_breakout,底部放量攻擊模型,pdf_core_model,74.9,9,紡織纖維,continued_overheated,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,non_mainstream,1708,東鹼,volume_range_breakout,底部放量攻擊模型,pdf_core_model,89.7,3,化學工業,continued_overheated,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,non_mainstream,1710,東聯,volume_range_breakout,底部放量攻擊模型,pdf_core_model,87.1,4,化學工業,,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,non_mainstream,1714,和桐,volume_range_breakout,底部放量攻擊模型,pdf_core_model,96.6,2,化學工業,continued_overheated,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,non_mainstream,1718,中纖,volume_range_breakout,底部放量攻擊模型,pdf_core_model,66.1,22,化學工業,continued_overheated,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,non_mainstream,2009,第一銅,volume_range_breakout,底部放量攻擊模型,pdf_core_model,96.9,1,鋼鐵工業,continued_overheated,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,non_mainstream,2017,官田鋼,volume_range_breakout,底部放量攻擊模型,pdf_core_model,71.3,14,鋼鐵工業,,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,non_mainstream,2031,新光鋼,volume_range_breakout,底部放量攻擊模型,pdf_core_model,81.2,6,鋼鐵工業,,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,non_mainstream,2104,國際中橡,volume_range_breakout,底部放量攻擊模型,pdf_core_model,55.8,28,橡膠工業,,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,non_mainstream,2201,裕隆,volume_range_breakout,底部放量攻擊模型,pdf_core_model,67.5,17,汽車工業,,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,non_mainstream,2834,臺企銀,volume_range_breakout,底部放量攻擊模型,pdf_core_model,67.4,18,金融保險業,tdcc_distribution_penalty:6 | tdcc_distribution_warning | B_bottom_volume_attack_with_risk,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,non_mainstream,2887,台新新光金,volume_range_breakout,底部放量攻擊模型,pdf_core_model,75.4,8,金融保險業,tdcc_distribution_penalty:6 | tdcc_distribution_warning | continued_overheated | B_bottom_volume_attack_with_risk,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,non_mainstream,2889,國票金,volume_range_breakout,底部放量攻擊模型,pdf_core_model,65.0,23,金融保險業,tdcc_distribution_penalty:6 | tdcc_distribution_warning | stale_signal | B_bottom_volume_attack_with_risk,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,non_mainstream,2890,永豐金,volume_range_breakout,底部放量攻擊模型,pdf_core_model,69.5,16,金融保險業,tdcc_distribution_penalty:6 | tdcc_distribution_warning | stale_signal | B_bottom_volume_attack_with_risk,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,non_mainstream,4306,炎洲,volume_range_breakout,底部放量攻擊模型,pdf_core_model,66.2,19,塑膠工業,,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,non_mainstream,6005,群益證,volume_range_breakout,底部放量攻擊模型,pdf_core_model,80.4,7,金融保險業,continued_overheated,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,non_mainstream,8077,洛碁,volume_range_breakout,底部放量攻擊模型,pdf_core_model,60.9,26,觀光餐旅,,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,non_mainstream,9910,豐泰,volume_range_breakout,底部放量攻擊模型,pdf_core_model,50.0,29,運動休閒,tdcc_distribution_penalty:6 | long_upper_shadow_quality_penalty:3.3 | tdcc_distribution_warning | stale_signal | long_upper_shadow_quality_penalty | B_bottom_volume_attack_with_risk,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,non_mainstream,9933,中鼎,volume_range_breakout,底部放量攻擊模型,pdf_core_model,59.0,27,其他,tdcc_distribution_penalty:6 | tdcc_distribution_warning | stale_signal | B_bottom_volume_attack_with_risk,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260603,non_mainstream,9941,裕融,volume_range_breakout,底部放量攻擊模型,pdf_core_model,66.2,20,其他,tdcc_distribution_penalty:6 | tdcc_distribution_warning | stale_signal | B_bottom_volume_attack_with_risk,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
 20260603,non_mainstream,1449,佳和,w_bottom_right_side,W底右側模型,pdf_core_model,59.0,2,紡織纖維,second_attack_weaker_watch,等待量價、TDCC、相對強弱至少一項轉強。
 20260603,non_mainstream,1808,潤隆,w_bottom_right_side,W底右側模型,pdf_core_model,74.5,1,建材營造,,等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。

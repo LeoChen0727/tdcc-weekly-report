@@ -249,20 +249,47 @@ Allowed volume-attack theme statuses:
 
 `theme_status_missing` means the theme mapping is not reliable. Do not classify it as mainstream or non-mainstream.
 
-## Volume Breakout Rules
+## Bottom Volume Attack Rules
 
-Strict 60-day high breakout is not the only volume breakout.
+The formal daily `volume_range_breakout` model is the independent `底部放量攻擊模型`. It replaces the old broad volume-breakout/watch/risk taxonomy for PDF model selection.
 
-Use `volume_breakout_type`:
+Hard selection conditions:
 
-- `range_breakout_volume`
-- `range_breakout_watch`
-- `strict_high_breakout`
-- `ma_reclaim_volume_attack`
-- `near_high_volume_watch`
-- `failed_range_breakout_risk`
+- Breakout baseline uses the previous 20 trading days, excluding the signal day.
+- Signal-day close must be at least `previous_20d_high * 1.02`.
+- `volume_ratio >= 2.0`.
+- 20-day average volume must be at least 1000 lots. If raw volume is stored as shares, normalize to lots before applying the threshold.
+- The signal day must be a bullish candle: `close > open`, or `open == close and close > previous_close` for limit-up/flat-candle cases.
+- No moving-average gate.
+- No 60-day-high gate.
+- No same-day fake-breakout gate. A real failed breakout can only be confirmed after later trading days.
 
-If strict breakout is empty, do not write that there is no volume attack. Check range breakout and watch rows.
+Official model output:
+
+- Use `volume_breakout_type = bottom_volume_attack`.
+- Use `selection_status = selected`.
+- Do not split this model into selected/watch/risk rows. Risk is handled by score deductions and risk tags only.
+
+Scoring and ranking may use non-conflicting factors:
+
+- Higher volume ratio.
+- Larger breakout magnitude.
+- Longer or cleaner platform/consolidation base.
+- Better TDCC status.
+- Bullish warrant flow.
+- Stronger revenue data.
+- Lower quantified price position if available.
+- Better candle quality. Long upper shadow can deduct attack-quality score once, but must not remove the stock from the model after hard conditions are met.
+
+Do not use these as hard exclusions for this model:
+
+- "Price already rose too much".
+- "Overheated".
+- Same-day fake breakout.
+- Strict 60-day high breakout.
+- Neckline challenge.
+- MA reclaim / right-side watch.
+- Close only near the breakout level without passing the 2% prior-20-day-high threshold.
 
 ## TDCC Overheated Short-Term Edge
 

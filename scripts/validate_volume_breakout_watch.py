@@ -108,10 +108,16 @@ def main() -> int:
         events = check_csv(HISTORY_DIR / "volume_breakout_event_log.csv", ["event_date", "stock_id", "volume_breakout_type", "mature_d5"], allow_empty=False)
 
     if not watch.empty:
-        valid_priorities = {"A_valid_breakout_watch", "B_confirm_needed", "C_watch_only", "D_risk_downgrade"}
+        valid_priorities = {"A_bottom_volume_attack", "B_bottom_volume_attack_with_risk"}
         bad = sorted(set(watch["volume_breakout_priority"]) - valid_priorities)
         if bad:
             fail(f"invalid volume_breakout_priority values: {bad}")
+        bad_types = sorted(set(watch["volume_breakout_type"]) - {"bottom_volume_attack"})
+        if bad_types:
+            fail(f"invalid volume_breakout_type values: {bad_types}")
+        bad_status = sorted(set(watch["selection_status"]) - {"selected"})
+        if bad_status:
+            fail(f"invalid selection_status values: {bad_status}")
 
     if not backtest.empty and "sample_status" in backtest.columns:
         bad_status = sorted(set(backtest["sample_status"]) - {"ok", "insufficient_sample", "pending_only", "data_missing", ""})

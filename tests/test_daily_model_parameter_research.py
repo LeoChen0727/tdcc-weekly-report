@@ -36,14 +36,14 @@ def test_research_only_rule_not_pdf_core() -> None:
 def test_volume_range_breakout_does_not_veto_large_prior_gain() -> None:
     spec = next(
         s for s in rule_specs()
-        if s.model_id == "volume_range_breakout" and s.parameter_set_id == "w20_vol1.5_width18"
+        if s.model_id == "volume_range_breakout" and s.parameter_set_id == "prior20x1.02_vol2_minvol1000"
     )
     df = pd.DataFrame(
         {
             "volume_ratio_prev20": [2.0],
-            "range_breakout_20d_pct": [1.2],
-            "range_width_20d_pct": [10.0],
-            "close_above_open": [True],
+            "range_breakout_20d_pct": [2.5],
+            "volume_ma20_lots": [1200.0],
+            "bullish_attack_candle": [True],
             "return_5d_pct": [55.0],
             "return_10d_pct": [80.0],
         }

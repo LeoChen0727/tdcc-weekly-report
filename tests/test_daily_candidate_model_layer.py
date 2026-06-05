@@ -42,8 +42,17 @@ def make_row(**overrides: object) -> pd.Series:
         "stock_id": "9999",
         "stock_name": "TEST",
         "volume_ratio": "2.0",
-        "volume_breakout_type": "range_breakout_volume",
-        "close_above_range_high": "True",
+        "volume_breakout_type": "bottom_volume_attack",
+        "selection_status": "selected",
+        "volume_breakout_priority": "A_bottom_volume_attack",
+        "close": "103",
+        "open": "100",
+        "high": "104",
+        "low": "95",
+        "previous_close": "99",
+        "previous_20d_high": "100",
+        "volume_ma20": "2000",
+        "close_above_range_high": "False",
         "distance_23ema_pct": "1.5",
         "ema23_slope_pct": "0.5",
         "return_20d": "5",
@@ -155,10 +164,15 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         pdf_rows = params[params["pdf_visibility"].isin(["pdf_core_model", "pdf_specialty_section"])]
         self.assertTrue((pdf_rows["entry_basis"] == "signal_date_next_open").all())
 
-    def test_volume_breakout_condition_is_range_breakout_not_60d_only(self) -> None:
+    def test_volume_breakout_condition_is_bottom_volume_attack_not_60d_only(self) -> None:
         row = make_row(
-            volume_breakout_type="range_breakout_volume",
-            close_above_range_high="True",
+            volume_breakout_type="bottom_volume_attack",
+            close="103",
+            open="100",
+            previous_close="99",
+            previous_20d_high="100",
+            volume_ratio="2.2",
+            volume_ma20="2000",
             distance_to_previous_60d_high_pct="-8",
         )
         self.assertTrue(cond_volume_breakout(row))
@@ -170,11 +184,11 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
                     "signal_date": "20260530",
                     "stock_id": "1617",
                     "stock_name": "榮星",
-                    "volume_breakout_type": "platform_volume_breakout",
-                    "selection_status": "not_selected_by_candidate_model",
+                    "volume_breakout_type": "bottom_volume_attack",
+                    "selection_status": "selected",
                     "volume_breakout_score": "88",
-                    "volume_breakout_priority": "B_confirm_needed",
-                    "volume_breakout_notes": "close_above_previous_20d_high|volume_ratio_ge_2",
+                    "volume_breakout_priority": "A_bottom_volume_attack",
+                    "volume_breakout_notes": "close_ge_prior20_high_102pct|volume_ratio_ge_2|volume_ma20_lots_ge_1000|bullish_candle",
                     "volume_ratio": "3.17",
                     "return_5d": "7.0",
                     "return_20d": "6.3",
@@ -196,7 +210,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         row = out.iloc[0]
         self.assertEqual(row["stock_id"], "1617")
         self.assertEqual(row["model_id"], "volume_range_breakout")
-        self.assertEqual(row["model_name_zh"], "帶量突破模型")
+        self.assertIn("底部", row["model_name_zh"])
 
     def test_pullback_model_does_not_require_breakout(self) -> None:
         row = make_row(
@@ -210,7 +224,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
     def test_pre_breakout_models_exclude_confirmed_breakouts(self) -> None:
         breakout = make_row(
             category="true_breakout",
-            volume_breakout_type="neckline_volume_breakout",
+            volume_breakout_type="bottom_volume_attack",
             platform_breakout_flag="True",
             neckline_breakout_flag="True",
             volume_confirmed_breakout="True",
@@ -219,6 +233,8 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             platform_base_flag="True",
             platform_width_pct="10",
             volume_ratio="3.5",
+            previous_20d_high="100",
+            volume_ma20="2000",
             ema23_slope_pct="0.5",
             close="105",
             open="100",
@@ -396,23 +412,19 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
 
     def test_risk_penalty_does_not_cancel_model_entry(self) -> None:
         row = make_row(
-            volume_breakout_type="range_breakout_volume",
-            close_above_range_high="True",
+            volume_breakout_type="bottom_volume_attack",
             volume_ratio="2.2",
             tdcc_judgement="distribution_warning",
-            false_breakout_risk="True",
             return_20d="85",
         )
         score, _components, risks = score_volume_breakout(row)
         self.assertTrue(cond_volume_breakout(row))
-        self.assertLess(score, 70)
         self.assertTrue(any(str(risk).startswith("tdcc_distribution_penalty") for risk in risks))
-        self.assertTrue(any(str(risk).startswith("false_breakout_risk_penalty") for risk in risks))
+        self.assertFalse(any(str(risk).startswith("false_breakout_risk_penalty") for risk in risks))
 
     def test_same_stock_can_enter_multiple_models(self) -> None:
         row = make_row(
-            volume_breakout_type="range_breakout_volume",
-            close_above_range_high="True",
+            volume_breakout_type="bottom_volume_attack",
             volume_ratio="2.0",
             distance_23ema_pct="1.0",
             ema23_slope_pct="0.8",
@@ -448,6 +460,10 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             return_5d="8.18",
             return_20d="17.22",
             close="58.2",
+            open="55.4",
+            previous_close="53",
+            previous_20d_high="55",
+            volume_ma20="2000",
             high_20="59.8",
             low_20="49",
             tdcc_price_phase="tdcc_leading_price",
@@ -465,7 +481,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
                     "stock_id": "3046",
                     "stock_name": "建碁",
                     "model_id": "volume_range_breakout",
-                    "model_name_zh": "帶量突破模型",
+                    "model_name_zh": "底部放量攻擊模型",
                     "model_group": "pdf_core_model",
                     "model_score": "75.9",
                     "model_rank": "1",
@@ -586,7 +602,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
                     "stock_id": "2374",
                     "stock_name": "CANON",
                     "model_id": "volume_breakout_range",
-                    "model_name_zh": "帶量突破模型",
+                    "model_name_zh": "底部放量攻擊模型",
                     "model_score": "80",
                     "model_rank": "2",
                     "original_category": "range_rebound",
@@ -601,7 +617,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
                     "stock_id": "2374",
                     "stock_name": "CANON",
                     "model_id": "volume_range_breakout",
-                    "model_name_zh": "帶量突破模型",
+                    "model_name_zh": "底部放量攻擊模型",
                     "model_score": "90",
                     "model_rank": "1",
                     "original_category": "revenue_pullback",
@@ -799,7 +815,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             self.assertIn(col, report_ready.columns)
             text = " ".join(report_ready[col].astype(str))
             self.assertNotRegex(text, r"\?\?\?|[a-z]+(?:_[a-z0-9]+){1,}")
-        self.assertIn("帶量突破模型", report_ready["model_name_zh"].iloc[0])
+        self.assertIn("底部放量攻擊", report_ready["model_name_zh"].iloc[0])
 
 
 if __name__ == "__main__":
