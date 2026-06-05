@@ -56,28 +56,11 @@ jobs:
         run: |
           python fetch_official_daily_price.py
 
-      - name: Commit official daily price fetch result immediately
+      - name: Inspect official daily price fetch result
         run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-
-          git pull --rebase --autostash origin "$TARGET_BRANCH" || true
-
-          git add data/daily_price/ || true
-          git add output/latest/official_daily_price_latest.csv || true
-          git add output/latest/official_price_fetch_latest.md || true
-          git add output/latest/official_price_fetch_latest.json || true
-          git add output/debug/official_price_fetch_debug_latest.md || true
-          git add fetch_official_daily_price.py || true
-
+          echo "Official price fetch completed. Partial latest outputs are not published here."
+          echo "All daily outputs are committed only after downstream freshness and consistency checks pass."
           git status --short
-          git commit -m "Update official daily price fetch result" || echo "No changes to commit"
-
-          bash scripts/ci_push_with_retry.sh "$TARGET_BRANCH" 5
-
-      - name: Pull latest after official price commit
-        run: |
-          git pull --rebase --autostash origin "$TARGET_BRANCH" || true
 
       - name: Build per-stock price history
         run: |
@@ -103,49 +86,11 @@ jobs:
         run: |
           python scripts/fetch_market_abnormal_status.py
 
-      - name: Commit daily stock monitor output
+      - name: Inspect daily stock monitor output
         run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-
-          git pull --rebase --autostash origin "$TARGET_BRANCH" || true
-
-          git add data/stock_price_history/ || true
-          git add output/latest/stock_price_history_manifest.csv || true
-          git add output/latest/stock_price_history_manifest.json || true
-          git add output/latest/stock_price_history_manifest.md || true
-          git add docs/latest/stock_price_history_manifest.csv || true
-          git add docs/latest/stock_price_history_manifest.json || true
-          git add docs/latest/stock_price_history_manifest.md || true
-
-          git add output/latest/stock_monitor_latest.md || true
-          git add output/latest/breakout_latest.csv || true
-          git add output/latest/range_rebound_watch_latest.csv || true
-          git add output/latest/daily_pattern_watch_latest.csv || true
-          git add output/latest/daily_candidate_regression_2484_latest.csv || true
-          git add output/latest/daily_candidate_regression_2484_latest.md || true
-          git add output/latest/daily_candidate_regression_2484_latest.json || true
-          git add output/latest/daily_candidate_regression_8069_latest.csv || true
-          git add output/latest/daily_candidate_regression_8069_latest.md || true
-          git add output/latest/daily_candidate_regression_8069_latest.json || true
-          git add output/latest/revenue_pullback_latest.csv || true
-          git add output/latest/pullback_rebound_latest.csv || true
-
-          git add output/latest/revenue_breakout_low_response_latest.csv || true
-          git add output/latest/revenue_breakout_low_response_latest.md || true
-
-          git add output/latest/data_freshness_latest.md || true
-          git add output/latest/data_freshness_latest.csv || true
-          git add output/latest/market_abnormal_status_latest.* || true
-          git add docs/latest/market_abnormal_status_latest.* || true
-          git add output/history/market_abnormal_status/ || true
-          git add data/market_abnormal_status/ || true
-          git add scripts/build_stock_price_history.py || true
-
+          echo "Daily stock monitor completed. Partial latest outputs are not published here."
+          echo "All daily outputs are committed only after downstream freshness and consistency checks pass."
           git status --short
-          git commit -m "Update daily stock monitor report" || echo "No changes to commit"
-
-          bash scripts/ci_push_with_retry.sh "$TARGET_BRANCH" 5
 
       - name: Trigger and wait for Pattern Scan
         if: ${{ github.event.inputs.run_child_pattern_workflows == 'true' }}

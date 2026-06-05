@@ -751,23 +751,131 @@ def daily_file_date(path: Path) -> str:
     return match.group(0) if match else ""
 
 
-def get_latest_existing_daily_file(before_date: str | None = None) -> Path | None:
-    candidates = []
+DAILY_PRICE_COMPARE_COLS = ["open", "high", "low", "close", "volume"]
+
+
+def list_existing_daily_files(before_date: str | None = None) -> list[Path]:
+    candidates: list[Path] = []
 
     if DATA_DIR.exists():
         candidates.extend(DATA_DIR.glob("*.csv"))
 
-    candidates = [
-        p for p in candidates
-        if re.search(r"20\d{6}", p.name)
-    ]
+    candidates = [p for p in candidates if re.search(r"20\d{6}", p.name)]
     if before_date:
         candidates = [p for p in candidates if daily_file_date(p) < before_date]
 
+    by_date: dict[str, list[Path]] = {}
+    for path in candidates:
+        date_text = daily_file_date(path)
+        if not date_text:
+            continue
+        by_date.setdefault(date_text, []).append(path)
+
+    selected: list[Path] = []
+    for paths in by_date.values():
+        # Prefer the canonical daily_price_YYYYMMDD.csv when both naming styles exist.
+        selected.append(
+            sorted(
+                paths,
+                key=lambda p: (p.name.startswith("daily_price_"), p.name),
+            )[-1]
+        )
+    return sorted(selected, key=daily_file_date)
+
+
+def read_daily_file_for_quality(path: Path) -> pd.DataFrame:
+    try:
+        df = pd.read_csv(path, dtype=str).fillna("")
+    except Exception:
+        return pd.DataFrame()
+    required = {"stock_id", "market", *DAILY_PRICE_COMPARE_COLS}
+    if not required.issubset(set(df.columns)):
+        return pd.DataFrame()
+    result = df[["stock_id", "market", *DAILY_PRICE_COMPARE_COLS]].copy()
+    result["stock_id"] = result["stock_id"].astype(str).str.strip()
+    result["market"] = result["market"].astype(str).str.strip()
+    for col in DAILY_PRICE_COMPARE_COLS:
+        result[col] = pd.to_numeric(result[col], errors="coerce")
+    return result[result["stock_id"].ne("") & result["market"].ne("")]
+
+
+def stale_duplicate_markets_between(
+    current: pd.DataFrame,
+    previous: pd.DataFrame,
+    same_threshold: float = 0.98,
+    min_common_rows: int = 300,
+) -> tuple[list[str], dict[str, float]]:
+    stale_markets: list[str] = []
+    ratios: dict[str, float] = {}
+    if current.empty or previous.empty:
+        return stale_markets, ratios
+
+    for market, current_part in current.groupby(current["market"].astype(str), sort=True):
+        if not market:
+            continue
+        previous_part = previous[previous["market"].astype(str).eq(market)]
+        merged = previous_part[["stock_id"] + DAILY_PRICE_COMPARE_COLS].merge(
+            current_part[["stock_id"] + DAILY_PRICE_COMPARE_COLS],
+            on="stock_id",
+            suffixes=("_prev", "_cur"),
+        )
+        if len(merged) < min_common_rows:
+            continue
+        same = pd.Series(True, index=merged.index)
+        for col in DAILY_PRICE_COMPARE_COLS:
+            same &= (
+                merged[f"{col}_prev"].sub(merged[f"{col}_cur"]).abs().fillna(math.inf)
+                <= 1e-9
+            )
+        ratio = float(same.mean()) if len(same) else 0.0
+        ratios[market] = ratio
+        if ratio >= same_threshold:
+            stale_markets.append(market)
+    return stale_markets, ratios
+
+
+def is_daily_file_quality_usable(
+    path: Path,
+    previous_paths: list[Path],
+    log: list[str] | None = None,
+) -> bool:
+    current = read_daily_file_for_quality(path)
+    if current.empty:
+        if log is not None:
+            log.append(f"Daily file quality check rejected unreadable file: {path}")
+        return False
+
+    for previous_path in reversed(previous_paths[-5:]):
+        previous = read_daily_file_for_quality(previous_path)
+        stale_markets, ratios = stale_duplicate_markets_between(current, previous)
+        if stale_markets:
+            if log is not None:
+                ratio_text = ", ".join(f"{k}={v:.1%}" for k, v in sorted(ratios.items()))
+                log.append(
+                    "Daily file quality check rejected "
+                    f"{path.name}: stale markets {','.join(stale_markets)} "
+                    f"duplicate {previous_path.name} ({ratio_text})"
+                )
+            return False
+    return True
+
+
+def get_latest_existing_daily_file(
+    before_date: str | None = None,
+    *,
+    require_quality: bool = True,
+    log: list[str] | None = None,
+) -> Path | None:
+    candidates = list_existing_daily_files(before_date=before_date)
     if not candidates:
         return None
 
-    return sorted(candidates, key=daily_file_date)[-1]
+    for index in range(len(candidates) - 1, -1, -1):
+        candidate = candidates[index]
+        if require_quality and not is_daily_file_quality_usable(candidate, candidates[:index], log):
+            continue
+        return candidate
+    return None
 
 
 def detect_stale_markets_against_previous(
@@ -794,7 +902,7 @@ def detect_stale_markets_against_previous(
     if df.empty:
         return df, report
 
-    previous_file = get_latest_existing_daily_file(before_date=target_date)
+    previous_file = get_latest_existing_daily_file(before_date=target_date, log=log)
     if not previous_file:
         return df, report
 
@@ -1016,7 +1124,7 @@ def save_price_data(df: pd.DataFrame, saved_date: str) -> dict[str, str]:
 
 
 def publish_previous_valid_latest(target_date: str, log: list[str]) -> dict[str, str]:
-    previous_file = get_latest_existing_daily_file(before_date=target_date)
+    previous_file = get_latest_existing_daily_file(before_date=target_date, log=log)
     if not previous_file or not previous_file.exists():
         return {}
     OUTPUT_LATEST.mkdir(parents=True, exist_ok=True)
@@ -1032,35 +1140,34 @@ def write_report(result: dict[str, Any], log: list[str]) -> None:
     OUTPUT_LATEST.mkdir(parents=True, exist_ok=True)
     OUTPUT_DEBUG.mkdir(parents=True, exist_ok=True)
 
-    lines = []
-    lines.append("# 官方每日價格資料抓取狀態")
-    lines.append("")
-    lines.append(f"- 產生時間：`{now_taipei().strftime('%Y-%m-%d %H:%M:%S Asia/Taipei')}`")
-    lines.append(f"- target_date：`{result.get('target_date', '')}`")
-    lines.append(f"- saved_price_date：`{result.get('saved_price_date', '')}`")
-    lines.append(f"- is_target_date：`{result.get('is_target_date', False)}`")
-    lines.append(f"- result：`{result.get('result', '')}`")
-    lines.append(f"- reason：{result.get('reason', '')}")
-    lines.append(f"- twse_rows：`{result.get('twse_rows', 0)}`")
-    lines.append(f"- tpex_rows：`{result.get('tpex_rows', 0)}`")
-    lines.append(f"- total_rows：`{result.get('total_rows', 0)}`")
-    lines.append(f"- full_market_ok：`{result.get('full_market_ok', False)}`")
+    lines = [
+        "# Official Daily Price Fetch Report",
+        "",
+        f"- generated_at: `{now_taipei().strftime('%Y-%m-%d %H:%M:%S Asia/Taipei')}`",
+        f"- target_date: `{result.get('target_date', '')}`",
+        f"- saved_price_date: `{result.get('saved_price_date', '')}`",
+        f"- is_target_date: `{result.get('is_target_date', False)}`",
+        f"- result: `{result.get('result', '')}`",
+        f"- reason: {result.get('reason', '')}",
+        f"- twse_rows: `{result.get('twse_rows', 0)}`",
+        f"- tpex_rows: `{result.get('tpex_rows', 0)}`",
+        f"- total_rows: `{result.get('total_rows', 0)}`",
+        f"- full_market_ok: `{result.get('full_market_ok', False)}`",
+    ]
     if result.get("data_quality_note"):
-        lines.append(f"- data_quality_note：{result.get('data_quality_note')}")
+        lines.append(f"- data_quality_note: {result.get('data_quality_note')}")
     if result.get("stale_markets"):
-        lines.append(f"- stale_markets：`{', '.join(result.get('stale_markets', []))}`")
-        lines.append(f"- stale_market_rows：`{result.get('stale_market_rows', 0)}`")
+        lines.append(f"- stale_markets: `{', '.join(result.get('stale_markets', []))}`")
+        lines.append(f"- stale_market_rows: `{result.get('stale_market_rows', 0)}`")
     lines.append("")
 
     if result.get("paths"):
-        lines.append("## 輸出檔案")
-        lines.append("")
+        lines.extend(["## Output Paths", ""])
         for key, value in result["paths"].items():
             lines.append(f"- {key}: `{value}`")
         lines.append("")
 
-    lines.append("## 嘗試紀錄")
-    lines.append("")
+    lines.extend(["## Fetch Attempts", ""])
     for item in result.get("attempts", []):
         lines.append(
             f"- {item.get('date')}: "
@@ -1070,9 +1177,7 @@ def write_report(result: dict[str, Any], log: list[str]) -> None:
             f"full_market_ok={item.get('full_market_ok')}"
         )
 
-    lines.append("")
-    lines.append("## Fetch logs")
-    lines.append("")
+    lines.extend(["", "## Fetch Logs", ""])
     for entry in log[-400:]:
         lines.append(f"- {entry}")
 
@@ -1084,7 +1189,6 @@ def write_report(result: dict[str, Any], log: list[str]) -> None:
     )
 
     DEBUG_MD.write_text("\n".join(lines), encoding="utf-8")
-
 
 def main() -> int:
     target_date = detect_target_date()
@@ -1120,20 +1224,11 @@ def main() -> int:
                 "data_quality_note": stale_report.get("data_quality_note", ""),
             }
 
-    if not df.empty and len(df) >= 1:
+    if not df.empty and bool(status.get("full_market_ok", False)):
         paths = save_price_data(df, target_date)
 
-        full_market_ok = bool(status.get("full_market_ok", False))
-
-        if full_market_ok:
-            result_name = "success_target_full_market"
-            reason = "成功取得目標日 TWSE + TPEx 官方日線資料。"
-        else:
-            result_name = "success_target_partial_fallback"
-            reason = (
-                "已取得目標日部分官方日線資料並寫入今日檔案；"
-                "部分市場資料可能由 fallback 補齊不足，請查看 twse_rows / tpex_rows。"
-            )
+        result_name = "success_target_full_market"
+        reason = "成功取得目標日 TWSE + TPEx 官方日線資料。"
 
         result = {
             "generated_at": now_taipei().strftime("%Y-%m-%d %H:%M:%S Asia/Taipei"),
@@ -1145,7 +1240,7 @@ def main() -> int:
             "twse_rows": status.get("twse_rows", 0),
             "tpex_rows": status.get("tpex_rows", 0),
             "total_rows": status.get("total_rows", 0),
-            "full_market_ok": full_market_ok,
+            "full_market_ok": True,
             "stale_markets": stale_report.get("stale_markets", []),
             "stale_market_rows": stale_report.get("stale_market_rows", 0),
             "data_quality_note": stale_report.get("data_quality_note", ""),
@@ -1161,7 +1256,7 @@ def main() -> int:
             f"Rows={len(df)} "
             f"TWSE={status.get('twse_rows', 0)} "
             f"TPEx={status.get('tpex_rows', 0)} "
-            f"full_market_ok={full_market_ok}"
+            "full_market_ok=True"
         )
         print(f"Report saved: {LATEST_FETCH_MD}")
         return 0
