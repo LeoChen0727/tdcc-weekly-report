@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5230 雷笛克光學
 
 ## Metadata
-- generated_at: 2026-06-05 21:07:54 Asia/Taipei
+- generated_at: 2026-06-05 22:14:42 Asia/Taipei
 - stock_id: 5230
 - stock_name: 雷笛克光學
 - packet_status: standard_180d_window_packet

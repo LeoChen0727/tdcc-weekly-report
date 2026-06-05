@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8155 博智
 
 ## Metadata
-- generated_at: 2026-06-05 21:09:17 Asia/Taipei
+- generated_at: 2026-06-05 22:16:19 Asia/Taipei
 - stock_id: 8155
 - stock_name: 博智
 - packet_status: standard_180d_window_packet

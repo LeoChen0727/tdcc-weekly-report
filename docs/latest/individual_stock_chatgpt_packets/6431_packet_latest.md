@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6431 光麗-KY
 
 ## Metadata
-- generated_at: 2026-06-05 21:08:24 Asia/Taipei
+- generated_at: 2026-06-05 22:15:16 Asia/Taipei
 - stock_id: 6431
 - stock_name: 光麗-KY
 - packet_status: standard_180d_window_packet

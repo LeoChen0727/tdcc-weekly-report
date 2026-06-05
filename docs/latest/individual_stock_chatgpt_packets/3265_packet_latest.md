@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3265 台星科
 
 ## Metadata
-- generated_at: 2026-06-05 21:07:13 Asia/Taipei
+- generated_at: 2026-06-05 22:13:54 Asia/Taipei
 - stock_id: 3265
 - stock_name: 台星科
 - packet_status: standard_180d_window_packet

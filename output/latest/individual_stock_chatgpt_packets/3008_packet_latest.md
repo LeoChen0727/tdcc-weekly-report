@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3008 大立光
 
 ## Metadata
-- generated_at: 2026-06-05 21:07:01 Asia/Taipei
+- generated_at: 2026-06-05 22:13:40 Asia/Taipei
 - stock_id: 3008
 - stock_name: 大立光
 - packet_status: standard_180d_window_packet
@@ -187,7 +187,8 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 3008 | 大立光 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260605 | 3008 | 大立光 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260605 | 3008 | 大立光 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -195,9 +196,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | 20260605 | 3008 | 大立光 | 1 | 1 | 2 | 2 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260605 | 3008 | 大立光 | 233 | 12 | 26971490.0 | 639150.0 | 42.2 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

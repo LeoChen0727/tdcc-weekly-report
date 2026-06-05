@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3710 連展投控
 
 ## Metadata
-- generated_at: 2026-06-05 21:07:30 Asia/Taipei
+- generated_at: 2026-06-05 22:14:14 Asia/Taipei
 - stock_id: 3710
 - stock_name: 連展投控
 - packet_status: standard_180d_window_packet

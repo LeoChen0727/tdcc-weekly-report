@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6971 惠民實業
 
 ## Metadata
-- generated_at: 2026-06-05 21:08:48 Asia/Taipei
+- generated_at: 2026-06-05 22:15:45 Asia/Taipei
 - stock_id: 6971
 - stock_name: 惠民實業
 - packet_status: standard_180d_window_packet

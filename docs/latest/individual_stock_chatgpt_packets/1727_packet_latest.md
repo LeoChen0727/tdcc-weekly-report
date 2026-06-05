@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1727 中華化
 
 ## Metadata
-- generated_at: 2026-06-05 21:06:21 Asia/Taipei
+- generated_at: 2026-06-05 22:12:52 Asia/Taipei
 - stock_id: 1727
 - stock_name: 中華化
 - packet_status: standard_180d_window_packet

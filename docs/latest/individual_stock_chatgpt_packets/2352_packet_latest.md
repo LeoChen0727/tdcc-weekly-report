@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2352 佳世達
 
 ## Metadata
-- generated_at: 2026-06-05 21:06:35 Asia/Taipei
+- generated_at: 2026-06-05 22:13:09 Asia/Taipei
 - stock_id: 2352
 - stock_name: 佳世達
 - packet_status: standard_180d_window_packet
@@ -191,9 +191,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260605 | 2352 | 佳世達 | 17 | 2 | 3964820.0 | 15600.0 | 254.16 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

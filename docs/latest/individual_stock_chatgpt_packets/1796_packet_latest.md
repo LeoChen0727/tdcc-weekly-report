@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1796 金穎生技
 
 ## Metadata
-- generated_at: 2026-06-05 21:06:23 Asia/Taipei
+- generated_at: 2026-06-05 22:12:55 Asia/Taipei
 - stock_id: 1796
 - stock_name: 金穎生技
 - packet_status: standard_180d_window_packet

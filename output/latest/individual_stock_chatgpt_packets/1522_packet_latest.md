@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1522 堤維西
 
 ## Metadata
-- generated_at: 2026-06-05 21:06:14 Asia/Taipei
+- generated_at: 2026-06-05 22:12:44 Asia/Taipei
 - stock_id: 1522
 - stock_name: 堤維西
 - packet_status: standard_180d_window_packet
@@ -192,9 +192,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260605 | 1522 | 堤維西 | 2 | 0 | 9020.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

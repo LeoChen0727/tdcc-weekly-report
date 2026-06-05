@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6504 南六
 
 ## Metadata
-- generated_at: 2026-06-05 21:08:26 Asia/Taipei
+- generated_at: 2026-06-05 22:15:19 Asia/Taipei
 - stock_id: 6504
 - stock_name: 南六
 - packet_status: standard_180d_window_packet

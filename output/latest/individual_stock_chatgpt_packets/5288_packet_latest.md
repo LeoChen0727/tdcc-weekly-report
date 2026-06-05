@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5288 豐祥-KY
 
 ## Metadata
-- generated_at: 2026-06-05 21:07:56 Asia/Taipei
+- generated_at: 2026-06-05 22:14:44 Asia/Taipei
 - stock_id: 5288
 - stock_name: 豐祥-KY
 - packet_status: standard_180d_window_packet

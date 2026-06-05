@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3455 由田
 
 ## Metadata
-- generated_at: 2026-06-05 21:07:19 Asia/Taipei
+- generated_at: 2026-06-05 22:14:01 Asia/Taipei
 - stock_id: 3455
 - stock_name: 由田
 - packet_status: standard_180d_window_packet

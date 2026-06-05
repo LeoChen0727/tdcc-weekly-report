@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8096 擎亞
 
 ## Metadata
-- generated_at: 2026-06-05 21:09:16 Asia/Taipei
+- generated_at: 2026-06-05 22:16:17 Asia/Taipei
 - stock_id: 8096
 - stock_name: 擎亞
 - packet_status: standard_180d_window_packet

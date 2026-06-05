@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6234 高僑
 
 ## Metadata
-- generated_at: 2026-06-05 21:08:18 Asia/Taipei
+- generated_at: 2026-06-05 22:15:10 Asia/Taipei
 - stock_id: 6234
 - stock_name: 高僑
 - packet_status: standard_180d_window_packet

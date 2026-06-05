@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4976 佳凌
 
 ## Metadata
-- generated_at: 2026-06-05 21:07:51 Asia/Taipei
+- generated_at: 2026-06-05 22:14:38 Asia/Taipei
 - stock_id: 4976
 - stock_name: 佳凌
 - packet_status: standard_180d_window_packet

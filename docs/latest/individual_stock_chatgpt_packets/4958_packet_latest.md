@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4958 臻鼎-KY
 
 ## Metadata
-- generated_at: 2026-06-05 21:07:50 Asia/Taipei
+- generated_at: 2026-06-05 22:14:37 Asia/Taipei
 - stock_id: 4958
 - stock_name: 臻鼎-KY
 - packet_status: standard_180d_window_packet
@@ -187,7 +187,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 4958 | 臻鼎-KY | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: ex_dividend on 20260608; status=confirmed; proximity=within_3d |
+| 20260605 | 4958 | 臻鼎-KY | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | calendar event: ex_dividend on 20260608; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -195,9 +195,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | 20260605 | 4958 | 臻鼎-KY | 2 | 2 | 3 | 3 | 3 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260605 | 4958 | 臻鼎-KY | 257 | 17 | 22962670.0 | 633760.0 | 36.23 | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

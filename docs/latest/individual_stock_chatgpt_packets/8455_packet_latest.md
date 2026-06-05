@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8455 大拓-KY
 
 ## Metadata
-- generated_at: 2026-06-05 21:09:23 Asia/Taipei
+- generated_at: 2026-06-05 22:16:26 Asia/Taipei
 - stock_id: 8455
 - stock_name: 大拓-KY
 - packet_status: standard_180d_window_packet

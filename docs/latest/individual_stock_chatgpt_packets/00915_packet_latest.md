@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00915 凱基優選高股息30
 
 ## Metadata
-- generated_at: 2026-06-05 21:06:00 Asia/Taipei
+- generated_at: 2026-06-05 22:12:27 Asia/Taipei
 - stock_id: 00915
 - stock_name: 凱基優選高股息30
 - packet_status: partial_rawdata_packet

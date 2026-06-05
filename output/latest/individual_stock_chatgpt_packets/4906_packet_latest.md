@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4906 正文
 
 ## Metadata
-- generated_at: 2026-06-05 21:07:47 Asia/Taipei
+- generated_at: 2026-06-05 22:14:34 Asia/Taipei
 - stock_id: 4906
 - stock_name: 正文
 - packet_status: standard_180d_window_packet
@@ -191,9 +191,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260605 | 4906 | 正文 | 46 | 0 | 8885480.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

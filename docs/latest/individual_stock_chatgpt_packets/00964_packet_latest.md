@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00964 中信亞太高股息
 
 ## Metadata
-- generated_at: 2026-06-05 21:06:01 Asia/Taipei
+- generated_at: 2026-06-05 22:12:29 Asia/Taipei
 - stock_id: 00964
 - stock_name: 中信亞太高股息
 - packet_status: partial_rawdata_packet

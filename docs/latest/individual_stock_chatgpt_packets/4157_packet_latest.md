@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4157 太景*-KY
 
 ## Metadata
-- generated_at: 2026-06-05 21:07:34 Asia/Taipei
+- generated_at: 2026-06-05 22:14:19 Asia/Taipei
 - stock_id: 4157
 - stock_name: 太景*-KY
 - packet_status: standard_180d_window_packet

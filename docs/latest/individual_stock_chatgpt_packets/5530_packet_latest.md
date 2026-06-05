@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5530 龍巖
 
 ## Metadata
-- generated_at: 2026-06-05 21:08:04 Asia/Taipei
+- generated_at: 2026-06-05 22:14:53 Asia/Taipei
 - stock_id: 5530
 - stock_name: 龍巖
 - packet_status: standard_180d_window_packet

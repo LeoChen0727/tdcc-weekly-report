@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7811 民盛
 
 ## Metadata
-- generated_at: 2026-06-05 21:09:11 Asia/Taipei
+- generated_at: 2026-06-05 22:16:11 Asia/Taipei
 - stock_id: 7811
 - stock_name: 民盛
 - packet_status: standard_180d_window_packet

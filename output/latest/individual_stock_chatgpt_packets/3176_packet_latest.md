@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3176 基亞
 
 ## Metadata
-- generated_at: 2026-06-05 21:07:10 Asia/Taipei
+- generated_at: 2026-06-05 22:13:50 Asia/Taipei
 - stock_id: 3176
 - stock_name: 基亞
 - packet_status: standard_180d_window_packet

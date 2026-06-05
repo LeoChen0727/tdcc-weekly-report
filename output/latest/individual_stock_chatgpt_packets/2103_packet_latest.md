@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2103 台橡
 
 ## Metadata
-- generated_at: 2026-06-05 21:06:29 Asia/Taipei
+- generated_at: 2026-06-05 22:13:01 Asia/Taipei
 - stock_id: 2103
 - stock_name: 台橡
 - packet_status: standard_180d_window_packet
@@ -191,9 +191,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260605 | 2103 | 台橡 | 5 | 0 | 8336430.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

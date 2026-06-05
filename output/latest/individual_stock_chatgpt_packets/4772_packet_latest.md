@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4772 台特化
 
 ## Metadata
-- generated_at: 2026-06-05 21:07:47 Asia/Taipei
+- generated_at: 2026-06-05 22:14:33 Asia/Taipei
 - stock_id: 4772
 - stock_name: 台特化
 - packet_status: standard_180d_window_packet

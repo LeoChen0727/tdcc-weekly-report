@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1413 宏洲
 
 ## Metadata
-- generated_at: 2026-06-05 21:06:08 Asia/Taipei
+- generated_at: 2026-06-05 22:12:37 Asia/Taipei
 - stock_id: 1413
 - stock_name: 宏洲
 - packet_status: standard_180d_window_packet

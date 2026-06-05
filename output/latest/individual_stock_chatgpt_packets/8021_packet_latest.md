@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8021 尖點
 
 ## Metadata
-- generated_at: 2026-06-05 21:09:11 Asia/Taipei
+- generated_at: 2026-06-05 22:16:12 Asia/Taipei
 - stock_id: 8021
 - stock_name: 尖點
 - packet_status: standard_180d_window_packet

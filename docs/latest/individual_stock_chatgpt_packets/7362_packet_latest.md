@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7362 家登統一61購01
 
 ## Metadata
-- generated_at: 2026-06-05 21:09:03 Asia/Taipei
+- generated_at: 2026-06-05 22:16:02 Asia/Taipei
 - stock_id: 7362
 - stock_name: 家登統一61購01
 - packet_status: standard_180d_window_packet

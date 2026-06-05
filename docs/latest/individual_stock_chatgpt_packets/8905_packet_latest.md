@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8905 裕國
 
 ## Metadata
-- generated_at: 2026-06-05 21:09:25 Asia/Taipei
+- generated_at: 2026-06-05 22:16:28 Asia/Taipei
 - stock_id: 8905
 - stock_name: 裕國
 - packet_status: standard_180d_window_packet

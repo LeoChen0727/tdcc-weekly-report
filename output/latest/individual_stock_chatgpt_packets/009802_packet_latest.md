@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009802 富邦旗艦50
 
 ## Metadata
-- generated_at: 2026-06-05 21:06:01 Asia/Taipei
+- generated_at: 2026-06-05 22:12:29 Asia/Taipei
 - stock_id: 009802
 - stock_name: 富邦旗艦50
 - packet_status: partial_rawdata_packet
@@ -179,9 +179,9 @@ no_rows,True
 | no rows |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260605 | 9802 | 鈺齊-KY | 6 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

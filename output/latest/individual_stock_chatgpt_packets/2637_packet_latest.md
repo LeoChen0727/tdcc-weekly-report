@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2637 慧洋-KY
 
 ## Metadata
-- generated_at: 2026-06-05 21:06:51 Asia/Taipei
+- generated_at: 2026-06-05 22:13:28 Asia/Taipei
 - stock_id: 2637
 - stock_name: 慧洋-KY
 - packet_status: standard_180d_window_packet
@@ -190,7 +190,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 2637 | 慧洋-KY | true_breakout | 嚴格突破 | 151.0 |  |  | platform_breakout |  |  | continued_2_3d | calendar event: ex_dividend on 20260610; status=confirmed; proximity=within_7d |
+| 20260605 | 2637 | 慧洋-KY | true_breakout | 嚴格突破 | 151.0 |  |  | platform_breakout |  | call_strong_inflow | continued_2_3d | calendar event: ex_dividend on 20260610; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -198,9 +198,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | 20260605 | 2637 | 慧洋-KY | 2 | 1 | 4 | 9 | 10 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260605 | 2637 | 慧洋-KY | 25 | 0 | 9695390.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

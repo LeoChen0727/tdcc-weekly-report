@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3438 類比科
 
 ## Metadata
-- generated_at: 2026-06-05 21:07:18 Asia/Taipei
+- generated_at: 2026-06-05 22:14:01 Asia/Taipei
 - stock_id: 3438
 - stock_name: 類比科
 - packet_status: standard_180d_window_packet

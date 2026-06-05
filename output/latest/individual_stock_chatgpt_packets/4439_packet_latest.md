@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4439 冠星-KY
 
 ## Metadata
-- generated_at: 2026-06-05 21:07:38 Asia/Taipei
+- generated_at: 2026-06-05 22:14:23 Asia/Taipei
 - stock_id: 4439
 - stock_name: 冠星-KY
 - packet_status: standard_180d_window_packet
