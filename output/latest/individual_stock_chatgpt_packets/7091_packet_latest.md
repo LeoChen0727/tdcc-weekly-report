@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7091 威聯通永豐61購01
 
 ## Metadata
-- generated_at: 2026-06-05 22:15:53 Asia/Taipei
+- generated_at: 2026-06-05 23:03:54 Asia/Taipei
 - stock_id: 7091
 - stock_name: 威聯通永豐61購01
 - packet_status: standard_180d_window_packet

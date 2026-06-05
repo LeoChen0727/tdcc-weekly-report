@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7023 新普國票57購01
 
 ## Metadata
-- generated_at: 2026-06-05 22:15:48 Asia/Taipei
+- generated_at: 2026-06-05 23:03:49 Asia/Taipei
 - stock_id: 7023
 - stock_name: 新普國票57購01
 - packet_status: standard_180d_window_packet

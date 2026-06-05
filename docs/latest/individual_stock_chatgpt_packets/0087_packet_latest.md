@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0087 國泰永續高股息
 
 ## Metadata
-- generated_at: 2026-06-05 22:12:26 Asia/Taipei
+- generated_at: 2026-06-05 23:00:23 Asia/Taipei
 - stock_id: 0087
 - stock_name: 國泰永續高股息
 - packet_status: insufficient_price_data

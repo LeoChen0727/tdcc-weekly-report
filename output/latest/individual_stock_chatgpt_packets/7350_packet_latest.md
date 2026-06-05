@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7350 新應材永豐56購01
 
 ## Metadata
-- generated_at: 2026-06-05 22:16:01 Asia/Taipei
+- generated_at: 2026-06-05 23:04:02 Asia/Taipei
 - stock_id: 7350
 - stock_name: 新應材永豐56購01
 - packet_status: standard_180d_window_packet
