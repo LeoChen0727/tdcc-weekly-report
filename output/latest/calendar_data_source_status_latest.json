@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-05 03:02:42 Asia/Taipei",
+  "generated_at": "2026-06-05 08:15:47 Asia/Taipei",
   "files": {
     "company_event_calendar": {
       "path": "data/company_calendar/company_event_calendar.csv",
@@ -41,10 +41,9 @@
     },
     "bea_release_schedule": {
       "url": "https://www.bea.gov/news/schedule",
-      "status": "ok",
-      "rows": 24,
-      "error": "",
-      "http_status": 200
+      "status": "failed",
+      "rows": 0,
+      "error": "HTTPSConnectionPool(host='www.bea.gov', port=443): Max retries exceeded with url: /news/schedule (Caused by NewConnectionError(\"HTTPSConnection(host='www.bea.gov', port=443): Failed to establish a new connection: [Errno 101] Network is unreachable\"))"
     },
     "bls_cpi_release_schedule": {
       "url": "https://www.bls.gov/schedule/news_release/cpi.htm",
