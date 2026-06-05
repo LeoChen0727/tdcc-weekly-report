@@ -123,7 +123,6 @@ function triggerDailyStockMonitor() {
   dispatchWorkflow_("daily_full_pipeline.yml", {
     run_child_pattern_workflows: "false",
     run_raw_health_check: "false",
-    run_individual_stock_outputs: "false",
   });
   Utilities.sleep(5000);
   logLatestWorkflowRuns_("daily_full_pipeline.yml");

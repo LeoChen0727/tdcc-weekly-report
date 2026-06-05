@@ -11,10 +11,6 @@ on:
         description: "Run full raw/pages/api health check for all core files"
         required: false
         default: "false"
-      run_individual_stock_outputs:
-        description: "Build bulk per-stock ChatGPT packets/windows. Normally use individual_stock_data_refresh.yml instead."
-        required: false
-        default: "false"
 
 permissions:
   contents: write
@@ -422,37 +418,6 @@ jobs:
       - name: Wait briefly for GitHub Pages and raw propagation
         run: |
           sleep 30
-
-      - name: Build individual raw data indexes and raw health status
-        if: ${{ github.event.inputs.run_individual_stock_outputs == 'true' }}
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        run: |
-          python scripts/build_individual_stock_chatgpt_packets.py
-          python scripts/build_individual_stock_raw_data_index.py
-          python - <<'PY'
-          from pathlib import Path
-          import subprocess
-          import sys
-
-          report_dir = Path("output/latest/individual_stock_reports")
-          stock_ids = sorted(
-              path.name.replace("_latest.md", "")
-              for path in report_dir.glob("*_latest.md")
-          )
-          for stock_id in stock_ids:
-              subprocess.check_call(
-                  [
-                      sys.executable,
-                      "scripts/generate_individual_stock_report.py",
-                      "--stock-id",
-                      stock_id,
-                      "--days",
-                      "126",
-                  ]
-              )
-          PY
-          python scripts/validate_individual_stock_outputs.py --all
 
       - name: Check raw data health
         if: ${{ github.event.inputs.run_raw_health_check == 'true' }}

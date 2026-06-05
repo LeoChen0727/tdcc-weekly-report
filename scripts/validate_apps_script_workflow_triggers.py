@@ -83,7 +83,6 @@ def main() -> int:
     daily_expected_false_inputs = {
         "run_child_pattern_workflows",
         "run_raw_health_check",
-        "run_individual_stock_outputs",
     }
     daily_inputs = dispatches.get(daily_workflow, {})
     missing_daily_inputs = daily_expected_false_inputs - set(daily_inputs)
