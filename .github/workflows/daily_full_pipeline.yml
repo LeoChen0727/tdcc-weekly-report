@@ -176,10 +176,6 @@ jobs:
           echo "After pull status:"
           git status --short
 
-      - name: Generate candidate charts and manifest
-        run: |
-          python generate_candidate_charts.py
-
       - name: Build all candidates latest files
         run: |
           python build_all_candidates_latest.py
