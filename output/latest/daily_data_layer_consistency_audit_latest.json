@@ -3,23 +3,23 @@
   "errors": [],
   "warnings": [],
   "details": {
-    "main_price_date": "20260603",
-    "effective_model_signal_date": "20260603",
-    "model_signal_rows": 639,
-    "raw_model_signal_rows": 639,
-    "volume_watch_rows": 56,
-    "volume_theme_stock_rows": 56,
-    "group_rotation_rows": 24,
-    "taxonomy_rows": 2376,
-    "taxonomy_template_csv_rows": 2376,
-    "taxonomy_template_xlsx_rows": 2376,
-    "docs_taxonomy_template_csv_rows": 2376,
-    "docs_taxonomy_template_xlsx_rows": 2376,
-    "market_timing_packet_main_price_date": "20260603",
+    "main_price_date": "20260605",
+    "effective_model_signal_date": "20260605",
+    "model_signal_rows": 526,
+    "raw_model_signal_rows": 526,
+    "volume_watch_rows": 21,
+    "volume_theme_stock_rows": 21,
+    "group_rotation_rows": 4,
+    "taxonomy_rows": 2371,
+    "taxonomy_template_csv_rows": 2371,
+    "taxonomy_template_xlsx_rows": 2371,
+    "docs_taxonomy_template_csv_rows": 2371,
+    "docs_taxonomy_template_xlsx_rows": 2371,
+    "market_timing_packet_main_price_date": "20260605",
     "missing_required_model_columns": [],
     "blank_required_model_columns": {},
     "model_signal_dates": [
-      "20260603"
+      "20260605"
     ],
     "same_model_report_duplicates": 0,
     "model_report_line_membership_mismatch_rows": 0,
@@ -30,16 +30,16 @@
     "model_signal_third_bucket_rows": {},
     "model_signal_main_condition_not_true_rows": 0,
     "raw_model_signal_dates": [
-      "20260603"
+      "20260605"
     ],
     "missing_volume_columns": [],
     "volume_signal_dates": [
-      "20260603"
+      "20260605"
     ],
     "volume_theme_other_rows": 0,
     "group_rotation_invalid_models": [],
-    "group_rotation_slow_rows": 21,
-    "group_rotation_launch_rows": 3,
+    "group_rotation_slow_rows": 4,
+    "group_rotation_launch_rows": 0,
     "missing_required_taxonomy_columns": [],
     "taxonomy_duplicate_stock_id_rows": 0,
     "taxonomy_unresolved_basic_theme_rows": 0,

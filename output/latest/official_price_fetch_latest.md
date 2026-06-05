@@ -1,31 +1,31 @@
-# 官方每日價格資料抓取狀態
+# Official Daily Price Fetch Report
 
-- 產生時間：`2026-06-05 19:29:30 Asia/Taipei`
-- target_date：`20260605`
-- saved_price_date：`20260605`
-- is_target_date：`True`
-- result：`success_target_full_market`
-- reason：成功取得目標日 TWSE + TPEx 官方日線資料。
-- twse_rows：`1237`
-- tpex_rows：`5194`
-- total_rows：`6431`
-- full_market_ok：`True`
+- generated_at: `2026-06-05 20:55:05 Asia/Taipei`
+- target_date: `20260605`
+- saved_price_date: `20260605`
+- is_target_date: `True`
+- result: `success_target_full_market`
+- reason: 成功取得目標日 TWSE + TPEx 官方日線資料。
+- twse_rows: `1237`
+- tpex_rows: `5194`
+- total_rows: `6431`
+- full_market_ok: `True`
 
-## 輸出檔案
+## Output Paths
 
 - dated_csv: `data/daily_price/20260605.csv`
 - dated_alt_csv: `data/daily_price/daily_price_20260605.csv`
 - latest_csv: `output/latest/official_daily_price_latest.csv`
 
-## 嘗試紀錄
+## Fetch Attempts
 
 - 20260605: TWSE=1237 / TPEx=5194 / Total=6431 / full_market_ok=True
 
-## Fetch logs
+## Fetch Logs
 
 - Start official daily price fetch target_date=20260605
 - ===== Fetch price for date 20260605 =====
-- Loaded universe rows=6706
+- Loaded universe rows=6431
 - Trying TWSE batch source=TWSE_RWD_JSON_MI_INDEX date=20260605
 - GET https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260605&type=ALLBUT0999&response=json -> status=200, chars=232984
 - TWSE_RWD_JSON_MI_INDEX: parsed TWSE rows=1237
