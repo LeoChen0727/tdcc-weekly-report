@@ -1,6 +1,6 @@
 CHATGPT DAILY REPORT PACKET
 
-generated_at: 2026-06-06 04:23:49 Asia/Taipei
+generated_at: 2026-06-06 05:44:24 Asia/Taipei
 repo: LeoChen0727/tdcc-weekly-report
 main_price_date: 20260605
 report_ready: True
@@ -41,14 +41,14 @@ CURATED PDF REPORT
 pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_market_curated_report_latest.pdf
 raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_curated_report_latest.pdf
 file_path: output/latest/daily_market_curated_report_latest.pdf
-generated_at: 2026-06-06 04:23:41 Asia/Taipei
+generated_at: 2026-06-06 05:44:16 Asia/Taipei
 status: generated
 
 FULL TABLE PDF REPORT
 pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_market_full_table_report_latest.pdf
 raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_full_table_report_latest.pdf
 file_path: output/latest/daily_market_full_table_report_latest.pdf
-generated_at: 2026-06-06 04:23:41 Asia/Taipei
+generated_at: 2026-06-06 05:44:16 Asia/Taipei
 status: generated
 
 FIXED PDF VALIDATION
@@ -85,7 +85,7 @@ EMBEDDED DAILY SHORT-TERM SPECIALTY PACKET
 # DAILY SHORT-TERM SPECIALTY PACKET
 
 ## Metadata
-- generated_at: `2026-06-05 20:21:32 UTC`
+- generated_at: `2026-06-05 21:42:00 UTC`
 - main_price_date: `20260605`
 - purpose: Force daily reports to include short-term specialty sections that are not part of the fixed six candidate categories.
 - market_abnormal_status_path: `output/latest/market_abnormal_status_latest.csv`
@@ -463,19 +463,19 @@ THEME EVENT WATCH SUMMARY
 
 | event_name                     |   event_date |   days_to_event | theme_tag     | theme_event_watch_status   |   matched_stock_count |   candidate_intersection_count | top_candidate_summary_zh                                                                                                 | interpretation_zh                       |
 |:-------------------------------|-------------:|----------------:|:--------------|:---------------------------|----------------------:|-------------------------------:|:-------------------------------------------------------------------------------------------------------------------------|:----------------------------------------|
-| COMPUTEX Taipei 2026 / 台北國際電腦展 |     20260602 |              -3 | AI_PC         | recent_event_followup      |                    22 |                             13 | 3450 聯鈞:回檔後短線轉強模型#1;2374 佳能:TDCC潛伏吸籌模型#2;2317 鴻海:TDCC短線延續模型 D+5/D+10#4;2345 智邦:熱門族群回檔模型#4;2353 宏碁:TDCC短線延續模型 D+5/D+10#7  | 事件相關族群與今日候選股有交集；PDF 應列入近期事件預警 / 主題催化觀察。 |
-| COMPUTEX Taipei 2026 / 台北國際電腦展 |     20260602 |              -3 | AI伺服器         | recent_event_followup      |                    23 |                             14 | 3450 聯鈞:回檔後短線轉強模型#1;2374 佳能:TDCC潛伏吸籌模型#2;2317 鴻海:TDCC短線延續模型 D+5/D+10#4;2345 智邦:熱門族群回檔模型#4;2353 宏碁:TDCC短線延續模型 D+5/D+10#7  | 事件相關族群與今日候選股有交集；PDF 應列入近期事件預警 / 主題催化觀察。 |
-| COMPUTEX Taipei 2026 / 台北國際電腦展 |     20260602 |              -3 | ASIC          | recent_event_followup      |                    23 |                             14 | 3450 聯鈞:回檔後短線轉強模型#1;2374 佳能:TDCC潛伏吸籌模型#2;2317 鴻海:TDCC短線延續模型 D+5/D+10#4;2345 智邦:熱門族群回檔模型#4;2353 宏碁:TDCC短線延續模型 D+5/D+10#7  | 事件相關族群與今日候選股有交集；PDF 應列入近期事件預警 / 主題催化觀察。 |
-| COMPUTEX Taipei 2026 / 台北國際電腦展 |     20260602 |              -3 | CPO光通訊        | recent_event_followup      |                    25 |                             14 | 3450 聯鈞:回檔後短線轉強模型#1;2374 佳能:TDCC潛伏吸籌模型#2;2317 鴻海:TDCC短線延續模型 D+5/D+10#4;2345 智邦:熱門族群回檔模型#4;2455 全新:熱門族群回檔模型#6             | 事件相關族群與今日候選股有交集；PDF 應列入近期事件預警 / 主題催化觀察。 |
+| COMPUTEX Taipei 2026 / 台北國際電腦展 |     20260602 |              -3 | AI_PC         | recent_event_followup      |                    22 |                             13 | 3450 聯鈞:回檔後短線轉強模型#1;2374 佳能:TDCC潛伏吸籌模型#2;2317 鴻海:TDCC短線延續模型 D+5/D+10#4;2345 智邦:熱門族群回檔模型#4;2353 宏碁:TDCC短線延續模型 D+5/D+10#6  | 事件相關族群與今日候選股有交集；PDF 應列入近期事件預警 / 主題催化觀察。 |
+| COMPUTEX Taipei 2026 / 台北國際電腦展 |     20260602 |              -3 | AI伺服器         | recent_event_followup      |                    23 |                             14 | 3450 聯鈞:回檔後短線轉強模型#1;2374 佳能:TDCC潛伏吸籌模型#2;2317 鴻海:TDCC短線延續模型 D+5/D+10#4;2345 智邦:熱門族群回檔模型#4;2353 宏碁:TDCC短線延續模型 D+5/D+10#6  | 事件相關族群與今日候選股有交集；PDF 應列入近期事件預警 / 主題催化觀察。 |
+| COMPUTEX Taipei 2026 / 台北國際電腦展 |     20260602 |              -3 | ASIC          | recent_event_followup      |                    23 |                             14 | 3450 聯鈞:回檔後短線轉強模型#1;2374 佳能:TDCC潛伏吸籌模型#2;2317 鴻海:TDCC短線延續模型 D+5/D+10#4;2345 智邦:熱門族群回檔模型#4;2353 宏碁:TDCC短線延續模型 D+5/D+10#6  | 事件相關族群與今日候選股有交集；PDF 應列入近期事件預警 / 主題催化觀察。 |
+| COMPUTEX Taipei 2026 / 台北國際電腦展 |     20260602 |              -3 | CPO光通訊        | recent_event_followup      |                    25 |                             14 | 3450 聯鈞:回檔後短線轉強模型#1;2374 佳能:TDCC潛伏吸籌模型#2;2317 鴻海:TDCC短線延續模型 D+5/D+10#4;2345 智邦:熱門族群回檔模型#4;2353 宏碁:TDCC短線延續模型 D+5/D+10#6  | 事件相關族群與今日候選股有交集；PDF 應列入近期事件預警 / 主題催化觀察。 |
 | COMPUTEX Taipei 2026 / 台北國際電腦展 |     20260602 |              -3 | PCB_CCL_ABF材料 | recent_event_followup      |                    44 |                             25 | 3450 聯鈞:回檔後短線轉強模型#1;6191 精成科:平台整理轉強模型#1;2374 佳能:TDCC潛伏吸籌模型#2;2383 台光電:熱門族群回檔模型#2;2317 鴻海:TDCC短線延續模型 D+5/D+10#4           | 事件相關族群與今日候選股有交集；PDF 應列入近期事件預警 / 主題催化觀察。 |
-| COMPUTEX Taipei 2026 / 台北國際電腦展 |     20260602 |              -3 | PC_NB         | recent_event_followup      |                    22 |                             13 | 3450 聯鈞:回檔後短線轉強模型#1;2374 佳能:TDCC潛伏吸籌模型#2;2317 鴻海:TDCC短線延續模型 D+5/D+10#4;2345 智邦:熱門族群回檔模型#4;2353 宏碁:TDCC短線延續模型 D+5/D+10#7  | 事件相關族群與今日候選股有交集；PDF 應列入近期事件預警 / 主題催化觀察。 |
-| COMPUTEX Taipei 2026 / 台北國際電腦展 |     20260602 |              -3 | 低軌衛星          | recent_event_followup      |                    34 |                             17 | 3450 聯鈞:回檔後短線轉強模型#1;2374 佳能:TDCC潛伏吸籌模型#2;2317 鴻海:TDCC短線延續模型 D+5/D+10#4;2345 智邦:熱門族群回檔模型#4;2455 全新:熱門族群回檔模型#6             | 事件相關族群與今日候選股有交集；PDF 應列入近期事件預警 / 主題催化觀察。 |
+| COMPUTEX Taipei 2026 / 台北國際電腦展 |     20260602 |              -3 | PC_NB         | recent_event_followup      |                    22 |                             13 | 3450 聯鈞:回檔後短線轉強模型#1;2374 佳能:TDCC潛伏吸籌模型#2;2317 鴻海:TDCC短線延續模型 D+5/D+10#4;2345 智邦:熱門族群回檔模型#4;2353 宏碁:TDCC短線延續模型 D+5/D+10#6  | 事件相關族群與今日候選股有交集；PDF 應列入近期事件預警 / 主題催化觀察。 |
+| COMPUTEX Taipei 2026 / 台北國際電腦展 |     20260602 |              -3 | 低軌衛星          | recent_event_followup      |                    34 |                             17 | 3450 聯鈞:回檔後短線轉強模型#1;2374 佳能:TDCC潛伏吸籌模型#2;2317 鴻海:TDCC短線延續模型 D+5/D+10#4;2345 智邦:熱門族群回檔模型#4;2353 宏碁:TDCC短線延續模型 D+5/D+10#6  | 事件相關族群與今日候選股有交集；PDF 應列入近期事件預警 / 主題催化觀察。 |
 | COMPUTEX Taipei 2026 / 台北國際電腦展 |     20260602 |              -3 | 半導體設備_CoWoS   | recent_event_followup      |                    34 |                             19 | 3450 聯鈞:回檔後短線轉強模型#1;2374 佳能:TDCC潛伏吸籌模型#2;1560 中砂:熱門族群回檔模型#3;2317 鴻海:TDCC短線延續模型 D+5/D+10#4;2345 智邦:熱門族群回檔模型#4             | 事件相關族群與今日候選股有交集；PDF 應列入近期事件預警 / 主題催化觀察。 |
-| COMPUTEX Taipei 2026 / 台北國際電腦展 |     20260602 |              -3 | 散熱液冷          | recent_event_followup      |                    28 |                             17 | 3450 聯鈞:回檔後短線轉強模型#1;2374 佳能:TDCC潛伏吸籌模型#2;2317 鴻海:TDCC短線延續模型 D+5/D+10#4;2345 智邦:熱門族群回檔模型#4;2353 宏碁:TDCC短線延續模型 D+5/D+10#7  | 事件相關族群與今日候選股有交集；PDF 應列入近期事件預警 / 主題催化觀察。 |
+| COMPUTEX Taipei 2026 / 台北國際電腦展 |     20260602 |              -3 | 散熱液冷          | recent_event_followup      |                    28 |                             17 | 3450 聯鈞:回檔後短線轉強模型#1;2374 佳能:TDCC潛伏吸籌模型#2;2317 鴻海:TDCC短線延續模型 D+5/D+10#4;2345 智邦:熱門族群回檔模型#4;2353 宏碁:TDCC短線延續模型 D+5/D+10#6  | 事件相關族群與今日候選股有交集；PDF 應列入近期事件預警 / 主題催化觀察。 |
 | COMPUTEX Taipei 2026 / 台北國際電腦展 |     20260602 |              -3 | 機器人自動化        | recent_event_followup      |                   118 |                             27 | 1530 亞崴:TDCC短線延續模型 D+5/D+10#1;3450 聯鈞:回檔後短線轉強模型#1;2374 佳能:TDCC潛伏吸籌模型#2;2317 鴻海:TDCC短線延續模型 D+5/D+10#4;2345 智邦:熱門族群回檔模型#4  | 事件相關族群與今日候選股有交集；PDF 應列入近期事件預警 / 主題催化觀察。 |
-| COMPUTEX Taipei 2026 / 台北國際電腦展 |     20260602 |              -3 | 矽智財           | recent_event_followup      |                    23 |                             14 | 3450 聯鈞:回檔後短線轉強模型#1;2374 佳能:TDCC潛伏吸籌模型#2;2317 鴻海:TDCC短線延續模型 D+5/D+10#4;2345 智邦:熱門族群回檔模型#4;2353 宏碁:TDCC短線延續模型 D+5/D+10#7  | 事件相關族群與今日候選股有交集；PDF 應列入近期事件預警 / 主題催化觀察。 |
+| COMPUTEX Taipei 2026 / 台北國際電腦展 |     20260602 |              -3 | 矽智財           | recent_event_followup      |                    23 |                             14 | 3450 聯鈞:回檔後短線轉強模型#1;2374 佳能:TDCC潛伏吸籌模型#2;2317 鴻海:TDCC短線延續模型 D+5/D+10#4;2345 智邦:熱門族群回檔模型#4;2353 宏碁:TDCC短線延續模型 D+5/D+10#6  | 事件相關族群與今日候選股有交集；PDF 應列入近期事件預警 / 主題催化觀察。 |
 | COMPUTEX Taipei 2026 / 台北國際電腦展 |     20260602 |              -3 | 網通交換器         | recent_event_followup      |                    28 |                             19 | 3450 聯鈞:回檔後短線轉強模型#1;2374 佳能:TDCC潛伏吸籌模型#2;2383 台光電:熱門族群回檔模型#2;2317 鴻海:TDCC短線延續模型 D+5/D+10#4;2345 智邦:熱門族群回檔模型#4            | 事件相關族群與今日候選股有交集；PDF 應列入近期事件預警 / 主題催化觀察。 |
-| COMPUTEX Taipei 2026 / 台北國際電腦展 |     20260602 |              -3 | 被動元件          | recent_event_followup      |                    41 |                             18 | 3450 聯鈞:回檔後短線轉強模型#1;2374 佳能:TDCC潛伏吸籌模型#2;2317 鴻海:TDCC短線延續模型 D+5/D+10#4;2345 智邦:熱門族群回檔模型#4;2353 宏碁:TDCC短線延續模型 D+5/D+10#7  | 事件相關族群與今日候選股有交集；PDF 應列入近期事件預警 / 主題催化觀察。 |
+| COMPUTEX Taipei 2026 / 台北國際電腦展 |     20260602 |              -3 | 被動元件          | recent_event_followup      |                    41 |                             18 | 3450 聯鈞:回檔後短線轉強模型#1;2374 佳能:TDCC潛伏吸籌模型#2;2317 鴻海:TDCC短線延續模型 D+5/D+10#4;2345 智邦:熱門族群回檔模型#4;2353 宏碁:TDCC短線延續模型 D+5/D+10#6  | 事件相關族群與今日候選股有交集；PDF 應列入近期事件預警 / 主題催化觀察。 |
 | COMPUTEX Taipei 2026 / 台北國際電腦展 |     20260602 |              -3 | 記憶體儲存         | recent_event_followup      |                    31 |                             19 | 3450 聯鈞:回檔後短線轉強模型#1;2374 佳能:TDCC潛伏吸籌模型#2;2317 鴻海:TDCC短線延續模型 D+5/D+10#4;2345 智邦:熱門族群回檔模型#4;2344 華邦電:TDCC短線延續模型 D+5/D+10#5 | 事件相關族群與今日候選股有交集；PDF 應列入近期事件預警 / 主題催化觀察。 |
 | COMPUTEX Taipei 2026 / 台北國際電腦展 |     20260602 |              -3 | 電源_BBU        | recent_event_followup      |                    30 |                             17 | 3015 全漢:底部放量攻擊模型#1;3450 聯鈞:回檔後短線轉強模型#1;6206 飛捷:熱門族群回檔模型#1;2374 佳能:TDCC潛伏吸籌模型#2;2317 鴻海:TDCC短線延續模型 D+5/D+10#4             | 事件相關族群與今日候選股有交集；PDF 應列入近期事件預警 / 主題催化觀察。 |
 ================================================================================
@@ -486,7 +486,7 @@ performance_csv_path: output/history/daily_signals/daily_candidate_signal_perfor
 summary_latest_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_signal_performance_summary_latest.md
 weekly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_weekly_latest.pdf
 monthly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_monthly_latest.pdf
-last_updated_at: 2026-06-06 04:23:49 Asia/Taipei
+last_updated_at: 2026-06-06 05:44:24 Asia/Taipei
 status: generated
 
 CANDIDATE REPEAT APPEARANCE
@@ -596,7 +596,7 @@ EMBEDDED SUMMARY REPORT
 # 每日全市場候選股監測報告 - 精華版
 
 - 主資料日期：`20260605`
-- 產生時間：`2026-06-06 04:21:35 Asia/Taipei`
+- 產生時間：`2026-06-06 05:42:03 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
 - 判斷說明：core daily data dates match main_price_date
 - 權證資料日期：`20260605`
@@ -1021,7 +1021,7 @@ EMBEDDED FULL REPORT
 # 完整候選股清單 - 完整版
 
 - 主資料日期：`20260605`
-- 產生時間：`2026-06-06 04:21:35 Asia/Taipei`
+- 產生時間：`2026-06-06 05:42:04 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
 - 權證資料日期：`20260605`
 
