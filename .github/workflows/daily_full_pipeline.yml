@@ -94,6 +94,10 @@ jobs:
           python build_all_candidates_latest.py
 
       - name: Fetch official warrant daily data
+        timeout-minutes: 7
+        env:
+          OFFICIAL_WARRANT_FETCH_MAX_SECONDS: "360"
+          OFFICIAL_WARRANT_REQUEST_TIMEOUT: "8"
         run: |
           python scripts/fetch_official_warrant_daily.py
 

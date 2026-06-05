@@ -6,6 +6,7 @@ from zoneinfo import ZoneInfo
 import argparse
 import io
 import json
+import os
 import re
 import time
 from typing import Any
@@ -22,6 +23,9 @@ RAW_LATEST = OUTPUT_DIR / "warrant_daily_raw_latest.csv"
 FETCH_STATUS_MD = OUTPUT_DIR / "warrant_daily_fetch_latest.md"
 DEBUG_MD = DEBUG_DIR / "warrant_fetch_debug_latest.md"
 DEBUG_CSV = DEBUG_DIR / "warrant_fetch_debug_latest.csv"
+
+REQUEST_TIMEOUT_SECONDS = float(os.getenv("OFFICIAL_WARRANT_REQUEST_TIMEOUT", "8"))
+FETCH_MAX_SECONDS = float(os.getenv("OFFICIAL_WARRANT_FETCH_MAX_SECONDS", "360"))
 
 PRICE_DIR = Path("data/daily_price")
 
@@ -52,6 +56,24 @@ RAW_COLUMNS = [
     "latest_warrant_count",
     "float_quantity",
 ]
+
+
+def deadline_remaining(deadline: float | None) -> float | None:
+    if deadline is None:
+        return None
+    return max(0.0, deadline - time.monotonic())
+
+
+def deadline_expired(deadline: float | None) -> bool:
+    remaining = deadline_remaining(deadline)
+    return remaining is not None and remaining <= 0
+
+
+def request_timeout(deadline: float | None) -> float:
+    remaining = deadline_remaining(deadline)
+    if remaining is None:
+        return REQUEST_TIMEOUT_SECONDS
+    return max(1.0, min(REQUEST_TIMEOUT_SECONDS, remaining))
 
 
 def now_taipei() -> str:
@@ -300,15 +322,23 @@ def read_tables_from_text(text: str) -> list[pd.DataFrame]:
     return frames
 
 
-def fetch_source(url: str, source_name: str, referer: str = "https://www.twse.com.tw/") -> tuple[list[pd.DataFrame], str]:
+def fetch_source(
+    url: str,
+    source_name: str,
+    referer: str = "https://www.twse.com.tw/",
+    deadline: float | None = None,
+) -> tuple[list[pd.DataFrame], str]:
     headers = {
         "User-Agent": "Mozilla/5.0",
         "Accept": "application/json,text/csv,text/plain,text/html,*/*",
         "Referer": referer,
     }
 
+    if deadline_expired(deadline):
+        return [], f"deadline_exceeded before_request source={source_name}, url={url}"
+
     try:
-        response = requests.get(url, headers=headers, timeout=30)
+        response = requests.get(url, headers=headers, timeout=request_timeout(deadline))
         response.encoding = response.apparent_encoding or response.encoding or "utf-8"
 
         frames = read_tables_from_text(response.text)
@@ -684,7 +714,10 @@ def standardize_twse_mi_index_quotes_v2(
     return out
 
 
-def fetch_twse_warrant_mapping(date_str: str) -> tuple[pd.DataFrame, list[str], list[dict]]:
+def fetch_twse_warrant_mapping(
+    date_str: str,
+    deadline: float | None = None,
+) -> tuple[pd.DataFrame, list[str], list[dict]]:
     urls = [
         (
             "TWSE_WARRANT_STOCK_JSON",
@@ -701,7 +734,11 @@ def fetch_twse_warrant_mapping(date_str: str) -> tuple[pd.DataFrame, list[str], 
     frames = []
 
     for source_name, url in urls:
-        tables, log = fetch_source(url, source_name)
+        if deadline_expired(deadline):
+            logs.append(f"deadline_exceeded mapping date={date_str}")
+            break
+
+        tables, log = fetch_source(url, source_name, deadline=deadline)
         logs.append(log)
 
         for idx, table in enumerate(tables):
@@ -730,7 +767,10 @@ def fetch_twse_warrant_mapping(date_str: str) -> tuple[pd.DataFrame, list[str], 
     return out, logs, debug_rows
 
 
-def fetch_twse_mi_index_quotes(date_str: str) -> tuple[pd.DataFrame, list[str], list[dict]]:
+def fetch_twse_mi_index_quotes(
+    date_str: str,
+    deadline: float | None = None,
+) -> tuple[pd.DataFrame, list[str], list[dict]]:
     """
     重點：
     - ALLBUT0999 會排除權證，不適合權證金流。
@@ -744,6 +784,10 @@ def fetch_twse_mi_index_quotes(date_str: str) -> tuple[pd.DataFrame, list[str], 
     frames = []
 
     for qtype in query_types:
+        if deadline_expired(deadline):
+            logs.append(f"deadline_exceeded quote date={date_str}, qtype={qtype}")
+            break
+
         urls = [
             (
                 f"TWSE_MI_INDEX_{qtype}_JSON",
@@ -756,7 +800,11 @@ def fetch_twse_mi_index_quotes(date_str: str) -> tuple[pd.DataFrame, list[str], 
         ]
 
         for source_name, url in urls:
-            tables, log = fetch_source(url, source_name)
+            if deadline_expired(deadline):
+                logs.append(f"deadline_exceeded quote date={date_str}, source={source_name}")
+                break
+
+            tables, log = fetch_source(url, source_name, deadline=deadline)
             logs.append(log)
 
             for idx, table in enumerate(tables):
@@ -802,17 +850,29 @@ def add_fetch_date_to_debug(debug_rows: list[dict], requested_date: str, fetch_d
 def fetch_warrant_data_with_quote_fallback(
     requested_date: str,
     lookback_days: int = 10,
+    deadline: float | None = None,
 ) -> tuple[str, pd.DataFrame, pd.DataFrame, pd.DataFrame, list[str], list[dict], str]:
     logs: list[str] = []
     debug_rows: list[dict] = []
+    deadline_hit = False
 
     for candidate_date in recent_date_candidates(requested_date, lookback_days):
-        quotes, quote_logs, quote_debug = fetch_twse_mi_index_quotes(candidate_date)
+        if deadline_expired(deadline):
+            logs.append(f"deadline_exceeded before quote fallback date={candidate_date}")
+            deadline_hit = True
+            break
+
+        quotes, quote_logs, quote_debug = fetch_twse_mi_index_quotes(candidate_date, deadline=deadline)
         logs.extend(quote_logs)
         debug_rows.extend(add_fetch_date_to_debug(quote_debug, requested_date, candidate_date))
 
         if has_usable_quote_rows(quotes):
-            mapping, mapping_logs, mapping_debug = fetch_twse_warrant_mapping(candidate_date)
+            if deadline_expired(deadline):
+                logs.append(f"deadline_exceeded before mapping fallback date={candidate_date}")
+                deadline_hit = True
+                break
+
+            mapping, mapping_logs, mapping_debug = fetch_twse_warrant_mapping(candidate_date, deadline=deadline)
             logs.extend(mapping_logs)
             debug_rows.extend(add_fetch_date_to_debug(mapping_debug, requested_date, candidate_date))
 
@@ -833,7 +893,22 @@ def fetch_warrant_data_with_quote_fallback(
         )
         time.sleep(0.5)
 
-    mapping, mapping_logs, mapping_debug = fetch_twse_warrant_mapping(requested_date)
+    if deadline_hit or deadline_expired(deadline):
+        warning = (
+            "official warrant fetch exceeded runtime budget; "
+            "created empty raw file so the daily pipeline can continue."
+        )
+        return (
+            requested_date,
+            pd.DataFrame(),
+            pd.DataFrame(),
+            pd.DataFrame(columns=RAW_COLUMNS),
+            logs,
+            debug_rows,
+            warning,
+        )
+
+    mapping, mapping_logs, mapping_debug = fetch_twse_warrant_mapping(requested_date, deadline=deadline)
     logs.extend(mapping_logs)
     debug_rows.extend(add_fetch_date_to_debug(mapping_debug, requested_date, requested_date))
 
@@ -1015,6 +1090,7 @@ def main() -> int:
     HISTORY_DIR.mkdir(parents=True, exist_ok=True)
 
     requested_date = args.date.strip() or get_latest_price_date()
+    deadline = time.monotonic() + FETCH_MAX_SECONDS
 
     (
         date_str,
@@ -1024,7 +1100,7 @@ def main() -> int:
         logs,
         debug_rows,
         fallback_warning,
-    ) = fetch_warrant_data_with_quote_fallback(requested_date)
+    ) = fetch_warrant_data_with_quote_fallback(requested_date, deadline=deadline)
 
     write_debug(
         debug_rows,
