@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-05 20:59:39 Asia/Taipei",
+  "generated_at": "2026-06-05 22:05:05 Asia/Taipei",
   "files": {
     "company_event_calendar": {
       "path": "data/company_calendar/company_event_calendar.csv",
@@ -21,15 +21,15 @@
   "sources": {
     "twse_ex_right_ex_dividend": {
       "url": "https://www.twse.com.tw/rwd/zh/exRight/TWT48U?response=json",
-      "status": "failed",
-      "rows": 0,
-      "error": "Expecting value: line 1 column 1 (char 0)",
-      "http_status": 307
+      "status": "ok",
+      "rows": 208,
+      "error": "",
+      "http_status": 200
     },
     "monthly_revenue_expected_window": {
       "url": "https://mops.twse.com.tw/mops/web/t05st10_ifrs",
       "status": "rule_based_expected_window",
-      "rows": 361,
+      "rows": 412,
       "note": "Expected monthly revenue publication window generated for tracked stocks; not a confirmed company catalyst."
     },
     "federal_reserve_fomc": {
