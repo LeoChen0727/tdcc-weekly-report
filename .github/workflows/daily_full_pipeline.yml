@@ -45,6 +45,11 @@ jobs:
           pip install pandas requests tabulate matplotlib pillow openpyxl lxml html5lib beautifulsoup4 reportlab pypdf
 
       - name: Fetch latest official daily price
+        timeout-minutes: 9
+        env:
+          OFFICIAL_PRICE_FETCH_MAX_SECONDS: "480"
+          OFFICIAL_PRICE_INDIVIDUAL_FALLBACK_MAX_SECONDS: "180"
+          OFFICIAL_PRICE_INDIVIDUAL_REQUEST_TIMEOUT: "8"
         run: |
           python fetch_official_daily_price.py
 

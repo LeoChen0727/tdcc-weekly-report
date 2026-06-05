@@ -3,11 +3,12 @@ from __future__ import annotations
 from pathlib import Path
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
-from concurrent.futures import ThreadPoolExecutor, as_completed
+from concurrent.futures import ThreadPoolExecutor, TimeoutError as FutureTimeoutError, as_completed
 import csv
 import io
 import json
 import math
+import os
 import re
 import shutil
 import time
@@ -32,7 +33,12 @@ DEBUG_MD = OUTPUT_DEBUG / "official_price_fetch_debug_latest.md"
 ALL_CANDIDATES_CSV = OUTPUT_LATEST / "all_candidates_latest.csv"
 CURRENT_HOLDINGS_JSON = CONFIG_DIR / "current_holdings.json"
 
-REQUEST_TIMEOUT = 25
+REQUEST_TIMEOUT = int(os.environ.get("OFFICIAL_PRICE_REQUEST_TIMEOUT", "25"))
+INDIVIDUAL_REQUEST_TIMEOUT = int(os.environ.get("OFFICIAL_PRICE_INDIVIDUAL_REQUEST_TIMEOUT", "8"))
+INDIVIDUAL_FALLBACK_MAX_SECONDS = int(
+    os.environ.get("OFFICIAL_PRICE_INDIVIDUAL_FALLBACK_MAX_SECONDS", "180")
+)
+SCRIPT_MAX_SECONDS = int(os.environ.get("OFFICIAL_PRICE_FETCH_MAX_SECONDS", "480"))
 
 MIN_TWSE_ROWS = 700
 MIN_TPEX_ROWS = 500
@@ -65,6 +71,12 @@ FINAL_COLUMNS = [
 
 def now_taipei() -> datetime:
     return datetime.now(TAIPEI)
+
+
+def remaining_seconds(deadline: float | None) -> float:
+    if deadline is None:
+        return float("inf")
+    return max(0.0, deadline - time.monotonic())
 
 
 def ymd(dt: datetime) -> str:
@@ -506,7 +518,7 @@ def fetch_twse_individual_one(
 
     try:
         time.sleep(REQUEST_SLEEP_SECONDS)
-        resp = requests.get(url, headers=headers, timeout=REQUEST_TIMEOUT)
+        resp = requests.get(url, headers=headers, timeout=INDIVIDUAL_REQUEST_TIMEOUT)
         if resp.status_code != 200:
             return None
 
@@ -520,7 +532,13 @@ def fetch_twse_individual_one(
         return None
 
 
-def fetch_twse_individual_fallback(date_text: str, universe: pd.DataFrame, log: list[str]) -> pd.DataFrame:
+def fetch_twse_individual_fallback(
+    date_text: str,
+    universe: pd.DataFrame,
+    log: list[str],
+    *,
+    deadline: float | None = None,
+) -> pd.DataFrame:
     if universe.empty:
         log.append("TWSE individual fallback skipped: empty universe")
         return pd.DataFrame(columns=FINAL_COLUMNS)
@@ -537,13 +555,25 @@ def fetch_twse_individual_fallback(date_text: str, universe: pd.DataFrame, log: 
     part["stock_id"] = part["stock_id"].astype(str).str.zfill(4)
     part = part.drop_duplicates("stock_id")
 
+    fallback_deadline = time.monotonic() + INDIVIDUAL_FALLBACK_MAX_SECONDS
+    if deadline is not None:
+        fallback_deadline = min(fallback_deadline, deadline)
+
     jobs = []
     rows = []
 
-    log.append(f"TWSE individual fallback start: stocks={len(part)} date={date_text}")
+    log.append(
+        f"TWSE individual fallback start: stocks={len(part)} date={date_text} "
+        f"budget_seconds={remaining_seconds(fallback_deadline):.0f}"
+    )
 
-    with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+    executor = ThreadPoolExecutor(max_workers=MAX_WORKERS)
+    try:
         for _, row in part.iterrows():
+            if remaining_seconds(fallback_deadline) <= 1:
+                log.append("TWSE individual fallback submit stopped: time budget exhausted")
+                break
+
             sid = safe_str(row.get("stock_id", "")).zfill(4)
             name = safe_str(row.get("stock_name", ""))
 
@@ -552,10 +582,23 @@ def fetch_twse_individual_fallback(date_text: str, universe: pd.DataFrame, log: 
 
             jobs.append(executor.submit(fetch_twse_individual_one, date_text, sid, name))
 
-        for future in as_completed(jobs):
-            result = future.result()
-            if result:
-                rows.append(result)
+        try:
+            for future in as_completed(jobs, timeout=max(1.0, remaining_seconds(fallback_deadline))):
+                result = future.result()
+                if result:
+                    rows.append(result)
+                if remaining_seconds(fallback_deadline) <= 1:
+                    log.append("TWSE individual fallback collection stopped: time budget exhausted")
+                    break
+        except FutureTimeoutError:
+            log.append(
+                f"TWSE individual fallback timed out after collecting rows={len(rows)} "
+                f"submitted={len(jobs)}"
+            )
+    finally:
+        for future in jobs:
+            future.cancel()
+        executor.shutdown(wait=False, cancel_futures=True)
 
     df = dataframe_from_rows(rows)
     log.append(f"TWSE individual fallback parsed rows={len(df)}")
@@ -1055,7 +1098,12 @@ def combine_market_data(twse: pd.DataFrame, tpex: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def fetch_price_for_date(date_text: str, log: list[str]) -> tuple[pd.DataFrame, dict[str, Any]]:
+def fetch_price_for_date(
+    date_text: str,
+    log: list[str],
+    *,
+    deadline: float | None = None,
+) -> tuple[pd.DataFrame, dict[str, Any]]:
     log.append(f"===== Fetch price for date {date_text} =====")
 
     universe = load_existing_universe()
@@ -1063,9 +1111,9 @@ def fetch_price_for_date(date_text: str, log: list[str]) -> tuple[pd.DataFrame, 
 
     twse = fetch_twse_batch(date_text, log)
 
-    if len(twse) < MIN_TWSE_ROWS:
+    if len(twse) < MIN_TWSE_ROWS and remaining_seconds(deadline) > 5:
         log.append(f"TWSE batch insufficient rows={len(twse)}; start individual fallback")
-        fallback_twse = fetch_twse_individual_fallback(date_text, universe, log)
+        fallback_twse = fetch_twse_individual_fallback(date_text, universe, log, deadline=deadline)
 
         if len(fallback_twse) > len(twse):
             twse = fallback_twse
@@ -1073,7 +1121,11 @@ def fetch_price_for_date(date_text: str, log: list[str]) -> tuple[pd.DataFrame, 
         else:
             log.append(f"TWSE kept batch rows={len(twse)}; fallback rows={len(fallback_twse)}")
 
-    tpex = fetch_tpex_batch(date_text, log)
+    if remaining_seconds(deadline) <= 5:
+        log.append("TPEx batch skipped: fetch time budget nearly exhausted")
+        tpex = pd.DataFrame(columns=FINAL_COLUMNS)
+    else:
+        tpex = fetch_tpex_batch(date_text, log)
 
     combined = combine_market_data(twse, tpex)
 
@@ -1192,12 +1244,16 @@ def write_report(result: dict[str, Any], log: list[str]) -> None:
 
 def main() -> int:
     target_date = detect_target_date()
+    deadline = time.monotonic() + SCRIPT_MAX_SECONDS
     log: list[str] = []
     attempts: list[dict[str, Any]] = []
 
-    log.append(f"Start official daily price fetch target_date={target_date}")
+    log.append(
+        f"Start official daily price fetch target_date={target_date} "
+        f"max_seconds={SCRIPT_MAX_SECONDS}"
+    )
 
-    df, status = fetch_price_for_date(target_date, log)
+    df, status = fetch_price_for_date(target_date, log, deadline=deadline)
     attempts.append(status)
 
     # 這版的精神：今天跑，就盡最大努力寫今天資料。
