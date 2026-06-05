@@ -2634,10 +2634,6 @@ def append_tdcc_short_term(signals: pd.DataFrame, signal_date: str) -> pd.DataFr
                 risks.append("bb_width_extreme")
                 parts.append("BB width extreme -3")
 
-        if report_bucket(source) == "mainstream":
-            score += 4
-            parts.append("mainstream +4")
-
         regime = text(row, "market_regime")
         if regime == "strong_bull":
             score += 3
@@ -2889,15 +2885,26 @@ MODEL_OPERATION_REMINDER_ZH = {
 FORBIDDEN_PDF_TOKENS = [
     "call_strong_inflow",
     "call_put_bullish",
+    "call_inflow",
+    "put_inflow",
+    "put_strong_inflow",
+    "mixed_flow",
+    "no_signal",
     "strong_accumulation",
     "mild_accumulation",
+    "distribution_warning",
     "short_term_specialty",
     "range_rebound",
+    "revenue_pullback",
+    "revenue_breakout_low_response",
+    "pullback_rebound",
     "hot_theme_tag",
     "hot theme tag",
     "non_mainstream",
     "mainstream",
     "neckline",
+    "breakout",
+    "insufficient_data",
 ]
 RAW_PDF_TOKEN_RE = re.compile(r"(^|[\s|/、,;])([a-z]+(?:_[a-z0-9]+){1,})(?=$|[\s|/、,;])")
 
