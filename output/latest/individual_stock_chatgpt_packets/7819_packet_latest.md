@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7819 精誠金融
 
 ## Metadata
-- generated_at: 2026-06-05 23:04:13 Asia/Taipei
+- generated_at: 2026-06-06 00:37:20 Asia/Taipei
 - stock_id: 7819
 - stock_name: 精誠金融
 - packet_status: standard_180d_window_packet
@@ -15,29 +15,29 @@
 - notes: TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
 
 ## Stable Read URLs
-- packet_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_chatgpt_packets/7819_packet_latest.md
+- packet_pages_url: not_published_to_pages_use_raw_or_github_api
 - packet_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_chatgpt_packets/7819_packet_latest.md
 - packet_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_chatgpt_packets/7819_packet_latest.md?ref=main
-- price_window_180_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_price_windows/7819_price_window_180_latest.csv
+- price_window_180_pages_url: not_published_to_pages_use_raw_or_github_api
 - price_window_180_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_price_windows/7819_price_window_180_latest.csv
 - price_window_180_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_price_windows/7819_price_window_180_latest.csv?ref=main
-- price_window_180_txt_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_price_windows/7819_price_window_180_latest.txt
+- price_window_180_txt_pages_url: not_published_to_pages_use_raw_or_github_api
 - price_window_180_txt_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_price_windows/7819_price_window_180_latest.txt
 - price_window_180_txt_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_price_windows/7819_price_window_180_latest.txt?ref=main
-- price_window_180_html_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_price_windows/7819_price_window_180_latest.html
+- price_window_180_html_pages_url: not_published_to_pages_use_raw_or_github_api
 - price_window_180_html_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_price_windows/7819_price_window_180_latest.html
 - price_window_180_html_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_price_windows/7819_price_window_180_latest.html?ref=main
-- tdcc_window_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_tdcc_windows/7819_tdcc_window_latest.csv
+- tdcc_window_pages_url: not_published_to_pages_use_raw_or_github_api
 - tdcc_window_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_tdcc_windows/7819_tdcc_window_latest.csv
 - tdcc_window_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_tdcc_windows/7819_tdcc_window_latest.csv?ref=main
-- tdcc_window_txt_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_tdcc_windows/7819_tdcc_window_latest.txt
+- tdcc_window_txt_pages_url: not_published_to_pages_use_raw_or_github_api
 - tdcc_window_txt_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_tdcc_windows/7819_tdcc_window_latest.txt
 - tdcc_window_txt_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/individual_stock_tdcc_windows/7819_tdcc_window_latest.txt?ref=main
 - price_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/7819.csv
-- price_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/data/stock_price_history/7819.csv
+- price_pages_url: not_published_to_pages_use_raw_or_github_api
 - price_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/data/stock_price_history/7819.csv?ref=main
 - tdcc_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/tdcc_stock_history/7819.csv
-- tdcc_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/data/tdcc_stock_history/7819.csv
+- tdcc_pages_url: not_published_to_pages_use_raw_or_github_api
 - tdcc_github_api_url: https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/data/tdcc_stock_history/7819.csv?ref=main
 - individual_report_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_reports/7819_latest.md
 - individual_report_md_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/individual_stock_reports/7819_latest.md
