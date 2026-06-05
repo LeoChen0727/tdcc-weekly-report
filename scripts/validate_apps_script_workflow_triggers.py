@@ -81,7 +81,6 @@ def main() -> int:
 
     daily_workflow = "daily_full_pipeline.yml"
     daily_expected_false_inputs = {
-        "run_child_pattern_workflows",
         "run_raw_health_check",
     }
     daily_inputs = dispatches.get(daily_workflow, {})

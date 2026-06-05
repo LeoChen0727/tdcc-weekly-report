@@ -3,10 +3,6 @@ name: Daily Full Pipeline
 on:
   workflow_dispatch:
     inputs:
-      run_child_pattern_workflows:
-        description: "Run pattern_scan and pattern_chart_generator child workflows"
-        required: false
-        default: "false"
       run_raw_health_check:
         description: "Run full raw/pages/api health check for all core files"
         required: false
@@ -86,90 +82,6 @@ jobs:
         run: |
           echo "Daily stock monitor completed. Partial latest outputs are not published here."
           echo "All daily outputs are committed only after downstream freshness and consistency checks pass."
-          git status --short
-
-      - name: Trigger and wait for Pattern Scan
-        if: ${{ github.event.inputs.run_child_pattern_workflows == 'true' }}
-        run: |
-          WORKFLOW_FILE="pattern_scan.yml"
-          PREVIOUS_RUN_ID=$(gh run list --workflow "$WORKFLOW_FILE" --branch "$TARGET_BRANCH" --limit 1 --json databaseId --jq '.[0].databaseId' 2>/dev/null || true)
-          if [ "$PREVIOUS_RUN_ID" = "null" ]; then
-            PREVIOUS_RUN_ID=""
-          fi
-          echo "Previous $WORKFLOW_FILE run id: ${PREVIOUS_RUN_ID:-none}"
-
-          gh workflow run "$WORKFLOW_FILE" --ref "$TARGET_BRANCH"
-
-          RUN_ID=""
-          for i in $(seq 1 60); do
-            RUN_ID=$(gh run list --workflow "$WORKFLOW_FILE" --branch "$TARGET_BRANCH" --limit 1 --json databaseId --jq '.[0].databaseId' 2>/dev/null || true)
-            if [ "$RUN_ID" = "null" ]; then
-              RUN_ID=""
-            fi
-            if [ -n "$RUN_ID" ] && [ "$RUN_ID" != "$PREVIOUS_RUN_ID" ]; then
-              break
-            fi
-            echo "Waiting for new $WORKFLOW_FILE run to appear... attempt $i"
-            sleep 5
-          done
-
-          if [ -z "$RUN_ID" ] || [ "$RUN_ID" = "$PREVIOUS_RUN_ID" ]; then
-            echo "Failed to locate newly triggered $WORKFLOW_FILE run"
-            exit 1
-          fi
-
-          echo "Pattern Scan run id: $RUN_ID"
-          gh run watch "$RUN_ID" --exit-status
-
-      - name: Trigger and wait for Pattern Chart Generator
-        if: ${{ github.event.inputs.run_child_pattern_workflows == 'true' }}
-        run: |
-          WORKFLOW_FILE="pattern_chart_generator.yml"
-          PREVIOUS_RUN_ID=$(gh run list --workflow "$WORKFLOW_FILE" --branch "$TARGET_BRANCH" --limit 1 --json databaseId --jq '.[0].databaseId' 2>/dev/null || true)
-          if [ "$PREVIOUS_RUN_ID" = "null" ]; then
-            PREVIOUS_RUN_ID=""
-          fi
-          echo "Previous $WORKFLOW_FILE run id: ${PREVIOUS_RUN_ID:-none}"
-
-          gh workflow run "$WORKFLOW_FILE" --ref "$TARGET_BRANCH"
-
-          RUN_ID=""
-          for i in $(seq 1 60); do
-            RUN_ID=$(gh run list --workflow "$WORKFLOW_FILE" --branch "$TARGET_BRANCH" --limit 1 --json databaseId --jq '.[0].databaseId' 2>/dev/null || true)
-            if [ "$RUN_ID" = "null" ]; then
-              RUN_ID=""
-            fi
-            if [ -n "$RUN_ID" ] && [ "$RUN_ID" != "$PREVIOUS_RUN_ID" ]; then
-              break
-            fi
-            echo "Waiting for new $WORKFLOW_FILE run to appear... attempt $i"
-            sleep 5
-          done
-
-          if [ -z "$RUN_ID" ] || [ "$RUN_ID" = "$PREVIOUS_RUN_ID" ]; then
-            echo "Failed to locate newly triggered $WORKFLOW_FILE run"
-            exit 1
-          fi
-
-          echo "Pattern Chart Generator run id: $RUN_ID"
-          gh run watch "$RUN_ID" --exit-status
-
-      - name: Pull latest outputs after child workflows
-        if: ${{ github.event.inputs.run_child_pattern_workflows == 'true' }}
-        run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-
-          echo "Before pull status:"
-          git status --short
-
-          git stash push -u -m "Temporary stash before pulling child workflow outputs" || true
-
-          git pull --rebase --autostash origin "$TARGET_BRANCH"
-
-          git stash pop || true
-
-          echo "After pull status:"
           git status --short
 
       - name: Build all candidates latest files

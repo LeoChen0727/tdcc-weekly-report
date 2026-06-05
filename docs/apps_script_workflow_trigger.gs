@@ -121,7 +121,6 @@ function triggerDailyStockMonitor() {
     return;
   }
   dispatchWorkflow_("daily_full_pipeline.yml", {
-    run_child_pattern_workflows: "false",
     run_raw_health_check: "false",
   });
   Utilities.sleep(5000);

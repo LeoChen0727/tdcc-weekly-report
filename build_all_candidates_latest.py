@@ -40,7 +40,7 @@ SOURCE_FILES = [
     {
         "path": LATEST_DIR / "revenue_breakout_low_response_latest.csv",
         "default_category": "revenue_breakout_low_response",
-        "default_category_cn": "營收爆發低反應股",
+        "default_category_cn": "營收爆發但股價尚未反應",
     },
     {
         "path": LATEST_DIR / "revenue_pullback_latest.csv",
@@ -57,16 +57,6 @@ SOURCE_FILES = [
         "default_category": "pattern",
         "default_category_cn": "型態觀察",
     },
-    {
-        "path": LATEST_DIR / "pattern_scan_latest.csv",
-        "default_category": "pattern",
-        "default_category_cn": "型態觀察",
-    },
-    {
-        "path": LATEST_DIR / "w_bottom_attack_latest.csv",
-        "default_category": "pattern",
-        "default_category_cn": "型態觀察",
-    },
 ]
 
 CATEGORY_CN = {
@@ -75,7 +65,7 @@ CATEGORY_CN = {
     "range_rebound": "區間內轉強 / 挑戰前高觀察",
     "near_resistance": "區間內轉強 / 挑戰前高觀察",
     "abnormal_volume_up": "區間內轉強 / 挑戰前高觀察",
-    "revenue_breakout_low_response": "營收爆發低反應股",
+    "revenue_breakout_low_response": "營收爆發但股價尚未反應",
     "revenue_pullback": "營收成長股價回檔",
     "pullback_rebound": "回檔後短線轉強",
     "pattern": "型態觀察",

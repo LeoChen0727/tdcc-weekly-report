@@ -42,7 +42,7 @@ CATEGORY_CONFIG = [
     {
         "category": "true_breakout",
         "csv_path": LATEST_DIR / "breakout_latest.csv",
-        "note": "真正突破前高",
+        "note": "嚴格突破",
     },
     {
         "category": "range_rebound",
@@ -52,21 +52,21 @@ CATEGORY_CONFIG = [
     {
         "category": "revenue_breakout_low_response",
         "csv_path": LATEST_DIR / "revenue_breakout_low_response_latest.csv",
-        "note": "營收爆發低反應股",
+        "note": "營收爆發但股價尚未反應",
     },
     {
         "category": "revenue_pullback",
         "csv_path": LATEST_DIR / "revenue_pullback_latest.csv",
-        "note": "營收成長但股價回檔",
+        "note": "營收成長股價回檔",
     },
     {
         "category": "pullback_rebound",
         "csv_path": LATEST_DIR / "pullback_rebound_latest.csv",
-        "note": "營收回檔後短線轉強",
+        "note": "回檔後短線轉強",
     },
     {
         "category": "pattern",
-        "csv_path": LATEST_DIR / "w_bottom_attack_latest.csv",
+        "csv_path": LATEST_DIR / "daily_pattern_watch_latest.csv",
         "note": "型態觀察",
     },
 ]
