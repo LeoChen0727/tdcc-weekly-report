@@ -1,6 +1,6 @@
 CHATGPT DAILY MARKET REPORT RULES
 
-generated_at=2026-06-05 21:05:12 Asia/Taipei
+generated_at=2026-06-05 21:39:29 Asia/Taipei
 rules_version=2026-05-28-daily-candidate-pdf-contract-v2
 
 PURPOSE
@@ -63,8 +63,9 @@ TASK READ ORDER
 - Do not print raw English slug columns in investor-facing PDF tables when a *_zh display column exists. If a required Chinese display value is missing, print `欄位尚未完成` rather than the raw slug.
 
 READING RULES
-- First read READ_ME_FIRST_DAILY_REPORT.txt.
+- First read READ_ME_FIRST_DAILY_REPORT.txt from raw or GitHub API when possible. GitHub Pages is auxiliary/share view only and may lag behind main.
 - Parse key=value fields from READ_ME_FIRST_DAILY_REPORT.txt.
+- If Pages and raw/API disagree on main_price_date, commit_sha, or report_ready, raw/API wins and stale Pages must be ignored for daily stock/PDF tasks.
 - Source priority is original structured data first. Read packet fields, CSV/raw URLs, signal logs, warrant tables, market tables, catalyst source logs, and validation files before using PDFs.
 - Repo PDFs are auxiliary/shareable outputs. Use repo PDFs only if the original structured data cannot be read, for cross-checking, or if the user explicitly asks for repo PDF artifacts.
 - If only PDF content is available, the response must begin with:
@@ -83,15 +84,17 @@ READING RULES
 
 MULTI-ENTRY READ ORDER
 - First entry file:
-  https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT.txt
-- If Pages entry fails, use raw entry:
   https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/READ_ME_FIRST_DAILY_REPORT.txt
+- If raw entry fails or does not expand, use GitHub API contents endpoint:
+  https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/READ_ME_FIRST_DAILY_REPORT.txt?ref=main
+- Use Pages entry only as an auxiliary/share fallback after confirming its main_price_date and commit_sha match raw/API:
+  https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT.txt
 - Then follow preferred_chatgpt_url.
 - If preferred_chatgpt_url fails, follow read_order:
-  packet_pages_url
   packet_commit_raw_url
   packet_latest_raw_url
   packet_github_api_url
+  packet_pages_url
 - If reading packet_github_api_url, parse JSON content field and base64 decode it.
 
 CHAT REPORT STRUCTURE

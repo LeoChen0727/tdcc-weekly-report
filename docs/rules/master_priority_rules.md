@@ -27,6 +27,16 @@ For every repo-related task:
 
 Do not use old-date data as a new-date report. If `main_price_date` differs from the requested date, state the available repo date clearly.
 
+## Daily Data Read Contract
+
+For daily stock recommendation tasks, daily PDF tasks, and any task that requires the latest `main_price_date`, raw GitHub URLs and GitHub API contents are the authoritative read path.
+
+- Prefer raw / GitHub API entries before GitHub Pages entries.
+- Treat GitHub Pages as an auxiliary share view only. Pages may lag behind `main` after a successful workflow or during a Pages deployment queue.
+- If Pages and raw/API disagree on `main_price_date`, `commit_sha`, or `report_ready`, ignore the stale Pages value and use raw/API.
+- If raw/API is unreadable but Pages is readable, use Pages only after explicitly checking that its date and commit match another current source. Otherwise stop and report the stale/unreadable state.
+- Generated README and rule files must not instruct daily-report conversations to read Pages before raw/API.
+
 ## Calendar-Date Tasks Versus Trading-Date Data
 
 Some tasks are calendar-date tasks, not trading-date tasks. Astrology / Zi Wei / Ba Zi reports must use the user's requested calendar date as the report date and chart calculation date.

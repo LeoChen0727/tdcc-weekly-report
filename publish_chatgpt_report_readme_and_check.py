@@ -501,13 +501,21 @@ def check_api_packet_url(label: str, url: str) -> dict[str, Any]:
 
 
 def choose_preferred(checks: list[dict[str, Any]]) -> str:
-    for item in checks:
-        if item.get("ok"):
+    preferred_labels = [
+        "packet_commit_raw_url",
+        "packet_latest_raw_url",
+        "packet_github_api_url",
+        "packet_pages_url",
+    ]
+    by_label = {str(item.get("label", "")): item for item in checks}
+    for label in preferred_labels:
+        item = by_label.get(label)
+        if item and item.get("ok"):
             return str(item.get("url", ""))
 
-    for item in checks:
-        if item.get("label") == "packet_commit_raw_url":
-            return str(item.get("url", ""))
+    item = by_label.get("packet_commit_raw_url")
+    if item:
+        return str(item.get("url", ""))
 
     return ""
 
@@ -604,8 +612,11 @@ def build_readme(
         f"main_price_date={main_price_date}",
         f"report_ready={report_ready}",
         f"commit_sha={commit_sha}",
+        "daily_read_contract=raw_or_github_api_first_pages_auxiliary_only",
+        "pages_cache_warning=GitHub Pages may lag or deploy later than main; daily stock/PDF tasks must prefer raw/GitHub API entries and reject stale Pages dates.",
         f"readme_latest_pages_url={pages_url('latest/READ_ME_FIRST_DAILY_REPORT.txt')}",
         f"readme_latest_raw_url={raw_url('main', README_TXT)}",
+        f"readme_latest_github_api_url={github_api_url(README_TXT, ref='main')}",
         f"readme_index_pages_url={pages_url('latest/READ_ME_FIRST_DAILY_REPORT_INDEX.txt')}",
         f"readme_index_raw_url={raw_url('main', README_INDEX_TXT)}",
         f"readme_index_json_raw_url={raw_url('main', README_INDEX_JSON)}",
@@ -615,7 +626,7 @@ def build_readme(
         f"readme_date_stamped_github_api_url={readme_date_stamped_github_api_url}",
         f"readme_history_pages_url={readme_history_pages_url}",
         f"readme_history_raw_url={readme_history_raw_url}",
-        "readme_cache_bypass_order=readme_date_stamped_pages_url,readme_date_stamped_raw_url,readme_date_stamped_github_api_url,readme_index_github_api_url,readme_history_pages_url,readme_history_raw_url,readme_latest_pages_url,readme_latest_raw_url",
+        "readme_cache_bypass_order=readme_date_stamped_raw_url,readme_date_stamped_github_api_url,readme_index_github_api_url,readme_history_raw_url,readme_latest_raw_url,readme_latest_github_api_url,readme_date_stamped_pages_url,readme_history_pages_url,readme_latest_pages_url",
         f"rules_index_raw_url={raw_url('main', RULES_INDEX)}",
         f"rules_index_pages_url={pages_url('rules/rules_index_latest.md')}",
         f"rules_master_priority_raw_url={raw_url('main', MASTER_PRIORITY_RULES)}",
@@ -946,20 +957,20 @@ def build_readme(
         f"packet_commit_raw_ok={status_map.get('packet_commit_raw_url')}",
         f"packet_latest_raw_ok={status_map.get('packet_latest_raw_url')}",
         f"packet_github_api_ok={status_map.get('packet_github_api_url')}",
-        "read_order=packet_pages_url,packet_commit_raw_url,packet_latest_raw_url,packet_github_api_url",
+        "read_order=packet_commit_raw_url,packet_latest_raw_url,packet_github_api_url,packet_pages_url",
         "",
         "RULES:",
         "1. Read this entry file first.",
-        "1a. If latest READ_ME_FIRST appears stale, read readme_date_stamped_pages_url, then readme_date_stamped_raw_url, then readme_date_stamped_github_api_url.",
+        "1a. For daily stock/PDF tasks, prefer raw/GitHub API README entries. Read readme_date_stamped_raw_url, then readme_date_stamped_github_api_url, then readme_index_github_api_url, then readme_latest_raw_url. Use Pages only as an auxiliary fallback when its main_price_date matches raw/API.",
         "1b. If the date-stamped GitHub API URL is used, decode the JSON content field from base64 before parsing key=value lines.",
         "1c. Repo pipeline PDFs / Markdown / packets are source artifacts, not the final ChatGPT deliverable when the user asks to do today's report.",
         "1d. report_ready=True and fixed_pdf_validation_status=pass mean repo artifacts are available/validated; they do not mean ChatGPT has delivered the requested PDFs.",
-        "2. Read rules_master_priority_pages_url or rules_master_priority_raw_url before any generated task rules.",
-        "2a. Read rules_daily_stock_candidate_pages_url or rules_daily_stock_candidate_raw_url for the daily full-market candidate task.",
-        "2b. Read rules_market_opening_prep_pages_url/raw_url plus rules_futures_options_vix_pages_url/raw_url for market opening prep, futures/options, VIX, Put/Call, and retail MTX sentiment tasks.",
-        "2c. Read rules_astrology_pages_url or rules_astrology_raw_url for Zi Wei / Ba Zi calendar-date tasks; main_price_date is only auxiliary market-data status for those tasks.",
+        "2. Read rules_master_priority_raw_url before any generated task rules; use rules_master_priority_pages_url only if raw/API is unavailable and the date/context is not stale.",
+        "2a. Read rules_daily_stock_candidate_raw_url for the daily full-market candidate task; Pages rules are auxiliary only.",
+        "2b. Read rules_market_opening_prep_raw_url plus rules_futures_options_vix_raw_url for market opening prep, futures/options, VIX, Put/Call, and retail MTX sentiment tasks.",
+        "2c. Read rules_astrology_raw_url or rules_astrology_pages_url for Zi Wei / Ba Zi calendar-date tasks; main_price_date is only auxiliary market-data status for those tasks.",
         "2d. For astrology / Zi Wei / Ba Zi tasks, do not use CHATGPT_DAILY_REPORT_RULES.txt, rules_pages_url, rules_raw_url, or the daily market 'data status' opening format.",
-        "2e. Read rules_pages_url or rules_raw_url only after the master and task-specific rule files, and only for daily market candidate tasks.",
+        "2e. Read rules_raw_url only after the master and task-specific rule files, and only for daily market candidate tasks. rules_pages_url is auxiliary.",
         "3. Read preferred_chatgpt_url for the packet.",
         "4. If preferred_chatgpt_url fails, follow read_order.",
         "5. If the URL is packet_github_api_url, decode the JSON content field from base64 before reading the packet.",
@@ -1028,10 +1039,10 @@ def build_publish_check_md(
     lines.append("")
     lines.append("## Read Order")
     lines.append("")
-    lines.append("1. packet_pages_url")
-    lines.append("2. packet_commit_raw_url")
-    lines.append("3. packet_latest_raw_url")
-    lines.append("4. packet_github_api_url")
+    lines.append("1. packet_commit_raw_url")
+    lines.append("2. packet_latest_raw_url")
+    lines.append("3. packet_github_api_url")
+    lines.append("4. packet_pages_url")
     lines.append("")
 
     for item in checks:
@@ -1092,6 +1103,8 @@ def build_readme_index(
         "main_price_date": main_price_date,
         "report_ready": report_ready,
         "commit_sha": commit_sha,
+        "daily_read_contract": "raw_or_github_api_first_pages_auxiliary_only",
+        "pages_cache_warning": "GitHub Pages may lag or deploy later than main; daily stock/PDF tasks must prefer raw/GitHub API entries and reject stale Pages dates.",
         "latest_readme_pages_url": pages_url("latest/READ_ME_FIRST_DAILY_REPORT.txt"),
         "latest_readme_raw_url": raw_url("main", README_TXT),
         "latest_readme_github_api_url": github_api_url(README_TXT, ref="main"),
@@ -1106,20 +1119,20 @@ def build_readme_index(
         "recommended_read_order": [
             "astrology_read_protocol_pages_url only for Zi Wei / Ba Zi / astrology tasks",
             "astrology_read_protocol_raw_url only for Zi Wei / Ba Zi / astrology tasks",
-            "date_stamped_readme_pages_url",
             "date_stamped_readme_raw_url",
             "date_stamped_readme_github_api_url",
-            "history_readme_pages_url",
             "history_readme_raw_url",
-            "latest_readme_pages_url",
             "latest_readme_raw_url",
             "latest_readme_github_api_url",
+            "date_stamped_readme_pages_url",
+            "history_readme_pages_url",
+            "latest_readme_pages_url",
         ],
         "daily_task_fallback_rule": (
-            "If latest_readme_* returns an older main_price_date, do not stop. "
-            "Try the date-stamped README for the expected Taiwan trading date. "
-            "If that fails, try the previous 7 calendar dates through raw and GitHub API. "
-            "Use only a report_ready=True entry and state the actual main_price_date used."
+            "For daily stock/PDF tasks, read raw/GitHub API README entries before Pages. "
+            "If latest raw returns an older main_price_date, try the date-stamped raw README for the expected Taiwan trading date. "
+            "If that fails, try the date-stamped GitHub API and previous 7 calendar dates through raw/GitHub API. "
+            "Use Pages only as auxiliary fallback when its main_price_date matches raw/API. Use only a report_ready=True entry and state the actual main_price_date used."
         ),
     }
 
@@ -1583,8 +1596,11 @@ def main() -> int:
         "main_price_date": main_price_date,
         "report_ready": report_ready,
         "commit_sha": commit_sha,
+        "daily_read_contract": "raw_or_github_api_first_pages_auxiliary_only",
+        "pages_cache_warning": "GitHub Pages may lag or deploy later than main; daily stock/PDF tasks must prefer raw/GitHub API entries and reject stale Pages dates.",
         "readme_latest_pages_url": pages_url("latest/READ_ME_FIRST_DAILY_REPORT.txt"),
         "readme_latest_raw_url": raw_url("main", README_TXT),
+        "readme_latest_github_api_url": github_api_url(README_TXT, ref="main"),
         "readme_index_pages_url": pages_url("latest/READ_ME_FIRST_DAILY_REPORT_INDEX.txt"),
         "readme_index_raw_url": raw_url("main", README_INDEX_TXT),
         "readme_index_json_raw_url": raw_url("main", README_INDEX_JSON),
@@ -1595,21 +1611,22 @@ def main() -> int:
         "readme_history_pages_url": readme_history_pages_url,
         "readme_history_raw_url": readme_history_raw_url,
         "readme_cache_bypass_order": [
-            "readme_date_stamped_pages_url",
             "readme_date_stamped_raw_url",
             "readme_date_stamped_github_api_url",
             "readme_index_github_api_url",
-            "readme_history_pages_url",
             "readme_history_raw_url",
-            "readme_latest_pages_url",
             "readme_latest_raw_url",
+            "readme_latest_github_api_url",
+            "readme_date_stamped_pages_url",
+            "readme_history_pages_url",
+            "readme_latest_pages_url",
         ],
         "preferred_chatgpt_url": preferred,
         "read_order": [
-            "packet_pages_url",
             "packet_commit_raw_url",
             "packet_latest_raw_url",
             "packet_github_api_url",
+            "packet_pages_url",
         ],
         "packet_pages_url": packet_pages_url,
         "packet_latest_raw_url": packet_latest_raw_url,

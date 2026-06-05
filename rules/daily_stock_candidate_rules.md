@@ -34,6 +34,8 @@ Read in this order:
 
 If a CSV shows `Total lines: 1`, continue via packet / GitHub API / index fallback. Do not use a thin summary as a complete report.
 
+For remote reads, raw GitHub URLs and GitHub API contents are authoritative. GitHub Pages is an auxiliary/share view and must not be used as the first freshness source for daily stock/PDF tasks. If Pages differs from raw/API on `main_price_date`, `commit_sha`, or `report_ready`, ignore Pages and use raw/API. If only stale Pages can be read, stop and report the available date instead of producing a current-date PDF.
+
 ## Daily Versus Research Pipeline
 
 The normal daily pipeline must be able to finish without long research jobs.
