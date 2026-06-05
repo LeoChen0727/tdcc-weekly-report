@@ -126,6 +126,31 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             },
         )
 
+    def test_model_condition_functions_do_not_call_other_model_conditions(self) -> None:
+        source_path = ROOT / "scripts" / "build_daily_candidate_model_layer.py"
+        tree = ast.parse(source_path.read_text(encoding="utf-8"))
+        function_nodes = {
+            node.name: node
+            for node in tree.body
+            if isinstance(node, ast.FunctionDef)
+        }
+        condition_names = {name for name in function_nodes if name.startswith("cond_")}
+        offenders: dict[str, list[str]] = {}
+        for name in condition_names:
+            calls: set[str] = set()
+            for child in ast.walk(function_nodes[name]):
+                if not isinstance(child, ast.Call):
+                    continue
+                if isinstance(child.func, ast.Name):
+                    calls.add(child.func.id)
+                elif isinstance(child.func, ast.Attribute):
+                    calls.add(child.func.attr)
+            cross_calls = sorted((calls & condition_names) - {name})
+            if cross_calls:
+                offenders[name] = cross_calls
+        self.assertEqual(offenders, {})
+        self.assertNotIn("active_price_attack_for_early_models", function_nodes)
+
     def test_pdf_facing_helpers_are_not_duplicated(self) -> None:
         source_path = ROOT / "scripts" / "build_daily_candidate_model_layer.py"
         tree = ast.parse(source_path.read_text(encoding="utf-8"))

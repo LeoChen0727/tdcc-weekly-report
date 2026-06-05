@@ -9,12 +9,12 @@ from typing import Any
 import pandas as pd
 
 from build_daily_candidate_model_layer import (
-    active_price_attack_for_early_models,
     build_signals,
     build_specs,
     cond_volume_breakout,
     cond_pullback,
     cond_w_bottom_right,
+    revenue_unreacted_price_has_already_attacked,
 )
 from tracking_utils import LATEST_DIR, main_price_date_from_freshness, read_csv, resolve_candidate_signal_date, safe_str
 
@@ -233,7 +233,7 @@ def source_volume_breakout_condition(row: pd.Series) -> bool:
 
 
 def active_attack(row: pd.Series) -> bool:
-    return active_price_attack_for_early_models(row)
+    return revenue_unreacted_price_has_already_attacked(row)
 
 
 def audit_selected_row(

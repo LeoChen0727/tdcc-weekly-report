@@ -1,12 +1,12 @@
 # 官方權證每日資料抓取狀態
 
-- 產生時間：`2026-06-05 03:02:31 Asia/Taipei`
+- 產生時間：`2026-06-05 19:00:36 Asia/Taipei`
 - 資料日期：`20260604`
-- 輸出檔：`output/latest/warrant_daily_raw_latest.csv`
+- 輸出檔：`output\latest\warrant_daily_raw_latest.csv`
 - 權證對照表筆數：`29841`
 - 權證成交行情筆數：`29780`
 - 最終可彙總筆數：`29780`
-- debug：`output/debug/warrant_fetch_debug_latest.md`
+- debug：`output\debug\warrant_fetch_debug_latest.md`
 
 ## Fetch logs
 

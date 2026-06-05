@@ -1394,7 +1394,7 @@ def score_tdcc_stealth(row: pd.Series) -> tuple[float, list[str], list[str]]:
     return score, comps, risks
 
 
-def cond_volume_breakout(row: pd.Series) -> bool:
+def bottom_volume_attack_main_conditions_met(row: pd.Series) -> bool:
     vol = num(row, "volume_ratio")
     volume_ma20 = volume_ma20_lots(row)
     breakout_level = bottom_volume_attack_breakout_level(row)
@@ -1409,12 +1409,29 @@ def cond_volume_breakout(row: pd.Series) -> bool:
     )
 
 
-def active_price_attack_for_early_models(row: pd.Series) -> bool:
+def cond_volume_breakout(row: pd.Series) -> bool:
+    return bottom_volume_attack_main_conditions_met(row)
+
+
+def revenue_unreacted_price_has_already_attacked(row: pd.Series) -> bool:
     vol = num(row, "volume_ratio")
     ret5 = num(row, "return_5d", "return_5d_pct")
     ret20 = num(row, "return_20d", "return_20d_pct")
     return (
-        cond_volume_breakout(row)
+        bottom_volume_attack_main_conditions_met(row)
+        or flag(row, "volume_confirmed_breakout")
+        or (not math.isnan(vol) and vol >= 2.5)
+        or (not math.isnan(ret5) and ret5 >= 8)
+        or (not math.isnan(ret20) and ret20 >= 20)
+    )
+
+
+def tdcc_stealth_price_has_already_attacked(row: pd.Series) -> bool:
+    vol = num(row, "volume_ratio")
+    ret5 = num(row, "return_5d", "return_5d_pct")
+    ret20 = num(row, "return_20d", "return_20d_pct")
+    return (
+        bottom_volume_attack_main_conditions_met(row)
         or flag(row, "volume_confirmed_breakout")
         or (not math.isnan(vol) and vol >= 2.5)
         or (not math.isnan(ret5) and ret5 >= 8)
@@ -1434,7 +1451,7 @@ def cond_hot_theme_pullback(row: pd.Series) -> bool:
 
 
 def cond_revenue_unreacted(row: pd.Series) -> bool:
-    active_attack = active_price_attack_for_early_models(row)
+    active_attack = revenue_unreacted_price_has_already_attacked(row)
     return strong_revenue(row) and in_recent_range(row, 5) and not active_attack
 
 
@@ -1690,21 +1707,33 @@ def double_bottom_structure_ok(row: pd.Series) -> bool:
     return explicit_w_bottom_context_ok(row) and attack_ok
 
 
+def w_bottom_already_confirmed_breakout(row: pd.Series) -> bool:
+    return already_confirmed_breakout(row)
+
+
 def cond_w_bottom_right(row: pd.Series) -> bool:
-    if already_confirmed_breakout(row):
+    if w_bottom_already_confirmed_breakout(row):
         return False
     return double_bottom_structure_ok(row)
 
 
+def neckline_challenge_already_confirmed_breakout(row: pd.Series) -> bool:
+    return already_confirmed_breakout(row)
+
+
 def cond_neckline_challenge(row: pd.Series) -> bool:
-    if already_confirmed_breakout(row):
+    if neckline_challenge_already_confirmed_breakout(row):
         return False
     vol = num(row, "volume_ratio")
     return near_neckline_or_prior_high(row) and not math.isnan(vol) and vol >= 1.2 and ema23_slope_proxy_up(row)
 
 
+def platform_strength_already_confirmed_breakout(row: pd.Series) -> bool:
+    return already_confirmed_breakout(row)
+
+
 def cond_platform_strength(row: pd.Series) -> bool:
-    if already_confirmed_breakout(row):
+    if platform_strength_already_confirmed_breakout(row):
         return False
     width = num(row, "platform_width_pct", "short_platform_width_pct")
     vol = num(row, "volume_ratio")
@@ -1730,14 +1759,11 @@ def cond_pullback_short_strength(row: pd.Series) -> bool:
 
 def cond_tdcc_stealth(row: pd.Series) -> bool:
     phase = text(row, "tdcc_price_phase").lower()
-    vol = num(row, "volume_ratio")
     ret5 = num(row, "return_5d", "return_5d_pct")
     ret20 = num(row, "return_20d", "return_20d_pct")
     if phase in {"price_leading_tdcc", "overheated_after_tdcc"}:
         return False
-    if cond_volume_breakout(row) or flag(row, "volume_confirmed_breakout"):
-        return False
-    if not math.isnan(vol) and vol >= 2.5:
+    if tdcc_stealth_price_has_already_attacked(row):
         return False
     phase_ok = phase == "tdcc_leading_price" or (not phase and tdcc_positive(row))
     short_not_attacked = math.isnan(ret5) or ret5 < 8

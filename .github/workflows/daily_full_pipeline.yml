@@ -303,6 +303,7 @@ jobs:
         run: |
           python scripts/build_daily_candidate_model_layer.py
           python scripts/validate_daily_candidate_model_layer.py
+          python scripts/validate_daily_candidate_model_independence.py
           python scripts/build_daily_report_model_summary.py
 
       - name: Build theme event watch

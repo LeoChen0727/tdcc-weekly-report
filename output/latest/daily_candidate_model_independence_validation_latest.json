@@ -1,0 +1,9 @@
+{
+  "status": "pass",
+  "source_path": "C:\\Users\\p4693\\Documents\\Codex\\2026-05-23\\new-chat\\tdcc-weekly-report-freshness-fix\\scripts\\build_daily_candidate_model_layer.py",
+  "pdf_core_model_count": 9,
+  "condition_function_count": 9,
+  "score_function_count": 9,
+  "errors": [],
+  "warnings": []
+}

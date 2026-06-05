@@ -1,10 +1,10 @@
 # Daily Candidate Decision Layer Validation
 
 - status: `pass`
-- main_price_date: `20260603`
+- main_price_date: `20260604`
 - decision_rows: `522`
 - decision_md_lines: `336`
-- decision_packet_lines: `231`
+- decision_packet_lines: `235`
 - regression_2484_status: `pass`
 
 ## Errors

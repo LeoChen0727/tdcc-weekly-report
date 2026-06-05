@@ -15,7 +15,7 @@
   },
   "charts": [
     {
-      "date": "20260603",
+      "date": "20260604",
       "stock_id": "6115",
       "stock_name": "鎰勝",
       "category": "true_breakout",
@@ -31,7 +31,7 @@
       "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
-      "date": "20260603",
+      "date": "20260604",
       "stock_id": "1416",
       "stock_name": "廣豐",
       "category": "true_breakout",
@@ -47,7 +47,7 @@
       "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
-      "date": "20260603",
+      "date": "20260604",
       "stock_id": "2867",
       "stock_name": "三商壽",
       "category": "true_breakout",
@@ -63,7 +63,7 @@
       "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
-      "date": "20260603",
+      "date": "20260604",
       "stock_id": "9934",
       "stock_name": "成霖",
       "category": "true_breakout",
@@ -79,7 +79,7 @@
       "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
-      "date": "20260603",
+      "date": "20260604",
       "stock_id": "2834",
       "stock_name": "臺企銀",
       "category": "true_breakout",
@@ -95,7 +95,7 @@
       "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
-      "date": "20260603",
+      "date": "20260604",
       "stock_id": "1519",
       "stock_name": "華城",
       "category": "range_rebound",
@@ -111,7 +111,7 @@
       "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
-      "date": "20260603",
+      "date": "20260604",
       "stock_id": "2371",
       "stock_name": "大同",
       "category": "range_rebound",
@@ -127,7 +127,7 @@
       "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
-      "date": "20260603",
+      "date": "20260604",
       "stock_id": "1723",
       "stock_name": "中碳",
       "category": "range_rebound",
@@ -143,7 +143,7 @@
       "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
-      "date": "20260603",
+      "date": "20260604",
       "stock_id": "2009",
       "stock_name": "第一銅",
       "category": "range_rebound",
@@ -159,7 +159,7 @@
       "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
-      "date": "20260603",
+      "date": "20260604",
       "stock_id": "2103",
       "stock_name": "台橡",
       "category": "range_rebound",
@@ -175,7 +175,7 @@
       "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
-      "date": "20260603",
+      "date": "20260604",
       "stock_id": "2537",
       "stock_name": "聯上發",
       "category": "revenue_breakout_low_response",
@@ -191,7 +191,7 @@
       "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
-      "date": "20260603",
+      "date": "20260604",
       "stock_id": "2347",
       "stock_name": "聯強",
       "category": "revenue_breakout_low_response",
@@ -207,7 +207,7 @@
       "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
-      "date": "20260603",
+      "date": "20260604",
       "stock_id": "2542",
       "stock_name": "興富發",
       "category": "revenue_breakout_low_response",
@@ -223,7 +223,7 @@
       "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
-      "date": "20260603",
+      "date": "20260604",
       "stock_id": "2404",
       "stock_name": "漢唐",
       "category": "revenue_breakout_low_response",
@@ -239,7 +239,7 @@
       "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
-      "date": "20260603",
+      "date": "20260604",
       "stock_id": "1808",
       "stock_name": "潤隆",
       "category": "revenue_breakout_low_response",
@@ -255,7 +255,7 @@
       "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
-      "date": "20260603",
+      "date": "20260604",
       "stock_id": "2241",
       "stock_name": "艾姆勒",
       "category": "revenue_pullback",
@@ -271,7 +271,7 @@
       "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
-      "date": "20260603",
+      "date": "20260604",
       "stock_id": "2363",
       "stock_name": "矽統",
       "category": "revenue_pullback",
@@ -287,7 +287,7 @@
       "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
-      "date": "20260603",
+      "date": "20260604",
       "stock_id": "2383",
       "stock_name": "台光電",
       "category": "revenue_pullback",
@@ -303,7 +303,7 @@
       "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
-      "date": "20260603",
+      "date": "20260604",
       "stock_id": "6215",
       "stock_name": "和椿",
       "category": "revenue_pullback",
@@ -319,7 +319,7 @@
       "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
-      "date": "20260603",
+      "date": "20260604",
       "stock_id": "2467",
       "stock_name": "志聖",
       "category": "revenue_pullback",
@@ -335,7 +335,7 @@
       "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
-      "date": "20260603",
+      "date": "20260604",
       "stock_id": "9945",
       "stock_name": "潤泰新",
       "category": "pullback_rebound",
@@ -351,7 +351,7 @@
       "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
-      "date": "20260603",
+      "date": "20260604",
       "stock_id": "1808",
       "stock_name": "潤隆",
       "category": "pullback_rebound",
@@ -367,7 +367,7 @@
       "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
-      "date": "20260603",
+      "date": "20260604",
       "stock_id": "2442",
       "stock_name": "新美齊",
       "category": "pullback_rebound",
@@ -383,7 +383,7 @@
       "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
-      "date": "20260603",
+      "date": "20260604",
       "stock_id": "2542",
       "stock_name": "興富發",
       "category": "pullback_rebound",
@@ -399,7 +399,7 @@
       "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
-      "date": "20260603",
+      "date": "20260604",
       "stock_id": "2867",
       "stock_name": "三商壽",
       "category": "pullback_rebound",
@@ -415,7 +415,7 @@
       "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
-      "date": "20260603",
+      "date": "20260604",
       "stock_id": "2467",
       "stock_name": "志聖",
       "category": "pattern",
@@ -431,7 +431,7 @@
       "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
-      "date": "20260603",
+      "date": "20260604",
       "stock_id": "2880",
       "stock_name": "華南金",
       "category": "pattern",
@@ -447,7 +447,7 @@
       "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
-      "date": "20260603",
+      "date": "20260604",
       "stock_id": "1476",
       "stock_name": "儒鴻",
       "category": "pattern",
@@ -463,7 +463,7 @@
       "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
-      "date": "20260603",
+      "date": "20260604",
       "stock_id": "2486",
       "stock_name": "一詮",
       "category": "pattern",
@@ -479,7 +479,7 @@
       "note": "來源：日價資料重畫；data/daily_price；126 日"
     },
     {
-      "date": "20260603",
+      "date": "20260604",
       "stock_id": "3019",
       "stock_name": "亞光",
       "category": "pattern",

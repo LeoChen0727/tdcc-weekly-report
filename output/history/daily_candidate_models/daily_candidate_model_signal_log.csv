@@ -2992,3 +2992,617 @@ signal_date,report_bucket,stock_id,stock_name,model_id,model_name_zh,model_group
 20260603,non_mainstream,9941,裕融,volume_range_breakout,底部放量攻擊模型,pdf_core_model,66.2,20,其他,tdcc_distribution_penalty:6 | tdcc_distribution_warning | stale_signal | B_bottom_volume_attack_with_risk,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
 20260603,non_mainstream,1449,佳和,w_bottom_right_side,W底右側模型,pdf_core_model,59.0,2,紡織纖維,second_attack_weaker_watch,等待量價、TDCC、相對強弱至少一項轉強。
 20260603,non_mainstream,1808,潤隆,w_bottom_right_side,W底右側模型,pdf_core_model,74.5,1,建材營造,,等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。
+20260604,mainstream,1597,直得,hot_theme_pullback,熱門族群回檔模型,pdf_core_model,91.0,14,機器人自動化,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,1717,長興,hot_theme_pullback,熱門族群回檔模型,pdf_core_model,80.0,24,特化材料,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,1727,中華化,hot_theme_pullback,熱門族群回檔模型,pdf_core_model,80.0,25,特化材料,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,1802,台玻,hot_theme_pullback,熱門族群回檔模型,pdf_core_model,80.0,26,玻纖布,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,2049,上銀,hot_theme_pullback,熱門族群回檔模型,pdf_core_model,83.0,18,機器人,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2313,華通,hot_theme_pullback,熱門族群回檔模型,pdf_core_model,80.0,27,PCB_CCL_ABF材料,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,2345,智邦,hot_theme_pullback,熱門族群回檔模型,pdf_core_model,97.0,4,CPO光通訊,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2354,鴻準,hot_theme_pullback,熱門族群回檔模型,pdf_core_model,75.0,34,散熱液冷,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,2359,所羅門,hot_theme_pullback,熱門族群回檔模型,pdf_core_model,94.0,12,機器人自動化,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2368,金像電,hot_theme_pullback,熱門族群回檔模型,pdf_core_model,97.0,5,PCB_CCL_ABF材料,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2374,佳能,hot_theme_pullback,熱門族群回檔模型,pdf_core_model,96.0,10,機器人,,等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。
+20260604,mainstream,2383,台光電,hot_theme_pullback,熱門族群回檔模型,pdf_core_model,97.0,6,PCB_CCL_ABF材料,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2417,圓剛,hot_theme_pullback,熱門族群回檔模型,pdf_core_model,80.0,28,機器人自動化,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,2467,志聖,hot_theme_pullback,熱門族群回檔模型,pdf_core_model,100.0,1,半導體設備_CoWoS,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3006,晶豪科,hot_theme_pullback,熱門族群回檔模型,pdf_core_model,97.0,7,記憶體儲存,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3017,奇鋐,hot_theme_pullback,熱門族群回檔模型,pdf_core_model,78.0,31,散熱液冷,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,3019,亞光,hot_theme_pullback,熱門族群回檔模型,pdf_core_model,99.0,2,車用電子,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3037,欣興,hot_theme_pullback,熱門族群回檔模型,pdf_core_model,83.0,19,PCB_CCL_ABF材料,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,3044,健鼎,hot_theme_pullback,熱門族群回檔模型,pdf_core_model,97.0,8,PCB_CCL_ABF材料,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3583,辛耘,hot_theme_pullback,熱門族群回檔模型,pdf_core_model,99.0,3,半導體設備_CoWoS,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3596,智易,hot_theme_pullback,熱門族群回檔模型,pdf_core_model,89.0,15,低軌衛星,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,4576,大銀微系統,hot_theme_pullback,熱門族群回檔模型,pdf_core_model,86.0,17,機器人,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,4958,臻鼎-KY,hot_theme_pullback,熱門族群回檔模型,pdf_core_model,80.0,29,PCB_CCL_ABF材料,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,5388,中磊,hot_theme_pullback,熱門族群回檔模型,pdf_core_model,96.0,11,網通交換器,,等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。
+20260604,mainstream,6191,精成科,hot_theme_pullback,熱門族群回檔模型,pdf_core_model,75.2,33,PCB_CCL_ABF材料,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,6206,飛捷,hot_theme_pullback,熱門族群回檔模型,pdf_core_model,97.0,9,電源_BBU,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,6213,聯茂,hot_theme_pullback,熱門族群回檔模型,pdf_core_model,80.0,30,PCB_CCL_ABF材料,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,6285,啟碁,hot_theme_pullback,熱門族群回檔模型,pdf_core_model,94.0,13,低軌衛星,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,6412,群電,hot_theme_pullback,熱門族群回檔模型,pdf_core_model,86.3,16,電源_BBU,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260604,mainstream,6531,愛普*,hot_theme_pullback,熱門族群回檔模型,pdf_core_model,83.0,20,矽智財,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,6805,富世達,hot_theme_pullback,熱門族群回檔模型,pdf_core_model,82.0,22,散熱液冷,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,8046,南電,hot_theme_pullback,熱門族群回檔模型,pdf_core_model,83.0,21,PCB_CCL_ABF材料,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,8271,宇瞻,hot_theme_pullback,熱門族群回檔模型,pdf_core_model,78.0,32,記憶體儲存,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,8996,高力,hot_theme_pullback,熱門族群回檔模型,pdf_core_model,80.2,23,散熱液冷,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,non_mainstream,1717,長興,hot_theme_pullback,熱門族群回檔模型,pdf_core_model,80.0,3,特化材料,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,non_mainstream,1727,中華化,hot_theme_pullback,熱門族群回檔模型,pdf_core_model,80.0,4,特化材料,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,non_mainstream,1802,台玻,hot_theme_pullback,熱門族群回檔模型,pdf_core_model,80.0,5,玻纖布,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,non_mainstream,3033,威健,hot_theme_pullback,熱門族群回檔模型,pdf_core_model,94.0,1,半導體業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,3048,益登,hot_theme_pullback,熱門族群回檔模型,pdf_core_model,89.0,2,半導體業,,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,non_mainstream,1416,廣豐,near_high_neckline_challenge,接近前高 / 頸線挑戰模型,pdf_core_model,62.9,2,其他,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,non_mainstream,2812,台中銀,near_high_neckline_challenge,接近前高 / 頸線挑戰模型,pdf_core_model,58.1,3,金融保險業,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,non_mainstream,2867,三商壽,near_high_neckline_challenge,接近前高 / 頸線挑戰模型,pdf_core_model,72.2,1,金融保險業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,2884,玉山金,near_high_neckline_challenge,接近前高 / 頸線挑戰模型,pdf_core_model,57.7,4,金融保險業,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,non_mainstream,2838,聯邦銀,platform_strengthening,平台整理轉強模型,pdf_core_model,61.8,1,金融保險業,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,1717,長興,price_pullback_23ema,股價回檔模型,pdf_core_model,67.0,68,特化材料,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,1727,中華化,price_pullback_23ema,股價回檔模型,pdf_core_model,67.0,69,特化材料,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,1802,台玻,price_pullback_23ema,股價回檔模型,pdf_core_model,67.0,70,玻纖布,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,2303,聯電,price_pullback_23ema,股價回檔模型,pdf_core_model,80.2,37,半導體業_待細分,,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,mainstream,2313,華通,price_pullback_23ema,股價回檔模型,pdf_core_model,67.0,71,PCB_CCL_ABF材料,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,2316,楠梓電,price_pullback_23ema,股價回檔模型,pdf_core_model,91.0,4,電子零組件業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2329,華泰,price_pullback_23ema,股價回檔模型,pdf_core_model,72.0,59,半導體業_待細分,tdcc_distribution_penalty:8,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,mainstream,2330,台積電,price_pullback_23ema,股價回檔模型,pdf_core_model,70.0,60,半導體業_待細分,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,2337,旺宏,price_pullback_23ema,股價回檔模型,pdf_core_model,75.0,49,半導體業_待細分,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,2338,光罩,price_pullback_23ema,股價回檔模型,pdf_core_model,67.0,72,半導體業_待細分,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,2340,台亞,price_pullback_23ema,股價回檔模型,pdf_core_model,67.0,73,半導體業_待細分,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,2342,茂矽,price_pullback_23ema,股價回檔模型,pdf_core_model,76.3,44,半導體業_待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260604,mainstream,2345,智邦,price_pullback_23ema,股價回檔模型,pdf_core_model,91.0,5,CPO光通訊,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2347,聯強,price_pullback_23ema,股價回檔模型,pdf_core_model,84.4,23,電子通路業_待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260604,mainstream,2354,鴻準,price_pullback_23ema,股價回檔模型,pdf_core_model,62.0,88,散熱液冷,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,2359,所羅門,price_pullback_23ema,股價回檔模型,pdf_core_model,83.0,24,機器人自動化,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2363,矽統,price_pullback_23ema,股價回檔模型,pdf_core_model,91.0,6,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2368,金像電,price_pullback_23ema,股價回檔模型,pdf_core_model,91.0,7,PCB_CCL_ABF材料,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2369,菱生,price_pullback_23ema,股價回檔模型,pdf_core_model,91.0,8,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2374,佳能,price_pullback_23ema,股價回檔模型,pdf_core_model,91.0,9,機器人,,等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。
+20260604,mainstream,2383,台光電,price_pullback_23ema,股價回檔模型,pdf_core_model,91.0,10,PCB_CCL_ABF材料,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2393,億光,price_pullback_23ema,股價回檔模型,pdf_core_model,62.0,89,光電業_待細分,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,2397,友通,price_pullback_23ema,股價回檔模型,pdf_core_model,68.5,65,電腦及週邊設備業_待細分,tdcc_distribution_penalty:8,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,mainstream,2401,凌陽,price_pullback_23ema,股價回檔模型,pdf_core_model,83.0,25,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2402,毅嘉,price_pullback_23ema,股價回檔模型,pdf_core_model,62.0,90,電子零組件業_待細分,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,2412,中華電,price_pullback_23ema,股價回檔模型,pdf_core_model,78.0,39,通信網路業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2417,圓剛,price_pullback_23ema,股價回檔模型,pdf_core_model,67.0,74,機器人自動化,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,2436,偉詮電,price_pullback_23ema,股價回檔模型,pdf_core_model,75.0,50,半導體業_待細分,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,2439,美律,price_pullback_23ema,股價回檔模型,pdf_core_model,62.0,91,通信網路業_待細分,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,2449,京元電子,price_pullback_23ema,股價回檔模型,pdf_core_model,70.0,61,半導體業_待細分,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,2458,義隆,price_pullback_23ema,股價回檔模型,pdf_core_model,83.0,26,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2460,建通,price_pullback_23ema,股價回檔模型,pdf_core_model,67.4,66,電子零組件業_待細分,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,2465,麗臺,price_pullback_23ema,股價回檔模型,pdf_core_model,91.0,11,電腦及週邊設備業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2467,志聖,price_pullback_23ema,股價回檔模型,pdf_core_model,96.2,1,半導體設備_CoWoS,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2476,鉅祥,price_pullback_23ema,股價回檔模型,pdf_core_model,91.0,12,電子零組件業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2485,兆赫,price_pullback_23ema,股價回檔模型,pdf_core_model,76.0,45,通信網路業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2486,一詮,price_pullback_23ema,股價回檔模型,pdf_core_model,72.9,57,光電業_待細分,tdcc_distribution_penalty:8,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,mainstream,2489,瑞軒,price_pullback_23ema,股價回檔模型,pdf_core_model,67.0,75,光電業_待細分,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,3006,晶豪科,price_pullback_23ema,股價回檔模型,pdf_core_model,91.0,13,記憶體儲存,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3014,聯陽,price_pullback_23ema,股價回檔模型,pdf_core_model,67.0,76,半導體業_待細分,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,3017,奇鋐,price_pullback_23ema,股價回檔模型,pdf_core_model,70.0,62,散熱液冷,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,3019,亞光,price_pullback_23ema,股價回檔模型,pdf_core_model,88.0,21,車用電子,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3031,佰鴻,price_pullback_23ema,股價回檔模型,pdf_core_model,83.0,27,光電業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3034,聯詠,price_pullback_23ema,股價回檔模型,pdf_core_model,83.0,28,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3036,文曄,price_pullback_23ema,股價回檔模型,pdf_core_model,91.2,2,電子通路業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3037,欣興,price_pullback_23ema,股價回檔模型,pdf_core_model,75.0,51,PCB_CCL_ABF材料,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,3041,揚智,price_pullback_23ema,股價回檔模型,pdf_core_model,83.0,29,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3044,健鼎,price_pullback_23ema,股價回檔模型,pdf_core_model,91.0,14,PCB_CCL_ABF材料,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3045,台灣大,price_pullback_23ema,股價回檔模型,pdf_core_model,78.0,40,通信網路業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3062,建漢,price_pullback_23ema,股價回檔模型,pdf_core_model,75.0,52,通信網路業_待細分,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,3376,新日興,price_pullback_23ema,股價回檔模型,pdf_core_model,62.0,92,電子零組件業_待細分,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,3504,揚明光,price_pullback_23ema,股價回檔模型,pdf_core_model,83.0,30,光電業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3515,華擎,price_pullback_23ema,股價回檔模型,pdf_core_model,62.0,93,電腦及週邊設備業_待細分,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,3545,敦泰,price_pullback_23ema,股價回檔模型,pdf_core_model,83.0,31,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3583,辛耘,price_pullback_23ema,股價回檔模型,pdf_core_model,88.0,22,半導體設備_CoWoS,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3591,艾笛森,price_pullback_23ema,股價回檔模型,pdf_core_model,83.0,32,光電業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3596,智易,price_pullback_23ema,股價回檔模型,pdf_core_model,78.0,41,低軌衛星,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3653,健策,price_pullback_23ema,股價回檔模型,pdf_core_model,62.0,94,電子零組件業_待細分,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,3694,海華,price_pullback_23ema,股價回檔模型,pdf_core_model,67.0,77,通信網路業_待細分,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,3701,大眾控,price_pullback_23ema,股價回檔模型,pdf_core_model,59.5,99,電腦及週邊設備業_待細分,tdcc_distribution_penalty:8,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,mainstream,3702,大聯大,price_pullback_23ema,股價回檔模型,pdf_core_model,91.1,3,電子通路業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3714,富采,price_pullback_23ema,股價回檔模型,pdf_core_model,67.0,78,光電業_待細分,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,3715,定穎投控,price_pullback_23ema,股價回檔模型,pdf_core_model,76.0,46,電子零組件業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,4540,全球傳動,price_pullback_23ema,股價回檔模型,pdf_core_model,75.0,53,機器人自動化_電機機械待細分,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,4915,致伸,price_pullback_23ema,股價回檔模型,pdf_core_model,62.0,95,電子零組件業_待細分,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,4919,新唐,price_pullback_23ema,股價回檔模型,pdf_core_model,67.0,79,半導體業_待細分,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,4934,太極,price_pullback_23ema,股價回檔模型,pdf_core_model,91.0,15,光電業_待細分,,等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。
+20260604,mainstream,4949,有成精密,price_pullback_23ema,股價回檔模型,pdf_core_model,91.0,16,光電業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,4958,臻鼎-KY,price_pullback_23ema,股價回檔模型,pdf_core_model,67.0,80,PCB_CCL_ABF材料,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,4960,誠美材,price_pullback_23ema,股價回檔模型,pdf_core_model,67.0,81,光電業_待細分,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,5388,中磊,price_pullback_23ema,股價回檔模型,pdf_core_model,91.0,17,網通交換器,,等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。
+20260604,mainstream,5471,松翰,price_pullback_23ema,股價回檔模型,pdf_core_model,91.0,18,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,6115,鎰勝,price_pullback_23ema,股價回檔模型,pdf_core_model,78.5,38,電子零組件業_待細分,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
+20260604,mainstream,6152,百一,price_pullback_23ema,股價回檔模型,pdf_core_model,70.0,63,通信網路業_待細分,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,6153,嘉聯益,price_pullback_23ema,股價回檔模型,pdf_core_model,59.2,100,電子零組件業_待細分,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,6164,華興,price_pullback_23ema,股價回檔模型,pdf_core_model,59.7,98,光電業_待細分,tdcc_distribution_penalty:8,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,mainstream,6189,豐藝,price_pullback_23ema,股價回檔模型,pdf_core_model,60.9,96,電子通路業_待細分,tdcc_distribution_penalty:8,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,mainstream,6191,精成科,price_pullback_23ema,股價回檔模型,pdf_core_model,67.2,67,PCB_CCL_ABF材料,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,6202,盛群,price_pullback_23ema,股價回檔模型,pdf_core_model,83.0,33,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,6205,詮欣,price_pullback_23ema,股價回檔模型,pdf_core_model,62.1,87,電子零組件業_待細分,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,6206,飛捷,price_pullback_23ema,股價回檔模型,pdf_core_model,91.0,19,電源_BBU,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,6213,聯茂,price_pullback_23ema,股價回檔模型,pdf_core_model,67.0,82,PCB_CCL_ABF材料,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,6226,光鼎,price_pullback_23ema,股價回檔模型,pdf_core_model,78.0,42,光電業_待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260604,mainstream,6235,華孚,price_pullback_23ema,股價回檔模型,pdf_core_model,78.0,43,電腦及週邊設備業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,6257,矽格,price_pullback_23ema,股價回檔模型,pdf_core_model,67.0,83,半導體業_待細分,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,6285,啟碁,price_pullback_23ema,股價回檔模型,pdf_core_model,83.0,34,低軌衛星,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,6412,群電,price_pullback_23ema,股價回檔模型,pdf_core_model,75.3,48,電源_BBU,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260604,mainstream,6415,矽力*-KY,price_pullback_23ema,股價回檔模型,pdf_core_model,91.0,20,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,6443,元晶,price_pullback_23ema,股價回檔模型,pdf_core_model,67.0,84,光電業_待細分,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,6525,捷敏-KY,price_pullback_23ema,股價回檔模型,pdf_core_model,83.0,35,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,6531,愛普*,price_pullback_23ema,股價回檔模型,pdf_core_model,75.0,54,矽智財,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,6706,惠特,price_pullback_23ema,股價回檔模型,pdf_core_model,67.0,85,光電業_待細分,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,6719,力智,price_pullback_23ema,股價回檔模型,pdf_core_model,67.0,86,半導體業_待細分,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,6805,富世達,price_pullback_23ema,股價回檔模型,pdf_core_model,75.0,55,散熱液冷,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,6830,汎銓,price_pullback_23ema,股價回檔模型,pdf_core_model,76.0,47,其他電子業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,8046,南電,price_pullback_23ema,股價回檔模型,pdf_core_model,75.0,56,PCB_CCL_ABF材料,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,8103,瀚荃,price_pullback_23ema,股價回檔模型,pdf_core_model,60.0,97,電子零組件業_待細分,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,8114,振樺電,price_pullback_23ema,股價回檔模型,pdf_core_model,83.0,36,電腦及週邊設備業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,8271,宇瞻,price_pullback_23ema,股價回檔模型,pdf_core_model,70.0,64,記憶體儲存,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,8996,高力,price_pullback_23ema,股價回檔模型,pdf_core_model,72.2,58,散熱液冷,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,non_mainstream,1102,亞泥,price_pullback_23ema,股價回檔模型,pdf_core_model,62.0,60,水泥工業,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,non_mainstream,1104,環泥,price_pullback_23ema,股價回檔模型,pdf_core_model,59.7,69,水泥工業,tdcc_distribution_penalty:8,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,non_mainstream,1210,大成,price_pullback_23ema,股價回檔模型,pdf_core_model,60.9,66,食品工業,tdcc_distribution_penalty:8,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,non_mainstream,1216,統一,price_pullback_23ema,股價回檔模型,pdf_core_model,78.0,22,食品工業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,1305,華夏,price_pullback_23ema,股價回檔模型,pdf_core_model,86.1,9,塑膠工業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,1309,台達化,price_pullback_23ema,股價回檔模型,pdf_core_model,62.2,59,塑膠工業,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,non_mainstream,1313,聯成,price_pullback_23ema,股價回檔模型,pdf_core_model,76.0,34,塑膠工業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,1316,上曜,price_pullback_23ema,股價回檔模型,pdf_core_model,91.0,1,建材營造,,等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。
+20260604,non_mainstream,1416,廣豐,price_pullback_23ema,股價回檔模型,pdf_core_model,69.0,45,其他,tdcc_distribution_penalty:8,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,non_mainstream,1449,佳和,price_pullback_23ema,股價回檔模型,pdf_core_model,86.0,10,紡織纖維,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,1522,堤維西,price_pullback_23ema,股價回檔模型,pdf_core_model,86.0,11,汽車工業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,1717,長興,price_pullback_23ema,股價回檔模型,pdf_core_model,67.0,55,特化材料,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,non_mainstream,1722,台肥,price_pullback_23ema,股價回檔模型,pdf_core_model,59.5,70,化學工業,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,non_mainstream,1727,中華化,price_pullback_23ema,股價回檔模型,pdf_core_model,67.0,56,特化材料,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,non_mainstream,1802,台玻,price_pullback_23ema,股價回檔模型,pdf_core_model,67.0,57,玻纖布,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,non_mainstream,1903,士紙,price_pullback_23ema,股價回檔模型,pdf_core_model,77.5,31,造紙工業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260604,non_mainstream,2002,中鋼,price_pullback_23ema,股價回檔模型,pdf_core_model,62.0,61,鋼鐵工業,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,non_mainstream,2006,東和鋼鐵,price_pullback_23ema,股價回檔模型,pdf_core_model,62.0,62,鋼鐵工業,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,non_mainstream,2010,春源,price_pullback_23ema,股價回檔模型,pdf_core_model,62.0,63,鋼鐵工業,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,non_mainstream,2014,中鴻,price_pullback_23ema,股價回檔模型,pdf_core_model,78.0,23,鋼鐵工業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260604,non_mainstream,2022,聚亨,price_pullback_23ema,股價回檔模型,pdf_core_model,88.2,7,鋼鐵工業,,等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。
+20260604,non_mainstream,2023,燁輝,price_pullback_23ema,股價回檔模型,pdf_core_model,78.0,24,鋼鐵工業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,2032,新鋼,price_pullback_23ema,股價回檔模型,pdf_core_model,78.0,25,鋼鐵工業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,2034,允強,price_pullback_23ema,股價回檔模型,pdf_core_model,62.0,64,鋼鐵工業,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,non_mainstream,2101,南港,price_pullback_23ema,股價回檔模型,pdf_core_model,91.0,2,橡膠工業,,等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。
+20260604,non_mainstream,2201,裕隆,price_pullback_23ema,股價回檔模型,pdf_core_model,75.7,36,汽車工業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260604,non_mainstream,2204,中華,price_pullback_23ema,股價回檔模型,pdf_core_model,71.4,41,汽車工業,false_breakout_risk_penalty:4,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,2208,台船,price_pullback_23ema,股價回檔模型,pdf_core_model,75.0,38,航運業,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,non_mainstream,2442,新美齊,price_pullback_23ema,股價回檔模型,pdf_core_model,88.4,5,建材營造,,等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。
+20260604,non_mainstream,2501,國建,price_pullback_23ema,股價回檔模型,pdf_core_model,70.2,42,建材營造,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,non_mainstream,2504,國產,price_pullback_23ema,股價回檔模型,pdf_core_model,59.3,71,建材營造,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,non_mainstream,2514,龍邦,price_pullback_23ema,股價回檔模型,pdf_core_model,77.2,32,其他,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260604,non_mainstream,2515,中工,price_pullback_23ema,股價回檔模型,pdf_core_model,70.0,44,建材營造,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,non_mainstream,2520,冠德,price_pullback_23ema,股價回檔模型,pdf_core_model,67.4,52,建材營造,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,non_mainstream,2537,聯上發,price_pullback_23ema,股價回檔模型,pdf_core_model,91.0,3,建材營造,,等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。
+20260604,non_mainstream,2539,櫻花建,price_pullback_23ema,股價回檔模型,pdf_core_model,67.5,51,建材營造,tdcc_distribution_penalty:8,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,non_mainstream,2542,興富發,price_pullback_23ema,股價回檔模型,pdf_core_model,83.4,18,建材營造,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260604,non_mainstream,2543,皇昌,price_pullback_23ema,股價回檔模型,pdf_core_model,75.0,39,建材營造,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,non_mainstream,2547,日勝生,price_pullback_23ema,股價回檔模型,pdf_core_model,59.9,67,建材營造,tdcc_distribution_penalty:8,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,non_mainstream,2548,華固,price_pullback_23ema,股價回檔模型,pdf_core_model,57.6,73,建材營造,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,non_mainstream,2606,裕民,price_pullback_23ema,股價回檔模型,pdf_core_model,86.0,12,航運業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,2610,華航,price_pullback_23ema,股價回檔模型,pdf_core_model,78.0,26,航運業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,2615,萬海,price_pullback_23ema,股價回檔模型,pdf_core_model,83.0,19,航運業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,2637,慧洋-KY,price_pullback_23ema,股價回檔模型,pdf_core_model,89.1,4,航運業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260604,non_mainstream,2646,星宇航空,price_pullback_23ema,股價回檔模型,pdf_core_model,86.0,13,航運業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,2801,彰銀,price_pullback_23ema,股價回檔模型,pdf_core_model,55.7,75,金融保險業,tdcc_distribution_penalty:8 | false_breakout_risk_penalty:4,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,non_mainstream,2812,台中銀,price_pullback_23ema,股價回檔模型,pdf_core_model,67.4,53,金融保險業,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,non_mainstream,2820,華票,price_pullback_23ema,股價回檔模型,pdf_core_model,67.8,47,金融保險業,tdcc_distribution_penalty:8,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,non_mainstream,2836,高雄銀,price_pullback_23ema,股價回檔模型,pdf_core_model,76.2,33,金融保險業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260604,non_mainstream,2838,聯邦銀,price_pullback_23ema,股價回檔模型,pdf_core_model,67.3,54,金融保險業,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,non_mainstream,2845,遠東銀,price_pullback_23ema,股價回檔模型,pdf_core_model,67.6,49,金融保險業,tdcc_distribution_penalty:8,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,non_mainstream,2886,兆豐金,price_pullback_23ema,股價回檔模型,pdf_core_model,86.0,14,金融保險業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,2889,國票金,price_pullback_23ema,股價回檔模型,pdf_core_model,67.7,48,金融保險業,tdcc_distribution_penalty:8,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,non_mainstream,2892,第一金,price_pullback_23ema,股價回檔模型,pdf_core_model,88.2,8,金融保險業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260604,non_mainstream,2897,王道銀行,price_pullback_23ema,股價回檔模型,pdf_core_model,83.6,17,金融保險業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260604,non_mainstream,2903,遠百,price_pullback_23ema,股價回檔模型,pdf_core_model,75.7,37,貿易百貨,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
+20260604,non_mainstream,3033,威健,price_pullback_23ema,股價回檔模型,pdf_core_model,83.0,20,半導體業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,3048,益登,price_pullback_23ema,股價回檔模型,pdf_core_model,78.0,27,半導體業,,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,non_mainstream,3703,欣陸,price_pullback_23ema,股價回檔模型,pdf_core_model,59.2,72,建材營造,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,non_mainstream,3717,聯嘉投控,price_pullback_23ema,股價回檔模型,pdf_core_model,67.0,58,汽車工業,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,non_mainstream,4142,國光生,price_pullback_23ema,股價回檔模型,pdf_core_model,84.0,16,生技醫療業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,4164,承業醫,price_pullback_23ema,股價回檔模型,pdf_core_model,59.9,68,生技醫療業,tdcc_distribution_penalty:8,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,non_mainstream,5522,遠雄,price_pullback_23ema,股價回檔模型,pdf_core_model,88.3,6,建材營造,,等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。
+20260604,non_mainstream,5876,上海商銀,price_pullback_23ema,股價回檔模型,pdf_core_model,78.0,28,金融保險業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,5880,合庫金,price_pullback_23ema,股價回檔模型,pdf_core_model,67.6,50,金融保險業,tdcc_distribution_penalty:8,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,non_mainstream,6177,達麗,price_pullback_23ema,股價回檔模型,pdf_core_model,75.0,40,建材營造,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,non_mainstream,6589,台康生技,price_pullback_23ema,股價回檔模型,pdf_core_model,86.0,15,生技醫療業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,6757,台灣虎航,price_pullback_23ema,股價回檔模型,pdf_core_model,68.6,46,航運業,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,non_mainstream,7780,大研生醫*,price_pullback_23ema,股價回檔模型,pdf_core_model,70.1,43,食品工業,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,non_mainstream,9802,鈺齊-KY,price_pullback_23ema,股價回檔模型,pdf_core_model,78.0,29,運動休閒,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,9907,統一實,price_pullback_23ema,股價回檔模型,pdf_core_model,62.0,65,其他,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,non_mainstream,9914,美利達,price_pullback_23ema,股價回檔模型,pdf_core_model,83.0,21,運動休閒,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,9917,中保科,price_pullback_23ema,股價回檔模型,pdf_core_model,76.0,35,其他,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
+20260604,non_mainstream,9919,康那香,price_pullback_23ema,股價回檔模型,pdf_core_model,55.9,74,其他,tdcc_distribution_penalty:8 | false_breakout_risk_penalty:4,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,non_mainstream,9938,百和,price_pullback_23ema,股價回檔模型,pdf_core_model,78.0,30,其他,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,1727,中華化,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,50.0,56,特化材料,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,2303,聯電,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,62.5,20,半導體業_待細分,,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,mainstream,2313,華通,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,50.0,57,PCB_CCL_ABF材料,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,2316,楠梓電,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,65.0,7,電子零組件業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2328,廣宇,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,62.1,25,電子零組件業_待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260604,mainstream,2338,光罩,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,50.0,58,半導體業_待細分,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,2342,茂矽,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,68.5,3,半導體業_待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260604,mainstream,2347,聯強,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,71.7,2,電子通路業_待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260604,mainstream,2351,順德,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,62.0,26,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2359,所羅門,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,62.0,27,機器人自動化,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2363,矽統,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,65.0,8,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2369,菱生,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,65.0,9,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2379,瑞昱,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,62.6,18,半導體業_待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260604,mainstream,2395,研華,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,65.0,10,電腦及週邊設備業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2397,友通,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,60.0,38,電腦及週邊設備業_待細分,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,mainstream,2401,凌陽,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,62.0,28,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2421,建準,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,50.7,54,散熱液冷,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,2439,美律,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,50.0,59,通信網路業_待細分,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,2449,京元電子,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,53.0,49,半導體業_待細分,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,2458,義隆,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,62.0,29,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2486,一詮,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,62.9,17,光電業_待細分,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,mainstream,2489,瑞軒,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,50.0,60,光電業_待細分,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,3005,神基,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,50.0,61,電腦及週邊設備業_待細分,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,3006,晶豪科,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,65.0,11,記憶體儲存,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3014,聯陽,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,50.0,62,半導體業_待細分,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,3019,亞光,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,66.0,4,車用電子,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3028,增你強,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,65.0,12,電子通路業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3031,佰鴻,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,62.0,30,光電業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3037,欣興,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,53.0,50,PCB_CCL_ABF材料,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,3041,揚智,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,62.0,31,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3047,訊舟,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,62.2,23,通信網路業_待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260604,mainstream,3051,力特,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,50.0,63,光電業_待細分,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,3062,建漢,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,53.0,51,通信網路業_待細分,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,3135,凌航,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,65.7,5,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3209,全科,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,65.0,13,電子通路業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3338,泰碩,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,62.2,24,電子零組件業_待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260604,mainstream,3376,新日興,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,50.0,64,電子零組件業_待細分,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,3504,揚明光,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,62.0,32,光電業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3515,華擎,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,50.0,65,電腦及週邊設備業_待細分,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,3535,晶彩科,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,54.0,44,光電業_待細分,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,3694,海華,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,50.0,66,通信網路業_待細分,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,3702,大聯大,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,65.3,6,電子通路業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3706,神達,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,58.3,40,AI伺服器,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,mainstream,4532,瑞智,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,53.3,47,機器人自動化_電機機械待細分,tdcc_distribution_penalty:6 | false_breakout_risk_penalty:4,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,mainstream,4540,全球傳動,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,53.0,52,機器人自動化_電機機械待細分,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,4904,遠傳,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,62.0,33,通信網路業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,4919,新唐,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,50.0,67,半導體業_待細分,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,4949,有成精密,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,65.0,14,光電業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,4958,臻鼎-KY,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,50.0,68,PCB_CCL_ABF材料,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,4976,佳凌,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,62.3,22,光電業_待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260604,mainstream,5388,中磊,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,53.0,53,網通交換器,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,6115,鎰勝,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,72.9,1,電子零組件業_待細分,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
+20260604,mainstream,6133,金橋,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,58.7,39,電子零組件業_待細分,false_breakout_risk_penalty:4,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260604,mainstream,6139,亞翔,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,62.4,21,其他電子業_待細分,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,mainstream,6164,華興,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,55.5,42,光電業_待細分,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,mainstream,6189,豐藝,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,57.7,41,電子通路業_待細分,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,mainstream,6191,精成科,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,53.5,45,PCB_CCL_ABF材料,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,6205,詮欣,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,50.1,55,電子零組件業_待細分,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,6226,光鼎,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,62.0,34,光電業_待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260604,mainstream,6257,矽格,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,50.0,69,半導體業_待細分,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,6285,啟碁,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,62.0,35,低軌衛星,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,6412,群電,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,62.6,19,電源_BBU,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260604,mainstream,6415,矽力*-KY,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,65.0,15,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,6525,捷敏-KY,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,62.0,36,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,6558,興能高,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,55.1,43,其他電子業_待細分,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,mainstream,6706,惠特,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,50.0,70,光電業_待細分,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,6719,力智,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,50.0,71,半導體業_待細分,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,7788,松川精密,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,61.1,37,電子零組件業_待細分,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,mainstream,8016,矽創,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,65.0,16,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,8131,福懋科,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,53.1,48,半導體業_待細分,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,8996,高力,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,53.4,46,散熱液冷,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,non_mainstream,0050,元大台灣50,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,62.4,10,指數/ETF/ETN商品,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260604,non_mainstream,1342,八貫,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,76.3,1,其他,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
+20260604,non_mainstream,1460,宏遠,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,63.5,9,紡織纖維,false_breakout_risk_penalty:4,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
+20260604,non_mainstream,1723,中碳,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,74.8,3,化學工業,,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
+20260604,non_mainstream,1727,中華化,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,50.0,25,特化材料,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,non_mainstream,1907,永豐餘,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,60.6,16,造紙工業,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,non_mainstream,2027,大成鋼,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,65.0,7,鋼鐵工業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,2032,新鋼,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,62.0,11,鋼鐵工業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,2105,正新,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,56.7,19,橡膠工業,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,non_mainstream,2442,新美齊,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,49.9,26,建材營造,tdcc_distribution_penalty:6 | false_breakout_risk_penalty:4,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,non_mainstream,2514,龍邦,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,70.3,4,其他,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260604,non_mainstream,2543,皇昌,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,53.0,23,建材營造,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,non_mainstream,2615,萬海,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,62.0,12,航運業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,2618,長榮航,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,62.0,13,航運業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260604,non_mainstream,2637,慧洋-KY,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,75.3,2,航運業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260604,non_mainstream,2731,雄獅,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,69.2,5,觀光餐旅,false_breakout_risk_penalty:4,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
+20260604,non_mainstream,2834,臺企銀,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,55.2,22,金融保險業,tdcc_distribution_penalty:6 | false_breakout_risk_penalty:4,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,non_mainstream,2867,三商壽,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,67.2,6,金融保險業,false_breakout_risk_penalty:4,確認突破後不跌回平台/頸線，量能不要爆量失控或長上影。
+20260604,non_mainstream,3033,威健,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,62.0,14,半導體業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,3703,欣陸,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,50.5,24,建材營造,tdcc_distribution_penalty:6,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,non_mainstream,4164,承業醫,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,55.8,20,生技醫療業,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,non_mainstream,4763,材料*-KY,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,59.1,17,化學工業,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,non_mainstream,6589,台康生技,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,65.0,8,生技醫療業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,9914,美利達,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,62.0,15,運動休閒,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,9933,中鼎,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,55.5,21,其他,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,non_mainstream,9945,潤泰新,pullback_short_reclaim,回檔後短線轉強模型,pdf_core_model,57.6,18,其他,tdcc_distribution_penalty:6,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,mainstream,1597,直得,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,86.0,12,機器人自動化,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2308,台達電,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,72.0,47,電源_BBU,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,2316,楠梓電,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,86.0,13,電子零組件業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2330,台積電,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,70.0,65,半導體業_待細分,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,2337,旺宏,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,72.0,48,半導體業_待細分,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,2345,智邦,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,86.0,14,CPO光通訊,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2347,聯強,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,93.4,1,電子通路業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2360,致茂,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,75.0,42,其他電子業_待細分,tdcc_distribution_penalty:8,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,mainstream,2363,矽統,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,86.0,15,半導體業_待細分,,等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。
+20260604,mainstream,2368,金像電,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,86.0,16,PCB_CCL_ABF材料,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2369,菱生,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,86.0,17,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2374,佳能,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,92.0,2,機器人,,等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。
+20260604,mainstream,2376,技嘉,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,86.0,18,電腦及週邊設備業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2383,台光電,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,86.0,19,PCB_CCL_ABF材料,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2388,威盛,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,72.0,49,半導體業_待細分,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,2395,研華,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,84.0,38,電腦及週邊設備業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2397,友通,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,73.5,43,電腦及週邊設備業_待細分,tdcc_distribution_penalty:8,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,mainstream,2436,偉詮電,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,72.0,50,半導體業_待細分,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,2449,京元電子,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,72.0,51,半導體業_待細分,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,2451,創見,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,86.8,8,記憶體儲存,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2460,建通,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,72.4,45,電子零組件業_待細分,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,2465,麗臺,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,86.0,20,電腦及週邊設備業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2467,志聖,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,89.2,7,半導體設備_CoWoS,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2476,鉅祥,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,86.0,21,電子零組件業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2485,兆赫,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,86.0,22,通信網路業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2486,一詮,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,75.9,41,光電業_待細分,tdcc_distribution_penalty:8,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,mainstream,3006,晶豪科,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,86.0,23,記憶體儲存,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3016,嘉晶,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,86.0,24,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3017,奇鋐,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,72.0,52,散熱液冷,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,3028,增你強,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,86.0,25,電子通路業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3030,德律,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,86.0,26,其他電子業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3036,文曄,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,86.2,10,電子通路業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3037,欣興,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,72.0,53,PCB_CCL_ABF材料,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,3044,健鼎,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,86.0,27,PCB_CCL_ABF材料,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3046,建碁,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,86.0,28,電腦及週邊設備業_待細分,,等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。
+20260604,mainstream,3055,蔚華科,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,72.0,54,電子通路業_待細分,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,3062,建漢,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,64.0,67,通信網路業_待細分,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,3135,凌航,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,86.3,9,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3443,創意,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,72.0,55,半導體業_待細分,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,3702,大聯大,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,86.1,11,電子通路業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3706,神達,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,72.6,44,AI伺服器,tdcc_distribution_penalty:8,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,mainstream,3715,定穎投控,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,86.0,29,電子零組件業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,4540,全球傳動,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,72.0,56,機器人自動化_電機機械待細分,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,4576,大銀微系統,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,86.0,30,機器人,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,4934,太極,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,92.0,3,光電業_待細分,,等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。
+20260604,mainstream,4949,有成精密,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,86.0,31,光電業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,4989,榮科,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,72.0,57,電子零組件業_待細分,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,5388,中磊,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,92.0,4,網通交換器,,等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。
+20260604,mainstream,5471,松翰,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,86.0,32,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,6152,百一,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,72.0,58,通信網路業_待細分,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,6166,凌華,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,86.0,33,機器人自動化,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,6191,精成科,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,64.2,66,PCB_CCL_ABF材料,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,6206,飛捷,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,92.0,5,電源_BBU,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,6215,和椿,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,86.0,34,其他電子業_待細分,,等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。
+20260604,mainstream,6426,統新,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,86.0,35,通信網路業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,6531,愛普*,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,72.0,59,矽智財,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,6669,緯穎,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,72.0,60,AI伺服器,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,6805,富世達,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,78.0,40,散熱液冷,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,6830,汎銓,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,86.0,36,其他電子業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,8016,矽創,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,92.0,6,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,8046,南電,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,72.0,61,PCB_CCL_ABF材料,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,8103,瀚荃,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,72.0,62,電子零組件業_待細分,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,8112,至上,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,78.9,39,電子通路業_待細分,tdcc_distribution_penalty:8,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,mainstream,8131,福懋科,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,72.0,63,半導體業_待細分,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,8271,宇瞻,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,72.0,64,記憶體儲存,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,8374,羅昇,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,86.0,37,機器人自動化_電機機械待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,8996,高力,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,72.2,46,散熱液冷,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,non_mainstream,1316,上曜,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,92.0,8,建材營造,,等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。
+20260604,non_mainstream,1449,佳和,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,86.0,17,紡織纖維,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,1522,堤維西,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,86.0,18,汽車工業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,1808,潤隆,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,98.4,1,建材營造,,等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。
+20260604,non_mainstream,2022,聚亨,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,92.2,7,鋼鐵工業,,等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。
+20260604,non_mainstream,2027,大成鋼,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,84.0,22,鋼鐵工業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,2101,南港,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,92.0,9,橡膠工業,,等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。
+20260604,non_mainstream,2208,台船,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,78.0,28,航運業,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,non_mainstream,2241,艾姆勒,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,92.0,10,汽車工業,,等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。
+20260604,non_mainstream,2442,新美齊,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,92.4,5,建材營造,,等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。
+20260604,non_mainstream,2501,國建,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,70.2,39,建材營造,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,non_mainstream,2515,中工,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,72.0,32,建材營造,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,non_mainstream,2520,冠德,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,78.4,26,建材營造,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,non_mainstream,2537,聯上發,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,92.0,11,建材營造,,等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。
+20260604,non_mainstream,2542,興富發,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,92.4,6,建材營造,,等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。
+20260604,non_mainstream,2543,皇昌,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,78.0,29,建材營造,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,non_mainstream,2548,華固,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,72.7,31,建材營造,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,non_mainstream,2606,裕民,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,92.0,12,航運業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,2637,慧洋-KY,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,96.1,3,航運業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,2646,星宇航空,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,92.0,13,航運業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,2812,台中銀,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,70.4,37,金融保險業,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,non_mainstream,2820,華票,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,70.8,33,金融保險業,tdcc_distribution_penalty:8,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,non_mainstream,2838,聯邦銀,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,70.3,38,金融保險業,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,non_mainstream,2845,遠東銀,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,70.6,35,金融保險業,tdcc_distribution_penalty:8,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,non_mainstream,2851,中再保,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,84.0,23,金融保險業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,2867,三商壽,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,85.1,20,金融保險業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,2885,元大金,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,87.0,16,金融保險業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,2886,兆豐金,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,84.0,24,金融保險業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,2889,國票金,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,70.7,34,金融保險業,tdcc_distribution_penalty:8,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,non_mainstream,2892,第一金,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,87.2,15,金融保險業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260604,non_mainstream,2897,王道銀行,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,84.6,21,金融保險業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,4142,國光生,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,93.0,4,生技醫療業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,4764,雙鍵,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,86.0,19,化學工業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,5522,遠雄,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,98.3,2,建材營造,,等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。
+20260604,non_mainstream,5880,合庫金,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,70.6,36,金融保險業,tdcc_distribution_penalty:8,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
+20260604,non_mainstream,6177,達麗,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,78.0,30,建材營造,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,non_mainstream,6446,藥華藥,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,92.0,14,生技醫療業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,6589,台康生技,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,84.0,25,生技醫療業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,7780,大研生醫*,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,78.1,27,食品工業,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
+20260604,mainstream,1530,亞崴,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,1,機器人自動化_電機機械待細分,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,mainstream,2305,全友,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,2,電腦及週邊設備業_待細分,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,mainstream,2312,金寶,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,3,其他電子業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,mainstream,2317,鴻海,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,4,AI伺服器,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,mainstream,2344,華邦電,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,5,記憶體儲存,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,mainstream,2351,順德,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,6,半導體業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,mainstream,2353,宏碁,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,7,電腦及週邊設備業_待細分,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,mainstream,2356,英業達,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,8,AI伺服器,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,mainstream,2357,華碩,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,9,電腦及週邊設備業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,mainstream,2369,菱生,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,10,半導體業_待細分,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,mainstream,2375,凱美,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,87.1,43,被動元件,kd_overheated|two_week_return_too_extended|bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,mainstream,2376,技嘉,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,11,電腦及週邊設備業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,mainstream,2408,南亞科,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,12,記憶體儲存,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,mainstream,2428,興勤,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,13,被動元件,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,mainstream,2484,希華,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,14,被動元件,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,mainstream,2493,揚博,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,15,電子零組件業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,mainstream,2495,普安,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,16,電腦及週邊設備業_待細分,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,mainstream,3042,晶技,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,17,被動元件,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,mainstream,3135,凌航,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,18,半導體業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,mainstream,3149,正達,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,19,光電業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,mainstream,3189,景碩,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,20,PCB_CCL_ABF材料,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,mainstream,3317,尼克森,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,21,半導體業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,mainstream,3491,昇達科,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,22,低軌衛星,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,mainstream,3532,台勝科,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,23,半導體業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,mainstream,3673,TPK-KY,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,24,光電業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,mainstream,4906,正文,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,25,網通交換器,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,mainstream,4939,亞電,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,26,電子零組件業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,mainstream,6127,九豪,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,27,電子零組件業_待細分,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,mainstream,6175,立敦,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,28,電子零組件業_待細分,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,mainstream,6196,帆宣,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,29,半導體設備_CoWoS,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,mainstream,6224,聚鼎,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,30,電子零組件業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,mainstream,6265,方土昶,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,31,電子通路業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,mainstream,6284,佳邦,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,32,電子零組件業_待細分,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,mainstream,6290,良維,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,33,電子零組件業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,mainstream,6706,惠特,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,34,光電業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,mainstream,6870,騰雲,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,35,數位雲端_待細分,kd_overheated|bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,mainstream,8028,昇陽半導體,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,36,半導體設備_CoWoS,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,mainstream,8150,南茂,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,77.0,44,記憶體儲存,one_week_return_too_extended,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,mainstream,8163,達方,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,37,電腦及週邊設備業_待細分,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,mainstream,8261,富鼎,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,38,功率元件/二極體,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,mainstream,8289,泰藝,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,39,電子零組件業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,mainstream,8358,金居,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,40,PCB_CCL_ABF材料,kd_overheated,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,mainstream,8454,富邦媒,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,41,數位雲端_待細分,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,mainstream,8477,創業家,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,42,數位雲端_待細分,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,non_mainstream,5284,jpp-KY,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,1,其他業,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,non_mainstream,5864,致和證,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,2,金融保險業,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,non_mainstream,6005,群益證,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,3,金融保險業,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,non_mainstream,6015,宏遠證,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,4,金融保險業,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,non_mainstream,8473,山林水,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_specialty_section,100.0,5,綠能環保,kd_overheated|bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260604,mainstream,1582,信錦,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.0,43,電子零組件業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,1597,直得,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.0,10,機器人自動化,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2049,上銀,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.0,44,機器人,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2233,宇隆,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.0,45,機器人自動化,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2316,楠梓電,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.0,11,電子零組件業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2328,廣宇,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.0,46,電子零組件業_待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260604,mainstream,2345,智邦,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.0,12,CPO光通訊,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2347,聯強,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.7,5,電子通路業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2351,順德,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.0,47,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2355,敬鵬,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.0,48,PCB_CCL_ABF材料,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2359,所羅門,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.0,49,機器人自動化,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2363,矽統,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.0,13,半導體業_待細分,,等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。
+20260604,mainstream,2368,金像電,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.0,14,PCB_CCL_ABF材料,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2369,菱生,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.0,15,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2374,佳能,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,83.0,1,機器人,,等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。
+20260604,mainstream,2376,技嘉,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.0,16,電腦及週邊設備業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2379,瑞昱,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.2,41,半導體業_待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260604,mainstream,2383,台光電,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.0,17,PCB_CCL_ABF材料,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2395,研華,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.0,18,電腦及週邊設備業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2401,凌陽,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.0,50,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2412,中華電,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.0,51,通信網路業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2426,鼎元,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.0,52,光電業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2451,創見,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.4,6,記憶體儲存,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2458,義隆,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.0,53,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2465,麗臺,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.0,19,電腦及週邊設備業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2467,志聖,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,78.1,4,半導體設備_CoWoS,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2476,鉅祥,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.0,20,電子零組件業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,2485,兆赫,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.0,21,通信網路業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3006,晶豪科,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.0,22,記憶體儲存,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3016,嘉晶,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.0,23,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3019,亞光,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,74.0,39,車用電子,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3028,增你強,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.0,24,電子通路業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3030,德律,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.0,25,其他電子業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3031,佰鴻,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.0,54,光電業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3034,聯詠,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.0,55,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3035,智原,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.0,56,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3036,文曄,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.1,8,電子通路業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3041,揚智,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.0,57,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3044,健鼎,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.0,26,PCB_CCL_ABF材料,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3045,台灣大,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.0,58,通信網路業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3046,建碁,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.0,27,電腦及週邊設備業_待細分,,等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。
+20260604,mainstream,3135,凌航,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.2,7,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3356,奇偶,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.0,59,光電業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3545,敦泰,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.0,60,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3583,辛耘,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,74.0,40,半導體設備_CoWoS,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3591,艾笛森,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.0,61,光電業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3596,智易,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.0,62,低軌衛星,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3702,大聯大,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.1,9,電子通路業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,3715,定穎投控,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.0,28,電子零組件業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,4576,大銀微系統,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.0,29,機器人,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,4904,遠傳,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.0,63,通信網路業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,4934,太極,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,83.0,2,光電業_待細分,,等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。
+20260604,mainstream,4949,有成精密,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.0,30,光電業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,5388,中磊,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,83.0,3,網通交換器,,等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。
+20260604,mainstream,5471,松翰,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.0,31,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,6133,金橋,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,68.2,70,電子零組件業_待細分,false_breakout_risk_penalty:4,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260604,mainstream,6166,凌華,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.0,32,機器人自動化,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,6202,盛群,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.0,64,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,6206,飛捷,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.0,33,電源_BBU,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,6215,和椿,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.0,34,其他電子業_待細分,,等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。
+20260604,mainstream,6226,光鼎,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.0,65,光電業_待細分,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260604,mainstream,6235,華孚,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.0,66,電腦及週邊設備業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,6285,啟碁,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.0,67,低軌衛星,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,6412,群電,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.2,42,電源_BBU,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260604,mainstream,6426,統新,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.0,35,通信網路業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,6525,捷敏-KY,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.0,68,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,6830,汎銓,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.0,36,其他電子業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,8016,矽創,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.0,37,半導體業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,8114,振樺電,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.0,69,電腦及週邊設備業_待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,8374,羅昇,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.0,38,機器人自動化_電機機械待細分,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,1216,統一,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.0,26,食品工業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,1316,上曜,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,83.0,5,建材營造,,等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。
+20260604,non_mainstream,1402,遠東新,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.0,27,紡織纖維,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,1449,佳和,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.0,16,紡織纖維,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,1522,堤維西,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.0,17,汽車工業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,1808,潤隆,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,83.2,1,建材營造,,等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。
+20260604,non_mainstream,1810,和成,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.0,28,玻璃陶瓷,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,2014,中鴻,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.0,29,鋼鐵工業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260604,non_mainstream,2022,聚亨,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,83.1,4,鋼鐵工業,,等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。
+20260604,non_mainstream,2023,燁輝,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.0,30,鋼鐵工業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,2027,大成鋼,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.0,18,鋼鐵工業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,2032,新鋼,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.0,31,鋼鐵工業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,2101,南港,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,83.0,6,橡膠工業,,等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。
+20260604,non_mainstream,2204,中華,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,68.2,40,汽車工業,false_breakout_risk_penalty:4,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,2233,宇隆,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.0,32,機器人自動化,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,2241,艾姆勒,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,83.0,7,汽車工業,,等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。
+20260604,non_mainstream,2442,新美齊,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,83.2,2,建材營造,,等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。
+20260604,non_mainstream,2537,聯上發,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,83.0,8,建材營造,,等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。
+20260604,non_mainstream,2542,興富發,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.2,15,建材營造,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260604,non_mainstream,2606,裕民,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.0,19,航運業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,2610,華航,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.0,33,航運業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,2615,萬海,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.0,34,航運業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,2618,長榮航,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.0,35,航運業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260604,non_mainstream,2637,慧洋-KY,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,78.6,9,航運業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,2646,星宇航空,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.0,20,航運業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,2851,中再保,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.0,21,金融保險業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,2867,三商壽,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.5,12,金融保險業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,2885,元大金,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,78.0,11,金融保險業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,2886,兆豐金,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.0,22,金融保險業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,2892,第一金,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,78.1,10,金融保險業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
+20260604,non_mainstream,2897,王道銀行,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.3,14,金融保險業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,3033,威健,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.0,36,半導體業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,4142,國光生,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.5,13,生技醫療業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,4764,雙鍵,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.0,23,化學工業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,5522,遠雄,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,83.2,3,建材營造,,等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。
+20260604,non_mainstream,5876,上海商銀,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.0,37,金融保險業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,6446,藥華藥,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.0,24,生技醫療業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,6589,台康生技,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.0,25,生技醫療業,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,9914,美利達,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.0,38,運動休閒,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,non_mainstream,9938,百和,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.0,39,其他,,等待量價、TDCC、相對強弱至少一項轉強。
+20260604,mainstream,1504,東元,volume_range_breakout,底部放量攻擊模型,pdf_core_model,64.2,12,機器人自動化_電機機械待細分,tdcc_distribution_penalty:6 | tdcc_distribution_warning | continued_overheated | B_bottom_volume_attack_with_risk,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260604,mainstream,1514,亞力,volume_range_breakout,底部放量攻擊模型,pdf_core_model,69.7,10,重電電網,tdcc_distribution_penalty:6 | tdcc_distribution_warning | continued_overheated | B_bottom_volume_attack_with_risk,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260604,mainstream,1611,中電,volume_range_breakout,底部放量攻擊模型,pdf_core_model,80.0,7,重電電網_電器電纜待細分,tdcc_distribution_penalty:6 | tdcc_distribution_warning | continued_overheated | B_bottom_volume_attack_with_risk,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260604,mainstream,1616,億泰,volume_range_breakout,底部放量攻擊模型,pdf_core_model,59.9,13,重電電網_電器電纜待細分,tdcc_distribution_penalty:6 | tdcc_distribution_warning | continued_overheated | B_bottom_volume_attack_with_risk,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260604,mainstream,2440,太空梭,volume_range_breakout,底部放量攻擊模型,pdf_core_model,83.4,5,電子零組件業_待細分,,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260604,mainstream,2493,揚博,volume_range_breakout,底部放量攻擊模型,pdf_core_model,72.0,9,電子零組件業_待細分,continued_overheated,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260604,mainstream,3015,全漢,volume_range_breakout,底部放量攻擊模型,pdf_core_model,97.3,1,電源_BBU,continued_overheated,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260604,mainstream,3049,精金,volume_range_breakout,底部放量攻擊模型,pdf_core_model,93.5,2,光電業_待細分,continued_overheated,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260604,mainstream,3312,弘憶股,volume_range_breakout,底部放量攻擊模型,pdf_core_model,78.6,8,電子通路業_待細分,continued_overheated,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260604,mainstream,3550,聯穎,volume_range_breakout,底部放量攻擊模型,pdf_core_model,89.0,3,電子零組件業_待細分,continued_overheated,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260604,mainstream,4532,瑞智,volume_range_breakout,底部放量攻擊模型,pdf_core_model,49.1,14,機器人自動化_電機機械待細分,tdcc_distribution_penalty:6 | tdcc_distribution_warning | stale_signal | B_bottom_volume_attack_with_risk,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260604,mainstream,5285,界霖,volume_range_breakout,底部放量攻擊模型,pdf_core_model,67.1,11,半導體業_待細分,continued_overheated,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260604,mainstream,8070,長華*,volume_range_breakout,底部放量攻擊模型,pdf_core_model,88.8,4,電子通路業_待細分,continued_overheated,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260604,mainstream,8454,富邦媒,volume_range_breakout,底部放量攻擊模型,pdf_core_model,82.4,6,數位雲端_待細分,continued_overheated,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260604,non_mainstream,1708,東鹼,volume_range_breakout,底部放量攻擊模型,pdf_core_model,100.0,1,化學工業,continued_overheated,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260604,non_mainstream,1714,和桐,volume_range_breakout,底部放量攻擊模型,pdf_core_model,92.0,5,化學工業,continued_overheated,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260604,non_mainstream,1718,中纖,volume_range_breakout,底部放量攻擊模型,pdf_core_model,71.3,12,化學工業,continued_overheated,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260604,non_mainstream,1904,正隆,volume_range_breakout,底部放量攻擊模型,pdf_core_model,96.9,3,造紙工業,continued_overheated,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260604,non_mainstream,1905,華紙,volume_range_breakout,底部放量攻擊模型,pdf_core_model,90.0,7,造紙工業,tdcc_distribution_penalty:6 | tdcc_distribution_warning | continued_overheated | B_bottom_volume_attack_with_risk,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260604,non_mainstream,1907,永豐餘,volume_range_breakout,底部放量攻擊模型,pdf_core_model,54.0,17,造紙工業,tdcc_distribution_penalty:6 | long_upper_shadow_quality_penalty:2.0 | tdcc_distribution_warning | stale_signal | long_upper_shadow_quality_penalty | B_bottom_volume_attack_with_risk,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260604,non_mainstream,1909,榮成,volume_range_breakout,底部放量攻擊模型,pdf_core_model,81.5,9,造紙工業,,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260604,non_mainstream,2108,南帝,volume_range_breakout,底部放量攻擊模型,pdf_core_model,66.0,14,橡膠工業,tdcc_distribution_penalty:6 | tdcc_distribution_warning | continued_overheated | B_bottom_volume_attack_with_risk,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260604,non_mainstream,2731,雄獅,volume_range_breakout,底部放量攻擊模型,pdf_core_model,68.6,13,觀光餐旅,,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260604,non_mainstream,2855,統一證,volume_range_breakout,底部放量攻擊模型,pdf_core_model,50.8,18,金融保險業,tdcc_distribution_penalty:6 | long_upper_shadow_quality_penalty:2.8 | tdcc_distribution_warning | continued_overheated | long_upper_shadow_quality_penalty | B_bottom_volume_attack_with_risk,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260604,non_mainstream,2883,凱基金,volume_range_breakout,底部放量攻擊模型,pdf_core_model,90.2,6,金融保險業,continued_overheated,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260604,non_mainstream,3056,富華新,volume_range_breakout,底部放量攻擊模型,pdf_core_model,71.9,11,建材營造,,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260604,non_mainstream,3346,麗清,volume_range_breakout,底部放量攻擊模型,pdf_core_model,72.1,10,汽車工業,continued_overheated,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260604,non_mainstream,6890,來億-KY,volume_range_breakout,底部放量攻擊模型,pdf_core_model,94.8,4,運動休閒,continued_overheated,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260604,non_mainstream,8077,洛碁,volume_range_breakout,底部放量攻擊模型,pdf_core_model,62.4,15,觀光餐旅,,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260604,non_mainstream,9103,美德醫療-DR,volume_range_breakout,底部放量攻擊模型,pdf_core_model,60.6,16,DR_or_foreign_listing,tdcc_distribution_penalty:6 | tdcc_distribution_warning | B_bottom_volume_attack_with_risk,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260604,non_mainstream,9934,成霖,volume_range_breakout,底部放量攻擊模型,pdf_core_model,98.0,2,居家生活,continued_overheated,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260604,non_mainstream,9958,世紀鋼,volume_range_breakout,底部放量攻擊模型,pdf_core_model,82.5,8,鋼鐵工業,,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260604,non_mainstream,2014,中鴻,w_bottom_right_side,W底右側模型,pdf_core_model,62.0,1,鋼鐵工業,,確認放量站上頸線/平台壓力，且收盤靠近高點。
