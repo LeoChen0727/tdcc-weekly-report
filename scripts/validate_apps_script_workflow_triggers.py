@@ -10,6 +10,7 @@ WORKFLOW_DIR = ROOT / ".github" / "workflows"
 
 EXPECTED_DISPATCHES = {
     "daily_full_pipeline.yml",
+    "individual_stock_data_refresh.yml",
     "tdcc_weekly.yml",
     "event_catalyst_update.yml",
     "weekly_theme_review.yml",
@@ -33,9 +34,9 @@ def workflow_inputs(workflow_file: str) -> set[str]:
     return set(re.findall(r"^\s{6}([A-Za-z0-9_]+):\s*$", body, re.M))
 
 
-def apps_script_dispatches() -> dict[str, set[str]]:
+def apps_script_dispatches() -> dict[str, dict[str, str]]:
     text = read_text(APPS_SCRIPT)
-    dispatches: dict[str, set[str]] = {}
+    dispatches: dict[str, dict[str, str]] = {}
     pattern = re.compile(
         r'dispatchWorkflow_\("(?P<workflow>[^"]+)"(?:,\s*\{(?P<inputs>.*?)\})?\);',
         re.S,
@@ -43,7 +44,9 @@ def apps_script_dispatches() -> dict[str, set[str]]:
     for match in pattern.finditer(text):
         workflow = match.group("workflow")
         inputs_body = match.group("inputs") or ""
-        inputs = set(re.findall(r"^\s*([A-Za-z0-9_]+)\s*:", inputs_body, re.M))
+        inputs = dict(
+            re.findall(r'^\s*([A-Za-z0-9_]+)\s*:\s*"([^"]*)"', inputs_body, re.M)
+        )
         dispatches[workflow] = inputs
     return dispatches
 
@@ -68,7 +71,7 @@ def main() -> int:
 
     research_workflow = "research_backtest_pipeline.yml"
     research_inputs = workflow_inputs(research_workflow)
-    apps_inputs = dispatches.get(research_workflow, set())
+    apps_inputs = set(dispatches.get(research_workflow, {}))
     missing_inputs = research_inputs - apps_inputs
     extra_inputs = apps_inputs - research_inputs
     if missing_inputs:
@@ -76,14 +79,34 @@ def main() -> int:
     if extra_inputs:
         errors.append(f"Apps Script research dispatch has unknown inputs: {sorted(extra_inputs)}")
 
+    daily_workflow = "daily_full_pipeline.yml"
+    daily_expected_false_inputs = {
+        "run_child_pattern_workflows",
+        "run_raw_health_check",
+        "run_individual_stock_outputs",
+    }
+    daily_inputs = dispatches.get(daily_workflow, {})
+    missing_daily_inputs = daily_expected_false_inputs - set(daily_inputs)
+    bad_daily_values = {
+        key: value
+        for key, value in daily_inputs.items()
+        if key in daily_expected_false_inputs and value != "false"
+    }
+    if missing_daily_inputs:
+        errors.append(f"Apps Script daily dispatch missing false inputs: {sorted(missing_daily_inputs)}")
+    if bad_daily_values:
+        errors.append(f"Apps Script daily dispatch inputs must be false: {bad_daily_values}")
+
     required_functions = {
         "triggerDailyStockMonitor",
         "triggerDailyFullPipeline",
+        "triggerIndividualStockDataRefresh",
         "triggerTdccWeeklyReport",
         "triggerEventCatalystUpdate",
         "triggerWeeklyThemeReview",
         "triggerResearchBacktestPipeline",
         "installAllWorkflowTriggers",
+        "installIndividualStockDataRefreshTrigger_",
         "installBiweeklyResearchBacktestTrigger",
         "listAllTriggers",
     }

@@ -6,7 +6,6 @@ from pathlib import Path
 from typing import Any
 from zoneinfo import ZoneInfo
 import re
-import shutil
 
 import pandas as pd
 
@@ -16,16 +15,14 @@ from action_decision_utils import compute_action_decision
 OWNER_REPO = "LeoChen0727/tdcc-weekly-report"
 RAW_PREFIX = f"https://raw.githubusercontent.com/{OWNER_REPO}/main"
 PAGES_PREFIX = "https://LeoChen0727.github.io/tdcc-weekly-report"
+PAGES_NOT_PUBLISHED = "not_published_to_pages_use_raw_or_github_api"
 
 DATA_PRICE_DIR = Path("data/stock_price_history")
 DATA_TDCC_DIR = Path("data/tdcc_stock_history")
 LATEST_DIR = Path("output/latest")
 PACKET_DIR = LATEST_DIR / "individual_stock_chatgpt_packets"
-DOCS_PACKET_DIR = Path("docs/latest/individual_stock_chatgpt_packets")
 PRICE_WINDOW_DIR = LATEST_DIR / "individual_stock_price_windows"
-DOCS_PRICE_WINDOW_DIR = Path("docs/latest/individual_stock_price_windows")
 TDCC_WINDOW_DIR = LATEST_DIR / "individual_stock_tdcc_windows"
-DOCS_TDCC_WINDOW_DIR = Path("docs/latest/individual_stock_tdcc_windows")
 PACKET_INDEX_CSV = LATEST_DIR / "individual_stock_chatgpt_packet_index.csv"
 PACKET_INDEX_MD = LATEST_DIR / "individual_stock_chatgpt_packet_index.md"
 DOCS_PACKET_INDEX_CSV = Path("docs/latest/individual_stock_chatgpt_packet_index.csv")
@@ -427,17 +424,11 @@ def build_packet(
     latest_tdcc_date = latest_date(tdcc_df, ["as_of_date", "date"])
 
     packet_path = PACKET_DIR / f"{stock_id}_packet_latest.md"
-    docs_packet_path = DOCS_PACKET_DIR / f"{stock_id}_packet_latest.md"
     price_window_path = PRICE_WINDOW_DIR / f"{stock_id}_price_window_{price_days}_latest.csv"
     price_window_txt_path = PRICE_WINDOW_DIR / f"{stock_id}_price_window_{price_days}_latest.txt"
     price_window_html_path = PRICE_WINDOW_DIR / f"{stock_id}_price_window_{price_days}_latest.html"
-    docs_price_window_path = DOCS_PRICE_WINDOW_DIR / price_window_path.name
-    docs_price_window_txt_path = DOCS_PRICE_WINDOW_DIR / price_window_txt_path.name
-    docs_price_window_html_path = DOCS_PRICE_WINDOW_DIR / price_window_html_path.name
     tdcc_window_path = TDCC_WINDOW_DIR / f"{stock_id}_tdcc_window_latest.csv"
     tdcc_window_txt_path = TDCC_WINDOW_DIR / f"{stock_id}_tdcc_window_latest.txt"
-    docs_tdcc_window_path = DOCS_TDCC_WINDOW_DIR / tdcc_window_path.name
-    docs_tdcc_window_txt_path = DOCS_TDCC_WINDOW_DIR / tdcc_window_txt_path.name
     price_path = DATA_PRICE_DIR / f"{stock_id}.csv"
     tdcc_path = DATA_TDCC_DIR / f"{stock_id}.csv"
     report_md = REPORT_DIR / f"{stock_id}_latest.md"
@@ -512,16 +503,11 @@ def build_packet(
         limit=tdcc_weeks,
     )
     write_csv(price_window_df, price_window_path)
-    write_csv(price_window_df, docs_price_window_path)
     price_window_prefix = f"PRICE_WINDOW_{price_days}"
     write_blankline_kv_window(price_window_df, price_window_txt_path, price_window_prefix)
-    write_blankline_kv_window(price_window_df, docs_price_window_txt_path, price_window_prefix)
     write_html_table(price_window_df, price_window_html_path, f"{stock_id} {stock_name} price window {len(price_window_df)} rows")
-    write_html_table(price_window_df, docs_price_window_html_path, f"{stock_id} {stock_name} price window {len(price_window_df)} rows")
     write_csv(tdcc_window_df, tdcc_window_path)
-    write_csv(tdcc_window_df, docs_tdcc_window_path)
     write_blankline_kv_window(tdcc_window_df, tdcc_window_txt_path, "TDCC_WINDOW")
-    write_blankline_kv_window(tdcc_window_df, docs_tdcc_window_txt_path, "TDCC_WINDOW")
 
     lines: list[str] = [
         f"# INDIVIDUAL STOCK CHATGPT PACKET - {stock_id} {stock_name}".rstrip(),
@@ -541,29 +527,29 @@ def build_packet(
         f"- notes: {notes}",
         "",
         "## Stable Read URLs",
-        f"- packet_pages_url: {pages_url_for(docs_packet_path)}",
+        f"- packet_pages_url: {PAGES_NOT_PUBLISHED}",
         f"- packet_raw_url: {raw_url(packet_path)}",
         f"- packet_github_api_url: {github_api_url(packet_path)}",
-        f"- price_window_{price_days}_pages_url: {pages_url_for(docs_price_window_path)}",
+        f"- price_window_{price_days}_pages_url: {PAGES_NOT_PUBLISHED}",
         f"- price_window_{price_days}_raw_url: {raw_url(price_window_path)}",
         f"- price_window_{price_days}_github_api_url: {github_api_url(price_window_path)}",
-        f"- price_window_{price_days}_txt_pages_url: {pages_url_for(docs_price_window_txt_path)}",
+        f"- price_window_{price_days}_txt_pages_url: {PAGES_NOT_PUBLISHED}",
         f"- price_window_{price_days}_txt_raw_url: {raw_url(price_window_txt_path)}",
         f"- price_window_{price_days}_txt_github_api_url: {github_api_url(price_window_txt_path)}",
-        f"- price_window_{price_days}_html_pages_url: {pages_url_for(docs_price_window_html_path)}",
+        f"- price_window_{price_days}_html_pages_url: {PAGES_NOT_PUBLISHED}",
         f"- price_window_{price_days}_html_raw_url: {raw_url(price_window_html_path)}",
         f"- price_window_{price_days}_html_github_api_url: {github_api_url(price_window_html_path)}",
-        f"- tdcc_window_pages_url: {pages_url_for(docs_tdcc_window_path)}",
+        f"- tdcc_window_pages_url: {PAGES_NOT_PUBLISHED}",
         f"- tdcc_window_raw_url: {raw_url(tdcc_window_path)}",
         f"- tdcc_window_github_api_url: {github_api_url(tdcc_window_path)}",
-        f"- tdcc_window_txt_pages_url: {pages_url_for(docs_tdcc_window_txt_path)}",
+        f"- tdcc_window_txt_pages_url: {PAGES_NOT_PUBLISHED}",
         f"- tdcc_window_txt_raw_url: {raw_url(tdcc_window_txt_path)}",
         f"- tdcc_window_txt_github_api_url: {github_api_url(tdcc_window_txt_path)}",
         f"- price_raw_url: {raw_url(price_path)}",
-        f"- price_pages_url: {pages_url_for(Path('docs/data/stock_price_history') / price_path.name)}",
+        f"- price_pages_url: {PAGES_NOT_PUBLISHED}",
         f"- price_github_api_url: {github_api_url(price_path)}",
         f"- tdcc_raw_url: {raw_url(tdcc_path)}",
-        f"- tdcc_pages_url: {pages_url_for(Path('docs/data/tdcc_stock_history') / tdcc_path.name)}",
+        f"- tdcc_pages_url: {PAGES_NOT_PUBLISHED}",
         f"- tdcc_github_api_url: {github_api_url(tdcc_path)}",
         f"- individual_report_md_raw_url: {raw_url(report_md)}",
         f"- individual_report_md_pages_url: {pages_url_for(DOCS_REPORT_DIR / report_md.name)}",
@@ -778,22 +764,22 @@ def build_packet(
         "model_category_display_zh": action_decision["model_category_display_zh"],
         "packet_lines": line_count,
         "packet_raw_url": raw_url(packet_path),
-        "packet_pages_url": pages_url_for(docs_packet_path),
+        "packet_pages_url": PAGES_NOT_PUBLISHED,
         "packet_github_api_url": github_api_url(packet_path),
         f"price_window_{price_days}_raw_url": raw_url(price_window_path),
-        f"price_window_{price_days}_pages_url": pages_url_for(docs_price_window_path),
+        f"price_window_{price_days}_pages_url": PAGES_NOT_PUBLISHED,
         f"price_window_{price_days}_github_api_url": github_api_url(price_window_path),
         f"price_window_{price_days}_txt_raw_url": raw_url(price_window_txt_path),
-        f"price_window_{price_days}_txt_pages_url": pages_url_for(docs_price_window_txt_path),
+        f"price_window_{price_days}_txt_pages_url": PAGES_NOT_PUBLISHED,
         f"price_window_{price_days}_txt_github_api_url": github_api_url(price_window_txt_path),
         f"price_window_{price_days}_html_raw_url": raw_url(price_window_html_path),
-        f"price_window_{price_days}_html_pages_url": pages_url_for(docs_price_window_html_path),
+        f"price_window_{price_days}_html_pages_url": PAGES_NOT_PUBLISHED,
         f"price_window_{price_days}_html_github_api_url": github_api_url(price_window_html_path),
         "tdcc_window_raw_url": raw_url(tdcc_window_path),
-        "tdcc_window_pages_url": pages_url_for(docs_tdcc_window_path),
+        "tdcc_window_pages_url": PAGES_NOT_PUBLISHED,
         "tdcc_window_github_api_url": github_api_url(tdcc_window_path),
         "tdcc_window_txt_raw_url": raw_url(tdcc_window_txt_path),
-        "tdcc_window_txt_pages_url": pages_url_for(docs_tdcc_window_txt_path),
+        "tdcc_window_txt_pages_url": PAGES_NOT_PUBLISHED,
         "tdcc_window_txt_github_api_url": github_api_url(tdcc_window_txt_path),
         "price_raw_url": raw_url(price_path),
         "tdcc_raw_url": raw_url(tdcc_path),
@@ -876,7 +862,7 @@ def write_index_md(index: pd.DataFrame) -> None:
 
 
 def clear_packet_dirs() -> None:
-    for directory in [PACKET_DIR, DOCS_PACKET_DIR, PRICE_WINDOW_DIR, DOCS_PRICE_WINDOW_DIR, TDCC_WINDOW_DIR, DOCS_TDCC_WINDOW_DIR]:
+    for directory in [PACKET_DIR, PRICE_WINDOW_DIR, TDCC_WINDOW_DIR]:
         directory.mkdir(parents=True, exist_ok=True)
         for path in (
             list(directory.glob("*_packet_latest.md"))
@@ -918,7 +904,6 @@ def main() -> int:
         stock_ids = stock_ids[: args.limit]
 
     PACKET_DIR.mkdir(parents=True, exist_ok=True)
-    DOCS_PACKET_DIR.mkdir(parents=True, exist_ok=True)
 
     rows: list[dict[str, Any]] = []
     for stock_id in stock_ids:
@@ -935,9 +920,7 @@ def main() -> int:
             tdcc_weeks=args.tdcc_weeks,
         )
         packet_path = PACKET_DIR / f"{stock_id}_packet_latest.md"
-        docs_packet_path = DOCS_PACKET_DIR / f"{stock_id}_packet_latest.md"
         write_text(packet_path, text)
-        shutil.copyfile(packet_path, docs_packet_path)
         rows.append(index_row)
 
     index = write_index(rows, merge_existing=merge_existing)

@@ -8,7 +8,7 @@
     "readme_report_ready": "True",
     "readme_index_main_price_date": "20260605",
     "readme_index_report_ready": "True",
-    "preferred_chatgpt_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/7d66550bbe757f5c30f06861662d7da4f96a012c/output/history/reports/20260605_CHATGPT_DAILY_REPORT_PACKET.txt",
+    "preferred_chatgpt_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/63bfeacd0946b45020c9d9454085dad6ab8a1ba7/output/history/reports/20260605_CHATGPT_DAILY_REPORT_PACKET.txt",
     "readme_cache_bypass_order": [
       "readme_date_stamped_raw_url",
       "readme_date_stamped_github_api_url",
@@ -35,11 +35,13 @@
     "individual_stock_primary_read_order": [
       "individual_stock_chatgpt_packet_raw_url_template",
       "individual_stock_chatgpt_packet_github_api_url_template",
-      "individual_stock_chatgpt_packet_pages_url_template",
       "individual_stock_price_window_180_html_raw_url_template",
       "individual_stock_price_window_180_html_github_api_url_template",
-      "individual_stock_price_window_180_html_pages_url_template",
+      "individual_stock_price_window_180_txt_raw_url_template",
+      "individual_stock_price_window_180_txt_github_api_url_template",
       "individual_stock_price_github_api_url_template",
+      "individual_stock_tdcc_window_txt_raw_url_template",
+      "individual_stock_tdcc_window_txt_github_api_url_template",
       "individual_stock_tdcc_github_api_url_template"
     ],
     "chatgpt_daily_rules_present": true,

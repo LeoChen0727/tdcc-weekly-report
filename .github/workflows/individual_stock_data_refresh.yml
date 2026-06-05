@@ -1,0 +1,66 @@
+name: Individual Stock Data Refresh
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: individual-stock-data-refresh-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  individual-stock-data-refresh:
+    runs-on: ubuntu-latest
+
+    env:
+      TARGET_BRANCH: ${{ github.ref_name }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.ref_name }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas requests tabulate matplotlib pillow openpyxl lxml html5lib beautifulsoup4 reportlab pypdf
+
+      - name: Build individual stock packets and windows
+        run: |
+          python scripts/build_individual_stock_chatgpt_packets.py
+          python scripts/build_individual_stock_raw_data_index.py
+          python scripts/validate_individual_stock_outputs.py --all
+
+      - name: Commit individual stock refresh outputs
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+          git pull --rebase --autostash origin "$TARGET_BRANCH" || true
+
+          git add output/latest/individual_stock_chatgpt_packets/ || true
+          git add output/latest/individual_stock_price_windows/ || true
+          git add output/latest/individual_stock_tdcc_windows/ || true
+          git add output/latest/individual_stock_available_raw_data_index.* || true
+          git add output/latest/individual_stock_available_raw_data_index_slim.* || true
+          git add output/latest/individual_stock_read_protocol_latest.md || true
+          git add output/latest/individual_stock_reports_index.* || true
+          git add output/latest/individual_stock_chatgpt_packet_index.* || true
+          git add docs/latest/individual_stock_available_raw_data_index.* || true
+          git add docs/latest/individual_stock_available_raw_data_index_slim.* || true
+          git add docs/latest/individual_stock_read_protocol_latest.md || true
+          git add docs/latest/individual_stock_reports_index.* || true
+          git add docs/latest/individual_stock_chatgpt_packet_index.* || true
+
+          git status --short
+          git commit -m "Refresh individual stock data packets" || echo "No changes to commit"
+
+          bash scripts/ci_push_with_retry.sh "$TARGET_BRANCH" 5

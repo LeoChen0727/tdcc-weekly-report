@@ -5,7 +5,6 @@ from pathlib import Path
 from typing import Any
 from zoneinfo import ZoneInfo
 import re
-import shutil
 
 import pandas as pd
 
@@ -16,8 +15,7 @@ PAGES_PREFIX = "https://LeoChen0727.github.io/tdcc-weekly-report"
 
 DATA_PRICE_DIR = Path("data/stock_price_history")
 DATA_TDCC_DIR = Path("data/tdcc_stock_history")
-DOCS_DATA_PRICE_DIR = Path("docs/data/stock_price_history")
-DOCS_DATA_TDCC_DIR = Path("docs/data/tdcc_stock_history")
+PAGES_NOT_PUBLISHED = "not_published_to_pages_use_raw_or_github_api"
 LATEST_DIR = Path("output/latest")
 REPORT_DIR = LATEST_DIR / "individual_stock_reports"
 DOCS_REPORT_DIR = Path("docs/latest/individual_stock_reports")
@@ -196,35 +194,6 @@ def market_data_flags(stock_id: str, candidates: pd.DataFrame, warrants: pd.Data
     return flags
 
 
-def mirror_stock_raw_files(stock_id: str, has_individual_report: bool) -> tuple[str, str]:
-    if not has_individual_report:
-        return "", ""
-    price_src = DATA_PRICE_DIR / f"{stock_id}.csv"
-    tdcc_src = DATA_TDCC_DIR / f"{stock_id}.csv"
-    price_dst = DOCS_DATA_PRICE_DIR / f"{stock_id}.csv"
-    tdcc_dst = DOCS_DATA_TDCC_DIR / f"{stock_id}.csv"
-    mirrored_price = ""
-    mirrored_tdcc = ""
-    if price_src.exists():
-        price_dst.parent.mkdir(parents=True, exist_ok=True)
-        copy_csv_standard(price_src, price_dst)
-        mirrored_price = price_dst.as_posix()
-    if tdcc_src.exists():
-        tdcc_dst.parent.mkdir(parents=True, exist_ok=True)
-        copy_csv_standard(tdcc_src, tdcc_dst)
-        mirrored_tdcc = tdcc_dst.as_posix()
-    return mirrored_price, mirrored_tdcc
-
-
-def copy_csv_standard(src: Path, dst: Path) -> None:
-    df = read_csv(src)
-    if df.empty:
-        shutil.copyfile(src, dst)
-        return
-    dst.parent.mkdir(parents=True, exist_ok=True)
-    df.to_csv(dst, index=False, encoding="utf-8", lineterminator="\n")
-
-
 def build_indexes() -> tuple[pd.DataFrame, pd.DataFrame]:
     candidates = read_csv(ALL_CANDIDATES_CSV)
     warrants = read_csv(WARRANT_FLOW_CSV)
@@ -245,7 +214,6 @@ def build_indexes() -> tuple[pd.DataFrame, pd.DataFrame]:
         tdcc_df = read_csv(tdcc_path)
         stock_name = stock_name_from_df(price_df) or stock_name_from_df(tdcc_df)
         has_individual_md = latest_md.exists()
-        docs_price_path, docs_tdcc_path = mirror_stock_raw_files(stock_id, has_individual_md)
 
         flags = market_data_flags(stock_id, candidates, warrants, signals)
         price_rows = int(len(price_df)) if not price_df.empty else 0
@@ -278,14 +246,14 @@ def build_indexes() -> tuple[pd.DataFrame, pd.DataFrame]:
             "price_history_rows": price_rows,
             "latest_price_date": latest_date_from(price_df, ["date", "trade_date"]),
             "price_history_raw_url": raw_url(price_path),
-            "price_history_pages_url": pages_url_for(Path(docs_price_path)) if docs_price_path else "",
+            "price_history_pages_url": PAGES_NOT_PUBLISHED,
             "price_history_github_api_url": github_api_url(price_path),
             "has_tdcc_history": bool(tdcc_rows),
             "tdcc_history_rows": tdcc_rows,
             "latest_tdcc_date": latest_date_from(tdcc_df, ["as_of_date", "date", "signal_date"]),
             "tdcc_history_status": "ok" if tdcc_rows >= 8 else ("insufficient_tdcc_history" if tdcc_rows else "tdcc_history_missing"),
             "tdcc_history_raw_url": raw_url(tdcc_path),
-            "tdcc_history_pages_url": pages_url_for(Path(docs_tdcc_path)) if docs_tdcc_path else "",
+            "tdcc_history_pages_url": PAGES_NOT_PUBLISHED,
             "tdcc_history_github_api_url": github_api_url(tdcc_path),
             "has_individual_md": has_individual_md,
             "has_individual_pdf": latest_pdf.exists(),

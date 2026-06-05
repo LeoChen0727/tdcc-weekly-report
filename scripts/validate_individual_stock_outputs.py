@@ -195,28 +195,13 @@ def validate_stock(stock_id: str, main_price_date: str) -> list[str]:
             latest_price_date_from_packet,
         ),
         (
-            "docs packet latest_price_date",
-            DOCS_LATEST_DIR / "individual_stock_chatgpt_packets" / f"{stock_id}_packet_latest.md",
-            latest_price_date_from_packet,
-        ),
-        (
             "output 180d txt price window",
             LATEST_DIR / "individual_stock_price_windows" / f"{stock_id}_price_window_180_latest.txt",
             latest_price_date_from_txt_window,
         ),
         (
-            "docs 180d txt price window",
-            DOCS_LATEST_DIR / "individual_stock_price_windows" / f"{stock_id}_price_window_180_latest.txt",
-            latest_price_date_from_txt_window,
-        ),
-        (
             "output 180d csv price window",
             LATEST_DIR / "individual_stock_price_windows" / f"{stock_id}_price_window_180_latest.csv",
-            latest_price_date_from_csv_window,
-        ),
-        (
-            "docs 180d csv price window",
-            DOCS_LATEST_DIR / "individual_stock_price_windows" / f"{stock_id}_price_window_180_latest.csv",
             latest_price_date_from_csv_window,
         ),
     ]
@@ -232,7 +217,6 @@ def validate_stock(stock_id: str, main_price_date: str) -> list[str]:
 
     packet_paths = [
         LATEST_DIR / "individual_stock_chatgpt_packets" / f"{stock_id}_packet_latest.md",
-        DOCS_LATEST_DIR / "individual_stock_chatgpt_packets" / f"{stock_id}_packet_latest.md",
     ]
     for path in packet_paths:
         errors.extend(validate_action_display_packet(stock_id, path))

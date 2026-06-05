@@ -12,9 +12,9 @@ on:
         required: false
         default: "false"
       run_individual_stock_outputs:
-        description: "Build per-stock ChatGPT packets, 180d windows, raw data indexes"
+        description: "Build bulk per-stock ChatGPT packets/windows. Normally use individual_stock_data_refresh.yml instead."
         required: false
-        default: "true"
+        default: "false"
 
 permissions:
   contents: write
@@ -414,7 +414,6 @@ jobs:
           git add output/history/daily_signals/daily_theme_status_history.csv || true
           git add output/history/daily_candidates/daily_theme_status_history.csv || true
           git add output/history/market_risk/ || true
-          git add docs/data/stock_price_history/ docs/data/tdcc_stock_history/ || true
 
           git status --short
           git commit -m "Update daily report artifacts and packets" || echo "No changes to commit"
@@ -480,13 +479,13 @@ jobs:
 
           git pull --rebase --autostash origin "$TARGET_BRANCH" || true
 
-          # Publish step only commits readme, URL checks, ChatGPT entry files, and individual-stock mirrors.
+          # Publish step only commits readme, URL checks, ChatGPT entry files, and small daily surfaces.
           git add output/latest/READ_ME_FIRST_DAILY_REPORT*.txt || true
           git add output/latest/READ_ME_FIRST_DAILY_REPORT_INDEX.* || true
           git add output/latest/report_publish_check_latest.* || true
           git add output/latest/daily_data_layer_consistency_audit_latest.* || true
           git add output/latest/raw_data_fetch_status_latest.* || true
-          git add output/latest/individual_stock_* || true
+          git add output/latest/individual_stock_technical_snapshot_latest.* || true
           git add output/latest/pdf_kline_chart_status_latest.* || true
           git add output/latest/chatgpt_daily_report_packet_latest.txt || true
           git add output/latest/CHATGPT_DAILY_REPORT_PACKET.txt || true
@@ -494,7 +493,6 @@ jobs:
           git add output/latest/chatgpt_indicator_usage_guide_latest.md || true
           git add output/latest/CHATGPT_INDICATOR_USAGE_GUIDE.txt || true
           git add docs/latest/ || true
-          git add docs/data/stock_price_history/ docs/data/tdcc_stock_history/ || true
 
           git status --short
           git commit -m "Publish daily report readme and ChatGPT entries" || echo "No changes to commit"

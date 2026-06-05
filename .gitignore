@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+
+docs/latest/individual_stock_chatgpt_packets/
+docs/latest/individual_stock_price_windows/
+docs/latest/individual_stock_tdcc_windows/

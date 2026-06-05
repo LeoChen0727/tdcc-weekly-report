@@ -120,7 +120,11 @@ function triggerDailyStockMonitor() {
     Logger.log("Skip daily full pipeline on Sunday.");
     return;
   }
-  dispatchWorkflow_("daily_full_pipeline.yml");
+  dispatchWorkflow_("daily_full_pipeline.yml", {
+    run_child_pattern_workflows: "false",
+    run_raw_health_check: "false",
+    run_individual_stock_outputs: "false",
+  });
   Utilities.sleep(5000);
   logLatestWorkflowRuns_("daily_full_pipeline.yml");
 }
@@ -166,6 +170,12 @@ function triggerResearchBacktestPipeline() {
   logLatestWorkflowRuns_("research_backtest_pipeline.yml");
 }
 
+function triggerIndividualStockDataRefresh() {
+  dispatchWorkflow_("individual_stock_data_refresh.yml");
+  Utilities.sleep(5000);
+  logLatestWorkflowRuns_("individual_stock_data_refresh.yml");
+}
+
 function installBiweeklyResearchBacktestTrigger() {
   removeTriggersForFunction_("triggerResearchBacktestPipeline");
   ScriptApp.newTrigger("triggerResearchBacktestPipeline")
@@ -181,6 +191,7 @@ function installBiweeklyResearchBacktestTrigger() {
 
 function installAllWorkflowTriggers() {
   installDailyStockMonitorTrigger_();
+  installIndividualStockDataRefreshTrigger_();
   installTdccWeeklyReportTrigger_();
   installEventCatalystUpdateTriggers_();
   installWeeklyThemeReviewTrigger_();
@@ -196,6 +207,17 @@ function installDailyStockMonitorTrigger_() {
     .everyDays(1)
     .atHour(19)
     .nearMinute(30)
+    .inTimezone("Asia/Taipei")
+    .create();
+}
+
+function installIndividualStockDataRefreshTrigger_() {
+  removeTriggersForFunction_("triggerIndividualStockDataRefresh");
+  ScriptApp.newTrigger("triggerIndividualStockDataRefresh")
+    .timeBased()
+    .everyDays(1)
+    .atHour(22)
+    .nearMinute(20)
     .inTimezone("Asia/Taipei")
     .create();
 }
