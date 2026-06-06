@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-06 09:18:22 Asia/Taipei",
+  "generated_at": "2026-06-06 10:38:43 Asia/Taipei",
   "main_price_date": "20260605",
   "report_ready": "True",
-  "commit_sha": "ef8f7fa7233991cbae184e440df780efb0b91808",
+  "commit_sha": "2dccf23f2f5615289340934633d14c91ee11d305",
   "daily_read_contract": "raw_or_github_api_first_pages_auxiliary_only",
   "pages_cache_warning": "GitHub Pages may lag or deploy later than main; daily stock/PDF tasks must prefer raw/GitHub API entries and reject stale Pages dates.",
   "latest_readme_pages_url": "https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT.txt",
@@ -15,7 +15,7 @@
   "history_readme_raw_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260605_READ_ME_FIRST_DAILY_REPORT.txt",
   "astrology_read_protocol_pages_url": "https://LeoChen0727.github.io/tdcc-weekly-report/latest/astrology_read_protocol_latest.md",
   "astrology_read_protocol_raw_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/astrology_read_protocol_latest.md",
-  "preferred_chatgpt_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/ef8f7fa7233991cbae184e440df780efb0b91808/output/history/reports/20260605_CHATGPT_DAILY_REPORT_PACKET.txt",
+  "preferred_chatgpt_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/2dccf23f2f5615289340934633d14c91ee11d305/output/history/reports/20260605_CHATGPT_DAILY_REPORT_PACKET.txt",
   "recommended_read_order": [
     "astrology_read_protocol_pages_url only for Zi Wei / Ba Zi / astrology tasks",
     "astrology_read_protocol_raw_url only for Zi Wei / Ba Zi / astrology tasks",
