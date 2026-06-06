@@ -342,6 +342,10 @@ def extract_data_freshness() -> dict[str, str]:
         "official_price_fetch_date": "",
         "stock_monitor_date": "",
         "warrant_flow_date": "",
+        "warrant_ready": "",
+        "warrant_ready_note": "",
+        "daily_pdf_ready": "",
+        "daily_pdf_ready_note": "",
     }
 
     if DATA_FRESHNESS_CSV.exists():
@@ -355,6 +359,10 @@ def extract_data_freshness() -> dict[str, str]:
                 result["official_price_fetch_date"] = normalize_date(row.get("official_price_fetch_date", ""))
                 result["stock_monitor_date"] = normalize_date(row.get("stock_monitor_price_date", ""))
                 result["warrant_flow_date"] = normalize_date(row.get("warrant_flow_date", ""))
+                result["warrant_ready"] = str(row.get("warrant_ready", "")).strip()
+                result["warrant_ready_note"] = str(row.get("warrant_ready_note", "")).strip()
+                result["daily_pdf_ready"] = str(row.get("daily_pdf_ready", "")).strip()
+                result["daily_pdf_ready_note"] = str(row.get("daily_pdf_ready_note", "")).strip()
                 return result
         except Exception:
             pass
@@ -524,6 +532,11 @@ def build_readme(
     *,
     main_price_date: str,
     report_ready: str,
+    warrant_flow_date: str,
+    warrant_ready: str,
+    warrant_ready_note: str,
+    daily_pdf_ready: str,
+    daily_pdf_ready_note: str,
     commit_sha: str,
     readme_date_stamped_pages_url: str,
     readme_date_stamped_raw_url: str,
@@ -611,6 +624,11 @@ def build_readme(
         "astrology_market_data_note_rule=market_data_status_may_appear_only_as_one_sentence_in_wealth_stock_section_or_final_data_note",
         f"main_price_date={main_price_date}",
         f"report_ready={report_ready}",
+        f"warrant_flow_date={warrant_flow_date}",
+        f"warrant_ready={warrant_ready}",
+        f"warrant_ready_note={warrant_ready_note}",
+        f"daily_pdf_ready={daily_pdf_ready}",
+        f"daily_pdf_ready_note={daily_pdf_ready_note}",
         f"commit_sha={commit_sha}",
         "daily_read_contract=raw_or_github_api_first_pages_auxiliary_only",
         "pages_cache_warning=GitHub Pages may lag or deploy later than main; daily stock/PDF tasks must prefer raw/GitHub API entries and reject stale Pages dates.",
@@ -1090,6 +1108,10 @@ def build_readme_index(
     *,
     main_price_date: str,
     report_ready: str,
+    warrant_flow_date: str,
+    warrant_ready: str,
+    daily_pdf_ready: str,
+    daily_pdf_ready_note: str,
     commit_sha: str,
     readme_date_stamped_pages_url: str,
     readme_date_stamped_raw_url: str,
@@ -1102,6 +1124,10 @@ def build_readme_index(
         "generated_at": now_text(),
         "main_price_date": main_price_date,
         "report_ready": report_ready,
+        "warrant_flow_date": warrant_flow_date,
+        "warrant_ready": warrant_ready,
+        "daily_pdf_ready": daily_pdf_ready,
+        "daily_pdf_ready_note": daily_pdf_ready_note,
         "commit_sha": commit_sha,
         "daily_read_contract": "raw_or_github_api_first_pages_auxiliary_only",
         "pages_cache_warning": "GitHub Pages may lag or deploy later than main; daily stock/PDF tasks must prefer raw/GitHub API entries and reject stale Pages dates.",
@@ -1456,6 +1482,11 @@ def main() -> int:
     readme = build_readme(
         main_price_date=main_price_date,
         report_ready=report_ready,
+        warrant_flow_date=freshness.get("warrant_flow_date", ""),
+        warrant_ready=freshness.get("warrant_ready", ""),
+        warrant_ready_note=freshness.get("warrant_ready_note", ""),
+        daily_pdf_ready=freshness.get("daily_pdf_ready", ""),
+        daily_pdf_ready_note=freshness.get("daily_pdf_ready_note", ""),
         commit_sha=commit_sha,
         readme_date_stamped_pages_url=readme_date_stamped_pages_url,
         readme_date_stamped_raw_url=readme_date_stamped_raw_url,
@@ -1535,6 +1566,10 @@ def main() -> int:
     readme_index = build_readme_index(
         main_price_date=main_price_date,
         report_ready=report_ready,
+        warrant_flow_date=freshness.get("warrant_flow_date", ""),
+        warrant_ready=freshness.get("warrant_ready", ""),
+        daily_pdf_ready=freshness.get("daily_pdf_ready", ""),
+        daily_pdf_ready_note=freshness.get("daily_pdf_ready_note", ""),
         commit_sha=commit_sha,
         readme_date_stamped_pages_url=readme_date_stamped_pages_url,
         readme_date_stamped_raw_url=readme_date_stamped_raw_url,
@@ -1595,6 +1630,11 @@ def main() -> int:
         "generated_at": now_text(),
         "main_price_date": main_price_date,
         "report_ready": report_ready,
+        "warrant_flow_date": freshness.get("warrant_flow_date", ""),
+        "warrant_ready": freshness.get("warrant_ready", ""),
+        "warrant_ready_note": freshness.get("warrant_ready_note", ""),
+        "daily_pdf_ready": freshness.get("daily_pdf_ready", ""),
+        "daily_pdf_ready_note": freshness.get("daily_pdf_ready_note", ""),
         "commit_sha": commit_sha,
         "daily_read_contract": "raw_or_github_api_first_pages_auxiliary_only",
         "pages_cache_warning": "GitHub Pages may lag or deploy later than main; daily stock/PDF tasks must prefer raw/GitHub API entries and reject stale Pages dates.",

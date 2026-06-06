@@ -282,6 +282,32 @@ def determine_report_ready(
     return True, "core daily data dates match main_price_date"
 
 
+def determine_warrant_ready(main_price_date: str, warrant_flow_date: str) -> tuple[bool, str]:
+    if not main_price_date:
+        return False, "missing main_price_date"
+    if not warrant_flow_date:
+        return False, "missing warrant_flow_date"
+    if warrant_flow_date != main_price_date:
+        return False, (
+            "warrant_flow_date does not match main_price_date "
+            f"(warrant_flow_date={warrant_flow_date}, main_price_date={main_price_date})"
+        )
+    return True, "warrant_flow_date matches main_price_date"
+
+
+def determine_daily_pdf_ready(
+    report_ready: bool,
+    warrant_ready: bool,
+    report_ready_note: str,
+    warrant_ready_note: str,
+) -> tuple[bool, str]:
+    if not report_ready:
+        return False, f"core daily data not ready: {report_ready_note}"
+    if not warrant_ready:
+        return False, f"warrant layer not ready: {warrant_ready_note}"
+    return True, "core daily data and warrant layer are ready for daily PDF source use"
+
+
 def build_status() -> pd.DataFrame:
     actual_price_date = latest_stock_price_history_date()
 
@@ -307,6 +333,16 @@ def build_status() -> pd.DataFrame:
         all_candidates_date=all_candidates_date,
         official_fetch_date=official_fetch_date,
     )
+    warrant_ready, warrant_ready_note = determine_warrant_ready(
+        main_price_date=main_price_date,
+        warrant_flow_date=warrant_flow_date,
+    )
+    daily_pdf_ready, daily_pdf_ready_note = determine_daily_pdf_ready(
+        report_ready=report_ready,
+        warrant_ready=warrant_ready,
+        report_ready_note=report_ready_note,
+        warrant_ready_note=warrant_ready_note,
+    )
 
     row = {
         "generated_at": now_taipei(),
@@ -322,6 +358,10 @@ def build_status() -> pd.DataFrame:
         "raw_warrant_flow_date": raw_warrant_flow_date,
         "report_ready": report_ready,
         "report_ready_note": report_ready_note,
+        "warrant_ready": warrant_ready,
+        "warrant_ready_note": warrant_ready_note,
+        "daily_pdf_ready": daily_pdf_ready,
+        "daily_pdf_ready_note": daily_pdf_ready_note,
         "stock_monitor_note": component_note(raw_stock_monitor_date, stock_monitor_date, main_price_date),
         "all_candidates_note": component_note(raw_all_candidates_date, all_candidates_date, main_price_date),
         "official_fetch_note": component_note(raw_official_fetch_date, official_fetch_date, main_price_date),
@@ -340,6 +380,10 @@ def write_markdown(df: pd.DataFrame) -> None:
         f"- actual_stock_price_history_date: `{row.get('actual_stock_price_history_date', '')}`",
         f"- report_ready: `{row.get('report_ready', '')}`",
         f"- report_ready_note: {row.get('report_ready_note', '')}",
+        f"- warrant_ready: `{row.get('warrant_ready', '')}`",
+        f"- warrant_ready_note: {row.get('warrant_ready_note', '')}",
+        f"- daily_pdf_ready: `{row.get('daily_pdf_ready', '')}`",
+        f"- daily_pdf_ready_note: {row.get('daily_pdf_ready_note', '')}",
         "",
         "## Component Dates",
         "",

@@ -490,6 +490,28 @@ def load_candidates() -> pd.DataFrame:
     return df
 
 
+def freshness_truthy(value: Any) -> bool:
+    return safe_str(value).lower() in {"true", "1", "yes", "y"}
+
+
+def warrant_ready_from_freshness(freshness: dict[str, Any]) -> bool:
+    return freshness_truthy(freshness.get("warrant_ready", ""))
+
+
+def warrant_readiness_note(freshness: dict[str, Any]) -> str:
+    return (
+        safe_str(freshness.get("warrant_ready_note", ""))
+        or safe_str(freshness.get("warrant_note", ""))
+        or "warrant readiness was not reported"
+    )
+
+
+def effective_warrant_flow_date(freshness: dict[str, Any]) -> str:
+    if not warrant_ready_from_freshness(freshness):
+        return ""
+    return safe_str(freshness.get("warrant_flow_date", ""))
+
+
 def load_pdf_kline_chart_map() -> dict[tuple[str, str], Path]:
     """Return K-line chart paths keyed by (stock_id, category), with stock fallback."""
     if not PDF_KLINE_CHART_STATUS_CSV.exists():
@@ -636,6 +658,15 @@ def market_context_rows() -> list[list[Any]]:
 
 
 def warrant_context_rows(freshness: dict[str, Any]) -> list[list[Any]]:
+    if not warrant_ready_from_freshness(freshness):
+        return [
+            ["Item", "Status"],
+            ["Warrant date", safe_str(freshness.get("warrant_flow_date", "")) or "n/a"],
+            ["Main date", safe_str(freshness.get("main_price_date", "")) or "n/a"],
+            ["Readiness", warrant_readiness_note(freshness)],
+            ["Use in daily PDF", "disabled until warrant_flow_date matches main_price_date"],
+        ]
+
     if not WARRANT_FLOW_BY_STOCK_CSV.exists():
         return [["Item", "Status"], ["Warrant market", "warrant_flow_by_stock_latest.csv is not available"]]
     try:
@@ -2060,7 +2091,7 @@ def build_curated_pdf(df: pd.DataFrame, freshness: dict[str, Any], main_date: st
     )
     story: list[Any] = []
     report_ready = safe_str(freshness.get("report_ready", ""))
-    warrant_flow_date = safe_str(freshness.get("warrant_flow_date", ""))
+    warrant_flow_date = effective_warrant_flow_date(freshness)
     conclusion = market_conclusion(df)
     selected = selected_by_category(df)
     watch = top_watchlist(selected)
@@ -2072,6 +2103,7 @@ def build_curated_pdf(df: pd.DataFrame, freshness: dict[str, Any], main_date: st
     story.append(Spacer(1, 0.5 * cm))
     story.append(para(f"主資料日期：{main_date}", style_map["normal"]))
     story.append(para(f"資料狀態：report_ready={report_ready}", style_map["normal"]))
+    story.append(para(f"warrant_ready={safe_str(freshness.get('warrant_ready', ''))} / {warrant_readiness_note(freshness)}", style_map["normal"]))
     story.append(para(f"今日市場結論：{conclusion}", style_map["h2"]))
     story.append(Spacer(1, 0.5 * cm))
     story.append(para("本報告由 Daily Full Pipeline 固定格式產生，精華版只放精選標的，完整清單請看完整版表格 PDF。", style_map["normal"]))
@@ -2279,7 +2311,7 @@ def build_full_table_pdf(df: pd.DataFrame, freshness: dict[str, Any], main_date:
         topMargin=0.8 * cm,
         bottomMargin=0.8 * cm,
     )
-    warrant_flow_date = safe_str(freshness.get("warrant_flow_date", ""))
+    warrant_flow_date = effective_warrant_flow_date(freshness)
     story: list[Any] = []
     story.append(para("每日全市場候選股監測報告 - 完整版表格 PDF", style_map["title"]))
     story.append(para(f"主資料日期：{main_date}｜report_ready={safe_str(freshness.get('report_ready', ''))}", style_map["subtitle"]))
@@ -3872,6 +3904,11 @@ def write_manifest(main_date: str, freshness: dict[str, Any], history_paths: dic
         "generated_at": now_text(),
         "main_price_date": main_date,
         "report_ready": safe_str(freshness.get("report_ready", "")),
+        "warrant_flow_date": safe_str(freshness.get("warrant_flow_date", "")),
+        "warrant_ready": safe_str(freshness.get("warrant_ready", "")),
+        "warrant_ready_note": safe_str(freshness.get("warrant_ready_note", "")),
+        "daily_pdf_ready": safe_str(freshness.get("daily_pdf_ready", "")),
+        "daily_pdf_ready_note": safe_str(freshness.get("daily_pdf_ready_note", "")),
         "curated_pdf": {
             "status": "generated" if CURATED_PDF.exists() else "missing",
             "file_path": CURATED_PDF.as_posix(),
@@ -3930,6 +3967,10 @@ def write_manifest(main_date: str, freshness: dict[str, Any], history_paths: dic
         f"- generated_at: `{manifest['generated_at']}`",
         f"- main_price_date: `{main_date}`",
         f"- report_ready: `{manifest['report_ready']}`",
+        f"- warrant_flow_date: `{manifest['warrant_flow_date']}`",
+        f"- warrant_ready: `{manifest['warrant_ready']}`",
+        f"- daily_pdf_ready: `{manifest['daily_pdf_ready']}`",
+        f"- daily_pdf_ready_note: {manifest['daily_pdf_ready_note']}",
         "",
         "## Curated PDF",
         f"- pages_url: {manifest['curated_pdf']['pages_url']}",

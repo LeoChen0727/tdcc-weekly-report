@@ -183,6 +183,7 @@ jobs:
       - name: Build data freshness status
         run: |
           python build_data_freshness_latest.py
+          python scripts/validate_data_freshness_latest.py
 
       - name: Update market benchmark history
         run: |

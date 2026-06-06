@@ -350,6 +350,10 @@ def extract_data_freshness() -> dict[str, Any]:
         "stock_monitor_date": "",
         "warrant_flow_date": "",
         "report_ready_note": "",
+        "warrant_ready": "",
+        "warrant_ready_note": "",
+        "daily_pdf_ready": "",
+        "daily_pdf_ready_note": "",
     }
 
     if DATA_FRESHNESS_CSV.exists():
@@ -364,6 +368,10 @@ def extract_data_freshness() -> dict[str, Any]:
                 result["stock_monitor_date"] = normalize_date(row.get("stock_monitor_price_date", ""))
                 result["warrant_flow_date"] = normalize_date(row.get("warrant_flow_date", ""))
                 result["report_ready_note"] = str(row.get("report_ready_note", "")).strip()
+                result["warrant_ready"] = str(row.get("warrant_ready", "")).strip()
+                result["warrant_ready_note"] = str(row.get("warrant_ready_note", "")).strip()
+                result["daily_pdf_ready"] = str(row.get("daily_pdf_ready", "")).strip()
+                result["daily_pdf_ready_note"] = str(row.get("daily_pdf_ready_note", "")).strip()
                 return result
         except Exception:
             pass
@@ -472,6 +480,10 @@ def build_packet_text(main_date: str, report_ready: str, paths: dict[str, Path],
     lines.append(f"official_price_fetch_date: {freshness.get('official_price_fetch_date', '')}")
     lines.append(f"stock_monitor_date: {freshness.get('stock_monitor_date', '')}")
     lines.append(f"warrant_flow_date: {freshness.get('warrant_flow_date', '')}")
+    lines.append(f"warrant_ready: {freshness.get('warrant_ready', '')}")
+    lines.append(f"warrant_ready_note: {freshness.get('warrant_ready_note', '')}")
+    lines.append(f"daily_pdf_ready: {freshness.get('daily_pdf_ready', '')}")
+    lines.append(f"daily_pdf_ready_note: {freshness.get('daily_pdf_ready_note', '')}")
     lines.append("")
     lines.append("CHATGPT_DELIVERY_CONTRACT")
     lines.append("repo_artifacts_are_sources_not_final_deliverables: True")
@@ -756,8 +768,9 @@ def build_packet_text(main_date: str, report_ready: str, paths: dict[str, Path],
     return "\n".join(lines)
 
 
-def write_packet_manifest(main_date: str, report_ready: str, paths: dict[str, Path]) -> None:
+def write_packet_manifest(main_date: str, report_ready: str, paths: dict[str, Path], meta: dict[str, Any]) -> None:
     history_packet = HISTORY_REPORT_DIR / f"{main_date}_CHATGPT_DAILY_REPORT_PACKET.txt"
+    freshness = meta.get("freshness", {})
     report_manifest = read_json(REPORT_MANIFEST_JSON)
     kline_status = read_json(PDF_KLINE_STATUS_JSON).get("summary", {})
     fixed_pdf_manifest = read_json(FIXED_PDF_MANIFEST_JSON)
@@ -769,6 +782,11 @@ def write_packet_manifest(main_date: str, report_ready: str, paths: dict[str, Pa
         "generated_at": now_text(),
         "main_price_date": main_date,
         "report_ready": report_ready,
+        "warrant_flow_date": freshness.get("warrant_flow_date", ""),
+        "warrant_ready": freshness.get("warrant_ready", ""),
+        "warrant_ready_note": freshness.get("warrant_ready_note", ""),
+        "daily_pdf_ready": freshness.get("daily_pdf_ready", ""),
+        "daily_pdf_ready_note": freshness.get("daily_pdf_ready_note", ""),
         "repo_artifacts_are_sources_not_final_chatgpt_deliverables": True,
         "report_ready_is_not_chatgpt_pdf_done": True,
         "fixed_pdf_validation_is_repo_artifact_validation_only": True,
@@ -900,7 +918,7 @@ def main() -> int:
     DOCS_PACKET_LATEST.parent.mkdir(parents=True, exist_ok=True)
     DOCS_PACKET_LATEST.write_text(packet_text, encoding="utf-8")
 
-    write_packet_manifest(main_date, report_ready, paths)
+    write_packet_manifest(main_date, report_ready, paths, meta)
 
     print(f"Saved: {PACKET_LATEST}")
     print(f"Saved: {PACKET_LATEST_OLD}")
