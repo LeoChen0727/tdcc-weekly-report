@@ -130,6 +130,8 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         specs = [spec for spec in build_specs() if spec.pdf_visibility == "pdf_core_model"]
         condition_by_func = {spec.condition_func.__name__: spec.model_id for spec in specs}
         score_by_func = {spec.score_func.__name__: spec.model_id for spec in specs}
+        all_condition_funcs = set(condition_by_func)
+        all_score_funcs = set(score_by_func) | {"model_score_common"}
 
         source_path = ROOT / "scripts" / "build_daily_candidate_model_layer.py"
         tree = ast.parse(source_path.read_text(encoding="utf-8"))
@@ -142,13 +144,17 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
                     callee = node.func.id
                     if callee in condition_by_func and callee != func_name:
                         cross_condition_calls.append(f"{model_id}:{func_name}->{callee}")
+                    if callee in all_score_funcs:
+                        cross_condition_calls.append(f"{model_id}:{func_name}->{callee}")
 
         cross_score_calls: list[str] = []
         for func_name, model_id in score_by_func.items():
             for node in ast.walk(funcs[func_name]):
                 if isinstance(node, ast.Call) and isinstance(node.func, ast.Name):
                     callee = node.func.id
-                    if callee in score_by_func and callee != func_name:
+                    if callee in all_score_funcs and callee != func_name:
+                        cross_score_calls.append(f"{model_id}:{func_name}->{callee}")
+                    if callee in all_condition_funcs:
                         cross_score_calls.append(f"{model_id}:{func_name}->{callee}")
 
         self.assertEqual(cross_condition_calls, [])
