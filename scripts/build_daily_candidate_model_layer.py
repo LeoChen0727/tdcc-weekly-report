@@ -1413,13 +1413,43 @@ def active_price_attack_for_early_models(row: pd.Series) -> bool:
     vol = num(row, "volume_ratio")
     ret5 = num(row, "return_5d", "return_5d_pct")
     ret20 = num(row, "return_20d", "return_20d_pct")
+    volume_ma20 = volume_ma20_lots(row)
+    breakout_level = bottom_volume_attack_breakout_level(row)
+    close = close_price(row)
+    bottom_attack_like = (
+        not any(math.isnan(v) for v in [vol, volume_ma20, breakout_level, close])
+        and close >= breakout_level * 1.02
+        and vol >= 2.0
+        and volume_ma20 >= 1000
+        and bottom_volume_attack_bullish_candle(row)
+    )
     return (
-        cond_volume_breakout(row)
+        bottom_attack_like
         or flag(row, "volume_confirmed_breakout")
         or (not math.isnan(vol) and vol >= 2.5)
         or (not math.isnan(ret5) and ret5 >= 8)
         or (not math.isnan(ret20) and ret20 >= 20)
     )
+
+
+def tdcc_stealth_attack_already_started(row: pd.Series) -> bool:
+    """TDCC stealth model's own attack exclusion.
+
+    Keep this independent from cond_volume_breakout so TDCC parameter tuning
+    does not silently inherit changes from the bottom-volume attack model.
+    """
+    vol = num(row, "volume_ratio")
+    volume_ma20 = volume_ma20_lots(row)
+    breakout_level = bottom_volume_attack_breakout_level(row)
+    close = close_price(row)
+    bottom_attack_like = (
+        not any(math.isnan(v) for v in [vol, volume_ma20, breakout_level, close])
+        and close >= breakout_level * 1.02
+        and vol >= 2.0
+        and volume_ma20 >= 1000
+        and bottom_volume_attack_bullish_candle(row)
+    )
+    return bottom_attack_like or flag(row, "volume_confirmed_breakout")
 
 
 def cond_pullback(row: pd.Series) -> bool:
@@ -1735,7 +1765,7 @@ def cond_tdcc_stealth(row: pd.Series) -> bool:
     ret20 = num(row, "return_20d", "return_20d_pct")
     if phase in {"price_leading_tdcc", "overheated_after_tdcc"}:
         return False
-    if cond_volume_breakout(row) or flag(row, "volume_confirmed_breakout"):
+    if tdcc_stealth_attack_already_started(row):
         return False
     if not math.isnan(vol) and vol >= 2.5:
         return False
