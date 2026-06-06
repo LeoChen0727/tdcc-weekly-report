@@ -60,7 +60,8 @@ def pick_columns(df: pd.DataFrame, candidates: list[str]) -> list[str]:
 
 def top_rows(df: pd.DataFrame, columns: list[str], limit: int) -> list[list[object]]:
     if df.empty or not columns:
-        return [["資料不足", "", "", "", ""]]
+        width = max(len(columns), 1)
+        return [["資料不足 / 僅能觀察"] + [""] * (width - 1)]
     safe = df.copy()
     for col in columns:
         if col not in safe.columns:
@@ -425,7 +426,22 @@ def build_packet() -> str:
     lines.append("- Current use is suitable for tracking priority and discussion, not formal weight tuning.")
     lines.append("- More bear-market and range-market samples are still required.")
     lines.append("")
-    return "\n".join(lines) + "\n"
+    return normalize_packet_text("\n".join(lines) + "\n")
+
+
+def normalize_packet_text(text: str) -> str:
+    normalized: list[str] = []
+    for line in text.splitlines():
+        if line.startswith("- display_name_zh:"):
+            line = "- display_name_zh: `短線急漲 D+1 到 D+10 / D+20 次日開盤進場 +10% 觸及研究`"
+        elif line.startswith("- forbidden_label_zh:"):
+            line = "- forbidden_label_zh: `週線急漲`"
+        elif "is one of the six fixed categories" in line:
+            line = "- `回檔後短線轉強` is one of the fixed candidate categories; it is not the whole short-term specialty layer."
+        elif "If data is missing, write" in line:
+            line = "- If data is missing, write `資料不足 / 僅能觀察`; do not silently omit the section."
+        normalized.append(line)
+    return "\n".join(normalized) + "\n"
 
 
 def main() -> int:
