@@ -1,6 +1,6 @@
 # TDCC Overheated Short-Term Edge
 
-- generated_at: `2026-06-06 16:56:46 Asia/Taipei`
+- generated_at: `2026-06-06 17:23:52 Asia/Taipei`
 - tuning_status: `not_ready`
 - allowed_changes: `reporting_priority_only`
 - forbidden_changes: `core_weight_change`
@@ -20,12 +20,33 @@
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260605 | 6207 | 雷科 | other | 四級距同步過熱 + 1週漲10~30% + MACD histogram > 0 | 29.596412556053806 | 60.734149054505004 | 38 | 73.68 | 3.01 | 25 | 84.00 | 9.02 | short-term TDCC overheated edge; reporting-only until more market regimes mature |
 | 20260605 | 4939 | 亞電 | other | 四級距同步過熱 + 1週漲10~30% + MACD histogram > 0 | 18.217821782178234 | 50.948166877370426 | 38 | 73.68 | 3.01 | 25 | 84.00 | 9.02 | short-term TDCC overheated edge; reporting-only until more market regimes mature |
+| 20260605 | 6015 | 宏遠證 | other | 四級距同步過熱 + 1週漲10~30% + MACD histogram > 0 | 17.098445595854916 | 44.40894568690097 | 38 | 73.68 | 3.01 | 25 | 84.00 | 9.02 | short-term TDCC overheated edge; reporting-only until more market regimes mature |
 | 20260605 | 4534 | 慶騰 | other | 四級距同步過熱 + 1週漲10~30% + MACD histogram > 0 | 17.553191489361698 | 36.701030927835056 | 38 | 73.68 | 3.01 | 25 | 84.00 | 9.02 | short-term TDCC overheated edge; reporting-only until more market regimes mature |
+| 20260605 | 2357 | 華碩 | other | 四級距同步過熱 + 1週漲10~30% + MACD histogram > 0 | 18.265440210249672 | 31.964809384164216 | 38 | 73.68 | 3.01 | 25 | 84.00 | 9.02 | short-term TDCC overheated edge; reporting-only until more market regimes mature |
+| 20260605 | 4707 | 磐亞 | other | 四級距同步過熱 + 1週漲10~30% + MACD histogram > 0 | 22.699386503067487 | 31.147540983606547 | 38 | 73.68 | 3.01 | 25 | 84.00 | 9.02 | short-term TDCC overheated edge; reporting-only until more market regimes mature |
+| 20260605 | 3049 | 精金 | other | 四級距同步過熱 + 1週漲10~30% + MACD histogram > 0 | 27.200000000000003 | 27.710843373493987 | 38 | 73.68 | 3.01 | 25 | 84.00 | 9.02 | short-term TDCC overheated edge; reporting-only until more market regimes mature |
+| 20260605 | 2883 | 凱基金 | other | 四級距同步過熱 + 1週漲10~30% + MACD histogram > 0 | 22.66666666666668 | 27.188940092165904 | 38 | 73.68 | 3.01 | 25 | 84.00 | 9.02 | short-term TDCC overheated edge; reporting-only until more market regimes mature |
 | 20260605 | 3615 | 安可 | other | 四級距同步過熱 + 1週漲10~30% + MACD histogram > 0 | 22.482197355035606 | 26.603575184016837 | 38 | 73.68 | 3.01 | 25 | 84.00 | 9.02 | short-term TDCC overheated edge; reporting-only until more market regimes mature |
+| 20260605 | 2882 | 國泰金 | other | 四級距同步過熱 + 1週漲10~30% + MACD histogram > 0 | 16.686114352392067 | 25.470514429109148 | 38 | 73.68 | 3.01 | 25 | 84.00 | 9.02 | short-term TDCC overheated edge; reporting-only until more market regimes mature |
+| 20260605 | 1708 | 東鹼 | other | 四級距同步過熱 + 1週漲10~30% + MACD histogram > 0 | 28.53403141361257 | 25.415070242656455 | 38 | 73.68 | 3.01 | 25 | 84.00 | 9.02 | short-term TDCC overheated edge; reporting-only until more market regimes mature |
+| 20260605 | 8064 | 東捷 | other | 四級距同步過熱 + 1週漲10~30% + MACD histogram > 0 | 16.083916083916083 | 25.283018867924522 | 38 | 73.68 | 3.01 | 25 | 84.00 | 9.02 | short-term TDCC overheated edge; reporting-only until more market regimes mature |
+| 20260605 | 8936 | 國統 | other | 四級距同步過熱 + 1週漲10~30% + MACD histogram > 0 | 19.8473282442748 | 25.099601593625476 | 38 | 73.68 | 3.01 | 25 | 84.00 | 9.02 | short-term TDCC overheated edge; reporting-only until more market regimes mature |
+| 20260605 | 8101 | 華冠 | other | 四級距同步過熱 + 1週漲10~30% + MACD histogram > 0 | 22.26415094339622 | 24.615384615384617 | 38 | 73.68 | 3.01 | 25 | 84.00 | 9.02 | short-term TDCC overheated edge; reporting-only until more market regimes mature |
+| 20260605 | 9906 | 欣巴巴 | other | 四級距同步過熱 + 1週漲10~30% + MACD histogram > 0 | 24.017467248908297 | 23.478260869565215 | 38 | 73.68 | 3.01 | 25 | 84.00 | 9.02 | short-term TDCC overheated edge; reporting-only until more market regimes mature |
 | 20260605 | 8043 | 蜜望實 | other | 四級距同步過熱 + 1週漲10~30% + MACD histogram > 0 | 13.120567375886516 | 22.222222222222232 | 38 | 73.68 | 3.01 | 25 | 84.00 | 9.02 | short-term TDCC overheated edge; reporting-only until more market regimes mature |
+| 20260605 | 2409 | 友達 | other | 四級距同步過熱 + 1週漲10~30% + MACD histogram > 0 | 17.82608695652175 | 22.07207207207209 | 38 | 73.68 | 3.01 | 25 | 84.00 | 9.02 | short-term TDCC overheated edge; reporting-only until more market regimes mature |
+| 20260605 | 3406 | 玉晶光 | other | 四級距同步過熱 + 1週漲10~30% + MACD histogram > 0 | 13.101160862354888 | 18.402777777777768 | 38 | 73.68 | 3.01 | 25 | 84.00 | 9.02 | short-term TDCC overheated edge; reporting-only until more market regimes mature |
 | 20260605 | 6126 | 信音 | other | 四級距同步過熱 + 1週漲10~30% + MACD histogram > 0 | 19.718309859154925 | 18.055555555555557 | 38 | 73.68 | 3.01 | 25 | 84.00 | 9.02 | short-term TDCC overheated edge; reporting-only until more market regimes mature |
+| 20260605 | 3167 | 大量 | other | 四級距同步過熱 + 1週漲10~30% + MACD histogram > 0 | 19.496855345911946 | 14.32009626955475 | 38 | 73.68 | 3.01 | 25 | 84.00 | 9.02 | short-term TDCC overheated edge; reporting-only until more market regimes mature |
 | 20260605 | 4534 | 慶騰 | other | TDCC 過熱 phase + KD多方但未過熱 + 1週漲10~30% + 2週漲20~50% | 17.553191489361698 | 36.701030927835056 | 22 | 72.73 | 0.90 | 15 | 73.33 | 1.42 | short-term TDCC overheated edge; reporting-only until more market regimes mature |
+| 20260605 | 4707 | 磐亞 | other | TDCC 過熱 phase + KD多方但未過熱 + 1週漲10~30% + 2週漲20~50% | 22.699386503067487 | 31.147540983606547 | 22 | 72.73 | 0.90 | 15 | 73.33 | 1.42 | short-term TDCC overheated edge; reporting-only until more market regimes mature |
+| 20260605 | 3049 | 精金 | other | TDCC 過熱 phase + KD多方但未過熱 + 1週漲10~30% + 2週漲20~50% | 27.200000000000003 | 27.710843373493987 | 22 | 72.73 | 0.90 | 15 | 73.33 | 1.42 | short-term TDCC overheated edge; reporting-only until more market regimes mature |
+| 20260605 | 2883 | 凱基金 | other | TDCC 過熱 phase + KD多方但未過熱 + 1週漲10~30% + 2週漲20~50% | 22.66666666666668 | 27.188940092165904 | 22 | 72.73 | 0.90 | 15 | 73.33 | 1.42 | short-term TDCC overheated edge; reporting-only until more market regimes mature |
 | 20260605 | 3615 | 安可 | other | TDCC 過熱 phase + KD多方但未過熱 + 1週漲10~30% + 2週漲20~50% | 22.482197355035606 | 26.603575184016837 | 22 | 72.73 | 0.90 | 15 | 73.33 | 1.42 | short-term TDCC overheated edge; reporting-only until more market regimes mature |
+| 20260605 | 1708 | 東鹼 | other | TDCC 過熱 phase + KD多方但未過熱 + 1週漲10~30% + 2週漲20~50% | 28.53403141361257 | 25.415070242656455 | 22 | 72.73 | 0.90 | 15 | 73.33 | 1.42 | short-term TDCC overheated edge; reporting-only until more market regimes mature |
+| 20260605 | 8936 | 國統 | other | TDCC 過熱 phase + KD多方但未過熱 + 1週漲10~30% + 2週漲20~50% | 19.8473282442748 | 25.099601593625476 | 22 | 72.73 | 0.90 | 15 | 73.33 | 1.42 | short-term TDCC overheated edge; reporting-only until more market regimes mature |
+| 20260605 | 9906 | 欣巴巴 | other | TDCC 過熱 phase + KD多方但未過熱 + 1週漲10~30% + 2週漲20~50% | 24.017467248908297 | 23.478260869565215 | 22 | 72.73 | 0.90 | 15 | 73.33 | 1.42 | short-term TDCC overheated edge; reporting-only until more market regimes mature |
+| 20260605 | 2409 | 友達 | other | TDCC 過熱 phase + KD多方但未過熱 + 1週漲10~30% + 2週漲20~50% | 17.82608695652175 | 22.07207207207209 | 22 | 72.73 | 0.90 | 15 | 73.33 | 1.42 | short-term TDCC overheated edge; reporting-only until more market regimes mature |
 
 ## D+5 Table
 

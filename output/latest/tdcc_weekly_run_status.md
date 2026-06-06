@@ -1,8 +1,8 @@
 # TDCC Weekly Run Status
 
-- generated_at: `2026-06-06 15:42:34 Asia/Taipei`
-- github_run: https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/27056304972
-- commit: `b9f28a4046872d36a2044040f8cad72884f39da4`
+- generated_at: `2026-06-06 17:24:21 Asia/Taipei`
+- github_run: https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/27058276118
+- commit: `6c593a357209029efe5b6f2e97eb9cc7d5a95351`
 
 ## Outputs
 
@@ -24,21 +24,24 @@
 | `output/latest/tdcc_phase_distribution_latest.csv` | yes | 103 |
 | `output/latest/tdcc_top_risk_list_latest.md` | yes | 79 |
 | `output/latest/tdcc_top_risk_list_latest.csv` | yes | 61 |
+| `output/latest/tdcc_overheated_short_term_edge_latest.md` | yes | 65 |
+| `output/latest/tdcc_overheated_short_term_edge_latest.csv` | yes | 7 |
+| `output/latest/tdcc_overheated_short_term_edge_candidates_latest.csv` | yes | 30 |
 | `output/latest/tdcc_chatgpt_tracking_packet_latest.md` | yes | 482 |
 | `output/latest/tdcc_weekly_increase_ranking_latest.md` | yes | 107 |
 | `output/latest/tdcc_weekly_increase_ranking_latest.csv` | yes | 1131 |
 | `output/latest/tdcc_consecutive_accumulation_ranking_latest.md` | yes | 107 |
 | `output/latest/tdcc_consecutive_accumulation_ranking_latest.csv` | yes | 905 |
-| `output/latest/tdcc_weekly_model_cross_summary_latest.md` | yes | 43 |
-| `output/latest/tdcc_weekly_model_cross_summary_latest.csv` | yes | 37 |
+| `output/latest/tdcc_weekly_model_cross_summary_latest.md` | yes | 19 |
+| `output/latest/tdcc_weekly_model_cross_summary_latest.csv` | yes | 13 |
 | `output/latest/tdcc_weekly_candidate_highlight_for_report_latest.md` | yes | 39 |
 | `output/latest/tdcc_weekly_candidate_highlight_for_report_latest.csv` | yes | 17 |
-| `output/latest/tdcc_weekly_candidate_full_for_report_latest.md` | yes | 259 |
-| `output/latest/tdcc_weekly_candidate_full_for_report_latest.csv` | yes | 237 |
+| `output/latest/tdcc_weekly_candidate_full_for_report_latest.md` | yes | 235 |
+| `output/latest/tdcc_weekly_candidate_full_for_report_latest.csv` | yes | 213 |
 | `output/latest/tdcc_weekly_candidate_highlight_latest.md` | yes | 39 |
-| `output/latest/tdcc_weekly_candidate_full_latest.md` | yes | 259 |
+| `output/latest/tdcc_weekly_candidate_full_latest.md` | yes | 235 |
 | `output/latest/tdcc_weekly_candidate_highlight_latest.pdf` | yes | 146 |
-| `output/latest/tdcc_weekly_candidate_full_latest.pdf` | yes | 948 |
+| `output/latest/tdcc_weekly_candidate_full_latest.pdf` | yes | 795 |
 | `output/latest/tdcc_chatgpt_tracking_validation_latest.md` | yes | 14 |
 | `output/latest/tdcc_chatgpt_tracking_validation_latest.json` | yes | 5 |
 | `output/history/tdcc_signals/tdcc_signal_log.csv` | yes | 401 |
