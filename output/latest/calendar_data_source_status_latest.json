@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-06 16:26:50 Asia/Taipei",
+  "generated_at": "2026-06-06 17:37:20 Asia/Taipei",
   "files": {
     "company_event_calendar": {
       "path": "data/company_calendar/company_event_calendar.csv",
@@ -29,7 +29,7 @@
     "monthly_revenue_expected_window": {
       "url": "https://mops.twse.com.tw/mops/web/t05st10_ifrs",
       "status": "rule_based_expected_window",
-      "rows": 361,
+      "rows": 369,
       "note": "Expected monthly revenue publication window generated for tracked stocks; not a confirmed company catalyst."
     },
     "federal_reserve_fomc": {

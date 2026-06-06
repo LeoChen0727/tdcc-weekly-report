@@ -2,8 +2,8 @@
 
 - status: `generated`
 - policy: `local_price_redraw_first`
-- total_charts: `15`
-- local_price_redraw_count: `15`
+- total_charts: `20`
+- local_price_redraw_count: `20`
 - chart_path_fallback_count: `0`
 - missing_count: `0`
 - pdf_kline_output_dir: `output/latest/charts/pdf_kline`
@@ -22,6 +22,11 @@
 | 1210 | 大成 | range_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/1210_大成_range_rebound_126d.png` | `data/daily_price` |
 | 1218 | 泰山 | range_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/1218_泰山_range_rebound_126d.png` | `data/daily_price` |
 | 1227 | 佳格 | range_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/1227_佳格_range_rebound_126d.png` | `data/daily_price` |
+| 2537 | 聯上發 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2537_聯上發_revenue_breakout_low_response_126d.png` | `data/daily_price` |
+| 2347 | 聯強 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2347_聯強_revenue_breakout_low_response_126d.png` | `data/daily_price` |
+| 9946 | 三發地產 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/9946_三發地產_revenue_breakout_low_response_126d.png` | `data/daily_price` |
+| 2542 | 興富發 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2542_興富發_revenue_breakout_low_response_126d.png` | `data/daily_price` |
+| 5522 | 遠雄 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/5522_遠雄_revenue_breakout_low_response_126d.png` | `data/daily_price` |
 | 1101 | 台泥 | pattern | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/1101_台泥_pattern_126d.png` | `data/daily_price` |
 | 1102 | 亞泥 | pattern | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/1102_亞泥_pattern_126d.png` | `data/daily_price` |
 | 1216 | 統一 | pattern | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/1216_統一_pattern_126d.png` | `data/daily_price` |

@@ -8,11 +8,11 @@
     "selection_audit": {
       "main_price_date": "20260605",
       "effective_candidate_signal_date": "20260605",
-      "all_candidates_rows": 340,
-      "raw_model_signal_rows": 526,
-      "report_model_signal_rows": 526,
+      "all_candidates_rows": 364,
+      "raw_model_signal_rows": 544,
+      "report_model_signal_rows": 544,
       "volume_watch_rows": 21,
-      "tdcc_short_edge_rows": 76,
+      "tdcc_short_edge_rows": 29,
       "volume_watch_fresh": true,
       "tdcc_short_edge_fresh": true,
       "selected_condition_error_count": 0,
@@ -54,7 +54,7 @@
     ],
     "same_report_line_model_stock_duplicates": 0,
     "pdf_facing_text_leak_counts": {},
-    "taxonomy_rows": 2371,
+    "taxonomy_rows": 2377,
     "taxonomy_blank_basic_theme_rows": 0,
     "taxonomy_blank_report_line_memberships": 0
   }
