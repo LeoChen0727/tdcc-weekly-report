@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-06 18:04:42 Asia/Taipei",
+  "generated_at": "2026-06-07 02:07:15 Asia/Taipei",
   "files": {
     "company_event_calendar": {
       "path": "data/company_calendar/company_event_calendar.csv",
@@ -29,7 +29,7 @@
     "monthly_revenue_expected_window": {
       "url": "https://mops.twse.com.tw/mops/web/t05st10_ifrs",
       "status": "rule_based_expected_window",
-      "rows": 369,
+      "rows": 412,
       "note": "Expected monthly revenue publication window generated for tracked stocks; not a confirmed company catalyst."
     },
     "federal_reserve_fomc": {
@@ -41,9 +41,9 @@
     },
     "bea_release_schedule": {
       "url": "https://www.bea.gov/news/schedule",
-      "status": "failed",
-      "rows": 0,
-      "error": "read_html failed: `Import lxml` failed.  Use pip or conda to install the lxml package.",
+      "status": "ok",
+      "rows": 24,
+      "error": "",
       "http_status": 200
     },
     "bls_cpi_release_schedule": {

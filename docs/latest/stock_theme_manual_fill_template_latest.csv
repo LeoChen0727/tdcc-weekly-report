@@ -210,7 +210,7 @@
 1339,昭輝,汽車工業,汽車工業,非主流,,,,,,provisional_industry_mapping
 1340,勝悅-KY,塑膠工業,塑膠工業,非主流,,,,,,provisional_industry_mapping
 1341,富林-KY,塑膠工業,塑膠工業,非主流,,,,,,provisional_industry_mapping
-1342,八貫,其他業,其他業,非主流,,,,,,
+1342,八貫,其他,其他,非主流,,,,,,
 1402,遠東新,紡織纖維,紡織纖維,非主流,,,,,,provisional_industry_mapping
 1409,新纖,紡織纖維,紡織纖維,非主流,,,,,,provisional_industry_mapping
 1410,南染,紡織纖維,紡織纖維,非主流,,,,,,provisional_industry_mapping
@@ -620,7 +620,7 @@
 2548,華固,建材營造,建材營造,非主流,,,,,,provisional_industry_mapping
 2596,綠意,建材營造,建材營造,非主流,,,,,,provisional_industry_mapping
 2597,潤弘,建材營造,建材營造,非主流,,,,,,provisional_industry_mapping
-2601,益航,航運業,航運業,非主流,,,,,,provisional_industry_mapping
+2601,益航,貿易百貨,貿易百貨,非主流,,,,,,provisional_industry_mapping
 2603,長榮,航運業,航運業,非主流,,,,,,provisional_industry_mapping
 2605,新興,航運業,航運業,非主流,,,,,,provisional_industry_mapping
 2606,裕民,航運業,航運業,非主流,,,,,,provisional_industry_mapping
@@ -631,7 +631,7 @@
 2611,志信,航運業,航運業,非主流,,,,,,provisional_industry_mapping
 2612,中航,航運業,航運業,非主流,,,,,,provisional_industry_mapping
 2613,中櫃,航運業,航運業,非主流,,,,,,provisional_industry_mapping
-2614,東森,其他業,其他業,非主流,,,,,,
+2614,東森,其他,其他,非主流,,,,,,
 2615,萬海,航運業,航運業,非主流,,,,,,provisional_industry_mapping
 2616,山隆,油電燃氣業,油電燃氣業,非主流,,,,,,provisional_industry_mapping
 2617,台航,航運業,航運業,非主流,,,,,,provisional_industry_mapping
@@ -1296,7 +1296,7 @@
 5276,達輝-KY,其他業,其他業,非主流,,,,,,
 5278,尚凡*,數位雲端,數位雲端,主流,,,,,,provisional_industry_mapping
 5283,禾聯碩,電器電纜,電器電纜,主流,,,,,,provisional_industry_mapping
-5284,jpp-KY,其他業,其他業,非主流,,,,,,
+5284,jpp-KY,其他,其他,非主流,,,,,,
 5285,界霖,半導體業,半導體業,主流,,,,,,provisional_industry_mapping
 5287,數字,數位雲端,數位雲端,主流,,,,,,provisional_industry_mapping
 5288,豐祥-KY,電機機械,電機機械,主流,,,,,,provisional_industry_mapping
@@ -1396,7 +1396,7 @@
 5704,老爺知,觀光餐旅,觀光餐旅,非主流,,,,,,provisional_industry_mapping
 5706,鳳凰,觀光餐旅,觀光餐旅,非主流,,,,,,provisional_industry_mapping
 5864,致和證,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
-5871,中租-KY,其他業,其他業,非主流,,,,,,
+5871,中租-KY,其他,其他,非主流,,,,,,
 5876,上海商銀,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
 5878,台名,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
 5880,合庫金,金融保險業,金融保險業,非主流,,,,,,provisional_industry_mapping
@@ -1653,7 +1653,7 @@
 6581,鋼聯,綠能環保,綠能環保,非主流,,,,,,
 6582,申豐,橡膠工業,橡膠工業,非主流,,,,,,provisional_industry_mapping
 6584,南俊國際,電子零組件業,電子零組件業,主流,,,,,,provisional_industry_mapping
-6585,鼎基,其他業,其他業,非主流,,,,,,
+6585,鼎基,其他,其他,非主流,,,,,,
 6588,東典光電,通信網路業,通信網路業,主流,,,,,,provisional_industry_mapping
 6589,台康生技,生技醫療業,生技醫療業,非主流,,,,,,provisional_industry_mapping
 6590,普鴻,資訊服務業,資訊服務業,主流,,,,,,provisional_industry_mapping
@@ -1801,7 +1801,7 @@
 6894,衛司特,綠能環保,綠能環保,非主流,,,,,,
 6895,宏碩系統,半導體業,半導體業,主流,,,,,,provisional_industry_mapping
 6899,創為精密,光電業,光電業,主流,,,,,,provisional_industry_mapping
-6901,鑽石投資,其他業,其他業,非主流,,,,,,
+6901,鑽石投資,其他,其他,非主流,,,,,,
 6902,GOGOLOOK,數位雲端,數位雲端,主流,,,,,,provisional_industry_mapping
 6903,巨漢,其他電子業,其他電子業,主流,,,,,,provisional_industry_mapping
 6904,伯鑫,其他業,其他業,非主流,,,,,,
@@ -2360,10 +2360,10 @@
 9934,成霖,居家生活,居家生活,非主流,,,,,,
 9935,慶豐富,居家生活,居家生活,非主流,,,,,,
 9937,全國,油電燃氣業,油電燃氣業,非主流,,,,,,provisional_industry_mapping
-9938,百和,其他業,其他業,非主流,,,,,,
-9939,宏全,其他業,其他業,非主流,,,,,,
+9938,百和,其他,其他,非主流,,,,,,
+9939,宏全,其他,其他,非主流,,,,,,
 9940,信義,其他業,其他業,非主流,,,,,,
-9941,裕融,其他業,其他業,非主流,,,,,,
+9941,裕融,其他,其他,非主流,,,,,,
 9942,茂順,其他業,其他業,非主流,,,,,,
 9943,好樂迪,觀光餐旅,觀光餐旅,非主流,,,,,,provisional_industry_mapping
 9944,新麗,其他業,其他業,非主流,,,,,,
