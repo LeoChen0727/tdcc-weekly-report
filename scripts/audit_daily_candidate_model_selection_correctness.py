@@ -24,6 +24,7 @@ MODEL_SIGNALS = LATEST_DIR / "daily_candidate_model_signals_latest.csv"
 REPORT_SIGNALS = LATEST_DIR / "daily_candidate_model_signals_for_report_latest.csv"
 VOLUME_WATCH = LATEST_DIR / "volume_breakout_watch_latest.csv"
 TDCC_SHORT_EDGE = LATEST_DIR / "tdcc_overheated_short_term_edge_candidates_latest.csv"
+TDCC_HOLDER_RATIO = LATEST_DIR / "tdcc_holder_ratio_latest.csv"
 TAXONOMY = LATEST_DIR / "stock_theme_taxonomy_latest.csv"
 AUDIT_JSON = LATEST_DIR / "daily_candidate_model_selection_audit_latest.json"
 AUDIT_MD = LATEST_DIR / "daily_candidate_model_selection_audit_latest.md"
@@ -95,6 +96,15 @@ def weekly_helper_fresh(main_date: str, dates: list[str], *, max_lag_days: int =
     latest_date = max(clean_dates)
     delta = yyyymmdd_delta_days(main_date, latest_date)
     return delta is not None and 0 <= delta <= max_lag_days
+
+
+def latest_tdcc_signal_date() -> str:
+    """Return the latest TDCC week available in current latest outputs."""
+    df = read_csv(TDCC_HOLDER_RATIO, dtype=str, keep_default_na=False)
+    if df.empty or "date" not in df.columns:
+        return ""
+    dates = [safe_str(v).strip() for v in df["date"].astype(str) if safe_str(v).strip()]
+    return max(dates) if dates else ""
 
 
 def read(path: Path) -> pd.DataFrame:
@@ -350,9 +360,11 @@ def audit() -> dict[str, Any]:
     main_date, date_notes = resolve_candidate_signal_date(candidates, freshness_main_date)
     if not main_date:
         main_date = freshness_main_date
+    latest_tdcc_date = latest_tdcc_signal_date()
 
     details["main_price_date"] = freshness_main_date
     details["effective_candidate_signal_date"] = main_date
+    details["latest_tdcc_signal_date"] = latest_tdcc_date
     details["date_notes"] = date_notes
     if freshness_main_date and main_date and freshness_main_date != main_date:
         warnings.append(
@@ -389,6 +401,17 @@ def audit() -> dict[str, Any]:
             continue
         dates = sorted({safe_str(v) for v in df["signal_date"].astype(str) if safe_str(v)})
         details[f"{name}_dates"] = dates
+        if name == "tdcc_short_edge" and dates:
+            details["tdcc_short_edge_data_dates"] = dates
+            if latest_tdcc_date:
+                bad_tdcc_dates = [d for d in dates if d != latest_tdcc_date]
+                if bad_tdcc_dates:
+                    tdcc_edge_fresh = False
+                    errors.append(
+                        f"tdcc_short_edge signal_date mismatch: expected latest TDCC week "
+                        f"{latest_tdcc_date}, got {bad_tdcc_dates}"
+                    )
+                continue
         bad_dates = [d for d in dates if d != main_date]
         if bad_dates:
             message = f"{name} signal_date mismatch: expected {main_date}, got {bad_dates}"

@@ -28,6 +28,7 @@ from tracking_utils import (  # noqa: E402
 ALL_CANDIDATES = LATEST_DIR / "all_candidates_latest.csv"
 VOLUME_BREAKOUT_WATCH = LATEST_DIR / "volume_breakout_watch_latest.csv"
 TDCC_EDGE_CANDIDATES = LATEST_DIR / "tdcc_overheated_short_term_edge_candidates_latest.csv"
+TDCC_HOLDER_RATIO = LATEST_DIR / "tdcc_holder_ratio_latest.csv"
 WEEKLY_SURGE_CANDIDATES = LATEST_DIR / "weekly_surge_strict_parameter_candidates_latest.csv"
 MODEL_PARAMETER_RECOMMENDATIONS = LATEST_DIR / "daily_model_parameter_recommendations_latest.csv"
 STOCK_THEME_TAXONOMY = LATEST_DIR / "stock_theme_taxonomy_latest.csv"
@@ -66,6 +67,32 @@ RECOMMENDATION_COLUMNS = [
     "recommended_sample_status",
     "model_revision_note",
 ]
+
+
+def latest_tdcc_signal_date() -> str:
+    """Return the latest TDCC week available in current latest outputs."""
+    df = read_csv(TDCC_HOLDER_RATIO, dtype=str, keep_default_na=False)
+    if df.empty or "date" not in df.columns:
+        return ""
+    dates = [safe_str(v).strip() for v in df["date"].astype(str) if safe_str(v).strip()]
+    return max(dates) if dates else ""
+
+
+def filter_tdcc_edge_candidates_to_latest_week(df: pd.DataFrame) -> pd.DataFrame:
+    """Do not let stale TDCC short-edge candidate rows leak into daily models."""
+    if df.empty or "signal_date" not in df.columns:
+        return df
+    latest_tdcc = latest_tdcc_signal_date()
+    if not latest_tdcc:
+        return df
+    dates = sorted({safe_str(v).strip() for v in df["signal_date"].astype(str) if safe_str(v).strip()})
+    if dates == [latest_tdcc]:
+        return df
+    print(
+        "WARNING: stale tdcc_overheated_short_term_edge_candidates_latest.csv ignored; "
+        f"expected TDCC week {latest_tdcc}, got {dates}"
+    )
+    return df[df["signal_date"].astype(str).map(lambda v: safe_str(v).strip()) == latest_tdcc].copy()
 
 
 CORE_AI_BUCKETS = {
@@ -2677,6 +2704,7 @@ def append_tdcc_short_term(signals: pd.DataFrame, signal_date: str) -> pd.DataFr
 
     rows: list[dict[str, Any]] = []
     df = read_csv(TDCC_EDGE_CANDIDATES, dtype=str, keep_default_na=False)
+    df = filter_tdcc_edge_candidates_to_latest_week(df)
     if not df.empty:
         for idx, row in df.iterrows():
             stock_id = normalize_code(text(row, "stock_id"))

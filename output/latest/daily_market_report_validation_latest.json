@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-06 16:31:33 Asia/Taipei",
+  "generated_at": "2026-06-06 16:59:37 Asia/Taipei",
   "status": "pass",
   "main_price_date": "20260605",
   "curated_pdf": {
@@ -52,7 +52,7 @@
   "model_report_signals_for_report": {
     "path": "output/latest/daily_candidate_model_signals_for_report_latest.csv",
     "exists": true,
-    "rows": 526,
+    "rows": 483,
     "duplicate_report_model_stock_rows": 0
   },
   "checks": {

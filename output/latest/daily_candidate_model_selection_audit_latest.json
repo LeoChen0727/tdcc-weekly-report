@@ -3,12 +3,13 @@
   "details": {
     "main_price_date": "20260605",
     "effective_candidate_signal_date": "20260605",
+    "latest_tdcc_signal_date": "20260605",
     "date_notes": [],
     "all_candidates_rows": 340,
-    "raw_model_signal_rows": 526,
-    "report_model_signal_rows": 526,
+    "raw_model_signal_rows": 483,
+    "report_model_signal_rows": 483,
     "volume_watch_rows": 21,
-    "tdcc_short_edge_rows": 76,
+    "tdcc_short_edge_rows": 8,
     "taxonomy_rows": 2371,
     "all_candidates_dates": [
       "20260605"
@@ -23,10 +24,10 @@
       "20260605"
     ],
     "tdcc_short_edge_dates": [
-      "20260529"
+      "20260605"
     ],
     "tdcc_short_edge_data_dates": [
-      "20260529"
+      "20260605"
     ],
     "same_report_line_model_stock_duplicates": 0,
     "bad_report_lines": [],
@@ -99,7 +100,7 @@
     ],
     "expected_volume_breakout_stock_count": 21,
     "missing_volume_breakout_model_stocks": [],
-    "expected_tdcc_short_stock_count": 49,
+    "expected_tdcc_short_stock_count": 6,
     "missing_tdcc_short_model_stocks": [],
     "review_missing_w_bottom_candidates": [],
     "review_missing_breakout_candidates": []
