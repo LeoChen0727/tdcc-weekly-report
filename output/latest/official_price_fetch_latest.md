@@ -1,6 +1,6 @@
 # Official Daily Price Fetch Report
 
-- generated_at: `2026-06-07 03:04:36 Asia/Taipei`
+- generated_at: `2026-06-07 04:01:39 Asia/Taipei`
 - target_date: `20260607`
 - saved_price_date: `20260605`
 - is_target_date: `False`

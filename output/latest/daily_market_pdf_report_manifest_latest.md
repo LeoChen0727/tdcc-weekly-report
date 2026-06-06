@@ -1,12 +1,12 @@
 # Daily Market Fixed PDF Manifest
 
-- generated_at: `2026-06-07 03:20:50 Asia/Taipei`
+- generated_at: `2026-06-07 04:17:07 Asia/Taipei`
 - main_price_date: `20260605`
 - report_ready: `True`
-- warrant_flow_date: `20260603`
+- warrant_flow_date: `20260605`
 - warrant_ready: `False`
 - daily_pdf_ready: `False`
-- daily_pdf_ready_note: warrant layer not ready: warrant_flow_date does not match main_price_date (warrant_flow_date=20260603, main_price_date=20260605)
+- daily_pdf_ready_note: warrant layer not ready: warrant_flow_date matches main_price_date but stock-level warrant data is unavailable (warrant data date present but stock-level rows unavailable or observe-only in warrant_flow_by_stock_latest.csv,warrant_market_report_latest.md)
 
 ## Curated PDF
 - pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_market_curated_report_latest.pdf

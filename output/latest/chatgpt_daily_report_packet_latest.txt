@@ -1,17 +1,17 @@
 CHATGPT DAILY REPORT PACKET
 
-generated_at: 2026-06-07 03:20:57 Asia/Taipei
+generated_at: 2026-06-07 04:17:14 Asia/Taipei
 repo: LeoChen0727/tdcc-weekly-report
 main_price_date: 20260605
 report_ready: True
 all_candidates_date: 20260605
 official_price_fetch_date: 20260605
 stock_monitor_date: 20260605
-warrant_flow_date: 20260603
+warrant_flow_date: 20260605
 warrant_ready: False
-warrant_ready_note: warrant_flow_date does not match main_price_date (warrant_flow_date=20260603, main_price_date=20260605)
+warrant_ready_note: warrant_flow_date matches main_price_date but stock-level warrant data is unavailable (warrant data date present but stock-level rows unavailable or observe-only in warrant_flow_by_stock_latest.csv,warrant_market_report_latest.md)
 daily_pdf_ready: False
-daily_pdf_ready_note: warrant layer not ready: warrant_flow_date does not match main_price_date (warrant_flow_date=20260603, main_price_date=20260605)
+daily_pdf_ready_note: warrant layer not ready: warrant_flow_date matches main_price_date but stock-level warrant data is unavailable (warrant data date present but stock-level rows unavailable or observe-only in warrant_flow_by_stock_latest.csv,warrant_market_report_latest.md)
 
 CHATGPT_DELIVERY_CONTRACT
 repo_artifacts_are_sources_not_final_deliverables: True
@@ -45,14 +45,14 @@ CURATED PDF REPORT
 pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_market_curated_report_latest.pdf
 raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_curated_report_latest.pdf
 file_path: output/latest/daily_market_curated_report_latest.pdf
-generated_at: 2026-06-07 03:20:50 Asia/Taipei
+generated_at: 2026-06-07 04:17:07 Asia/Taipei
 status: generated
 
 FULL TABLE PDF REPORT
 pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_market_full_table_report_latest.pdf
 raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_full_table_report_latest.pdf
 file_path: output/latest/daily_market_full_table_report_latest.pdf
-generated_at: 2026-06-07 03:20:50 Asia/Taipei
+generated_at: 2026-06-07 04:17:07 Asia/Taipei
 status: generated
 
 FIXED PDF VALIDATION
@@ -89,7 +89,7 @@ EMBEDDED DAILY SHORT-TERM SPECIALTY PACKET
 # DAILY SHORT-TERM SPECIALTY PACKET
 
 ## Metadata
-- generated_at: `2026-06-06 19:18:36 UTC`
+- generated_at: `2026-06-06 20:14:40 UTC`
 - main_price_date: `20260605`
 - purpose: Force daily reports to include short-term specialty sections that are not part of the fixed six candidate categories.
 - market_abnormal_status_path: `output/latest/market_abnormal_status_latest.csv`
@@ -490,7 +490,7 @@ performance_csv_path: output/history/daily_signals/daily_candidate_signal_perfor
 summary_latest_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_signal_performance_summary_latest.md
 weekly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_weekly_latest.pdf
 monthly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_monthly_latest.pdf
-last_updated_at: 2026-06-07 03:20:57 Asia/Taipei
+last_updated_at: 2026-06-07 04:17:14 Asia/Taipei
 status: generated
 
 CANDIDATE REPEAT APPEARANCE
@@ -600,10 +600,10 @@ EMBEDDED SUMMARY REPORT
 # 每日全市場候選股監測報告 - 精華版
 
 - 主資料日期：`20260605`
-- 產生時間：`2026-06-07 03:18:43 Asia/Taipei`
+- 產生時間：`2026-06-07 04:15:01 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
 - 判斷說明：core daily data dates match main_price_date
-- 權證資料日期：`20260603`
+- 權證資料日期：`20260605`
 
 ## 精華版 PDF K 線圖狀態
 
@@ -1025,9 +1025,9 @@ EMBEDDED FULL REPORT
 # 完整候選股清單 - 完整版
 
 - 主資料日期：`20260605`
-- 產生時間：`2026-06-07 03:18:44 Asia/Taipei`
+- 產生時間：`2026-06-07 04:15:01 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
-- 權證資料日期：`20260603`
+- 權證資料日期：`20260605`
 
 ## 帶量突破 / 放量攻擊觀察
 

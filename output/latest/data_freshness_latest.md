@@ -1,14 +1,14 @@
 # Data Freshness Status
 
-- generated_at: `2026-06-07 03:17:34` Asia/Taipei
+- generated_at: `2026-06-07 04:15:00` Asia/Taipei
 - main_price_date: `20260605`
 - actual_stock_price_history_date: `20260605`
 - report_ready: `True`
 - report_ready_note: core daily data dates match main_price_date
 - warrant_ready: `False`
-- warrant_ready_note: warrant_flow_date does not match main_price_date (warrant_flow_date=20260603, main_price_date=20260605)
+- warrant_ready_note: warrant_flow_date matches main_price_date but stock-level warrant data is unavailable (warrant data date present but stock-level rows unavailable or observe-only in warrant_flow_by_stock_latest.csv,warrant_market_report_latest.md)
 - daily_pdf_ready: `False`
-- daily_pdf_ready_note: warrant layer not ready: warrant_flow_date does not match main_price_date (warrant_flow_date=20260603, main_price_date=20260605)
+- daily_pdf_ready_note: warrant layer not ready: warrant_flow_date matches main_price_date but stock-level warrant data is unavailable (warrant data date present but stock-level rows unavailable or observe-only in warrant_flow_by_stock_latest.csv,warrant_market_report_latest.md)
 
 ## Component Dates
 
@@ -17,7 +17,7 @@
 | all_candidates_latest.csv | 20260605 | 20260605 | ready |
 | official_price_fetch_latest | 20260605 | 20260605 | ready |
 | stock_monitor_latest.md | 20260605 | 20260605 | ready |
-| warrant_flow_latest.csv | 20260603 | 20260603 | stale_date=20260603 |
+| warrant_flow_latest.csv | 20260605 | 20260605 | warrant data date present but stock-level rows unavailable or observe-only in warrant_flow_by_stock_latest.csv,warrant_market_report_latest.md |
 
 ## Rule
 
