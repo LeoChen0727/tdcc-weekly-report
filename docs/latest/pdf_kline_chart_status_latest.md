@@ -17,11 +17,11 @@
 | 2615 | 萬海 | true_breakout | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2615_萬海_true_breakout_126d.png` | `data/daily_price` |
 | 1810 | 和成 | true_breakout | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/1810_和成_true_breakout_126d.png` | `data/daily_price` |
 | 1342 | 八貫 | true_breakout | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/1342_八貫_true_breakout_126d.png` | `data/daily_price` |
-| 9958 | 世紀鋼 | range_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/9958_世紀鋼_range_rebound_126d.png` | `data/daily_price` |
 | 0050 | 元大台灣50 | range_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/0050_元大台灣50_range_rebound_126d.png` | `data/daily_price` |
 | 1104 | 環泥 | range_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/1104_環泥_range_rebound_126d.png` | `data/daily_price` |
 | 1210 | 大成 | range_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/1210_大成_range_rebound_126d.png` | `data/daily_price` |
 | 1218 | 泰山 | range_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/1218_泰山_range_rebound_126d.png` | `data/daily_price` |
+| 1227 | 佳格 | range_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/1227_佳格_range_rebound_126d.png` | `data/daily_price` |
 | 2537 | 聯上發 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2537_聯上發_revenue_breakout_low_response_126d.png` | `data/daily_price` |
 | 2347 | 聯強 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2347_聯強_revenue_breakout_low_response_126d.png` | `data/daily_price` |
 | 9946 | 三發地產 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/9946_三發地產_revenue_breakout_low_response_126d.png` | `data/daily_price` |
@@ -37,8 +37,8 @@
 | 2611 | 志信 | pullback_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2611_志信_pullback_rebound_126d.png` | `data/daily_price` |
 | 9946 | 三發地產 | pullback_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/9946_三發地產_pullback_rebound_126d.png` | `data/daily_price` |
 | 3356 | 奇偶 | pullback_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/3356_奇偶_pullback_rebound_126d.png` | `data/daily_price` |
-| 6873 | 泓德能源 | pattern | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/6873_泓德能源_pattern_126d.png` | `data/daily_price` |
-| 8016 | 矽創 | pattern | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/8016_矽創_pattern_126d.png` | `data/daily_price` |
-| 3014 | 聯陽 | pattern | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/3014_聯陽_pattern_126d.png` | `data/daily_price` |
-| 6719 | 力智 | pattern | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/6719_力智_pattern_126d.png` | `data/daily_price` |
-| 9921 | 巨大 | pattern | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/9921_巨大_pattern_126d.png` | `data/daily_price` |
+| 1101 | 台泥 | pattern | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/1101_台泥_pattern_126d.png` | `data/daily_price` |
+| 1102 | 亞泥 | pattern | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/1102_亞泥_pattern_126d.png` | `data/daily_price` |
+| 1216 | 統一 | pattern | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/1216_統一_pattern_126d.png` | `data/daily_price` |
+| 1229 | 聯華 | pattern | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/1229_聯華_pattern_126d.png` | `data/daily_price` |
+| 1409 | 新纖 | pattern | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/1409_新纖_pattern_126d.png` | `data/daily_price` |

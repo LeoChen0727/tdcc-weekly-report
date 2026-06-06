@@ -1,10 +1,14 @@
 # Data Freshness Status
 
-- generated_at: `2026-06-07 02:10:05` Asia/Taipei
+- generated_at: `2026-06-07 03:17:34` Asia/Taipei
 - main_price_date: `20260605`
 - actual_stock_price_history_date: `20260605`
 - report_ready: `True`
 - report_ready_note: core daily data dates match main_price_date
+- warrant_ready: `False`
+- warrant_ready_note: warrant_flow_date does not match main_price_date (warrant_flow_date=20260603, main_price_date=20260605)
+- daily_pdf_ready: `False`
+- daily_pdf_ready_note: warrant layer not ready: warrant_flow_date does not match main_price_date (warrant_flow_date=20260603, main_price_date=20260605)
 
 ## Component Dates
 

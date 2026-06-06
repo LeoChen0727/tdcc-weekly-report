@@ -1,7 +1,12 @@
 {
-  "generated_at": "2026-06-07 02:12:54 Asia/Taipei",
+  "generated_at": "2026-06-07 03:20:50 Asia/Taipei",
   "main_price_date": "20260605",
   "report_ready": "True",
+  "warrant_flow_date": "20260603",
+  "warrant_ready": "False",
+  "warrant_ready_note": "warrant_flow_date does not match main_price_date (warrant_flow_date=20260603, main_price_date=20260605)",
+  "daily_pdf_ready": "False",
+  "daily_pdf_ready_note": "warrant layer not ready: warrant_flow_date does not match main_price_date (warrant_flow_date=20260603, main_price_date=20260605)",
   "curated_pdf": {
     "status": "generated",
     "file_path": "output/latest/daily_market_curated_report_latest.pdf",
