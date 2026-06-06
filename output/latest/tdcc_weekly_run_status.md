@@ -1,8 +1,8 @@
 # TDCC Weekly Run Status
 
-- generated_at: `2026-06-06 17:24:21 Asia/Taipei`
-- github_run: https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/27058276118
-- commit: `6c593a357209029efe5b6f2e97eb9cc7d5a95351`
+- generated_at: `2026-06-07 04:05:20 Asia/Taipei`
+- github_run: https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/27072411897
+- commit: `c267908b1d677419fb278eb6a3ea6ec9a5ba3489`
 
 ## Outputs
 
@@ -32,16 +32,16 @@
 | `output/latest/tdcc_weekly_increase_ranking_latest.csv` | yes | 1131 |
 | `output/latest/tdcc_consecutive_accumulation_ranking_latest.md` | yes | 107 |
 | `output/latest/tdcc_consecutive_accumulation_ranking_latest.csv` | yes | 905 |
-| `output/latest/tdcc_weekly_model_cross_summary_latest.md` | yes | 19 |
-| `output/latest/tdcc_weekly_model_cross_summary_latest.csv` | yes | 13 |
+| `output/latest/tdcc_weekly_model_cross_summary_latest.md` | yes | 47 |
+| `output/latest/tdcc_weekly_model_cross_summary_latest.csv` | yes | 41 |
 | `output/latest/tdcc_weekly_candidate_highlight_for_report_latest.md` | yes | 39 |
 | `output/latest/tdcc_weekly_candidate_highlight_for_report_latest.csv` | yes | 17 |
-| `output/latest/tdcc_weekly_candidate_full_for_report_latest.md` | yes | 235 |
-| `output/latest/tdcc_weekly_candidate_full_for_report_latest.csv` | yes | 213 |
+| `output/latest/tdcc_weekly_candidate_full_for_report_latest.md` | yes | 263 |
+| `output/latest/tdcc_weekly_candidate_full_for_report_latest.csv` | yes | 241 |
 | `output/latest/tdcc_weekly_candidate_highlight_latest.md` | yes | 39 |
-| `output/latest/tdcc_weekly_candidate_full_latest.md` | yes | 235 |
+| `output/latest/tdcc_weekly_candidate_full_latest.md` | yes | 263 |
 | `output/latest/tdcc_weekly_candidate_highlight_latest.pdf` | yes | 146 |
-| `output/latest/tdcc_weekly_candidate_full_latest.pdf` | yes | 795 |
+| `output/latest/tdcc_weekly_candidate_full_latest.pdf` | yes | 986 |
 | `output/latest/tdcc_chatgpt_tracking_validation_latest.md` | yes | 14 |
 | `output/latest/tdcc_chatgpt_tracking_validation_latest.json` | yes | 5 |
 | `output/history/tdcc_signals/tdcc_signal_log.csv` | yes | 401 |

@@ -1,6 +1,6 @@
 # TDCC 潛伏吸籌候選股
 
-- generated_at: `2026-06-06 17:24:15 Asia/Taipei`
+- generated_at: `2026-06-07 04:05:13 Asia/Taipei`
 - signal_date: `20260605`
 - rows: `1130`
 
