@@ -68,6 +68,7 @@ REQUIRED_REGISTRY_COLUMNS = {
 }
 
 REQUIRED_SUMMARY_COLUMNS = {
+    "signal_date",
     "report_line",
     "model_id",
     "model_name_zh",
@@ -257,6 +258,11 @@ def _check_registry_and_summary(
         errors.append(f"summary_missing_fixed_model_rows: {missing_rows[:20]}")
     if extra_rows:
         errors.append(f"summary_unregistered_model_rows: {extra_rows[:20]}")
+
+    summary_dates = sorted({normalize_date(v) for v in summary["signal_date"].astype(str) if normalize_date(v)})
+    details["summary_signal_dates"] = summary_dates
+    if main_date and summary_dates != [main_date]:
+        errors.append(f"summary_signal_date_mismatch: expected {main_date}, got {summary_dates}")
 
     dup_summary = int(summary.duplicated(["report_line", "model_id"]).sum())
     if dup_summary:

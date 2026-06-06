@@ -569,6 +569,7 @@ def check_model_summary_for_report(errors: list[str]) -> dict[str, Any]:
         errors.append(f"missing {MODEL_SUMMARY_CSV}")
         return summary
     required = {
+        "signal_date",
         "report_line",
         "model_id",
         "model_name_zh",
@@ -596,6 +597,12 @@ def check_model_summary_for_report(errors: list[str]) -> dict[str, Any]:
     report_lines = set(df["report_line"].astype(str))
     if report_lines != {"mainstream", "non_mainstream"}:
         errors.append(f"model summary invalid report_line values: {sorted(report_lines)}")
+    main_date = safe_str(read_freshness().get("main_price_date", ""))
+    if main_date:
+        values = sorted({normalize_date_value(value) for value in df["signal_date"].tolist()} - {""})
+        bad_values = [value for value in values if value != main_date]
+        if bad_values:
+            errors.append(f"model summary contains non-current signal_date: {bad_values[:10]} expected={main_date}")
     dupes = df.duplicated(["report_line", "model_id"])
     if dupes.any():
         rows = df.loc[dupes, ["report_line", "model_id"]].head(10).to_dict("records")

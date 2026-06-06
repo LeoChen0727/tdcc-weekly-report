@@ -224,8 +224,16 @@ def reminder(new_row: pd.Series | None, repeated_row: pd.Series | None) -> str:
     return "-"
 
 
+def infer_signal_date(signals: pd.DataFrame) -> str:
+    if signals.empty or "signal_date" not in signals.columns:
+        return ""
+    dates = sorted({safe_str(value) for value in signals["signal_date"].tolist() if safe_str(value)})
+    return dates[0] if len(dates) == 1 else ""
+
+
 def build_summary(registry: pd.DataFrame, signals: pd.DataFrame) -> pd.DataFrame:
     rows: list[dict[str, object]] = []
+    signal_date = infer_signal_date(signals)
     for report_line in REPORT_LINES:
         for _, reg in registry.sort_values("model_registry_order").iterrows():
             if not applicable(reg, report_line):
@@ -243,6 +251,7 @@ def build_summary(registry: pd.DataFrame, signals: pd.DataFrame) -> pd.DataFrame
             repeated_display = stock_display(repeated)
             rows.append(
                 {
+                    "signal_date": signal_date,
                     "report_line": report_line,
                     "model_id": model_id,
                     "model_name_zh": safe_str(reg.get("model_name_zh")),
