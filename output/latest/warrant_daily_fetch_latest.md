@@ -1,6 +1,6 @@
 # 官方權證每日資料抓取狀態
 
-- 產生時間：`2026-06-06 08:33:43 Asia/Taipei`
+- 產生時間：`2026-06-06 09:10:58 Asia/Taipei`
 - 資料日期：`20260605`
 - 輸出檔：`output/latest/warrant_daily_raw_latest.csv`
 - 權證對照表筆數：`0`
@@ -60,9 +60,6 @@
 - failed source=TWSE_MI_INDEX_0999_JSON, error=HTTPSConnectionPool(host='www.twse.com.tw', port=443): Read timed out. (read timeout=8.0), url=https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260527&type=0999&response=json
 - failed source=TWSE_MI_INDEX_0999_CSV, error=HTTPSConnectionPool(host='www.twse.com.tw', port=443): Read timed out. (read timeout=8.0), url=https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260527&type=0999&response=csv
 - failed source=TWSE_MI_INDEX_0999P_JSON, error=HTTPSConnectionPool(host='www.twse.com.tw', port=443): Read timed out. (read timeout=8.0), url=https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260527&type=0999P&response=json
-- failed source=TWSE_MI_INDEX_0999P_CSV, error=HTTPSConnectionPool(host='www.twse.com.tw', port=443): Read timed out. (read timeout=8.0), url=https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260527&type=0999P&response=csv
+- failed source=TWSE_MI_INDEX_0999P_CSV, error=HTTPSConnectionPool(host='www.twse.com.tw', port=443): Read timed out. (read timeout=5.298199860000068), url=https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260527&type=0999P&response=csv
 - no_usable_quote_rows date=20260527, quote_rows=0; trying previous calendar date
-- failed source=TWSE_MI_INDEX_0999_JSON, error=HTTPSConnectionPool(host='www.twse.com.tw', port=443): Read timed out. (read timeout=1.854736776999971), url=https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260526&type=0999&response=json
-- deadline_exceeded quote date=20260526, source=TWSE_MI_INDEX_0999_CSV
-- deadline_exceeded quote date=20260526, qtype=0999P
-- no_usable_quote_rows date=20260526, quote_rows=0; trying previous calendar date
+- deadline_exceeded before quote fallback date=20260526
