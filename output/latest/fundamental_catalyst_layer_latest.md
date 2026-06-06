@@ -1,6 +1,6 @@
 # 財報 / 事件催化層
 
-- generated_at: `2026-06-06 07:52:34 Asia/Taipei`
+- generated_at: `2026-06-06 08:33:51 Asia/Taipei`
 - candidate_rows: `517`
 - financial_source: `missing`
 - event_source: `missing`
@@ -72,7 +72,7 @@
 | 20260605 | 2601 | 益航 | 型態觀察 | 1 | 0 | monthly_revenue_calendar;calendar_monthly_revenue_expected_window;貿易百貨 | 0 |  |  | monthly_revenue_calendar;calendar_monthly_revenue_expected_window | 20260601 | monthly_revenue_expected_window | -5 | priced_in | mild_accumulation | False | True |  | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proxi... |
 | 20260605 | 2882 | 國泰金 | 型態觀察 | 1 | 0 | monthly_revenue_calendar;calendar_monthly_revenue_expected_window;金融保險業 | 0 |  |  | monthly_revenue_calendar;calendar_monthly_revenue_expected_window | 20260601 | monthly_revenue_expected_window | -5 | overheated | mild_accumulation | False | True |  | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proxi... |
 | 20260605 | 8105 | 凌巨 | 型態觀察 | 1 | 0 | monthly_revenue_calendar;calendar_monthly_revenue_expected_window;光電業 | 0 |  |  | monthly_revenue_calendar;calendar_monthly_revenue_expected_window | 20260601 | monthly_revenue_expected_window | -5 | priced_in | strong_accumulation | False | True |  | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proxi... |
-| 20260605 | 2493 | 揚博 | 嚴格突破 | 1 | 0 | monthly_revenue_calendar;calendar_monthly_revenue_expected_window;電子零組件業 | 0 |  |  | monthly_revenue_calendar;calendar_monthly_revenue_expected_window | 20260601 | monthly_revenue_expected_window | -5 | priced_in | mild_accumulation | False | True |  | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proxi... |
+| 20260605 | 3189 | 景碩 | 型態觀察 | 1 | 0 | monthly_revenue_calendar;calendar_monthly_revenue_expected_window;半導體業 | 0 |  |  | monthly_revenue_calendar;calendar_monthly_revenue_expected_window | 20260601 | monthly_revenue_expected_window | -5 | overheated | mild_accumulation | False | True |  | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proxi... |
 | 20260605 | 2484 | 希華 | 型態觀察 | 1 | 0 | monthly_revenue_calendar;calendar_monthly_revenue_expected_window;電子零組件業 | 0 |  |  | monthly_revenue_calendar;calendar_monthly_revenue_expected_window | 20260601 | monthly_revenue_expected_window | -5 | overheated | distribution_warning | False | True |  | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proxi... |
 | 20260605 | 6862 | 三集瑞-KY | 型態觀察 | 1 | 0 | monthly_revenue_calendar;calendar_monthly_revenue_expected_window;電子零組件業 | 0 |  |  | monthly_revenue_calendar;calendar_monthly_revenue_expected_window | 20260601 | monthly_revenue_expected_window | -5 | priced_in | neutral | False | True |  | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proxi... |
 | 20260605 | 5285 | 界霖 | 型態觀察 | 1 | 0 | dividend_calendar;calendar_ex_dividend;半導體業 | 0 |  |  | dividend_calendar;calendar_ex_dividend | 20260625 | ex_dividend | 19 | priced_in | mild_accumulation | False | True |  | calendar event: ex_dividend on 20260625; status=confirmed; proximity=within_30d |
