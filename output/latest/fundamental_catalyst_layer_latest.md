@@ -1,6 +1,6 @@
 # 財報 / 事件催化層
 
-- generated_at: `2026-06-07 02:07:17 Asia/Taipei`
+- generated_at: `2026-06-07 03:14:44 Asia/Taipei`
 - candidate_rows: `517`
 - financial_source: `missing`
 - event_source: `missing`

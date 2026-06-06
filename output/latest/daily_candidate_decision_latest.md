@@ -1,6 +1,6 @@
 # Daily Candidate Decision Layer
 
-- generated_at: `2026-06-07 02:07:37 Asia/Taipei`
+- generated_at: `2026-06-07 03:15:11 Asia/Taipei`
 - signal_date: `20260605`
 - source: `output/latest/all_candidates_latest.csv`
 - purpose: deterministic candidate classification, downgrade, sorting, and ChatGPT guidance.
@@ -203,7 +203,7 @@
 |                          11 |       2838 | 聯邦銀          | 回檔後短線轉強                |                 | 回檔後短線轉強                   | 僅觀察                       |             43.6 | distribution_warning | stale_signal             | high_momentum_risk_follow | 可小量試單                    | pullback_to_23ema | starter_1_4       | medium             | unclear          | tdcc_distribution_warning | tdcc_distribution_warning | 高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。 |
 |                          12 |       2820 | 華票           | 回檔後短線轉強                |                 | 回檔後短線轉強                   | 僅觀察                       |             43.4 | distribution_warning | stale_signal             | risk_watch                | 可小量試單                    | pullback_to_23ema | starter_1_4       | medium             | unclear          | tdcc_distribution_warning | tdcc_distribution_warning | 先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。 |
 |                          13 |       7780 | 大研生醫*        | 回檔後短線轉強                |                 | 回檔後短線轉強                   | 僅觀察                       |             43.4 | distribution_warning | stale_signal             | risk_watch                | 可小量試單                    | pullback_to_23ema | starter_1_4       | medium             | unclear          | tdcc_distribution_warning | tdcc_distribution_warning | 先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。 |
-|                          14 |       2543 | 皇昌           | 回檔後短線轉強                |                 | 回檔後短線轉強                   | 僅觀察                       |             42   | distribution_warning | stale_signal             | high_momentum_risk_follow | 可小量試單                    | pullback_to_23ema | starter_1_4       | medium             | unclear          | tdcc_distribution_warning | tdcc_distribution_warning | 高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。 |
+|                          14 |       2543 | 皇昌           | 回檔後短線轉強                |                 | 回檔後短線轉強                   | 僅觀察                       |             42   | distribution_warning | stale_signal             | risk_watch                | 可小量試單                    | pullback_to_23ema | starter_1_4       | medium             | unclear          | tdcc_distribution_warning | tdcc_distribution_warning | 先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。 |
 |                          15 |       2548 | 華固           | 回檔後短線轉強                |                 | 回檔後短線轉強                   | 僅觀察                       |             42   | distribution_warning | stale_signal             | risk_watch                | 可小量試單                    | pullback_to_23ema | starter_1_4       | medium             | unclear          | tdcc_distribution_warning | tdcc_distribution_warning | 先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。 |
 
 ## 型態觀察

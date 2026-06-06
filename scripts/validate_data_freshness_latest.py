@@ -1,0 +1,132 @@
+from __future__ import annotations
+
+from pathlib import Path
+import sys
+
+import pandas as pd
+
+
+LATEST_DIR = Path("output/latest")
+DATA_FRESHNESS_CSV = LATEST_DIR / "data_freshness_latest.csv"
+
+REQUIRED_COLUMNS = [
+    "generated_at",
+    "main_price_date",
+    "actual_stock_price_history_date",
+    "stock_monitor_price_date",
+    "all_candidates_date",
+    "official_price_fetch_date",
+    "warrant_flow_date",
+    "raw_stock_monitor_price_date",
+    "raw_all_candidates_date",
+    "raw_official_price_fetch_date",
+    "raw_warrant_flow_date",
+    "report_ready",
+    "report_ready_note",
+    "warrant_ready",
+    "warrant_ready_note",
+    "daily_pdf_ready",
+    "daily_pdf_ready_note",
+    "stock_monitor_note",
+    "all_candidates_note",
+    "official_fetch_note",
+    "warrant_note",
+]
+
+
+def bool_text(value: object) -> str:
+    return str(value).strip().lower()
+
+
+def is_true(value: object) -> bool:
+    return bool_text(value) == "true"
+
+
+def require(errors: list[str], condition: bool, message: str) -> None:
+    if not condition:
+        errors.append(message)
+
+
+def main() -> int:
+    errors: list[str] = []
+
+    if not DATA_FRESHNESS_CSV.exists():
+        print(f"missing {DATA_FRESHNESS_CSV}")
+        return 1
+
+    try:
+        df = pd.read_csv(DATA_FRESHNESS_CSV, dtype=str).fillna("")
+    except Exception as exc:
+        print(f"failed to read {DATA_FRESHNESS_CSV}: {exc}")
+        return 1
+
+    require(errors, len(df) == 1, "data_freshness_latest.csv must contain exactly one row")
+    missing = [col for col in REQUIRED_COLUMNS if col not in df.columns]
+    require(errors, not missing, f"missing required columns: {missing}")
+    if errors or df.empty:
+        for error in errors:
+            print(f"ERROR: {error}")
+        return 1
+
+    row = df.iloc[0].to_dict()
+    main_date = str(row.get("main_price_date", "")).strip()
+    all_candidates_date = str(row.get("all_candidates_date", "")).strip()
+    official_date = str(row.get("official_price_fetch_date", "")).strip()
+    warrant_date = str(row.get("warrant_flow_date", "")).strip()
+
+    report_ready = is_true(row.get("report_ready"))
+    warrant_ready = is_true(row.get("warrant_ready"))
+    daily_pdf_ready = is_true(row.get("daily_pdf_ready"))
+
+    expected_report_ready = bool(
+        main_date
+        and all_candidates_date == main_date
+        and (not official_date or official_date == main_date)
+    )
+    expected_warrant_ready = bool(main_date and warrant_date and warrant_date == main_date)
+    expected_daily_pdf_ready = expected_report_ready and expected_warrant_ready
+
+    require(
+        errors,
+        report_ready == expected_report_ready,
+        f"report_ready={report_ready} expected {expected_report_ready}",
+    )
+    require(
+        errors,
+        warrant_ready == expected_warrant_ready,
+        f"warrant_ready={warrant_ready} expected {expected_warrant_ready}",
+    )
+    require(
+        errors,
+        daily_pdf_ready == expected_daily_pdf_ready,
+        f"daily_pdf_ready={daily_pdf_ready} expected {expected_daily_pdf_ready}",
+    )
+
+    for col in ("report_ready_note", "warrant_ready_note", "daily_pdf_ready_note"):
+        require(errors, bool(str(row.get(col, "")).strip()), f"{col} must not be empty")
+
+    if not expected_warrant_ready:
+        note = str(row.get("warrant_ready_note", ""))
+        require(
+            errors,
+            "warrant_flow_date" in note or "missing" in note,
+            "stale/missing warrant state must be explicit in warrant_ready_note",
+        )
+
+    if errors:
+        for error in errors:
+            print(f"ERROR: {error}")
+        return 1
+
+    print(
+        "data_freshness validation passed: "
+        f"main_price_date={main_date}, "
+        f"report_ready={report_ready}, "
+        f"warrant_ready={warrant_ready}, "
+        f"daily_pdf_ready={daily_pdf_ready}"
+    )
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

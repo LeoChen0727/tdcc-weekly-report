@@ -44,7 +44,9 @@ jobs:
         run: python merge_warrant_flow_into_candidates.py
 
       - name: Build data freshness status
-        run: python build_data_freshness_latest.py
+        run: |
+          python build_data_freshness_latest.py
+          python scripts/validate_data_freshness_latest.py
 
       - name: Commit warrant flow outputs
         run: |

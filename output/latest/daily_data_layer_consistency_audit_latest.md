@@ -31,7 +31,7 @@
   "readme_report_ready": "True",
   "readme_index_main_price_date": "20260605",
   "readme_index_report_ready": "True",
-  "preferred_chatgpt_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/cc6443a2dd7ebe4071c401f9d6f07e3175e7d0af/output/history/reports/20260605_CHATGPT_DAILY_REPORT_PACKET.txt",
+  "preferred_chatgpt_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/5b1eba7a25d7d627b28519d196f8c0ab938e8c05/output/history/reports/20260605_CHATGPT_DAILY_REPORT_PACKET.txt",
   "readme_cache_bypass_order": [
     "readme_date_stamped_raw_url",
     "readme_date_stamped_github_api_url",
