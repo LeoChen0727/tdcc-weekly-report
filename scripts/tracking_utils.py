@@ -374,6 +374,59 @@ def month_starts_back(latest_date: str, months: int = 18) -> list[str]:
     return sorted(out)
 
 
+def recent_market_index_fetch_months(
+    latest_date: str,
+    old: pd.DataFrame,
+    months: int = 18,
+    refresh_recent_months: int = 2,
+) -> list[str]:
+    """Return month starts that should be fetched for market index history.
+
+    The initial build still backfills the requested history window.  Once a
+    usable history exists, daily pipeline runs only refresh the newest months;
+    otherwise the workflow repeatedly re-downloads 18 months of TWSE/TPEx
+    market data and can stall on official endpoints.
+    """
+
+    all_months = month_starts_back(latest_date, months)
+    if old.empty:
+        return all_months
+
+    needs_full_refresh = False
+    if "ohlc_available" not in old.columns:
+        needs_full_refresh = True
+    else:
+        available = old["ohlc_available"].astype(str).str.lower().isin(["true", "1", "yes"])
+        known_codes = set(old.loc[available, "index_code"].astype(str)) if "index_code" in old.columns else set()
+        if not {"TWSE", "TPEX"}.issubset(known_codes):
+            needs_full_refresh = True
+
+    if needs_full_refresh:
+        return all_months
+
+    latest = normalize_date(latest_date) or now_taipei().strftime("%Y%m%d")
+    latest_month = latest[:6]
+    if "date" in old.columns:
+        old_dates = old["date"].map(normalize_date)
+        old_dates = old_dates[old_dates.astype(str).str.len().eq(8)]
+        old_latest = str(old_dates.max()) if not old_dates.empty else ""
+    else:
+        old_latest = ""
+
+    recent = all_months[-max(1, refresh_recent_months) :]
+    if old_latest and old_latest[:6] == latest_month and old_latest >= latest:
+        return recent
+
+    # If the latest trading day is not present yet, refresh every missing month
+    # from the newest known month through the latest month.
+    if old_latest and old_latest[:6] in {m[:6] for m in all_months}:
+        old_month_start = f"{old_latest[:6]}01"
+        missing_forward = [m for m in all_months if m >= old_month_start]
+        return sorted(set(recent + missing_forward))
+
+    return recent
+
+
 def fetch_twse_index_month(month_start: str) -> pd.DataFrame:
     url = f"https://www.twse.com.tw/rwd/zh/afterTrading/FMTQIK?date={month_start}&response=json"
     try:
@@ -538,7 +591,12 @@ def build_market_index_ohlc_history(months: int = 18) -> pd.DataFrame:
     old = read_csv(MARKET_INDEX_OHLC_PATH, dtype=str)
     if not old.empty:
         frames.append(old)
-    for month_start in month_starts_back(latest, months):
+    fetch_months = recent_market_index_fetch_months(latest, old, months=months)
+    print(
+        "Market index OHLC fetch months="
+        f"{len(fetch_months)} latest={latest} months={','.join(fetch_months)}"
+    )
+    for month_start in fetch_months:
         frames.append(fetch_twse_index_ohlc_month(month_start))
         frames.append(fetch_tpex_index_ohlc_month(month_start))
 
@@ -551,7 +609,7 @@ def build_market_index_ohlc_history(months: int = 18) -> pd.DataFrame:
     ohlc = ohlc.drop_duplicates(["date", "index_code"], keep="last")
 
     turnover_frames: list[pd.DataFrame] = []
-    for month_start in month_starts_back(latest, months):
+    for month_start in fetch_months:
         turnover_frames.append(fetch_twse_index_turnover_month(month_start))
     turnover_frames.append(fetch_tpex_index_turnover_latest())
     turnover_frames = [df for df in turnover_frames if not df.empty]
