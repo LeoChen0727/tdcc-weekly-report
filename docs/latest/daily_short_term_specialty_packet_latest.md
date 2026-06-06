@@ -1,14 +1,14 @@
 # DAILY SHORT-TERM SPECIALTY PACKET
 
 ## Metadata
-- generated_at: `2026-06-06 03:22:33 UTC`
+- generated_at: `2026-06-06 04:07:02 UTC`
 - main_price_date: `20260605`
 - purpose: Force daily reports to include short-term specialty sections that are not part of the fixed six candidate categories.
 - market_abnormal_status_path: `output/latest/market_abnormal_status_latest.csv`
 
 ## Usage Contract
 - This packet is mandatory for daily stock candidate analysis.
-- `回檔後短線轉強` is one of the six fixed categories; it is not the whole short-term specialty layer.
+- `回檔後短線轉強` is one of the fixed candidate categories; it is not the whole short-term specialty layer.
 - The daily PDF must include a standalone short-term specialty section if this packet exists.
 - The section must include D+5 and D+10 tables separately.
 - These are research/reporting signals only. Do not change core TDCC, ABM, or daily candidate model weights.
@@ -64,8 +64,8 @@
 ## Next-Open +10pct Touch Strict Parameter Research
 
 - legacy_file_prefix: `weekly_surge` is kept only for backward compatibility.
-- display_name_zh: `隔日開盤買進後 D+1 至 D+10 / D+20 盤中觸及 +10% 研究`
-- forbidden_label_zh: `周線急漲`
+- display_name_zh: `短線急漲 D+1 到 D+10 / D+20 次日開盤進場 +10% 觸及研究`
+- forbidden_label_zh: `週線急漲`
 - not_weekly_candle: `True`
 - section_required_in_daily_pdf: `True`
 - section_type: `short_term_specialty_not_six_category`
