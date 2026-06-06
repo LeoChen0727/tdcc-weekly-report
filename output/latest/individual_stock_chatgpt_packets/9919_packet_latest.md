@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9919 康那香
 
 ## Metadata
-- generated_at: 2026-06-06 00:37:31 Asia/Taipei
+- generated_at: 2026-06-06 22:24:45 Asia/Taipei
 - stock_id: 9919
 - stock_name: 康那香
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 45.65
-- over_600_ratio: 44.92
-- over_800_ratio: 43.87
-- over_1000_ratio: 43.01
-- over_400_change_1w: -0.23
-- over_800_change_1w: 0.08
-- over_1000_change_1w: -0.35
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260605
+- over_400_ratio: 46.36
+- over_600_ratio: 45.18
+- over_800_ratio: 44.13
+- over_1000_ratio: 42.82
+- over_400_change_1w: 0.71
+- over_800_change_1w: 0.26
+- over_1000_change_1w: -0.19
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,46.06,-0.12,43.99,0,43.56,0,0,False,False
 20260522,45.88,-0.18,43.79,-0.2,43.36,-0.2,0,False,False
 20260529,45.65,-0.23,43.87,0.08,43.01,-0.35,1,False,True
+20260605,46.36,0.71,44.13,0.26,42.82,-0.19,2,False,True
 ```
 
 ## Candidate Context

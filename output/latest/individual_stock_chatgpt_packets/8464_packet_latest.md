@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8464 億豐
 
 ## Metadata
-- generated_at: 2026-06-06 00:37:28 Asia/Taipei
+- generated_at: 2026-06-06 22:24:41 Asia/Taipei
 - stock_id: 8464
 - stock_name: 億豐
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 86.99
-- over_600_ratio: 82.46
-- over_800_ratio: 79.83
-- over_1000_ratio: 76.82
-- over_400_change_1w: 0.09
-- over_800_change_1w: -0.41
-- over_1000_change_1w: -0.34
-- tdcc_consecutive_up_weeks: 4
+- as_of_date: 20260605
+- over_400_ratio: 86.73
+- over_600_ratio: 82.36
+- over_800_ratio: 79.47
+- over_1000_ratio: 76.45
+- over_400_change_1w: -0.26
+- over_800_change_1w: -0.36
+- over_1000_change_1w: -0.37
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,87.22,-0.53,80.47,0.3,77.36,-1.56,2,False,True
 20260522,86.9,-0.32,80.24,-0.23,77.16,-0.2,3,False,False
 20260529,86.99,0.09,79.83,-0.41,76.82,-0.34,4,False,False
+20260605,86.73,-0.26,79.47,-0.36,76.45,-0.37,0,False,False
 ```
 
 ## Candidate Context
@@ -192,9 +193,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 8464 | 億豐 | 7 | 0 | 453100.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

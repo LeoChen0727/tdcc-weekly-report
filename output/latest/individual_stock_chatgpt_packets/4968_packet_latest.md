@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4968 立積
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:29 Asia/Taipei
+- generated_at: 2026-06-06 22:23:32 Asia/Taipei
 - stock_id: 4968
 - stock_name: 立積
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 16.89
-- over_600_ratio: 13.6
-- over_800_ratio: 9.98
-- over_1000_ratio: 9.98
-- over_400_change_1w: 1.22
-- over_800_change_1w: 0.12
-- over_1000_change_1w: 1.13
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260605
+- over_400_ratio: 17.5
+- over_600_ratio: 13.65
+- over_800_ratio: 9.9
+- over_1000_ratio: 8.86
+- over_400_change_1w: 0.61
+- over_800_change_1w: -0.08
+- over_1000_change_1w: -1.12
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,15.01,-0.77,9.98,0.07,9.98,0.07,1,False,True
 20260522,15.67,0.66,9.86,-0.12,8.85,-1.13,2,False,False
 20260529,16.89,1.22,9.98,0.12,9.98,1.13,3,True,True
+20260605,17.5,0.61,9.9,-0.08,8.86,-1.12,4,False,False
 ```
 
 ## Candidate Context
@@ -192,9 +193,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 4968 | 立積 | 36 | 3 | 463960.0 | 2260.0 | 205.29 | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

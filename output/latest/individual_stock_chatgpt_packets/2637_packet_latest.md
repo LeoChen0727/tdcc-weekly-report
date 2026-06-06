@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2637 慧洋-KY
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:50 Asia/Taipei
+- generated_at: 2026-06-06 22:22:48 Asia/Taipei
 - stock_id: 2637
 - stock_name: 慧洋-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -164,15 +164,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 81.11
-- over_600_ratio: 79.2
-- over_800_ratio: 77.47
-- over_1000_ratio: 75.81
-- over_400_change_1w: 0.42
-- over_800_change_1w: 0.75
-- over_1000_change_1w: 0.63
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260605
+- over_400_ratio: 81.35
+- over_600_ratio: 79.61
+- over_800_ratio: 77.48
+- over_1000_ratio: 76.4
+- over_400_change_1w: 0.24
+- over_800_change_1w: 0.01
+- over_1000_change_1w: 0.59
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -185,12 +185,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,80.87,-0.15,76.95,-0.18,75.76,-0.18,0,False,False
 20260522,80.69,-0.18,76.72,-0.23,75.18,-0.58,0,False,False
 20260529,81.11,0.42,77.47,0.75,75.81,0.63,1,True,True
+20260605,81.35,0.24,77.48,0.01,76.4,0.59,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 2637 | 慧洋-KY | true_breakout | 嚴格突破 | 151.0 |  |  | platform_breakout |  | call_strong_inflow | continued_2_3d | calendar event: ex_dividend on 20260610; status=confirmed; proximity=within_7d |
+| 20260605 | 2637 | 慧洋-KY | true_breakout | 嚴格突破 | 151.0 |  |  | platform_breakout |  |  | continued_2_3d | calendar event: ex_dividend on 20260610; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -198,9 +199,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | 20260605 | 2637 | 慧洋-KY | 2 | 1 | 4 | 9 | 10 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 2637 | 慧洋-KY | 25 | 0 | 9695390.0 | 0.0 |  | call_strong_inflow |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

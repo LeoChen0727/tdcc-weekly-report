@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8390 金益鼎
 
 ## Metadata
-- generated_at: 2026-06-06 00:37:26 Asia/Taipei
+- generated_at: 2026-06-06 22:24:38 Asia/Taipei
 - stock_id: 8390
 - stock_name: 金益鼎
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 52.55
-- over_600_ratio: 48.34
-- over_800_ratio: 47.62
-- over_1000_ratio: 45.67
-- over_400_change_1w: -0.38
-- over_800_change_1w: 1.56
-- over_1000_change_1w: 3.45
-- tdcc_consecutive_up_weeks: 4
+- as_of_date: 20260605
+- over_400_ratio: 51.9
+- over_600_ratio: 47.63
+- over_800_ratio: 46.91
+- over_1000_ratio: 43.89
+- over_400_change_1w: -0.65
+- over_800_change_1w: -0.71
+- over_1000_change_1w: -1.78
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -178,6 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,51.64,3.48,45.68,4.58,40.79,1.62,2,True,True
 20260522,52.93,1.29,46.06,0.38,42.22,1.43,3,True,True
 20260529,52.55,-0.38,47.62,1.56,45.67,3.45,4,False,True
+20260605,51.9,-0.65,46.91,-0.71,43.89,-1.78,0,False,False
 ```
 
 ## Candidate Context

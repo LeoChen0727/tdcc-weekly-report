@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8021 尖點
 
 ## Metadata
-- generated_at: 2026-06-06 00:37:20 Asia/Taipei
+- generated_at: 2026-06-06 22:24:32 Asia/Taipei
 - stock_id: 8021
 - stock_name: 尖點
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 47.98
-- over_600_ratio: 44.16
-- over_800_ratio: 42.79
-- over_1000_ratio: 38.55
-- over_400_change_1w: 2.14
-- over_800_change_1w: 4.13
-- over_1000_change_1w: 4.1
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260605
+- over_400_ratio: 48.3
+- over_600_ratio: 43.94
+- over_800_ratio: 41.99
+- over_1000_ratio: 38.39
+- over_400_change_1w: 0.32
+- over_800_change_1w: -0.8
+- over_1000_change_1w: -0.16
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,51.11,0.81,43.95,0.37,40.3,1.11,2,True,True
 20260522,45.84,-5.27,38.66,-5.29,34.45,-5.85,0,False,False
 20260529,47.98,2.14,42.79,4.13,38.55,4.1,1,True,True
+20260605,48.3,0.32,41.99,-0.8,38.39,-0.16,2,False,False
 ```
 
 ## Candidate Context

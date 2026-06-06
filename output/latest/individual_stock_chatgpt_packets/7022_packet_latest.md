@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7022 華電網元大56購01
 
 ## Metadata
-- generated_at: 2026-06-06 00:37:07 Asia/Taipei
+- generated_at: 2026-06-06 22:24:16 Asia/Taipei
 - stock_id: 7022
 - stock_name: 華電網元大56購01
 - packet_status: standard_180d_window_packet

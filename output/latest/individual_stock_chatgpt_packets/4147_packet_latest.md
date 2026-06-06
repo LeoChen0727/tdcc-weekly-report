@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4147 中裕
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:18 Asia/Taipei
+- generated_at: 2026-06-06 22:23:20 Asia/Taipei
 - stock_id: 4147
 - stock_name: 中裕
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,16 +157,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 51.93
-- over_600_ratio: 48.93
-- over_800_ratio: 45.37
-- over_1000_ratio: 43.42
-- over_400_change_1w: -0.3
-- over_800_change_1w: 0.09
-- over_1000_change_1w: 0.43
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
+- as_of_date: 20260605
+- over_400_ratio: 52.76
+- over_600_ratio: 49.26
+- over_800_ratio: 45.9
+- over_1000_ratio: 43.63
+- over_400_change_1w: 0.83
+- over_800_change_1w: 0.53
+- over_1000_change_1w: 0.21
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -178,6 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,52.65,0.08,45.59,0.31,43.29,0.6,2,True,True
 20260522,52.23,-0.42,45.28,-0.31,42.99,-0.3,0,False,False
 20260529,51.93,-0.3,45.37,0.09,43.42,0.43,1,False,True
+20260605,52.76,0.83,45.9,0.53,43.63,0.21,2,True,True
 ```
 
 ## Candidate Context

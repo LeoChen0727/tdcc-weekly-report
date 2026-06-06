@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2327 國巨*
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:38 Asia/Taipei
+- generated_at: 2026-06-06 22:22:34 Asia/Taipei
 - stock_id: 2327
 - stock_name: 國巨*
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 271
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,14 +157,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 74.78
-- over_600_ratio: 72.8
-- over_800_ratio: 71.15
-- over_1000_ratio: 69.6
-- over_400_change_1w: -0.35
-- over_800_change_1w: -0.11
-- over_1000_change_1w: -0.34
+- as_of_date: 20260605
+- over_400_ratio: 74.05
+- over_600_ratio: 72.06
+- over_800_ratio: 70.49
+- over_1000_ratio: 69.06
+- over_400_change_1w: -0.73
+- over_800_change_1w: -0.66
+- over_1000_change_1w: -0.54
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -178,6 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,73.78,0.23,69.99,0.04,68.63,0.3,2,True,True
 20260522,75.13,1.35,71.26,1.27,69.94,1.31,3,True,True
 20260529,74.78,-0.35,71.15,-0.11,69.6,-0.34,0,False,False
+20260605,74.05,-0.73,70.49,-0.66,69.06,-0.54,0,False,False
 ```
 
 ## Candidate Context
@@ -191,9 +192,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 2327 | 國巨* | 285 | 39 | 70940720.0 | 1140900.0 | 62.18 | put_inflow |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

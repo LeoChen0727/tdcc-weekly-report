@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6221 晉泰
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:45 Asia/Taipei
+- generated_at: 2026-06-06 22:23:51 Asia/Taipei
 - stock_id: 6221
 - stock_name: 晉泰
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 74.47
-- over_600_ratio: 73.45
-- over_800_ratio: 72.64
-- over_1000_ratio: 72.08
-- over_400_change_1w: -0.01
-- over_800_change_1w: -0.01
-- over_1000_change_1w: -0.01
+- as_of_date: 20260605
+- over_400_ratio: 74.43
+- over_600_ratio: 73.41
+- over_800_ratio: 72.6
+- over_1000_ratio: 71.52
+- over_400_change_1w: -0.04
+- over_800_change_1w: -0.04
+- over_1000_change_1w: -0.56
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,74.45,0.11,72.62,0.11,72.06,0.12,2,True,True
 20260522,74.48,0.03,72.65,0.03,72.09,0.03,3,True,True
 20260529,74.47,-0.01,72.64,-0.01,72.08,-0.01,0,False,False
+20260605,74.43,-0.04,72.6,-0.04,71.52,-0.56,0,False,False
 ```
 
 ## Candidate Context

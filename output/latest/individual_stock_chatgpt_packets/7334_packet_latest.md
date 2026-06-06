@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7334 群聯統一57購01
 
 ## Metadata
-- generated_at: 2026-06-06 00:37:13 Asia/Taipei
+- generated_at: 2026-06-06 22:24:24 Asia/Taipei
 - stock_id: 7334
 - stock_name: 群聯統一57購01
 - packet_status: standard_180d_window_packet

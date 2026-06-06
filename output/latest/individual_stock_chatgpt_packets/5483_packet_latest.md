@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5483 中美晶
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:35 Asia/Taipei
+- generated_at: 2026-06-06 22:23:40 Asia/Taipei
 - stock_id: 5483
 - stock_name: 中美晶
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 61.2
-- over_600_ratio: 58.15
-- over_800_ratio: 56.33
-- over_1000_ratio: 54.2
-- over_400_change_1w: 1.02
-- over_800_change_1w: 0.37
-- over_1000_change_1w: 0.22
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260605
+- over_400_ratio: 60.51
+- over_600_ratio: 57.54
+- over_800_ratio: 55.96
+- over_1000_ratio: 53.72
+- over_400_change_1w: -0.69
+- over_800_change_1w: -0.37
+- over_1000_change_1w: -0.48
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,60.93,0.08,56.61,0.51,54.37,0.22,2,True,True
 20260522,60.18,-0.75,55.96,-0.65,53.98,-0.39,0,False,False
 20260529,61.2,1.02,56.33,0.37,54.2,0.22,1,True,True
+20260605,60.51,-0.69,55.96,-0.37,53.72,-0.48,0,False,False
 ```
 
 ## Candidate Context

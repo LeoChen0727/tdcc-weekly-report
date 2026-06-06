@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5321 美而快
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:33 Asia/Taipei
+- generated_at: 2026-06-06 22:23:37 Asia/Taipei
 - stock_id: 5321
 - stock_name: 美而快
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 62.43
-- over_600_ratio: 52.14
-- over_800_ratio: 49.44
-- over_1000_ratio: 46.04
-- over_400_change_1w: -0.19
-- over_800_change_1w: -1.41
-- over_1000_change_1w: 0.24
-- tdcc_consecutive_up_weeks: 4
+- as_of_date: 20260605
+- over_400_ratio: 60.58
+- over_600_ratio: 52.18
+- over_800_ratio: 49.48
+- over_1000_ratio: 46.08
+- over_400_change_1w: -1.85
+- over_800_change_1w: 0.04
+- over_1000_change_1w: 0.04
+- tdcc_consecutive_up_weeks: 5
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -178,6 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,62.92,0.05,50.74,0.01,48.87,0.01,2,False,True
 20260522,62.62,-0.3,50.85,0.11,45.8,-3.07,3,False,True
 20260529,62.43,-0.19,49.44,-1.41,46.04,0.24,4,False,True
+20260605,60.58,-1.85,49.48,0.04,46.08,0.04,5,False,True
 ```
 
 ## Candidate Context

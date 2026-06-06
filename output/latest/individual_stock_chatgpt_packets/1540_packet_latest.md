@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1540 喬福
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:26 Asia/Taipei
+- generated_at: 2026-06-06 22:22:20 Asia/Taipei
 - stock_id: 1540
 - stock_name: 喬福
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 33.81
-- over_600_ratio: 28.52
-- over_800_ratio: 25.36
-- over_1000_ratio: 24.25
-- over_400_change_1w: 0.11
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260605
+- over_400_ratio: 33.91
+- over_600_ratio: 28.62
+- over_800_ratio: 25.28
+- over_1000_ratio: 23.04
+- over_400_change_1w: 0.1
+- over_800_change_1w: -0.08
+- over_1000_change_1w: -1.21
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,33.64,0.18,25.37,0.2,24.26,0.2,1,True,True
 20260522,33.7,0.06,25.36,-0.01,24.25,-0.01,2,False,False
 20260529,33.81,0.11,25.36,0,24.25,0,3,False,False
+20260605,33.91,0.1,25.28,-0.08,23.04,-1.21,4,False,False
 ```
 
 ## Candidate Context

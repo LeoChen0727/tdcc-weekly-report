@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6720 久昌
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:58 Asia/Taipei
+- generated_at: 2026-06-06 22:24:06 Asia/Taipei
 - stock_id: 6720
 - stock_name: 久昌
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 277
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 57.56
-- over_600_ratio: 44.65
-- over_800_ratio: 37.66
-- over_1000_ratio: 25.59
+- as_of_date: 20260605
+- over_400_ratio: 57.53
+- over_600_ratio: 44.64
+- over_800_ratio: 37.62
+- over_1000_ratio: 25.55
 - over_400_change_1w: -0.03
-- over_800_change_1w: -0.17
-- over_1000_change_1w: -0.11
+- over_800_change_1w: -0.04
+- over_1000_change_1w: -0.04
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,57.31,0.06,37.66,0.07,25.72,-0.04,2,False,True
 20260522,57.59,0.28,37.83,0.17,25.7,-0.02,3,False,True
 20260529,57.56,-0.03,37.66,-0.17,25.59,-0.11,0,False,False
+20260605,57.53,-0.03,37.62,-0.04,25.55,-0.04,0,False,False
 ```
 
 ## Candidate Context

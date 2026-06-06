@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9941 裕融
 
 ## Metadata
-- generated_at: 2026-06-06 00:37:32 Asia/Taipei
+- generated_at: 2026-06-06 22:24:46 Asia/Taipei
 - stock_id: 9941
 - stock_name: 裕融
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,17 +162,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 67.26
-- over_600_ratio: 66.11
-- over_800_ratio: 64.91
-- over_1000_ratio: 64.17
-- over_400_change_1w: -0.39
-- over_800_change_1w: -0.28
-- over_1000_change_1w: -0.26
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260605
+- over_400_ratio: 68.6
+- over_600_ratio: 67.62
+- over_800_ratio: 66.51
+- over_1000_ratio: 65.61
+- over_400_change_1w: 1.34
+- over_800_change_1w: 1.6
+- over_1000_change_1w: 1.44
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,67.72,-0.68,65.17,-0.56,64.25,-0.87,0,False,False
 20260522,67.65,-0.07,65.19,0.02,64.43,0.18,1,False,True
 20260529,67.26,-0.39,64.91,-0.28,64.17,-0.26,0,False,False
+20260605,68.6,1.34,66.51,1.6,65.61,1.44,1,True,True
 ```
 
 ## Candidate Context

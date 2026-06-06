@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1215 卜蜂
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:18 Asia/Taipei
+- generated_at: 2026-06-06 22:22:11 Asia/Taipei
 - stock_id: 1215
 - stock_name: 卜蜂
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,14 +157,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 63.73
-- over_600_ratio: 62.88
-- over_800_ratio: 61.02
-- over_1000_ratio: 60.13
-- over_400_change_1w: -2.17
-- over_800_change_1w: -2
-- over_1000_change_1w: -1.43
+- as_of_date: 20260605
+- over_400_ratio: 62.26
+- over_600_ratio: 61.25
+- over_800_ratio: 59.42
+- over_1000_ratio: 57.97
+- over_400_change_1w: -1.47
+- over_800_change_1w: -1.6
+- over_1000_change_1w: -2.16
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -178,6 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,64.06,-0.46,61.27,-0.12,60.1,-0.1,1,False,False
 20260522,65.9,1.84,63.02,1.75,61.56,1.46,2,True,True
 20260529,63.73,-2.17,61.02,-2,60.13,-1.43,0,False,False
+20260605,62.26,-1.47,59.42,-1.6,57.97,-2.16,0,False,False
 ```
 
 ## Candidate Context
@@ -191,9 +192,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 1215 | 卜蜂 | 5 | 0 | 246690.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

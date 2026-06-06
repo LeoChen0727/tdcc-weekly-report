@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2230 泰茂
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:36 Asia/Taipei
+- generated_at: 2026-06-06 22:22:32 Asia/Taipei
 - stock_id: 2230
 - stock_name: 泰茂
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 46.2
-- over_600_ratio: 41.85
-- over_800_ratio: 36.75
-- over_1000_ratio: 28.77
-- over_400_change_1w: 0.15
-- over_800_change_1w: 0.1
+- as_of_date: 20260605
+- over_400_ratio: 46.22
+- over_600_ratio: 41.92
+- over_800_ratio: 36.82
+- over_1000_ratio: 28.84
+- over_400_change_1w: 0.02
+- over_800_change_1w: 0.07
 - over_1000_change_1w: 0.07
-- tdcc_consecutive_up_weeks: 4
+- tdcc_consecutive_up_weeks: 5
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,45.68,0.09,35.24,-0.01,28.67,-0.01,2,False,False
 20260522,46.05,0.37,36.65,1.41,28.7,0.03,3,True,True
 20260529,46.2,0.15,36.75,0.1,28.77,0.07,4,True,True
+20260605,46.22,0.02,36.82,0.07,28.84,0.07,5,True,True
 ```
 
 ## Candidate Context

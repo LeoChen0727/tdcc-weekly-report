@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2211 長榮鋼
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:36 Asia/Taipei
+- generated_at: 2026-06-06 22:22:32 Asia/Taipei
 - stock_id: 2211
 - stock_name: 長榮鋼
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 82.82
-- over_600_ratio: 81.51
-- over_800_ratio: 80.43
-- over_1000_ratio: 78.77
-- over_400_change_1w: -0.09
-- over_800_change_1w: 0.24
-- over_1000_change_1w: 0.03
-- tdcc_consecutive_up_weeks: 4
+- as_of_date: 20260605
+- over_400_ratio: 82.8
+- over_600_ratio: 81.37
+- over_800_ratio: 80.15
+- over_1000_ratio: 78.69
+- over_400_change_1w: -0.02
+- over_800_change_1w: -0.28
+- over_1000_change_1w: -0.08
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,82.87,-0.37,80.17,0.15,78.92,0.38,2,False,True
 20260522,82.91,0.04,80.19,0.02,78.74,-0.18,3,False,True
 20260529,82.82,-0.09,80.43,0.24,78.77,0.03,4,False,True
+20260605,82.8,-0.02,80.15,-0.28,78.69,-0.08,0,False,False
 ```
 
 ## Candidate Context
@@ -192,9 +193,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 2211 | 長榮鋼 | 5 | 0 | 17400.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

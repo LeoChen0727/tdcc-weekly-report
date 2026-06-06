@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4961 天鈺
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:28 Asia/Taipei
+- generated_at: 2026-06-06 22:23:32 Asia/Taipei
 - stock_id: 4961
 - stock_name: 天鈺
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 27
+- latest_tdcc_date: 20260605
+- tdcc_rows: 28
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 43.23
-- over_600_ratio: 38.52
-- over_800_ratio: 35.71
-- over_1000_ratio: 33.43
-- over_400_change_1w: -0.4
-- over_800_change_1w: 0.04
-- over_1000_change_1w: 0.04
-- tdcc_consecutive_up_weeks: 6
+- as_of_date: 20260605
+- over_400_ratio: 42.3
+- over_600_ratio: 38.55
+- over_800_ratio: 35.74
+- over_1000_ratio: 32.69
+- over_400_change_1w: -0.93
+- over_800_change_1w: 0.03
+- over_1000_change_1w: -0.74
+- tdcc_consecutive_up_weeks: 7
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -174,7 +174,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260313,41.03,0.6,34.16,0.1,30.3,-0.69,8,False,True
 20260320,41.31,0.28,33.22,-0.94,29.46,-0.84,9,False,False
 20260327,41.39,0.08,35.29,2.07,32.47,3.01,10,True,True
 20260402,42.04,0.65,35.19,-0.1,32.34,-0.13,11,False,False
@@ -186,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,42.45,0.52,35.66,1.13,32.68,0.43,4,True,True
 20260522,43.63,1.18,35.67,0.01,33.39,0.71,5,True,True
 20260529,43.23,-0.4,35.71,0.04,33.43,0.04,6,False,True
+20260605,42.3,-0.93,35.74,0.03,32.69,-0.74,7,False,True
 ```
 
 ## Candidate Context
@@ -199,9 +199,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 4961 | 天鈺 | 11 | 0 | 997030.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

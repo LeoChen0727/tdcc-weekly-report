@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3710 連展投控
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:16 Asia/Taipei
+- generated_at: 2026-06-06 22:23:17 Asia/Taipei
 - stock_id: 3710
 - stock_name: 連展投控
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 31.46
-- over_600_ratio: 26.64
-- over_800_ratio: 23.4
-- over_1000_ratio: 22.15
-- over_400_change_1w: 0.37
-- over_800_change_1w: 0.23
-- over_1000_change_1w: 0.21
-- tdcc_consecutive_up_weeks: 4
+- as_of_date: 20260605
+- over_400_ratio: 31.76
+- over_600_ratio: 26.79
+- over_800_ratio: 23.53
+- over_1000_ratio: 22.28
+- over_400_change_1w: 0.3
+- over_800_change_1w: 0.13
+- over_1000_change_1w: 0.13
+- tdcc_consecutive_up_weeks: 5
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,30.96,-0.01,23.32,0.62,21.51,0.07,2,False,True
 20260522,31.09,0.13,23.17,-0.15,21.94,0.43,3,False,True
 20260529,31.46,0.37,23.4,0.23,22.15,0.21,4,True,True
+20260605,31.76,0.3,23.53,0.13,22.28,0.13,5,True,True
 ```
 
 ## Candidate Context

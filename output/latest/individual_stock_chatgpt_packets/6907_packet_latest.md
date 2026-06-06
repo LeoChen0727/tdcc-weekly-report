@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6907 雅特力-KY
 
 ## Metadata
-- generated_at: 2026-06-06 00:37:03 Asia/Taipei
+- generated_at: 2026-06-06 22:24:12 Asia/Taipei
 - stock_id: 6907
 - stock_name: 雅特力-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 217
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 67.94
-- over_600_ratio: 65.49
-- over_800_ratio: 64.47
-- over_1000_ratio: 64.47
-- over_400_change_1w: -0.37
-- over_800_change_1w: -0.37
-- over_1000_change_1w: -0.37
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260605
+- over_400_ratio: 69.2
+- over_600_ratio: 66.07
+- over_800_ratio: 63.89
+- over_1000_ratio: 62.31
+- over_400_change_1w: 1.26
+- over_800_change_1w: -0.58
+- over_1000_change_1w: -2.16
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -178,6 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,68.45,-0.18,64.98,-0.18,64.98,-0.18,0,False,False
 20260522,68.31,-0.14,64.84,-0.14,64.84,-0.14,0,False,False
 20260529,67.94,-0.37,64.47,-0.37,64.47,-0.37,0,False,False
+20260605,69.2,1.26,63.89,-0.58,62.31,-2.16,1,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8289 泰藝
 
 ## Metadata
-- generated_at: 2026-06-06 00:37:25 Asia/Taipei
+- generated_at: 2026-06-06 22:24:38 Asia/Taipei
 - stock_id: 8289
 - stock_name: 泰藝
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 50.32
-- over_600_ratio: 44.09
-- over_800_ratio: 42.07
-- over_1000_ratio: 39.5
-- over_400_change_1w: 1.03
-- over_800_change_1w: 1.83
-- over_1000_change_1w: 1.83
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260605
+- over_400_ratio: 43.59
+- over_600_ratio: 37.73
+- over_800_ratio: 36.7
+- over_1000_ratio: 34.13
+- over_400_change_1w: -6.73
+- over_800_change_1w: -5.37
+- over_1000_change_1w: -5.37
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -178,6 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,47.99,-0.98,40.43,0.08,36.42,-1.36,2,False,True
 20260522,49.29,1.3,40.24,-0.19,37.67,1.25,3,False,True
 20260529,50.32,1.03,42.07,1.83,39.5,1.83,4,True,True
+20260605,43.59,-6.73,36.7,-5.37,34.13,-5.37,0,False,False
 ```
 
 ## Candidate Context

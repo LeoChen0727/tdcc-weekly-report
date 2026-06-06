@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2302 麗正
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:37 Asia/Taipei
+- generated_at: 2026-06-06 22:22:33 Asia/Taipei
 - stock_id: 2302
 - stock_name: 麗正
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,14 +157,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 65.53
-- over_600_ratio: 63.8
-- over_800_ratio: 61.32
-- over_1000_ratio: 61.32
-- over_400_change_1w: -1.91
-- over_800_change_1w: -1.24
-- over_1000_change_1w: -0.7
+- as_of_date: 20260605
+- over_400_ratio: 63.94
+- over_600_ratio: 61.61
+- over_800_ratio: 60.4
+- over_1000_ratio: 58.76
+- over_400_change_1w: -1.59
+- over_800_change_1w: -0.92
+- over_1000_change_1w: -2.56
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -178,6 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,67.35,-0.64,61.69,-1.55,61.14,-2.1,0,False,False
 20260522,67.44,0.09,62.56,0.87,62.02,0.88,1,True,True
 20260529,65.53,-1.91,61.32,-1.24,61.32,-0.7,0,False,False
+20260605,63.94,-1.59,60.4,-0.92,58.76,-2.56,0,False,False
 ```
 
 ## Candidate Context

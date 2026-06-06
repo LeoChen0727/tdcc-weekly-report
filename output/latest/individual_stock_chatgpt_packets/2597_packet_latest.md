@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2597 潤弘
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:48 Asia/Taipei
+- generated_at: 2026-06-06 22:22:46 Asia/Taipei
 - stock_id: 2597
 - stock_name: 潤弘
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,16 +157,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 79.33
-- over_600_ratio: 77.78
-- over_800_ratio: 75.88
-- over_1000_ratio: 75.03
-- over_400_change_1w: 0.18
-- over_800_change_1w: -0.23
-- over_1000_change_1w: 0.34
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: False
+- as_of_date: 20260605
+- over_400_ratio: 80.22
+- over_600_ratio: 78.34
+- over_800_ratio: 76.69
+- over_1000_ratio: 75.53
+- over_400_change_1w: 0.89
+- over_800_change_1w: 0.81
+- over_1000_change_1w: 0.5
+- tdcc_consecutive_up_weeks: 5
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -178,6 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,78.85,0.4,75.77,0.15,74.65,0.18,2,True,True
 20260522,79.15,0.3,76.11,0.34,74.69,0.04,3,True,True
 20260529,79.33,0.18,75.88,-0.23,75.03,0.34,4,False,True
+20260605,80.22,0.89,76.69,0.81,75.53,0.5,5,True,True
 ```
 
 ## Candidate Context

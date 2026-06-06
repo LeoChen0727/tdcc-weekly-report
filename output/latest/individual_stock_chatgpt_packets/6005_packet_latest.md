@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6005 群益證
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:39 Asia/Taipei
+- generated_at: 2026-06-06 22:23:44 Asia/Taipei
 - stock_id: 6005
 - stock_name: 群益證
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,17 +162,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 75.72
-- over_600_ratio: 74.13
-- over_800_ratio: 73.34
-- over_1000_ratio: 72.47
-- over_400_change_1w: 0.93
-- over_800_change_1w: 0.98
-- over_1000_change_1w: 1.01
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260605
+- over_400_ratio: 75.3
+- over_600_ratio: 73.7
+- over_800_ratio: 72.98
+- over_1000_ratio: 71.94
+- over_400_change_1w: -0.42
+- over_800_change_1w: -0.36
+- over_1000_change_1w: -0.53
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,74.79,-0.2,72.22,-0.19,71.32,-0.15,0,False,False
 20260522,74.79,0,72.36,0.14,71.46,0.14,1,False,True
 20260529,75.72,0.93,73.34,0.98,72.47,1.01,2,True,True
+20260605,75.3,-0.42,72.98,-0.36,71.94,-0.53,0,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9908 大台北
 
 ## Metadata
-- generated_at: 2026-06-06 00:37:31 Asia/Taipei
+- generated_at: 2026-06-06 22:24:44 Asia/Taipei
 - stock_id: 9908
 - stock_name: 大台北
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 80.47
-- over_600_ratio: 78.11
-- over_800_ratio: 76.41
-- over_1000_ratio: 74.15
-- over_400_change_1w: 0.03
-- over_800_change_1w: 0.02
-- over_1000_change_1w: 0.02
-- tdcc_consecutive_up_weeks: 4
+- as_of_date: 20260605
+- over_400_ratio: 80.51
+- over_600_ratio: 78.22
+- over_800_ratio: 76.78
+- over_1000_ratio: 74.35
+- over_400_change_1w: 0.04
+- over_800_change_1w: 0.37
+- over_1000_change_1w: 0.2
+- tdcc_consecutive_up_weeks: 5
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,80.26,0.01,76.38,0.02,74.12,-0.18,2,False,True
 20260522,80.44,0.18,76.39,0.01,74.13,0.01,3,True,True
 20260529,80.47,0.03,76.41,0.02,74.15,0.02,4,True,True
+20260605,80.51,0.04,76.78,0.37,74.35,0.2,5,True,True
 ```
 
 ## Candidate Context

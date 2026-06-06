@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1340 勝悅-KY
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:21 Asia/Taipei
+- generated_at: 2026-06-06 22:22:15 Asia/Taipei
 - stock_id: 1340
 - stock_name: 勝悅-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 35.16
-- over_600_ratio: 31.16
-- over_800_ratio: 30.73
+- as_of_date: 20260605
+- over_400_ratio: 35.4
+- over_600_ratio: 31.15
+- over_800_ratio: 30.72
 - over_1000_ratio: 28.99
-- over_400_change_1w: -0.29
-- over_800_change_1w: 0.01
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 4
+- over_400_change_1w: 0.24
+- over_800_change_1w: -0.01
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 5
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -178,6 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,35.46,0.05,30.67,0.01,28.93,0.01,2,True,True
 20260522,35.45,-0.01,30.72,0.05,28.98,0.05,3,False,True
 20260529,35.16,-0.29,30.73,0.01,28.99,0.01,4,False,True
+20260605,35.4,0.24,30.72,-0.01,28.99,0,5,False,False
 ```
 
 ## Candidate Context

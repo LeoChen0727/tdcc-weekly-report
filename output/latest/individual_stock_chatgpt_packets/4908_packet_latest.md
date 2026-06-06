@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4908 前鼎
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:27 Asia/Taipei
+- generated_at: 2026-06-06 22:23:30 Asia/Taipei
 - stock_id: 4908
 - stock_name: 前鼎
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 57.68
-- over_600_ratio: 54.41
-- over_800_ratio: 52.65
-- over_1000_ratio: 46.85
-- over_400_change_1w: -2.16
-- over_800_change_1w: -0.65
-- over_1000_change_1w: -1.75
+- as_of_date: 20260605
+- over_400_ratio: 55.87
+- over_600_ratio: 53.81
+- over_800_ratio: 50.4
+- over_1000_ratio: 44.47
+- over_400_change_1w: -1.81
+- over_800_change_1w: -2.25
+- over_1000_change_1w: -2.38
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,58.17,0.21,52.58,0.29,47.88,0.29,2,True,True
 20260522,59.84,1.67,53.3,0.72,48.6,0.72,3,True,True
 20260529,57.68,-2.16,52.65,-0.65,46.85,-1.75,0,False,False
+20260605,55.87,-1.81,50.4,-2.25,44.47,-2.38,0,False,False
 ```
 
 ## Candidate Context

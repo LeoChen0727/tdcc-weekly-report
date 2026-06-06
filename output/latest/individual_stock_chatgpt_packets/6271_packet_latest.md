@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6271 同欣電
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:47 Asia/Taipei
+- generated_at: 2026-06-06 22:23:54 Asia/Taipei
 - stock_id: 6271
 - stock_name: 同欣電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 50.64
-- over_600_ratio: 47.88
-- over_800_ratio: 45.86
-- over_1000_ratio: 44.61
-- over_400_change_1w: -0.96
-- over_800_change_1w: 1.25
-- over_1000_change_1w: 2.94
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260605
+- over_400_ratio: 51.34
+- over_600_ratio: 48.3
+- over_800_ratio: 45.58
+- over_1000_ratio: 45.14
+- over_400_change_1w: 0.7
+- over_800_change_1w: -0.28
+- over_1000_change_1w: 0.53
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -178,6 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,47.24,0.94,41.21,0.53,38.16,-0.33,1,False,True
 20260522,51.6,4.36,44.61,3.4,41.67,3.51,2,True,True
 20260529,50.64,-0.96,45.86,1.25,44.61,2.94,3,False,True
+20260605,51.34,0.7,45.58,-0.28,45.14,0.53,4,False,True
 ```
 
 ## Candidate Context
@@ -191,9 +192,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 6271 | 同欣電 | 116 | 0 | 2362390.0 | 0.0 |  | call_inflow |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

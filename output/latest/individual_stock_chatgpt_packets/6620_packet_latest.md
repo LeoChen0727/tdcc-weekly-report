@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6620 漢達
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:55 Asia/Taipei
+- generated_at: 2026-06-06 22:24:03 Asia/Taipei
 - stock_id: 6620
 - stock_name: 漢達
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 242
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 59.22
-- over_600_ratio: 54.4
-- over_800_ratio: 49.96
-- over_1000_ratio: 48.39
-- over_400_change_1w: 0.13
-- over_800_change_1w: 0.78
-- over_1000_change_1w: 0.3
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: True
+- as_of_date: 20260605
+- over_400_ratio: 59.34
+- over_600_ratio: 54.52
+- over_800_ratio: 49.66
+- over_1000_ratio: 48.57
+- over_400_change_1w: 0.12
+- over_800_change_1w: -0.3
+- over_1000_change_1w: 0.18
+- tdcc_consecutive_up_weeks: 5
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,59.02,0.19,49.04,0.22,47.95,0.22,2,True,True
 20260522,59.09,0.07,49.18,0.14,48.09,0.14,3,True,True
 20260529,59.22,0.13,49.96,0.78,48.39,0.3,4,True,True
+20260605,59.34,0.12,49.66,-0.3,48.57,0.18,5,False,True
 ```
 
 ## Candidate Context

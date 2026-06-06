@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2468 華經
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:45 Asia/Taipei
+- generated_at: 2026-06-06 22:22:42 Asia/Taipei
 - stock_id: 2468
 - stock_name: 華經
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,17 +162,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 51.5
-- over_600_ratio: 50.9
-- over_800_ratio: 50.02
-- over_1000_ratio: 50.02
-- over_400_change_1w: 0.23
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260605
+- over_400_ratio: 54.01
+- over_600_ratio: 52.68
+- over_800_ratio: 52.68
+- over_1000_ratio: 52.68
+- over_400_change_1w: 2.51
+- over_800_change_1w: 2.66
+- over_1000_change_1w: 2.66
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,51.31,-0.73,50.02,0,50.02,0,0,False,False
 20260522,51.27,-0.04,50.02,0,50.02,0,0,False,False
 20260529,51.5,0.23,50.02,0,50.02,0,1,False,False
+20260605,54.01,2.51,52.68,2.66,52.68,2.66,2,True,True
 ```
 
 ## Candidate Context

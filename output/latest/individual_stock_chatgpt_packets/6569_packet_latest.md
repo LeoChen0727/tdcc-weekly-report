@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6569 醫揚
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:53 Asia/Taipei
+- generated_at: 2026-06-06 22:24:00 Asia/Taipei
 - stock_id: 6569
 - stock_name: 醫揚
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 66.66
+- as_of_date: 20260605
+- over_400_ratio: 66.62
 - over_600_ratio: 63.17
 - over_800_ratio: 61.23
 - over_1000_ratio: 61.23
-- over_400_change_1w: 1.12
+- over_400_change_1w: -0.04
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 2
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -178,6 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,65.53,0,61.23,0,61.23,0,0,False,False
 20260522,65.54,0.01,61.23,0,61.23,0,1,False,False
 20260529,66.66,1.12,61.23,0,61.23,0,2,False,False
+20260605,66.62,-0.04,61.23,0,61.23,0,0,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2317 鴻海
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:38 Asia/Taipei
+- generated_at: 2026-06-06 22:22:34 Asia/Taipei
 - stock_id: 2317
 - stock_name: 鴻海
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 277
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 70.43
-- over_600_ratio: 69.24
-- over_800_ratio: 68.48
-- over_1000_ratio: 67.79
-- over_400_change_1w: 0.67
-- over_800_change_1w: 0.67
-- over_1000_change_1w: 0.72
-- tdcc_consecutive_up_weeks: 4
+- as_of_date: 20260605
+- over_400_ratio: 70.96
+- over_600_ratio: 69.8
+- over_800_ratio: 69.05
+- over_1000_ratio: 68.31
+- over_400_change_1w: 0.53
+- over_800_change_1w: 0.57
+- over_1000_change_1w: 0.52
+- tdcc_consecutive_up_weeks: 5
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -178,6 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,69.39,0.17,67.41,0.19,66.71,0.19,2,True,True
 20260522,69.76,0.37,67.81,0.4,67.07,0.36,3,True,True
 20260529,70.43,0.67,68.48,0.67,67.79,0.72,4,True,True
+20260605,70.96,0.53,69.05,0.57,68.31,0.52,5,True,True
 ```
 
 ## Candidate Context
@@ -191,9 +192,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 2317 | 鴻海 | 540 | 44 | 143704840.0 | 1821940.0 | 78.87 | put_inflow |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

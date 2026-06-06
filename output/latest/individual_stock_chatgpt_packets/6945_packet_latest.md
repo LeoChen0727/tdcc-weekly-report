@@ -1,18 +1,18 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6945 圓祥生技
 
 ## Metadata
-- generated_at: 2026-06-06 00:37:04 Asia/Taipei
+- generated_at: 2026-06-06 22:24:13 Asia/Taipei
 - stock_id: 6945
 - stock_name: 圓祥生技
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20260605
 - price_rows: 1
-- latest_tdcc_date: 
-- tdcc_rows: 0
-- tdcc_history_status: tdcc_missing
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
+- tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
-- notes: price history shorter than 120 rows; K-line context is partial; TDCC history missing
+- notes: price history shorter than 120 rows; K-line context is partial; TDCC history fewer than 8 weeks; do not make 8-12 week TDCC backtest conclusions
 
 ## Stable Read URLs
 - packet_pages_url: not_published_to_pages_use_raw_or_github_api
@@ -64,9 +64,9 @@
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: 若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- risk_control_zh: TDCC 歷史不足
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：若跌破 23EMA 或支撐區、量價失敗、營收轉弱或 TDCC 同步轉弱，需降低部位。
+- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -104,7 +104,7 @@
 - warrant_overheat_check
 
 ### downgrade_reason
-- none
+- insufficient_tdcc_history
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -138,23 +138,28 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 
-- over_400_ratio: 
-- over_600_ratio: 
-- over_800_ratio: 
-- over_1000_ratio: 
-- over_400_change_1w: 
-- over_800_change_1w: 
-- over_1000_change_1w: 
-- tdcc_consecutive_up_weeks: 
-- all_thresholds_up: 
-- high_thresholds_up: 
+- as_of_date: 20260605
+- over_400_ratio: 61.9
+- over_600_ratio: 58.96
+- over_800_ratio: 56.85
+- over_1000_ratio: 53.19
+- over_400_change_1w: -6.5
+- over_800_change_1w: -6.39
+- over_1000_change_1w: -5.9
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
-status,no_rows
-no_rows,True
+as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
+20260430,68.45,,63.85,,59.68,,0,False,False
+20260508,68.45,0,63.85,0,59.68,0,0,False,False
+20260515,68.45,0,63.85,0,59.68,0,0,False,False
+20260522,68.43,-0.02,63.83,-0.02,59.68,0,0,False,False
+20260529,68.4,-0.03,63.24,-0.59,59.09,-0.59,0,False,False
+20260605,61.9,-6.5,56.85,-6.39,53.19,-5.9,0,False,False
 ```
 
 ## Candidate Context

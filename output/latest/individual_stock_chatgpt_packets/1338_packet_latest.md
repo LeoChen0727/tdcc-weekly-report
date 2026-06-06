@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1338 廣華-KY
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:20 Asia/Taipei
+- generated_at: 2026-06-06 22:22:14 Asia/Taipei
 - stock_id: 1338
 - stock_name: 廣華-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 42.86
-- over_600_ratio: 39.5
-- over_800_ratio: 35.39
-- over_1000_ratio: 32.31
-- over_400_change_1w: 0.04
-- over_800_change_1w: -0.06
-- over_1000_change_1w: -1.2
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260605
+- over_400_ratio: 42.33
+- over_600_ratio: 39.46
+- over_800_ratio: 36.13
+- over_1000_ratio: 32.05
+- over_400_change_1w: -0.53
+- over_800_change_1w: 0.74
+- over_1000_change_1w: -0.26
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -178,6 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,42.85,-0.05,35.45,-0.04,33.51,-0.04,0,False,False
 20260522,42.82,-0.03,35.45,0,33.51,0,0,False,False
 20260529,42.86,0.04,35.39,-0.06,32.31,-1.2,1,False,False
+20260605,42.33,-0.53,36.13,0.74,32.05,-0.26,2,False,True
 ```
 
 ## Candidate Context

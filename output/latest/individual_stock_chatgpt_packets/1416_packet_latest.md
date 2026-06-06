@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1416 廣豐
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:21 Asia/Taipei
+- generated_at: 2026-06-06 22:22:15 Asia/Taipei
 - stock_id: 1416
 - stock_name: 廣豐
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 55.21
-- over_600_ratio: 51.96
-- over_800_ratio: 50.15
-- over_1000_ratio: 48.67
-- over_400_change_1w: 0.31
-- over_800_change_1w: 0.04
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260605
+- over_400_ratio: 55.16
+- over_600_ratio: 52.02
+- over_800_ratio: 50.23
+- over_1000_ratio: 49.27
+- over_400_change_1w: -0.05
+- over_800_change_1w: 0.08
+- over_1000_change_1w: 0.6
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,55.23,-0.32,50.14,-0.01,48.73,-0.02,0,False,False
 20260522,54.9,-0.33,50.11,-0.03,48.67,-0.06,0,False,False
 20260529,55.21,0.31,50.15,0.04,48.67,0,1,False,True
+20260605,55.16,-0.05,50.23,0.08,49.27,0.6,2,False,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8088 品安
 
 ## Metadata
-- generated_at: 2026-06-06 00:37:22 Asia/Taipei
+- generated_at: 2026-06-06 22:24:34 Asia/Taipei
 - stock_id: 8088
 - stock_name: 品安
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 19.79
-- over_600_ratio: 17.43
-- over_800_ratio: 17.43
-- over_1000_ratio: 16.1
-- over_400_change_1w: 0.85
-- over_800_change_1w: 0.7
-- over_1000_change_1w: 0.99
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260605
+- over_400_ratio: 20.47
+- over_600_ratio: 19.1
+- over_800_ratio: 19.1
+- over_1000_ratio: 19.1
+- over_400_change_1w: 0.68
+- over_800_change_1w: 1.67
+- over_1000_change_1w: 3
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -178,6 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,18.49,-0.4,16.27,1.34,13.24,-1.69,1,False,True
 20260522,18.94,0.45,16.73,0.46,15.11,1.87,2,True,True
 20260529,19.79,0.85,17.43,0.7,16.1,0.99,3,True,True
+20260605,20.47,0.68,19.1,1.67,19.1,3,4,True,True
 ```
 
 ## Candidate Context

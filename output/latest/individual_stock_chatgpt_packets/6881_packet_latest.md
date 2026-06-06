@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6881 潤德
 
 ## Metadata
-- generated_at: 2026-06-06 00:37:02 Asia/Taipei
+- generated_at: 2026-06-06 22:24:11 Asia/Taipei
 - stock_id: 6881
 - stock_name: 潤德
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 260
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,7 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
+- as_of_date: 20260605
 - over_400_ratio: 57.92
 - over_600_ratio: 54.86
 - over_800_ratio: 49.96
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,57.92,0,49.96,0,49.96,0,0,False,False
 20260522,57.92,0,49.96,0,49.96,0,0,False,False
 20260529,57.92,0,49.96,0,49.96,0,0,False,False
+20260605,57.92,0,49.96,0,49.96,0,0,False,False
 ```
 
 ## Candidate Context

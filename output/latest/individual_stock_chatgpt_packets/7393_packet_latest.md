@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7393 優群統一59購01
 
 ## Metadata
-- generated_at: 2026-06-06 00:37:16 Asia/Taipei
+- generated_at: 2026-06-06 22:24:27 Asia/Taipei
 - stock_id: 7393
 - stock_name: 優群統一59購01
 - packet_status: standard_180d_window_packet

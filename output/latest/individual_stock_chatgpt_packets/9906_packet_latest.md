@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9906 欣巴巴
 
 ## Metadata
-- generated_at: 2026-06-06 00:37:31 Asia/Taipei
+- generated_at: 2026-06-06 22:24:44 Asia/Taipei
 - stock_id: 9906
 - stock_name: 欣巴巴
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 78.5
-- over_600_ratio: 76.06
-- over_800_ratio: 74.56
-- over_1000_ratio: 72.46
-- over_400_change_1w: 0.51
-- over_800_change_1w: 1.12
-- over_1000_change_1w: 0.12
-- tdcc_consecutive_up_weeks: 4
+- as_of_date: 20260605
+- over_400_ratio: 78.86
+- over_600_ratio: 76.35
+- over_800_ratio: 74.85
+- over_1000_ratio: 73.75
+- over_400_change_1w: 0.36
+- over_800_change_1w: 0.29
+- over_1000_change_1w: 1.29
+- tdcc_consecutive_up_weeks: 5
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -178,6 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,77.91,0.4,73.47,-0.93,72.37,0.9,2,False,True
 20260522,77.99,0.08,73.44,-0.03,72.34,-0.03,3,False,False
 20260529,78.5,0.51,74.56,1.12,72.46,0.12,4,True,True
+20260605,78.86,0.36,74.85,0.29,73.75,1.29,5,True,True
 ```
 
 ## Candidate Context

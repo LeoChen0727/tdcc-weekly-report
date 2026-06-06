@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6925 意藍
 
 ## Metadata
-- generated_at: 2026-06-06 00:37:04 Asia/Taipei
+- generated_at: 2026-06-06 22:24:13 Asia/Taipei
 - stock_id: 6925
 - stock_name: 意藍
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,14 +157,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 62.65
-- over_600_ratio: 46.43
-- over_800_ratio: 46.43
+- as_of_date: 20260605
+- over_400_ratio: 60.86
+- over_600_ratio: 41.69
+- over_800_ratio: 41.69
 - over_1000_ratio: 41.69
-- over_400_change_1w: -0.31
-- over_800_change_1w: -0.43
-- over_1000_change_1w: -5.17
+- over_400_change_1w: -1.79
+- over_800_change_1w: -4.74
+- over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -178,6 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,62.74,0.08,46.81,0.08,46.81,0.08,1,True,True
 20260522,62.96,0.22,46.86,0.05,46.86,0.05,2,True,True
 20260529,62.65,-0.31,46.43,-0.43,41.69,-5.17,0,False,False
+20260605,60.86,-1.79,41.69,-4.74,41.69,0,0,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1809 中釉
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:31 Asia/Taipei
+- generated_at: 2026-06-06 22:22:27 Asia/Taipei
 - stock_id: 1809
 - stock_name: 中釉
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,17 +162,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 50.99
-- over_600_ratio: 49.03
-- over_800_ratio: 46.47
-- over_1000_ratio: 45.92
-- over_400_change_1w: -2.59
-- over_800_change_1w: -3.81
-- over_1000_change_1w: -2.21
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260605
+- over_400_ratio: 53.06
+- over_600_ratio: 50.78
+- over_800_ratio: 48.73
+- over_1000_ratio: 47.21
+- over_400_change_1w: 2.07
+- over_800_change_1w: 2.26
+- over_1000_change_1w: 1.29
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,54.72,1.03,49.67,1.51,48.07,0.46,2,True,True
 20260522,53.58,-1.14,50.28,0.61,48.13,0.06,3,False,True
 20260529,50.99,-2.59,46.47,-3.81,45.92,-2.21,0,False,False
+20260605,53.06,2.07,48.73,2.26,47.21,1.29,1,True,True
 ```
 
 ## Candidate Context

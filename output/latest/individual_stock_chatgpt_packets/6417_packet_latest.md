@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6417 韋僑
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:49 Asia/Taipei
+- generated_at: 2026-06-06 22:23:55 Asia/Taipei
 - stock_id: 6417
 - stock_name: 韋僑
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 68.19
-- over_600_ratio: 62.11
-- over_800_ratio: 58.64
-- over_1000_ratio: 52.4
-- over_400_change_1w: -0.27
-- over_800_change_1w: -0.29
-- over_1000_change_1w: -0.3
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260605
+- over_400_ratio: 68.15
+- over_600_ratio: 62.12
+- over_800_ratio: 58.65
+- over_1000_ratio: 52.41
+- over_400_change_1w: -0.04
+- over_800_change_1w: 0.01
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,69.32,2.18,57.01,0.78,52.71,0.78,2,True,True
 20260522,68.46,-0.86,58.93,1.92,52.7,-0.01,3,False,True
 20260529,68.19,-0.27,58.64,-0.29,52.4,-0.3,0,False,False
+20260605,68.15,-0.04,58.65,0.01,52.41,0.01,1,False,True
 ```
 
 ## Candidate Context

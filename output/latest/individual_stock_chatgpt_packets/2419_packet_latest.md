@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2419 仲琦
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:42 Asia/Taipei
+- generated_at: 2026-06-06 22:22:39 Asia/Taipei
 - stock_id: 2419
 - stock_name: 仲琦
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 65.66
-- over_600_ratio: 63.76
-- over_800_ratio: 63.35
-- over_1000_ratio: 63.07
-- over_400_change_1w: 0.81
-- over_800_change_1w: 0.28
-- over_1000_change_1w: 0.83
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260605
+- over_400_ratio: 65.39
+- over_600_ratio: 63.85
+- over_800_ratio: 63.04
+- over_1000_ratio: 62.75
+- over_400_change_1w: -0.27
+- over_800_change_1w: -0.31
+- over_1000_change_1w: -0.32
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,64.97,0.14,62.87,0.38,62.58,0.34,1,True,True
 20260522,64.85,-0.12,63.07,0.2,62.24,-0.34,2,False,True
 20260529,65.66,0.81,63.35,0.28,63.07,0.83,3,True,True
+20260605,65.39,-0.27,63.04,-0.31,62.75,-0.32,4,False,False
 ```
 
 ## Candidate Context
@@ -192,9 +193,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 2419 | 仲琦 | 31 | 0 | 132420.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

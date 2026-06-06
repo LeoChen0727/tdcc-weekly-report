@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6198 瑞築
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:44 Asia/Taipei
+- generated_at: 2026-06-06 22:23:50 Asia/Taipei
 - stock_id: 6198
 - stock_name: 瑞築
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 267
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 94.17
-- over_600_ratio: 93.26
-- over_800_ratio: 92.85
-- over_1000_ratio: 92.85
+- as_of_date: 20260605
+- over_400_ratio: 94.19
+- over_600_ratio: 93.28
+- over_800_ratio: 92.87
+- over_1000_ratio: 92.87
 - over_400_change_1w: 0.02
 - over_800_change_1w: 0.02
 - over_1000_change_1w: 0.02
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,94.15,0.01,92.83,0.01,92.83,0.01,2,True,True
 20260522,94.15,0,92.83,0,92.83,0,0,False,False
 20260529,94.17,0.02,92.85,0.02,92.85,0.02,1,True,True
+20260605,94.19,0.02,92.87,0.02,92.87,0.02,2,True,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3443 創意
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:08 Asia/Taipei
+- generated_at: 2026-06-06 22:23:08 Asia/Taipei
 - stock_id: 3443
 - stock_name: 創意
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -161,15 +161,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 67.02
-- over_600_ratio: 62.49
-- over_800_ratio: 57.34
-- over_1000_ratio: 54.65
-- over_400_change_1w: 0.12
-- over_800_change_1w: -1.61
-- over_1000_change_1w: -1.53
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260605
+- over_400_ratio: 66.25
+- over_600_ratio: 61.19
+- over_800_ratio: 56.44
+- over_1000_ratio: 52.94
+- over_400_change_1w: -0.77
+- over_800_change_1w: -0.9
+- over_1000_change_1w: -1.71
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -182,13 +182,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,67.38,-1.62,58.85,-1.11,56.15,-0.29,0,False,False
 20260522,66.9,-0.48,58.95,0.1,56.18,0.03,1,False,True
 20260529,67.02,0.12,57.34,-1.61,54.65,-1.53,2,False,False
+20260605,66.25,-0.77,56.44,-0.9,52.94,-1.71,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 3443 | 創意 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: ex_dividend on 20260608; status=confirmed; proximity=within_3d |
-| 20260605 | 3443 | 創意 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | calendar event: ex_dividend on 20260608; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260605 | 3443 | 創意 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: ex_dividend on 20260608; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -196,9 +196,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | 20260605 | 3443 | 創意 | 11 | 4 | 5 | 10 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 3443 | 創意 | 101 | 16 | 4295320.0 | 980.0 | 4382.98 | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3023 信邦
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:57 Asia/Taipei
+- generated_at: 2026-06-06 22:22:56 Asia/Taipei
 - stock_id: 3023
 - stock_name: 信邦
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,17 +162,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 67.32
-- over_600_ratio: 60.77
-- over_800_ratio: 56.75
-- over_1000_ratio: 52.3
-- over_400_change_1w: -0.04
-- over_800_change_1w: -0.46
-- over_1000_change_1w: -0.13
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260605
+- over_400_ratio: 67.59
+- over_600_ratio: 61.48
+- over_800_ratio: 57.17
+- over_1000_ratio: 53.09
+- over_400_change_1w: 0.27
+- over_800_change_1w: 0.42
+- over_1000_change_1w: 0.79
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,12 +183,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,68.22,-0.38,56.77,-1.02,51.94,-1.04,0,False,False
 20260522,67.36,-0.86,57.21,0.44,52.43,0.49,1,False,True
 20260529,67.32,-0.04,56.75,-0.46,52.3,-0.13,2,False,False
+20260605,67.59,0.27,57.17,0.42,53.09,0.79,3,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 3023 | 信邦 | true_breakout | 嚴格突破 | 141.0 |  |  | breakout_confirmed |  | call_strong_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260605 | 3023 | 信邦 | true_breakout | 嚴格突破 | 141.0 |  |  | breakout_confirmed |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -196,9 +197,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | 20260605 | 3023 | 信邦 | 1 | 1 | 4 | 9 | 10 | first_seen | 首次上榜或資料有限，需後續確認。 |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 3023 | 信邦 | 15 | 0 | 7659570.0 | 0.0 |  | call_strong_inflow |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

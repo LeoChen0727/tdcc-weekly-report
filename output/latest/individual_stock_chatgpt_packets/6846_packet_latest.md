@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6846 綠茵
 
 ## Metadata
-- generated_at: 2026-06-06 00:37:01 Asia/Taipei
+- generated_at: 2026-06-06 22:24:10 Asia/Taipei
 - stock_id: 6846
 - stock_name: 綠茵
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 275
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,7 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
+- as_of_date: 20260605
 - over_400_ratio: 66.71
 - over_600_ratio: 66.71
 - over_800_ratio: 64.12
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,66.71,0,64.12,0,64.12,0,0,False,False
 20260522,66.71,0,64.12,0,64.12,0,0,False,False
 20260529,66.71,0,64.12,0,64.12,0,0,False,False
+20260605,66.71,0,64.12,0,64.12,0,0,False,False
 ```
 
 ## Candidate Context

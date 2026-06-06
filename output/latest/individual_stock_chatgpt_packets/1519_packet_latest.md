@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1519 華城
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:25 Asia/Taipei
+- generated_at: 2026-06-06 22:22:19 Asia/Taipei
 - stock_id: 1519
 - stock_name: 華城
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 75
-- over_600_ratio: 72.8
-- over_800_ratio: 70.55
-- over_1000_ratio: 67.43
-- over_400_change_1w: 0.12
-- over_800_change_1w: -0.19
-- over_1000_change_1w: -0.77
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260605
+- over_400_ratio: 75.49
+- over_600_ratio: 73.04
+- over_800_ratio: 70.6
+- over_1000_ratio: 67.85
+- over_400_change_1w: 0.49
+- over_800_change_1w: 0.05
+- over_1000_change_1w: 0.42
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,75.3,-0.46,71.57,0.16,68.54,0.23,2,False,True
 20260522,74.88,-0.42,70.74,-0.83,68.2,-0.34,0,False,False
 20260529,75,0.12,70.55,-0.19,67.43,-0.77,1,False,False
+20260605,75.49,0.49,70.6,0.05,67.85,0.42,2,True,True
 ```
 
 ## Candidate Context
@@ -192,9 +193,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 1519 | 華城 | 130 | 12 | 29170680.0 | 1177950.0 | 24.76 | put_inflow |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

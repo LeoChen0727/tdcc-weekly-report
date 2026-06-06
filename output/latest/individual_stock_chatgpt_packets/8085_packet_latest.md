@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8085 福華
 
 ## Metadata
-- generated_at: 2026-06-06 00:37:22 Asia/Taipei
+- generated_at: 2026-06-06 22:24:34 Asia/Taipei
 - stock_id: 8085
 - stock_name: 福華
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 42.2
-- over_600_ratio: 38.24
-- over_800_ratio: 36.2
-- over_1000_ratio: 32.49
-- over_400_change_1w: -0.14
-- over_800_change_1w: -0.1
-- over_1000_change_1w: -0.05
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260605
+- over_400_ratio: 42.37
+- over_600_ratio: 38.13
+- over_800_ratio: 35.61
+- over_1000_ratio: 32.42
+- over_400_change_1w: 0.17
+- over_800_change_1w: -0.59
+- over_1000_change_1w: -0.07
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -178,6 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,42.85,0.16,36.23,0.16,32.53,0.87,2,True,True
 20260522,42.34,-0.51,36.3,0.07,32.54,0.01,3,False,True
 20260529,42.2,-0.14,36.2,-0.1,32.49,-0.05,0,False,False
+20260605,42.37,0.17,35.61,-0.59,32.42,-0.07,1,False,False
 ```
 
 ## Candidate Context

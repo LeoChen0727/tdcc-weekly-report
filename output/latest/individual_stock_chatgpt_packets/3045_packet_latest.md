@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3045 台灣大
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:59 Asia/Taipei
+- generated_at: 2026-06-06 22:22:58 Asia/Taipei
 - stock_id: 3045
 - stock_name: 台灣大
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 27
+- latest_tdcc_date: 20260605
+- tdcc_rows: 28
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,23 +162,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 91.66
-- over_600_ratio: 90.79
-- over_800_ratio: 90.15
-- over_1000_ratio: 89.52
-- over_400_change_1w: -0.29
-- over_800_change_1w: -0.35
-- over_1000_change_1w: -0.28
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260605
+- over_400_ratio: 91.91
+- over_600_ratio: 91.06
+- over_800_ratio: 90.37
+- over_1000_ratio: 89.72
+- over_400_change_1w: 0.25
+- over_800_change_1w: 0.22
+- over_1000_change_1w: 0.2
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260313,91.33,-0.03,89.93,0.06,89.31,-0.04,4,False,True
 20260320,91.54,0.21,90.12,0.19,89.47,0.16,5,True,True
 20260327,91.6,0.06,90.24,0.12,89.47,0,6,False,True
 20260402,91.66,0.06,90.28,0.04,89.51,0.04,7,True,True
@@ -190,12 +189,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,91.92,0.24,90.44,0.2,89.73,0.21,1,True,True
 20260522,91.95,0.03,90.5,0.06,89.8,0.07,2,True,True
 20260529,91.66,-0.29,90.15,-0.35,89.52,-0.28,0,False,False
+20260605,91.91,0.25,90.37,0.22,89.72,0.2,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 3045 | 台灣大 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260605 | 3045 | 台灣大 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -203,9 +203,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | 20260605 | 3045 | 台灣大 | 11 | 11 | 5 | 10 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 3045 | 台灣大 | 1 | 0 | 47700.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

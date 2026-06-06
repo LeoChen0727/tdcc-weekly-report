@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3684 榮昌
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:15 Asia/Taipei
+- generated_at: 2026-06-06 22:23:16 Asia/Taipei
 - stock_id: 3684
 - stock_name: 榮昌
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 61.44
-- over_600_ratio: 57.9
-- over_800_ratio: 53.11
-- over_1000_ratio: 53.11
-- over_400_change_1w: 0
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
+- as_of_date: 20260605
+- over_400_ratio: 61.43
+- over_600_ratio: 57.89
+- over_800_ratio: 53.1
+- over_1000_ratio: 53.1
+- over_400_change_1w: -0.01
+- over_800_change_1w: -0.01
+- over_1000_change_1w: -0.01
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,61.15,0,52.82,0,52.82,0,0,False,False
 20260522,61.44,0.29,53.11,0.29,53.11,0.29,1,True,True
 20260529,61.44,0,53.11,0,53.11,0,0,False,False
+20260605,61.43,-0.01,53.1,-0.01,53.1,-0.01,0,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3388 崇越電
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:07 Asia/Taipei
+- generated_at: 2026-06-06 22:23:07 Asia/Taipei
 - stock_id: 3388
 - stock_name: 崇越電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 44.13
-- over_600_ratio: 38.9
-- over_800_ratio: 36.45
-- over_1000_ratio: 32.92
-- over_400_change_1w: 3.64
-- over_800_change_1w: 0.36
-- over_1000_change_1w: 0.51
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260605
+- over_400_ratio: 40.73
+- over_600_ratio: 36.95
+- over_800_ratio: 34.4
+- over_1000_ratio: 30.9
+- over_400_change_1w: -3.4
+- over_800_change_1w: -2.05
+- over_1000_change_1w: -2.02
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,43.07,1.3,37.38,1.28,32.41,-0.01,1,False,True
 20260522,40.49,-2.58,36.09,-1.29,32.41,0,0,False,False
 20260529,44.13,3.64,36.45,0.36,32.92,0.51,1,True,True
+20260605,40.73,-3.4,34.4,-2.05,30.9,-2.02,0,False,False
 ```
 
 ## Candidate Context

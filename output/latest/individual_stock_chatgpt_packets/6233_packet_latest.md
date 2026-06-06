@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6233 旺玖
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:46 Asia/Taipei
+- generated_at: 2026-06-06 22:23:52 Asia/Taipei
 - stock_id: 6233
 - stock_name: 旺玖
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 29.02
-- over_600_ratio: 25.77
-- over_800_ratio: 24.86
-- over_1000_ratio: 19.43
-- over_400_change_1w: 0.06
-- over_800_change_1w: 1.03
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260605
+- over_400_ratio: 29.58
+- over_600_ratio: 25.71
+- over_800_ratio: 24.8
+- over_1000_ratio: 19.33
+- over_400_change_1w: 0.56
+- over_800_change_1w: -0.06
+- over_1000_change_1w: -0.1
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,28.97,0.2,23.93,-0.02,19.5,0,2,False,False
 20260522,28.96,-0.01,23.83,-0.1,19.43,-0.07,0,False,False
 20260529,29.02,0.06,24.86,1.03,19.43,0,1,False,True
+20260605,29.58,0.56,24.8,-0.06,19.33,-0.1,2,False,False
 ```
 
 ## Candidate Context

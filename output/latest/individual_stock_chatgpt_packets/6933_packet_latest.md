@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6933 AMAX-KY
 
 ## Metadata
-- generated_at: 2026-06-06 00:37:04 Asia/Taipei
+- generated_at: 2026-06-06 22:24:13 Asia/Taipei
 - stock_id: 6933
 - stock_name: AMAX-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 61.83
-- over_600_ratio: 61.83
-- over_800_ratio: 61.83
-- over_1000_ratio: 61.83
-- over_400_change_1w: -0.13
-- over_800_change_1w: -0.13
-- over_1000_change_1w: -0.13
+- as_of_date: 20260605
+- over_400_ratio: 61.57
+- over_600_ratio: 61.57
+- over_800_ratio: 61.57
+- over_1000_ratio: 61.57
+- over_400_change_1w: -0.26
+- over_800_change_1w: -0.26
+- over_1000_change_1w: -0.26
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,62.01,-0.02,62.01,-0.02,62.01,-0.02,0,False,False
 20260522,61.96,-0.05,61.96,-0.05,61.96,-0.05,0,False,False
 20260529,61.83,-0.13,61.83,-0.13,61.83,-0.13,0,False,False
+20260605,61.57,-0.26,61.57,-0.26,61.57,-0.26,0,False,False
 ```
 
 ## Candidate Context
@@ -192,9 +193,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 6933 | AMAX-KY | 2 | 0 | 10600.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

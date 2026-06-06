@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8050 廣積
 
 ## Metadata
-- generated_at: 2026-06-06 00:37:21 Asia/Taipei
+- generated_at: 2026-06-06 22:24:33 Asia/Taipei
 - stock_id: 8050
 - stock_name: 廣積
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,14 +157,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 42.37
-- over_600_ratio: 40.26
-- over_800_ratio: 38.27
+- as_of_date: 20260605
+- over_400_ratio: 41.89
+- over_600_ratio: 39.5
+- over_800_ratio: 37.87
 - over_1000_ratio: 36.02
-- over_400_change_1w: -1
-- over_800_change_1w: -1.42
-- over_1000_change_1w: -1.42
+- over_400_change_1w: -0.48
+- over_800_change_1w: -0.4
+- over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -178,6 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,43.55,0.31,39.29,-0.03,37.44,-0.01,1,False,False
 20260522,43.37,-0.18,39.69,0.4,37.44,0,2,False,True
 20260529,42.37,-1,38.27,-1.42,36.02,-1.42,0,False,False
+20260605,41.89,-0.48,37.87,-0.4,36.02,0,0,False,False
 ```
 
 ## Candidate Context

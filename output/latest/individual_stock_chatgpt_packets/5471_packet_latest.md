@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5471 松翰
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:35 Asia/Taipei
+- generated_at: 2026-06-06 22:23:39 Asia/Taipei
 - stock_id: 5471
 - stock_name: 松翰
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,15 +162,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 31.39
-- over_600_ratio: 26.23
-- over_800_ratio: 23.03
-- over_1000_ratio: 22.56
-- over_400_change_1w: -1.96
-- over_800_change_1w: -1.47
-- over_1000_change_1w: -1.35
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260605
+- over_400_ratio: 30.83
+- over_600_ratio: 26.83
+- over_800_ratio: 22.81
+- over_1000_ratio: 20.54
+- over_400_change_1w: -0.56
+- over_800_change_1w: -0.22
+- over_1000_change_1w: -2.02
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -183,13 +183,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,32.29,0.91,24.65,-0.05,24.13,-0.08,2,False,False
 20260522,33.35,1.06,24.5,-0.15,23.91,-0.22,3,False,False
 20260529,31.39,-1.96,23.03,-1.47,22.56,-1.35,0,False,False
+20260605,30.83,-0.56,22.81,-0.22,20.54,-2.02,1,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 20260605 | 5471 | 松翰 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260605 | 5471 | 松翰 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

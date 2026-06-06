@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1595 川寶
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:27 Asia/Taipei
+- generated_at: 2026-06-06 22:22:22 Asia/Taipei
 - stock_id: 1595
 - stock_name: 川寶
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,14 +157,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 47.57
-- over_600_ratio: 42.72
-- over_800_ratio: 40.16
-- over_1000_ratio: 38.6
-- over_400_change_1w: -2.22
-- over_800_change_1w: -2.07
-- over_1000_change_1w: -2.06
+- as_of_date: 20260605
+- over_400_ratio: 45.52
+- over_600_ratio: 41.88
+- over_800_ratio: 38.22
+- over_1000_ratio: 36.66
+- over_400_change_1w: -2.05
+- over_800_change_1w: -1.94
+- over_1000_change_1w: -1.94
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -178,6 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,50.5,-1.42,42.39,-0.05,40.82,1.48,2,False,True
 20260522,49.79,-0.71,42.23,-0.16,40.66,-0.16,0,False,False
 20260529,47.57,-2.22,40.16,-2.07,38.6,-2.06,0,False,False
+20260605,45.52,-2.05,38.22,-1.94,36.66,-1.94,0,False,False
 ```
 
 ## Candidate Context

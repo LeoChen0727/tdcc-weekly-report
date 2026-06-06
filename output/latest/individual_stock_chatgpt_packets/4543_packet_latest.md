@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4543 萬在
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:22 Asia/Taipei
+- generated_at: 2026-06-06 22:23:24 Asia/Taipei
 - stock_id: 4543
 - stock_name: 萬在
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 47.74
-- over_600_ratio: 45.12
+- as_of_date: 20260605
+- over_400_ratio: 46.82
+- over_600_ratio: 44.94
 - over_800_ratio: 43.93
 - over_1000_ratio: 42.26
-- over_400_change_1w: 0.04
+- over_400_change_1w: -0.92
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,47.71,0,43.93,0.02,42.26,0.02,2,False,True
 20260522,47.7,-0.01,43.93,0,42.26,0,0,False,False
 20260529,47.74,0.04,43.93,0,42.26,0,1,False,False
+20260605,46.82,-0.92,43.93,0,42.26,0,0,False,False
 ```
 
 ## Candidate Context

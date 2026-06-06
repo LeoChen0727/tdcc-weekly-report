@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7304 昇達科統一5C購01
 
 ## Metadata
-- generated_at: 2026-06-06 00:37:12 Asia/Taipei
+- generated_at: 2026-06-06 22:24:23 Asia/Taipei
 - stock_id: 7304
 - stock_name: 昇達科統一5C購01
 - packet_status: standard_180d_window_packet

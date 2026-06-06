@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7283 鈊象群益59售04
 
 ## Metadata
-- generated_at: 2026-06-06 00:37:12 Asia/Taipei
+- generated_at: 2026-06-06 22:24:22 Asia/Taipei
 - stock_id: 7283
 - stock_name: 鈊象群益59售04
 - packet_status: standard_180d_window_packet

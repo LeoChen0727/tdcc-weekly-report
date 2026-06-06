@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8105 凌巨
 
 ## Metadata
-- generated_at: 2026-06-06 00:37:23 Asia/Taipei
+- generated_at: 2026-06-06 22:24:35 Asia/Taipei
 - stock_id: 8105
 - stock_name: 凌巨
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -161,17 +161,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 64.67
-- over_600_ratio: 62.99
-- over_800_ratio: 61.67
-- over_1000_ratio: 61.25
-- over_400_change_1w: 1.15
-- over_800_change_1w: 0.59
-- over_1000_change_1w: 0.59
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260605
+- over_400_ratio: 63.13
+- over_600_ratio: 61.16
+- over_800_ratio: 60.25
+- over_1000_ratio: 60.05
+- over_400_change_1w: -1.54
+- over_800_change_1w: -1.42
+- over_1000_change_1w: -1.2
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -182,6 +182,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,63.01,0.61,60.82,0.57,60.2,1,2,True,True
 20260522,63.52,0.51,61.08,0.26,60.66,0.46,3,True,True
 20260529,64.67,1.15,61.67,0.59,61.25,0.59,4,True,True
+20260605,63.13,-1.54,60.25,-1.42,60.05,-1.2,0,False,False
 ```
 
 ## Candidate Context

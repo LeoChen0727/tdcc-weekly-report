@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6188 廣明
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:43 Asia/Taipei
+- generated_at: 2026-06-06 22:23:49 Asia/Taipei
 - stock_id: 6188
 - stock_name: 廣明
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 44.1
-- over_600_ratio: 42.41
-- over_800_ratio: 40.77
-- over_1000_ratio: 39.16
-- over_400_change_1w: -0.89
-- over_800_change_1w: 0.22
-- over_1000_change_1w: -0.44
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260605
+- over_400_ratio: 44.69
+- over_600_ratio: 42.37
+- over_800_ratio: 40.71
+- over_1000_ratio: 39.12
+- over_400_change_1w: 0.59
+- over_800_change_1w: -0.06
+- over_1000_change_1w: -0.04
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,45.3,0.19,41.14,-0.04,40.15,-0.4,2,False,False
 20260522,44.99,-0.31,40.55,-0.59,39.6,-0.55,0,False,False
 20260529,44.1,-0.89,40.77,0.22,39.16,-0.44,1,False,True
+20260605,44.69,0.59,40.71,-0.06,39.12,-0.04,2,False,False
 ```
 
 ## Candidate Context

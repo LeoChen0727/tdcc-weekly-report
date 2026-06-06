@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2207 和泰車
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:36 Asia/Taipei
+- generated_at: 2026-06-06 22:22:32 Asia/Taipei
 - stock_id: 2207
 - stock_name: 和泰車
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 277
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,17 +162,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 89.16
-- over_600_ratio: 86.03
-- over_800_ratio: 84.29
-- over_1000_ratio: 82.82
-- over_400_change_1w: -0.32
-- over_800_change_1w: -0.09
-- over_1000_change_1w: -0.26
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260605
+- over_400_ratio: 89.36
+- over_600_ratio: 86.13
+- over_800_ratio: 84.53
+- over_1000_ratio: 83.22
+- over_400_change_1w: 0.2
+- over_800_change_1w: 0.24
+- over_1000_change_1w: 0.4
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,89.46,-0.16,84.54,-0.05,82.91,-0.22,0,False,False
 20260522,89.48,0.02,84.38,-0.16,83.08,0.17,1,False,True
 20260529,89.16,-0.32,84.29,-0.09,82.82,-0.26,0,False,False
+20260605,89.36,0.2,84.53,0.24,83.22,0.4,1,True,True
 ```
 
 ## Candidate Context

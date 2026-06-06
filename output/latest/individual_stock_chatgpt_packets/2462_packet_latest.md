@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2462 良得電
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:44 Asia/Taipei
+- generated_at: 2026-06-06 22:22:42 Asia/Taipei
 - stock_id: 2462
 - stock_name: 良得電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,16 +157,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 56.1
-- over_600_ratio: 52.65
-- over_800_ratio: 51.36
-- over_1000_ratio: 50.12
-- over_400_change_1w: 0.09
-- over_800_change_1w: 0.1
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: False
+- as_of_date: 20260605
+- over_400_ratio: 56.24
+- over_600_ratio: 53.09
+- over_800_ratio: 51.38
+- over_1000_ratio: 50.79
+- over_400_change_1w: 0.14
+- over_800_change_1w: 0.02
+- over_1000_change_1w: 0.67
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -178,6 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,55.34,-0.66,51.25,0,50.11,0,0,False,False
 20260522,56.01,0.67,51.26,0.01,50.12,0.01,1,True,True
 20260529,56.1,0.09,51.36,0.1,50.12,0,2,False,True
+20260605,56.24,0.14,51.38,0.02,50.79,0.67,3,True,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2312 金寶
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:37 Asia/Taipei
+- generated_at: 2026-06-06 22:22:34 Asia/Taipei
 - stock_id: 2312
 - stock_name: 金寶
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 52.74
-- over_600_ratio: 50.83
-- over_800_ratio: 49.54
-- over_1000_ratio: 48.41
-- over_400_change_1w: 0.9
-- over_800_change_1w: 0.92
-- over_1000_change_1w: 0.98
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260605
+- over_400_ratio: 51.64
+- over_600_ratio: 49.77
+- over_800_ratio: 48.35
+- over_1000_ratio: 47.34
+- over_400_change_1w: -1.1
+- over_800_change_1w: -1.19
+- over_1000_change_1w: -1.07
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -178,6 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,48.37,0.81,45.17,0.89,43.7,0.56,1,True,True
 20260522,51.84,3.47,48.62,3.45,47.43,3.73,2,True,True
 20260529,52.74,0.9,49.54,0.92,48.41,0.98,3,True,True
+20260605,51.64,-1.1,48.35,-1.19,47.34,-1.07,0,False,False
 ```
 
 ## Candidate Context
@@ -191,9 +192,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 2312 | 金寶 | 89 | 1 | 18163240.0 | 84520.0 | 214.9 | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3083 網龍
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:00 Asia/Taipei
+- generated_at: 2026-06-06 22:22:59 Asia/Taipei
 - stock_id: 3083
 - stock_name: 網龍
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,12 +158,12 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 56.59
+- as_of_date: 20260605
+- over_400_ratio: 56.58
 - over_600_ratio: 55.08
 - over_800_ratio: 55.08
 - over_1000_ratio: 53.1
-- over_400_change_1w: -0.02
+- over_400_change_1w: -0.01
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,56.6,0.01,55.08,0,53.1,0,1,False,False
 20260522,56.61,0.01,55.08,0,53.1,0,2,False,False
 20260529,56.59,-0.02,55.08,0,53.1,0,0,False,False
+20260605,56.58,-0.01,55.08,0,53.1,0,0,False,False
 ```
 
 ## Candidate Context

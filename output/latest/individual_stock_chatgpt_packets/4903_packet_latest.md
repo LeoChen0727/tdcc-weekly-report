@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4903 聯光通
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:26 Asia/Taipei
+- generated_at: 2026-06-06 22:23:29 Asia/Taipei
 - stock_id: 4903
 - stock_name: 聯光通
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 45.75
-- over_600_ratio: 41.62
-- over_800_ratio: 41.62
+- as_of_date: 20260605
+- over_400_ratio: 45.62
+- over_600_ratio: 41.64
+- over_800_ratio: 41.64
 - over_1000_ratio: 39.03
-- over_400_change_1w: -0.22
-- over_800_change_1w: -0.55
-- over_1000_change_1w: -2.37
-- tdcc_consecutive_up_weeks: 0
+- over_400_change_1w: -0.13
+- over_800_change_1w: 0.02
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,46.7,0.15,42.76,-0.01,41.99,0,1,False,False
 20260522,45.97,-0.73,42.17,-0.59,41.4,-0.59,2,False,False
 20260529,45.75,-0.22,41.62,-0.55,39.03,-2.37,0,False,False
+20260605,45.62,-0.13,41.64,0.02,39.03,0,1,False,True
 ```
 
 ## Candidate Context

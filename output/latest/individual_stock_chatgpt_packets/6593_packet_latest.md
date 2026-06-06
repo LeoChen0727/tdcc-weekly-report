@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6593 台灣銘板
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:54 Asia/Taipei
+- generated_at: 2026-06-06 22:24:02 Asia/Taipei
 - stock_id: 6593
 - stock_name: 台灣銘板
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
+- as_of_date: 20260605
 - over_400_ratio: 44.2
-- over_600_ratio: 36.44
-- over_800_ratio: 34.11
-- over_1000_ratio: 31.53
-- over_400_change_1w: -0.14
-- over_800_change_1w: 0.01
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 4
+- over_600_ratio: 36.43
+- over_800_ratio: 34.1
+- over_1000_ratio: 31.52
+- over_400_change_1w: 0
+- over_800_change_1w: -0.01
+- over_1000_change_1w: -0.01
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,44.3,-0.33,34.07,0.03,31.53,0.03,2,False,True
 20260522,44.34,0.04,34.1,0.03,31.53,0,3,False,True
 20260529,44.2,-0.14,34.11,0.01,31.53,0,4,False,True
+20260605,44.2,0,34.1,-0.01,31.52,-0.01,0,False,False
 ```
 
 ## Candidate Context

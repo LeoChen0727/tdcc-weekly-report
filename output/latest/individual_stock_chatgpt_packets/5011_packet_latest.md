@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5011 久陽
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:30 Asia/Taipei
+- generated_at: 2026-06-06 22:23:33 Asia/Taipei
 - stock_id: 5011
 - stock_name: 久陽
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,16 +157,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 45.82
-- over_600_ratio: 42.57
-- over_800_ratio: 37.72
-- over_1000_ratio: 34.1
-- over_400_change_1w: 2.07
-- over_800_change_1w: 2.63
-- over_1000_change_1w: 4.48
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: True
+- as_of_date: 20260605
+- over_400_ratio: 46.46
+- over_600_ratio: 42.21
+- over_800_ratio: 37.28
+- over_1000_ratio: 34.61
+- over_400_change_1w: 0.64
+- over_800_change_1w: -0.44
+- over_1000_change_1w: 0.51
+- tdcc_consecutive_up_weeks: 5
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -178,6 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,43.63,0.27,35.13,1.69,29.62,0,2,False,True
 20260522,43.75,0.12,35.09,-0.04,29.62,0,3,False,False
 20260529,45.82,2.07,37.72,2.63,34.1,4.48,4,True,True
+20260605,46.46,0.64,37.28,-0.44,34.61,0.51,5,False,True
 ```
 
 ## Candidate Context

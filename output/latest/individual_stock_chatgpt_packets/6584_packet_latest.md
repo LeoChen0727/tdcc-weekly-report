@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6584 南俊國際
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:54 Asia/Taipei
+- generated_at: 2026-06-06 22:24:01 Asia/Taipei
 - stock_id: 6584
 - stock_name: 南俊國際
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 75.92
-- over_600_ratio: 70.43
-- over_800_ratio: 65.65
-- over_1000_ratio: 64.46
-- over_400_change_1w: -1.06
-- over_800_change_1w: 0.09
-- over_1000_change_1w: 0.09
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260605
+- over_400_ratio: 77.07
+- over_600_ratio: 69.59
+- over_800_ratio: 65.86
+- over_1000_ratio: 64.67
+- over_400_change_1w: 1.15
+- over_800_change_1w: 0.21
+- over_1000_change_1w: 0.21
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,77.7,-2.98,65.52,-1.52,64.33,-0.15,0,False,False
 20260522,76.98,-0.72,65.56,0.04,64.37,0.04,1,False,True
 20260529,75.92,-1.06,65.65,0.09,64.46,0.09,2,False,True
+20260605,77.07,1.15,65.86,0.21,64.67,0.21,3,False,True
 ```
 
 ## Candidate Context

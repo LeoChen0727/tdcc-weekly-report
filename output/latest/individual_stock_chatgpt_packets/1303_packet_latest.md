@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1303 南亞
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:19 Asia/Taipei
+- generated_at: 2026-06-06 22:22:13 Asia/Taipei
 - stock_id: 1303
 - stock_name: 南亞
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 84.94
-- over_600_ratio: 83.91
-- over_800_ratio: 83.18
-- over_1000_ratio: 82.43
-- over_400_change_1w: 0.66
-- over_800_change_1w: 0.72
-- over_1000_change_1w: 0.69
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260605
+- over_400_ratio: 86.06
+- over_600_ratio: 85.07
+- over_800_ratio: 84.31
+- over_1000_ratio: 83.67
+- over_400_change_1w: 1.12
+- over_800_change_1w: 1.13
+- over_1000_change_1w: 1.24
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -178,6 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,84.16,-0.57,82.39,-0.52,81.71,-0.52,0,False,False
 20260522,84.28,0.12,82.46,0.07,81.74,0.03,1,True,True
 20260529,84.94,0.66,83.18,0.72,82.43,0.69,2,True,True
+20260605,86.06,1.12,84.31,1.13,83.67,1.24,3,True,True
 ```
 
 ## Candidate Context
@@ -191,9 +192,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 1303 | 南亞 | 249 | 15 | 35417750.0 | 408660.0 | 86.67 | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2610 華航
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:49 Asia/Taipei
+- generated_at: 2026-06-06 22:22:47 Asia/Taipei
 - stock_id: 2610
 - stock_name: 華航
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 27
+- latest_tdcc_date: 20260605
+- tdcc_rows: 28
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -161,23 +161,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 67.62
-- over_600_ratio: 65.98
-- over_800_ratio: 65.21
-- over_1000_ratio: 64.07
-- over_400_change_1w: -0.23
-- over_800_change_1w: -0.22
-- over_1000_change_1w: -0.37
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260605
+- over_400_ratio: 68.08
+- over_600_ratio: 66.55
+- over_800_ratio: 65.68
+- over_1000_ratio: 64.75
+- over_400_change_1w: 0.46
+- over_800_change_1w: 0.47
+- over_1000_change_1w: 0.68
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260313,69.87,-0.85,67.22,-1.1,66.43,-1.07,0,False,False
 20260320,69.42,-0.45,66.94,-0.28,66.08,-0.35,0,False,False
 20260327,69.5,0.08,66.88,-0.06,66.03,-0.05,1,False,False
 20260402,69.21,-0.29,66.56,-0.32,65.76,-0.27,0,False,False
@@ -189,12 +188,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,67.77,0.32,65.26,0.36,64.27,0.44,2,True,True
 20260522,67.85,0.08,65.43,0.17,64.44,0.17,3,True,True
 20260529,67.62,-0.23,65.21,-0.22,64.07,-0.37,0,False,False
+20260605,68.08,0.46,65.68,0.47,64.75,0.68,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 2610 | 華航 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260605 | 2610 | 華航 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -202,9 +202,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | 20260605 | 2610 | 華航 | 6 | 4 | 5 | 7 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 2610 | 華航 | 23 | 0 | 2724860.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9907 統一實
 
 ## Metadata
-- generated_at: 2026-06-06 00:37:31 Asia/Taipei
+- generated_at: 2026-06-06 22:24:44 Asia/Taipei
 - stock_id: 9907
 - stock_name: 統一實
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 76.38
-- over_600_ratio: 74.65
-- over_800_ratio: 73.45
-- over_1000_ratio: 72.11
-- over_400_change_1w: -0.3
-- over_800_change_1w: -0.34
-- over_1000_change_1w: -0.33
+- as_of_date: 20260605
+- over_400_ratio: 76.16
+- over_600_ratio: 74.27
+- over_800_ratio: 73.16
+- over_1000_ratio: 71.88
+- over_400_change_1w: -0.22
+- over_800_change_1w: -0.29
+- over_1000_change_1w: -0.23
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,77.22,-0.78,74.04,-0.81,72.92,-0.8,0,False,False
 20260522,76.68,-0.54,73.79,-0.25,72.44,-0.48,0,False,False
 20260529,76.38,-0.3,73.45,-0.34,72.11,-0.33,0,False,False
+20260605,76.16,-0.22,73.16,-0.29,71.88,-0.23,0,False,False
 ```
 
 ## Candidate Context

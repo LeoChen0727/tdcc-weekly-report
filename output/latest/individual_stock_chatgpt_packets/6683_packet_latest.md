@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6683 雍智科技
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:57 Asia/Taipei
+- generated_at: 2026-06-06 22:24:05 Asia/Taipei
 - stock_id: 6683
 - stock_name: 雍智科技
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,12 +157,12 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 20.25
+- as_of_date: 20260605
+- over_400_ratio: 18.69
 - over_600_ratio: 14.63
 - over_800_ratio: 14.63
 - over_1000_ratio: 11.24
-- over_400_change_1w: -1.47
+- over_400_change_1w: -1.56
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
@@ -178,6 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,20.2,-3.46,14.63,0,11.24,0,0,False,False
 20260522,21.72,1.52,14.63,0,11.24,0,1,False,False
 20260529,20.25,-1.47,14.63,0,11.24,0,0,False,False
+20260605,18.69,-1.56,14.63,0,11.24,0,0,False,False
 ```
 
 ## Candidate Context

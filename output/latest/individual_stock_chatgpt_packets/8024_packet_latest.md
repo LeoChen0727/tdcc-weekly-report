@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8024 佑華
 
 ## Metadata
-- generated_at: 2026-06-06 00:37:20 Asia/Taipei
+- generated_at: 2026-06-06 22:24:32 Asia/Taipei
 - stock_id: 8024
 - stock_name: 佑華
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,7 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
+- as_of_date: 20260605
 - over_400_ratio: 28.79
 - over_600_ratio: 25.66
 - over_800_ratio: 22.7
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,28.79,0,22.7,0,18.86,0,0,False,False
 20260522,28.79,0,22.7,0,18.86,0,0,False,False
 20260529,28.79,0,22.7,0,18.86,0,0,False,False
+20260605,28.79,0,22.7,0,18.86,0,0,False,False
 ```
 
 ## Candidate Context

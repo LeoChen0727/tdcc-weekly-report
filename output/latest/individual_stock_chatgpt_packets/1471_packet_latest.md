@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1471 首利
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:23 Asia/Taipei
+- generated_at: 2026-06-06 22:22:18 Asia/Taipei
 - stock_id: 1471
 - stock_name: 首利
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 27
+- latest_tdcc_date: 20260605
+- tdcc_rows: 28
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,23 +158,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 22.85
-- over_600_ratio: 19.99
-- over_800_ratio: 18.57
-- over_1000_ratio: 18.57
-- over_400_change_1w: 0.03
-- over_800_change_1w: 0.02
-- over_1000_change_1w: 0.02
-- tdcc_consecutive_up_weeks: 9
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260605
+- over_400_ratio: 23.28
+- over_600_ratio: 19.76
+- over_800_ratio: 18.33
+- over_1000_ratio: 17.67
+- over_400_change_1w: 0.43
+- over_800_change_1w: -0.24
+- over_1000_change_1w: -0.9
+- tdcc_consecutive_up_weeks: 10
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260313,22.71,-0.03,17.67,-0.08,17.67,-0.08,0,False,False
 20260320,22.62,-0.09,17.59,-0.08,17.59,-0.08,0,False,False
 20260327,22.46,-0.16,17.48,-0.11,17.48,-0.11,0,False,False
 20260402,22.51,0.05,17.5,0.02,17.5,0.02,1,True,True
@@ -186,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,22.7,0.12,18.45,0.11,18.45,0.77,7,True,True
 20260522,22.82,0.12,18.55,0.1,18.55,0.1,8,True,True
 20260529,22.85,0.03,18.57,0.02,18.57,0.02,9,True,True
+20260605,23.28,0.43,18.33,-0.24,17.67,-0.9,10,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2739 寒舍
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:52 Asia/Taipei
+- generated_at: 2026-06-06 22:22:50 Asia/Taipei
 - stock_id: 2739
 - stock_name: 寒舍
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 72.88
-- over_600_ratio: 71.96
-- over_800_ratio: 69.76
+- as_of_date: 20260605
+- over_400_ratio: 72.93
+- over_600_ratio: 71.35
+- over_800_ratio: 69.81
 - over_1000_ratio: 67.87
-- over_400_change_1w: 0.03
-- over_800_change_1w: 0.03
-- over_1000_change_1w: 0.02
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
+- over_400_change_1w: 0.05
+- over_800_change_1w: 0.05
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,72.79,0.02,69.72,-0.04,67.85,-0.04,1,False,False
 20260522,72.85,0.06,69.73,0.01,67.85,0,2,False,True
 20260529,72.88,0.03,69.76,0.03,67.87,0.02,3,True,True
+20260605,72.93,0.05,69.81,0.05,67.87,0,4,False,True
 ```
 
 ## Candidate Context

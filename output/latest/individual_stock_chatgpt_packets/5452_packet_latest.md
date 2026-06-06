@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5452 佶優
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:35 Asia/Taipei
+- generated_at: 2026-06-06 22:23:39 Asia/Taipei
 - stock_id: 5452
 - stock_name: 佶優
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,16 +157,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 43.94
-- over_600_ratio: 40.37
-- over_800_ratio: 40.37
-- over_1000_ratio: 39.75
-- over_400_change_1w: 0.55
-- over_800_change_1w: 1.55
-- over_1000_change_1w: 0.93
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: True
+- as_of_date: 20260605
+- over_400_ratio: 44.08
+- over_600_ratio: 40.26
+- over_800_ratio: 39.77
+- over_1000_ratio: 39.77
+- over_400_change_1w: 0.14
+- over_800_change_1w: -0.6
+- over_1000_change_1w: 0.02
+- tdcc_consecutive_up_weeks: 5
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -178,6 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,42.9,-0.19,38.61,-0.13,38.61,-0.13,2,False,False
 20260522,43.39,0.49,38.82,0.21,38.82,0.21,3,True,True
 20260529,43.94,0.55,40.37,1.55,39.75,0.93,4,True,True
+20260605,44.08,0.14,39.77,-0.6,39.77,0.02,5,False,True
 ```
 
 ## Candidate Context

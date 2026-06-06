@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3164 景岳
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:02 Asia/Taipei
+- generated_at: 2026-06-06 22:23:01 Asia/Taipei
 - stock_id: 3164
 - stock_name: 景岳
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 54.47
-- over_600_ratio: 50.62
-- over_800_ratio: 46.67
-- over_1000_ratio: 39.77
-- over_400_change_1w: -0.67
-- over_800_change_1w: 0.06
-- over_1000_change_1w: 0.05
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260605
+- over_400_ratio: 54.51
+- over_600_ratio: 49.96
+- over_800_ratio: 46.72
+- over_1000_ratio: 39.84
+- over_400_change_1w: 0.04
+- over_800_change_1w: 0.05
+- over_1000_change_1w: 0.07
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,55.87,-0.01,46.64,0,39.71,0.06,1,False,True
 20260522,55.14,-0.73,46.61,-0.03,39.72,0.01,2,False,True
 20260529,54.47,-0.67,46.67,0.06,39.77,0.05,3,False,True
+20260605,54.51,0.04,46.72,0.05,39.84,0.07,4,False,True
 ```
 
 ## Candidate Context

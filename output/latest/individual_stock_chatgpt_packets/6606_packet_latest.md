@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6606 建德工業
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:55 Asia/Taipei
+- generated_at: 2026-06-06 22:24:02 Asia/Taipei
 - stock_id: 6606
 - stock_name: 建德工業
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 70.5
-- over_600_ratio: 65.6
-- over_800_ratio: 63.05
-- over_1000_ratio: 59.74
-- over_400_change_1w: 0.24
-- over_800_change_1w: -0.18
-- over_1000_change_1w: -1.07
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260605
+- over_400_ratio: 70.81
+- over_600_ratio: 66.33
+- over_800_ratio: 61.84
+- over_1000_ratio: 58.52
+- over_400_change_1w: 0.31
+- over_800_change_1w: -1.21
+- over_1000_change_1w: -1.22
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,70.27,-0.01,63.24,0,60.82,0,0,False,False
 20260522,70.26,-0.01,63.23,-0.01,60.81,-0.01,0,False,False
 20260529,70.5,0.24,63.05,-0.18,59.74,-1.07,1,False,False
+20260605,70.81,0.31,61.84,-1.21,58.52,-1.22,2,False,False
 ```
 
 ## Candidate Context

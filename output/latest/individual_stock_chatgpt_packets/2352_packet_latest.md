@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2352 佳世達
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:39 Asia/Taipei
+- generated_at: 2026-06-06 22:22:35 Asia/Taipei
 - stock_id: 2352
 - stock_name: 佳世達
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 272
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,14 +157,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 48.84
-- over_600_ratio: 46.55
-- over_800_ratio: 45.5
-- over_1000_ratio: 43.91
-- over_400_change_1w: -0.44
-- over_800_change_1w: -0.08
-- over_1000_change_1w: -0.03
+- as_of_date: 20260605
+- over_400_ratio: 48.45
+- over_600_ratio: 46.24
+- over_800_ratio: 44.91
+- over_1000_ratio: 43.36
+- over_400_change_1w: -0.39
+- over_800_change_1w: -0.59
+- over_1000_change_1w: -0.55
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -178,6 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,48.73,0.5,45.19,0.74,43.59,0.82,2,True,True
 20260522,49.28,0.55,45.58,0.39,43.94,0.35,3,True,True
 20260529,48.84,-0.44,45.5,-0.08,43.91,-0.03,0,False,False
+20260605,48.45,-0.39,44.91,-0.59,43.36,-0.55,0,False,False
 ```
 
 ## Candidate Context
@@ -191,9 +192,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 2352 | 佳世達 | 17 | 2 | 3964820.0 | 15600.0 | 254.16 | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

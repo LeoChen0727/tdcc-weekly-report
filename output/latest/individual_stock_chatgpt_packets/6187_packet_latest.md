@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6187 萬潤
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:43 Asia/Taipei
+- generated_at: 2026-06-06 22:23:49 Asia/Taipei
 - stock_id: 6187
 - stock_name: 萬潤
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 58.16
-- over_600_ratio: 50.28
-- over_800_ratio: 46.14
-- over_1000_ratio: 42.25
-- over_400_change_1w: 0.84
-- over_800_change_1w: 3.13
-- over_1000_change_1w: 3.86
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260605
+- over_400_ratio: 52
+- over_600_ratio: 44.7
+- over_800_ratio: 40.7
+- over_1000_ratio: 36.86
+- over_400_change_1w: -6.16
+- over_800_change_1w: -5.44
+- over_1000_change_1w: -5.39
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,55.77,1,43.7,-0.99,40.12,1.1,2,False,True
 20260522,57.32,1.55,43.01,-0.69,38.39,-1.73,3,False,False
 20260529,58.16,0.84,46.14,3.13,42.25,3.86,4,True,True
+20260605,52,-6.16,40.7,-5.44,36.86,-5.39,0,False,False
 ```
 
 ## Candidate Context

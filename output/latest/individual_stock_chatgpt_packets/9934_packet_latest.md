@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9934 成霖
 
 ## Metadata
-- generated_at: 2026-06-06 00:37:32 Asia/Taipei
+- generated_at: 2026-06-06 22:24:45 Asia/Taipei
 - stock_id: 9934
 - stock_name: 成霖
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,17 +162,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 66.29
-- over_600_ratio: 62.6
-- over_800_ratio: 61.09
-- over_1000_ratio: 58.48
-- over_400_change_1w: 0.06
-- over_800_change_1w: -0.02
-- over_1000_change_1w: -0.26
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260605
+- over_400_ratio: 66.5
+- over_600_ratio: 63.05
+- over_800_ratio: 61.39
+- over_1000_ratio: 58.74
+- over_400_change_1w: 0.21
+- over_800_change_1w: 0.3
+- over_1000_change_1w: 0.26
+- tdcc_consecutive_up_weeks: 5
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,66.22,0.1,60.88,-0.07,58.73,-0.06,2,False,False
 20260522,66.23,0.01,61.11,0.23,58.74,0.01,3,True,True
 20260529,66.29,0.06,61.09,-0.02,58.48,-0.26,4,False,False
+20260605,66.5,0.21,61.39,0.3,58.74,0.26,5,True,True
 ```
 
 ## Candidate Context

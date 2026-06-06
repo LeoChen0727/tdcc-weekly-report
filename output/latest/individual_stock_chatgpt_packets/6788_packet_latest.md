@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6788 華景電
 
 ## Metadata
-- generated_at: 2026-06-06 00:37:00 Asia/Taipei
+- generated_at: 2026-06-06 22:24:08 Asia/Taipei
 - stock_id: 6788
 - stock_name: 華景電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 25.17
-- over_600_ratio: 18.22
+- as_of_date: 20260605
+- over_400_ratio: 25.14
+- over_600_ratio: 18.25
 - over_800_ratio: 16.33
 - over_1000_ratio: 14.22
-- over_400_change_1w: 0.05
+- over_400_change_1w: -0.03
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,25.72,-1.22,16.33,0,14.22,0,0,False,False
 20260522,25.12,-0.6,16.33,0,14.22,0,0,False,False
 20260529,25.17,0.05,16.33,0,14.22,0,1,False,False
+20260605,25.14,-0.03,16.33,0,14.22,0,2,False,False
 ```
 
 ## Candidate Context

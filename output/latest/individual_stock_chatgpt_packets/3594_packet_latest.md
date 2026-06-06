@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3594 磐儀
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:13 Asia/Taipei
+- generated_at: 2026-06-06 22:23:13 Asia/Taipei
 - stock_id: 3594
 - stock_name: 磐儀
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 53.65
-- over_600_ratio: 49.23
+- as_of_date: 20260605
+- over_400_ratio: 53.59
+- over_600_ratio: 49.24
 - over_800_ratio: 46.3
 - over_1000_ratio: 42.43
-- over_400_change_1w: 1.54
-- over_800_change_1w: -0.08
-- over_1000_change_1w: -0.08
-- tdcc_consecutive_up_weeks: 1
+- over_400_change_1w: -0.06
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -178,6 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,54.25,0.37,46.47,-0.04,42.6,-0.04,2,False,False
 20260522,52.11,-2.14,46.38,-0.09,42.51,-0.09,0,False,False
 20260529,53.65,1.54,46.3,-0.08,42.43,-0.08,1,False,False
+20260605,53.59,-0.06,46.3,0,42.43,0,2,False,False
 ```
 
 ## Candidate Context

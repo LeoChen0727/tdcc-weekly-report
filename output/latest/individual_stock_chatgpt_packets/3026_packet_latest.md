@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3026 禾伸堂
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:57 Asia/Taipei
+- generated_at: 2026-06-06 22:22:56 Asia/Taipei
 - stock_id: 3026
 - stock_name: 禾伸堂
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,16 +157,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 56.25
-- over_600_ratio: 50.36
-- over_800_ratio: 44.6
-- over_1000_ratio: 40.28
-- over_400_change_1w: 1.06
-- over_800_change_1w: 1.32
-- over_1000_change_1w: 0.82
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: True
+- as_of_date: 20260605
+- over_400_ratio: 56.22
+- over_600_ratio: 49.72
+- over_800_ratio: 44.69
+- over_1000_ratio: 40.45
+- over_400_change_1w: -0.03
+- over_800_change_1w: 0.09
+- over_1000_change_1w: 0.17
+- tdcc_consecutive_up_weeks: 5
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -178,6 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,54.28,1.35,44.01,1.41,40.2,0.84,2,True,True
 20260522,55.19,0.91,43.28,-0.73,39.46,-0.74,3,False,False
 20260529,56.25,1.06,44.6,1.32,40.28,0.82,4,True,True
+20260605,56.22,-0.03,44.69,0.09,40.45,0.17,5,False,True
 ```
 
 ## Candidate Context
@@ -191,9 +192,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 3026 | 禾伸堂 | 61 | 0 | 3327960.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

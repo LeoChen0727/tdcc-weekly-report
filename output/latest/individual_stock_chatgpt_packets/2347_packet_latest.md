@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2347 聯強
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:39 Asia/Taipei
+- generated_at: 2026-06-06 22:22:35 Asia/Taipei
 - stock_id: 2347
 - stock_name: 聯強
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,16 +162,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 88.73
-- over_600_ratio: 87.36
-- over_800_ratio: 86.31
-- over_1000_ratio: 85.11
-- over_400_change_1w: 0.08
-- over_800_change_1w: 0.13
+- as_of_date: 20260605
+- over_400_ratio: 88.64
+- over_600_ratio: 87.28
+- over_800_ratio: 86.26
+- over_1000_ratio: 85.18
+- over_400_change_1w: -0.09
+- over_800_change_1w: -0.05
 - over_1000_change_1w: 0.07
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: True
+- tdcc_consecutive_up_weeks: 5
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -183,14 +183,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,88.53,0,86.17,0.19,84.98,-0.08,2,False,True
 20260522,88.65,0.12,86.18,0.01,85.04,0.06,3,True,True
 20260529,88.73,0.08,86.31,0.13,85.11,0.07,4,True,True
+20260605,88.64,-0.09,86.26,-0.05,85.18,0.07,5,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 2347 | 聯強 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260605 | 2347 | 聯強 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260605 | 2347 | 聯強 | revenue_breakout_low_response | 營收爆發低反應股 | 22.0 | 1.0 | A_優先追蹤 |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260605 | 2347 | 聯強 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260605 | 2347 | 聯強 | revenue_breakout_low_response | 營收爆發低反應股 | 22.0 | 1.0 | A_優先追蹤 |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -198,9 +198,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | 20260605 | 2347 | 聯強 | 11 | 2 | 5 | 10 | 11 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 11 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 2347 | 聯強 | 6 | 0 | 335510.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

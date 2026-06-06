@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2472 立隆電
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:45 Asia/Taipei
+- generated_at: 2026-06-06 22:22:42 Asia/Taipei
 - stock_id: 2472
 - stock_name: 立隆電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 61.53
-- over_600_ratio: 59.05
-- over_800_ratio: 57.03
-- over_1000_ratio: 52.09
-- over_400_change_1w: 4.08
-- over_800_change_1w: 4.07
-- over_1000_change_1w: 1.97
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260605
+- over_400_ratio: 60.41
+- over_600_ratio: 57.33
+- over_800_ratio: 54.12
+- over_1000_ratio: 50.85
+- over_400_change_1w: -1.12
+- over_800_change_1w: -2.91
+- over_1000_change_1w: -1.24
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -178,6 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,57.38,-0.72,50.62,-1.52,47.87,-1.49,0,False,False
 20260522,57.45,0.07,52.96,2.34,50.12,2.25,1,True,True
 20260529,61.53,4.08,57.03,4.07,52.09,1.97,2,True,True
+20260605,60.41,-1.12,54.12,-2.91,50.85,-1.24,0,False,False
 ```
 
 ## Candidate Context
@@ -191,9 +192,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 2472 | 立隆電 | 102 | 2 | 6697450.0 | 3810.0 | 1757.86 | call_inflow |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6931 青松健康
 
 ## Metadata
-- generated_at: 2026-06-06 00:37:04 Asia/Taipei
+- generated_at: 2026-06-06 22:24:13 Asia/Taipei
 - stock_id: 6931
 - stock_name: 青松健康
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 70.93
-- over_600_ratio: 61.66
-- over_800_ratio: 55.68
-- over_1000_ratio: 50.26
-- over_400_change_1w: -0.14
-- over_800_change_1w: -0.05
-- over_1000_change_1w: -0.04
+- as_of_date: 20260605
+- over_400_ratio: 70.82
+- over_600_ratio: 61.58
+- over_800_ratio: 55.6
+- over_1000_ratio: 50.2
+- over_400_change_1w: -0.11
+- over_800_change_1w: -0.08
+- over_1000_change_1w: -0.06
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,71.23,-0.78,55.77,-0.05,50.33,-0.05,0,False,False
 20260522,71.07,-0.16,55.73,-0.04,50.3,-0.03,0,False,False
 20260529,70.93,-0.14,55.68,-0.05,50.26,-0.04,0,False,False
+20260605,70.82,-0.11,55.6,-0.08,50.2,-0.06,0,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2010 春源
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:32 Asia/Taipei
+- generated_at: 2026-06-06 22:22:28 Asia/Taipei
 - stock_id: 2010
 - stock_name: 春源
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,17 +162,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 69.89
-- over_600_ratio: 68.1
-- over_800_ratio: 66.28
-- over_1000_ratio: 65.44
-- over_400_change_1w: -0.26
-- over_800_change_1w: -0.17
-- over_1000_change_1w: -0.17
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260605
+- over_400_ratio: 70.25
+- over_600_ratio: 68.31
+- over_800_ratio: 66.42
+- over_1000_ratio: 65.73
+- over_400_change_1w: 0.36
+- over_800_change_1w: 0.14
+- over_1000_change_1w: 0.29
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,70.42,-1.15,66.84,-1.1,66.15,-0.81,0,False,False
 20260522,70.15,-0.27,66.45,-0.39,65.61,-0.54,0,False,False
 20260529,69.89,-0.26,66.28,-0.17,65.44,-0.17,0,False,False
+20260605,70.25,0.36,66.42,0.14,65.73,0.29,1,True,True
 ```
 
 ## Candidate Context

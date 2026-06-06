@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6275 元山
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:48 Asia/Taipei
+- generated_at: 2026-06-06 22:23:54 Asia/Taipei
 - stock_id: 6275
 - stock_name: 元山
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 29.86
-- over_600_ratio: 25.99
+- as_of_date: 20260605
+- over_400_ratio: 29.64
+- over_600_ratio: 25.21
 - over_800_ratio: 23.44
 - over_1000_ratio: 23.44
-- over_400_change_1w: 0.17
+- over_400_change_1w: -0.22
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,30.02,-0.82,24.47,0,23.44,0,0,False,False
 20260522,29.69,-0.33,23.44,-1.03,23.44,0,0,False,False
 20260529,29.86,0.17,23.44,0,23.44,0,1,False,False
+20260605,29.64,-0.22,23.44,0,23.44,0,0,False,False
 ```
 
 ## Candidate Context

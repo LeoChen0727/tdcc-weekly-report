@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6456 GIS-KY
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:50 Asia/Taipei
+- generated_at: 2026-06-06 22:23:57 Asia/Taipei
 - stock_id: 6456
 - stock_name: GIS-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,16 +157,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 50.62
-- over_600_ratio: 48.71
-- over_800_ratio: 47.26
-- over_1000_ratio: 45.13
-- over_400_change_1w: 0.34
-- over_800_change_1w: 0.48
-- over_1000_change_1w: -0.36
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: False
+- as_of_date: 20260605
+- over_400_ratio: 51.7
+- over_600_ratio: 50.43
+- over_800_ratio: 49.18
+- over_1000_ratio: 47.16
+- over_400_change_1w: 1.08
+- over_800_change_1w: 1.92
+- over_1000_change_1w: 2.03
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -178,6 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,49.21,-0.77,45.86,-0.22,44.55,-0.5,0,False,False
 20260522,50.28,1.07,46.78,0.92,45.49,0.94,1,True,True
 20260529,50.62,0.34,47.26,0.48,45.13,-0.36,2,False,True
+20260605,51.7,1.08,49.18,1.92,47.16,2.03,3,True,True
 ```
 
 ## Candidate Context
@@ -191,9 +192,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 6456 | GIS-KY | 44 | 0 | 8339450.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

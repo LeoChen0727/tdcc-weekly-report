@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2313 華通
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:37 Asia/Taipei
+- generated_at: 2026-06-06 22:22:34 Asia/Taipei
 - stock_id: 2313
 - stock_name: 華通
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,14 +162,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 63.81
-- over_600_ratio: 61.76
-- over_800_ratio: 59.98
-- over_1000_ratio: 58.23
-- over_400_change_1w: -1.52
-- over_800_change_1w: -1.61
-- over_1000_change_1w: -1.67
+- as_of_date: 20260605
+- over_400_ratio: 61.86
+- over_600_ratio: 60
+- over_800_ratio: 58.21
+- over_1000_ratio: 56.33
+- over_400_change_1w: -1.95
+- over_800_change_1w: -1.77
+- over_1000_change_1w: -1.9
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -183,12 +183,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,64.83,-1.01,61.25,-0.87,59.6,-0.93,0,False,False
 20260522,65.33,0.5,61.59,0.34,59.9,0.3,1,True,True
 20260529,63.81,-1.52,59.98,-1.61,58.23,-1.67,0,False,False
+20260605,61.86,-1.95,58.21,-1.77,56.33,-1.9,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 2313 | 華通 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: ex_right on 20260622; status=confirmed; proximity=within_30d |
+| 20260605 | 2313 | 華通 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: ex_right on 20260622; status=confirmed; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -196,9 +197,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | 20260605 | 2313 | 華通 | 5 | 5 | 5 | 7 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 2313 | 華通 | 333 | 48 | 33000170.0 | 1267500.0 | 26.04 | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

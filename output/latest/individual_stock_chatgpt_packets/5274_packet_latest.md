@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5274 信驊
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:32 Asia/Taipei
+- generated_at: 2026-06-06 22:23:35 Asia/Taipei
 - stock_id: 5274
 - stock_name: 信驊
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 35.08
-- over_600_ratio: 26.28
-- over_800_ratio: 24.2
-- over_1000_ratio: 19.37
-- over_400_change_1w: 0.23
-- over_800_change_1w: 2.23
-- over_1000_change_1w: -0.01
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260605
+- over_400_ratio: 34.42
+- over_600_ratio: 25.64
+- over_800_ratio: 21.91
+- over_1000_ratio: 19.32
+- over_400_change_1w: -0.66
+- over_800_change_1w: -2.29
+- over_1000_change_1w: -0.05
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,32.56,-0.12,24.33,-0.09,19.61,-0.01,0,False,False
 20260522,34.85,2.29,21.97,-2.36,19.38,-0.23,1,False,False
 20260529,35.08,0.23,24.2,2.23,19.37,-0.01,2,False,True
+20260605,34.42,-0.66,21.91,-2.29,19.32,-0.05,0,False,False
 ```
 
 ## Candidate Context

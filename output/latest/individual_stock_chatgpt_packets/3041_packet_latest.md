@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3041 揚智
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:58 Asia/Taipei
+- generated_at: 2026-06-06 22:22:57 Asia/Taipei
 - stock_id: 3041
 - stock_name: 揚智
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 25.64
-- over_600_ratio: 24.51
-- over_800_ratio: 23.05
-- over_1000_ratio: 22.34
-- over_400_change_1w: 1.04
-- over_800_change_1w: 1.43
-- over_1000_change_1w: 1.42
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: True
+- as_of_date: 20260605
+- over_400_ratio: 25.25
+- over_600_ratio: 24.16
+- over_800_ratio: 23.7
+- over_1000_ratio: 21.74
+- over_400_change_1w: -0.39
+- over_800_change_1w: 0.65
+- over_1000_change_1w: -0.6
+- tdcc_consecutive_up_weeks: 5
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,22.95,0.08,20.52,-0.12,20.52,-0.12,2,False,False
 20260522,24.6,1.65,21.62,1.1,20.92,0.4,3,True,True
 20260529,25.64,1.04,23.05,1.43,22.34,1.42,4,True,True
+20260605,25.25,-0.39,23.7,0.65,21.74,-0.6,5,False,True
 ```
 
 ## Candidate Context

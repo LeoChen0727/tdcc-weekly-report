@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6224 聚鼎
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:45 Asia/Taipei
+- generated_at: 2026-06-06 22:23:52 Asia/Taipei
 - stock_id: 6224
 - stock_name: 聚鼎
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,16 +162,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 38.95
-- over_600_ratio: 34.33
-- over_800_ratio: 30.2
-- over_1000_ratio: 26.89
-- over_400_change_1w: 0.09
-- over_800_change_1w: 0.95
-- over_1000_change_1w: 0.95
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
+- as_of_date: 20260605
+- over_400_ratio: 38.32
+- over_600_ratio: 34.77
+- over_800_ratio: 30.74
+- over_1000_ratio: 24.5
+- over_400_change_1w: -0.63
+- over_800_change_1w: 0.54
+- over_1000_change_1w: -2.39
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,38.98,-1.15,30.95,1.28,27.64,1.28,2,False,True
 20260522,38.86,-0.12,29.25,-1.7,25.94,-1.7,0,False,False
 20260529,38.95,0.09,30.2,0.95,26.89,0.95,1,True,True
+20260605,38.32,-0.63,30.74,0.54,24.5,-2.39,2,False,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6160 欣技
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:42 Asia/Taipei
+- generated_at: 2026-06-06 22:23:47 Asia/Taipei
 - stock_id: 6160
 - stock_name: 欣技
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 37.86
-- over_600_ratio: 35.84
-- over_800_ratio: 33.8
-- over_1000_ratio: 31.18
-- over_400_change_1w: 0
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260605
+- over_400_ratio: 38.63
+- over_600_ratio: 35.81
+- over_800_ratio: 33.77
+- over_1000_ratio: 29.69
+- over_400_change_1w: 0.77
+- over_800_change_1w: -0.03
+- over_1000_change_1w: -1.49
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -178,6 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,37.85,-0.02,33.79,-0.02,31.17,-0.02,0,False,False
 20260522,37.86,0.01,33.8,0.01,31.18,0.01,1,True,True
 20260529,37.86,0,33.8,0,31.18,0,0,False,False
+20260605,38.63,0.77,33.77,-0.03,29.69,-1.49,1,False,False
 ```
 
 ## Candidate Context

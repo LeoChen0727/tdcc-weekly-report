@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1626 艾美特-KY
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:28 Asia/Taipei
+- generated_at: 2026-06-06 22:22:23 Asia/Taipei
 - stock_id: 1626
 - stock_name: 艾美特-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 27
+- latest_tdcc_date: 20260605
+- tdcc_rows: 28
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,23 +158,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 69.62
-- over_600_ratio: 66.33
-- over_800_ratio: 63.04
-- over_1000_ratio: 60.65
-- over_400_change_1w: 0.08
-- over_800_change_1w: 0.08
-- over_1000_change_1w: 0.08
-- tdcc_consecutive_up_weeks: 8
-- all_thresholds_up: True
+- as_of_date: 20260605
+- over_400_ratio: 69.68
+- over_600_ratio: 66.4
+- over_800_ratio: 63.11
+- over_1000_ratio: 60.07
+- over_400_change_1w: 0.06
+- over_800_change_1w: 0.07
+- over_1000_change_1w: -0.58
+- tdcc_consecutive_up_weeks: 9
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260313,67.33,0,61.57,0,59.21,0,0,False,False
 20260320,67.33,0,61.58,0.01,59.22,0.01,1,False,True
 20260327,67.59,0.26,61.56,-0.02,59.2,-0.02,2,False,False
 20260402,67.56,-0.03,61.53,-0.03,59.17,-0.03,0,False,False
@@ -186,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,69.52,0.21,62.94,0.19,60.55,0.82,6,True,True
 20260522,69.54,0.02,62.96,0.02,60.57,0.02,7,True,True
 20260529,69.62,0.08,63.04,0.08,60.65,0.08,8,True,True
+20260605,69.68,0.06,63.11,0.07,60.07,-0.58,9,False,True
 ```
 
 ## Candidate Context

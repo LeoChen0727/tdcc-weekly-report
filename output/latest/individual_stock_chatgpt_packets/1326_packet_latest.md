@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1326 台化
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:20 Asia/Taipei
+- generated_at: 2026-06-06 22:22:14 Asia/Taipei
 - stock_id: 1326
 - stock_name: 台化
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 81.33
-- over_600_ratio: 80.24
-- over_800_ratio: 79.46
-- over_1000_ratio: 78.74
-- over_400_change_1w: -0.19
-- over_800_change_1w: -0.1
-- over_1000_change_1w: -0.17
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260605
+- over_400_ratio: 82.37
+- over_600_ratio: 81.29
+- over_800_ratio: 80.47
+- over_1000_ratio: 79.79
+- over_400_change_1w: 1.04
+- over_800_change_1w: 1.01
+- over_1000_change_1w: 1.05
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -178,6 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,81.81,-0.45,79.88,-0.55,79.25,-0.53,0,False,False
 20260522,81.52,-0.29,79.56,-0.32,78.91,-0.34,0,False,False
 20260529,81.33,-0.19,79.46,-0.1,78.74,-0.17,0,False,False
+20260605,82.37,1.04,80.47,1.01,79.79,1.05,1,True,True
 ```
 
 ## Candidate Context
@@ -191,9 +192,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 1326 | 台化 | 107 | 6 | 7805720.0 | 25550.0 | 305.51 | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

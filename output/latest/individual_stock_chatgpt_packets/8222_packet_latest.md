@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8222 寶一
 
 ## Metadata
-- generated_at: 2026-06-06 00:37:25 Asia/Taipei
+- generated_at: 2026-06-06 22:24:37 Asia/Taipei
 - stock_id: 8222
 - stock_name: 寶一
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 38.27
-- over_600_ratio: 35.55
-- over_800_ratio: 33.45
-- over_1000_ratio: 33.45
-- over_400_change_1w: 0.07
-- over_800_change_1w: 0.04
-- over_1000_change_1w: 0.04
-- tdcc_consecutive_up_weeks: 4
+- as_of_date: 20260605
+- over_400_ratio: 38.41
+- over_600_ratio: 35.7
+- over_800_ratio: 34.73
+- over_1000_ratio: 33.48
+- over_400_change_1w: 0.14
+- over_800_change_1w: 1.28
+- over_1000_change_1w: 0.03
+- tdcc_consecutive_up_weeks: 5
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,38,0.02,33.34,0.14,33.34,0.14,2,True,True
 20260522,38.2,0.2,33.41,0.07,33.41,0.07,3,True,True
 20260529,38.27,0.07,33.45,0.04,33.45,0.04,4,True,True
+20260605,38.41,0.14,34.73,1.28,33.48,0.03,5,True,True
 ```
 
 ## Candidate Context

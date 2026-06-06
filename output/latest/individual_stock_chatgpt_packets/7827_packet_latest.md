@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7827 漢康-KY創
 
 ## Metadata
-- generated_at: 2026-06-06 00:37:20 Asia/Taipei
+- generated_at: 2026-06-06 22:24:31 Asia/Taipei
 - stock_id: 7827
 - stock_name: 漢康-KY創
 - packet_status: partial_rawdata_packet
 - latest_price_date: 20260605
 - price_rows: 6
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -144,17 +144,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 73.81
-- over_600_ratio: 71.06
-- over_800_ratio: 68.09
-- over_1000_ratio: 67.45
-- over_400_change_1w: -2.91
-- over_800_change_1w: -5.05
-- over_1000_change_1w: -5
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260605
+- over_400_ratio: 75.46
+- over_600_ratio: 71.46
+- over_800_ratio: 69.06
+- over_1000_ratio: 66.62
+- over_400_change_1w: 1.65
+- over_800_change_1w: 0.97
+- over_1000_change_1w: -0.83
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -165,6 +165,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,76.58,-0.12,73,-0.12,72.31,-0.12,0,False,False
 20260522,76.72,0.14,73.14,0.14,72.45,0.14,1,True,True
 20260529,73.81,-2.91,68.09,-5.05,67.45,-5,0,False,False
+20260605,75.46,1.65,69.06,0.97,66.62,-0.83,1,False,True
 ```
 
 ## Candidate Context

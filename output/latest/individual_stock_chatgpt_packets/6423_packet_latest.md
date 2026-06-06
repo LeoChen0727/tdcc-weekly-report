@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6423 億而得
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:49 Asia/Taipei
+- generated_at: 2026-06-06 22:23:56 Asia/Taipei
 - stock_id: 6423
 - stock_name: 億而得
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,16 +157,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 39.72
-- over_600_ratio: 38.3
-- over_800_ratio: 24.74
-- over_1000_ratio: 21.75
-- over_400_change_1w: -1.83
-- over_800_change_1w: 0.24
-- over_1000_change_1w: 0.24
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: False
+- as_of_date: 20260605
+- over_400_ratio: 39.83
+- over_600_ratio: 38.41
+- over_800_ratio: 24.79
+- over_1000_ratio: 21.8
+- over_400_change_1w: 0.11
+- over_800_change_1w: 0.05
+- over_1000_change_1w: 0.05
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -178,6 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,40.86,-0.05,24.34,0.31,21.35,0.31,1,False,True
 20260522,41.55,0.69,24.5,0.16,21.51,0.16,2,True,True
 20260529,39.72,-1.83,24.74,0.24,21.75,0.24,3,False,True
+20260605,39.83,0.11,24.79,0.05,21.8,0.05,4,True,True
 ```
 
 ## Candidate Context

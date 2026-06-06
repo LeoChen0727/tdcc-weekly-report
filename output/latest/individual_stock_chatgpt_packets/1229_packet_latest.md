@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1229 聯華
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:18 Asia/Taipei
+- generated_at: 2026-06-06 22:22:12 Asia/Taipei
 - stock_id: 1229
 - stock_name: 聯華
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,16 +162,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 64.93
-- over_600_ratio: 63.55
-- over_800_ratio: 62.88
-- over_1000_ratio: 62.08
-- over_400_change_1w: -0.1
-- over_800_change_1w: 0
+- as_of_date: 20260605
+- over_400_ratio: 65.07
+- over_600_ratio: 63.76
+- over_800_ratio: 62.98
+- over_1000_ratio: 62.19
+- over_400_change_1w: 0.14
+- over_800_change_1w: 0.1
 - over_1000_change_1w: 0.11
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,65.08,-0.31,63.01,-0.23,62.17,-0.22,0,False,False
 20260522,65.03,-0.05,62.88,-0.13,61.97,-0.2,0,False,False
 20260529,64.93,-0.1,62.88,0,62.08,0.11,1,False,True
+20260605,65.07,0.14,62.98,0.1,62.19,0.11,2,True,True
 ```
 
 ## Candidate Context

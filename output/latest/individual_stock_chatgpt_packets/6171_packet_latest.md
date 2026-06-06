@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6171 大城地產
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:43 Asia/Taipei
+- generated_at: 2026-06-06 22:23:48 Asia/Taipei
 - stock_id: 6171
 - stock_name: 大城地產
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 139
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
+- as_of_date: 20260605
 - over_400_ratio: 87.72
 - over_600_ratio: 84.64
 - over_800_ratio: 83.08
 - over_1000_ratio: 79.36
-- over_400_change_1w: 0.1
-- over_800_change_1w: 0.1
-- over_1000_change_1w: 0.09
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
-- high_thresholds_up: True
+- over_400_change_1w: 0
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,87.6,-0.01,82.96,0,79.25,0,0,False,False
 20260522,87.62,0.02,82.98,0.02,79.27,0.02,1,True,True
 20260529,87.72,0.1,83.08,0.1,79.36,0.09,2,True,True
+20260605,87.72,0,83.08,0,79.36,0,0,False,False
 ```
 
 ## Candidate Context

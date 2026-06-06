@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6752 叡揚
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:59 Asia/Taipei
+- generated_at: 2026-06-06 22:24:07 Asia/Taipei
 - stock_id: 6752
 - stock_name: 叡揚
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 47.18
-- over_600_ratio: 40.63
-- over_800_ratio: 25.8
-- over_1000_ratio: 18.26
-- over_400_change_1w: 0.05
-- over_800_change_1w: 0.04
-- over_1000_change_1w: 0.04
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260605
+- over_400_ratio: 47.34
+- over_600_ratio: 40.79
+- over_800_ratio: 25.92
+- over_1000_ratio: 18.28
+- over_400_change_1w: 0.16
+- over_800_change_1w: 0.12
+- over_1000_change_1w: 0.02
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,47.04,0,25.67,0,18.11,0.01,1,False,True
 20260522,47.13,0.09,25.76,0.09,18.22,0.11,2,True,True
 20260529,47.18,0.05,25.8,0.04,18.26,0.04,3,True,True
+20260605,47.34,0.16,25.92,0.12,18.28,0.02,4,True,True
 ```
 
 ## Candidate Context

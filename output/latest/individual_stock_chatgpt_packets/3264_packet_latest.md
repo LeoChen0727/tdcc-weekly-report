@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3264 欣銓
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:04 Asia/Taipei
+- generated_at: 2026-06-06 22:23:04 Asia/Taipei
 - stock_id: 3264
 - stock_name: 欣銓
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 72.25
-- over_600_ratio: 70.06
-- over_800_ratio: 67.02
-- over_1000_ratio: 64.3
-- over_400_change_1w: 1.49
-- over_800_change_1w: 0.89
-- over_1000_change_1w: 0.33
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260605
+- over_400_ratio: 70.55
+- over_600_ratio: 68.2
+- over_800_ratio: 65.07
+- over_1000_ratio: 62.94
+- over_400_change_1w: -1.7
+- over_800_change_1w: -1.95
+- over_1000_change_1w: -1.36
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,70.94,-1.46,66.21,-1.07,63.48,-1.05,0,False,False
 20260522,70.76,-0.18,66.13,-0.08,63.97,0.49,1,False,True
 20260529,72.25,1.49,67.02,0.89,64.3,0.33,2,True,True
+20260605,70.55,-1.7,65.07,-1.95,62.94,-1.36,0,False,False
 ```
 
 ## Candidate Context

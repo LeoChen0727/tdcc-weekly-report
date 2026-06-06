@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3714 富采
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:16 Asia/Taipei
+- generated_at: 2026-06-06 22:23:17 Asia/Taipei
 - stock_id: 3714
 - stock_name: 富采
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,14 +162,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 42.77
-- over_600_ratio: 40.11
-- over_800_ratio: 38.89
-- over_1000_ratio: 37.2
-- over_400_change_1w: -1.3
-- over_800_change_1w: -1.21
-- over_1000_change_1w: -1.64
+- as_of_date: 20260605
+- over_400_ratio: 40.71
+- over_600_ratio: 38.4
+- over_800_ratio: 37.11
+- over_1000_ratio: 35.2
+- over_400_change_1w: -2.06
+- over_800_change_1w: -1.78
+- over_1000_change_1w: -2
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,40.85,-0.89,37.25,-0.21,35.87,-0.46,0,False,False
 20260522,44.07,3.22,40.1,2.85,38.84,2.97,1,True,True
 20260529,42.77,-1.3,38.89,-1.21,37.2,-1.64,0,False,False
+20260605,40.71,-2.06,37.11,-1.78,35.2,-2,0,False,False
 ```
 
 ## Candidate Context

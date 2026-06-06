@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4729 熒茂
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:25 Asia/Taipei
+- generated_at: 2026-06-06 22:23:27 Asia/Taipei
 - stock_id: 4729
 - stock_name: 熒茂
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 52.23
-- over_600_ratio: 50.37
-- over_800_ratio: 48.63
-- over_1000_ratio: 46.56
-- over_400_change_1w: 0.09
-- over_800_change_1w: 1.04
-- over_1000_change_1w: -0.01
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
+- as_of_date: 20260605
+- over_400_ratio: 53.26
+- over_600_ratio: 52.59
+- over_800_ratio: 50.85
+- over_1000_ratio: 48.77
+- over_400_change_1w: 1.03
+- over_800_change_1w: 2.22
+- over_1000_change_1w: 2.21
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,52.31,-0.51,47.71,0.04,46.69,0.03,2,False,True
 20260522,52.14,-0.17,47.59,-0.12,46.57,-0.12,0,False,False
 20260529,52.23,0.09,48.63,1.04,46.56,-0.01,1,False,True
+20260605,53.26,1.03,50.85,2.22,48.77,2.21,2,True,True
 ```
 
 ## Candidate Context

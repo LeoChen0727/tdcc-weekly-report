@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1582 信錦
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:26 Asia/Taipei
+- generated_at: 2026-06-06 22:22:21 Asia/Taipei
 - stock_id: 1582
 - stock_name: 信錦
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 27
+- latest_tdcc_date: 20260605
+- tdcc_rows: 28
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,14 +162,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 40.06
-- over_600_ratio: 36.74
-- over_800_ratio: 33.5
-- over_1000_ratio: 33.5
-- over_400_change_1w: -2.36
-- over_800_change_1w: -2.82
-- over_1000_change_1w: -0.8
+- as_of_date: 20260605
+- over_400_ratio: 36.25
+- over_600_ratio: 33.66
+- over_800_ratio: 31.79
+- over_1000_ratio: 30.49
+- over_400_change_1w: -3.81
+- over_800_change_1w: -1.71
+- over_1000_change_1w: -3.01
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -178,7 +178,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260313,35.61,3.11,29.89,3.38,26.15,2.07,4,True,True
 20260320,33.26,-2.35,28.09,-1.8,26.24,0.09,5,False,True
 20260327,36.64,3.38,27.58,-0.51,24.55,-1.69,6,False,False
 20260402,38.88,2.24,30.88,3.3,27.32,2.77,7,True,True
@@ -190,12 +189,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,33.81,1.81,28.84,1.31,27.71,1.95,2,True,True
 20260522,42.42,8.61,36.32,7.48,34.3,6.59,3,True,True
 20260529,40.06,-2.36,33.5,-2.82,33.5,-0.8,0,False,False
+20260605,36.25,-3.81,31.79,-1.71,30.49,-3.01,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 1582 | 信錦 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: ex_dividend on 20260616; status=confirmed; proximity=within_14d |
+| 20260605 | 1582 | 信錦 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: ex_dividend on 20260616; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -203,9 +203,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | 20260605 | 1582 | 信錦 | 3 | 3 | 3 | 6 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 1582 | 信錦 | 37 | 1 | 5257930.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

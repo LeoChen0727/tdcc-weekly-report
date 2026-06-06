@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4590 富田-創
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:24 Asia/Taipei
+- generated_at: 2026-06-06 22:23:26 Asia/Taipei
 - stock_id: 4590
 - stock_name: 富田-創
 - packet_status: standard_rawdata_packet
 - latest_price_date: 20260605
 - price_rows: 81
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 49.07
-- over_600_ratio: 47.15
+- as_of_date: 20260605
+- over_400_ratio: 49.8
+- over_600_ratio: 47.12
 - over_800_ratio: 41.85
 - over_1000_ratio: 36.92
-- over_400_change_1w: -0.01
-- over_800_change_1w: -1.45
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 1
+- over_400_change_1w: 0.73
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,49.16,-0.04,43.33,-0.04,36.92,-0.04,0,False,False
 20260522,49.08,-0.08,43.3,-0.03,36.91,-0.01,0,False,False
 20260529,49.07,-0.01,41.85,-1.45,36.92,0.01,1,False,True
+20260605,49.8,0.73,41.85,0,36.92,0,2,False,False
 ```
 
 ## Candidate Context

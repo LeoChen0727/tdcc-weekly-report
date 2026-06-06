@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8028 昇陽半導體
 
 ## Metadata
-- generated_at: 2026-06-06 00:37:20 Asia/Taipei
+- generated_at: 2026-06-06 22:24:32 Asia/Taipei
 - stock_id: 8028
 - stock_name: 昇陽半導體
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 56.1
-- over_600_ratio: 51.06
-- over_800_ratio: 45.98
-- over_1000_ratio: 44.57
-- over_400_change_1w: 4.56
-- over_800_change_1w: 2.97
-- over_1000_change_1w: 4.11
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260605
+- over_400_ratio: 54.46
+- over_600_ratio: 49.39
+- over_800_ratio: 44.8
+- over_1000_ratio: 41.88
+- over_400_change_1w: -1.64
+- over_800_change_1w: -1.18
+- over_1000_change_1w: -2.69
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -178,6 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,51.67,5.75,43.53,6.09,39.9,5,1,True,True
 20260522,51.54,-0.13,43.01,-0.52,40.46,0.56,2,False,True
 20260529,56.1,4.56,45.98,2.97,44.57,4.11,3,True,True
+20260605,54.46,-1.64,44.8,-1.18,41.88,-2.69,0,False,False
 ```
 
 ## Candidate Context
@@ -191,9 +192,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 8028 | 昇陽半導體 | 170 | 2 | 15613480.0 | 970.0 | 16096.37 | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1444 力麗
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:22 Asia/Taipei
+- generated_at: 2026-06-06 22:22:16 Asia/Taipei
 - stock_id: 1444
 - stock_name: 力麗
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,16 +157,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 64.98
-- over_600_ratio: 63.44
-- over_800_ratio: 61.5
-- over_1000_ratio: 60.6
-- over_400_change_1w: 0.22
-- over_800_change_1w: -0.05
-- over_1000_change_1w: 0.2
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: False
+- as_of_date: 20260605
+- over_400_ratio: 65
+- over_600_ratio: 63.7
+- over_800_ratio: 61.91
+- over_1000_ratio: 60.66
+- over_400_change_1w: 0.02
+- over_800_change_1w: 0.41
+- over_1000_change_1w: 0.06
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -178,6 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,64.79,0.02,61.54,-0.22,60.39,-0.01,1,False,False
 20260522,64.76,-0.03,61.55,0.01,60.4,0.01,2,False,True
 20260529,64.98,0.22,61.5,-0.05,60.6,0.2,3,False,True
+20260605,65,0.02,61.91,0.41,60.66,0.06,4,True,True
 ```
 
 ## Candidate Context

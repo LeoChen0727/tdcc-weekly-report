@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6541 泰福-KY
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:52 Asia/Taipei
+- generated_at: 2026-06-06 22:24:00 Asia/Taipei
 - stock_id: 6541
 - stock_name: 泰福-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 71.92
-- over_600_ratio: 68.65
-- over_800_ratio: 67.05
+- as_of_date: 20260605
+- over_400_ratio: 72.08
+- over_600_ratio: 68.62
+- over_800_ratio: 67.03
 - over_1000_ratio: 65.38
-- over_400_change_1w: 0.02
-- over_800_change_1w: -0.01
-- over_1000_change_1w: -0.06
-- tdcc_consecutive_up_weeks: 3
+- over_400_change_1w: 0.16
+- over_800_change_1w: -0.02
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,71.69,0.15,67.08,-0.05,65.44,-0.41,1,False,False
 20260522,71.9,0.21,67.06,-0.02,65.44,0,2,False,False
 20260529,71.92,0.02,67.05,-0.01,65.38,-0.06,3,False,False
+20260605,72.08,0.16,67.03,-0.02,65.38,0,4,False,False
 ```
 
 ## Candidate Context

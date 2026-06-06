@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1440 南紡
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:22 Asia/Taipei
+- generated_at: 2026-06-06 22:22:16 Asia/Taipei
 - stock_id: 1440
 - stock_name: 南紡
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,14 +162,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 78.07
-- over_600_ratio: 75.9
-- over_800_ratio: 74.43
-- over_1000_ratio: 72.88
-- over_400_change_1w: -0.14
-- over_800_change_1w: -0.21
-- over_1000_change_1w: -0.14
+- as_of_date: 20260605
+- over_400_ratio: 77.76
+- over_600_ratio: 75.75
+- over_800_ratio: 74.24
+- over_1000_ratio: 72.85
+- over_400_change_1w: -0.31
+- over_800_change_1w: -0.19
+- over_1000_change_1w: -0.03
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,78.22,-0.17,74.61,0.16,72.96,-0.16,1,False,True
 20260522,78.21,-0.01,74.64,0.03,73.02,0.06,2,False,True
 20260529,78.07,-0.14,74.43,-0.21,72.88,-0.14,0,False,False
+20260605,77.76,-0.31,74.24,-0.19,72.85,-0.03,0,False,False
 ```
 
 ## Candidate Context

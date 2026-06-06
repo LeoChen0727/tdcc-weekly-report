@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3322 建舜電
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:06 Asia/Taipei
+- generated_at: 2026-06-06 22:23:06 Asia/Taipei
 - stock_id: 3322
 - stock_name: 建舜電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,16 +157,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 35.36
-- over_600_ratio: 31.71
-- over_800_ratio: 30.73
-- over_1000_ratio: 30.73
-- over_400_change_1w: 0.76
-- over_800_change_1w: 0.03
-- over_1000_change_1w: 0.03
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
+- as_of_date: 20260605
+- over_400_ratio: 35.94
+- over_600_ratio: 33.43
+- over_800_ratio: 31.99
+- over_1000_ratio: 30.62
+- over_400_change_1w: 0.58
+- over_800_change_1w: 1.26
+- over_1000_change_1w: -0.11
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -178,6 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,35.43,-0.69,30.62,-0.7,30.62,-0.04,0,False,False
 20260522,34.6,-0.83,30.7,0.08,30.7,0.08,1,False,True
 20260529,35.36,0.76,30.73,0.03,30.73,0.03,2,True,True
+20260605,35.94,0.58,31.99,1.26,30.62,-0.11,3,False,True
 ```
 
 ## Candidate Context

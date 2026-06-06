@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4441 振大環球
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:21 Asia/Taipei
+- generated_at: 2026-06-06 22:23:23 Asia/Taipei
 - stock_id: 4441
 - stock_name: 振大環球
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 172
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 72.53
+- as_of_date: 20260605
+- over_400_ratio: 72.5
 - over_600_ratio: 67.46
 - over_800_ratio: 60.35
 - over_1000_ratio: 60.35
-- over_400_change_1w: 0.25
-- over_800_change_1w: 0.27
-- over_1000_change_1w: 0.27
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
-- high_thresholds_up: True
+- over_400_change_1w: -0.03
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,72.3,-0.03,60.07,-0.01,60.07,-0.01,0,False,False
 20260522,72.28,-0.02,60.08,0.01,60.08,0.01,1,False,True
 20260529,72.53,0.25,60.35,0.27,60.35,0.27,2,True,True
+20260605,72.5,-0.03,60.35,0,60.35,0,0,False,False
 ```
 
 ## Candidate Context

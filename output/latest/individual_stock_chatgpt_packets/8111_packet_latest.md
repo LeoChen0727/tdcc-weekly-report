@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8111 立碁
 
 ## Metadata
-- generated_at: 2026-06-06 00:37:23 Asia/Taipei
+- generated_at: 2026-06-06 22:24:35 Asia/Taipei
 - stock_id: 8111
 - stock_name: 立碁
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 38.77
-- over_600_ratio: 35.54
-- over_800_ratio: 32.49
-- over_1000_ratio: 30.21
-- over_400_change_1w: 0.26
-- over_800_change_1w: 1.18
-- over_1000_change_1w: 1.4
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260605
+- over_400_ratio: 38.62
+- over_600_ratio: 35
+- over_800_ratio: 30.63
+- over_1000_ratio: 29.07
+- over_400_change_1w: -0.15
+- over_800_change_1w: -1.86
+- over_1000_change_1w: -1.14
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,38.81,-2.24,30.36,-2.96,27.77,-3.06,0,False,False
 20260522,38.51,-0.3,31.31,0.95,28.81,1.04,1,False,True
 20260529,38.77,0.26,32.49,1.18,30.21,1.4,2,True,True
+20260605,38.62,-0.15,30.63,-1.86,29.07,-1.14,0,False,False
 ```
 
 ## Candidate Context

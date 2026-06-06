@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5546 永固-KY
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:37 Asia/Taipei
+- generated_at: 2026-06-06 22:23:42 Asia/Taipei
 - stock_id: 5546
 - stock_name: 永固-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 84.71
+- as_of_date: 20260605
+- over_400_ratio: 85.22
 - over_600_ratio: 81.88
 - over_800_ratio: 79.13
-- over_1000_ratio: 78.1
-- over_400_change_1w: 0.05
-- over_800_change_1w: 0.05
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
-- high_thresholds_up: True
+- over_1000_ratio: 78.08
+- over_400_change_1w: 0.51
+- over_800_change_1w: 0
+- over_1000_change_1w: -0.02
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,84.51,0,80.71,0,79.73,0,0,False,False
 20260522,84.66,0.15,79.08,-1.63,78.09,-1.64,1,False,False
 20260529,84.71,0.05,79.13,0.05,78.1,0.01,2,True,True
+20260605,85.22,0.51,79.13,0,78.08,-0.02,3,False,False
 ```
 
 ## Candidate Context

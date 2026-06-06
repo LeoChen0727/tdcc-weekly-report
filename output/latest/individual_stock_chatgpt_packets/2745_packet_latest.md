@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2745 五福
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:52 Asia/Taipei
+- generated_at: 2026-06-06 22:22:50 Asia/Taipei
 - stock_id: 2745
 - stock_name: 五福
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 51.57
-- over_600_ratio: 51.57
-- over_800_ratio: 51.57
-- over_1000_ratio: 51.57
-- over_400_change_1w: 0
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
+- as_of_date: 20260605
+- over_400_ratio: 51.54
+- over_600_ratio: 51.54
+- over_800_ratio: 51.54
+- over_1000_ratio: 51.54
+- over_400_change_1w: -0.03
+- over_800_change_1w: -0.03
+- over_1000_change_1w: -0.03
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,51.57,0,51.57,0,51.57,0,0,False,False
 20260522,51.57,0,51.57,0,51.57,0,0,False,False
 20260529,51.57,0,51.57,0,51.57,0,0,False,False
+20260605,51.54,-0.03,51.54,-0.03,51.54,-0.03,0,False,False
 ```
 
 ## Candidate Context

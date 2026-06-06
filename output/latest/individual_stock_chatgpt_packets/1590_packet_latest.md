@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1590 亞德客-KY
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:27 Asia/Taipei
+- generated_at: 2026-06-06 22:22:22 Asia/Taipei
 - stock_id: 1590
 - stock_name: 亞德客-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 73.41
-- over_600_ratio: 64.06
-- over_800_ratio: 56.37
-- over_1000_ratio: 53.32
-- over_400_change_1w: 0.41
-- over_800_change_1w: 0.35
-- over_1000_change_1w: -0.17
-- tdcc_consecutive_up_weeks: 4
+- as_of_date: 20260605
+- over_400_ratio: 73.44
+- over_600_ratio: 63.26
+- over_800_ratio: 56.2
+- over_1000_ratio: 53.12
+- over_400_change_1w: 0.03
+- over_800_change_1w: -0.17
+- over_1000_change_1w: -0.2
+- tdcc_consecutive_up_weeks: 5
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,73.02,0.06,56.79,0.3,54.24,0.31,2,False,True
 20260522,73,-0.02,56.02,-0.77,53.49,-0.75,3,False,False
 20260529,73.41,0.41,56.37,0.35,53.32,-0.17,4,False,True
+20260605,73.44,0.03,56.2,-0.17,53.12,-0.2,5,False,False
 ```
 
 ## Candidate Context
@@ -192,9 +193,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 1590 | 亞德客-KY | 44 | 0 | 4521160.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

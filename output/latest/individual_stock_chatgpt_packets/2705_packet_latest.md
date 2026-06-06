@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2705 六福
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:51 Asia/Taipei
+- generated_at: 2026-06-06 22:22:48 Asia/Taipei
 - stock_id: 2705
 - stock_name: 六福
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 65.21
-- over_600_ratio: 62.35
-- over_800_ratio: 60.8
-- over_1000_ratio: 59.38
-- over_400_change_1w: -0.04
-- over_800_change_1w: 0.51
-- over_1000_change_1w: 0.51
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: False
+- as_of_date: 20260605
+- over_400_ratio: 65.4
+- over_600_ratio: 62.51
+- over_800_ratio: 60.96
+- over_1000_ratio: 59.54
+- over_400_change_1w: 0.19
+- over_800_change_1w: 0.16
+- over_1000_change_1w: 0.16
+- tdcc_consecutive_up_weeks: 5
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,65.01,-0.05,60.3,0.22,58.88,0.22,2,False,True
 20260522,65.25,0.24,60.29,-0.01,58.87,-0.01,3,False,False
 20260529,65.21,-0.04,60.8,0.51,59.38,0.51,4,False,True
+20260605,65.4,0.19,60.96,0.16,59.54,0.16,5,True,True
 ```
 
 ## Candidate Context

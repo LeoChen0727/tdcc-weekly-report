@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2633 台灣高鐵
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:50 Asia/Taipei
+- generated_at: 2026-06-06 22:22:48 Asia/Taipei
 - stock_id: 2633
 - stock_name: 台灣高鐵
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 86.33
-- over_600_ratio: 85.43
-- over_800_ratio: 84.81
-- over_1000_ratio: 84.28
-- over_400_change_1w: -0.48
-- over_800_change_1w: -0.54
-- over_1000_change_1w: -0.46
+- as_of_date: 20260605
+- over_400_ratio: 86.19
+- over_600_ratio: 85.38
+- over_800_ratio: 84.8
+- over_1000_ratio: 84.27
+- over_400_change_1w: -0.14
+- over_800_change_1w: -0.01
+- over_1000_change_1w: -0.01
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,86.89,0.01,85.39,-0.08,84.84,0,2,False,False
 20260522,86.81,-0.08,85.35,-0.04,84.74,-0.1,0,False,False
 20260529,86.33,-0.48,84.81,-0.54,84.28,-0.46,0,False,False
+20260605,86.19,-0.14,84.8,-0.01,84.27,-0.01,0,False,False
 ```
 
 ## Candidate Context
@@ -192,9 +193,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 2633 | 台灣高鐵 | 2 | 0 | 3850.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

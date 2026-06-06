@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3491 昇達科
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:09 Asia/Taipei
+- generated_at: 2026-06-06 22:23:09 Asia/Taipei
 - stock_id: 3491
 - stock_name: 昇達科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 37.43
-- over_600_ratio: 27.3
-- over_800_ratio: 17.51
-- over_1000_ratio: 12.08
-- over_400_change_1w: 1.5
-- over_800_change_1w: 0.59
-- over_1000_change_1w: 0.45
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: True
+- as_of_date: 20260605
+- over_400_ratio: 36.7
+- over_600_ratio: 27.91
+- over_800_ratio: 20.43
+- over_1000_ratio: 13.83
+- over_400_change_1w: -0.73
+- over_800_change_1w: 2.92
+- over_1000_change_1w: 1.75
+- tdcc_consecutive_up_weeks: 5
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,34.3,-0.03,14.41,-0.11,11.72,-0.3,2,False,False
 20260522,35.93,1.63,16.92,2.51,11.63,-0.09,3,False,True
 20260529,37.43,1.5,17.51,0.59,12.08,0.45,4,True,True
+20260605,36.7,-0.73,20.43,2.92,13.83,1.75,5,False,True
 ```
 
 ## Candidate Context

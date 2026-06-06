@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7087 台半元大5B購01
 
 ## Metadata
-- generated_at: 2026-06-06 00:37:09 Asia/Taipei
+- generated_at: 2026-06-06 22:24:19 Asia/Taipei
 - stock_id: 7087
 - stock_name: 台半元大5B購01
 - packet_status: standard_180d_window_packet

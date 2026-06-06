@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2382 廣達
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:41 Asia/Taipei
+- generated_at: 2026-06-06 22:22:37 Asia/Taipei
 - stock_id: 2382
 - stock_name: 廣達
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 84.84
-- over_600_ratio: 83.53
-- over_800_ratio: 82.16
-- over_1000_ratio: 80.72
-- over_400_change_1w: -0.37
-- over_800_change_1w: -0.47
-- over_1000_change_1w: -0.46
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260605
+- over_400_ratio: 85.79
+- over_600_ratio: 84.39
+- over_800_ratio: 83.03
+- over_1000_ratio: 81.77
+- over_400_change_1w: 0.95
+- over_800_change_1w: 0.87
+- over_1000_change_1w: 1.05
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -178,6 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,86.17,0.09,83.49,-0.03,82.02,-0.09,2,False,False
 20260522,85.21,-0.96,82.63,-0.86,81.18,-0.84,0,False,False
 20260529,84.84,-0.37,82.16,-0.47,80.72,-0.46,0,False,False
+20260605,85.79,0.95,83.03,0.87,81.77,1.05,1,True,True
 ```
 
 ## Candidate Context

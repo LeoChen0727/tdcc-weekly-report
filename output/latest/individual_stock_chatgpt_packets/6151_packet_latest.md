@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6151 晉倫
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:41 Asia/Taipei
+- generated_at: 2026-06-06 22:23:47 Asia/Taipei
 - stock_id: 6151
 - stock_name: 晉倫
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 35.85
-- over_600_ratio: 30.18
-- over_800_ratio: 25.04
-- over_1000_ratio: 20.53
-- over_400_change_1w: 0.78
-- over_800_change_1w: -1.98
-- over_1000_change_1w: -0.39
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260605
+- over_400_ratio: 35.6
+- over_600_ratio: 29.72
+- over_800_ratio: 26.86
+- over_1000_ratio: 22.35
+- over_400_change_1w: -0.25
+- over_800_change_1w: 1.82
+- over_1000_change_1w: 1.82
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,35.19,0.89,27.14,-0.5,21.01,-2.12,2,False,False
 20260522,35.07,-0.12,27.02,-0.12,20.92,-0.09,0,False,False
 20260529,35.85,0.78,25.04,-1.98,20.53,-0.39,1,False,False
+20260605,35.6,-0.25,26.86,1.82,22.35,1.82,2,False,True
 ```
 
 ## Candidate Context

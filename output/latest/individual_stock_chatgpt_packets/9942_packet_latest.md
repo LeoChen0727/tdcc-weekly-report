@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9942 茂順
 
 ## Metadata
-- generated_at: 2026-06-06 00:37:33 Asia/Taipei
+- generated_at: 2026-06-06 22:24:46 Asia/Taipei
 - stock_id: 9942
 - stock_name: 茂順
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 52.29
-- over_600_ratio: 49.13
-- over_800_ratio: 40.68
-- over_1000_ratio: 38.56
-- over_400_change_1w: -0.52
+- as_of_date: 20260605
+- over_400_ratio: 52.38
+- over_600_ratio: 49.14
+- over_800_ratio: 40.69
+- over_1000_ratio: 38.57
+- over_400_change_1w: 0.09
 - over_800_change_1w: 0.01
 - over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: False
+- tdcc_consecutive_up_weeks: 5
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,52.8,0.99,40.67,0,38.55,0,2,False,False
 20260522,52.81,0.01,40.67,0,38.55,0,3,False,False
 20260529,52.29,-0.52,40.68,0.01,38.56,0.01,4,False,True
+20260605,52.38,0.09,40.69,0.01,38.57,0.01,5,True,True
 ```
 
 ## Candidate Context

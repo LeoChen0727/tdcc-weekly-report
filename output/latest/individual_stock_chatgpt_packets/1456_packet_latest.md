@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1456 怡華
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:23 Asia/Taipei
+- generated_at: 2026-06-06 22:22:17 Asia/Taipei
 - stock_id: 1456
 - stock_name: 怡華
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 277
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 85.04
-- over_600_ratio: 84.1
-- over_800_ratio: 82.67
-- over_1000_ratio: 80.71
-- over_400_change_1w: 0.06
-- over_800_change_1w: 0.07
-- over_1000_change_1w: 0.07
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260605
+- over_400_ratio: 84.99
+- over_600_ratio: 84.05
+- over_800_ratio: 82.66
+- over_1000_ratio: 80.7
+- over_400_change_1w: -0.05
+- over_800_change_1w: -0.01
+- over_1000_change_1w: -0.01
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -178,6 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,84.98,0.48,82.6,1.31,80.64,1.31,2,True,True
 20260522,84.98,0,82.6,0,80.64,0,0,False,False
 20260529,85.04,0.06,82.67,0.07,80.71,0.07,1,True,True
+20260605,84.99,-0.05,82.66,-0.01,80.7,-0.01,0,False,False
 ```
 
 ## Candidate Context

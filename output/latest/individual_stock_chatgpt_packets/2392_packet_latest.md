@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2392 正崴
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:41 Asia/Taipei
+- generated_at: 2026-06-06 22:22:38 Asia/Taipei
 - stock_id: 2392
 - stock_name: 正崴
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 276
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 48.08
-- over_600_ratio: 46.09
-- over_800_ratio: 44.43
-- over_1000_ratio: 43.35
-- over_400_change_1w: 0.61
-- over_800_change_1w: 0.46
-- over_1000_change_1w: 0.45
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260605
+- over_400_ratio: 48.48
+- over_600_ratio: 46.8
+- over_800_ratio: 44.84
+- over_1000_ratio: 43.97
+- over_400_change_1w: 0.4
+- over_800_change_1w: 0.41
+- over_1000_change_1w: 0.62
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,46.64,-0.44,43.04,-0.89,42.33,-0.76,0,False,False
 20260522,47.47,0.83,43.97,0.93,42.9,0.57,1,True,True
 20260529,48.08,0.61,44.43,0.46,43.35,0.45,2,True,True
+20260605,48.48,0.4,44.84,0.41,43.97,0.62,3,True,True
 ```
 
 ## Candidate Context
@@ -192,9 +193,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 2392 | 正崴 | 15 | 0 | 1292590.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

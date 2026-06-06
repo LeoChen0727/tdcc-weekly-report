@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3406 玉晶光
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:07 Asia/Taipei
+- generated_at: 2026-06-06 22:23:08 Asia/Taipei
 - stock_id: 3406
 - stock_name: 玉晶光
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -160,17 +160,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 56.59
-- over_600_ratio: 49.84
-- over_800_ratio: 44.89
-- over_1000_ratio: 39.38
-- over_400_change_1w: 0.94
-- over_800_change_1w: -0.13
-- over_1000_change_1w: -0.89
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260605
+- over_400_ratio: 57.87
+- over_600_ratio: 50.79
+- over_800_ratio: 47.64
+- over_1000_ratio: 41.2
+- over_400_change_1w: 1.28
+- over_800_change_1w: 2.75
+- over_1000_change_1w: 1.82
+- tdcc_consecutive_up_weeks: 5
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -181,12 +181,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,55.45,-0.33,45.58,-0.44,39.29,-0.39,2,False,False
 20260522,55.65,0.2,45.02,-0.56,40.27,0.98,3,False,True
 20260529,56.59,0.94,44.89,-0.13,39.38,-0.89,4,False,False
+20260605,57.87,1.28,47.64,2.75,41.2,1.82,5,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 3406 | 玉晶光 | true_breakout | 嚴格突破 | 99.0 |  |  | platform_breakout |  | call_put_bullish | continued_many_days | calendar event: ex_dividend on 20260608; status=confirmed; proximity=within_3d |
+| 20260605 | 3406 | 玉晶光 | true_breakout | 嚴格突破 | 99.0 |  |  | platform_breakout |  |  | continued_many_days | calendar event: ex_dividend on 20260608; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -194,9 +195,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | 20260605 | 3406 | 玉晶光 | 11 | 2 | 5 | 10 | 11 | continued_many_days | 連續 11 日上榜，需區分醞釀延續或訊號鈍化。 |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 3406 | 玉晶光 | 62 | 4 | 49849020.0 | 141750.0 | 351.67 | call_put_bullish |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4163 鐿鈦
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:18 Asia/Taipei
+- generated_at: 2026-06-06 22:23:20 Asia/Taipei
 - stock_id: 4163
 - stock_name: 鐿鈦
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 276
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 70.42
-- over_600_ratio: 66.74
-- over_800_ratio: 64.3
-- over_1000_ratio: 62.45
+- as_of_date: 20260605
+- over_400_ratio: 70.41
+- over_600_ratio: 65.56
+- over_800_ratio: 64.34
+- over_1000_ratio: 62.49
 - over_400_change_1w: -0.01
-- over_800_change_1w: -0.01
-- over_1000_change_1w: -0.01
-- tdcc_consecutive_up_weeks: 0
+- over_800_change_1w: 0.04
+- over_1000_change_1w: 0.04
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -178,6 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,70.44,0.03,64.32,0.03,62.47,0.03,2,True,True
 20260522,70.43,-0.01,64.31,-0.01,62.46,-0.01,0,False,False
 20260529,70.42,-0.01,64.3,-0.01,62.45,-0.01,0,False,False
+20260605,70.41,-0.01,64.34,0.04,62.49,0.04,1,False,True
 ```
 
 ## Candidate Context

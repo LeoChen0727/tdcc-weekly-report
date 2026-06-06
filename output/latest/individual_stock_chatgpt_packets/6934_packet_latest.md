@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6934 心誠鎂
 
 ## Metadata
-- generated_at: 2026-06-06 00:37:04 Asia/Taipei
+- generated_at: 2026-06-06 22:24:13 Asia/Taipei
 - stock_id: 6934
 - stock_name: 心誠鎂
 - packet_status: standard_rawdata_packet
 - latest_price_date: 20260605
 - price_rows: 79
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 62.93
-- over_600_ratio: 62.93
-- over_800_ratio: 60.72
-- over_1000_ratio: 55.5
-- over_400_change_1w: 0.18
+- as_of_date: 20260605
+- over_400_ratio: 63.1
+- over_600_ratio: 63.1
+- over_800_ratio: 60.9
+- over_1000_ratio: 58.37
+- over_400_change_1w: 0.17
 - over_800_change_1w: 0.18
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: False
+- over_1000_change_1w: 2.87
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,62.68,0,60.47,0,55.5,0,0,False,False
 20260522,62.75,0.07,60.54,0.07,55.5,0,1,False,True
 20260529,62.93,0.18,60.72,0.18,55.5,0,2,False,True
+20260605,63.1,0.17,60.9,0.18,58.37,2.87,3,True,True
 ```
 
 ## Candidate Context

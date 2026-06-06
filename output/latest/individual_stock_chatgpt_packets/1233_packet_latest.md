@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1233 天仁
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:18 Asia/Taipei
+- generated_at: 2026-06-06 22:22:12 Asia/Taipei
 - stock_id: 1233
 - stock_name: 天仁
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 27
+- latest_tdcc_date: 20260605
+- tdcc_rows: 28
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 74.11
-- over_600_ratio: 69.97
-- over_800_ratio: 68.44
-- over_1000_ratio: 67.37
-- over_400_change_1w: 0.07
-- over_800_change_1w: 0.07
-- over_1000_change_1w: 0.07
-- tdcc_consecutive_up_weeks: 5
+- as_of_date: 20260605
+- over_400_ratio: 74.25
+- over_600_ratio: 70.1
+- over_800_ratio: 68.57
+- over_1000_ratio: 67.5
+- over_400_change_1w: 0.14
+- over_800_change_1w: 0.13
+- over_1000_change_1w: 0.13
+- tdcc_consecutive_up_weeks: 6
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -174,7 +174,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260313,73.13,0.47,67.46,0.02,66.39,0.02,8,True,True
 20260320,73.14,0.01,67.47,0.01,66.4,0.01,9,True,True
 20260327,73.14,0,67.47,0,66.4,0,0,False,False
 20260402,73.14,0,67.47,0,66.4,0,0,False,False
@@ -186,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,73.97,0.09,68.3,0.09,67.23,0.09,3,True,True
 20260522,74.04,0.07,68.37,0.07,67.3,0.07,4,True,True
 20260529,74.11,0.07,68.44,0.07,67.37,0.07,5,True,True
+20260605,74.25,0.14,68.57,0.13,67.5,0.13,6,True,True
 ```
 
 ## Candidate Context

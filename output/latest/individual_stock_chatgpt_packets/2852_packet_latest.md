@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2852 第一保
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:53 Asia/Taipei
+- generated_at: 2026-06-06 22:22:52 Asia/Taipei
 - stock_id: 2852
 - stock_name: 第一保
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 65.31
-- over_600_ratio: 60.81
-- over_800_ratio: 57.21
-- over_1000_ratio: 52.86
-- over_400_change_1w: -0.23
-- over_800_change_1w: -0.34
-- over_1000_change_1w: -0.35
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260605
+- over_400_ratio: 65.53
+- over_600_ratio: 61.41
+- over_800_ratio: 57.15
+- over_1000_ratio: 53.05
+- over_400_change_1w: 0.22
+- over_800_change_1w: -0.06
+- over_1000_change_1w: 0.19
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,65.1,0.03,57.29,-0.21,53.22,-0.21,2,False,False
 20260522,65.54,0.44,57.55,0.26,53.21,-0.01,3,False,True
 20260529,65.31,-0.23,57.21,-0.34,52.86,-0.35,0,False,False
+20260605,65.53,0.22,57.15,-0.06,53.05,0.19,1,False,True
 ```
 
 ## Candidate Context

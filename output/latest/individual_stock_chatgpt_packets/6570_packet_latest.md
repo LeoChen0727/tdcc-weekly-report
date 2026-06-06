@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6570 維田
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:53 Asia/Taipei
+- generated_at: 2026-06-06 22:24:00 Asia/Taipei
 - stock_id: 6570
 - stock_name: 維田
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 42.86
-- over_600_ratio: 34.14
-- over_800_ratio: 34.14
-- over_1000_ratio: 29.2
-- over_400_change_1w: 0.03
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260605
+- over_400_ratio: 43.06
+- over_600_ratio: 34.34
+- over_800_ratio: 34.34
+- over_1000_ratio: 29.4
+- over_400_change_1w: 0.2
+- over_800_change_1w: 0.2
+- over_1000_change_1w: 0.2
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -178,6 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,42.8,0,34.11,0,29.17,0,0,False,False
 20260522,42.83,0.03,34.14,0.03,29.2,0.03,1,True,True
 20260529,42.86,0.03,34.14,0,29.2,0,2,False,False
+20260605,43.06,0.2,34.34,0.2,29.4,0.2,3,True,True
 ```
 
 ## Candidate Context

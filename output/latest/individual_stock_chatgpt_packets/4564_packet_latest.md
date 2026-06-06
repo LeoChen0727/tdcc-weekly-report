@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4564 元翎
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:23 Asia/Taipei
+- generated_at: 2026-06-06 22:23:25 Asia/Taipei
 - stock_id: 4564
 - stock_name: 元翎
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 42.99
-- over_600_ratio: 39.08
-- over_800_ratio: 37.03
-- over_1000_ratio: 35.88
-- over_400_change_1w: 0.25
-- over_800_change_1w: -0.09
-- over_1000_change_1w: 0.33
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: False
+- as_of_date: 20260605
+- over_400_ratio: 43.18
+- over_600_ratio: 39.16
+- over_800_ratio: 37.09
+- over_1000_ratio: 35.94
+- over_400_change_1w: 0.19
+- over_800_change_1w: 0.06
+- over_1000_change_1w: 0.06
+- tdcc_consecutive_up_weeks: 5
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,42.94,-0.05,37.08,-0.73,35.09,0.41,2,False,True
 20260522,42.74,-0.2,37.12,0.04,35.55,0.46,3,False,True
 20260529,42.99,0.25,37.03,-0.09,35.88,0.33,4,False,True
+20260605,43.18,0.19,37.09,0.06,35.94,0.06,5,True,True
 ```
 
 ## Candidate Context

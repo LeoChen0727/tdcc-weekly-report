@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8444 綠河-KY
 
 ## Metadata
-- generated_at: 2026-06-06 00:37:28 Asia/Taipei
+- generated_at: 2026-06-06 22:24:40 Asia/Taipei
 - stock_id: 8444
 - stock_name: 綠河-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 83.36
-- over_600_ratio: 77.77
-- over_800_ratio: 75.19
-- over_1000_ratio: 74.47
-- over_400_change_1w: 0.09
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260605
+- over_400_ratio: 83.57
+- over_600_ratio: 77.98
+- over_800_ratio: 76.12
+- over_1000_ratio: 75.4
+- over_400_change_1w: 0.21
+- over_800_change_1w: 0.93
+- over_1000_change_1w: 0.93
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -178,6 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,83.23,-0.01,75.19,-0.02,74.47,-0.02,0,False,False
 20260522,83.27,0.04,75.19,0,74.47,0,1,False,False
 20260529,83.36,0.09,75.19,0,74.47,0,2,False,False
+20260605,83.57,0.21,76.12,0.93,75.4,0.93,3,True,True
 ```
 
 ## Candidate Context

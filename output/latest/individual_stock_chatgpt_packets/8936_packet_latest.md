@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8936 國統
 
 ## Metadata
-- generated_at: 2026-06-06 00:37:30 Asia/Taipei
+- generated_at: 2026-06-06 22:24:43 Asia/Taipei
 - stock_id: 8936
 - stock_name: 國統
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 33.6
-- over_600_ratio: 30.23
-- over_800_ratio: 28.29
-- over_1000_ratio: 25.35
-- over_400_change_1w: 1.15
-- over_800_change_1w: 1.35
-- over_1000_change_1w: 0.96
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260605
+- over_400_ratio: 35.3
+- over_600_ratio: 31.89
+- over_800_ratio: 29.33
+- over_1000_ratio: 26.83
+- over_400_change_1w: 1.7
+- over_800_change_1w: 1.04
+- over_1000_change_1w: 1.48
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -178,6 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,32.93,-0.76,27.45,-0.69,24.55,-0.04,0,False,False
 20260522,32.45,-0.48,26.94,-0.51,24.39,-0.16,0,False,False
 20260529,33.6,1.15,28.29,1.35,25.35,0.96,1,True,True
+20260605,35.3,1.7,29.33,1.04,26.83,1.48,2,True,True
 ```
 
 ## Candidate Context

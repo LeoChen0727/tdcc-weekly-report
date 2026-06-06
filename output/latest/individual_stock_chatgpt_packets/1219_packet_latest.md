@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1219 福壽
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:18 Asia/Taipei
+- generated_at: 2026-06-06 22:22:11 Asia/Taipei
 - stock_id: 1219
 - stock_name: 福壽
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,17 +162,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 61.71
-- over_600_ratio: 60.03
-- over_800_ratio: 58.3
-- over_1000_ratio: 56.81
-- over_400_change_1w: 0
-- over_800_change_1w: 0.12
-- over_1000_change_1w: 0.4
-- tdcc_consecutive_up_weeks: 4
+- as_of_date: 20260605
+- over_400_ratio: 61.91
+- over_600_ratio: 59.82
+- over_800_ratio: 58.28
+- over_1000_ratio: 56.79
+- over_400_change_1w: 0.2
+- over_800_change_1w: -0.02
+- over_1000_change_1w: -0.02
+- tdcc_consecutive_up_weeks: 5
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,61.79,-0.15,58.14,-0.03,56.13,-0.27,2,False,False
 20260522,61.71,-0.08,58.18,0.04,56.41,0.28,3,False,True
 20260529,61.71,0,58.3,0.12,56.81,0.4,4,False,True
+20260605,61.91,0.2,58.28,-0.02,56.79,-0.02,5,False,False
 ```
 
 ## Candidate Context

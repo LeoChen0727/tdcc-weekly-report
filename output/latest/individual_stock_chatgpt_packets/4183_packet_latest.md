@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4183 福永生技
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:19 Asia/Taipei
+- generated_at: 2026-06-06 22:23:21 Asia/Taipei
 - stock_id: 4183
 - stock_name: 福永生技
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 258
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 62.2
-- over_600_ratio: 51.94
-- over_800_ratio: 46.26
-- over_1000_ratio: 42.74
-- over_400_change_1w: 0.22
-- over_800_change_1w: 0.14
-- over_1000_change_1w: 0.14
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260605
+- over_400_ratio: 62.28
+- over_600_ratio: 52.02
+- over_800_ratio: 46.34
+- over_1000_ratio: 42.82
+- over_400_change_1w: 0.08
+- over_800_change_1w: 0.08
+- over_1000_change_1w: 0.08
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,61.9,0,46.12,0,42.6,0,0,False,False
 20260522,61.98,0.08,46.12,0,42.6,0,1,False,False
 20260529,62.2,0.22,46.26,0.14,42.74,0.14,2,True,True
+20260605,62.28,0.08,46.34,0.08,42.82,0.08,3,True,True
 ```
 
 ## Candidate Context

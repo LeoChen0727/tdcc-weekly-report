@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3018 隆銘綠能
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:57 Asia/Taipei
+- generated_at: 2026-06-06 22:22:56 Asia/Taipei
 - stock_id: 3018
 - stock_name: 隆銘綠能
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 273
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,7 +157,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
+- as_of_date: 20260605
 - over_400_ratio: 64.28
 - over_600_ratio: 63.11
 - over_800_ratio: 62.19
@@ -178,6 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,64.3,0,62.19,0,62.19,0,0,False,False
 20260522,64.28,-0.02,62.19,0,62.19,0,0,False,False
 20260529,64.28,0,62.19,0,62.19,0,0,False,False
+20260605,64.28,0,62.19,0,62.19,0,0,False,False
 ```
 
 ## Candidate Context

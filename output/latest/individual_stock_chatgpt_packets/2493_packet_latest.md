@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2493 揚博
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:46 Asia/Taipei
+- generated_at: 2026-06-06 22:22:44 Asia/Taipei
 - stock_id: 2493
 - stock_name: 揚博
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -156,16 +156,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 51.08
-- over_600_ratio: 47.74
-- over_800_ratio: 46.05
-- over_1000_ratio: 46.05
-- over_400_change_1w: 4.35
-- over_800_change_1w: 3.78
-- over_1000_change_1w: 3.78
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
+- as_of_date: 20260605
+- over_400_ratio: 52.44
+- over_600_ratio: 49.78
+- over_800_ratio: 47.63
+- over_1000_ratio: 45.61
+- over_400_change_1w: 1.36
+- over_800_change_1w: 1.58
+- over_1000_change_1w: -0.44
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -177,12 +177,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,48.42,0.8,43.44,0.75,43.44,1.4,2,True,True
 20260522,46.73,-1.69,42.27,-1.17,42.27,-1.17,0,False,False
 20260529,51.08,4.35,46.05,3.78,46.05,3.78,1,True,True
+20260605,52.44,1.36,47.63,1.58,45.61,-0.44,2,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 2493 | 揚博 | true_breakout | 嚴格突破 | 111.0 |  |  | neckline_challenge |  | call_inflow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260605 | 2493 | 揚博 | true_breakout | 嚴格突破 | 111.0 |  |  | neckline_challenge |  |  | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
@@ -190,9 +191,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | 20260605 | 2493 | 揚博 | 4 | 2 | 4 | 8 | 8 | continued_many_days | 連續 4 日上榜，需區分醞釀延續或訊號鈍化。 |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 2493 | 揚博 | 57 | 1 | 17785700.0 | 500.0 | 35571.4 | call_inflow |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

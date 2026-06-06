@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4768 晶呈科技
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:26 Asia/Taipei
+- generated_at: 2026-06-06 22:23:29 Asia/Taipei
 - stock_id: 4768
 - stock_name: 晶呈科技
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 38.76
-- over_600_ratio: 30.85
-- over_800_ratio: 23.16
-- over_1000_ratio: 19.5
-- over_400_change_1w: 0.79
-- over_800_change_1w: -0.14
-- over_1000_change_1w: -0.02
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260605
+- over_400_ratio: 35.62
+- over_600_ratio: 30.72
+- over_800_ratio: 22.98
+- over_1000_ratio: 19.49
+- over_400_change_1w: -3.14
+- over_800_change_1w: -0.18
+- over_1000_change_1w: -0.01
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -178,6 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,39.38,-1.37,25.6,-0.47,22.07,-2.3,0,False,False
 20260522,37.97,-1.41,23.3,-2.3,19.52,-2.55,0,False,False
 20260529,38.76,0.79,23.16,-0.14,19.5,-0.02,1,False,False
+20260605,35.62,-3.14,22.98,-0.18,19.49,-0.01,0,False,False
 ```
 
 ## Candidate Context

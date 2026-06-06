@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4102 永日
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:16 Asia/Taipei
+- generated_at: 2026-06-06 22:23:18 Asia/Taipei
 - stock_id: 4102
 - stock_name: 永日
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 45.9
-- over_600_ratio: 41.22
-- over_800_ratio: 39.56
-- over_1000_ratio: 33.18
-- over_400_change_1w: 0.91
-- over_800_change_1w: -0.07
-- over_1000_change_1w: -0.07
-- tdcc_consecutive_up_weeks: 4
+- as_of_date: 20260605
+- over_400_ratio: 45.87
+- over_600_ratio: 41.18
+- over_800_ratio: 39.46
+- over_1000_ratio: 33.08
+- over_400_change_1w: -0.03
+- over_800_change_1w: -0.1
+- over_1000_change_1w: -0.1
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,45,-0.01,39.6,-0.04,33.25,2.29,2,False,True
 20260522,44.99,-0.01,39.63,0.03,33.25,0,3,False,True
 20260529,45.9,0.91,39.56,-0.07,33.18,-0.07,4,False,False
+20260605,45.87,-0.03,39.46,-0.1,33.08,-0.1,0,False,False
 ```
 
 ## Candidate Context

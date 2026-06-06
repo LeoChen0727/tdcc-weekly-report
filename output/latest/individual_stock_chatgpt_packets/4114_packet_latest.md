@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4114 健喬
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:17 Asia/Taipei
+- generated_at: 2026-06-06 22:23:18 Asia/Taipei
 - stock_id: 4114
 - stock_name: 健喬
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 43.31
-- over_600_ratio: 40.24
-- over_800_ratio: 38.1
-- over_1000_ratio: 36.73
-- over_400_change_1w: -0.33
-- over_800_change_1w: -0.34
-- over_1000_change_1w: -0.17
+- as_of_date: 20260605
+- over_400_ratio: 43.15
+- over_600_ratio: 39.78
+- over_800_ratio: 37.91
+- over_1000_ratio: 36.53
+- over_400_change_1w: -0.16
+- over_800_change_1w: -0.19
+- over_1000_change_1w: -0.2
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,43.73,0.13,38.59,0.04,37.05,0.07,1,True,True
 20260522,43.64,-0.09,38.44,-0.15,36.9,-0.15,0,False,False
 20260529,43.31,-0.33,38.1,-0.34,36.73,-0.17,0,False,False
+20260605,43.15,-0.16,37.91,-0.19,36.53,-0.2,0,False,False
 ```
 
 ## Candidate Context

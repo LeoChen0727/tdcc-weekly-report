@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1776 展宇
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:30 Asia/Taipei
+- generated_at: 2026-06-06 22:22:26 Asia/Taipei
 - stock_id: 1776
 - stock_name: 展宇
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 277
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 65.98
-- over_600_ratio: 60.32
-- over_800_ratio: 50.91
-- over_1000_ratio: 43.59
-- over_400_change_1w: -0.71
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260605
+- over_400_ratio: 67.12
+- over_600_ratio: 60.65
+- over_800_ratio: 51.24
+- over_1000_ratio: 43.92
+- over_400_change_1w: 1.14
+- over_800_change_1w: 0.33
+- over_1000_change_1w: 0.33
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,67.75,0.52,50.91,-1.09,43.59,0.35,1,False,True
 20260522,66.69,-1.06,50.91,0,43.59,0,0,False,False
 20260529,65.98,-0.71,50.91,0,43.59,0,0,False,False
+20260605,67.12,1.14,51.24,0.33,43.92,0.33,1,True,True
 ```
 
 ## Candidate Context

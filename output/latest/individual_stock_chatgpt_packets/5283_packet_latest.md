@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5283 禾聯碩
 
 ## Metadata
-- generated_at: 2026-06-06 00:36:32 Asia/Taipei
+- generated_at: 2026-06-06 22:23:36 Asia/Taipei
 - stock_id: 5283
 - stock_name: 禾聯碩
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 60.57
-- over_600_ratio: 58.08
-- over_800_ratio: 56.32
-- over_1000_ratio: 53.2
-- over_400_change_1w: 0.48
-- over_800_change_1w: 0.48
-- over_1000_change_1w: 0.48
-- tdcc_consecutive_up_weeks: 4
+- as_of_date: 20260605
+- over_400_ratio: 60.6
+- over_600_ratio: 58.11
+- over_800_ratio: 56.35
+- over_1000_ratio: 53.23
+- over_400_change_1w: 0.03
+- over_800_change_1w: 0.03
+- over_1000_change_1w: 0.03
+- tdcc_consecutive_up_weeks: 5
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,59.77,0.35,55.51,1.13,51.31,0.05,2,True,True
 20260522,60.09,0.32,55.84,0.33,52.72,1.41,3,True,True
 20260529,60.57,0.48,56.32,0.48,53.2,0.48,4,True,True
+20260605,60.6,0.03,56.35,0.03,53.23,0.03,5,True,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2243 宏旭-KY
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:36 Asia/Taipei
+- generated_at: 2026-06-06 22:22:33 Asia/Taipei
 - stock_id: 2243
 - stock_name: 宏旭-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 54.5
-- over_600_ratio: 49.07
-- over_800_ratio: 44.1
-- over_1000_ratio: 38.97
-- over_400_change_1w: 0.46
-- over_800_change_1w: 2.68
-- over_1000_change_1w: 0.16
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260605
+- over_400_ratio: 59.48
+- over_600_ratio: 52.71
+- over_800_ratio: 44.59
+- over_1000_ratio: 39.21
+- over_400_change_1w: 4.98
+- over_800_change_1w: 0.49
+- over_1000_change_1w: 0.24
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -178,6 +178,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,54.67,-0.09,41.39,1.27,38.78,0.09,1,False,True
 20260522,54.04,-0.63,41.42,0.03,38.81,0.03,2,False,True
 20260529,54.5,0.46,44.1,2.68,38.97,0.16,3,True,True
+20260605,59.48,4.98,44.59,0.49,39.21,0.24,4,True,True
 ```
 
 ## Candidate Context

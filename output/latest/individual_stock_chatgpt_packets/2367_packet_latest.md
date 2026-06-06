@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2367 燿華
 
 ## Metadata
-- generated_at: 2026-06-06 00:35:40 Asia/Taipei
+- generated_at: 2026-06-06 22:22:36 Asia/Taipei
 - stock_id: 2367
 - stock_name: 燿華
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260605
 - price_rows: 278
-- latest_tdcc_date: 20260529
-- tdcc_rows: 5
+- latest_tdcc_date: 20260605
+- tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260529
-- over_400_ratio: 27.5
-- over_600_ratio: 25.74
-- over_800_ratio: 24.79
-- over_1000_ratio: 23.89
-- over_400_change_1w: -0.75
-- over_800_change_1w: -0.94
-- over_1000_change_1w: -1.22
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260605
+- over_400_ratio: 27.22
+- over_600_ratio: 25.59
+- over_800_ratio: 24.58
+- over_1000_ratio: 24.06
+- over_400_change_1w: -0.28
+- over_800_change_1w: -0.21
+- over_1000_change_1w: 0.17
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260515,31.24,2.44,28.71,3.11,28.1,3.14,1,True,True
 20260522,28.25,-2.99,25.73,-2.98,25.11,-2.99,0,False,False
 20260529,27.5,-0.75,24.79,-0.94,23.89,-1.22,0,False,False
+20260605,27.22,-0.28,24.58,-0.21,24.06,0.17,1,False,True
 ```
 
 ## Candidate Context
@@ -192,9 +193,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 2367 | 燿華 | 96 | 3 | 43120420.0 | 214860.0 | 200.69 | call_put_bullish |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.
