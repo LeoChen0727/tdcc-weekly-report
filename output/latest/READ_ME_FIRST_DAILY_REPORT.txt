@@ -380,3 +380,7 @@ RULES:
 12. For the summary PDF K-line charts, use summary_pdf_kline_policy/status/counts above. Do not downgrade the PDF to chart_path/image-download-failed if local_price_redraw_count is greater than 0.
 13. If all URLs fail, say tool reading failed. Do not say GitHub data is not updated.
 14. Do not use older report dates to recreate a newer report.
+tdcc_weekly_candidate_highlight_pdf_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_weekly_candidate_highlight_latest.pdf
+tdcc_weekly_candidate_full_pdf_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_weekly_candidate_full_latest.pdf
+tdcc_weekly_candidate_highlight_pdf_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/tdcc_weekly_candidate_highlight_latest.pdf
+tdcc_weekly_candidate_full_pdf_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/tdcc_weekly_candidate_full_latest.pdf
