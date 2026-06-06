@@ -1,0 +1,45 @@
+from pathlib import Path
+
+import build_data_freshness_latest as freshness
+
+
+def test_warrant_flow_date_falls_back_to_by_stock_when_flow_is_header_only(tmp_path, monkeypatch):
+    flow = tmp_path / "warrant_flow_latest.csv"
+    by_stock = tmp_path / "warrant_flow_by_stock_latest.csv"
+    market_report = tmp_path / "warrant_market_report_latest.md"
+    fetch_report = tmp_path / "warrant_daily_fetch_latest.md"
+
+    flow.write_text("date,stock_id,warrant_flow_signal\n", encoding="utf-8")
+    by_stock.write_text(
+        "date,stock_id,stock_name,warrant_flow_signal\n"
+        "20260605,,,\n",
+        encoding="utf-8",
+    )
+    market_report.write_text("", encoding="utf-8")
+    fetch_report.write_text("", encoding="utf-8")
+
+    monkeypatch.setattr(freshness, "WARRANT_FLOW_CSV", flow)
+    monkeypatch.setattr(freshness, "WARRANT_FLOW_BY_STOCK_CSV", by_stock)
+    monkeypatch.setattr(freshness, "WARRANT_MARKET_REPORT_MD", market_report)
+    monkeypatch.setattr(freshness, "WARRANT_DAILY_FETCH_MD", fetch_report)
+
+    assert freshness.extract_warrant_flow_date() == "20260605"
+
+
+def test_warrant_flow_date_falls_back_to_market_report_when_csvs_have_no_rows(tmp_path, monkeypatch):
+    flow = tmp_path / "warrant_flow_latest.csv"
+    by_stock = tmp_path / "warrant_flow_by_stock_latest.csv"
+    market_report = tmp_path / "warrant_market_report_latest.md"
+    fetch_report = tmp_path / "warrant_daily_fetch_latest.md"
+
+    flow.write_text("date,stock_id,warrant_flow_signal\n", encoding="utf-8")
+    by_stock.write_text("date,stock_id,warrant_flow_signal\n", encoding="utf-8")
+    market_report.write_text("- data_date: `20260605`\n- raw_rows: `0`\n", encoding="utf-8")
+    fetch_report.write_text("", encoding="utf-8")
+
+    monkeypatch.setattr(freshness, "WARRANT_FLOW_CSV", flow)
+    monkeypatch.setattr(freshness, "WARRANT_FLOW_BY_STOCK_CSV", by_stock)
+    monkeypatch.setattr(freshness, "WARRANT_MARKET_REPORT_MD", market_report)
+    monkeypatch.setattr(freshness, "WARRANT_DAILY_FETCH_MD", fetch_report)
+
+    assert freshness.extract_warrant_flow_date() == "20260605"

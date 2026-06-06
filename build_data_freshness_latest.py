@@ -20,6 +20,9 @@ OFFICIAL_PRICE_FETCH_MD = LATEST_DIR / "official_price_fetch_latest.md"
 OFFICIAL_PRICE_FETCH_JSON = LATEST_DIR / "official_price_fetch_latest.json"
 ALL_CANDIDATES_CSV = LATEST_DIR / "all_candidates_latest.csv"
 WARRANT_FLOW_CSV = LATEST_DIR / "warrant_flow_latest.csv"
+WARRANT_FLOW_BY_STOCK_CSV = LATEST_DIR / "warrant_flow_by_stock_latest.csv"
+WARRANT_DAILY_FETCH_MD = LATEST_DIR / "warrant_daily_fetch_latest.md"
+WARRANT_MARKET_REPORT_MD = LATEST_DIR / "warrant_market_report_latest.md"
 
 OUTPUT_MD = LATEST_DIR / "data_freshness_latest.md"
 OUTPUT_CSV = LATEST_DIR / "data_freshness_latest.csv"
@@ -234,6 +237,37 @@ def determine_main_price_date(
     return ""
 
 
+def extract_warrant_flow_date() -> str:
+    """Return the warrant data date even when no stock-level flow rows exist.
+
+    `warrant_flow_latest.csv` can be header-only on days when the official
+    warrant fetch succeeds in date terms but produces no usable warrant rows.
+    In that case freshness should not say `missing_date`; downstream reports
+    need to know the warrant layer is current but empty/unusable.
+    """
+
+    for path in (WARRANT_FLOW_CSV, WARRANT_FLOW_BY_STOCK_CSV):
+        date = extract_csv_max_date(path, ("date", "signal_date", "trade_date"))
+        if date:
+            return date
+
+    for path in (WARRANT_MARKET_REPORT_MD, WARRANT_DAILY_FETCH_MD):
+        text = read_text(path)
+        date = extract_first_date_by_patterns(
+            text,
+            [
+                r"data_date[^\d]{0,20}([0-9/\-]{8,10})",
+                r"trade_date[^\d]{0,20}([0-9/\-]{8,10})",
+                r"target_date[^\d]{0,20}([0-9/\-]{8,10})",
+                r"鞈??交?[^\d]{0,20}([0-9/\-]{8,10})",
+            ],
+        )
+        if date:
+            return date
+
+    return ""
+
+
 def determine_report_ready(
     main_price_date: str,
     all_candidates_date: str,
@@ -254,7 +288,7 @@ def build_status() -> pd.DataFrame:
     raw_stock_monitor_date = extract_stock_monitor_price_date()
     raw_official_fetch_date = extract_official_price_fetch_date()
     raw_all_candidates_date = extract_csv_max_date(ALL_CANDIDATES_CSV, ("signal_date",))
-    raw_warrant_flow_date = extract_csv_max_date(WARRANT_FLOW_CSV)
+    raw_warrant_flow_date = extract_warrant_flow_date()
 
     stock_monitor_date = cap_to_actual_trading_date(raw_stock_monitor_date, actual_price_date)
     official_fetch_date = cap_to_actual_trading_date(raw_official_fetch_date, actual_price_date)
