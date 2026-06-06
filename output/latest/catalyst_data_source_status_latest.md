@@ -1,6 +1,6 @@
 # Catalyst Data Source Status
 
-- generated_at: `2026-06-06 10:31:57 Asia/Taipei`
+- generated_at: `2026-06-06 11:19:06 Asia/Taipei`
 - external_fetch_status: `not_configured`
 - note: Schema and local/manual data tables are prepared. No unverified news, MOPS, or social rumor data is fabricated.
 

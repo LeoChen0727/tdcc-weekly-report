@@ -1,6 +1,6 @@
 # 權證市場輔助分析
 
-- generated_at: `2026-06-06 10:35:48 Asia/Taipei`
+- generated_at: `2026-06-06 11:22:40 Asia/Taipei`
 - data_date: `20260605`
 - raw_rows: `0`
 - stock_level_rows: `0`

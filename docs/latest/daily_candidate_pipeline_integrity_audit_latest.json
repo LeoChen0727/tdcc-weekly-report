@@ -46,6 +46,9 @@
     ],
     "summary_expected_model_line_rows": 20,
     "summary_actual_model_line_rows": 20,
+    "summary_signal_dates": [
+      "20260605"
+    ],
     "report_signal_dates": [
       "20260605"
     ],

@@ -1,6 +1,6 @@
 # Daily Market Fixed PDF Manifest
 
-- generated_at: `2026-06-06 10:37:56 Asia/Taipei`
+- generated_at: `2026-06-06 11:24:53 Asia/Taipei`
 - main_price_date: `20260605`
 - report_ready: `True`
 
