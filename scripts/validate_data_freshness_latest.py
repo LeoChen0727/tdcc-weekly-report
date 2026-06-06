@@ -83,7 +83,14 @@ def main() -> int:
         and all_candidates_date == main_date
         and (not official_date or official_date == main_date)
     )
-    expected_warrant_ready = bool(main_date and warrant_date and warrant_date == main_date)
+    warrant_ready_note = str(row.get("warrant_ready_note", ""))
+    warrant_data_unavailable = "stock-level warrant data is unavailable" in warrant_ready_note
+    expected_warrant_ready = bool(
+        main_date
+        and warrant_date
+        and warrant_date == main_date
+        and not warrant_data_unavailable
+    )
     expected_daily_pdf_ready = expected_report_ready and expected_warrant_ready
 
     require(
@@ -106,11 +113,13 @@ def main() -> int:
         require(errors, bool(str(row.get(col, "")).strip()), f"{col} must not be empty")
 
     if not expected_warrant_ready:
-        note = str(row.get("warrant_ready_note", ""))
         require(
             errors,
-            "warrant_flow_date" in note or "missing" in note,
-            "stale/missing warrant state must be explicit in warrant_ready_note",
+            "warrant_flow_date" in warrant_ready_note
+            or "missing" in warrant_ready_note
+            or "unavailable" in warrant_ready_note
+            or "observe-only" in warrant_ready_note,
+            "stale/missing/unavailable warrant state must be explicit in warrant_ready_note",
         )
 
     if errors:
