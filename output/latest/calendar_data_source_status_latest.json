@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-06 07:52:32 Asia/Taipei",
+  "generated_at": "2026-06-06 08:05:01 Asia/Taipei",
   "files": {
     "company_event_calendar": {
       "path": "data/company_calendar/company_event_calendar.csv",
@@ -41,9 +41,9 @@
     },
     "bea_release_schedule": {
       "url": "https://www.bea.gov/news/schedule",
-      "status": "ok",
-      "rows": 24,
-      "error": "",
+      "status": "failed",
+      "rows": 0,
+      "error": "read_html failed: `Import lxml` failed.  Use pip or conda to install the lxml package.",
       "http_status": 200
     },
     "bls_cpi_release_schedule": {
