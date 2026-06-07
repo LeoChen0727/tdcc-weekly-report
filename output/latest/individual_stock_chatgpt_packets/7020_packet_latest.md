@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7020 新應材凱基57購03
 
 ## Metadata
-- generated_at: 2026-06-06 22:24:16 Asia/Taipei
+- generated_at: 2026-06-07 22:24:17 Asia/Taipei
 - stock_id: 7020
 - stock_name: 新應材凱基57購03
 - packet_status: standard_180d_window_packet

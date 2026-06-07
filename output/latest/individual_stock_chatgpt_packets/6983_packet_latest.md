@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6983 華洋精機
 
 ## Metadata
-- generated_at: 2026-06-06 22:24:15 Asia/Taipei
+- generated_at: 2026-06-07 22:24:16 Asia/Taipei
 - stock_id: 6983
 - stock_name: 華洋精機
 - packet_status: standard_180d_window_packet

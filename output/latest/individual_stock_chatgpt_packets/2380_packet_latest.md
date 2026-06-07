@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2380 虹光
 
 ## Metadata
-- generated_at: 2026-06-06 22:22:37 Asia/Taipei
+- generated_at: 2026-06-07 22:22:40 Asia/Taipei
 - stock_id: 2380
 - stock_name: 虹光
 - packet_status: standard_180d_window_packet
