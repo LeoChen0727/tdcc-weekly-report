@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7013 中光電凱基5A購01
 
 ## Metadata
-- generated_at: 2026-06-07 22:24:17 Asia/Taipei
+- generated_at: 2026-06-08 22:24:44 Asia/Taipei
 - stock_id: 7013
 - stock_name: 中光電凱基5A購01
 - packet_status: standard_180d_window_packet

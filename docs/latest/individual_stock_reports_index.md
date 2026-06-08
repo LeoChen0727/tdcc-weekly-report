@@ -1,6 +1,6 @@
 # Individual Stock Reports Index
 
-- generated_at: 2026-06-07 22:25:41 Asia/Taipei
+- generated_at: 2026-06-08 22:26:13 Asia/Taipei
 - report_count: 7
 - csv_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/individual_stock_reports_index.csv
 

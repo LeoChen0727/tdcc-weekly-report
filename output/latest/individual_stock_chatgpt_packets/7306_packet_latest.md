@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7306 鈦昇統一58購01
 
 ## Metadata
-- generated_at: 2026-06-07 22:24:24 Asia/Taipei
+- generated_at: 2026-06-08 22:24:51 Asia/Taipei
 - stock_id: 7306
 - stock_name: 鈦昇統一58購01
 - packet_status: standard_180d_window_packet
