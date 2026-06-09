@@ -1,6 +1,6 @@
 # Event Calendar Validation
 
-- generated_at: `2026-06-09 08:05:19 Asia/Taipei`
+- generated_at: `2026-06-09 18:04:49 Asia/Taipei`
 - status: `pass`
 - schema_only: `True`
 
@@ -13,8 +13,8 @@
 | theme_event_calendar | True | 1 | 659 |
 | theme_event_watch_csv | True | 15 | 19645 |
 | theme_event_watch_md | True | 0 | 8758 |
-| status_json | True | 0 | 2608 |
-| status_md | True | 0 | 2325 |
+| status_json | True | 0 | 2697 |
+| status_md | True | 0 | 2414 |
 | needs_review_csv | True | 4 | 2497 |
 | needs_review_md | True | 0 | 2009 |
 
