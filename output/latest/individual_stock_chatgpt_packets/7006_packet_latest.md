@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7006 營邦統一6A購01
 
 ## Metadata
-- generated_at: 2026-06-08 22:24:43 Asia/Taipei
+- generated_at: 2026-06-09 22:24:01 Asia/Taipei
 - stock_id: 7006
 - stock_name: 營邦統一6A購01
 - packet_status: standard_180d_window_packet
