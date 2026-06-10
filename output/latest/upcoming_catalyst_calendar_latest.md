@@ -1,7 +1,7 @@
 # Upcoming Catalyst Calendar
 
-- generated_at: `2026-06-10 08:05:12 Asia/Taipei`
-- rows: `237`
+- generated_at: `2026-06-10 18:04:49 Asia/Taipei`
+- rows: `255`
 - note: Calendar proximity is a reminder, not a confirmed bullish catalyst.
 
 ## Company / Stock Calendar
