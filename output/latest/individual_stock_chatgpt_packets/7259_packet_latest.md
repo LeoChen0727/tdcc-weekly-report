@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7259 昇達科群益58售02
 
 ## Metadata
-- generated_at: 2026-06-09 22:24:06 Asia/Taipei
+- generated_at: 2026-06-10 22:24:31 Asia/Taipei
 - stock_id: 7259
 - stock_name: 昇達科群益58售02
 - packet_status: standard_180d_window_packet
