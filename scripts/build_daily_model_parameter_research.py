@@ -358,7 +358,7 @@ def rule_specs() -> list[RuleSpec]:
                 "TDCC短線延續模型 D+5/D+10",
                 "all_thresholds_up_ret5_10_30_macd",
                 "四級距同步增加 + 5日漲幅 10% 至 30% + MACD 柱狀體 > 0",
-                "pdf_specialty_section",
+                "pdf_core_model",
                 lambda d: (
                     trueish(d["tdcc_history_available"])
                     & trueish(d["all_thresholds_up"])
@@ -372,7 +372,7 @@ def rule_specs() -> list[RuleSpec]:
                 "TDCC短線延續模型 D+5/D+10",
                 "high_thresholds_ret5_10_30_ret10_20_50_kd",
                 "高級距增加 + 5日漲幅 10% 至 30% + 10日漲幅 20% 至 50% + KD 多方但未過熱",
-                "pdf_specialty_section",
+                "pdf_core_model",
                 lambda d: (
                     trueish(d["tdcc_history_available"])
                     & trueish(d["high_thresholds_up"])

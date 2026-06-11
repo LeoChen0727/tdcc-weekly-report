@@ -1739,7 +1739,7 @@ def append_weekly_surge_strict_section(
     story.append(para("Next-Open +10% Touch Specialty (D+1-D+10)", style_map["h1"]))
     story.append(
         para(
-            "Research-only section. This is not a weekly candlestick signal. Entry basis is next trading day open after the signal-day close. A hit means the high from next open to D+N reaches +10%; it is a touch-rate, not D+N close-to-close win rate. Close-return and intraperiod low columns are shown separately to avoid overstating this signal. This table uses no latest theme label and must not be mixed into the core six-category ranking.",
+            "Research-only section. This is not a weekly candlestick signal. Entry basis is next trading day open after the signal-day close. A hit means the high from next open to D+N reaches +10%; it is a touch-rate, not D+N close-to-close win rate. Close-return and intraperiod low columns are shown separately to avoid overstating this signal. This table uses no latest theme label and must not override the active core model ranking.",
             style_map["normal"],
         )
     )

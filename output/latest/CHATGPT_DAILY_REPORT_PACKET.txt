@@ -1,6 +1,6 @@
 CHATGPT DAILY REPORT PACKET
 
-generated_at: 2026-06-12 00:43:36 Asia/Taipei
+generated_at: 2026-06-12 01:29:35 Asia/Taipei
 repo: LeoChen0727/tdcc-weekly-report
 main_price_date: 20260611
 report_ready: True
@@ -82,30 +82,30 @@ required_in_daily_pdf: True
 fields_or_sections: TDCC Overheated Short-Term Edge, Next-Open +10pct Touch Strict Parameter Research, D+5 tables, D+10 tables
 note: Do not translate the legacy `weekly_surge` file prefix as `周線急漲`; display it as `隔日開盤買進後 D+5 / D+10 盤中觸及 +10% 研究`.
 note: Win rate for this section is next-open entry touch-rate: D+1 open to D+N high >= +10%, not close-to-close return.
-note: This is not the fixed six-category `回檔後短線轉強` category. It is a standalone short-term specialty section and must be read separately.
+note: `TDCC短線延續模型 D+5/D+10` is a core model when active in the program-side registry. Separate D+5/D+10 research-stat tables are supporting evidence and must not override model ranking.
 
 EMBEDDED DAILY SHORT-TERM SPECIALTY PACKET
 ================================================================================
 # DAILY SHORT-TERM SPECIALTY PACKET
 
 ## Metadata
-- generated_at: `2026-06-11 16:41:23 UTC`
+- generated_at: `2026-06-12 01:29:25 台北標準時間`
 - main_price_date: `20260611`
-- purpose: Force daily reports to include short-term specialty sections that are not part of the fixed six candidate categories.
+- purpose: Force daily reports to include short-term research-stat support sections without removing active D+5/D+10 core model rows.
 - market_abnormal_status_path: `output/latest/market_abnormal_status_latest.csv`
 
 ## Usage Contract
 - This packet is mandatory for daily stock candidate analysis.
-- `回檔後短線轉強` is one of the fixed candidate categories; it is not the whole short-term specialty layer.
-- The daily PDF must include a standalone short-term specialty section if this packet exists.
+- `回檔後短線轉強` and `TDCC短線延續模型 D+5/D+10` are separate model concepts.
+- The daily PDF must include a standalone short-term research-stat support section if this packet exists.
 - The section must include D+5 and D+10 tables separately.
-- These are research/reporting signals only. Do not change core TDCC, ABM, or daily candidate model weights.
+- These research-stat tables are supporting evidence only. Do not override core TDCC, ABM, or daily candidate model weights.
 - If data is missing, write `資料不足 / 僅能觀察`; do not silently omit the section.
 
 ## TDCC Overheated Short-Term Edge
 
 - section_required_in_daily_pdf: `True`
-- section_type: `短線專項（非六大分類）`
+- section_type: `short_term_research_stat_support`
 - model_effect_allowed: `False`
 - allowed_use: `reporting_priority_only`
 - rule: `D+5` and `D+10` must be shown as separate tables.
@@ -156,7 +156,7 @@ EMBEDDED DAILY SHORT-TERM SPECIALTY PACKET
 - forbidden_label_zh: `週線急漲`
 - not_weekly_candle: `True`
 - section_required_in_daily_pdf: `True`
-- section_type: `短線專項（非六大分類）`
+- section_type: `short_term_research_stat_support`
 - entry_basis: `D+1 open`; the signal is only knowable after the signal-day close.
 - hit_definition: `D+1 open to D+N high reaches +10%`
 - close_exit_definition: `D+1 open to D+N close`; close-exit win rate uses return > 0.
@@ -189,8 +189,8 @@ EMBEDDED DAILY SHORT-TERM SPECIALTY PACKET
 | vol5_avg_ge_1_5 + tdcc_all_up + macd_hist_pos + kd_bullish_not_overheated + return_10d_20_50 | D+5 | 88 | 63.01 | 6.47 | 4.45 | -5.3 | -14.84 | 47.73 | 9.43 | -5.51 | -25.23 |
 | day_vol_ge_2 + tdcc_all_up + rsi_50_75 + return_10d_20_50 | D+5 | 74 | 54.84 | 3.06 | 1.35 | -7.46 | -19.31 | 47.3 | 9.29 | -6.21 | -22.19 |
 | day_vol_ge_2 + tdcc_high_up + rsi_50_75 + return_10d_20_50 | D+5 | 92 | 54.55 | 2.64 | 1.54 | -7.46 | -19.31 | 46.74 | 9.01 | -6.41 | -22.19 |
-| vol5_avg_ge_1_5 + tdcc_high_up + macd_hist_pos + kd_bullish_not_overheated + return_10d_20_50 | D+5 | 110 | 62.77 | 5.55 | 4.35 | -5.68 | -14.84 | 46.36 | 9.1 | -5.73 | -25.23 |
 | vol5_avg_ge_1_5 + tdcc_high_up + kd_bullish_not_overheated + return_10d_20_50 | D+5 | 110 | 62.77 | 5.55 | 4.35 | -5.68 | -14.84 | 46.36 | 9.1 | -5.73 | -25.23 |
+| vol5_avg_ge_1_5 + tdcc_high_up + macd_hist_pos + kd_bullish_not_overheated + return_10d_20_50 | D+5 | 110 | 62.77 | 5.55 | 4.35 | -5.68 | -14.84 | 46.36 | 9.1 | -5.73 | -25.23 |
 | vol5_avg_ge_1_5 + tdcc_all_up + rsi_50_75 + return_10d_20_50 | D+5 | 129 | 63.81 | 6.14 | 3.08 | -6.3 | -17.33 | 44.96 | 9.44 | -5.3 | -19.33 |
 | vol5_avg_ge_2 + tdcc_all_up + rsi_50_75 + return_10d_20_50 | D+5 | 69 | 63.33 | 5.0 | 2.5 | -6.06 | -14.67 | 44.93 | 8.54 | -5.83 | -14.83 |
 | vol5_avg_ge_1_5 + market_strong_bull + tdcc_high_up + bb_width_not_extreme + return_10d_20_50 | D+5 | 65 | 54.39 | 3.6 | 2.45 | -7.74 | -17.33 | 44.62 | 8.54 | -7.11 | -19.33 |
@@ -201,8 +201,8 @@ EMBEDDED DAILY SHORT-TERM SPECIALTY PACKET
 ### D+10 Parameter Table
 | rule_name | target_window | selected_stock_days | win_rate_next_open_to_close_pct | avg_next_open_to_close_return_pct | median_next_open_to_close_return_pct | avg_loss_next_open_to_close_return_pct | worst_loss_next_open_to_close_return_pct | hit_rate_pct | median_next_open_to_high_return_pct | median_next_open_to_low_return_pct | worst_next_open_to_low_return_pct |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| day_vol_ge_2 + market_strong_bull + tdcc_high_up + bb_width_not_extreme + return_10d_20_50 | D+10 | 53 | 80.0 | 14.92 | 13.37 | -6.48 | -9.26 | 71.7 | 17.12 | -8.11 | -19.06 |
 | day_vol_ge_2 + market_bull + tdcc_high_up + bb_width_not_extreme + return_10d_20_50 | D+10 | 53 | 80.0 | 14.92 | 13.37 | -6.48 | -9.26 | 71.7 | 17.12 | -8.11 | -19.06 |
+| day_vol_ge_2 + market_strong_bull + tdcc_high_up + bb_width_not_extreme + return_10d_20_50 | D+10 | 53 | 80.0 | 14.92 | 13.37 | -6.48 | -9.26 | 71.7 | 17.12 | -8.11 | -19.06 |
 | vol5_avg_ge_1_5 + market_strong_bull + tdcc_high_up + bb_width_not_extreme + return_10d_20_50 | D+10 | 65 | 82.35 | 18.68 | 13.66 | -5.74 | -8.22 | 70.77 | 18.05 | -7.9 | -19.33 |
 | vol5_avg_ge_2 + tdcc_high_up + bb_width_not_extreme + return_10d_20_50 | D+10 | 30 | 90.48 | 19.36 | 18.68 | -5.23 | -8.0 | 70.0 | 19.17 | -8.13 | -14.83 |
 | vol5_avg_ge_1_5 + market_bull + tdcc_high_up + bb_width_not_extreme + return_10d_20_50 | D+10 | 66 | 82.35 | 18.68 | 13.66 | -5.74 | -8.22 | 69.7 | 17.77 | -7.94 | -19.33 |
@@ -212,7 +212,7 @@ EMBEDDED DAILY SHORT-TERM SPECIALTY PACKET
 | vol5_avg_ge_1_5 + tdcc_high_up + bb_width_not_extreme + return_10d_20_50 | D+10 | 72 | 82.35 | 18.68 | 13.66 | -5.74 | -8.22 | 65.28 | 17.3 | -8.04 | -19.33 |
 | vol5_avg_ge_1_5 + tdcc_all_up + macd_hist_pos + kd_bullish_not_overheated + return_10d_20_50 | D+10 | 88 | 74.42 | 15.44 | 10.98 | -6.03 | -16.74 | 64.77 | 16.92 | -6.19 | -25.23 |
 | vol5_avg_ge_1_5 + tdcc_all_up + kd_bullish_not_overheated + return_10d_20_50 | D+10 | 88 | 74.42 | 15.44 | 10.98 | -6.03 | -16.74 | 64.77 | 16.92 | -6.19 | -25.23 |
-| vol5_avg_ge_2 + market_strong_bull + tdcc_high_up + kd_bullish_not_overheated + return_10d_20_50 | D+10 | 42 | 81.48 | 13.92 | 13.3 | -5.48 | -13.1 | 64.29 | 16.92 | -6.42 | -15.01 |
+| vol5_avg_ge_1_5 + market_strong_bull + tdcc_high_up + kd_bullish_not_overheated + return_10d_20_50 | D+10 | 84 | 80.0 | 16.48 | 11.91 | -5.13 | -16.74 | 64.29 | 14.95 | -6.61 | -25.23 |
 
 ### Current Strict Research Candidates
 | research_priority | stock_id | stock_name | matched_rules | best_d5_hit_rate_pct | best_d10_hit_rate_pct | best_d10_rule | market_abnormal_status | market_abnormal_risk_level | execution_risk_note | research_caveat |
@@ -246,7 +246,7 @@ EMBEDDED DAILY SHORT-TERM SPECIALTY PACKET
 ## Explosive Volume Up Research
 
 - section_required_in_daily_pdf: `True`
-- section_type: `短線專項（非六大分類）`
+- section_type: `short_term_research_stat_support`
 - signal_definition: signal day volume divided by previous 20 trading day average volume, with signal day close-to-close return >= threshold.
 - entry_basis: `D+1 open`
 - close_win_rate: D+1 open to D+N close return > 0.
@@ -318,74 +318,74 @@ EMBEDDED DAILY SHORT-TERM SPECIALTY PACKET
 ### D+5 Explosive Volume By Price Position
 | signal_quality_bucket | price_position_bucket | market_theme_group | theme_group_source | theme_structural_status | 結構族群 | theme_mainstream_label | theme_status_group | horizon | volume_ratio_threshold | min_signal_return_pct | mature_count | close_win_rate_pct |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 強紅K收近高 | 近高放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 8 | 7 | 3 | 100.0 |
-| 強紅K收近高 | 近高放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 8 | 5 | 3 | 100.0 |
-| 強紅K收近高 | 近高放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 8 | 3 | 3 | 100.0 |
-| 強紅K收近高 | 近高放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 8 | 0 | 3 | 100.0 |
-| 強紅K收近高 | 近高放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 10 | 7 | 2 | 100.0 |
-| 強紅K收近高 | 近高放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 10 | 5 | 2 | 100.0 |
-| 強紅K收近高 | 近高放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 10 | 3 | 2 | 100.0 |
-| 強紅K收近高 | 近高放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 10 | 0 | 2 | 100.0 |
-| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 6 | 7 | 1 | 100.0 |
-| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 6 | 5 | 1 | 100.0 |
-| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 6 | 3 | 1 | 100.0 |
-| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 6 | 0 | 1 | 100.0 |
-| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 8 | 7 | 1 | 100.0 |
-| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 8 | 5 | 1 | 100.0 |
-| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 8 | 3 | 1 | 100.0 |
-| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 8 | 0 | 1 | 100.0 |
-| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 10 | 7 | 1 | 100.0 |
-| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 10 | 5 | 1 | 100.0 |
-| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 10 | 3 | 1 | 100.0 |
-| 日內區間資料不足 | 高位延伸或追價 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 8 | 7 | 1 | 100.0 |
+| 日內區間資料不足 | 低位爆量反轉 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 2 | 0 | 1 | 100.0 |
+| 紅K小上影 | 高位延伸或追價 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 5 | 3 | 1 | 100.0 |
+| 紅K小上影 | 高位延伸或追價 | ai_server_theme | 結構族群 | 核心主流題材 | ai_server_theme | 主流成長題材 | 族群脈絡不足 | D+5 | 4 | 0 | 1 | 100.0 |
+| 紅K小上影 | 高位延伸或追價 | ai_server_theme | 結構族群 | 核心主流題材 | ai_server_theme | 主流成長題材 | 族群脈絡不足 | D+5 | 4 | 3 | 1 | 100.0 |
+| 紅K小上影 | 高位延伸或追價 | ai_server_theme | 結構族群 | 核心主流題材 | ai_server_theme | 主流成長題材 | 族群脈絡不足 | D+5 | 3 | 0 | 1 | 100.0 |
+| 紅K小上影 | 高位延伸或追價 | ai_server_theme | 結構族群 | 核心主流題材 | ai_server_theme | 主流成長題材 | 族群脈絡不足 | D+5 | 3 | 3 | 1 | 100.0 |
+| 紅K小上影 | 高位延伸或追價 | ai_server_theme | 結構族群 | 核心主流題材 | ai_server_theme | 主流成長題材 | 族群脈絡不足 | D+5 | 2 | 0 | 1 | 100.0 |
+| 紅K小上影 | 高位延伸或追價 | ai_server_theme | 結構族群 | 核心主流題材 | ai_server_theme | 主流成長題材 | 族群脈絡不足 | D+5 | 2 | 3 | 1 | 100.0 |
+| 紅K小上影 | 高位延伸或追價 | glass_fiber_ccl_theme | 結構族群 | 核心主流題材 | glass_fiber_ccl_theme | 主流成長題材 | 族群脈絡不足 | D+5 | 4 | 0 | 1 | 100.0 |
+| 紅K小上影 | 高位延伸或追價 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 6 | 0 | 1 | 100.0 |
+| 紅K小上影 | 高位延伸或追價 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 6 | 3 | 1 | 100.0 |
+| 紅K小上影 | 高位延伸或追價 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 6 | 5 | 1 | 100.0 |
+| 紅K小上影 | 高位延伸或追價 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 6 | 7 | 1 | 100.0 |
+| 紅K小上影 | 高位延伸或追價 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 5 | 0 | 1 | 100.0 |
+| 紅K小上影 | 高位延伸或追價 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 5 | 5 | 1 | 100.0 |
+| 紅K小上影 | 近高放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 3 | 7 | 1 | 100.0 |
+| 紅K小上影 | 高位延伸或追價 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 5 | 7 | 1 | 100.0 |
+| 紅K小上影 | 高位延伸或追價 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 4 | 7 | 1 | 100.0 |
+| 紅K小上影 | 高位延伸或追價 | pcb_ccl_theme | 結構族群 | 核心主流題材 | pcb_ccl_theme | 主流成長題材 | 族群脈絡不足 | D+5 | 5 | 0 | 1 | 100.0 |
+| 紅K小上影 | 高位延伸或追價 | pcb_ccl_theme | 結構族群 | 核心主流題材 | pcb_ccl_theme | 主流成長題材 | 族群脈絡不足 | D+5 | 4 | 0 | 1 | 100.0 |
 
 ### D+10 Explosive Volume By Price Position
 | signal_quality_bucket | price_position_bucket | market_theme_group | theme_group_source | theme_structural_status | 結構族群 | theme_mainstream_label | theme_status_group | horizon | volume_ratio_threshold | min_signal_return_pct | mature_count | close_win_rate_pct |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 日內區間資料不足 | 低位爆量反轉 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 2 | 0 | 1 | 100.0 |
-| 日內區間資料不足 | 低位爆量反轉 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 2 | 3 | 1 | 100.0 |
-| 日內區間資料不足 | 低位爆量反轉 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 2 | 5 | 1 | 100.0 |
-| 日內區間資料不足 | 低位爆量反轉 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 2 | 7 | 1 | 100.0 |
-| 紅K小上影 | 高位延伸或追價 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 2 | 0 | 3 | 100.0 |
-| 紅K小上影 | 高位延伸或追價 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 4 | 0 | 2 | 100.0 |
-| 紅K小上影 | 高位延伸或追價 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 4 | 3 | 2 | 100.0 |
-| 紅K小上影 | 低位爆量反轉 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 5 | 0 | 1 | 100.0 |
-| 紅K小上影 | 低位爆量反轉 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 5 | 3 | 1 | 100.0 |
-| 紅K小上影 | 低位爆量反轉 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 5 | 5 | 1 | 100.0 |
-| 紅K小上影 | 高位延伸或追價 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 4 | 5 | 2 | 100.0 |
-| 紅K小上影 | 高位延伸或追價 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 3 | 0 | 2 | 100.0 |
-| 紅K小上影 | 高位延伸或追價 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 3 | 3 | 2 | 100.0 |
-| 紅K小上影 | 高位延伸或追價 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 3 | 5 | 2 | 100.0 |
-| 紅K小上影 | 高位延伸或追價 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 2 | 3 | 2 | 100.0 |
-| 紅K小上影 | 高位延伸或追價 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 2 | 5 | 2 | 100.0 |
-| 紅K小上影 | 高位延伸或追價 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 3 | 0 | 2 | 100.0 |
-| 紅K小上影 | 高位延伸或追價 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 3 | 3 | 2 | 100.0 |
-| 紅K小上影 | 高位延伸或追價 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 3 | 5 | 2 | 100.0 |
-| 紅K小上影 | 高位延伸或追價 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 2 | 3 | 2 | 100.0 |
+| red_candle_but_not_strong_close | 長底低位爆量反轉 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 3 | 0 | 1 | 100.0 |
+| red_candle_but_not_strong_close | 位階歷史不足 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 2 | 0 | 1 | 100.0 |
+| red_candle_but_not_strong_close | 長底低位爆量反轉 | pcb_ccl_theme | 結構族群 | 核心主流題材 | pcb_ccl_theme | 主流成長題材 | 族群脈絡不足 | D+10 | 2 | 0 | 2 | 100.0 |
+| red_candle_but_not_strong_close | 長底低位爆量反轉 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 8 | 0 | 1 | 100.0 |
+| red_candle_but_not_strong_close | 長底低位爆量反轉 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 6 | 0 | 1 | 100.0 |
+| red_candle_but_not_strong_close | 長底低位爆量反轉 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 5 | 0 | 1 | 100.0 |
+| red_candle_but_not_strong_close | 長底低位爆量反轉 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 4 | 0 | 1 | 100.0 |
+| red_candle_but_not_strong_close | 長底低位爆量反轉 | pcb_ccl_theme | 結構族群 | 核心主流題材 | pcb_ccl_theme | 主流成長題材 | 族群脈絡不足 | D+10 | 4 | 0 | 1 | 100.0 |
+| red_candle_but_not_strong_close | 長底低位爆量反轉 | pcb_ccl_theme | 結構族群 | 核心主流題材 | pcb_ccl_theme | 主流成長題材 | 族群脈絡不足 | D+10 | 4 | 3 | 1 | 100.0 |
+| red_candle_but_not_strong_close | 長底低位爆量反轉 | pcb_ccl_theme | 結構族群 | 核心主流題材 | pcb_ccl_theme | 主流成長題材 | 族群脈絡不足 | D+10 | 3 | 0 | 1 | 100.0 |
+| red_candle_but_not_strong_close | 長底低位爆量反轉 | pcb_ccl_theme | 結構族群 | 核心主流題材 | pcb_ccl_theme | 主流成長題材 | 族群脈絡不足 | D+10 | 3 | 3 | 1 | 100.0 |
+| red_candle_but_not_strong_close | 長底低位爆量反轉 | pcb_ccl_theme | 結構族群 | 核心主流題材 | pcb_ccl_theme | 主流成長題材 | 族群脈絡不足 | D+10 | 2 | 3 | 1 | 100.0 |
+| 強紅K收近高 | 高位延伸或追價 | ai_server_theme | 結構族群 | 核心主流題材 | ai_server_theme | 主流成長題材 | 族群脈絡不足 | D+10 | 3 | 5 | 2 | 100.0 |
+| red_candle_but_not_strong_close | 中位放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 5 | 3 | 1 | 100.0 |
+| 強紅K收近高 | 高位延伸或追價 | ai_server_theme | 結構族群 | 核心主流題材 | ai_server_theme | 主流成長題材 | 族群脈絡不足 | D+10 | 3 | 3 | 2 | 100.0 |
+| 強紅K收近高 | 高位延伸或追價 | ai_server_theme | 結構族群 | 核心主流題材 | ai_server_theme | 主流成長題材 | 族群脈絡不足 | D+10 | 3 | 0 | 2 | 100.0 |
+| red_candle_but_not_strong_close | 低中位站回放量攻擊 | 族群脈絡不足 | unavailable | 族群脈絡不足 | 族群脈絡不足 | 族群脈絡不足 | 族群脈絡不足 | D+10 | 10 | 7 | 2 | 100.0 |
+| red_candle_but_not_strong_close | 低中位站回放量攻擊 | network_communication_theme | 結構族群 | 核心主流題材 | network_communication_theme | 主流成長題材 | 族群脈絡不足 | D+10 | 2 | 0 | 1 | 100.0 |
+| red_candle_but_not_strong_close | 低中位站回放量攻擊 | 半導體設備族群 | 結構族群 | 核心主流題材 | 半導體設備族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 3 | 0 | 1 | 100.0 |
 
 ### D+20 Explosive Volume By Price Position
 | signal_quality_bucket | price_position_bucket | market_theme_group | theme_group_source | theme_structural_status | 結構族群 | theme_mainstream_label | theme_status_group | horizon | volume_ratio_threshold | min_signal_return_pct | mature_count | close_win_rate_pct |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 強紅K收近高 | 近高放量攻擊 | pcb_ccl_theme | 結構族群 | 核心主流題材 | pcb_ccl_theme | 主流成長題材 | 族群脈絡不足 | D+20 | 10 | 7 | 1 | 100.0 |
-| 強紅K收近高 | 近高放量攻擊 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 8 | 3 | 4 | 100.0 |
-| 強紅K收近高 | 近高放量攻擊 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 8 | 0 | 4 | 100.0 |
-| 紅K小上影 | 長底低位爆量反轉 | 族群脈絡不足 | unavailable | 族群脈絡不足 | 族群脈絡不足 | 族群脈絡不足 | 族群脈絡不足 | D+20 | 3 | 7 | 3 | 100.0 |
-| 紅K小上影 | 位階歷史不足 | 半導體設備族群 | 結構族群 | 核心主流題材 | 半導體設備族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 2 | 5 | 1 | 100.0 |
-| 強紅K收近高 | 近高放量攻擊 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 6 | 7 | 4 | 100.0 |
-| 紅K小上影 | 長底低位爆量反轉 | 族群脈絡不足 | unavailable | 族群脈絡不足 | 族群脈絡不足 | 族群脈絡不足 | 族群脈絡不足 | D+20 | 4 | 7 | 1 | 100.0 |
-| 紅K小上影 | 長底低位爆量反轉 | 族群脈絡不足 | unavailable | 族群脈絡不足 | 族群脈絡不足 | 族群脈絡不足 | 族群脈絡不足 | D+20 | 5 | 7 | 1 | 100.0 |
-| 強紅K收近高 | 中位放量攻擊 | 半導體設備族群 | 結構族群 | 核心主流題材 | 半導體設備族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 2 | 7 | 1 | 100.0 |
-| 強紅K收近高 | 低中位站回放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 4 | 7 | 1 | 100.0 |
-| 強紅K收近高 | 低中位站回放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 5 | 7 | 1 | 100.0 |
-| 強紅K收近高 | 低中位站回放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 6 | 7 | 1 | 100.0 |
-| 強紅K收近高 | 低中位站回放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 6 | 5 | 1 | 100.0 |
-| 強紅K收近高 | 低中位站回放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 6 | 3 | 1 | 100.0 |
-| 強紅K收近高 | 低中位站回放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 6 | 0 | 1 | 100.0 |
-| 強紅K收近高 | 低中位站回放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 8 | 7 | 1 | 100.0 |
-| 強紅K收近高 | 低中位站回放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 8 | 5 | 1 | 100.0 |
-| 強紅K收近高 | 低中位站回放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 8 | 3 | 1 | 100.0 |
-| 強紅K收近高 | 低中位站回放量攻擊 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 2 | 7 | 3 | 100.0 |
-| 強紅K收近高 | 低中位站回放量攻擊 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 2 | 5 | 4 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 5 | 3 | 4 | 100.0 |
+| red_candle_but_not_strong_close | 低位爆量反轉 | ai_server_theme | 結構族群 | 核心主流題材 | ai_server_theme | 主流成長題材 | 族群脈絡不足 | D+20 | 2 | 0 | 1 | 100.0 |
+| 強紅K收近高 | 高位延伸或追價 | ai_server_theme | 結構族群 | 核心主流題材 | ai_server_theme | 主流成長題材 | 族群脈絡不足 | D+20 | 5 | 5 | 1 | 100.0 |
+| 強紅K收近高 | 高位延伸或追價 | ai_server_theme | 結構族群 | 核心主流題材 | ai_server_theme | 主流成長題材 | 族群脈絡不足 | D+20 | 5 | 3 | 1 | 100.0 |
+| 強紅K收近高 | 高位延伸或追價 | ai_server_theme | 結構族群 | 核心主流題材 | ai_server_theme | 主流成長題材 | 族群脈絡不足 | D+20 | 5 | 0 | 1 | 100.0 |
+| 強紅K收近高 | 高位延伸或追價 | ai_server_theme | 結構族群 | 核心主流題材 | ai_server_theme | 主流成長題材 | 族群脈絡不足 | D+20 | 6 | 5 | 1 | 100.0 |
+| 強紅K收近高 | 高位延伸或追價 | ai_server_theme | 結構族群 | 核心主流題材 | ai_server_theme | 主流成長題材 | 族群脈絡不足 | D+20 | 6 | 3 | 1 | 100.0 |
+| 強紅K收近高 | 高位延伸或追價 | ai_server_theme | 結構族群 | 核心主流題材 | ai_server_theme | 主流成長題材 | 族群脈絡不足 | D+20 | 6 | 0 | 1 | 100.0 |
+| 強紅K收近高 | 高位延伸或追價 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 6 | 7 | 2 | 100.0 |
+| 強紅K收近高 | 高位延伸或追價 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 6 | 5 | 2 | 100.0 |
+| 強紅K收近高 | 高位延伸或追價 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 6 | 3 | 2 | 100.0 |
+| 強紅K收近高 | 高位延伸或追價 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 6 | 0 | 2 | 100.0 |
+| 強紅K收近高 | 高位延伸或追價 | low_earth_orbit_satellite_theme | 結構族群 | 核心主流題材 | low_earth_orbit_satellite_theme | 主流成長題材 | 族群脈絡不足 | D+20 | 3 | 5 | 2 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 10 | 5 | 1 | 100.0 |
+| 強紅K收近高 | 高位延伸或追價 | low_earth_orbit_satellite_theme | 結構族群 | 核心主流題材 | low_earth_orbit_satellite_theme | 主流成長題材 | 族群脈絡不足 | D+20 | 3 | 3 | 2 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 3 | 5 | 3 | 100.0 |
+| 強紅K收近高 | 高位延伸或追價 | low_earth_orbit_satellite_theme | 結構族群 | 核心主流題材 | low_earth_orbit_satellite_theme | 主流成長題材 | 族群脈絡不足 | D+20 | 3 | 0 | 2 | 100.0 |
+| 強紅K收近高 | 高位延伸或追價 | low_earth_orbit_satellite_theme | 結構族群 | 核心主流題材 | low_earth_orbit_satellite_theme | 主流成長題材 | 族群脈絡不足 | D+20 | 4 | 5 | 2 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 3 | 3 | 3 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 3 | 0 | 3 | 100.0 |
 
 ### Latest Explosive Volume Events
 | date | stock_id | stock_name | industry | market | close | volume_ratio_vs_prev20 | signal_return_1d_pct | signal_quality_bucket | price_position_bucket | market_theme_group | theme_group_source | theme_structural_status | 結構族群 | theme_mainstream_label | next_open_to_d10_max_high_return_pct | next_open_to_d20_max_high_return_pct |
@@ -413,8 +413,8 @@ EMBEDDED DAILY SHORT-TERM SPECIALTY PACKET
 
 ## PDF Placement
 - Place after the three-line candidate split and before or near category interpretation.
-- Do not merge this packet into the six-category ranking table.
-- If current candidates overlap with core candidate rows, show the overlap as a note, not as a model upgrade.
+- Do not use this packet to replace the active core model ranking table.
+- If current candidates overlap with core candidate rows, show the overlap as supporting evidence, not as a second buy/sell gate.
 
 ## Data Quality Notes
 - Short-term samples are not full-cycle regime proof yet.
@@ -490,7 +490,7 @@ performance_csv_path: output/history/daily_signals/daily_candidate_signal_perfor
 summary_latest_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_signal_performance_summary_latest.md
 weekly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_weekly_latest.pdf
 monthly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_monthly_latest.pdf
-last_updated_at: 2026-06-12 00:43:36 Asia/Taipei
+last_updated_at: 2026-06-12 01:29:35 Asia/Taipei
 status: generated
 
 CANDIDATE REPEAT APPEARANCE
@@ -499,9 +499,9 @@ legacy_signal_log_path: output/history/daily_signals/daily_candidate_signal_log.
 repeat_appearance_path: output/latest/candidate_repeat_appearance_latest.csv
 repeat_appearance_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/candidate_repeat_appearance_latest.csv
 repeat_appearance_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/candidate_repeat_appearance_latest.md
-history_available_days: 12
+history_available_days: 10
 status: generated
-latest_signal_date: 20260611
+latest_signal_date: 20260603
 fields: consecutive_appear_days_any_category,consecutive_appear_days_same_category,appear_count_5d,appear_count_10d,appear_count_20d,first_seen_date,last_seen_date,multi_category_flags,repeat_appear_label,repeat_appear_note
 note: Repeat appearance is calculated from raw daily candidate signal logs. ChatGPT must not infer consecutive days manually.
 
