@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-06-11 16:15:23 Asia/Taipei",
-  "main_price_date": "20260611",
+  "generated_at": "2026-06-11 18:27:37 Asia/Taipei",
+  "main_price_date": "20260605",
   "report_ready": "True",
-  "warrant_flow_date": "20260611",
-  "warrant_ready": "True",
-  "warrant_ready_note": "warrant_flow_date matches main_price_date",
-  "daily_pdf_ready": "True",
-  "daily_pdf_ready_note": "core daily data and warrant layer are ready for daily PDF source use",
+  "warrant_flow_date": "20260602",
+  "warrant_ready": "False",
+  "warrant_ready_note": "warrant_flow_date does not match main_price_date (warrant_flow_date=20260602, main_price_date=20260605)",
+  "daily_pdf_ready": "False",
+  "daily_pdf_ready_note": "warrant layer not ready: warrant_flow_date does not match main_price_date (warrant_flow_date=20260602, main_price_date=20260605)",
   "curated_pdf": {
     "status": "generated",
     "file_path": "output/latest/daily_market_curated_report_latest.pdf",
     "docs_path": "docs/latest/daily_market_curated_report_latest.pdf",
     "pages_url": "https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_market_curated_report_latest.pdf",
     "raw_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_curated_report_latest.pdf",
-    "history_path": "output/history/reports/20260611_daily_market_curated_report.pdf"
+    "history_path": "output/history/reports/20260605_daily_market_curated_report.pdf"
   },
   "full_table_pdf": {
     "status": "generated",
@@ -21,7 +21,7 @@
     "docs_path": "docs/latest/daily_market_full_table_report_latest.pdf",
     "pages_url": "https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_market_full_table_report_latest.pdf",
     "raw_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_full_table_report_latest.pdf",
-    "history_path": "output/history/reports/20260611_daily_market_full_table_report.pdf"
+    "history_path": "output/history/reports/20260605_daily_market_full_table_report.pdf"
   },
   "model_line_pdfs": {
     "mainstream_curated": {
@@ -30,7 +30,7 @@
       "docs_path": "docs/latest/mainstream_daily_recommendation_highlight_latest.pdf",
       "pages_url": "https://LeoChen0727.github.io/tdcc-weekly-report/latest/mainstream_daily_recommendation_highlight_latest.pdf",
       "raw_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/mainstream_daily_recommendation_highlight_latest.pdf",
-      "history_path": "output/history/reports/20260611_mainstream_daily_recommendation_highlight.pdf"
+      "history_path": "output/history/reports/20260605_mainstream_daily_recommendation_highlight.pdf"
     },
     "mainstream_full": {
       "status": "generated",
@@ -38,7 +38,7 @@
       "docs_path": "docs/latest/mainstream_full_candidate_list_latest.pdf",
       "pages_url": "https://LeoChen0727.github.io/tdcc-weekly-report/latest/mainstream_full_candidate_list_latest.pdf",
       "raw_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/mainstream_full_candidate_list_latest.pdf",
-      "history_path": "output/history/reports/20260611_mainstream_full_candidate_list.pdf"
+      "history_path": "output/history/reports/20260605_mainstream_full_candidate_list.pdf"
     },
     "non_mainstream_curated": {
       "status": "generated",
@@ -46,7 +46,7 @@
       "docs_path": "docs/latest/non_mainstream_daily_recommendation_highlight_latest.pdf",
       "pages_url": "https://LeoChen0727.github.io/tdcc-weekly-report/latest/non_mainstream_daily_recommendation_highlight_latest.pdf",
       "raw_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/non_mainstream_daily_recommendation_highlight_latest.pdf",
-      "history_path": "output/history/reports/20260611_non_mainstream_daily_recommendation_highlight.pdf"
+      "history_path": "output/history/reports/20260605_non_mainstream_daily_recommendation_highlight.pdf"
     },
     "non_mainstream_full": {
       "status": "generated",
@@ -54,7 +54,7 @@
       "docs_path": "docs/latest/non_mainstream_full_candidate_list_latest.pdf",
       "pages_url": "https://LeoChen0727.github.io/tdcc-weekly-report/latest/non_mainstream_full_candidate_list_latest.pdf",
       "raw_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/non_mainstream_full_candidate_list_latest.pdf",
-      "history_path": "output/history/reports/20260611_non_mainstream_full_candidate_list.pdf"
+      "history_path": "output/history/reports/20260605_non_mainstream_full_candidate_list.pdf"
     }
   }
 }

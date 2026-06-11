@@ -1,20 +1,20 @@
 # Market Sentiment Context
 
-- generated_at: `2026-06-11 16:13:08 Asia/Taipei`
-- date: `20260611`
+- generated_at: `2026-06-11 18:25:12 Asia/Taipei`
+- date: `20260605`
 - sample_status: `insufficient_history`
 - data_quality_note: 資料不足 / 僅能觀察：VIX 或散戶小台歷史樣本未達 60 筆，不能判斷是否達歷史極端。
 
 ## VIX Historical Context
 
-- Taiwan VIX latest: `43.92`
+- Taiwan VIX latest: `36.27`
 - 252D high / low: `43.92` / `25.68`
-- 252D percentile: `100%`
+- 252D percentile: `61.45%`
 - 504D percentile: `-`
-- z-score 252D: `2.26`
-- vix_return_5d / 10d / 20d: `25.7%` / `27.27%` / `14.73%`
-- vix_context_label: `extreme_fear_or_hedging`
-- vix_index_interpretation: `possible_panic_contrarian_signal`
+- z-score 252D: `0.48`
+- vix_return_5d / 10d / 20d: `1.12%` / `9.61%` / `-3.05%`
+- vix_context_label: `normal_range`
+- vix_index_interpretation: `trend_supported_no_extreme_vix`
 
 VIX interpretation: VIX must be read with TWSE / TPEx position, market_regime, Put/Call, and foreign TX futures net OI. It is not a standalone buy/sell signal.
 
@@ -34,8 +34,8 @@ Retail MTX interpretation: retail positioning is a contrarian sentiment proxy on
 
 | index | close | dist 20D high | dist 60D high | dist 252D high | above MA20 | above MA60 |
 | --- | ---: | ---: | ---: | ---: | --- | --- |
-| TWSE | 43,149 | -7.12% | -7.12% | -7.12% | False | True |
-| TPEx | 407.09 | -8.89% | -8.89% | -8.89% | False | True |
+| TWSE | 45,071 | -2.99% | -2.99% | -2.99% | True | True |
+| TPEx | 431.07 | -3.52% | -3.52% | -3.52% | True | True |
 
 ## Combined Sentiment Interpretation
 
