@@ -364,6 +364,10 @@ date,index_code,index_name,open,high,low,close,ohlc_source,ohlc_available,volume
 20260603,TPEX,TPEx,442.6,450.18,442.6,446.82,https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?date=115/06&response=json,True,1517099151.0,325651920496.0,1466352.0,https://www.tpex.org.tw/openapi/v1/tpex_daily_trading_index,True
 20260604,TPEX,TPEx,444.98,445.62,440.1,440.1,https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?date=115/06&response=json,True,1426465028.0,278293571862.0,1451768.0,https://www.tpex.org.tw/openapi/v1/tpex_daily_trading_index,True
 20260605,TPEX,TPEx,438.19,438.19,419.44,431.07,https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?date=115/06&response=json,True,1592999198.0,299833280505.0,1491433.0,https://www.tpex.org.tw/openapi/v1/tpex_daily_trading_index,True
+20260608,TPEX,TPEx,422.43,422.43,395.16,412.57,https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?date=115/06&response=json,True,1221033928.0,221807241678.0,1227424.0,https://www.tpex.org.tw/openapi/v1/tpex_daily_trading_index,True
+20260609,TPEX,TPEx,414.05,424.71,413.54,424.71,https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?date=115/06&response=json,True,1395459703.0,259621664935.0,1261588.0,https://www.tpex.org.tw/openapi/v1/tpex_daily_trading_index,True
+20260610,TPEX,TPEx,422.75,426.9,405.4,405.91,https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?date=115/06&response=json,True,1689969364.0,309540688339.0,1674906.0,https://www.tpex.org.tw/openapi/v1/tpex_daily_trading_index,True
+20260611,TPEX,TPEx,405.68,411.07,392.56,407.09,https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?date=115/06&response=json,True,,,,,False
 20170202,TWSE,TAIEX,9502.25,9521.34,9413.77,9428.97,https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20250201&response=json,True,,,,,False
 20170203,TWSE,TAIEX,9450.06,9478.01,9423.93,9455.56,https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20250201&response=json,True,,,,,False
 20170206,TWSE,TAIEX,9467.67,9548.68,9467.67,9538.01,https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20250201&response=json,True,,,,,False
