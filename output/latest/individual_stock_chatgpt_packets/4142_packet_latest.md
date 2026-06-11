@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4142 國光生
 
 ## Metadata
-- generated_at: 2026-06-10 22:23:29 Asia/Taipei
+- generated_at: 2026-06-11 22:23:20 Asia/Taipei
 - stock_id: 4142
 - stock_name: 國光生
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 17.8
-- high: 17.95
-- low: 17.55
-- close: 17.85
-- volume: 1154206
-- ma5: 17.35
-- ema23_primary: 17.47
-- distance_to_ema23_pct: 2.17
+- date: 20260611
+- open: 18.05
+- high: 18.05
+- low: 17.45
+- close: 17.6
+- volume: 1164451
+- ma5: 17.43
+- ema23_primary: 17.48
+- distance_to_ema23_pct: 0.68
 - ma20: 17.39
-- ma60: 17.89
-- ma120: 18.5
-- return_5d: 4.08
-- return_20d: 0.28
+- ma60: 17.88
+- ma120: 18.49
+- return_5d: 2.33
+- return_20d: -0.28
 - volume_ratio: 0.95
-- distance_to_ma20_pct_auxiliary: 2.66
-- distance_to_high_60_pct: -7.03
+- distance_to_ma20_pct_auxiliary: 1.24
+- distance_to_high_60_pct: -8.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,17.85,17.9,17.55,17.65,1009106,18.02,-2.03,18.05,18.12,0.82
 20260512,17.7,17.7,17.5,17.55,837105,17.98,-2.38,18.01,18.09,0.68
 20260513,17.6,17.9,17.6,17.8,1090771,17.96,-0.9,17.99,18.08,0.89
 20260514,17.85,17.85,17.6,17.7,859691,17.94,-1.34,17.95,18.07,0.72
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,17.2,17.3,17.05,17.3,1278502,17.46,-0.9,17.42,17.89,1.05
 20260604,17.2,17.25,17,17.2,1006529,17.44,-1.35,17.39,17.89,0.83
 20260605,17.8,17.95,17.55,17.85,1154206,17.47,2.17,17.39,17.89,0.95
+20260611,18.05,18.05,17.45,17.6,1164451,17.48,0.68,17.39,17.88,0.95
 ```
 
 ## Latest TDCC Snapshot
@@ -189,18 +189,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 4142 | 國光生 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260605 | 4142 | 國光生 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260611 | 4142 | 國光生 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260611 | 4142 | 國光生 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 4142 | 國光生 | 2 | 2 | 4 | 9 | 10 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260611 | 4142 | 國光生 | 3 | 3 | 4 | 9 | 11 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260611 | 4142 | 國光生 | 1 | 0 | 188600.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

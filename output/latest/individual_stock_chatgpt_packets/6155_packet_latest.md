@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6155 鈞寶
 
 ## Metadata
-- generated_at: 2026-06-10 22:23:57 Asia/Taipei
+- generated_at: 2026-06-11 22:23:44 Asia/Taipei
 - stock_id: 6155
 - stock_name: 鈞寶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -74,7 +74,7 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: high_level_consolidation
+- thesis_state: breakout_confirmed
 - entry_style: breakout_follow
 - position_sizing: starter_1_4
 
@@ -116,29 +116,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 70.7
-- high: 79.3
-- low: 69
-- close: 79.3
-- volume: 16373795
-- ma5: 74.3
-- ema23_primary: 61.98
-- distance_to_ema23_pct: 27.94
-- ma20: 60.65
-- ma60: 51.33
-- ma120: 50.06
-- return_5d: 26.27
-- return_20d: 49.06
-- volume_ratio: 1.27
-- distance_to_ma20_pct_auxiliary: 30.75
+- date: 20260611
+- open: 79.6
+- high: 84.1
+- low: 76.3
+- close: 84.1
+- volume: 27732952
+- ma5: 77.32
+- ema23_primary: 63.83
+- distance_to_ema23_pct: 31.77
+- ma20: 62.3
+- ma60: 51.98
+- ma120: 50.39
+- return_5d: 21.88
+- return_20d: 64.26
+- volume_ratio: 1.97
+- distance_to_ma20_pct_auxiliary: 35
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,53.5,53.5,49.65,51.2,5517600,48.16,6.31,48.67,47.2,1.34
 20260512,51.5,53.4,50.6,51.8,4493764,48.47,6.88,48.75,47.23,1.09
 20260513,50.2,53.2,49.65,52,2972607,48.76,6.65,48.87,47.27,0.74
 20260514,54.5,56.4,51.1,51.2,7664500,48.96,4.57,48.98,47.26,1.88
@@ -158,6 +157,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,75.5,78.1,71.3,71.4,13693482,59,21.02,58.09,50.19,1.15
 20260604,69,75.9,64.5,75.9,29741511,60.41,25.65,59.34,50.74,2.26
 20260605,70.7,79.3,69,79.3,16373795,61.98,27.94,60.65,51.33,1.27
+20260611,79.6,84.1,76.3,84.1,27732952,63.83,31.77,62.3,51.98,1.97
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 6155 | 鈞寶 | true_breakout | 嚴格突破 | 59.0 |  |  | platform_right_side |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260611 | 6155 | 鈞寶 | true_breakout | 嚴格突破 | 79.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 6155 | 鈞寶 | 1 | 1 | 4 | 9 | 10 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260611 | 6155 | 鈞寶 | 2 | 2 | 4 | 9 | 11 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

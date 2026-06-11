@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3577 泓格
 
 ## Metadata
-- generated_at: 2026-06-10 22:23:22 Asia/Taipei
+- generated_at: 2026-06-11 22:23:14 Asia/Taipei
 - stock_id: 3577
 - stock_name: 泓格
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 141
-- high: 142
-- low: 135
-- close: 138
-- volume: 138000
-- ma5: 144.8
-- ema23_primary: 130.05
-- distance_to_ema23_pct: 6.11
-- ma20: 132.97
-- ma60: 94.49
-- ma120: 78.57
-- return_5d: -12.38
-- return_20d: 54.19
-- volume_ratio: 0.14
-- distance_to_ma20_pct_auxiliary: 3.79
-- distance_to_high_60_pct: -20.46
+- date: 20260611
+- open: 122
+- high: 123
+- low: 116
+- close: 120
+- volume: 119000
+- ma5: 138.2
+- ema23_primary: 129.22
+- distance_to_ema23_pct: -7.13
+- ma20: 134.36
+- ma60: 95.43
+- ma120: 79.04
+- return_5d: -21.57
+- return_20d: 30.29
+- volume_ratio: 0.12
+- distance_to_ma20_pct_auxiliary: -10.69
+- distance_to_high_60_pct: -30.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,98,98.2,91.3,92.1,671000,82.79,11.25,83.51,71.23,2.52
 20260512,89.8,92.3,88.4,90.6,326000,83.44,8.58,84.17,71.72,1.22
 20260513,94.5,99.6,93.2,99.6,1661000,84.79,17.47,85.36,72.36,4.82
 20260514,109.5,109.5,109.5,109.5,1591000,86.85,26.08,86.97,73.14,3.88
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,145,151.5,143.5,144,147000,128,12.5,127.72,91.75,0.15
 20260604,145,151.5,143.5,144,147000,129.33,11.34,130.54,93.19,0.15
 20260605,141,142,135,138,138000,130.05,6.11,132.97,94.49,0.14
+20260611,122,123,116,120,119000,129.22,-7.13,134.36,95.43,0.12
 ```
 
 ## Latest TDCC Snapshot

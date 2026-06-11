@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8473 山林水
 
 ## Metadata
-- generated_at: 2026-06-10 22:24:52 Asia/Taipei
+- generated_at: 2026-06-11 22:24:30 Asia/Taipei
 - stock_id: 8473
 - stock_name: 山林水
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 53.3
-- high: 55.6
-- low: 53
-- close: 54.4
-- volume: 4333586
-- ma5: 55.04
-- ema23_primary: 45.06
-- distance_to_ema23_pct: 20.74
-- ma20: 43.08
-- ma60: 39.35
-- ma120: 38.3
-- return_5d: 7.94
-- return_20d: 57.23
-- volume_ratio: 1.19
-- distance_to_ma20_pct_auxiliary: 26.28
-- distance_to_high_60_pct: -4.56
+- date: 20260611
+- open: 50.2
+- high: 54.8
+- low: 49.95
+- close: 52
+- volume: 4248926
+- ma5: 54.36
+- ema23_primary: 45.64
+- distance_to_ema23_pct: 13.95
+- ma20: 43.97
+- ma60: 39.6
+- ma120: 38.43
+- return_5d: -6.14
+- return_20d: 52.05
+- volume_ratio: 1.12
+- distance_to_ma20_pct_auxiliary: 18.27
+- distance_to_high_60_pct: -8.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,34.6,34.6,34.15,34.2,663733,36.23,-5.6,36.39,37.31,1.27
 20260512,34.2,34.2,33.8,33.9,624567,36.03,-5.92,36.19,37.26,1.18
 20260513,33.85,33.95,33.55,33.65,411244,35.84,-6.1,36.01,37.22,0.79
 20260514,35.4,35.7,34.25,34.35,772948,35.71,-3.81,35.85,37.17,1.42
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,55,55.6,53,53.4,5761360,43.14,23.8,41.06,38.71,2.02
 20260604,55.7,57,53.9,56,12715329,44.21,26.68,42.09,39.05,3.68
 20260605,53.3,55.6,53,54.4,4333586,45.06,20.74,43.08,39.35,1.19
+20260611,50.2,54.8,49.95,52,4248926,45.64,13.95,43.97,39.6,1.12
 ```
 
 ## Latest TDCC Snapshot

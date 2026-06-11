@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6026 福邦證
 
 ## Metadata
-- generated_at: 2026-06-10 22:23:54 Asia/Taipei
+- generated_at: 2026-06-11 22:23:41 Asia/Taipei
 - stock_id: 6026
 - stock_name: 福邦證
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 18.9
-- high: 19.2
-- low: 18.35
-- close: 19.15
-- volume: 19000
-- ma5: 18.57
-- ema23_primary: 16.74
-- distance_to_ema23_pct: 14.4
+- date: 20260611
+- open: 16.5
+- high: 16.65
+- low: 16.25
+- close: 16.55
+- volume: 16000
+- ma5: 18.42
+- ema23_primary: 16.72
+- distance_to_ema23_pct: -1.04
 - ma20: 16.46
-- ma60: 15.45
-- ma120: 14.56
-- return_5d: 13.65
-- return_20d: 13.99
+- ma60: 15.49
+- ma120: 14.59
+- return_5d: -4.34
+- return_20d: -0.3
 - volume_ratio: 0.01
-- distance_to_ma20_pct_auxiliary: 16.34
-- distance_to_high_60_pct: -2.05
+- distance_to_ma20_pct_auxiliary: 0.56
+- distance_to_high_60_pct: -15.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,16.7,16.8,16.25,16.6,8102000,15.44,7.52,15.29,14.74,3.02
 20260512,16.8,16.9,16.05,16.2,4054000,15.5,4.5,15.37,14.76,1.43
 20260513,16.2,16.2,15.8,15.85,2877000,15.53,2.05,15.42,14.78,0.99
 20260514,16,16.1,15.5,15.55,3932000,15.53,0.11,15.46,14.79,1.29
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,18.2,19.55,18.1,19.3,19000,16.27,18.64,16.21,15.26,0.01
 20260604,18.2,19.55,18.1,19.3,19000,16.52,16.82,16.34,15.36,0.01
 20260605,18.9,19.2,18.35,19.15,19000,16.74,14.4,16.46,15.45,0.01
+20260611,16.5,16.65,16.25,16.55,16000,16.72,-1.04,16.46,15.49,0.01
 ```
 
 ## Latest TDCC Snapshot

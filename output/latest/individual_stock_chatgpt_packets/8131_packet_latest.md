@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8131 福懋科
 
 ## Metadata
-- generated_at: 2026-06-10 22:24:46 Asia/Taipei
+- generated_at: 2026-06-11 22:24:25 Asia/Taipei
 - stock_id: 8131
 - stock_name: 福懋科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 72.1
-- high: 72.1
-- low: 66.9
-- close: 68.9
-- volume: 5816855
-- ma5: 72.86
-- ema23_primary: 68.22
-- distance_to_ema23_pct: 1
-- ma20: 67.55
-- ma60: 64.66
-- ma120: 63.99
-- return_5d: -6.26
-- return_20d: 4.55
-- volume_ratio: 0.78
-- distance_to_ma20_pct_auxiliary: 2.01
-- distance_to_high_60_pct: -13.01
+- date: 20260611
+- open: 66.9
+- high: 69.7
+- low: 64.5
+- close: 68.7
+- volume: 4251123
+- ma5: 71.5
+- ema23_primary: 68.26
+- distance_to_ema23_pct: 0.65
+- ma20: 67.61
+- ma60: 64.69
+- ma120: 64.18
+- return_5d: -9.01
+- return_20d: 1.78
+- volume_ratio: 0.59
+- distance_to_ma20_pct_auxiliary: 1.62
+- distance_to_high_60_pct: -13.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,67.9,69.6,67.1,67.5,7462002,64.56,4.55,63.53,64.39,0.93
 20260512,68.3,68.3,64.5,67,6375428,64.76,3.45,63.74,64.32,0.79
 20260513,65,65.8,64.5,65.1,2869398,64.79,0.48,63.88,64.29,0.36
 20260514,66.6,69,65.8,67,6643459,64.98,3.11,64.16,64.25,0.81
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,74.7,75.3,71,72.9,7281342,67.67,7.73,67.23,64.28,0.94
 20260604,75.8,76.7,71,73.5,9831414,68.16,7.84,67.39,64.53,1.3
 20260605,72.1,72.1,66.9,68.9,5816855,68.22,1,67.55,64.66,0.78
+20260611,66.9,69.7,64.5,68.7,4251123,68.26,0.65,67.61,64.69,0.59
 ```
 
 ## Latest TDCC Snapshot
@@ -189,18 +189,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 8131 | 福懋科 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260605 | 8131 | 福懋科 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260611 | 8131 | 福懋科 | pattern | 型態觀察 | 50.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260611 | 8131 | 福懋科 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 8131 | 福懋科 | 11 | 11 | 5 | 10 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260611 | 8131 | 福懋科 | 12 | 12 | 5 | 10 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260611 | 8131 | 福懋科 | 45 | 0 | 5852700.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

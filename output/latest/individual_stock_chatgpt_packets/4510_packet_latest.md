@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4510 高鋒
 
 ## Metadata
-- generated_at: 2026-06-10 22:23:33 Asia/Taipei
+- generated_at: 2026-06-11 22:23:23 Asia/Taipei
 - stock_id: 4510
 - stock_name: 高鋒
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 49.1
-- high: 51.9
-- low: 48.85
-- close: 49.4
-- volume: 50000
-- ma5: 51.7
-- ema23_primary: 49.26
-- distance_to_ema23_pct: 0.29
-- ma20: 49.22
-- ma60: 46.19
-- ma120: 45.14
-- return_5d: -1.98
-- return_20d: 5.11
-- volume_ratio: 0.04
-- distance_to_ma20_pct_auxiliary: 0.36
-- distance_to_high_60_pct: -12.57
+- date: 20260611
+- open: 44.85
+- high: 45.1
+- low: 43
+- close: 43.8
+- volume: 44000
+- ma5: 49.6
+- ema23_primary: 48.8
+- distance_to_ema23_pct: -10.25
+- ma20: 49.05
+- ma60: 46.21
+- ma120: 45.19
+- return_5d: -19.34
+- return_20d: -7.11
+- volume_ratio: 0.03
+- distance_to_ma20_pct_auxiliary: -10.71
+- distance_to_high_60_pct: -22.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,47.85,48.3,47.15,47.15,1484000,46.3,1.83,46.65,44.98,0.35
 20260512,47.55,48.5,46.5,48.3,2234000,46.47,3.94,46.99,44.99,0.51
 20260513,47.85,48,46.2,46.6,1528000,46.48,0.26,47.04,44.93,0.36
 20260514,46.65,47.35,45.5,45.85,1374000,46.43,-1.25,46.93,44.86,0.38
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,53.6,53.9,50.5,50.6,51000,49.12,3.01,48.92,45.87,0.03
 20260604,53.6,53.9,50.5,50.6,51000,49.24,2.76,49.1,46.05,0.03
 20260605,49.1,51.9,48.85,49.4,50000,49.26,0.29,49.22,46.19,0.04
+20260611,44.85,45.1,43,43.8,44000,48.8,-10.25,49.05,46.21,0.03
 ```
 
 ## Latest TDCC Snapshot

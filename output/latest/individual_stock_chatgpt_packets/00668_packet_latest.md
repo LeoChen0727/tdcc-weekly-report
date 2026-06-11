@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00668 國泰美國道瓊
 
 ## Metadata
-- generated_at: 2026-06-10 22:22:15 Asia/Taipei
+- generated_at: 2026-06-11 22:22:17 Asia/Taipei
 - stock_id: 00668
 - stock_name: 國泰美國道瓊
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260605
-- price_rows: 11
+- latest_price_date: 20260611
+- price_rows: 12
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 59.2
-- high: 59.35
-- low: 59.2
-- close: 59.35
-- volume: 49130
-- ma5: 58.66
-- ema23_primary: 58.27
-- distance_to_ema23_pct: 1.85
-- ma20: 58.36
-- ma60: 58.36
-- ma120: 58.36
-- return_5d: 2.15
+- date: 20260611
+- open: 57.9
+- high: 58.1
+- low: 57.85
+- close: 58.1
+- volume: 98787
+- ma5: 58.6
+- ema23_primary: 58.26
+- distance_to_ema23_pct: -0.27
+- ma20: 58.34
+- ma60: 58.34
+- ma120: 58.34
+- return_5d: -0.51
 - return_20d:
-- volume_ratio: 0.71
-- distance_to_ma20_pct_auxiliary: 1.7
-- distance_to_high_60_pct: 0
+- volume_ratio: 1.37
+- distance_to_ma20_pct_auxiliary: -0.41
+- distance_to_high_60_pct: -2.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -146,6 +146,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,58.75,58.85,58.75,58.75,35158,58.15,1.03,58.24,58.24,0.46
 20260604,58.2,58.45,58.2,58.4,21568,58.17,0.39,58.26,58.26,0.3
 20260605,59.2,59.35,59.2,59.35,49130,58.27,1.85,58.36,58.36,0.71
+20260611,57.9,58.1,57.85,58.1,98787,58.26,-0.27,58.34,58.34,1.37
 ```
 
 ## Latest TDCC Snapshot

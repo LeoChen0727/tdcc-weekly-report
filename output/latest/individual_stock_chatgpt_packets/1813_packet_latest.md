@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1813 寶利徠
 
 ## Metadata
-- generated_at: 2026-06-10 22:22:35 Asia/Taipei
+- generated_at: 2026-06-11 22:22:34 Asia/Taipei
 - stock_id: 1813
 - stock_name: 寶利徠
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 12.2
-- high: 12.2
-- low: 12.15
-- close: 12.15
+- date: 20260611
+- open: 11.8
+- high: 11.8
+- low: 11.65
+- close: 11.75
 - volume: 12000
-- ma5: 12.06
-- ema23_primary: 12.22
-- distance_to_ema23_pct: -0.57
-- ma20: 12.14
-- ma60: 12.79
-- ma120: 13
-- return_5d: 0.41
-- return_20d: -1.22
-- volume_ratio: 0.62
-- distance_to_ma20_pct_auxiliary: 0.08
-- distance_to_high_60_pct: -10.99
+- ma5: 12.03
+- ema23_primary: 12.18
+- distance_to_ema23_pct: -3.53
+- ma20: 12.12
+- ma60: 12.76
+- ma120: 12.99
+- return_5d: -1.26
+- return_20d: -4.08
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: -3.01
+- distance_to_high_60_pct: -13.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,12.25,12.25,12.2,12.25,27000,12.7,-3.55,12.75,13.19,0.65
 20260512,12.25,12.3,12.15,12.2,41000,12.66,-3.63,12.69,13.17,0.97
 20260513,12.15,12.2,12.15,12.2,16000,12.62,-3.33,12.63,13.15,0.38
 20260514,12.2,12.25,12.2,12.25,27000,12.59,-2.7,12.56,13.13,0.62
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,11.95,12.3,11.9,12.15,12000,12.23,-0.67,12.16,12.84,0.59
 20260604,11.95,12.3,11.9,12.15,12000,12.23,-0.62,12.15,12.81,0.6
 20260605,12.2,12.2,12.15,12.15,12000,12.22,-0.57,12.14,12.79,0.62
+20260611,11.8,11.8,11.65,11.75,12000,12.18,-3.53,12.12,12.76,0.65
 ```
 
 ## Latest TDCC Snapshot

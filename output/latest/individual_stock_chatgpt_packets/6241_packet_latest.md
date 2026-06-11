@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6241 鑫永洋
 
 ## Metadata
-- generated_at: 2026-06-10 22:24:02 Asia/Taipei
+- generated_at: 2026-06-11 22:23:48 Asia/Taipei
 - stock_id: 6241
 - stock_name: 鑫永洋
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,14 +59,14 @@
 - action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 單一個股分析
 - score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足
+- risk_control_zh: TDCC 歷史不足、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: high_level_consolidation
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -88,11 +88,9 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -106,6 +104,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 10.2
-- high: 10.45
-- low: 10.15
-- close: 10.45
-- volume: 10000
-- ma5: 10.37
-- ema23_primary: 10.29
-- distance_to_ema23_pct: 1.53
-- ma20: 10.21
-- ma60: 10.68
-- ma120: 11.57
-- return_5d: 5.66
-- return_20d: 16.24
-- volume_ratio: 0.07
-- distance_to_ma20_pct_auxiliary: 2.38
-- distance_to_high_60_pct: -17.06
+- date: 20260611
+- open: 11.5
+- high: 12.65
+- low: 11.5
+- close: 12.65
+- volume: 12000
+- ma5: 10.86
+- ema23_primary: 10.49
+- distance_to_ema23_pct: 20.61
+- ma20: 10.41
+- ma60: 10.7
+- ma120: 11.58
+- return_5d: 24.02
+- return_20d: 45.74
+- volume_ratio: 0.09
+- distance_to_ma20_pct_auxiliary: 21.57
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,8.83,8.9,8.55,8.68,252000,10.16,-14.55,10.03,11.28,2.1
 20260512,8.68,8.89,8.56,8.68,123000,10.04,-13.5,9.96,11.22,1.01
 20260513,9.36,9.54,9.36,9.54,164000,9.99,-4.54,9.93,11.16,1.33
 20260514,10.45,10.45,10.45,10.45,200000,10.03,4.17,9.94,11.12,1.54
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,10.35,10.7,10.35,10.45,10000,10.26,1.83,10.1,10.71,0.06
 20260604,10.35,10.7,10.35,10.45,10000,10.28,1.67,10.13,10.69,0.06
 20260605,10.2,10.45,10.15,10.45,10000,10.29,1.53,10.21,10.68,0.07
+20260611,11.5,12.65,11.5,12.65,12000,10.49,20.61,10.41,10.7,0.09
 ```
 
 ## Latest TDCC Snapshot

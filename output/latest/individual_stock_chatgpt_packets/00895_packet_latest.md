@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00895 富邦未來車
 
 ## Metadata
-- generated_at: 2026-06-10 22:22:16 Asia/Taipei
+- generated_at: 2026-06-11 22:22:18 Asia/Taipei
 - stock_id: 00895
 - stock_name: 富邦未來車
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260605
-- price_rows: 11
+- latest_price_date: 20260611
+- price_rows: 12
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 52.25
-- high: 52.3
-- low: 51.7
-- close: 52.2
-- volume: 579822
-- ma5: 52.64
-- ema23_primary: 51.37
-- distance_to_ema23_pct: 1.61
-- ma20: 51.92
-- ma60: 51.92
-- ma120: 51.92
-- return_5d: -0.85
+- date: 20260611
+- open: 48.2
+- high: 49.06
+- low: 48.2
+- close: 49.03
+- volume: 1240818
+- ma5: 51.96
+- ema23_primary: 51.18
+- distance_to_ema23_pct: -4.2
+- ma20: 51.68
+- ma60: 51.68
+- ma120: 51.68
+- return_5d: -6.52
 - return_20d:
-- volume_ratio: 0.58
-- distance_to_ma20_pct_auxiliary: 0.54
-- distance_to_high_60_pct: -2.7
+- volume_ratio: 1.22
+- distance_to_ma20_pct_auxiliary: -5.12
+- distance_to_high_60_pct: -8.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -146,6 +146,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,53.2,53.65,53.2,53.45,302893,51.19,4.42,51.82,51.82,0.29
 20260604,52.4,52.6,51.85,52.55,1015287,51.3,2.44,51.89,51.89,0.98
 20260605,52.25,52.3,51.7,52.2,579822,51.37,1.61,51.92,51.92,0.58
+20260611,48.2,49.06,48.2,49.03,1240818,51.18,-4.2,51.68,51.68,1.22
 ```
 
 ## Latest TDCC Snapshot

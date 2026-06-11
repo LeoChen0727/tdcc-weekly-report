@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4934 太極
 
 ## Metadata
-- generated_at: 2026-06-10 22:23:40 Asia/Taipei
+- generated_at: 2026-06-11 22:23:29 Asia/Taipei
 - stock_id: 4934
 - stock_name: 太極
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 17.1
+- date: 20260611
+- open: 16.25
 - high: 17.1
-- low: 16.25
-- close: 16.55
-- volume: 1272882
-- ma5: 17.1
-- ema23_primary: 17.17
-- distance_to_ema23_pct: -3.62
-- ma20: 17.28
-- ma60: 17.3
-- ma120: 16.45
-- return_5d: -4.06
-- return_20d: -10.54
-- volume_ratio: 0.85
-- distance_to_ma20_pct_auxiliary: -4.21
-- distance_to_high_60_pct: -20.43
+- low: 15.85
+- close: 16.8
+- volume: 1305636
+- ma5: 17
+- ema23_primary: 17.14
+- distance_to_ema23_pct: -1.99
+- ma20: 17.2
+- ma60: 17.25
+- ma120: 16.48
+- return_5d: -2.89
+- return_20d: -8.2
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: -2.34
+- distance_to_high_60_pct: -19.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,18.25,18.85,18.2,18.3,1542685,17.17,6.6,16.82,17.5,0.86
 20260512,18.95,18.95,17.75,18.4,2171978,17.27,6.54,16.96,17.57,1.17
 20260513,18.3,18.6,17.75,17.8,1575827,17.31,2.81,17.05,17.59,0.84
 20260514,17.95,18.2,17.3,17.35,1205043,17.32,0.19,17.09,17.59,0.65
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,17,17.8,16.85,17.55,2153944,17.24,1.77,17.47,17.35,1.26
 20260604,17.2,17.4,16.45,17.05,1584127,17.23,-1.03,17.38,17.33,0.99
 20260605,17.1,17.1,16.25,16.55,1272882,17.17,-3.62,17.28,17.3,0.85
+20260611,16.25,17.1,15.85,16.8,1305636,17.14,-1.99,17.2,17.25,0.88
 ```
 
 ## Latest TDCC Snapshot
@@ -190,13 +190,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 4934 | 太極 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260605 | 4934 | 太極 | revenue_breakout_low_response | 營收爆發低反應股 | 19.0 | 4.0 | A_優先追蹤 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260611 | 4934 | 太極 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260611 | 4934 | 太極 | revenue_breakout_low_response | 營收爆發低反應股 | 22.0 | 2.0 | A_優先追蹤 |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 4934 | 太極 | 11 | 2 | 5 | 10 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260611 | 4934 | 太極 | 12 | 3 | 5 | 10 | 12 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

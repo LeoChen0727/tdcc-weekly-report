@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6441 廣錠
 
 ## Metadata
-- generated_at: 2026-06-10 22:24:06 Asia/Taipei
+- generated_at: 2026-06-11 22:23:51 Asia/Taipei
 - stock_id: 6441
 - stock_name: 廣錠
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 25.15
-- high: 25.15
-- low: 24.05
-- close: 24.05
-- volume: 24000
-- ma5: 24.23
-- ema23_primary: 24.73
-- distance_to_ema23_pct: -2.75
-- ma20: 24.87
-- ma60: 23.12
-- ma120: 22.69
-- return_5d: -1.84
-- return_20d: -13.49
-- volume_ratio: 0.16
-- distance_to_ma20_pct_auxiliary: -3.31
-- distance_to_high_60_pct: -27.89
+- date: 20260611
+- open: 23.95
+- high: 23.95
+- low: 23
+- close: 23.1
+- volume: 23000
+- ma5: 23.99
+- ema23_primary: 24.59
+- distance_to_ema23_pct: -6.08
+- ma20: 24.65
+- ma60: 23.16
+- ma120: 22.68
+- return_5d: -4.94
+- return_20d: -16.15
+- volume_ratio: 0.17
+- distance_to_ma20_pct_auxiliary: -6.29
+- distance_to_high_60_pct: -30.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,28.05,28.4,27.2,27.55,330000,25.41,8.43,25.09,22.12,0.39
 20260512,27.95,27.95,25.95,26.45,495000,25.5,3.74,25.5,22.21,0.57
 20260513,26.35,26.9,25.9,26.5,289000,25.58,3.6,25.96,22.29,0.34
 20260514,27.1,27.1,24.9,25.5,318000,25.57,-0.28,26.29,22.35,0.38
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,24.05,24.5,23.9,24.4,24000,24.83,-1.72,25.28,22.98,0.11
 20260604,24.05,24.5,23.9,24.4,24000,24.79,-1.58,25.06,23.05,0.12
 20260605,25.15,25.15,24.05,24.05,24000,24.73,-2.75,24.87,23.12,0.16
+20260611,23.95,23.95,23,23.1,23000,24.59,-6.08,24.65,23.16,0.17
 ```
 
 ## Latest TDCC Snapshot

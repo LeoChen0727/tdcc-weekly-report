@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2360 致茂
 
 ## Metadata
-- generated_at: 2026-06-10 22:22:44 Asia/Taipei
+- generated_at: 2026-06-11 22:22:42 Asia/Taipei
 - stock_id: 2360
 - stock_name: 致茂
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 2645
-- high: 2660
-- low: 2470
-- close: 2565
-- volume: 2347549
-- ma5: 2506
-- ema23_primary: 2363.66
-- distance_to_ema23_pct: 8.52
-- ma20: 2387.75
-- ma60: 2009.92
-- ma120: 1492.39
-- return_5d: 1.79
-- return_20d: 15.02
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: 7.42
-- distance_to_high_60_pct: -8.23
+- date: 20260611
+- open: 2200
+- high: 2240
+- low: 2065
+- close: 2190
+- volume: 3133771
+- ma5: 2428
+- ema23_primary: 2349.19
+- distance_to_ema23_pct: -6.78
+- ma20: 2379.25
+- ma60: 2021.5
+- ma120: 1503.93
+- return_5d: -15.12
+- return_20d: -7.2
+- volume_ratio: 0.98
+- distance_to_ma20_pct_auxiliary: -7.95
+- distance_to_high_60_pct: -21.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,2210,2415,2205,2360,3303030,2053.48,14.93,2099,1632.45,0.68
 20260512,2450,2480,2400,2440,4455057,2085.69,16.99,2127,1656.93,0.92
 20260513,2465,2465,2345,2405,2566243,2112.3,13.86,2155.25,1679.68,0.54
 20260514,2410,2435,2255,2260,4876389,2124.61,6.37,2167.25,1700.18,1
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,2470,2555,2450,2545,1597378,2338.57,8.83,2366.25,1970.17,0.48
 20260604,2570,2605,2390,2420,3018185,2345.36,3.18,2371,1989.83,0.92
 20260605,2645,2660,2470,2565,2347549,2363.66,8.52,2387.75,2009.92,0.73
+20260611,2200,2240,2065,2190,3133771,2349.19,-6.78,2379.25,2021.5,0.98
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 2360 | 致茂 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | stale_signal | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260611 | 2360 | 致茂 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | call_inflow | stale_signal | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 2360 | 致茂 | 11 | 2 | 5 | 10 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260611 | 2360 | 致茂 | 12 | 3 | 5 | 10 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260611 | 2360 | 致茂 | 55 | 0 | 4797740.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

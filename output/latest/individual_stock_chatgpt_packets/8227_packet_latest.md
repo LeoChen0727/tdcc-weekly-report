@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8227 巨有科技
 
 ## Metadata
-- generated_at: 2026-06-10 22:24:47 Asia/Taipei
+- generated_at: 2026-06-11 22:24:26 Asia/Taipei
 - stock_id: 8227
 - stock_name: 巨有科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 196
-- high: 204.5
-- low: 191
-- close: 203
-- volume: 199000
-- ma5: 216.2
-- ema23_primary: 205.73
-- distance_to_ema23_pct: -1.33
-- ma20: 214.4
-- ma60: 164.83
-- ma120: 154
-- return_5d: -4.25
-- return_20d: -7.31
-- volume_ratio: 0.26
-- distance_to_ma20_pct_auxiliary: -5.32
-- distance_to_high_60_pct: -18.47
+- date: 20260611
+- open: 175.5
+- high: 179
+- low: 163
+- close: 173.5
+- volume: 171000
+- ma5: 207.1
+- ema23_primary: 203.05
+- distance_to_ema23_pct: -14.55
+- ma20: 211.78
+- ma60: 165.57
+- ma120: 154.2
+- return_5d: -20.78
+- return_20d: -23.23
+- volume_ratio: 0.36
+- distance_to_ma20_pct_auxiliary: -18.07
+- distance_to_high_60_pct: -30.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,221.5,240,217,226,6054000,165.63,36.45,161.55,140.01,2.37
 20260512,227,227,208.5,212.5,1790000,169.53,25.34,166.03,141.28,0.68
 20260513,204.5,206,193.5,202,1369000,172.24,17.28,169.95,142.32,0.51
 20260514,205.5,209.5,200,207,677000,175.13,18.19,174.1,143.46,0.25
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,226,227,216.5,218,219000,204.89,6.4,214.5,161.94,0.17
 20260604,226,227,216.5,218,219000,205.98,5.83,215.2,163.53,0.2
 20260605,196,204.5,191,203,199000,205.73,-1.33,214.4,164.83,0.26
+20260611,175.5,179,163,173.5,171000,203.05,-14.55,211.78,165.57,0.36
 ```
 
 ## Latest TDCC Snapshot

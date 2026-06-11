@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00913 兆豐台灣晶圓製造
 
 ## Metadata
-- generated_at: 2026-06-10 22:22:17 Asia/Taipei
+- generated_at: 2026-06-11 22:22:18 Asia/Taipei
 - stock_id: 00913
 - stock_name: 兆豐台灣晶圓製造
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260605
-- price_rows: 11
+- latest_price_date: 20260611
+- price_rows: 12
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 49.94
-- high: 50.15
-- low: 48.11
-- close: 49.23
-- volume: 2945942
-- ma5: 51.24
-- ema23_primary: 48.42
-- distance_to_ema23_pct: 1.68
-- ma20: 50.12
-- ma60: 50.12
-- ma120: 50.12
-- return_5d: -3.85
+- date: 20260611
+- open: 46.21
+- high: 47.15
+- low: 45
+- close: 46.77
+- volume: 1226347
+- ma5: 50.17
+- ema23_primary: 48.28
+- distance_to_ema23_pct: -3.13
+- ma20: 49.84
+- ma60: 49.84
+- ma120: 49.84
+- return_5d: -10.23
 - return_20d:
-- volume_ratio: 1.1
-- distance_to_ma20_pct_auxiliary: -1.77
-- distance_to_high_60_pct: -7.46
+- volume_ratio: 0.48
+- distance_to_ma20_pct_auxiliary: -6.16
+- distance_to_high_60_pct: -12.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -146,6 +146,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,52.6,52.95,51.45,51.45,2539523,48.04,7.11,50.04,50.04,0.99
 20260604,52.95,53.15,50.8,51.7,3353022,48.34,6.95,50.21,50.21,1.26
 20260605,49.94,50.15,48.11,49.23,2945942,48.42,1.68,50.12,50.12,1.1
+20260611,46.21,47.15,45,46.77,1226347,48.28,-3.13,49.84,49.84,0.48
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8933 愛地雅
 
 ## Metadata
-- generated_at: 2026-06-10 22:24:53 Asia/Taipei
+- generated_at: 2026-06-11 22:24:31 Asia/Taipei
 - stock_id: 8933
 - stock_name: 愛地雅
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 4.79
-- high: 4.84
-- low: 4.6
-- close: 4.77
+- date: 20260611
+- open: 4.48
+- high: 4.66
+- low: 4.48
+- close: 4.49
 - volume: 5000
-- ma5: 4.59
-- ema23_primary: 4.99
-- distance_to_ema23_pct: -4.33
-- ma20: 4.87
-- ma60: 5.96
-- ma120: 6.27
-- return_5d: -2.65
-- return_20d: -18.88
+- ma5: 4.56
+- ema23_primary: 4.94
+- distance_to_ema23_pct: -9.19
+- ma20: 4.8
+- ma60: 5.92
+- ma120: 6.26
+- return_5d: -2.39
+- return_20d: -22.85
 - volume_ratio: 0.01
-- distance_to_ma20_pct_auxiliary: -2.08
-- distance_to_high_60_pct: -35.37
+- distance_to_ma20_pct_auxiliary: -6.56
+- distance_to_high_60_pct: -39.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,5.8,5.88,5.8,5.82,290000,6.2,-6.09,6.2,6.63,0.83
 20260512,5.82,5.82,5.66,5.67,716000,6.15,-7.86,6.16,6.6,1.91
 20260513,5.67,5.7,5.6,5.68,321000,6.11,-7.1,6.11,6.57,0.87
 20260514,5.68,5.68,5.52,5.57,627000,6.07,-8.22,6.07,6.54,1.63
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,4.46,4.59,4.35,4.55,4000,5.05,-9.84,4.99,6.02,0.01
 20260604,4.46,4.59,4.35,4.55,4000,5.01,-9.1,4.93,5.99,0.01
 20260605,4.79,4.84,4.6,4.77,5000,4.99,-4.33,4.87,5.96,0.01
+20260611,4.48,4.66,4.48,4.49,5000,4.94,-9.19,4.8,5.92,0.01
 ```
 
 ## Latest TDCC Snapshot

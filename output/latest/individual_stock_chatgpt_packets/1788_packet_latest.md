@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1788 杏昌
 
 ## Metadata
-- generated_at: 2026-06-10 22:22:34 Asia/Taipei
+- generated_at: 2026-06-11 22:22:34 Asia/Taipei
 - stock_id: 1788
 - stock_name: 杏昌
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,21 +113,21 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 134
+- date: 20260611
+- open: 135
 - high: 135
 - low: 134
 - close: 135
 - volume: 135000
-- ma5: 134.4
-- ema23_primary: 134.93
+- ma5: 134.6
+- ema23_primary: 134.94
 - distance_to_ema23_pct: 0.05
 - ma20: 134.9
-- ma60: 135.88
-- ma120: 136.27
-- return_5d: 0.37
-- return_20d: -0.37
-- volume_ratio: 1.84
+- ma60: 135.83
+- ma120: 136.25
+- return_5d: 0.75
+- return_20d: 0
+- volume_ratio: 1.73
 - distance_to_ma20_pct_auxiliary: 0.07
 - distance_to_high_60_pct: -2.17
 
@@ -135,7 +135,6 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,135.5,135.5,134.5,135,42000,135.79,-0.58,135.85,136.38,1.47
 20260512,135.5,135.5,135,135,16000,135.73,-0.53,135.78,136.36,0.55
 20260513,135,135,134.5,135,63000,135.67,-0.49,135.7,136.33,2.07
 20260514,134.5,135.5,134.5,135.5,39000,135.65,-0.11,135.65,136.32,1.25
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,134.5,135,133,134.5,134000,134.97,-0.34,134.95,135.94,2.1
 20260604,134.5,135,133,134.5,134000,134.93,-0.32,134.93,135.92,1.99
 20260605,134,135,134,135,135000,134.93,0.05,134.9,135.88,1.84
+20260611,135,135,134,135,135000,134.94,0.05,134.9,135.83,1.73
 ```
 
 ## Latest TDCC Snapshot

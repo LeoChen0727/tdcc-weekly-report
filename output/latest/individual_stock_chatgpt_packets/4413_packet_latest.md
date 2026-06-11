@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4413 飛寶企業
 
 ## Metadata
-- generated_at: 2026-06-10 22:23:31 Asia/Taipei
+- generated_at: 2026-06-11 22:23:22 Asia/Taipei
 - stock_id: 4413
 - stock_name: 飛寶企業
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 262
+- latest_price_date: 20260611
+- price_rows: 263
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 16.5
-- high: 16.75
-- low: 16.5
-- close: 16.75
-- volume: 17000
-- ma5: 16.73
-- ema23_primary: 17.51
-- distance_to_ema23_pct: -4.35
-- ma20: 17.7
-- ma60: 17.99
-- ma120: 18.02
-- return_5d: 0.3
-- return_20d: -11.38
-- volume_ratio: 1.25
-- distance_to_ma20_pct_auxiliary: -5.35
-- distance_to_high_60_pct: -16.87
+- date: 20260611
+- open: 16.15
+- high: 16.45
+- low: 16.05
+- close: 16.15
+- volume: 16000
+- ma5: 16.56
+- ema23_primary: 17.4
+- distance_to_ema23_pct: -7.18
+- ma20: 17.55
+- ma60: 17.96
+- ma120: 18
+- return_5d: -5
+- return_20d: -15
+- volume_ratio: 1.27
+- distance_to_ma20_pct_auxiliary: -8
+- distance_to_high_60_pct: -19.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260505,19.05,19.05,18.7,19,36000,18.49,2.76,18.36,18.14,1.9
 20260506,18.95,18.95,18.55,18.6,8000,18.5,0.54,18.41,18.15,0.42
 20260507,18.9,19.1,18.7,18.7,8000,18.52,0.99,18.44,18.16,0.41
 20260508,18.2,18.6,17.8,18.6,10000,18.52,0.42,18.5,18.16,0.51
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,16.7,16.7,16.5,16.6,17000,17.67,-6.06,17.93,18.04,1.09
 20260604,16.7,16.7,16.5,16.6,17000,17.58,-5.58,17.8,18.01,1.08
 20260605,16.5,16.75,16.5,16.75,17000,17.51,-4.35,17.7,17.99,1.25
+20260611,16.15,16.45,16.05,16.15,16000,17.4,-7.18,17.55,17.96,1.27
 ```
 
 ## Latest TDCC Snapshot

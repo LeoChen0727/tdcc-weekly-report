@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3711 日月光投控
 
 ## Metadata
-- generated_at: 2026-06-10 22:23:26 Asia/Taipei
+- generated_at: 2026-06-11 22:23:18 Asia/Taipei
 - stock_id: 3711
 - stock_name: 日月光投控
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 581
-- high: 585
-- low: 562
-- close: 577
-- volume: 21540374
-- ma5: 595.2
-- ema23_primary: 561.19
-- distance_to_ema23_pct: 2.82
-- ma20: 567.4
-- ma60: 464.51
-- ma120: 376.19
-- return_5d: -5.56
-- return_20d: 11.82
-- volume_ratio: 0.77
-- distance_to_ma20_pct_auxiliary: 1.69
-- distance_to_high_60_pct: -13.75
+- date: 20260611
+- open: 533
+- high: 552
+- low: 521
+- close: 544
+- volume: 18314332
+- ma5: 583.8
+- ema23_primary: 559.76
+- distance_to_ema23_pct: -2.82
+- ma20: 567.75
+- ma60: 467.82
+- ma120: 378.82
+- return_5d: -9.48
+- return_20d: 1.3
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: -4.18
+- distance_to_high_60_pct: -18.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,526,546,513,537,22625012,473.81,13.34,482.95,391.43,0.88
 20260512,537,579,533,555,30939967,480.58,15.49,489.82,395.81,1.19
 20260513,535,557,534,548,24676716,486.2,12.71,496.02,399.91,0.94
 20260514,555,564,548,548,14595546,491.35,11.53,501.1,404,0.57
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,615,636,614,618,28543715,557.01,10.95,561.85,455.98,1.02
 20260604,600,608,577,590,27769330,559.76,5.4,564.35,460.48,0.99
 20260605,581,585,562,577,21540374,561.19,2.82,567.4,464.51,0.77
+20260611,533,552,521,544,18314332,559.76,-2.82,567.75,467.82,0.66
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 3711 | 日月光投控 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260611 | 3711 | 日月光投控 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260611 | 3711 | 日月光投控 | revenue_pullback | 營收成長股價回檔 | 68.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 3711 | 日月光投控 | 1 | 1 | 3 | 5 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260611 | 3711 | 日月光投控 | 2 | 2 | 3 | 6 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260611 | 3711 | 日月光投控 | 217 | 0 | 16706960.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

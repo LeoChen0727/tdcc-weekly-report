@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6770 力積電
 
 ## Metadata
-- generated_at: 2026-06-10 22:24:18 Asia/Taipei
+- generated_at: 2026-06-11 22:24:01 Asia/Taipei
 - stock_id: 6770
 - stock_name: 力積電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 77
-- high: 77
-- low: 73
-- close: 74.6
-- volume: 112133197
-- ma5: 83.6
-- ema23_primary: 71.82
-- distance_to_ema23_pct: 3.87
-- ma20: 70.59
-- ma60: 62.8
-- ma120: 57.68
-- return_5d: -15.9
-- return_20d: 21.5
-- volume_ratio: 0.4
-- distance_to_ma20_pct_auxiliary: 5.67
-- distance_to_high_60_pct: -21.06
+- date: 20260611
+- open: 62.6
+- high: 65.1
+- low: 62.1
+- close: 64.4
+- volume: 70706900
+- ma5: 79.08
+- ema23_primary: 71.21
+- distance_to_ema23_pct: -9.56
+- ma20: 70.69
+- ma60: 62.77
+- ma120: 57.95
+- return_5d: -25.98
+- return_20d: 3.04
+- volume_ratio: 0.26
+- distance_to_ma20_pct_auxiliary: -8.9
+- distance_to_high_60_pct: -31.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,64.9,66,62.5,62.5,283121477,57.24,9.19,55.32,61.22,1.82
 20260512,63,63.3,60.4,62.1,170376997,57.64,7.73,55.7,61.21,1.07
 20260513,60.7,60.8,59,60.5,118112300,57.88,4.52,55.99,61.22,0.74
 20260514,61.8,63.4,60.8,62.2,196451270,58.24,6.79,56.45,61.17,1.2
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,88,88,84.1,84.6,64659229,70.27,20.39,68.83,62.16,0.21
 20260604,87,88.6,83.7,85.9,106203381,71.57,20.02,69.94,62.6,0.36
 20260605,77,77,73,74.6,112133197,71.82,3.87,70.59,62.8,0.4
+20260611,62.6,65.1,62.1,64.4,70706900,71.21,-9.56,70.69,62.77,0.26
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 6770 | 力積電 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260611 | 6770 | 力積電 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 6770 | 力積電 | 1 | 1 | 4 | 9 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260611 | 6770 | 力積電 | 2 | 2 | 4 | 9 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260611 | 6770 | 力積電 | 202 | 0 | 8264490.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

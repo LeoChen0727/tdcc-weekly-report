@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9105 泰金寶-DR
 
 ## Metadata
-- generated_at: 2026-06-10 22:24:54 Asia/Taipei
+- generated_at: 2026-06-11 22:24:32 Asia/Taipei
 - stock_id: 9105
 - stock_name: 泰金寶-DR
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 13.15
-- high: 13.9
-- low: 11.45
-- close: 11.45
-- volume: 149436626
-- ma5: 10.74
-- ema23_primary: 8.15
-- distance_to_ema23_pct: 40.42
-- ma20: 7.67
-- ma60: 6.34
-- ma120: 6.15
-- return_5d: 30.11
-- return_20d: 101.58
-- volume_ratio: 1.46
-- distance_to_ma20_pct_auxiliary: 49.21
-- distance_to_high_60_pct: -17.63
+- date: 20260611
+- open: 9.31
+- high: 9.5
+- low: 8.88
+- close: 9.24
+- volume: 94139700
+- ma5: 10.65
+- ema23_primary: 8.24
+- distance_to_ema23_pct: 12.08
+- ma20: 7.85
+- ma60: 6.39
+- ma120: 6.17
+- return_5d: -4.55
+- return_20d: 59.31
+- volume_ratio: 0.89
+- distance_to_ma20_pct_auxiliary: 17.77
+- distance_to_high_60_pct: -33.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,5.75,5.85,5.7,5.8,17639696,5.74,0.96,5.73,5.74,0.7
 20260512,5.85,5.85,5.67,5.69,13871012,5.74,-0.87,5.75,5.74,0.54
 20260513,5.67,5.7,5.6,5.64,9918419,5.73,-1.6,5.77,5.73,0.39
 20260514,5.67,5.78,5.6,5.77,13171565,5.74,0.61,5.79,5.73,0.51
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,10.95,11.55,10.75,11.55,120669604,7.61,51.7,7.15,6.15,1.45
 20260604,10.2,10.6,10.1,10.5,271642439,7.85,33.68,7.39,6.24,2.83
 20260605,13.15,13.9,11.45,11.45,149436626,8.15,40.42,7.67,6.34,1.46
+20260611,9.31,9.5,8.88,9.24,94139700,8.24,12.08,7.85,6.39,0.89
 ```
 
 ## Latest TDCC Snapshot
@@ -192,9 +192,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260611 | 9105 | 泰金寶-DR | 13 | 0 | 291470.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

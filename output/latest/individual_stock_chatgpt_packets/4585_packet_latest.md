@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4585 達明
 
 ## Metadata
-- generated_at: 2026-06-10 22:23:36 Asia/Taipei
+- generated_at: 2026-06-11 22:23:26 Asia/Taipei
 - stock_id: 4585
 - stock_name: 達明
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 162
+- latest_price_date: 20260611
+- price_rows: 163
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 349.5
-- high: 349.5
-- low: 336
-- close: 346
-- volume: 512609
-- ma5: 353.3
-- ema23_primary: 343.04
-- distance_to_ema23_pct: 0.86
-- ma20: 346.1
-- ma60: 321.88
+- date: 20260611
+- open: 319
+- high: 320
+- low: 300.5
+- close: 307
+- volume: 573567
+- ma5: 340.4
+- ema23_primary: 340.03
+- distance_to_ema23_pct: -9.72
+- ma20: 344.35
+- ma60: 321.76
 - ma120: 330.9
-- return_5d: -1.28
-- return_20d: 5.01
-- volume_ratio: 0.57
-- distance_to_ma20_pct_auxiliary: -0.03
-- distance_to_high_60_pct: -8.47
+- return_5d: -17.36
+- return_20d: -10.23
+- volume_ratio: 0.64
+- distance_to_ma20_pct_auxiliary: -10.85
+- distance_to_high_60_pct: -18.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,332.5,348,331,342,651581,321.12,6.5,319.6,319.78,1.11
 20260512,343,346,335.5,339,449543,322.61,5.08,321.65,319.57,0.76
 20260513,334.5,334.5,325.5,332.5,411037,323.44,2.8,322.3,319.07,0.71
 20260514,334.5,342,333.5,333.5,366530,324.27,2.85,323.23,318.44,0.65
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,354.5,357,345,347,569643,342.02,1.46,344.6,320.22,0.65
 20260604,378,378,345,351,1169305,342.77,2.4,345.27,321.14,1.29
 20260605,349.5,349.5,336,346,512609,343.04,0.86,346.1,321.88,0.57
+20260611,319,320,300.5,307,573567,340.03,-9.72,344.35,321.76,0.64
 ```
 
 ## Latest TDCC Snapshot
@@ -193,9 +192,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260611 | 4585 | 達明 | 25 | 0 | 1336680.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

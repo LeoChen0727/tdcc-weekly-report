@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4977 眾達-KY
 
 ## Metadata
-- generated_at: 2026-06-10 22:23:42 Asia/Taipei
+- generated_at: 2026-06-11 22:23:31 Asia/Taipei
 - stock_id: 4977
 - stock_name: 眾達-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 277
+- latest_price_date: 20260611
+- price_rows: 278
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 205
-- high: 206
-- low: 196
-- close: 200.5
-- volume: 3475321
-- ma5: 212.4
-- ema23_primary: 216.41
-- distance_to_ema23_pct: -7.35
-- ma20: 221.45
-- ma60: 207.61
-- ma120: 171.79
-- return_5d: -4.75
-- return_20d: -12.06
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: -9.46
-- distance_to_high_60_pct: -26.56
+- date: 20260611
+- open: 173.5
+- high: 178.5
+- low: 166.5
+- close: 173.5
+- volume: 3459370
+- ma5: 203.7
+- ema23_primary: 212.83
+- distance_to_ema23_pct: -18.48
+- ma20: 217.82
+- ma60: 207.98
+- ma120: 172.22
+- return_5d: -20.05
+- return_20d: -29.47
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: -20.35
+- distance_to_high_60_pct: -36.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,235,250.5,221,246,16622159,215.82,13.98,220.1,184.18,1.31
 20260512,240,270.5,239.5,270.5,23093017,220.38,22.74,223.47,186.53,1.79
 20260513,268,273,243.5,243.5,15512412,222.3,9.53,225.93,188.39,1.19
 20260514,244.5,248,233.5,235.5,12705072,223.4,5.41,228.28,190.1,0.96
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,217.5,232.5,217.5,219.5,8171797,218.34,0.53,223.35,206.02,1.01
 20260604,221.5,229,212,212.5,6972330,217.86,-2.46,222.82,206.78,0.88
 20260605,205,206,196,200.5,3475321,216.41,-7.35,221.45,207.61,0.45
+20260611,173.5,178.5,166.5,173.5,3459370,212.83,-18.48,217.82,207.98,0.49
 ```
 
 ## Latest TDCC Snapshot
@@ -192,9 +192,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260611 | 4977 | 眾達-KY | 109 | 0 | 3468750.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

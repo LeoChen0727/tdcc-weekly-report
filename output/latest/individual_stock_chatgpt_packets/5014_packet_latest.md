@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5014 建錩
 
 ## Metadata
-- generated_at: 2026-06-10 22:23:43 Asia/Taipei
+- generated_at: 2026-06-11 22:23:32 Asia/Taipei
 - stock_id: 5014
 - stock_name: 建錩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 11.35
-- high: 11.5
-- low: 11.25
-- close: 11.4
+- date: 20260611
+- open: 11
+- high: 11.05
+- low: 10.8
+- close: 10.95
 - volume: 11000
-- ma5: 11.26
-- ema23_primary: 10.74
-- distance_to_ema23_pct: 6.18
-- ma20: 10.71
+- ma5: 11.23
+- ema23_primary: 10.75
+- distance_to_ema23_pct: 1.82
+- ma20: 10.74
 - ma60: 10.37
-- ma120: 10.58
-- return_5d: 2.24
-- return_20d: 20.89
-- volume_ratio: 0.06
-- distance_to_ma20_pct_auxiliary: 6.39
-- distance_to_high_60_pct: -2.15
+- ma120: 10.59
+- return_5d: -1.35
+- return_20d: 5.8
+- volume_ratio: 0.08
+- distance_to_ma20_pct_auxiliary: 1.91
+- distance_to_high_60_pct: -6.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,10.1,10.35,10.1,10.35,1077000,9.93,4.21,9.9,10.46,3.04
 20260512,10.5,10.55,10.15,10.25,994000,9.96,2.93,9.9,10.44,2.54
 20260513,10.2,10.3,10.15,10.3,362000,9.99,3.14,9.91,10.42,0.91
 20260514,10.4,10.5,10.2,10.2,237000,10,1.96,9.91,10.4,0.6
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,11.2,11.4,11,11.3,11000,10.62,6.4,10.52,10.34,0.05
 20260604,11.2,11.4,11,11.3,11000,10.68,5.84,10.62,10.35,0.05
 20260605,11.35,11.5,11.25,11.4,11000,10.74,6.18,10.71,10.37,0.06
+20260611,11,11.05,10.8,10.95,11000,10.75,1.82,10.74,10.37,0.08
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2881 富邦金
 
 ## Metadata
-- generated_at: 2026-06-10 22:23:01 Asia/Taipei
+- generated_at: 2026-06-11 22:22:56 Asia/Taipei
 - stock_id: 2881
 - stock_name: 富邦金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -64,9 +64,9 @@
 - position_sizing_zh: 試單 1/4 部位；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足
+- risk_control_zh: TDCC 歷史不足、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 型態觀察，價格結構尚未破壞，操作評級為「可小量試單」。 進場策略：目前價位可評估第一筆；可依「試單 1/4 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 符合 型態觀察，價格結構尚未破壞，操作評級為「可小量試單」。 進場策略：目前價位可評估第一筆；可依「試單 1/4 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: high_level_consolidation
 - entry_style: current_price_ok
 - position_sizing: starter_1_4
 
@@ -95,7 +95,6 @@
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
-- acceptable_risk_reward
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -109,6 +108,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -116,29 +116,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 114
-- high: 119
-- low: 112
-- close: 118
-- volume: 61781441
-- ma5: 113.7
-- ema23_primary: 103.68
-- distance_to_ema23_pct: 13.81
-- ma20: 102.69
-- ma60: 93.45
-- ma120: 93.89
-- return_5d: 7.27
-- return_20d: 22.03
-- volume_ratio: 0.99
-- distance_to_ma20_pct_auxiliary: 14.91
-- distance_to_high_60_pct: -0.84
+- date: 20260611
+- open: 125
+- high: 127.5
+- low: 121.5
+- close: 125.5
+- volume: 62123741
+- ma5: 116.7
+- ema23_primary: 105.5
+- distance_to_ema23_pct: 18.95
+- ma20: 104.19
+- ma60: 94.06
+- ma120: 94.16
+- return_5d: 13.57
+- return_20d: 31.41
+- volume_ratio: 0.96
+- distance_to_ma20_pct_auxiliary: 20.46
+- distance_to_high_60_pct: -1.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,96.7,96.7,95.5,95.5,22797950,90.79,5.19,89.88,90.02,0.84
 20260512,96,96,93.7,93.7,36169553,91.03,2.93,90.22,90.07,1.29
 20260513,93.5,95.2,93.3,94.7,18416008,91.34,3.68,90.58,90.12,0.66
 20260514,93.9,96,93.9,94.6,20009347,91.61,3.27,90.94,90.15,0.72
@@ -158,6 +157,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,115.5,116,111,113,72033008,101.37,11.47,100.67,92.52,1.22
 20260604,110.5,113.5,109,113.5,97486405,102.38,10.86,101.62,92.96,1.57
 20260605,114,119,112,118,61781441,103.68,13.81,102.69,93.45,0.99
+20260611,125,127.5,121.5,125.5,62123741,105.5,18.95,104.19,94.06,0.96
 ```
 
 ## Latest TDCC Snapshot
@@ -188,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 2881 | 富邦金 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | continued_many_days | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260611 | 2881 | 富邦金 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 2881 | 富邦金 | 11 | 11 | 5 | 10 | 11 | continued_many_days | 連續 11 日上榜，需區分醞釀延續或訊號鈍化。 |
+| 20260611 | 2881 | 富邦金 | 12 | 12 | 5 | 10 | 12 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260611 | 2881 | 富邦金 | 26 | 0 | 6982540.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

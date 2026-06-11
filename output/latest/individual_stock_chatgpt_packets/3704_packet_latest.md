@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3704 合勤控
 
 ## Metadata
-- generated_at: 2026-06-10 22:23:26 Asia/Taipei
+- generated_at: 2026-06-11 22:23:17 Asia/Taipei
 - stock_id: 3704
 - stock_name: 合勤控
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -116,29 +116,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 47.7
-- high: 48.05
-- low: 45.8
-- close: 47.7
-- volume: 6563588
-- ma5: 47.91
-- ema23_primary: 42.89
-- distance_to_ema23_pct: 11.22
-- ma20: 42.48
-- ma60: 37.12
-- ma120: 35.61
-- return_5d: 2.91
-- return_20d: 35.13
-- volume_ratio: 0.97
-- distance_to_ma20_pct_auxiliary: 12.29
-- distance_to_high_60_pct: -4.6
+- date: 20260611
+- open: 44.4
+- high: 46.4
+- low: 44.4
+- close: 45.95
+- volume: 4606168
+- ma5: 47.74
+- ema23_primary: 43.14
+- distance_to_ema23_pct: 6.5
+- ma20: 43.02
+- ma60: 37.34
+- ma120: 35.69
+- return_5d: -1.82
+- return_20d: 31.1
+- volume_ratio: 0.67
+- distance_to_ma20_pct_auxiliary: 6.8
+- distance_to_high_60_pct: -8.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,35.3,35.85,34.75,35.05,1674303,35.08,-0.08,35.84,34.18,0.5
 20260512,35.85,37.45,35.8,37.05,5392202,35.24,5.13,35.85,34.19,1.67
 20260513,36.4,36.6,35.2,36.55,2742740,35.35,3.39,35.88,34.19,0.86
 20260514,37.4,38.25,36.7,36.7,4602941,35.46,3.49,35.88,34.19,1.43
@@ -158,6 +157,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,48.7,50,48.35,49.05,7021401,41.95,16.93,41.23,36.57,1.11
 20260604,47,48.3,46.6,48,7373140,42.45,13.07,41.86,36.85,1.13
 20260605,47.7,48.05,45.8,47.7,6563588,42.89,11.22,42.48,37.12,0.97
+20260611,44.4,46.4,44.4,45.95,4606168,43.14,6.5,43.02,37.34,0.67
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 3704 | 合勤控 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260611 | 3704 | 合勤控 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 3704 | 合勤控 | 1 | 1 | 4 | 9 | 10 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260611 | 3704 | 合勤控 | 2 | 2 | 4 | 9 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

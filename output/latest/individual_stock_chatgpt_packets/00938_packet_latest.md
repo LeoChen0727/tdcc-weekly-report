@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00938 凱基優選30
 
 ## Metadata
-- generated_at: 2026-06-10 22:22:17 Asia/Taipei
+- generated_at: 2026-06-11 22:22:19 Asia/Taipei
 - stock_id: 00938
 - stock_name: 凱基優選30
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260605
-- price_rows: 11
+- latest_price_date: 20260611
+- price_rows: 12
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 23.14
-- high: 23.2
-- low: 22.82
-- close: 23.13
-- volume: 1664644
-- ma5: 22.71
-- ema23_primary: 21.74
-- distance_to_ema23_pct: 6.4
-- ma20: 22.02
-- ma60: 22.02
-- ma120: 22.02
-- return_5d: 5.62
+- date: 20260611
+- open: 22.9
+- high: 23.1
+- low: 22.74
+- close: 22.97
+- volume: 2321387
+- ma5: 22.86
+- ema23_primary: 21.84
+- distance_to_ema23_pct: 5.16
+- ma20: 22.1
+- ma60: 22.1
+- ma120: 22.1
+- return_5d: 3.33
 - return_20d:
-- volume_ratio: 1.16
-- distance_to_ma20_pct_auxiliary: 5.03
-- distance_to_high_60_pct: -0.39
+- volume_ratio: 1.54
+- distance_to_ma20_pct_auxiliary: 3.93
+- distance_to_high_60_pct: -1.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -145,6 +146,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,22.81,23.22,22.79,23.21,1584308,21.53,7.78,21.85,21.85,1.05
 20260604,22.21,22.49,22.18,22.49,599824,21.61,4.06,21.91,21.91,0.42
 20260605,23.14,23.2,22.82,23.13,1664644,21.74,6.4,22.02,22.02,1.16
+20260611,22.9,23.1,22.74,22.97,2321387,21.84,5.16,22.1,22.1,1.54
 ```
 
 ## Latest TDCC Snapshot

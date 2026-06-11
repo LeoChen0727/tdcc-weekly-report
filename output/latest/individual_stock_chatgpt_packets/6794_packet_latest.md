@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6794 向榮生技
 
 ## Metadata
-- generated_at: 2026-06-10 22:24:18 Asia/Taipei
+- generated_at: 2026-06-11 22:24:02 Asia/Taipei
 - stock_id: 6794
 - stock_name: 向榮生技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 82.5
-- high: 83.5
-- low: 78.9
-- close: 82.8
-- volume: 32291
-- ma5: 82.86
-- ema23_primary: 81.3
-- distance_to_ema23_pct: 1.85
-- ma20: 80.75
-- ma60: 81.08
-- ma120: 83.48
-- return_5d: 3.63
-- return_20d: -0.6
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: 2.54
-- distance_to_high_60_pct: -6.97
+- date: 20260611
+- open: 79.9
+- high: 81
+- low: 79.5
+- close: 80.7
+- volume: 37157
+- ma5: 82.46
+- ema23_primary: 81.25
+- distance_to_ema23_pct: -0.67
+- ma20: 80.66
+- ma60: 81.04
+- ma120: 83.49
+- return_5d: -2.42
+- return_20d: -2.3
+- volume_ratio: 0.76
+- distance_to_ma20_pct_auxiliary: 0.06
+- distance_to_high_60_pct: -9.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,83.1,84,82,82.6,65313,82.16,0.54,82.04,83.01,1.44
 20260512,84,84,81,81.4,46450,82.09,-0.84,81.95,82.9,1.05
 20260513,83.4,84,80.7,81.8,64169,82.07,-0.33,81.88,82.78,1.45
 20260514,83.1,83.1,78,79,89290,81.81,-3.44,81.67,82.62,1.88
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,83.8,84.5,82.5,83.2,60400,81.01,2.7,80.79,81.07,1.14
 20260604,82,84.7,81.1,82.8,48007,81.16,2.02,80.78,81.08,0.95
 20260605,82.5,83.5,78.9,82.8,32291,81.3,1.85,80.75,81.08,0.65
+20260611,79.9,81,79.5,80.7,37157,81.25,-0.67,80.66,81.04,0.76
 ```
 
 ## Latest TDCC Snapshot

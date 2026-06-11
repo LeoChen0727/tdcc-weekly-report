@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4569 六方科-KY
 
 ## Metadata
-- generated_at: 2026-06-10 22:23:35 Asia/Taipei
+- generated_at: 2026-06-11 22:23:25 Asia/Taipei
 - stock_id: 4569
 - stock_name: 六方科-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 171
-- high: 171
-- low: 166
-- close: 169.5
-- volume: 52075
-- ma5: 170.6
-- ema23_primary: 176.53
-- distance_to_ema23_pct: -3.98
-- ma20: 178.38
-- ma60: 167.45
-- ma120: 158.68
-- return_5d: -6.09
-- return_20d: -0.88
-- volume_ratio: 0.16
-- distance_to_ma20_pct_auxiliary: -4.98
-- distance_to_high_60_pct: -20.24
+- date: 20260611
+- open: 159
+- high: 164
+- low: 157.5
+- close: 164
+- volume: 63495
+- ma5: 169.3
+- ema23_primary: 175.49
+- distance_to_ema23_pct: -6.55
+- ma20: 178.4
+- ma60: 167.68
+- ma120: 158.82
+- return_5d: -3.81
+- return_20d: 0.31
+- volume_ratio: 0.2
+- distance_to_ma20_pct_auxiliary: -8.07
+- distance_to_high_60_pct: -22.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,171,171,163,163.5,101673,173.88,-5.97,183.8,158.2,0.42
 20260512,166,170.5,165.5,167,75238,173.31,-3.64,183.1,158.65,0.42
 20260513,167,183.5,166.5,183.5,304531,174.16,5.36,183.47,159.35,1.79
 20260514,201.5,201.5,177,194,1525676,175.81,10.35,183.5,160.24,6.94
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,172,174,169,172,60571,177.78,-3.25,178.7,166.64,0.19
 20260604,172,172.5,165,170.5,190114,177.17,-3.77,178.45,167.03,0.59
 20260605,171,171,166,169.5,52075,176.53,-3.98,178.38,167.45,0.16
+20260611,159,164,157.5,164,63495,175.49,-6.55,178.4,167.68,0.2
 ```
 
 ## Latest TDCC Snapshot

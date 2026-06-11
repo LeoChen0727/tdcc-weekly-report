@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6263 普萊德
 
 ## Metadata
-- generated_at: 2026-06-10 22:24:03 Asia/Taipei
+- generated_at: 2026-06-11 22:23:49 Asia/Taipei
 - stock_id: 6263
 - stock_name: 普萊德
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 173
-- high: 173
-- low: 165
-- close: 166.5
-- volume: 168000
-- ma5: 177
-- ema23_primary: 170.78
-- distance_to_ema23_pct: -2.51
-- ma20: 178.03
-- ma60: 146.86
-- ma120: 136.98
-- return_5d: -6.72
-- return_20d: 8.82
-- volume_ratio: 0.34
-- distance_to_ma20_pct_auxiliary: -6.47
-- distance_to_high_60_pct: -14.62
+- date: 20260611
+- open: 161
+- high: 161.5
+- low: 156
+- close: 156
+- volume: 158000
+- ma5: 173.1
+- ema23_primary: 169.55
+- distance_to_ema23_pct: -7.99
+- ma20: 177.43
+- ma60: 147.4
+- ma120: 137.17
+- return_5d: -11.11
+- return_20d: -7.14
+- volume_ratio: 0.32
+- distance_to_ma20_pct_auxiliary: -12.08
+- distance_to_high_60_pct: -20
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,168,168,168,168,285000,139.86,20.12,140.47,128.92,1.13
 20260512,184.5,184.5,184.5,184.5,329000,143.58,28.5,143.12,129.96,1.27
 20260513,185.5,195,185,188.5,4818000,147.32,27.95,146.05,131.07,9.74
 20260514,188.5,188.5,180,182,1436000,150.21,21.16,148.6,132.04,2.55
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,182.5,183.5,179.5,180.5,182000,170.33,5.97,175.3,145.1,0.35
 20260604,182.5,183.5,179.5,180.5,182000,171.17,5.45,177.35,146.11,0.35
 20260605,173,173,165,166.5,168000,170.78,-2.51,178.03,146.86,0.34
+20260611,161,161.5,156,156,158000,169.55,-7.99,177.43,147.4,0.32
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6928 攸泰科技
 
 ## Metadata
-- generated_at: 2026-06-10 22:24:23 Asia/Taipei
+- generated_at: 2026-06-11 22:24:06 Asia/Taipei
 - stock_id: 6928
 - stock_name: 攸泰科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 47.25
-- high: 47.25
-- low: 46.1
-- close: 46.6
-- volume: 116225
-- ma5: 47.62
-- ema23_primary: 47.28
-- distance_to_ema23_pct: -1.44
-- ma20: 46.85
-- ma60: 47.45
-- ma120: 49.68
-- return_5d: -0.85
-- return_20d: -6.61
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: -0.54
-- distance_to_high_60_pct: -18.67
+- date: 20260611
+- open: 42.2
+- high: 43.2
+- low: 42.15
+- close: 43.05
+- volume: 149586
+- ma5: 46.59
+- ema23_primary: 46.93
+- distance_to_ema23_pct: -8.26
+- ma20: 46.58
+- ma60: 47.33
+- ma120: 49.62
+- return_5d: -10.68
+- return_20d: -11.24
+- volume_ratio: 1.13
+- distance_to_ma20_pct_auxiliary: -7.58
+- distance_to_high_60_pct: -24.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,48.55,49.4,48.2,48.5,153591,48.54,-0.09,48.4,48.75,0.81
 20260512,48.5,48.5,47.15,47.65,122816,48.47,-1.69,48.49,48.72,0.65
 20260513,47.6,47.6,46.1,46.1,130873,48.27,-4.5,48.43,48.65,0.71
 20260514,47.5,47.5,46.3,46.3,138376,48.11,-3.76,48.34,48.55,0.77
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,47.75,47.95,47.1,47.8,174315,47.3,1.05,47.19,47.5,1.32
 20260604,48.15,48.15,47,47.75,165848,47.34,0.86,47.02,47.5,1.25
 20260605,47.25,47.25,46.1,46.6,116225,47.28,-1.44,46.85,47.45,0.88
+20260611,42.2,43.2,42.15,43.05,149586,46.93,-8.26,46.58,47.33,1.13
 ```
 
 ## Latest TDCC Snapshot

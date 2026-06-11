@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5904 寶雅
 
 ## Metadata
-- generated_at: 2026-06-10 22:23:53 Asia/Taipei
+- generated_at: 2026-06-11 22:23:40 Asia/Taipei
 - stock_id: 5904
 - stock_name: 寶雅
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 587
-- high: 590
-- low: 572
-- close: 577
-- volume: 579000
-- ma5: 571.2
-- ema23_primary: 561.02
-- distance_to_ema23_pct: 2.85
-- ma20: 561.45
-- ma60: 536.56
-- ma120: 488.9
-- return_5d: 0.35
-- return_20d: -2.04
-- volume_ratio: 1.35
-- distance_to_ma20_pct_auxiliary: 2.77
-- distance_to_high_60_pct: -4.15
+- date: 20260611
+- open: 615
+- high: 625
+- low: 610
+- close: 625
+- volume: 620000
+- ma5: 582.4
+- ema23_primary: 566.36
+- distance_to_ema23_pct: 10.35
+- ma20: 563.85
+- ma60: 538.64
+- ma120: 490.46
+- return_5d: 9.84
+- return_20d: 8.32
+- volume_ratio: 1.39
+- distance_to_ma20_pct_auxiliary: 10.85
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,589,589,572,577,264000,548.48,5.2,544.75,506.42,0.57
 20260512,576,577,559,561,248000,549.52,2.09,547.55,509.11,0.54
 20260513,560,568,552,562,301000,550.56,2.08,550.5,511.62,0.64
 20260514,562,568,553,553,224000,550.77,0.41,553.05,513.76,0.48
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,568,575,560,571,567000,558.53,2.23,562.85,533.92,1.44
 20260604,568,575,560,571,567000,559.57,2.04,562.05,535.23,1.39
 20260605,587,590,572,577,579000,561.02,2.85,561.45,536.56,1.35
+20260611,615,625,610,625,620000,566.36,10.35,563.85,538.64,1.39
 ```
 
 ## Latest TDCC Snapshot

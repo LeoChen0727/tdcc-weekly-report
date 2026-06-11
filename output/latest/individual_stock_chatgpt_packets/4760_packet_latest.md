@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4760 勤凱
 
 ## Metadata
-- generated_at: 2026-06-10 22:23:38 Asia/Taipei
+- generated_at: 2026-06-11 22:23:28 Asia/Taipei
 - stock_id: 4760
 - stock_name: 勤凱
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 400
-- high: 437.5
-- low: 383.5
-- close: 411
-- volume: 411000
-- ma5: 416.6
-- ema23_primary: 358.84
-- distance_to_ema23_pct: 14.54
-- ma20: 359.2
-- ma60: 269.38
-- ma120: 226
-- return_5d: -12.18
-- return_20d: 42.96
-- volume_ratio: 0.36
-- distance_to_ma20_pct_auxiliary: 14.42
-- distance_to_high_60_pct: -19.41
+- date: 20260611
+- open: 366
+- high: 382
+- low: 351
+- close: 364.5
+- volume: 367000
+- ma5: 403.7
+- ema23_primary: 359.31
+- distance_to_ema23_pct: 1.44
+- ma20: 363.45
+- ma60: 272.49
+- ma120: 227.39
+- return_5d: -15.04
+- return_20d: 30.41
+- volume_ratio: 0.35
+- distance_to_ma20_pct_auxiliary: 0.29
+- distance_to_high_60_pct: -28.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,282.5,288.5,269,279.5,2013000,246.5,13.39,255.12,211.22,1.47
 20260512,281.5,307,273,301,3056000,251.04,19.9,256.68,213.29,2.19
 20260513,296,322,293,308.5,2837000,255.83,20.59,258.7,215.42,1.92
 20260514,328,339,315,321.5,2368000,261.3,23.04,261.48,217.76,1.57
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,406,425,396.5,420.5,412000,348.06,20.81,345.35,261.12,0.29
 20260604,406,425,396.5,420.5,412000,354.1,18.75,353.02,265.42,0.3
 20260605,400,437.5,383.5,411,411000,358.84,14.54,359.2,269.38,0.36
+20260611,366,382,351,364.5,367000,359.31,1.44,363.45,272.49,0.35
 ```
 
 ## Latest TDCC Snapshot

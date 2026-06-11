@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00907 永豐優息存股
 
 ## Metadata
-- generated_at: 2026-06-10 22:22:16 Asia/Taipei
+- generated_at: 2026-06-11 22:22:18 Asia/Taipei
 - stock_id: 00907
 - stock_name: 永豐優息存股
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260605
-- price_rows: 11
+- latest_price_date: 20260611
+- price_rows: 12
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 16.4
-- high: 16.4
-- low: 16.12
-- close: 16.3
-- volume: 2681517
-- ma5: 15.99
-- ema23_primary: 15.32
-- distance_to_ema23_pct: 6.39
-- ma20: 15.46
-- ma60: 15.46
-- ma120: 15.46
-- return_5d: 6.19
+- date: 20260611
+- open: 16.14
+- high: 16.16
+- low: 15.95
+- close: 16.15
+- volume: 1377981
+- ma5: 16.1
+- ema23_primary: 15.39
+- distance_to_ema23_pct: 4.94
+- ma20: 15.52
+- ma60: 15.52
+- ma120: 15.52
+- return_5d: 3.26
 - return_20d:
-- volume_ratio: 0.86
-- distance_to_ma20_pct_auxiliary: 5.41
-- distance_to_high_60_pct: -0.85
+- volume_ratio: 0.46
+- distance_to_ma20_pct_auxiliary: 4.05
+- distance_to_high_60_pct: -1.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -145,6 +146,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,15.89,16.44,15.88,16.43,6932947,15.18,8.24,15.33,15.33,2.26
 20260604,15.64,15.8,15.53,15.8,4075735,15.23,3.73,15.38,15.38,1.28
 20260605,16.4,16.4,16.12,16.3,2681517,15.32,6.39,15.46,15.46,0.86
+20260611,16.14,16.16,15.95,16.15,1377981,15.39,4.94,15.52,15.52,0.46
 ```
 
 ## Latest TDCC Snapshot

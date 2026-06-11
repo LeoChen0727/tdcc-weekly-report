@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1808 潤隆
 
 ## Metadata
-- generated_at: 2026-06-10 22:22:35 Asia/Taipei
+- generated_at: 2026-06-11 22:22:34 Asia/Taipei
 - stock_id: 1808
 - stock_name: 潤隆
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 271
+- latest_price_date: 20260611
+- price_rows: 272
 - latest_tdcc_date: 20260605
 - tdcc_rows: 28
 - tdcc_history_status: tdcc_history_ready
@@ -116,29 +116,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 31.7
-- high: 32.15
-- low: 31.1
-- close: 31.6
-- volume: 1628101
-- ma5: 30
-- ema23_primary: 29.44
-- distance_to_ema23_pct: 7.33
-- ma20: 29.23
+- date: 20260611
+- open: 31.5
+- high: 31.7
+- low: 30.8
+- close: 31.2
+- volume: 1775541
+- ma5: 30.42
+- ema23_primary: 29.59
+- distance_to_ema23_pct: 5.45
+- ma20: 29.34
 - ma60: 29.89
 - ma120: 31.11
-- return_5d: 7.12
-- return_20d: 11.07
-- volume_ratio: 0.95
-- distance_to_ma20_pct_auxiliary: 8.12
-- distance_to_high_60_pct: -2.02
+- return_5d: 7.22
+- return_20d: 7.96
+- volume_ratio: 1.02
+- distance_to_ma20_pct_auxiliary: 6.33
+- distance_to_high_60_pct: -3.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,28.6,29.25,28.6,28.9,1385167,29.44,-1.83,29.46,30.37,0.85
 20260512,28.9,29.1,28.75,28.75,1192100,29.38,-2.15,29.4,30.31,0.74
 20260513,31,31,28.7,28.9,2215018,29.34,-1.5,29.35,30.26,1.36
 20260514,29,29.55,28.7,29.45,1832124,29.35,0.34,29.33,30.21,1.1
@@ -158,6 +157,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,29.25,30.85,29.15,30.8,4784540,29.24,5.32,29.03,29.84,2.87
 20260604,29,29.3,28.75,29.25,1356183,29.24,0.02,29.07,29.85,0.81
 20260605,31.7,32.15,31.1,31.6,1628101,29.44,7.33,29.23,29.89,0.95
+20260611,31.5,31.7,30.8,31.2,1775541,29.59,5.45,29.34,29.89,1.02
 ```
 
 ## Latest TDCC Snapshot
@@ -194,14 +194,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 1808 | 潤隆 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260605 | 1808 | 潤隆 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260605 | 1808 | 潤隆 | revenue_breakout_low_response | 營收爆發低反應股 | 21.0 | 14.0 | B_可觀察 |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260611 | 1808 | 潤隆 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260611 | 1808 | 潤隆 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260611 | 1808 | 潤隆 | revenue_breakout_low_response | 營收爆發低反應股 | 24.0 | 12.0 | B_可觀察 |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 1808 | 潤隆 | 11 | 2 | 5 | 10 | 11 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 11 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260611 | 1808 | 潤隆 | 12 | 3 | 5 | 10 | 12 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

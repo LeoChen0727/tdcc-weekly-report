@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4188 安克
 
 ## Metadata
-- generated_at: 2026-06-10 22:23:30 Asia/Taipei
+- generated_at: 2026-06-11 22:23:21 Asia/Taipei
 - stock_id: 4188
 - stock_name: 安克
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 11.1
-- high: 11.1
-- low: 10.25
-- close: 10.9
-- volume: 11000
-- ma5: 10.9
-- ema23_primary: 11.31
-- distance_to_ema23_pct: -3.59
-- ma20: 11.24
-- ma60: 11.99
-- ma120: 13.21
-- return_5d: -2.24
-- return_20d: -8.02
-- volume_ratio: 0.47
-- distance_to_ma20_pct_auxiliary: -3
-- distance_to_high_60_pct: -18.05
+- date: 20260611
+- open: 10.85
+- high: 10.85
+- low: 10.35
+- close: 10.6
+- volume: 10000
+- ma5: 10.81
+- ema23_primary: 11.25
+- distance_to_ema23_pct: -5.75
+- ma20: 11.18
+- ma60: 11.95
+- ma120: 13.17
+- return_5d: -4.07
+- return_20d: -9.4
+- volume_ratio: 0.48
+- distance_to_ma20_pct_auxiliary: -5.21
+- distance_to_high_60_pct: -20.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,11.7,11.75,11.55,11.7,61000,12.09,-3.25,12.03,12.78,1.66
 20260512,11.6,11.7,11.35,11.35,69000,12.03,-5.66,11.99,12.74,1.75
 20260513,11.3,11.5,11.3,11.5,25000,11.99,-4.06,11.96,12.7,0.63
 20260514,11.8,11.8,11.35,11.5,37000,11.95,-3.74,11.93,12.65,0.97
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,10.95,10.95,10.75,10.8,11000,11.39,-5.19,11.34,12.06,0.45
 20260604,10.95,10.95,10.75,10.8,11000,11.34,-4.78,11.29,12.02,0.47
 20260605,11.1,11.1,10.25,10.9,11000,11.31,-3.59,11.24,11.99,0.47
+20260611,10.85,10.85,10.35,10.6,10000,11.25,-5.75,11.18,11.95,0.48
 ```
 
 ## Latest TDCC Snapshot

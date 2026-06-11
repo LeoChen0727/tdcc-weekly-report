@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2342 茂矽
 
 ## Metadata
-- generated_at: 2026-06-10 22:22:43 Asia/Taipei
+- generated_at: 2026-06-11 22:22:41 Asia/Taipei
 - stock_id: 2342
 - stock_name: 茂矽
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 43.05
-- high: 43.3
-- low: 40
-- close: 41.4
-- volume: 8124688
-- ma5: 41.79
-- ema23_primary: 40.62
-- distance_to_ema23_pct: 1.93
-- ma20: 41.69
-- ma60: 35.36
-- ma120: 33.43
-- return_5d: -3.27
-- return_20d: -5.48
-- volume_ratio: 0.91
-- distance_to_ma20_pct_auxiliary: -0.69
-- distance_to_high_60_pct: -12.75
+- date: 20260611
+- open: 38.85
+- high: 39.95
+- low: 36.65
+- close: 39.7
+- volume: 5401622
+- ma5: 41.39
+- ema23_primary: 40.54
+- distance_to_ema23_pct: -2.07
+- ma20: 41.52
+- ma60: 35.51
+- ma120: 33.52
+- return_5d: -4.8
+- return_20d: -7.78
+- volume_ratio: 0.64
+- distance_to_ma20_pct_auxiliary: -4.38
+- distance_to_high_60_pct: -16.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,43.8,45.2,41.9,43.05,15791982,35.65,20.76,34.43,32.04,2.05
 20260512,42.2,44.8,40.9,44.1,13768248,36.35,21.31,35.18,32.25,1.64
 20260513,43.8,44.55,41,41,12724719,36.74,11.59,35.76,32.4,1.42
 20260514,41.75,43.55,41.5,42.15,9221897,37.19,13.33,36.38,32.56,0.99
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,40.7,44.65,40.5,44.65,15954646,40.54,10.14,42.08,34.96,1.49
 20260604,41.75,42.4,39.7,40.6,4794854,40.54,0.14,41.81,35.16,0.47
 20260605,43.05,43.3,40,41.4,8124688,40.62,1.93,41.69,35.36,0.91
+20260611,38.85,39.95,36.65,39.7,5401622,40.54,-2.07,41.52,35.51,0.64
 ```
 
 ## Latest TDCC Snapshot
@@ -189,12 +189,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 2342 | 茂矽 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260611 | 2342 | 茂矽 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 2342 | 茂矽 | 8 | 2 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 8 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260611 | 2342 | 茂矽 | 9 | 3 | 5 | 9 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

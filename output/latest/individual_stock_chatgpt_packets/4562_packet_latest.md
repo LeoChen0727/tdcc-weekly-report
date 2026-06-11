@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4562 穎漢
 
 ## Metadata
-- generated_at: 2026-06-10 22:23:35 Asia/Taipei
+- generated_at: 2026-06-11 22:23:25 Asia/Taipei
 - stock_id: 4562
 - stock_name: 穎漢
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 41.65
-- high: 44.5
-- low: 40.55
-- close: 40.55
-- volume: 4444059
-- ma5: 42.04
-- ema23_primary: 40.14
-- distance_to_ema23_pct: 1.02
-- ma20: 40.58
-- ma60: 35.8
+- date: 20260611
+- open: 35.7
+- high: 36.75
+- low: 34.25
+- close: 35.5
+- volume: 699711
+- ma5: 40.03
+- ema23_primary: 39.76
+- distance_to_ema23_pct: -10.7
+- ma20: 40.5
+- ma60: 35.84
 - ma120: 36.56
-- return_5d: -2.17
-- return_20d: 7.56
-- volume_ratio: 1.49
-- distance_to_ma20_pct_auxiliary: -0.08
-- distance_to_high_60_pct: -10.98
+- return_5d: -22.06
+- return_20d: -4.57
+- volume_ratio: 0.23
+- distance_to_ma20_pct_auxiliary: -12.34
+- distance_to_high_60_pct: -22.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,37.05,38.05,37.05,37.2,498183,35.39,5.1,35.44,34.3,0.3
 20260512,37.1,37.65,36.15,36.95,517561,35.52,4.01,35.73,34.29,0.31
 20260513,36.8,36.8,36,36,357822,35.56,1.23,35.82,34.26,0.21
 20260514,36.8,36.8,35.5,35.5,400100,35.56,-0.16,35.72,34.21,0.28
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,41.85,42,40.55,40.7,1292289,39.96,1.85,40.27,35.48,0.49
 20260604,45.55,45.55,41.3,41.7,4272108,40.1,3.98,40.44,35.65,1.52
 20260605,41.65,44.5,40.55,40.55,4444059,40.14,1.02,40.58,35.8,1.49
+20260611,35.7,36.75,34.25,35.5,699711,39.76,-10.7,40.5,35.84,0.23
 ```
 
 ## Latest TDCC Snapshot

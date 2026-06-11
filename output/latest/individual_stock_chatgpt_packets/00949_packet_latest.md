@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00949 復華日本龍頭
 
 ## Metadata
-- generated_at: 2026-06-10 22:22:17 Asia/Taipei
+- generated_at: 2026-06-11 22:22:19 Asia/Taipei
 - stock_id: 00949
 - stock_name: 復華日本龍頭
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260605
-- price_rows: 11
+- latest_price_date: 20260611
+- price_rows: 12
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 20.7
-- high: 20.76
-- low: 20.61
-- close: 20.73
-- volume: 1087190
-- ma5: 20.73
-- ema23_primary: 20.47
-- distance_to_ema23_pct: 1.29
-- ma20: 20.57
-- ma60: 20.57
-- ma120: 20.57
-- return_5d: -0.91
+- date: 20260611
+- open: 19.76
+- high: 19.92
+- low: 19.72
+- close: 19.89
+- volume: 713392
+- ma5: 20.59
+- ema23_primary: 20.42
+- distance_to_ema23_pct: -2.59
+- ma20: 20.51
+- ma60: 20.51
+- ma120: 20.51
+- return_5d: -3.49
 - return_20d:
-- volume_ratio: 0.78
-- distance_to_ma20_pct_auxiliary: 0.8
-- distance_to_high_60_pct: -1.57
+- volume_ratio: 0.53
+- distance_to_ma20_pct_auxiliary: -3.02
+- distance_to_high_60_pct: -5.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -146,6 +146,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,20.91,21.06,20.88,21.05,1753196,20.43,3.06,20.54,20.54,1.24
 20260604,20.61,20.64,20.38,20.63,1528689,20.44,0.92,20.55,20.55,1.07
 20260605,20.7,20.76,20.61,20.73,1087190,20.47,1.29,20.57,20.57,0.78
+20260611,19.76,19.92,19.72,19.89,713392,20.42,-2.59,20.51,20.51,0.53
 ```
 
 ## Latest TDCC Snapshot

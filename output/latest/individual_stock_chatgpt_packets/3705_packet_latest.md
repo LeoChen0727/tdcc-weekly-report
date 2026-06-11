@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3705 永信
 
 ## Metadata
-- generated_at: 2026-06-10 22:23:26 Asia/Taipei
+- generated_at: 2026-06-11 22:23:17 Asia/Taipei
 - stock_id: 3705
 - stock_name: 永信
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 28
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 57.1
-- high: 57.5
-- low: 57
+- date: 20260611
+- open: 57.2
+- high: 57.4
+- low: 56.4
 - close: 57.3
-- volume: 296384
-- ma5: 56.44
-- ema23_primary: 55.9
-- distance_to_ema23_pct: 2.5
-- ma20: 55.91
-- ma60: 55.06
+- volume: 213215
+- ma5: 56.7
+- ema23_primary: 56.02
+- distance_to_ema23_pct: 2.29
+- ma20: 56.01
+- ma60: 55.12
 - ma120: 55.64
-- return_5d: 2.69
-- return_20d: 3.62
-- volume_ratio: 1.47
-- distance_to_ma20_pct_auxiliary: 2.48
+- return_5d: 2.32
+- return_20d: 3.43
+- volume_ratio: 1.03
+- distance_to_ma20_pct_auxiliary: 2.3
 - distance_to_high_60_pct: -0.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,55.3,55.5,55.3,55.4,100742,55.19,0.38,55.34,54.74,0.52
 20260512,55.6,55.6,55.3,55.4,191736,55.21,0.34,55.33,54.74,1.03
 20260513,55.5,56.2,55.3,56,326923,55.28,1.31,55.34,54.76,1.71
 20260514,56,56.1,55.6,55.7,232923,55.31,0.7,55.36,54.76,1.22
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,56.3,56.4,56,56.3,164892,55.73,1.03,55.77,54.95,0.84
 20260604,55.9,56.4,55.8,56.3,140332,55.77,0.94,55.81,54.99,0.73
 20260605,57.1,57.5,57,57.3,296384,55.9,2.5,55.91,55.06,1.47
+20260611,57.2,57.4,56.4,57.3,213215,56.02,2.29,56.01,55.12,1.03
 ```
 
 ## Latest TDCC Snapshot
@@ -199,9 +199,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260611 | 3705 | 永信 | 2 | 0 | 10800.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

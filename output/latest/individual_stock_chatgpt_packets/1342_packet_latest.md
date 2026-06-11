@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1342 八貫
 
 ## Metadata
-- generated_at: 2026-06-10 22:22:23 Asia/Taipei
+- generated_at: 2026-06-11 22:22:24 Asia/Taipei
 - stock_id: 1342
 - stock_name: 八貫
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -56,35 +56,29 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 建議買進
+- action_rating_display_zh: 減碼
 - model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 嚴格突破，價格結構尚未破壞，操作評級為「建議買進」。
-- entry_strategy_zh: 突破後順勢追蹤；可依「正常部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
-- position_sizing_zh: 正常部位；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
+- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「減碼」。
+- entry_strategy_zh: 目前風險升高，以降低部位為主，不建議新買。
+- position_sizing_zh: 降低部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足
+- risk_control_zh: TDCC 歷史不足、量價失敗
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 嚴格突破，價格結構尚未破壞，操作評級為「建議買進」。 進場策略：突破後順勢追蹤；可依「正常部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「減碼」。 進場策略：目前風險升高，以降低部位為主，不建議新買。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、量價失敗
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: buy_now
-- action_rating_label_zh: 建議買進
-- confidence_level: medium
-- thesis_state: breakout_confirmed
-- entry_style: breakout_follow
-- position_sizing: normal_position
+- action_rating: reduce
+- action_rating_label_zh: 減碼
+- confidence_level: low
+- thesis_state: failed_breakout
+- entry_style: no_entry_now
+- position_sizing: reduce_position
 
 ### management_plan
-- buy_first_tranche_now
-- add_on_23ema_hold
-- add_on_reclaim_23ema
-- add_on_breakout
-- take_profit_near_prior_high
-- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
@@ -94,10 +88,8 @@
 - model_recommended
 - decision_priority_high
 - decision_score_high
-- price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_tdcc_warning
-- no_major_volume_price_failure
 - acceptable_risk_reward
 
 ### post_entry_watch_items
@@ -112,6 +104,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
+- volume_price_failure
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -119,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 100.5
-- high: 104
-- low: 100.5
-- close: 104
-- volume: 1384759
-- ma5: 96.16
-- ema23_primary: 94.12
-- distance_to_ema23_pct: 10.49
-- ma20: 93.89
-- ma60: 91.28
-- ma120: 92.41
-- return_5d: 13.54
-- return_20d: 10.4
-- volume_ratio: 4.02
-- distance_to_ma20_pct_auxiliary: 10.76
-- distance_to_high_60_pct: 0
+- date: 20260611
+- open: 110.5
+- high: 111
+- low: 104.5
+- close: 107
+- volume: 1205385
+- ma5: 99
+- ema23_primary: 95.2
+- distance_to_ema23_pct: 12.4
+- ma20: 94.47
+- ma60: 91.47
+- ma120: 92.58
+- return_5d: 15.3
+- return_20d: 12.04
+- volume_ratio: 3.09
+- distance_to_ma20_pct_auxiliary: 13.26
+- distance_to_high_60_pct: -3.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,94.4,95.6,94.1,95.5,298776,93.01,2.67,93.59,92.86,0.53
 20260512,95.6,95.6,94.4,95,215867,93.18,1.95,93.9,92.87,0.39
 20260513,94.3,94.9,93.8,94.3,286343,93.27,1.1,94.16,92.88,0.51
 20260514,94.6,95.2,93.1,93.5,310006,93.29,0.22,94.42,92.84,0.55
@@ -161,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,94.8,95.5,93.7,95.2,368621,93.12,2.23,93.47,91.14,1.23
 20260604,93.6,95,92.9,94.4,472706,93.23,1.26,93.41,91.13,1.6
 20260605,100.5,104,100.5,104,1384759,94.12,10.49,93.89,91.28,4.02
+20260611,110.5,111,104.5,107,1205385,95.2,12.4,94.47,91.47,3.09
 ```
 
 ## Latest TDCC Snapshot
@@ -191,12 +184,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 1342 | 八貫 | true_breakout | 嚴格突破 | 129.0 |  |  | breakout_confirmed |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260611 | 1342 | 八貫 | true_breakout | 嚴格突破 | 119.0 |  |  | platform_breakout |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 1342 | 八貫 | 2 | 1 | 2 | 2 | 2 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260611 | 1342 | 八貫 | 3 | 2 | 3 | 3 | 3 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

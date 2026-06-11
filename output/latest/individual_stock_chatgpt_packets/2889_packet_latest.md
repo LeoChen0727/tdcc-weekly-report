@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2889 國票金
 
 ## Metadata
-- generated_at: 2026-06-10 22:23:01 Asia/Taipei
+- generated_at: 2026-06-11 22:22:57 Asia/Taipei
 - stock_id: 2889
 - stock_name: 國票金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 15.15
-- high: 15.2
-- low: 14.9
-- close: 15.05
-- volume: 5975487
-- ma5: 14.89
-- ema23_primary: 14.78
-- distance_to_ema23_pct: 1.81
+- date: 20260611
+- open: 15.1
+- high: 15.1
+- low: 14.85
+- close: 14.95
+- volume: 5710056
+- ma5: 14.93
+- ema23_primary: 14.8
+- distance_to_ema23_pct: 1.04
 - ma20: 14.71
-- ma60: 15.18
-- ma120: 15.87
-- return_5d: 2.38
-- return_20d: 2.73
-- volume_ratio: 1.64
-- distance_to_ma20_pct_auxiliary: 2.35
-- distance_to_high_60_pct: -13.51
+- ma60: 15.16
+- ma120: 15.85
+- return_5d: 1.36
+- return_20d: 1.36
+- volume_ratio: 1.54
+- distance_to_ma20_pct_auxiliary: 1.6
+- distance_to_high_60_pct: -14.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,14.7,14.85,14.6,14.75,4585846,14.93,-1.19,14.86,15.78,1.34
 20260512,14.8,14.85,14.6,14.8,3792960,14.92,-0.78,14.84,15.75,1.09
 20260513,14.8,14.8,14.55,14.65,2067640,14.89,-1.64,14.81,15.72,0.6
 20260514,14.7,14.85,14.5,14.6,3621041,14.87,-1.82,14.77,15.69,1.02
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,14.75,15.2,14.65,15.15,9916351,14.76,2.65,14.68,15.21,2.98
 20260604,14.65,14.8,14.5,14.75,5203169,14.76,-0.06,14.69,15.2,1.51
 20260605,15.15,15.2,14.9,15.05,5975487,14.78,1.81,14.71,15.18,1.64
+20260611,15.1,15.1,14.85,14.95,5710056,14.8,1.04,14.71,15.16,1.54
 ```
 
 ## Latest TDCC Snapshot
@@ -189,12 +189,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 2889 | 國票金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260611 | 2889 | 國票金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 2889 | 國票金 | 11 | 2 | 5 | 10 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260611 | 2889 | 國票金 | 12 | 3 | 5 | 10 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

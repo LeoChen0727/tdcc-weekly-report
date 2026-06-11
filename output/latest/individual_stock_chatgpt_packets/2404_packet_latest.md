@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2404 漢唐
 
 ## Metadata
-- generated_at: 2026-06-10 22:22:47 Asia/Taipei
+- generated_at: 2026-06-11 22:22:44 Asia/Taipei
 - stock_id: 2404
 - stock_name: 漢唐
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -116,29 +116,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 1210
-- high: 1280
-- low: 1190
-- close: 1205
-- volume: 6169316
-- ma5: 1167
-- ema23_primary: 1112.98
-- distance_to_ema23_pct: 8.27
-- ma20: 1115.15
-- ma60: 1002.22
-- ma120: 986.19
-- return_5d: 4.33
-- return_20d: 18.72
-- volume_ratio: 1.18
-- distance_to_ma20_pct_auxiliary: 8.06
-- distance_to_high_60_pct: -10.41
+- date: 20260611
+- open: 1185
+- high: 1230
+- low: 1140
+- close: 1195
+- volume: 4892552
+- ma5: 1171
+- ema23_primary: 1119.81
+- distance_to_ema23_pct: 6.71
+- ma20: 1123.65
+- ma60: 1004.05
+- ma120: 989.48
+- return_5d: 1.7
+- return_20d: 16.59
+- volume_ratio: 0.94
+- distance_to_ma20_pct_auxiliary: 6.35
+- distance_to_high_60_pct: -11.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,1040,1040,986,1025,4977116,972.5,5.4,976.45,961.88,1.03
 20260512,1040,1040,990,993,4734295,974.21,1.93,979.5,963.2,0.99
 20260513,1020,1080,1005,1025,8636856,978.44,4.76,985,964.68,1.74
 20260514,1040,1060,1000,1050,5790200,984.41,6.66,992,966.63,1.14
@@ -158,6 +157,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,1155,1180,1130,1155,5099192,1100.49,4.95,1098,998.13,0.97
 20260604,1175,1180,1135,1150,3749353,1104.61,4.11,1105.65,999.47,0.71
 20260605,1210,1280,1190,1205,6169316,1112.98,8.27,1115.15,1002.22,1.18
+20260611,1185,1230,1140,1195,4892552,1119.81,6.71,1123.65,1004.05,0.94
 ```
 
 ## Latest TDCC Snapshot
@@ -188,19 +188,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 2404 | 漢唐 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
-| 20260605 | 2404 | 漢唐 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260605 | 2404 | 漢唐 | revenue_breakout_low_response | 營收爆發低反應股 | 21.0 | 2.0 | A_優先追蹤 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260611 | 2404 | 漢唐 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260611 | 2404 | 漢唐 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260611 | 2404 | 漢唐 | revenue_breakout_low_response | 營收爆發低反應股 | 20.0 | 5.0 | A_優先追蹤 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 2404 | 漢唐 | 11 | 2 | 5 | 10 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260611 | 2404 | 漢唐 | 12 | 3 | 5 | 10 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260611 | 2404 | 漢唐 | 248 | 0 | 33463440.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

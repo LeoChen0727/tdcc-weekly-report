@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2546 根基
 
 ## Metadata
-- generated_at: 2026-06-10 22:22:54 Asia/Taipei
+- generated_at: 2026-06-11 22:22:51 Asia/Taipei
 - stock_id: 2546
 - stock_name: 根基
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 87.8
-- high: 88
-- low: 86.9
-- close: 87.9
-- volume: 105887
-- ma5: 87.08
-- ema23_primary: 85.98
-- distance_to_ema23_pct: 2.23
-- ma20: 85.69
-- ma60: 84.53
-- ma120: 85.91
-- return_5d: 0.34
-- return_20d: 2.93
-- volume_ratio: 0.61
-- distance_to_ma20_pct_auxiliary: 2.57
-- distance_to_high_60_pct: -0.34
+- date: 20260611
+- open: 92.5
+- high: 93.2
+- low: 91.2
+- close: 93
+- volume: 377385
+- ma5: 88.22
+- ema23_primary: 86.57
+- distance_to_ema23_pct: 7.43
+- ma20: 86.08
+- ma60: 84.67
+- ma120: 85.95
+- return_5d: 6.53
+- return_20d: 9.15
+- volume_ratio: 2.12
+- distance_to_ma20_pct_auxiliary: 8.03
+- distance_to_high_60_pct: -0.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,85.4,85.6,84.4,85.2,266443,84.87,0.39,85.42,84.71,2.28
 20260512,85.1,85.1,84.5,84.8,976030,84.86,-0.08,85.38,84.69,6.17
 20260513,84.8,84.9,84.4,84.8,55840,84.86,-0.07,85.31,84.67,0.36
 20260514,84.8,85.2,84.6,84.9,140091,84.86,0.04,85.25,84.64,0.89
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,86.9,87,85.7,86.6,174169,85.72,1.03,85.5,84.42,1.03
 20260604,87.3,87.6,85.6,86.8,154237,85.81,1.16,85.57,84.47,0.9
 20260605,87.8,88,86.9,87.9,105887,85.98,2.23,85.69,84.53,0.61
+20260611,92.5,93.2,91.2,93,377385,86.57,7.43,86.08,84.67,2.12
 ```
 
 ## Latest TDCC Snapshot

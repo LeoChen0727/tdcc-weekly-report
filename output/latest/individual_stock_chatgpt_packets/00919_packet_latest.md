@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00919 群益台灣精選高息
 
 ## Metadata
-- generated_at: 2026-06-10 22:22:17 Asia/Taipei
+- generated_at: 2026-06-11 22:22:18 Asia/Taipei
 - stock_id: 00919
 - stock_name: 群益台灣精選高息
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260605
-- price_rows: 11
+- latest_price_date: 20260611
+- price_rows: 12
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 30.46
-- high: 30.7
-- low: 29.95
-- close: 30.67
-- volume: 163636346
-- ma5: 30.41
-- ema23_primary: 28.42
-- distance_to_ema23_pct: 7.93
-- ma20: 29.13
-- ma60: 29.13
-- ma120: 29.13
-- return_5d: 5.72
+- date: 20260611
+- open: 30.23
+- high: 30.33
+- low: 29.81
+- close: 30.19
+- volume: 161021005
+- ma5: 30.45
+- ema23_primary: 28.56
+- distance_to_ema23_pct: 5.69
+- ma20: 29.22
+- ma60: 29.22
+- ma120: 29.22
+- return_5d: 0.63
 - return_20d:
-- volume_ratio: 0.99
-- distance_to_ma20_pct_auxiliary: 5.28
-- distance_to_high_60_pct: -0.42
+- volume_ratio: 0.98
+- distance_to_ma20_pct_auxiliary: 3.32
+- distance_to_high_60_pct: -1.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -145,6 +146,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,30.51,30.8,30.32,30.78,159939563,28.02,9.84,28.83,28.83,1.03
 20260604,30.35,30.5,29.85,30.3,258252001,28.21,7.4,28.98,28.98,1.56
 20260605,30.46,30.7,29.95,30.67,163636346,28.42,7.93,29.13,29.13,0.99
+20260611,30.23,30.33,29.81,30.19,161021005,28.56,5.69,29.22,29.22,0.98
 ```
 
 ## Latest TDCC Snapshot

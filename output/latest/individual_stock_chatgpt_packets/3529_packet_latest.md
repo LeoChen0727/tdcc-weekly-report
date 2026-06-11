@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3529 力旺
 
 ## Metadata
-- generated_at: 2026-06-10 22:23:20 Asia/Taipei
+- generated_at: 2026-06-11 22:23:13 Asia/Taipei
 - stock_id: 3529
 - stock_name: 力旺
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 3500
-- high: 3525
-- low: 3385
-- close: 3435
-- volume: 3442000
-- ma5: 3477
-- ema23_primary: 3594.71
-- distance_to_ema23_pct: -4.44
-- ma20: 3616.25
-- ma60: 3424.42
-- ma120: 2649.96
-- return_5d: 0.73
-- return_20d: -20.76
-- volume_ratio: 1.66
-- distance_to_ma20_pct_auxiliary: -5.01
-- distance_to_high_60_pct: -28.21
+- date: 20260611
+- open: 2945
+- high: 3025
+- low: 2870
+- close: 3015
+- volume: 2955000
+- ma5: 3424
+- ema23_primary: 3546.4
+- distance_to_ema23_pct: -14.98
+- ma20: 3544
+- ma60: 3433.25
+- ma120: 2658.08
+- return_5d: -8.08
+- return_20d: -32.4
+- volume_ratio: 1.37
+- distance_to_ma20_pct_auxiliary: -14.93
+- distance_to_high_60_pct: -36.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,4370,4665,4295,4460,1469000,3907.01,14.15,4035.75,2966.58,1.52
 20260512,4460,4460,4035,4115,1729000,3924.34,4.86,4083.5,3006.83,1.73
 20260513,3990,4115,3800,3920,1493000,3923.98,-0.1,4112.75,3044,1.46
 20260514,4015,4040,3885,3920,518000,3923.65,-0.09,4140.25,3080.75,0.51
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,3580,3605,3470,3570,3554000,3612.8,-1.18,3718,3381.83,1.9
 20260604,3580,3605,3470,3570,3554000,3609.23,-1.09,3661.25,3404.83,1.8
 20260605,3500,3525,3385,3435,3442000,3594.71,-4.44,3616.25,3424.42,1.66
+20260611,2945,3025,2870,3015,2955000,3546.4,-14.98,3544,3433.25,1.37
 ```
 
 ## Latest TDCC Snapshot

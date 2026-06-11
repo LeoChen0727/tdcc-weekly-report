@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1618 合機
 
 ## Metadata
-- generated_at: 2026-06-10 22:22:31 Asia/Taipei
+- generated_at: 2026-06-11 22:22:31 Asia/Taipei
 - stock_id: 1618
 - stock_name: 合機
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 44.2
-- high: 44.2
+- date: 20260611
+- open: 43.55
+- high: 43.6
 - low: 41.85
-- close: 42
-- volume: 2144475
-- ma5: 42.96
-- ema23_primary: 40.91
-- distance_to_ema23_pct: 2.67
-- ma20: 40.33
+- close: 42.15
+- volume: 3149065
+- ma5: 42.87
+- ema23_primary: 41.01
+- distance_to_ema23_pct: 2.77
+- ma20: 40.5
 - ma60: 39.89
 - ma120: 41.8
-- return_5d: -0.47
-- return_20d: 7.14
-- volume_ratio: 1.45
-- distance_to_ma20_pct_auxiliary: 4.15
-- distance_to_high_60_pct: -7.79
+- return_5d: -1.06
+- return_20d: 9.2
+- volume_ratio: 1.97
+- distance_to_ma20_pct_auxiliary: 4.07
+- distance_to_high_60_pct: -7.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,38.5,38.7,38.05,38.6,911873,39.33,-1.85,39.26,41.14,1.04
 20260512,39,39.05,38.25,38.4,650263,39.25,-2.17,39.24,41.04,0.74
 20260513,38.3,38.3,38,38.1,397406,39.16,-2.7,39.21,40.93,0.46
 20260514,39.05,39.7,38.3,38.3,822197,39.08,-2.01,39.17,40.82,0.93
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,42.7,45.55,42.25,45.2,6154653,40.66,11.17,40.05,39.86,4.27
 20260604,42.7,42.7,41.95,42.5,1033859,40.81,4.14,40.19,39.87,0.72
 20260605,44.2,44.2,41.85,42,2144475,40.91,2.67,40.33,39.89,1.45
+20260611,43.55,43.6,41.85,42.15,3149065,41.01,2.77,40.5,39.89,1.97
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 1618 | 合機 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260611 | 1618 | 合機 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260611 | 1618 | 合機 | revenue_breakout_low_response | 營收爆發低反應股 | 20.0 | 16.0 | B_可觀察 |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 1618 | 合機 | 6 | 1 | 5 | 7 | 7 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 7 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260611 | 1618 | 合機 | 7 | 2 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 8 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260611 | 1618 | 合機 | 3 | 0 | 243040.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

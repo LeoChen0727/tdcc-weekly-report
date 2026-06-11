@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6670 復盛應用
 
 ## Metadata
-- generated_at: 2026-06-10 22:24:14 Asia/Taipei
+- generated_at: 2026-06-11 22:23:58 Asia/Taipei
 - stock_id: 6670
 - stock_name: 復盛應用
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 280.5
-- high: 284
-- low: 276
-- close: 276
-- volume: 473246
-- ma5: 277.3
-- ema23_primary: 266.25
-- distance_to_ema23_pct: 3.66
-- ma20: 265.62
-- ma60: 264.62
-- ma120: 264.77
-- return_5d: 5.54
-- return_20d: 8.66
-- volume_ratio: 0.97
-- distance_to_ma20_pct_auxiliary: 3.91
-- distance_to_high_60_pct: -2.82
+- date: 20260611
+- open: 283
+- high: 283
+- low: 278.5
+- close: 282
+- volume: 422317
+- ma5: 279.3
+- ema23_primary: 267.57
+- distance_to_ema23_pct: 5.39
+- ma20: 266.6
+- ma60: 264.73
+- ma120: 265.05
+- return_5d: 3.68
+- return_20d: 7.43
+- volume_ratio: 0.87
+- distance_to_ma20_pct_auxiliary: 5.78
+- distance_to_high_60_pct: -0.7
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,254.5,263,254,262.5,471826,258.8,1.43,257.77,265.87,1.09
 20260512,262,277,262,274.5,867486,260.11,5.53,258.32,266,1.98
 20260513,268.5,273,265,265,373104,260.51,1.72,258.4,265.91,0.84
 20260514,266.5,267.5,260.5,263,373149,260.72,0.87,258.38,265.68,0.83
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,275.5,282.5,275.5,281.5,660906,264.17,6.56,263.52,264.32,1.39
 20260604,273.5,278.5,269.5,278.5,689847,265.37,4.95,264.52,264.53,1.41
 20260605,280.5,284,276,276,473246,266.25,3.66,265.62,264.62,0.97
+20260611,283,283,278.5,282,422317,267.57,5.39,266.6,264.73,0.87
 ```
 
 ## Latest TDCC Snapshot
@@ -193,9 +192,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260611 | 6670 | 復盛應用 | 6 | 0 | 133590.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

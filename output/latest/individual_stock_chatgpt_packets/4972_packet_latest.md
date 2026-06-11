@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4972 湯石照明
 
 ## Metadata
-- generated_at: 2026-06-10 22:23:41 Asia/Taipei
+- generated_at: 2026-06-11 22:23:31 Asia/Taipei
 - stock_id: 4972
 - stock_name: 湯石照明
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 17
-- high: 17.05
-- low: 16.85
-- close: 16.95
+- date: 20260611
+- open: 16.55
+- high: 16.65
+- low: 16.55
+- close: 16.6
 - volume: 17000
-- ma5: 16.62
+- ma5: 16.63
 - ema23_primary: 16.57
-- distance_to_ema23_pct: 2.3
+- distance_to_ema23_pct: 0.17
 - ma20: 16.48
-- ma60: 16.98
-- ma120: 17.52
-- return_5d: 3.04
-- return_20d: 3.04
-- volume_ratio: 0.74
-- distance_to_ma20_pct_auxiliary: 2.87
-- distance_to_high_60_pct: -6.35
+- ma60: 16.96
+- ma120: 17.51
+- return_5d: 0.3
+- return_20d: 0.91
+- volume_ratio: 0.8
+- distance_to_ma20_pct_auxiliary: 0.7
+- distance_to_high_60_pct: -8.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,16.45,16.5,16.4,16.45,53000,16.77,-1.93,16.69,17.42,0.87
 20260512,16.45,16.45,16.4,16.45,46000,16.75,-1.77,16.66,17.39,0.77
 20260513,16.5,16.5,16.35,16.4,25000,16.72,-1.9,16.63,17.36,0.42
 20260514,16.45,16.45,16.4,16.45,37000,16.7,-1.47,16.61,17.34,0.62
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,16.5,16.55,16.4,16.55,17000,16.53,0.1,16.45,17.01,0.62
 20260604,16.5,16.55,16.4,16.55,17000,16.53,0.09,16.45,16.99,0.67
 20260605,17,17.05,16.85,16.95,17000,16.57,2.3,16.48,16.98,0.74
+20260611,16.55,16.65,16.55,16.6,17000,16.57,0.17,16.48,16.96,0.8
 ```
 
 ## Latest TDCC Snapshot

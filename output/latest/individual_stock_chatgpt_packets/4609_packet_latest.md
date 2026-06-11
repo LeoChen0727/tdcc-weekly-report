@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4609 唐鋒
 
 ## Metadata
-- generated_at: 2026-06-10 22:23:36 Asia/Taipei
+- generated_at: 2026-06-11 22:23:26 Asia/Taipei
 - stock_id: 4609
 - stock_name: 唐鋒
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 250
+- latest_price_date: 20260611
+- price_rows: 251
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 5.66
-- high: 5.66
-- low: 5.4
-- close: 5.4
+- date: 20260611
+- open: 5.38
+- high: 5.49
+- low: 5.32
+- close: 5.46
 - volume: 5000
-- ma5: 5.48
-- ema23_primary: 5.34
-- distance_to_ema23_pct: 1.1
-- ma20: 5.38
+- ma5: 5.47
+- ema23_primary: 5.35
+- distance_to_ema23_pct: 2.04
+- ma20: 5.42
 - ma60: 5.04
 - ma120: 5.52
-- return_5d: -9.24
-- return_20d: 5.88
-- volume_ratio: 0.38
-- distance_to_ma20_pct_auxiliary: 0.33
-- distance_to_high_60_pct: -12.2
+- return_5d: -0.91
+- return_20d: 14.71
+- volume_ratio: 0.39
+- distance_to_ma20_pct_auxiliary: 0.79
+- distance_to_high_60_pct: -11.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,4.81,5.03,4.73,4.76,16000,4.82,-1.2,4.67,5.09,0.4
 20260508,5.23,5.23,5.23,5.23,36000,4.85,7.79,4.67,5.07,0.86
 20260511,5.54,5.54,5.24,5.24,9000,4.88,7.28,4.67,5.06,0.21
 20260512,5.24,5.24,4.88,5,10000,4.89,2.16,4.69,5.05,0.24
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,5.62,5.62,5.44,5.44,6000,5.33,2.14,5.37,5.05,0.37
 20260604,5.62,5.62,5.44,5.44,6000,5.34,1.96,5.37,5.05,0.43
 20260605,5.66,5.66,5.4,5.4,5000,5.34,1.1,5.38,5.04,0.38
+20260611,5.38,5.49,5.32,5.46,5000,5.35,2.04,5.42,5.04,0.39
 ```
 
 ## Latest TDCC Snapshot

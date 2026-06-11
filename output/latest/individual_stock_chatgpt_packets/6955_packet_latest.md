@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6955 邦睿生技-創
 
 ## Metadata
-- generated_at: 2026-06-10 22:24:24 Asia/Taipei
+- generated_at: 2026-06-11 22:24:06 Asia/Taipei
 - stock_id: 6955
 - stock_name: 邦睿生技-創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 242
+- latest_price_date: 20260611
+- price_rows: 243
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 145
-- high: 145
-- low: 145
-- close: 145
-- volume: 3001
-- ma5: 145.6
-- ema23_primary: 152.09
-- distance_to_ema23_pct: -4.66
-- ma20: 151.65
-- ma60: 161.22
-- ma120: 161.18
-- return_5d: -0.34
-- return_20d: -9.38
-- volume_ratio: 0.23
-- distance_to_ma20_pct_auxiliary: -4.39
-- distance_to_high_60_pct: -16.91
+- date: 20260611
+- open: 139.5
+- high: 139.5
+- low: 139
+- close: 139
+- volume: 5550
+- ma5: 144.4
+- ema23_primary: 151
+- distance_to_ema23_pct: -7.95
+- ma20: 150.55
+- ma60: 160.77
+- ma120: 160.97
+- return_5d: -4.14
+- return_20d: -13.66
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: -7.67
+- distance_to_high_60_pct: -20.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,158,164.5,158,161,42025,164.51,-2.14,164.72,166.93,2.4
 20260508,161,161,159,159,15218,164.05,-3.08,164.4,166.88,0.87
 20260511,159,159.5,158.5,158.5,6000,163.59,-3.11,164.12,166.82,0.34
 20260512,158.5,159.5,157,159.5,18006,163.25,-2.3,163.7,166.78,1.04
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,146,146,146,146,5000,153.35,-4.79,153.22,161.94,0.32
 20260604,145,146,144,146,4000,152.73,-4.41,152.4,161.54,0.29
 20260605,145,145,145,145,3001,152.09,-4.66,151.65,161.22,0.23
+20260611,139.5,139.5,139,139,5550,151,-7.95,150.55,160.77,0.51
 ```
 
 ## Latest TDCC Snapshot

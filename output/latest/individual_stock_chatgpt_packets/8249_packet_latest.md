@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8249 菱光
 
 ## Metadata
-- generated_at: 2026-06-10 22:24:48 Asia/Taipei
+- generated_at: 2026-06-11 22:24:26 Asia/Taipei
 - stock_id: 8249
 - stock_name: 菱光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 54.3
-- high: 55.4
-- low: 53.3
-- close: 53.3
-- volume: 645339
-- ma5: 54.88
-- ema23_primary: 53.21
-- distance_to_ema23_pct: 0.18
-- ma20: 52.99
-- ma60: 50.81
-- ma120: 52.92
-- return_5d: -4.48
-- return_20d: 7.35
-- volume_ratio: 0.29
-- distance_to_ma20_pct_auxiliary: 0.58
-- distance_to_high_60_pct: -9.35
+- date: 20260611
+- open: 49.3
+- high: 49.9
+- low: 48.6
+- close: 49.4
+- volume: 558271
+- ma5: 53.6
+- ema23_primary: 52.89
+- distance_to_ema23_pct: -6.6
+- ma20: 52.91
+- ma60: 50.77
+- ma120: 52.9
+- return_5d: -11.47
+- return_20d: -3.14
+- volume_ratio: 0.25
+- distance_to_ma20_pct_auxiliary: -6.63
+- distance_to_high_60_pct: -15.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,50,51.5,49.85,51,831415,49.89,2.22,49.72,52.5,1.4
 20260512,50.4,50.6,49.05,49.2,916201,49.84,-1.28,49.7,52.38,1.5
 20260513,49,49,48.1,48.2,515107,49.7,-3.02,49.58,52.23,0.84
 20260514,48.4,48.6,47.8,47.9,408234,49.55,-3.33,49.47,52,0.67
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,55,56.9,54.5,55.7,1381043,53.05,4.99,52.59,50.72,0.63
 20260604,56.2,56.2,54,54.8,1137252,53.2,3.01,52.81,50.76,0.51
 20260605,54.3,55.4,53.3,53.3,645339,53.21,0.18,52.99,50.81,0.29
+20260611,49.3,49.9,48.6,49.4,558271,52.89,-6.6,52.91,50.77,0.25
 ```
 
 ## Latest TDCC Snapshot
@@ -193,9 +192,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260611 | 8249 | 菱光 | 3 | 0 | 390.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

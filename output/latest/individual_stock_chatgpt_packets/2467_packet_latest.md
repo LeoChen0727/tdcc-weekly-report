@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2467 志聖
 
 ## Metadata
-- generated_at: 2026-06-10 22:22:51 Asia/Taipei
+- generated_at: 2026-06-11 22:22:48 Asia/Taipei
 - stock_id: 2467
 - stock_name: 志聖
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 626
-- high: 626
-- low: 580
-- close: 580
-- volume: 3038548
-- ma5: 601.6
-- ema23_primary: 595.19
-- distance_to_ema23_pct: -2.55
-- ma20: 610.3
-- ma60: 518.9
-- ma120: 391.6
-- return_5d: -6.3
-- return_20d: 8.01
-- volume_ratio: 1.06
-- distance_to_ma20_pct_auxiliary: -4.96
-- distance_to_high_60_pct: -16.18
+- date: 20260611
+- open: 530
+- high: 553
+- low: 520
+- close: 542
+- volume: 1427345
+- ma5: 582.6
+- ema23_primary: 590.76
+- distance_to_ema23_pct: -8.25
+- ma20: 607.9
+- ma60: 521.8
+- ma120: 394.42
+- return_5d: -14.91
+- return_20d: -8.14
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: -10.84
+- distance_to_high_60_pct: -21.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,542,590,542,590,3671316,531.58,10.99,553.88,424.17,1.33
 20260512,604,649,604,649,5112057,541.37,19.88,558.88,430.94,1.92
 20260513,635,653,618,626,3477650,548.42,14.15,562.77,436.93,1.36
 20260514,636,639,598,610,2431699,553.55,10.2,567.77,442.48,0.94
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,600,626,599,615,2340843,597.35,2.95,606.45,511.25,0.85
 20260604,637,637,582,588,3530661,596.57,-1.44,608.15,515.15,1.26
 20260605,626,626,580,580,3038548,595.19,-2.55,610.3,518.9,1.06
+20260611,530,553,520,542,1427345,590.76,-8.25,607.9,521.8,0.52
 ```
 
 ## Latest TDCC Snapshot
@@ -190,17 +190,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 2467 | 志聖 | revenue_pullback | 營收成長股價回檔 | 83.0 |  |  |  |  |  | stale_signal | calendar event: ex_dividend on 20260618; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260611 | 2467 | 志聖 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | no_signal | stale_signal | calendar event: ex_dividend on 20260618; status=confirmed; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 2467 | 志聖 | 11 | 2 | 5 | 10 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260611 | 2467 | 志聖 | 12 | 3 | 5 | 10 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260611 | 2467 | 志聖 | 60 | 0 | 1797810.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

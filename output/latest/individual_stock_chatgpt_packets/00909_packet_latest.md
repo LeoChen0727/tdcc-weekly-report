@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00909 國泰數位支付服務
 
 ## Metadata
-- generated_at: 2026-06-10 22:22:17 Asia/Taipei
+- generated_at: 2026-06-11 22:22:18 Asia/Taipei
 - stock_id: 00909
 - stock_name: 國泰數位支付服務
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260605
-- price_rows: 11
+- latest_price_date: 20260611
+- price_rows: 12
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,23 +112,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 49.64
-- high: 49.95
-- low: 49.26
-- close: 49.69
-- volume: 1470041
-- ma5: 51.45
-- ema23_primary: 50.08
-- distance_to_ema23_pct: -0.78
-- ma20: 50.57
-- ma60: 50.57
-- ma120: 50.57
-- return_5d: -4.44
+- date: 20260611
+- open: 46.3
+- high: 46.54
+- low: 45.89
+- close: 46.48
+- volume: 2527772
+- ma5: 50.39
+- ema23_primary: 49.78
+- distance_to_ema23_pct: -6.63
+- ma20: 50.23
+- ma60: 50.23
+- ma120: 50.23
+- return_5d: -10.18
 - return_20d:
-- volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: -1.74
-- distance_to_high_60_pct: -4.81
+- volume_ratio: 0.86
+- distance_to_ma20_pct_auxiliary: -7.46
+- distance_to_high_60_pct: -10.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -146,6 +145,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,51.75,51.75,51.35,51.5,3402622,49.93,3.14,50.49,50.49,1.06
 20260604,51.6,52.2,51.6,52.15,2336583,50.12,4.05,50.66,50.66,0.75
 20260605,49.64,49.95,49.26,49.69,1470041,50.08,-0.78,50.57,50.57,0.49
+20260611,46.3,46.54,45.89,46.48,2527772,49.78,-6.63,50.23,50.23,0.86
 ```
 
 ## Latest TDCC Snapshot

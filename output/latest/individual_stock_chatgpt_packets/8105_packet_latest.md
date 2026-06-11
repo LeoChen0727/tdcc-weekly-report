@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8105 凌巨
 
 ## Metadata
-- generated_at: 2026-06-10 22:24:46 Asia/Taipei
+- generated_at: 2026-06-11 22:24:25 Asia/Taipei
 - stock_id: 8105
 - stock_name: 凌巨
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -116,29 +116,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 20
-- high: 21.2
-- low: 18.7
-- close: 20.4
-- volume: 21072131
-- ma5: 20.54
-- ema23_primary: 17.38
-- distance_to_ema23_pct: 17.41
-- ma20: 17.22
-- ma60: 14.71
-- ma120: 13.56
-- return_5d: 16.24
-- return_20d: 50.55
-- volume_ratio: 1.23
-- distance_to_ma20_pct_auxiliary: 18.45
-- distance_to_high_60_pct: -6.64
+- date: 20260611
+- open: 20.05
+- high: 21.45
+- low: 19.8
+- close: 20.45
+- volume: 17391598
+- ma5: 20.77
+- ema23_primary: 17.63
+- distance_to_ema23_pct: 15.98
+- ma20: 17.57
+- ma60: 14.83
+- ma120: 13.64
+- return_5d: 5.96
+- return_20d: 52.04
+- volume_ratio: 0.97
+- distance_to_ma20_pct_auxiliary: 16.38
+- distance_to_high_60_pct: -6.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,13.55,13.75,13.3,13.45,1849601,13.53,-0.61,13.76,13.1,0.85
 20260512,14.15,14.75,14.15,14.75,11599617,13.63,8.19,13.79,13.15,4.56
 20260513,14.9,16.2,14.7,16.2,34255421,13.85,16.99,13.87,13.22,8.63
 20260514,16.3,16.6,15.6,16,25024914,14.03,14.07,13.95,13.28,4.97
@@ -158,6 +157,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,21.2,21.85,20.4,20.6,40098908,16.73,23.15,16.51,14.42,2.86
 20260604,19.8,21.2,17.8,21.2,44124975,17.1,23.97,16.88,14.57,2.73
 20260605,20,21.2,18.7,20.4,21072131,17.38,17.41,17.22,14.71,1.23
+20260611,20.05,21.45,19.8,20.45,17391598,17.63,15.98,17.57,14.83,0.97
 ```
 
 ## Latest TDCC Snapshot
@@ -188,12 +188,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 8105 | 凌巨 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260611 | 8105 | 凌巨 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 8105 | 凌巨 | 1 | 1 | 4 | 7 | 8 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 8 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260611 | 8105 | 凌巨 | 2 | 2 | 4 | 7 | 9 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

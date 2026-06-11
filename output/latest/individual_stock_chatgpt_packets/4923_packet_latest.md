@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4923 力士
 
 ## Metadata
-- generated_at: 2026-06-10 22:23:40 Asia/Taipei
+- generated_at: 2026-06-11 22:23:29 Asia/Taipei
 - stock_id: 4923
 - stock_name: 力士
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 42.75
-- high: 47.95
-- low: 42.7
-- close: 45.7
-- volume: 46000
-- ma5: 45.16
-- ema23_primary: 42
-- distance_to_ema23_pct: 8.82
-- ma20: 41.76
-- ma60: 37.4
-- ma120: 34.04
-- return_5d: -2.77
-- return_20d: 28.37
-- volume_ratio: 0.15
-- distance_to_ma20_pct_auxiliary: 9.43
-- distance_to_high_60_pct: -10.57
+- date: 20260611
+- open: 43.4
+- high: 44.7
+- low: 41.6
+- close: 43.2
+- volume: 43000
+- ma5: 44.78
+- ema23_primary: 42.1
+- distance_to_ema23_pct: 2.62
+- ma20: 42.05
+- ma60: 37.62
+- ma120: 34.16
+- return_5d: -4.21
+- return_20d: 15.51
+- volume_ratio: 0.14
+- distance_to_ma20_pct_auxiliary: 2.73
+- distance_to_high_60_pct: -15.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,36.05,37.7,35.65,37.4,197000,35.37,5.74,35.17,34.03,1.34
 20260512,37.8,38.6,37,37.5,338000,35.55,5.49,35.25,34.14,2.09
 20260513,37.6,40.55,37.6,39,1601000,35.84,8.83,35.4,34.28,6.69
 20260514,39.8,40.65,38.5,38.6,1290000,36.07,7.03,35.52,34.41,4.29
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,42.6,46.4,42.25,46.4,45000,41.23,12.54,40.79,36.83,0.14
 20260604,42.6,46.4,42.25,46.4,45000,41.66,11.38,41.26,37.13,0.15
 20260605,42.75,47.95,42.7,45.7,46000,42,8.82,41.76,37.4,0.15
+20260611,43.4,44.7,41.6,43.2,43000,42.1,2.62,42.05,37.62,0.14
 ```
 
 ## Latest TDCC Snapshot

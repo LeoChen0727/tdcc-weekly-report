@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00830 國泰費城半導體
 
 ## Metadata
-- generated_at: 2026-06-10 22:22:16 Asia/Taipei
+- generated_at: 2026-06-11 22:22:17 Asia/Taipei
 - stock_id: 00830
 - stock_name: 國泰費城半導體
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260605
-- price_rows: 11
+- latest_price_date: 20260611
+- price_rows: 12
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 93.5
-- high: 94.2
-- low: 92.35
-- close: 93.95
-- volume: 10625877
-- ma5: 92.49
-- ema23_primary: 88.21
-- distance_to_ema23_pct: 6.51
-- ma20: 89.96
-- ma60: 89.96
-- ma120: 89.96
-- return_5d: 4.5
+- date: 20260611
+- open: 85.9
+- high: 87.4
+- low: 85.85
+- close: 87.1
+- volume: 10566501
+- ma5: 91.83
+- ema23_primary: 88.11
+- distance_to_ema23_pct: -1.15
+- ma20: 89.72
+- ma60: 89.72
+- ma120: 89.72
+- return_5d: -3.65
 - return_20d:
-- volume_ratio: 1.11
-- distance_to_ma20_pct_auxiliary: 4.43
-- distance_to_high_60_pct: -3.14
+- volume_ratio: 1.09
+- distance_to_ma20_pct_auxiliary: -2.93
+- distance_to_high_60_pct: -10.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -146,6 +146,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,96.25,97,96.1,97,11019276,87.42,10.96,89.46,89.46,1.16
 20260604,90.25,90.65,89.5,90.55,8963566,87.68,3.27,89.56,89.56,0.95
 20260605,93.5,94.2,92.35,93.95,10625877,88.21,6.51,89.96,89.96,1.11
+20260611,85.9,87.4,85.85,87.1,10566501,88.11,-1.15,89.72,89.72,1.09
 ```
 
 ## Latest TDCC Snapshot

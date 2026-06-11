@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6789 采鈺
 
 ## Metadata
-- generated_at: 2026-06-10 22:24:18 Asia/Taipei
+- generated_at: 2026-06-11 22:24:02 Asia/Taipei
 - stock_id: 6789
 - stock_name: 采鈺
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 518
-- high: 522
-- low: 490
-- close: 513
-- volume: 2837854
-- ma5: 528.8
-- ema23_primary: 533.23
-- distance_to_ema23_pct: -3.79
-- ma20: 548.35
-- ma60: 462.69
-- ma120: 374.71
-- return_5d: -2.47
-- return_20d: -14.93
-- volume_ratio: 0.52
-- distance_to_ma20_pct_auxiliary: -6.45
-- distance_to_high_60_pct: -20.09
+- date: 20260611
+- open: 455.5
+- high: 466
+- low: 438
+- close: 455
+- volume: 3482913
+- ma5: 510.4
+- ema23_primary: 526.71
+- distance_to_ema23_pct: -13.62
+- ma20: 541.1
+- ma60: 464.43
+- ma120: 376.29
+- return_5d: -16.82
+- return_20d: -24.17
+- volume_ratio: 0.68
+- distance_to_ma20_pct_auxiliary: -15.91
+- distance_to_high_60_pct: -29.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,603,616,587,600,10383449,511.89,17.21,519.38,389.27,0.86
 20260512,616,642,593,594,10081580,518.74,14.51,530.58,394.44,0.82
 20260513,582,596,570,583,6080945,524.09,11.24,539.38,399.43,0.52
 20260514,600,600,561,573,6948423,528.17,8.49,547.52,404.12,0.61
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,529,562,529,540,3954316,536.26,0.7,555.8,455.95,0.66
 20260604,547,547,515,522,3463634,535.07,-2.44,552.85,459.46,0.6
 20260605,518,522,490,513,2837854,533.23,-3.79,548.35,462.69,0.52
+20260611,455.5,466,438,455,3482913,526.71,-13.62,541.1,464.43,0.68
 ```
 
 ## Latest TDCC Snapshot
@@ -193,9 +192,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260611 | 6789 | 采鈺 | 85 | 0 | 7539350.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1623 大東電
 
 ## Metadata
-- generated_at: 2026-06-10 22:22:31 Asia/Taipei
+- generated_at: 2026-06-11 22:22:31 Asia/Taipei
 - stock_id: 1623
 - stock_name: 大東電
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260605
-- price_rows: 86
+- latest_price_date: 20260611
+- price_rows: 87
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 239
-- high: 239
-- low: 226
-- close: 229
-- volume: 362844
-- ma5: 236.5
-- ema23_primary: 232.43
-- distance_to_ema23_pct: -1.47
-- ma20: 231.25
-- ma60: 216.93
-- ma120: 222.43
-- return_5d: -5.95
-- return_20d: -6.91
-- volume_ratio: 1.11
-- distance_to_ma20_pct_auxiliary: -0.97
-- distance_to_high_60_pct: -12.93
+- date: 20260611
+- open: 208
+- high: 209.5
+- low: 200
+- close: 208
+- volume: 398877
+- ma5: 230.1
+- ema23_primary: 230.39
+- distance_to_ema23_pct: -9.72
+- ma20: 229.53
+- ma60: 216.98
+- ma120: 222.26
+- return_5d: -13.33
+- return_20d: -14.23
+- volume_ratio: 1.21
+- distance_to_ma20_pct_auxiliary: -9.38
+- distance_to_high_60_pct: -20.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,249.5,250,240.5,242.5,349201,230.01,5.43,230.43,212.61,0.87
 20260512,240,241,230.5,231.5,416410,230.14,0.59,233.03,212.6,1
 20260513,231.5,231.5,222.5,226,255927,229.79,-1.65,234.97,212.48,0.61
 20260514,226,228.5,220.5,222,196490,229.14,-3.12,236.75,212.39,0.47
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,234,251,231,245.5,841306,232.62,5.54,232.7,215.77,2.7
 20260604,240,240,232,234,248919,232.74,0.54,232.1,216.44,0.79
 20260605,239,239,226,229,362844,232.43,-1.47,231.25,216.93,1.11
+20260611,208,209.5,200,208,398877,230.39,-9.72,229.53,216.98,1.21
 ```
 
 ## Latest TDCC Snapshot

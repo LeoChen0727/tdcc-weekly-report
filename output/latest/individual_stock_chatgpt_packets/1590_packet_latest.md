@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1590 亞德客-KY
 
 ## Metadata
-- generated_at: 2026-06-10 22:22:30 Asia/Taipei
+- generated_at: 2026-06-11 22:22:30 Asia/Taipei
 - stock_id: 1590
 - stock_name: 亞德客-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 1280
-- high: 1330
-- low: 1260
-- close: 1320
-- volume: 469080
-- ma5: 1320
-- ema23_primary: 1376.91
-- distance_to_ema23_pct: -4.13
-- ma20: 1417.5
-- ma60: 1254.27
-- ma120: 1141.89
-- return_5d: -5.71
-- return_20d: -12.29
-- volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: -6.88
-- distance_to_high_60_pct: -17.5
+- date: 20260611
+- open: 1320
+- high: 1320
+- low: 1235
+- close: 1265
+- volume: 741171
+- ma5: 1303
+- ema23_primary: 1367.58
+- distance_to_ema23_pct: -7.5
+- ma20: 1403.25
+- ma60: 1258.1
+- ma120: 1144.97
+- return_5d: -6.3
+- return_20d: -18.39
+- volume_ratio: 0.72
+- distance_to_ma20_pct_auxiliary: -9.85
+- distance_to_high_60_pct: -20.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,1540,1600,1515,1550,1532167,1347.41,15.04,1356.5,1174.25,0.85
 20260512,1560,1560,1520,1535,787360,1363.04,12.62,1378.5,1180.33,0.46
 20260513,1480,1485,1435,1480,942844,1372.79,7.81,1396.75,1185.42,0.54
 20260514,1470,1520,1440,1465,897053,1380.47,6.12,1410.75,1189.67,0.52
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,1350,1380,1325,1370,1346872,1391.36,-1.54,1437.25,1243.25,1.19
 20260604,1330,1340,1245,1280,1141184,1382.08,-7.39,1426.75,1248.43,1.02
 20260605,1280,1330,1260,1320,469080,1376.91,-4.13,1417.5,1254.27,0.44
+20260611,1320,1320,1235,1265,741171,1367.58,-7.5,1403.25,1258.1,0.72
 ```
 
 ## Latest TDCC Snapshot
@@ -193,9 +192,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260611 | 1590 | 亞德客-KY | 41 | 0 | 1282870.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

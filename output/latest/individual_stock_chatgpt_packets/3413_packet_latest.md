@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3413 京鼎
 
 ## Metadata
-- generated_at: 2026-06-10 22:23:17 Asia/Taipei
+- generated_at: 2026-06-11 22:23:10 Asia/Taipei
 - stock_id: 3413
 - stock_name: 京鼎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 277
+- latest_price_date: 20260611
+- price_rows: 278
 - latest_tdcc_date: 20260605
 - tdcc_rows: 28
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 322
-- high: 323
-- low: 311.5
-- close: 317
-- volume: 2160000
-- ma5: 315.6
-- ema23_primary: 318.99
-- distance_to_ema23_pct: -0.63
-- ma20: 320.12
-- ma60: 313.77
-- ma120: 302.16
-- return_5d: -0.94
-- return_20d: 0.48
-- volume_ratio: 0.63
-- distance_to_ma20_pct_auxiliary: -0.98
-- distance_to_high_60_pct: -11.7
+- date: 20260611
+- open: 300.5
+- high: 301.5
+- low: 286
+- close: 292.5
+- volume: 2129523
+- ma5: 310.8
+- ema23_primary: 316.79
+- distance_to_ema23_pct: -7.67
+- ma20: 319.32
+- ma60: 313.48
+- ma120: 302.1
+- return_5d: -7.58
+- return_20d: -5.19
+- volume_ratio: 0.64
+- distance_to_ma20_pct_auxiliary: -8.4
+- distance_to_high_60_pct: -18.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,309,313,296,308.5,3655573,313.78,-1.68,317.32,306.52,1.55
 20260512,308.5,315,306.5,308.5,2217693,313.34,-1.54,316.88,306.99,0.94
 20260513,307.5,313,306.5,311,1713108,313.14,-0.68,316.32,307.45,0.76
 20260514,315,326,315,321,4059236,313.8,2.29,316.62,307.93,1.72
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,316,322.5,315.5,319.5,2465895,319.78,-0.09,319.88,313.27,0.71
 20260604,317.5,320,311,312.5,3099439,319.18,-2.09,320.05,313.57,0.9
 20260605,322,323,311.5,317,2160000,318.99,-0.63,320.12,313.77,0.63
+20260611,300.5,301.5,286,292.5,2129523,316.79,-7.67,319.32,313.48,0.64
 ```
 
 ## Latest TDCC Snapshot
@@ -199,9 +198,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260611 | 3413 | 京鼎 | 41 | 0 | 5571000.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

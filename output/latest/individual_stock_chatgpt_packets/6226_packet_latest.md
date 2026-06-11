@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6226 光鼎
 
 ## Metadata
-- generated_at: 2026-06-10 22:24:01 Asia/Taipei
+- generated_at: 2026-06-11 22:23:47 Asia/Taipei
 - stock_id: 6226
 - stock_name: 光鼎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 13.6
-- high: 13.7
-- low: 12.85
-- close: 13.6
-- volume: 1947260
-- ma5: 13.65
-- ema23_primary: 13.08
-- distance_to_ema23_pct: 3.94
-- ma20: 12.88
-- ma60: 12.76
-- ma120: 10.48
-- return_5d: 4.62
-- return_20d: 10.57
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: 5.55
-- distance_to_high_60_pct: -15.53
+- date: 20260611
+- open: 12.3
+- high: 12.35
+- low: 11.45
+- close: 11.9
+- volume: 2700454
+- ma5: 13.32
+- ema23_primary: 12.99
+- distance_to_ema23_pct: -8.36
+- ma20: 12.87
+- ma60: 12.81
+- ma120: 10.52
+- return_5d: -12.18
+- return_20d: -2.46
+- volume_ratio: 1.18
+- distance_to_ma20_pct_auxiliary: -7.54
+- distance_to_high_60_pct: -26.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,12.4,12.4,12.05,12.2,1055862,12.67,-3.74,13.08,11.47,0.34
 20260512,12.3,12.7,12.3,12.55,1371103,12.66,-0.89,13.04,11.53,0.45
 20260513,12.55,12.7,12.1,12.15,1071984,12.62,-3.73,13.02,11.59,0.36
 20260514,12.15,12.4,12,12.05,772340,12.57,-4.16,12.98,11.63,0.27
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,13.6,14.25,13.4,14,4999711,12.99,7.76,12.77,12.58,2.38
 20260604,13.8,13.95,12.85,13.55,3345282,13.04,3.93,12.82,12.67,1.54
 20260605,13.6,13.7,12.85,13.6,1947260,13.08,3.94,12.88,12.76,0.88
+20260611,12.3,12.35,11.45,11.9,2700454,12.99,-8.36,12.87,12.81,1.18
 ```
 
 ## Latest TDCC Snapshot

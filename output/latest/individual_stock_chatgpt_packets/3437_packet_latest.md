@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3437 榮創
 
 ## Metadata
-- generated_at: 2026-06-10 22:23:17 Asia/Taipei
+- generated_at: 2026-06-11 22:23:10 Asia/Taipei
 - stock_id: 3437
 - stock_name: 榮創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 23.85
-- high: 24.2
-- low: 22.85
-- close: 23.4
-- volume: 1262140
-- ma5: 23.99
-- ema23_primary: 24.39
-- distance_to_ema23_pct: -4.04
-- ma20: 24.46
-- ma60: 23.8
-- ma120: 19.42
-- return_5d: -1.68
-- return_20d: -9.48
-- volume_ratio: 0.54
-- distance_to_ma20_pct_auxiliary: -4.32
-- distance_to_high_60_pct: -25.24
+- date: 20260611
+- open: 20.7
+- high: 20.95
+- low: 19.9
+- close: 20.6
+- volume: 1376988
+- ma5: 23.24
+- ema23_primary: 24.07
+- distance_to_ema23_pct: -14.42
+- ma20: 24.2
+- ma60: 23.88
+- ma120: 19.47
+- return_5d: -15.4
+- return_20d: -19.84
+- volume_ratio: 0.61
+- distance_to_ma20_pct_auxiliary: -14.88
+- distance_to_high_60_pct: -34.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,26.05,26.55,25.65,25.7,2685965,25.06,2.57,25.77,20.98,0.31
 20260512,25.6,26.8,25.5,26.3,3012121,25.16,4.53,25.94,21.16,0.34
 20260513,26,26,24.8,24.85,2639643,25.13,-1.13,26.04,21.31,0.31
 20260514,25,25.25,24.1,24.35,1912496,25.07,-2.87,26,21.45,0.24
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,24.05,25.65,24.05,24.3,3693378,24.52,-0.91,24.71,23.49,1.41
 20260604,24.5,24.9,23.6,23.95,1579899,24.48,-2.15,24.58,23.66,0.64
 20260605,23.85,24.2,22.85,23.4,1262140,24.39,-4.04,24.46,23.8,0.54
+20260611,20.7,20.95,19.9,20.6,1376988,24.07,-14.42,24.2,23.88,0.61
 ```
 
 ## Latest TDCC Snapshot
