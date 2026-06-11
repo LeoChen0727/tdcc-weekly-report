@@ -1,62 +1,112 @@
 # Apps Script GitHub Actions Trigger
 
-這份文件保存 Google Apps Script 觸發 GitHub Actions 的標準版本。
+This document is the standard operating note for the Google Apps Script source
+that dispatches GitHub Actions workflows for this repository.
 
-正式程式碼：
+Canonical source file:
 
-- `docs/apps_script_workflow_trigger.gs`
+```text
+docs/apps_script_workflow_trigger.gs
+```
 
-## 必要設定
+Target repository:
 
-Apps Script 不要把 GitHub token 寫死在程式碼裡。請在 Apps Script 專案設定新增 Script Property：
+```text
+LeoChen0727/tdcc-weekly-report
+```
+
+## Script Properties
+
+Do not hard-code the GitHub token in Apps Script source. Set it in Apps Script
+Project Settings as a Script Property:
 
 ```text
 GITHUB_PAT=<your GitHub token>
 ```
 
-Token 權限：
+`GITHUB_TOKEN` is accepted only as a fallback property name for older deployed
+scripts. Prefer `GITHUB_PAT`.
 
-- Fine-grained token：Repository 選 `LeoChen0727/tdcc-weekly-report`
-- Repository permissions：`Actions` 設為 `Read and write`
-- Metadata 會自動是 read
+Required token access:
 
-如果使用 classic token，private repo 通常需要 `repo` scope。
+- Fine-grained token: select only `LeoChen0727/tdcc-weekly-report`.
+- Repository permissions: Actions = read and write.
+- Metadata: read.
+- Classic token fallback: private repo access requires the `repo` scope.
 
-## 可執行函式
+## Functions To Run Manually
+
+Run these from the Apps Script editor when validating or repairing the trigger:
 
 ```text
-testGithubTokenAndWorkflowAccess
+diagnoseDailyStockMonitorTrigger
+installDailyStockMonitorTrigger
 triggerDailyStockMonitor
 triggerDailyFullPipeline
 triggerTdccWeeklyReport
+testGithubTokenAndWorkflowAccess
 ```
 
-`triggerDailyStockMonitor` 會觸發 `daily_full_pipeline.yml`，用來保留既有 Apps Script 每日台股推薦標的排程。
+`triggerDailyStockMonitor` dispatches `.github/workflows/daily_full_pipeline.yml`
+and is the function used by the scheduled daily stock monitor trigger.
 
-`triggerDailyFullPipeline` 是同一件事的別名，方便手動測試。
+`triggerDailyFullPipeline` is the manual full daily pipeline dispatcher.
 
-## 驗收方式
+`triggerTdccWeeklyReport` dispatches the TDCC weekly report workflow.
 
-1. 在 Apps Script 執行 `testGithubTokenAndWorkflowAccess`
-2. 開啟 Apps Script 執行紀錄
-3. 確認 log 出現：
+## Recovery Flow
+
+If Apps Script shows `triggerDailyStockMonitor` failed quickly, especially in
+about 1-2 seconds, and there is no matching GitHub Actions `workflow_dispatch`
+run, treat it as an Apps Script token/configuration failure.
+
+Run this sequence in Apps Script:
+
+```text
+diagnoseDailyStockMonitorTrigger
+installDailyStockMonitorTrigger
+triggerDailyStockMonitor
+```
+
+Expected successful diagnostic log:
 
 ```text
 Status code: 200
 GitHub token and workflow access OK.
+Daily stock monitor diagnostics OK.
 ```
 
-4. 執行其中一個 trigger function
-5. GitHub Actions 對應 workflow 頁面應該要在幾秒內出現新的 run
+After `triggerDailyStockMonitor` succeeds, a GitHub Actions run should appear
+under the Daily Full Pipeline workflow.
 
-## 判讀錯誤碼
+## HTTP Status Hints
 
 ```text
-200 / 201 / 202 / 204 = GitHub 接受請求
-401 = token 錯誤、過期或已被撤銷
-403 = token 權限不足，常見是缺 Actions read/write
-404 = token 看不到 repo 或 workflow，或 workflow 檔名錯
-422 = ref 或 payload 錯誤
+200 / 201 / 202 / 204 = GitHub accepted the request
+401 = token is missing, invalid, expired, or not visible to Apps Script
+403 = token lacks Actions read/write permission
+404 = token cannot see the repo or the workflow file name is wrong
+422 = ref or dispatch payload is invalid
 ```
 
-舊版 Apps Script 使用 `muteHttpExceptions: true` 但沒有丟錯，會造成 Apps Script 顯示成功、GitHub Actions 卻沒有真的被觸發。新版會在非成功狀態碼時直接 `throw Error`，讓觸發失敗可以被看見。
+The Apps Script source intentionally throws on non-success HTTP responses. This
+prevents silent failures where Apps Script appears successful but GitHub Actions
+was never triggered.
+
+## Scheduled Trigger
+
+To recreate the scheduled daily trigger, run:
+
+```text
+installDailyStockMonitorTrigger
+```
+
+This removes existing `triggerDailyStockMonitor` triggers and installs a fresh
+time-driven trigger for the evening run.
+
+## Deployment Note
+
+This repository stores the canonical Apps Script source, but it does not include
+a `.clasp.json` deployment binding. If the Apps Script editor still has an older
+copy, paste the current contents of `docs/apps_script_workflow_trigger.gs` into
+the Apps Script project before running the recovery flow.
