@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6735 美達科技
 
 ## Metadata
-- generated_at: 2026-06-10 22:24:16 Asia/Taipei
+- generated_at: 2026-06-11 22:24:00 Asia/Taipei
 - stock_id: 6735
 - stock_name: 美達科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 104.5
-- high: 104.5
-- low: 98.3
-- close: 100.5
-- volume: 100000
-- ma5: 104.62
-- ema23_primary: 109.65
-- distance_to_ema23_pct: -8.34
-- ma20: 114.25
-- ma60: 92.59
-- ma120: 76.12
-- return_5d: -6.51
-- return_20d: -20.55
-- volume_ratio: 0.19
-- distance_to_ma20_pct_auxiliary: -12.04
-- distance_to_high_60_pct: -32.78
+- date: 20260611
+- open: 93.1
+- high: 93.1
+- low: 87.4
+- close: 90
+- volume: 90000
+- ma5: 101.82
+- ema23_primary: 108.01
+- distance_to_ema23_pct: -16.68
+- ma20: 112.5
+- ma60: 93.18
+- ma120: 76.36
+- return_5d: -13.46
+- return_20d: -28
+- volume_ratio: 0.17
+- distance_to_ma20_pct_auxiliary: -20
+- distance_to_high_60_pct: -39.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,126.5,128,122,125,327000,108.11,15.62,108.75,75.17,0.3
 20260512,130,137,125.5,135.5,447000,110.4,22.74,111.82,76.39,0.41
 20260513,131.5,140,131.5,139,494000,112.78,23.25,115.17,77.67,0.45
 20260514,149.5,149.5,131,137.5,625000,114.84,19.73,118.45,78.93,0.56
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,100,109.5,99.8,109.5,106000,110.57,-0.97,116.83,90.86,0.19
 20260604,100,109.5,99.8,109.5,106000,110.48,-0.89,115.56,91.8,0.2
 20260605,104.5,104.5,98.3,100.5,100000,109.65,-8.34,114.25,92.59,0.19
+20260611,93.1,93.1,87.4,90,90000,108.01,-16.68,112.5,93.18,0.17
 ```
 
 ## Latest TDCC Snapshot

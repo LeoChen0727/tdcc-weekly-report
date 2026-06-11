@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00954 中信日本半導體
 
 ## Metadata
-- generated_at: 2026-06-10 22:22:17 Asia/Taipei
+- generated_at: 2026-06-11 22:22:19 Asia/Taipei
 - stock_id: 00954
 - stock_name: 中信日本半導體
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260605
-- price_rows: 11
+- latest_price_date: 20260611
+- price_rows: 12
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 19.17
-- high: 19.3
-- low: 18.8
-- close: 19.28
-- volume: 2828729
-- ma5: 18.65
-- ema23_primary: 18.14
-- distance_to_ema23_pct: 6.29
+- date: 20260611
+- open: 17.83
+- high: 18.52
+- low: 17.83
+- close: 18.45
+- volume: 8487897
+- ma5: 18.72
+- ema23_primary: 18.16
+- distance_to_ema23_pct: 1.57
 - ma20: 18.39
 - ma60: 18.39
 - ma120: 18.39
-- return_5d: 4.78
+- return_5d: 1.88
 - return_20d:
-- volume_ratio: 0.61
-- distance_to_ma20_pct_auxiliary: 4.85
-- distance_to_high_60_pct: -2.28
+- volume_ratio: 1.71
+- distance_to_ma20_pct_auxiliary: 0.31
+- distance_to_high_60_pct: -6.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -146,6 +146,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,19.23,19.73,19.23,19.72,6547219,18.03,9.36,18.32,18.32,1.31
 20260604,17.85,18.07,17.56,18.07,3311813,18.04,0.19,18.3,18.3,0.69
 20260605,19.17,19.3,18.8,19.28,2828729,18.14,6.29,18.39,18.39,0.61
+20260611,17.83,18.52,17.83,18.45,8487897,18.16,1.57,18.39,18.39,1.71
 ```
 
 ## Latest TDCC Snapshot

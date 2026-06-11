@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6887 寶綠特-KY
 
 ## Metadata
-- generated_at: 2026-06-10 22:24:21 Asia/Taipei
+- generated_at: 2026-06-11 22:24:04 Asia/Taipei
 - stock_id: 6887
 - stock_name: 寶綠特-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 273
+- latest_price_date: 20260611
+- price_rows: 274
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 35.65
-- high: 35.65
-- low: 34.9
-- close: 34.95
-- volume: 7000
-- ma5: 35.73
-- ema23_primary: 36.06
-- distance_to_ema23_pct: -3.09
-- ma20: 35.49
-- ma60: 39.85
-- ma120: 49.03
-- return_5d: 1.3
-- return_20d: -12.52
-- volume_ratio: 0.13
-- distance_to_ma20_pct_auxiliary: -1.52
-- distance_to_high_60_pct: -34.18
+- date: 20260611
+- open: 35
+- high: 36
+- low: 34.5
+- close: 34.5
+- volume: 48202
+- ma5: 35.24
+- ema23_primary: 35.93
+- distance_to_ema23_pct: -3.99
+- ma20: 35.22
+- ma60: 39.7
+- ma120: 48.8
+- return_5d: -6.63
+- return_20d: -13.64
+- volume_ratio: 0.84
+- distance_to_ma20_pct_auxiliary: -2.04
+- distance_to_high_60_pct: -35.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260508,39.95,39.95,39,39.95,12595,40.45,-1.23,39.92,44.91,0.28
 20260511,39.35,41.45,39.35,39.35,32087,40.36,-2.49,39.76,44.56,0.69
 20260512,38.85,39.35,37.2,38.1,26672,40.17,-5.15,39.58,44.2,0.57
 20260513,37.85,38.1,37.8,37.8,5020,39.97,-5.43,39.37,43.84,0.11
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,35.7,36.5,34.2,34.75,34521,36.18,-3.95,35.89,40.16,0.56
 20260604,36.95,36.95,36,36,2079,36.17,-0.46,35.74,40.01,0.04
 20260605,35.65,35.65,34.9,34.95,7000,36.06,-3.09,35.49,39.85,0.13
+20260611,35,36,34.5,34.5,48202,35.93,-3.99,35.22,39.7,0.84
 ```
 
 ## Latest TDCC Snapshot

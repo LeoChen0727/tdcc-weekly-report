@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7703 銳澤
 
 ## Metadata
-- generated_at: 2026-06-10 22:24:38 Asia/Taipei
+- generated_at: 2026-06-11 22:24:18 Asia/Taipei
 - stock_id: 7703
 - stock_name: 銳澤
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 207
-- high: 207
-- low: 200
-- close: 200
-- volume: 202000
-- ma5: 205.4
-- ema23_primary: 209.65
-- distance_to_ema23_pct: -4.6
-- ma20: 209.45
-- ma60: 214.11
-- ma120: 216.91
-- return_5d: -3.15
-- return_20d: -4.53
-- volume_ratio: 1.24
-- distance_to_ma20_pct_auxiliary: -4.51
-- distance_to_high_60_pct: -19.35
+- date: 20260611
+- open: 187
+- high: 192
+- low: 186
+- close: 190
+- volume: 189000
+- ma5: 201.7
+- ema23_primary: 208.01
+- distance_to_ema23_pct: -8.66
+- ma20: 208.43
+- ma60: 213.9
+- ma120: 216.8
+- return_5d: -8.87
+- return_20d: -9.74
+- volume_ratio: 1.14
+- distance_to_ma20_pct_auxiliary: -8.84
+- distance_to_high_60_pct: -23.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,209.5,211,207.5,210.5,118000,215.72,-2.42,219.8,212.47,0.43
 20260512,212,212,208,209.5,135000,215.21,-2.65,219.22,212.53,0.5
 20260513,212,214.5,210,212.5,124000,214.98,-1.15,217.95,212.57,0.55
 20260514,213.5,218,208.5,215,150000,214.98,0.01,216.55,212.67,0.73
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,208,208,205,206.5,206000,210.89,-2.08,210.28,213.86,1.33
 20260604,208,208,205,206.5,206000,210.52,-1.91,209.93,214.08,1.3
 20260605,207,207,200,200,202000,209.65,-4.6,209.45,214.11,1.24
+20260611,187,192,186,190,189000,208.01,-8.66,208.43,213.9,1.14
 ```
 
 ## Latest TDCC Snapshot

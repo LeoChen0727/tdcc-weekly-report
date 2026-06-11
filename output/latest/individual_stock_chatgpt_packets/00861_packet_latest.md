@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00861 元大全球未來通訊
 
 ## Metadata
-- generated_at: 2026-06-10 22:22:16 Asia/Taipei
+- generated_at: 2026-06-11 22:22:18 Asia/Taipei
 - stock_id: 00861
 - stock_name: 元大全球未來通訊
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260605
-- price_rows: 11
+- latest_price_date: 20260611
+- price_rows: 12
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 93.25
-- high: 93.25
-- low: 92.15
-- close: 93.05
-- volume: 305101
-- ma5: 93.05
-- ema23_primary: 89.11
-- distance_to_ema23_pct: 4.42
-- ma20: 90.59
-- ma60: 90.59
-- ma120: 90.59
-- return_5d: 3.5
+- date: 20260611
+- open: 87.5
+- high: 87.7
+- low: 86.65
+- close: 87.6
+- volume: 297520
+- ma5: 92.27
+- ema23_primary: 88.99
+- distance_to_ema23_pct: -1.56
+- ma20: 90.34
+- ma60: 90.34
+- ma120: 90.34
+- return_5d: -4.26
 - return_20d:
-- volume_ratio: 0.98
-- distance_to_ma20_pct_auxiliary: 2.72
-- distance_to_high_60_pct: -3.77
+- volume_ratio: 0.96
+- distance_to_ma20_pct_auxiliary: -3.03
+- distance_to_high_60_pct: -9.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -146,6 +146,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,96.25,96.7,96.05,96.7,300354,88.46,9.31,90.16,90.16,0.99
 20260604,91.55,92,90.95,92,364146,88.76,3.65,90.34,90.34,1.17
 20260605,93.25,93.25,92.15,93.05,305101,89.11,4.42,90.59,90.59,0.98
+20260611,87.5,87.7,86.65,87.6,297520,88.99,-1.56,90.34,90.34,0.96
 ```
 
 ## Latest TDCC Snapshot

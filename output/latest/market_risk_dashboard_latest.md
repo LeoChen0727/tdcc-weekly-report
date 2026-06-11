@@ -1,6 +1,6 @@
 # 市場風險與大盤期權背景
 
-- generated_at: `2026-06-11 16:13:06 Asia/Taipei`
+- generated_at: `2026-06-11 20:27:11 Asia/Taipei`
 - data_date: `20260611`
 - market_regime: `correction`
 - risk_level: `very_high_risk`
@@ -13,10 +13,10 @@
 
 | source | status | rows | latest_date |
 | --- | --- | ---: | --- |
-| institutional_fo | ok | 3 | 20260610 |
-| futures_contracts | ok | 66 | 20260610 |
-| options_call_put | ok | 30 | 20260610 |
-| put_call_ratio | ok | 23 | 20260610 |
+| institutional_fo | ok | 3 | 20260611 |
+| futures_contracts | ok | 66 | 20260611 |
+| options_call_put | ok | 30 | 20260611 |
+| put_call_ratio | ok | 23 | 20260611 |
 | taiwan_vix | ok | 71 | 20260611 |
 
 ## 大盤指數結構
@@ -30,14 +30,14 @@
 
 | indicator | value | state |
 | --- | --- | --- |
-| Foreign TX futures net OI | -61,949 | foreign_heavy_net_short |
-| Dealer TX futures net OI | +4,853 |  |
-| Trust TX futures net OI | +54,186 |  |
-| Retail MTX net OI proxy | +6,935 | neutral |
-| Foreign TXO call net OI | +2,935 |  |
-| Foreign TXO put net OI | +6,363 |  |
-| TXO put/call OI ratio | 166.01% | put_hedge_elevated |
-| Taiwan VIX | 43.92 | panic_high |
+| Foreign TX futures net OI | -63,168 | foreign_heavy_net_short |
+| Dealer TX futures net OI | +4,155 |  |
+| Trust TX futures net OI | +55,312 |  |
+| Retail MTX net OI proxy | +10,290 | retail_net_long_watch |
+| Foreign TXO call net OI | +2,588 |  |
+| Foreign TXO put net OI | +5,413 |  |
+| TXO put/call OI ratio | 133.33% | neutral |
+| Taiwan VIX | 43.58 | panic_high |
 
 ## 近期總經事件日曆
 
@@ -69,8 +69,8 @@ Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available wi
 ## 散戶小台 proxy
 
 - 這是反向情緒輔助指標，以三大法人小台淨未平倉的反向 proxy 估算。
-- latest_proxy_value: `+6,935`
-- state: `neutral`
+- latest_proxy_value: `+10,290`
+- state: `retail_net_long_watch`
 - proxy 為正代表非三大法人帳戶偏多；擁擠偏多只能視為追高風險，不是單獨放空訊號。
 - proxy 為負代表非三大法人帳戶偏空；極端偏空可列反彈觀察，但仍需指數與廣度確認。
 
@@ -79,8 +79,8 @@ Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available wi
 - TWSE correction
 - TPEx correction
 - Taiwan VIX panic-high
-- TXO put/call OI hedge elevated
 - Foreign TX futures heavy net short
+- Retail MTX proxy net long watch
 
 ## 使用邊界
 
@@ -91,17 +91,17 @@ Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available wi
 <!-- MARKET_SENTIMENT_CONTEXT_START -->
 ## VIX Historical Context
 
-- Taiwan VIX latest: `43.92`
-- 252D high / low / percentile: `43.92` / `25.68` / `100%`
+- Taiwan VIX latest: `43.58`
+- 252D high / low / percentile: `43.92` / `25.68` / `98.8%`
 - 504D percentile: `-`
-- z-score: `2.26`
-- vix_return_5d / 10d / 20d: `25.7%` / `27.27%` / `14.73%`
+- z-score: `2.19`
+- vix_return_5d / 10d / 20d: `23.7%` / `20.12%` / `10.67%`
 - TWSE / TPEx position: TWSE dist 60D high `-7.12%`, TPEx dist 60D high `-8.89%`
 - vix_index_interpretation: `possible_panic_contrarian_signal`
 
 ## Retail MTX Historical Context
 
-- retail_mtx_net_oi_proxy latest: `6,935`
+- retail_mtx_net_oi_proxy latest: `10,290`
 - proxy method: `negative_sum_of_three_institution_mtx_net_oi`
 - 252D high / low / percentile: `-` / `-` / `-`
 - 504D percentile: `-`

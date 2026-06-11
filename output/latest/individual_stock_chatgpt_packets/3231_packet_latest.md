@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3231 緯創
 
 ## Metadata
-- generated_at: 2026-06-10 22:23:12 Asia/Taipei
+- generated_at: 2026-06-11 22:23:06 Asia/Taipei
 - stock_id: 3231
 - stock_name: 緯創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 172.5
-- high: 174
-- low: 165.5
-- close: 171
-- volume: 75786051
-- ma5: 184.2
-- ema23_primary: 156.96
-- distance_to_ema23_pct: 8.94
-- ma20: 152.18
-- ma60: 140.42
-- ma120: 140
-- return_5d: 7.89
-- return_20d: 16.72
-- volume_ratio: 0.87
-- distance_to_ma20_pct_auxiliary: 12.37
-- distance_to_high_60_pct: -14.93
+- date: 20260611
+- open: 157
+- high: 159
+- low: 150.5
+- close: 152.5
+- volume: 55231062
+- ma5: 179.9
+- ema23_primary: 156.59
+- distance_to_ema23_pct: -2.61
+- ma20: 152.85
+- ma60: 140.74
+- ma120: 140.07
+- return_5d: -12.36
+- return_20d: 9.71
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: -0.23
+- distance_to_high_60_pct: -24.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,147,147,138,139,114217157,139.32,-0.23,140.28,133.27,2.44
 20260512,139,143,135.5,141.5,75965973,139.5,1.43,140.62,133.49,1.54
 20260513,139,141.5,138,140.5,26883326,139.59,0.65,140.82,133.69,0.55
 20260514,140.5,141.5,138,138,42377535,139.45,-1.04,141.07,133.84,0.87
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,193,201,188,194,175481303,152.47,27.23,148.7,138.66,2.4
 20260604,179,191,177,191,282187864,155.68,22.68,150.95,139.72,3.31
 20260605,172.5,174,165.5,171,75786051,156.96,8.94,152.18,140.42,0.87
+20260611,157,159,150.5,152.5,55231062,156.59,-2.61,152.85,140.74,0.66
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 3231 | 緯創 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260611 | 3231 | 緯創 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 3231 | 緯創 | 11 | 1 | 5 | 10 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260611 | 3231 | 緯創 | 12 | 2 | 5 | 10 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260611 | 3231 | 緯創 | 224 | 0 | 13461060.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00939 統一台灣高息動能
 
 ## Metadata
-- generated_at: 2026-06-10 22:22:17 Asia/Taipei
+- generated_at: 2026-06-11 22:22:19 Asia/Taipei
 - stock_id: 00939
 - stock_name: 統一台灣高息動能
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260605
-- price_rows: 11
+- latest_price_date: 20260611
+- price_rows: 12
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 20.9
-- high: 20.91
-- low: 20.57
-- close: 20.89
-- volume: 4929538
-- ma5: 20.68
-- ema23_primary: 19.72
-- distance_to_ema23_pct: 5.93
-- ma20: 20.14
-- ma60: 20.14
-- ma120: 20.14
-- return_5d: 3.01
+- date: 20260611
+- open: 20.66
+- high: 20.8
+- low: 20.46
+- close: 20.72
+- volume: 7051425
+- ma5: 20.72
+- ema23_primary: 19.8
+- distance_to_ema23_pct: 4.63
+- ma20: 20.19
+- ma60: 20.19
+- ma120: 20.19
+- return_5d: 1.07
 - return_20d:
-- volume_ratio: 0.63
-- distance_to_ma20_pct_auxiliary: 3.71
-- distance_to_high_60_pct: -0.76
+- volume_ratio: 0.91
+- distance_to_ma20_pct_auxiliary: 2.63
+- distance_to_high_60_pct: -1.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -146,6 +146,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,20.58,21.05,20.52,21,6836634,19.53,7.51,20.02,20.02,0.85
 20260604,20.48,20.5,20.17,20.5,8673714,19.61,4.52,20.07,20.07,1.07
 20260605,20.9,20.91,20.57,20.89,4929538,19.72,5.93,20.14,20.14,0.63
+20260611,20.66,20.8,20.46,20.72,7051425,19.8,4.63,20.19,20.19,0.91
 ```
 
 ## Latest TDCC Snapshot

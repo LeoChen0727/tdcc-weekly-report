@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6859 伯特光
 
 ## Metadata
-- generated_at: 2026-06-10 22:24:20 Asia/Taipei
+- generated_at: 2026-06-11 22:24:03 Asia/Taipei
 - stock_id: 6859
 - stock_name: 伯特光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 277
+- latest_price_date: 20260611
+- price_rows: 278
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 130.5
-- high: 133.5
-- low: 128.5
-- close: 132
-- volume: 131000
-- ma5: 130.3
-- ema23_primary: 124.12
-- distance_to_ema23_pct: 6.35
-- ma20: 122.3
-- ma60: 121.23
-- ma120: 117.17
-- return_5d: 3.94
-- return_20d: 8.2
-- volume_ratio: 1.2
-- distance_to_ma20_pct_auxiliary: 7.93
-- distance_to_high_60_pct: -1.86
+- date: 20260611
+- open: 126
+- high: 126.5
+- low: 123
+- close: 125.5
+- volume: 125000
+- ma5: 129
+- ema23_primary: 124.24
+- distance_to_ema23_pct: 1.02
+- ma20: 122.7
+- ma60: 121.16
+- ma120: 117.35
+- return_5d: -4.92
+- return_20d: 6.81
+- volume_ratio: 1.14
+- distance_to_ma20_pct_auxiliary: 2.28
+- distance_to_high_60_pct: -6.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,121.5,121.5,117,117.5,117000,120.61,-2.57,120.55,118.37,1.63
 20260512,118.5,119,116.5,118.5,56000,120.43,-1.6,120.78,118.59,0.78
 20260513,117,117,115,115.5,53000,120.02,-3.77,120.85,118.65,0.72
 20260514,115.5,120,115,117,179000,119.77,-2.31,120.92,118.73,2.26
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,129,130.5,127.5,129.5,129000,122.85,5.41,121.45,120.92,1.22
 20260604,129,130.5,127.5,129.5,129000,123.41,4.94,121.8,121.08,1.21
 20260605,130.5,133.5,128.5,132,131000,124.12,6.35,122.3,121.23,1.2
+20260611,126,126.5,123,125.5,125000,124.24,1.02,122.7,121.16,1.14
 ```
 
 ## Latest TDCC Snapshot

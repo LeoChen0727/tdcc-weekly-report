@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1597 直得
 
 ## Metadata
-- generated_at: 2026-06-10 22:22:30 Asia/Taipei
+- generated_at: 2026-06-11 22:22:30 Asia/Taipei
 - stock_id: 1597
 - stock_name: 直得
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 169.5
-- high: 174
-- low: 165
-- close: 167.5
-- volume: 2756062
-- ma5: 170.7
-- ema23_primary: 171.44
-- distance_to_ema23_pct: -2.3
-- ma20: 182.1
-- ma60: 131.9
-- ma120: 104.02
-- return_5d: -6.94
-- return_20d: -3.18
-- volume_ratio: 0.67
-- distance_to_ma20_pct_auxiliary: -8.02
-- distance_to_high_60_pct: -24.21
+- date: 20260611
+- open: 145.5
+- high: 147.5
+- low: 138
+- close: 143.5
+- volume: 3959255
+- ma5: 163.3
+- ema23_primary: 169.11
+- distance_to_ema23_pct: -15.14
+- ma20: 180.18
+- ma60: 133.05
+- ma120: 104.61
+- return_5d: -20.5
+- return_20d: -21.15
+- volume_ratio: 0.95
+- distance_to_ma20_pct_auxiliary: -20.36
+- distance_to_high_60_pct: -35.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,176,184,173,182,2049112,135.97,33.86,134.47,98.69,0.37
 20260512,189,189,180,187,1702928,140.22,33.36,138.38,100.54,0.31
 20260513,187,189,179.5,189,1481066,144.28,30.99,141.85,102.41,0.28
 20260514,195,195,180,180,1210759,147.26,22.23,145.07,104.08,0.25
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,170.5,170.5,163.5,166.5,3737392,172,-3.2,182.93,128.66,0.96
 20260604,181.5,181.5,164,169.5,4981832,171.79,-1.34,182.38,130.31,1.24
 20260605,169.5,174,165,167.5,2756062,171.44,-2.3,182.1,131.9,0.67
+20260611,145.5,147.5,138,143.5,3959255,169.11,-15.14,180.18,133.05,0.95
 ```
 
 ## Latest TDCC Snapshot
@@ -190,17 +190,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 1597 | 直得 | revenue_pullback | 營收成長股價回檔 | 83.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260611 | 1597 | 直得 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 1597 | 直得 | 2 | 2 | 4 | 9 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260611 | 1597 | 直得 | 3 | 3 | 4 | 9 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260611 | 1597 | 直得 | 16 | 0 | 406070.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

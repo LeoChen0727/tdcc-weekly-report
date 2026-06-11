@@ -1,7 +1,7 @@
 # 每日全市場候選股監測報告 - 精華版
 
 - 主資料日期：`20260611`
-- 產生時間：`2026-06-11 16:13:27 Asia/Taipei`
+- 產生時間：`2026-06-11 20:27:32 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
 - 判斷說明：core daily data dates match main_price_date
 - 權證資料日期：`20260611`
@@ -119,7 +119,7 @@
 - 權證：call_strong_inflow / 2.0
 - 財報 / 事件催化：score 0 / theme 100.0/5 / dividend_calendar;calendar_ex_dividend;電子零組件業 / dividend_calendar;calendar_ex_dividend / calendar ex_dividend 2026...
 - 摘要：區間轉強 / 距前高-0.59% / 大戶同步增加 / call_strong_inflow / 2.0
-- 完整原因：近幾週400張與1000張同步累積；call_strong_inflow；認購權證成交金額明顯升溫；挑戰前高；量比2.37x；月營收YoY 47.5%；累計YoY 27.3%；TDCC近幾週400張與1000張同步累積
+- 完整原因：近幾週400張與1000張同步累積；call_strong_inflow；認購權證成交金額明顯升溫；挑戰前高；量比2.44x；月營收YoY 47.5%；累計YoY 27.3%；TDCC近幾週400張與1000張同步累積
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
 
 ### 2834 臺企銀
@@ -267,7 +267,7 @@
 - 權證：call_inflow / 1.0
 - 財報 / 事件催化：score 0 / theme 70.7/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;dividend_calendar;calendar_ex_dividend;其他電子業 / revenue_goo...
 - 摘要：TDCC轉弱 / 大戶轉弱 / call_inflow / 1.0
-- 完整原因：近幾週400張與1000張同步減少；call_inflow；認購權證資金升溫；量比0.93x；月營收YoY 133.1%；累計YoY 94.4%；TDCC近幾週大戶籌碼轉弱
+- 完整原因：近幾週400張與1000張同步減少；call_inflow；認購權證資金升溫；量比0.94x；月營收YoY 133.1%；累計YoY 94.4%；TDCC近幾週大戶籌碼轉弱
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
 
 ### 3036 文曄
@@ -279,7 +279,7 @@
 - 權證：call_inflow / 1.0
 - 財報 / 事件催化：score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthly_revenue_expect...
 - 摘要：TDCC增加 / 大戶溫和增加 / call_inflow / 1.0
-- 完整原因：近幾週其中一項大戶級距增加；call_inflow；認購權證資金升溫；量比1.8x；月營收YoY 152.7%；累計YoY 103.5%；TDCC近幾週大戶溫和增加
+- 完整原因：近幾週其中一項大戶級距增加；call_inflow；認購權證資金升溫；量比1.98x；月營收YoY 152.7%；累計YoY 103.5%；TDCC近幾週大戶溫和增加
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
 
 ### 1597 直得

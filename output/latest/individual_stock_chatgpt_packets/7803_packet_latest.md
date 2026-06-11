@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7803 雲象科技-創
 
 ## Metadata
-- generated_at: 2026-06-10 22:24:41 Asia/Taipei
+- generated_at: 2026-06-11 22:24:21 Asia/Taipei
 - stock_id: 7803
 - stock_name: 雲象科技-創
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260605
-- price_rows: 13
+- latest_price_date: 20260611
+- price_rows: 14
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 23.5
-- high: 24
-- low: 22.9
-- close: 23.25
-- volume: 278808
-- ma5: 22.89
-- ema23_primary: 23.06
-- distance_to_ema23_pct: 0.83
-- ma20: 23.2
-- ma60: 23.2
-- ma120: 23.2
-- return_5d: 3.79
+- date: 20260611
+- open: 22.45
+- high: 23.4
+- low: 22.4
+- close: 22.8
+- volume: 188268
+- ma5: 22.91
+- ema23_primary: 23.04
+- distance_to_ema23_pct: -1.03
+- ma20: 23.17
+- ma60: 23.17
+- ma120: 23.17
+- return_5d: 0.44
 - return_20d:
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: 0.23
-- distance_to_high_60_pct: -14.84
+- volume_ratio: 0.46
+- distance_to_ma20_pct_auxiliary: -1.59
+- distance_to_high_60_pct: -16.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -148,6 +148,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,23.15,23.15,22.1,22.2,188549,23.03,-3.61,23.2,23.2,0.41
 20260604,23.2,23.2,22.2,23.15,262731,23.04,0.47,23.19,23.19,0.6
 20260605,23.5,24,22.9,23.25,278808,23.06,0.83,23.2,23.2,0.65
+20260611,22.45,23.4,22.4,22.8,188268,23.04,-1.03,23.17,23.17,0.46
 ```
 
 ## Latest TDCC Snapshot

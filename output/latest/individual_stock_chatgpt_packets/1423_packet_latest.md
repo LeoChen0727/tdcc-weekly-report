@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1423 利華
 
 ## Metadata
-- generated_at: 2026-06-10 22:22:23 Asia/Taipei
+- generated_at: 2026-06-11 22:22:24 Asia/Taipei
 - stock_id: 1423
 - stock_name: 利華
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 271
+- latest_price_date: 20260611
+- price_rows: 272
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 43.9
-- high: 44
-- low: 43.75
-- close: 43.75
-- volume: 60002
-- ma5: 42.96
-- ema23_primary: 41.76
-- distance_to_ema23_pct: 4.77
-- ma20: 41.45
-- ma60: 40.88
-- ma120: 39.57
-- return_5d: 5.42
-- return_20d: 7.1
-- volume_ratio: 0.36
-- distance_to_ma20_pct_auxiliary: 5.54
-- distance_to_high_60_pct: -1.13
+- date: 20260611
+- open: 43.95
+- high: 44.45
+- low: 43.95
+- close: 44.4
+- volume: 352912
+- ma5: 43.55
+- ema23_primary: 41.98
+- distance_to_ema23_pct: 5.77
+- ma20: 41.65
+- ma60: 40.93
+- ma120: 39.61
+- return_5d: 7.12
+- return_20d: 9.49
+- volume_ratio: 1.94
+- distance_to_ma20_pct_auxiliary: 6.61
+- distance_to_high_60_pct: -0.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,40.85,40.9,40.5,40.55,65912,40.9,-0.85,41.12,39.82,1.03
 20260512,40,41.15,39.55,40.2,78157,40.84,-1.57,41.13,39.85,1.17
 20260513,39.75,40.2,39.75,39.95,7938,40.77,-2,41.12,39.89,0.12
 20260514,40.55,41.4,39.6,40.55,244942,40.75,-0.49,41.14,39.93,3.37
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,43.25,44.25,43.25,43.5,189175,41.44,4.97,41.21,40.72,1.54
 20260604,41.75,43.7,41.4,43.05,851940,41.58,3.55,41.31,40.79,5.16
 20260605,43.9,44,43.75,43.75,60002,41.76,4.77,41.45,40.88,0.36
+20260611,43.95,44.45,43.95,44.4,352912,41.98,5.77,41.65,40.93,1.94
 ```
 
 ## Latest TDCC Snapshot

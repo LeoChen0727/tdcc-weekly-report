@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4148 全宇生技-KY
 
 ## Metadata
-- generated_at: 2026-06-10 22:23:29 Asia/Taipei
+- generated_at: 2026-06-11 22:23:20 Asia/Taipei
 - stock_id: 4148
 - stock_name: 全宇生技-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 271
+- latest_price_date: 20260611
+- price_rows: 272
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 32.5
-- high: 32.75
-- low: 32.4
-- close: 32.5
-- volume: 23243
-- ma5: 31.48
-- ema23_primary: 33.47
-- distance_to_ema23_pct: -2.91
-- ma20: 33.42
-- ma60: 37.62
-- ma120: 37.94
-- return_5d: 7.26
-- return_20d: -10.34
-- volume_ratio: 0.27
-- distance_to_ma20_pct_auxiliary: -2.77
-- distance_to_high_60_pct: -27.62
+- date: 20260611
+- open: 30.3
+- high: 30.5
+- low: 29.4
+- close: 30.35
+- volume: 110177
+- ma5: 31.47
+- ema23_primary: 33.21
+- distance_to_ema23_pct: -8.62
+- ma20: 33.02
+- ma60: 37.51
+- ma120: 37.86
+- return_5d: -0.16
+- return_20d: -20.96
+- volume_ratio: 1.33
+- distance_to_ma20_pct_auxiliary: -8.09
+- distance_to_high_60_pct: -32.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,37.4,39.45,37.4,38.4,145245,37.91,1.29,37.55,38.83,1.88
 20260512,39.2,39.2,37.2,37.45,113333,37.87,-1.12,37.42,38.83,1.46
 20260513,37.35,37.6,36.75,37.1,85639,37.81,-1.88,37.29,38.81,1.11
 20260514,36.4,36.8,35.5,35.5,251287,37.62,-5.63,37.12,38.77,2.95
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,31.75,33,31,32.5,131177,33.8,-3.83,33.88,37.83,1.53
 20260604,30.5,31.1,30.45,31,27362,33.56,-7.63,33.61,37.7,0.32
 20260605,32.5,32.75,32.4,32.5,23243,33.47,-2.91,33.42,37.62,0.27
+20260611,30.3,30.5,29.4,30.35,110177,33.21,-8.62,33.02,37.51,1.33
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5215 科嘉-KY
 
 ## Metadata
-- generated_at: 2026-06-10 22:23:44 Asia/Taipei
+- generated_at: 2026-06-11 22:23:32 Asia/Taipei
 - stock_id: 5215
 - stock_name: 科嘉-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 48.9
-- high: 49.15
-- low: 47.15
-- close: 48.4
-- volume: 257125
-- ma5: 49.38
-- ema23_primary: 45.68
-- distance_to_ema23_pct: 5.95
-- ma20: 46.22
-- ma60: 40.56
-- ma120: 38.67
-- return_5d: -1.22
-- return_20d: 26.21
-- volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: 4.73
-- distance_to_high_60_pct: -5.47
+- date: 20260611
+- open: 42.9
+- high: 42.9
+- low: 41.4
+- close: 42.15
+- volume: 408038
+- ma5: 47.75
+- ema23_primary: 45.39
+- distance_to_ema23_pct: -7.13
+- ma20: 46.41
+- ma60: 40.65
+- ma120: 38.72
+- return_5d: -16.2
+- return_20d: 10.05
+- volume_ratio: 0.68
+- distance_to_ma20_pct_auxiliary: -9.17
+- distance_to_high_60_pct: -17.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,38.35,38.9,37.5,38.3,67898,37.93,0.99,38.01,37.89,0.92
 20260512,41.95,42.1,41.05,42.1,459900,38.27,10,38.21,37.97,4.95
 20260513,45.35,46.3,44.05,46.3,1497829,38.94,18.89,38.63,38.11,9.08
 20260514,50.9,50.9,43.8,45,3492242,39.45,14.08,38.98,38.23,10.41
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,49,50.6,49,50,299137,45.1,10.86,45.22,40.16,0.53
 20260604,50,50,47.5,49.1,375685,45.44,8.06,45.71,40.37,0.65
 20260605,48.9,49.15,47.15,48.4,257125,45.68,5.95,46.22,40.56,0.44
+20260611,42.9,42.9,41.4,42.15,408038,45.39,-7.13,46.41,40.65,0.68
 ```
 
 ## Latest TDCC Snapshot

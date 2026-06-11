@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6692 進能服
 
 ## Metadata
-- generated_at: 2026-06-10 22:24:15 Asia/Taipei
+- generated_at: 2026-06-11 22:23:59 Asia/Taipei
 - stock_id: 6692
 - stock_name: 進能服
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 276
+- latest_price_date: 20260611
+- price_rows: 277
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 26.4
-- high: 26.4
-- low: 25.6
-- close: 25.75
-- volume: 26000
-- ma5: 25.47
-- ema23_primary: 27.92
-- distance_to_ema23_pct: -7.78
-- ma20: 27.89
-- ma60: 30.37
-- ma120: 30.52
-- return_5d: -3.74
-- return_20d: -17.99
-- volume_ratio: 0.81
-- distance_to_ma20_pct_auxiliary: -7.68
-- distance_to_high_60_pct: -23.13
+- date: 20260611
+- open: 25
+- high: 25.5
+- low: 25
+- close: 25
+- volume: 25000
+- ma5: 25.39
+- ema23_primary: 27.68
+- distance_to_ema23_pct: -9.68
+- ma20: 27.58
+- ma60: 30.25
+- ma120: 30.47
+- return_5d: -1.57
+- return_20d: -20.13
+- volume_ratio: 0.79
+- distance_to_ma20_pct_auxiliary: -9.35
+- distance_to_high_60_pct: -25.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,31.6,31.95,31.3,31.3,36000,31.77,-1.48,32.04,31.29,0.73
 20260512,31.5,31.5,30.05,30.05,84000,31.63,-4.99,31.92,31.29,1.7
 20260513,30,30.05,29.65,29.85,62000,31.48,-5.17,31.78,31.27,1.25
 20260514,30,30,28.8,29.5,60000,31.31,-5.79,31.66,31.24,1.21
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,25.2,26.55,25.15,25.5,26000,28.36,-10.08,28.48,30.51,0.74
 20260604,25.2,26.55,25.15,25.5,26000,28.12,-9.32,28.18,30.45,0.78
 20260605,26.4,26.4,25.6,25.75,26000,27.92,-7.78,27.89,30.37,0.81
+20260611,25,25.5,25,25,25000,27.68,-9.68,27.58,30.25,0.79
 ```
 
 ## Latest TDCC Snapshot

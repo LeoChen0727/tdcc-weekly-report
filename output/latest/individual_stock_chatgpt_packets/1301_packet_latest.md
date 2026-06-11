@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1301 台塑
 
 ## Metadata
-- generated_at: 2026-06-10 22:22:21 Asia/Taipei
+- generated_at: 2026-06-11 22:22:22 Asia/Taipei
 - stock_id: 1301
 - stock_name: 台塑
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 51
-- high: 51
-- low: 48.6
-- close: 48.9
-- volume: 27307999
-- ma5: 50.54
-- ema23_primary: 48.27
-- distance_to_ema23_pct: 1.31
-- ma20: 47.2
-- ma60: 48.39
+- date: 20260611
+- open: 44.4
+- high: 44.85
+- low: 43.1
+- close: 43.8
+- volume: 30552058
+- ma5: 49.3
+- ema23_primary: 47.9
+- distance_to_ema23_pct: -8.55
+- ma20: 46.93
+- ma60: 48.34
 - ma120: 46.08
-- return_5d: 3.06
-- return_20d: 0.72
-- volume_ratio: 1.01
-- distance_to_ma20_pct_auxiliary: 3.6
-- distance_to_high_60_pct: -13.14
+- return_5d: -12.4
+- return_20d: -11.07
+- volume_ratio: 1.1
+- distance_to_ma20_pct_auxiliary: -6.67
+- distance_to_high_60_pct: -22.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,48,51,47.95,49.25,18754378,50.11,-1.72,51.37,48.6,0.58
 20260512,49.55,49.55,47.6,47.65,25928865,49.91,-4.52,51.19,48.66,0.89
 20260513,47.65,47.7,46.85,46.9,15755779,49.66,-5.55,50.81,48.69,0.65
 20260514,46.85,47.1,46,46.1,18540747,49.36,-6.6,50.51,48.68,0.81
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,51.4,53.4,50.7,52,49981521,47.97,8.41,47.12,48.29,1.89
 20260604,49.75,51.1,49.15,50.9,52270283,48.21,5.58,47.19,48.35,1.89
 20260605,51,51,48.6,48.9,27307999,48.27,1.31,47.2,48.39,1.01
+20260611,44.4,44.85,43.1,43.8,30552058,47.9,-8.55,46.93,48.34,1.1
 ```
 
 ## Latest TDCC Snapshot
@@ -193,9 +192,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260611 | 1301 | 台塑 | 90 | 0 | 3347590.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

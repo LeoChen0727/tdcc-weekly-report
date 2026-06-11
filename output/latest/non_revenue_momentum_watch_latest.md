@@ -1,7 +1,7 @@
 # Non-Revenue Momentum Watch
 
 ## Metadata
-- generated_at: `2026-06-11 08:11:23 UTC`
+- generated_at: `2026-06-11 12:25:29 UTC`
 - main_price_date: `20260611`
 - section_type: `specialty_section_not_core_category`
 - model_effect_allowed: `False`
@@ -41,6 +41,7 @@
 | D_overheated_or_failed_risk | 6152 | 百一 | core_mainstream | B_confirm_needed | 70.0 | revenue_unconfirmed |  | market_theme | core_mainstream |  |  | 0.64 | strong_accumulation |  | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。; 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
 | D_overheated_or_failed_risk | 3305 | 昇貿 | non_mainstream | B_confirm_needed | 70.0 | revenue_unconfirmed |  | needs_manual_review | theme_unknown |  |  | 0.51 | strong_accumulation | no_signal | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。; 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
 | D_overheated_or_failed_risk | 8476 | 台境* | non_mainstream | C_watch_only | 68.8 | revenue_negative |  | non_mainstream_theme | non_mainstream |  |  | 3.64 | mild_accumulation |  | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。; 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
+| D_overheated_or_failed_risk | 2385 | 群光 | core_mainstream | C_watch_only | 66.8 | revenue_negative |  | market_theme | core_mainstream |  |  | 0.97 | strong_accumulation | no_signal | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 確認放量站上頸線/平台壓力，且收盤靠近高點。; 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
 | D_overheated_or_failed_risk | 4934 | 太極 | core_mainstream | C_watch_only | 66.0 | revenue_unconfirmed |  | market_theme | core_mainstream |  |  | 0.93 | mild_accumulation |  | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。; 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
 | D_overheated_or_failed_risk | 1529 | 樂事綠能 | core_mainstream | C_watch_only | 66.0 | negative_and_unconfirmed |  | market_theme | core_mainstream |  |  | 0.85 | mild_accumulation |  | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。; 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
 | D_overheated_or_failed_risk | 6139 | 亞翔 | core_mainstream | C_watch_only | 66.0 | revenue_unconfirmed |  | market_theme | core_mainstream |  |  | 0.78 | mild_accumulation | no_signal | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。; 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
@@ -52,7 +53,6 @@
 | D_overheated_or_failed_risk | 4976 | 佳凌 | core_mainstream | C_watch_only | 62.8 | revenue_negative |  | market_theme | core_mainstream |  |  | 1.44 | mild_accumulation |  | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 確認放量站上頸線/平台壓力，且收盤靠近高點。; 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
 | D_overheated_or_failed_risk | 1618 | 合機 | core_mainstream | C_watch_only | 61.8 | revenue_negative |  | market_theme | core_mainstream |  |  | 1.63 | neutral | no_signal | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 確認放量站上頸線/平台壓力，且收盤靠近高點。; 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
 | D_overheated_or_failed_risk | 1810 | 和成 | non_mainstream | C_watch_only | 61.8 | revenue_negative |  | non_mainstream_theme | non_mainstream |  |  | 0.85 | mild_accumulation |  | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待量價、TDCC、相對強弱至少一項轉強。; 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
-| D_overheated_or_failed_risk | 2385 | 群光 | core_mainstream | C_watch_only | 61.8 | revenue_negative |  | market_theme | core_mainstream |  |  | 0.75 | strong_accumulation | no_signal | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待量價、TDCC、相對強弱至少一項轉強。; 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
 | D_overheated_or_failed_risk | 3034 | 聯詠 | core_mainstream | C_watch_only | 61.8 | revenue_negative |  | market_theme | core_mainstream |  |  | 0.59 | strong_accumulation | no_signal | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待量價、TDCC、相對強弱至少一項轉強。; 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
 | D_overheated_or_failed_risk | 3047 | 訊舟 | core_mainstream | C_watch_only | 61.8 | revenue_negative |  | market_theme | core_mainstream |  |  | 0.49 | strong_accumulation |  | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待量價、TDCC、相對強弱至少一項轉強。; 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
 | D_overheated_or_failed_risk | 3050 | 鈺德 | core_mainstream | C_watch_only | 61.0 | revenue_negative |  | market_theme | core_mainstream |  |  | 0.75 | strong_accumulation |  | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待量價、TDCC、相對強弱至少一項轉強。; 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |

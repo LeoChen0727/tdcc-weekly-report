@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009807 台新標普科技精選
 
 ## Metadata
-- generated_at: 2026-06-10 22:22:18 Asia/Taipei
+- generated_at: 2026-06-11 22:22:19 Asia/Taipei
 - stock_id: 009807
 - stock_name: 台新標普科技精選
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260605
-- price_rows: 11
+- latest_price_date: 20260611
+- price_rows: 12
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 17
-- high: 17.05
-- low: 17
-- close: 17.03
-- volume: 17000
-- ma5: 17.32
-- ema23_primary: 16.57
-- distance_to_ema23_pct: 2.79
-- ma20: 16.77
-- ma60: 16.77
-- ma120: 16.77
-- return_5d: 1.85
+- date: 20260611
+- open: 15.79
+- high: 15.91
+- low: 15.79
+- close: 15.9
+- volume: 16000
+- ma5: 17.09
+- ema23_primary: 16.51
+- distance_to_ema23_pct: -3.71
+- ma20: 16.7
+- ma60: 16.7
+- ma120: 16.7
+- return_5d: -6.85
 - return_20d:
-- volume_ratio: 1.25
-- distance_to_ma20_pct_auxiliary: 1.53
-- distance_to_high_60_pct: -3.29
+- volume_ratio: 1.16
+- distance_to_ma20_pct_auxiliary: -4.79
+- distance_to_high_60_pct: -9.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -146,6 +146,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,17.61,17.61,17.57,17.58,18000,16.43,7,16.65,16.65,1.41
 20260604,17.61,17.61,17.57,17.58,18000,16.53,6.38,16.75,16.75,1.35
 20260605,17,17.05,17,17.03,17000,16.57,2.79,16.77,16.77,1.25
+20260611,15.79,15.91,15.79,15.9,16000,16.51,-3.71,16.7,16.7,1.16
 ```
 
 ## Latest TDCC Snapshot

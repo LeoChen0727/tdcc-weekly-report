@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7712 博盛半導體
 
 ## Metadata
-- generated_at: 2026-06-10 22:24:38 Asia/Taipei
+- generated_at: 2026-06-11 22:24:18 Asia/Taipei
 - stock_id: 7712
 - stock_name: 博盛半導體
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 150
-- high: 153
-- low: 141
-- close: 150
-- volume: 147000
-- ma5: 157.5
-- ema23_primary: 153.75
-- distance_to_ema23_pct: -2.44
-- ma20: 161.4
-- ma60: 132.02
-- ma120: 110.14
-- return_5d: -10.18
-- return_20d: 11.52
+- date: 20260611
+- open: 142.5
+- high: 144
+- low: 134.5
+- close: 138.5
+- volume: 138000
+- ma5: 152.9
+- ema23_primary: 152.48
+- distance_to_ema23_pct: -9.17
+- ma20: 160.95
+- ma60: 132.55
+- ma120: 110.56
+- return_5d: -14.24
+- return_20d: -6.1
 - volume_ratio: 0.16
-- distance_to_ma20_pct_auxiliary: -7.06
-- distance_to_high_60_pct: -24.43
+- distance_to_ma20_pct_auxiliary: -13.95
+- distance_to_high_60_pct: -30.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,147.5,147.5,147.5,147.5,362000,120.04,22.88,119.22,110.33,0.52
 20260512,162,162,162,162,1008000,123.54,31.14,121.7,111.66,1.38
 20260513,158,163.5,152,153,2643000,125.99,21.44,123.88,112.83,3.13
 20260514,157,168,150,168,2268000,129.49,29.74,126.9,114.16,2.4
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,162,167,159,159,162000,153.65,3.48,158.8,130.26,0.16
 20260604,162,167,159,159,162000,154.09,3.18,160.62,131.23,0.16
 20260605,150,153,141,150,147000,153.75,-2.44,161.4,132.02,0.16
+20260611,142.5,144,134.5,138.5,138000,152.48,-9.17,160.95,132.55,0.16
 ```
 
 ## Latest TDCC Snapshot

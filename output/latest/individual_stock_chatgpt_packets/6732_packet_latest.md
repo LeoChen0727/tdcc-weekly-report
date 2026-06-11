@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6732 昇佳電子
 
 ## Metadata
-- generated_at: 2026-06-10 22:24:16 Asia/Taipei
+- generated_at: 2026-06-11 22:24:00 Asia/Taipei
 - stock_id: 6732
 - stock_name: 昇佳電子
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 167
-- high: 168
-- low: 163
-- close: 163.5
-- volume: 165000
-- ma5: 171.1
-- ema23_primary: 169.74
-- distance_to_ema23_pct: -3.67
-- ma20: 172.15
-- ma60: 160.77
-- ma120: 168.31
-- return_5d: -8.15
-- return_20d: -0.3
-- volume_ratio: 0.82
-- distance_to_ma20_pct_auxiliary: -5.02
-- distance_to_high_60_pct: -12.8
+- date: 20260611
+- open: 152
+- high: 154
+- low: 148.5
+- close: 150.5
+- volume: 151000
+- ma5: 166.4
+- ema23_primary: 168.13
+- distance_to_ema23_pct: -10.49
+- ma20: 171.32
+- ma60: 160.43
+- ma120: 168.01
+- return_5d: -13.51
+- return_20d: -9.88
+- volume_ratio: 0.75
+- distance_to_ma20_pct_auxiliary: -12.16
+- distance_to_high_60_pct: -19.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,164.5,167.5,164,167,185000,156.79,6.51,155.7,160.56,0.7
 20260512,168,173,168,170.5,426000,157.93,7.96,156.85,160.48,1.55
 20260513,169,169,164,165.5,234000,158.56,4.38,157.65,160.32,0.84
 20260514,167.5,177.5,167,172.5,391000,159.72,8,158.75,160.25,1.34
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,173.5,175,172.5,172.5,173000,170.1,1.41,171.72,160.61,0.74
 20260604,173.5,175,172.5,172.5,173000,170.3,1.29,172.18,160.81,0.78
 20260605,167,168,163,163.5,165000,169.74,-3.67,172.15,160.77,0.82
+20260611,152,154,148.5,150.5,151000,168.13,-10.49,171.32,160.43,0.75
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4568 科際精密
 
 ## Metadata
-- generated_at: 2026-06-10 22:23:35 Asia/Taipei
+- generated_at: 2026-06-11 22:23:25 Asia/Taipei
 - stock_id: 4568
 - stock_name: 科際精密
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 258
+- latest_price_date: 20260611
+- price_rows: 259
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 41.75
-- high: 42
-- low: 41.7
-- close: 41.9
-- volume: 42000
-- ma5: 41.76
-- ema23_primary: 41.07
-- distance_to_ema23_pct: 2.02
-- ma20: 40.69
-- ma60: 41.56
-- ma120: 41.95
-- return_5d: 4.23
-- return_20d: 2.32
-- volume_ratio: 1.56
-- distance_to_ma20_pct_auxiliary: 2.99
-- distance_to_high_60_pct: -4.34
+- date: 20260611
+- open: 40.1
+- high: 40.1
+- low: 40.1
+- close: 40.1
+- volume: 40000
+- ma5: 41.58
+- ema23_primary: 40.99
+- distance_to_ema23_pct: -2.17
+- ma20: 40.65
+- ma60: 41.5
+- ma120: 41.93
+- return_5d: -2.2
+- return_20d: -1.96
+- volume_ratio: 1.43
+- distance_to_ma20_pct_auxiliary: -1.34
+- distance_to_high_60_pct: -8.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260508,40.95,40.95,40.4,40.9,19000,41.65,-1.8,41.73,42.08,1.26
 20260511,40.95,41.85,40.15,40.95,43000,41.59,-1.54,41.67,42.06,2.59
 20260512,39.8,40.8,39.8,40.1,15000,41.47,-3.29,41.57,42.02,0.88
 20260513,40.2,40.95,39.95,40.2,34000,41.36,-2.81,41.47,41.98,1.83
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,41.9,41.95,41.1,41.95,41000,40.91,2.55,40.59,41.59,1.7
 20260604,41.9,41.95,41.1,41.95,41000,40.99,2.33,40.64,41.58,1.61
 20260605,41.75,42,41.7,41.9,42000,41.07,2.02,40.69,41.56,1.56
+20260611,40.1,40.1,40.1,40.1,40000,40.99,-2.17,40.65,41.5,1.43
 ```
 
 ## Latest TDCC Snapshot

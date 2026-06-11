@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00899 FT潔淨能源
 
 ## Metadata
-- generated_at: 2026-06-10 22:22:16 Asia/Taipei
+- generated_at: 2026-06-11 22:22:18 Asia/Taipei
 - stock_id: 00899
 - stock_name: FT潔淨能源
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260605
-- price_rows: 11
+- latest_price_date: 20260611
+- price_rows: 12
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,23 +112,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 29.16
-- high: 29.16
-- low: 28.98
-- close: 29.02
-- volume: 78680
-- ma5: 29.65
-- ema23_primary: 28.96
-- distance_to_ema23_pct: 0.21
-- ma20: 29.3
-- ma60: 29.3
-- ma120: 29.3
-- return_5d: -3.11
+- date: 20260611
+- open: 26.36
+- high: 26.36
+- low: 26.16
+- close: 26.29
+- volume: 168364
+- ma5: 28.89
+- ema23_primary: 28.74
+- distance_to_ema23_pct: -8.51
+- ma20: 29.05
+- ma60: 29.05
+- ma120: 29.05
+- return_5d: -12.63
 - return_20d:
-- volume_ratio: 0.55
-- distance_to_ma20_pct_auxiliary: -0.97
-- distance_to_high_60_pct: -3.62
+- volume_ratio: 1.15
+- distance_to_ma20_pct_auxiliary: -9.51
+- distance_to_high_60_pct: -12.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -146,6 +145,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,29.86,30.11,29.86,30.09,207776,28.9,4.12,29.31,29.31,1.41
 20260604,29.5,29.64,29.5,29.53,176324,28.95,1.99,29.33,29.33,1.17
 20260605,29.16,29.16,28.98,29.02,78680,28.96,0.21,29.3,29.3,0.55
+20260611,26.36,26.36,26.16,26.29,168364,28.74,-8.51,29.05,29.05,1.15
 ```
 
 ## Latest TDCC Snapshot

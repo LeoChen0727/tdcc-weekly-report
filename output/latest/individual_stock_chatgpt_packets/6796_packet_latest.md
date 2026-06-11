@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6796 晉弘
 
 ## Metadata
-- generated_at: 2026-06-10 22:24:19 Asia/Taipei
+- generated_at: 2026-06-11 22:24:02 Asia/Taipei
 - stock_id: 6796
 - stock_name: 晉弘
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 277
+- latest_price_date: 20260611
+- price_rows: 278
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 63
-- high: 63
-- low: 60.9
-- close: 61
-- volume: 118617
-- ma5: 60.82
-- ema23_primary: 63.44
-- distance_to_ema23_pct: -3.84
-- ma20: 62.34
-- ma60: 69.36
-- ma120: 80.02
-- return_5d: 0.16
-- return_20d: -12.48
-- volume_ratio: 0.95
-- distance_to_ma20_pct_auxiliary: -2.15
-- distance_to_high_60_pct: -23.75
+- date: 20260611
+- open: 60.3
+- high: 60.4
+- low: 57.4
+- close: 57.4
+- volume: 99274
+- ma5: 59.92
+- ema23_primary: 62.93
+- distance_to_ema23_pct: -8.79
+- ma20: 61.91
+- ma60: 69
+- ma120: 79.71
+- return_5d: -7.27
+- return_20d: -13.03
+- volume_ratio: 0.84
+- distance_to_ma20_pct_auxiliary: -7.28
+- distance_to_high_60_pct: -27.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,69,69,66,66,230002,71.25,-7.37,71.44,76.33,2.92
 20260512,67.9,68,65.7,67.2,96941,70.91,-5.24,71.17,75.97,1.18
 20260513,66.8,67.6,66.4,66.7,110824,70.56,-5.47,70.92,75.61,1.29
 20260514,66.5,66.5,64.5,64.6,111288,70.07,-7.8,70.45,75.22,1.27
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,61.5,61.5,59.7,61,97168,63.98,-4.66,63.26,69.94,0.79
 20260604,62,62.7,60,60.1,140185,63.66,-5.59,62.77,69.64,1.12
 20260605,63,63,60.9,61,118617,63.44,-3.84,62.34,69.36,0.95
+20260611,60.3,60.4,57.4,57.4,99274,62.93,-8.79,61.91,69,0.84
 ```
 
 ## Latest TDCC Snapshot

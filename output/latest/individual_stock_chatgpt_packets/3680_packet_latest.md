@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3680 家登
 
 ## Metadata
-- generated_at: 2026-06-10 22:23:25 Asia/Taipei
+- generated_at: 2026-06-11 22:23:17 Asia/Taipei
 - stock_id: 3680
 - stock_name: 家登
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 530
-- high: 530
-- low: 507
-- close: 520
-- volume: 516000
-- ma5: 532.2
-- ema23_primary: 537.66
-- distance_to_ema23_pct: -3.28
-- ma20: 555.35
-- ma60: 477.36
-- ma120: 432.27
-- return_5d: -3.7
-- return_20d: -7.14
-- volume_ratio: 0.3
-- distance_to_ma20_pct_auxiliary: -6.37
-- distance_to_high_60_pct: -16.53
+- date: 20260611
+- open: 495.5
+- high: 498.5
+- low: 466.5
+- close: 480
+- volume: 482000
+- ma5: 521
+- ema23_primary: 532.85
+- distance_to_ema23_pct: -9.92
+- ma20: 548.55
+- ma60: 478.86
+- ma120: 433.43
+- return_5d: -10.45
+- return_20d: -22.08
+- volume_ratio: 0.31
+- distance_to_ma20_pct_auxiliary: -12.5
+- distance_to_high_60_pct: -22.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,580,616,579,616,3908000,503.06,22.45,495.75,429.61,0.8
 20260512,617,623,600,602,3492000,511.31,17.74,506.77,432.89,0.7
 20260513,592,602,563,588,3151000,517.7,13.58,515.95,435.92,0.65
 20260514,593,603,573,580,3513000,522.89,10.92,524.85,438.69,0.71
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,531,552,528,539,541000,539.29,-0.05,559.65,472.05,0.25
 20260604,531,552,528,539,541000,539.26,-0.05,557.35,474.96,0.27
 20260605,530,530,507,520,516000,537.66,-3.28,555.35,477.36,0.3
+20260611,495.5,498.5,466.5,480,482000,532.85,-9.92,548.55,478.86,0.31
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6239 力成
 
 ## Metadata
-- generated_at: 2026-06-10 22:24:02 Asia/Taipei
+- generated_at: 2026-06-11 22:23:48 Asia/Taipei
 - stock_id: 6239
 - stock_name: 力成
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 339
-- high: 350
-- low: 323
-- close: 338
-- volume: 16699684
-- ma5: 348.2
-- ema23_primary: 299.57
-- distance_to_ema23_pct: 12.83
-- ma20: 294.2
-- ma60: 237.01
-- ma120: 225.22
-- return_5d: -10.82
-- return_20d: 52.25
-- volume_ratio: 0.57
-- distance_to_ma20_pct_auxiliary: 14.89
-- distance_to_high_60_pct: -12.66
+- date: 20260611
+- open: 309.5
+- high: 333
+- low: 301
+- close: 333
+- volume: 17419175
+- ma5: 341.6
+- ema23_primary: 302.36
+- distance_to_ema23_pct: 10.13
+- ma20: 299.57
+- ma60: 238.97
+- ma120: 226.68
+- return_5d: -9.02
+- return_20d: 47.67
+- volume_ratio: 0.59
+- distance_to_ma20_pct_auxiliary: 11.16
+- distance_to_high_60_pct: -13.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,225.5,231,223,225.5,15003946,216.88,3.98,216.43,218.59,0.76
 20260512,227.5,233,219,226.5,18062376,217.68,4.05,216.82,218.29,0.89
 20260513,224,232,220,232,12744024,218.87,6,217.55,217.88,0.65
 20260514,233,236.5,226.5,229,20525774,219.72,4.22,218.5,217.48,1.04
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,342,353,333,343,15557902,291.45,17.69,282.57,232.54,0.53
 20260604,369.5,369.5,329.5,347,24564465,296.08,17.2,288.4,234.95,0.83
 20260605,339,350,323,338,16699684,299.57,12.83,294.2,237.01,0.57
+20260611,309.5,333,301,333,17419175,302.36,10.13,299.57,238.97,0.59
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 6239 | 力成 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260611 | 6239 | 力成 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 6239 | 力成 | 1 | 1 | 4 | 9 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260611 | 6239 | 力成 | 2 | 2 | 4 | 9 | 11 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260611 | 6239 | 力成 | 211 | 0 | 18872280.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

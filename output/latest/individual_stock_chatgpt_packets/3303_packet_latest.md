@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3303 岱稜
 
 ## Metadata
-- generated_at: 2026-06-10 22:23:14 Asia/Taipei
+- generated_at: 2026-06-11 22:23:08 Asia/Taipei
 - stock_id: 3303
 - stock_name: 岱稜
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 50.1
-- high: 52
-- low: 49.6
-- close: 52
-- volume: 51000
-- ma5: 50.14
-- ema23_primary: 49.5
-- distance_to_ema23_pct: 5.06
-- ma20: 49.55
-- ma60: 48.06
-- ma120: 46.96
-- return_5d: 5.37
-- return_20d: 0
-- volume_ratio: 0.24
-- distance_to_ma20_pct_auxiliary: 4.95
-- distance_to_high_60_pct: -4.76
+- date: 20260611
+- open: 51.4
+- high: 53.6
+- low: 50.1
+- close: 53.6
+- volume: 52000
+- ma5: 51.02
+- ema23_primary: 49.84
+- distance_to_ema23_pct: 7.55
+- ma20: 49.63
+- ma60: 48.16
+- ma120: 47.02
+- return_5d: 8.94
+- return_20d: 3.08
+- volume_ratio: 0.26
+- distance_to_ma20_pct_auxiliary: 8
+- distance_to_high_60_pct: -1.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,52.9,52.9,51.7,52,384000,49.03,6.06,48.59,47.14,0.75
 20260512,50.5,50.5,48.95,49.8,1138000,49.09,1.44,48.78,47.22,2.03
 20260513,49.5,51.1,49.5,50.1,453000,49.18,1.88,48.98,47.31,0.79
 20260514,50.5,51.1,50,50.4,436000,49.28,2.27,49.21,47.39,0.74
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,49.25,50.7,48.95,50.3,50000,49.17,2.29,49.61,47.91,0.19
 20260604,49.25,50.7,48.95,50.3,50000,49.27,2.09,49.55,47.97,0.2
 20260605,50.1,52,49.6,52,51000,49.5,5.06,49.55,48.06,0.24
+20260611,51.4,53.6,50.1,53.6,52000,49.84,7.55,49.63,48.16,0.26
 ```
 
 ## Latest TDCC Snapshot

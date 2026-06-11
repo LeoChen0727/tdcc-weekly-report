@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6505 台塑化
 
 ## Metadata
-- generated_at: 2026-06-10 22:24:08 Asia/Taipei
+- generated_at: 2026-06-11 22:23:53 Asia/Taipei
 - stock_id: 6505
 - stock_name: 台塑化
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 57.5
-- high: 57.7
-- low: 55
-- close: 55.3
-- volume: 10995075
-- ma5: 54.7
-- ema23_primary: 52.84
-- distance_to_ema23_pct: 4.65
-- ma20: 52.17
-- ma60: 54.01
-- ma120: 52.41
-- return_5d: 7.59
-- return_20d: 4.34
-- volume_ratio: 1.25
-- distance_to_ma20_pct_auxiliary: 6
-- distance_to_high_60_pct: -12.22
+- date: 20260611
+- open: 51.5
+- high: 51.9
+- low: 50.3
+- close: 51.4
+- volume: 7607052
+- ma5: 54.32
+- ema23_primary: 52.72
+- distance_to_ema23_pct: -2.51
+- ma20: 52.04
+- ma60: 53.9
+- ma120: 52.39
+- return_5d: -3.56
+- return_20d: -4.81
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: -1.23
+- distance_to_high_60_pct: -18.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,53.5,54.4,53.3,54,9349965,54.03,-0.05,53.87,54.73,0.79
 20260512,54.3,54.3,52.7,53.1,7758116,53.95,-1.58,53.77,54.8,0.7
 20260513,53.6,53.6,52.5,52.9,5017990,53.86,-1.79,53.6,54.87,0.5
 20260514,52.3,53.3,52.3,52.4,5235167,53.74,-2.5,53.5,54.91,0.54
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,54.8,56.5,53.9,55.9,16107498,52.45,6.58,51.95,54.34,1.81
 20260604,53.4,54.7,52.9,54.5,12690822,52.62,3.57,52.05,54.11,1.46
 20260605,57.5,57.7,55,55.3,10995075,52.84,4.65,52.17,54.01,1.25
+20260611,51.5,51.9,50.3,51.4,7607052,52.72,-2.51,52.04,53.9,0.88
 ```
 
 ## Latest TDCC Snapshot
@@ -193,9 +193,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260611 | 6505 | 台塑化 | 43 | 0 | 577260.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

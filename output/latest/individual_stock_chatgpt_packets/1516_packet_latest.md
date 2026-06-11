@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1516 川飛
 
 ## Metadata
-- generated_at: 2026-06-10 22:22:27 Asia/Taipei
+- generated_at: 2026-06-11 22:22:27 Asia/Taipei
 - stock_id: 1516
 - stock_name: 川飛
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 21
-- high: 21.05
-- low: 21
-- close: 21
-- volume: 19570
-- ma5: 21.13
-- ema23_primary: 21.12
-- distance_to_ema23_pct: -0.55
-- ma20: 21.23
-- ma60: 21.24
-- ma120: 21.52
-- return_5d: 1.45
-- return_20d: -3.23
-- volume_ratio: 0.2
-- distance_to_ma20_pct_auxiliary: -1.07
-- distance_to_high_60_pct: -19.39
+- date: 20260611
+- open: 21.5
+- high: 21.5
+- low: 20.85
+- close: 21.3
+- volume: 150777
+- ma5: 21.19
+- ema23_primary: 21.13
+- distance_to_ema23_pct: 0.79
+- ma20: 21.2
+- ma60: 21.17
+- ma120: 21.53
+- return_5d: 1.43
+- return_20d: -2.07
+- volume_ratio: 1.53
+- distance_to_ma20_pct_auxiliary: 0.45
+- distance_to_high_60_pct: -16.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,21.1,21.9,20.7,21.75,97427,21.12,2.99,20.73,21.52,1.41
 20260512,21,21.65,21,21.6,78148,21.16,2.08,20.81,21.52,1.12
 20260513,21.6,21.65,21,21.6,153118,21.2,1.9,20.9,21.52,2.01
 20260514,21.6,21.85,21.6,21.8,98067,21.25,2.6,20.99,21.52,1.23
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,20.4,21.65,20.4,21.65,84000,21.14,2.42,21.3,21.36,0.81
 20260604,21,21,20.7,21,53763,21.13,-0.6,21.26,21.31,0.56
 20260605,21,21.05,21,21,19570,21.12,-0.55,21.23,21.24,0.2
+20260611,21.5,21.5,20.85,21.3,150777,21.13,0.79,21.2,21.17,1.53
 ```
 
 ## Latest TDCC Snapshot

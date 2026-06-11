@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5533 皇鼎
 
 ## Metadata
-- generated_at: 2026-06-10 22:23:51 Asia/Taipei
+- generated_at: 2026-06-11 22:23:39 Asia/Taipei
 - stock_id: 5533
 - stock_name: 皇鼎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,21 +113,21 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 14
-- high: 14.05
-- low: 13.9
+- date: 20260611
+- open: 14.3
+- high: 14.3
+- low: 13.95
 - close: 14
-- volume: 353692
-- ma5: 14
-- ema23_primary: 14.02
-- distance_to_ema23_pct: -0.11
+- volume: 140400
+- ma5: 14.01
+- ema23_primary: 14.01
+- distance_to_ema23_pct: -0.1
 - ma20: 13.94
 - ma60: 14.24
 - ma120: 14.28
-- return_5d: 0
-- return_20d: -0.36
-- volume_ratio: 2.8
+- return_5d: 0.36
+- return_20d: 0
+- volume_ratio: 1.1
 - distance_to_ma20_pct_auxiliary: 0.47
 - distance_to_high_60_pct: -5.72
 
@@ -135,7 +135,6 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,14.05,14.1,14,14,111708,14.31,-2.13,14.38,14.35,0.6
 20260512,14.05,14.05,13.95,14,142705,14.28,-1.96,14.36,14.35,0.77
 20260513,14,14.05,13.95,14.05,147258,14.26,-1.48,14.33,14.35,0.79
 20260514,14,14.1,13.95,13.95,105363,14.23,-2,14.3,14.34,0.57
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,14,14.05,13.95,14.05,144445,14.02,0.23,13.95,14.24,1.02
 20260604,13.95,14.05,13.95,14,65757,14.02,-0.12,13.94,14.24,0.56
 20260605,14,14.05,13.9,14,353692,14.02,-0.11,13.94,14.24,2.8
+20260611,14.3,14.3,13.95,14,140400,14.01,-0.1,13.94,14.24,1.1
 ```
 
 ## Latest TDCC Snapshot

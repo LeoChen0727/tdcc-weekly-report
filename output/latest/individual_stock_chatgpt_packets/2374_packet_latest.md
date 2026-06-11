@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2374 佳能
 
 ## Metadata
-- generated_at: 2026-06-10 22:22:45 Asia/Taipei
+- generated_at: 2026-06-11 22:22:43 Asia/Taipei
 - stock_id: 2374
 - stock_name: 佳能
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 80.9
-- high: 83.3
-- low: 79.5
-- close: 79.7
-- volume: 15546534
-- ma5: 82.2
-- ema23_primary: 80.51
-- distance_to_ema23_pct: -1.01
-- ma20: 81.5
-- ma60: 75.43
-- ma120: 77.51
-- return_5d: -4.21
-- return_20d: 1.53
-- volume_ratio: 1.13
-- distance_to_ma20_pct_auxiliary: -2.2
-- distance_to_high_60_pct: -7.75
+- date: 20260611
+- open: 71
+- high: 72.1
+- low: 69.6
+- close: 71.7
+- volume: 5231272
+- ma5: 79.6
+- ema23_primary: 79.78
+- distance_to_ema23_pct: -10.12
+- ma20: 81.06
+- ma60: 75.42
+- ma120: 77.45
+- return_5d: -15.35
+- return_20d: -10.93
+- volume_ratio: 0.39
+- distance_to_ma20_pct_auxiliary: -11.54
+- distance_to_high_60_pct: -17.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,79,80.9,78.7,80.5,7900039,75.65,6.41,75.14,74,0.81
 20260512,81,83.7,78.8,82.4,15194453,76.21,8.12,75.72,74.04,1.46
 20260513,81.5,82.1,79.4,79.9,11845651,76.52,4.42,76.12,74.05,1.1
 20260514,80.6,82.9,80.2,80.3,11775677,76.83,4.51,76.55,74.05,1.06
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,82.5,82.9,81.5,81.6,7506823,80.41,1.48,81.3,75.04,0.57
 20260604,85.4,85.4,81.4,82.5,14325800,80.58,2.38,81.44,75.28,1.07
 20260605,80.9,83.3,79.5,79.7,15546534,80.51,-1.01,81.5,75.43,1.13
+20260611,71,72.1,69.6,71.7,5231272,79.78,-10.12,81.06,75.42,0.39
 ```
 
 ## Latest TDCC Snapshot
@@ -190,18 +190,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 2374 | 佳能 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260605 | 2374 | 佳能 | revenue_breakout_low_response | 營收爆發低反應股 | 18.0 | 8.0 | A_優先追蹤 |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260611 | 2374 | 佳能 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 2374 | 佳能 | 11 | 2 | 5 | 10 | 11 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 11 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260611 | 2374 | 佳能 | 12 | 3 | 5 | 10 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260611 | 2374 | 佳能 | 86 | 0 | 8019320.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

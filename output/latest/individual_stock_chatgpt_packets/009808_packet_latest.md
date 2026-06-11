@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009808 華南永昌優選50
 
 ## Metadata
-- generated_at: 2026-06-10 22:22:18 Asia/Taipei
+- generated_at: 2026-06-11 22:22:19 Asia/Taipei
 - stock_id: 009808
 - stock_name: 華南永昌優選50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260605
-- price_rows: 11
+- latest_price_date: 20260611
+- price_rows: 12
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 31.1
-- high: 31.1
-- low: 30.29
-- close: 30.72
-- volume: 1470930
-- ma5: 31.09
+- date: 20260611
+- open: 29.5
+- high: 29.84
+- low: 29.1
+- close: 29.7
+- volume: 1594810
+- ma5: 30.84
 - ema23_primary: 29.7
-- distance_to_ema23_pct: 3.43
-- ma20: 30.24
-- ma60: 30.24
-- ma120: 30.24
-- return_5d: 0.85
+- distance_to_ema23_pct: -0
+- ma20: 30.2
+- ma60: 30.2
+- ma120: 30.2
+- return_5d: -4.01
 - return_20d:
-- volume_ratio: 1.22
-- distance_to_ma20_pct_auxiliary: 1.58
-- distance_to_high_60_pct: -3.15
+- volume_ratio: 1.29
+- distance_to_ma20_pct_auxiliary: -1.65
+- distance_to_high_60_pct: -6.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -146,6 +146,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,31.1,31.72,31.1,31.66,821571,29.47,7.42,30.1,30.1,0.69
 20260604,31,31.15,30.73,31.07,1082987,29.61,4.94,30.2,30.2,0.92
 20260605,31.1,31.1,30.29,30.72,1470930,29.7,3.43,30.24,30.24,1.22
+20260611,29.5,29.84,29.1,29.7,1594810,29.7,-0,30.2,30.2,1.29
 ```
 
 ## Latest TDCC Snapshot

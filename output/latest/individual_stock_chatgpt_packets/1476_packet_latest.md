@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1476 儒鴻
 
 ## Metadata
-- generated_at: 2026-06-10 22:22:26 Asia/Taipei
+- generated_at: 2026-06-11 22:22:27 Asia/Taipei
 - stock_id: 1476
 - stock_name: 儒鴻
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 359.5
-- high: 364
-- low: 353
-- close: 355.5
-- volume: 1395454
-- ma5: 354.4
-- ema23_primary: 343.91
-- distance_to_ema23_pct: 3.37
-- ma20: 341.98
-- ma60: 343.87
-- ma120: 373.49
-- return_5d: 3.8
-- return_20d: 3.34
-- volume_ratio: 0.78
-- distance_to_ma20_pct_auxiliary: 3.96
-- distance_to_high_60_pct: -9.31
+- date: 20260611
+- open: 347.5
+- high: 348
+- low: 340.5
+- close: 344
+- volume: 1105506
+- ma5: 352.6
+- ema23_primary: 343.92
+- distance_to_ema23_pct: 0.02
+- ma20: 341.9
+- ma60: 343.24
+- ma120: 372.81
+- return_5d: -2.55
+- return_20d: -0.43
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: 0.61
+- distance_to_high_60_pct: -12.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,344,352,343,345.5,1072470,340.7,1.41,338.85,365.25,0.83
 20260512,345.5,349.5,340.5,344.5,1072644,341.01,1.02,339.82,364.39,0.83
 20260513,346.5,350,341.5,349,881130,341.68,2.14,340.18,363.43,0.7
 20260514,349,353,341.5,341.5,808048,341.66,-0.05,340.23,362.47,0.68
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,352,361.5,352,360.5,1784548,342.08,5.39,340.57,344.63,1.03
 20260604,352.5,356.5,347.5,351.5,2149468,342.86,2.52,341.4,344.14,1.2
 20260605,359.5,364,353,355.5,1395454,343.91,3.37,341.98,343.87,0.78
+20260611,347.5,348,340.5,344,1105506,343.92,0.02,341.9,343.24,0.62
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 1476 | 儒鴻 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_14d |
+| 20260611 | 1476 | 儒鴻 | pattern | 型態觀察 | 53.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 1476 | 儒鴻 | 6 | 3 | 5 | 6 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260611 | 1476 | 儒鴻 | 7 | 4 | 5 | 7 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260611 | 1476 | 儒鴻 | 18 | 0 | 535660.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

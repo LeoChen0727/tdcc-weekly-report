@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8074 鉅橡
 
 ## Metadata
-- generated_at: 2026-06-10 22:24:44 Asia/Taipei
+- generated_at: 2026-06-11 22:24:23 Asia/Taipei
 - stock_id: 8074
 - stock_name: 鉅橡
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 71.7
-- high: 73.6
-- low: 69.1
-- close: 72.6
+- date: 20260611
+- open: 72.5
+- high: 73.5
+- low: 67.7
+- close: 70
 - volume: 71000
-- ma5: 74.74
-- ema23_primary: 76.05
-- distance_to_ema23_pct: -4.53
-- ma20: 76.99
-- ma60: 70.85
-- ma120: 62.89
-- return_5d: -2.81
-- return_20d: -11.57
+- ma5: 73.44
+- ema23_primary: 75.54
+- distance_to_ema23_pct: -7.34
+- ma20: 76.34
+- ma60: 70.99
+- ma120: 63.17
+- return_5d: -8.5
+- return_20d: -15.66
 - volume_ratio: 0.05
-- distance_to_ma20_pct_auxiliary: -5.7
-- distance_to_high_60_pct: -24.61
+- distance_to_ma20_pct_auxiliary: -8.3
+- distance_to_high_60_pct: -27.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,83.3,84.4,79.2,83,4557000,76.13,9.02,77.28,66.66,0.46
 20260512,83.3,87.4,82.3,83.5,6513000,76.75,8.8,78,67.06,0.67
 20260513,82.5,84.6,79.6,79.9,4957000,77.01,3.75,78.53,67.31,0.51
 20260514,80.9,83.4,79.5,79.5,3371000,77.22,2.95,79.07,67.55,0.35
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,74.8,77.3,72.6,75.2,75000,76.46,-1.65,77.77,70.33,0.04
 20260604,74.8,77.3,72.6,75.2,75000,76.36,-1.52,77.47,70.62,0.04
 20260605,71.7,73.6,69.1,72.6,71000,76.05,-4.53,76.99,70.85,0.05
+20260611,72.5,73.5,67.7,70,71000,75.54,-7.34,76.34,70.99,0.05
 ```
 
 ## Latest TDCC Snapshot

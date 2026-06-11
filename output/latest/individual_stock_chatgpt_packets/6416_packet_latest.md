@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6416 瑞祺電通
 
 ## Metadata
-- generated_at: 2026-06-10 22:24:05 Asia/Taipei
+- generated_at: 2026-06-11 22:23:51 Asia/Taipei
 - stock_id: 6416
 - stock_name: 瑞祺電通
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 88.3
-- high: 89
-- low: 86.4
-- close: 87.4
-- volume: 264002
-- ma5: 90.72
-- ema23_primary: 88.51
-- distance_to_ema23_pct: -1.25
-- ma20: 89.15
-- ma60: 83.77
-- ma120: 84.28
-- return_5d: -1.69
-- return_20d: 3.43
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: -1.96
-- distance_to_high_60_pct: -7.42
+- date: 20260611
+- open: 81.4
+- high: 82.4
+- low: 79.9
+- close: 81.8
+- volume: 200561
+- ma5: 88.78
+- ema23_primary: 87.95
+- distance_to_ema23_pct: -6.99
+- ma20: 89.05
+- ma60: 83.78
+- ma120: 84.26
+- return_5d: -10.6
+- return_20d: -2.39
+- volume_ratio: 0.43
+- distance_to_ma20_pct_auxiliary: -8.14
+- distance_to_high_60_pct: -13.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,84.4,84.8,82.9,83.8,347860,82.36,1.75,82.04,81.46,1.16
 20260512,84,84.7,83.2,83.9,253156,82.49,1.71,82.31,81.45,0.83
 20260513,84,84,82.9,83.2,237721,82.55,0.79,82.52,81.39,0.78
 20260514,85,91.5,85,89.5,1663861,83.13,7.67,82.96,81.42,4.38
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,92.6,92.6,90.6,90.9,270224,88.31,2.93,88.64,83.37,0.57
 20260604,92.1,92.3,90.7,91.9,316506,88.61,3.71,89,83.62,0.67
 20260605,88.3,89,86.4,87.4,264002,88.51,-1.25,89.15,83.77,0.56
+20260611,81.4,82.4,79.9,81.8,200561,87.95,-6.99,89.05,83.78,0.43
 ```
 
 ## Latest TDCC Snapshot

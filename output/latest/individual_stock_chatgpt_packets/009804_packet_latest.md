@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009804 聯邦台精彩50
 
 ## Metadata
-- generated_at: 2026-06-10 22:22:18 Asia/Taipei
+- generated_at: 2026-06-11 22:22:19 Asia/Taipei
 - stock_id: 009804
 - stock_name: 聯邦台精彩50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260605
-- price_rows: 11
+- latest_price_date: 20260611
+- price_rows: 12
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 23.9
-- high: 23.9
-- low: 22.95
-- close: 23.37
-- volume: 1610383
-- ma5: 23.78
-- ema23_primary: 22.61
-- distance_to_ema23_pct: 3.37
-- ma20: 23.14
-- ma60: 23.14
-- ma120: 23.14
-- return_5d: 0.04
+- date: 20260611
+- open: 22.59
+- high: 22.65
+- low: 21.9
+- close: 22.45
+- volume: 1284843
+- ma5: 23.52
+- ema23_primary: 22.6
+- distance_to_ema23_pct: -0.64
+- ma20: 23.09
+- ma60: 23.09
+- ma120: 23.09
+- return_5d: -5.47
 - return_20d:
-- volume_ratio: 1.19
-- distance_to_ma20_pct_auxiliary: 0.98
-- distance_to_high_60_pct: -3.95
+- volume_ratio: 0.95
+- distance_to_ma20_pct_auxiliary: -2.75
+- distance_to_high_60_pct: -7.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -146,6 +146,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,24.07,24.33,24.06,24.29,1177227,22.43,8.29,23.05,23.05,0.86
 20260604,23.86,24,23.4,23.74,986783,22.54,5.33,23.12,23.12,0.74
 20260605,23.9,23.9,22.95,23.37,1610383,22.61,3.37,23.14,23.14,1.19
+20260611,22.59,22.65,21.9,22.45,1284843,22.6,-0.64,23.09,23.09,0.95
 ```
 
 ## Latest TDCC Snapshot

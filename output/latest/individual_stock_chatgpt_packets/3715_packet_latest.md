@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3715 定穎投控
 
 ## Metadata
-- generated_at: 2026-06-10 22:23:27 Asia/Taipei
+- generated_at: 2026-06-11 22:23:18 Asia/Taipei
 - stock_id: 3715
 - stock_name: 定穎投控
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 165.5
-- high: 170.5
-- low: 162
-- close: 170
-- volume: 5941562
-- ma5: 174.6
-- ema23_primary: 175.74
-- distance_to_ema23_pct: -3.27
-- ma20: 174.55
-- ma60: 178.47
-- ma120: 155.9
-- return_5d: -2.02
-- return_20d: -5.82
-- volume_ratio: 0.52
-- distance_to_ma20_pct_auxiliary: -2.61
-- distance_to_high_60_pct: -16.46
+- date: 20260611
+- open: 167.5
+- high: 171.5
+- low: 160
+- close: 166
+- volume: 11889160
+- ma5: 171.4
+- ema23_primary: 174.93
+- distance_to_ema23_pct: -5.11
+- ma20: 173.78
+- ma60: 178.71
+- ma120: 156.33
+- return_5d: -8.79
+- return_20d: -8.54
+- volume_ratio: 1.02
+- distance_to_ma20_pct_auxiliary: -4.47
+- distance_to_high_60_pct: -18.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,182,182,177,181.5,8846837,182.46,-0.52,184.88,169.9,0.38
 20260512,182,184,179,180.5,8670623,182.29,-0.98,184.57,170.61,0.38
 20260513,179,180.5,176,176.5,7133672,181.81,-2.92,184.07,171.16,0.32
 20260514,178.5,186.5,177.5,181,15769877,181.74,-0.41,183.85,171.55,0.73
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,175,179,172.5,174,6319028,176.52,-1.43,175.85,177.51,0.51
 20260604,185,185.5,172,173.5,12856675,176.26,-1.57,175.07,178.08,1.06
 20260605,165.5,170.5,162,170,5941562,175.74,-3.27,174.55,178.47,0.52
+20260611,167.5,171.5,160,166,11889160,174.93,-5.11,173.78,178.71,1.02
 ```
 
 ## Latest TDCC Snapshot
@@ -190,17 +190,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 3715 | 定穎投控 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260611 | 3715 | 定穎投控 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260611 | 3715 | 定穎投控 | revenue_breakout_low_response | 營收爆發低反應股 | 13.0 | 22.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 3715 | 定穎投控 | 2 | 2 | 4 | 9 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260611 | 3715 | 定穎投控 | 3 | 3 | 4 | 9 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260611 | 3715 | 定穎投控 | 235 | 0 | 14624440.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

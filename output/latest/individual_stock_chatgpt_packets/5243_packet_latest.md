@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5243 乙盛-KY
 
 ## Metadata
-- generated_at: 2026-06-10 22:23:44 Asia/Taipei
+- generated_at: 2026-06-11 22:23:33 Asia/Taipei
 - stock_id: 5243
 - stock_name: 乙盛-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -60,13 +60,13 @@
 - model_category_display_zh: 型態觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 型態觀察，價格結構尚未破壞，操作評級為「可小量試單」。
-- entry_strategy_zh: 回測 23EMA 附近；可依「試單 1/4 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- entry_strategy_zh: 目前價位可評估第一筆；可依「試單 1/4 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 試單 1/4 部位；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- add_position_strategy_zh: 可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足、TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 型態觀察，價格結構尚未破壞，操作評級為「可小量試單」。 進場策略：回測 23EMA 附近；可依「試單 1/4 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊
+- final_decision_zh: 符合 型態觀察，價格結構尚未破壞，操作評級為「可小量試單」。 進場策略：目前價位可評估第一筆；可依「試單 1/4 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -75,11 +75,11 @@
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: pullback_to_23ema
+- entry_style: current_price_ok
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_near_support
+- buy_first_tranche_now
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -92,7 +92,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -117,29 +116,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 118.5
-- high: 118.5
-- low: 111.5
-- close: 112.5
-- volume: 4098156
-- ma5: 122.6
-- ema23_primary: 117.41
-- distance_to_ema23_pct: -4.18
-- ma20: 116.47
-- ma60: 103.68
-- ma120: 92.56
-- return_5d: -11.07
-- return_20d: 5.14
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: -3.41
-- distance_to_high_60_pct: -21.6
+- date: 20260611
+- open: 109.5
+- high: 114
+- low: 106
+- close: 109.5
+- volume: 3638637
+- ma5: 119.7
+- ema23_primary: 116.75
+- distance_to_ema23_pct: -6.21
+- ma20: 116.6
+- ma60: 104.27
+- ma120: 92.8
+- return_5d: -11.69
+- return_20d: 2.34
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: -6.09
+- distance_to_high_60_pct: -23.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,108,111,105.5,107,4572230,106.49,0.48,113.74,92.29,0.88
 20260512,107.5,107.5,102.5,103.5,4199205,106.24,-2.58,112.99,92.67,0.8
 20260513,104,106,101.5,103,2972035,105.97,-2.81,111.79,92.96,0.57
 20260514,104,105,100,101,3027294,105.56,-4.32,110.67,93.17,0.58
@@ -159,6 +157,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,125.5,131,122.5,128.5,7669344,117.3,9.55,115.35,102.1,1.05
 20260604,124,124,117,124,5180875,117.86,5.21,116.2,103.02,0.7
 20260605,118.5,118.5,111.5,112.5,4098156,117.41,-4.18,116.47,103.68,0.56
+20260611,109.5,114,106,109.5,3638637,116.75,-6.21,116.6,104.27,0.5
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 5243 | 乙盛-KY | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260611 | 5243 | 乙盛-KY | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 5243 | 乙盛-KY | 1 | 1 | 3 | 5 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260611 | 5243 | 乙盛-KY | 2 | 2 | 3 | 6 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260611 | 5243 | 乙盛-KY | 53 | 0 | 3411520.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

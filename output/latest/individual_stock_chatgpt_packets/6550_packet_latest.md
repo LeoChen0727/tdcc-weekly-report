@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6550 北極星藥業-KY
 
 ## Metadata
-- generated_at: 2026-06-10 22:24:10 Asia/Taipei
+- generated_at: 2026-06-11 22:23:55 Asia/Taipei
 - stock_id: 6550
 - stock_name: 北極星藥業-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 13.2
-- high: 13.65
-- low: 13.05
-- close: 13.4
-- volume: 2101496
-- ma5: 13.27
-- ema23_primary: 15.33
-- distance_to_ema23_pct: -12.56
-- ma20: 15.31
-- ma60: 18.2
-- ma120: 24.58
-- return_5d: -0.74
-- return_20d: -23.86
-- volume_ratio: 0.76
-- distance_to_ma20_pct_auxiliary: -12.46
-- distance_to_high_60_pct: -55.11
+- date: 20260611
+- open: 13.15
+- high: 13.55
+- low: 12.95
+- close: 13.45
+- volume: 1490130
+- ma5: 13.34
+- ema23_primary: 15.17
+- distance_to_ema23_pct: -11.33
+- ma20: 15.13
+- ma60: 17.93
+- ma120: 24.44
+- return_5d: 2.67
+- return_20d: -20.41
+- volume_ratio: 0.54
+- distance_to_ma20_pct_auxiliary: -11.13
+- distance_to_high_60_pct: -49.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,17.85,17.85,16.8,16.9,1938966,18.52,-8.77,17.96,23.19,1.66
 20260512,16.8,16.85,16.15,16.3,1899749,18.34,-11.12,17.89,22.95,1.64
 20260513,16.9,17.9,16.9,17.9,1847606,18.3,-2.2,17.88,22.74,1.54
 20260514,17.9,18.1,16.75,17,2779877,18.19,-6.56,17.84,22.5,2.18
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,13.4,13.55,12.95,13.25,2220554,15.7,-15.61,15.76,18.72,0.83
 20260604,13,13.5,12.85,13.3,1924930,15.5,-14.2,15.52,18.46,0.71
 20260605,13.2,13.65,13.05,13.4,2101496,15.33,-12.56,15.31,18.2,0.76
+20260611,13.15,13.55,12.95,13.45,1490130,15.17,-11.33,15.13,17.93,0.54
 ```
 
 ## Latest TDCC Snapshot

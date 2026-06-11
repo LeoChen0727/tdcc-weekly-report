@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4722 國精化
 
 ## Metadata
-- generated_at: 2026-06-10 22:23:37 Asia/Taipei
+- generated_at: 2026-06-11 22:23:27 Asia/Taipei
 - stock_id: 4722
 - stock_name: 國精化
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 272
-- high: 281
-- low: 265
-- close: 277
-- volume: 534594
-- ma5: 279.8
-- ema23_primary: 257.76
-- distance_to_ema23_pct: 7.46
-- ma20: 266.7
-- ma60: 210.03
-- ma120: 190.6
-- return_5d: -2.81
-- return_20d: 17.12
-- volume_ratio: 0.15
-- distance_to_ma20_pct_auxiliary: 3.86
-- distance_to_high_60_pct: -6.1
+- date: 20260611
+- open: 217
+- high: 217
+- low: 198.5
+- close: 206
+- volume: 2970030
+- ma5: 263.8
+- ema23_primary: 253.45
+- distance_to_ema23_pct: -18.72
+- ma20: 265.25
+- ma60: 210.48
+- ma120: 190.93
+- return_5d: -27.97
+- return_20d: -12.34
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: -22.34
+- distance_to_high_60_pct: -30.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,242.5,245,232.5,235,9070335,193.99,21.14,191.85,180.77,2.35
 20260512,235,258.5,230,258.5,7263601,199.36,29.66,196.32,182.56,1.74
 20260513,255,270,240.5,248,10374416,203.41,21.92,199.57,184.08,2.32
 20260514,255,265,248,258,4616442,207.96,24.06,203.38,185.72,1.02
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,278,286,277,278,714952,253.92,9.48,261.48,206.36,0.16
 20260604,286,286,277,279,468632,256.01,8.98,264.68,208.24,0.11
 20260605,272,281,265,277,534594,257.76,7.46,266.7,210.03,0.15
+20260611,217,217,198.5,206,2970030,253.45,-18.72,265.25,210.48,0.88
 ```
 
 ## Latest TDCC Snapshot
@@ -193,9 +192,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260611 | 4722 | 國精化 | 53 | 0 | 1518720.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

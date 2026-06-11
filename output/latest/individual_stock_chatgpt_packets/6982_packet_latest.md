@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6982 大井泵浦
 
 ## Metadata
-- generated_at: 2026-06-10 22:24:25 Asia/Taipei
+- generated_at: 2026-06-11 22:24:07 Asia/Taipei
 - stock_id: 6982
 - stock_name: 大井泵浦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 64.4
-- high: 64.4
-- low: 59.6
-- close: 61.4
-- volume: 61000
-- ma5: 59.14
-- ema23_primary: 56.08
-- distance_to_ema23_pct: 9.49
-- ma20: 55.1
-- ma60: 54.24
-- ma120: 58.08
-- return_5d: 10.83
-- return_20d: 16.73
-- volume_ratio: 1.22
-- distance_to_ma20_pct_auxiliary: 11.42
-- distance_to_high_60_pct: -4.66
+- date: 20260611
+- open: 58.1
+- high: 58.3
+- low: 57.3
+- close: 57.4
+- volume: 58000
+- ma5: 59.6
+- ema23_primary: 56.19
+- distance_to_ema23_pct: 2.15
+- ma20: 55.32
+- ma60: 54.32
+- ma120: 58.03
+- return_5d: 4.17
+- return_20d: 8.1
+- volume_ratio: 1.16
+- distance_to_ma20_pct_auxiliary: 3.76
+- distance_to_high_60_pct: -10.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,52.6,53.5,52.3,53.1,63000,54.04,-1.73,55.19,55.06,0.96
 20260512,53.1,53.2,52.6,52.9,46000,53.94,-1.93,54.91,54.94,0.78
 20260513,52.4,52.6,52.3,52.4,42000,53.81,-2.63,54.55,54.85,0.87
 20260514,52.5,55.6,52,52.4,154000,53.7,-2.41,54.26,54.75,2.97
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,59.4,61.6,59.4,61.6,61000,55.05,11.9,54.24,53.92,1.25
 20260604,59.4,61.6,59.4,61.6,61000,55.6,10.8,54.66,54.09,1.2
 20260605,64.4,64.4,59.6,61.4,61000,56.08,9.49,55.1,54.24,1.22
+20260611,58.1,58.3,57.3,57.4,58000,56.19,2.15,55.32,54.32,1.16
 ```
 
 ## Latest TDCC Snapshot

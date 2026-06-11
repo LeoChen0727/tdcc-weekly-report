@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7388 國債20群益58購01
 
 ## Metadata
-- generated_at: 2026-06-10 22:24:37 Asia/Taipei
+- generated_at: 2026-06-11 22:24:17 Asia/Taipei
 - stock_id: 7388
 - stock_name: 國債20群益58購01
 - packet_status: standard_180d_window_packet

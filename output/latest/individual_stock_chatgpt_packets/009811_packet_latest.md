@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009811 統一美國50
 
 ## Metadata
-- generated_at: 2026-06-10 22:22:18 Asia/Taipei
+- generated_at: 2026-06-11 22:22:20 Asia/Taipei
 - stock_id: 009811
 - stock_name: 統一美國50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260605
-- price_rows: 11
+- latest_price_date: 20260611
+- price_rows: 12
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 13
-- high: 13.01
-- low: 12.95
-- close: 13
-- volume: 1885148
-- ma5: 13.09
-- ema23_primary: 13.01
-- distance_to_ema23_pct: -0.08
-- ma20: 13.03
-- ma60: 13.03
-- ma120: 13.03
-- return_5d: -0.54
+- date: 20260611
+- open: 12.45
+- high: 12.58
+- low: 12.45
+- close: 12.57
+- volume: 7009573
+- ma5: 12.98
+- ema23_primary: 12.97
+- distance_to_ema23_pct: -3.11
+- ma20: 12.99
+- ma60: 12.99
+- ma120: 12.99
+- return_5d: -4.12
 - return_20d:
-- volume_ratio: 0.81
-- distance_to_ma20_pct_auxiliary: -0.24
-- distance_to_high_60_pct: -1.07
+- volume_ratio: 2.58
+- distance_to_ma20_pct_auxiliary: -3.26
+- distance_to_high_60_pct: -4.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -146,6 +146,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,13.13,13.14,13.11,13.13,2617985,13,0.97,13.03,13.03,1.08
 20260604,13.07,13.11,13.03,13.1,1899112,13.01,0.68,13.04,13.04,0.8
 20260605,13,13.01,12.95,13,1885148,13.01,-0.08,13.03,13.03,0.81
+20260611,12.45,12.58,12.45,12.57,7009573,12.97,-3.11,12.99,12.99,2.58
 ```
 
 ## Latest TDCC Snapshot

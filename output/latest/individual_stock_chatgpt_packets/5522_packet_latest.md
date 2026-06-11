@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5522 遠雄
 
 ## Metadata
-- generated_at: 2026-06-10 22:23:50 Asia/Taipei
+- generated_at: 2026-06-11 22:23:38 Asia/Taipei
 - stock_id: 5522
 - stock_name: 遠雄
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 74.1
-- high: 76.6
-- low: 74
-- close: 76.1
-- volume: 1238287
-- ma5: 75.34
-- ema23_primary: 72.34
-- distance_to_ema23_pct: 5.19
-- ma20: 72.03
-- ma60: 70.75
-- ma120: 69.72
-- return_5d: 4.68
-- return_20d: 8.71
-- volume_ratio: 1.11
-- distance_to_ma20_pct_auxiliary: 5.64
-- distance_to_high_60_pct: -0.78
+- date: 20260611
+- open: 83.8
+- high: 83.9
+- low: 77.8
+- close: 80
+- volume: 3510676
+- ma5: 76.5
+- ema23_primary: 72.98
+- distance_to_ema23_pct: 9.62
+- ma20: 72.4
+- ma60: 70.99
+- ma120: 69.89
+- return_5d: 7.82
+- return_20d: 10.04
+- volume_ratio: 2.91
+- distance_to_ma20_pct_auxiliary: 10.5
+- distance_to_high_60_pct: -4.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,70.2,72.7,70.2,72.7,1618880,69.99,3.87,69.8,69.08,1.61
 20260512,72.8,72.8,69.1,69.8,1522084,69.98,-0.25,69.72,69.13,1.48
 20260513,69.8,70.5,69.8,70.4,520439,70.01,0.55,69.69,69.19,0.55
 20260514,70.2,71,69.8,70.5,603594,70.05,0.64,69.7,69.26,0.64
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,75.5,76.7,74,76.2,1886766,71.72,6.25,71.46,70.39,1.72
 20260604,74.1,75.1,73.7,75.1,1394974,72,4.3,71.73,70.57,1.26
 20260605,74.1,76.6,74,76.1,1238287,72.34,5.19,72.03,70.75,1.11
+20260611,83.8,83.9,77.8,80,3510676,72.98,9.62,72.4,70.99,2.91
 ```
 
 ## Latest TDCC Snapshot
@@ -190,14 +190,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 5522 | 遠雄 | revenue_pullback | 營收成長股價回檔 | 63.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | repeated_but_no_breakout | calendar event: ex_dividend on 20260625; status=confirmed; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260605 | 5522 | 遠雄 | revenue_breakout_low_response | 營收爆發低反應股 | 22.0 | 13.0 | B_可觀察 |  |  |  | repeated_but_no_breakout | calendar event: ex_dividend on 20260625; status=confirmed; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260605 | 5522 | 遠雄 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | calendar event: ex_dividend on 20260625; status=confirmed; proximity=within_30d |
+| 20260611 | 5522 | 遠雄 | revenue_pullback | 營收成長股價回檔 | 55.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | continued_many_days | calendar event: ex_dividend on 20260625; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260611 | 5522 | 遠雄 | true_breakout | 嚴格突破 | 121.0 |  |  | platform_breakout |  |  | continued_many_days | calendar event: ex_dividend on 20260625; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 5522 | 遠雄 | 6 | 2 | 5 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 次、近 20 日上榜 6 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260611 | 5522 | 遠雄 | 7 | 3 | 5 | 7 | 7 | continued_many_days | 連續 7 日上榜，需區分醞釀延續或訊號鈍化。 |
 
 ## Warrant Context
 | status |

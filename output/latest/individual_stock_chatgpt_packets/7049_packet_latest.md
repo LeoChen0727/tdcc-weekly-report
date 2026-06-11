@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7049 凡甲國泰59購01
 
 ## Metadata
-- generated_at: 2026-06-10 22:24:28 Asia/Taipei
+- generated_at: 2026-06-11 22:24:09 Asia/Taipei
 - stock_id: 7049
 - stock_name: 凡甲國泰59購01
 - packet_status: standard_180d_window_packet

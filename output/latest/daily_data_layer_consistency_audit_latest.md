@@ -7,7 +7,7 @@
 - model_signal_rows: `513`
 - volume_watch_rows: `13`
 - volume_theme_other_rows: `0`
-- group_rotation_rows: `6`
+- group_rotation_rows: `8`
 - taxonomy_rows: `2377`
 - taxonomy_template_csv_rows: `2377`
 - taxonomy_template_xlsx_rows: `2377`
@@ -31,7 +31,7 @@
   "readme_report_ready": "True",
   "readme_index_main_price_date": "20260611",
   "readme_index_report_ready": "True",
-  "preferred_chatgpt_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/d8c413589944c46777cce3dcc8819f7c32b670c2/output/history/reports/20260611_CHATGPT_DAILY_REPORT_PACKET.txt",
+  "preferred_chatgpt_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/8189a300e15ba54b3fb53fdce422a05440c13da8/output/history/reports/20260611_CHATGPT_DAILY_REPORT_PACKET.txt",
   "readme_cache_bypass_order": [
     "readme_date_stamped_raw_url",
     "readme_date_stamped_github_api_url",
@@ -76,7 +76,7 @@
   "raw_model_signal_rows": 513,
   "volume_watch_rows": 13,
   "volume_theme_stock_rows": 13,
-  "group_rotation_rows": 6,
+  "group_rotation_rows": 8,
   "taxonomy_rows": 2377,
   "taxonomy_template_csv_rows": 2377,
   "taxonomy_template_xlsx_rows": 2377,
@@ -105,7 +105,7 @@
   ],
   "volume_theme_other_rows": 0,
   "group_rotation_invalid_models": [],
-  "group_rotation_slow_rows": 6,
+  "group_rotation_slow_rows": 8,
   "group_rotation_launch_rows": 0,
   "missing_required_taxonomy_columns": [],
   "taxonomy_duplicate_stock_id_rows": 0,

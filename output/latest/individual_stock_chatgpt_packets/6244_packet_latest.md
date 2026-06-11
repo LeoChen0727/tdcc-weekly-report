@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6244 茂迪
 
 ## Metadata
-- generated_at: 2026-06-10 22:24:03 Asia/Taipei
+- generated_at: 2026-06-11 22:23:48 Asia/Taipei
 - stock_id: 6244
 - stock_name: 茂迪
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 30.2
-- high: 30.6
-- low: 28.25
-- close: 28.7
-- volume: 29000
-- ma5: 30.3
-- ema23_primary: 29.44
-- distance_to_ema23_pct: -2.51
-- ma20: 29.44
-- ma60: 28.91
-- ma120: 26.35
-- return_5d: -4.49
-- return_20d: -3.37
+- date: 20260611
+- open: 29.8
+- high: 31.8
+- low: 29.1
+- close: 31.25
+- volume: 30000
+- ma5: 30.43
+- ema23_primary: 29.59
+- distance_to_ema23_pct: 5.61
+- ma20: 29.5
+- ma60: 28.88
+- ma120: 26.47
+- return_5d: 2.12
+- return_20d: 4.52
 - volume_ratio: 0.01
-- distance_to_ma20_pct_auxiliary: -2.51
-- distance_to_high_60_pct: -16.69
+- distance_to_ma20_pct_auxiliary: 5.91
+- distance_to_high_60_pct: -9.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,30.2,30.55,29.2,29.9,8399000,28.3,5.64,28.17,28.93,0.85
 20260512,30,30.75,29.4,29.4,6799000,28.39,3.54,28.34,29.05,0.68
 20260513,29.4,31.1,28.55,29.4,20783000,28.48,3.24,28.46,29.14,1.94
 20260514,29.35,29.65,28.2,28.25,6818000,28.46,-0.74,28.39,29.16,0.68
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,29.7,31.8,29.3,31.25,31000,29.35,6.48,29.44,28.94,0.01
 20260604,29.7,31.8,29.3,31.25,31000,29.51,5.91,29.49,28.95,0.01
 20260605,30.2,30.6,28.25,28.7,29000,29.44,-2.51,29.44,28.91,0.01
+20260611,29.8,31.8,29.1,31.25,30000,29.59,5.61,29.5,28.88,0.01
 ```
 
 ## Latest TDCC Snapshot

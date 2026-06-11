@@ -210,6 +210,119 @@ def has_usable_quote_rows(df: pd.DataFrame) -> bool:
     return False
 
 
+def normalize_date_value(value) -> str:
+    if pd.isna(value):
+        return ""
+
+    text = str(value).strip()
+
+    if text.endswith(".0"):
+        text = text[:-2]
+
+    digits = re.sub(r"[^0-9]", "", text)
+
+    if len(digits) >= 8 and digits.startswith("20"):
+        return digits[:8]
+
+    return ""
+
+
+def normalize_raw_snapshot(df: pd.DataFrame) -> pd.DataFrame:
+    out = df.copy()
+
+    for col in RAW_COLUMNS:
+        if col not in out.columns:
+            out[col] = pd.NA
+
+    out = out[RAW_COLUMNS].copy()
+    out["date"] = out["date"].map(normalize_date_value)
+    out["stock_id"] = out["stock_id"].map(normalize_code)
+    out["warrant_id"] = out["warrant_id"].map(normalize_warrant_id)
+
+    for col in [
+        "volume",
+        "turnover",
+        "close",
+        "issued_quantity",
+        "cancelled_quantity",
+        "latest_warrant_count",
+        "float_quantity",
+    ]:
+        out[col] = out[col].map(to_number)
+
+    out = out[out["stock_id"].astype(str).str.match(r"^[0-9]{4}$", na=False)].copy()
+    out = out[out["warrant_id"].astype(str).str.len().gt(0)].copy()
+    return out.reset_index(drop=True)
+
+
+def read_usable_raw_snapshot(path: Path, date_candidates: list[str]) -> pd.DataFrame:
+    if not path.exists():
+        return pd.DataFrame(columns=RAW_COLUMNS)
+
+    try:
+        df = pd.read_csv(path, dtype=str)
+    except Exception:
+        return pd.DataFrame(columns=RAW_COLUMNS)
+
+    if df.empty:
+        return pd.DataFrame(columns=RAW_COLUMNS)
+
+    out = normalize_raw_snapshot(df)
+    dates = {normalize_date_value(value) for value in date_candidates}
+    dates = {date for date in dates if date}
+
+    if dates and "date" in out.columns:
+        out = out[out["date"].isin(dates)].copy()
+
+    if out.empty or not has_usable_quote_rows(out):
+        return pd.DataFrame(columns=RAW_COLUMNS)
+
+    return out[RAW_COLUMNS].copy()
+
+
+def raw_fallback_candidates(date_str: str, requested_date: str) -> list[Path]:
+    dates = []
+
+    for value in [date_str, requested_date]:
+        normalized = normalize_date_value(value)
+
+        if normalized and normalized not in dates:
+            dates.append(normalized)
+
+    paths: list[Path] = [RAW_LATEST]
+
+    for date in dates:
+        paths.append(HISTORY_DIR / f"warrant_daily_{date}.csv")
+
+    unique_paths: list[Path] = []
+
+    for path in paths:
+        if path not in unique_paths:
+            unique_paths.append(path)
+
+    return unique_paths
+
+
+def find_existing_raw_fallback(date_str: str, requested_date: str) -> tuple[Path | None, pd.DataFrame, str]:
+    date_candidates = [date_str, requested_date]
+
+    for path in raw_fallback_candidates(date_str, requested_date):
+        fallback = read_usable_raw_snapshot(path, date_candidates)
+
+        if fallback.empty:
+            continue
+
+        fallback_date = ""
+
+        if "date" in fallback.columns:
+            dates = sorted({normalize_date_value(value) for value in fallback["date"] if normalize_date_value(value)})
+            fallback_date = dates[-1] if dates else ""
+
+        return path, fallback, fallback_date or normalize_date_value(date_str) or normalize_date_value(requested_date)
+
+    return None, pd.DataFrame(columns=RAW_COLUMNS), ""
+
+
 def clean_columns(df: pd.DataFrame) -> pd.DataFrame:
     df = df.copy()
     df.columns = [
@@ -1107,7 +1220,56 @@ def main() -> int:
         extra_note=f"mapping_rows={len(mapping)}, quote_rows={len(quotes)}, final_rows={len(out)}",
     )
 
-    if out.empty:
+    if out.empty or not has_usable_quote_rows(out):
+        fallback_path, fallback_raw, fallback_date = find_existing_raw_fallback(date_str, requested_date)
+
+        if not fallback_raw.empty:
+            fallback_raw.to_csv(RAW_LATEST, index=False, encoding="utf-8-sig")
+            fallback_raw.to_csv(HISTORY_DIR / f"warrant_daily_{fallback_date}.csv", index=False, encoding="utf-8-sig")
+            logs.append(
+                f"official_fetch_empty_preserved_existing_raw source={fallback_path} "
+                f"date={fallback_date} rows={len(fallback_raw)}"
+            )
+
+            write_status(
+                date_str=fallback_date,
+                rows=len(fallback_raw),
+                mapping_rows=len(mapping),
+                quote_rows=len(quotes),
+                logs=logs,
+                warning=(
+                    "official warrant fetch produced no usable stock-level rows; "
+                    f"preserved existing same-date raw snapshot from {fallback_path}."
+                ),
+                requested_date=requested_date,
+            )
+
+            print(
+                "Official warrant fetch produced no usable rows; "
+                f"preserved existing same-date raw data from {fallback_path}, rows={len(fallback_raw)}"
+            )
+            return 0
+
+        if not out.empty:
+            logs.append("official_fetch_rows_without_usable_quotes_no_same_date_fallback")
+            out.to_csv(RAW_LATEST, index=False, encoding="utf-8-sig")
+            out.to_csv(HISTORY_DIR / f"warrant_daily_{date_str}.csv", index=False, encoding="utf-8-sig")
+            write_status(
+                date_str=date_str,
+                rows=len(out),
+                mapping_rows=len(mapping),
+                quote_rows=len(quotes),
+                logs=logs,
+                warning=(
+                    fallback_warning
+                    or "official warrant fetch produced rows without usable quote values; "
+                    "no same-date fallback was available."
+                ),
+                requested_date=requested_date,
+            )
+            print(f"Saved mapping-only warrant raw data without usable quotes: {RAW_LATEST}, rows={len(out)}")
+            return 0
+
         empty = pd.DataFrame(columns=RAW_COLUMNS)
         empty.to_csv(RAW_LATEST, index=False, encoding="utf-8-sig")
 

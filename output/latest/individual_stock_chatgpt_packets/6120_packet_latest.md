@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6120 達運
 
 ## Metadata
-- generated_at: 2026-06-10 22:23:55 Asia/Taipei
+- generated_at: 2026-06-11 22:23:42 Asia/Taipei
 - stock_id: 6120
 - stock_name: 達運
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 271
+- latest_price_date: 20260611
+- price_rows: 272
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 15.45
-- high: 15.65
-- low: 14.6
-- close: 15.3
-- volume: 5512479
-- ma5: 15.44
-- ema23_primary: 14.25
-- distance_to_ema23_pct: 7.35
-- ma20: 13.95
+- date: 20260611
+- open: 13.5
+- high: 13.55
+- low: 12.95
+- close: 13.35
+- volume: 4179244
+- ma5: 15.13
+- ema23_primary: 14.18
+- distance_to_ema23_pct: -5.83
+- ma20: 13.98
 - ma60: 13.64
-- ma120: 13.29
-- return_5d: 6.62
-- return_20d: 18.6
-- volume_ratio: 0.91
-- distance_to_ma20_pct_auxiliary: 9.66
-- distance_to_high_60_pct: -7.27
+- ma120: 13.32
+- return_5d: -10.4
+- return_20d: 4.3
+- volume_ratio: 0.68
+- distance_to_ma20_pct_auxiliary: -4.51
+- distance_to_high_60_pct: -19.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,12.95,13.1,12.7,12.8,2855177,13.37,-4.26,13.76,13.32,0.62
 20260512,12.95,13.3,12.8,13.05,4237194,13.34,-2.2,13.69,13.33,0.93
 20260513,13.05,13.15,12.75,12.95,2607759,13.31,-2.71,13.58,13.33,0.64
 20260514,13.15,13.25,12.7,12.95,3537449,13.28,-2.49,13.46,13.32,0.92
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,15.7,16.5,15.55,16.1,12546434,14.04,14.68,13.72,13.55,2.19
 20260604,15.1,15.5,14.5,15.45,8345628,14.16,9.14,13.83,13.6,1.4
 20260605,15.45,15.65,14.6,15.3,5512479,14.25,7.35,13.95,13.64,0.91
+20260611,13.5,13.55,12.95,13.35,4179244,14.18,-5.83,13.98,13.64,0.68
 ```
 
 ## Latest TDCC Snapshot
@@ -192,9 +193,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260611 | 6120 | 達運 | 8 | 0 | 1254740.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

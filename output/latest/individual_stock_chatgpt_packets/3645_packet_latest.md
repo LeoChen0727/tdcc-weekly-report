@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3645 達邁
 
 ## Metadata
-- generated_at: 2026-06-10 22:23:24 Asia/Taipei
+- generated_at: 2026-06-11 22:23:16 Asia/Taipei
 - stock_id: 3645
 - stock_name: 達邁
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 99.6
-- high: 102.5
-- low: 95
-- close: 102.5
-- volume: 4667303
-- ma5: 102.5
-- ema23_primary: 104.27
-- distance_to_ema23_pct: -1.7
-- ma20: 107
-- ma60: 94.9
-- ma120: 76.8
-- return_5d: -3.76
-- return_20d: 8.93
-- volume_ratio: 0.41
-- distance_to_ma20_pct_auxiliary: -4.21
-- distance_to_high_60_pct: -15.64
+- date: 20260611
+- open: 89.1
+- high: 90.5
+- low: 85.4
+- close: 89.5
+- volume: 3440973
+- ma5: 99
+- ema23_primary: 103.04
+- distance_to_ema23_pct: -13.14
+- ma20: 106.42
+- ma60: 95.01
+- ma120: 77.11
+- return_5d: -16.36
+- return_20d: -11.39
+- volume_ratio: 0.31
+- distance_to_ma20_pct_auxiliary: -15.9
+- distance_to_high_60_pct: -26.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,95.9,103,94.3,101,9961287,96.15,5.04,101.18,80.57,0.56
 20260512,102.5,108.5,100.5,107.5,16309831,97.1,10.71,102.03,81.36,0.92
 20260513,104.5,109.5,101,108.5,11775660,98.05,10.66,103.02,82.18,0.71
 20260514,116.5,119,107.5,112,32509501,99.21,12.89,103.94,83.04,1.93
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,102,102,99.5,100,3126673,104.7,-4.49,106.36,93.91,0.27
 20260604,108,108,99.3,101.5,5421162,104.43,-2.81,106.58,94.45,0.46
 20260605,99.6,102.5,95,102.5,4667303,104.27,-1.7,107,94.9,0.41
+20260611,89.1,90.5,85.4,89.5,3440973,103.04,-13.14,106.42,95.01,0.31
 ```
 
 ## Latest TDCC Snapshot
@@ -193,9 +192,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260611 | 3645 | 達邁 | 28 | 0 | 3227600.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

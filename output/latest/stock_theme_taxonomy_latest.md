@@ -1,16 +1,16 @@
 # Stock Theme Taxonomy
 
-- generated_at: 2026-06-11 16:10:23 Asia/Taipei
+- generated_at: 2026-06-11 20:24:36 Asia/Taipei
 - total_rows: 2377
-- mainstream_count: 581
-- non_mainstream_count: 553
-- effective_mainstream_count: 581
-- effective_non_mainstream_count: 1796
+- mainstream_count: 1070
+- non_mainstream_count: 911
+- effective_mainstream_count: 1070
+- effective_non_mainstream_count: 1307
 - mainstream_conflict_count: 9
 - dual_report_membership_count: 9
-- mainstream_report_eligible_count: 581
-- non_mainstream_report_eligible_count: 1805
-- unknown_count: 1243
+- mainstream_report_eligible_count: 1070
+- non_mainstream_report_eligible_count: 1316
+- unknown_count: 396
 - manual_override_count: 5
 - authorized_seed_count: 130
 
@@ -34,7 +34,7 @@
 |       1717 | 長興           | 化學工業       | 特化材料            | 特化化學;電子材料          | specialty_material_theme               | authorized_seed   |
 |       1727 | 中華化          | 化學工業       | 特化材料            | 特化化學;電子材料          | specialty_material_theme               | authorized_seed   |
 |       1802 | 台玻           | 玻璃陶瓷       | 玻纖布             | PCB_CCL_ABF材料      | glass_fiber_ccl_theme                  | authorized_seed   |
-|       1815 | 富喬           |            | 玻纖布             | PCB_CCL_ABF材料      | glass_fiber_ccl_theme                  | authorized_seed   |
+|       1815 | 富喬           | 電子零組件業     | 玻纖布             | PCB_CCL_ABF材料      | glass_fiber_ccl_theme                  | authorized_seed   |
 |       2049 | 上銀           | 電機機械       | 機器人             | 自動化                | robotics_precision_motion_theme        | manual_override   |
 |       2231 | 為升           | 汽車工業       | 車用電子            |                    | automotive_electronics_theme           | authorized_seed   |
 |       2233 | 宇隆           | 汽車工業       | 機器人自動化          |                    | robotics_precision_motion_theme        | authorized_seed   |
@@ -79,23 +79,23 @@
 |       3037 | 欣興           | 電子零組件業     | PCB_CCL_ABF材料   | 車用電子               | pcb_ccl_theme                          | authorized_seed   |
 |       3042 | 晶技           | 電子零組件業     | 被動元件            |                    | passive_component_theme                | authorized_seed   |
 |       3044 | 健鼎           | 電子零組件業     | PCB_CCL_ABF材料   | 車用電子               | pcb_ccl_theme                          | authorized_seed   |
-|       3081 | 聯亞           |            | CPO光通訊          |                    | network_optical_datacenter_theme       | authorized_seed   |
+|       3081 | 聯亞           | 通信網路業      | CPO光通訊          |                    | network_optical_datacenter_theme       | authorized_seed   |
 |       3090 | 日電貿          | 電子零組件業     | 被動元件            |                    | passive_component_theme                | authorized_seed   |
-|       3105 | 穩懋           |            | 低軌衛星            |                    | low_earth_orbit_satellite_theme        | authorized_seed   |
+|       3105 | 穩懋           | 半導體業       | 低軌衛星            |                    | low_earth_orbit_satellite_theme        | authorized_seed   |
 |       3131 | 弘塑           | 半導體設備      | 半導體設備_CoWoS     | 半導體設備              | semiconductor_equipment_material_theme | authorized_seed   |
 |       3167 | 大量           | 電機機械       | 半導體設備_CoWoS     |                    | semiconductor_equipment_material_theme | authorized_seed   |
 |       3189 | 景碩           | 半導體業       | PCB_CCL_ABF材料   |                    | pcb_ccl_theme                          | authorized_seed   |
-|       3211 | 順達           |            | 電源_BBU          |                    | power_supply_theme                     | authorized_seed   |
-|       3221 | 台嘉碩          |            | 被動元件            |                    | passive_component_theme                | authorized_seed   |
+|       3211 | 順達           | 電腦及週邊設備業   | 電源_BBU          |                    | power_supply_theme                     | authorized_seed   |
+|       3221 | 台嘉碩          | 通信網路業      | 被動元件            |                    | passive_component_theme                | authorized_seed   |
 |       3231 | 緯創           | 電腦及週邊設備業   | AI伺服器           |                    | ai_server_ipc_theme                    | authorized_seed   |
-|       3260 | 威剛           |            | 記憶體儲存           |                    | memory_hbm_theme                       | authorized_seed   |
-|       3324 | 雙鴻           |            | 散熱液冷            |                    | thermal_solution_theme                 | authorized_seed   |
-|       3363 | 上詮           |            | CPO光通訊          |                    | network_optical_datacenter_theme       | authorized_seed   |
+|       3260 | 威剛           | 半導體業       | 記憶體儲存           |                    | memory_hbm_theme                       | authorized_seed   |
+|       3324 | 雙鴻           | 其他電子業      | 散熱液冷            |                    | thermal_solution_theme                 | authorized_seed   |
+|       3363 | 上詮           | 通信網路業      | CPO光通訊          |                    | network_optical_datacenter_theme       | authorized_seed   |
 |       3406 | 玉晶光          | 光電業        | 車用電子            |                    | automotive_electronics_theme           | authorized_seed   |
 |       3450 | 聯鈞           | 光通訊        | CPO光通訊          | 光通訊元件              | network_optical_datacenter_theme       | authorized_seed   |
-|       3455 | 由田           |            | 機器人自動化          |                    | robotics_optics_sensor_theme           | authorized_seed   |
-|       3491 | 昇達科          |            | 低軌衛星            | 軍工無人機              | low_earth_orbit_satellite_theme        | authorized_seed   |
-|       3540 | 曜越           |            | 散熱液冷            |                    | thermal_solution_theme                 | authorized_seed   |
+|       3455 | 由田           | 光電業        | 機器人自動化          |                    | robotics_optics_sensor_theme           | authorized_seed   |
+|       3491 | 昇達科          | 通信網路業      | 低軌衛星            | 軍工無人機              | low_earth_orbit_satellite_theme        | authorized_seed   |
+|       3540 | 曜越           | 電腦及週邊設備業   | 散熱液冷            |                    | thermal_solution_theme                 | authorized_seed   |
 |       3583 | 辛耘           | 半導體業       | 半導體設備_CoWoS     |                    | semiconductor_equipment_material_theme | authorized_seed   |
 |       3596 | 智易           | 通信網路業      | 低軌衛星            | 網通交換器              | low_earth_orbit_satellite_theme        | authorized_seed   |
 |       3665 | 貿聯-KY        | 其他電子業      | 電源_BBU          | 車用電子               | power_supply_theme                     | authorized_seed   |
@@ -105,36 +105,36 @@
 |       4576 | 大銀微系統        | 電機機械       | 機器人             | 精密傳動               | robotics_precision_motion_theme        | manual_override   |
 |       4583 | 台灣精銳         | 電機機械       | 機器人自動化          |                    | robotics_precision_motion_theme        | authorized_seed   |
 |       4906 | 正文           | 通信網路業      | 網通交換器           | 網通設備               | network_optical_datacenter_theme       | authorized_seed   |
-|       4908 | 前鼎           |            | CPO光通訊          |                    | network_optical_datacenter_theme       | authorized_seed   |
+|       4908 | 前鼎           | 通信網路業      | CPO光通訊          |                    | network_optical_datacenter_theme       | authorized_seed   |
 |       4916 | 事欣科          | 電腦及週邊設備業   | 低軌衛星            | 工業電腦               | low_earth_orbit_satellite_theme        | authorized_seed   |
-|       4931 | 新盛力          |            | 電源_BBU          |                    | power_supply_theme                     | authorized_seed   |
+|       4931 | 新盛力          | 電腦及週邊設備業   | 電源_BBU          |                    | power_supply_theme                     | authorized_seed   |
 |       4938 | 和碩           | 電腦及週邊設備業   | AI伺服器           |                    | ai_server_ipc_theme                    | authorized_seed   |
 |       4958 | 臻鼎-KY        | 電子零組件業     | PCB_CCL_ABF材料   | 車用電子               | pcb_ccl_theme                          | authorized_seed   |
-|       4979 | 華星光          |            | CPO光通訊          |                    | network_optical_datacenter_theme       | authorized_seed   |
-|       5340 | 建榮           |            | 玻纖布             | PCB_CCL_ABF材料      | glass_fiber_ccl_theme                  | authorized_seed   |
+|       4979 | 華星光          | 通信網路業      | CPO光通訊          |                    | network_optical_datacenter_theme       | authorized_seed   |
+|       5340 | 建榮           | 電子零組件業     | 玻纖布             | PCB_CCL_ABF材料      | glass_fiber_ccl_theme                  | authorized_seed   |
 |       5388 | 中磊           | 通信網路業      | 網通交換器           |                    | network_optical_datacenter_theme       | authorized_seed   |
-|       5474 | 聰泰           |            | 機器人自動化          |                    | robotics_optics_sensor_theme           | authorized_seed   |
-|       5475 | 德宏           |            | 玻纖布             | PCB_CCL_ABF材料      | glass_fiber_ccl_theme                  | authorized_seed   |
-|       6121 | 新普           |            | 電源_BBU          |                    | power_supply_theme                     | authorized_seed   |
+|       5474 | 聰泰           | 電腦及週邊設備業   | 機器人自動化          |                    | robotics_optics_sensor_theme           | authorized_seed   |
+|       5475 | 德宏           | 電子零組件業     | 玻纖布             | PCB_CCL_ABF材料      | glass_fiber_ccl_theme                  | authorized_seed   |
+|       6121 | 新普           | 電腦及週邊設備業   | 電源_BBU          |                    | power_supply_theme                     | authorized_seed   |
 |       6166 | 凌華           | 電腦及週邊設備業   | 機器人自動化          | 軍工無人機              | robotics_ipc_edge_ai_theme             | authorized_seed   |
 |       6173 | 信昌電          | 電子零組件業     | 被動元件            | 陶瓷粉末               | passive_component_theme                | authorized_seed   |
-|       6187 | 萬潤           |            | 半導體設備_CoWoS     |                    | semiconductor_equipment_material_theme | authorized_seed   |
-|       6190 | 萬泰科          |            | 低軌衛星            |                    | low_earth_orbit_satellite_theme        | authorized_seed   |
+|       6187 | 萬潤           | 半導體業       | 半導體設備_CoWoS     |                    | semiconductor_equipment_material_theme | authorized_seed   |
+|       6190 | 萬泰科          | 通信網路業      | 低軌衛星            |                    | low_earth_orbit_satellite_theme        | authorized_seed   |
 |       6191 | 精成科          | 電子零組件業     | PCB_CCL_ABF材料   |                    | pcb_ccl_theme                          | authorized_seed   |
 |       6196 | 帆宣           | 其他電子業      | 半導體設備_CoWoS     |                    | semiconductor_equipment_material_theme | authorized_seed   |
 |       6206 | 飛捷           | 電腦及週邊設備業   | 電源_BBU          |                    | power_supply_theme                     | authorized_seed   |
 |       6213 | 聯茂           | 電子零組件業     | PCB_CCL_ABF材料   |                    | pcb_ccl_theme                          | authorized_seed   |
-|       6223 | 旺矽           |            | 半導體設備_CoWoS     |                    | semiconductor_equipment_material_theme | authorized_seed   |
+|       6223 | 旺矽           | 半導體業       | 半導體設備_CoWoS     |                    | semiconductor_equipment_material_theme | authorized_seed   |
 |       6230 | 尼得科超眾        | 電腦及週邊設備業   | 散熱液冷            |                    | thermal_solution_theme                 | authorized_seed   |
 |       6239 | 力成           | 半導體業       | 記憶體儲存           |                    | memory_hbm_theme                       | authorized_seed   |
 |       6271 | 同欣電          | 半導體業       | 低軌衛星            |                    | low_earth_orbit_satellite_theme        | authorized_seed   |
-|       6274 | 台燿           |            | PCB_CCL_ABF材料   |                    | pcb_ccl_theme                          | authorized_seed   |
+|       6274 | 台燿           | 電子零組件業     | PCB_CCL_ABF材料   |                    | pcb_ccl_theme                          | authorized_seed   |
 |       6285 | 啟碁           | 通信網路業      | 低軌衛星            | 網通交換器;軍工無人機;網通設備   | low_earth_orbit_satellite_theme        | authorized_seed   |
 |       6412 | 群電           | 電子零組件業     | 電源_BBU          |                    | power_supply_theme                     | authorized_seed   |
 |       6449 | 鈺邦           | 電子零組件業     | 被動元件            |                    | passive_component_theme                | authorized_seed   |
-|       6510 | 精測           |            | 半導體設備_CoWoS     |                    | semiconductor_equipment_material_theme | authorized_seed   |
+|       6510 | 精測           | 半導體業       | 半導體設備_CoWoS     |                    | semiconductor_equipment_material_theme | authorized_seed   |
 |       6531 | 愛普*          | 半導體業       | 矽智財             | ASIC               | asic_advanced_process_theme            | authorized_seed   |
-|       6640 | 均華           |            | 半導體設備_CoWoS     |                    | semiconductor_equipment_material_theme | authorized_seed   |
+|       6640 | 均華           | 半導體業       | 半導體設備_CoWoS     |                    | semiconductor_equipment_material_theme | authorized_seed   |
 |       6669 | 緯穎           | 電腦及週邊設備業   | AI伺服器           |                    | ai_server_ipc_theme                    | authorized_seed   |
 |       6715 | 嘉基           | 電子零組件業     | 低軌衛星            |                    | low_earth_orbit_satellite_theme        | authorized_seed   |
 
@@ -142,6 +142,7 @@
 |   stock_id | stock_name   | industry   | primary_theme   | secondary_themes   | industry_mainstream_label   | theme_mainstream_label   | effective_mainstream_label   |
 |-----------:|:-------------|:-----------|:----------------|:-------------------|:----------------------------|:-------------------------|:-----------------------------|
 |       1303 | 南亞           | 塑膠工業       | 玻纖布             | PCB_CCL_ABF材料      | non_mainstream              | core_mainstream          | core_mainstream              |
+|       1336 | 台翰           | 電子零組件業     | 電子零組件業_待細分      |                    | core_mainstream             | core_mainstream          | core_mainstream              |
 |       1471 | 首利           | 電子零組件業     | 電子零組件業_待細分      |                    | core_mainstream             | core_mainstream          | core_mainstream              |
 |       1503 | 士電           | 電機機械       | 重電電網            |                    | core_mainstream             | core_mainstream          | core_mainstream              |
 |       1504 | 東元           | 電機機械       | 機器人自動化_電機機械待細分  |                    | core_mainstream             | core_mainstream          | core_mainstream              |
@@ -167,10 +168,9 @@
 |       1541 | 錩泰           | 電機機械       | 機器人自動化_電機機械待細分  |                    | core_mainstream             | core_mainstream          | core_mainstream              |
 |       1558 | 伸興           | 電機機械       | 機器人自動化_電機機械待細分  |                    | core_mainstream             | core_mainstream          | core_mainstream              |
 |       1560 | 中砂           | 電機機械       | 半導體設備_CoWoS     |                    | core_mainstream             | core_mainstream          | core_mainstream              |
-|       1582 | 信錦           | 電子零組件業     | 電子零組件業_待細分      |                    | core_mainstream             | core_mainstream          | core_mainstream              |
-|       1583 | 程泰           | 電機機械       | 機器人自動化_電機機械待細分  |                    | core_mainstream             | core_mainstream          | core_mainstream              |
-|       1589 | 永冠-KY        | 電機機械       | 機器人自動化_電機機械待細分  |                    | core_mainstream             | core_mainstream          | core_mainstream              |
-|       1590 | 亞德客-KY       | 電機機械       | 機器人             | 自動化                | core_mainstream             | core_mainstream          | core_mainstream              |
+|       1569 | 濱川           | 電腦及週邊設備業   | 電腦及週邊設備業_待細分    |                    | core_mainstream             | core_mainstream          | core_mainstream              |
+|       1570 | 力肯           | 電機機械       | 機器人自動化_電機機械待細分  |                    | core_mainstream             | core_mainstream          | core_mainstream              |
+|       1580 | 新麥           | 電機機械       | 機器人自動化_電機機械待細分  |                    | core_mainstream             | core_mainstream          | core_mainstream              |
 
 ## Non-Mainstream Sample
 |   stock_id | stock_name   | industry     | primary_theme   | secondary_themes   | industry_mainstream_label   | theme_mainstream_label   | effective_mainstream_label   |

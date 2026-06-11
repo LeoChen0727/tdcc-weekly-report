@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8487 愛爾達-創
 
 ## Metadata
-- generated_at: 2026-06-10 22:24:52 Asia/Taipei
+- generated_at: 2026-06-11 22:24:30 Asia/Taipei
 - stock_id: 8487
 - stock_name: 愛爾達-創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 79.4
-- high: 80.5
-- low: 79.4
-- close: 80
-- volume: 59631
-- ma5: 79.48
-- ema23_primary: 79.48
-- distance_to_ema23_pct: 0.66
-- ma20: 79.44
-- ma60: 79.27
-- ma120: 79.58
-- return_5d: -0.87
-- return_20d: 1.65
-- volume_ratio: 1
-- distance_to_ma20_pct_auxiliary: 0.71
-- distance_to_high_60_pct: -3.38
+- date: 20260611
+- open: 84.1
+- high: 84.9
+- low: 81
+- close: 83.1
+- volume: 303422
+- ma5: 79.7
+- ema23_primary: 79.78
+- distance_to_ema23_pct: 4.16
+- ma20: 79.7
+- ma60: 79.31
+- ma120: 79.62
+- return_5d: 1.34
+- return_20d: 6.81
+- volume_ratio: 4.36
+- distance_to_ma20_pct_auxiliary: 4.27
+- distance_to_high_60_pct: -2.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,78.7,78.7,76.9,77.8,104366,78.42,-0.79,78.45,80.06,1.85
 20260512,77.7,78,77.4,77.6,26102,78.35,-0.95,78.33,80.01,0.49
 20260513,79.9,79.9,78,78,22873,78.32,-0.41,78.25,79.97,0.42
 20260514,78.7,79,77.5,78.2,76070,78.31,-0.14,78.15,79.93,1.34
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,78.4,79,77.5,78.4,106679,79.51,-1.4,79.39,79.35,1.51
 20260604,78.9,79,77.4,78.5,78621,79.43,-1.17,79.37,79.31,1.27
 20260605,79.4,80.5,79.4,80,59631,79.48,0.66,79.44,79.27,1
+20260611,84.1,84.9,81,83.1,303422,79.78,4.16,79.7,79.31,4.36
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1721 三晃
 
 ## Metadata
-- generated_at: 2026-06-10 22:22:32 Asia/Taipei
+- generated_at: 2026-06-11 22:22:32 Asia/Taipei
 - stock_id: 1721
 - stock_name: 三晃
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 27.5
-- high: 28
-- low: 26.25
-- close: 26.8
-- volume: 2274014
-- ma5: 27.42
-- ema23_primary: 27.94
-- distance_to_ema23_pct: -4.08
-- ma20: 29.55
-- ma60: 24.03
-- ma120: 20.02
-- return_5d: -5.13
-- return_20d: -5.96
-- volume_ratio: 0.31
-- distance_to_ma20_pct_auxiliary: -9.3
-- distance_to_high_60_pct: -25.56
+- date: 20260611
+- open: 23.15
+- high: 23.4
+- low: 21.95
+- close: 22.6
+- volume: 2599933
+- ma5: 26.32
+- ema23_primary: 27.5
+- distance_to_ema23_pct: -17.81
+- ma20: 29.11
+- ma60: 24.12
+- ma120: 20.11
+- return_5d: -19.57
+- return_20d: -27.91
+- volume_ratio: 0.38
+- distance_to_ma20_pct_auxiliary: -22.36
+- distance_to_high_60_pct: -37.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,28.9,31.35,27.1,31.35,12326720,24.88,26,24.89,20.27,1.74
 20260512,32,34.45,29.3,34.45,20915270,25.68,34.16,25.7,20.57,2.61
 20260513,33.7,36,32.85,34.75,17015859,26.43,31.46,26.44,20.87,2
 20260514,34.7,34.75,32.5,32.5,9805262,26.94,20.64,27.1,21.1,1.13
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,26.9,28.2,26.5,27.5,3166069,28.11,-2.16,29.77,23.66,0.43
 20260604,28.05,28.05,27,27.35,3680948,28.04,-2.48,29.63,23.85,0.5
 20260605,27.5,28,26.25,26.8,2274014,27.94,-4.08,29.55,24.03,0.31
+20260611,23.15,23.4,21.95,22.6,2599933,27.5,-17.81,29.11,24.12,0.38
 ```
 
 ## Latest TDCC Snapshot

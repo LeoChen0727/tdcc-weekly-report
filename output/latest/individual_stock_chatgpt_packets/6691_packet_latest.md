@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6691 洋基工程
 
 ## Metadata
-- generated_at: 2026-06-10 22:24:15 Asia/Taipei
+- generated_at: 2026-06-11 22:23:59 Asia/Taipei
 - stock_id: 6691
 - stock_name: 洋基工程
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
+- date: 20260611
 - open: 635
-- high: 643
-- low: 629
-- close: 642
-- volume: 496727
-- ma5: 644.6
-- ema23_primary: 641.42
-- distance_to_ema23_pct: 0.09
-- ma20: 637.95
-- ma60: 629.63
-- ma120: 610.55
-- return_5d: -1.23
-- return_20d: -1.83
-- volume_ratio: 1.01
-- distance_to_ma20_pct_auxiliary: 0.63
-- distance_to_high_60_pct: -7.76
+- high: 652
+- low: 613
+- close: 637
+- volume: 719997
+- ma5: 642.4
+- ema23_primary: 641.06
+- distance_to_ema23_pct: -0.63
+- ma20: 637.65
+- ma60: 629.82
+- ma120: 611.84
+- return_5d: -1.7
+- return_20d: -0.93
+- volume_ratio: 1.44
+- distance_to_ma20_pct_auxiliary: -0.1
+- distance_to_high_60_pct: -8.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,660,660,630,643,556285,643.3,-0.05,652.85,623.08,0.76
 20260512,644,644,632,633,404304,642.44,-1.47,653.3,623.85,0.59
 20260513,630,649,630,632,480117,641.57,-1.49,653.2,624.32,0.71
 20260514,634,646,631,637,326910,641.19,-0.65,653.15,624.92,0.5
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,651,656,644,645,375518,641.13,0.6,639.9,628.35,0.74
 20260604,650,650,635,644,336750,641.37,0.41,638.55,629.05,0.67
 20260605,635,643,629,642,496727,641.42,0.09,637.95,629.63,1.01
+20260611,635,652,613,637,719997,641.06,-0.63,637.65,629.82,1.44
 ```
 
 ## Latest TDCC Snapshot
@@ -193,9 +193,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260611 | 6691 | 洋基工程 | 61 | 0 | 2006080.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

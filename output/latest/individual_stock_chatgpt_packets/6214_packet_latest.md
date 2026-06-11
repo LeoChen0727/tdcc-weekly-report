@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6214 精誠
 
 ## Metadata
-- generated_at: 2026-06-10 22:24:01 Asia/Taipei
+- generated_at: 2026-06-11 22:23:47 Asia/Taipei
 - stock_id: 6214
 - stock_name: 精誠
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 147.5
-- high: 147.5
-- low: 143
-- close: 144.5
-- volume: 2682059
-- ma5: 151.5
-- ema23_primary: 134.64
-- distance_to_ema23_pct: 7.32
-- ma20: 132.53
-- ma60: 121.75
-- ma120: 119.39
-- return_5d: 10.31
-- return_20d: 15.14
-- volume_ratio: 1.23
-- distance_to_ma20_pct_auxiliary: 9.04
-- distance_to_high_60_pct: -10.8
+- date: 20260611
+- open: 144.5
+- high: 144.5
+- low: 139
+- close: 142
+- volume: 1649185
+- ma5: 151.1
+- ema23_primary: 135.25
+- distance_to_ema23_pct: 4.99
+- ma20: 133.28
+- ma60: 122.24
+- ma120: 119.54
+- return_5d: -1.39
+- return_20d: 11.81
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: 6.55
+- distance_to_high_60_pct: -12.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,128,128,125,127,931514,121.4,4.61,123,114.91,0.5
 20260512,127.5,127.5,123,124,1155447,121.62,1.96,123.4,115.08,0.62
 20260513,123,123.5,121.5,122,616863,121.65,0.29,123.58,115.21,0.34
 20260514,122,124,122,122,738956,121.68,0.27,123.7,115.35,0.4
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,162,162,149,153,9993570,131.54,16.32,129.93,120.34,4.9
 20260604,158,158,156.5,158,3889084,133.74,18.14,131.57,121.17,1.81
 20260605,147.5,147.5,143,144.5,2682059,134.64,7.32,132.53,121.75,1.23
+20260611,144.5,144.5,139,142,1649185,135.25,4.99,133.28,122.24,0.74
 ```
 
 ## Latest TDCC Snapshot
@@ -192,9 +193,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260611 | 6214 | 精誠 | 9 | 0 | 604940.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -193,6 +193,20 @@ def normalize_source_volume_units(df: pd.DataFrame) -> pd.DataFrame:
     return result
 
 
+def read_history_latest_date(path: Path) -> str:
+    if not path.exists():
+        return ""
+    try:
+        df = pd.read_csv(path, dtype=str, usecols=["date"]).fillna("")
+    except Exception:
+        return ""
+    if df.empty:
+        return ""
+    dates = df["date"].map(safe_str)
+    dates = dates[dates.ne("")]
+    return str(dates.max()) if not dates.empty else ""
+
+
 def load_all_daily_prices() -> pd.DataFrame:
     frames: list[pd.DataFrame] = []
     for path in sorted(DATA_DAILY_PRICE_DIR.glob("*.csv")):
@@ -515,11 +529,28 @@ def build_history_files_incremental_latest(limit_stock_ids: set[str] | None = No
         latest_date = safe_str(latest_row.get("date"))
         file_path = STOCK_HISTORY_DIR / f"{stock_id}.csv"
         manifest_row = manifest_rows.get(stock_id, {})
+        manifest_end_date = safe_str(manifest_row.get("end_date"))
+        actual_end_date = read_history_latest_date(file_path)
+        if file_path.exists() and manifest_end_date and actual_end_date and manifest_end_date != actual_end_date:
+            print(
+                "Stock history manifest mismatch "
+                f"{stock_id}: manifest_end_date={manifest_end_date}, "
+                f"actual_end_date={actual_end_date}; updating from daily price data"
+            )
         if (
             not limit_stock_ids
             and file_path.exists()
-            and safe_str(manifest_row.get("end_date")) == latest_date
+            and manifest_end_date == latest_date
+            and actual_end_date == latest_date
         ):
+            skipped += 1
+            continue
+        if not limit_stock_ids and file_path.exists() and actual_end_date and latest_date < actual_end_date:
+            print(
+                "Skip older latest daily price for "
+                f"{stock_id}: latest_daily_price_date={latest_date}, "
+                f"actual_history_end_date={actual_end_date}"
+            )
             skipped += 1
             continue
         if file_path.exists():

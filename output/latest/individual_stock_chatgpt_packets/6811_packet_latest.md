@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6811 宏碁資訊
 
 ## Metadata
-- generated_at: 2026-06-10 22:24:19 Asia/Taipei
+- generated_at: 2026-06-11 22:24:02 Asia/Taipei
 - stock_id: 6811
 - stock_name: 宏碁資訊
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 240
-- high: 243.5
-- low: 236
-- close: 238.5
-- volume: 239000
-- ma5: 243.1
-- ema23_primary: 220.16
-- distance_to_ema23_pct: 8.33
-- ma20: 218.53
-- ma60: 201.79
-- ma120: 204.22
-- return_5d: 10.93
-- return_20d: 13.57
-- volume_ratio: 1.61
-- distance_to_ma20_pct_auxiliary: 9.14
-- distance_to_high_60_pct: -7.2
+- date: 20260611
+- open: 225.5
+- high: 228.5
+- low: 222
+- close: 227.5
+- volume: 226000
+- ma5: 241.4
+- ema23_primary: 220.77
+- distance_to_ema23_pct: 3.05
+- ma20: 219.28
+- ma60: 202.32
+- ma120: 204.35
+- return_5d: -3.6
+- return_20d: 7.06
+- volume_ratio: 1.49
+- distance_to_ma20_pct_auxiliary: 3.75
+- distance_to_high_60_pct: -11.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,213,216.5,211.5,212.5,173000,199.68,6.42,198.25,196.18,1.51
 20260512,213.5,213.5,209.5,211,169000,200.62,5.17,199.5,196.31,1.43
 20260513,210,211,206.5,210,65000,201.41,4.27,200.45,196.41,0.56
 20260514,209,209,207,207.5,81000,201.91,2.77,201.22,196.49,0.69
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,254,257,247.5,248,251000,215.81,14.92,215.3,199.99,1.76
 20260604,254,257,247.5,248,251000,218.49,13.51,217.1,200.99,1.74
 20260605,240,243.5,236,238.5,239000,220.16,8.33,218.53,201.79,1.61
+20260611,225.5,228.5,222,227.5,226000,220.77,3.05,219.28,202.32,1.49
 ```
 
 ## Latest TDCC Snapshot

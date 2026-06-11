@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1227 佳格
 
 ## Metadata
-- generated_at: 2026-06-10 22:22:20 Asia/Taipei
+- generated_at: 2026-06-11 22:22:21 Asia/Taipei
 - stock_id: 1227
 - stock_name: 佳格
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -117,21 +117,21 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 28.7
-- high: 28.9
-- low: 28.55
+- date: 20260611
+- open: 28.5
+- high: 29.1
+- low: 28.45
 - close: 28.85
-- volume: 2950700
-- ma5: 28.27
-- ema23_primary: 28.5
-- distance_to_ema23_pct: 1.24
+- volume: 2727374
+- ma5: 28.4
+- ema23_primary: 28.53
+- distance_to_ema23_pct: 1.13
 - ma20: 28.36
-- ma60: 29.37
-- ma120: 29.61
-- return_5d: 3.22
-- return_20d: -0.69
-- volume_ratio: 1.55
+- ma60: 29.36
+- ma120: 29.59
+- return_5d: 2.31
+- return_20d: 0
+- volume_ratio: 1.37
 - distance_to_ma20_pct_auxiliary: 1.71
 - distance_to_high_60_pct: -7.68
 
@@ -139,7 +139,6 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,29.05,29.2,28.85,28.85,986493,29.39,-1.84,29.45,29.71,0.92
 20260512,28.95,29.1,28.75,28.8,1196785,29.34,-1.85,29.39,29.71,1.09
 20260513,28.85,28.85,28.7,28.8,1064312,29.3,-1.7,29.32,29.71,0.97
 20260514,28.8,28.95,28.55,28.55,1327841,29.23,-2.34,29.26,29.71,1.18
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,28.35,28.5,28.1,28.4,5841275,28.51,-0.39,28.42,29.41,3.71
 20260604,28.2,28.3,27.95,27.95,5123836,28.47,-1.81,28.38,29.38,2.87
 20260605,28.7,28.9,28.55,28.85,2950700,28.5,1.24,28.36,29.37,1.55
+20260611,28.5,29.1,28.45,28.85,2727374,28.53,1.13,28.36,29.36,1.37
 ```
 
 ## Latest TDCC Snapshot
@@ -189,12 +189,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 1227 | 佳格 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260601; status=expected_window; proximity=recent |
+| 20260611 | 1227 | 佳格 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 1227 | 佳格 | 1 | 1 | 2 | 2 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260611 | 1227 | 佳格 | 2 | 2 | 3 | 3 | 3 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

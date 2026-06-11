@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7782 光速火箭
 
 ## Metadata
-- generated_at: 2026-06-10 22:24:41 Asia/Taipei
+- generated_at: 2026-06-11 22:24:20 Asia/Taipei
 - stock_id: 7782
 - stock_name: 光速火箭
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 276
+- latest_price_date: 20260611
+- price_rows: 277
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 25.25
-- high: 25.25
-- low: 24.5
-- close: 25.1
+- date: 20260611
+- open: 25
+- high: 25
+- low: 25
+- close: 25
 - volume: 25000
-- ma5: 25.48
-- ema23_primary: 26.26
+- ma5: 25.35
+- ema23_primary: 26.15
 - distance_to_ema23_pct: -4.41
-- ma20: 26.2
-- ma60: 27.17
-- ma120: 27.92
-- return_5d: -2.14
-- return_20d: -8.39
-- volume_ratio: 1.2
+- ma20: 26.1
+- ma60: 27.13
+- ma120: 27.88
+- return_5d: -2.53
+- return_20d: -7.58
+- volume_ratio: 1.23
 - distance_to_ma20_pct_auxiliary: -4.21
-- distance_to_high_60_pct: -20.06
+- distance_to_high_60_pct: -20.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,27.4,27.4,27,27.05,34000,27.74,-2.5,28.28,27.62,0.72
 20260512,26.8,26.9,26.8,26.85,25000,27.67,-2.96,28.19,27.61,0.53
 20260513,26.1,26.9,26.1,26.9,16000,27.61,-2.55,28.09,27.61,0.35
 20260514,26.55,26.6,26.55,26.55,14000,27.52,-3.51,27.97,27.6,0.31
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,25.55,25.6,25.45,25.55,26000,26.44,-3.35,26.42,27.21,1.27
 20260604,25.55,25.6,25.45,25.55,26000,26.36,-3.08,26.32,27.19,1.24
 20260605,25.25,25.25,24.5,25.1,25000,26.26,-4.41,26.2,27.17,1.2
+20260611,25,25,25,25,25000,26.15,-4.41,26.1,27.13,1.23
 ```
 
 ## Latest TDCC Snapshot

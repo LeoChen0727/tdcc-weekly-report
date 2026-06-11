@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6997 博弘
 
 ## Metadata
-- generated_at: 2026-06-10 22:24:25 Asia/Taipei
+- generated_at: 2026-06-11 22:24:07 Asia/Taipei
 - stock_id: 6997
 - stock_name: 博弘
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 251
+- latest_price_date: 20260611
+- price_rows: 252
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 75.1
-- high: 76.6
-- low: 74.1
-- close: 76.6
-- volume: 75000
-- ma5: 74.22
-- ema23_primary: 73.1
-- distance_to_ema23_pct: 4.79
-- ma20: 71.45
-- ma60: 78.69
-- ma120: 84.82
-- return_5d: 7.13
-- return_20d: 8.5
-- volume_ratio: 2.07
-- distance_to_ma20_pct_auxiliary: 7.21
-- distance_to_high_60_pct: -14.89
+- date: 20260611
+- open: 78.3
+- high: 78.6
+- low: 78
+- close: 78
+- volume: 78000
+- ma5: 74.32
+- ema23_primary: 73.51
+- distance_to_ema23_pct: 6.11
+- ma20: 71.59
+- ma60: 78.48
+- ma120: 84.87
+- return_5d: 0.65
+- return_20d: 3.86
+- volume_ratio: 2
+- distance_to_ma20_pct_auxiliary: 8.95
+- distance_to_high_60_pct: -11.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,70.9,75.5,70.9,75.1,23000,79.04,-4.99,79.56,84.46,1.65
 20260512,76.4,76.4,74.9,74.9,7000,78.7,-4.83,79.27,84.2,0.5
 20260513,75,75,74,74,9000,78.31,-5.5,78.85,83.93,0.63
 20260514,74,74.5,73.6,74.5,3000,77.99,-4.48,78.4,83.64,0.21
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,73.8,75.5,72.1,72.5,73000,72.81,-0.43,71.08,79.14,2.31
 20260604,73.8,75.5,72.1,72.5,73000,72.78,-0.39,71.15,78.92,2.19
 20260605,75.1,76.6,74.1,76.6,75000,73.1,4.79,71.45,78.69,2.07
+20260611,78.3,78.6,78,78,78000,73.51,6.11,71.59,78.48,2
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6664 群翊
 
 ## Metadata
-- generated_at: 2026-06-10 22:24:14 Asia/Taipei
+- generated_at: 2026-06-11 22:23:58 Asia/Taipei
 - stock_id: 6664
 - stock_name: 群翊
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 408
-- high: 413
-- low: 395.5
-- close: 408.5
-- volume: 404000
-- ma5: 412.6
-- ema23_primary: 424.79
-- distance_to_ema23_pct: -3.84
-- ma20: 431.38
-- ma60: 387.83
-- ma120: 338.35
-- return_5d: -6.31
-- return_20d: -7.79
-- volume_ratio: 0.39
-- distance_to_ma20_pct_auxiliary: -5.3
-- distance_to_high_60_pct: -17.89
+- date: 20260611
+- open: 363.5
+- high: 372.5
+- low: 342.5
+- close: 356
+- volume: 354000
+- ma5: 397.9
+- ema23_primary: 419.06
+- distance_to_ema23_pct: -15.05
+- ma20: 427.2
+- ma60: 389.24
+- ma120: 339.09
+- return_5d: -17.11
+- return_20d: -19
+- volume_ratio: 0.36
+- distance_to_ma20_pct_auxiliary: -16.67
+- distance_to_high_60_pct: -28.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,443,450,431,439.5,1304000,418.91,4.92,434.38,340.8,0.5
 20260512,449,469.5,443,467,2417000,422.91,10.42,437.15,343.88,0.95
 20260513,472,484,450,480,3110000,427.67,12.24,441.18,347.07,1.21
 20260514,486,486.5,455,463.5,2808000,430.66,7.63,442.85,350.01,1.12
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,414,418.5,407,408,411000,427.93,-4.66,435.45,382.77,0.36
 20260604,414,418.5,407,408,411000,426.27,-4.29,433.1,385.36,0.38
 20260605,408,413,395.5,408.5,404000,424.79,-3.84,431.38,387.83,0.39
+20260611,363.5,372.5,342.5,356,354000,419.06,-15.05,427.2,389.24,0.36
 ```
 
 ## Latest TDCC Snapshot

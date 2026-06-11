@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8927 北基
 
 ## Metadata
-- generated_at: 2026-06-10 22:24:53 Asia/Taipei
+- generated_at: 2026-06-11 22:24:31 Asia/Taipei
 - stock_id: 8927
 - stock_name: 北基
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 20.4
+- date: 20260611
+- open: 20.7
 - high: 20.75
-- low: 20
-- close: 20
+- low: 20.2
+- close: 20.7
 - volume: 20000
-- ma5: 19.73
-- ema23_primary: 19.85
-- distance_to_ema23_pct: 0.74
-- ma20: 19.29
-- ma60: 21.83
-- ma120: 23.26
-- return_5d: 6.95
-- return_20d: -1.48
-- volume_ratio: 0.09
-- distance_to_ma20_pct_auxiliary: 3.68
-- distance_to_high_60_pct: -21.1
+- ma5: 20.09
+- ema23_primary: 19.92
+- distance_to_ema23_pct: 3.9
+- ma20: 19.32
+- ma60: 21.78
+- ma120: 23.2
+- return_5d: 9.52
+- return_20d: 3.5
+- volume_ratio: 0.1
+- distance_to_ma20_pct_auxiliary: 7.12
+- distance_to_high_60_pct: -18.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,20.2,20.2,19.9,20,521000,22.18,-9.82,22.36,23.43,0.55
 20260512,20.15,20.15,19.8,19.95,294000,21.99,-9.29,22.18,23.36,0.31
 20260513,19.8,20.1,19.7,19.7,333000,21.8,-9.64,22,23.29,0.35
 20260514,19.8,19.9,19.4,19.4,358000,21.6,-10.19,21.82,23.21,0.38
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,19.75,20.55,19.25,20.1,20000,19.82,1.44,19.33,21.98,0.08
 20260604,19.75,20.55,19.25,20.1,20000,19.84,1.31,19.3,21.9,0.09
 20260605,20.4,20.75,20,20,20000,19.85,0.74,19.29,21.83,0.09
+20260611,20.7,20.75,20.2,20.7,20000,19.92,3.9,19.32,21.78,0.1
 ```
 
 ## Latest TDCC Snapshot

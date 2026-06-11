@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2597 潤弘
 
 ## Metadata
-- generated_at: 2026-06-10 22:22:55 Asia/Taipei
+- generated_at: 2026-06-11 22:22:52 Asia/Taipei
 - stock_id: 2597
 - stock_name: 潤弘
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -56,29 +56,31 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 減碼
+- action_rating_display_zh: 停利
 - model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
-- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「減碼」。
-- entry_strategy_zh: 目前風險升高，以降低部位為主，不建議新買。
-- position_sizing_zh: 降低部位；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前以風險管理為主，不適合新買第一筆。
+- action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
+- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
+- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足、量價失敗
+- risk_control_zh: TDCC 歷史不足、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「減碼」。 進場策略：目前風險升高，以降低部位為主，不建議新買。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、量價失敗
+- final_decision_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: reduce
-- action_rating_label_zh: 減碼
+- action_rating: take_profit
+- action_rating_label_zh: 停利
 - confidence_level: low
-- thesis_state: failed_breakout
+- thesis_state: breakout_confirmed
 - entry_style: no_entry_now
-- position_sizing: reduce_position
+- position_sizing: observe_only
 
 ### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
@@ -86,11 +88,10 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_priority_high
-- decision_score_high
+- price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_tdcc_warning
-- acceptable_risk_reward
+- no_major_volume_price_failure
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -104,7 +105,7 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
-- volume_price_failure
+- price_too_extended
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 178
-- high: 186.5
-- low: 178
-- close: 184.5
-- volume: 3810246
-- ma5: 174.8
-- ema23_primary: 165
-- distance_to_ema23_pct: 11.82
-- ma20: 164.43
-- ma60: 158.42
-- ma120: 164.28
-- return_5d: 11.14
-- return_20d: 18.27
-- volume_ratio: 2.84
-- distance_to_ma20_pct_auxiliary: 12.21
-- distance_to_high_60_pct: -1.07
+- date: 20260611
+- open: 197
+- high: 205
+- low: 196
+- close: 204
+- volume: 3833964
+- ma5: 182.3
+- ema23_primary: 168.25
+- distance_to_ema23_pct: 21.25
+- ma20: 166.62
+- ma60: 159.01
+- ma120: 164.57
+- return_5d: 22.52
+- return_20d: 27.5
+- volume_ratio: 2.57
+- distance_to_ma20_pct_auxiliary: 22.43
+- distance_to_high_60_pct: -0.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,156,161.5,156,160,783756,155.51,2.89,154.9,159.93,0.9
 20260512,161,164,160.5,162.5,924482,156.09,4.11,155.38,159.87,1.04
 20260513,163,163.5,159.5,161,576136,156.5,2.88,155.78,159.75,0.64
 20260514,159.5,160.5,158,158,415887,156.62,0.88,156.1,159.58,0.47
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,175,181.5,174,176,3640235,162.3,8.44,162.12,157.93,3.45
 20260604,168,180,166.5,173.5,3924400,163.23,6.29,163,158.09,3.28
 20260605,178,186.5,178,184.5,3810246,165,11.82,164.43,158.42,2.84
+20260611,197,205,196,204,3833964,168.25,21.25,166.62,159.01,2.57
 ```
 
 ## Latest TDCC Snapshot
@@ -184,12 +185,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 2597 | 潤弘 | true_breakout | 嚴格突破 | 122.0 |  |  | platform_breakout |  |  | continued_many_days | calendar event: ex_dividend on 20260618; status=confirmed; proximity=within_14d |
+| 20260611 | 2597 | 潤弘 | true_breakout | 嚴格突破 | 119.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: ex_dividend on 20260618; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260605 | 2597 | 潤弘 | 5 | 1 | 5 | 5 | 5 | continued_many_days | 連續 5 日上榜，需區分醞釀延續或訊號鈍化。 |
+| 20260611 | 2597 | 潤弘 | 6 | 2 | 5 | 6 | 6 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

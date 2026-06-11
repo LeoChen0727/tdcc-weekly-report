@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3073 天方能源
 
 ## Metadata
-- generated_at: 2026-06-10 22:23:08 Asia/Taipei
+- generated_at: 2026-06-11 22:23:03 Asia/Taipei
 - stock_id: 3073
 - stock_name: 天方能源
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 22.35
-- high: 22.8
-- low: 22.35
-- close: 22.4
-- volume: 22000
-- ma5: 21.65
-- ema23_primary: 21.66
-- distance_to_ema23_pct: 3.39
-- ma20: 20.92
-- ma60: 24.53
-- ma120: 28.07
-- return_5d: 10.62
-- return_20d: 0.67
-- volume_ratio: 0.22
-- distance_to_ma20_pct_auxiliary: 7.07
-- distance_to_high_60_pct: -28.43
+- date: 20260611
+- open: 21
+- high: 21
+- low: 19.95
+- close: 20.2
+- volume: 20000
+- ma5: 21.64
+- ema23_primary: 21.54
+- distance_to_ema23_pct: -6.23
+- ma20: 20.88
+- ma60: 24.35
+- ma120: 27.97
+- return_5d: -0.25
+- return_20d: -4.27
+- volume_ratio: 0.24
+- distance_to_ma20_pct_auxiliary: -3.23
+- distance_to_high_60_pct: -34.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,22.35,22.35,21,21.1,373000,24.22,-12.9,24.22,27.58,3.22
 20260512,22.3,22.5,21.35,21.45,150000,23.99,-10.6,24,27.43,1.24
 20260513,22,22,21.05,21.5,105000,23.79,-9.61,23.79,27.29,0.88
 20260514,21.45,21.5,19.8,20,421000,23.47,-14.78,23.48,27.11,3.14
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,20.5,22.55,20.25,22.55,22000,21.51,4.83,20.92,24.75,0.2
 20260604,20.5,22.55,20.25,22.55,22000,21.6,4.41,20.91,24.64,0.21
 20260605,22.35,22.8,22.35,22.4,22000,21.66,3.39,20.92,24.53,0.22
+20260611,21,21,19.95,20.2,20000,21.54,-6.23,20.88,24.35,0.24
 ```
 
 ## Latest TDCC Snapshot

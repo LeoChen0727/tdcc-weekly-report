@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3056 富華新
 
 ## Metadata
-- generated_at: 2026-06-10 22:23:07 Asia/Taipei
+- generated_at: 2026-06-11 22:23:02 Asia/Taipei
 - stock_id: 3056
 - stock_name: 富華新
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 14.55
-- high: 14.6
-- low: 14.2
-- close: 14.3
-- volume: 2133376
-- ma5: 13.74
-- ema23_primary: 13.7
-- distance_to_ema23_pct: 4.41
-- ma20: 13.56
-- ma60: 14.2
-- ma120: 15.85
-- return_5d: 7.92
-- return_20d: 6.72
-- volume_ratio: 1.31
-- distance_to_ma20_pct_auxiliary: 5.42
-- distance_to_high_60_pct: -10.62
+- date: 20260611
+- open: 15
+- high: 15.1
+- low: 14.45
+- close: 14.6
+- volume: 1912058
+- ma5: 13.98
+- ema23_primary: 13.77
+- distance_to_ema23_pct: 6.02
+- ma20: 13.62
+- ma60: 14.19
+- ma120: 15.82
+- return_5d: 8.96
+- return_20d: 7.75
+- volume_ratio: 1.16
+- distance_to_ma20_pct_auxiliary: 7.21
+- distance_to_high_60_pct: -6.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,13.4,13.8,13.3,13.55,1547161,14.12,-4.03,14.12,15.24,1.05
 20260512,13.75,13.75,13.35,13.35,812388,14.06,-5.02,14.05,15.19,0.55
 20260513,13.5,14.15,13.5,13.85,2069107,14.04,-1.34,14.01,15.15,1.35
 20260514,13.9,13.95,13.7,13.85,1088248,14.02,-1.23,13.96,15.09,0.72
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,13.5,14.05,13.35,14,4286917,13.65,2.53,13.52,14.28,2.7
 20260604,13.4,13.5,13.25,13.5,1413061,13.64,-1.04,13.52,14.24,0.9
 20260605,14.55,14.6,14.2,14.3,2133376,13.7,4.41,13.56,14.2,1.31
+20260611,15,15.1,14.45,14.6,1912058,13.77,6.02,13.62,14.19,1.16
 ```
 
 ## Latest TDCC Snapshot
@@ -193,9 +192,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260611 | 3056 | 富華新 | 3 | 0 | 308000.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

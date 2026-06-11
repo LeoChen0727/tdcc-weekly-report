@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6291 沛亨
 
 ## Metadata
-- generated_at: 2026-06-10 22:24:04 Asia/Taipei
+- generated_at: 2026-06-11 22:23:50 Asia/Taipei
 - stock_id: 6291
 - stock_name: 沛亨
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 278
+- latest_price_date: 20260611
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 603
-- high: 606
-- low: 568
-- close: 606
-- volume: 590000
-- ma5: 620.8
-- ema23_primary: 556.01
-- distance_to_ema23_pct: 8.99
-- ma20: 555.77
-- ma60: 447.76
-- ma120: 329.97
-- return_5d: -10.75
-- return_20d: 29.49
-- volume_ratio: 0.52
-- distance_to_ma20_pct_auxiliary: 9.04
-- distance_to_high_60_pct: -15.6
+- date: 20260611
+- open: 487
+- high: 505
+- low: 457
+- close: 495
+- volume: 481000
+- ma5: 590.2
+- ema23_primary: 550.92
+- distance_to_ema23_pct: -10.15
+- ma20: 556.95
+- ma60: 451.15
+- ma120: 332.62
+- return_5d: -23.61
+- return_20d: 4.98
+- volume_ratio: 0.45
+- distance_to_ma20_pct_auxiliary: -11.12
+- distance_to_high_60_pct: -31.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,468,488,455,471.5,1918000,429.65,9.74,442.55,352.28,0.89
 20260512,510,518,509,518,2123000,437.01,18.53,446.6,357,0.99
 20260513,503,536,488,489.5,3443000,441.39,10.9,450.57,361.34,1.58
 20260514,495,517,488,509,2154000,447.02,13.86,454.82,365.88,1.01
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,629,650,614,615,632000,545.68,12.7,542.23,435.97,0.48
 20260604,629,650,614,615,632000,551.46,11.52,548.88,442.07,0.49
 20260605,603,606,568,606,590000,556.01,8.99,555.77,447.76,0.52
+20260611,487,505,457,495,481000,550.92,-10.15,556.95,451.15,0.45
 ```
 
 ## Latest TDCC Snapshot
