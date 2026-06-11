@@ -146,11 +146,51 @@ jobs:
             echo "- Pending D+N performance is not treated as positive or negative."
           } > output/latest/tdcc_weekly_run_status.md
 
+      - name: Sync TDCC Pages artifacts
+        run: |
+          mkdir -p docs/latest
+          shopt -s nullglob
+          for file in output/latest/tdcc_*; do
+            if [ "$(basename "$file")" = "tdcc_trend_debug_latest.csv" ]; then
+              continue
+            fi
+            if [ -f "$file" ]; then
+              cp "$file" "docs/latest/$(basename "$file")"
+            fi
+          done
+
+      - name: Validate TDCC Pages sync
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          output_dir = Path("output/latest")
+          docs_dir = Path("docs/latest")
+          mismatches = []
+          for src in sorted(output_dir.glob("tdcc_*")):
+              if not src.is_file():
+                  continue
+              if src.name == "tdcc_trend_debug_latest.csv":
+                  continue
+              dst = docs_dir / src.name
+              if not dst.exists():
+                  mismatches.append(f"missing docs/latest/{src.name}")
+                  continue
+              if src.read_bytes() != dst.read_bytes():
+                  mismatches.append(f"content mismatch: {src.name}")
+
+          if mismatches:
+              raise SystemExit("TDCC Pages sync failed:\n" + "\n".join(mismatches))
+
+          print(f"TDCC Pages sync verified for {len(list(output_dir.glob('tdcc_*')))} artifacts.")
+          PY
+
       - name: Commit TDCC outputs
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add output/ data/ config/stock_theme_map.csv docs/tdcc_signal_tracking.md docs/tdcc_pre_move_accumulation.md || true
+          git add docs/latest/tdcc_* || true
           git add scripts/tracking_utils.py scripts/build_tdcc_signal_structures.py scripts/build_tdcc_stock_history.py scripts/tdcc_stock_history_utils.py scripts/build_tdcc_pre_move_accumulation.py scripts/build_tdcc_chatgpt_tracking_outputs.py scripts/build_tdcc_weekly_candidate_reports.py scripts/validate_tdcc_chatgpt_tracking_outputs.py scripts/validate_pdf_facing_display_text.py scripts/backfill_tdcc_history.py || true
           git add scripts/build_tdcc_overheated_short_term_edge.py || true
           git status --short
