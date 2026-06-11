@@ -210,6 +210,11 @@ jobs:
         run: |
           python scripts/build_warrant_market_report.py
 
+      - name: Refresh data freshness after warrant market report
+        run: |
+          python build_data_freshness_latest.py
+          python scripts/validate_data_freshness_latest.py
+
       - name: Build daily market report artifacts
         run: |
           python build_daily_market_report_artifacts.py

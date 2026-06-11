@@ -133,6 +133,45 @@ def extract_csv_max_date(path: Path, preferred_columns: tuple[str, ...] = ()) ->
     return ""
 
 
+def read_csv_text(path: Path) -> pd.DataFrame:
+    if not path.exists():
+        return pd.DataFrame()
+    try:
+        return pd.read_csv(path, dtype=str).fillna("")
+    except Exception:
+        return pd.DataFrame()
+
+
+def csv_date_and_usable_rows(path: Path, preferred_columns: tuple[str, ...] = ()) -> tuple[str, bool]:
+    df = read_csv_text(path)
+    if df.empty:
+        return "", False
+
+    columns = list(preferred_columns) + [
+        "signal_date",
+        "date",
+        "trade_date",
+        "main_price_date",
+        "資料日期",
+    ]
+    date = ""
+    for col in columns:
+        if col not in df.columns:
+            continue
+        dates = df[col].map(normalize_date)
+        dates = dates[dates.astype(str).str.len() == 8]
+        if not dates.empty:
+            date = str(dates.max())
+            break
+
+    if "stock_id" not in df.columns:
+        return date, False
+
+    stock_ids = df["stock_id"].astype(str).str.strip()
+    usable_rows = bool((stock_ids != "").any())
+    return date, usable_rows
+
+
 def latest_stock_price_history_date() -> str:
     dates: set[str] = set()
     if not STOCK_PRICE_HISTORY_DIR.exists():
@@ -221,6 +260,19 @@ def component_note(raw_date: str, effective_date: str, main_price_date: str) -> 
     return f"future_date={effective_date}"
 
 
+def warrant_component_note(
+    raw_date: str,
+    effective_date: str,
+    main_price_date: str,
+    warrant_data_ready: bool,
+    warrant_data_note: str,
+) -> str:
+    base = component_note(raw_date, effective_date, main_price_date)
+    if base == "ready" and not warrant_data_ready:
+        return warrant_data_note
+    return base
+
+
 def determine_main_price_date(
     stock_monitor_date: str,
     all_candidates_date: str,
@@ -237,8 +289,8 @@ def determine_main_price_date(
     return ""
 
 
-def extract_warrant_flow_date() -> str:
-    """Return the warrant data date even when no stock-level flow rows exist.
+def extract_warrant_flow_state() -> tuple[str, bool, str]:
+    """Return warrant date and whether current stock-level rows are usable.
 
     `warrant_flow_latest.csv` can be header-only on days when the official
     warrant fetch succeeds in date terms but produces no usable warrant rows.
@@ -246,10 +298,12 @@ def extract_warrant_flow_date() -> str:
     need to know the warrant layer is current but empty/unusable.
     """
 
+    candidates: list[tuple[str, bool, str]] = []
+
     for path in (WARRANT_FLOW_CSV, WARRANT_FLOW_BY_STOCK_CSV):
-        date = extract_csv_max_date(path, ("date", "signal_date", "trade_date"))
+        date, usable_rows = csv_date_and_usable_rows(path, ("date", "signal_date", "trade_date"))
         if date:
-            return date
+            candidates.append((date, usable_rows, path.name))
 
     for path in (WARRANT_MARKET_REPORT_MD, WARRANT_DAILY_FETCH_MD):
         text = read_text(path)
@@ -263,9 +317,23 @@ def extract_warrant_flow_date() -> str:
             ],
         )
         if date:
-            return date
+            candidates.append((date, False, path.name))
 
-    return ""
+    if not candidates:
+        return "", False, "missing warrant_flow_date"
+
+    latest_date = max(date for date, _, _ in candidates)
+    latest_sources = [(usable_rows, source) for date, usable_rows, source in candidates if date == latest_date]
+    usable = any(usable_rows for usable_rows, _ in latest_sources)
+    source_text = ",".join(source for _, source in latest_sources)
+    if usable:
+        return latest_date, True, f"usable stock-level warrant rows from {source_text}"
+    return latest_date, False, f"warrant data date present but stock-level rows unavailable or observe-only in {source_text}"
+
+
+def extract_warrant_flow_date() -> str:
+    date, _, _ = extract_warrant_flow_state()
+    return date
 
 
 def determine_report_ready(
@@ -282,7 +350,12 @@ def determine_report_ready(
     return True, "core daily data dates match main_price_date"
 
 
-def determine_warrant_ready(main_price_date: str, warrant_flow_date: str) -> tuple[bool, str]:
+def determine_warrant_ready(
+    main_price_date: str,
+    warrant_flow_date: str,
+    warrant_data_ready: bool,
+    warrant_data_note: str,
+) -> tuple[bool, str]:
     if not main_price_date:
         return False, "missing main_price_date"
     if not warrant_flow_date:
@@ -291,6 +364,11 @@ def determine_warrant_ready(main_price_date: str, warrant_flow_date: str) -> tup
         return False, (
             "warrant_flow_date does not match main_price_date "
             f"(warrant_flow_date={warrant_flow_date}, main_price_date={main_price_date})"
+        )
+    if not warrant_data_ready:
+        return False, (
+            "warrant_flow_date matches main_price_date but stock-level warrant data is unavailable "
+            f"({warrant_data_note})"
         )
     return True, "warrant_flow_date matches main_price_date"
 
@@ -314,7 +392,7 @@ def build_status() -> pd.DataFrame:
     raw_stock_monitor_date = extract_stock_monitor_price_date()
     raw_official_fetch_date = extract_official_price_fetch_date()
     raw_all_candidates_date = extract_csv_max_date(ALL_CANDIDATES_CSV, ("signal_date",))
-    raw_warrant_flow_date = extract_warrant_flow_date()
+    raw_warrant_flow_date, raw_warrant_data_ready, raw_warrant_data_note = extract_warrant_flow_state()
 
     stock_monitor_date = cap_to_actual_trading_date(raw_stock_monitor_date, actual_price_date)
     official_fetch_date = cap_to_actual_trading_date(raw_official_fetch_date, actual_price_date)
@@ -336,6 +414,8 @@ def build_status() -> pd.DataFrame:
     warrant_ready, warrant_ready_note = determine_warrant_ready(
         main_price_date=main_price_date,
         warrant_flow_date=warrant_flow_date,
+        warrant_data_ready=raw_warrant_data_ready,
+        warrant_data_note=raw_warrant_data_note,
     )
     daily_pdf_ready, daily_pdf_ready_note = determine_daily_pdf_ready(
         report_ready=report_ready,
@@ -365,7 +445,13 @@ def build_status() -> pd.DataFrame:
         "stock_monitor_note": component_note(raw_stock_monitor_date, stock_monitor_date, main_price_date),
         "all_candidates_note": component_note(raw_all_candidates_date, all_candidates_date, main_price_date),
         "official_fetch_note": component_note(raw_official_fetch_date, official_fetch_date, main_price_date),
-        "warrant_note": component_note(raw_warrant_flow_date, warrant_flow_date, main_price_date),
+        "warrant_note": warrant_component_note(
+            raw_warrant_flow_date,
+            warrant_flow_date,
+            main_price_date,
+            raw_warrant_data_ready,
+            raw_warrant_data_note,
+        ),
     }
     return pd.DataFrame([row])
 
