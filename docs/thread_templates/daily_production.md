@@ -28,6 +28,11 @@ Freshness gate:
 - Check actual_stock_price_history_date, stock_monitor_price_date,
   all_candidates_date, official_price_fetch_date, warrant_flow_date, and notes.
 - Do not use stale output/latest as current data.
+- Before generating ChatGPT-side daily PDFs from a local checkout, run
+  scripts/validate_daily_report_source_preflight.py or perform the equivalent
+  check. Dirty/stale local checkouts are not official PDF sources; use a clean
+  clone/worktree/archive instead. README commit_sha is an artifact source hint
+  and does not need to equal checkout HEAD.
 
 Hard boundaries:
 - daily_full_pipeline must not run nonessential research/backtest work.

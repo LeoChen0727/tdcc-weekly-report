@@ -38,6 +38,17 @@ If a CSV shows `Total lines: 1`, continue via packet / GitHub API / index fallba
 
 For remote reads, raw GitHub URLs and GitHub API contents are authoritative. GitHub Pages is an auxiliary/share view and must not be used as the first freshness source for daily stock/PDF tasks. If Pages differs from raw/API on `main_price_date`, `commit_sha`, or `report_ready`, ignore Pages and use raw/API. If only stale Pages can be read, stop and report the available date instead of producing a current-date PDF.
 
+## Daily Report Source Preflight
+
+Before generating ChatGPT-side daily PDFs from a local checkout, run `scripts/validate_daily_report_source_preflight.py` or perform the equivalent checks:
+
+- `main_price_date`, `actual_stock_price_history_date`, `stock_monitor_price_date`, `all_candidates_date`, `official_price_fetch_date`, `warrant_flow_date`, and raw source dates must match the target report date.
+- `report_ready`, `warrant_ready`, and `daily_pdf_ready` must all be `True`.
+- `output/latest/READ_ME_FIRST_DAILY_REPORT.txt` and `output/latest/data_freshness_latest.csv` must agree on date and readiness fields.
+- A dirty local checkout is not an official PDF source. Use a clean clone, worktree, or trusted GitHub archive for report generation if the main checkout has uncommitted changes.
+- `commit_sha` in README is an artifact source hint. It is allowed to differ from checkout `HEAD` because daily workflows can commit artifacts before publishing README metadata. Do not block a report solely because README `commit_sha` differs from `HEAD`.
+- Do not use local `output/latest` as current data unless this preflight passes.
+
 ## Daily Versus Research Pipeline
 
 The normal daily pipeline must be able to finish without long research jobs.
