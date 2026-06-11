@@ -1739,7 +1739,7 @@ def append_weekly_surge_strict_section(
     story.append(para("Next-Open +10% Touch Specialty (D+1-D+10)", style_map["h1"]))
     story.append(
         para(
-            "Research-only section. This is not a weekly candlestick signal. Entry basis is next trading day open after the signal-day close. A hit means the high from next open to D+N reaches +10%; it is a touch-rate, not D+N close-to-close win rate. Close-return and intraperiod low columns are shown separately to avoid overstating this signal. This table uses no latest theme label and must not be mixed into the core six-category ranking.",
+            "Research-only section. This is not a weekly candlestick signal. Entry basis is next trading day open after the signal-day close. A hit means the high from next open to D+N reaches +10%; it is a touch-rate, not D+N close-to-close win rate. Close-return and intraperiod low columns are shown separately to avoid overstating this signal. This table uses no latest theme label and must not override the active core model ranking.",
             style_map["normal"],
         )
     )
@@ -2011,9 +2011,10 @@ def make_table(rows: list[list[Any]], style_map: dict[str, ParagraphStyle], widt
         TableStyle(
             [
                 ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor(header_bg)),
-                ("GRID", (0, 0), (-1, -1), 0.25, colors.HexColor("#D7DDE8")),
+                ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
+                ("GRID", (0, 0), (-1, -1), 0.35, colors.HexColor("#bfbfbf")),
                 ("VALIGN", (0, 0), (-1, -1), "TOP"),
-                ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, colors.HexColor("#F7F9FC")]),
+                ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, colors.HexColor("#f4f7fa")]),
                 ("LEFTPADDING", (0, 0), (-1, -1), 4),
                 ("RIGHTPADDING", (0, 0), (-1, -1), 4),
                 ("TOPPADDING", (0, 0), (-1, -1), 4),
@@ -3489,6 +3490,77 @@ def _append_group_rotation_section_readable(story: list[Any], style_map: dict[st
     story.append(make_table(rows, style_map, [2.5 * cm, 1.6 * cm, 1.8 * cm, 1.8 * cm, 4.1 * cm, 6.0 * cm]))
 
 
+NO_CANDIDATE_TEXTS = {"", "-", "今日無候選", "無候選", "n/a", "N/A"}
+
+
+def _split_stock_display_entries(value: Any) -> list[dict[str, str]]:
+    text = safe_str(value).replace("<br/>", "\n").replace("<br>", "\n")
+    if not text or text in NO_CANDIDATE_TEXTS:
+        return []
+    normalized = re.sub(r"[；;、,]+", "\n", text)
+    normalized = re.sub(r"(?<!^)(?=\b\d{4}\s+)", "\n", normalized)
+    lines = [line.strip() for line in normalized.splitlines() if line.strip()]
+    entries: list[dict[str, str]] = []
+    current_stock = ""
+    notes: list[str] = []
+    for line in lines:
+        if re.match(r"^\d{4}\s+", line):
+            if current_stock:
+                entries.append({"stock": current_stock, "note": " / ".join(notes)})
+            current_stock = line
+            notes = []
+        elif current_stock:
+            notes.append(line)
+    if current_stock:
+        entries.append({"stock": current_stock, "note": " / ".join(notes)})
+    if entries:
+        return entries
+    return [{"stock": normalized.strip(), "note": ""}]
+
+
+def _summary_entries_for_prefix(row: pd.Series, prefix: str) -> list[dict[str, str]]:
+    raw_display = row.get(f"{prefix}_signal_stock_display") or row.get(f"{prefix}_stock_display")
+    entries = _split_stock_display_entries(raw_display)
+    stock_id = safe_str(row.get(f"{prefix}_stock_id"))
+    stock_name = safe_str(row.get(f"{prefix}_stock_name"))
+    if not entries and (stock_id or stock_name):
+        entries = [{"stock": f"{stock_id} {stock_name}".strip(), "note": ""}]
+    return [entry for entry in entries if entry.get("stock", "").strip() not in NO_CANDIDATE_TEXTS]
+
+
+def _fixed_model_summary_rows(summary: pd.DataFrame, report_line: str) -> list[list[Any]]:
+    rows = [["模型", "訊號類型", "排名", "股票", "分數", "狀態與操作提醒"]]
+    if summary.empty:
+        rows.append(["資料不足", "-", "-", "今日無候選", "-", "daily_candidate_model_summary_for_report_latest.csv 無資料。"])
+        return rows
+    part = summary[summary.get("report_line", "").astype(str).eq(report_line)].copy()
+    if part.empty:
+        rows.append(["資料不足", "-", "-", "今日無候選", "-", f"{report_line} 無模型摘要資料。"])
+        return rows
+    for _, row in part.iterrows():
+        model_name = _pdf_human_text(row.get("model_name_zh"), fallback="模型名稱尚未完成", limit=24)
+        operation = _pdf_human_text(row.get("operation_reminder_zh"), fallback="依模型條件與風險欄位觀察。", limit=58)
+        emitted = False
+        for prefix, section_label in [("new", "新進"), ("repeated", "累計")]:
+            for entry in _summary_entries_for_prefix(row, prefix):
+                note = entry.get("note", "").strip()
+                reminder = clean_text(" / ".join(x for x in [note, operation] if x), 72)
+                rows.append(
+                    [
+                        model_name,
+                        section_label,
+                        _summary_rank_text(row, prefix),
+                        clean_text(entry.get("stock", ""), 24),
+                        _summary_score_text(row, prefix),
+                        reminder,
+                    ]
+                )
+                emitted = True
+        if not emitted:
+            rows.append([model_name, "-", "-", "今日無候選", "-", operation])
+    return rows
+
+
 def build_model_line_pdf(report_line: str, full: bool, main_date: str, path: Path) -> None:
     style_map = styles()
     signals = load_model_report_signals()
@@ -3848,7 +3920,7 @@ def build_model_line_pdf(report_line: str, full: bool, main_date: str, path: Pat
     story.append(para(f"{main_date} {title_prefix}{title_suffix}", style_map["title"]))
     story.append(para("資料來源：報告用模型訊號表；同一模型內分成新進榜與連續/累計進榜，並各自使用程式端排名。", style_map["subtitle"]))
     story.append(para("各模型新進榜 / 連續榜固定摘要", style_map["h1"]))
-    story.append(make_table(_fixed_model_summary_rows(model_summary, report_line), style_map, [2.5 * cm, 2.2 * cm, 1.25 * cm, 1.45 * cm, 2.2 * cm, 1.25 * cm, 1.45 * cm, 5.2 * cm]))
+    story.append(make_table(_fixed_model_summary_rows(model_summary, report_line), style_map, [3.0 * cm, 2.0 * cm, 1.5 * cm, 3.1 * cm, 1.3 * cm, 6.8 * cm]))
     story.append(PageBreak())
     limit = None if full else 5
     story.append(para("\u5b8c\u6574\u6a21\u578b\u6e05\u55ae" if full else "\u5404\u6a21\u578b\u4ee3\u8868\u80a1\u5206\u6790", style_map["h1"]))

@@ -1975,7 +1975,7 @@ def build_parameter_table(specs: list[ModelSpec]) -> pd.DataFrame:
             {
                 "model_id": "tdcc_short_term_continuation_d5_d10",
                 "model_name_zh": "TDCC短線延續模型 D+5/D+10",
-                "pdf_visibility": "pdf_specialty_section",
+                "pdf_visibility": "pdf_core_model",
                 "entry_basis": "signal_date_next_open",
                 "main_conditions": "all_thresholds_overheated或phase_overheated_after_tdcc，搭配MACD/KD/Bollinger與1W/2W漲幅條件。",
                 "add_score_items": "D+1到D+10 next-open close/high統計、樣本數、相對報酬、market regime分層。",
@@ -2729,7 +2729,7 @@ def append_tdcc_short_term(signals: pd.DataFrame, signal_date: str) -> pd.DataFr
                     "report_bucket": report_bucket(source),
                     "model_id": "tdcc_short_term_continuation_d5_d10",
                     "model_name_zh": "TDCC短線延續模型 D+5/D+10",
-                    "model_group": "pdf_specialty_section",
+                    "model_group": "pdf_core_model",
                     "main_condition_met": "True",
                     "entry_basis": "signal_date_next_open",
                     "model_score": score,

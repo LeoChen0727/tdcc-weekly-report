@@ -310,7 +310,7 @@ def build_guide() -> str:
             "output/latest/tdcc_overheated_short_term_edge_latest.csv",
             "horizon, mature_count, win_rate_close_to_close_pct, avg_relative_return_vs_benchmark_pct, win_rate_next_open_to_close_pct, avg_next_open_relative_return_vs_benchmark_pct",
             f"stats_rows={len(tdcc_overheated_edge)} / current_candidates={len(tdcc_overheated_edge_candidates)}",
-            "Standalone D+5/D+10 reporting-only specialty. Do not mix into the six-category ranking or core weights.",
+            "Core D+5/D+10 continuation model when active in the program-side registry. Separate research-stat tables are supporting evidence and must not override model ranking.",
         ],
         [
             "Non-revenue momentum watch",
@@ -493,7 +493,7 @@ def build_guide() -> str:
     lines.append("- Mainstream/non-mainstream is a display section and comparison group, not a score penalty or buy veto. Use `theme_group`, `display_section`, and `section_rank`; do not downgrade solely because a stock is non-mainstream.")
     lines.append("- For any mainstream/non-mainstream backtest, use `daily_theme_status_history.csv` by `signal_date + stock_id`. Do not join today's `theme_final_status` backward onto historical signals.")
     lines.append("- `theme_volume_attack_status=confirmed_volume_theme` or `early_mainstream_candidate` can be shown in the volume-attack theme line; `single_stock_volume_attack`, `non_mainstream_volume_watch`, `weak_or_non_mainstream_volume_watch`, `overheated_volume_theme`, and `failed_volume_theme` must not be mixed into the mainstream-funding front section.")
-    lines.append("- If `tdcc_overheated_short_term_edge_latest.md/csv` exists, include its standalone D+5 and D+10 tables as a TDCC overheated short-term edge specialty; use it for reporting priority only, not core model weights.")
+    lines.append("- If `tdcc_overheated_short_term_edge_latest.md/csv` exists, include its D+5 and D+10 research-stat tables as supporting evidence. Do not use those research tables to override the core `TDCC短線延續模型 D+5/D+10` ranking.")
     lines.append("- If `non_revenue_momentum_watch_latest.md/csv` exists, include a standalone `非營收驅動強勢股 / 題材資金先行` section. Do not merge it into the six fixed categories.")
     lines.append("- `A_theme_first_momentum_revenue_not_primary` / `B_theme_first_watch_revenue_not_primary` are for core themes where monthly revenue is not the first screening layer. Use order/spec upgrade, theme breadth, price-volume, TDCC, and warrant confirmation instead of forcing a revenue interpretation.")
     lines.append("- Do not confuse the fixed category `回檔後短線轉強` with the short-term specialty layer; they are different sections.")

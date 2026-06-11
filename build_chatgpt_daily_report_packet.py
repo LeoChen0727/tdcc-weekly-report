@@ -140,7 +140,7 @@ DISPLAY_TOKEN_MAP = {
 
 
 DISPLAY_TOKEN_SUBSTRING_MAP = {
-    "short_term_specialty_not_six_category": "短線專項（非六大分類）",
+    "short_term_specialty_not_six_category": "短線研究統計補充",
     "tdcc_short_term_continuation_d5_d10": "TDCC短線延續模型 D+5/D+10",
     "tdcc_short_term_edge": "TDCC短線延續",
     "semiconductor_equipment_theme": "半導體設備族群",
@@ -554,7 +554,7 @@ def build_packet_text(main_date: str, report_ready: str, paths: dict[str, Path],
     lines.append("fields_or_sections: TDCC Overheated Short-Term Edge, Next-Open +10pct Touch Strict Parameter Research, D+5 tables, D+10 tables")
     lines.append("note: Do not translate the legacy `weekly_surge` file prefix as `周線急漲`; display it as `隔日開盤買進後 D+5 / D+10 盤中觸及 +10% 研究`.")
     lines.append("note: Win rate for this section is next-open entry touch-rate: D+1 open to D+N high >= +10%, not close-to-close return.")
-    lines.append("note: This is not the fixed six-category `回檔後短線轉強` category. It is a standalone short-term specialty section and must be read separately.")
+    lines.append("note: `TDCC短線延續模型 D+5/D+10` is a core model when active in the program-side registry. Separate D+5/D+10 research-stat tables are supporting evidence and must not override model ranking.")
     lines.append("")
     short_term_text = safe_read_text(SHORT_TERM_SPECIALTY_PACKET_MD)
     lines.append("EMBEDDED DAILY SHORT-TERM SPECIALTY PACKET")

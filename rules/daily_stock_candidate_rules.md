@@ -130,6 +130,8 @@ Mainstream / non-mainstream is a report split only. It must not cap score, veto 
 
 If the PDF needs a curated version, show the top rows per model and per report bucket. The complete report should keep the full model list. Do not hard-code the number of models; render all program-side model rows available that day.
 
+If `daily_candidate_group_rotation_latest.md/csv` or the `group_fund_rotation` model row exists, render it as the final `資金進入族群觀察` / theme-fund-rotation table. It is a theme-level end section, not a stock-level core ranking model.
+
 PDF tables must surface risk and confirmation fields so the selected stock is not presented as risk-free. The wording should be "selected by model, ranked with risk/score adjustments", not "selected but cannot buy".
 
 PDF tables must prefer program-side Chinese display columns when present:
@@ -161,14 +163,16 @@ When the program-side output still uses the six-category model, keep these six c
 5. Pullback then short-term strengthening.
 6. Pattern watch.
 
-Theme status, volume-attack status, catalyst tags, TDCC tags, warrant tags, short-term edge rows, non-revenue momentum rows, and backtest research rows are cross-category labels or specialty sections, not new core categories unless the program-side model explicitly changes the core category schema.
+Theme status, volume-attack status, catalyst tags, TDCC tags, warrant tags, non-revenue momentum rows, and backtest research rows are cross-category labels or specialty sections, not new core categories unless the program-side model explicitly changes the core category schema.
+
+`tdcc_short_term_continuation_d5_d10` / `TDCC短線延續模型 D+5/D+10` is a core daily candidate model when it is active in the program-side model registry. It must be rendered with the other model buckets and must not be hidden in a separate specialty-only appendix.
 
 Specialty sections are allowed and required when their program-side files or fields exist. They must be shown outside the core category ranking and must not change core model weights unless the backtest system later marks the signal mature and ready for review.
 
 Required specialty sections when data exists:
 
 - `theme_event_watch_latest.md/csv`: required "近期事件預警 / 主題催化觀察" PDF section. This is an event proximity and theme catalyst context layer, not a standalone buy model. It must help the report surface upcoming exhibitions, product events, earnings/event windows, and related candidate intersections early, but it must not override model selection, price/volume structure, TDCC, revenue, or risk fields.
-- `daily_short_term_specialty_packet_latest.md`: standalone D+5 / D+10 short-term specialty.
+- `daily_short_term_specialty_packet_latest.md`: supporting D+5 / D+10 short-term research-stat tables. These tables may explain historical D+5/D+10 behavior, but they do not replace the core `TDCC短線延續模型 D+5/D+10` candidate rows.
 - `daily_model_parameter_research_latest.md/csv` and `daily_model_parameter_research_horizon_detail_latest.md/csv`: standalone model-parameter research and tuning evidence. Use for backtest discussion and parameter review, not as a hard-coded PDF model list unless the program-side model layer promotes the rule.
 - `daily_model_parameter_recommendations_latest.md/csv`: program-side model-parameter usage recommendation. The same recommendation fields are also joined into `daily_candidate_model_signals_latest.csv`. Use these fields to decide whether a backtested parameter is ready for PDF core display, secondary watch, score component only, intraday-target watch, or research-only status.
 - `market_abnormal_status_latest.md/csv`: official TWSE/TPEx disposition, attention, periodic-trading, altered-trading, managed-stock, and suspension flags.
@@ -310,10 +314,11 @@ Do not use these as hard exclusions for this model:
 
 If `daily_short_term_specialty_packet_latest.md` exists, it is the mandatory source for the daily short-term specialty section.
 
-Do not confuse `回檔後短線轉強` with the short-term specialty layer:
+Do not confuse `回檔後短線轉強` with `TDCC短線延續模型 D+5/D+10`:
 
 - `回檔後短線轉強` is one of the fixed six daily candidate categories.
-- The short-term specialty layer is a standalone research/reporting section that currently includes TDCC overheated continuation and next-open +10% touch parameter research.
+- `TDCC短線延續模型 D+5/D+10` is its own active core model when present in the program-side registry.
+- Separate short-term research/reporting tables may still include TDCC overheated continuation and next-open +10% touch parameter research as supporting evidence.
 
 If `tdcc_overheated_short_term_edge_latest.md/csv` exists, the daily report must include it as a standalone specialty subsection:
 
@@ -323,7 +328,7 @@ If `tdcc_overheated_short_term_edge_latest.md/csv` exists, the daily report must
 - Current matching-stock rows must not be presented as stock-specific guaranteed win-rate rows. If several stocks match the same historical rule, show the rule-level D+5/D+10 performance table separately from the current candidate list.
 - Preferred current candidate wording: `D+5 next-open win / avg return` and `D+10 next-open win / avg return`. Avoid ambiguous wording such as `歷史勝率 / 相對報酬`.
 - Treat the signal as `reporting_priority_only` while sample/regime coverage is still limited.
-- Do not mix this specialty into the fixed six-category ranking.
+- Do not use these supporting research tables to override the active core model ranking.
 - Do not use it to change TDCC / ABM / daily candidate core model weights.
 - If the current candidate CSV has matching stocks, show them as a separate TDCC overheated short-term watch list with confirmation and risk notes.
 
