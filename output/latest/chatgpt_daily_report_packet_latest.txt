@@ -1,6 +1,6 @@
 CHATGPT DAILY REPORT PACKET
 
-generated_at: 2026-06-11 16:15:30 Asia/Taipei
+generated_at: 2026-06-11 23:13:57 Asia/Taipei
 repo: LeoChen0727/tdcc-weekly-report
 main_price_date: 20260611
 report_ready: True
@@ -490,7 +490,7 @@ performance_csv_path: output/history/daily_signals/daily_candidate_signal_perfor
 summary_latest_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_signal_performance_summary_latest.md
 weekly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_weekly_latest.pdf
 monthly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_monthly_latest.pdf
-last_updated_at: 2026-06-11 16:15:30 Asia/Taipei
+last_updated_at: 2026-06-11 23:13:57 Asia/Taipei
 status: generated
 
 CANDIDATE REPEAT APPEARANCE
@@ -499,9 +499,9 @@ legacy_signal_log_path: output/history/daily_signals/daily_candidate_signal_log.
 repeat_appearance_path: output/latest/candidate_repeat_appearance_latest.csv
 repeat_appearance_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/candidate_repeat_appearance_latest.csv
 repeat_appearance_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/candidate_repeat_appearance_latest.md
-history_available_days: 12
+history_available_days: 10
 status: generated
-latest_signal_date: 20260611
+latest_signal_date: 20260603
 fields: consecutive_appear_days_any_category,consecutive_appear_days_same_category,appear_count_5d,appear_count_10d,appear_count_20d,first_seen_date,last_seen_date,multi_category_flags,repeat_appear_label,repeat_appear_note
 note: Repeat appearance is calculated from raw daily candidate signal logs. ChatGPT must not infer consecutive days manually.
 
