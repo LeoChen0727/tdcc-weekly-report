@@ -260,6 +260,9 @@ def main() -> int:
     print(f"Saved: {VALIDATION_JSON}")
     print(f"Saved: {VALIDATION_MD}")
     print(f"status={status['status']}")
+    if issues:
+        for issue in issues:
+            print(f"ERROR: {safe_str(issue)}")
     return 0 if not issues else 1
 
 

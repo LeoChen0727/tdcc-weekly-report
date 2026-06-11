@@ -490,8 +490,8 @@ def build_packet_text(main_date: str, report_ready: str, paths: dict[str, Path],
     lines.append("report_ready_meaning: repo data packet and repo artifacts are available; this does not mean ChatGPT has produced the user's requested report.")
     lines.append("fixed_pdf_validation_meaning: repo pipeline PDF artifact validation only; this is not a newly generated ChatGPT deliverable PDF.")
     lines.append("if_user_asks_status_only: report repo artifact status and links only.")
-    lines.append("if_user_asks_do_today_report_or_four_pdfs: read repo structured data and produce new ChatGPT-side PDFs; do not stop at repo PDFs.")
-    lines.append("default_daily_full_market_chatgpt_deliverables: 每日推薦分析 PDF|完整候選清單補充 PDF|權證市場輔助分析 PDF|市場風險與大盤期權背景 PDF")
+    lines.append("if_user_asks_do_today_report_or_six_pdfs: read repo structured data and produce new ChatGPT-side PDFs; do not stop at repo PDFs.")
+    lines.append("default_daily_full_market_chatgpt_deliverables: 主流每日推薦精華 PDF|主流完整候選清單 PDF|非主流每日推薦精華 PDF|非主流完整候選清單 PDF|權證市場輔助分析 PDF|市場風險與大盤期權背景 PDF")
     lines.append("do_not_replace_required_chatgpt_pdfs_with_repo_artifacts: True")
     lines.append("do_not_paste_full_text_instead_of_pdf_unless_user_requests_text_only: True")
     lines.append("")
@@ -791,8 +791,10 @@ def write_packet_manifest(main_date: str, report_ready: str, paths: dict[str, Pa
         "report_ready_is_not_chatgpt_pdf_done": True,
         "fixed_pdf_validation_is_repo_artifact_validation_only": True,
         "daily_full_market_default_chatgpt_deliverables": [
-            "每日推薦分析 PDF",
-            "完整候選清單補充 PDF",
+            "主流每日推薦精華 PDF",
+            "主流完整候選清單 PDF",
+            "非主流每日推薦精華 PDF",
+            "非主流完整候選清單 PDF",
             "權證市場輔助分析 PDF",
             "市場風險與大盤期權背景 PDF",
         ],
