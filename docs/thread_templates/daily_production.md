@@ -51,7 +51,9 @@ Completion condition:
 - Explain current freshness state.
 - Make scoped code/docs changes only if needed.
 - Commit and push any file changes.
-- Run the relevant local validation and GitHub Actions.
-- Debug Actions until the relevant workflow executes successfully.
-- End with branch, commit, PR, Actions result, and residual risks.
+- Open or update the PR and verify PR checks pass.
+- Do not stop at branch PR checks. Merge the PR into `main`.
+- Wait for the follow-up `main` GitHub Actions run triggered by the merge.
+- Debug Actions until the relevant `main` workflow executes successfully.
+- End with branch, commit, PR, merge commit, main Actions result, and residual risks.
 ```
