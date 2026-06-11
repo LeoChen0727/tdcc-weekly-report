@@ -5,8 +5,8 @@
 - raw_signal_rows: `513`
 - signal_rows: `513`
 - same_model_repeat_rows: `92`
-- rotation_rows: `6`
-- packet_lines: `216`
+- rotation_rows: `8`
+- packet_lines: `218`
 
 ## Errors
 

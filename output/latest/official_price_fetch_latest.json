@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-11 18:37:52 Asia/Taipei",
+  "generated_at": "2026-06-11 19:16:23 Asia/Taipei",
   "target_date": "20260611",
   "saved_price_date": "20260611",
   "is_target_date": true,
@@ -25,12 +25,12 @@
       "twse_ok": true,
       "tpex_ok": true,
       "full_market_ok": true,
-      "universe_rows": 7413
+      "universe_rows": 6046
     }
   ],
   "paths": {
-    "dated_csv": "data\\daily_price\\20260611.csv",
-    "dated_alt_csv": "data\\daily_price\\daily_price_20260611.csv",
-    "latest_csv": "output\\latest\\official_daily_price_latest.csv"
+    "dated_csv": "data/daily_price/20260611.csv",
+    "dated_alt_csv": "data/daily_price/daily_price_20260611.csv",
+    "latest_csv": "output/latest/official_daily_price_latest.csv"
   }
 }

@@ -20,7 +20,7 @@ signal_date,stock_id,stock_name,consecutive_appear_days_any_category,consecutive
 20260611,2374,佳能,12,3,5,10,12,20260523,20260611,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260611,2379,瑞昱,12,2,5,10,12,20260523,20260611,range_rebound,repeated_but_no_breakout,近 10 日上榜 10 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。
 20260611,2383,台光電,12,7,5,10,12,20260523,20260611,pattern|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 10 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。
-20260611,2385,群光,12,1,5,10,12,20260523,20260611,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20260611,2385,群光,12,1,5,10,12,20260523,20260611,pattern,repeated_but_no_breakout,近 10 日上榜 10 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。
 20260611,2404,漢唐,12,3,5,10,12,20260523,20260611,pattern|revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260611,2406,國碩,12,1,5,10,12,20260523,20260611,range_rebound,repeated_but_no_breakout,近 10 日上榜 10 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。
 20260611,2436,偉詮電,12,3,5,10,12,20260523,20260611,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
@@ -228,7 +228,7 @@ signal_date,stock_id,stock_name,consecutive_appear_days_any_category,consecutive
 20260611,3041,揚智,1,1,4,9,11,20260523,20260611,revenue_breakout_low_response|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 9 次、近 20 日上榜 11 次，但尚未有效突破，需等待攻擊確認。
 20260611,9933,中鼎,1,1,4,9,11,20260523,20260611,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260611,0056,元大高股息,1,1,3,8,10,20260523,20260611,pattern,repeated_but_no_breakout,近 10 日上榜 8 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。
-20260611,2317,鴻海,1,1,3,8,10,20260523,20260611,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20260611,2317,鴻海,1,1,3,8,10,20260523,20260611,revenue_pullback,repeated_but_no_breakout,近 10 日上榜 8 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。
 20260611,2356,英業達,1,1,3,8,10,20260523,20260611,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260611,2365,昆盈,1,1,3,8,10,20260523,20260611,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260611,2382,廣達,1,1,3,8,10,20260523,20260611,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。

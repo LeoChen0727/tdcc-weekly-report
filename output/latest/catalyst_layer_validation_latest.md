@@ -1,12 +1,12 @@
 # Catalyst Layer Validation
 
-- generated_at: `2026-06-11 18:04:56 Asia/Taipei`
+- generated_at: `2026-06-11 19:32:24 Asia/Taipei`
 - status: `pass`
-- schema_only: `True`
-- all_candidates_rows: ``
-- catalyst_performance_rows: ``
-- catalyst_summary_rows: ``
-- catalyst_needs_review_rows: ``
+- schema_only: `False`
+- all_candidates_rows: `383`
+- catalyst_performance_rows: `0`
+- catalyst_summary_rows: `0`
+- catalyst_needs_review_rows: `4`
 
 ## Data Tables
 
