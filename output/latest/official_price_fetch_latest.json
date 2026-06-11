@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-11 18:11:34 Asia/Taipei",
+  "generated_at": "2026-06-11 18:37:52 Asia/Taipei",
   "target_date": "20260611",
   "saved_price_date": "20260611",
   "is_target_date": true,
@@ -29,8 +29,8 @@
     }
   ],
   "paths": {
-    "dated_csv": "data/daily_price/20260611.csv",
-    "dated_alt_csv": "data/daily_price/daily_price_20260611.csv",
-    "latest_csv": "output/latest/official_daily_price_latest.csv"
+    "dated_csv": "data\\daily_price\\20260611.csv",
+    "dated_alt_csv": "data\\daily_price\\daily_price_20260611.csv",
+    "latest_csv": "output\\latest\\official_daily_price_latest.csv"
   }
 }
