@@ -2,8 +2,8 @@
 
 - status: `generated`
 - policy: `local_price_redraw_first`
-- total_charts: `30`
-- local_price_redraw_count: `30`
+- total_charts: `15`
+- local_price_redraw_count: `15`
 - chart_path_fallback_count: `0`
 - missing_count: `0`
 - pdf_kline_output_dir: `output/latest/charts/pdf_kline`
@@ -22,21 +22,6 @@
 | 3048 | 益登 | range_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/3048_益登_range_rebound_126d.png` | `data/daily_price` |
 | 3090 | 日電貿 | range_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/3090_日電貿_range_rebound_126d.png` | `data/daily_price` |
 | 3008 | 大立光 | range_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/3008_大立光_range_rebound_126d.png` | `data/daily_price` |
-| 8112 | 至上 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/8112_至上_revenue_breakout_low_response_126d.png` | `data/daily_price` |
-| 1808 | 潤隆 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/1808_潤隆_revenue_breakout_low_response_126d.png` | `data/daily_price` |
-| 4934 | 太極 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/4934_太極_revenue_breakout_low_response_126d.png` | `data/daily_price` |
-| 2347 | 聯強 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2347_聯強_revenue_breakout_low_response_126d.png` | `data/daily_price` |
-| 2542 | 興富發 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2542_興富發_revenue_breakout_low_response_126d.png` | `data/daily_price` |
-| 3702 | 大聯大 | revenue_pullback | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/3702_大聯大_revenue_pullback_126d.png` | `data/daily_price` |
-| 2345 | 智邦 | revenue_pullback | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2345_智邦_revenue_pullback_126d.png` | `data/daily_price` |
-| 2360 | 致茂 | revenue_pullback | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2360_致茂_revenue_pullback_126d.png` | `data/daily_price` |
-| 3036 | 文曄 | revenue_pullback | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/3036_文曄_revenue_pullback_126d.png` | `data/daily_price` |
-| 1597 | 直得 | revenue_pullback | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/1597_直得_revenue_pullback_126d.png` | `data/daily_price` |
-| 2425 | 承啟 | pullback_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2425_承啟_pullback_rebound_126d.png` | `data/daily_price` |
-| 2547 | 日勝生 | pullback_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2547_日勝生_pullback_rebound_126d.png` | `data/daily_price` |
-| 6834 | 天二科技 | pullback_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/6834_天二科技_pullback_rebound_126d.png` | `data/daily_price` |
-| 2897 | 王道銀行 | pullback_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2897_王道銀行_pullback_rebound_126d.png` | `data/daily_price` |
-| 3048 | 益登 | pullback_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/3048_益登_pullback_rebound_126d.png` | `data/daily_price` |
 | 2344 | 華邦電 | pattern | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2344_華邦電_pattern_126d.png` | `data/daily_price` |
 | 2457 | 飛宏 | pattern | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2457_飛宏_pattern_126d.png` | `data/daily_price` |
 | 2313 | 華通 | pattern | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2313_華通_pattern_126d.png` | `data/daily_price` |
