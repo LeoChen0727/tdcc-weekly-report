@@ -30,6 +30,11 @@ jobs:
         with:
           ref: ${{ github.ref_name }}
 
+      - name: Capture pre-run freshness baseline
+        run: |
+          mkdir -p "$RUNNER_TEMP/tdcc_daily_baseline"
+          cp output/latest/data_freshness_latest.csv "$RUNNER_TEMP/tdcc_daily_baseline/data_freshness_latest.csv"
+
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
@@ -215,6 +220,12 @@ jobs:
           python build_data_freshness_latest.py
           python scripts/validate_data_freshness_latest.py
 
+      - name: Guard daily freshness before publishing
+        run: |
+          python scripts/validate_daily_publish_freshness_gate.py \
+            --baseline "$RUNNER_TEMP/tdcc_daily_baseline/data_freshness_latest.csv" \
+            --current output/latest/data_freshness_latest.csv
+
       - name: Build daily market report artifacts
         run: |
           python build_daily_market_report_artifacts.py
@@ -324,6 +335,7 @@ jobs:
 
           # Daily pipeline only stages daily report outputs and source data.
           # Heavy research/backtest outputs are maintained by research_backtest_pipeline.yml.
+          git add data/daily_price/ data/stock_price_history/ || true
           git add output/latest/ docs/latest/ || true
           git add data/institutional_investor_flow/ data/warrant_daily/ data/warrant_flow_by_stock/ data/futures_options/ || true
           git add data/theme_events/ data/company_calendar/ data/macro_events/ data/fundamental_catalysts/ data/event_catalysts/ || true

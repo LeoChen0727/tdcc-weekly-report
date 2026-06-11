@@ -1,5 +1,5 @@
 stock_id,stock_name,market,rows,start_date,end_date,latest_close,latest_volume,file_path,raw_url
-0050,元大台灣50,TWSE,143,20251103,20260611,99.85,284040372.0,data/stock_price_history/0050.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/0050.csv
+0050,元大台灣50,TWSE,143,20251103,20260611,99.85,299040372.0,data/stock_price_history/0050.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/0050.csv
 0051,元大中型100,TWSE,143,20251103,20260611,136.7,139136.0,data/stock_price_history/0051.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/0051.csv
 0052,富邦科技,TWSE,138,20251103,20260611,58.15,41628656.0,data/stock_price_history/0052.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/0052.csv
 0053,元大電子,TWSE,143,20251103,20260611,227.7,112979.0,data/stock_price_history/0053.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/0053.csv
@@ -456,21 +456,21 @@ stock_id,stock_name,market,rows,start_date,end_date,latest_close,latest_volume,f
 2258,鴻華先進-創,TWSE,279,20250407,20260611,31.05,759179.0,data/stock_price_history/2258.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2258.csv
 2301,光寶科,TWSE,279,20250407,20260611,208.5,24496116.0,data/stock_price_history/2301.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2301.csv
 2302,麗正,TWSE,279,20250407,20260611,31.5,1153097.0,data/stock_price_history/2302.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2302.csv
-2303,聯電,TWSE,279,20250407,20260611,125.0,349748174.0,data/stock_price_history/2303.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2303.csv
+2303,聯電,TWSE,279,20250407,20260611,125.0,362586174.0,data/stock_price_history/2303.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2303.csv
 2305,全友,TWSE,279,20250407,20260611,22.85,4698556.0,data/stock_price_history/2305.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2305.csv
-2308,台達電,TWSE,279,20250407,20260611,2160.0,15246457.0,data/stock_price_history/2308.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2308.csv
+2308,台達電,TWSE,279,20250407,20260611,2160.0,15289457.0,data/stock_price_history/2308.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2308.csv
 2312,金寶,TWSE,279,20250407,20260611,34.9,38352628.0,data/stock_price_history/2312.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2312.csv
 2313,華通,TWSE,279,20250407,20260611,275.0,92016311.0,data/stock_price_history/2313.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2313.csv
 2314,台揚,TWSE,274,20250407,20260611,14.95,247565.0,data/stock_price_history/2314.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2314.csv
 2316,楠梓電,TWSE,279,20250407,20260611,153.5,3573267.0,data/stock_price_history/2316.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2316.csv
-2317,鴻海,TWSE,278,20250407,20260611,258.5,91404509.0,data/stock_price_history/2317.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2317.csv
+2317,鴻海,TWSE,278,20250407,20260611,258.5,97550509.0,data/stock_price_history/2317.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2317.csv
 2321,東訊,TWSE,224,20250407,20260611,13.2,1857.0,data/stock_price_history/2321.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2321.csv
 2323,中環,TWSE,279,20250407,20260611,10.85,9343014.0,data/stock_price_history/2323.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2323.csv
 2324,仁寶,TWSE,279,20250407,20260611,36.15,88614798.0,data/stock_price_history/2324.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2324.csv
-2327,國巨*,TWSE,272,20250407,20260611,842.0,117452804.0,data/stock_price_history/2327.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2327.csv
+2327,國巨*,TWSE,272,20250407,20260611,842.0,121334804.0,data/stock_price_history/2327.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2327.csv
 2328,廣宇,TWSE,279,20250407,20260611,51.3,5563718.0,data/stock_price_history/2328.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2328.csv
 2329,華泰,TWSE,279,20250407,20260611,52.3,10531640.0,data/stock_price_history/2329.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2329.csv
-2330,台積電,TWSE,279,20250407,20260611,2250.0,39906523.0,data/stock_price_history/2330.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2330.csv
+2330,台積電,TWSE,279,20250407,20260611,2250.0,46417523.0,data/stock_price_history/2330.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2330.csv
 2331,精英,TWSE,279,20250407,20260611,20.65,3777736.0,data/stock_price_history/2331.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2331.csv
 2332,友訊,TWSE,279,20250407,20260611,15.7,3090704.0,data/stock_price_history/2332.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2332.csv
 2337,旺宏,TWSE,279,20250407,20260611,140.0,21930550.0,data/stock_price_history/2337.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2337.csv
@@ -478,7 +478,7 @@ stock_id,stock_name,market,rows,start_date,end_date,latest_close,latest_volume,f
 2340,台亞,TWSE,279,20250407,20260611,33.05,3480655.0,data/stock_price_history/2340.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2340.csv
 2342,茂矽,TWSE,279,20250407,20260611,39.7,5401622.0,data/stock_price_history/2342.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2342.csv
 2344,華邦電,TWSE,279,20250407,20260611,156.5,237289830.0,data/stock_price_history/2344.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2344.csv
-2345,智邦,TWSE,279,20250407,20260611,2275.0,3667161.0,data/stock_price_history/2345.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2345.csv
+2345,智邦,TWSE,279,20250407,20260611,2275.0,3682161.0,data/stock_price_history/2345.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2345.csv
 2347,聯強,TWSE,279,20250407,20260611,90.8,14469889.0,data/stock_price_history/2347.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2347.csv
 2348,海悅,TWSE,279,20250407,20260611,72.6,4303535.0,data/stock_price_history/2348.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2348.csv
 2349,錸德,TWSE,279,20250407,20260611,12.95,4374608.0,data/stock_price_history/2349.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2349.csv
@@ -490,7 +490,7 @@ stock_id,stock_name,market,rows,start_date,end_date,latest_close,latest_volume,f
 2356,英業達,TWSE,279,20250407,20260611,65.4,45773835.0,data/stock_price_history/2356.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2356.csv
 2357,華碩,TWSE,279,20250407,20260611,784.0,5245169.0,data/stock_price_history/2357.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2357.csv
 2359,所羅門,TWSE,279,20250407,20260611,133.5,3364822.0,data/stock_price_history/2359.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2359.csv
-2360,致茂,TWSE,279,20250407,20260611,2190.0,3083771.0,data/stock_price_history/2360.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2360.csv
+2360,致茂,TWSE,279,20250407,20260611,2190.0,3133771.0,data/stock_price_history/2360.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2360.csv
 2362,藍天,TWSE,279,20250407,20260611,48.5,6235938.0,data/stock_price_history/2362.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2362.csv
 2363,矽統,TWSE,279,20250407,20260611,56.4,7225995.0,data/stock_price_history/2363.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2363.csv
 2364,倫飛,TWSE,279,20250407,20260611,68.0,414447.0,data/stock_price_history/2364.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2364.csv
@@ -506,9 +506,9 @@ stock_id,stock_name,market,rows,start_date,end_date,latest_close,latest_volume,f
 2377,微星,TWSE,279,20250407,20260611,133.5,14938728.0,data/stock_price_history/2377.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2377.csv
 2379,瑞昱,TWSE,279,20250407,20260611,655.0,7143544.0,data/stock_price_history/2379.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2379.csv
 2380,虹光,TWSE,279,20250407,20260611,5.85,364572.0,data/stock_price_history/2380.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2380.csv
-2382,廣達,TWSE,279,20250407,20260611,370.0,48365395.0,data/stock_price_history/2382.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2382.csv
+2382,廣達,TWSE,279,20250407,20260611,370.0,48409395.0,data/stock_price_history/2382.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2382.csv
 2383,台光電,TWSE,279,20250407,20260611,5095.0,2793147.0,data/stock_price_history/2383.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2383.csv
-2385,群光,TWSE,279,20250407,20260611,139.0,2960960.0,data/stock_price_history/2385.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2385.csv
+2385,群光,TWSE,279,20250407,20260611,139.0,3858960.0,data/stock_price_history/2385.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2385.csv
 2387,精元,TWSE,279,20250407,20260611,39.9,387639.0,data/stock_price_history/2387.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2387.csv
 2388,威盛,TWSE,279,20250407,20260611,65.7,5550940.0,data/stock_price_history/2388.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2388.csv
 2390,云辰,TWSE,279,20250407,20260611,12.2,1794881.0,data/stock_price_history/2390.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2390.csv
@@ -555,7 +555,7 @@ stock_id,stock_name,market,rows,start_date,end_date,latest_close,latest_volume,f
 2450,神腦,TWSE,279,20250407,20260611,30.85,232861.0,data/stock_price_history/2450.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2450.csv
 2451,創見,TWSE,279,20250407,20260611,292.0,8516217.0,data/stock_price_history/2451.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2451.csv
 2453,凌群,TWSE,279,20250407,20260611,55.8,502998.0,data/stock_price_history/2453.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2453.csv
-2454,聯發科,TWSE,279,20250407,20260611,4085.0,16867610.0,data/stock_price_history/2454.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2454.csv
+2454,聯發科,TWSE,279,20250407,20260611,4085.0,17556610.0,data/stock_price_history/2454.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2454.csv
 2455,全新,TWSE,279,20250407,20260611,320.0,13723008.0,data/stock_price_history/2455.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2455.csv
 2457,飛宏,TWSE,279,20250407,20260611,28.8,10494981.0,data/stock_price_history/2457.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2457.csv
 2458,義隆,TWSE,279,20250407,20260611,146.0,2813181.0,data/stock_price_history/2458.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/2458.csv
@@ -742,7 +742,7 @@ stock_id,stock_name,market,rows,start_date,end_date,latest_close,latest_volume,f
 3014,聯陽,TWSE,279,20250407,20260611,139.5,1706892.0,data/stock_price_history/3014.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/3014.csv
 3015,全漢,TWSE,279,20250407,20260611,58.5,1952404.0,data/stock_price_history/3015.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/3015.csv
 3016,嘉晶,TWSE,279,20250407,20260611,104.0,5035912.0,data/stock_price_history/3016.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/3016.csv
-3017,奇鋐,TWSE,279,20250407,20260611,2335.0,4521372.0,data/stock_price_history/3017.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/3017.csv
+3017,奇鋐,TWSE,279,20250407,20260611,2335.0,4531372.0,data/stock_price_history/3017.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/3017.csv
 3018,隆銘綠能,TWSE,274,20250407,20260611,11.85,8962.0,data/stock_price_history/3018.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/3018.csv
 3019,亞光,TWSE,279,20250407,20260611,145.5,7628321.0,data/stock_price_history/3019.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/3019.csv
 3021,鴻名,TWSE,279,20250407,20260611,27.2,278447.0,data/stock_price_history/3021.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/3021.csv
@@ -760,7 +760,7 @@ stock_id,stock_name,market,rows,start_date,end_date,latest_close,latest_volume,f
 3033,威健,TWSE,279,20250407,20260611,49.7,9290157.0,data/stock_price_history/3033.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/3033.csv
 3034,聯詠,TWSE,279,20250407,20260611,488.0,3877499.0,data/stock_price_history/3034.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/3034.csv
 3035,智原,TWSE,279,20250407,20260611,178.0,5096409.0,data/stock_price_history/3035.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/3035.csv
-3036,文曄,TWSE,278,20250407,20260611,232.5,22683186.0,data/stock_price_history/3036.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/3036.csv
+3036,文曄,TWSE,278,20250407,20260611,232.5,25183186.0,data/stock_price_history/3036.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/3036.csv
 3037,欣興,TWSE,279,20250407,20260611,854.0,27061060.0,data/stock_price_history/3037.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/3037.csv
 3038,全台,TWSE,279,20250407,20260611,22.5,370807.0,data/stock_price_history/3038.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/3038.csv
 3040,遠見,TWSE,279,20250407,20260611,36.55,1050186.0,data/stock_price_history/3040.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/3040.csv
@@ -1005,7 +1005,7 @@ stock_id,stock_name,market,rows,start_date,end_date,latest_close,latest_volume,f
 3646,艾恩特,TPEx,275,20250407,20260611,23.55,24000.0,data/stock_price_history/3646.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/3646.csv
 3652,精聯,TWSE,279,20250407,20260611,32.35,148710.0,data/stock_price_history/3652.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/3652.csv
 3653,健策,TWSE,279,20250407,20260611,3620.0,2496268.0,data/stock_price_history/3653.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/3653.csv
-3661,世芯-KY,TWSE,279,20250407,20260611,4060.0,2026750.0,data/stock_price_history/3661.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/3661.csv
+3661,世芯-KY,TWSE,279,20250407,20260611,4060.0,2101750.0,data/stock_price_history/3661.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/3661.csv
 3663,鑫科,TPEx,279,20250407,20260611,69.3,67000.0,data/stock_price_history/3663.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/3663.csv
 3664,安瑞-KY,TPEx,279,20250407,20260611,7.15,7000.0,data/stock_price_history/3664.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/3664.csv
 3665,貿聯-KY,TWSE,279,20250407,20260611,2160.0,5944676.0,data/stock_price_history/3665.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/3665.csv
@@ -1034,7 +1034,7 @@ stock_id,stock_name,market,rows,start_date,end_date,latest_close,latest_volume,f
 3708,上緯投控,TWSE,279,20250407,20260611,118.5,672706.0,data/stock_price_history/3708.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/3708.csv
 3709,鑫聯大投控,TPEx,279,20250407,20260611,72.7,73000.0,data/stock_price_history/3709.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/3709.csv
 3710,連展投控,TPEx,279,20250407,20260611,6.15,6000.0,data/stock_price_history/3710.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/3710.csv
-3711,日月光投控,TWSE,279,20250407,20260611,544.0,18278332.0,data/stock_price_history/3711.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/3711.csv
+3711,日月光投控,TWSE,279,20250407,20260611,544.0,18314332.0,data/stock_price_history/3711.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/3711.csv
 3712,永崴投控,TWSE,277,20250407,20260611,17.55,776856.0,data/stock_price_history/3712.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/3712.csv
 3713,新晶投控,TPEx,279,20250407,20260611,16.0,16000.0,data/stock_price_history/3713.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/3713.csv
 3714,富采,TWSE,279,20250407,20260611,63.5,15800982.0,data/stock_price_history/3714.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/3714.csv
@@ -1351,7 +1351,7 @@ stock_id,stock_name,market,rows,start_date,end_date,latest_close,latest_volume,f
 5471,松翰,TWSE,279,20250407,20260611,51.7,3993078.0,data/stock_price_history/5471.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/5471.csv
 5474,聰泰,TPEx,279,20250407,20260611,176.5,177000.0,data/stock_price_history/5474.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/5474.csv
 5475,德宏,TPEx,279,20250407,20260611,238.0,233000.0,data/stock_price_history/5475.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/5475.csv
-5478,智冠,TPEx,279,20250407,20260611,103.5,104000.0,data/stock_price_history/5478.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/5478.csv
+5478,智冠,TPEx,279,20250407,20260611,103.5,99000.0,data/stock_price_history/5478.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/5478.csv
 5481,新華,TPEx,279,20250407,20260611,19.5,19000.0,data/stock_price_history/5481.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/5481.csv
 5483,中美晶,TPEx,279,20250407,20260611,145.0,144000.0,data/stock_price_history/5483.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/5483.csv
 5484,慧友,TWSE,279,20250407,20260611,49.7,783753.0,data/stock_price_history/5484.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/5484.csv
@@ -2128,7 +2128,7 @@ stock_id,stock_name,market,rows,start_date,end_date,latest_close,latest_volume,f
 7765,中華資安,TWSE,173,20250909,20260611,242.5,106298.0,data/stock_price_history/7765.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/7765.csv
 7767,仁大資訊,TPEx,251,20250407,20260611,42.6,42000.0,data/stock_price_history/7767.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/7767.csv
 7768,頌勝科技,TWSE,23,20260507,20260611,373.5,266471.0,data/stock_price_history/7768.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/7768.csv
-7769,鴻勁,TWSE,125,20251127,20260611,7055.0,791945.0,data/stock_price_history/7769.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/7769.csv
+7769,鴻勁,TWSE,125,20251127,20260611,7055.0,794945.0,data/stock_price_history/7769.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/7769.csv
 7770,君曜,TPEx,251,20250407,20260611,42.0,42000.0,data/stock_price_history/7770.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/7770.csv
 7772,耀穎,TPEx,158,20250407,20260611,143.5,140000.0,data/stock_price_history/7772.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/7772.csv
 7777,能率亞洲,TPEx,244,20250407,20260611,37.55,37000.0,data/stock_price_history/7777.csv,https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data/stock_price_history/7777.csv

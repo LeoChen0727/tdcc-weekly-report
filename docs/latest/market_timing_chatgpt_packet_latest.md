@@ -1,33 +1,33 @@
 # MARKET TIMING CHATGPT PACKET
 
 ## Metadata
-- generated_at: 2026-06-11 18:25:11 Asia/Taipei
-- main_price_date: 20260605
+- generated_at: 2026-06-11 19:29:57 Asia/Taipei
+- main_price_date: 20260611
 - packet_source: daily_market_regime_dashboard
 - packet_status: ready
 - packet_status_note: all source rows aligned with main_price_date
 - tuning_status: not_ready
 
 ## Source Dates
-- market_regime_latest.csv: 20260605
-- futures_options_indicators_latest.csv: 20260605
-- TWSE market index: 20260605
-- TPEx market index: 20260605
+- market_regime_latest.csv: 20260611
+- futures_options_indicators_latest.csv: 20260611
+- TWSE market index: 20260611
+- TPEx market index: 20260611
 
 ## Current Market Technical State
 | index_id | trade_date | close | ret_5d | ret_20d | above_ma20 | above_ma60 | market_regime | risk_level |
 | --- | --- | ---: | ---: | ---: | --- | --- | --- | --- |
-| TWSE | 20260605 | 45,071 | 0.76% | 8.33% | True | True | strong_bull | high_risk |
-| TPEx | 20260605 | 431.07 | -2.83% | 5.28% | True | True | strong_bull | high_risk |
+| TWSE | 20260611 | 43,149 | -5.53% | 3.35% | False | True | correction | very_high_risk |
+| TPEx | 20260611 | 407.09 | -7.5% | -4.57% | False | True | correction | very_high_risk |
 
 ## Futures Options Context
 | item | value | note |
 | --- | ---: | --- |
-| foreign_tx_futures_net_oi | -61,949 | TX futures direction anchor |
-| foreign_futures_net_oi | -577,516 | broad futures exposure only, not TX direction |
-| put_call_oi_ratio_pct | 166.01% | hedging background only |
-| taiwan_vix | 36.27 | volatility / hedging context only |
-| retail_mtx_net_oi_proxy | 6,935 | contrarian sentiment proxy only |
+| foreign_tx_futures_net_oi | -63,168 | TX futures direction anchor |
+| foreign_futures_net_oi | -585,497 | broad futures exposure only, not TX direction |
+| put_call_oi_ratio_pct | 133.33% | hedging background only |
+| taiwan_vix | 43.58 | volatility / hedging context only |
+| retail_mtx_net_oi_proxy | 10,290 | contrarian sentiment proxy only |
 | retail_mtx_proxy_method | negative_sum_of_three_institution_mtx_net_oi | source method |
 
 ## Usage Boundary
@@ -41,14 +41,14 @@
 
 market_sentiment_context:
   taiwan_vix:
-    latest: 36.27
-    percentile_252d: 61.4458
+    latest: 43.58
+    percentile_252d: 98.7952
     percentile_504d: 
-    rank_label: middle_range
-    context_label: normal_range
-    index_interpretation: trend_supported_no_extreme_vix
+    rank_label: top_decile
+    context_label: extreme_fear_or_hedging
+    index_interpretation: possible_panic_contrarian_signal
   retail_mtx:
-    latest_proxy: 6935.0
+    latest_proxy: 10290.0
     proxy_method: negative_sum_of_three_institution_mtx_net_oi
     percentile_252d: 
     percentile_504d: 
@@ -62,7 +62,7 @@ market_sentiment_context:
     data_quality_note: 資料不足 / 僅能觀察：VIX 或散戶小台歷史樣本未達 60 筆，不能判斷是否達歷史極端。
 
 ChatGPT-friendly summary:
-- VIX context: normal_range / trend_supported_no_extreme_vix
+- VIX context: extreme_fear_or_hedging / possible_panic_contrarian_signal
 - Retail MTX context: insufficient_history / insufficient_history_observe_only
 - Combined: insufficient_history_observe_only (warning=insufficient)
 - VIX / PutCall / retail MTX are auxiliary context only; cross-check market_regime and foreign_tx_futures_net_oi.

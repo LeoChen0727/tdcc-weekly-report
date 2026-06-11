@@ -1,24 +1,24 @@
-generated_at=2026-06-11 18:28:32 Asia/Taipei
-main_price_date=20260605
+generated_at=2026-06-11 19:33:04 Asia/Taipei
+main_price_date=20260611
 report_ready=True
-warrant_flow_date=20260602
-warrant_ready=False
-daily_pdf_ready=False
-daily_pdf_ready_note=warrant layer not ready: warrant_flow_date does not match main_price_date (warrant_flow_date=20260602, main_price_date=20260605)
-commit_sha=a02ed529ac8a489e201485e9df49a1992a13cb47
+warrant_flow_date=20260611
+warrant_ready=True
+daily_pdf_ready=True
+daily_pdf_ready_note=core daily data and warrant layer are ready for daily PDF source use
+commit_sha=9f90a4e12bc6f0b5c684315306542f9b384f95d1
 daily_read_contract=raw_or_github_api_first_pages_auxiliary_only
 pages_cache_warning=GitHub Pages may lag or deploy later than main; daily stock/PDF tasks must prefer raw/GitHub API entries and reject stale Pages dates.
 latest_readme_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT.txt
 latest_readme_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/READ_ME_FIRST_DAILY_REPORT.txt
 latest_readme_github_api_url=https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/READ_ME_FIRST_DAILY_REPORT.txt?ref=main
-date_stamped_readme_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT_20260605.txt
-date_stamped_readme_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/READ_ME_FIRST_DAILY_REPORT_20260605.txt
-date_stamped_readme_github_api_url=https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/READ_ME_FIRST_DAILY_REPORT_20260605.txt?ref=main
-history_readme_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/history/reports/20260605_READ_ME_FIRST_DAILY_REPORT.txt
-history_readme_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260605_READ_ME_FIRST_DAILY_REPORT.txt
+date_stamped_readme_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT_20260611.txt
+date_stamped_readme_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/READ_ME_FIRST_DAILY_REPORT_20260611.txt
+date_stamped_readme_github_api_url=https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/READ_ME_FIRST_DAILY_REPORT_20260611.txt?ref=main
+history_readme_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/history/reports/20260611_READ_ME_FIRST_DAILY_REPORT.txt
+history_readme_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260611_READ_ME_FIRST_DAILY_REPORT.txt
 astrology_read_protocol_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/astrology_read_protocol_latest.md
 astrology_read_protocol_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/astrology_read_protocol_latest.md
-preferred_chatgpt_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/a02ed529ac8a489e201485e9df49a1992a13cb47/output/history/reports/20260605_CHATGPT_DAILY_REPORT_PACKET.txt
+preferred_chatgpt_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/9f90a4e12bc6f0b5c684315306542f9b384f95d1/output/history/reports/20260611_CHATGPT_DAILY_REPORT_PACKET.txt
 recommended_read_order=astrology_read_protocol_pages_url only for Zi Wei / Ba Zi / astrology tasks,astrology_read_protocol_raw_url only for Zi Wei / Ba Zi / astrology tasks,date_stamped_readme_raw_url,date_stamped_readme_github_api_url,history_readme_raw_url,latest_readme_raw_url,latest_readme_github_api_url,date_stamped_readme_pages_url,history_readme_pages_url,latest_readme_pages_url
 daily_task_fallback_rule=For daily stock/PDF tasks, read raw/GitHub API README entries before Pages. If latest raw returns an older main_price_date, try the date-stamped raw README for the expected Taiwan trading date. If that fails, try the date-stamped GitHub API and previous 7 calendar dates through raw/GitHub API. Use Pages only as auxiliary fallback when its main_price_date matches raw/API. Use only a report_ready=True entry and state the actual main_price_date used.
 
