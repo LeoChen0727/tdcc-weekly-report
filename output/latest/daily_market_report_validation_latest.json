@@ -1,43 +1,43 @@
 {
-  "generated_at": "2026-06-11 19:52:37 Asia/Taipei",
+  "generated_at": "2026-06-11 20:10:51 Asia/Taipei",
   "status": "pass",
   "main_price_date": "20260611",
   "curated_pdf": {
     "path": "output/latest/daily_market_curated_report_latest.pdf",
     "exists": true,
-    "size_bytes": 2304024,
-    "pages": 41
+    "size_bytes": 1412668,
+    "pages": 25
   },
   "full_table_pdf": {
     "path": "output/latest/daily_market_full_table_report_latest.pdf",
     "exists": true,
-    "size_bytes": 409397,
-    "pages": 133
+    "size_bytes": 214115,
+    "pages": 70
   },
   "model_line_pdfs": {
     "mainstream_highlight": {
       "path": "output/latest/mainstream_daily_recommendation_highlight_latest.pdf",
       "exists": true,
-      "size_bytes": 3571628,
-      "pages": 64
+      "size_bytes": 2278191,
+      "pages": 49
     },
     "mainstream_full": {
       "path": "output/latest/mainstream_full_candidate_list_latest.pdf",
       "exists": true,
-      "size_bytes": 51621,
-      "pages": 16
+      "size_bytes": 20508,
+      "pages": 7
     },
     "non_mainstream_highlight": {
       "path": "output/latest/non_mainstream_daily_recommendation_highlight_latest.pdf",
       "exists": true,
-      "size_bytes": 3991283,
-      "pages": 60
+      "size_bytes": 3638041,
+      "pages": 50
     },
     "non_mainstream_full": {
       "path": "output/latest/non_mainstream_full_candidate_list_latest.pdf",
       "exists": true,
-      "size_bytes": 38831,
-      "pages": 12
+      "size_bytes": 39938,
+      "pages": 13
     }
   },
   "model_summary_for_report": {
@@ -52,13 +52,13 @@
   "model_report_signals_for_report": {
     "path": "output/latest/daily_candidate_model_signals_for_report_latest.csv",
     "exists": true,
-    "rows": 513,
+    "rows": 279,
     "duplicate_report_model_stock_rows": 0
   },
   "checks": {
     "pdf_exists": true,
     "pdf_size_reasonable": true,
-    "pdf_pages_reasonable": false,
+    "pdf_pages_reasonable": true,
     "curated_required_sections": true,
     "full_required_sections": true,
     "no_forbidden_terms": true,
@@ -74,7 +74,5 @@
     "model_report_signals_pdf_facing_fields_present": true
   },
   "errors": [],
-  "warnings": [
-    "full_table: PDF page count is high: 133"
-  ]
+  "warnings": []
 }
