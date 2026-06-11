@@ -2,13 +2,55 @@ const GITHUB_OWNER = "LeoChen0727";
 const GITHUB_REPO = "tdcc-weekly-report";
 const GITHUB_REF = "main";
 const GITHUB_API_VERSION = "2022-11-28";
+const GITHUB_PAT_PROPERTY = "GITHUB_PAT";
+const GITHUB_TOKEN_FALLBACK_PROPERTY = "GITHUB_TOKEN";
+const RESPONSE_PREVIEW_MAX_CHARS = 1200;
 
 function getGithubToken_() {
-  const token = PropertiesService.getScriptProperties().getProperty("GITHUB_PAT");
+  const properties = PropertiesService.getScriptProperties();
+  const token =
+    properties.getProperty(GITHUB_PAT_PROPERTY) ||
+    properties.getProperty(GITHUB_TOKEN_FALLBACK_PROPERTY);
   if (!token) {
-    throw new Error("Missing Script Property: GITHUB_PAT");
+    throw new Error(
+      "Missing Script Property: " +
+        GITHUB_PAT_PROPERTY +
+        " (preferred) or " +
+        GITHUB_TOKEN_FALLBACK_PROPERTY +
+        ". Configure a token with repository Actions read/write permission for " +
+        GITHUB_OWNER +
+        "/" +
+        GITHUB_REPO +
+        "."
+    );
   }
-  return token;
+  return token.trim();
+}
+
+function responsePreview_(responseBody) {
+  if (!responseBody) {
+    return "";
+  }
+  if (responseBody.length <= RESPONSE_PREVIEW_MAX_CHARS) {
+    return responseBody;
+  }
+  return responseBody.slice(0, RESPONSE_PREVIEW_MAX_CHARS) + "...[truncated]";
+}
+
+function githubStatusHint_(statusCode) {
+  if (statusCode === 401) {
+    return "token missing, expired, or invalid";
+  }
+  if (statusCode === 403) {
+    return "token lacks Actions read/write permission or is blocked by policy";
+  }
+  if (statusCode === 404) {
+    return "repo or workflow is not visible to the token";
+  }
+  if (statusCode === 422) {
+    return "invalid workflow dispatch payload or ref";
+  }
+  return "unexpected GitHub API status";
 }
 
 function githubApi_(method, path, payload) {
@@ -35,7 +77,7 @@ function githubApi_(method, path, payload) {
 
   Logger.log("GitHub API: " + method + " " + url);
   Logger.log("Status code: " + statusCode);
-  Logger.log("Response body: " + responseBody);
+  Logger.log("Response body: " + responsePreview_(responseBody));
 
   return {
     statusCode: statusCode,
@@ -47,7 +89,15 @@ function assertGithubSuccess_(result, actionName) {
   if (result.statusCode === 200 || result.statusCode === 201 || result.statusCode === 202 || result.statusCode === 204) {
     return;
   }
-  throw new Error(actionName + " failed: " + result.statusCode + " " + result.responseBody);
+  throw new Error(
+    actionName +
+      " failed: HTTP " +
+      result.statusCode +
+      " (" +
+      githubStatusHint_(result.statusCode) +
+      ") " +
+      responsePreview_(result.responseBody)
+  );
 }
 
 function dispatchWorkflow_(workflowFile, inputs) {
@@ -108,11 +158,38 @@ function logLatestWorkflowRuns_(workflowFile) {
   });
 }
 
+function logLatestWorkflowRunsSafe_(workflowFile) {
+  try {
+    logLatestWorkflowRuns_(workflowFile);
+  } catch (error) {
+    Logger.log("Non-fatal: could not list latest runs for " + workflowFile + ": " + error.message);
+  }
+}
+
+function assertWorkflowAccessible_(workflowFile) {
+  const path =
+    "/repos/" +
+    GITHUB_OWNER +
+    "/" +
+    GITHUB_REPO +
+    "/actions/workflows/" +
+    encodeURIComponent(workflowFile);
+  const result = githubApi_("get", path, null);
+  assertGithubSuccess_(result, "Access workflow " + workflowFile);
+}
+
 function testGithubTokenAndWorkflowAccess() {
   const path = "/repos/" + GITHUB_OWNER + "/" + GITHUB_REPO + "/actions/workflows";
   const result = githubApi_("get", path, null);
   assertGithubSuccess_(result, "List workflows");
   Logger.log("GitHub token and workflow access OK.");
+}
+
+function diagnoseDailyStockMonitorTrigger() {
+  testGithubTokenAndWorkflowAccess();
+  assertWorkflowAccessible_("daily_full_pipeline.yml");
+  logLatestWorkflowRunsSafe_("daily_full_pipeline.yml");
+  Logger.log("Daily stock monitor diagnostics OK. If the scheduled trigger still fails, run installDailyStockMonitorTrigger().");
 }
 
 function triggerDailyStockMonitor() {
@@ -124,7 +201,7 @@ function triggerDailyStockMonitor() {
     run_raw_health_check: "false",
   });
   Utilities.sleep(5000);
-  logLatestWorkflowRuns_("daily_full_pipeline.yml");
+  logLatestWorkflowRunsSafe_("daily_full_pipeline.yml");
 }
 
 function triggerDailyFullPipeline() {
@@ -134,19 +211,19 @@ function triggerDailyFullPipeline() {
 function triggerTdccWeeklyReport() {
   dispatchWorkflow_("tdcc_weekly.yml");
   Utilities.sleep(5000);
-  logLatestWorkflowRuns_("tdcc_weekly.yml");
+  logLatestWorkflowRunsSafe_("tdcc_weekly.yml");
 }
 
 function triggerEventCatalystUpdate() {
   dispatchWorkflow_("event_catalyst_update.yml");
   Utilities.sleep(5000);
-  logLatestWorkflowRuns_("event_catalyst_update.yml");
+  logLatestWorkflowRunsSafe_("event_catalyst_update.yml");
 }
 
 function triggerWeeklyThemeReview() {
   dispatchWorkflow_("weekly_theme_review.yml");
   Utilities.sleep(5000);
-  logLatestWorkflowRuns_("weekly_theme_review.yml");
+  logLatestWorkflowRunsSafe_("weekly_theme_review.yml");
 }
 
 function triggerResearchBacktestPipeline() {
@@ -165,13 +242,25 @@ function triggerResearchBacktestPipeline() {
     run_model_parameter_research: "true",
   });
   Utilities.sleep(5000);
-  logLatestWorkflowRuns_("research_backtest_pipeline.yml");
+  logLatestWorkflowRunsSafe_("research_backtest_pipeline.yml");
 }
 
 function triggerIndividualStockDataRefresh() {
   dispatchWorkflow_("individual_stock_data_refresh.yml");
   Utilities.sleep(5000);
-  logLatestWorkflowRuns_("individual_stock_data_refresh.yml");
+  logLatestWorkflowRunsSafe_("individual_stock_data_refresh.yml");
+}
+
+function installDailyStockMonitorTrigger() {
+  installDailyStockMonitorTrigger_();
+  Logger.log("Installed daily stock monitor trigger: daily 19:30 Asia/Taipei.");
+  listAllTriggers();
+}
+
+function removeDailyStockMonitorTrigger() {
+  removeTriggersForFunction_("triggerDailyStockMonitor");
+  Logger.log("Removed daily stock monitor triggers.");
+  listAllTriggers();
 }
 
 function installBiweeklyResearchBacktestTrigger() {
