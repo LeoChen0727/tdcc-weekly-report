@@ -42,7 +42,9 @@ Hard boundaries:
   into one ranking unless the program-side contract says so.
 - Do not invent PDF-layer buy/sell, mainstream/non-mainstream, risk veto,
   ranking, or model judgment.
-- Do not modify generate_repo_chatgpt_side_reports.py unless I explicitly ask.
+- ChatGPT-side PDF rendering changes belong in the canonical repo script
+  scripts/generate_chatgpt_side_daily_reports.py. Do not leave durable fixes only
+  in a OneDrive/local helper copy.
 
 Task:
 <describe the daily production issue or deliverable>

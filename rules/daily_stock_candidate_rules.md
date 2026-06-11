@@ -48,6 +48,7 @@ Before generating ChatGPT-side daily PDFs from a local checkout, run `scripts/va
 - A dirty local checkout is not an official PDF source. Use a clean clone, worktree, or trusted GitHub archive for report generation if the main checkout has uncommitted changes.
 - `commit_sha` in README is an artifact source hint. It is allowed to differ from checkout `HEAD` because daily workflows can commit artifacts before publishing README metadata. Do not block a report solely because README `commit_sha` differs from `HEAD`.
 - Do not use local `output/latest` as current data unless this preflight passes.
+- The canonical source for ChatGPT-side six-PDF rendering is `scripts/generate_chatgpt_side_daily_reports.py`. A OneDrive or ad-hoc helper copy may be used only as an execution copy; durable rendering fixes must be committed through the repo workflow.
 
 ## Daily Versus Research Pipeline
 

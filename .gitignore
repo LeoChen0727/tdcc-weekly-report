@@ -1,5 +1,6 @@
 __pycache__/
 *.pyc
+chatgpt_side_outputs/
 
 docs/latest/individual_stock_chatgpt_packets/
 docs/latest/individual_stock_price_windows/
