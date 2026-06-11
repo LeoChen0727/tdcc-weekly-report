@@ -2,18 +2,20 @@
 
 Last updated: 2026-05-29
 
-This task is dedicated to the daily Taiwan full-market candidate report and its four ChatGPT-side PDF deliverables. It must not be mixed with holdings management, single-stock full reports, TDCC weekly reports, standalone market-opening reports, backtest periodic reports, or astrology tasks.
+This task is dedicated to the daily Taiwan full-market candidate report and its six ChatGPT-side PDF deliverables. It must not be mixed with holdings management, single-stock full reports, TDCC weekly reports, standalone market-opening reports, backtest periodic reports, or astrology tasks.
 
 This boundary is only a task router. It does not override the required deliverables, program-side fields, specialty sections, or PDF quality contract below.
 
 ## Required Deliverable
 
-When the user asks to do today's daily stock report, execute the task and produce four ChatGPT-side deliverables unless the user explicitly asks for text-only or status-only output:
+When the user asks to do today's daily stock report, execute the task and produce six ChatGPT-side deliverables unless the user explicitly asks for text-only or status-only output:
 
-1. Daily recommendation analysis PDF.
-2. Complete candidate list supplement PDF.
-3. Warrant market auxiliary analysis PDF.
-4. Market risk and index futures/options background PDF.
+1. Mainstream daily recommendation highlight PDF.
+2. Mainstream complete candidate list PDF.
+3. Non-mainstream daily recommendation highlight PDF.
+4. Non-mainstream complete candidate list PDF.
+5. Warrant market auxiliary analysis PDF.
+6. Market risk and index futures/options background PDF.
 
 Repo pipeline PDFs are source/share artifacts. They are not the final ChatGPT-side deliverable for this task.
 
@@ -41,7 +43,7 @@ For remote reads, raw GitHub URLs and GitHub API contents are authoritative. Git
 The normal daily pipeline must be able to finish without long research jobs.
 
 - The daily report may use the latest available research/backtest outputs, but it must not wait for a full market-timing backtest, weekly surge grid search, surge precondition model rebuild, all-source raw health sweep, or TDCC historical backfill.
-- `daily_short_term_specialty_packet_latest.md` is the daily-facing packet for short-term research sections. If deeper research files are stale or missing, report the section as research output unavailable instead of blocking the four daily PDFs.
+- `daily_short_term_specialty_packet_latest.md` is the daily-facing packet for short-term research sections. If deeper research files are stale or missing, report the section as research output unavailable instead of blocking the six daily PDFs.
 - Long research outputs are refreshed by `research_backtest_pipeline.yml`.
 - TDCC historical data is backfilled by `tdcc_history_backfill.yml`.
 - Daily report logic must keep these research sections separate from the six core candidate categories and must not alter core weights unless the backtest rules later mark them mature.
@@ -376,12 +378,14 @@ If data depth is insufficient, say `資料不足 / 僅能觀察` rather than fil
 
 ## Daily Recommendation ChatGPT-Side PDF Contract
 
-This task delivers four ChatGPT-side PDFs when the user asks to run the daily recommendation task:
+This task delivers six ChatGPT-side PDFs when the user asks to run the daily recommendation task:
 
-1. `每日推薦分析 PDF`
-2. `完整候選清單補充 PDF`
-3. `權證市場輔助分析 PDF`
-4. `市場風險與大盤期權背景 PDF`
+1. `主流每日推薦精華 PDF`
+2. `主流完整候選清單 PDF`
+3. `非主流每日推薦精華 PDF`
+4. `非主流完整候選清單 PDF`
+5. `權證市場輔助分析 PDF`
+6. `市場風險與大盤期權背景 PDF`
 
 Repo pipeline PDFs are validation/reference artifacts. They cannot be presented as the newly generated ChatGPT-side PDFs unless the user asks only for repo artifact links or status.
 
