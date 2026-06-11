@@ -637,6 +637,20 @@ def load_snapshot(path: Path) -> pd.DataFrame:
     return df
 
 
+def find_latest_snapshot_path(history_dir: Path = TDCC_HISTORY_DIR) -> Optional[Path]:
+    snapshot_paths: list[tuple[str, Path]] = []
+
+    for path in sorted(history_dir.glob("tdcc_holder_ratio_*.csv")):
+        match = re.search(r"tdcc_holder_ratio_([0-9]{8})\.csv$", path.name)
+        if match:
+            snapshot_paths.append((match.group(1), path))
+
+    if not snapshot_paths:
+        return None
+
+    return sorted(snapshot_paths)[-1][1]
+
+
 def build_weekly_change_tables(
     current_snapshot: pd.DataFrame,
     previous_snapshot: Optional[pd.DataFrame],
@@ -992,22 +1006,43 @@ def main() -> int:
     bootstrap_history_from_legacy_raw_files(stock_name_map)
 
     print("Fetching latest TDCC data from multiple sources...")
-    tdcc_df, tdcc_source_url = fetch_tdcc_data()
-    print(f"Loaded TDCC rows: {len(tdcc_df)}")
-    print(f"Selected TDCC source URL: {tdcc_source_url}")
+    try:
+        tdcc_df, tdcc_source_url = fetch_tdcc_data()
+        print(f"Loaded TDCC rows: {len(tdcc_df)}")
+        print(f"Selected TDCC source URL: {tdcc_source_url}")
 
-    print("Saving latest TDCC data...")
-    raw_path = save_raw_tdcc(tdcc_df)
-    print(f"Latest data saved: {raw_path}")
+        print("Saving latest TDCC data...")
+        raw_path = save_raw_tdcc(tdcc_df)
+        print(f"Latest data saved: {raw_path}")
 
-    print("Building current snapshot...")
-    current_snapshot = build_holder_ratio_snapshot(tdcc_df, stock_name_map)
-    current_date = get_snapshot_date(current_snapshot)
-    print(f"Current TDCC date: {current_date}")
+        print("Building current snapshot...")
+        current_snapshot = build_holder_ratio_snapshot(tdcc_df, stock_name_map)
+        current_date = get_snapshot_date(current_snapshot)
+        print(f"Current TDCC date: {current_date}")
 
-    print("Saving current snapshot...")
-    current_snapshot_path = save_current_snapshot(current_snapshot)
-    print(f"Current snapshot saved: {current_snapshot_path}")
+        print("Saving current snapshot...")
+        current_snapshot_path = save_current_snapshot(current_snapshot)
+        print(f"Current snapshot saved: {current_snapshot_path}")
+
+    except Exception as exc:
+        latest_snapshot_path = find_latest_snapshot_path()
+        if latest_snapshot_path is None:
+            raise
+
+        print("Live TDCC fetch failed; using latest cached TDCC snapshot.")
+        print(f"Fetch error: {exc}")
+        print(f"Cached snapshot: {latest_snapshot_path}")
+
+        current_snapshot = load_snapshot(latest_snapshot_path)
+        current_date = get_snapshot_date(current_snapshot)
+        current_snapshot_path = save_current_snapshot(current_snapshot)
+        tdcc_source_url = (
+            f"cached_snapshot:{latest_snapshot_path.as_posix()} "
+            f"(live_fetch_failed:{type(exc).__name__})"
+        )
+
+        print(f"Current TDCC date from cached snapshot: {current_date}")
+        print(f"Current snapshot saved: {current_snapshot_path}")
 
     previous_snapshot_path = find_previous_snapshot(current_date)
 
