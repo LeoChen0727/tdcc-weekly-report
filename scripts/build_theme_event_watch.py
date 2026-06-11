@@ -96,6 +96,19 @@ def event_phase(days_to_event: int) -> str:
     return "future_logged"
 
 
+def event_window_phase(base_day: datetime, event_day: datetime, event_end_day: datetime | None = None) -> tuple[int, str]:
+    end_day = event_end_day or event_day
+    if end_day < event_day:
+        end_day = event_day
+    if base_day > end_day:
+        days = (end_day - base_day).days
+    elif base_day < event_day:
+        days = (event_day - base_day).days
+    else:
+        days = 0
+    return days, event_phase(days)
+
+
 def watch_status(phase: str, importance: str, candidate_count: int) -> str:
     if phase == "upcoming_0_7d":
         return "near_term_event_watch"
@@ -221,8 +234,8 @@ def main() -> int:
             event_day = parse_day(event.get("event_date"))
             if event_day is None:
                 continue
-            days = (event_day - base_day).days
-            phase = event_phase(days)
+            event_end_day = parse_day(event.get("event_end_date"))
+            days, phase = event_window_phase(base_day, event_day, event_end_day)
             if phase in {"past", "future_logged"}:
                 continue
             theme_tags = split_tags(event.get("theme_tags"))
