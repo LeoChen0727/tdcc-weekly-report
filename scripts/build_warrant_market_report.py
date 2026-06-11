@@ -209,6 +209,46 @@ def latest_date(df: pd.DataFrame) -> str:
     return max(dates) if dates else ""
 
 
+def usable_stock_flow_snapshot(df: pd.DataFrame, date: str) -> pd.DataFrame:
+    if df.empty or "stock_id" not in df.columns:
+        return pd.DataFrame(columns=FLOW_COLUMNS)
+
+    out = df.copy()
+
+    if "date" not in out.columns:
+        out["date"] = date
+
+    out["date"] = out["date"].map(normalize_date).replace("", date)
+    out["stock_id"] = out["stock_id"].map(normalize_code)
+    out = out[out["date"].eq(date)].copy()
+    out = out[out["stock_id"].astype(str).str.match(r"^[0-9]{4}$", na=False)].copy()
+
+    if out.empty:
+        return pd.DataFrame(columns=FLOW_COLUMNS)
+
+    return out.reset_index(drop=True)
+
+
+def find_existing_stock_flow_fallback(date: str) -> tuple[Path | None, pd.DataFrame]:
+    paths = [
+        DATA_WARRANT_FLOW / f"{date}.csv",
+        FLOW_BY_STOCK_LATEST,
+    ]
+    seen: set[Path] = set()
+
+    for path in paths:
+        if path in seen:
+            continue
+
+        seen.add(path)
+        fallback = usable_stock_flow_snapshot(read_csv(path, dtype=str), date)
+
+        if not fallback.empty:
+            return path, fallback
+
+    return None, pd.DataFrame(columns=FLOW_COLUMNS)
+
+
 def empty_flow(date: str, note: str) -> pd.DataFrame:
     df = pd.DataFrame(columns=FLOW_COLUMNS)
     df.loc[0, "date"] = date
@@ -570,11 +610,18 @@ def main() -> int:
     date = latest_date(raw) or latest_date(flow_source) or latest_price_date()
     if not date:
         date = normalize_date(now_text()) or "unknown"
+    flow_fallback_path: Path | None = None
 
     DATA_WARRANT_DAILY.mkdir(parents=True, exist_ok=True)
     DATA_WARRANT_FLOW.mkdir(parents=True, exist_ok=True)
     if not raw.empty:
         write_csv(raw, DATA_WARRANT_DAILY / f"{date}.csv")
+
+    if raw.empty and flow_source.empty:
+        flow_fallback_path, flow_fallback = find_existing_stock_flow_fallback(date)
+
+        if not flow_fallback.empty:
+            flow_source = flow_fallback
 
     flow = prepare_flow(raw, flow_source, date)
     if "date" in flow.columns:
@@ -601,6 +648,8 @@ def main() -> int:
     print(f"Saved: {PERFORMANCE_MD}")
     if raw.empty and flow_source.empty:
         print("WARNING: warrant raw/flow latest files are missing; emitted observe-only outputs.")
+    elif raw.empty and flow_fallback_path is not None:
+        print(f"Preserved existing same-date warrant stock flow from {flow_fallback_path}.")
     return 0
 
 
