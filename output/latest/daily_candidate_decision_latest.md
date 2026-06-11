@@ -1,6 +1,6 @@
 # Daily Candidate Decision Layer
 
-- generated_at: `2026-06-11 19:27:09 Asia/Taipei`
+- generated_at: `2026-06-11 19:47:33 Asia/Taipei`
 - signal_date: `20260611`
 - source: `output/latest/all_candidates_latest.csv`
 - purpose: deterministic candidate classification, downgrade, sorting, and ChatGPT guidance.
