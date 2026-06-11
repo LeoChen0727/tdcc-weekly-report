@@ -1,23 +1,23 @@
 # Data Freshness Status
 
-- generated_at: `2026-06-07 03:17:34` Asia/Taipei
-- main_price_date: `20260605`
-- actual_stock_price_history_date: `20260605`
+- generated_at: `2026-06-11 16:13:26` Asia/Taipei
+- main_price_date: `20260611`
+- actual_stock_price_history_date: `20260611`
 - report_ready: `True`
 - report_ready_note: core daily data dates match main_price_date
-- warrant_ready: `False`
-- warrant_ready_note: warrant_flow_date does not match main_price_date (warrant_flow_date=20260603, main_price_date=20260605)
-- daily_pdf_ready: `False`
-- daily_pdf_ready_note: warrant layer not ready: warrant_flow_date does not match main_price_date (warrant_flow_date=20260603, main_price_date=20260605)
+- warrant_ready: `True`
+- warrant_ready_note: warrant_flow_date matches main_price_date
+- daily_pdf_ready: `True`
+- daily_pdf_ready_note: core daily data and warrant layer are ready for daily PDF source use
 
 ## Component Dates
 
 | source | effective_date | raw_date | note |
 |---|---:|---:|---|
-| all_candidates_latest.csv | 20260605 | 20260605 | ready |
-| official_price_fetch_latest | 20260605 | 20260605 | ready |
-| stock_monitor_latest.md | 20260605 | 20260605 | ready |
-| warrant_flow_latest.csv | 20260603 | 20260603 | stale_date=20260603 |
+| all_candidates_latest.csv | 20260611 | 20260611 | ready |
+| official_price_fetch_latest | 20260611 | 20260611 | ready |
+| stock_monitor_latest.md | 20260611 | 20260611 | ready |
+| warrant_flow_latest.csv | 20260611 | 20260611 | ready |
 
 ## Rule
 
