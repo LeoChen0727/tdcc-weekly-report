@@ -1,44 +1,36 @@
 {
-  "generated_at": "2026-06-07 03:04:36 Asia/Taipei",
-  "target_date": "20260607",
-  "saved_price_date": "20260605",
-  "is_target_date": false,
-  "result": "failed_no_target_data",
-  "reason": "目標日官方來源與 fallback 都沒有取得任何可用日線資料；latest 保留上一個有效交易日。",
-  "twse_rows": 0,
-  "tpex_rows": 0,
-  "total_rows": 0,
-  "full_market_ok": false,
-  "stale_markets": [
-    "TPEx",
-    "TWSE"
-  ],
-  "stale_market_rows": 6431,
-  "data_quality_note": "partial_market_stale_rejected: TPEx,TWSE matched previous trading day file daily_price_20260605.csv",
+  "generated_at": "2026-06-11 16:03:19 Asia/Taipei",
+  "target_date": "20260611",
+  "saved_price_date": "20260611",
+  "is_target_date": true,
+  "result": "success_target_full_market",
+  "reason": "成功取得目標日 TWSE + TPEx 官方日線資料。",
+  "twse_rows": 1237,
+  "tpex_rows": 4809,
+  "total_rows": 6046,
+  "full_market_ok": true,
+  "stale_markets": [],
+  "stale_market_rows": 0,
+  "data_quality_note": "",
   "market_same_ratios": {
-    "TPEx": 1.0,
-    "TWSE": 1.0
+    "TPEx": 0.0005221932114882506,
+    "TWSE": 0.0
   },
   "attempts": [
     {
-      "date": "20260607",
-      "twse_rows": 0,
-      "tpex_rows": 0,
-      "total_rows": 0,
-      "twse_ok": false,
-      "tpex_ok": false,
-      "full_market_ok": false,
-      "universe_rows": 6431,
-      "stale_markets": [
-        "TPEx",
-        "TWSE"
-      ],
-      "stale_market_rows": 6431,
-      "data_quality_note": "partial_market_stale_rejected: TPEx,TWSE matched previous trading day file daily_price_20260605.csv"
+      "date": "20260611",
+      "twse_rows": 1237,
+      "tpex_rows": 4809,
+      "total_rows": 6046,
+      "twse_ok": true,
+      "tpex_ok": true,
+      "full_market_ok": true,
+      "universe_rows": 6431
     }
   ],
   "paths": {
-    "previous_valid_csv": "data/daily_price/daily_price_20260605.csv",
+    "dated_csv": "data/daily_price/20260611.csv",
+    "dated_alt_csv": "data/daily_price/daily_price_20260611.csv",
     "latest_csv": "output/latest/official_daily_price_latest.csv"
   }
 }

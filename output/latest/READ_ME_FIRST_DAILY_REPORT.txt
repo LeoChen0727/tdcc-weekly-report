@@ -4,14 +4,14 @@ astrology_high_priority_guard=for_astrology_zi_wei_ba_zi_tasks_do_not_start_with
 astrology_first_visible_heading_rule=first_visible_heading_must_be_fixed_chart_or_today_bazi_not_data_status
 astrology_forbidden_opening_heading_keys=data_status,flow_status,repo_entry_status,readme_status
 astrology_market_data_note_rule=market_data_status_may_appear_only_as_one_sentence_in_wealth_stock_section_or_final_data_note
-main_price_date=20260605
+main_price_date=20260611
 report_ready=True
-warrant_flow_date=20260603
-warrant_ready=False
-warrant_ready_note=warrant_flow_date does not match main_price_date (warrant_flow_date=20260603, main_price_date=20260605)
-daily_pdf_ready=False
-daily_pdf_ready_note=warrant layer not ready: warrant_flow_date does not match main_price_date (warrant_flow_date=20260603, main_price_date=20260605)
-commit_sha=5b1eba7a25d7d627b28519d196f8c0ab938e8c05
+warrant_flow_date=20260611
+warrant_ready=True
+warrant_ready_note=warrant_flow_date matches main_price_date
+daily_pdf_ready=True
+daily_pdf_ready_note=core daily data and warrant layer are ready for daily PDF source use
+commit_sha=d8c413589944c46777cce3dcc8819f7c32b670c2
 daily_read_contract=raw_or_github_api_first_pages_auxiliary_only
 pages_cache_warning=GitHub Pages may lag or deploy later than main; daily stock/PDF tasks must prefer raw/GitHub API entries and reject stale Pages dates.
 readme_latest_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT.txt
@@ -21,11 +21,11 @@ readme_index_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/R
 readme_index_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/READ_ME_FIRST_DAILY_REPORT_INDEX.txt
 readme_index_json_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/READ_ME_FIRST_DAILY_REPORT_INDEX.json
 readme_index_github_api_url=https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/READ_ME_FIRST_DAILY_REPORT_INDEX.json?ref=main
-readme_date_stamped_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT_20260605.txt
-readme_date_stamped_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/READ_ME_FIRST_DAILY_REPORT_20260605.txt
-readme_date_stamped_github_api_url=https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/READ_ME_FIRST_DAILY_REPORT_20260605.txt?ref=main
-readme_history_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/history/reports/20260605_READ_ME_FIRST_DAILY_REPORT.txt
-readme_history_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260605_READ_ME_FIRST_DAILY_REPORT.txt
+readme_date_stamped_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT_20260611.txt
+readme_date_stamped_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/READ_ME_FIRST_DAILY_REPORT_20260611.txt
+readme_date_stamped_github_api_url=https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/READ_ME_FIRST_DAILY_REPORT_20260611.txt?ref=main
+readme_history_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/history/reports/20260611_READ_ME_FIRST_DAILY_REPORT.txt
+readme_history_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/reports/20260611_READ_ME_FIRST_DAILY_REPORT.txt
 readme_cache_bypass_order=readme_date_stamped_raw_url,readme_date_stamped_github_api_url,readme_index_github_api_url,readme_history_raw_url,readme_latest_raw_url,readme_latest_github_api_url,readme_date_stamped_pages_url,readme_history_pages_url,readme_latest_pages_url
 rules_index_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/rules/rules_index_latest.md
 rules_index_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/rules/rules_index_latest.md
@@ -48,12 +48,12 @@ report_ready_meaning=repo_data_packet_and_repo_artifacts_available_not_chatgpt_t
 fixed_pdf_validation_meaning=repo_pipeline_pdf_validation_only_not_chatgpt_deliverable_pdf
 chatgpt_status_only_request=report_repo_status_and_links_only
 chatgpt_daily_task_request=must_read_repo_structured_data_and_produce_new_chatgpt_side_deliverables
-daily_full_market_default_chatgpt_deliverables=每日推薦分析 PDF|完整候選清單補充 PDF|權證市場輔助分析 PDF|市場風險與大盤期權背景 PDF
+daily_full_market_default_chatgpt_deliverables=主流每日推薦精華 PDF|主流完整候選清單 PDF|非主流每日推薦精華 PDF|非主流完整候選清單 PDF|權證市場輔助分析 PDF|市場風險與大盤期權背景 PDF
 repo_artifacts_do_not_satisfy_chatgpt_pdf_delivery=True
 do_not_paste_full_text_instead_of_required_pdf=True
-preferred_chatgpt_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/5b1eba7a25d7d627b28519d196f8c0ab938e8c05/output/history/reports/20260605_CHATGPT_DAILY_REPORT_PACKET.txt
+preferred_chatgpt_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/d8c413589944c46777cce3dcc8819f7c32b670c2/output/history/reports/20260611_CHATGPT_DAILY_REPORT_PACKET.txt
 packet_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/chatgpt_daily_report_packet_latest.txt
-packet_commit_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/5b1eba7a25d7d627b28519d196f8c0ab938e8c05/output/history/reports/20260605_CHATGPT_DAILY_REPORT_PACKET.txt
+packet_commit_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/d8c413589944c46777cce3dcc8819f7c32b670c2/output/history/reports/20260611_CHATGPT_DAILY_REPORT_PACKET.txt
 packet_latest_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/chatgpt_daily_report_packet_latest.txt
 packet_github_api_url=https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/chatgpt_daily_report_packet_latest.txt?ref=main
 summary_latest_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_summary_latest.md
@@ -378,8 +378,8 @@ RULES:
 7. Use raw structured data first: CSV files, packet fields, signal logs, warrant tables, market tables, catalyst source logs, and raw URLs.
 8. PDFs are auxiliary/shareable outputs. Use PDFs only if raw data cannot be read, or if the user explicitly asks for the PDF artifact.
 9. If only PDF data is used, start the response with: 本次僅使用 PDF 報告資料，未讀取原始 CSV / packet / source tables，因此只能做摘要型分析。
-10. If the user asks 做今天報告 / 四份 PDF / 重新分析 / 執行今天任務, produce new ChatGPT-side deliverable PDFs after reading repo data; do not stop at repo PDF links.
-10a. Default daily full-market ChatGPT deliverables are: 每日推薦分析 PDF, 完整候選清單補充 PDF, 權證市場輔助分析 PDF, 市場風險與大盤期權背景 PDF.
+10. If the user asks 做今天報告 / 六份 PDF / 重新分析 / 執行今天任務, produce new ChatGPT-side deliverable PDFs after reading repo data; do not stop at repo PDF links.
+10a. Default daily full-market ChatGPT deliverables are: 主流每日推薦精華 PDF, 主流完整候選清單 PDF, 非主流每日推薦精華 PDF, 非主流完整候選清單 PDF, 權證市場輔助分析 PDF, 市場風險與大盤期權背景 PDF.
 10b. For status-only requests, cite daily_market_curated_pdf_pages_url and daily_market_full_table_pdf_pages_url as repo artifacts.
 11. For pending catalyst/data-source items, read catalyst_needs_review_* and do not use rows with model_effect_allowed=False or pdf_effect_allowed=False as recommendation reasons.
 12. For the summary PDF K-line charts, use summary_pdf_kline_policy/status/counts above. Do not downgrade the PDF to chart_path/image-download-failed if local_price_redraw_count is greater than 0.

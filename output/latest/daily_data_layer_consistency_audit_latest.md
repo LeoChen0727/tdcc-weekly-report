@@ -1,13 +1,13 @@
 # Daily Data Layer Consistency Audit
 
 - status: `pass`
-- main_price_date: `20260605`
-- readme_main_price_date: `20260605`
-- readme_index_main_price_date: `20260605`
-- model_signal_rows: `697`
-- volume_watch_rows: `21`
+- main_price_date: `20260611`
+- readme_main_price_date: `20260611`
+- readme_index_main_price_date: `20260611`
+- model_signal_rows: `513`
+- volume_watch_rows: `13`
 - volume_theme_other_rows: `0`
-- group_rotation_rows: `13`
+- group_rotation_rows: `6`
 - taxonomy_rows: `2377`
 - taxonomy_template_csv_rows: `2377`
 - taxonomy_template_xlsx_rows: `2377`
@@ -26,12 +26,12 @@
 
 ```json
 {
-  "main_price_date": "20260605",
-  "readme_main_price_date": "20260605",
+  "main_price_date": "20260611",
+  "readme_main_price_date": "20260611",
   "readme_report_ready": "True",
-  "readme_index_main_price_date": "20260605",
+  "readme_index_main_price_date": "20260611",
   "readme_index_report_ready": "True",
-  "preferred_chatgpt_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/5b1eba7a25d7d627b28519d196f8c0ab938e8c05/output/history/reports/20260605_CHATGPT_DAILY_REPORT_PACKET.txt",
+  "preferred_chatgpt_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/d8c413589944c46777cce3dcc8819f7c32b670c2/output/history/reports/20260611_CHATGPT_DAILY_REPORT_PACKET.txt",
   "readme_cache_bypass_order": [
     "readme_date_stamped_raw_url",
     "readme_date_stamped_github_api_url",
@@ -71,22 +71,22 @@
   "chatgpt_daily_rules_pages_first_snippet_count": 0,
   "individual_stock_read_protocol_present": true,
   "individual_stock_protocol_pages_first_count": 0,
-  "effective_model_signal_date": "20260605",
-  "model_signal_rows": 697,
-  "raw_model_signal_rows": 697,
-  "volume_watch_rows": 21,
-  "volume_theme_stock_rows": 21,
-  "group_rotation_rows": 13,
+  "effective_model_signal_date": "20260611",
+  "model_signal_rows": 513,
+  "raw_model_signal_rows": 513,
+  "volume_watch_rows": 13,
+  "volume_theme_stock_rows": 13,
+  "group_rotation_rows": 6,
   "taxonomy_rows": 2377,
   "taxonomy_template_csv_rows": 2377,
   "taxonomy_template_xlsx_rows": 2377,
   "docs_taxonomy_template_csv_rows": 2377,
   "docs_taxonomy_template_xlsx_rows": 2377,
-  "market_timing_packet_main_price_date": "20260605",
+  "market_timing_packet_main_price_date": "20260611",
   "missing_required_model_columns": [],
   "blank_required_model_columns": {},
   "model_signal_dates": [
-    "20260605"
+    "20260611"
   ],
   "same_model_report_duplicates": 0,
   "model_report_line_membership_mismatch_rows": 0,
@@ -97,16 +97,16 @@
   "model_signal_third_bucket_rows": {},
   "model_signal_main_condition_not_true_rows": 0,
   "raw_model_signal_dates": [
-    "20260605"
+    "20260611"
   ],
   "missing_volume_columns": [],
   "volume_signal_dates": [
-    "20260605"
+    "20260611"
   ],
   "volume_theme_other_rows": 0,
   "group_rotation_invalid_models": [],
-  "group_rotation_slow_rows": 12,
-  "group_rotation_launch_rows": 1,
+  "group_rotation_slow_rows": 6,
+  "group_rotation_launch_rows": 0,
   "missing_required_taxonomy_columns": [],
   "taxonomy_duplicate_stock_id_rows": 0,
   "taxonomy_unresolved_basic_theme_rows": 0,
