@@ -1,7 +1,7 @@
 # 每日全市場候選股監測報告 - 精華版
 
 - 主資料日期：`20260612`
-- 產生時間：`2026-06-12 19:43:17 Asia/Taipei`
+- 產生時間：`2026-06-12 22:35:50 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
 - 判斷說明：core daily data dates match main_price_date
 - 權證資料日期：`20260612`
@@ -67,7 +67,7 @@
 - 連續上榜：首次上榜；近5日 2；近10日 2；多分類 true_breakout
 - TDCC：大戶溫和增加
 - 權證：
-- 財報 / 事件催化：score 0 / theme 76.3/5 / dividend_calendar;calendar_ex_dividend;其他 / dividend_calendar;calendar_ex_dividend / calendar ex_dividend 20260624 ...
+- 財報 / 事件催化：score 0 / theme 40.7/5 / dividend_calendar;calendar_ex_dividend;其他 / dividend_calendar;calendar_ex_dividend / calendar ex_dividend 20260624 ...
 - 摘要：突破 / 量能3.25x / 大戶溫和增加
 - 完整原因：近幾週其中一項大戶級距增加；嚴格突破；量比3.25x；月營收YoY 1.4%；累計YoY 1.4%；TDCC近幾週大戶溫和增加
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
