@@ -56,6 +56,18 @@ def apps_script_functions() -> set[str]:
     return set(re.findall(r"^function\s+([A-Za-z0-9_]+)\s*\(", text, re.M))
 
 
+def apps_script_function_body(function_name: str) -> str:
+    text = read_text(APPS_SCRIPT)
+    match = re.search(
+        rf"^function\s+{re.escape(function_name)}\s*\([^)]*\)\s*\{{(?P<body>.*?)(?:^}}\s*$)",
+        text,
+        re.M | re.S,
+    )
+    if not match:
+        raise ValueError(f"Apps Script function not found: {function_name}")
+    return match.group("body")
+
+
 def main() -> int:
     errors: list[str] = []
     dispatches = apps_script_dispatches()
@@ -94,6 +106,20 @@ def main() -> int:
         errors.append(f"Apps Script daily dispatch missing false inputs: {sorted(missing_daily_inputs)}")
     if bad_daily_values:
         errors.append(f"Apps Script daily dispatch inputs must be false: {bad_daily_values}")
+
+    try:
+        daily_trigger_body = apps_script_function_body("triggerDailyStockMonitor")
+    except ValueError as exc:
+        errors.append(str(exc))
+    else:
+        if not re.search(r"dayOfWeek\s*===\s*0\s*\|\|\s*dayOfWeek\s*===\s*6", daily_trigger_body):
+            errors.append("Apps Script daily trigger must skip Saturday and Sunday")
+        if not re.search(
+            r'dispatchWorkflow_\("daily_full_pipeline\.yml",\s*\{\s*run_raw_health_check:\s*"false"',
+            daily_trigger_body,
+            re.S,
+        ):
+            errors.append("Apps Script daily trigger must dispatch daily_full_pipeline with run_raw_health_check=false")
 
     research_text = read_text(WORKFLOW_DIR / research_workflow)
     forbidden_research_auto_commit_patterns = [

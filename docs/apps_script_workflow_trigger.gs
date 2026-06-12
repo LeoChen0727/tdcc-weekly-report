@@ -193,8 +193,9 @@ function diagnoseDailyStockMonitorTrigger() {
 }
 
 function triggerDailyStockMonitor() {
-  if (new Date().getDay() === 0) {
-    Logger.log("Skip daily full pipeline on Sunday.");
+  const dayOfWeek = new Date().getDay();
+  if (dayOfWeek === 0 || dayOfWeek === 6) {
+    Logger.log("Skip daily full pipeline on weekend.");
     return;
   }
   dispatchWorkflow_("daily_full_pipeline.yml", {
@@ -253,7 +254,7 @@ function triggerIndividualStockDataRefresh() {
 
 function installDailyStockMonitorTrigger() {
   installDailyStockMonitorTrigger_();
-  Logger.log("Installed daily stock monitor trigger: daily 19:30 Asia/Taipei.");
+  Logger.log("Installed daily stock monitor trigger: daily 19:30 Asia/Taipei, self-skips weekends.");
   listAllTriggers();
 }
 

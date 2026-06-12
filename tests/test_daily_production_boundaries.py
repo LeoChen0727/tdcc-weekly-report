@@ -4,6 +4,7 @@ from pathlib import Path
 import subprocess
 
 from scripts import validate_daily_production_boundaries as boundaries
+from scripts import validate_apps_script_workflow_triggers
 from scripts import validate_daily_staged_paths
 
 
@@ -12,6 +13,20 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def test_daily_production_boundary_validator_passes_current_repo() -> None:
     assert boundaries.main() == 0
+
+
+def test_apps_script_workflow_trigger_validator_passes_current_repo() -> None:
+    assert validate_apps_script_workflow_triggers.main() == 0
+
+
+def test_apps_script_daily_trigger_skips_weekends_and_disables_raw_health_check() -> None:
+    body = validate_apps_script_workflow_triggers.apps_script_function_body(
+        "triggerDailyStockMonitor"
+    )
+
+    assert "dayOfWeek === 0 || dayOfWeek === 6" in body
+    assert 'dispatchWorkflow_("daily_full_pipeline.yml", {' in body
+    assert 'run_raw_health_check: "false"' in body
 
 
 def test_canonical_chatgpt_side_generator_is_tracked_and_not_legacy_six_category() -> None:
