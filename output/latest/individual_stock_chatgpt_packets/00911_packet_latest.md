@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00911 兆豐洲際半導體
 
 ## Metadata
-- generated_at: 2026-06-11 22:22:18 Asia/Taipei
+- generated_at: 2026-06-12 22:22:16 Asia/Taipei
 - stock_id: 00911
 - stock_name: 兆豐洲際半導體
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260611
-- price_rows: 12
+- latest_price_date: 20260612
+- price_rows: 13
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 58.2
-- high: 59
-- low: 58.1
-- close: 59
-- volume: 255155
-- ma5: 61.8
-- ema23_primary: 59.19
-- distance_to_ema23_pct: -0.33
-- ma20: 60.41
-- ma60: 60.41
-- ma120: 60.41
-- return_5d: -3.36
+- date: 20260612
+- open: 63.1
+- high: 63.1
+- low: 62.2
+- close: 63.1
+- volume: 494831
+- ma5: 62.31
+- ema23_primary: 59.52
+- distance_to_ema23_pct: 6.02
+- ma20: 60.62
+- ma60: 60.62
+- ma120: 60.62
+- return_5d: 4.21
 - return_20d:
-- volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: -2.34
-- distance_to_high_60_pct: -9.79
+- volume_ratio: 0.86
+- distance_to_ma20_pct_auxiliary: 4.09
+- distance_to_high_60_pct: -3.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -147,6 +147,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,61.05,61.05,60,60.55,482771,58.81,2.96,60.23,60.23,0.8
 20260605,64.2,64.2,62.85,63.65,634208,59.21,7.5,60.54,60.54,1.04
 20260611,58.2,59,58.1,59,255155,59.19,-0.33,60.41,60.41,0.44
+20260612,63.1,63.1,62.2,63.1,494831,59.52,6.02,60.62,60.62,0.86
 ```
 
 ## Latest TDCC Snapshot

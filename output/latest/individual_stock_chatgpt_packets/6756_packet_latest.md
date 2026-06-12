@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6756 威鋒電子
 
 ## Metadata
-- generated_at: 2026-06-11 22:24:01 Asia/Taipei
+- generated_at: 2026-06-12 22:24:14 Asia/Taipei
 - stock_id: 6756
 - stock_name: 威鋒電子
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
+- latest_price_date: 20260612
+- price_rows: 280
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 94.3
-- high: 95.8
-- low: 90
-- close: 92.7
-- volume: 202529
-- ma5: 98.6
-- ema23_primary: 97.61
-- distance_to_ema23_pct: -5.03
-- ma20: 100.93
-- ma60: 86.55
-- ma120: 83.62
-- return_5d: -5.89
-- return_20d: -3.03
-- volume_ratio: 0.34
-- distance_to_ma20_pct_auxiliary: -8.15
-- distance_to_high_60_pct: -19.74
+- date: 20260612
+- open: 95.9
+- high: 98.6
+- low: 95.7
+- close: 96.5
+- volume: 261881
+- ma5: 97.4
+- ema23_primary: 97.52
+- distance_to_ema23_pct: -1.05
+- ma20: 100.5
+- ma60: 86.86
+- ma120: 83.77
+- return_5d: -5.85
+- return_20d: -8.1
+- volume_ratio: 0.47
+- distance_to_ma20_pct_auxiliary: -3.98
+- distance_to_high_60_pct: -16.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,95.1,105,94.6,105,1072421,86.66,21.17,85.94,79.22,1.63
 20260513,105,106.5,101,101.5,1080530,87.89,15.48,87.37,79.61,1.54
 20260514,103.5,106,100,102,582797,89.07,14.52,88.74,79.96,0.81
 20260515,103,106.5,97.5,98.8,817145,89.88,9.92,89.83,80.27,1.09
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,99,104.5,99,102.5,621926,98.31,4.26,100.95,85.88,0.91
 20260605,96,96.5,93.3,95.3,230880,98.06,-2.82,101.08,86.26,0.38
 20260611,94.3,95.8,90,92.7,202529,97.61,-5.03,100.93,86.55,0.34
+20260612,95.9,98.6,95.7,96.5,261881,97.52,-1.05,100.5,86.86,0.47
 ```
 
 ## Latest TDCC Snapshot

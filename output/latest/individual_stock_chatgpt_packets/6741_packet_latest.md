@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6741 91APP*-KY
 
 ## Metadata
-- generated_at: 2026-06-11 22:24:00 Asia/Taipei
+- generated_at: 2026-06-12 22:24:13 Asia/Taipei
 - stock_id: 6741
 - stock_name: 91APP*-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 278
+- latest_price_date: 20260612
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 61.6
-- high: 62.5
-- low: 60.8
-- close: 61.1
-- volume: 61000
-- ma5: 63.74
-- ema23_primary: 63.46
-- distance_to_ema23_pct: -3.71
-- ma20: 63.34
-- ma60: 62.95
-- ma120: 65.9
-- return_5d: -4.98
-- return_20d: -7.28
-- volume_ratio: 0.3
-- distance_to_ma20_pct_auxiliary: -3.54
-- distance_to_high_60_pct: -8.81
+- date: 20260612
+- open: 61.1
+- high: 63.3
+- low: 61.1
+- close: 62.6
+- volume: 63000
+- ma5: 63.42
+- ema23_primary: 63.38
+- distance_to_ema23_pct: -1.24
+- ma20: 63.17
+- ma60: 62.97
+- ma120: 65.82
+- return_5d: -2.49
+- return_20d: -5.01
+- volume_ratio: 0.33
+- distance_to_ma20_pct_auxiliary: -0.91
+- distance_to_high_60_pct: -6.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,66.5,67,65.4,65.9,307000,64.27,2.54,64.28,62.85,0.65
 20260513,65.8,66.5,65.2,66.5,183000,64.45,3.18,64.49,62.88,0.39
 20260514,66.3,66.6,65.2,65.9,271000,64.57,2.06,64.68,62.9,0.58
 20260515,65.3,65.3,60.9,60.9,1349000,64.27,-5.24,64.55,62.82,2.57
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,64.3,66.2,64.2,64.5,65000,63.6,1.41,63.64,62.9,0.27
 20260605,64.1,65,63.2,64.4,64000,63.67,1.15,63.58,62.97,0.29
 20260611,61.6,62.5,60.8,61.1,61000,63.46,-3.71,63.34,62.95,0.3
+20260612,61.1,63.3,61.1,62.6,63000,63.38,-1.24,63.17,62.97,0.33
 ```
 
 ## Latest TDCC Snapshot

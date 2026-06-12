@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3047 訊舟
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:02 Asia/Taipei
+- generated_at: 2026-06-12 22:23:05 Asia/Taipei
 - stock_id: 3047
 - stock_name: 訊舟
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
+- latest_price_date: 20260612
+- price_rows: 280
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 15.6
-- high: 15.85
-- low: 15.35
-- close: 15.75
-- volume: 1180422
-- ma5: 16.56
-- ema23_primary: 15.5
-- distance_to_ema23_pct: 1.61
-- ma20: 15.2
-- ma60: 15.5
-- ma120: 16.84
-- return_5d: 1.94
-- return_20d: 7.51
-- volume_ratio: 0.52
-- distance_to_ma20_pct_auxiliary: 3.62
-- distance_to_high_60_pct: -10.51
+- date: 20260612
+- open: 15.9
+- high: 16.2
+- low: 15.7
+- close: 15.8
+- volume: 1147631
+- ma5: 16.33
+- ema23_primary: 15.53
+- distance_to_ema23_pct: 1.77
+- ma20: 15.26
+- ma60: 15.49
+- ma120: 16.82
+- return_5d: -6.78
+- return_20d: 8.59
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: 3.52
+- distance_to_high_60_pct: -10.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,14.65,14.75,14.4,14.55,1110068,15.12,-3.77,15.14,16.13,0.88
 20260513,14.55,14.55,14.15,14.2,1159580,15.04,-5.61,15.06,16.06,0.9
 20260514,14.4,14.7,14.2,14.35,1039030,14.99,-4.24,14.98,16,0.81
 20260515,14.4,14.7,14.15,14.2,990451,14.92,-4.83,14.9,15.94,0.77
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,15.6,16.95,15.4,16.95,6126437,15.42,9.95,15.06,15.49,2.74
 20260605,16.45,16.45,15.6,16.15,2189167,15.48,4.34,15.14,15.5,0.96
 20260611,15.6,15.85,15.35,15.75,1180422,15.5,1.61,15.2,15.5,0.52
+20260612,15.9,16.2,15.7,15.8,1147631,15.53,1.77,15.26,15.49,0.5
 ```
 
 ## Latest TDCC Snapshot
@@ -189,12 +189,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 3047 | 訊舟 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260612 | 3047 | 訊舟 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 3047 | 訊舟 | 6 | 3 | 5 | 7 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260612 | 3047 | 訊舟 | 7 | 4 | 5 | 8 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

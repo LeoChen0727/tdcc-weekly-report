@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00662 富邦NASDAQ
 
 ## Metadata
-- generated_at: 2026-06-11 22:22:17 Asia/Taipei
+- generated_at: 2026-06-12 22:22:15 Asia/Taipei
 - stock_id: 00662
 - stock_name: 富邦NASDAQ
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260611
-- price_rows: 12
+- latest_price_date: 20260612
+- price_rows: 13
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 116.35
-- high: 117.35
-- low: 116.3
-- close: 117.05
-- volume: 4720584
-- ma5: 121.87
-- ema23_primary: 120.72
-- distance_to_ema23_pct: -3.04
-- ma20: 121.34
-- ma60: 121.34
-- ma120: 121.34
-- return_5d: -4.64
+- date: 20260612
+- open: 120.05
+- high: 120.25
+- low: 119.55
+- close: 120.05
+- volume: 8250449
+- ma5: 121.25
+- ema23_primary: 120.67
+- distance_to_ema23_pct: -0.51
+- ma20: 121.24
+- ma60: 121.24
+- ma120: 121.24
+- return_5d: -2.52
 - return_20d:
-- volume_ratio: 0.94
-- distance_to_ma20_pct_auxiliary: -3.54
-- distance_to_high_60_pct: -5.6
+- volume_ratio: 1.56
+- distance_to_ma20_pct_auxiliary: -0.98
+- distance_to_high_60_pct: -3.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -147,6 +147,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,122.3,123.15,122.25,123.15,3565721,120.97,1.8,121.7,121.7,0.7
 20260605,121.55,122.25,121.5,122.05,5097631,121.06,0.82,121.73,121.73,1.01
 20260611,116.35,117.35,116.3,117.05,4720584,120.72,-3.04,121.34,121.34,0.94
+20260612,120.05,120.25,119.55,120.05,8250449,120.67,-0.51,121.24,121.24,1.56
 ```
 
 ## Latest TDCC Snapshot

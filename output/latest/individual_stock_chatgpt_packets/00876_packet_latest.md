@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00876 元大全球5G
 
 ## Metadata
-- generated_at: 2026-06-11 22:22:18 Asia/Taipei
+- generated_at: 2026-06-12 22:22:16 Asia/Taipei
 - stock_id: 00876
 - stock_name: 元大全球5G
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260611
-- price_rows: 12
+- latest_price_date: 20260612
+- price_rows: 13
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 89.65
-- high: 90.15
-- low: 88.5
-- close: 90.15
-- volume: 246511
-- ma5: 92.59
-- ema23_primary: 89.95
-- distance_to_ema23_pct: 0.23
-- ma20: 91.6
-- ma60: 91.6
-- ma120: 91.6
-- return_5d: -2.75
+- date: 20260612
+- open: 94.05
+- high: 95.5
+- low: 94.05
+- close: 94.55
+- volume: 485502
+- ma5: 93.15
+- ema23_primary: 90.33
+- distance_to_ema23_pct: 4.67
+- ma20: 91.83
+- ma60: 91.83
+- ma120: 91.83
+- return_5d: 3.05
 - return_20d:
-- volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: -1.59
-- distance_to_high_60_pct: -5.65
+- volume_ratio: 1.16
+- distance_to_ma20_pct_auxiliary: 2.96
+- distance_to_high_60_pct: -1.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -147,6 +147,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,92.45,92.45,90.5,91.75,462578,89.58,2.42,91.53,91.53,1.03
 20260605,94.4,94.4,92.5,93.75,246613,89.93,4.25,91.74,91.74,0.57
 20260611,89.65,90.15,88.5,90.15,246511,89.95,0.23,91.6,91.6,0.59
+20260612,94.05,95.5,94.05,94.55,485502,90.33,4.67,91.83,91.83,1.16
 ```
 
 ## Latest TDCC Snapshot

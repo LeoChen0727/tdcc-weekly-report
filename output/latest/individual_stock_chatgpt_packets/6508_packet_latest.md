@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6508 惠光
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:53 Asia/Taipei
+- generated_at: 2026-06-12 22:24:05 Asia/Taipei
 - stock_id: 6508
 - stock_name: 惠光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
+- latest_price_date: 20260612
+- price_rows: 280
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 23.25
+- date: 20260612
+- open: 23.35
 - high: 23.45
-- low: 23.2
+- low: 23.3
 - close: 23.4
 - volume: 23000
-- ma5: 23.7
-- ema23_primary: 24
-- distance_to_ema23_pct: -2.5
-- ma20: 23.68
-- ma60: 25.76
+- ma5: 23.75
+- ema23_primary: 23.95
+- distance_to_ema23_pct: -2.3
+- ma20: 23.65
+- ma60: 25.69
 - ma120: 24.89
 - return_5d: 1.08
-- return_20d: -4.29
-- volume_ratio: 0.57
-- distance_to_ma20_pct_auxiliary: -1.18
+- return_20d: -2.5
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: -1.06
 - distance_to_high_60_pct: -22.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,24.5,24.65,23.8,24,126000,25.58,-6.17,25.59,26.09,1.71
 20260513,23.85,24.3,23.85,24.1,70000,25.45,-5.32,25.44,26.1,0.94
 20260514,24.35,24.35,23.85,24.15,59000,25.35,-4.72,25.3,26.11,0.85
 20260515,24.15,24.15,23.9,24,39000,25.23,-4.89,25.18,26.12,0.58
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,23.2,23.95,23.2,23.95,24000,24.06,-0.44,23.75,25.85,0.57
 20260605,24.15,24.15,23.75,24.05,24000,24.06,-0.02,23.73,25.81,0.59
 20260611,23.25,23.45,23.2,23.4,23000,24,-2.5,23.68,25.76,0.57
+20260612,23.35,23.45,23.3,23.4,23000,23.95,-2.3,23.65,25.69,0.65
 ```
 
 ## Latest TDCC Snapshot

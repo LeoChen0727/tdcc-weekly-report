@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6669 緯穎
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:58 Asia/Taipei
+- generated_at: 2026-06-12 22:24:10 Asia/Taipei
 - stock_id: 6669
 - stock_name: 緯穎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
+- latest_price_date: 20260612
+- price_rows: 280
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 5000
-- high: 5040
-- low: 4745
-- close: 4900
-- volume: 2945125
-- ma5: 5422
-- ema23_primary: 5196.4
-- distance_to_ema23_pct: -5.7
-- ma20: 5333.25
-- ma60: 4485.42
-- ma120: 4283.21
-- return_5d: -11.15
-- return_20d: -8.24
-- volume_ratio: 1.3
-- distance_to_ma20_pct_auxiliary: -8.12
-- distance_to_high_60_pct: -16.67
+- date: 20260612
+- open: 5120
+- high: 5135
+- low: 4845
+- close: 4850
+- volume: 1921274
+- ma5: 5297
+- ema23_primary: 5167.53
+- distance_to_ema23_pct: -6.14
+- ma20: 5286.25
+- ma60: 4498.17
+- ma120: 4285.75
+- return_5d: -11.42
+- return_20d: -16.23
+- volume_ratio: 0.89
+- distance_to_ma20_pct_auxiliary: -8.25
+- distance_to_high_60_pct: -17.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,5480,5870,5415,5790,4213573,4621.03,25.3,4571,4040,1.44
 20260513,5555,5800,5500,5580,2928103,4700.94,18.7,4662.25,4070.92,0.99
 20260514,5715,5730,5435,5435,1749793,4762.11,14.13,4748,4100.17,0.59
 20260515,5575,5575,5095,5115,2346755,4791.52,6.75,4818.75,4125.25,0.78
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,5580,5675,5315,5475,1953015,5183.65,5.62,5332.25,4445.25,0.84
 20260605,5540,5740,5305,5660,2033000,5223.34,8.36,5355.25,4473.58,0.91
 20260611,5000,5040,4745,4900,2945125,5196.4,-5.7,5333.25,4485.42,1.3
+20260612,5120,5135,4845,4850,1921274,5167.53,-6.14,5286.25,4498.17,0.89
 ```
 
 ## Latest TDCC Snapshot
@@ -194,7 +194,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 6669 | 緯穎 | 418 | 0 | 35483160.0 | 0.0 |  | no_signal |
+| 20260612 | 6669 | 緯穎 | 410 | 37 | 32087400.0 | 700330.0 | 45.82 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

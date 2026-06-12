@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00887 永豐中國科技50大
 
 ## Metadata
-- generated_at: 2026-06-11 22:22:18 Asia/Taipei
+- generated_at: 2026-06-12 22:22:16 Asia/Taipei
 - stock_id: 00887
 - stock_name: 永豐中國科技50大
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260611
-- price_rows: 12
+- latest_price_date: 20260612
+- price_rows: 13
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 16.73
-- high: 17.09
-- low: 16.73
-- close: 16.81
+- date: 20260612
+- open: 17.1
+- high: 17.22
+- low: 16.93
+- close: 17.04
 - volume: 17000
-- ma5: 17.57
-- ema23_primary: 17.26
-- distance_to_ema23_pct: -2.63
-- ma20: 17.52
-- ma60: 17.52
-- ma120: 17.52
-- return_5d: -2.27
+- ma5: 17.5
+- ema23_primary: 17.25
+- distance_to_ema23_pct: -1.19
+- ma20: 17.48
+- ma60: 17.48
+- ma120: 17.48
+- return_5d: -2.01
 - return_20d:
-- volume_ratio: 1.15
-- distance_to_ma20_pct_auxiliary: -4.04
-- distance_to_high_60_pct: -7.54
+- volume_ratio: 1.14
+- distance_to_ma20_pct_auxiliary: -2.53
+- distance_to_high_60_pct: -6.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -147,6 +147,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,17.43,18.18,17.4,17.97,18000,17.27,4.05,17.57,17.57,1.27
 20260605,17.9,18.1,17.65,17.69,18000,17.31,2.22,17.58,17.58,1.24
 20260611,16.73,17.09,16.73,16.81,17000,17.26,-2.63,17.52,17.52,1.15
+20260612,17.1,17.22,16.93,17.04,17000,17.25,-1.19,17.48,17.48,1.14
 ```
 
 ## Latest TDCC Snapshot

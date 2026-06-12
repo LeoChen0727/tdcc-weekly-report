@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4102 永日
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:18 Asia/Taipei
+- generated_at: 2026-06-12 22:23:24 Asia/Taipei
 - stock_id: 4102
 - stock_name: 永日
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
+- latest_price_date: 20260612
+- price_rows: 280
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 17.8
-- high: 18.55
-- low: 17.75
-- close: 18.4
-- volume: 18000
-- ma5: 17.58
-- ema23_primary: 17.55
-- distance_to_ema23_pct: 4.86
-- ma20: 17.27
-- ma60: 18.38
-- ma120: 19.3
-- return_5d: 9.85
-- return_20d: 3.37
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: 6.51
-- distance_to_high_60_pct: -7.77
+- date: 20260612
+- open: 18.35
+- high: 18.8
+- low: 18.35
+- close: 18.8
+- volume: 19000
+- ma5: 17.98
+- ema23_primary: 17.65
+- distance_to_ema23_pct: 6.51
+- ma20: 17.33
+- ma60: 18.37
+- ma120: 19.29
+- return_5d: 11.9
+- return_20d: 6.52
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: 8.47
+- distance_to_high_60_pct: -4.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,17.85,17.85,17.5,17.65,57000,18.43,-4.26,18.51,19.27,0.76
 20260513,17.5,17.6,17.3,17.6,62000,18.37,-4.17,18.43,19.24,0.81
 20260514,17.5,17.55,17.2,17.2,72000,18.27,-5.85,18.34,19.19,1.04
 20260515,17.2,17.2,16.9,17,73000,18.16,-6.4,18.23,19.14,1.04
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,16.9,17.5,16.7,17.35,17000,17.42,-0.41,17.23,18.43,0.37
 20260605,17.6,18,17.6,18,18000,17.47,3.04,17.25,18.4,0.41
 20260611,17.8,18.55,17.75,18.4,18000,17.55,4.86,17.27,18.38,0.45
+20260612,18.35,18.8,18.35,18.8,19000,17.65,6.51,17.33,18.37,0.49
 ```
 
 ## Latest TDCC Snapshot

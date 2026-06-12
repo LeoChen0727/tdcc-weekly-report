@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1477 聚陽
 
 ## Metadata
-- generated_at: 2026-06-11 22:22:27 Asia/Taipei
+- generated_at: 2026-06-12 22:22:26 Asia/Taipei
 - stock_id: 1477
 - stock_name: 聚陽
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
+- latest_price_date: 20260612
+- price_rows: 280
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 220.5
-- high: 226
-- low: 219
-- close: 225
-- volume: 1799638
-- ma5: 227.1
-- ema23_primary: 221.84
-- distance_to_ema23_pct: 1.42
-- ma20: 220.32
-- ma60: 231
-- ma120: 269.37
-- return_5d: 1.12
-- return_20d: 3.21
-- volume_ratio: 0.64
-- distance_to_ma20_pct_auxiliary: 2.12
-- distance_to_high_60_pct: -25.5
+- date: 20260612
+- open: 228
+- high: 228
+- low: 223.5
+- close: 224
+- volume: 1094327
+- ma5: 226.7
+- ema23_primary: 222.02
+- distance_to_ema23_pct: 0.89
+- ma20: 220.1
+- ma60: 229.92
+- ma120: 268.66
+- return_5d: -0.89
+- return_20d: -1.97
+- volume_ratio: 0.42
+- distance_to_ma20_pct_auxiliary: 1.77
+- distance_to_high_60_pct: -25.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,218.5,230.5,216.5,228.5,4892501,223.56,2.21,217.43,259.85,2.2
 20260513,228,232,225.5,229,3200414,224.01,2.23,218.05,258.42,1.38
 20260514,231,231,222.5,223,2788469,223.93,-0.42,218.45,256.93,1.17
 20260515,224,225.5,217,218,3267334,223.44,-2.43,218.53,255.25,1.32
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,222.5,226,220.5,226,2459273,220.97,2.28,219.65,233.05,0.87
 20260605,233,234,226.5,228,2479120,221.55,2.91,219.97,232.06,0.88
 20260611,220.5,226,219,225,1799638,221.84,1.42,220.32,231,0.64
+20260612,228,228,223.5,224,1094327,222.02,0.89,220.1,229.92,0.42
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 1477 | 聚陽 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260612 | 1477 | 聚陽 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 1477 | 聚陽 | 2 | 2 | 4 | 4 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260612 | 1477 | 聚陽 | 3 | 3 | 4 | 5 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 1477 | 聚陽 | 15 | 0 | 2071890.0 | 0.0 |  | no_signal |
+| 20260612 | 1477 | 聚陽 | 16 | 0 | 1359890.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

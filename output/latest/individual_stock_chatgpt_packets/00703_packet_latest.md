@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00703 台新MSCI中國
 
 ## Metadata
-- generated_at: 2026-06-11 22:22:17 Asia/Taipei
+- generated_at: 2026-06-12 22:22:15 Asia/Taipei
 - stock_id: 00703
 - stock_name: 台新MSCI中國
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260611
-- price_rows: 12
+- latest_price_date: 20260612
+- price_rows: 13
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 19.38
-- high: 19.38
-- low: 18.88
-- close: 18.99
-- volume: 50315
-- ma5: 19.62
-- ema23_primary: 19.6
-- distance_to_ema23_pct: -3.1
-- ma20: 19.54
-- ma60: 19.54
-- ma120: 19.54
-- return_5d: -2.42
+- date: 20260612
+- open: 19.08
+- high: 19.4
+- low: 19.08
+- close: 19.4
+- volume: 96144
+- ma5: 19.52
+- ema23_primary: 19.58
+- distance_to_ema23_pct: -0.92
+- ma20: 19.53
+- ma60: 19.53
+- ma120: 19.53
+- return_5d: -2.61
 - return_20d:
-- volume_ratio: 0.43
-- distance_to_ma20_pct_auxiliary: -2.81
-- distance_to_high_60_pct: -4.67
+- volume_ratio: 0.84
+- distance_to_ma20_pct_auxiliary: -0.66
+- distance_to_high_60_pct: -2.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -147,6 +147,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,19.13,19.92,19.13,19.92,400719,19.67,1.29,19.6,19.6,3.2
 20260605,19.78,19.78,19.08,19.51,91644,19.65,-0.73,19.59,19.59,0.75
 20260611,19.38,19.38,18.88,18.99,50315,19.6,-3.1,19.54,19.54,0.43
+20260612,19.08,19.4,19.08,19.4,96144,19.58,-0.92,19.53,19.53,0.84
 ```
 
 ## Latest TDCC Snapshot

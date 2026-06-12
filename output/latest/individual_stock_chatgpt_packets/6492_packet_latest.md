@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6492 生華科
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:53 Asia/Taipei
+- generated_at: 2026-06-12 22:24:04 Asia/Taipei
 - stock_id: 6492
 - stock_name: 生華科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
+- latest_price_date: 20260612
+- price_rows: 280
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 43.1
-- high: 43.55
-- low: 42.5
-- close: 43.4
-- volume: 43000
-- ma5: 44.36
-- ema23_primary: 46.22
-- distance_to_ema23_pct: -6.1
-- ma20: 45.72
-- ma60: 49.9
-- ma120: 48.99
-- return_5d: -3.88
-- return_20d: -13.72
-- volume_ratio: 0.33
-- distance_to_ma20_pct_auxiliary: -5.08
-- distance_to_high_60_pct: -26.94
+- date: 20260612
+- open: 43.95
+- high: 44.75
+- low: 43.4
+- close: 44.3
+- volume: 44000
+- ma5: 44.44
+- ema23_primary: 46.06
+- distance_to_ema23_pct: -3.82
+- ma20: 45.44
+- ma60: 49.81
+- ma120: 49.01
+- return_5d: 0.91
+- return_20d: -11.31
+- volume_ratio: 0.36
+- distance_to_ma20_pct_auxiliary: -2.51
+- distance_to_high_60_pct: -25.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,50.4,50.5,49.75,49.95,228000,51.33,-2.69,51.84,52.15,0.58
 20260513,49.6,49.6,49,49.2,288000,51.15,-3.81,51.76,51.94,0.73
 20260514,48.75,48.95,48,48.25,510000,50.91,-5.22,51.48,51.77,1.32
 20260515,48.3,48.8,47.65,47.85,294000,50.65,-5.54,51.15,51.6,0.78
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,46.3,46.6,44.8,45,45000,46.65,-3.54,46.41,50.1,0.28
 20260605,44.5,44.7,44.05,44.5,44000,46.47,-4.25,46.07,50.01,0.31
 20260611,43.1,43.55,42.5,43.4,43000,46.22,-6.1,45.72,49.9,0.33
+20260612,43.95,44.75,43.4,44.3,44000,46.06,-3.82,45.44,49.81,0.36
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2489 瑞軒
 
 ## Metadata
-- generated_at: 2026-06-11 22:22:49 Asia/Taipei
+- generated_at: 2026-06-12 22:22:51 Asia/Taipei
 - stock_id: 2489
 - stock_name: 瑞軒
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 273
+- latest_price_date: 20260612
+- price_rows: 274
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 40.9
-- high: 42.5
-- low: 39.5
-- close: 41
-- volume: 21619785
-- ma5: 47.02
-- ema23_primary: 46.13
-- distance_to_ema23_pct: -11.13
-- ma20: 46.31
-- ma60: 41.99
-- ma120: 32.01
-- return_5d: -15.72
-- return_20d: -4.65
-- volume_ratio: 0.48
-- distance_to_ma20_pct_auxiliary: -11.46
-- distance_to_high_60_pct: -28.94
+- date: 20260612
+- open: 42.8
+- high: 43.4
+- low: 41.65
+- close: 41.65
+- volume: 12526057
+- ma5: 45.79
+- ema23_primary: 45.76
+- distance_to_ema23_pct: -8.98
+- ma20: 46.3
+- ma60: 42.06
+- ma120: 32.23
+- return_5d: -12.87
+- return_20d: -0.36
+- volume_ratio: 0.29
+- distance_to_ma20_pct_auxiliary: -10.04
+- distance_to_high_60_pct: -27.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,42.6,44.8,41.75,41.8,35036984,41.49,0.75,42.42,37.73,0.89
 20260513,41,41.5,40,41.3,21240599,41.47,-0.42,42.2,38.06,0.59
 20260514,41.6,42.45,40.25,40.55,24690914,41.4,-2.04,42.12,38.36,0.68
 20260515,40.65,41.4,39.05,40.35,21839336,41.31,-2.32,41.94,38.65,0.59
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,49.7,50.8,47.15,47.8,31703123,46.44,2.94,46.07,41.72,0.7
 20260605,48,49.3,46.2,48.4,24065334,46.6,3.86,46.41,41.93,0.54
 20260611,40.9,42.5,39.5,41,21619785,46.13,-11.13,46.31,41.99,0.48
+20260612,42.8,43.4,41.65,41.65,12526057,45.76,-8.98,46.3,42.06,0.29
 ```
 
 ## Latest TDCC Snapshot
@@ -194,7 +194,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 2489 | 瑞軒 | 11 | 0 | 366750.0 | 0.0 |  | no_signal |
+| 20260612 | 2489 | 瑞軒 | 11 | 1 | 186240.0 | 9120.0 | 20.42 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

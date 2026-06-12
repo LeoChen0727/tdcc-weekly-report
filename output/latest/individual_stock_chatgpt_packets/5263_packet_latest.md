@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5263 智崴
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:33 Asia/Taipei
+- generated_at: 2026-06-12 22:23:42 Asia/Taipei
 - stock_id: 5263
 - stock_name: 智崴
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 278
+- latest_price_date: 20260612
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,21 +113,21 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 102
-- high: 104
+- date: 20260612
+- open: 103
+- high: 104.5
 - low: 101.5
 - close: 102
-- volume: 102000
-- ma5: 106.4
-- ema23_primary: 104.74
-- distance_to_ema23_pct: -2.61
+- volume: 103000
+- ma5: 105.3
+- ema23_primary: 104.51
+- distance_to_ema23_pct: -2.4
 - ma20: 106.3
-- ma60: 99.24
-- ma120: 101.42
-- return_5d: 0.99
-- return_20d: -1.92
-- volume_ratio: 0.56
+- ma60: 99.28
+- ma120: 101.49
+- return_5d: -5.12
+- return_20d: 0
+- volume_ratio: 0.58
 - distance_to_ma20_pct_auxiliary: -4.05
 - distance_to_high_60_pct: -11.3
 
@@ -135,7 +135,6 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,105,105,101,102,141000,97.88,4.21,96.6,97.51,0.61
 20260513,100,101,99.5,100,185000,98.05,1.99,96.89,97.39,0.8
 20260514,100,100.5,99,100,164000,98.22,1.82,97.19,97.33,0.71
 20260515,103,105.5,100,102,282000,98.53,3.52,97.5,97.3,1.19
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,107.5,111.5,106.5,107.5,109000,104.76,2.62,106.2,99.07,0.56
 20260605,106,107.5,104,107.5,106000,104.99,2.39,106.4,99.22,0.56
 20260611,102,104,101.5,102,102000,104.74,-2.61,106.3,99.24,0.56
+20260612,103,104.5,101.5,102,103000,104.51,-2.4,106.3,99.28,0.58
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8110 華東
 
 ## Metadata
-- generated_at: 2026-06-11 22:24:25 Asia/Taipei
+- generated_at: 2026-06-12 22:24:42 Asia/Taipei
 - stock_id: 8110
 - stock_name: 華東
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
+- latest_price_date: 20260612
+- price_rows: 280
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 51.6
-- high: 55.5
-- low: 51.3
-- close: 53.6
-- volume: 15051977
-- ma5: 58.68
-- ema23_primary: 55.33
-- distance_to_ema23_pct: -3.12
-- ma20: 54.62
-- ma60: 52.17
-- ma120: 57.8
-- return_5d: -17.79
-- return_20d: 5.72
-- volume_ratio: 0.53
-- distance_to_ma20_pct_auxiliary: -1.86
-- distance_to_high_60_pct: -22.88
+- date: 20260612
+- open: 55.9
+- high: 57
+- low: 54.7
+- close: 54.8
+- volume: 13774998
+- ma5: 57.32
+- ema23_primary: 55.28
+- distance_to_ema23_pct: -0.87
+- ma20: 54.81
+- ma60: 52.19
+- ma120: 57.95
+- return_5d: -11.04
+- return_20d: 7.87
+- volume_ratio: 0.48
+- distance_to_ma20_pct_auxiliary: -0.03
+- distance_to_high_60_pct: -21.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,51,51.9,49.2,50.8,9808574,49.59,2.44,48.5,53.74,0.74
 20260513,49.6,49.7,48.7,49.45,6330523,49.58,-0.26,48.49,53.45,0.48
 20260514,50.4,52.7,50.3,51.5,22711957,49.74,3.54,48.61,53.2,1.63
 20260515,52,52,48.85,50,14764030,49.76,0.48,48.63,53.01,1.04
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,63.9,65.5,58.9,61.6,38328353,55.39,11.21,54.07,52.16,1.34
 20260605,59.2,59.2,54,56.5,13768810,55.48,1.83,54.47,52.21,0.48
 20260611,51.6,55.5,51.3,53.6,15051977,55.33,-3.12,54.62,52.17,0.53
+20260612,55.9,57,54.7,54.8,13774998,55.28,-0.87,54.81,52.19,0.48
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 8110 | 華東 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260612 | 8110 | 華東 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 8110 | 華東 | 2 | 2 | 3 | 7 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260612 | 8110 | 華東 | 3 | 3 | 3 | 8 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 8110 | 華東 | 31 | 0 | 2530720.0 | 0.0 |  | no_signal |
+| 20260612 | 8110 | 華東 | 32 | 6 | 2777410.0 | 156140.0 | 17.79 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

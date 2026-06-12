@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4164 承業醫
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:20 Asia/Taipei
+- generated_at: 2026-06-12 22:23:27 Asia/Taipei
 - stock_id: 4164
 - stock_name: 承業醫
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
+- latest_price_date: 20260612
+- price_rows: 280
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 31.3
-- high: 31.3
-- low: 30.4
-- close: 30.6
-- volume: 828933
-- ma5: 29.49
-- ema23_primary: 29.06
-- distance_to_ema23_pct: 5.3
-- ma20: 28.6
-- ma60: 29.95
-- ma120: 32.64
-- return_5d: 7.18
-- return_20d: 5.52
-- volume_ratio: 1.08
-- distance_to_ma20_pct_auxiliary: 7
-- distance_to_high_60_pct: -11.18
+- date: 20260612
+- open: 30.9
+- high: 31.35
+- low: 30.65
+- close: 30.9
+- volume: 918645
+- ma5: 29.92
+- ema23_primary: 29.21
+- distance_to_ema23_pct: 5.78
+- ma20: 28.72
+- ma60: 29.96
+- ma120: 32.58
+- return_5d: 7.48
+- return_20d: 8.42
+- volume_ratio: 1.21
+- distance_to_ma20_pct_auxiliary: 7.6
+- distance_to_high_60_pct: -10.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,29.15,29.15,28.5,28.5,1086423,29.95,-4.84,30.18,31.15,0.75
 20260513,28.5,28.55,28,28.15,1104920,29.8,-5.53,30.05,31.07,0.75
 20260514,28.2,28.6,27.85,27.9,816435,29.64,-5.87,29.9,30.98,0.55
 20260515,28.05,28.7,28.05,28.05,572585,29.51,-4.94,29.73,30.9,0.39
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,28.55,28.75,28.2,28.75,727166,28.82,-0.23,28.44,29.98,0.85
 20260605,30.2,30.2,29.5,30.05,886104,28.92,3.91,28.52,29.96,1.14
 20260611,31.3,31.3,30.4,30.6,828933,29.06,5.3,28.6,29.95,1.08
+20260612,30.9,31.35,30.65,30.9,918645,29.21,5.78,28.72,29.96,1.21
 ```
 
 ## Latest TDCC Snapshot

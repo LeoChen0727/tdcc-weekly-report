@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1102 亞泥
 
 ## Metadata
-- generated_at: 2026-06-11 22:22:20 Asia/Taipei
+- generated_at: 2026-06-12 22:22:18 Asia/Taipei
 - stock_id: 1102
 - stock_name: 亞泥
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
+- latest_price_date: 20260612
+- price_rows: 280
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 34.5
-- high: 34.75
-- low: 34.25
-- close: 34.5
-- volume: 16391484
-- ma5: 34.14
-- ema23_primary: 34.24
-- distance_to_ema23_pct: 0.76
-- ma20: 34.16
-- ma60: 34.78
-- ma120: 35.52
-- return_5d: 2.07
-- return_20d: -0.43
-- volume_ratio: 0.67
-- distance_to_ma20_pct_auxiliary: 1
-- distance_to_high_60_pct: -4.56
+- date: 20260612
+- open: 34.9
+- high: 35.5
+- low: 34.65
+- close: 35.2
+- volume: 15449386
+- ma5: 34.42
+- ema23_primary: 34.32
+- distance_to_ema23_pct: 2.56
+- ma20: 34.19
+- ma60: 34.79
+- ma120: 35.49
+- return_5d: 4.14
+- return_20d: 1.73
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: 2.95
+- distance_to_high_60_pct: -2.63
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,34.75,34.9,34.6,34.6,7762086,35.12,-1.48,35.26,35.07,0.82
 20260513,34.45,35.5,34.45,35.3,9747610,35.14,0.47,35.24,35.09,1.03
 20260514,35,35.45,35,35.2,13239584,35.14,0.17,35.24,35.09,1.37
 20260515,35.2,35.2,34.35,34.35,11291933,35.08,-2.07,35.18,35.07,1.15
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,33.7,34.4,33.6,33.8,26335137,34.2,-1.17,34.2,34.77,1.1
 20260605,34.3,34.55,34.1,34.4,14863674,34.22,0.53,34.17,34.77,0.61
 20260611,34.5,34.75,34.25,34.5,16391484,34.24,0.76,34.16,34.78,0.67
+20260612,34.9,35.5,34.65,35.2,15449386,34.32,2.56,34.19,34.79,0.62
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 1102 | 亞泥 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260612 | 1102 | 亞泥 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 1102 | 亞泥 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260612 | 1102 | 亞泥 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 1102 | 亞泥 | 1 | 0 | 7760.0 | 0.0 |  | no_signal |
+| 20260612 | 1102 | 亞泥 | 1 | 0 | 19970.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

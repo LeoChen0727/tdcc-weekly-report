@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6719 力智
 
 ## Metadata
-- generated_at: 2026-06-11 22:24:00 Asia/Taipei
+- generated_at: 2026-06-12 22:24:12 Asia/Taipei
 - stock_id: 6719
 - stock_name: 力智
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
+- latest_price_date: 20260612
+- price_rows: 280
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 212.5
-- high: 217
-- low: 207.5
-- close: 214
-- volume: 1016108
-- ma5: 235.2
-- ema23_primary: 225.67
-- distance_to_ema23_pct: -5.17
-- ma20: 231.65
-- ma60: 191.13
-- ma120: 190.97
-- return_5d: -12.12
-- return_20d: 12.63
-- volume_ratio: 0.31
-- distance_to_ma20_pct_auxiliary: -7.62
-- distance_to_high_60_pct: -25.17
+- date: 20260612
+- open: 222
+- high: 224.5
+- low: 219
+- close: 219
+- volume: 842057
+- ma5: 230.9
+- ema23_primary: 225.11
+- distance_to_ema23_pct: -2.71
+- ma20: 232.85
+- ma60: 191.85
+- ma120: 191.09
+- return_5d: -8.94
+- return_20d: 12.31
+- volume_ratio: 0.25
+- distance_to_ma20_pct_auxiliary: -5.95
+- distance_to_high_60_pct: -23.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,192.5,196,190,195,1233429,178.82,9.05,177.22,175.35,1.59
 20260513,195,203,191,202.5,1703496,180.8,12,179.32,175.31,2
 20260514,204.5,214,198.5,208.5,2316377,183.1,13.87,181.65,175.43,2.44
 20260515,210.5,211,198.5,200,1430256,184.51,8.39,183.35,175.44,1.44
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,244.5,245,232,240.5,2386082,225.66,6.58,227.88,189.31,0.73
 20260605,234,244.5,232.5,238.5,1847899,226.73,5.19,230.45,190.47,0.56
 20260611,212.5,217,207.5,214,1016108,225.67,-5.17,231.65,191.13,0.31
+20260612,222,224.5,219,219,842057,225.11,-2.71,232.85,191.85,0.25
 ```
 
 ## Latest TDCC Snapshot
@@ -194,7 +195,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 6719 | 力智 | 21 | 0 | 4030480.0 | 0.0 |  | no_signal |
+| 20260612 | 6719 | 力智 | 21 | 1 | 2729690.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

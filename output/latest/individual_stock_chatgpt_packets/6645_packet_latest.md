@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6645 金萬林-創
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:57 Asia/Taipei
+- generated_at: 2026-06-12 22:24:10 Asia/Taipei
 - stock_id: 6645
 - stock_name: 金萬林-創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
+- latest_price_date: 20260612
+- price_rows: 280
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 13.25
-- high: 13.25
-- low: 12.8
-- close: 12.9
-- volume: 48300
-- ma5: 12.26
-- ema23_primary: 12.31
-- distance_to_ema23_pct: 4.75
-- ma20: 12.12
+- date: 20260612
+- open: 12.95
+- high: 14.15
+- low: 12.95
+- close: 14.15
+- volume: 142879
+- ma5: 12.74
+- ema23_primary: 12.47
+- distance_to_ema23_pct: 13.5
+- ma20: 12.18
 - ma60: 13
-- ma120: 15.34
-- return_5d: 10.26
-- return_20d: -0.39
-- volume_ratio: 0.7
-- distance_to_ma20_pct_auxiliary: 6.46
-- distance_to_high_60_pct: -12.24
+- ma120: 15.3
+- return_5d: 20.43
+- return_20d: 9.69
+- volume_ratio: 1.9
+- distance_to_ma20_pct_auxiliary: 16.17
+- distance_to_high_60_pct: -3.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,12.8,12.9,12.7,12.9,20462,13.18,-2.09,13.02,14.51,0.44
 20260513,12.9,12.9,12.6,12.85,22580,13.15,-2.27,13.01,14.44,0.54
 20260514,12.6,12.65,11.9,12.35,197472,13.08,-5.59,12.97,14.34,4.08
 20260515,12.4,12.45,11.95,11.95,86510,12.99,-7.99,12.9,14.25,1.72
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,11.45,11.75,11.45,11.75,40933,12.2,-3.68,12.12,13.06,0.7
 20260605,11.85,12.95,11.85,12.95,217683,12.26,5.62,12.12,13.03,3.22
 20260611,13.25,13.25,12.8,12.9,48300,12.31,4.75,12.12,13,0.7
+20260612,12.95,14.15,12.95,14.15,142879,12.47,13.5,12.18,13,1.9
 ```
 
 ## Latest TDCC Snapshot

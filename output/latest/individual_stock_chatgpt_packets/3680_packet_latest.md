@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3680 家登
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:17 Asia/Taipei
+- generated_at: 2026-06-12 22:23:23 Asia/Taipei
 - stock_id: 3680
 - stock_name: 家登
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
+- latest_price_date: 20260612
+- price_rows: 280
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 495.5
-- high: 498.5
-- low: 466.5
-- close: 480
-- volume: 482000
-- ma5: 521
-- ema23_primary: 532.85
-- distance_to_ema23_pct: -9.92
-- ma20: 548.55
-- ma60: 478.86
-- ma120: 433.43
-- return_5d: -10.45
-- return_20d: -22.08
-- volume_ratio: 0.31
-- distance_to_ma20_pct_auxiliary: -12.5
-- distance_to_high_60_pct: -22.95
+- date: 20260612
+- open: 500
+- high: 510
+- low: 490
+- close: 503
+- volume: 503000
+- ma5: 516.2
+- ema23_primary: 530.37
+- distance_to_ema23_pct: -5.16
+- ma20: 543.6
+- ma60: 480.84
+- ma120: 434.75
+- return_5d: -4.55
+- return_20d: -16.45
+- volume_ratio: 0.36
+- distance_to_ma20_pct_auxiliary: -7.47
+- distance_to_high_60_pct: -19.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,617,623,600,602,3492000,511.31,17.74,506.77,432.89,0.7
 20260513,592,602,563,588,3151000,517.7,13.58,515.95,435.92,0.65
 20260514,593,603,573,580,3513000,522.89,10.92,524.85,438.69,0.71
 20260515,592,592,557,568,3139000,526.65,7.85,531.5,441.48,0.66
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,531,552,528,539,541000,539.26,-0.05,557.35,474.96,0.27
 20260605,530,530,507,520,516000,537.66,-3.28,555.35,477.36,0.3
 20260611,495.5,498.5,466.5,480,482000,532.85,-9.92,548.55,478.86,0.31
+20260612,500,510,490,503,503000,530.37,-5.16,543.6,480.84,0.36
 ```
 
 ## Latest TDCC Snapshot

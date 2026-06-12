@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2606 裕民
 
 ## Metadata
-- generated_at: 2026-06-11 22:22:52 Asia/Taipei
+- generated_at: 2026-06-12 22:22:54 Asia/Taipei
 - stock_id: 2606
 - stock_name: 裕民
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
+- latest_price_date: 20260612
+- price_rows: 280
 - latest_tdcc_date: 20260605
 - tdcc_rows: 28
 - tdcc_history_status: tdcc_history_ready
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 68.6
-- high: 68.9
-- low: 66.4
-- close: 67.7
-- volume: 5943701
-- ma5: 70.72
-- ema23_primary: 67.8
-- distance_to_ema23_pct: -0.15
-- ma20: 67.66
-- ma60: 63.24
-- ma120: 62.8
-- return_5d: -5.84
-- return_20d: 3.68
-- volume_ratio: 0.77
-- distance_to_ma20_pct_auxiliary: 0.06
-- distance_to_high_60_pct: -7.26
+- date: 20260612
+- open: 67.9
+- high: 69.5
+- low: 67.8
+- close: 68.3
+- volume: 3980754
+- ma5: 69.98
+- ema23_primary: 67.84
+- distance_to_ema23_pct: 0.68
+- ma20: 67.88
+- ma60: 63.38
+- ma120: 62.79
+- return_5d: -5.14
+- return_20d: 6.89
+- volume_ratio: 0.53
+- distance_to_ma20_pct_auxiliary: 0.62
+- distance_to_high_60_pct: -6.44
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,65.3,65.6,63.4,63.9,8247399,62.58,2.11,62.7,61.87,1.76
 20260513,64.7,65.7,64,64.3,7247385,62.72,2.52,62.91,61.91,1.47
 20260514,64.9,66.3,64.1,64.6,13884991,62.88,2.74,62.98,61.95,2.64
 20260515,64.9,65.6,61.8,62.8,17930087,62.87,-0.11,62.92,61.97,3.04
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,72,72,69.7,72,5864555,67.54,6.61,67.25,62.98,0.77
 20260605,69.9,72.1,69.6,70.8,8020529,67.81,4.41,67.54,63.14,1.05
 20260611,68.6,68.9,66.4,67.7,5943701,67.8,-0.15,67.66,63.24,0.77
+20260612,67.9,69.5,67.8,68.3,3980754,67.84,0.68,67.88,63.38,0.53
 ```
 
 ## Latest TDCC Snapshot
@@ -196,17 +196,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 2606 | 裕民 | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: ex_dividend on 20260616; status=confirmed; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260612 | 2606 | 裕民 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | stale_signal | calendar event: ex_dividend on 20260616; status=confirmed; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 2606 | 裕民 | 12 | 3 | 5 | 10 | 12 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260612 | 2606 | 裕民 | 13 | 4 | 5 | 10 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 2606 | 裕民 | 33 | 0 | 873980.0 | 0.0 |  | no_signal |
+| 20260612 | 2606 | 裕民 | 30 | 1 | 2450500.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

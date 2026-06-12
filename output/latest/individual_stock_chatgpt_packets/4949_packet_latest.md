@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4949 有成精密
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:30 Asia/Taipei
+- generated_at: 2026-06-12 22:23:38 Asia/Taipei
 - stock_id: 4949
 - stock_name: 有成精密
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
+- latest_price_date: 20260612
+- price_rows: 280
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -116,29 +116,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 90.5
-- high: 93.9
-- low: 88.9
-- close: 90
-- volume: 1275890
-- ma5: 98.78
-- ema23_primary: 95.95
-- distance_to_ema23_pct: -6.2
-- ma20: 95.78
-- ma60: 85.82
-- ma120: 64.26
-- return_5d: -13.04
-- return_20d: -5.66
-- volume_ratio: 0.4
-- distance_to_ma20_pct_auxiliary: -6.04
-- distance_to_high_60_pct: -20
+- date: 20260612
+- open: 93.5
+- high: 93.7
+- low: 88
+- close: 89.4
+- volume: 1169243
+- ma5: 95.76
+- ema23_primary: 95.41
+- distance_to_ema23_pct: -6.29
+- ma20: 95.31
+- ma60: 86.28
+- ma120: 64.68
+- return_5d: -14.45
+- return_20d: -9.51
+- volume_ratio: 0.38
+- distance_to_ma20_pct_auxiliary: -6.21
+- distance_to_high_60_pct: -20.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,95.3,101,95,98.8,3409355,90.89,8.7,94.17,70.8,0.9
 20260513,96.6,97.2,89,89,4656148,90.73,-1.91,94,71.51,1.42
 20260514,88.5,89.6,83,84.3,3481599,90.2,-6.54,93.77,72.14,1.18
 20260515,85.1,91.2,85,85.7,2812993,89.82,-4.59,93.63,72.71,0.93
@@ -158,6 +157,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,101,104.5,96.1,104.5,3747212,96.73,8.03,96.05,84.56,1.13
 20260605,97.5,98.3,93,93.9,1337572,96.49,-2.69,96.06,85.27,0.42
 20260611,90.5,93.9,88.9,90,1275890,95.95,-6.2,95.78,85.82,0.4
+20260612,93.5,93.7,88,89.4,1169243,95.41,-6.29,95.31,86.28,0.38
 ```
 
 ## Latest TDCC Snapshot
@@ -188,13 +188,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 4949 | 有成精密 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
-| 20260611 | 4949 | 有成精密 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260612 | 4949 | 有成精密 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260612 | 4949 | 有成精密 | revenue_pullback | 營收成長股價回檔 | 76.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 4949 | 有成精密 | 3 | 3 | 4 | 8 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260612 | 4949 | 有成精密 | 4 | 4 | 4 | 9 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

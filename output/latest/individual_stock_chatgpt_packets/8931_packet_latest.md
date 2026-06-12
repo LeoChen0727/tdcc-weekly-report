@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8931 大汽電
 
 ## Metadata
-- generated_at: 2026-06-11 22:24:31 Asia/Taipei
+- generated_at: 2026-06-12 22:24:49 Asia/Taipei
 - stock_id: 8931
 - stock_name: 大汽電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
+- latest_price_date: 20260612
+- price_rows: 280
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 42.8
-- high: 42.95
-- low: 42.15
+- date: 20260612
+- open: 43
+- high: 43
+- low: 42.4
 - close: 42.7
-- volume: 42000
-- ma5: 42.66
-- ema23_primary: 42.42
-- distance_to_ema23_pct: 0.67
-- ma20: 42.37
-- ma60: 42.83
-- ma120: 44.38
+- volume: 43000
+- ma5: 42.74
+- ema23_primary: 42.44
+- distance_to_ema23_pct: 0.61
+- ma20: 42.44
+- ma60: 42.76
+- ma120: 44.35
 - return_5d: 0.95
-- return_20d: 2.64
-- volume_ratio: 0.68
-- distance_to_ma20_pct_auxiliary: 0.78
+- return_20d: 3.39
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: 0.61
 - distance_to_high_60_pct: -10.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,41.5,41.5,41.2,41.3,26000,42.06,-1.81,41.79,44.03,0.8
 20260513,41.95,44.2,41.05,42.65,312000,42.11,1.28,41.83,43.99,6.6
 20260514,43.4,43.4,41.95,42.6,165000,42.15,1.06,41.84,43.95,3.18
 20260515,42.45,42.7,42.1,42.1,95000,42.15,-0.11,41.84,43.9,1.69
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,42.25,42.7,41.9,42.6,42000,42.33,0.64,42.24,42.96,0.66
 20260605,44,44,42.8,43.1,43000,42.39,1.67,42.31,42.89,0.68
 20260611,42.8,42.95,42.15,42.7,42000,42.42,0.67,42.37,42.83,0.68
+20260612,43,43,42.4,42.7,43000,42.44,0.61,42.44,42.76,0.69
 ```
 
 ## Latest TDCC Snapshot

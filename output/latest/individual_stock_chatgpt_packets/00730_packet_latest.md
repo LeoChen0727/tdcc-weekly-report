@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00730 富邦臺灣優質高息
 
 ## Metadata
-- generated_at: 2026-06-11 22:22:17 Asia/Taipei
+- generated_at: 2026-06-12 22:22:15 Asia/Taipei
 - stock_id: 00730
 - stock_name: 富邦臺灣優質高息
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260611
-- price_rows: 12
+- latest_price_date: 20260612
+- price_rows: 13
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 28.23
-- high: 28.59
-- low: 27.86
-- close: 28.2
-- volume: 175053
-- ma5: 29.14
-- ema23_primary: 28.15
-- distance_to_ema23_pct: 0.18
-- ma20: 28.43
-- ma60: 28.43
-- ma120: 28.43
-- return_5d: -2.02
+- date: 20260612
+- open: 28.72
+- high: 29.3
+- low: 28.72
+- close: 29.23
+- volume: 534225
+- ma5: 29.13
+- ema23_primary: 28.24
+- distance_to_ema23_pct: 3.51
+- ma20: 28.49
+- ma60: 28.49
+- ma120: 28.49
+- return_5d: -0.24
 - return_20d:
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: -0.82
-- distance_to_high_60_pct: -5.05
+- volume_ratio: 1.33
+- distance_to_ma20_pct_auxiliary: 2.58
+- distance_to_high_60_pct: -1.58
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -147,6 +147,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,28.8,29.42,28.8,29.3,556082,28.03,4.53,28.36,28.36,1.34
 20260605,29.65,29.7,29.18,29.41,369995,28.15,4.49,28.45,28.45,0.9
 20260611,28.23,28.59,27.86,28.2,175053,28.15,0.18,28.43,28.43,0.45
+20260612,28.72,29.3,28.72,29.23,534225,28.24,3.51,28.49,28.49,1.33
 ```
 
 ## Latest TDCC Snapshot

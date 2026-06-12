@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1256 鮮活果汁-KY
 
 ## Metadata
-- generated_at: 2026-06-11 22:22:22 Asia/Taipei
+- generated_at: 2026-06-12 22:22:20 Asia/Taipei
 - stock_id: 1256
 - stock_name: 鮮活果汁-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
+- latest_price_date: 20260612
+- price_rows: 280
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 176
-- high: 179
-- low: 172
-- close: 175
-- volume: 161117
-- ma5: 192.7
-- ema23_primary: 186.9
-- distance_to_ema23_pct: -6.37
-- ma20: 190.78
-- ma60: 168.21
-- ma120: 160.46
-- return_5d: -16.47
-- return_20d: -1.13
-- volume_ratio: 0.76
-- distance_to_ma20_pct_auxiliary: -8.27
-- distance_to_high_60_pct: -19.91
+- date: 20260612
+- open: 177.5
+- high: 180.5
+- low: 176
+- close: 178
+- volume: 56614
+- ma5: 187.7
+- ema23_primary: 186.16
+- distance_to_ema23_pct: -4.38
+- ma20: 190.35
+- ma60: 168.43
+- ma120: 160.79
+- return_5d: -12.32
+- return_20d: -4.56
+- volume_ratio: 0.29
+- distance_to_ma20_pct_auxiliary: -6.49
+- distance_to_high_60_pct: -18.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,193,193,186.5,186.5,327744,164.52,13.36,163.43,158.67,3.71
 20260513,199,199,187.5,191,316998,166.73,14.56,165.38,159.22,3.1
 20260514,196,196,184,185,222663,168.25,9.95,167.07,159.67,2.02
 20260515,182.5,184.5,179,179.5,88741,169.19,6.09,168.3,159.93,0.79
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,212,212,201.5,203,188250,188.62,7.62,190.62,167.86,0.95
 20260605,203.5,203.5,180,181,470872,187.99,-3.72,190.88,168.14,2.24
 20260611,176,179,172,175,161117,186.9,-6.37,190.78,168.21,0.76
+20260612,177.5,180.5,176,178,56614,186.16,-4.38,190.35,168.43,0.29
 ```
 
 ## Latest TDCC Snapshot

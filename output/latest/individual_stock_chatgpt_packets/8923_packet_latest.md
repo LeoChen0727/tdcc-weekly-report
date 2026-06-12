@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8923 時報
 
 ## Metadata
-- generated_at: 2026-06-11 22:24:31 Asia/Taipei
+- generated_at: 2026-06-12 22:24:49 Asia/Taipei
 - stock_id: 8923
 - stock_name: 時報
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260604
-- price_rows: 210
+- latest_price_date: 20260612
+- price_rows: 211
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260604
-- open: 18.9
-- high: 19.1
-- low: 18.9
-- close: 19.1
+- date: 20260612
+- open: 18.5
+- high: 19.35
+- low: 18.4
+- close: 19.35
 - volume: 19000
-- ma5: 19.11
-- ema23_primary: 19.46
-- distance_to_ema23_pct: -1.85
-- ma20: 19.46
-- ma60: 19.67
+- ma5: 19.07
+- ema23_primary: 19.45
+- distance_to_ema23_pct: -0.52
+- ma20: 19.43
+- ma60: 19.66
 - ma120: 19.68
-- return_5d: -4.26
-- return_20d: -4.98
-- volume_ratio: 2.44
-- distance_to_ma20_pct_auxiliary: -1.84
-- distance_to_high_60_pct: -6.83
+- return_5d: -1.02
+- return_20d: -2.52
+- volume_ratio: 2.18
+- distance_to_ma20_pct_auxiliary: -0.42
+- distance_to_high_60_pct: -5.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260417,19.85,19.85,19.85,19.85,1000,19.82,0.17,19.82,19.85,0.08
 20260420,19.85,19.85,19.85,19.85,1000,19.82,0.15,19.87,19.86,0.09
 20260421,19.3,19.3,19.3,19.3,3000,19.78,-2.41,19.87,19.85,0.28
 20260422,19.95,19.95,19.95,19.95,7000,19.79,0.8,19.88,19.86,0.63
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260602,18.9,18.9,18.9,18.9,19,19.53,-3.22,19.54,19.68,0
 20260603,18.9,19.1,18.9,19.1,19000,19.49,-2.02,19.51,19.67,2.73
 20260604,18.9,19.1,18.9,19.1,19000,19.46,-1.85,19.46,19.67,2.44
+20260612,18.5,19.35,18.4,19.35,19000,19.45,-0.52,19.43,19.66,2.18
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00900 富邦特選高股息30
 
 ## Metadata
-- generated_at: 2026-06-11 22:22:18 Asia/Taipei
+- generated_at: 2026-06-12 22:22:16 Asia/Taipei
 - stock_id: 00900
 - stock_name: 富邦特選高股息30
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260611
-- price_rows: 12
+- latest_price_date: 20260612
+- price_rows: 13
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 18.73
-- high: 18.89
-- low: 18.39
-- close: 18.8
-- volume: 9063401
-- ma5: 19.73
-- ema23_primary: 18.55
-- distance_to_ema23_pct: 1.36
-- ma20: 18.97
-- ma60: 18.97
-- ma120: 18.97
-- return_5d: -3.98
+- date: 20260612
+- open: 19.39
+- high: 19.45
+- low: 19.11
+- close: 19.11
+- volume: 6871193
+- ma5: 19.57
+- ema23_primary: 18.59
+- distance_to_ema23_pct: 2.77
+- ma20: 18.98
+- ma60: 18.98
+- ma120: 18.98
+- return_5d: -4.07
 - return_20d:
-- volume_ratio: 0.7
-- distance_to_ma20_pct_auxiliary: -0.87
-- distance_to_high_60_pct: -7.16
+- volume_ratio: 0.55
+- distance_to_ma20_pct_auxiliary: 0.7
+- distance_to_high_60_pct: -5.63
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -147,6 +147,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,19.64,19.98,19.6,19.92,14974509,18.41,8.2,18.9,18.9,1.11
 20260605,19.67,19.88,19.24,19.78,11825309,18.52,6.78,18.98,18.98,0.89
 20260611,18.73,18.89,18.39,18.8,9063401,18.55,1.36,18.97,18.97,0.7
+20260612,19.39,19.45,19.11,19.11,6871193,18.59,2.77,18.98,18.98,0.55
 ```
 
 ## Latest TDCC Snapshot

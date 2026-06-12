@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2548 華固
 
 ## Metadata
-- generated_at: 2026-06-11 22:22:51 Asia/Taipei
+- generated_at: 2026-06-12 22:22:53 Asia/Taipei
 - stock_id: 2548
 - stock_name: 華固
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
+- latest_price_date: 20260612
+- price_rows: 280
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 106.5
-- high: 106.5
-- low: 101.5
-- close: 104
-- volume: 5880868
-- ma5: 103.5
-- ema23_primary: 116.47
-- distance_to_ema23_pct: -10.71
-- ma20: 118.35
-- ma60: 122.32
-- ma120: 116.35
-- return_5d: -15.1
-- return_20d: -19.69
-- volume_ratio: 1.53
-- distance_to_ma20_pct_auxiliary: -12.13
-- distance_to_high_60_pct: -21.51
+- date: 20260612
+- open: 105.5
+- high: 107
+- low: 104.5
+- close: 106
+- volume: 3332870
+- ma5: 103.8
+- ema23_primary: 115.6
+- distance_to_ema23_pct: -8.3
+- ma20: 117.47
+- ma60: 122.14
+- ma120: 116.38
+- return_5d: 1.44
+- return_20d: -14.17
+- volume_ratio: 0.86
+- distance_to_ma20_pct_auxiliary: -9.77
+- distance_to_high_60_pct: -20
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,130,130,123,123.5,2604970,125.56,-1.64,127.47,119.91,1.54
 20260513,124.5,125.5,123.5,124.5,1182629,125.47,-0.78,127.25,120.22,0.7
 20260514,125,128,124.5,126.5,1423998,125.56,0.75,127.1,120.54,0.85
 20260515,126.5,127.5,126,126.5,1379798,125.64,0.69,127,120.87,0.83
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,113,113,103.5,104.5,11119249,118.89,-12.1,120.62,122.67,3.14
 20260605,100.5,103.5,100,103.5,5322864,117.61,-11.99,119.62,122.52,1.44
 20260611,106.5,106.5,101.5,104,5880868,116.47,-10.71,118.35,122.32,1.53
+20260612,105.5,107,104.5,106,3332870,115.6,-8.3,117.47,122.14,0.86
 ```
 
 ## Latest TDCC Snapshot
@@ -189,17 +189,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 2548 | 華固 | revenue_pullback | 營收成長股價回檔 | 55.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260612 | 2548 | 華固 | revenue_pullback | 營收成長股價回檔 | 55.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 2548 | 華固 | 12 | 3 | 5 | 10 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260612 | 2548 | 華固 | 13 | 4 | 5 | 10 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 2548 | 華固 | 13 | 0 | 134460.0 | 0.0 |  | no_signal |
+| 20260612 | 2548 | 華固 | 13 | 0 | 1655400.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

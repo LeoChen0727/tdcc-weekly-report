@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2884 玉山金
 
 ## Metadata
-- generated_at: 2026-06-11 22:22:57 Asia/Taipei
+- generated_at: 2026-06-12 22:23:00 Asia/Taipei
 - stock_id: 2884
 - stock_name: 玉山金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 278
+- latest_price_date: 20260612
+- price_rows: 279
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -116,29 +116,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 33.65
-- high: 33.85
-- low: 33.05
-- close: 33.85
-- volume: 45609225
-- ma5: 32.92
-- ema23_primary: 32.1
-- distance_to_ema23_pct: 5.46
-- ma20: 31.83
-- ma60: 32.14
-- ma120: 32.76
-- return_5d: 7.63
-- return_20d: 4.8
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: 6.34
-- distance_to_high_60_pct: 0
+- date: 20260612
+- open: 34.15
+- high: 34.7
+- low: 33.95
+- close: 34.35
+- volume: 50080952
+- ma5: 33.35
+- ema23_primary: 32.28
+- distance_to_ema23_pct: 6.4
+- ma20: 31.96
+- ma60: 32.16
+- ma120: 32.79
+- return_5d: 6.68
+- return_20d: 8.02
+- volume_ratio: 0.96
+- distance_to_ma20_pct_auxiliary: 7.48
+- distance_to_high_60_pct: -1.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,32.3,32.3,31.75,31.8,48368669,32.27,-1.45,32.4,32.86,1.26
 20260513,32.05,32.1,31.6,31.9,32594464,32.24,-1.05,32.35,32.83,0.85
 20260514,31.95,32.1,31.75,31.85,25650673,32.21,-1.11,32.3,32.8,0.68
 20260515,31.95,32.1,31.8,31.95,35569729,32.18,-0.73,32.25,32.77,0.93
@@ -158,6 +157,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,31.4,32.2,31.4,32.2,78075377,31.81,1.23,31.71,32.13,1.54
 20260605,33.45,33.6,32.9,33.35,49409021,31.94,4.43,31.75,32.13,0.97
 20260611,33.65,33.85,33.05,33.85,45609225,32.1,5.46,31.83,32.14,0.88
+20260612,34.15,34.7,33.95,34.35,50080952,32.28,6.4,31.96,32.16,0.96
 ```
 
 ## Latest TDCC Snapshot
@@ -188,18 +188,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 2884 | 玉山金 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | continued_many_days | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
-| 20260611 | 2884 | 玉山金 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | continued_many_days | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260612 | 2884 | 玉山金 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | continued_many_days | calendar event: ex_dividend on 20260701; status=confirmed; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 2884 | 玉山金 | 12 | 3 | 5 | 10 | 12 | continued_many_days | 連續 12 日上榜，需區分醞釀延續或訊號鈍化。 |
+| 20260612 | 2884 | 玉山金 | 13 | 3 | 5 | 10 | 13 | continued_many_days | 連續 13 日上榜，需區分醞釀延續或訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 2884 | 玉山金 | 16 | 0 | 748020.0 | 0.0 |  | no_signal |
+| 20260612 | 2884 | 玉山金 | 16 | 0 | 509300.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5269 祥碩
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:33 Asia/Taipei
+- generated_at: 2026-06-12 22:23:42 Asia/Taipei
 - stock_id: 5269
 - stock_name: 祥碩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
+- latest_price_date: 20260612
+- price_rows: 280
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 1310
-- high: 1345
-- low: 1275
-- close: 1330
-- volume: 1232988
-- ma5: 1522
-- ema23_primary: 1453.94
-- distance_to_ema23_pct: -8.52
-- ma20: 1476.5
-- ma60: 1309.83
-- ma120: 1282.79
-- return_5d: -12.5
-- return_20d: -4.32
-- volume_ratio: 0.48
-- distance_to_ma20_pct_auxiliary: -9.92
-- distance_to_high_60_pct: -19.88
+- date: 20260612
+- open: 1380
+- high: 1395
+- low: 1360
+- close: 1375
+- volume: 938820
+- ma5: 1479
+- ema23_primary: 1447.36
+- distance_to_ema23_pct: -5
+- ma20: 1469
+- ma60: 1312.33
+- ma120: 1284
+- return_5d: -13.52
+- return_20d: -9.84
+- volume_ratio: 0.4
+- distance_to_ma20_pct_auxiliary: -6.4
+- distance_to_high_60_pct: -17.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,1435,1525,1385,1525,5518944,1317.49,15.75,1320.25,1242.92,2.42
 20260513,1490,1545,1410,1430,6564669,1326.86,7.77,1332.25,1244.83,2.58
 20260514,1445,1480,1420,1465,3368362,1338.37,9.46,1346.75,1247,1.26
 20260515,1505,1520,1420,1455,3183978,1348.09,7.93,1355,1250.33,1.17
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,1540,1660,1510,1590,4122456,1459.77,8.92,1473.75,1303.58,1.46
 20260605,1570,1570,1495,1525,1332317,1465.21,4.08,1479.5,1308.67,0.49
 20260611,1310,1345,1275,1330,1232988,1453.94,-8.52,1476.5,1309.83,0.48
+20260612,1380,1395,1360,1375,938820,1447.36,-5,1469,1312.33,0.4
 ```
 
 ## Latest TDCC Snapshot
@@ -194,7 +195,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 5269 | 祥碩 | 162 | 0 | 18409140.0 | 0.0 |  | no_signal |
+| 20260612 | 5269 | 祥碩 | 161 | 0 | 18251860.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

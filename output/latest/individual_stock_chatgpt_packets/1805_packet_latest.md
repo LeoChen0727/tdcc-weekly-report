@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1805 寶徠
 
 ## Metadata
-- generated_at: 2026-06-11 22:22:34 Asia/Taipei
+- generated_at: 2026-06-12 22:22:34 Asia/Taipei
 - stock_id: 1805
 - stock_name: 寶徠
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
+- latest_price_date: 20260612
+- price_rows: 280
 - latest_tdcc_date: 20260605
 - tdcc_rows: 28
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 11
-- high: 11
-- low: 10.05
+- date: 20260612
+- open: 10.5
+- high: 10.5
+- low: 10.25
 - close: 10.3
-- volume: 322174
-- ma5: 10.49
-- ema23_primary: 10.36
-- distance_to_ema23_pct: -0.55
+- volume: 153082
+- ma5: 10.54
+- ema23_primary: 10.35
+- distance_to_ema23_pct: -0.5
 - ma20: 10.23
 - ma60: 10.57
-- ma120: 11.13
+- ma120: 11.12
 - return_5d: 2.49
-- return_20d: 0
-- volume_ratio: 1.61
-- distance_to_ma20_pct_auxiliary: 0.69
+- return_20d: -0.48
+- volume_ratio: 0.75
+- distance_to_ma20_pct_auxiliary: 0.72
 - distance_to_high_60_pct: -15.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,10.3,10.35,10.2,10.35,74104,10.69,-3.22,10.72,10.95,0.63
 20260513,10.35,10.6,10.2,10.3,120050,10.66,-3.39,10.69,10.93,1.04
 20260514,10.25,10.35,10.2,10.25,144565,10.63,-3.55,10.65,10.9,1.22
 20260515,10.25,10.25,10.1,10.15,115269,10.59,-4.13,10.61,10.87,0.94
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,10,10.05,9.97,10.05,93981,10.3,-2.42,10.21,10.56,0.64
 20260605,10.9,11.6,10.9,11.05,1110243,10.36,6.64,10.23,10.58,5.61
 20260611,11,11,10.05,10.3,322174,10.36,-0.55,10.23,10.57,1.61
+20260612,10.5,10.5,10.25,10.3,153082,10.35,-0.5,10.23,10.57,0.75
 ```
 
 ## Latest TDCC Snapshot

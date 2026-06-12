@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3709 鑫聯大投控
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:18 Asia/Taipei
+- generated_at: 2026-06-12 22:23:24 Asia/Taipei
 - stock_id: 3709
 - stock_name: 鑫聯大投控
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
+- latest_price_date: 20260612
+- price_rows: 280
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 74.1
-- high: 75.1
-- low: 71.6
-- close: 72.7
-- volume: 73000
-- ma5: 83.68
-- ema23_primary: 83.79
-- distance_to_ema23_pct: -13.23
-- ma20: 84.64
-- ma60: 77.08
-- ma120: 68.58
-- return_5d: -16.15
-- return_20d: -18.41
-- volume_ratio: 0.05
-- distance_to_ma20_pct_auxiliary: -14.1
-- distance_to_high_60_pct: -21.74
+- date: 20260612
+- open: 74.4
+- high: 74.9
+- low: 73.3
+- close: 73.3
+- volume: 74000
+- ma5: 80.66
+- ema23_primary: 82.91
+- distance_to_ema23_pct: -11.6
+- ma20: 84.2
+- ma60: 77.21
+- ma120: 68.71
+- return_5d: -17.08
+- return_20d: -10.61
+- volume_ratio: 0.07
+- distance_to_ma20_pct_auxiliary: -12.95
+- distance_to_high_60_pct: -21.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,86,86.5,80.3,82,9174000,79.73,2.85,79.89,71.61,1.46
 20260513,82,83.5,80.6,81.9,2300000,79.91,2.49,80.24,71.89,0.4
 20260514,83.4,85.6,81.6,81.8,3589000,80.06,2.17,80.82,72.14,0.63
 20260515,82.3,84.5,79.8,81.1,2660000,80.15,1.18,81.42,72.45,0.47
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,89.9,89.9,86.3,86.5,87000,84.84,1.95,85.89,76.77,0.04
 20260605,86.3,87,83.7,84.3,85000,84.8,-0.59,85.45,77.01,0.04
 20260611,74.1,75.1,71.6,72.7,73000,83.79,-13.23,84.64,77.08,0.05
+20260612,74.4,74.9,73.3,73.3,74000,82.91,-11.6,84.2,77.21,0.07
 ```
 
 ## Latest TDCC Snapshot

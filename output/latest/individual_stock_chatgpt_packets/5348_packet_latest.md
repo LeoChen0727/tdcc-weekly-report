@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5348 正能量智能
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:35 Asia/Taipei
+- generated_at: 2026-06-12 22:23:44 Asia/Taipei
 - stock_id: 5348
 - stock_name: 正能量智能
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 272
+- latest_price_date: 20260612
+- price_rows: 273
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
+- date: 20260612
 - open: 16.45
 - high: 16.45
 - low: 16.45
 - close: 16.45
 - volume: 16000
-- ma5: 15.61
-- ema23_primary: 15.88
-- distance_to_ema23_pct: 3.58
-- ma20: 15.63
-- ma60: 16.55
-- ma120: 16.87
-- return_5d: 7.52
-- return_20d: 10.77
-- volume_ratio: 1.45
-- distance_to_ma20_pct_auxiliary: 5.25
+- ma5: 15.81
+- ema23_primary: 15.93
+- distance_to_ema23_pct: 3.27
+- ma20: 15.73
+- ma60: 16.54
+- ma120: 16.85
+- return_5d: 6.47
+- return_20d: 13.45
+- volume_ratio: 1.39
+- distance_to_ma20_pct_auxiliary: 4.59
 - distance_to_high_60_pct: -7.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,15.3,15.35,14.5,14.5,7000,16.54,-12.35,16.71,16.99,0.49
 20260508,14.7,14.9,14.65,14.9,15000,16.41,-9.18,16.6,16.96,1.12
 20260511,14.9,15,14.9,15,9000,16.29,-7.91,16.5,16.94,0.68
 20260512,15,15,15,15,7000,16.18,-7.3,16.39,16.91,0.57
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,15.45,15.45,15.35,15.35,15000,15.86,-3.25,15.55,16.58,1.34
 20260605,15.45,15.45,15.45,15.45,15000,15.83,-2.4,15.55,16.56,1.3
 20260611,16.45,16.45,16.45,16.45,16000,15.88,3.58,15.63,16.55,1.45
+20260612,16.45,16.45,16.45,16.45,16000,15.93,3.27,15.73,16.54,1.39
 ```
 
 ## Latest TDCC Snapshot

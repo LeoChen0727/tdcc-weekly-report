@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00892 富邦台灣半導體
 
 ## Metadata
-- generated_at: 2026-06-11 22:22:18 Asia/Taipei
+- generated_at: 2026-06-12 22:22:16 Asia/Taipei
 - stock_id: 00892
 - stock_name: 富邦台灣半導體
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260611
-- price_rows: 12
+- latest_price_date: 20260612
+- price_rows: 13
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 41.44
-- high: 42.07
-- low: 40.36
-- close: 42.03
-- volume: 3381457
-- ma5: 43.79
-- ema23_primary: 43.69
-- distance_to_ema23_pct: -3.79
-- ma20: 44.14
-- ma60: 44.14
-- ma120: 44.14
-- return_5d: -5.59
+- date: 20260612
+- open: 43.67
+- high: 43.87
+- low: 43.34
+- close: 43.34
+- volume: 2471344
+- ma5: 43.63
+- ema23_primary: 43.66
+- distance_to_ema23_pct: -0.73
+- ma20: 44.08
+- ma60: 44.08
+- ma120: 44.08
+- return_5d: -1.88
 - return_20d:
-- volume_ratio: 0.89
-- distance_to_ma20_pct_auxiliary: -4.79
-- distance_to_high_60_pct: -8.77
+- volume_ratio: 0.67
+- distance_to_ma20_pct_auxiliary: -1.68
+- distance_to_high_60_pct: -5.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -147,6 +147,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,44.81,45,43.55,44.17,2410440,43.85,0.72,44.4,44.4,0.61
 20260605,44,44.15,42.65,43.65,2779178,43.84,-0.43,44.33,44.33,0.73
 20260611,41.44,42.07,40.36,42.03,3381457,43.69,-3.79,44.14,44.14,0.89
+20260612,43.67,43.87,43.34,43.34,2471344,43.66,-0.73,44.08,44.08,0.67
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6742 澤米
 
 ## Metadata
-- generated_at: 2026-06-11 22:24:00 Asia/Taipei
+- generated_at: 2026-06-12 22:24:13 Asia/Taipei
 - stock_id: 6742
 - stock_name: 澤米
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
+- latest_price_date: 20260612
+- price_rows: 280
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 56.5
-- high: 58.7
-- low: 54
-- close: 54.6
-- volume: 3120183
-- ma5: 58.44
-- ema23_primary: 53.75
-- distance_to_ema23_pct: 1.59
-- ma20: 54.4
-- ma60: 45.59
-- ma120: 45.37
-- return_5d: -9.45
-- return_20d: 38.23
-- volume_ratio: 1
-- distance_to_ma20_pct_auxiliary: 0.37
-- distance_to_high_60_pct: -14.29
+- date: 20260612
+- open: 57.2
+- high: 57.3
+- low: 52.5
+- close: 52.8
+- volume: 2058657
+- ma5: 57.18
+- ema23_primary: 53.67
+- distance_to_ema23_pct: -1.62
+- ma20: 55.03
+- ma60: 45.76
+- ma120: 45.42
+- return_5d: -10.66
+- return_20d: 31.51
+- volume_ratio: 0.64
+- distance_to_ma20_pct_auxiliary: -4.06
+- distance_to_high_60_pct: -17.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,39.8,40.9,39,40.15,352837,40.48,-0.82,41.06,41.64,1.09
 20260513,40.5,40.5,38.4,38.6,293431,40.32,-4.28,40.85,41.57,0.96
 20260514,39.05,42.45,37.8,42.45,1081887,40.5,4.81,40.82,41.55,3.17
 20260515,44.55,46.55,43.5,44,3992143,40.79,7.86,40.85,41.56,7.59
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,61.2,61.8,58.8,59.1,942948,53.28,10.93,52.68,45.09,0.32
 20260605,61,61.5,57.3,58,1371732,53.67,8.07,53.65,45.39,0.46
 20260611,56.5,58.7,54,54.6,3120183,53.75,1.59,54.4,45.59,1
+20260612,57.2,57.3,52.5,52.8,2058657,53.67,-1.62,55.03,45.76,0.64
 ```
 
 ## Latest TDCC Snapshot
@@ -189,12 +189,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 6742 | 澤米 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260612 | 6742 | 澤米 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 6742 | 澤米 | 1 | 1 | 1 | 2 | 4 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260612 | 6742 | 澤米 | 2 | 2 | 2 | 3 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

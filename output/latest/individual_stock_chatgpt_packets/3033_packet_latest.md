@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3033 威健
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:01 Asia/Taipei
+- generated_at: 2026-06-12 22:23:04 Asia/Taipei
 - stock_id: 3033
 - stock_name: 威健
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
+- latest_price_date: 20260612
+- price_rows: 280
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 49.9
-- high: 50.4
-- low: 48.25
-- close: 49.7
-- volume: 9290157
-- ma5: 50.11
-- ema23_primary: 47.67
-- distance_to_ema23_pct: 4.26
-- ma20: 49.35
-- ma60: 39.72
-- ma120: 35.24
-- return_5d: 1.74
-- return_20d: 12.95
-- volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: 0.71
-- distance_to_high_60_pct: -10.13
+- date: 20260612
+- open: 51
+- high: 51.5
+- low: 49.6
+- close: 49.6
+- volume: 7972925
+- ma5: 50.09
+- ema23_primary: 47.83
+- distance_to_ema23_pct: 3.7
+- ma20: 49.61
+- ma60: 40.04
+- ma120: 35.4
+- return_5d: -0.2
+- return_20d: 11.59
+- volume_ratio: 0.39
+- distance_to_ma20_pct_auxiliary: -0.02
+- distance_to_high_60_pct: -10.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,44,44.6,42.25,44.45,16919078,38.02,16.91,37.44,33.72,1.34
 20260513,43.95,44.4,42.65,42.95,9194047,38.43,11.76,37.87,33.92,0.71
 20260514,43.35,46.75,43.3,46.4,27593002,39.1,18.68,38.49,34.18,1.96
 20260515,45.95,48.5,45.05,47.9,30562748,39.83,20.26,39.18,34.47,1.99
@@ -159,6 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,48.85,49.7,48.45,49.7,7798189,47.09,5.53,48.67,39.02,0.37
 20260605,52,54,49.85,51.8,31939950,47.49,9.09,49.06,39.4,1.5
 20260611,49.9,50.4,48.25,49.7,9290157,47.67,4.26,49.35,39.72,0.44
+20260612,51,51.5,49.6,49.6,7972925,47.83,3.7,49.61,40.04,0.39
 ```
 
 ## Latest TDCC Snapshot
@@ -189,18 +189,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 3033 | 威健 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
-| 20260611 | 3033 | 威健 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260612 | 3033 | 威健 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260612 | 3033 | 威健 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 3033 | 威健 | 1 | 1 | 4 | 5 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260612 | 3033 | 威健 | 2 | 2 | 4 | 6 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 3033 | 威健 | 32 | 0 | 3534490.0 | 0.0 |  | no_signal |
+| 20260612 | 3033 | 威健 | 32 | 0 | 2672430.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

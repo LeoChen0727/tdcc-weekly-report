@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2707 晶華
 
 ## Metadata
-- generated_at: 2026-06-11 22:22:54 Asia/Taipei
+- generated_at: 2026-06-12 22:22:56 Asia/Taipei
 - stock_id: 2707
 - stock_name: 晶華
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
+- latest_price_date: 20260612
+- price_rows: 280
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 180.5
+- date: 20260612
+- open: 179.5
 - high: 180.5
-- low: 177.5
+- low: 179
 - close: 179.5
-- volume: 199153
-- ma5: 177.2
-- ema23_primary: 175.09
-- distance_to_ema23_pct: 2.52
-- ma20: 174.1
-- ma60: 178.82
-- ma120: 183.79
-- return_5d: 3.46
-- return_20d: 4.66
-- volume_ratio: 0.86
-- distance_to_ma20_pct_auxiliary: 3.1
+- volume: 123537
+- ma5: 178.2
+- ema23_primary: 175.45
+- distance_to_ema23_pct: 2.31
+- ma20: 174.45
+- ma60: 178.72
+- ma120: 183.7
+- return_5d: 2.87
+- return_20d: 4.06
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: 2.89
 - distance_to_high_60_pct: -11.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,173,174.5,172.5,172.5,397757,175.63,-1.78,175.38,183,1.17
 20260513,174,176.5,173,175.5,395535,175.62,-0.07,174.53,182.8,1.15
 20260514,175.5,175.5,172.5,172.5,272045,175.36,-1.63,173.57,182.55,0.82
 20260515,173,174,172,172,142934,175.08,-1.76,173.18,182.26,0.49
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,173.5,175,172.5,174.5,252102,174.11,0.22,173.18,178.98,1.14
 20260605,182,182,180,181,361468,174.68,3.62,173.7,178.91,1.57
 20260611,180.5,180.5,177.5,179.5,199153,175.09,2.52,174.1,178.82,0.86
+20260612,179.5,180.5,179,179.5,123537,175.45,2.31,174.45,178.72,0.57
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00757 統一FANG+
 
 ## Metadata
-- generated_at: 2026-06-11 22:22:17 Asia/Taipei
+- generated_at: 2026-06-12 22:22:15 Asia/Taipei
 - stock_id: 00757
 - stock_name: 統一FANG+
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260611
-- price_rows: 12
+- latest_price_date: 20260612
+- price_rows: 13
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 124.35
-- high: 125.3
-- low: 124.05
-- close: 125.15
-- volume: 1553420
-- ma5: 134.18
-- ema23_primary: 131.61
-- distance_to_ema23_pct: -4.91
-- ma20: 132.7
-- ma60: 132.7
-- ma120: 132.7
-- return_5d: -9.25
+- date: 20260612
+- open: 127
+- high: 127.4
+- low: 126.6
+- close: 127.05
+- volume: 1185966
+- ma5: 131.98
+- ema23_primary: 131.23
+- distance_to_ema23_pct: -3.19
+- ma20: 132.27
+- ma60: 132.27
+- ma120: 132.27
+- return_5d: -7.97
 - return_20d:
-- volume_ratio: 0.68
-- distance_to_ma20_pct_auxiliary: -5.69
-- distance_to_high_60_pct: -9.38
+- volume_ratio: 0.54
+- distance_to_ma20_pct_auxiliary: -3.94
+- distance_to_high_60_pct: -8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -147,6 +147,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,137.5,138.1,136.75,138.05,2037655,132.25,4.39,133.56,133.56,0.82
 20260605,131.4,131.9,130.9,131.7,1306938,132.2,-0.38,133.39,133.39,0.55
 20260611,124.35,125.3,124.05,125.15,1553420,131.61,-4.91,132.7,132.7,0.68
+20260612,127,127.4,126.6,127.05,1185966,131.23,-3.19,132.27,132.27,0.54
 ```
 
 ## Latest TDCC Snapshot

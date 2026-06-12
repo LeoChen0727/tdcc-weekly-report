@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5452 佶優
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:37 Asia/Taipei
+- generated_at: 2026-06-12 22:23:45 Asia/Taipei
 - stock_id: 5452
 - stock_name: 佶優
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
+- latest_price_date: 20260612
+- price_rows: 280
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 31
-- high: 31.5
-- low: 30.2
-- close: 30.75
-- volume: 31000
-- ma5: 34.24
-- ema23_primary: 33.61
-- distance_to_ema23_pct: -8.52
-- ma20: 33.47
-- ma60: 33.6
-- ma120: 31.28
-- return_5d: -12.39
-- return_20d: -8.48
-- volume_ratio: 0.05
-- distance_to_ma20_pct_auxiliary: -8.11
-- distance_to_high_60_pct: -24.72
+- date: 20260612
+- open: 31.75
+- high: 32.75
+- low: 31.5
+- close: 32.2
+- volume: 32000
+- ma5: 33.85
+- ema23_primary: 33.5
+- distance_to_ema23_pct: -3.87
+- ma20: 33.4
+- ma60: 33.58
+- ma120: 31.36
+- return_5d: -5.71
+- return_20d: -3.88
+- volume_ratio: 0.06
+- distance_to_ma20_pct_auxiliary: -3.59
+- distance_to_high_60_pct: -21.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,33.75,34,32.7,33.5,1973000,33.1,1.2,33.21,32.93,0.7
 20260513,33.5,33.6,32.6,32.9,1344000,33.09,-0.56,33.16,32.95,0.49
 20260514,33.2,33.7,32.05,32.85,1544000,33.07,-0.65,33.16,32.98,0.56
 20260515,33.4,33.6,31.55,31.7,2082000,32.95,-3.8,33.02,33.01,0.76
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,34.15,36.2,33.5,35.35,35000,33.72,4.84,33.44,33.59,0.04
 20260605,36.35,37.5,34.25,35.6,36000,33.87,5.1,33.61,33.66,0.05
 20260611,31,31.5,30.2,30.75,31000,33.61,-8.52,33.47,33.6,0.05
+20260612,31.75,32.75,31.5,32.2,32000,33.5,-3.87,33.4,33.58,0.06
 ```
 
 ## Latest TDCC Snapshot

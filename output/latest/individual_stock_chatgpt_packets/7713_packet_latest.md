@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7713 威力德生醫
 
 ## Metadata
-- generated_at: 2026-06-11 22:24:18 Asia/Taipei
+- generated_at: 2026-06-12 22:24:34 Asia/Taipei
 - stock_id: 7713
 - stock_name: 威力德生醫
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 267
+- latest_price_date: 20260612
+- price_rows: 268
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 71.5
-- high: 71.5
+- date: 20260612
+- open: 72.9
+- high: 72.9
 - low: 70.1
-- close: 70.4
+- close: 70.5
 - volume: 71000
-- ma5: 72
-- ema23_primary: 69.47
-- distance_to_ema23_pct: 1.33
-- ma20: 69.03
-- ma60: 68.96
-- ma120: 70.59
-- return_5d: -4.74
-- return_20d: 2.18
-- volume_ratio: 1.75
+- ma5: 71.52
+- ema23_primary: 69.56
+- distance_to_ema23_pct: 1.35
+- ma20: 69.12
+- ma60: 68.97
+- ma120: 70.56
+- return_5d: -3.29
+- return_20d: 2.92
+- volume_ratio: 1.65
 - distance_to_ma20_pct_auxiliary: 1.99
-- distance_to_high_60_pct: -4.74
+- distance_to_high_60_pct: -4.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,68,69,68,68.5,23000,68.04,0.68,67.61,69.38,1.69
 20260513,67.7,68,67.6,68,4000,68.03,-0.05,67.61,69.34,0.3
 20260514,68,68.3,67.9,68,29000,68.03,-0.05,67.58,69.3,2.04
 20260515,67.4,68.2,67.4,68.1,13000,68.04,0.09,67.59,69.26,0.88
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,71.9,73.9,71.9,72.4,72000,69.16,4.68,68.78,68.94,1.95
 20260605,72.4,72.4,71,71.9,72000,69.39,3.62,68.95,68.95,1.93
 20260611,71.5,71.5,70.1,70.4,71000,69.47,1.33,69.03,68.96,1.75
+20260612,72.9,72.9,70.1,70.5,71000,69.56,1.35,69.12,68.97,1.65
 ```
 
 ## Latest TDCC Snapshot

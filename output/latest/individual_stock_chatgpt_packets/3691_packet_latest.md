@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3691 碩禾
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:17 Asia/Taipei
+- generated_at: 2026-06-12 22:23:23 Asia/Taipei
 - stock_id: 3691
 - stock_name: 碩禾
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
+- latest_price_date: 20260612
+- price_rows: 280
 - latest_tdcc_date: 20260605
 - tdcc_rows: 6
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 160
-- high: 167.5
-- low: 156
-- close: 167
-- volume: 162000
-- ma5: 162.6
-- ema23_primary: 151.02
-- distance_to_ema23_pct: 10.58
-- ma20: 153.95
-- ma60: 129.45
-- ma120: 114.52
-- return_5d: -1.47
-- return_20d: 18.44
-- volume_ratio: 0.1
-- distance_to_ma20_pct_auxiliary: 8.48
-- distance_to_high_60_pct: -3.47
+- date: 20260612
+- open: 170.5
+- high: 177
+- low: 157.5
+- close: 158.5
+- volume: 167000
+- ma5: 162.5
+- ema23_primary: 151.64
+- distance_to_ema23_pct: 4.52
+- ma20: 154.12
+- ma60: 130.18
+- ma120: 115.24
+- return_5d: -0.31
+- return_20d: 2.26
+- volume_ratio: 0.11
+- distance_to_ma20_pct_auxiliary: 2.84
+- distance_to_high_60_pct: -10.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,147,155,144,155,3006000,125.44,23.56,124.1,117.33,1.89
 20260513,155,157,146.5,154,4243000,127.82,20.48,125.58,117.96,2.53
 20260514,154,154.5,139,139,4808000,128.75,7.96,126.53,118.25,2.77
 20260515,152.5,152.5,146.5,152.5,5096000,130.73,16.65,127.97,118.86,2.66
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,159,166,156.5,163.5,162000,148.62,10.01,151.4,127.83,0.09
 20260605,162.5,165,154,160,159000,149.57,6.98,152.65,128.63,0.09
 20260611,160,167.5,156,167,162000,151.02,10.58,153.95,129.45,0.1
+20260612,170.5,177,157.5,158.5,167000,151.64,4.52,154.12,130.18,0.11
 ```
 
 ## Latest TDCC Snapshot
