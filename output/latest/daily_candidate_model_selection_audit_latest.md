@@ -1,13 +1,13 @@
 # Daily Candidate Model Selection Audit
 
 - status: `pass`
-- main_price_date: `20260611`
-- all_candidates_rows: `384`
-- raw_model_signal_rows: `514`
-- report_model_signal_rows: `514`
+- main_price_date: `20260612`
+- all_candidates_rows: `485`
+- raw_model_signal_rows: `610`
+- report_model_signal_rows: `610`
 - selected_condition_error_count: `0`
 - selected_condition_warning_count: `0`
-- expected_volume_breakout_stock_count: `13`
+- expected_volume_breakout_stock_count: `6`
 - expected_tdcc_short_stock_count: `20`
 
 ## Errors

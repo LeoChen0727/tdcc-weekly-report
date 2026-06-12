@@ -1,7 +1,7 @@
 # Upcoming Catalyst Calendar
 
-- generated_at: `2026-06-12 14:25:47 Asia/Taipei`
-- rows: `750`
+- generated_at: `2026-06-12 19:39:20 Asia/Taipei`
+- rows: `820`
 - note: Calendar proximity is a reminder, not a confirmed bullish catalyst.
 
 ## Company / Stock Calendar
@@ -66,25 +66,25 @@
 | 20260615 | 20260615 | 7722 | LINEPAY | ex_dividend | confirmed | 3 | within_3d | dividend_calendar | cash_dividend=1.50000000; ex_right_dividend_flag=息 |
 | 20260615 | 20260615 | 8016 | 矽創 | ex_dividend | confirmed | 3 | within_3d | dividend_calendar | cash_dividend=11.50000000; ex_right_dividend_flag=息 |
 | 20260615 | 20260615 | 9910 | 豐泰 | ex_dividend | confirmed | 3 | within_3d | dividend_calendar | cash_dividend=4.10000000; ex_right_dividend_flag=息 |
-| 20260616 | 20260616 | 00730 | 富邦臺灣優質高息 | ex_dividend | confirmed | 4 | within_7d | dividend_calendar | cash_dividend=<p style= text-align:center;>待公告實際收益分配金額</p>; ex_right_dividend_fl... |
-| 20260616 | 20260616 | 00896 | 中信綠能及電動車 | ex_dividend | confirmed | 4 | within_7d | dividend_calendar | cash_dividend=<p style= text-align:center;>待公告實際收益分配金額</p>; ex_right_dividend_fl... |
-| 20260616 | 20260616 | 00900 | 富邦特選高股息30 | ex_dividend | confirmed | 4 | within_7d | dividend_calendar | cash_dividend=<p style= text-align:center;>待公告實際收益分配金額</p>; ex_right_dividend_fl... |
-| 20260616 | 20260616 | 00915 | 凱基優選高股息30 | ex_dividend | confirmed | 4 | within_7d | dividend_calendar | cash_dividend=<p style= text-align:center;>待公告實際收益分配金額</p>; ex_right_dividend_fl... |
-| 20260616 | 20260616 | 00916 | 國泰全球品牌50 | ex_dividend | confirmed | 4 | within_7d | dividend_calendar | cash_dividend=<p style= text-align:center;>待公告實際收益分配金額</p>; ex_right_dividend_fl... |
-| 20260616 | 20260616 | 00919 | 群益台灣精選高息 | ex_dividend | confirmed | 4 | within_7d | dividend_calendar | cash_dividend=<p style= text-align:center;>待公告實際收益分配金額</p>; ex_right_dividend_fl... |
+| 20260616 | 20260616 | 00730 | 富邦臺灣優質高息 | ex_dividend | confirmed | 4 | within_7d | dividend_calendar | cash_dividend=0.11000000; ex_right_dividend_flag=息 |
+| 20260616 | 20260616 | 00896 | 中信綠能及電動車 | ex_dividend | confirmed | 4 | within_7d | dividend_calendar | cash_dividend=1.25000000; ex_right_dividend_flag=息 |
+| 20260616 | 20260616 | 00900 | 富邦特選高股息30 | ex_dividend | confirmed | 4 | within_7d | dividend_calendar | cash_dividend=0.07500000; ex_right_dividend_flag=息 |
+| 20260616 | 20260616 | 00915 | 凱基優選高股息30 | ex_dividend | confirmed | 4 | within_7d | dividend_calendar | cash_dividend=0.45000000; ex_right_dividend_flag=息 |
+| 20260616 | 20260616 | 00916 | 國泰全球品牌50 | ex_dividend | confirmed | 4 | within_7d | dividend_calendar | cash_dividend=1.92000000; ex_right_dividend_flag=息 |
+| 20260616 | 20260616 | 00919 | 群益台灣精選高息 | ex_dividend | confirmed | 4 | within_7d | dividend_calendar | cash_dividend=1.00000000; ex_right_dividend_flag=息 |
 | 20260616 | 20260616 | 00921 | 兆豐龍頭等權重 | ex_dividend | confirmed | 4 | within_7d | dividend_calendar | cash_dividend=0.32000000; ex_right_dividend_flag=息 |
-| 20260616 | 20260616 | 00934 | 中信成長高股息 | ex_dividend | confirmed | 4 | within_7d | dividend_calendar | cash_dividend=<p style= text-align:center;>待公告實際收益分配金額</p>; ex_right_dividend_fl... |
+| 20260616 | 20260616 | 00934 | 中信成長高股息 | ex_dividend | confirmed | 4 | within_7d | dividend_calendar | cash_dividend=0.25000000; ex_right_dividend_flag=息 |
 | 20260616 | 20260616 | 00943 | 兆豐電子高息等權 | ex_dividend | confirmed | 4 | within_7d | dividend_calendar | cash_dividend=0.12000000; ex_right_dividend_flag=息 |
-| 20260616 | 20260616 | 00944 | 野村趨勢動能高息 | ex_dividend | confirmed | 4 | within_7d | dividend_calendar | cash_dividend=<p style= text-align:center;>待公告實際收益分配金額</p>; ex_right_dividend_fl... |
-| 20260616 | 20260616 | 00945 | 凱基美國非投等債 | ex_dividend | confirmed | 4 | within_7d | dividend_calendar | cash_dividend=<p style= text-align:center;>待公告實際收益分配金額</p>; ex_right_dividend_fl... |
-| 20260616 | 20260616 | 00952 | 凱基台灣AI50 | ex_dividend | confirmed | 4 | within_7d | dividend_calendar | cash_dividend=<p style= text-align:center;>待公告實際收益分配金額</p>; ex_right_dividend_fl... |
-| 20260616 | 20260616 | 00961 | FT臺灣永續高息 | ex_dividend | confirmed | 4 | within_7d | dividend_calendar | cash_dividend=<p style= text-align:center;>待公告實際收益分配金額</p>; ex_right_dividend_fl... |
-| 20260616 | 20260616 | 00963 | 中信全球高股息 | ex_dividend | confirmed | 4 | within_7d | dividend_calendar | cash_dividend=<p style= text-align:center;>待公告實際收益分配金額</p>; ex_right_dividend_fl... |
-| 20260616 | 20260616 | 00964 | 中信亞太高股息 | ex_dividend | confirmed | 4 | within_7d | dividend_calendar | cash_dividend=<p style= text-align:center;>待公告實際收益分配金額</p>; ex_right_dividend_fl... |
-| 20260616 | 20260616 | 00972 | 野村日本動能高息 | ex_dividend | confirmed | 4 | within_7d | dividend_calendar | cash_dividend=<p style= text-align:center;>待公告實際收益分配金額</p>; ex_right_dividend_fl... |
-| 20260616 | 20260616 | 009802 | 富邦旗艦50 | ex_dividend | confirmed | 4 | within_7d | dividend_calendar | cash_dividend=<p style= text-align:center;>待公告實際收益分配金額</p>; ex_right_dividend_fl... |
-| 20260616 | 20260616 | 009809 | 富邦淨零ESG50 | ex_dividend | confirmed | 4 | within_7d | dividend_calendar | cash_dividend=<p style= text-align:center;>待公告實際收益分配金額</p>; ex_right_dividend_fl... |
-| 20260616 | 20260616 | 00981 | 平衡凱基雙核收息 | ex_dividend | confirmed | 4 | within_7d | dividend_calendar | cash_dividend=<p style= text-align:center;>待公告實際收益分配金額</p>; ex_right_dividend_fl... |
-| 20260616 | 20260616 | 00982 | 主動富邦動態入息 | ex_dividend | confirmed | 4 | within_7d | dividend_calendar | cash_dividend=<p style= text-align:center;>待公告實際收益分配金額</p>; ex_right_dividend_fl... |
-| 20260616 | 20260616 | 00983 | 主動富邦複合收益 | ex_dividend | confirmed | 4 | within_7d | dividend_calendar | cash_dividend=<p style= text-align:center;>待公告實際收益分配金額</p>; ex_right_dividend_fl... |
+| 20260616 | 20260616 | 00944 | 野村趨勢動能高息 | ex_dividend | confirmed | 4 | within_7d | dividend_calendar | cash_dividend=0.05400000; ex_right_dividend_flag=息 |
+| 20260616 | 20260616 | 00945 | 凱基美國非投等債 | ex_dividend | confirmed | 4 | within_7d | dividend_calendar | cash_dividend=0.08700000; ex_right_dividend_flag=息 |
+| 20260616 | 20260616 | 00952 | 凱基台灣AI50 | ex_dividend | confirmed | 4 | within_7d | dividend_calendar | cash_dividend=0.12000000; ex_right_dividend_flag=息 |
+| 20260616 | 20260616 | 00961 | FT臺灣永續高息 | ex_dividend | confirmed | 4 | within_7d | dividend_calendar | cash_dividend=0.15000000; ex_right_dividend_flag=息 |
+| 20260616 | 20260616 | 00963 | 中信全球高股息 | ex_dividend | confirmed | 4 | within_7d | dividend_calendar | cash_dividend=0.09000000; ex_right_dividend_flag=息 |
+| 20260616 | 20260616 | 00964 | 中信亞太高股息 | ex_dividend | confirmed | 4 | within_7d | dividend_calendar | cash_dividend=0.10600000; ex_right_dividend_flag=息 |
+| 20260616 | 20260616 | 00972 | 野村日本動能高息 | ex_dividend | confirmed | 4 | within_7d | dividend_calendar | cash_dividend=0.22000000; ex_right_dividend_flag=息 |
+| 20260616 | 20260616 | 009802 | 富邦旗艦50 | ex_dividend | confirmed | 4 | within_7d | dividend_calendar | cash_dividend=0.19800000; ex_right_dividend_flag=息 |
+| 20260616 | 20260616 | 009809 | 富邦淨零ESG50 | ex_dividend | confirmed | 4 | within_7d | dividend_calendar | cash_dividend=0.10000000; ex_right_dividend_flag=息 |
+| 20260616 | 20260616 | 00981 | 平衡凱基雙核收息 | ex_dividend | confirmed | 4 | within_7d | dividend_calendar | cash_dividend=0.07100000; ex_right_dividend_flag=息 |
+| 20260616 | 20260616 | 00982 | 主動富邦動態入息 | ex_dividend | confirmed | 4 | within_7d | dividend_calendar | cash_dividend=0.05200000; ex_right_dividend_flag=息 |
+| 20260616 | 20260616 | 00983 | 主動富邦複合收益 | ex_dividend | confirmed | 4 | within_7d | dividend_calendar | cash_dividend=0.06000000; ex_right_dividend_flag=息 |
 | 20260616 | 20260616 | 1582 | 信錦 | ex_dividend | confirmed | 4 | within_7d | dividend_calendar | cash_dividend=3.00000000; ex_right_dividend_flag=息 |
