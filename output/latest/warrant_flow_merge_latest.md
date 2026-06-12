@@ -1,6 +1,6 @@
 # 權證金流合併狀態
 
-- 產生時間：`2026-06-12 00:38:14 Asia/Taipei`
-- 狀態：`Merged warrant flow into all candidates. rows=383, matched_rows=245`
+- 產生時間：`2026-06-12 13:52:22 Asia/Taipei`
+- 狀態：`Merged warrant flow into all candidates. rows=384, matched_rows=246`
 - 候選股檔案：`output/latest/all_candidates_latest.csv`
 - 權證金流檔案：`output/latest/warrant_flow_latest.csv`

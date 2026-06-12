@@ -1,25 +1,25 @@
 # 營收爆發低反應股 Debug Report
 
-- 產生時間：`2026-06-12 00:31:43 Asia/Taipei`
+- 產生時間：`2026-06-12 13:49:34 Asia/Taipei`
 
 ## 診斷統計
 
 | item | value |
 |---|---:|
-| raw_revenue_rows | 1947 |
-| standardized_revenue_rows | 1947 |
+| raw_revenue_rows | 1951 |
+| standardized_revenue_rows | 1951 |
 | price_rows | 579151 |
 | tdcc_rows | 1972 |
 | tdcc_trend_rows | 1972 |
 | tdcc_strong_accumulation_count | 440 |
 | tdcc_mild_accumulation_count | 742 |
 | tdcc_distribution_warning_count | 638 |
-| revenue_condition_pass | 290 |
-| price_metrics_pass | 285 |
-| low_response_pass | 49 |
+| revenue_condition_pass | 293 |
+| price_metrics_pass | 288 |
+| low_response_pass | 50 |
 | already_priced_in_excluded | 16 |
-| overheat_pass | 33 |
-| score_pass | 32 |
+| overheat_pass | 34 |
+| score_pass | 33 |
 | theme_priority_pass | 25 |
 | final_rows | 25 |
 
@@ -54,10 +54,10 @@
 
 | reason | count |
 |---|---:|
-| fail_revenue_condition | 1657 |
-| fail_low_response_condition | 236 |
+| fail_revenue_condition | 1658 |
+| fail_low_response_condition | 238 |
 | fail_already_priced_in | 16 |
-| fail_defensive_or_traditional_excluded | 6 |
+| fail_defensive_or_traditional_excluded | 7 |
 | missing_or_insufficient_price_metrics | 5 |
 | fail_non_mainstream_score_lt_11 | 1 |
 | fail_score_lt_8 | 1 |
@@ -114,6 +114,8 @@
 | 2547 | 日勝生 | 建材營造 | neutral |  | 69.90066780612314 | 22.241457982263142 | 10.89 | 10.55 | -2.65 | 0.92 | 12.13 | 12.13 | False |  | distribution_warning | -0.42 | -0.1 | 0 | 1 | 9.15 | 7.77 | -3.51 |  | fail_low_response_condition |
 | 2548 | 華固 | 建材營造 | neutral |  | 9203.558823529413 | 30000.69173757892 | -15.1 | -17.79 | -11.86 | 0.0 | 4.52 | 4.52 | False |  | distribution_warning | -5.18 | -5.03 | 0 | 1 | -11.39 | -10.09 | -21.51 |  | fail_low_response_condition |
 | 2855 | 統一證 | 金融保險業 | defensive_or_traditional |  | 428.43428527421696 | 383.3438851601268 | 5.6 | 24.75 | 58.07 | 105.66 | 66.07 | 113.87 | True | 近60日漲幅>40%；距60日低點反彈>50%；近120日漲幅>70%；距120日低點反彈>80% | distribution_warning | -0.1 | -0.36 | 1 | 0 | 11.28 | 9.49 | -14.88 |  | fail_low_response_condition |
+| 2882 | 國泰金 | 金融保險業 | defensive_or_traditional |  | 130.63810203221996 | 223.540679705256 | 13.95 | 29.01 | 37.3 | 45.23 | 45.44 | 49.33 | True | 近20日漲幅>25% | strong_accumulation | 0.32 | 0.42 | 3 | 3 | 17.8 | 16.24 | -0.99 |  | fail_low_response_condition |
+| 2887 | 台新新光金 | 金融保險業 | defensive_or_traditional |  | 317.18131813619806 | 335.3574814056247 | 16.87 | 20.8 | 14.77 | 49.35 | 25.82 | 50.13 | False |  | strong_accumulation | 0.75 | 0.88 | 2 | 2 | 16.31 | 13.91 | -2.21 |  | fail_low_response_condition |
 | 2890 | 永豐金 | 金融保險業 | defensive_or_traditional |  | 82.69197880820118 | 56.17182732754353 | 9.2 | 10.1 | 4.89 | 21.13 | 16.06 | 22.24 | False |  | distribution_warning | -0.13 | -0.13 | 1 | 1 | 9.36 | 7.17 | -1.19 |  | fail_low_response_condition |
 | 2923 | 鼎固-KY | 建材營造 | neutral |  | 133.58068386512642 | 149.57727987056475 | -9.34 | 7.62 | 24.93 | 7.37 | 36.66 | 36.66 | False |  | neutral | 0.0 | 0.0 | 1 | 0 | -0.86 | -3.46 | -21.94 |  | fail_low_response_condition |
 | 3003 | 健和興 | 電子零組件業 | mainstream_growth | A_優先追蹤 | 52.80006873442736 | 30.333657817463656 | 7.89 | 14.33 | 31.37 | 40.9 | 38.72 | 47.9 | False |  | mild_accumulation | -0.25 | 0.18 | 2 | 2 | 8.21 | 9.12 | 0.0 | 17 | selected |
@@ -184,5 +186,3 @@
 | 7740 | 熙特爾-創 | 綠能環保 | neutral |  | 1254.6047846317863 | 1420.9203745156804 | -1.74 | 2.42 | -15.5 | 0.3 | 7.64 | 22.46 | False |  | distribution_warning | -1.38 | -0.96 | 1 | 1 | -3.5 | -4.05 | -17.76 |  | fail_low_response_condition |
 | 7749 | 意騰-KY | 半導體業 | mainstream_growth | D_降級_TDCC轉弱 | 73.6849472054308 | 64.05199366520502 | 1.8 | 4.1 | 28.45 | 18.97 | 46.19 | 46.19 | False |  | distribution_warning | -1.96 | -0.01 | 0 | 0 | 0.9 | 3.21 | -9.29 | 11 | selected |
 | 7750 | 新代 | 電機機械 | cyclical_turnaround |  | 88.25510096241669 | 69.4277284799705 | -7.11 | -18.2 | 52.55 | 166.92 | 70.61 | 171.78 | True | 近60日漲幅>40%；距60日低點反彈>50%；近120日漲幅>70%；距120日低點反彈>80% | distribution_warning | -1.86 | -3.23 | 1 | 0 | -12.11 | -10.6 | -31.92 |  | fail_low_response_condition |
-| 7769 | 鴻勁 | 半導體業 | mainstream_growth |  | 83.64462145795709 | 87.84549623036372 | -6.12 | 2.32 | 66.78 | 137.14 | 104.49 | 137.14 | True | 近60日漲幅>40%；距60日低點反彈>50%；近120日漲幅>70%；距120日低點反彈>80% | distribution_warning | -0.49 | -1.86 | 1 | 0 | -6.47 | -2.32 | -16.66 |  | fail_low_response_condition |
-| 7803 | 雲象科技-創 | 生技醫療業 | defensive_or_traditional |  | 1440.6307977736549 | 2.7893555626803463 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | missing_or_insufficient_price_metrics |

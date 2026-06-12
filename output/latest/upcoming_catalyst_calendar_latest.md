@@ -1,7 +1,7 @@
 # Upcoming Catalyst Calendar
 
-- generated_at: `2026-06-12 08:05:39 Asia/Taipei`
-- rows: `743`
+- generated_at: `2026-06-12 13:52:24 Asia/Taipei`
+- rows: `750`
 - note: Calendar proximity is a reminder, not a confirmed bullish catalyst.
 
 ## Company / Stock Calendar
@@ -53,7 +53,7 @@
 | 20260612 | 20260612 | 8028 | 昇陽半導體 | ex_dividend | confirmed | 0 | within_3d | dividend_calendar | cash_dividend=2.70198800; ex_right_dividend_flag=息 |
 | 20260615 | 20260615 | 00936 | 台新永續高息中小 | ex_dividend | confirmed | 3 | within_3d | dividend_calendar | cash_dividend=0.12000000; ex_right_dividend_flag=息 |
 | 20260615 | 20260615 | 00962 | 台新AI優息動能 | ex_dividend | confirmed | 3 | within_3d | dividend_calendar | cash_dividend=0.08000000; ex_right_dividend_flag=息 |
-| 20260615 | 20260615 | 009803 | 玉山市值動能50 | ex_dividend | confirmed | 3 | within_3d | dividend_calendar | cash_dividend=<p style= text-align:center;>待公告實際收益分配金額</p>; ex_right_dividend_fl... |
+| 20260615 | 20260615 | 009803 | 玉山市值動能50 | ex_dividend | confirmed | 3 | within_3d | dividend_calendar | cash_dividend=0.50000000; ex_right_dividend_flag=息 |
 | 20260615 | 20260615 | 1232 | 大統益 | ex_dividend | confirmed | 3 | within_3d | dividend_calendar | cash_dividend=7.20000000; ex_right_dividend_flag=息 |
 | 20260615 | 20260615 | 2031 | 新光鋼 | ex_dividend | confirmed | 3 | within_3d | dividend_calendar | cash_dividend=2.50000000; ex_right_dividend_flag=息 |
 | 20260615 | 20260615 | 2107 | 厚生 | ex_dividend | confirmed | 3 | within_3d | dividend_calendar | cash_dividend=1.40000000; ex_right_dividend_flag=息 |

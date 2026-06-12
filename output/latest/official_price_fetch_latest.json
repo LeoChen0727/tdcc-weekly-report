@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-06-12 00:28:37 Asia/Taipei",
+  "generated_at": "2026-06-12 13:46:29 Asia/Taipei",
   "target_date": "20260612",
   "saved_price_date": "20260611",
   "is_target_date": false,
   "result": "failed_no_target_data",
   "reason": "目標日官方來源與 fallback 都沒有取得任何可用日線資料；latest 保留上一個有效交易日。",
-  "twse_rows": 1236,
+  "twse_rows": 1085,
   "tpex_rows": 0,
-  "total_rows": 1236,
+  "total_rows": 1085,
   "full_market_ok": false,
   "stale_markets": [
     "TPEx"
@@ -21,9 +21,9 @@
   "attempts": [
     {
       "date": "20260612",
-      "twse_rows": 1236,
+      "twse_rows": 1085,
       "tpex_rows": 0,
-      "total_rows": 1236,
+      "total_rows": 1085,
       "twse_ok": true,
       "tpex_ok": false,
       "full_market_ok": false,

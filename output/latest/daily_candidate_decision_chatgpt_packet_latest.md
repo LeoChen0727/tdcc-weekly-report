@@ -1,7 +1,7 @@
 # DAILY CANDIDATE DECISION CHATGPT PACKET
 
 ## Metadata
-- generated_at: 2026-06-12 00:38:41 Asia/Taipei
+- generated_at: 2026-06-12 13:52:48 Asia/Taipei
 - signal_date: 20260611
 - source_file: output/latest/all_candidates_latest.csv
 - decision_csv: output/latest/daily_candidate_decision_latest.csv
@@ -23,7 +23,7 @@
 | decision_priority   | decision_priority_label   |   count |
 |:--------------------|:--------------------------|--------:|
 | A_priority_watch    | 最優先追蹤                     |      14 |
-| B_confirm_needed    | 可等確認                      |     108 |
+| B_confirm_needed    | 可等確認                      |     109 |
 | C_watch_only        | 僅觀察                       |     261 |
 
 ## A Priority Watch

@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-12 08:05:39 Asia/Taipei",
+  "generated_at": "2026-06-12 13:52:24 Asia/Taipei",
   "files": {
     "company_event_calendar": {
       "path": "data/company_calendar/company_event_calendar.csv",
-      "rows": 1688
+      "rows": 1695
     },
     "macro_event_calendar": {
       "path": "data/macro_events/macro_event_calendar.csv",
@@ -11,7 +11,7 @@
     },
     "upcoming_catalyst_calendar": {
       "path": "output/latest/upcoming_catalyst_calendar_latest.csv",
-      "rows": 743
+      "rows": 750
     },
     "upcoming_macro_event_calendar": {
       "path": "output/latest/upcoming_macro_event_calendar_latest.csv",
@@ -22,7 +22,7 @@
     "twse_ex_right_ex_dividend": {
       "url": "https://www.twse.com.tw/rwd/zh/exRight/TWT48U?response=json",
       "status": "ok",
-      "rows": 249,
+      "rows": 251,
       "error": "",
       "http_status": 200
     },
@@ -41,9 +41,9 @@
     },
     "bea_release_schedule": {
       "url": "https://www.bea.gov/news/schedule",
-      "status": "failed",
-      "rows": 0,
-      "error": "read_html failed: `Import lxml` failed.  Use pip or conda to install the lxml package.",
+      "status": "ok",
+      "rows": 22,
+      "error": "",
       "http_status": 200
     },
     "bls_cpi_release_schedule": {

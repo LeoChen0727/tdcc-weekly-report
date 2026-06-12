@@ -1,6 +1,6 @@
 # Candidate Repeat Appearance Latest
 
-- generated_at: `2026-06-12 00:38:28 Asia/Taipei`
+- generated_at: `2026-06-12 13:52:33 Asia/Taipei`
 - signal_date: `20260611`
 - history_available_days: `12`
 - source_signal_log: `output/history/daily_signals/daily_candidate_signal_log.csv`
@@ -57,7 +57,7 @@
 |       2812 | 台中銀          |                                     12 |                                       3 |                 5 |                 10 |                 12 | pattern|revenue_pullback                                                      | stale_signal             | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 |       2838 | 聯邦銀          |                                     12 |                                       3 |                 5 |                 10 |                 12 | revenue_pullback                                                              | stale_signal             | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 |       2845 | 遠東銀          |                                     12 |                                       3 |                 5 |                 10 |                 12 | pullback_rebound|revenue_pullback|true_breakout                               | continued_many_days      | 連續 12 日上榜，需區分醞釀延續或訊號鈍化。                       |
-|       2867 | 三商壽          |                                     12 |                                       1 |                 5 |                 10 |                 12 | pattern                                                                       | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。  |
+|       2867 | 三商壽          |                                     12 |                                       3 |                 5 |                 10 |                 12 | pattern|revenue_pullback                                                      | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。  |
 |       2880 | 華南金          |                                     12 |                                       1 |                 5 |                 10 |                 12 | pattern                                                                       | stale_signal             | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 |       2881 | 富邦金          |                                     12 |                                      12 |                 5 |                 10 |                 12 | pattern                                                                       | continued_overheated     | 連續上榜但短線過熱，需避免追高並等待量價重新確認。                     |
 |       2884 | 玉山金          |                                     12 |                                       3 |                 5 |                 10 |                 12 | pattern|revenue_pullback                                                      | continued_many_days      | 連續 12 日上榜，需區分醞釀延續或訊號鈍化。                       |
