@@ -28,6 +28,19 @@ def test_canonical_chatgpt_side_generator_is_tracked_and_not_legacy_six_category
     assert "daily_candidate_group_rotation_latest.csv" in text
 
 
+def test_observation_list_is_row_per_stock_not_joined_cell() -> None:
+    path = ROOT / "scripts" / "generate_chatgpt_side_daily_reports.py"
+    text = path.read_text(encoding="utf-8", errors="replace")
+    start = text.index("def model_front_observation_rows_for_line(")
+    end = text.index("\ndef append_group_rotation_end_section(", start)
+    function_text = text[start:end]
+
+    assert 'rows = [["模型", "股票", "狀態", "操作提醒"]]' in function_text
+    assert "model_rows += 1" in function_text
+    assert '".join(lines)' not in function_text
+    assert "[42 * mm, 36 * mm, 122 * mm, 68 * mm]" in text
+
+
 def test_daily_workflow_uses_latest_only_volume_breakout_watch() -> None:
     text = (ROOT / ".github" / "workflows" / "daily_full_pipeline.yml").read_text(
         encoding="utf-8"
