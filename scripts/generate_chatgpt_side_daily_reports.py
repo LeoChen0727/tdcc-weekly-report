@@ -2358,6 +2358,10 @@ def append_group_rotation_end_section(story: list, inputs: dict[str, pd.DataFram
     group_rotation = inputs.get("group_rotation", pd.DataFrame()).copy()
     if group_rotation.empty:
         return
+    if "theme_resolution_status" in group_rotation.columns:
+        group_rotation = group_rotation[group_rotation["theme_resolution_status"].astype(str).eq("resolved")].copy()
+    if group_rotation.empty:
+        return
     story.append(PageBreak())
     story.append(Paragraph("資金進入族群觀察", H1))
     story.append(
@@ -2374,7 +2378,7 @@ def append_group_rotation_end_section(story: list, inputs: dict[str, pd.DataFram
         leaders = leaders.strip(" /")
         rows.append(
             [
-                clean(r.get("theme")),
+                clean(r.get("theme_display_zh") or r.get("theme")),
                 clean(r.get("rotation_model_name") or r.get("rotation_model_id")),
                 num(r.get("stock_count"), 0),
                 f"{num(r.get('slow_inflow_count'), 0)} / {num(r.get('slow_inflow_ratio'), 2)}",

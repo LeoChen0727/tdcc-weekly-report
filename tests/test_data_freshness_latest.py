@@ -96,3 +96,35 @@ def test_warrant_flow_state_prefers_current_observe_only_over_stale_rows(tmp_pat
         False,
         "warrant data date present but stock-level rows unavailable or observe-only in warrant_flow_by_stock_latest.csv",
     )
+
+
+def test_group_rotation_theme_state_rejects_unreadable_pdf_theme_values(tmp_path, monkeypatch):
+    group_rotation = tmp_path / "daily_candidate_group_rotation_latest.csv"
+    group_rotation.write_text(
+        "theme,theme_display_zh,theme_resolution_status\n"
+        "其他,其他,resolved\n"
+        "91,91,resolved\n"
+        "DR_or_foreign_listing,DR_or_foreign_listing,resolved\n",
+        encoding="utf-8",
+    )
+
+    monkeypatch.setattr(freshness, "GROUP_ROTATION_CSV", group_rotation)
+
+    ready, note = freshness.group_rotation_theme_state()
+
+    assert ready is False
+    assert "unresolved/raw theme rows" in note
+
+
+def test_daily_pdf_ready_requires_resolved_group_rotation_theme_display():
+    ready, note = freshness.determine_daily_pdf_ready(
+        report_ready=True,
+        warrant_ready=True,
+        report_ready_note="core daily data dates match main_price_date",
+        warrant_ready_note="warrant_flow_date matches main_price_date",
+        group_rotation_theme_ready=False,
+        group_rotation_theme_note="group rotation has unresolved/raw theme rows",
+    )
+
+    assert ready is False
+    assert "group rotation theme display not ready" in note

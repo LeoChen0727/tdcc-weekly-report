@@ -136,5 +136,17 @@ class StockThemeTaxonomyTests(unittest.TestCase):
         self.assertEqual(membership["dual_report_membership_flag"], "True")
 
 
+    def test_special_product_and_generic_industry_fallbacks_are_readable(self) -> None:
+        self.assertEqual(taxonomy.display_theme("DR_or_foreign_listing"), "DR / 外國上市")
+        self.assertEqual(taxonomy.display_theme("91"), "DR / 外國上市")
+        self.assertEqual(taxonomy.display_theme("ETF_or_index_product"), "指數 / ETF / ETN商品")
+        self.assertEqual(taxonomy.provisional_industry_rule("91")[0], "DR / 外國上市")
+        self.assertTrue(taxonomy.is_generic_industry("其他業"))
+        self.assertEqual(
+            taxonomy.missing_industry_fallback("6585", "鼎基")[0],
+            "TPU材料 / 工業複合材料",
+        )
+
+
 if __name__ == "__main__":
     unittest.main()
