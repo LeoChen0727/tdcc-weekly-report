@@ -81,6 +81,7 @@ jobs:
       - name: Validate Apps Script workflow triggers
         run: |
           python scripts/validate_apps_script_workflow_triggers.py
+          python scripts/validate_research_production_boundaries.py
 
       - name: Install dependencies
         if: ${{ env.ANY_RESEARCH_SELECTED == 'true' }}
@@ -201,7 +202,6 @@ jobs:
           git add output/latest/daily_model_parameter_research_*.csv output/latest/daily_model_parameter_research_*.md || true
           git add output/latest/daily_model_parameter_recommendations_latest.csv output/latest/daily_model_parameter_recommendations_latest.md || true
           git add output/history/research/daily_model_parameter_research.csv || true
-          git add config/daily_model_parameter_recommendations.csv || true
           git add output/history/volume_breakout/ || true
           git add output/latest/volume_breakout_*.csv output/latest/volume_breakout_*.md || true
 

@@ -5,6 +5,7 @@ import subprocess
 
 from scripts import validate_daily_production_boundaries as boundaries
 from scripts import validate_daily_staged_paths
+from scripts import validate_research_production_boundaries
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -12,6 +13,10 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def test_daily_production_boundary_validator_passes_current_repo() -> None:
     assert boundaries.main() == 0
+
+
+def test_research_production_boundary_validator_passes_current_repo() -> None:
+    assert validate_research_production_boundaries.main() == 0
 
 
 def test_canonical_chatgpt_side_generator_is_tracked_and_not_legacy_six_category() -> None:
@@ -95,3 +100,16 @@ def test_daily_staged_path_forbidden_patterns_cover_tdcc_and_research_outputs() 
             validate_daily_staged_paths.fnmatch.fnmatch(example, pattern)
             for pattern in validate_daily_staged_paths.FORBIDDEN_STAGED_PATTERNS
         ), example
+
+
+def test_research_workflow_does_not_stage_generated_recommendations_as_config() -> None:
+    workflow = (ROOT / ".github" / "workflows" / "research_backtest_pipeline.yml").read_text(
+        encoding="utf-8"
+    )
+    recommender = (ROOT / "scripts" / "build_daily_model_parameter_recommendations.py").read_text(
+        encoding="utf-8"
+    )
+
+    assert "git add config/daily_model_parameter_recommendations.csv" not in workflow
+    assert "CONFIG_CSV" not in recommender
+    assert 'Path("config/daily_model_parameter_recommendations.csv")' not in recommender

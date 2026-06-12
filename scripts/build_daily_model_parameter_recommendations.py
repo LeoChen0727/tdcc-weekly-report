@@ -18,7 +18,6 @@ OUT_CSV = LATEST_DIR / "daily_model_parameter_recommendations_latest.csv"
 OUT_MD = LATEST_DIR / "daily_model_parameter_recommendations_latest.md"
 DOCS_CSV = DOCS_LATEST_DIR / OUT_CSV.name
 DOCS_MD = DOCS_LATEST_DIR / OUT_MD.name
-CONFIG_CSV = Path("config/daily_model_parameter_recommendations.csv")
 
 
 PROMOTE_MIN_SAMPLE = 100
@@ -233,11 +232,9 @@ def main() -> int:
     recommendations = build_recommendations(research, detail)
     write_csv(recommendations, OUT_CSV)
     write_csv(recommendations, DOCS_CSV)
-    write_csv(recommendations, CONFIG_CSV)
     write_markdown(recommendations)
     print(f"Saved: {OUT_CSV} rows={len(recommendations)}")
     print(f"Saved: {OUT_MD}")
-    print(f"Saved: {CONFIG_CSV}")
     return 0
 
 
