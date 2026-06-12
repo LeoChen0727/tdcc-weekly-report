@@ -2279,30 +2279,43 @@ def model_front_observation_rows_for_line(
     target_limit = limit if limit is not None else (
         FRONT_MAINSTREAM_LIMIT if line == "mainstream" else FRONT_NON_MAINSTREAM_LIMIT
     )
-    rows = [["模型", line_label]]
+    rows = [["模型", "股票", "狀態", "操作提醒"]]
     strict_ids = strict_buy_stock_ids(inputs["decision"], two_map, vol_map)
     for spec in core_model_specs(inputs, line):
         model_id = clean(spec.get("model_id"))
         model_name = clean(spec.get("model_name_zh"), model_id)
-        lines: list[str] = []
+        model_rows = 0
         for row in model_signal_rows(inputs, model_id, line):
             sid = clean(row.get("stock_id"))
             if sid in strict_ids:
                 continue
             tag = decision_action_tag(row, two_map, vol_map or {})
-            if tag == "嚴格可買":
+            if tag == "買進 / 加碼":
                 continue
-            line_text = escape_html(stock_label(row))
-            stage = model_stage_label(row, all_map.get(sid, pd.Series(dtype=object)))
-            if stage:
-                line_text += f"<br/>{escape_html(stage)}"
-            action = display_action_tag(tag)
-            if action:
-                line_text += f"<br/>{escape_html(action)}"
-            lines.append(line_text)
-            if len(lines) >= target_limit:
+            extra = all_map.get(sid, pd.Series(dtype=object))
+            stage = model_stage_label(row, extra) or "觀察"
+            action = display_action_tag(tag) or "觀察"
+            reminder = (
+                row.get("operation_reminder_zh")
+                or row.get("next_confirmation_zh")
+                or row.get("why_selected_human_zh")
+                or row.get("why_selected_zh")
+                or row.get("why_selected")
+                or observation_focus(row, extra)
+            )
+            rows.append(
+                [
+                    red(model_name),
+                    stock_label(row),
+                    stage,
+                    f"{escape_html(action)}<br/>{escape_html(short(reminder, 72))}",
+                ]
+            )
+            model_rows += 1
+            if model_rows >= target_limit:
                 break
-        rows.append([red(model_name), "<br/>".join(lines) if lines else "無符合條件資料"])
+        if model_rows == 0:
+            rows.append([red(model_name), "-", "-", f"{escape_html(line_label)}目前無符合觀察列"])
     return rows
 
 
@@ -3179,7 +3192,7 @@ def build_curated_pdf_for_line(
         [
             Paragraph(f"{line_label}觀察清單", H1),
             para("以下依 program-side 新版候選模型列示；同一檔股票可在多個模型重複出現。舊六分類只作來源背景，不作本頁主分類。", BODY_SMALL),
-            build_table(model_front_observation_rows_for_line(inputs, all_map, two_map, line, vol_map), [42 * mm, 226 * mm], 12.0),
+            build_table(model_front_observation_rows_for_line(inputs, all_map, two_map, line, vol_map), [42 * mm, 36 * mm, 122 * mm, 68 * mm], 12.0),
         ]
     )
 
