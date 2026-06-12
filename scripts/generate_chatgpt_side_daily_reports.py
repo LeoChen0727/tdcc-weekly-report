@@ -87,6 +87,12 @@ FULL_REPORT_MAINSTREAM_LIMIT = 12
 FULL_REPORT_NON_MAINSTREAM_LIMIT = 4
 
 
+def append_page_break_once(story: list) -> None:
+    if story and isinstance(story[-1], PageBreak):
+        return
+    story.append(PageBreak())
+
+
 def read_readme_value(key: str, default: str = "") -> str:
     if REMOTE_README.get(key):
         return REMOTE_README[key]
@@ -2362,7 +2368,7 @@ def append_group_rotation_end_section(story: list, inputs: dict[str, pd.DataFram
         group_rotation = group_rotation[group_rotation["theme_resolution_status"].astype(str).eq("resolved")].copy()
     if group_rotation.empty:
         return
-    story.append(PageBreak())
+    append_page_break_once(story)
     story.append(Paragraph("資金進入族群觀察", H1))
     story.append(
         para(
@@ -3256,7 +3262,7 @@ def build_curated_pdf_for_line(
         ]
         if not ranked_rows:
             continue
-        story.append(PageBreak())
+        append_page_break_once(story)
         story.append(Paragraph(model_name, H1))
         desc = clean(spec.get("model_description_zh"))
         if desc:
