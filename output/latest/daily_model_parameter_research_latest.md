@@ -1,6 +1,6 @@
 # Daily Model Parameter Research
 
-- generated_at: `2026-06-12 10:49:41 Asia/Taipei`
+- generated_at: `2026-06-12 11:42:00 Asia/Taipei`
 - price_history_files: `2370`
 - max_price_rows: `279`
 - data_range: `20250407` ~ `20260611`
