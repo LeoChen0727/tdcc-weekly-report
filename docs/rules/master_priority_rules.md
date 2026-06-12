@@ -27,6 +27,22 @@ For every repo-related task:
 
 Do not use old-date data as a new-date report. If `main_price_date` differs from the requested date, state the available repo date clearly.
 
+## Repo Change Completion Gate
+
+For daily production scope code, rule, workflow, Apps Script trigger, or generated contract changes, a pull-request branch with passing PR checks is not a completion point.
+
+The task may be reported complete only after all of these are true:
+
+1. The intended files are committed.
+2. The branch is pushed.
+3. A pull request is opened or updated.
+4. The PR checks pass, or any failures are debugged and fixed.
+5. The PR is merged to `main`.
+6. The follow-up `main` branch GitHub Actions triggered by the merge complete successfully.
+7. The final response reports the branch, commit, PR, merge commit, main Action run, and any residual risk.
+
+If any item is still pending, say it is pending and keep working unless the user explicitly asks to stop.
+
 ## Daily Data Read Contract
 
 For daily stock recommendation tasks, daily PDF tasks, and any task that requires the latest `main_price_date`, raw GitHub URLs and GitHub API contents are the authoritative read path.
@@ -121,6 +137,7 @@ Daily report generation and research/backfill jobs must remain separated.
 - TDCC history backfill belongs in `tdcc_history_backfill.yml` and must use bounded request and rebuild windows unless explicitly running a full research rebuild.
 - Daily reports may consume the latest available research outputs as specialty sections, but stale or missing research outputs must not block daily report generation.
 - If a daily report uses a research output, it must preserve `sample_status`, `tuning_status`, and `reporting_priority_only` limits.
+- Daily production commit steps must reject staged TDCC weekly, research/backtest, and long-history output paths. If such paths are staged during `daily_full_pipeline.yml`, treat it as a boundary failure and fix the owner workflow instead of publishing them through daily production.
 
 ## Data Sufficiency
 

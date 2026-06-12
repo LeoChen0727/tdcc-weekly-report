@@ -1,6 +1,6 @@
 CHATGPT DAILY MARKET REPORT RULES
 
-generated_at=2026-06-11 23:26:17 Asia/Taipei
+generated_at=2026-06-12 01:29:24 Asia/Taipei
 rules_version=2026-05-28-daily-candidate-pdf-contract-v2
 
 PURPOSE
@@ -59,6 +59,7 @@ TASK READ ORDER
 - Risk fields, TDCC, warrant, revenue, position, structure, and event tags are score/rank/annotation inputs. They should not create a second ChatGPT-side buy/not-buy veto after a model has selected a stock.
 - Mainstream and non-mainstream are report splits and comparison groups only. They must not cap score, veto a model signal, or remove a stock from the model list.
 - Do not hard-code the number of models in the PDF. Render all program-side model rows available that day. Curated PDFs show the top rows per model/bucket; full PDFs keep the complete model list.
+- If `daily_candidate_group_rotation_latest.md/csv` or the `group_fund_rotation` model row exists, render it as the final `資金進入族群觀察` / theme-fund-rotation table. It is a theme-level end section, not a stock-level core ranking model.
 - If repo PDF, memory, temporary interpretation, and program-side fields conflict, program-side structured data / packet / CSV fields win.
 - PDF tables must prefer program-side Chinese display columns when present:
   model_name_zh, source_category_zh, report_bucket_zh, effective_primary_theme_zh, effective_structural_theme_bucket_zh, tdcc_status_zh, warrant_flow_signal_zh, risk_tags_zh, score_components_zh, merged_source_categories_zh, merged_risk_penalty_tags_zh.
@@ -198,9 +199,10 @@ If the program-side model still uses six categories, keep these six categories f
 - Do not over-rank pattern names against other categories.
 
 SPECIALTY SECTION RULES
-- The fixed six categories are the core model buckets. They are not a ban on program-side specialty sections.
-- Theme status, TDCC edge, warrant status, volume attack, non-revenue momentum, short-term D+5/D+10 edge, and backtest research rows are overlay tags or specialty sections unless the program-side schema explicitly makes them core categories.
-- If a specialty packet/file exists, it must appear as its own section and must not be mixed into the six-category ranking.
+- Core model buckets are controlled by the active program-side model registry and model-parameter `pdf_visibility`.
+- `tdcc_short_term_continuation_d5_d10` / `TDCC短線延續模型 D+5/D+10` is a core daily candidate model when it is active in the registry, not a separate afterthought outside the model list.
+- Theme status, TDCC edge, warrant status, volume attack, non-revenue momentum, and backtest research rows are overlay tags or specialty sections unless the program-side schema explicitly makes them core categories.
+- If a specialty packet/file exists, it must appear as its own section and must not override or replace the core model ranking.
 - Required specialty sections when data exists:
   - daily_short_term_specialty_packet_latest.md
   - market_abnormal_status_latest.md/csv
@@ -209,7 +211,7 @@ SPECIALTY SECTION RULES
   - explosive_volume_up_backtest_latest.md/csv, explosive_volume_up_position_backtest_latest.csv, and explosive_volume_up_events_latest.csv
   - volume_attack_theme_layer_latest.md/csv and volume_attack_theme_stocks_latest.md/csv
   - non_revenue_momentum_watch_latest.md/csv
-- D+5 and D+10 tables from short-term specialty files must be shown separately.
+- D+5 and D+10 research-stat tables from short-term files may be shown separately as supporting evidence, but they must not remove the core `TDCC短線延續模型 D+5/D+10` rows from the main model list.
 - For `weekly_surge_strict_parameter_search_latest.md/csv`, do not write `週線急漲`, `周線急漲嚴格參數`, `最佳歷史D+5勝率`, or `最佳歷史D+10勝率`. Display it as `隔日開盤買進後 D+1 至 D+10 盤中觸及 +10% 研究`.
 - `best_dN_touch_rate_pct` is `D+1 open to D+N high >= +10%` touch-rate. It is not close-to-close return and not D+N close win rate. Legacy `best_dN_hit_rate_pct` fields must be interpreted the same way.
 - Explosive-volume-up research must be interpreted by price-position first: bottom/low-zone volume reversal, low-to-mid reclaim, near-high attack, and high-zone extension/chase. Do not mix bottom reversal with high-zone distribution/chase. Theme/mainstream status is a second filter, not a replacement for price-position filtering.

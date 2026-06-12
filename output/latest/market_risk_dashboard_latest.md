@@ -1,6 +1,6 @@
 # 市場風險與大盤期權背景
 
-- generated_at: `2026-06-11 20:27:11 Asia/Taipei`
+- generated_at: `2026-06-12 00:41:19 Asia/Taipei`
 - data_date: `20260611`
 - market_regime: `correction`
 - risk_level: `very_high_risk`
@@ -41,14 +41,14 @@
 
 ## 近期總經事件日曆
 
-- 20260609 US_trade: U.S. International Trade in Goods and Services, Annual Update (days=-2, importance=medium)
-- 20260609 US_trade: U.S. International Trade in Goods and Services, April 2026 (days=-2, importance=medium)
-- 20260617 FOMC: FOMC decision (June 16-17, 2026) (days=6, importance=high)
-- 20260625 US_PCE_personal_income: GDP (Third Estimate), Industries, Corporate Profits, State GDP, and State Personal Income, 1st Quarter 2026 (days=14, importance=high)
-- 20260625 US_PCE_personal_income: Personal Income and Outlays, May 2026 (days=14, importance=high)
-- 20260707 US_trade: U.S. International Trade in Goods and Services, May 2026 (days=26, importance=medium)
-- 20260729 FOMC: FOMC decision (July 28-29, 2026) (days=48, importance=high)
-- 20260730 US_GDP: GDP (Advance Estimate), 2nd Quarter 2026 (days=49, importance=medium)
+- 20260609 US_trade: U.S. International Trade in Goods and Services, Annual Update (days=-3, importance=medium)
+- 20260609 US_trade: U.S. International Trade in Goods and Services, April 2026 (days=-3, importance=medium)
+- 20260617 FOMC: FOMC decision (June 16-17, 2026) (days=5, importance=high)
+- 20260625 US_PCE_personal_income: GDP (Third Estimate), Industries, Corporate Profits, State GDP, and State Personal Income, 1st Quarter 2026 (days=13, importance=high)
+- 20260625 US_PCE_personal_income: Personal Income and Outlays, May 2026 (days=13, importance=high)
+- 20260707 US_trade: U.S. International Trade in Goods and Services, May 2026 (days=25, importance=medium)
+- 20260729 FOMC: FOMC decision (July 28-29, 2026) (days=47, importance=high)
+- 20260730 US_GDP: GDP (Advance Estimate), 2nd Quarter 2026 (days=48, importance=medium)
 
 ## 半年技術圖表
 

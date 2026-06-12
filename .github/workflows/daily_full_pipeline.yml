@@ -43,6 +43,7 @@ jobs:
       - name: Validate Apps Script workflow triggers
         run: |
           python scripts/validate_apps_script_workflow_triggers.py
+          python scripts/validate_daily_production_boundaries.py
 
       - name: Install dependencies
         run: |
@@ -346,6 +347,7 @@ jobs:
           git add output/history/daily_candidates/daily_theme_status_history.csv || true
           git add output/history/market_risk/ || true
 
+          python scripts/validate_daily_staged_paths.py
           git status --short
           git commit -m "Update daily report artifacts and packets" || echo "No changes to commit"
 
@@ -394,6 +396,7 @@ jobs:
           git add output/latest/CHATGPT_INDICATOR_USAGE_GUIDE.txt || true
           git add docs/latest/ || true
 
+          python scripts/validate_daily_staged_paths.py
           git status --short
           git commit -m "Publish daily report readme and ChatGPT entries" || echo "No changes to commit"
 

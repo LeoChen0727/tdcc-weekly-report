@@ -91,7 +91,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
     def test_parameter_table_keeps_pdf_research_and_event_layers_separate(self) -> None:
         params = build_parameter_table(build_specs()).set_index("model_id")
         self.assertEqual(params.loc["volume_range_breakout", "pdf_visibility"], "pdf_core_model")
-        self.assertEqual(params.loc["tdcc_short_term_continuation_d5_d10", "pdf_visibility"], "pdf_specialty_section")
+        self.assertEqual(params.loc["tdcc_short_term_continuation_d5_d10", "pdf_visibility"], "pdf_core_model")
         self.assertEqual(params.loc["short_term_surge_d5_d10", "pdf_visibility"], "research_only_not_pdf_core")
         self.assertEqual(params.loc["explosive_volume_red_candle", "pdf_visibility"], "research_only_not_pdf_core")
         self.assertEqual(params.loc["disposition_attention_event_tag", "pdf_visibility"], "pdf_risk_tag_only")

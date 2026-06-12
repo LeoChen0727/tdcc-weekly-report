@@ -1,7 +1,7 @@
 # Non-Revenue Momentum Watch
 
 ## Metadata
-- generated_at: `2026-06-11 12:25:29 UTC`
+- generated_at: `2026-06-11 16:39:33 UTC`
 - main_price_date: `20260611`
 - section_type: `specialty_section_not_core_category`
 - model_effect_allowed: `False`
@@ -47,7 +47,7 @@
 | D_overheated_or_failed_risk | 6139 | 亞翔 | core_mainstream | C_watch_only | 66.0 | revenue_unconfirmed |  | market_theme | core_mainstream |  |  | 0.78 | mild_accumulation | no_signal | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。; 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
 | D_overheated_or_failed_risk | 2101 | 南港 | non_mainstream | C_watch_only | 66.0 | revenue_unconfirmed |  | non_mainstream_theme | non_mainstream |  |  | 0.72 | mild_accumulation | no_signal | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。; 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
 | D_overheated_or_failed_risk | 6442 | 光聖 | core_mainstream | C_watch_only | 66.0 | revenue_unconfirmed |  | market_theme | core_mainstream |  |  | 0.43 | mild_accumulation | no_signal | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待 EPS / 毛利率或正式催化確認，並觀察是否放量突破平台 / 前高。; 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
-| D_overheated_or_failed_risk | 2457 | 飛宏 | core_mainstream | C_watch_only | 65.8 | revenue_negative |  | market_theme | core_mainstream |  |  | 1.79 | mild_accumulation | call_strong_inflow | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 確認放量站上頸線/平台壓力，且收盤靠近高點。; 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
+| D_overheated_or_failed_risk | 2457 | 飛宏 | core_mainstream | C_watch_only | 65.8 | revenue_negative |  | market_theme | core_mainstream |  |  | 1.79 | mild_accumulation | call_put_bullish | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 確認放量站上頸線/平台壓力，且收盤靠近高點。; 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
 | D_overheated_or_failed_risk | 6605 | 帝寶 | non_mainstream | C_watch_only | 65.8 | revenue_negative |  | non_mainstream_theme | non_mainstream |  |  | 1.05 | mild_accumulation | no_signal | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待量價、TDCC、相對強弱至少一項轉強。; 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
 | D_overheated_or_failed_risk | 2603 | 長榮 | non_mainstream | C_watch_only | 64.8 | revenue_negative |  | non_mainstream_theme | non_mainstream |  |  | 0.76 | strong_accumulation | no_signal | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待量價、TDCC、相對強弱至少一項轉強。; 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
 | D_overheated_or_failed_risk | 4976 | 佳凌 | core_mainstream | C_watch_only | 62.8 | revenue_negative |  | market_theme | core_mainstream |  |  | 1.44 | mild_accumulation |  | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 確認放量站上頸線/平台壓力，且收盤靠近高點。; 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |

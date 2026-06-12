@@ -53,8 +53,9 @@ separate pull requests unless a single integration fix is clearly safer.
   global ranking unless a program-side contract explicitly does that.
 - Do not invent buy/sell decisions, mainstream/non-mainstream labels, ranking,
   risk vetoes, or model judgments in the PDF layer.
-- Do not modify `generate_repo_chatgpt_side_reports.py` unless the user
-  explicitly asks for that file.
+- ChatGPT-side daily PDF rendering changes belong in the canonical repo script
+  `scripts/generate_chatgpt_side_daily_reports.py`. Do not leave durable fixes
+  only in a OneDrive/local helper copy.
 - `report_ready=True` means repo artifacts are available. It does not mean a
   ChatGPT-side PDF task has already been completed.
 - Prefer raw GitHub or GitHub API data over Pages for daily freshness. Pages is
@@ -74,6 +75,10 @@ For repo maintenance and code changes:
 7. Open a pull request.
 8. Run the relevant local validations and GitHub Actions. Debug failed Actions
    until the requested workflow can execute successfully.
+9. For `daily_production` code, rule, workflow, Apps Script trigger, or generated
+   contract changes, do not stop at a branch PR with passing checks. Merge the PR
+   to `main`, wait for the follow-up `main` GitHub Actions run, and verify it
+   succeeds before reporting the task complete.
 
 For documentation-only changes, use the smallest relevant validation set and
 still publish through branch plus PR.
@@ -89,6 +94,7 @@ Every thread that changes the repo should end with a short handoff summary:
 - Files changed
 - Local validation
 - GitHub Actions result or pending run URL
+- For daily production changes: merge commit and successful `main` Action run
 - Residual risks or follow-up items
 
 Do not use an old conversation as the source of truth. If a future thread needs

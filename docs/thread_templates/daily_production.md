@@ -42,7 +42,9 @@ Hard boundaries:
   into one ranking unless the program-side contract says so.
 - Do not invent PDF-layer buy/sell, mainstream/non-mainstream, risk veto,
   ranking, or model judgment.
-- Do not modify generate_repo_chatgpt_side_reports.py unless I explicitly ask.
+- ChatGPT-side PDF rendering changes belong in the canonical repo script
+  scripts/generate_chatgpt_side_daily_reports.py. Do not leave durable fixes only
+  in a OneDrive/local helper copy.
 
 Task:
 <describe the daily production issue or deliverable>
@@ -51,7 +53,9 @@ Completion condition:
 - Explain current freshness state.
 - Make scoped code/docs changes only if needed.
 - Commit and push any file changes.
-- Run the relevant local validation and GitHub Actions.
-- Debug Actions until the relevant workflow executes successfully.
-- End with branch, commit, PR, Actions result, and residual risks.
+- Open or update the PR and verify PR checks pass.
+- Do not stop at branch PR checks. Merge the PR into `main`.
+- Wait for the follow-up `main` GitHub Actions run triggered by the merge.
+- Debug Actions until the relevant `main` workflow executes successfully.
+- End with branch, commit, PR, merge commit, main Actions result, and residual risks.
 ```
