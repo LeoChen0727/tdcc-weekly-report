@@ -137,6 +137,7 @@ Daily report generation and research/backfill jobs must remain separated.
 - TDCC history backfill belongs in `tdcc_history_backfill.yml` and must use bounded request and rebuild windows unless explicitly running a full research rebuild.
 - Daily reports may consume the latest available research outputs as specialty sections, but stale or missing research outputs must not block daily report generation.
 - If a daily report uses a research output, it must preserve `sample_status`, `tuning_status`, and `reporting_priority_only` limits.
+- Daily production commit steps must reject staged TDCC weekly, research/backtest, and long-history output paths. If such paths are staged during `daily_full_pipeline.yml`, treat it as a boundary failure and fix the owner workflow instead of publishing them through daily production.
 
 ## Data Sufficiency
 
