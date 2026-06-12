@@ -1,7 +1,7 @@
 # 每日全市場候選股監測報告 - 精華版
 
 - 主資料日期：`20260612`
-- 產生時間：`2026-06-12 22:35:50 Asia/Taipei`
+- 產生時間：`2026-06-13 00:27:45 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
 - 判斷說明：core daily data dates match main_price_date
 - 權證資料日期：`20260612`
@@ -31,18 +31,18 @@
 
 | 股票 | 原始分類 | 催化標籤 / 反應程度 | TDCC |
 |---|---|---|---|
-| 8028 昇陽半導體 | 營收成長股價回檔 | score 28 / theme 82.9/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;dividend_calendar;calendar_ex_dividen... | 大戶溫和增加 |
 | 8016 矽創 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;dividend_calendar;calendar_ex_divide... | 大戶溫和增加 |
 | 2606 裕民 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;dividend_calendar;calendar_ex_divide... | 大戶同步增加 |
 | 3028 增你強 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;dividend_calendar;calendar_ex_divide... | 大戶溫和增加 |
 | 2455 全新 | 營收成長股價回檔 | score 28 / theme 57.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;dividend_calendar;calendar_ex_dividen... | 大戶溫和增加 |
-| 4952 凌通 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;dividend_calendar;calendar_ex_divide... | 大戶溫和增加 |
-| 2368 金像電 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;dividend_calendar;calendar_ex_divide... | 大戶溫和增加 |
-| 2451 創見 | 營收成長股價回檔 | score 28 / theme 80.1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;dividend_calendar;calendar_ex_dividen... | 大戶溫和增加 |
 | 8210 勤誠 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;dividend_calendar;calendar_ex_divide... | 大戶溫和增加 |
-| 1597 直得 | 營收成長股價回檔 | score 28 / theme 33.6/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mon... | 大戶溫和增加 |
+| 4952 凌通 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;dividend_calendar;calendar_ex_divide... | 大戶溫和增加 |
+| 2451 創見 | 營收成長股價回檔 | score 28 / theme 80.1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;dividend_calendar;calendar_ex_dividen... | 大戶溫和增加 |
+| 2368 金像電 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;dividend_calendar;calendar_ex_divide... | 大戶溫和增加 |
+| 2363 矽統 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mo... | 大戶溫和增加 |
 | 3003 健和興 | 營收爆發低反應股 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mo... | 大戶溫和增加 |
-| 3006 晶豪科 | 營收成長股價回檔 | score 28 / theme 80.1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mon... | 大戶同步增加 |
+| 2049 上銀 | 營收成長股價回檔 | score 28 / theme 29.2/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mon... | 大戶同步增加 |
+| 4949 有成精密 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mo... | 大戶溫和增加 |
 
 ## 精華候選股
 
@@ -401,7 +401,7 @@
 - 連續上榜：訊號鈍化；近5日 2；近10日 4；多分類 pattern|revenue_pullback
 - TDCC：大戶溫和增加
 - 權證：call_put_bullish / 3.0
-- 財報 / 事件催化：score 0 / theme 82.9/5 / dividend_calendar;calendar_ex_dividend;semiconductor_equipment_theme;wafer reclaim;semiconductor materials / divide...
+- 財報 / 事件催化：score 0 / theme 82.9/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window;semiconductor_equipment_theme;wafer reclaim;semic...
 - 摘要：pattern_watch / 大戶溫和增加 / call_put_bullish / 3.0
 - 完整原因：近幾週400張與1000張合計增加；call_put_bullish；認購成交金額明顯大於認售，且認購資金明顯升溫；量比0.45x；月營收YoY 46.0%；累計YoY 27.3%；TDCC近幾週大戶溫和增加
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
