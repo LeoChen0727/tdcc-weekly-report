@@ -2,12 +2,14 @@ from __future__ import annotations
 
 from pathlib import Path
 import sys
+import re
 
 import pandas as pd
 
 
 LATEST_DIR = Path("output/latest")
 DATA_FRESHNESS_CSV = LATEST_DIR / "data_freshness_latest.csv"
+GROUP_ROTATION_CSV = LATEST_DIR / "daily_candidate_group_rotation_latest.csv"
 
 REQUIRED_COLUMNS = [
     "generated_at",
@@ -45,6 +47,49 @@ def is_true(value: object) -> bool:
 def require(errors: list[str], condition: bool, message: str) -> None:
     if not condition:
         errors.append(message)
+
+
+RAW_THEME_PATTERN = re.compile(r"^[A-Za-z][A-Za-z0-9_ -]*$")
+UNRESOLVED_THEME_VALUES = {"", "其他", "其他業", "other", "theme_unknown", "unclassified", "needs_manual_review"}
+
+
+def has_cjk_text(value: str) -> bool:
+    return bool(re.search(r"[\u4e00-\u9fff]", value))
+
+
+def unresolved_theme_value(value: object) -> bool:
+    text = str(value).strip()
+    if text in UNRESOLVED_THEME_VALUES:
+        return True
+    if text.isdigit():
+        return True
+    if RAW_THEME_PATTERN.fullmatch(text) and not has_cjk_text(text):
+        return True
+    return False
+
+
+def group_rotation_theme_state() -> tuple[bool, str]:
+    if not GROUP_ROTATION_CSV.exists():
+        return True, "group rotation table missing; no theme rows to validate"
+    try:
+        df = pd.read_csv(GROUP_ROTATION_CSV, dtype=str).fillna("")
+    except Exception as exc:
+        return False, f"group rotation unreadable: {exc}"
+    if df.empty:
+        return True, "group rotation table empty; no theme rows to validate"
+    required = {"theme", "theme_display_zh", "theme_resolution_status"}
+    missing = sorted(required - set(df.columns))
+    if missing:
+        return False, f"group rotation missing theme display columns: {missing}"
+    bad = df[
+        df["theme_resolution_status"].astype(str).ne("resolved")
+        | df["theme"].map(unresolved_theme_value)
+        | df["theme_display_zh"].map(unresolved_theme_value)
+    ]
+    if not bad.empty:
+        sample = bad[["theme", "theme_display_zh", "theme_resolution_status"]].head(5).to_dict("records")
+        return False, f"group rotation has unresolved/raw theme rows: count={len(bad)} sample={sample}"
+    return True, "group rotation themes resolved for PDF display"
 
 
 def main() -> int:
@@ -91,7 +136,8 @@ def main() -> int:
         and warrant_date == main_date
         and not warrant_data_unavailable
     )
-    expected_daily_pdf_ready = expected_report_ready and expected_warrant_ready
+    group_rotation_theme_ready, group_rotation_theme_note = group_rotation_theme_state()
+    expected_daily_pdf_ready = expected_report_ready and expected_warrant_ready and group_rotation_theme_ready
 
     require(
         errors,
@@ -106,7 +152,7 @@ def main() -> int:
     require(
         errors,
         daily_pdf_ready == expected_daily_pdf_ready,
-        f"daily_pdf_ready={daily_pdf_ready} expected {expected_daily_pdf_ready}",
+        f"daily_pdf_ready={daily_pdf_ready} expected {expected_daily_pdf_ready} ({group_rotation_theme_note})",
     )
 
     for col in ("report_ready_note", "warrant_ready_note", "daily_pdf_ready_note"):

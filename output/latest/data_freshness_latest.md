@@ -1,6 +1,6 @@
 # Data Freshness Status
 
-- generated_at: `2026-06-12 19:43:15` Asia/Taipei
+- generated_at: `2026-06-12 21:59:04` Asia/Taipei
 - main_price_date: `20260612`
 - actual_stock_price_history_date: `20260612`
 - report_ready: `True`
@@ -8,7 +8,7 @@
 - warrant_ready: `True`
 - warrant_ready_note: warrant_flow_date matches main_price_date
 - daily_pdf_ready: `True`
-- daily_pdf_ready_note: core daily data and warrant layer are ready for daily PDF source use
+- daily_pdf_ready_note: core daily data, warrant layer, and PDF theme display are ready for daily PDF source use; group rotation themes resolved for PDF display
 
 ## Component Dates
 

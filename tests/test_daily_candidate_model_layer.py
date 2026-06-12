@@ -852,5 +852,68 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         self.assertIn("底部放量攻擊", report_ready["model_name_zh"].iloc[0])
 
 
+    def test_group_rotation_outputs_pdf_safe_theme_display(self) -> None:
+        taxonomy = pd.DataFrame(
+            [
+                {
+                    "stock_id": "9103",
+                    "stock_name": "美德醫療-DR",
+                    "industry": "91",
+                    "basic_theme": "91",
+                    "primary_theme": "DR_or_foreign_listing",
+                    "secondary_themes": "",
+                },
+                {
+                    "stock_id": "9105",
+                    "stock_name": "泰金寶-DR",
+                    "industry": "91",
+                    "basic_theme": "91",
+                    "primary_theme": "DR_or_foreign_listing",
+                    "secondary_themes": "",
+                },
+                {
+                    "stock_id": "9136",
+                    "stock_name": "巨騰-DR",
+                    "industry": "91",
+                    "basic_theme": "91",
+                    "primary_theme": "DR_or_foreign_listing",
+                    "secondary_themes": "",
+                },
+            ]
+        )
+        dates = pd.date_range("2026-04-01", periods=40, freq="B").strftime("%Y%m%d")
+        history = pd.DataFrame(
+            {
+                "date": dates,
+                "close": [100 + i for i in range(40)],
+                "volume": [100] * 39 + [400],
+                "volume_ma20": [100] * 40,
+            }
+        )
+
+        original_path = model_layer.STOCK_THEME_TAXONOMY
+        original_price_history = model_layer.price_history_for_stock
+        with tempfile.TemporaryDirectory() as tmpdir:
+            temp_csv = Path(tmpdir) / "taxonomy.csv"
+            taxonomy.to_csv(temp_csv, index=False, encoding="utf-8-sig")
+            try:
+                model_layer.STOCK_THEME_TAXONOMY = temp_csv
+                model_layer.price_history_for_stock = lambda stock_id: history.copy()
+                rotation = model_layer.build_rotation(pd.DataFrame(), dates[-1])
+            finally:
+                model_layer.STOCK_THEME_TAXONOMY = original_path
+                model_layer.price_history_for_stock = original_price_history
+
+        self.assertFalse(rotation.empty)
+        self.assertIn("theme_display_zh", rotation.columns)
+        self.assertIn("theme_resolution_status", rotation.columns)
+        self.assertIn("theme_key", rotation.columns)
+        self.assertEqual(set(rotation["theme"]), {"DR / 外國上市"})
+        self.assertEqual(set(rotation["theme_display_zh"]), {"DR / 外國上市"})
+        self.assertEqual(set(rotation["theme_resolution_status"]), {"resolved"})
+        self.assertTrue(rotation["theme_key"].str.contains("DR_or_foreign_listing").any())
+        self.assertFalse(rotation["theme"].str.contains(r"^\\d+$|DR_or_foreign_listing|其他", regex=True).any())
+
+
 if __name__ == "__main__":
     unittest.main()

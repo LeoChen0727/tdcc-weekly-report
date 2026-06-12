@@ -2646,6 +2646,10 @@ def append_group_rotation_section(story: list[Any], style_map: dict[str, Paragra
     rotation = read_csv_safe(LATEST_DIR / "daily_candidate_group_rotation_latest.csv", dtype=str, keep_default_na=False)
     if rotation.empty:
         return
+    if "theme_resolution_status" in rotation.columns:
+        rotation = rotation[rotation["theme_resolution_status"].astype(str).eq("resolved")].copy()
+    if rotation.empty:
+        return
     story.append(PageBreak())
     story.append(para("族群資金輪動觀察", style_map["h1"]))
     story.append(para("此段用於預判資金流向，不是個股買進模型。條件為同族群超過三分之一股票量比達 3 倍以上。", style_map["normal"]))
@@ -3472,6 +3476,10 @@ def _append_group_rotation_section_readable(story: list[Any], style_map: dict[st
     rotation = read_csv_safe(LATEST_DIR / "daily_candidate_group_rotation_latest.csv", dtype=str, keep_default_na=False)
     if rotation.empty:
         return
+    if "theme_resolution_status" in rotation.columns:
+        rotation = rotation[rotation["theme_resolution_status"].astype(str).eq("resolved")].copy()
+    if rotation.empty:
+        return
     story.append(PageBreak())
     story.append(para("族群資金輪動觀察", style_map["h1"]))
     story.append(para("這一段用來觀察同族群是否出現量能擴散，不是直接買進名單。", style_map["normal"]))
@@ -3890,13 +3898,17 @@ def _append_group_rotation_section_readable(story: list[Any], style_map: dict[st
     rotation = read_csv_safe(LATEST_DIR / "daily_candidate_group_rotation_latest.csv", dtype=str, keep_default_na=False)
     if rotation.empty:
         return
+    if "theme_resolution_status" in rotation.columns:
+        rotation = rotation[rotation["theme_resolution_status"].astype(str).eq("resolved")].copy()
+    if rotation.empty:
+        return
     story.append(PageBreak())
     story.append(para("\u65cf\u7fa4\u8cc7\u91d1\u8f2a\u52d5\u89c0\u5bdf", style_map["h1"]))
     story.append(para("\u672c\u7bc0\u53ea\u5224\u8b80\u65cf\u7fa4\u51fa\u91cf\u64f4\u6563\uff0c\u4e0d\u76f4\u63a5\u7576\u500b\u80a1\u8cb7\u9032\u7406\u7531\u3002", style_map["normal"]))
     rows = [["\u65cf\u7fa4", "\u6a94\u6578", "3\u500d\u91cf\u6a94\u6578", "\u64f4\u6563\u6bd4\u4f8b", "\u9f8d\u982d/\u8001\u4e8c/\u8001\u4e09", "\u89e3\u8b80"]]
     for _, row in rotation.head(20).iterrows():
         rows.append([
-            _pdf_human_text(row.get("theme"), fallback="\u65cf\u7fa4\u5c1a\u672a\u5b8c\u6210", limit=18),
+            _pdf_human_text(row.get("theme_display_zh"), row.get("theme"), fallback="\u65cf\u7fa4\u5c1a\u672a\u5b8c\u6210", limit=18),
             clean_text(row.get("stock_count", ""), 8),
             clean_text(row.get("volume_expansion_3x_count", ""), 8),
             clean_text(row.get("volume_expansion_ratio", ""), 8),

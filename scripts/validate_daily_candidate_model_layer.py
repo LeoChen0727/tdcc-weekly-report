@@ -135,6 +135,10 @@ DISPLAY_COLUMNS = [
 
 CRITICAL_DISPLAY_COLUMNS = ["report_bucket_zh", "source_category_zh", "model_name_zh", "why_selected_human_zh", "operation_reminder_zh"]
 RAW_SLUG_PATTERN = re.compile(r"(^|[\s|/、,;])([a-z]+(?:_[a-z0-9]+){1,})(?=$|[\s|/、,;])")
+RAW_THEME_PATTERN = re.compile(r"^[A-Za-z][A-Za-z0-9_ -]*$")
+UNRESOLVED_THEME_VALUES = {"", "其他", "其他業", "other", "theme_unknown", "unclassified", "needs_manual_review"}
+REQUIRED_ROTATION_COLUMNS = {"theme", "theme_display_zh", "theme_resolution_status", "theme_key"}
+
 FORBIDDEN_DISPLAY_TOKENS = [
     "neckline",
     "breakout",
@@ -159,6 +163,21 @@ FORBIDDEN_DISPLAY_TOKENS = [
     "EPS confirmation tag",
     "catalyst tag",
 ]
+
+
+def has_cjk_text(value: str) -> bool:
+    return bool(re.search(r"[\u4e00-\u9fff]", value))
+
+
+def unresolved_theme_value(value: object) -> bool:
+    text = safe_str(value).strip()
+    if text in UNRESOLVED_THEME_VALUES:
+        return True
+    if text.isdigit():
+        return True
+    if RAW_THEME_PATTERN.fullmatch(text) and not has_cjk_text(text):
+        return True
+    return False
 
 
 def line_count(path: Path) -> int:
@@ -264,6 +283,9 @@ def validate() -> dict[str, object]:
             errors.append(f"raw_model_signals signal_date mismatch: expected {expected_signal_date}, got {raw_dates}")
 
     if not rotation.empty:
+        missing_rotation_cols = sorted(REQUIRED_ROTATION_COLUMNS - set(rotation.columns))
+        if missing_rotation_cols:
+            errors.append(f"missing_group_rotation_columns: {missing_rotation_cols}")
         rotation_model = rotation.get("rotation_model_id", pd.Series([""] * len(rotation))).astype(str)
         volume_ratio = pd.to_numeric(rotation.get("volume_expansion_ratio", ""), errors="coerce")
         slow_ratio = pd.to_numeric(rotation.get("slow_inflow_ratio", ""), errors="coerce")
@@ -286,6 +308,15 @@ def validate() -> dict[str, object]:
         bad_rotation_models = sorted(set(rotation_model) - valid_rotation_models)
         if bad_rotation_models:
             errors.append(f"invalid_rotation_model_id: {bad_rotation_models}")
+        if not missing_rotation_cols:
+            unresolved_rows = rotation[
+                rotation["theme_resolution_status"].astype(str).ne("resolved")
+                | rotation["theme"].map(unresolved_theme_value)
+                | rotation["theme_display_zh"].map(unresolved_theme_value)
+            ]
+            if not unresolved_rows.empty:
+                sample = unresolved_rows[["theme", "theme_display_zh", "theme_resolution_status", "theme_key"]].head(8).to_dict("records")
+                errors.append(f"group rotation unresolved/raw theme rows: count={len(unresolved_rows)} sample={sample}")
 
     if line_count(PACKET_MD) <= 10:
         errors.append(f"packet_missing_or_too_short: {PACKET_MD}")

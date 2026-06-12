@@ -3245,6 +3245,9 @@ ROTATION_COLUMNS = [
     "rotation_model_id",
     "rotation_model_name",
     "theme",
+    "theme_display_zh",
+    "theme_resolution_status",
+    "theme_key",
     "stock_count",
     "volume_expansion_3x_count",
     "volume_expansion_1_5x_count",
@@ -3263,12 +3266,60 @@ ROTATION_COLUMNS = [
 ]
 
 
+ROTATION_THEME_DISPLAY_ZH = {
+    "91": "DR / 外國上市",
+    "DR_or_foreign_listing": "DR / 外國上市",
+    "ETF_or_index_product": "指數 / ETF / ETN商品",
+    "etf_or_index_product": "指數 / ETF / ETN商品",
+    "指數/ETF/ETN商品": "指數 / ETF / ETN商品",
+}
+
+UNRESOLVED_ROTATION_THEME_VALUES = {
+    "",
+    "其他",
+    "其他業",
+    "other",
+    "theme_unknown",
+    "unclassified",
+    "needs_manual_review",
+}
+
+RAW_ENGLISH_THEME_RE = re.compile(r"^[A-Za-z][A-Za-z0-9_ -]*$")
+
+
+def has_cjk_text(value: str) -> bool:
+    return bool(re.search(r"[\u4e00-\u9fff]", value))
+
+
+def is_unresolved_rotation_theme(value: Any) -> bool:
+    text = safe_str(value)
+    if text in UNRESOLVED_ROTATION_THEME_VALUES:
+        return True
+    if text.isdigit():
+        return True
+    if RAW_ENGLISH_THEME_RE.fullmatch(text) and not has_cjk_text(text):
+        return True
+    return False
+
+
+def resolve_rotation_theme(value: Any) -> dict[str, str]:
+    raw = safe_str(value)
+    display = ROTATION_THEME_DISPLAY_ZH.get(raw, raw)
+    status = "unresolved" if is_unresolved_rotation_theme(display) else "resolved"
+    return {
+        "theme_key": raw,
+        "theme": display,
+        "theme_display_zh": display,
+        "theme_resolution_status": status,
+    }
+
+
 def build_rotation(candidates: pd.DataFrame, signal_date: str) -> pd.DataFrame:
     taxonomy = read_csv(STOCK_THEME_TAXONOMY, dtype={"stock_id": str})
     if taxonomy.empty:
         return pd.DataFrame(columns=ROTATION_COLUMNS)
 
-    def rotation_themes(item: pd.Series) -> list[str]:
+    def rotation_themes(item: pd.Series) -> list[dict[str, str]]:
         """Return all usable group labels for fund-rotation detection.
 
         A stock can participate in its basic listed-company industry group and
@@ -3289,15 +3340,15 @@ def build_rotation(candidates: pd.DataFrame, signal_date: str) -> pd.DataFrame:
         for key in ("hot_secondary_themes", "secondary_themes"):
             values.extend(split_tags(safe_str(item.get(key))))
 
-        cleaned: list[str] = []
+        cleaned: list[dict[str, str]] = []
         seen: set[str] = set()
-        skip = {"other", "theme_unknown", "unclassified", "needs_manual_review"}
         for value in values:
-            theme = safe_str(value)
-            if not theme or theme in skip or theme in seen:
+            resolved = resolve_rotation_theme(value)
+            theme = resolved["theme"]
+            if not theme or theme in seen:
                 continue
             seen.add(theme)
-            cleaned.append(theme)
+            cleaned.append(resolved)
         return cleaned
 
     # Group rotation must evaluate the whole taxonomy universe, not only rows
@@ -3332,12 +3383,15 @@ def build_rotation(candidates: pd.DataFrame, signal_date: str) -> pd.DataFrame:
         return_15d = (close / close_15_ago - 1) * 100 if close_15_ago and not math.isnan(close) else math.nan
         return_30d = (close / close_30_ago - 1) * 100 if close_30_ago and not math.isnan(close) else math.nan
 
-        for theme in rotation_themes(item):
+        for theme_info in rotation_themes(item):
             rows_for_group.append(
                 {
                     "stock_id": stock_id,
                     "stock_name": safe_str(item.get("stock_name")),
-                    "theme": theme,
+                    "theme": theme_info["theme"],
+                    "theme_display_zh": theme_info["theme_display_zh"],
+                    "theme_resolution_status": theme_info["theme_resolution_status"],
+                    "theme_key": theme_info["theme_key"],
                     "volume_ratio_num": volume_ratio_num,
                     "slow_volume_ratio": slow_volume_ratio,
                     "return_15d": return_15d,
@@ -3360,7 +3414,7 @@ def build_rotation(candidates: pd.DataFrame, signal_date: str) -> pd.DataFrame:
     rows: list[dict[str, Any]] = []
     for theme, part in work.groupby("theme", dropna=False):
         theme_text = safe_str(theme)
-        if not theme_text or theme_text in {"other", "theme_unknown", "unclassified"}:
+        if not theme_text:
             continue
         total = len(part)
         if total < 2:
@@ -3380,6 +3434,9 @@ def build_rotation(candidates: pd.DataFrame, signal_date: str) -> pd.DataFrame:
             continue
 
         def add_row(model_id: str, model_name: str, diffusion_status: str, interpretation: str) -> None:
+            theme_keys = "|".join(sorted({safe_str(value) for value in part["theme_key"] if safe_str(value)}))
+            theme_statuses = {safe_str(value) for value in part["theme_resolution_status"] if safe_str(value)}
+            theme_status = "resolved" if theme_statuses == {"resolved"} and not is_unresolved_rotation_theme(theme_text) else "unresolved"
             leaders = (
                 part.sort_values("volume_ratio_num", ascending=False)
                 .head(3)[["stock_id", "stock_name", "volume_ratio_num"]]
@@ -3391,7 +3448,10 @@ def build_rotation(candidates: pd.DataFrame, signal_date: str) -> pd.DataFrame:
                     "signal_date": signal_date,
                     "rotation_model_id": model_id,
                     "rotation_model_name": model_name,
-                    "theme": theme,
+                    "theme": theme_text,
+                    "theme_display_zh": theme_text,
+                    "theme_resolution_status": theme_status,
+                    "theme_key": theme_keys,
                     "stock_count": total,
                     "volume_expansion_3x_count": expansion,
                     "volume_expansion_1_5x_count": expansion_15,

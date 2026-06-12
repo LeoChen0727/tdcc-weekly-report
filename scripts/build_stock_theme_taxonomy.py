@@ -639,7 +639,7 @@ PROVISIONAL_INDUSTRY_RULES = [
     ("\u9020\u7d19", "\u9020\u7d19\u5de5\u696d", "non_mainstream_theme", "non_mainstream"),
     ("\u6cb9\u96fb\u71c3\u6c23", "\u6cb9\u96fb\u71c3\u6c23\u696d", "non_mainstream_theme", "non_mainstream"),
     ("\u751f\u6280\u91ab\u7642", "\u751f\u6280\u91ab\u7642\u696d", "non_mainstream_theme", "non_mainstream"),
-    ("91", "DR_or_foreign_listing", "non_mainstream_theme", "non_mainstream"),
+    ("91", "DR / 外國上市", "non_mainstream_theme", "non_mainstream"),
 ]
 
 CORE_BUCKETS.update({bucket for _, _, bucket, label in PROVISIONAL_INDUSTRY_RULES if label == "core_mainstream"})
@@ -668,6 +668,11 @@ def normalize_mainstream(value: Any) -> str:
 
 
 THEME_DISPLAY_MAP = {
+    "91": "DR / 外國上市",
+    "DR_or_foreign_listing": "DR / 外國上市",
+    "ETF_or_index_product": "指數 / ETF / ETN商品",
+    "etf_or_index_product": "指數 / ETF / ETN商品",
+    "指數/ETF/ETN商品": "指數 / ETF / ETN商品",
     "AI server supply chain": "AI伺服器",
     "industrial computer": "工業電腦",
     "computer peripherals": "電腦及週邊設備業",
@@ -741,13 +746,27 @@ MISSING_INDUSTRY_FALLBACKS: dict[str, tuple[str, str, str, str]] = {
     # A few valid listed/TPEX names can miss the upstream industry snapshot.
     # Keep them explicit so the daily reports do not leak an unclassified bucket.
     "0200": ("\u6307\u6578/ETF/ETN\u5546\u54c1", "\u6307\u6578/ETF/ETN\u5546\u54c1", "non_mainstream_theme", "non_mainstream"),
+    "1342": ("TPU材料 / 工業複合材料", "TPU材料 / 工業複合材料", "non_mainstream_theme", "non_mainstream"),
+    "2348": ("房地產代銷 / 建設服務", "房地產代銷 / 建設服務", "non_mainstream_theme", "non_mainstream"),
     "2809": ("\u91d1\u878d\u4fdd\u96aa\u696d", "\u91d1\u878d\u4fdd\u96aa\u696d", "non_mainstream_theme", "non_mainstream"),
     "2888": ("\u91d1\u878d\u4fdd\u96aa\u696d", "\u91d1\u878d\u4fdd\u96aa\u696d", "non_mainstream_theme", "non_mainstream"),
     "3454": ("\u5149\u96fb\u696d", "\u5b89\u63a7/\u667a\u6167\u5f71\u50cf", "non_mainstream_theme", "non_mainstream"),
     "4987": ("\u96fb\u8166\u53ca\u9031\u908a\u8a2d\u5099\u696d", "\u96fb\u8166\u53ca\u9031\u908a\u8a2d\u5099\u696d", "non_mainstream_theme", "non_mainstream"),
+    "5871": ("租賃金融 / 企業融資", "租賃金融 / 企業融資", "non_mainstream_theme", "non_mainstream"),
     "6288": ("\u6c7d\u8eca\u5de5\u696d", "\u6c7d\u8eca\u96f6\u7d44\u4ef6", "non_mainstream_theme", "non_mainstream"),
+    "6585": ("TPU材料 / 工業複合材料", "TPU材料 / 工業複合材料", "non_mainstream_theme", "non_mainstream"),
     "6747": ("\u751f\u6280\u91ab\u7642\u696d", "\u751f\u6280\u91ab\u7642\u696d", "non_mainstream_theme", "non_mainstream"),
+    "6901": ("投資控股 / 創投", "投資控股 / 創投", "non_mainstream_theme", "non_mainstream"),
+    "9907": ("包材 / 容器製造", "包材 / 容器製造", "non_mainstream_theme", "non_mainstream"),
+    "9917": ("保全 / 智慧安防服務", "保全 / 智慧安防服務", "non_mainstream_theme", "non_mainstream"),
+    "9933": ("工程承攬 / EPC服務", "工程承攬 / EPC服務", "non_mainstream_theme", "non_mainstream"),
+    "9941": ("汽車金融 / 分期租賃", "汽車金融 / 分期租賃", "non_mainstream_theme", "non_mainstream"),
+    "9945": ("建設營造 / 商用不動產", "建設營造 / 商用不動產", "non_mainstream_theme", "non_mainstream"),
 }
+
+
+def is_generic_industry(value: Any) -> bool:
+    return compact_text(value) in {"其他", "其他業", "other", "unknown", "unclassified"}
 
 
 def missing_industry_fallback(stock_id: str, stock_name: str) -> tuple[str, str, str, str] | None:
@@ -756,7 +775,7 @@ def missing_industry_fallback(stock_id: str, stock_name: str) -> tuple[str, str,
     if code in MISSING_INDUSTRY_FALLBACKS:
         return MISSING_INDUSTRY_FALLBACKS[code]
     if code.startswith("00"):
-        theme = "\u6307\u6578/ETF/ETN\u5546\u54c1"
+        theme = "指數 / ETF / ETN商品"
         return theme, theme, "non_mainstream_theme", "non_mainstream"
     if code.startswith("7") or any(token in name for token in ["\u8cfc", "\u552e", "\u725b", "\u718a"]):
         theme = "\u6b0a\u8b49/\u884d\u751f\u5546\u54c1"
@@ -1216,10 +1235,10 @@ def build_taxonomy() -> pd.DataFrame:
         default_primary = compact_text(row.get("default_primary_theme", ""))
         provisional = provisional_industry_rule(industry)
         provisional_primary = provisional[0] if provisional else ""
-        missing_fallback = missing_industry_fallback(stock_id, stock_name) if not industry else None
+        missing_fallback = missing_industry_fallback(stock_id, stock_name) if not industry or is_generic_industry(industry) else None
         if missing_fallback and not provisional:
             fallback_basic, fallback_primary, fallback_bucket, fallback_mainstream = missing_fallback
-            industry = industry or fallback_basic
+            industry = fallback_basic if is_generic_industry(industry) else (industry or fallback_basic)
             provisional = (fallback_primary, fallback_bucket, fallback_mainstream)
             provisional_primary = provisional[0]
         basic_theme = (
