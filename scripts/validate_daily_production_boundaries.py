@@ -7,6 +7,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DAILY_WORKFLOW = ROOT / ".github" / "workflows" / "daily_full_pipeline.yml"
 CANONICAL_CHATGPT_PDF_GENERATOR = ROOT / "scripts" / "generate_chatgpt_side_daily_reports.py"
+STAGED_PATH_VALIDATOR = ROOT / "scripts" / "validate_daily_staged_paths.py"
+THREAD_WORKFLOW_DOC = ROOT / "docs" / "CODEX_THREAD_WORKFLOW.md"
+RULES_DAILY = ROOT / "rules" / "daily_stock_candidate_rules.md"
+DOCS_RULES_DAILY = ROOT / "docs" / "rules" / "daily_stock_candidate_rules.md"
+RULES_MASTER = ROOT / "rules" / "master_priority_rules.md"
+DOCS_RULES_MASTER = ROOT / "docs" / "rules" / "master_priority_rules.md"
 
 
 FORBIDDEN_DAILY_SCRIPT_PATTERNS = {
@@ -64,6 +70,13 @@ def main() -> int:
         if "--latest-only" not in args:
             errors.append("daily_full_pipeline may run build_volume_breakout_watch.py only with --latest-only")
 
+    staged_path_validation_count = daily_text.count("python scripts/validate_daily_staged_paths.py")
+    if staged_path_validation_count < 2:
+        errors.append("daily_full_pipeline must validate staged paths before both daily commit steps")
+
+    if not STAGED_PATH_VALIDATOR.exists():
+        errors.append(f"missing daily staged path validator: {STAGED_PATH_VALIDATOR}")
+
     if not CANONICAL_CHATGPT_PDF_GENERATOR.exists():
         errors.append(f"missing canonical ChatGPT-side PDF generator: {CANONICAL_CHATGPT_PDF_GENERATOR}")
     else:
@@ -72,6 +85,16 @@ def main() -> int:
             errors.append("canonical ChatGPT-side PDF generator must not contain legacy CATEGORY_SPECS fallback")
         if 'REPO = ROOT / "tdcc-weekly-report-git"' in generator_text:
             errors.append("canonical ChatGPT-side PDF generator must not hard-code tdcc-weekly-report-git sibling path")
+
+    thread_workflow_text = read_text(THREAD_WORKFLOW_DOC)
+    if "generate_repo_chatgpt_side_reports.py" in thread_workflow_text:
+        errors.append("thread workflow doc must point to canonical repo PDF generator, not the old OneDrive helper")
+
+    if read_text(RULES_DAILY) != read_text(DOCS_RULES_DAILY):
+        errors.append("docs/rules/daily_stock_candidate_rules.md must match rules/daily_stock_candidate_rules.md")
+
+    if read_text(RULES_MASTER) != read_text(DOCS_RULES_MASTER):
+        errors.append("docs/rules/master_priority_rules.md must match rules/master_priority_rules.md")
 
     if errors:
         for error in errors:

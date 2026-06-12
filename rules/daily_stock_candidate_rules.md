@@ -59,6 +59,7 @@ The normal daily pipeline must be able to finish without long research jobs.
 - Long research outputs are refreshed by `research_backtest_pipeline.yml`.
 - TDCC historical data is backfilled by `tdcc_history_backfill.yml`.
 - Daily report logic must keep these research sections separate from the six core candidate categories and must not alter core weights unless the backtest rules later mark them mature.
+- Daily output commits must not stage TDCC weekly, long research/backtest, or historical backfill outputs. `daily_full_pipeline.yml` must validate staged paths before committing and fail if non-daily owner paths are present.
 - `daily_model_parameter_research_latest.csv/md` and `daily_model_parameter_research_horizon_detail_latest.csv/md` are the formal evidence tables for model parameter tuning. They use signal-date next trading day open as entry and report D+1 through D+10 close-return and high-return endpoints separately.
 - `daily_model_parameter_recommendations_latest.csv/md` is the program-side interpretation layer for these backtests. It may mark a parameter as `promote_to_pdf_core`, `pdf_secondary_watch`, `score_component_only`, `intraday_target_watch`, or `research_only`.
 - These parameter research and recommendation tables are not PDF-side selection rules. The program-side model layer attaches the current recommendation fields into `daily_candidate_model_parameters_latest.csv` and `daily_candidate_model_signals_latest.csv`; ChatGPT must read those fields and must not promote a research-only row by itself.

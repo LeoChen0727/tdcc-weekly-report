@@ -1,8 +1,10 @@
 from __future__ import annotations
 
 from pathlib import Path
+import subprocess
 
 from scripts import validate_daily_production_boundaries as boundaries
+from scripts import validate_daily_staged_paths
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -33,6 +35,7 @@ def test_daily_workflow_uses_latest_only_volume_breakout_watch() -> None:
 
     assert "python scripts/build_volume_breakout_watch.py --latest-only" in text
     assert "python scripts/build_volume_breakout_watch.py\n" not in text
+    assert text.count("python scripts/validate_daily_staged_paths.py") == 2
 
 
 def test_docs_daily_rules_match_authoritative_rules() -> None:
@@ -46,3 +49,49 @@ def test_docs_daily_rules_match_authoritative_rules() -> None:
     assert published == authoritative
     assert "six ChatGPT-side PDF deliverables" in published
     assert "four ChatGPT-side PDF deliverables" not in published
+
+
+def test_docs_master_rules_match_authoritative_rules() -> None:
+    authoritative = (ROOT / "rules" / "master_priority_rules.md").read_text(
+        encoding="utf-8"
+    )
+    published = (ROOT / "docs" / "rules" / "master_priority_rules.md").read_text(
+        encoding="utf-8"
+    )
+
+    assert published == authoritative
+
+
+def test_thread_workflow_points_to_canonical_pdf_generator() -> None:
+    text = (ROOT / "docs" / "CODEX_THREAD_WORKFLOW.md").read_text(encoding="utf-8")
+
+    assert "scripts/generate_chatgpt_side_daily_reports.py" in text
+    assert "generate_repo_chatgpt_side_reports.py" not in text
+
+
+def test_daily_staged_path_validator_accepts_current_staged_set() -> None:
+    result = subprocess.run(
+        ["python", "scripts/validate_daily_staged_paths.py"],
+        cwd=ROOT,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+
+    assert result.returncode == 0, result.stdout + result.stderr
+
+
+def test_daily_staged_path_forbidden_patterns_cover_tdcc_and_research_outputs() -> None:
+    examples = [
+        "output/latest/tdcc_weekly_candidate_full_latest.pdf",
+        "docs/latest/tdcc_signal_effectiveness_latest.md",
+        "output/history/research/daily_model_parameter_research.csv",
+        "output/latest/weekly_surge_strict_parameter_search_latest.csv",
+        "output/latest/daily_model_parameter_recommendations_latest.md",
+    ]
+
+    for example in examples:
+        assert any(
+            validate_daily_staged_paths.fnmatch.fnmatch(example, pattern)
+            for pattern in validate_daily_staged_paths.FORBIDDEN_STAGED_PATTERNS
+        ), example
