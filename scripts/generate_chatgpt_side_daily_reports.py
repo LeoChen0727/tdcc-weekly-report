@@ -2267,6 +2267,32 @@ def model_recommendation_rows_for_line(
 
 
 
+def listing_status_label(row: pd.Series, stage: str) -> str:
+    text_parts = [
+        stage,
+        row.get("listing_status_zh"),
+        row.get("appearance_status_zh"),
+        row.get("signal_repeat_status_zh"),
+        row.get("repeat_signal_label_zh"),
+        row.get("repeat_status_zh"),
+        row.get("same_model_repeat_status_zh"),
+        row.get("model_stage_zh"),
+        row.get("signal_stage_zh"),
+    ]
+    text = " ".join(clean(part) for part in text_parts if clean(part))
+    lower_text = text.lower()
+    if "重複" in text or "repeat" in lower_text:
+        return "重複上榜"
+    if "新上榜" in text or "新進" in text or "new" in lower_text:
+        return "新上榜"
+    return "未標示"
+
+
+def listing_status_sort_key(label: str) -> int:
+    order = {"新上榜": 0, "重複上榜": 1}
+    return order.get(label, 2)
+
+
 def model_front_observation_rows_for_line(
     inputs: dict[str, pd.DataFrame],
     all_map: dict[str, pd.Series],
@@ -2279,12 +2305,13 @@ def model_front_observation_rows_for_line(
     target_limit = limit if limit is not None else (
         FRONT_MAINSTREAM_LIMIT if line == "mainstream" else FRONT_NON_MAINSTREAM_LIMIT
     )
-    rows = [["模型", "股票", "狀態", "操作提醒"]]
+    rows = [["榜別", "模型", "股票", "狀態", "操作提醒"]]
     strict_ids = strict_buy_stock_ids(inputs["decision"], two_map, vol_map)
     for spec in core_model_specs(inputs, line):
         model_id = clean(spec.get("model_id"))
         model_name = clean(spec.get("model_name_zh"), model_id)
         model_rows = 0
+        model_display_rows: list[tuple[int, int, list]] = []
         for row in model_signal_rows(inputs, model_id, line):
             sid = clean(row.get("stock_id"))
             if sid in strict_ids:
@@ -2303,19 +2330,27 @@ def model_front_observation_rows_for_line(
                 or row.get("why_selected")
                 or observation_focus(row, extra)
             )
-            rows.append(
-                [
-                    red(model_name),
-                    stock_label(row),
-                    stage,
-                    f"{escape_html(action)}<br/>{escape_html(short(reminder, 72))}",
-                ]
+            listing_label = listing_status_label(row, stage)
+            model_display_rows.append(
+                (
+                    listing_status_sort_key(listing_label),
+                    model_rows,
+                    [
+                        listing_label,
+                        red(model_name),
+                        stock_label(row),
+                        stage,
+                        f"{escape_html(action)}<br/>{escape_html(short(reminder, 72))}",
+                    ],
+                )
             )
             model_rows += 1
             if model_rows >= target_limit:
                 break
+        for _, _, row_data in sorted(model_display_rows, key=lambda item: (item[0], item[1])):
+            rows.append(row_data)
         if model_rows == 0:
-            rows.append([red(model_name), "-", "-", f"{escape_html(line_label)}目前無符合觀察列"])
+            rows.append(["-", red(model_name), "-", "-", f"{escape_html(line_label)}目前無符合觀察列"])
     return rows
 
 
@@ -3192,7 +3227,11 @@ def build_curated_pdf_for_line(
         [
             Paragraph(f"{line_label}觀察清單", H1),
             para("以下依 program-side 新版候選模型列示；同一檔股票可在多個模型重複出現。舊六分類只作來源背景，不作本頁主分類。", BODY_SMALL),
-            build_table(model_front_observation_rows_for_line(inputs, all_map, two_map, line, vol_map), [42 * mm, 36 * mm, 122 * mm, 68 * mm], 12.0),
+            build_table(
+                model_front_observation_rows_for_line(inputs, all_map, two_map, line, vol_map),
+                [24 * mm, 36 * mm, 34 * mm, 112 * mm, 62 * mm],
+                12.0,
+            ),
         ]
     )
 

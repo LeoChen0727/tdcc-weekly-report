@@ -35,10 +35,14 @@ def test_observation_list_is_row_per_stock_not_joined_cell() -> None:
     end = text.index("\ndef append_group_rotation_end_section(", start)
     function_text = text[start:end]
 
-    assert 'rows = [["模型", "股票", "狀態", "操作提醒"]]' in function_text
+    assert 'rows = [["榜別", "模型", "股票", "狀態", "操作提醒"]]' in function_text
+    assert "listing_status_label(row, stage)" in function_text
+    assert "listing_status_sort_key(listing_label)" in function_text
+    assert '"新上榜": 0' in text
+    assert '"重複上榜": 1' in text
     assert "model_rows += 1" in function_text
     assert '".join(lines)' not in function_text
-    assert "[42 * mm, 36 * mm, 122 * mm, 68 * mm]" in text
+    assert "[24 * mm, 36 * mm, 34 * mm, 112 * mm, 62 * mm]" in text
 
 
 def test_daily_workflow_uses_latest_only_volume_breakout_watch() -> None:
