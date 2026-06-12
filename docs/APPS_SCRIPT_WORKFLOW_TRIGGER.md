@@ -44,6 +44,13 @@ installDailyStockMonitorTrigger
 triggerDailyStockMonitor
 triggerDailyFullPipeline
 triggerTdccWeeklyReport
+triggerIndividualStockDataRefresh
+triggerEventCatalystUpdate
+triggerWeeklyThemeReview
+triggerResearchBacktestPipeline
+installBiweeklyResearchBacktestTrigger
+installAllWorkflowTriggers
+listAllTriggers
 testGithubTokenAndWorkflowAccess
 ```
 
@@ -53,6 +60,11 @@ and is the function used by the scheduled daily stock monitor trigger.
 `triggerDailyFullPipeline` is the manual full daily pipeline dispatcher.
 
 `triggerTdccWeeklyReport` dispatches the TDCC weekly report workflow.
+
+`triggerResearchBacktestPipeline` dispatches
+`.github/workflows/research_backtest_pipeline.yml` with all research inputs set
+to `true`. It is the function used by the scheduled biweekly research/backtest
+trigger.
 
 ## Recovery Flow
 
@@ -93,7 +105,7 @@ The Apps Script source intentionally throws on non-success HTTP responses. This
 prevents silent failures where Apps Script appears successful but GitHub Actions
 was never triggered.
 
-## Scheduled Trigger
+## Scheduled Triggers
 
 To recreate the scheduled daily trigger, run:
 
@@ -103,6 +115,29 @@ installDailyStockMonitorTrigger
 
 This removes existing `triggerDailyStockMonitor` triggers and installs a fresh
 time-driven trigger for the evening run.
+
+To recreate all scheduled workflow triggers, run:
+
+```text
+installAllWorkflowTriggers
+```
+
+The canonical Apps Script source currently installs:
+
+| handler | cadence | workflow |
+|---|---|---|
+| `triggerDailyStockMonitor` | daily 19:30 Asia/Taipei, skips Sunday in handler | `daily_full_pipeline.yml` |
+| `triggerIndividualStockDataRefresh` | daily 22:20 Asia/Taipei | `individual_stock_data_refresh.yml` |
+| `triggerEventCatalystUpdate` | daily 08:10 and 18:10 Asia/Taipei | `event_catalyst_update.yml` |
+| `triggerTdccWeeklyReport` | Saturday 15:30 Asia/Taipei | `tdcc_weekly.yml` |
+| `triggerWeeklyThemeReview` | Sunday 18:30 Asia/Taipei | `weekly_theme_review.yml` |
+| `triggerResearchBacktestPipeline` | every 2 weeks, Sunday 20:30 Asia/Taipei | `research_backtest_pipeline.yml` |
+
+Research/backtest cadence is intentionally external to
+`research_backtest_pipeline.yml`. The GitHub workflow itself is
+`workflow_dispatch` only; the biweekly cadence belongs to Apps Script so that a
+workflow run always executes the requested research steps without a hidden
+internal date gate.
 
 ## Deployment Note
 
