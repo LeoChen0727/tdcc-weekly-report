@@ -23,8 +23,11 @@ def test_required_model_families_exist() -> None:
     model_ids = {spec.model_id for spec in rule_specs()}
     assert "volume_range_breakout" in model_ids
     assert "price_pullback_23ema" in model_ids
+    assert "hot_theme_pullback" in model_ids
+    assert "revenue_unreacted_range" in model_ids
     assert "tdcc_short_term_continuation_d5_d10" in model_ids
     assert "explosive_volume_red_candle" in model_ids
+    assert "revenue_unreacted_range_proxy" not in model_ids
 
 
 def test_research_only_rule_not_pdf_core() -> None:
@@ -65,3 +68,22 @@ def test_price_pullback_does_not_require_breakout() -> None:
         }
     )
     assert bool(spec.condition(df).iloc[0])
+
+
+def test_hot_theme_pullback_uses_strict_historical_theme_gate() -> None:
+    spec = next(
+        s for s in rule_specs()
+        if s.model_id == "hot_theme_pullback"
+        and s.parameter_set_id == "strict_mainstream_supported_ema-2.5_5_support8"
+    )
+    df = pd.DataFrame(
+        {
+            "strict_theme_status_group": ["mainstream_supported", "unlabeled"],
+            "latest_theme_status_group": ["unlabeled", "mainstream_supported"],
+            "distance_ema23_pct": [1.0, 1.0],
+            "range_low_20d_prev": [100.0, 100.0],
+            "close": [101.0, 101.0],
+        }
+    )
+    result = spec.condition(df).tolist()
+    assert result == [True, False]

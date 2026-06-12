@@ -1,6 +1,6 @@
 CHATGPT DAILY REPORT PACKET
 
-generated_at: 2026-06-12 01:29:35 Asia/Taipei
+generated_at: 2026-06-12 10:50:25 Asia/Taipei
 repo: LeoChen0727/tdcc-weekly-report
 main_price_date: 20260611
 report_ready: True
@@ -490,7 +490,7 @@ performance_csv_path: output/history/daily_signals/daily_candidate_signal_perfor
 summary_latest_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_signal_performance_summary_latest.md
 weekly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_weekly_latest.pdf
 monthly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_monthly_latest.pdf
-last_updated_at: 2026-06-12 01:29:35 Asia/Taipei
+last_updated_at: 2026-06-12 10:50:25 Asia/Taipei
 status: generated
 
 CANDIDATE REPEAT APPEARANCE

@@ -246,10 +246,39 @@ def rule_specs() -> list[RuleSpec]:
                 )
             )
 
+    hot_theme_groups = {
+        "strict_mainstream_any": {"mainstream_supported", "mainstream_overheated"},
+        "strict_mainstream_supported": {"mainstream_supported"},
+        "strict_mainstream_overheated": {"mainstream_overheated"},
+    }
+    for group_id, groups in hot_theme_groups.items():
+        for low, high, support_high in [(-2.5, 5.0, 8.0), (-4.0, 7.0, 10.0)]:
+            specs.append(
+                RuleSpec(
+                    "hot_theme_pullback",
+                    "熱門族群回檔模型",
+                    f"{group_id}_ema{low:g}_{high:g}_support{support_high:g}",
+                    f"歷史熱門/主流族群狀態 {group_id} + 距 23EMA {low:g}% 至 {high:g}% 或接近20日支撐 {support_high:g}% 內",
+                    "pdf_core_model",
+                    lambda d, groups=groups, low=low, high=high, support_high=support_high: (
+                        d["strict_theme_status_group"].isin(groups)
+                        & (
+                            between(d["distance_ema23_pct"], low, high)
+                            | (
+                                (d["range_low_20d_prev"] > 0)
+                                & (d["close"] >= d["range_low_20d_prev"] * 0.98)
+                                & (d["close"] <= d["range_low_20d_prev"] * (1 + support_high / 100))
+                            )
+                        )
+                    ),
+                    "使用 strict no-lookahead 歷史族群狀態近似每日熱門族群標籤；營收不作為必要條件。",
+                )
+            )
+
     for tolerance in [5, 10]:
         specs.append(
             RuleSpec(
-                "revenue_unreacted_range_proxy",
+                "revenue_unreacted_range",
                 "營收爆發但股價尚未反應模型",
                 f"range23_tol{tolerance}",
                 f"股價位於 23 日區間上下 {tolerance}% 內；營收確認由每日候選決策層提供",
