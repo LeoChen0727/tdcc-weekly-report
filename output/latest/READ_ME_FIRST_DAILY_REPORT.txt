@@ -11,7 +11,7 @@ warrant_ready=True
 warrant_ready_note=warrant_flow_date matches main_price_date
 daily_pdf_ready=True
 daily_pdf_ready_note=core daily data, warrant layer, and PDF theme display are ready for daily PDF source use; group rotation themes resolved for PDF display
-commit_sha=850aac04d8c91d3e2589996801459a6041d65aa5
+commit_sha=8f91cc7a304249aacf1bdfb6d15cab78d7ebd89d
 daily_read_contract=raw_or_github_api_first_pages_auxiliary_only
 pages_cache_warning=GitHub Pages may lag or deploy later than main; daily stock/PDF tasks must prefer raw/GitHub API entries and reject stale Pages dates.
 readme_latest_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT.txt
@@ -51,9 +51,9 @@ chatgpt_daily_task_request=must_read_repo_structured_data_and_produce_new_chatgp
 daily_full_market_default_chatgpt_deliverables=主流每日推薦精華 PDF|主流完整候選清單 PDF|非主流每日推薦精華 PDF|非主流完整候選清單 PDF|權證市場輔助分析 PDF|市場風險與大盤期權背景 PDF
 repo_artifacts_do_not_satisfy_chatgpt_pdf_delivery=True
 do_not_paste_full_text_instead_of_required_pdf=True
-preferred_chatgpt_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/850aac04d8c91d3e2589996801459a6041d65aa5/output/history/reports/20260612_CHATGPT_DAILY_REPORT_PACKET.txt
+preferred_chatgpt_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/8f91cc7a304249aacf1bdfb6d15cab78d7ebd89d/output/history/reports/20260612_CHATGPT_DAILY_REPORT_PACKET.txt
 packet_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/chatgpt_daily_report_packet_latest.txt
-packet_commit_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/850aac04d8c91d3e2589996801459a6041d65aa5/output/history/reports/20260612_CHATGPT_DAILY_REPORT_PACKET.txt
+packet_commit_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/8f91cc7a304249aacf1bdfb6d15cab78d7ebd89d/output/history/reports/20260612_CHATGPT_DAILY_REPORT_PACKET.txt
 packet_latest_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/chatgpt_daily_report_packet_latest.txt
 packet_github_api_url=https://api.github.com/repos/LeoChen0727/tdcc-weekly-report/contents/output/latest/chatgpt_daily_report_packet_latest.txt?ref=main
 summary_latest_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_summary_latest.md
@@ -385,7 +385,3 @@ RULES:
 12. For the summary PDF K-line charts, use summary_pdf_kline_policy/status/counts above. Do not downgrade the PDF to chart_path/image-download-failed if local_price_redraw_count is greater than 0.
 13. If all URLs fail, say tool reading failed. Do not say GitHub data is not updated.
 14. Do not use older report dates to recreate a newer report.
-tdcc_weekly_candidate_highlight_pdf_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_weekly_candidate_highlight_latest.pdf
-tdcc_weekly_candidate_full_pdf_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_weekly_candidate_full_latest.pdf
-tdcc_weekly_candidate_highlight_pdf_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/tdcc_weekly_candidate_highlight_latest.pdf
-tdcc_weekly_candidate_full_pdf_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/tdcc_weekly_candidate_full_latest.pdf
