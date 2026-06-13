@@ -40,7 +40,7 @@ def test_event_and_weekly_workflows_publish_pages_and_use_full_validation() -> N
         ROOT / ".github" / "workflows" / "weekly_theme_review.yml",
     ]:
         text = workflow.read_text(encoding="utf-8")
-        assert "lxml html5lib beautifulsoup4" in text
+        assert "tabulate lxml html5lib beautifulsoup4" in text
         assert "python scripts/build_theme_event_watch.py" in text
         assert "python scripts/sync_catalyst_pages_artifacts.py" in text
         assert "git add docs/latest/" in text
