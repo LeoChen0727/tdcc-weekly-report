@@ -1,4 +1,4 @@
-import io
+from io import StringIO
 import re
 from pathlib import Path
 from typing import Optional
@@ -11,9 +11,6 @@ TDCC_URLS = [
     "https://opendata.tdcc.com.tw/getOD.ashx?id=1-5",
     "https://smart.tdcc.com.tw/opendata/getOD.ashx?id=1-5",
 ]
-
-TWSE_CODE_URL = "https://isin.twse.com.tw/isin/C_public.jsp?strMode=2"
-TPEx_CODE_URL = "https://isin.twse.com.tw/isin/C_public.jsp?strMode=4"
 
 OUTPUT_DIR = Path("output")
 LATEST_DIR = OUTPUT_DIR / "latest"
@@ -54,9 +51,6 @@ COLUMN_ALIASES = {
     "門檻張數": "threshold_lots",
     "張數門檻": "threshold_lots",
 }
-
-CODE_NAME_PATTERN = re.compile(r"^\s*([0-9]{4})\s+(.+?)\s*$")
-
 
 def normalize_text(text) -> str:
     if pd.isna(text):
@@ -116,102 +110,42 @@ def ensure_dirs() -> None:
     TDCC_HISTORY_DIR.mkdir(parents=True, exist_ok=True)
 
 
-def fetch_html(url: str, timeout: int = 60, max_retries: int = 5) -> str:
-    last_error = None
+def add_stock_names_from_frame(
+    code_name_map: dict[str, str],
+    df: pd.DataFrame,
+) -> None:
+    code_col = next((col for col in ["code", "stock_id", "證券代號", "股票代號", "代號"] if col in df.columns), "")
+    name_col = next((col for col in ["name", "stock_name", "證券名稱", "股票名稱", "名稱"] if col in df.columns), "")
 
-    for attempt in range(1, max_retries + 1):
-        try:
-            print(f"Fetching HTML attempt {attempt}/{max_retries}: {url}")
+    if not code_col or not name_col:
+        return
 
-            response = requests.get(
-                url,
-                timeout=timeout,
-                headers={
-                    "User-Agent": "Mozilla/5.0",
-                    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-                    "Accept-Language": "zh-TW,zh;q=0.9,en;q=0.8",
-                    "Connection": "close",
-                    "Cache-Control": "no-cache",
-                    "Pragma": "no-cache",
-                },
-                stream=False,
-            )
+    for _, row in df[[code_col, name_col]].dropna(how="all").iterrows():
+        code = normalize_text(row.get(code_col)).zfill(4)
+        name = normalize_text(row.get(name_col))
 
-            response.raise_for_status()
-            response.encoding = response.apparent_encoding
-
-            text = response.text
-
-            if not text or len(text.strip()) < 1000:
-                raise ValueError(f"HTML response too short: {len(text) if text else 0}")
-
-            return text
-
-        except Exception as exc:
-            last_error = exc
-            print(f"Fetch HTML failed on attempt {attempt}/{max_retries}: {url}")
-            print(exc)
-
-    raise RuntimeError(f"Failed to fetch HTML after {max_retries} attempts: {url}. Last error: {last_error}")
-
-
-def fetch_stock_code_name_map(url: str) -> dict[str, str]:
-    html = fetch_html(url)
-    tables = pd.read_html(io.StringIO(html))
-
-    code_name_map: dict[str, str] = {}
-
-    for table in tables:
-        if table.empty:
+        if not is_common_stock_code(code) or not name:
             continue
 
-        for col in table.columns:
-            series = table[col].map(normalize_text)
-
-            for value in series:
-                match = CODE_NAME_PATTERN.match(value)
-                if not match:
-                    continue
-
-                code = match.group(1)
-                name = match.group(2).strip()
-
-                if not is_common_stock_code(code):
-                    continue
-
-                if not name:
-                    continue
-
-                name = name.split()[0].strip()
-
-                invalid_keywords = [
-                    "指數",
-                    "ETF",
-                    "ETN",
-                    "受益證券",
-                    "受益憑證",
-                    "認購",
-                    "認售",
-                    "牛證",
-                    "熊證",
-                ]
-
-                if any(keyword in name for keyword in invalid_keywords):
-                    continue
-
-                code_name_map[code] = name
-
-    return code_name_map
+        code_name_map.setdefault(code, name)
 
 
-def get_tw_stock_code_name_map() -> dict[str, str]:
+def load_local_stock_code_name_map() -> dict[str, str]:
     code_name_map: dict[str, str] = {}
+    source_paths = [
+        LATEST_DIR / "tdcc_holder_ratio_latest.csv",
+    ]
+    source_paths.extend(sorted(TDCC_HISTORY_DIR.glob("tdcc_holder_ratio_*.csv"), reverse=True))
 
-    print("Fetching TWSE stock names...")
-    code_name_map.update(fetch_stock_code_name_map(TWSE_CODE_URL))
+    for path in source_paths:
+        if not path.exists():
+            continue
 
-    print("Fetching TPEx stock names...")
-    code_name_map.update(fetch_stock_code_name_map(TPEx_CODE_URL))
+        try:
+            df = pd.read_csv(path, dtype=str)
+            add_stock_names_from_frame(code_name_map, df)
+        except Exception as exc:
+            print(f"WARNING: failed to load stock names from {path}: {exc}")
 
     return code_name_map
 
@@ -285,7 +219,7 @@ def fetch_tdcc_data_from_url(url: str) -> tuple[pd.DataFrame, str, str]:
     if not text:
         raise ValueError(f"TDCC 回傳資料為空：{url}")
 
-    raw_df = pd.read_csv(io.StringIO(text))
+    raw_df = pd.read_csv(StringIO(text))
     df = clean_tdcc_dataframe(raw_df)
     latest_date = df["date"].max()
 
@@ -384,8 +318,8 @@ def build_holder_ratio_snapshot(
     df["code"] = clean_code_series(df["code"])
     df = df[df["code"].map(is_common_stock_code)].copy()
 
-    valid_codes = set(stock_name_map.keys())
-    df = df[df["code"].isin(valid_codes)].copy()
+    if stock_name_map:
+        df = df[df["code"].isin(stock_name_map)].copy()
 
     if df.empty:
         raise ValueError("過濾上市櫃普通股後沒有資料，請檢查股票名稱對照表是否抓取失敗。")
@@ -405,8 +339,14 @@ def build_holder_ratio_snapshot(
     for code, group in latest_df.groupby("code"):
         name = stock_name_map.get(code, "")
 
+        if not name and "name" in group.columns:
+            names = group["name"].map(normalize_text)
+            names = names[names != ""]
+            if not names.empty:
+                name = names.iloc[0]
+
         if not name:
-            continue
+            name = code
 
         row = {
             "date": latest_date,
@@ -452,7 +392,8 @@ def build_snapshot_from_legacy_summary(
 
     df["code"] = clean_code_series(df["code"])
     df = df[df["code"].map(is_common_stock_code)].copy()
-    df = df[df["code"].isin(stock_name_map.keys())].copy()
+    if stock_name_map:
+        df = df[df["code"].isin(stock_name_map)].copy()
 
     df["threshold_lots"] = pd.to_numeric(
         df["threshold_lots"].map(normalize_text).str.replace(",", "", regex=False),
@@ -474,7 +415,7 @@ def build_snapshot_from_legacy_summary(
                 name = normalize_text(non_empty_names.iloc[0])
 
         if not name:
-            continue
+            name = code
 
         row = {
             "date": date,
@@ -995,12 +936,12 @@ def write_reports(
 def main() -> int:
     ensure_dirs()
 
-    print("Fetching Taiwan stock code/name map...")
-    stock_name_map = get_tw_stock_code_name_map()
+    print("Loading local stock code/name map...")
+    stock_name_map = load_local_stock_code_name_map()
     print(f"Loaded stock names: {len(stock_name_map)}")
 
     if not stock_name_map:
-        raise ValueError("股票名稱對照表抓取失敗，stock_name_map 為空。")
+        print("WARNING: local stock name map is empty; TDCC rows will use source names or stock codes.")
 
     print("Bootstrapping history from legacy files...")
     bootstrap_history_from_legacy_raw_files(stock_name_map)
