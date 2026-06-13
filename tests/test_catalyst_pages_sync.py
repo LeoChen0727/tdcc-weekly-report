@@ -41,6 +41,8 @@ def test_event_and_weekly_workflows_publish_pages_and_use_full_validation() -> N
     ]:
         text = workflow.read_text(encoding="utf-8")
         assert "actions: write" in text
+        assert "actions/checkout@v6.0.3" in text
+        assert "actions/setup-python@v6.2.0" in text
         assert "tabulate lxml html5lib beautifulsoup4" in text
         assert "python scripts/build_theme_event_watch.py" in text
         assert "python scripts/sync_catalyst_pages_artifacts.py" in text
