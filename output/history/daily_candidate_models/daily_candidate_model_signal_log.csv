@@ -3931,24 +3931,24 @@ signal_date,report_bucket,stock_id,stock_name,model_id,model_name_zh,model_group
 20260612,non_mainstream,6757,台灣虎航,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,81.2,18,航運業,tdcc_distribution_penalty:8,高動能風險追蹤：不作為低位買進理由，改用 D+5/D+10 或後續量價確認管理。
 20260612,non_mainstream,7780,大研生醫*,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,78.5,20,食品工業,tdcc_distribution_penalty:8,先看 TDCC 是否停止轉弱，再看價格能否守住 MA20/EMA23 與突破區。
 20260612,non_mainstream,8422,可寧衛*,revenue_unreacted_range,營收爆發但股價尚未反應模型,pdf_core_model,92.3,5,綠能環保,,等待量價、TDCC、相對強弱至少一項轉強。
-20260612,mainstream,2413,環科,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_core_model,100.0,1,電子零組件業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260612,mainstream,2478,大毅,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_core_model,100.0,2,被動元件,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260612,mainstream,2484,希華,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_core_model,100.0,3,被動元件,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260612,mainstream,2491,吉祥全,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_core_model,100.0,4,光電業_待細分,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260612,mainstream,3026,禾伸堂,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_core_model,100.0,5,被動元件,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260612,mainstream,3236,千如,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_core_model,94.2,12,電子零組件業_待細分,market_regime_correction,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260612,mainstream,3296,勝德,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_core_model,100.0,6,電子零組件業_待細分,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260612,mainstream,4534,慶騰,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_core_model,100.0,7,機器人自動化_電機機械待細分,market_regime_correction,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260612,mainstream,4973,廣穎,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_core_model,86.2,14,半導體業_待細分,kd_overheated|market_regime_correction,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260612,mainstream,6173,信昌電,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_core_model,100.0,8,被動元件,market_regime_correction,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260612,mainstream,6270,倍微,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_core_model,100.0,9,電子通路業_待細分,bb_width_extreme|market_regime_correction,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260612,mainstream,6409,旭隼,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_core_model,100.0,10,其他電子業_待細分,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260612,mainstream,6449,鈺邦,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_core_model,98.2,11,被動元件,,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260612,mainstream,8121,越峰,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_core_model,94.2,13,電子零組件業_待細分,market_regime_correction,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260612,non_mainstream,1904,正隆,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_core_model,100.0,1,造紙工業,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260612,non_mainstream,2882,國泰金,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_core_model,100.0,2,金融保險業,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260612,non_mainstream,2887,台新新光金,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_core_model,100.0,3,金融保險業,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
-20260612,non_mainstream,9910,豐泰,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_core_model,100.0,4,運動休閒,bb_width_extreme,短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。
+20260612,mainstream,2413,環科,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_core_model,100.0,1,電子零組件業_待細分,,短線延續專項；用隔日開盤作為研究觀察基準，檢查D+1到D+10收盤/最高價。
+20260612,mainstream,2478,大毅,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_core_model,100.0,2,被動元件,bb_width_extreme,短線延續專項；用隔日開盤作為研究觀察基準，檢查D+1到D+10收盤/最高價。
+20260612,mainstream,2484,希華,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_core_model,100.0,3,被動元件,,短線延續專項；用隔日開盤作為研究觀察基準，檢查D+1到D+10收盤/最高價。
+20260612,mainstream,2491,吉祥全,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_core_model,100.0,4,光電業_待細分,bb_width_extreme,短線延續專項；用隔日開盤作為研究觀察基準，檢查D+1到D+10收盤/最高價。
+20260612,mainstream,3026,禾伸堂,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_core_model,100.0,5,被動元件,,短線延續專項；用隔日開盤作為研究觀察基準，檢查D+1到D+10收盤/最高價。
+20260612,mainstream,3236,千如,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_core_model,94.2,12,電子零組件業_待細分,market_regime_correction,短線延續專項；用隔日開盤作為研究觀察基準，檢查D+1到D+10收盤/最高價。
+20260612,mainstream,3296,勝德,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_core_model,100.0,6,電子零組件業_待細分,,短線延續專項；用隔日開盤作為研究觀察基準，檢查D+1到D+10收盤/最高價。
+20260612,mainstream,4534,慶騰,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_core_model,100.0,7,機器人自動化_電機機械待細分,market_regime_correction,短線延續專項；用隔日開盤作為研究觀察基準，檢查D+1到D+10收盤/最高價。
+20260612,mainstream,4973,廣穎,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_core_model,86.2,14,半導體業_待細分,kd_overheated|market_regime_correction,短線延續專項；用隔日開盤作為研究觀察基準，檢查D+1到D+10收盤/最高價。
+20260612,mainstream,6173,信昌電,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_core_model,100.0,8,被動元件,market_regime_correction,短線延續專項；用隔日開盤作為研究觀察基準，檢查D+1到D+10收盤/最高價。
+20260612,mainstream,6270,倍微,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_core_model,100.0,9,電子通路業_待細分,bb_width_extreme|market_regime_correction,短線延續專項；用隔日開盤作為研究觀察基準，檢查D+1到D+10收盤/最高價。
+20260612,mainstream,6409,旭隼,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_core_model,100.0,10,其他電子業_待細分,bb_width_extreme,短線延續專項；用隔日開盤作為研究觀察基準，檢查D+1到D+10收盤/最高價。
+20260612,mainstream,6449,鈺邦,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_core_model,98.2,11,被動元件,,短線延續專項；用隔日開盤作為研究觀察基準，檢查D+1到D+10收盤/最高價。
+20260612,mainstream,8121,越峰,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_core_model,94.2,13,電子零組件業_待細分,market_regime_correction,短線延續專項；用隔日開盤作為研究觀察基準，檢查D+1到D+10收盤/最高價。
+20260612,non_mainstream,1904,正隆,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_core_model,100.0,1,造紙工業,bb_width_extreme,短線延續專項；用隔日開盤作為研究觀察基準，檢查D+1到D+10收盤/最高價。
+20260612,non_mainstream,2882,國泰金,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_core_model,100.0,2,金融保險業,bb_width_extreme,短線延續專項；用隔日開盤作為研究觀察基準，檢查D+1到D+10收盤/最高價。
+20260612,non_mainstream,2887,台新新光金,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_core_model,100.0,3,金融保險業,bb_width_extreme,短線延續專項；用隔日開盤作為研究觀察基準，檢查D+1到D+10收盤/最高價。
+20260612,non_mainstream,9910,豐泰,tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,pdf_core_model,100.0,4,運動休閒,bb_width_extreme,短線延續專項；用隔日開盤作為研究觀察基準，檢查D+1到D+10收盤/最高價。
 20260612,mainstream,1560,中砂,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.0,17,半導體設備_CoWoS,,等待量價、TDCC、相對強弱至少一項轉強。
 20260612,mainstream,1597,直得,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.0,18,機器人自動化,,等待量價、TDCC、相對強弱至少一項轉強。
 20260612,mainstream,1605,華新,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.0,59,重電電網,,等待量價、TDCC、相對強弱至少一項轉強。
@@ -4078,10 +4078,10 @@ signal_date,report_bucket,stock_id,stock_name,model_id,model_name_zh,model_group
 20260612,non_mainstream,6446,藥華藥,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.0,18,生技醫療業,,等待量價、TDCC、相對強弱至少一項轉強。
 20260612,non_mainstream,8422,可寧衛*,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,76.2,11,綠能環保,,等待量價、TDCC、相對強弱至少一項轉強。
 20260612,non_mainstream,9934,成霖,tdcc_stealth_accumulation,TDCC潛伏吸籌模型,pdf_core_model,72.0,43,居家生活,,等待量價、TDCC、相對強弱至少一項轉強。
-20260612,mainstream,2483,百容,volume_range_breakout,放量攻擊模型,pdf_core_model,62.6,3,電子零組件業_待細分,tdcc_distribution_penalty:6 | tdcc_distribution_warning | continued_overheated | B_bottom_volume_attack_with_risk,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
-20260612,mainstream,6153,嘉聯益,volume_range_breakout,放量攻擊模型,pdf_core_model,65.0,2,電子零組件業_待細分,tdcc_distribution_penalty:6 | tdcc_distribution_warning | B_bottom_volume_attack_with_risk,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
-20260612,mainstream,8105,凌巨,volume_range_breakout,放量攻擊模型,pdf_core_model,66.0,1,光電業_待細分,continued_overheated,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
-20260612,non_mainstream,1307,三芳,volume_range_breakout,放量攻擊模型,pdf_core_model,73.2,2,塑膠工業,,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
-20260612,non_mainstream,1714,和桐,volume_range_breakout,放量攻擊模型,pdf_core_model,88.7,1,化學工業,long_upper_shadow_quality_penalty:0.4 | continued_overheated | long_upper_shadow_quality_penalty,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
-20260612,non_mainstream,2243,宏旭-KY,volume_range_breakout,放量攻擊模型,pdf_core_model,68.3,3,汽車工業,tdcc_distribution_penalty:6 | tdcc_distribution_warning | continued_overheated | B_bottom_volume_attack_with_risk,以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。
+20260612,mainstream,2483,百容,volume_range_breakout,放量攻擊模型,pdf_core_model,62.6,3,電子零組件業_待細分,tdcc_distribution_penalty:6 | tdcc_distribution_warning | continued_overheated | B_bottom_volume_attack_with_risk,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。
+20260612,mainstream,6153,嘉聯益,volume_range_breakout,放量攻擊模型,pdf_core_model,65.0,2,電子零組件業_待細分,tdcc_distribution_penalty:6 | tdcc_distribution_warning | B_bottom_volume_attack_with_risk,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。
+20260612,mainstream,8105,凌巨,volume_range_breakout,放量攻擊模型,pdf_core_model,66.0,1,光電業_待細分,continued_overheated,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。
+20260612,non_mainstream,1307,三芳,volume_range_breakout,放量攻擊模型,pdf_core_model,73.2,2,塑膠工業,,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。
+20260612,non_mainstream,1714,和桐,volume_range_breakout,放量攻擊模型,pdf_core_model,88.7,1,化學工業,long_upper_shadow_quality_penalty:0.4 | continued_overheated | long_upper_shadow_quality_penalty,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。
+20260612,non_mainstream,2243,宏旭-KY,volume_range_breakout,放量攻擊模型,pdf_core_model,68.3,3,汽車工業,tdcc_distribution_penalty:6 | tdcc_distribution_warning | continued_overheated | B_bottom_volume_attack_with_risk,以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。
 20260612,mainstream,1618,合機,w_bottom_right_side,W底右側模型,pdf_core_model,77.8,1,重電電網,,等待量價、TDCC、相對強弱至少一項轉強。

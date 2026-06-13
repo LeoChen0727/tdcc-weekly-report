@@ -139,10 +139,13 @@ jobs:
           python scripts/build_stock_theme_taxonomy.py
           python scripts/validate_stock_theme_taxonomy.py
 
-      - name: Build daily candidate decision layer
+      - name: Remove deprecated daily candidate decision artifacts
         run: |
-          python scripts/build_daily_candidate_decision_layer.py
-          python scripts/validate_daily_candidate_decision_layer.py
+          rm -f output/latest/daily_candidate_decision_latest.csv
+          rm -f output/latest/daily_candidate_decision_latest.md
+          rm -f output/latest/daily_candidate_decision_chatgpt_packet_latest.md
+          rm -f output/latest/daily_candidate_decision_validation_latest.json
+          rm -f output/latest/daily_candidate_decision_validation_latest.md
 
       - name: Build daily theme leadership layer
         run: |

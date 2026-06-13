@@ -26,6 +26,8 @@ FORBIDDEN_DAILY_SCRIPT_PATTERNS = {
     "MSCI rebalance backtest": r"scripts/build_msci_taiwan_rebalance_backtest\.py",
     "daily model parameter research": r"scripts/build_daily_model_parameter_research\.py",
     "daily model parameter recommendations research": r"scripts/build_daily_model_parameter_recommendations\.py",
+    "daily candidate decision layer": r"scripts/build_daily_candidate_decision_layer\.py",
+    "daily candidate decision validation": r"scripts/validate_daily_candidate_decision_layer\.py",
     "TDCC normalized signal structures": r"scripts/build_tdcc_signal_structures\.py",
     "TDCC normalized signal performance": r"scripts/update_tdcc_normalized_signal_performance\.py",
     "TDCC signal effectiveness report": r"scripts/build_tdcc_signal_effectiveness_report\.py",

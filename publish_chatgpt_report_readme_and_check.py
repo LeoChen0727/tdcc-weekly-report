@@ -79,9 +79,6 @@ DAILY_SIGNAL_MONTHLY_PDF = LATEST_DIR / "daily_signal_performance_monthly_latest
 DAILY_CANDIDATE_SIGNAL_LOG = Path("output/history/daily_candidates/daily_candidate_signal_log.csv")
 CANDIDATE_REPEAT_APPEARANCE_CSV = LATEST_DIR / "candidate_repeat_appearance_latest.csv"
 CANDIDATE_REPEAT_APPEARANCE_MD = LATEST_DIR / "candidate_repeat_appearance_latest.md"
-DAILY_CANDIDATE_DECISION_CSV = LATEST_DIR / "daily_candidate_decision_latest.csv"
-DAILY_CANDIDATE_DECISION_MD = LATEST_DIR / "daily_candidate_decision_latest.md"
-DAILY_CANDIDATE_DECISION_PACKET_MD = LATEST_DIR / "daily_candidate_decision_chatgpt_packet_latest.md"
 DAILY_THEME_LEADERSHIP_CSV = LATEST_DIR / "daily_theme_leadership_latest.csv"
 DAILY_THEME_LEADERSHIP_MD = LATEST_DIR / "daily_theme_leadership_latest.md"
 DAILY_CANDIDATE_TWO_LINE_VIEW_CSV = LATEST_DIR / "daily_candidate_two_line_view_latest.csv"
@@ -722,9 +719,6 @@ def build_readme(
         f"daily_candidate_signal_log_raw_url={daily_candidate_signal_log_raw_url}",
         f"candidate_repeat_appearance_raw_url={candidate_repeat_appearance_raw_url}",
         f"candidate_repeat_appearance_md_raw_url={candidate_repeat_appearance_md_raw_url}",
-        f"daily_candidate_decision_raw_url={raw_url('main', DAILY_CANDIDATE_DECISION_CSV)}",
-        f"daily_candidate_decision_md_raw_url={raw_url('main', DAILY_CANDIDATE_DECISION_MD)}",
-        f"daily_candidate_decision_chatgpt_packet_raw_url={raw_url('main', DAILY_CANDIDATE_DECISION_PACKET_MD)}",
         f"daily_theme_leadership_pages_url={pages_url('latest/daily_theme_leadership_latest.csv')}",
         f"daily_theme_leadership_raw_url={raw_url('main', DAILY_THEME_LEADERSHIP_CSV)}",
         f"daily_theme_leadership_md_pages_url={pages_url('latest/daily_theme_leadership_latest.md')}",
@@ -1717,9 +1711,6 @@ def main() -> int:
         "daily_candidate_signal_log_raw_url": daily_candidate_signal_log_raw_url,
         "candidate_repeat_appearance_raw_url": candidate_repeat_appearance_raw_url,
         "candidate_repeat_appearance_md_raw_url": candidate_repeat_appearance_md_raw_url,
-        "daily_candidate_decision_raw_url": raw_url("main", DAILY_CANDIDATE_DECISION_CSV),
-        "daily_candidate_decision_md_raw_url": raw_url("main", DAILY_CANDIDATE_DECISION_MD),
-        "daily_candidate_decision_chatgpt_packet_raw_url": raw_url("main", DAILY_CANDIDATE_DECISION_PACKET_MD),
         "daily_theme_leadership_pages_url": pages_url("latest/daily_theme_leadership_latest.csv"),
         "daily_theme_leadership_raw_url": raw_url("main", DAILY_THEME_LEADERSHIP_CSV),
         "daily_theme_leadership_md_pages_url": pages_url("latest/daily_theme_leadership_latest.md"),

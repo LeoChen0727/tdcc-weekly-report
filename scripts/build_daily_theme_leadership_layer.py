@@ -31,6 +31,43 @@ THEME_LEADERSHIP_MD = LATEST_DIR / "daily_theme_leadership_latest.md"
 TWO_LINE_VIEW_CSV = LATEST_DIR / "daily_candidate_two_line_view_latest.csv"
 TWO_LINE_VIEW_MD = LATEST_DIR / "daily_candidate_two_line_view_latest.md"
 
+DEPRECATED_DECISION_COLUMNS = [
+    "decision_priority",
+    "decision_priority_label",
+    "decision_score",
+    "decision_rank_in_category",
+    "decision_rank_overall_for_display",
+    "trade_decision",
+    "action_rating",
+    "action_rating_label_zh",
+    "action_rating_display_zh",
+    "action_summary_zh",
+    "entry_style",
+    "entry_strategy_zh",
+    "position_sizing",
+    "position_sizing_zh",
+    "add_position_strategy_zh",
+    "take_profit_strategy_zh",
+    "risk_control_zh",
+    "post_entry_watch_zh",
+    "score_interpretation_zh",
+    "model_category_display_zh",
+    "final_decision_zh",
+    "display_section",
+    "risk_handling_bucket",
+    "risk_handling_label",
+    "momentum_risk_follow",
+    "hard_exclusion_flag",
+    "management_plan",
+    "entry_prerequisites",
+    "entry_prerequisites_zh",
+    "post_entry_watch_items",
+    "downgrade_reason",
+    "confidence_level",
+    "thesis_state",
+    "theme_A_candidate_count",
+    "theme_B_candidate_count",
+]
 
 BULLISH_WARRANT_SIGNALS = {"call_inflow", "call_strong_inflow", "call_put_bullish", "low_float_call_spike"}
 BEARISH_WARRANT_SIGNALS = {"put_inflow", "warrant_overheat", "call_profit_exit_risk", "put_call_bearish"}
@@ -132,8 +169,8 @@ THEME_COLUMNS = [
 THEME_COLUMNS_TO_MERGE = [
     "theme_name",
     "theme_candidate_count",
-    "theme_A_candidate_count",
-    "theme_B_candidate_count",
+    "theme_priority_high_count",
+    "theme_priority_confirm_count",
     "theme_strict_breakout_count",
     "theme_true_breakout_count",
     "theme_volume_breakout_count",
@@ -261,8 +298,12 @@ def category_of(row: pd.Series) -> str:
     return first_text(row, ["category", "original_category", "breakout_type"]).lower()
 
 
-def decision_priority_of(row: pd.Series) -> str:
-    return first_text(row, ["decision_priority", "priority", "revaluation_priority"])
+def presentation_priority_of(row: pd.Series) -> str:
+    return first_text(row, ["presentation_priority", "priority", "revaluation_priority"])
+
+
+def model_score_of(row: pd.Series) -> str:
+    return first_text(row, ["model_score", "score", "pattern_score"])
 
 
 def tdcc_status_of(row: pd.Series) -> str:
@@ -381,14 +422,14 @@ def relative_strength(row: pd.Series) -> float:
 
 def leader_sort_frame(part: pd.DataFrame) -> pd.DataFrame:
     frame = part.copy()
-    frame["_priority_order"] = frame.apply(lambda row: priority_order(decision_priority_of(row)), axis=1)
+    frame["_priority_order"] = frame.apply(lambda row: priority_order(presentation_priority_of(row)), axis=1)
     frame["_true_breakout"] = frame.apply(is_true_breakout, axis=1).astype(int)
     frame["_volume_breakout"] = frame.apply(is_volume_breakout, axis=1).astype(int)
     frame["_near_high"] = frame.apply(is_near_high, axis=1).astype(int)
-    frame["_decision_score"] = pd.to_numeric(frame.get("decision_score", frame.get("score", "")), errors="coerce").fillna(0)
+    frame["_model_score"] = pd.to_numeric(frame.apply(model_score_of, axis=1), errors="coerce").fillna(0)
     frame["_volume_ratio"] = pd.to_numeric(frame.get("volume_ratio", ""), errors="coerce").fillna(0)
     return frame.sort_values(
-        ["_priority_order", "_true_breakout", "_volume_breakout", "_near_high", "_decision_score", "_volume_ratio"],
+        ["_priority_order", "_true_breakout", "_volume_breakout", "_near_high", "_model_score", "_volume_ratio"],
         ascending=[True, False, False, False, False, False],
     )
 
@@ -439,7 +480,7 @@ def build_theme_metrics(candidates: pd.DataFrame) -> pd.DataFrame:
         if not safe_str(theme_name):
             theme_name = "other"
         frame = part.copy()
-        priority = frame.apply(lambda row: decision_priority_of(row), axis=1)
+        priority = frame.apply(lambda row: presentation_priority_of(row), axis=1)
         tdcc = frame.apply(tdcc_status_of, axis=1)
         warrant = frame.apply(warrant_signal_of, axis=1)
         volume_ratio = pd.to_numeric(frame.get("volume_ratio", ""), errors="coerce")
@@ -450,8 +491,8 @@ def build_theme_metrics(candidates: pd.DataFrame) -> pd.DataFrame:
         metrics = {
             "theme_name": theme_name,
             "theme_candidate_count": int(len(frame)),
-            "theme_A_candidate_count": int(priority.eq("A_priority_watch").sum()),
-            "theme_B_candidate_count": int(priority.eq("B_confirm_needed").sum()),
+            "theme_priority_high_count": int(priority.eq("A_priority_watch").sum()),
+            "theme_priority_confirm_count": int(priority.eq("B_confirm_needed").sum()),
             "theme_strict_breakout_count": int(frame.apply(is_strict_breakout, axis=1).sum()),
             "theme_true_breakout_count": int(frame.apply(is_true_breakout, axis=1).sum()),
             "theme_volume_breakout_count": int(frame.apply(is_volume_breakout, axis=1).sum()),
@@ -474,8 +515,8 @@ def build_theme_metrics(candidates: pd.DataFrame) -> pd.DataFrame:
             min(
                 100,
                 metrics["theme_candidate_count"] * 4
-                + metrics["theme_A_candidate_count"] * 7
-                + metrics["theme_B_candidate_count"] * 4
+                + metrics["theme_priority_high_count"] * 7
+                + metrics["theme_priority_confirm_count"] * 4
                 + metrics["theme_true_breakout_count"] * 10
                 + metrics["theme_volume_breakout_count"] * 8
                 + metrics["theme_near_high_count"] * 5,
@@ -522,14 +563,14 @@ def build_theme_metrics(candidates: pd.DataFrame) -> pd.DataFrame:
 
 
 def is_individual_quality(row: pd.Series) -> bool:
-    priority = decision_priority_of(row)
+    priority = presentation_priority_of(row)
     if priority in {"A_priority_watch", "B_confirm_needed"}:
         return True
     return bool(is_revenue_growth(row) or tdcc_status_of(row) in {"strong_accumulation", "mild_accumulation"} or has_confirmed_event(row))
 
 
 def is_risk_downgraded(row: pd.Series, theme_status_value: str) -> bool:
-    priority = decision_priority_of(row)
+    priority = presentation_priority_of(row)
     downgrade = first_text(row, ["downgrade_flags", "risk_tags"]).lower()
     return bool(
         priority == "D_risk_downgrade"
@@ -550,7 +591,7 @@ def candidate_line_group(row: pd.Series) -> tuple[str, str, bool, str]:
     """
     theme_status_value = first_text(row, ["theme_final_status"])
     structural_status = first_text(row, ["theme_structural_status"]) or theme_structural_status(first_text(row, ["theme_name"]))
-    priority = decision_priority_of(row)
+    priority = presentation_priority_of(row)
     cat = category_of(row)
     theme_supported = theme_status_value in MAINSTREAM_STATUSES and structural_status == "core_mainstream_theme"
     individual_quality = is_individual_quality(row)
@@ -605,15 +646,17 @@ def theme_note(row: pd.Series) -> str:
     return "\uFF1B".join([bit for bit in bits if bit])
 
 def enrich_candidates(candidates: pd.DataFrame, theme_df: pd.DataFrame) -> pd.DataFrame:
-    out = candidates.copy()
+    out = candidates.drop(columns=DEPRECATED_DECISION_COLUMNS, errors="ignore").copy()
     out["source_row_index"] = out.get("source_row_index", pd.Series(range(len(out)), index=out.index))
     out["theme_name"] = out.apply(theme_name_of, axis=1)
+    out["presentation_priority"] = out.apply(presentation_priority_of, axis=1)
+    out["model_score"] = out.apply(model_score_of, axis=1)
     if not theme_df.empty:
         merge_cols = [
             "theme_name",
             "theme_candidate_count",
-            "theme_A_candidate_count",
-            "theme_B_candidate_count",
+            "theme_priority_high_count",
+            "theme_priority_confirm_count",
             "theme_strict_breakout_count",
             "theme_true_breakout_count",
             "theme_volume_breakout_count",
@@ -669,6 +712,9 @@ def enrich_candidates(candidates: pd.DataFrame, theme_df: pd.DataFrame) -> pd.Da
 
 
 def build_two_line_view(enriched: pd.DataFrame) -> pd.DataFrame:
+    enriched = enriched.copy()
+    enriched["presentation_priority"] = enriched.apply(presentation_priority_of, axis=1)
+    enriched["model_score"] = enriched.apply(model_score_of, axis=1)
     cols = [
         "signal_date",
         "stock_id",
@@ -688,8 +734,8 @@ def build_two_line_view(enriched: pd.DataFrame) -> pd.DataFrame:
         "candidate_line",
         "candidate_line_group",
         "two_line_overlap_flag",
-        "decision_priority",
-        "decision_score",
+        "presentation_priority",
+        "model_score",
         "tdcc_status",
         "warrant_flow_signal",
         "volume_ratio",
@@ -705,10 +751,10 @@ def build_two_line_view(enriched: pd.DataFrame) -> pd.DataFrame:
         if col not in enriched.columns:
             enriched[col] = ""
     out = enriched[cols].copy()
-    out["_priority_order"] = out["decision_priority"].map(
+    out["_priority_order"] = out["presentation_priority"].map(
         {"A_priority_watch": 1, "B_confirm_needed": 2, "C_watch_only": 3, "D_risk_downgrade": 4}
     ).fillna(9)
-    out["_decision_score"] = pd.to_numeric(out["decision_score"], errors="coerce").fillna(0)
+    out["_model_score"] = pd.to_numeric(out["model_score"], errors="coerce").fillna(0)
     group_order = {
         "mainstream_leader_stock": 1,
         "mainstream_follow_through_stock": 2,
@@ -724,8 +770,8 @@ def build_two_line_view(enriched: pd.DataFrame) -> pd.DataFrame:
         "risk": 99,
     }
     out["_line_order"] = out["candidate_line_group"].map(group_order).fillna(50)
-    out = out.sort_values(["_line_order", "_priority_order", "_decision_score"], ascending=[True, True, False])
-    return out.drop(columns=["_priority_order", "_decision_score", "_line_order"])
+    out = out.sort_values(["_line_order", "_priority_order", "_model_score"], ascending=[True, True, False])
+    return out.drop(columns=["_priority_order", "_model_score", "_line_order"])
 
 
 def markdown_table(df: pd.DataFrame, columns: list[str], limit: int = 40) -> str:
@@ -744,8 +790,8 @@ def write_markdown(theme_df: pd.DataFrame, two_line: pd.DataFrame, main_date: st
         "theme_structural_status",
         "theme_mainstream_label",
         "theme_candidate_count",
-        "theme_A_candidate_count",
-        "theme_B_candidate_count",
+        "theme_priority_high_count",
+        "theme_priority_confirm_count",
         "theme_true_breakout_count",
         "theme_volume_breakout_count",
         "theme_near_high_count",
@@ -773,8 +819,8 @@ def write_markdown(theme_df: pd.DataFrame, two_line: pd.DataFrame, main_date: st
         "non_mainstream_report_eligible",
         "dual_report_membership_flag",
         "candidate_line",
-        "decision_priority",
-        "decision_score",
+        "presentation_priority",
+        "model_score",
         "tdcc_status",
         "warrant_flow_signal",
         "repeat_appear_label",
