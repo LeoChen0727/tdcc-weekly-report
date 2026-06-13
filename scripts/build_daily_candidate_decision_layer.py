@@ -770,7 +770,7 @@ def evaluate_row(row: pd.Series) -> dict[str, Any]:
         decision_score -= 16
     if truthy(row.get("false_breakout_risk", "")):
         downgrade_flags.append("false_breakout_risk")
-        risk_tags.append("假突破風險")
+        risk_tags.append("漲幅過低")
         decision_score -= 12
     if warrant_tag(row) in {"put_inflow", "warrant_overheat", "call_profit_exit_risk"}:
         risk_tags.append("權證風險訊號")
