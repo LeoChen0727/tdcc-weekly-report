@@ -1781,7 +1781,7 @@ def build_full_markdown(
     lines.append("## 帶量突破 / 放量攻擊觀察")
     lines.append("")
     lines.append("- 這個區塊由程式端從日價 raw data 偵測，會列出嚴格 60 日突破、平台突破、頸線突破、右側放量攻擊與異常放量上漲。")
-    lines.append("- 它是完整報告的可見度與回測層，不等於單獨買進理由；仍需搭配 TDCC、連續上榜、過熱與漲幅過低風險。")
+    lines.append("- 它是完整報告的可見度與回測層，不等於單獨操作依據；仍需搭配 TDCC、連續上榜、過熱與漲幅過低風險。")
     lines.append("")
     volume_cols = [
         "volume_breakout_rank",
@@ -1793,7 +1793,6 @@ def build_full_markdown(
         "selection_status",
         "category",
         "pattern_stage",
-        "decision_priority",
         "tdcc_status",
         "repeat_appear_label",
         "volume_ratio",
