@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6108 競國
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:41 Asia/Taipei
+- generated_at: 2026-06-13 22:23:49 Asia/Taipei
 - stock_id: 6108
 - stock_name: 競國
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 18.25
-- high: 18.4
-- low: 18
-- close: 18.25
-- volume: 1330934
-- ma5: 19.34
-- ema23_primary: 19.4
-- distance_to_ema23_pct: -5.94
-- ma20: 19.4
-- ma60: 18.34
-- ma120: 16.57
-- return_5d: -8.52
-- return_20d: -8.75
-- volume_ratio: 0.8
-- distance_to_ma20_pct_auxiliary: -5.94
-- distance_to_high_60_pct: -24.59
+- date: 20260612
+- open: 18.65
+- high: 19
+- low: 18.5
+- close: 18.85
+- volume: 1341902
+- ma5: 19.2
+- ema23_primary: 19.36
+- distance_to_ema23_pct: -2.62
+- ma20: 19.33
+- ma60: 18.38
+- ma120: 16.6
+- return_5d: -3.58
+- return_20d: -7.37
+- volume_ratio: 0.85
+- distance_to_ma20_pct_auxiliary: -2.47
+- distance_to_high_60_pct: -22.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,20.35,20.7,19.8,20.35,2747826,19.38,5.02,19.42,16.95,0.74
 20260513,20,20.15,19.4,19.55,2244940,19.39,0.82,19.52,17.04,0.6
 20260514,19.4,19.45,18.75,18.95,2684685,19.35,-2.09,19.61,17.11,0.7
 20260515,19,19.45,18.5,18.6,1318192,19.29,-3.58,19.64,17.17,0.34
@@ -159,20 +158,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,20.05,20.05,19.1,19.55,1300673,19.5,0.26,19.6,18.23,0.61
 20260605,19.25,19.7,19,19.6,1045830,19.51,0.47,19.49,18.29,0.54
 20260611,18.25,18.4,18,18.25,1330934,19.4,-5.94,19.4,18.34,0.8
+20260612,18.65,19,18.5,18.85,1341902,19.36,-2.62,19.33,18.38,0.85
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 52.1
-- over_600_ratio: 48.48
-- over_800_ratio: 45.29
-- over_1000_ratio: 42.85
-- over_400_change_1w: -0.11
-- over_800_change_1w: -0.37
-- over_1000_change_1w: 0.19
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260612
+- over_400_ratio: 51.82
+- over_600_ratio: 49.62
+- over_800_ratio: 45.07
+- over_1000_ratio: 42.65
+- over_400_change_1w: -0.28
+- over_800_change_1w: -0.22
+- over_1000_change_1w: -0.2
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -184,17 +184,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,52.65,-0.22,45.74,0.64,42.73,0.05,1,False,True
 20260529,52.21,-0.44,45.66,-0.08,42.66,-0.07,0,False,False
 20260605,52.1,-0.11,45.29,-0.37,42.85,0.19,1,False,True
+20260612,51.82,-0.28,45.07,-0.22,42.65,-0.2,2,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 6108 | 競國 | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260612 | 6108 | 競國 | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 6108 | 競國 | 2 | 2 | 4 | 9 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260612 | 6108 | 競國 | 3 | 3 | 4 | 9 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

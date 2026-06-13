@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4582 聚恆-創
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:26 Asia/Taipei
+- generated_at: 2026-06-13 22:23:30 Asia/Taipei
 - stock_id: 4582
 - stock_name: 聚恆-創
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260611
-- price_rows: 12
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 13
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 27
-- high: 27.4
+- date: 20260612
+- open: 26.35
+- high: 27
 - low: 25.9
-- close: 25.9
-- volume: 612097
-- ma5: 25.84
-- ema23_primary: 24.97
-- distance_to_ema23_pct: 3.73
-- ma20: 25.21
-- ma60: 25.21
-- ma120: 25.21
-- return_5d: -0.96
+- close: 26
+- volume: 198406
+- ma5: 25.86
+- ema23_primary: 25.05
+- distance_to_ema23_pct: 3.77
+- ma20: 25.27
+- ma60: 25.27
+- ma120: 25.27
+- return_5d: 0.39
 - return_20d:
-- volume_ratio: 0.83
-- distance_to_ma20_pct_auxiliary: 2.73
-- distance_to_high_60_pct: -5.47
+- volume_ratio: 0.29
+- distance_to_ma20_pct_auxiliary: 2.88
+- distance_to_high_60_pct: -5.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -147,20 +147,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,26.25,26.25,25.6,25.9,352677,24.83,4.32,25.11,25.11,0.45
 20260605,26.35,26.35,25.5,25.5,293250,24.88,2.47,25.15,25.15,0.39
 20260611,27,27.4,25.9,25.9,612097,24.97,3.73,25.21,25.21,0.83
+20260612,26.35,27,25.9,26,198406,25.05,3.77,25.27,25.27,0.29
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 56
-- over_600_ratio: 52.25
-- over_800_ratio: 47.78
-- over_1000_ratio: 45.33
-- over_400_change_1w: 0.44
-- over_800_change_1w: 0.43
-- over_1000_change_1w: 0.32
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260612
+- over_400_ratio: 55.89
+- over_600_ratio: 51.43
+- over_800_ratio: 47.75
+- over_1000_ratio: 43.92
+- over_400_change_1w: -0.11
+- over_800_change_1w: -0.03
+- over_1000_change_1w: -1.41
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -172,6 +173,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,56.32,-4.98,46.23,-5.99,45,-5.82,0,False,False
 20260529,55.56,-0.76,47.35,1.12,45.01,0.01,1,False,True
 20260605,56,0.44,47.78,0.43,45.33,0.32,2,True,True
+20260612,55.89,-0.11,47.75,-0.03,43.92,-1.41,0,False,False
 ```
 
 ## Candidate Context

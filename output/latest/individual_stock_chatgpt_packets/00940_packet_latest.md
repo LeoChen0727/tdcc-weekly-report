@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00940 元大台灣價值高息
 
 ## Metadata
-- generated_at: 2026-06-11 22:22:19 Asia/Taipei
+- generated_at: 2026-06-13 22:22:09 Asia/Taipei
 - stock_id: 00940
 - stock_name: 元大台灣價值高息
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260611
-- price_rows: 12
+- latest_price_date: 20260612
+- price_rows: 13
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 12.04
-- high: 12.12
-- low: 11.83
-- close: 12.06
-- volume: 29029779
-- ma5: 12.46
-- ema23_primary: 11.94
-- distance_to_ema23_pct: 1.04
-- ma20: 12.09
-- ma60: 12.09
-- ma120: 12.09
-- return_5d: -1.71
+- date: 20260612
+- open: 12.32
+- high: 12.37
+- low: 12.22
+- close: 12.22
+- volume: 16730375
+- ma5: 12.4
+- ema23_primary: 11.96
+- distance_to_ema23_pct: 2.18
+- ma20: 12.1
+- ma60: 12.1
+- ma120: 12.1
+- return_5d: -2.16
 - return_20d:
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: -0.27
-- distance_to_high_60_pct: -5.34
+- volume_ratio: 0.4
+- distance_to_ma20_pct_auxiliary: 0.97
+- distance_to_high_60_pct: -4.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -147,6 +147,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,12.33,12.49,12.25,12.49,65769164,11.87,5.24,12.05,12.05,1.43
 20260605,12.53,12.58,12.27,12.54,38961113,11.92,5.16,12.1,12.1,0.86
 20260611,12.04,12.12,11.83,12.06,29029779,11.94,1.04,12.09,12.09,0.66
+20260612,12.32,12.37,12.22,12.22,16730375,11.96,2.18,12.1,12.1,0.4
 ```
 
 ## Latest TDCC Snapshot

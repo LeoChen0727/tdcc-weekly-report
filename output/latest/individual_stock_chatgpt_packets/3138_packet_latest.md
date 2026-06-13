@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3138 耀登
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:04 Asia/Taipei
+- generated_at: 2026-06-13 22:23:03 Asia/Taipei
 - stock_id: 3138
 - stock_name: 耀登
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 141
-- high: 149
-- low: 136
-- close: 142
-- volume: 1010553
-- ma5: 159.9
-- ema23_primary: 162.98
-- distance_to_ema23_pct: -12.87
-- ma20: 162.78
-- ma60: 169.53
-- ma120: 157.16
-- return_5d: -14.97
-- return_20d: -10.13
-- volume_ratio: 0.55
-- distance_to_ma20_pct_auxiliary: -12.76
-- distance_to_high_60_pct: -32.38
+- date: 20260612
+- open: 149
+- high: 152.5
+- low: 142
+- close: 142.5
+- volume: 680572
+- ma5: 155.4
+- ema23_primary: 161.27
+- distance_to_ema23_pct: -11.64
+- ma20: 161.88
+- ma60: 168.82
+- ma120: 157.62
+- return_5d: -13.64
+- return_20d: -11.21
+- volume_ratio: 0.38
+- distance_to_ma20_pct_auxiliary: -11.97
+- distance_to_high_60_pct: -32.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,158,162.5,156,160.5,1489329,164.74,-2.57,166.57,175.71,0.48
 20260513,158,159.5,154,155,795121,163.93,-5.45,165.5,175.29,0.26
 20260514,156.5,159.5,152,153,948733,163.02,-6.14,164.32,174.54,0.33
 20260515,155,156,147,148.5,1234614,161.81,-8.22,163,173.95,0.43
@@ -154,15 +153,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,167.5,171.5,160,165,1079651,165.38,-0.23,163.35,170.35,0.58
 20260605,163,168.5,157.5,159.5,1195374,164.89,-3.27,163.57,170.22,0.65
 20260611,141,149,136,142,1010553,162.98,-12.87,162.78,169.53,0.55
+20260612,149,152.5,142,142.5,680572,161.27,-11.64,161.88,168.82,0.38
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 27
-- over_600_ratio: 25.32
+- as_of_date: 20260612
+- over_400_ratio: 26.93
+- over_600_ratio: 24.27
 - over_800_ratio: 20.48
 - over_1000_ratio: 18.99
-- over_400_change_1w: -0.9
+- over_400_change_1w: -0.07
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,27.12,0.08,21.97,1.49,18.99,0,3,False,True
 20260529,27.9,0.78,20.48,-1.49,18.99,0,4,False,False
 20260605,27,-0.9,20.48,0,18.99,0,0,False,False
+20260612,26.93,-0.07,20.48,0,18.99,0,0,False,False
 ```
 
 ## Candidate Context
@@ -194,7 +195,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 3138 | 耀登 | 4 | 0 | 874710.0 | 0.0 |  | no_signal |
+| 20260612 | 3138 | 耀登 | 4 | 0 | 567310.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6884 海柏特
 
 ## Metadata
-- generated_at: 2026-06-11 22:24:04 Asia/Taipei
+- generated_at: 2026-06-13 22:24:18 Asia/Taipei
 - stock_id: 6884
 - stock_name: 海柏特
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 247
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 248
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
+- date: 20260612
 - open: 34.8
-- high: 34.8
+- high: 35
 - low: 34.8
 - close: 34.8
 - volume: 35000
-- ma5: 34.2
-- ema23_primary: 33.87
-- distance_to_ema23_pct: 2.74
-- ma20: 33.57
+- ma5: 34.46
+- ema23_primary: 33.95
+- distance_to_ema23_pct: 2.5
+- ma20: 33.64
 - ma60: 34.25
-- ma120: 35.21
-- return_5d: 4.35
-- return_20d: 2.65
-- volume_ratio: 1.57
-- distance_to_ma20_pct_auxiliary: 3.66
+- ma120: 35.22
+- return_5d: 3.88
+- return_20d: 4.04
+- volume_ratio: 1.5
+- distance_to_ma20_pct_auxiliary: 3.46
 - distance_to_high_60_pct: -3.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,33.4,34.2,33.35,33.45,14000,34.57,-3.25,34.76,34.88,0.87
 20260513,34.1,34.35,34.1,34.35,3000,34.55,-0.59,34.76,34.87,0.19
 20260514,33.9,33.9,33.2,33.7,23000,34.48,-2.27,34.74,34.85,1.42
 20260515,33.7,33.7,33.4,33.6,8000,34.41,-2.35,34.68,34.83,0.51
@@ -155,10 +154,11 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,34.2,34.2,33.85,34,34000,33.71,0.87,33.51,34.26,1.67
 20260605,33.65,34.9,33.65,34.7,34000,33.79,2.7,33.52,34.25,1.58
 20260611,34.8,34.8,34.8,34.8,35000,33.87,2.74,33.57,34.25,1.57
+20260612,34.8,35,34.8,34.8,35000,33.95,2.5,33.64,34.25,1.5
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
+- as_of_date: 20260612
 - over_400_ratio: 81.85
 - over_600_ratio: 81.85
 - over_800_ratio: 78.05
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,81.85,0,78.05,0,78.05,0,0,False,False
 20260529,81.85,0,78.05,0,78.05,0,0,False,False
 20260605,81.85,0,78.05,0,78.05,0,0,False,False
+20260612,81.85,0,78.05,0,78.05,0,0,False,False
 ```
 
 ## Candidate Context

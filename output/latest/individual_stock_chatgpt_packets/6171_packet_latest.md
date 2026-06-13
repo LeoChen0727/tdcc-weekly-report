@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6171 大城地產
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:44 Asia/Taipei
+- generated_at: 2026-06-13 22:23:53 Asia/Taipei
 - stock_id: 6171
 - stock_name: 大城地產
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 140
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 141
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 24
-- high: 24.8
-- low: 23.8
-- close: 24
+- date: 20260612
+- open: 24.3
+- high: 24.5
+- low: 23.85
+- close: 23.95
 - volume: 24000
-- ma5: 23.72
-- ema23_primary: 24.09
-- distance_to_ema23_pct: -0.37
-- ma20: 23.81
-- ma60: 25.6
-- ma120: 26.81
-- return_5d: 3.67
+- ma5: 23.84
+- ema23_primary: 24.08
+- distance_to_ema23_pct: -0.53
+- ma20: 23.79
+- ma60: 25.55
+- ma120: 26.78
+- return_5d: 2.57
 - return_20d: -1.64
-- volume_ratio: 1.16
-- distance_to_ma20_pct_auxiliary: 0.79
-- distance_to_high_60_pct: -15.34
+- volume_ratio: 1.15
+- distance_to_ma20_pct_auxiliary: 0.66
+- distance_to_high_60_pct: -15.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,24.2,24.4,24.15,24.35,22000,25.65,-5.06,25.61,26.84,0.58
 20260508,24.25,24.35,24.25,24.35,17000,25.54,-4.66,25.52,26.79,0.46
 20260512,24.1,24.15,24,24.15,12000,25.42,-5.01,25.41,26.73,0.33
 20260513,24.1,24.2,24.1,24.15,8000,25.32,-4.61,25.3,26.68,0.22
@@ -155,10 +154,11 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,23.65,23.65,23.05,23.5,23000,24.08,-2.42,23.83,25.7,1.09
 20260605,24.55,24.55,23.95,24.25,24000,24.1,0.63,23.83,25.65,1.21
 20260611,24,24.8,23.8,24,24000,24.09,-0.37,23.81,25.6,1.16
+20260612,24.3,24.5,23.85,23.95,24000,24.08,-0.53,23.79,25.55,1.15
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
+- as_of_date: 20260612
 - over_400_ratio: 87.72
 - over_600_ratio: 84.64
 - over_800_ratio: 83.08
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,87.62,0.02,82.98,0.02,79.27,0.02,1,True,True
 20260529,87.72,0.1,83.08,0.1,79.36,0.09,2,True,True
 20260605,87.72,0,83.08,0,79.36,0,0,False,False
+20260612,87.72,0,83.08,0,79.36,0,0,False,False
 ```
 
 ## Candidate Context

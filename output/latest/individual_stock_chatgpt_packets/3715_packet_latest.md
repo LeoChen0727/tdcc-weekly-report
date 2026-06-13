@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3715 定穎投控
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:18 Asia/Taipei
+- generated_at: 2026-06-13 22:23:21 Asia/Taipei
 - stock_id: 3715
 - stock_name: 定穎投控
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 167.5
-- high: 171.5
-- low: 160
-- close: 166
-- volume: 11889160
-- ma5: 171.4
-- ema23_primary: 174.93
-- distance_to_ema23_pct: -5.11
-- ma20: 173.78
-- ma60: 178.71
-- ma120: 156.33
-- return_5d: -8.79
-- return_20d: -8.54
-- volume_ratio: 1.02
-- distance_to_ma20_pct_auxiliary: -4.47
-- distance_to_high_60_pct: -18.43
+- date: 20260612
+- open: 172
+- high: 173
+- low: 166.5
+- close: 166.5
+- volume: 5842203
+- ma5: 170
+- ema23_primary: 174.23
+- distance_to_ema23_pct: -4.44
+- ma20: 173.07
+- ma60: 178.96
+- ma120: 156.79
+- return_5d: -4.03
+- return_20d: -7.76
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: -3.8
+- distance_to_high_60_pct: -18.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,182,184,179,180.5,8670623,182.29,-0.98,184.57,170.61,0.38
 20260513,179,180.5,176,176.5,7133672,181.81,-2.92,184.07,171.16,0.32
 20260514,178.5,186.5,177.5,181,15769877,181.74,-0.41,183.85,171.55,0.73
 20260515,182.5,182.5,172,175,15836148,181.18,-3.41,183.28,171.95,0.73
@@ -160,20 +159,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,185,185.5,172,173.5,12856675,176.26,-1.57,175.07,178.08,1.06
 20260605,165.5,170.5,162,170,5941562,175.74,-3.27,174.55,178.47,0.52
 20260611,167.5,171.5,160,166,11889160,174.93,-5.11,173.78,178.71,1.02
+20260612,172,173,166.5,166.5,5842203,174.23,-4.44,173.07,178.96,0.51
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 32.13
-- over_600_ratio: 29.34
-- over_800_ratio: 26.2
-- over_1000_ratio: 23.99
-- over_400_change_1w: -1.78
-- over_800_change_1w: -2.4
-- over_1000_change_1w: -2.18
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260612
+- over_400_ratio: 32.19
+- over_600_ratio: 29.7
+- over_800_ratio: 27.09
+- over_1000_ratio: 25.17
+- over_400_change_1w: 0.06
+- over_800_change_1w: 0.89
+- over_1000_change_1w: 1.18
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -185,23 +185,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,32.25,-3.19,27.48,-1.61,25.92,-1.9,0,False,False
 20260529,33.91,1.66,28.6,1.12,26.17,0.25,1,True,True
 20260605,32.13,-1.78,26.2,-2.4,23.99,-2.18,0,False,False
+20260612,32.19,0.06,27.09,0.89,25.17,1.18,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 3715 | 定穎投控 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260611 | 3715 | 定穎投控 | revenue_breakout_low_response | 營收爆發低反應股 | 13.0 | 22.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260612 | 3715 | 定穎投控 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260612 | 3715 | 定穎投控 | revenue_breakout_low_response | 營收爆發低反應股 | 13.0 | 16.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 3715 | 定穎投控 | 3 | 3 | 4 | 9 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260612 | 3715 | 定穎投控 | 4 | 4 | 4 | 9 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 3715 | 定穎投控 | 235 | 0 | 14624440.0 | 0.0 |  | no_signal |
+| 20260612 | 3715 | 定穎投控 | 231 | 10 | 11691490.0 | 262510.0 | 44.54 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

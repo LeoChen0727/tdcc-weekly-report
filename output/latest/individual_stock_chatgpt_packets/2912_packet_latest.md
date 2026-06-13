@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2912 統一超
 
 ## Metadata
-- generated_at: 2026-06-11 22:22:58 Asia/Taipei
+- generated_at: 2026-06-13 22:22:55 Asia/Taipei
 - stock_id: 2912
 - stock_name: 統一超
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 230.5
-- high: 231.5
-- low: 225
-- close: 229
-- volume: 3277215
-- ma5: 233.2
-- ema23_primary: 225.08
-- distance_to_ema23_pct: 1.74
-- ma20: 223.22
-- ma60: 224.79
-- ma120: 222.96
-- return_5d: 0.66
-- return_20d: 0.66
-- volume_ratio: 0.4
-- distance_to_ma20_pct_auxiliary: 2.59
-- distance_to_high_60_pct: -7.29
+- date: 20260612
+- open: 229
+- high: 230.5
+- low: 227
+- close: 230
+- volume: 1663715
+- ma5: 232.6
+- ema23_primary: 225.49
+- distance_to_ema23_pct: 2
+- ma20: 223.43
+- ma60: 225.04
+- ma120: 222.9
+- return_5d: -1.29
+- return_20d: 1.77
+- volume_ratio: 0.2
+- distance_to_ma20_pct_auxiliary: 2.94
+- distance_to_high_60_pct: -6.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,227.5,230,226,226,1493470,227.59,-0.7,229.75,223.88,0.57
 20260513,225,227,224.5,225.5,1968228,227.42,-0.84,229.65,224.07,0.75
 20260514,225.5,229.5,225.5,226.5,1388979,227.34,-0.37,229.4,224.28,0.54
 20260515,227,229,227,227.5,1764455,227.35,0.06,229.07,224.42,0.71
@@ -159,20 +158,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,225.5,233.5,220,233,13702495,224.06,3.99,223.15,224.34,1.72
 20260605,242.5,247,232,232,5516236,224.72,3.24,223.15,224.58,0.68
 20260611,230.5,231.5,225,229,3277215,225.08,1.74,223.22,224.79,0.4
+20260612,229,230.5,227,230,1663715,225.49,2,223.43,225.04,0.2
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 84.81
-- over_600_ratio: 82.88
-- over_800_ratio: 81.2
-- over_1000_ratio: 80.45
-- over_400_change_1w: 1.71
-- over_800_change_1w: 2.09
-- over_1000_change_1w: 2.45
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260612
+- over_400_ratio: 84.48
+- over_600_ratio: 82.6
+- over_800_ratio: 80.84
+- over_1000_ratio: 80.2
+- over_400_change_1w: -0.33
+- over_800_change_1w: -0.36
+- over_1000_change_1w: -0.25
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -184,17 +184,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,84.24,-0.2,80.17,-0.19,79.3,-0.29,0,False,False
 20260529,83.1,-1.14,79.11,-1.06,78,-1.3,0,False,False
 20260605,84.81,1.71,81.2,2.09,80.45,2.45,1,True,True
+20260612,84.48,-0.33,80.84,-0.36,80.2,-0.25,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 2912 | 統一超 | pattern | 型態觀察 | 51.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260612 | 2912 | 統一超 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 2912 | 統一超 | 5 | 4 | 5 | 5 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260612 | 2912 | 統一超 | 6 | 5 | 5 | 6 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

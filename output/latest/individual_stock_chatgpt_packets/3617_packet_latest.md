@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3617 碩天
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:15 Asia/Taipei
+- generated_at: 2026-06-13 22:23:17 Asia/Taipei
 - stock_id: 3617
 - stock_name: 碩天
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 28
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 29
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 210
-- high: 214.5
-- low: 204.5
-- close: 210
-- volume: 477203
-- ma5: 213.9
-- ema23_primary: 204.52
-- distance_to_ema23_pct: 2.68
-- ma20: 203.57
-- ma60: 189.37
-- ma120: 192.43
-- return_5d: -0.94
-- return_20d: 3.7
-- volume_ratio: 1.07
-- distance_to_ma20_pct_auxiliary: 3.16
-- distance_to_high_60_pct: -6.04
+- date: 20260612
+- open: 215
+- high: 219
+- low: 212.5
+- close: 217
+- volume: 428240
+- ma5: 214.8
+- ema23_primary: 205.56
+- distance_to_ema23_pct: 5.57
+- ma20: 204.72
+- ma60: 189.99
+- ma120: 192.55
+- return_5d: 2.12
+- return_20d: 11.86
+- volume_ratio: 0.99
+- distance_to_ma20_pct_auxiliary: 6
+- distance_to_high_60_pct: -2.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,202.5,202.5,193,194,641875,190.1,2.05,191.62,184.78,1.87
 20260513,195,197.5,193,197,424780,190.67,3.32,192.5,184.81,1.22
 20260514,198,198,193.5,193.5,273974,190.91,1.36,192.78,184.79,0.82
 20260515,194,198,188.5,190,357403,190.83,-0.44,192.8,184.74,1.08
@@ -155,18 +153,19 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,214.5,216,209,212.5,405636,202.84,4.76,202.2,188.43,0.94
 20260605,221.5,223.5,214,217,561023,204.02,6.36,203.2,188.93,1.26
 20260611,210,214.5,204.5,210,477203,204.52,2.68,203.57,189.37,1.07
+20260612,215,219,212.5,217,428240,205.56,5.57,204.72,189.99,0.99
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 67.68
-- over_600_ratio: 60.24
+- as_of_date: 20260612
+- over_400_ratio: 67.62
+- over_600_ratio: 60.25
 - over_800_ratio: 54.78
 - over_1000_ratio: 53.78
-- over_400_change_1w: 0.06
-- over_800_change_1w: -0.01
-- over_1000_change_1w: -0.01
-- tdcc_consecutive_up_weeks: 15
+- over_400_change_1w: -0.06
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 16
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -174,7 +173,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260320,66.73,-0.03,54.95,0.04,53.94,0.04,4,False,True
 20260327,67.26,0.53,54.97,0.02,53.96,0.02,5,True,True
 20260402,67.18,-0.08,54.98,0.01,53.97,0.01,6,False,True
 20260410,67.59,0.41,54.99,0.01,53.98,0.01,7,True,True
@@ -186,6 +184,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,67.39,0.02,54.79,0.03,53.79,0.03,13,True,True
 20260529,67.62,0.23,54.79,0,53.79,0,14,False,False
 20260605,67.68,0.06,54.78,-0.01,53.78,-0.01,15,False,False
+20260612,67.62,-0.06,54.78,0,53.78,0,16,False,False
 ```
 
 ## Candidate Context
@@ -201,7 +200,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 3617 | 碩天 | 9 | 0 | 246270.0 | 0.0 |  | no_signal |
+| 20260612 | 3617 | 碩天 | 5 | 0 | 1404910.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2472 立隆電
 
 ## Metadata
-- generated_at: 2026-06-11 22:22:48 Asia/Taipei
+- generated_at: 2026-06-13 22:22:44 Asia/Taipei
 - stock_id: 2472
 - stock_name: 立隆電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 350
-- high: 350
-- low: 302
-- close: 350
-- volume: 2866212
-- ma5: 366.5
-- ema23_primary: 302.69
-- distance_to_ema23_pct: 15.63
-- ma20: 302.18
-- ma60: 204.86
-- ma120: 157.85
-- return_5d: -10.71
-- return_20d: 55.56
-- volume_ratio: 0.23
-- distance_to_ma20_pct_auxiliary: 15.83
-- distance_to_high_60_pct: -14.22
+- date: 20260612
+- open: 380
+- high: 384
+- low: 357
+- close: 371.5
+- volume: 3510298
+- ma5: 364.8
+- ema23_primary: 308.42
+- distance_to_ema23_pct: 20.45
+- ma20: 309.6
+- ma60: 209.28
+- ma120: 160.09
+- return_5d: -2.24
+- return_20d: 66.59
+- volume_ratio: 0.3
+- distance_to_ma20_pct_auxiliary: 19.99
+- distance_to_high_60_pct: -8.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,221.5,234,209.5,223,16652302,182.92,21.91,187.55,143.2,2.48
 20260513,219,234,218,233.5,11128528,187.13,24.78,190.3,145.28,1.55
 20260514,236,256,227,231.5,18720713,190.83,21.31,192.8,147.3,2.52
 20260515,228.5,231.5,213,217,13435721,193.01,12.43,194.7,149.12,1.75
@@ -154,17 +153,18 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,387,387,353,380,4684429,292.47,29.93,288.82,196.52,0.35
 20260605,340,367,315,363.5,3424196,298.39,21.82,295.93,200.82,0.26
 20260611,350,350,302,350,2866212,302.69,15.63,302.18,204.86,0.23
+20260612,380,384,357,371.5,3510298,308.42,20.45,309.6,209.28,0.3
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 60.41
-- over_600_ratio: 57.33
-- over_800_ratio: 54.12
-- over_1000_ratio: 50.85
-- over_400_change_1w: -1.12
-- over_800_change_1w: -2.91
-- over_1000_change_1w: -1.24
+- as_of_date: 20260612
+- over_400_ratio: 59.88
+- over_600_ratio: 56.95
+- over_800_ratio: 54.07
+- over_1000_ratio: 50.73
+- over_400_change_1w: -0.53
+- over_800_change_1w: -0.05
+- over_1000_change_1w: -0.12
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,57.45,0.07,52.96,2.34,50.12,2.25,1,True,True
 20260529,61.53,4.08,57.03,4.07,52.09,1.97,2,True,True
 20260605,60.41,-1.12,54.12,-2.91,50.85,-1.24,0,False,False
+20260612,59.88,-0.53,54.07,-0.05,50.73,-0.12,0,False,False
 ```
 
 ## Candidate Context
@@ -194,7 +195,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 2472 | 立隆電 | 101 | 0 | 3556080.0 | 0.0 |  | no_signal |
+| 20260612 | 2472 | 立隆電 | 101 | 2 | 4431030.0 | 34400.0 | 128.81 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

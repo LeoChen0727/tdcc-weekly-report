@@ -167,8 +167,8 @@ WARRANT_SIGNAL_ZH = {
 }
 
 RISK_TAG_ZH = {
-    "false_breakout_risk": "假突破風險",
-    "false_breakout_risk_penalty": "假突破風險扣分",
+    "false_breakout_risk": "漲幅過低",
+    "false_breakout_risk_penalty": "漲幅過低扣分",
     "tdcc_distribution_penalty": "TDCC轉弱扣分",
     "tdcc_distribution_warning": "TDCC轉弱警示",
     "continued_overheated": "連續過熱",
@@ -184,8 +184,8 @@ RISK_TAG_ZH = {
     "insufficient_tdcc_history": "TDCC歷史不足",
     "insufficient_price_data": "價格資料不足",
     "long_upper_shadow_quality_penalty": "長上影攻擊品質扣分",
-    "A_bottom_volume_attack": "底部放量攻擊A級",
-    "B_bottom_volume_attack_with_risk": "底部放量攻擊但有風險標籤",
+    "A_bottom_volume_attack": "放量攻擊A級",
+    "B_bottom_volume_attack_with_risk": "放量攻擊但有風險標籤",
 }
 
 STRUCTURAL_BUCKET_ZH = {
@@ -223,7 +223,7 @@ STRUCTURAL_BUCKET_ZH = {
 SCORE_COMPONENT_ZH_REPLACEMENTS = {
     "base=50": "基礎分=50",
     "base=35": "基礎分=35",
-    "profile=volume_range_breakout": "參數=底部放量攻擊模型",
+    "profile=volume_range_breakout": "參數=放量攻擊模型",
     "profile=price_pullback_23ema": "參數=股價回檔模型",
     "profile=hot_theme_pullback": "參數=熱門族群回檔模型",
     "profile=revenue_unreacted_range": "參數=營收爆發但股價尚未反應模型",
@@ -243,7 +243,7 @@ SCORE_COMPONENT_ZH_REPLACEMENTS = {
     "type=range_breakout_volume": "類型=盤整區間帶量突破",
     "type=strict_high_breakout": "類型=波段高點帶量突破",
     "type=strict_60d_volume_breakout": "類型=60日高點帶量突破",
-    "type=bottom_volume_attack": "類型=底部放量攻擊",
+    "type=bottom_volume_attack": "類型=放量攻擊",
     "breakout_pct": "突破幅度",
     "close_ge_prior20_high_102pct": "收盤突破前20日高點2%以上",
     "volume_ma20_lots_ge_1000": "20日均量>=1000張",
@@ -259,8 +259,8 @@ SCORE_COMPONENT_ZH_REPLACEMENTS = {
     "base_duration_10d_plus": "盤整10日以上",
     "long_upper_shadow_quality_penalty": "長上影攻擊品質扣分",
     "volume_breakout_notes": "放量攻擊註記",
-    "A_bottom_volume_attack": "底部放量攻擊A級",
-    "B_bottom_volume_attack_with_risk": "底部放量攻擊但有風險標籤",
+    "A_bottom_volume_attack": "放量攻擊A級",
+    "B_bottom_volume_attack_with_risk": "放量攻擊但有風險標籤",
     "type=平台_volume_breakout": "類型=平台帶量突破",
     "volume_score=": "量能分數=",
     "close_above_previous_20d_high": "收盤站上20日前高",
@@ -1806,12 +1806,12 @@ def build_specs() -> list[ModelSpec]:
     return [
         ModelSpec(
             "volume_range_breakout",
-            "底部放量攻擊模型",
+            "放量攻擊模型",
             "pdf_core_model",
             "signal_date_next_open",
             "不含今日的前20日最高價為突破基準；收盤價 >= 基準 * 1.02、量比 >= 2.0、20日均量 >= 1000張，且為實體紅K或漲停型態。",
             "量比越高、盤整時間越久、收盤越接近日高、低位階、TDCC正向、權證偏多、營收或題材支持可加分。",
-            "不使用60日高點、短線過熱、漲幅大小或隔日假突破作為入選否決；訊號日只輸出入選，風險用扣分與標籤處理。",
+            "不使用60日高點、短線過熱、漲幅大小或隔日跌回突破區作為入選否決；訊號日只輸出入選，風險用扣分與標籤處理。",
             "隔日開盤作為回測進場原點；適合找盤整後突然放大量攻擊的股票，後續用支撐、突破區和量價品質管理。",
             cond_volume_breakout,
             score_volume_breakout,
@@ -2406,8 +2406,6 @@ def build_signals(candidates: pd.DataFrame, specs: list[ModelSpec], signal_date:
                         "score_components": " | ".join(comps),
                         "risk_penalty_tags": " | ".join(dict.fromkeys(risks)),
                         "original_category": category(row),
-                        "decision_priority": text(row, "decision_priority"),
-                        "decision_score": text(row, "decision_score"),
                         "tdcc_status": tdcc_status(row),
                         "warrant_flow_signal": warrant_signal(row),
                         "volume_ratio": num(row, "volume_ratio"),
@@ -2562,7 +2560,7 @@ def append_volume_breakout_signals(signals: pd.DataFrame, candidates: pd.DataFra
                 "dual_report_membership_flag": dual_report_membership_flag_value(source),
                 "report_bucket": external_report_bucket(row, source),
                 "model_id": "volume_range_breakout",
-                "model_name_zh": "底部放量攻擊模型",
+                "model_name_zh": "放量攻擊模型",
                 "model_group": "pdf_core_model",
                 "main_condition_met": "True",
                 "entry_basis": "signal_date_next_open",
@@ -2570,8 +2568,6 @@ def append_volume_breakout_signals(signals: pd.DataFrame, candidates: pd.DataFra
                 "score_components": " | ".join([c for c in comps if c]),
                 "risk_penalty_tags": " | ".join(dict.fromkeys(risks)),
                 "original_category": category(source),
-                "decision_priority": text(row, "decision_priority") or text(source, "decision_priority"),
-                "decision_score": text(row, "decision_score") or text(source, "decision_score"),
                 "tdcc_status": text(row, "tdcc_status") or tdcc_status(source),
                 "warrant_flow_signal": text(row, "warrant_flow_signal") or warrant_signal(source),
                 "volume_ratio": num(row, "volume_ratio"),
@@ -2580,8 +2576,8 @@ def append_volume_breakout_signals(signals: pd.DataFrame, candidates: pd.DataFra
                 "next_confirmation": text(row, "next_volume_breakout_confirmation") or text(source, "next_confirmation"),
                 "model_main_conditions": "以前20個交易日最高價（不含訊號日）為突破基準；收盤價 >= 基準 * 1.02，量比 >= 2.0，20日均量 >= 1000張，且為實體紅K或漲停式紅K。",
                 "model_add_score_items": "量比越高、突破幅度越大、盤整時間越久、盤整品質越乾淨、TDCC越好、權證偏多、營收越好、位階越低、收盤越接近日高可加分。",
-                "model_forbidden_veto": "不得用60日高點、均線、漲幅過大、高位爆量、同日假突破、watch/risk子狀態直接否決；風險只作扣分與操作提醒。",
-                "model_operation_guidance": "以訊號日隔天開盤為進場原點；用跌回突破區、支撐失守、量價失敗或長上影品質風險管理。",
+                "model_forbidden_veto": "不得用60日高點、均線、漲幅過大、高位爆量、同日漲幅過低、watch/risk子狀態直接否決；風險只作扣分與風險提醒。",
+                "model_operation_guidance": "以訊號日隔天開盤作為研究觀察基準；用跌回突破區、支撐失守、量價失敗或長上影品質風險管理。",
                 "selection_semantics": "volume_breakout_condition_met_from_dedicated_table",
             }
         )
@@ -2736,18 +2732,16 @@ def append_tdcc_short_term(signals: pd.DataFrame, signal_date: str) -> pd.DataFr
                     "score_components": " | ".join(score_parts),
                     "risk_penalty_tags": "|".join(risk_tags),
                     "original_category": "short_term_specialty",
-                    "decision_priority": "",
-                    "decision_score": "",
                     "tdcc_status": text(row, "tdcc_price_phase"),
                     "warrant_flow_signal": "",
                     "volume_ratio": "",
                     "return_5d": "",
                     "return_20d": "",
-                    "next_confirmation": "短線延續專項；用隔日開盤為進場原點，檢查D+1到D+10收盤/最高價。",
+                    "next_confirmation": "短線延續專項；用隔日開盤作為研究觀察基準，檢查D+1到D+10收盤/最高價。",
                     "model_main_conditions": "all_thresholds_overheated或phase_overheated_after_tdcc，搭配MACD/KD/Bollinger與1W/2W漲幅條件。",
                     "model_add_score_items": "D+1到D+10 next-open close/high統計、樣本數、相對報酬、market regime分層。",
-                    "model_forbidden_veto": "不是低位買進模型，不可混入TDCC潛伏吸籌。",
-                    "model_operation_guidance": "隔日開盤為進場原點；依D+1到D+10收盤/最高價統計做短線延續檢查。",
+                    "model_forbidden_veto": "不是低位布局模型，不可混入TDCC潛伏吸籌。",
+                    "model_operation_guidance": "隔日開盤作為研究觀察基準；依D+1到D+10收盤/最高價統計做短線延續檢查。",
                     "selection_semantics": "specialty_condition_met_rank_by_tdcc_short_term_score",
                 }
             )
@@ -2787,18 +2781,16 @@ def append_tdcc_short_term(signals: pd.DataFrame, signal_date: str) -> pd.DataFr
                     "score_components": f"best D+5={row.get('best_d5_hit_rate_pct','')} / best D+10={row.get('best_d10_hit_rate_pct','')}",
                     "risk_penalty_tags": text(row, "market_abnormal_status", "execution_risk_note"),
                     "original_category": "short_term_specialty",
-                    "decision_priority": text(row, "research_priority"),
-                    "decision_score": "",
                     "tdcc_status": "",
                     "warrant_flow_signal": "",
                     "volume_ratio": text(row, "start_5d_avg_volume_ratio_vs_prev20"),
                     "return_5d": text(row, "return_5d_pct"),
                     "return_20d": text(row, "return_20d_pct"),
-                    "next_confirmation": "短線急漲研究專項；用隔日開盤為進場原點，分D+1到D+20檢查。",
+                    "next_confirmation": "短線急漲研究專項；用隔日開盤作為研究觀察基準，分D+1到D+20檢查。",
                     "model_main_conditions": "5日或10日漲幅達標、量能擴張、技術動能強。",
                     "model_add_score_items": "D+1到D+20 close/high統計、處置/注意標籤、TDCC與市場狀態分層。",
-                    "model_forbidden_veto": "不得稱為周線K；必須標清楚單位與進場原點。",
-                    "model_operation_guidance": "隔日開盤為進場原點；依D+1到D+20收盤/最高價統計檢查短線延續。",
+                    "model_forbidden_veto": "不得稱為周線K；必須標清楚單位與研究觀察基準。",
+                    "model_operation_guidance": "隔日開盤作為研究觀察基準；依D+1到D+20收盤/最高價統計檢查短線延續。",
                     "selection_semantics": "specialty_condition_met_rank_by_backtest_stats",
                 }
             )
@@ -2844,7 +2836,7 @@ PDF_TOKEN_ZH = {
     "ma_reclaim_volume_attack": "帶量站回均線",
     "near_high_volume_watch": "接近前高帶量觀察",
     "strict_high_breakout": "帶量突破波段高點",
-    "failed_range_breakout_risk": "盤整區間假突破風險",
+    "failed_range_breakout_risk": "盤整突破漲幅過低風險",
     "revenue_breakout_low_response": "營收爆發股價尚未反應",
     "revenue_pullback": "營收成長股價回檔",
     "pullback_rebound": "回檔後短線轉強",
@@ -2900,7 +2892,7 @@ PDF_TOKEN_ZH = {
 }
 
 MODEL_NAME_ZH_BY_ID = {
-    "volume_range_breakout": "底部放量攻擊模型",
+    "volume_range_breakout": "放量攻擊模型",
     "price_pullback_23ema": "股價回檔模型",
     "hot_theme_pullback": "熱門族群回檔模型",
     "revenue_unreacted_range": "營收爆發但股價尚未反應模型",
@@ -2916,7 +2908,7 @@ MODEL_NAME_ZH_BY_ID = {
 }
 
 MODEL_HUMAN_REASON_ZH = {
-    "volume_range_breakout": "符合底部放量攻擊模型，收盤有效站上前20日高點突破基準，量能明顯放大，後續依突破區與量價品質管理。",
+    "volume_range_breakout": "符合放量攻擊模型，收盤有效站上前20日高點突破基準，量能明顯放大，後續依突破區與量價品質管理。",
     "price_pullback_23ema": "符合股價回檔模型，股價接近23EMA或支撐區，回測後轉強。",
     "hot_theme_pullback": "符合熱門族群回檔模型，具熱門族群標籤，股價回測23EMA或支撐後轉強。",
     "revenue_unreacted_range": "符合營收爆發但股價尚未反應模型，營收動能較強且股價仍在整理區。",
@@ -3245,6 +3237,9 @@ ROTATION_COLUMNS = [
     "rotation_model_id",
     "rotation_model_name",
     "theme",
+    "theme_display_zh",
+    "theme_resolution_status",
+    "theme_key",
     "stock_count",
     "volume_expansion_3x_count",
     "volume_expansion_1_5x_count",
@@ -3263,12 +3258,60 @@ ROTATION_COLUMNS = [
 ]
 
 
+ROTATION_THEME_DISPLAY_ZH = {
+    "91": "DR / 外國上市",
+    "DR_or_foreign_listing": "DR / 外國上市",
+    "ETF_or_index_product": "指數 / ETF / ETN商品",
+    "etf_or_index_product": "指數 / ETF / ETN商品",
+    "指數/ETF/ETN商品": "指數 / ETF / ETN商品",
+}
+
+UNRESOLVED_ROTATION_THEME_VALUES = {
+    "",
+    "其他",
+    "其他業",
+    "other",
+    "theme_unknown",
+    "unclassified",
+    "needs_manual_review",
+}
+
+RAW_ENGLISH_THEME_RE = re.compile(r"^[A-Za-z][A-Za-z0-9_ -]*$")
+
+
+def has_cjk_text(value: str) -> bool:
+    return bool(re.search(r"[\u4e00-\u9fff]", value))
+
+
+def is_unresolved_rotation_theme(value: Any) -> bool:
+    text = safe_str(value)
+    if text in UNRESOLVED_ROTATION_THEME_VALUES:
+        return True
+    if text.isdigit():
+        return True
+    if RAW_ENGLISH_THEME_RE.fullmatch(text) and not has_cjk_text(text):
+        return True
+    return False
+
+
+def resolve_rotation_theme(value: Any) -> dict[str, str]:
+    raw = safe_str(value)
+    display = ROTATION_THEME_DISPLAY_ZH.get(raw, raw)
+    status = "unresolved" if is_unresolved_rotation_theme(display) else "resolved"
+    return {
+        "theme_key": raw,
+        "theme": display,
+        "theme_display_zh": display,
+        "theme_resolution_status": status,
+    }
+
+
 def build_rotation(candidates: pd.DataFrame, signal_date: str) -> pd.DataFrame:
     taxonomy = read_csv(STOCK_THEME_TAXONOMY, dtype={"stock_id": str})
     if taxonomy.empty:
         return pd.DataFrame(columns=ROTATION_COLUMNS)
 
-    def rotation_themes(item: pd.Series) -> list[str]:
+    def rotation_themes(item: pd.Series) -> list[dict[str, str]]:
         """Return all usable group labels for fund-rotation detection.
 
         A stock can participate in its basic listed-company industry group and
@@ -3289,15 +3332,15 @@ def build_rotation(candidates: pd.DataFrame, signal_date: str) -> pd.DataFrame:
         for key in ("hot_secondary_themes", "secondary_themes"):
             values.extend(split_tags(safe_str(item.get(key))))
 
-        cleaned: list[str] = []
+        cleaned: list[dict[str, str]] = []
         seen: set[str] = set()
-        skip = {"other", "theme_unknown", "unclassified", "needs_manual_review"}
         for value in values:
-            theme = safe_str(value)
-            if not theme or theme in skip or theme in seen:
+            resolved = resolve_rotation_theme(value)
+            theme = resolved["theme"]
+            if not theme or theme in seen:
                 continue
             seen.add(theme)
-            cleaned.append(theme)
+            cleaned.append(resolved)
         return cleaned
 
     # Group rotation must evaluate the whole taxonomy universe, not only rows
@@ -3332,12 +3375,15 @@ def build_rotation(candidates: pd.DataFrame, signal_date: str) -> pd.DataFrame:
         return_15d = (close / close_15_ago - 1) * 100 if close_15_ago and not math.isnan(close) else math.nan
         return_30d = (close / close_30_ago - 1) * 100 if close_30_ago and not math.isnan(close) else math.nan
 
-        for theme in rotation_themes(item):
+        for theme_info in rotation_themes(item):
             rows_for_group.append(
                 {
                     "stock_id": stock_id,
                     "stock_name": safe_str(item.get("stock_name")),
-                    "theme": theme,
+                    "theme": theme_info["theme"],
+                    "theme_display_zh": theme_info["theme_display_zh"],
+                    "theme_resolution_status": theme_info["theme_resolution_status"],
+                    "theme_key": theme_info["theme_key"],
                     "volume_ratio_num": volume_ratio_num,
                     "slow_volume_ratio": slow_volume_ratio,
                     "return_15d": return_15d,
@@ -3360,7 +3406,7 @@ def build_rotation(candidates: pd.DataFrame, signal_date: str) -> pd.DataFrame:
     rows: list[dict[str, Any]] = []
     for theme, part in work.groupby("theme", dropna=False):
         theme_text = safe_str(theme)
-        if not theme_text or theme_text in {"other", "theme_unknown", "unclassified"}:
+        if not theme_text:
             continue
         total = len(part)
         if total < 2:
@@ -3380,6 +3426,9 @@ def build_rotation(candidates: pd.DataFrame, signal_date: str) -> pd.DataFrame:
             continue
 
         def add_row(model_id: str, model_name: str, diffusion_status: str, interpretation: str) -> None:
+            theme_keys = "|".join(sorted({safe_str(value) for value in part["theme_key"] if safe_str(value)}))
+            theme_statuses = {safe_str(value) for value in part["theme_resolution_status"] if safe_str(value)}
+            theme_status = "resolved" if theme_statuses == {"resolved"} and not is_unresolved_rotation_theme(theme_text) else "unresolved"
             leaders = (
                 part.sort_values("volume_ratio_num", ascending=False)
                 .head(3)[["stock_id", "stock_name", "volume_ratio_num"]]
@@ -3391,7 +3440,10 @@ def build_rotation(candidates: pd.DataFrame, signal_date: str) -> pd.DataFrame:
                     "signal_date": signal_date,
                     "rotation_model_id": model_id,
                     "rotation_model_name": model_name,
-                    "theme": theme,
+                    "theme": theme_text,
+                    "theme_display_zh": theme_text,
+                    "theme_resolution_status": theme_status,
+                    "theme_key": theme_keys,
                     "stock_count": total,
                     "volume_expansion_3x_count": expansion,
                     "volume_expansion_1_5x_count": expansion_15,

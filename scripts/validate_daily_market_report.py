@@ -507,14 +507,14 @@ def check_non_revenue_momentum_section(curated_text: str, full_text: str, errors
         errors.append("PDF missing non-revenue momentum specialty section")
 
 
-def check_decision_layer_watchlist(errors: list[str]) -> None:
+def check_model_layer_watchlist(errors: list[str]) -> None:
     try:
         import importlib.util
 
         module_path = Path("scripts/generate_daily_market_pdf.py")
         spec = importlib.util.spec_from_file_location("generate_daily_market_pdf_validation", module_path)
         if spec is None or spec.loader is None:
-            errors.append("failed to load daily PDF generator for decision-layer validation")
+            errors.append("failed to load daily PDF generator for model-layer validation")
             return
         module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(module)
@@ -522,22 +522,22 @@ def check_decision_layer_watchlist(errors: list[str]) -> None:
         selected = module.selected_by_category(df)
         watch = module.top_watchlist(selected)
     except Exception as exc:
-        errors.append(f"failed decision-layer watchlist validation: {exc}")
+        errors.append(f"failed model-layer watchlist validation: {exc}")
         return
 
     if watch.empty:
         return
-    if "decision_priority" in watch.columns:
-        bad_priority = watch[watch["decision_priority"].astype(str).ne("A_priority_watch")]
-        if not bad_priority.empty:
-            ids = bad_priority["stock_id"].astype(str).head(10).tolist()
-            errors.append(f"front watchlist contains non-A decision_priority rows: {ids}")
+    if "model_score" in watch.columns:
+        missing_score = watch[watch["model_score"].astype(str).str.strip().eq("")]
+        if not missing_score.empty:
+            ids = missing_score["stock_id"].astype(str).head(10).tolist()
+            errors.append(f"front watchlist contains rows without model_score: {ids}")
     bad_warning_rows = []
     for _, row in watch.iterrows():
-        if module.has_decision_warning(row):
+        if module.has_report_warning(row):
             bad_warning_rows.append(str(row.get("stock_id", "")))
     if bad_warning_rows:
-        errors.append(f"front watchlist contains decision-warning rows: {bad_warning_rows[:10]}")
+        errors.append(f"front watchlist contains model-risk warning rows: {bad_warning_rows[:10]}")
     if "stock_id" in watch.columns and watch["stock_id"].astype(str).eq("2347").any():
         errors.append("2347 appears in front watchlist despite stale/no-confirmation warning")
 
@@ -753,7 +753,7 @@ def validate() -> tuple[dict[str, Any], list[str], list[str]]:
     check_repeat_appearance_in_pdf("curated", curated["text"], errors)
     check_repeat_appearance_in_pdf("full_table", full["text"], errors)
     check_non_revenue_momentum_section(curated["text"], full["text"], errors)
-    check_decision_layer_watchlist(errors)
+    check_model_layer_watchlist(errors)
 
     result = {
         "generated_at": now_text(),

@@ -13,7 +13,6 @@ LATEST_DIR = ROOT / "output" / "latest"
 DOCS_LATEST_DIR = ROOT / "docs" / "latest"
 
 ALL_CANDIDATES_CSV = LATEST_DIR / "all_candidates_latest.csv"
-DECISION_CSV = LATEST_DIR / "daily_candidate_decision_latest.csv"
 VOLUME_ATTACK_STOCKS_CSV = LATEST_DIR / "volume_attack_theme_stocks_latest.csv"
 
 OUT_CSV = LATEST_DIR / "non_revenue_momentum_watch_latest.csv"
@@ -147,51 +146,11 @@ def read_main_price_date() -> str:
 
 
 def merge_sources() -> pd.DataFrame:
-    decision = read_csv(DECISION_CSV)
     all_candidates = read_csv(ALL_CANDIDATES_CSV)
-    if decision.empty:
+    if all_candidates.empty:
         return pd.DataFrame()
 
-    base = decision.copy()
-    if not all_candidates.empty and "source_row_index" in base.columns:
-        all_source = all_candidates.drop(columns=["source_row_index"], errors="ignore")
-        all_with_index = all_source.reset_index().rename(columns={"index": "source_row_index"})
-        all_with_index["source_row_index"] = all_with_index["source_row_index"].astype(str)
-        base["source_row_index"] = base["source_row_index"].astype(str)
-        keep_cols = [
-            "source_row_index",
-            "category",
-            "category_cn",
-            "industry",
-            "細分族群",
-            "theme_group",
-            "latest_revenue_yoy",
-            "cumulative_revenue_yoy",
-            "revenue_yoy_pct",
-            "cumulative_yoy_pct",
-            "revenue_warning",
-            "revenue_acceleration_note",
-            "already_priced_in",
-            "priced_in_reason",
-            "score",
-            "rank",
-            "volume_confirmed_breakout",
-            "platform_breakout_flag",
-            "neckline_breakout_flag",
-            "platform_high",
-            "previous_high",
-            "previous_60d_high",
-            "ema23",
-            "ma20",
-            "ma60",
-        ]
-        keep_cols = [col for col in keep_cols if col in all_with_index.columns]
-        base = base.merge(
-            all_with_index[keep_cols],
-            on="source_row_index",
-            how="left",
-            suffixes=("", "_candidate"),
-        )
+    base = all_candidates.copy()
 
     volume = read_csv(VOLUME_ATTACK_STOCKS_CSV)
     if not volume.empty and "stock_id" in volume.columns:
@@ -392,7 +351,7 @@ def build_rows(df: pd.DataFrame) -> pd.DataFrame:
     rows: list[dict[str, Any]] = []
     for _, row in df.iterrows():
         rev_status, rev_note = revenue_status(row)
-        include, momentum_type, action_status, interpretation = classify_row(row, rev_status)
+        include, momentum_type, presentation_status, interpretation = classify_row(row, rev_status)
         if not include:
             continue
 
@@ -420,14 +379,14 @@ def build_rows(df: pd.DataFrame) -> pd.DataFrame:
                 "category": first_value(row, ["original_category", "category"]),
                 "category_cn": first_value(row, ["original_category_cn", "category_cn"]),
                 "theme_name": first_value(row, ["theme_name", "theme_group", "細分族群", "industry"]),
-                "decision_priority": safe_str(row.get("decision_priority", "")),
-                "decision_score": safe_str(row.get("decision_score", "")),
-                "decision_rank_in_category": safe_str(row.get("decision_rank_in_category", "")),
+                "presentation_priority": first_value(row, ["presentation_priority", "revaluation_priority", "priority"]),
+                "model_score": first_value(row, ["model_score", "score", "pattern_score"]),
+                "model_rank": first_value(row, ["model_rank", "rank"]),
                 "revenue_confirmation_status": rev_status,
                 "revenue_confirmation_note": rev_note,
                 "non_revenue_momentum_flag": "True",
                 "non_revenue_momentum_type": momentum_type,
-                "non_revenue_action_status": action_status,
+                "non_revenue_presentation_status": presentation_status,
                 "fundamental_confirmation_needed": "True",
                 "theme_final_status": safe_str(row.get("theme_final_status", "")),
                 "theme_structural_status": safe_str(row.get("theme_structural_status", "")),
@@ -464,8 +423,8 @@ def build_rows(df: pd.DataFrame) -> pd.DataFrame:
     }
     priority_order = {"A": 1, "B": 2, "C": 3, "D": 4}
     out["_type_order"] = out["non_revenue_momentum_type"].map(type_order).fillna(99)
-    out["_priority_order"] = out["decision_priority"].astype(str).str[0].map(priority_order).fillna(9)
-    out["_score"] = pd.to_numeric(out["decision_score"], errors="coerce").fillna(-999)
+    out["_priority_order"] = out["presentation_priority"].astype(str).str[0].map(priority_order).fillna(9)
+    out["_score"] = pd.to_numeric(out["model_score"], errors="coerce").fillna(-999)
     out["_volume_ratio"] = pd.to_numeric(out["volume_ratio"], errors="coerce").fillna(-999)
     out = out.sort_values(
         ["_type_order", "_priority_order", "_score", "_volume_ratio"],
@@ -526,8 +485,8 @@ def write_outputs(out: pd.DataFrame) -> None:
             "stock_id",
             "stock_name",
             "theme_name",
-            "decision_priority",
-            "decision_score",
+            "presentation_priority",
+            "model_score",
             "revenue_confirmation_status",
             "theme_final_status",
             "theme_structural_status",

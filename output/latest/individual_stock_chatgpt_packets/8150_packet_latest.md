@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8150 南茂
 
 ## Metadata
-- generated_at: 2026-06-11 22:24:25 Asia/Taipei
+- generated_at: 2026-06-13 22:24:45 Asia/Taipei
 - stock_id: 8150
 - stock_name: 南茂
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -116,29 +116,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 91.2
-- high: 97.1
-- low: 90.4
-- close: 97.1
-- volume: 65334546
-- ma5: 97.38
-- ema23_primary: 90.5
-- distance_to_ema23_pct: 7.3
-- ma20: 90.11
-- ma60: 74.89
-- ma120: 65.19
-- return_5d: -8.83
-- return_20d: 6.7
-- volume_ratio: 1.42
-- distance_to_ma20_pct_auxiliary: 7.76
-- distance_to_high_60_pct: -14.82
+- date: 20260612
+- open: 101.5
+- high: 104
+- low: 96.7
+- close: 97
+- volume: 83036676
+- ma5: 97.06
+- ema23_primary: 91.04
+- distance_to_ema23_pct: 6.55
+- ma20: 90.61
+- ma60: 75.48
+- ma120: 65.64
+- return_5d: -1.62
+- return_20d: 11.49
+- volume_ratio: 1.71
+- distance_to_ma20_pct_auxiliary: 7.06
+- distance_to_high_60_pct: -14.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,90.4,90.6,86.1,87,34358540,76.71,13.41,76.28,65.02,0.72
 20260513,85.1,89.4,84.6,85.5,28772358,77.44,10.4,77.4,65.5,0.59
 20260514,86,88,82.5,83.9,31450051,77.98,7.59,78.25,65.97,0.65
 20260515,84.2,84.2,80,80.9,23693876,78.23,3.42,78.61,66.43,0.5
@@ -158,20 +157,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,104.5,110,97.3,98.6,61264270,89.27,10.46,89.59,73.71,1.25
 20260605,96.7,99.3,92.8,96.8,34134453,89.89,7.68,89.8,74.33,0.75
 20260611,91.2,97.1,90.4,97.1,65334546,90.5,7.3,90.11,74.89,1.42
+20260612,101.5,104,96.7,97,83036676,91.04,6.55,90.61,75.48,1.71
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 70.88
-- over_600_ratio: 69.17
-- over_800_ratio: 67.53
-- over_1000_ratio: 65.21
-- over_400_change_1w: -3.59
-- over_800_change_1w: -3.39
-- over_1000_change_1w: -3.66
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260612
+- over_400_ratio: 71.81
+- over_600_ratio: 70.16
+- over_800_ratio: 68.5
+- over_1000_ratio: 65.55
+- over_400_change_1w: 0.93
+- over_800_change_1w: 0.97
+- over_1000_change_1w: 0.34
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,22 +183,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,70.62,-1.12,67.34,-0.78,65.33,-1.15,0,False,False
 20260529,74.47,3.85,70.92,3.58,68.87,3.54,1,True,True
 20260605,70.88,-3.59,67.53,-3.39,65.21,-3.66,0,False,False
+20260612,71.81,0.93,68.5,0.97,65.55,0.34,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 8150 | 南茂 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: ex_dividend on 20260629; status=confirmed; proximity=within_30d |
+| 20260612 | 8150 | 南茂 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | stale_signal | calendar event: ex_dividend on 20260629; status=confirmed; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 8150 | 南茂 | 1 | 1 | 3 | 6 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260612 | 8150 | 南茂 | 2 | 2 | 3 | 7 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 8150 | 南茂 | 145 | 0 | 10149680.0 | 0.0 |  | no_signal |
+| 20260612 | 8150 | 南茂 | 145 | 2 | 19866740.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

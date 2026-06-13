@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8077 洛碁
 
 ## Metadata
-- generated_at: 2026-06-11 22:24:23 Asia/Taipei
+- generated_at: 2026-06-13 22:24:42 Asia/Taipei
 - stock_id: 8077
 - stock_name: 洛碁
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 210
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 211
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 52.9
-- high: 53.4
-- low: 50
-- close: 51.9
-- volume: 51000
+- date: 20260612
+- open: 51.6
+- high: 51.6
+- low: 49
+- close: 49
+- volume: 49000
 - ma5: 51.3
-- ema23_primary: 46.93
-- distance_to_ema23_pct: 10.59
-- ma20: 45.75
-- ma60: 44.38
-- ma120: 46.08
-- return_5d: 6.68
-- return_20d: 23.42
-- volume_ratio: 1.92
-- distance_to_ma20_pct_auxiliary: 13.44
-- distance_to_high_60_pct: -7.82
+- ema23_primary: 47.1
+- distance_to_ema23_pct: 4.02
+- ma20: 46.1
+- ma60: 44.47
+- ma120: 46.09
+- return_5d: 0
+- return_20d: 16.67
+- volume_ratio: 1.7
+- distance_to_ma20_pct_auxiliary: 6.29
+- distance_to_high_60_pct: -12.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260427,42.05,42.05,42,42,2000,43.36,-3.14,43.44,44.54,0.59
 20260507,41,41,39.8,40.35,10000,43.11,-6.4,43.18,44.4,2.6
 20260508,40.2,40.2,39.7,39.7,16000,42.83,-7.3,42.87,44.26,3.52
 20260511,40,40,40,40,1000,42.59,-6.08,42.6,44.12,0.23
@@ -154,10 +154,11 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,49,51,49,50.8,50000,45.8,10.92,44.64,44.13,2.34
 20260605,54.6,56.3,53.5,54,54000,46.48,16.18,45.26,44.26,2.25
 20260611,52.9,53.4,50,51.9,51000,46.93,10.59,45.75,44.38,1.92
+20260612,51.6,51.6,49,49,49000,47.1,4.02,46.1,44.47,1.7
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
+- as_of_date: 20260612
 - over_400_ratio: 82.25
 - over_600_ratio: 79.84
 - over_800_ratio: 76.98
@@ -179,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,82.25,0,76.98,0,76.98,0,0,False,False
 20260529,82.25,0,76.98,0,76.98,0,0,False,False
 20260605,82.25,0,76.98,0,76.98,0,0,False,False
+20260612,82.25,0,76.98,0,76.98,0,0,False,False
 ```
 
 ## Candidate Context

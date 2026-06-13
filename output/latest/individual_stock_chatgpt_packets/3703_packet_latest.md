@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3703 欣陸
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:17 Asia/Taipei
+- generated_at: 2026-06-13 22:23:20 Asia/Taipei
 - stock_id: 3703
 - stock_name: 欣陸
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
+- date: 20260612
 - open: 21.8
-- high: 21.95
-- low: 21.45
-- close: 21.8
-- volume: 1710236
-- ma5: 21.23
-- ema23_primary: 20.76
-- distance_to_ema23_pct: 5.03
-- ma20: 20.46
+- high: 22.2
+- low: 21.8
+- close: 22.05
+- volume: 2433738
+- ma5: 21.5
+- ema23_primary: 20.86
+- distance_to_ema23_pct: 5.68
+- ma20: 20.54
 - ma60: 21.37
-- ma120: 22.06
-- return_5d: 6.86
-- return_20d: 5.06
-- volume_ratio: 1.12
-- distance_to_ma20_pct_auxiliary: 6.56
-- distance_to_high_60_pct: -6.84
+- ma120: 22.05
+- return_5d: 6.52
+- return_20d: 7.56
+- volume_ratio: 1.57
+- distance_to_ma20_pct_auxiliary: 7.38
+- distance_to_high_60_pct: -5.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,20.8,20.8,20.45,20.5,1868901,21.16,-3.11,21.11,21.98,1.45
 20260513,20.5,20.5,20.1,20.3,1186040,21.09,-3.73,21.02,21.95,0.9
 20260514,20.25,20.3,20.1,20.15,1127009,21.01,-4.09,20.92,21.91,0.86
 20260515,20.2,20.3,20.05,20.1,1330866,20.93,-3.98,20.82,21.86,1.01
@@ -159,18 +158,19 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,20.45,20.85,20.35,20.7,936098,20.58,0.58,20.36,21.38,0.63
 20260605,21.45,21.75,21.2,21.55,1350407,20.66,4.3,20.41,21.36,0.91
 20260611,21.8,21.95,21.45,21.8,1710236,20.76,5.03,20.46,21.37,1.12
+20260612,21.8,22.2,21.8,22.05,2433738,20.86,5.68,20.54,21.37,1.57
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 72.33
-- over_600_ratio: 69.85
-- over_800_ratio: 69.09
-- over_1000_ratio: 68.22
-- over_400_change_1w: 0.22
-- over_800_change_1w: 0.02
-- over_1000_change_1w: 0.02
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260612
+- over_400_ratio: 72.49
+- over_600_ratio: 70.11
+- over_800_ratio: 69.18
+- over_1000_ratio: 68.3
+- over_400_change_1w: 0.16
+- over_800_change_1w: 0.09
+- over_1000_change_1w: 0.08
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -184,17 +184,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,72.09,-0.15,69.12,-0.36,68.36,-0.48,0,False,False
 20260529,72.11,0.02,69.07,-0.05,68.2,-0.16,1,False,False
 20260605,72.33,0.22,69.09,0.02,68.22,0.02,2,True,True
+20260612,72.49,0.16,69.18,0.09,68.3,0.08,3,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 3703 | 欣陸 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260612 | 3703 | 欣陸 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 3703 | 欣陸 | 5 | 1 | 5 | 6 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260612 | 3703 | 欣陸 | 6 | 2 | 5 | 7 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

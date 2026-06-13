@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00960 野村全球航運龍頭
 
 ## Metadata
-- generated_at: 2026-06-11 22:22:19 Asia/Taipei
+- generated_at: 2026-06-13 22:22:09 Asia/Taipei
 - stock_id: 00960
 - stock_name: 野村全球航運龍頭
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260611
-- price_rows: 12
+- latest_price_date: 20260612
+- price_rows: 13
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 17.61
-- high: 17.78
-- low: 17.61
-- close: 17.75
-- volume: 946226
-- ma5: 17.44
-- ema23_primary: 17.51
-- distance_to_ema23_pct: 1.36
-- ma20: 17.37
-- ma60: 17.37
-- ma120: 17.37
-- return_5d: 4.11
+- date: 20260612
+- open: 17.8
+- high: 18
+- low: 17.8
+- close: 17.96
+- volume: 960968
+- ma5: 17.57
+- ema23_primary: 17.55
+- distance_to_ema23_pct: 2.34
+- ma20: 17.42
+- ma60: 17.42
+- ma120: 17.42
+- return_5d: 3.76
 - return_20d:
-- volume_ratio: 1.32
-- distance_to_ma20_pct_auxiliary: 2.18
-- distance_to_high_60_pct: -0.28
+- volume_ratio: 1.31
+- distance_to_ma20_pct_auxiliary: 3.12
+- distance_to_high_60_pct: -0.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -147,6 +147,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,17.15,17.31,17.15,17.31,1058796,17.48,-0.99,17.31,17.31,1.61
 20260605,17.48,17.62,17.48,17.56,1067934,17.49,0.4,17.34,17.34,1.53
 20260611,17.61,17.78,17.61,17.75,946226,17.51,1.36,17.37,17.37,1.32
+20260612,17.8,18,17.8,17.96,960968,17.55,2.34,17.42,17.42,1.31
 ```
 
 ## Latest TDCC Snapshot

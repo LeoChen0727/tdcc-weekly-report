@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3017 奇鋐
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:00 Asia/Taipei
+- generated_at: 2026-06-13 22:22:58 Asia/Taipei
 - stock_id: 3017
 - stock_name: 奇鋐
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 2340
-- high: 2445
-- low: 2260
-- close: 2335
-- volume: 4531372
-- ma5: 2638
-- ema23_primary: 2584.85
-- distance_to_ema23_pct: -9.67
-- ma20: 2575.75
-- ma60: 2404.25
-- ma120: 1951.25
-- return_5d: -16.16
-- return_20d: -8.61
-- volume_ratio: 0.85
-- distance_to_ma20_pct_auxiliary: -9.35
-- distance_to_high_60_pct: -22.43
+- date: 20260612
+- open: 2465
+- high: 2480
+- low: 2380
+- close: 2405
+- volume: 2490291
+- ma5: 2579
+- ema23_primary: 2569.86
+- distance_to_ema23_pct: -6.42
+- ma20: 2570
+- ma60: 2413.08
+- ma120: 1960.25
+- return_5d: -10.93
+- return_20d: -4.56
+- volume_ratio: 0.48
+- distance_to_ma20_pct_auxiliary: -6.42
+- distance_to_high_60_pct: -20.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,2625,2625,2520,2520,5010847,2510,0.4,2604.75,2122.08,0.89
 20260513,2545,2625,2500,2585,6267261,2516.25,2.73,2618.5,2137.92,1.09
 20260514,2700,2775,2555,2555,7168071,2519.48,1.41,2630,2152.58,1.2
 20260515,2690,2735,2445,2455,6646560,2514.11,-2.35,2630.75,2166.33,1.1
@@ -159,20 +158,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,2800,2835,2650,2700,4220815,2608.25,3.52,2579,2381.25,0.77
 20260605,2680,2680,2505,2600,4900550,2607.57,-0.29,2586.75,2396.33,0.9
 20260611,2340,2445,2260,2335,4531372,2584.85,-9.67,2575.75,2404.25,0.85
+20260612,2465,2480,2380,2405,2490291,2569.86,-6.42,2570,2413.08,0.48
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 65.47
-- over_600_ratio: 60.25
-- over_800_ratio: 56.01
-- over_1000_ratio: 52.07
-- over_400_change_1w: -0.25
-- over_800_change_1w: 0.09
-- over_1000_change_1w: -0.85
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260612
+- over_400_ratio: 64.77
+- over_600_ratio: 59.62
+- over_800_ratio: 55.34
+- over_1000_ratio: 51.68
+- over_400_change_1w: -0.7
+- over_800_change_1w: -0.67
+- over_1000_change_1w: -0.39
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -184,22 +184,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,65.84,-0.15,55.74,-0.3,52.54,-0.74,0,False,False
 20260529,65.72,-0.12,55.92,0.18,52.92,0.38,1,False,True
 20260605,65.47,-0.25,56.01,0.09,52.07,-0.85,2,False,True
+20260612,64.77,-0.7,55.34,-0.67,51.68,-0.39,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 3017 | 奇鋐 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260612 | 3017 | 奇鋐 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 3017 | 奇鋐 | 12 | 3 | 5 | 10 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260612 | 3017 | 奇鋐 | 13 | 4 | 5 | 10 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 3017 | 奇鋐 | 409 | 0 | 36105380.0 | 0.0 |  | no_signal |
+| 20260612 | 3017 | 奇鋐 | 395 | 32 | 24083800.0 | 251480.0 | 95.77 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

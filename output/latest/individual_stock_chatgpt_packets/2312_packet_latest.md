@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2312 金寶
 
 ## Metadata
-- generated_at: 2026-06-11 22:22:40 Asia/Taipei
+- generated_at: 2026-06-13 22:22:34 Asia/Taipei
 - stock_id: 2312
 - stock_name: 金寶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -56,29 +56,33 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
-- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
-- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- action_rating_display_zh: 可小量試單
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- action_summary_zh: 符合 型態觀察，價格結構尚未破壞，操作評級為「可小量試單」。
+- entry_strategy_zh: 回測 23EMA 附近；可依「試單 1/4 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- position_sizing_zh: 試單 1/4 部位；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 符合 型態觀察，價格結構尚未破壞，操作評級為「可小量試單」。 進場策略：回測 23EMA 附近；可依「試單 1/4 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: hold_only
-- action_rating_label_zh: 已持有續抱
+- action_rating: starter_position
+- action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: no_entry_now
-- position_sizing: observe_only
+- entry_style: pullback_to_23ema
+- position_sizing: starter_1_4
 
 ### management_plan
+- buy_first_tranche_near_support
+- add_on_23ema_hold
+- add_on_reclaim_23ema
+- add_on_breakout
 - take_profit_near_prior_high
 - take_profit_on_volume_price_failure
 - exit_if_lost_23ema
@@ -113,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 34.35
-- high: 35.85
-- low: 33.9
-- close: 34.9
-- volume: 38352628
-- ma5: 40.04
-- ema23_primary: 35.02
-- distance_to_ema23_pct: -0.33
-- ma20: 34.68
-- ma60: 28.12
-- ma120: 26.6
-- return_5d: -14.04
-- return_20d: 16.72
-- volume_ratio: 0.43
-- distance_to_ma20_pct_auxiliary: 0.64
-- distance_to_high_60_pct: -21.4
+- date: 20260612
+- open: 36.85
+- high: 37.3
+- low: 34.9
+- close: 34.95
+- volume: 40835399
+- ma5: 38.77
+- ema23_primary: 35.01
+- distance_to_ema23_pct: -0.17
+- ma20: 34.95
+- ma60: 28.32
+- ma120: 26.71
+- return_5d: -15.38
+- return_20d: 18.68
+- volume_ratio: 0.46
+- distance_to_ma20_pct_auxiliary: -0.01
+- distance_to_high_60_pct: -21.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,30,30.1,28.6,29.45,53924189,27.05,8.88,27.23,24.77,0.79
 20260513,29,29.8,28.6,29.1,28173926,27.22,6.91,27.55,24.82,0.41
 20260514,29.4,29.4,28.05,28.25,32865470,27.31,3.46,27.8,24.86,0.47
 20260515,28.45,28.85,27.7,27.85,20807681,27.35,1.82,27.9,24.9,0.3
@@ -155,17 +158,18 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,40.95,43.5,38.85,41.3,135198121,34.64,19.24,33.86,27.68,1.48
 20260605,40,40.7,37.5,39.3,67007859,35.03,12.2,34.43,27.94,0.72
 20260611,34.35,35.85,33.9,34.9,38352628,35.02,-0.33,34.68,28.12,0.43
+20260612,36.85,37.3,34.9,34.95,40835399,35.01,-0.17,34.95,28.32,0.46
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 51.64
-- over_600_ratio: 49.77
-- over_800_ratio: 48.35
-- over_1000_ratio: 47.34
-- over_400_change_1w: -1.1
-- over_800_change_1w: -1.19
-- over_1000_change_1w: -1.07
+- as_of_date: 20260612
+- over_400_ratio: 50.78
+- over_600_ratio: 48.98
+- over_800_ratio: 47.59
+- over_1000_ratio: 46.72
+- over_400_change_1w: -0.86
+- over_800_change_1w: -0.76
+- over_1000_change_1w: -0.62
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -180,22 +184,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,51.84,3.47,48.62,3.45,47.43,3.73,2,True,True
 20260529,52.74,0.9,49.54,0.92,48.41,0.98,3,True,True
 20260605,51.64,-1.1,48.35,-1.19,47.34,-1.07,0,False,False
+20260612,50.78,-0.86,47.59,-0.76,46.72,-0.62,0,False,False
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260612 | 2312 | 金寶 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | call_put_bullish | stale_signal | calendar event: ex_dividend on 20260623; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260612 | 2312 | 金寶 | 1 | 1 | 2 | 7 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 2312 | 金寶 | 95 | 0 | 6706640.0 | 0.0 |  | no_signal |
+| 20260612 | 2312 | 金寶 | 95 | 2 | 18661560.0 | 85140.0 | 219.19 | call_put_bullish |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

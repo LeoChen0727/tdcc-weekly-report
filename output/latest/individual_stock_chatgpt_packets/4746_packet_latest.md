@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4746 台耀
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:27 Asia/Taipei
+- generated_at: 2026-06-13 22:23:32 Asia/Taipei
 - stock_id: 4746
 - stock_name: 台耀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 51.5
-- high: 51.5
-- low: 50.3
-- close: 51
-- volume: 935487
-- ma5: 52.26
-- ema23_primary: 52.51
-- distance_to_ema23_pct: -2.87
-- ma20: 52.26
-- ma60: 53.47
-- ma120: 56.04
-- return_5d: -4.32
-- return_20d: -8.11
-- volume_ratio: 0.93
-- distance_to_ma20_pct_auxiliary: -2.41
-- distance_to_high_60_pct: -10.68
+- date: 20260612
+- open: 51.4
+- high: 52.2
+- low: 51.3
+- close: 51.5
+- volume: 454658
+- ma5: 52.1
+- ema23_primary: 52.42
+- distance_to_ema23_pct: -1.76
+- ma20: 52.11
+- ma60: 53.48
+- ma120: 55.93
+- return_5d: -1.53
+- return_20d: -5.5
+- volume_ratio: 0.47
+- distance_to_ma20_pct_auxiliary: -1.17
+- distance_to_high_60_pct: -9.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,55.8,56.1,54.2,54.5,1132842,54.29,0.39,53.85,54.52,1.07
 20260513,54.5,54.6,52.9,52.9,1093179,54.17,-2.35,53.88,54.46,1.01
 20260514,52.9,53.7,51.6,53.1,1325953,54.08,-1.82,53.88,54.35,1.2
 20260515,53.4,55.4,52.5,53.8,1552825,54.06,-0.48,53.9,54.28,1.36
@@ -155,20 +154,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,53.3,53.3,51.8,52.3,941618,52.6,-0.56,52.54,53.47,0.9
 20260605,53.1,53.7,52.3,53.2,508795,52.65,1.05,52.48,53.49,0.5
 20260611,51.5,51.5,50.3,51,935487,52.51,-2.87,52.26,53.47,0.93
+20260612,51.4,52.2,51.3,51.5,454658,52.42,-1.76,52.11,53.48,0.47
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 41.62
-- over_600_ratio: 37.04
-- over_800_ratio: 34.59
-- over_1000_ratio: 31
-- over_400_change_1w: 0.93
-- over_800_change_1w: 1.52
-- over_1000_change_1w: 0.13
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260612
+- over_400_ratio: 42.01
+- over_600_ratio: 36.98
+- over_800_ratio: 34.53
+- over_1000_ratio: 30.92
+- over_400_change_1w: 0.39
+- over_800_change_1w: -0.06
+- over_1000_change_1w: -0.08
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,42.39,0.21,33.29,0.1,31.11,-0.62,3,False,True
 20260529,40.69,-1.7,33.07,-0.22,30.87,-0.24,0,False,False
 20260605,41.62,0.93,34.59,1.52,31,0.13,1,True,True
+20260612,42.01,0.39,34.53,-0.06,30.92,-0.08,2,False,False
 ```
 
 ## Candidate Context
@@ -195,7 +196,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 4746 | 台耀 | 2 | 0 | 29700.0 | 0.0 |  | no_signal |
+| 20260612 | 4746 | 台耀 | 2 | 0 | 22600.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

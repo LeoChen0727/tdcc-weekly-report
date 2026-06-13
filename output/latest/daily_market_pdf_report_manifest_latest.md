@@ -1,12 +1,12 @@
 # Daily Market Fixed PDF Manifest
 
-- generated_at: `2026-06-12 00:43:30 Asia/Taipei`
-- main_price_date: `20260611`
+- generated_at: `2026-06-14 03:32:28 Asia/Taipei`
+- main_price_date: `20260612`
 - report_ready: `True`
-- warrant_flow_date: `20260611`
+- warrant_flow_date: `20260612`
 - warrant_ready: `True`
 - daily_pdf_ready: `True`
-- daily_pdf_ready_note: core daily data and warrant layer are ready for daily PDF source use
+- daily_pdf_ready_note: core daily data, warrant layer, and PDF theme display are ready for daily PDF source use; group rotation themes resolved for PDF display
 
 ## Curated PDF
 - pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_market_curated_report_latest.pdf

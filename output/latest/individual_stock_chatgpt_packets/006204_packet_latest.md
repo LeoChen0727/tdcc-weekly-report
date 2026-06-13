@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 006204 永豐臺灣加權
 
 ## Metadata
-- generated_at: 2026-06-11 22:22:16 Asia/Taipei
+- generated_at: 2026-06-13 22:22:06 Asia/Taipei
 - stock_id: 006204
 - stock_name: 永豐臺灣加權
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260611
-- price_rows: 12
+- latest_price_date: 20260612
+- price_rows: 13
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 211.75
-- high: 216
-- low: 211.75
-- close: 216
-- volume: 15154
-- ma5: 225.76
-- ema23_primary: 219.09
-- distance_to_ema23_pct: -1.41
-- ma20: 222.32
-- ma60: 222.32
-- ma120: 222.32
-- return_5d: -5.39
+- date: 20260612
+- open: 221.95
+- high: 221.95
+- low: 221.95
+- close: 221.95
+- volume: 2449
+- ma5: 224.71
+- ema23_primary: 219.32
+- distance_to_ema23_pct: 1.2
+- ma20: 222.29
+- ma60: 222.29
+- ma120: 222.29
+- return_5d: -2.31
 - return_20d:
-- volume_ratio: 0.27
-- distance_to_ma20_pct_auxiliary: -2.84
-- distance_to_high_60_pct: -7.26
+- volume_ratio: 0.05
+- distance_to_ma20_pct_auxiliary: -0.15
+- distance_to_high_60_pct: -4.7
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -147,6 +147,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,227.7,227.8,227.1,227.2,137183,218.81,3.84,222.63,222.63,2.59
 20260605,228.5,228.5,221.55,225.5,126527,219.37,2.8,222.89,222.89,2.12
 20260611,211.75,216,211.75,216,15154,219.09,-1.41,222.32,222.32,0.27
+20260612,221.95,221.95,221.95,221.95,2449,219.32,1.2,222.29,222.29,0.05
 ```
 
 ## Latest TDCC Snapshot

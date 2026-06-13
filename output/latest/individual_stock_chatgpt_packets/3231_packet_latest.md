@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3231 緯創
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:06 Asia/Taipei
+- generated_at: 2026-06-13 22:23:06 Asia/Taipei
 - stock_id: 3231
 - stock_name: 緯創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 可小量試單
-- model_category_display_zh: 營收成長股價回檔
+- model_category_display_zh: 型態觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可小量試單」。
+- action_summary_zh: 符合 型態觀察，價格結構尚未破壞，操作評級為「可小量試單」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「試單 1/4 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 試單 1/4 部位；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足、TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可小量試單」。 進場策略：回測 23EMA 附近；可依「試單 1/4 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊
+- final_decision_zh: 符合 型態觀察，價格結構尚未破壞，操作評級為「可小量試單」。 進場策略：回測 23EMA 附近；可依「試單 1/4 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 157
+- date: 20260612
+- open: 159
 - high: 159
-- low: 150.5
-- close: 152.5
-- volume: 55231062
-- ma5: 179.9
-- ema23_primary: 156.59
-- distance_to_ema23_pct: -2.61
-- ma20: 152.85
-- ma60: 140.74
-- ma120: 140.07
-- return_5d: -12.36
-- return_20d: 9.71
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: -0.23
-- distance_to_high_60_pct: -24.13
+- low: 156
+- close: 156
+- volume: 38077913
+- ma5: 172.9
+- ema23_primary: 156.54
+- distance_to_ema23_pct: -0.34
+- ma20: 153.57
+- ma60: 141.13
+- ma120: 140.15
+- return_5d: -18.32
+- return_20d: 10.25
+- volume_ratio: 0.46
+- distance_to_ma20_pct_auxiliary: 1.58
+- distance_to_high_60_pct: -22.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,139,143,135.5,141.5,75965973,139.5,1.43,140.62,133.49,1.54
 20260513,139,141.5,138,140.5,26883326,139.59,0.65,140.82,133.69,0.55
 20260514,140.5,141.5,138,138,42377535,139.45,-1.04,141.07,133.84,0.87
 20260515,139.5,144,135,135.5,67278955,139.13,-2.61,141.15,133.97,1.34
@@ -159,20 +158,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,179,191,177,191,282187864,155.68,22.68,150.95,139.72,3.31
 20260605,172.5,174,165.5,171,75786051,156.96,8.94,152.18,140.42,0.87
 20260611,157,159,150.5,152.5,55231062,156.59,-2.61,152.85,140.74,0.66
+20260612,159,159,156,156,38077913,156.54,-0.34,153.57,141.13,0.46
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 66.02
-- over_600_ratio: 64.07
-- over_800_ratio: 62.74
-- over_1000_ratio: 61.68
-- over_400_change_1w: 3.45
-- over_800_change_1w: 3.45
-- over_1000_change_1w: 3.5
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260612
+- over_400_ratio: 64.88
+- over_600_ratio: 62.93
+- over_800_ratio: 61.69
+- over_1000_ratio: 60.64
+- over_400_change_1w: -1.14
+- over_800_change_1w: -1.05
+- over_1000_change_1w: -1.04
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -184,22 +184,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,61.11,0.26,57.73,0.12,56.7,0.18,1,True,True
 20260529,62.57,1.46,59.29,1.56,58.18,1.48,2,True,True
 20260605,66.02,3.45,62.74,3.45,61.68,3.5,3,True,True
+20260612,64.88,-1.14,61.69,-1.05,60.64,-1.04,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 3231 | 緯創 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260612 | 3231 | 緯創 | pattern | 型態觀察 | 50.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260612 | 3231 | 緯創 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 3231 | 緯創 | 12 | 2 | 5 | 10 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260612 | 3231 | 緯創 | 13 | 3 | 5 | 10 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 3231 | 緯創 | 224 | 0 | 13461060.0 | 0.0 |  | no_signal |
+| 20260612 | 3231 | 緯創 | 222 | 20 | 12644640.0 | 30930.0 | 408.81 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

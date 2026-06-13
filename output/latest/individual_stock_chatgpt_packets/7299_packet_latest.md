@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7299 新漢統一58購01
 
 ## Metadata
-- generated_at: 2026-06-11 22:24:14 Asia/Taipei
+- generated_at: 2026-06-13 22:24:30 Asia/Taipei
 - stock_id: 7299
 - stock_name: 新漢統一58購01
 - packet_status: standard_180d_window_packet

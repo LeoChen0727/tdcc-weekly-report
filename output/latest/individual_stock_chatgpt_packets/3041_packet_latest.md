@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3041 揚智
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:01 Asia/Taipei
+- generated_at: 2026-06-13 22:23:00 Asia/Taipei
 - stock_id: 3041
 - stock_name: 揚智
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 24.5
-- high: 24.9
-- low: 23.2
-- close: 24.25
-- volume: 1859312
-- ma5: 25.34
-- ema23_primary: 24.98
-- distance_to_ema23_pct: -2.9
+- date: 20260612
+- open: 24.75
+- high: 25.55
+- low: 24.5
+- close: 24.55
+- volume: 1831003
+- ma5: 25.12
+- ema23_primary: 24.94
+- distance_to_ema23_pct: -1.56
 - ma20: 25.02
-- ma60: 23.83
-- ma120: 24.57
-- return_5d: -5.46
-- return_20d: -1.82
-- volume_ratio: 0.97
-- distance_to_ma20_pct_auxiliary: -3.08
-- distance_to_high_60_pct: -12.14
+- ma60: 23.84
+- ma120: 24.56
+- return_5d: -4.29
+- return_20d: 0
+- volume_ratio: 0.95
+- distance_to_ma20_pct_auxiliary: -1.88
+- distance_to_high_60_pct: -11.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,25.1,25.65,24.1,24.55,1522654,23.81,3.1,23.75,23.62,0.69
 20260513,24.45,24.45,23.6,23.9,1166492,23.82,0.34,23.84,23.6,0.52
 20260514,24.05,24.55,23.7,24.15,747457,23.85,1.27,23.95,23.57,0.33
 20260515,24.25,24.7,22.95,23.15,1485892,23.79,-2.69,23.98,23.53,0.65
@@ -160,20 +159,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,25.95,26.25,24.95,25.65,1576802,25.08,2.28,25.02,23.78,0.82
 20260605,25.25,25.35,24.15,24.65,1305031,25.04,-1.56,25.04,23.82,0.69
 20260611,24.5,24.9,23.2,24.25,1859312,24.98,-2.9,25.02,23.83,0.97
+20260612,24.75,25.55,24.5,24.55,1831003,24.94,-1.56,25.02,23.84,0.95
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 25.25
-- over_600_ratio: 24.16
-- over_800_ratio: 23.7
-- over_1000_ratio: 21.74
-- over_400_change_1w: -0.39
-- over_800_change_1w: 0.65
-- over_1000_change_1w: -0.6
-- tdcc_consecutive_up_weeks: 5
+- as_of_date: 20260612
+- over_400_ratio: 23.65
+- over_600_ratio: 22.49
+- over_800_ratio: 22.03
+- over_1000_ratio: 21.32
+- over_400_change_1w: -1.6
+- over_800_change_1w: -1.67
+- over_1000_change_1w: -0.42
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -185,18 +185,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,24.6,1.65,21.62,1.1,20.92,0.4,3,True,True
 20260529,25.64,1.04,23.05,1.43,22.34,1.42,4,True,True
 20260605,25.25,-0.39,23.7,0.65,21.74,-0.6,5,False,True
+20260612,23.65,-1.6,22.03,-1.67,21.32,-0.42,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 3041 | 揚智 | revenue_pullback | 營收成長股價回檔 | 77.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260611 | 3041 | 揚智 | revenue_breakout_low_response | 營收爆發低反應股 | 19.0 | 8.0 | A_優先追蹤 |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260612 | 3041 | 揚智 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260612 | 3041 | 揚智 | revenue_breakout_low_response | 營收爆發低反應股 | 18.0 | 4.0 | A_優先追蹤 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 3041 | 揚智 | 1 | 1 | 4 | 9 | 11 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 11 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260612 | 3041 | 揚智 | 2 | 2 | 4 | 9 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

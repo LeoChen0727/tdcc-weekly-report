@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4989 榮科
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:31 Asia/Taipei
+- generated_at: 2026-06-13 22:23:36 Asia/Taipei
 - stock_id: 4989
 - stock_name: 榮科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 78.2
-- high: 81.9
-- low: 74.6
-- close: 78.6
-- volume: 8318468
-- ma5: 93.2
-- ema23_primary: 96.29
-- distance_to_ema23_pct: -18.37
-- ma20: 96
-- ma60: 89.34
-- ma120: 71.44
-- return_5d: -26.54
-- return_20d: -16.91
-- volume_ratio: 0.64
-- distance_to_ma20_pct_auxiliary: -18.13
-- distance_to_high_60_pct: -37.12
+- date: 20260612
+- open: 81.9
+- high: 82.3
+- low: 79.3
+- close: 79.7
+- volume: 3963148
+- ma5: 89.14
+- ema23_primary: 94.9
+- distance_to_ema23_pct: -16.02
+- ma20: 95.27
+- ma60: 89.47
+- ma120: 71.76
+- return_5d: -20.3
+- return_20d: -15.66
+- volume_ratio: 0.31
+- distance_to_ma20_pct_auxiliary: -16.34
+- distance_to_high_60_pct: -36.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,94.7,101,93.5,94.5,11633268,96.68,-2.25,103.62,77.58,0.95
 20260513,92.8,98.8,91.9,92.5,10759345,96.33,-3.98,103.78,78.27,0.92
 20260514,93.5,95.5,89.3,90.7,11074588,95.86,-5.38,103.4,78.92,0.97
 20260515,91.6,92.7,87.4,87.7,8867137,95.18,-7.86,102.53,79.55,1.03
@@ -154,17 +153,18 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,107,107.5,98.6,100,13428646,98.53,1.49,97,88.76,1
 20260605,92.2,92.2,87.4,90.9,5838394,97.89,-7.14,96.81,89.21,0.45
 20260611,78.2,81.9,74.6,78.6,8318468,96.29,-18.37,96,89.34,0.64
+20260612,81.9,82.3,79.3,79.7,3963148,94.9,-16.02,95.27,89.47,0.31
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 26.17
-- over_600_ratio: 23.72
-- over_800_ratio: 21.37
-- over_1000_ratio: 20.15
-- over_400_change_1w: -2.63
-- over_800_change_1w: -3.02
-- over_1000_change_1w: -2.85
+- as_of_date: 20260612
+- over_400_ratio: 24.28
+- over_600_ratio: 22.86
+- over_800_ratio: 19.47
+- over_1000_ratio: 17.59
+- over_400_change_1w: -1.89
+- over_800_change_1w: -1.9
+- over_1000_change_1w: -2.56
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,29.46,-0.69,24.06,-1.72,22.14,-2.27,0,False,False
 20260529,28.8,-0.66,24.39,0.33,23,0.86,1,False,True
 20260605,26.17,-2.63,21.37,-3.02,20.15,-2.85,0,False,False
+20260612,24.28,-1.89,19.47,-1.9,17.59,-2.56,0,False,False
 ```
 
 ## Candidate Context

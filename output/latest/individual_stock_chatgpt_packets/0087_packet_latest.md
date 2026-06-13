@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0087 國泰永續高股息
 
 ## Metadata
-- generated_at: 2026-06-11 22:22:18 Asia/Taipei
+- generated_at: 2026-06-13 22:22:07 Asia/Taipei
 - stock_id: 0087
 - stock_name: 國泰永續高股息
 - packet_status: insufficient_price_data
@@ -170,7 +170,7 @@ no_rows,True
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 0087 | 國泰永續高股息 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260612 | 0087 | 國泰永續高股息 | 1 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

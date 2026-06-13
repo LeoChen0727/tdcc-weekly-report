@@ -111,18 +111,18 @@ Do not mix task types:
 
 Daily candidate reports are not holdings management. Holdings reports are not full-market ranking reports. Market reports are not stock recommendation lists.
 
-## Program-Side Action Display Fields
+## Daily Model / Presentation Display Fields
 
-When program-side packets or CSVs provide PDF-facing display fields, formal reports must use those fields instead of raw internal model fields.
+Daily PDF and daily packet text must be sourced from the model layer and presentation-routing layer. They must not create a separate operation or trade-decision layer.
 
-For single-stock reports:
+For daily reports:
 
-- `ACTION_DISPLAY` is the visible report contract.
-- `ACTION_DECISION` is internal model context only.
-- Formal PDF / Markdown prose must not print raw enum values or internal field names such as `action_rating`, `starter_position`, `decision_score`, `model_slug`, `packet`, `raw field name`, or `程式端欄位`.
-- Use `action_rating_display_zh`, `action_summary_zh`, `entry_strategy_zh`, `position_sizing_zh`, `add_position_strategy_zh`, `take_profit_strategy_zh`, `risk_control_zh`, `post_entry_watch_zh`, `final_decision_zh`, `score_interpretation_zh`, and `model_category_display_zh`.
+- The canonical daily model source is `daily_candidate_model_signals_for_report_latest.csv`.
+- Use model-layer fields such as `model_id`, `model_name_zh`, `model_score`, `model_rank`, `score_components`, `risk_penalty_tags`, `risk_tags`, `tdcc_status`, `warrant_flow_signal`, `next_confirmation`, and report-line / presentation fields such as `report_bucket`, `candidate_line_group`, `presentation_priority`, and `theme_final_status`.
+- Formal daily PDF / Markdown prose must not print raw enum values or internal field names such as `action_rating`, `starter_position`, `decision_score`, `decision_priority`, `trade_decision`, `entry_style`, `position_sizing`, `model_slug`, `packet`, `raw field name`, or `程式端欄位`.
+- Do not output daily buy/sell/position-sizing conclusions such as buy now, wait, no-buy, starter position, or normal position unless a future historical operation module supplies evidence-backed operation fields.
 - If display text is missing, write `資料不足 / 暫用現有資料`; do not expose raw internal values.
-- Do not convert all post-entry watch items into buy-before blockers.
+- Single-stock reports may still have their own `ACTION_DISPLAY` contract, but that contract must not be used as a fallback for daily PDF or daily packet conclusions.
 
 ## Pipeline Runtime Separation
 

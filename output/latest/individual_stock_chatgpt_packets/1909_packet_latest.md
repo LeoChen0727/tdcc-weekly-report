@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1909 榮成
 
 ## Metadata
-- generated_at: 2026-06-11 22:22:35 Asia/Taipei
+- generated_at: 2026-06-13 22:22:28 Asia/Taipei
 - stock_id: 1909
 - stock_name: 榮成
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -116,29 +116,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 9.78
-- high: 9.87
-- low: 9.64
-- close: 9.75
-- volume: 2886194
-- ma5: 9.4
-- ema23_primary: 9.19
-- distance_to_ema23_pct: 6.05
-- ma20: 9.09
-- ma60: 9.35
-- ma120: 9.68
-- return_5d: 7.85
-- return_20d: 5.18
-- volume_ratio: 0.86
-- distance_to_ma20_pct_auxiliary: 7.26
-- distance_to_high_60_pct: -12.56
+- date: 20260612
+- open: 9.75
+- high: 9.96
+- low: 9.75
+- close: 9.87
+- volume: 3961352
+- ma5: 9.56
+- ema23_primary: 9.25
+- distance_to_ema23_pct: 6.7
+- ma20: 9.12
+- ma60: 9.36
+- ma120: 9.67
+- return_5d: 8.7
+- return_20d: 7.4
+- volume_ratio: 1.16
+- distance_to_ma20_pct_auxiliary: 8.18
+- distance_to_high_60_pct: -11.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,9.2,9.33,9.16,9.19,2815831,9.3,-1.21,9.28,9.54,0.96
 20260513,9.1,9.14,9.04,9.11,3150389,9.29,-1.9,9.24,9.53,1.05
 20260514,9.01,9.06,8.91,8.95,4181912,9.26,-3.33,9.21,9.52,1.37
 20260515,8.93,9.24,8.93,8.97,2939791,9.23,-2.86,9.17,9.51,0.94
@@ -158,18 +157,19 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,9,9.09,8.97,9.08,2393695,9.09,-0.1,9.04,9.34,0.77
 20260605,9.75,9.87,9.55,9.74,7808525,9.14,6.53,9.07,9.35,2.31
 20260611,9.78,9.87,9.64,9.75,2886194,9.19,6.05,9.09,9.35,0.86
+20260612,9.75,9.96,9.75,9.87,3961352,9.25,6.7,9.12,9.36,1.16
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 66.29
-- over_600_ratio: 64.08
-- over_800_ratio: 62.92
-- over_1000_ratio: 61.7
-- over_400_change_1w: 0.1
-- over_800_change_1w: 0.14
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 5
+- as_of_date: 20260612
+- over_400_ratio: 66.74
+- over_600_ratio: 64.61
+- over_800_ratio: 63.13
+- over_1000_ratio: 62.11
+- over_400_change_1w: 0.45
+- over_800_change_1w: 0.21
+- over_1000_change_1w: 0.41
+- tdcc_consecutive_up_weeks: 6
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -183,17 +183,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,66.15,-0.04,62.69,0,61.73,0.07,3,False,True
 20260529,66.19,0.04,62.78,0.09,61.69,-0.04,4,False,True
 20260605,66.29,0.1,62.92,0.14,61.7,0.01,5,True,True
+20260612,66.74,0.45,63.13,0.21,62.11,0.41,6,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 1909 | 榮成 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260612 | 1909 | 榮成 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 1909 | 榮成 | 1 | 1 | 4 | 4 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260612 | 1909 | 榮成 | 2 | 2 | 4 | 5 | 5 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

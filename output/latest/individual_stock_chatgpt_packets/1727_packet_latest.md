@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1727 中華化
 
 ## Metadata
-- generated_at: 2026-06-11 22:22:32 Asia/Taipei
+- generated_at: 2026-06-13 22:22:25 Asia/Taipei
 - stock_id: 1727
 - stock_name: 中華化
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 86.9
-- high: 88.8
-- low: 82.8
-- close: 85.5
-- volume: 6715616
-- ma5: 92.74
-- ema23_primary: 88.46
-- distance_to_ema23_pct: -3.35
-- ma20: 91.28
-- ma60: 70.82
-- ma120: 57.6
-- return_5d: -10.38
-- return_20d: 12.06
-- volume_ratio: 0.48
-- distance_to_ma20_pct_auxiliary: -6.33
-- distance_to_high_60_pct: -23.66
+- date: 20260612
+- open: 87.6
+- high: 88.2
+- low: 85.4
+- close: 85.4
+- volume: 2934385
+- ma5: 90.72
+- ema23_primary: 88.21
+- distance_to_ema23_pct: -3.18
+- ma20: 91.62
+- ma60: 71.33
+- ma120: 58
+- return_5d: -10.58
+- return_20d: 8.65
+- volume_ratio: 0.21
+- distance_to_ma20_pct_auxiliary: -6.79
+- distance_to_high_60_pct: -23.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,76.3,80.3,75.3,78.6,9270424,69.73,12.72,70.06,56.13,0.62
 20260513,79.6,85,78.6,80,22144848,70.58,13.34,71.16,56.75,1.41
 20260514,80,80.6,77.5,79.5,8180752,71.33,11.46,72.28,57.35,0.51
 20260515,80.2,87.4,77.1,87.4,21498216,72.67,20.27,73.94,58.1,1.29
@@ -159,18 +158,19 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,96.2,98.5,93.5,95.5,7341333,88.34,8.1,89.78,69.46,0.52
 20260605,91,95.8,89.8,93,6545609,88.73,4.81,90.82,70.24,0.47
 20260611,86.9,88.8,82.8,85.5,6715616,88.46,-3.35,91.28,70.82,0.48
+20260612,87.6,88.2,85.4,85.4,2934385,88.21,-3.18,91.62,71.33,0.21
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 52.3
-- over_600_ratio: 50.62
-- over_800_ratio: 48.93
-- over_1000_ratio: 48.93
-- over_400_change_1w: -2.73
-- over_800_change_1w: -2.33
-- over_1000_change_1w: -1.58
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260612
+- over_400_ratio: 52.74
+- over_600_ratio: 50.13
+- over_800_ratio: 48.43
+- over_1000_ratio: 47.73
+- over_400_change_1w: 0.44
+- over_800_change_1w: -0.5
+- over_1000_change_1w: -1.2
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -184,17 +184,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,58.73,3.85,54.25,4.18,52.73,3.39,1,True,True
 20260529,55.03,-3.7,51.26,-2.99,50.51,-2.22,0,False,False
 20260605,52.3,-2.73,48.93,-2.33,48.93,-1.58,0,False,False
+20260612,52.74,0.44,48.43,-0.5,47.73,-1.2,1,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 1727 | 中華化 | revenue_pullback | 營收成長股價回檔 | 60.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260612 | 1727 | 中華化 | revenue_pullback | 營收成長股價回檔 | 60.0 |  |  |  |  |  | stale_signal | calendar event: ex_dividend on 20260630; status=confirmed; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 1727 | 中華化 | 5 | 1 | 5 | 5 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260612 | 1727 | 中華化 | 6 | 2 | 5 | 6 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

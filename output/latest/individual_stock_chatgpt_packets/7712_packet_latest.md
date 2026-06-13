@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7712 博盛半導體
 
 ## Metadata
-- generated_at: 2026-06-11 22:24:18 Asia/Taipei
+- generated_at: 2026-06-13 22:24:36 Asia/Taipei
 - stock_id: 7712
 - stock_name: 博盛半導體
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 142.5
-- high: 144
-- low: 134.5
-- close: 138.5
-- volume: 138000
-- ma5: 152.9
-- ema23_primary: 152.48
-- distance_to_ema23_pct: -9.17
-- ma20: 160.95
-- ma60: 132.55
-- ma120: 110.56
-- return_5d: -14.24
-- return_20d: -6.1
-- volume_ratio: 0.16
-- distance_to_ma20_pct_auxiliary: -13.95
-- distance_to_high_60_pct: -30.23
+- date: 20260612
+- open: 146.5
+- high: 147.5
+- low: 141
+- close: 142.5
+- volume: 144000
+- ma5: 149.8
+- ema23_primary: 151.65
+- distance_to_ema23_pct: -6.03
+- ma20: 159.97
+- ma60: 132.97
+- ma120: 111
+- return_5d: -9.81
+- return_20d: -12.04
+- volume_ratio: 0.17
+- distance_to_ma20_pct_auxiliary: -10.92
+- distance_to_high_60_pct: -28.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,162,162,162,162,1008000,123.54,31.14,121.7,111.66,1.38
 20260513,158,163.5,152,153,2643000,125.99,21.44,123.88,112.83,3.13
 20260514,157,168,150,168,2268000,129.49,29.74,126.9,114.16,2.4
 20260515,170.5,173,151.5,151.5,3448000,131.33,15.36,128.57,115.19,3.17
@@ -154,18 +153,19 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,162,167,159,159,162000,154.09,3.18,160.62,131.23,0.16
 20260605,150,153,141,150,147000,153.75,-2.44,161.4,132.02,0.16
 20260611,142.5,144,134.5,138.5,138000,152.48,-9.17,160.95,132.55,0.16
+20260612,146.5,147.5,141,142.5,144000,151.65,-6.03,159.97,132.97,0.17
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 51.45
+- as_of_date: 20260612
+- over_400_ratio: 52.7
 - over_600_ratio: 46.57
 - over_800_ratio: 35.7
 - over_1000_ratio: 35.7
-- over_400_change_1w: -1.3
+- over_400_change_1w: 1.25
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,53.53,-1.09,35.7,-3.06,35.7,0,0,False,False
 20260529,52.75,-0.78,35.7,0,35.7,0,0,False,False
 20260605,51.45,-1.3,35.7,0,35.7,0,0,False,False
+20260612,52.7,1.25,35.7,0,35.7,0,1,False,False
 ```
 
 ## Candidate Context

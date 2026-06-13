@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8046 南電
 
 ## Metadata
-- generated_at: 2026-06-11 22:24:22 Asia/Taipei
+- generated_at: 2026-06-13 22:24:41 Asia/Taipei
 - stock_id: 8046
 - stock_name: 南電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -60,13 +60,13 @@
 - model_category_display_zh: 型態觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 型態觀察，價格結構尚未破壞，操作評級為「可小量試單」。
-- entry_strategy_zh: 目前價位可評估第一筆；可依「試單 1/4 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- entry_strategy_zh: 回測 23EMA 附近；可依「試單 1/4 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 試單 1/4 部位；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足、TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 型態觀察，價格結構尚未破壞，操作評級為「可小量試單」。 進場策略：目前價位可評估第一筆；可依「試單 1/4 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊
+- final_decision_zh: 符合 型態觀察，價格結構尚未破壞，操作評級為「可小量試單」。 進場策略：回測 23EMA 附近；可依「試單 1/4 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -75,11 +75,11 @@
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
 - thesis_state: unclear
-- entry_style: current_price_ok
+- entry_style: pullback_to_23ema
 - position_sizing: starter_1_4
 
 ### management_plan
-- buy_first_tranche_now
+- buy_first_tranche_near_support
 - add_on_23ema_hold
 - add_on_reclaim_23ema
 - add_on_breakout
@@ -92,6 +92,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -116,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 845
-- high: 863
-- low: 777
-- close: 807
-- volume: 19365377
-- ma5: 856
-- ema23_primary: 856.36
-- distance_to_ema23_pct: -5.76
-- ma20: 861.55
-- ma60: 756.44
-- ma120: 547.5
-- return_5d: -10.83
-- return_20d: -11.12
-- volume_ratio: 1.09
-- distance_to_ma20_pct_auxiliary: -6.33
-- distance_to_high_60_pct: -22.03
+- date: 20260612
+- open: 850
+- high: 868
+- low: 812
+- close: 819
+- volume: 13021503
+- ma5: 847.4
+- ema23_primary: 853.24
+- distance_to_ema23_pct: -4.01
+- ma20: 857.5
+- ma60: 762.28
+- ma120: 552.17
+- return_5d: -4.99
+- return_20d: -9
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: -4.49
+- distance_to_high_60_pct: -20.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,928,965,899,900,15710508,833.99,7.91,855.1,628.17,0.77
 20260513,861,896,861,880,11705998,837.83,5.03,866.8,636.26,0.58
 20260514,899,900,846,847,20591500,838.59,1,876.35,643.54,1.01
 20260515,851,855,780,786,19102823,834.21,-5.78,879.6,650.02,0.94
@@ -158,20 +158,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,905,907,834,862,14435807,862.28,-0.03,867.05,743.88,0.81
 20260605,865,875,813,845,14136931,860.84,-1.84,866.6,750.83,0.81
 20260611,845,863,777,807,19365377,856.36,-5.76,861.55,756.44,1.09
+20260612,850,868,812,819,13021503,853.24,-4.01,857.5,762.28,0.74
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 82.77
-- over_600_ratio: 81.16
-- over_800_ratio: 79.32
-- over_1000_ratio: 78.62
-- over_400_change_1w: 0.66
-- over_800_change_1w: 0.65
-- over_1000_change_1w: 0.79
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260612
+- over_400_ratio: 82.51
+- over_600_ratio: 80.69
+- over_800_ratio: 79.09
+- over_1000_ratio: 78.09
+- over_400_change_1w: -0.26
+- over_800_change_1w: -0.23
+- over_1000_change_1w: -0.53
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,23 +184,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,83.19,0.02,79.8,-0.1,79.23,0.02,1,False,True
 20260529,82.11,-1.08,78.67,-1.13,77.83,-1.4,0,False,False
 20260605,82.77,0.66,79.32,0.65,78.62,0.79,1,True,True
+20260612,82.51,-0.26,79.09,-0.23,78.09,-0.53,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 8046 | 南電 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: ex_dividend on 20260625; status=confirmed; proximity=within_14d |
-| 20260611 | 8046 | 南電 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | stale_signal | calendar event: ex_dividend on 20260625; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260612 | 8046 | 南電 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: ex_dividend on 20260625; status=confirmed; proximity=within_14d |
+| 20260612 | 8046 | 南電 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | calendar event: ex_dividend on 20260625; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 8046 | 南電 | 12 | 6 | 5 | 10 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260612 | 8046 | 南電 | 13 | 7 | 5 | 10 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 8046 | 南電 | 97 | 0 | 2544250.0 | 0.0 |  | no_signal |
+| 20260612 | 8046 | 南電 | 96 | 11 | 2714920.0 | 84240.0 | 32.23 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

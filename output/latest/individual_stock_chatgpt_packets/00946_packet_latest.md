@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00946 群益科技高息成長
 
 ## Metadata
-- generated_at: 2026-06-11 22:22:19 Asia/Taipei
+- generated_at: 2026-06-13 22:22:09 Asia/Taipei
 - stock_id: 00946
 - stock_name: 群益科技高息成長
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260611
-- price_rows: 12
+- latest_price_date: 20260612
+- price_rows: 13
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 14.71
-- high: 14.79
-- low: 14.35
-- close: 14.66
-- volume: 5294026
-- ma5: 15.29
-- ema23_primary: 14.43
-- distance_to_ema23_pct: 1.61
-- ma20: 14.8
-- ma60: 14.8
-- ma120: 14.8
-- return_5d: -4.31
+- date: 20260612
+- open: 14.99
+- high: 15.05
+- low: 14.8
+- close: 14.83
+- volume: 4103550
+- ma5: 15.16
+- ema23_primary: 14.46
+- distance_to_ema23_pct: 2.55
+- ma20: 14.81
+- ma60: 14.81
+- ma120: 14.81
+- return_5d: -4.2
 - return_20d:
-- volume_ratio: 0.67
-- distance_to_ma20_pct_auxiliary: -0.98
-- distance_to_high_60_pct: -7.1
+- volume_ratio: 0.54
+- distance_to_ma20_pct_auxiliary: 0.16
+- distance_to_high_60_pct: -6.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -147,6 +147,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,15.34,15.48,15.13,15.48,9180880,14.33,8.04,14.77,14.77,1.07
 20260605,15.33,15.33,14.95,15.27,4029919,14.41,5.99,14.82,14.82,0.49
 20260611,14.71,14.79,14.35,14.66,5294026,14.43,1.61,14.8,14.8,0.67
+20260612,14.99,15.05,14.8,14.83,4103550,14.46,2.55,14.81,14.81,0.54
 ```
 
 ## Latest TDCC Snapshot

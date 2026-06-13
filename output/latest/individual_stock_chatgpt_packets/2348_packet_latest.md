@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2348 海悅
 
 ## Metadata
-- generated_at: 2026-06-11 22:22:42 Asia/Taipei
+- generated_at: 2026-06-13 22:22:36 Asia/Taipei
 - stock_id: 2348
 - stock_name: 海悅
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 76.6
-- high: 77.5
-- low: 71.9
-- close: 72.6
-- volume: 4303535
-- ma5: 72.24
-- ema23_primary: 70.94
-- distance_to_ema23_pct: 2.35
-- ma20: 69.88
-- ma60: 74.23
-- ma120: 76.22
-- return_5d: 3.86
-- return_20d: 2.25
-- volume_ratio: 7.97
-- distance_to_ma20_pct_auxiliary: 3.9
-- distance_to_high_60_pct: -18.88
+- date: 20260612
+- open: 72.2
+- high: 75.8
+- low: 72.2
+- close: 72.8
+- volume: 2556846
+- ma5: 72.66
+- ema23_primary: 71.09
+- distance_to_ema23_pct: 2.4
+- ma20: 69.97
+- ma60: 74.25
+- ma120: 76.14
+- return_5d: 2.97
+- return_20d: 2.68
+- volume_ratio: 3.89
+- distance_to_ma20_pct_auxiliary: 4.04
+- distance_to_high_60_pct: -18.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,70.8,70.9,70,70.9,231706,73.6,-3.67,73.94,75.33,0.79
 20260513,70.2,70.9,70.1,70.3,134689,73.32,-4.12,73.56,75.23,0.47
 20260514,70.1,70.6,69.1,69.7,518389,73.02,-4.55,73.1,75.09,1.72
 20260515,70,71.7,69.2,69.5,410267,72.73,-4.44,72.65,74.96,1.34
@@ -159,20 +158,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,69.9,70.7,69.3,70.7,334763,70.64,0.09,69.72,74.18,1.03
 20260605,73.7,73.7,72.1,72.4,537210,70.78,2.28,69.8,74.22,1.59
 20260611,76.6,77.5,71.9,72.6,4303535,70.94,2.35,69.88,74.23,7.97
+20260612,72.2,75.8,72.2,72.8,2556846,71.09,2.4,69.97,74.25,3.89
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 70.13
-- over_600_ratio: 68.13
-- over_800_ratio: 67.72
-- over_1000_ratio: 67.12
-- over_400_change_1w: -0.36
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260612
+- over_400_ratio: 69.79
+- over_600_ratio: 68.45
+- over_800_ratio: 67.98
+- over_1000_ratio: 67.38
+- over_400_change_1w: -0.34
+- over_800_change_1w: 0.26
+- over_1000_change_1w: 0.26
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -184,22 +184,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,70.52,-0.02,67.71,-0.52,67.11,0,0,False,False
 20260529,70.49,-0.03,67.72,0.01,67.12,0.01,1,False,True
 20260605,70.13,-0.36,67.72,0,67.12,0,0,False,False
+20260612,69.79,-0.34,67.98,0.26,67.38,0.26,1,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 2348 | 海悅 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260612 | 2348 | 海悅 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 2348 | 海悅 | 1 | 1 | 1 | 1 | 1 | first_seen | 首次上榜，屬新訊號，需確認量價、TDCC 與 benchmark 表現。 |
+| 20260612 | 2348 | 海悅 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 2348 | 海悅 | 8 | 0 | 576990.0 | 0.0 |  | no_signal |
+| 20260612 | 2348 | 海悅 | 8 | 0 | 93340.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

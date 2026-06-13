@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8054 安國
 
 ## Metadata
-- generated_at: 2026-06-11 22:24:23 Asia/Taipei
+- generated_at: 2026-06-13 22:24:41 Asia/Taipei
 - stock_id: 8054
 - stock_name: 安國
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 101
+- date: 20260612
+- open: 101.5
 - high: 102.5
-- low: 97
-- close: 99.5
-- volume: 100000
-- ma5: 100.9
-- ema23_primary: 104.2
-- distance_to_ema23_pct: -4.51
-- ma20: 104.45
-- ma60: 103
-- ma120: 115.54
-- return_5d: -2.45
-- return_20d: -3.86
+- low: 99.7
+- close: 99.7
+- volume: 101000
+- ma5: 100.54
+- ema23_primary: 103.82
+- distance_to_ema23_pct: -3.97
+- ma20: 104.31
+- ma60: 102.97
+- ma120: 115.08
+- return_5d: -1.77
+- return_20d: -2.73
 - volume_ratio: 0.09
-- distance_to_ma20_pct_auxiliary: -4.74
-- distance_to_high_60_pct: -23.46
+- distance_to_ma20_pct_auxiliary: -4.42
+- distance_to_high_60_pct: -23.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,104,105,101.5,102.5,1945000,105.89,-3.2,107.25,106.9,0.52
 20260513,101.5,105,99.6,101,2137000,105.48,-4.25,107.35,106.48,0.57
 20260514,101.5,103,100.5,101,1163000,105.11,-3.91,107.5,106,0.31
 20260515,102.5,108.5,101,102.5,3202000,104.89,-2.28,107.35,105.47,0.91
@@ -155,18 +154,19 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,103.5,104,101,101.5,102000,105,-3.33,104.95,103.06,0.07
 20260605,101.5,102.5,99.4,100.5,101000,104.63,-3.94,104.65,103.08,0.08
 20260611,101,102.5,97,99.5,100000,104.2,-4.51,104.45,103,0.09
+20260612,101.5,102.5,99.7,99.7,101000,103.82,-3.97,104.31,102.97,0.09
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 34.39
-- over_600_ratio: 29.85
-- over_800_ratio: 28.51
+- as_of_date: 20260612
+- over_400_ratio: 34.78
+- over_600_ratio: 30.4
+- over_800_ratio: 27.72
 - over_1000_ratio: 27.72
-- over_400_change_1w: -0.34
-- over_800_change_1w: -1.42
-- over_1000_change_1w: -2.21
-- tdcc_consecutive_up_weeks: 0
+- over_400_change_1w: 0.39
+- over_800_change_1w: -0.79
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,35.28,0.82,28.59,-1.2,27.72,-1.28,2,False,False
 20260529,34.73,-0.55,29.93,1.34,29.93,2.21,3,False,True
 20260605,34.39,-0.34,28.51,-1.42,27.72,-2.21,0,False,False
+20260612,34.78,0.39,27.72,-0.79,27.72,0,1,False,False
 ```
 
 ## Candidate Context

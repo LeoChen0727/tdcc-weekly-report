@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7043 廣運元大57購03
 
 ## Metadata
-- generated_at: 2026-06-11 22:24:09 Asia/Taipei
+- generated_at: 2026-06-13 22:24:24 Asia/Taipei
 - stock_id: 7043
 - stock_name: 廣運元大57購03
 - packet_status: standard_180d_window_packet

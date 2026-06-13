@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4419 皇家美食
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:22 Asia/Taipei
+- generated_at: 2026-06-13 22:23:25 Asia/Taipei
 - stock_id: 4419
 - stock_name: 皇家美食
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 275
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 276
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 45.6
-- high: 45.6
-- low: 45.5
-- close: 45.55
-- volume: 45000
-- ma5: 45.77
-- ema23_primary: 45.93
-- distance_to_ema23_pct: -0.82
-- ma20: 45.89
-- ma60: 46.56
-- ma120: 46.64
-- return_5d: -2.67
-- return_20d: -4.71
-- volume_ratio: 1.74
-- distance_to_ma20_pct_auxiliary: -0.74
-- distance_to_high_60_pct: -17.18
+- date: 20260612
+- open: 45.7
+- high: 47.05
+- low: 45.7
+- close: 46.4
+- volume: 47000
+- ma5: 45.75
+- ema23_primary: 45.97
+- distance_to_ema23_pct: 0.94
+- ma20: 45.86
+- ma60: 46.58
+- ma120: 46.68
+- return_5d: -0.22
+- return_20d: -1.28
+- volume_ratio: 1.67
+- distance_to_ma20_pct_auxiliary: 1.18
+- distance_to_high_60_pct: -15.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,47,47,47,47,1000,46.44,1.21,45.88,46.41,0.37
 20260513,46.2,46.2,46,46,7000,46.4,-0.87,45.93,46.37,2.37
 20260514,46.15,46.5,46.15,46.5,5000,46.41,0.19,46,46.35,1.79
 20260515,46.1,47,45.05,46.3,16000,46.4,-0.22,46.06,46.34,5.08
@@ -155,10 +154,11 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,46.2,46.2,45.5,45.6,46000,46,-0.86,45.98,46.53,2.1
 20260605,45.6,45.6,45.55,45.6,45000,45.96,-0.79,46,46.55,1.88
 20260611,45.6,45.6,45.5,45.55,45000,45.93,-0.82,45.89,46.56,1.74
+20260612,45.7,47.05,45.7,46.4,47000,45.97,0.94,45.86,46.58,1.67
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
+- as_of_date: 20260612
 - over_400_ratio: 96.85
 - over_600_ratio: 96.85
 - over_800_ratio: 96.1
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,96.87,0,96.12,0,95.1,0,0,False,False
 20260529,96.85,-0.02,96.1,-0.02,95.09,-0.01,0,False,False
 20260605,96.85,0,96.1,0,95.09,0,0,False,False
+20260612,96.85,0,96.1,0,95.09,0,0,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4768 晶呈科技
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:28 Asia/Taipei
+- generated_at: 2026-06-13 22:23:32 Asia/Taipei
 - stock_id: 4768
 - stock_name: 晶呈科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 368
-- high: 388
-- low: 357.5
-- close: 371.5
-- volume: 373000
-- ma5: 454.7
-- ema23_primary: 465.79
-- distance_to_ema23_pct: -20.24
-- ma20: 459.85
-- ma60: 475.84
-- ma120: 426.65
-- return_5d: -24.42
-- return_20d: -23.95
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: -19.21
-- distance_to_high_60_pct: -36.5
+- date: 20260612
+- open: 391
+- high: 392.5
+- low: 380
+- close: 385.5
+- volume: 386000
+- ma5: 433.4
+- ema23_primary: 459.1
+- distance_to_ema23_pct: -16.03
+- ma20: 454.48
+- ma60: 474.6
+- ma120: 427.97
+- return_5d: -21.65
+- return_20d: -21.81
+- volume_ratio: 0.61
+- distance_to_ma20_pct_auxiliary: -15.18
+- distance_to_high_60_pct: -34.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,493.5,510,485.5,493,995000,495.3,-0.46,501.18,465.84,0.57
 20260513,493,495,470,470.5,1152000,493.24,-4.61,500.6,467.11,0.71
 20260514,473,482.5,460,462,1012000,490.63,-5.84,499.5,467.78,0.63
 20260515,470,470,424,430.5,1518000,485.62,-11.35,497.07,468.26,0.94
@@ -154,20 +153,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,508,518,485,485,500000,477.49,1.57,469.05,476.33,0.71
 20260605,450.5,454,434,440,444000,474.36,-7.24,465.7,476.99,0.63
 20260611,368,388,357.5,371.5,373000,465.79,-20.24,459.85,475.84,0.56
+20260612,391,392.5,380,385.5,386000,459.1,-16.03,454.48,474.6,0.61
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 35.62
-- over_600_ratio: 30.72
-- over_800_ratio: 22.98
+- as_of_date: 20260612
+- over_400_ratio: 34.98
+- over_600_ratio: 29
+- over_800_ratio: 23.01
 - over_1000_ratio: 19.49
-- over_400_change_1w: -3.14
-- over_800_change_1w: -0.18
-- over_1000_change_1w: -0.01
-- tdcc_consecutive_up_weeks: 0
+- over_400_change_1w: -0.64
+- over_800_change_1w: 0.03
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,37.97,-1.41,23.3,-2.3,19.52,-2.55,0,False,False
 20260529,38.76,0.79,23.16,-0.14,19.5,-0.02,1,False,False
 20260605,35.62,-3.14,22.98,-0.18,19.49,-0.01,0,False,False
+20260612,34.98,-0.64,23.01,0.03,19.49,0,1,False,True
 ```
 
 ## Candidate Context

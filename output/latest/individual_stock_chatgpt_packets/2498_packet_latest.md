@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2498 宏達電
 
 ## Metadata
-- generated_at: 2026-06-11 22:22:49 Asia/Taipei
+- generated_at: 2026-06-13 22:22:45 Asia/Taipei
 - stock_id: 2498
 - stock_name: 宏達電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 41.95
-- high: 42.45
-- low: 41.3
-- close: 42
-- volume: 5051165
-- ma5: 47.57
-- ema23_primary: 44.89
-- distance_to_ema23_pct: -6.44
-- ma20: 45.28
-- ma60: 42.2
-- ma120: 44.51
-- return_5d: -7.69
-- return_20d: 4.35
-- volume_ratio: 0.22
-- distance_to_ma20_pct_auxiliary: -7.25
-- distance_to_high_60_pct: -19.85
+- date: 20260612
+- open: 42.9
+- high: 43.7
+- low: 42.75
+- close: 43.25
+- volume: 5457397
+- ma5: 46.22
+- ema23_primary: 44.75
+- distance_to_ema23_pct: -3.36
+- ma20: 45.38
+- ma60: 42.21
+- ma120: 44.46
+- return_5d: -13.5
+- return_20d: 4.72
+- volume_ratio: 0.24
+- distance_to_ma20_pct_auxiliary: -4.69
+- distance_to_high_60_pct: -17.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,40.35,41.3,39.35,41.3,12069492,40.53,1.89,40.52,41.68,1.55
 20260513,41,41.25,39.8,40.1,8146362,40.5,-0.98,40.51,41.61,1.04
 20260514,40.3,44.1,39.4,44.1,21497834,40.8,8.09,40.66,41.58,2.57
 20260515,46.35,46.9,44.75,45.3,71302266,41.17,10.02,40.86,41.59,6.16
@@ -154,20 +154,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,46,50,45.9,50,37219368,45.08,10.9,44.87,42.16,1.62
 20260605,47.6,48.15,45.8,45.9,12521986,45.15,1.66,45.2,42.23,0.54
 20260611,41.95,42.45,41.3,42,5051165,44.89,-6.44,45.28,42.2,0.22
+20260612,42.9,43.7,42.75,43.25,5457397,44.75,-3.36,45.38,42.21,0.24
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 40.7
-- over_600_ratio: 38.67
-- over_800_ratio: 36.67
-- over_1000_ratio: 35.44
-- over_400_change_1w: 0.54
-- over_800_change_1w: 0.4
-- over_1000_change_1w: 0.82
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260612
+- over_400_ratio: 40.42
+- over_600_ratio: 38.07
+- over_800_ratio: 36.31
+- over_1000_ratio: 34.95
+- over_400_change_1w: -0.28
+- over_800_change_1w: -0.36
+- over_1000_change_1w: -0.49
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -179,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,39.48,-1.22,35.43,-1.53,34.18,-1.41,0,False,False
 20260529,40.16,0.68,36.27,0.84,34.62,0.44,1,True,True
 20260605,40.7,0.54,36.67,0.4,35.44,0.82,2,True,True
+20260612,40.42,-0.28,36.31,-0.36,34.95,-0.49,0,False,False
 ```
 
 ## Candidate Context
@@ -194,7 +196,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 2498 | 宏達電 | 89 | 0 | 2840230.0 | 0.0 |  | no_signal |
+| 20260612 | 2498 | 宏達電 | 84 | 8 | 2424950.0 | 52540.0 | 46.15 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2115 六暉-KY
 
 ## Metadata
-- generated_at: 2026-06-11 22:22:38 Asia/Taipei
+- generated_at: 2026-06-13 22:22:32 Asia/Taipei
 - stock_id: 2115
 - stock_name: 六暉-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 276
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 277
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 21.95
-- high: 22.15
-- low: 21.85
-- close: 22.15
-- volume: 105543
-- ma5: 21.86
-- ema23_primary: 21.34
-- distance_to_ema23_pct: 3.79
-- ma20: 21.03
+- date: 20260612
+- open: 22.3
+- high: 22.9
+- low: 22.05
+- close: 22.55
+- volume: 160566
+- ma5: 22.04
+- ema23_primary: 21.44
+- distance_to_ema23_pct: 5.17
+- ma20: 21.12
 - ma60: 21.33
-- ma120: 22.95
-- return_5d: 2.31
-- return_20d: 5.98
-- volume_ratio: 0.6
-- distance_to_ma20_pct_auxiliary: 5.31
-- distance_to_high_60_pct: -3.28
+- ma120: 22.93
+- return_5d: 4.16
+- return_20d: 8.67
+- volume_ratio: 0.95
+- distance_to_ma20_pct_auxiliary: 6.76
+- distance_to_high_60_pct: -1.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,21.1,21.1,20.55,20.75,317519,21.34,-2.79,21.34,22.27,2.63
 20260513,20.7,20.8,20.65,20.75,119523,21.3,-2.56,21.31,22.21,0.97
 20260514,20.75,20.75,20.4,20.45,250812,21.22,-3.65,21.25,22.14,1.87
 20260515,20.35,20.4,19.9,20,296193,21.12,-5.32,21.17,22.07,2.18
@@ -155,18 +153,19 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,21.65,21.7,21.45,21.65,147252,21.2,2.12,20.93,21.36,0.81
 20260605,21.9,22.15,21.9,22,87990,21.27,3.44,20.97,21.34,0.48
 20260611,21.95,22.15,21.85,22.15,105543,21.34,3.79,21.03,21.33,0.6
+20260612,22.3,22.9,22.05,22.55,160566,21.44,5.17,21.12,21.33,0.95
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 70.01
-- over_600_ratio: 65.83
-- over_800_ratio: 61.19
-- over_1000_ratio: 58.48
-- over_400_change_1w: 0.61
-- over_800_change_1w: 0.65
-- over_1000_change_1w: -0.32
-- tdcc_consecutive_up_weeks: 5
+- as_of_date: 20260612
+- over_400_ratio: 69.71
+- over_600_ratio: 65.96
+- over_800_ratio: 61.32
+- over_1000_ratio: 58.61
+- over_400_change_1w: -0.3
+- over_800_change_1w: 0.13
+- over_1000_change_1w: 0.13
+- tdcc_consecutive_up_weeks: 6
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -180,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,69.89,0.37,61.22,-0.55,58.72,0.32,3,False,True
 20260529,69.4,-0.49,60.54,-0.68,58.8,0.08,4,False,True
 20260605,70.01,0.61,61.19,0.65,58.48,-0.32,5,False,True
+20260612,69.71,-0.3,61.32,0.13,58.61,0.13,6,False,True
 ```
 
 ## Candidate Context

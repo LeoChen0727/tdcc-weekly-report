@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2374 佳能
 
 ## Metadata
-- generated_at: 2026-06-11 22:22:43 Asia/Taipei
+- generated_at: 2026-06-13 22:22:38 Asia/Taipei
 - stock_id: 2374
 - stock_name: 佳能
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 71
-- high: 72.1
-- low: 69.6
-- close: 71.7
-- volume: 5231272
-- ma5: 79.6
-- ema23_primary: 79.78
-- distance_to_ema23_pct: -10.12
-- ma20: 81.06
-- ma60: 75.42
-- ma120: 77.45
-- return_5d: -15.35
-- return_20d: -10.93
-- volume_ratio: 0.39
-- distance_to_ma20_pct_auxiliary: -11.54
-- distance_to_high_60_pct: -17.01
+- date: 20260612
+- open: 73.9
+- high: 74.1
+- low: 72
+- close: 72.1
+- volume: 3532094
+- ma5: 77.52
+- ema23_primary: 79.14
+- distance_to_ema23_pct: -8.89
+- ma20: 80.54
+- ma60: 75.44
+- ma120: 77.36
+- return_5d: -12.61
+- return_20d: -12.5
+- volume_ratio: 0.27
+- distance_to_ma20_pct_auxiliary: -10.48
+- distance_to_high_60_pct: -16.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,81,83.7,78.8,82.4,15194453,76.21,8.12,75.72,74.04,1.46
 20260513,81.5,82.1,79.4,79.9,11845651,76.52,4.42,76.12,74.05,1.1
 20260514,80.6,82.9,80.2,80.3,11775677,76.83,4.51,76.55,74.05,1.06
 20260515,81.7,85.5,81.2,82.2,33320185,77.28,6.37,77.05,74.08,2.65
@@ -160,17 +159,18 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,85.4,85.4,81.4,82.5,14325800,80.58,2.38,81.44,75.28,1.07
 20260605,80.9,83.3,79.5,79.7,15546534,80.51,-1.01,81.5,75.43,1.13
 20260611,71,72.1,69.6,71.7,5231272,79.78,-10.12,81.06,75.42,0.39
+20260612,73.9,74.1,72,72.1,3532094,79.14,-8.89,80.54,75.44,0.27
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 30.51
-- over_600_ratio: 27.91
-- over_800_ratio: 26.61
-- over_1000_ratio: 25.01
-- over_400_change_1w: 0
-- over_800_change_1w: -0.27
-- over_1000_change_1w: -0.51
+- as_of_date: 20260612
+- over_400_ratio: 28.02
+- over_600_ratio: 26.56
+- over_800_ratio: 25.06
+- over_1000_ratio: 23.73
+- over_400_change_1w: -2.49
+- over_800_change_1w: -1.55
+- over_1000_change_1w: -1.28
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -185,22 +185,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,29.93,0.37,26.96,1.15,25.68,1.42,3,True,True
 20260529,30.51,0.58,26.88,-0.08,25.52,-0.16,4,False,False
 20260605,30.51,0,26.61,-0.27,25.01,-0.51,0,False,False
+20260612,28.02,-2.49,25.06,-1.55,23.73,-1.28,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 2374 | 佳能 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260612 | 2374 | 佳能 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 2374 | 佳能 | 12 | 3 | 5 | 10 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260612 | 2374 | 佳能 | 13 | 4 | 5 | 10 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 2374 | 佳能 | 86 | 0 | 8019320.0 | 0.0 |  | no_signal |
+| 20260612 | 2374 | 佳能 | 81 | 2 | 7291980.0 | 7000.0 | 1041.71 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

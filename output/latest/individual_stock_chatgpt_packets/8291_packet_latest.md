@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8291 尚茂
 
 ## Metadata
-- generated_at: 2026-06-11 22:24:27 Asia/Taipei
+- generated_at: 2026-06-13 22:24:47 Asia/Taipei
 - stock_id: 8291
 - stock_name: 尚茂
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 193
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 194
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 46.75
-- high: 46.75
-- low: 46.75
-- close: 46.75
-- volume: 47000
-- ma5: 77.99
-- ema23_primary: 76.04
-- distance_to_ema23_pct: -38.52
-- ma20: 83.03
-- ma60: 44.43
-- ma120: 82.21
-- return_5d: -56.71
-- return_20d: 20.18
-- volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: -43.7
-- distance_to_high_60_pct: -64.85
+- date: 20260612
+- open: 42.15
+- high: 46.5
+- low: 42.15
+- close: 42.55
+- volume: 43000
+- ma5: 67.06
+- ema23_primary: 73.25
+- distance_to_ema23_pct: -41.91
+- ma20: 83.02
+- ma60: 43.14
+- ma120: 81.57
+- return_5d: -56.22
+- return_20d: -0.47
+- volume_ratio: 0.4
+- distance_to_ma20_pct_auxiliary: -48.75
+- distance_to_high_60_pct: -68.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,42.75,42.75,42.75,42.75,61000,27.76,54.02,21.35,55.46,1.03
 20260513,47,47,47,47,178000,29.36,60.09,23.04,54.25,2.62
 20260514,51.7,51.7,51.7,51.7,112000,31.22,65.59,24.96,53.11,1.52
 20260515,56.8,56.8,56.8,56.8,153000,33.35,70.3,27.13,52.06,1.91
@@ -154,15 +153,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,87.5,87.5,87.5,87.5,88000,79.4,10.2,80.86,46.47,0.77
 20260605,71,71,71,71,71000,78.7,-9.79,82.64,45.65,0.64
 20260611,46.75,46.75,46.75,46.75,47000,76.04,-38.52,83.03,44.43,0.44
+20260612,42.15,46.5,42.15,42.55,43000,73.25,-41.91,83.02,43.14,0.4
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
+- as_of_date: 20260612
 - over_400_ratio: 71.9
 - over_600_ratio: 71.9
 - over_800_ratio: 71.9
 - over_1000_ratio: 71.9
-- over_400_change_1w: -3.25
+- over_400_change_1w: 0
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,75.44,-2.87,71.9,-0.04,71.9,-0.04,0,False,False
 20260529,75.15,-0.29,71.9,0,71.9,0,0,False,False
 20260605,71.9,-3.25,71.9,0,71.9,0,0,False,False
+20260612,71.9,0,71.9,0,71.9,0,0,False,False
 ```
 
 ## Candidate Context

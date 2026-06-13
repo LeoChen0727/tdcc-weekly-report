@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3026 禾伸堂
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:00 Asia/Taipei
+- generated_at: 2026-06-13 22:22:58 Asia/Taipei
 - stock_id: 3026
 - stock_name: 禾伸堂
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 可小量試單
-- model_category_display_zh: 區間內轉強 / 挑戰前高觀察
+- model_category_display_zh: 嚴格突破
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
-- action_summary_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可小量試單」。
-- entry_strategy_zh: 回測 23EMA 附近；可依「試單 1/4 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
+- action_summary_zh: 符合 嚴格突破，價格結構尚未破壞，操作評級為「可小量試單」。
+- entry_strategy_zh: 突破後順勢追蹤；可依「試單 1/4 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 試單 1/4 部位；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近支撐時可建立第一筆部位、守住 23EMA 後再評估加碼、站回 23EMA 後再評估加碼、放量突破後再評估加碼、接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 符合 區間內轉強 / 挑戰前高觀察，價格結構尚未破壞，操作評級為「可小量試單」。 進場策略：回測 23EMA 附近；可依「試單 1/4 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
+- final_decision_zh: 符合 嚴格突破，價格結構尚未破壞，操作評級為「可小量試單」。 進場策略：突破後順勢追蹤；可依「試單 1/4 部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,8 +74,8 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: high_level_consolidation
-- entry_style: pullback_to_23ema
+- thesis_state: breakout_initial
+- entry_style: breakout_follow
 - position_sizing: starter_1_4
 
 ### management_plan
@@ -92,7 +92,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -117,29 +116,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 655
-- high: 695
-- low: 590
-- close: 695
-- volume: 3544235
-- ma5: 652.2
-- ema23_primary: 513.16
-- distance_to_ema23_pct: 35.44
-- ma20: 512.42
-- ma60: 298.32
-- ma120: 202.03
-- return_5d: 3.42
-- return_20d: 110.93
-- volume_ratio: 1.49
-- distance_to_ma20_pct_auxiliary: 35.63
-- distance_to_high_60_pct: -0.57
+- date: 20260612
+- open: 764
+- high: 764
+- low: 764
+- close: 764
+- volume: 2566138
+- ma5: 675
+- ema23_primary: 534.06
+- distance_to_ema23_pct: 43.05
+- ma20: 534.12
+- ma60: 309.29
+- ma120: 207.53
+- return_5d: 17.54
+- return_20d: 131.52
+- volume_ratio: 1.08
+- distance_to_ma20_pct_auxiliary: 43.04
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,328.5,339,325,330,2669187,246.02,34.13,252.03,167.47,0.26
 20260513,316,334,316,325,1645034,252.6,28.66,256.8,171.17,0.18
 20260514,357,357.5,350,357.5,4517030,261.34,36.79,263.52,175.38,0.48
 20260515,360,383,323,327,2665374,266.82,22.56,267.85,179.1,0.29
@@ -159,19 +157,20 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,640,650,605,650,3276908,484.87,34.06,479.35,279.82,0.68
 20260605,595,640,562,626,1633575,496.63,26.05,494.15,288.51,0.43
 20260611,655,695,590,695,3544235,513.16,35.44,512.42,298.32,1.49
+20260612,764,764,764,764,2566138,534.06,43.05,534.12,309.29,1.08
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 56.22
-- over_600_ratio: 49.72
-- over_800_ratio: 44.69
-- over_1000_ratio: 40.45
-- over_400_change_1w: -0.03
-- over_800_change_1w: 0.09
-- over_1000_change_1w: 0.17
-- tdcc_consecutive_up_weeks: 5
-- all_thresholds_up: False
+- as_of_date: 20260612
+- over_400_ratio: 56.45
+- over_600_ratio: 51.24
+- over_800_ratio: 46.29
+- over_1000_ratio: 42.52
+- over_400_change_1w: 0.23
+- over_800_change_1w: 1.6
+- over_1000_change_1w: 2.07
+- tdcc_consecutive_up_weeks: 6
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -184,22 +183,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,55.19,0.91,43.28,-0.73,39.46,-0.74,3,False,False
 20260529,56.25,1.06,44.6,1.32,40.28,0.82,4,True,True
 20260605,56.22,-0.03,44.69,0.09,40.45,0.17,5,False,True
+20260612,56.45,0.23,46.29,1.6,42.52,2.07,6,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 3026 | 禾伸堂 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | no_signal | first_seen | calendar event: ex_dividend on 20260622; status=confirmed; proximity=within_14d |
+| 20260612 | 3026 | 禾伸堂 | true_breakout | 嚴格突破 | 69.0 |  |  | platform_right_side |  | no_signal | continued_overheated | calendar event: ex_dividend on 20260622; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 3026 | 禾伸堂 | 1 | 1 | 1 | 2 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260612 | 3026 | 禾伸堂 | 2 | 1 | 2 | 2 | 3 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 3026 | 禾伸堂 | 61 | 0 | 3749050.0 | 0.0 |  | no_signal |
+| 20260612 | 3026 | 禾伸堂 | 58 | 0 | 3920690.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

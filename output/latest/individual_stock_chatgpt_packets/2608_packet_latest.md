@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2608 嘉里大榮
 
 ## Metadata
-- generated_at: 2026-06-11 22:22:52 Asia/Taipei
+- generated_at: 2026-06-13 22:22:48 Asia/Taipei
 - stock_id: 2608
 - stock_name: 嘉里大榮
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 30.5
+- date: 20260612
+- open: 30.35
 - high: 30.5
 - low: 30.2
-- close: 30.35
-- volume: 378718
-- ma5: 29.98
-- ema23_primary: 29.63
-- distance_to_ema23_pct: 2.44
-- ma20: 29.35
-- ma60: 30.24
-- ma120: 31.51
-- return_5d: 3.23
+- close: 30.2
+- volume: 867246
+- ma5: 30.07
+- ema23_primary: 29.68
+- distance_to_ema23_pct: 1.77
+- ma20: 29.37
+- ma60: 30.22
+- ma120: 31.48
+- return_5d: 1.51
 - return_20d: 1.34
-- volume_ratio: 0.79
-- distance_to_ma20_pct_auxiliary: 3.4
-- distance_to_high_60_pct: -4.56
+- volume_ratio: 1.7
+- distance_to_ma20_pct_auxiliary: 2.82
+- distance_to_high_60_pct: -3.97
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,30.15,30.15,29.8,29.8,247364,30.34,-1.77,30.36,31.07,0.75
 20260513,29.8,29.8,29.65,29.7,445807,30.28,-1.93,30.3,31.02,1.32
 20260514,29.65,29.75,29.6,29.6,337498,30.23,-2.07,30.23,30.97,0.98
 20260515,29.6,29.6,29.2,29.25,565326,30.15,-2.97,30.14,30.91,1.57
@@ -155,20 +154,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,29.4,29.75,29.3,29.75,403058,29.51,0.8,29.33,30.28,0.83
 20260605,30.2,30.35,29.95,30.1,260648,29.56,1.82,29.33,30.26,0.55
 20260611,30.5,30.5,30.2,30.35,378718,29.63,2.44,29.35,30.24,0.79
+20260612,30.35,30.5,30.2,30.2,867246,29.68,1.77,29.37,30.22,1.7
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 76.82
-- over_600_ratio: 75.13
-- over_800_ratio: 73.47
+- as_of_date: 20260612
+- over_400_ratio: 76.71
+- over_600_ratio: 75.11
+- over_800_ratio: 73.29
 - over_1000_ratio: 71.77
-- over_400_change_1w: -0.01
-- over_800_change_1w: 0.19
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 1
+- over_400_change_1w: -0.11
+- over_800_change_1w: -0.18
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,77.02,-0.16,73.79,-0.07,71.92,0.33,1,False,True
 20260529,76.83,-0.19,73.28,-0.51,71.76,-0.16,0,False,False
 20260605,76.82,-0.01,73.47,0.19,71.77,0.01,1,False,True
+20260612,76.71,-0.11,73.29,-0.18,71.77,0,0,False,False
 ```
 
 ## Candidate Context

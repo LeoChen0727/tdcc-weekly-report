@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3563 牧德
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:14 Asia/Taipei
+- generated_at: 2026-06-13 22:23:15 Asia/Taipei
 - stock_id: 3563
 - stock_name: 牧德
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 687
-- high: 701
-- low: 663
-- close: 682
-- volume: 898028
-- ma5: 780.4
-- ema23_primary: 825.83
-- distance_to_ema23_pct: -17.42
-- ma20: 837.4
-- ma60: 830.57
-- ma120: 672.74
-- return_5d: -17.33
-- return_20d: -15.49
-- volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: -18.56
-- distance_to_high_60_pct: -31.59
+- date: 20260612
+- open: 712
+- high: 718
+- low: 700
+- close: 706
+- volume: 414767
+- ma5: 760.2
+- ema23_primary: 815.85
+- distance_to_ema23_pct: -13.46
+- ma20: 831.95
+- ma60: 831.63
+- ma120: 674.53
+- return_5d: -12.52
+- return_20d: -13.37
+- volume_ratio: 0.21
+- distance_to_ma20_pct_auxiliary: -15.14
+- distance_to_high_60_pct: -29.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,813,820,795,815,1213627,846.04,-3.67,885,739.48,0.54
 20260513,812,835,807,823,1616923,844.12,-2.5,880.65,745.17,0.73
 20260514,833,863,813,818,2470459,841.94,-2.84,875.5,750.77,1.12
 20260515,823,888,804,875,3424710,844.7,3.59,871.85,756.94,1.57
@@ -154,18 +153,19 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,828,828,793,807,1027614,843.72,-4.35,844.45,826.25,0.49
 20260605,808,808,785,786,828621,838.91,-6.31,843.65,829.75,0.4
 20260611,687,701,663,682,898028,825.83,-17.42,837.4,830.57,0.44
+20260612,712,718,700,706,414767,815.85,-13.46,831.95,831.63,0.21
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 51.8
-- over_600_ratio: 44.39
-- over_800_ratio: 41.2
-- over_1000_ratio: 38.45
-- over_400_change_1w: -1.31
-- over_800_change_1w: -0.43
-- over_1000_change_1w: -1.83
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260612
+- over_400_ratio: 50.89
+- over_600_ratio: 43.26
+- over_800_ratio: 39.77
+- over_1000_ratio: 36.89
+- over_400_change_1w: -0.91
+- over_800_change_1w: -1.43
+- over_1000_change_1w: -1.56
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,55.7,2.1,44.98,1.28,41.04,1.59,1,True,True
 20260529,53.11,-2.59,41.63,-3.35,40.28,-0.76,0,False,False
 20260605,51.8,-1.31,41.2,-0.43,38.45,-1.83,1,False,False
+20260612,50.89,-0.91,39.77,-1.43,36.89,-1.56,0,False,False
 ```
 
 ## Candidate Context
@@ -194,7 +195,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 3563 | 牧德 | 130 | 0 | 6567230.0 | 0.0 |  | no_signal |
+| 20260612 | 3563 | 牧德 | 129 | 7 | 8407990.0 | 138620.0 | 60.65 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

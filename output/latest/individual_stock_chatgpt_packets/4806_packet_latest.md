@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4806 桂田文創
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:28 Asia/Taipei
+- generated_at: 2026-06-13 22:23:33 Asia/Taipei
 - stock_id: 4806
 - stock_name: 桂田文創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 270
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 271
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 10.9
-- high: 10.9
-- low: 10.9
-- close: 10.9
+- date: 20260612
+- open: 10.85
+- high: 10.85
+- low: 9.95
+- close: 10.25
 - volume: 11000
-- ma5: 10.29
+- ma5: 10.3
 - ema23_primary: 10.25
-- distance_to_ema23_pct: 6.32
-- ma20: 10.19
-- ma60: 10.64
+- distance_to_ema23_pct: -0.02
+- ma20: 10.16
+- ma60: 10.63
 - ma120: 10.54
-- return_5d: 11.22
-- return_20d: -0.46
-- volume_ratio: 1.33
-- distance_to_ma20_pct_auxiliary: 6.97
-- distance_to_high_60_pct: -19.26
+- return_5d: 0.49
+- return_20d: -5.53
+- volume_ratio: 1.3
+- distance_to_ma20_pct_auxiliary: 0.89
+- distance_to_high_60_pct: -24.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,10.2,10.85,10.2,10.85,8000,10.55,2.83,10.35,10.92,0.34
 20260513,11.65,11.65,10.8,10.8,3000,10.57,2.16,10.38,10.94,0.14
 20260514,10.4,10.4,10.1,10.1,6000,10.53,-4.11,10.38,10.94,0.32
 20260515,10,10.2,10,10.15,7000,10.5,-3.34,10.38,10.94,0.37
@@ -154,18 +154,19 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,10,10,10,10,10000,10.18,-1.76,10.2,10.67,1.05
 20260605,10.1,10.35,10.1,10.35,10000,10.19,1.53,10.19,10.65,1.06
 20260611,10.9,10.9,10.9,10.9,11000,10.25,6.32,10.19,10.64,1.33
+20260612,10.85,10.85,9.95,10.25,11000,10.25,-0.02,10.16,10.63,1.3
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 88.87
+- as_of_date: 20260612
+- over_400_ratio: 88.88
 - over_600_ratio: 86.6
 - over_800_ratio: 85.88
 - over_1000_ratio: 85.88
-- over_400_change_1w: 0
+- over_400_change_1w: 0.01
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -179,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,88.87,0,85.88,0,85.88,0,0,False,False
 20260529,88.87,0,85.88,0,85.88,0,0,False,False
 20260605,88.87,0,85.88,0,85.88,0,0,False,False
+20260612,88.88,0.01,85.88,0,85.88,0,1,False,False
 ```
 
 ## Candidate Context

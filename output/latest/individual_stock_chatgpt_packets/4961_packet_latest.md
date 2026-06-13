@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4961 天鈺
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:30 Asia/Taipei
+- generated_at: 2026-06-13 22:23:35 Asia/Taipei
 - stock_id: 4961
 - stock_name: 天鈺
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 28
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 29
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 160.5
-- high: 166
-- low: 159.5
-- close: 163
-- volume: 615381
-- ma5: 169.8
-- ema23_primary: 169.12
-- distance_to_ema23_pct: -3.62
-- ma20: 172.3
-- ma60: 158.87
-- ma120: 152.34
-- return_5d: -6.86
-- return_20d: -4.4
-- volume_ratio: 0.4
-- distance_to_ma20_pct_auxiliary: -5.4
-- distance_to_high_60_pct: -10.68
+- date: 20260612
+- open: 166
+- high: 170
+- low: 165.5
+- close: 166
+- volume: 558627
+- ma5: 168.4
+- ema23_primary: 168.86
+- distance_to_ema23_pct: -1.69
+- ma20: 171.72
+- ma60: 159.24
+- ma120: 152.55
+- return_5d: -4.05
+- return_20d: -6.48
+- volume_ratio: 0.41
+- distance_to_ma20_pct_auxiliary: -3.33
+- distance_to_high_60_pct: -9.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,178,180,173,177.5,4229432,159.4,11.35,159.45,150.62,2.28
 20260513,176,178,172.5,173.5,2447215,160.58,8.05,160.47,151.08,1.26
 20260514,175.5,179,173,174.5,1580363,161.74,7.89,161.65,151.55,0.81
 20260515,175,175.5,167.5,169,1599114,162.34,4.1,162.3,151.96,0.81
@@ -155,26 +154,26 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,176,176,168.5,173,1380749,169.78,1.9,172.75,158.27,0.77
 20260605,167,169,163,168.5,794586,169.67,-0.69,172.68,158.6,0.5
 20260611,160.5,166,159.5,163,615381,169.12,-3.62,172.3,158.87,0.4
+20260612,166,170,165.5,166,558627,168.86,-1.69,171.72,159.24,0.41
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 42.3
-- over_600_ratio: 38.55
-- over_800_ratio: 35.74
-- over_1000_ratio: 32.69
-- over_400_change_1w: -0.93
-- over_800_change_1w: 0.03
-- over_1000_change_1w: -0.74
-- tdcc_consecutive_up_weeks: 7
-- all_thresholds_up: False
+- as_of_date: 20260612
+- over_400_ratio: 42.41
+- over_600_ratio: 39.44
+- over_800_ratio: 36.63
+- over_1000_ratio: 32.87
+- over_400_change_1w: 0.11
+- over_800_change_1w: 0.89
+- over_1000_change_1w: 0.18
+- tdcc_consecutive_up_weeks: 8
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260320,41.31,0.28,33.22,-0.94,29.46,-0.84,9,False,False
 20260327,41.39,0.08,35.29,2.07,32.47,3.01,10,True,True
 20260402,42.04,0.65,35.19,-0.1,32.34,-0.13,11,False,False
 20260410,41.41,-0.63,35.15,-0.04,31.46,-0.88,0,False,False
@@ -186,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,43.63,1.18,35.67,0.01,33.39,0.71,5,True,True
 20260529,43.23,-0.4,35.71,0.04,33.43,0.04,6,False,True
 20260605,42.3,-0.93,35.74,0.03,32.69,-0.74,7,False,True
+20260612,42.41,0.11,36.63,0.89,32.87,0.18,8,True,True
 ```
 
 ## Candidate Context
@@ -201,7 +201,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 4961 | 天鈺 | 11 | 0 | 1474970.0 | 0.0 |  | no_signal |
+| 20260612 | 4961 | 天鈺 | 11 | 0 | 1134590.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

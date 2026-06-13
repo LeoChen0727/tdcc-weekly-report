@@ -132,14 +132,14 @@ PDF_TOKEN_ZH = {
     "pullback_rebound": "回檔後短線轉強",
     "pattern": "型態觀察",
     "short_term_specialty": "短線專項",
-    "volume_breakout": "底部放量攻擊",
-    "bottom_volume_attack": "底部放量攻擊",
+    "volume_breakout": "放量攻擊",
+    "bottom_volume_attack": "放量攻擊",
     "range_breakout_volume": "帶量突破盤整區間",
     "range_breakout_watch": "接近盤整上緣觀察",
     "ma_reclaim_volume_attack": "帶量站回均線",
     "near_high_volume_watch": "接近前高帶量觀察",
     "strict_high_breakout": "帶量突破波段高點",
-    "failed_range_breakout_risk": "盤整區間假突破風險",
+    "failed_range_breakout_risk": "盤整突破漲幅過低風險",
     "mainstream": "主流",
     "non_mainstream": "非主流",
     "mainstream_leader": "主流領先族群",
@@ -170,7 +170,7 @@ PDF_TOKEN_ZH = {
     "ma_reclaim_volume_attack": "帶量站回均線",
     "near_high_volume_watch": "近高帶量觀察",
     "strict_high_breakout": "帶量突破波段高點",
-    "failed_range_breakout_risk": "盤整假突破風險",
+    "failed_range_breakout_risk": "盤整突破漲幅過低風險",
     "confirmed_volume_theme": "已確認放量族群",
     "early_mainstream_candidate": "早期主流候選",
     "watch_volume_theme": "放量觀察族群",
@@ -313,6 +313,12 @@ def clean_text(text: Any, limit: int | None = None) -> str:
     if limit and len(result) > limit:
         result = result[: max(0, limit - 1)] + "…"
     return result
+
+
+def frame_column(frame: pd.DataFrame, column: str, default: Any = "") -> pd.Series:
+    if column in frame.columns:
+        return frame[column]
+    return pd.Series(default, index=frame.index)
 
 
 def pct_text(value: Any, suffix: str = "%") -> str:
@@ -480,7 +486,7 @@ def load_candidates() -> pd.DataFrame:
     df = pd.read_csv(ALL_CANDIDATES_CSV, dtype=str, keep_default_na=False)
     if "category" in df.columns:
         df = df[~df["category"].astype(str).isin(EXCLUDED_FINAL_REPORT_CATEGORIES)].copy()
-    for col in ["score", "rank", "decision_score", "volume_ratio", "return_20d", "return_60d", "return_120d"]:
+    for col in ["score", "rank", "model_score", "volume_ratio", "return_20d", "return_60d", "return_120d"]:
         if col in df.columns:
             df[col] = pd.to_numeric(df[col], errors="coerce")
     df["category_key"] = df.apply(category_key, axis=1)
@@ -828,9 +834,6 @@ def overheated(row: pd.Series) -> bool:
 
 
 def priority_label(row: pd.Series) -> str:
-    decision_label = clean_text(row.get("decision_priority_label", ""))
-    if decision_label:
-        return decision_label
     tdcc = tdcc_signal_raw(row)
     rev = clean_text(row.get("revaluation_priority", ""))
     if tdcc == "distribution_warning" or rev.startswith("D_") or is_truthy(row.get("already_priced_in", "")) or overheated(row):
@@ -845,19 +848,6 @@ def priority_label(row: pd.Series) -> str:
 
 
 def sort_score(row: pd.Series) -> float:
-    decision_priority = clean_text(row.get("decision_priority", ""))
-    decision_score = safe_float(row.get("decision_score"), math.nan)
-    if decision_priority:
-        priority_bonus = {
-            "A_priority_watch": 1000,
-            "B_confirm_needed": 700,
-            "C_watch_only": 350,
-            "D_risk_downgrade": 0,
-        }.get(decision_priority, 250)
-        if math.isnan(decision_score):
-            decision_score = 0
-        return priority_bonus + decision_score
-
     priority_bonus = {
         "最優先追蹤": 1000,
         "可等確認": 700,
@@ -870,19 +860,14 @@ def sort_score(row: pd.Series) -> float:
         "neutral": 30,
         "distribution_warning": -250,
     }.get(tdcc_signal_raw(row), 0)
+    model_score = safe_float(row.get("model_score"), math.nan)
+    if not math.isnan(model_score):
+        return priority_bonus + tdcc_bonus + model_score
     score = safe_float(row.get("score"), 0)
     rank = safe_float(row.get("rank"), 9999)
     rank_bonus = max(0, 100 - rank) if not math.isnan(rank) else 0
     volume_bonus = min(safe_float(row.get("volume_ratio"), 0) * 10, 60)
     return priority_bonus + tdcc_bonus + score + rank_bonus + volume_bonus
-
-
-DECISION_PRIORITY_ORDER = {
-    "A_priority_watch": 1,
-    "B_confirm_needed": 2,
-    "C_watch_only": 3,
-    "D_risk_downgrade": 4,
-}
 
 
 WARNING_FLAG_COLUMNS = [
@@ -917,11 +902,7 @@ WARNING_TOKENS = [
 ]
 
 
-def decision_priority_order(row: pd.Series) -> int:
-    return DECISION_PRIORITY_ORDER.get(clean_text(row.get("decision_priority", "")), 9)
-
-
-def has_decision_warning(row: pd.Series) -> bool:
+def has_report_warning(row: pd.Series) -> bool:
     theme_status = clean_text(row.get("theme_final_status", "")).lower()
     theme_mainstream_status = clean_text(row.get("theme_mainstream_status", "")).lower()
     risky_theme_statuses = {
@@ -949,9 +930,7 @@ def has_decision_warning(row: pd.Series) -> bool:
 
 
 def front_priority_eligible(row: pd.Series) -> bool:
-    if clean_text(row.get("decision_priority", "")) != "A_priority_watch":
-        return False
-    if has_decision_warning(row):
+    if has_report_warning(row):
         return False
     line_group = clean_text(row.get("candidate_line_group", ""))
     if line_group == "risk":
@@ -959,27 +938,26 @@ def front_priority_eligible(row: pd.Series) -> bool:
     return True
 
 
-def decision_sort(part: pd.DataFrame) -> pd.DataFrame:
+def report_sort(part: pd.DataFrame) -> pd.DataFrame:
     if part.empty:
         return part
     work = part.copy()
-    work["_decision_order"] = work.apply(decision_priority_order, axis=1)
-    work["_has_warning"] = work.apply(has_decision_warning, axis=1).astype(int)
-    work["_decision_score"] = pd.to_numeric(work.get("decision_score", ""), errors="coerce").fillna(0)
+    work["_has_warning"] = work.apply(has_report_warning, axis=1).astype(int)
+    work["_model_score"] = pd.to_numeric(frame_column(work, "model_score"), errors="coerce").fillna(-999)
     return work.sort_values(
-        ["_decision_order", "_has_warning", "_decision_score", "sort_score"],
-        ascending=[True, True, False, False],
-    ).drop(columns=["_decision_order", "_has_warning", "_decision_score"], errors="ignore")
+        ["_has_warning", "_model_score", "sort_score"],
+        ascending=[True, False, False],
+    ).drop(columns=["_has_warning", "_model_score"], errors="ignore")
 
 
 def score_rank_text(row: pd.Series) -> str:
     parts: list[str] = []
-    decision_score = num_text(row.get("decision_score"), 1)
+    model_score = num_text(row.get("model_score"), 1)
     score = num_text(row.get("score"), 1)
     rank = num_text(row.get("rank"), 0)
     priority = clean_text(row.get("revaluation_priority", ""))
-    if decision_score:
-        parts.append(f"decision {decision_score}")
+    if model_score:
+        parts.append(f"model {model_score}")
     if score:
         parts.append(f"score {score}")
     if rank:
@@ -1112,8 +1090,8 @@ def warning_confirmation_text(row: pd.Series, limit: int = 120) -> str:
         parts.append(f"風險標籤：{display_zh(flags)}")
     if confirm:
         parts.append(f"下一確認：{display_zh(confirm)}")
-    if not parts and has_decision_warning(row):
-        parts.append("風險提醒：決策層有風險標籤，不可過度放大為最高優先。")
+    if not parts and has_report_warning(row):
+        parts.append("風險提醒：既有風險標籤不可過度放大為最高優先。")
     return display_zh(clean_text(" / ".join(parts), limit))
 
 
@@ -1191,8 +1169,13 @@ def catalyst_rows(df: pd.DataFrame) -> list[list[Any]]:
         return [["Stock", "Original category", "Catalyst layer", "TDCC / action"], ["n/a", "n/a", "No catalyst layer columns available", "keep original category"]]
 
     part = df.copy()
-    part["_catalyst_score_sort"] = pd.to_numeric(part.get("catalyst_strength_score", part.get("fundamental_catalyst_score", "")), errors="coerce").fillna(0)
-    proximity_score = pd.to_numeric(part.get("event_proximity_score", ""), errors="coerce").fillna(0)
+    catalyst_score_source = (
+        frame_column(part, "catalyst_strength_score")
+        if "catalyst_strength_score" in part.columns
+        else frame_column(part, "fundamental_catalyst_score")
+    )
+    part["_catalyst_score_sort"] = pd.to_numeric(catalyst_score_source, errors="coerce").fillna(0)
+    proximity_score = pd.to_numeric(frame_column(part, "event_proximity_score"), errors="coerce").fillna(0)
     mask = (
         part["_catalyst_score_sort"].gt(0)
         | proximity_score.gt(0)
@@ -1324,18 +1307,18 @@ def theme_leadership_rows(theme_df: pd.DataFrame, limit: int = 12) -> list[list[
 
 
 def two_line_rows(two_line: pd.DataFrame, groups: set[str], limit: int = 12) -> list[list[Any]]:
-    rows = [["股票", "分類", "族群", "結構", "報告線", "優先級", "分數", "TDCC", "權證", "連續", "備註"]]
+    rows = [["股票", "分類", "族群", "結構", "報告線", "模型分數", "TDCC", "權證", "連續", "備註"]]
     if two_line.empty:
-        rows.append(["無資料", "", "", "", "", "", "", "", "", "", "雙線候選表缺失"])
+        rows.append(["無資料", "", "", "", "", "", "", "", "", "雙線候選表缺失"])
         return rows
     part = two_line[two_line["candidate_line_group"].isin(groups)].copy()
     if part.empty:
-        rows.append(["無資料", "", "", "", "", "", "", "", "", "", "本區無符合資料"])
+        rows.append(["無資料", "", "", "", "", "", "", "", "", "本區無符合資料"])
         return rows
-    part["_priority_order"] = part["decision_priority"].map(DECISION_PRIORITY_ORDER).fillna(9)
-    part["_has_warning"] = part.apply(has_decision_warning, axis=1).astype(int)
-    part["_score"] = pd.to_numeric(part.get("decision_score", ""), errors="coerce").fillna(0)
-    part = part.sort_values(["_priority_order", "_has_warning", "_score"], ascending=[True, True, False]).head(limit)
+    part["_has_warning"] = part.apply(has_report_warning, axis=1).astype(int)
+    score_source = part["model_score"] if "model_score" in part.columns else part.get("score", pd.Series("", index=part.index))
+    part["_score"] = pd.to_numeric(score_source, errors="coerce").fillna(0)
+    part = part.sort_values(["_has_warning", "_score"], ascending=[True, False]).head(limit)
     for _, row in part.iterrows():
         note = warning_confirmation_text(row, 85) or clean_text(row.get("theme_leadership_note", ""), 85)
         rows.append(
@@ -1345,8 +1328,7 @@ def two_line_rows(two_line: pd.DataFrame, groups: set[str], limit: int = 12) -> 
                 f"{clean_text(display_zh(row.get('theme_name', '')), 14)} / {clean_text(display_zh(row.get('theme_final_status', '')), 24)}",
                 clean_text(display_zh(row.get("theme_structural_status", "")), 20),
                 clean_text(display_zh(row.get("candidate_line", "")), 20),
-                clean_text(display_zh(row.get("decision_priority", "")), 20),
-                safe_str(row.get("decision_score", "")),
+                safe_str(row.get("model_score", row.get("score", ""))),
                 clean_text(display_zh(row.get("tdcc_status", "")), 20),
                 clean_text(display_zh(row.get("warrant_flow_signal", "")), 18),
                 clean_text(display_zh(row.get("repeat_appear_label", "")), 18),
@@ -1386,7 +1368,7 @@ def append_theme_leadership_sections(
         make_table(
             two_line_rows(two_line, {"two_line_overlap"}, limit=8 if compact else 20),
             style_map,
-            [1.5 * cm, 1.4 * cm, 2.1 * cm, 1.6 * cm, 1.7 * cm, 1.3 * cm, 0.6 * cm, 1.1 * cm, 1.0 * cm, 1.0 * cm, 2.9 * cm],
+            [1.5 * cm, 1.4 * cm, 2.1 * cm, 1.6 * cm, 1.7 * cm, 1.0 * cm, 1.1 * cm, 1.0 * cm, 1.0 * cm, 3.5 * cm],
             header_bg="#1F4E79",
         )
     )
@@ -1396,7 +1378,7 @@ def append_theme_leadership_sections(
         make_table(
             two_line_rows(two_line, {"mainstream_leader_stock", "mainstream_follow_through_stock", "emerging_theme_watch"}, limit=10 if compact else 30),
             style_map,
-            [1.5 * cm, 1.4 * cm, 2.1 * cm, 1.6 * cm, 1.7 * cm, 1.3 * cm, 0.6 * cm, 1.1 * cm, 1.0 * cm, 1.0 * cm, 2.9 * cm],
+            [1.5 * cm, 1.4 * cm, 2.1 * cm, 1.6 * cm, 1.7 * cm, 1.0 * cm, 1.1 * cm, 1.0 * cm, 1.0 * cm, 3.5 * cm],
             header_bg="#2F5597",
         )
     )
@@ -1419,7 +1401,7 @@ def append_theme_leadership_sections(
                 limit=10 if compact else 35,
             ),
             style_map,
-            [1.5 * cm, 1.4 * cm, 2.1 * cm, 1.6 * cm, 1.7 * cm, 1.3 * cm, 0.6 * cm, 1.1 * cm, 1.0 * cm, 1.0 * cm, 2.9 * cm],
+            [1.5 * cm, 1.4 * cm, 2.1 * cm, 1.6 * cm, 1.7 * cm, 1.0 * cm, 1.1 * cm, 1.0 * cm, 1.0 * cm, 3.5 * cm],
             header_bg="#7F6000",
         )
     )
@@ -1429,7 +1411,7 @@ def append_theme_leadership_sections(
         make_table(
             two_line_rows(two_line, {"risk"}, limit=8 if compact else 25),
             style_map,
-            [1.5 * cm, 1.4 * cm, 2.1 * cm, 1.6 * cm, 1.7 * cm, 1.3 * cm, 0.6 * cm, 1.1 * cm, 1.0 * cm, 1.0 * cm, 2.9 * cm],
+            [1.5 * cm, 1.4 * cm, 2.1 * cm, 1.6 * cm, 1.7 * cm, 1.0 * cm, 1.1 * cm, 1.0 * cm, 1.0 * cm, 3.5 * cm],
             header_bg="#7F1D1D",
         )
     )
@@ -1815,7 +1797,7 @@ def non_revenue_momentum_rows(df: pd.DataFrame, limit: int = 12) -> list[list[An
         rows.append(["n/a", "", "", "", "", "", "", "non_revenue_momentum_watch_latest.csv missing or empty"])
         return rows
     view = df.copy()
-    for col in ["non_revenue_momentum_type", "decision_score"]:
+    for col in ["non_revenue_momentum_type", "model_score"]:
         if col not in view.columns:
             view[col] = ""
     order = {
@@ -1825,7 +1807,7 @@ def non_revenue_momentum_rows(df: pd.DataFrame, limit: int = 12) -> list[list[An
         "D_overheated_or_failed_risk": 4,
     }
     view["_order"] = view["non_revenue_momentum_type"].map(order).fillna(99)
-    view["_score"] = pd.to_numeric(view["decision_score"], errors="coerce").fillna(-999)
+    view["_score"] = pd.to_numeric(view["model_score"], errors="coerce").fillna(-999)
     view = view.sort_values(["_order", "_score"], ascending=[True, False]).head(limit)
     for _, row in view.iterrows():
         rows.append(
@@ -1891,7 +1873,7 @@ def category_groups(df: pd.DataFrame) -> list[tuple[str, pd.DataFrame]]:
     groups: list[tuple[str, pd.DataFrame]] = []
     for cat in CATEGORY_ORDER:
         part = df[df["category_key"] == cat].copy()
-        part = decision_sort(part)
+        part = report_sort(part)
         groups.append((cat, part))
     return groups
 
@@ -1970,18 +1952,15 @@ def selected_by_category(df: pd.DataFrame, limit_default: int = 5) -> dict[str, 
             continue
         if cat == "revenue_breakout_low_response":
             preferred = part[
-                (part["decision_priority"].isin(["A_priority_watch", "B_confirm_needed"]))
-                & (~part.apply(has_decision_warning, axis=1))
+                (~part.apply(has_report_warning, axis=1))
                 & (part.apply(tdcc_signal, axis=1).isin(["strong_accumulation", "mild_accumulation"]))
             ].copy()
-            if preferred.empty:
-                preferred = part[part["decision_priority"] != "D_risk_downgrade"].copy()
             part = preferred if not preferred.empty else part
         else:
-            usable = part[part["decision_priority"] != "D_risk_downgrade"].copy()
+            usable = part[~part.apply(has_report_warning, axis=1)].copy()
             if not usable.empty:
                 part = usable
-        result[cat] = decision_sort(part).head(limits.get(cat, limit_default)).copy()
+        result[cat] = report_sort(part).head(limits.get(cat, limit_default)).copy()
     return result
 
 
@@ -1998,7 +1977,7 @@ def top_watchlist(selected: dict[str, pd.DataFrame]) -> pd.DataFrame:
     if not pieces:
         return pd.DataFrame()
     out = pd.concat(pieces, ignore_index=True)
-    return decision_sort(out).head(10)
+    return report_sort(out).head(10)
 
 
 def make_table(rows: list[list[Any]], style_map: dict[str, ParagraphStyle], widths: list[float], header_bg: str = "#1D3557") -> Table:
@@ -2438,8 +2417,8 @@ def best_rows_by_model(df: pd.DataFrame, limit: int | None = None) -> pd.DataFra
     if df.empty:
         return df
     work = df.copy()
-    work["_rank_num"] = pd.to_numeric(work.get("display_rank", ""), errors="coerce").fillna(999999)
-    work["_score_num"] = pd.to_numeric(work.get("model_score", ""), errors="coerce").fillna(-999999)
+    work["_rank_num"] = pd.to_numeric(frame_column(work, "display_rank"), errors="coerce").fillna(999999)
+    work["_score_num"] = pd.to_numeric(frame_column(work, "model_score"), errors="coerce").fillna(-999999)
     work = work.sort_values(["model_name_zh", "_rank_num", "_score_num"], ascending=[True, True, False])
     if limit is None:
         out = work
@@ -2590,7 +2569,7 @@ def model_signal_card(
         ["目前位置", current_position],
         ["技術狀態", technical],
         ["支撐 / 壓力", sr],
-        ["買進條件", buy],
+        ["下一確認", buy],
         ["停利 / 退出", f"{take_profit}；{exit_text}"],
         ["主要風險", risk],
         ["TDCC / 權證 / 營收補充", f"{tdcc}；{display_text(row.get('warrant_flow_signal_zh'), fallback='權證無明確訊號')}；來源：{display_text(row.get('source_hit_labels_zh'), fallback='使用模型來源欄位')}"],
@@ -2646,9 +2625,13 @@ def append_group_rotation_section(story: list[Any], style_map: dict[str, Paragra
     rotation = read_csv_safe(LATEST_DIR / "daily_candidate_group_rotation_latest.csv", dtype=str, keep_default_na=False)
     if rotation.empty:
         return
+    if "theme_resolution_status" in rotation.columns:
+        rotation = rotation[rotation["theme_resolution_status"].astype(str).eq("resolved")].copy()
+    if rotation.empty:
+        return
     story.append(PageBreak())
     story.append(para("族群資金輪動觀察", style_map["h1"]))
-    story.append(para("此段用於預判資金流向，不是個股買進模型。條件為同族群超過三分之一股票量比達 3 倍以上。", style_map["normal"]))
+    story.append(para("此段用於預判資金流向，不是個股操作模型。條件為同族群超過三分之一股票量比達 3 倍以上。", style_map["normal"]))
     rows = [["族群", "股票數", "3倍量檔數", "擴散比例", "龍頭 / 老二 / 老三", "解讀"]]
     for _, row in rotation.head(20).iterrows():
         rows.append(
@@ -2815,7 +2798,7 @@ def _model_signal_card_clean(
         ["目前位置", display_text(tech.get("price_position_summary_zh"), fallback="技術 snapshot 尚未完成 / 暫用現有資料")],
         ["技術狀態", display_text(tech.get("technical_summary_zh"), fallback="技術 snapshot 尚未完成 / 暫用現有資料")],
         ["支撐 / 壓力", display_text(tech.get("support_resistance_summary_zh"), fallback="支撐壓力欄位尚未完成 / 暫用現有資料")],
-        ["買進條件", display_text(tech.get("buy_condition_text_zh"), row.get("operation_reminder_zh"), fallback="依模型主條件成立後，以隔日開盤與支撐壓力控管。")],
+        ["下一確認", display_text(tech.get("buy_condition_text_zh"), row.get("operation_reminder_zh"), fallback="依模型主條件成立後，以隔日開盤與支撐壓力控管。")],
         ["停利 / 退出", f"{display_text(tech.get('take_profit_text_zh'), fallback='接近前高或量價失敗時分批停利。')}；{display_text(tech.get('exit_condition_text_zh'), fallback='跌破關鍵支撐且無法收回時退出。')}"],
         ["主要風險", display_text(row.get("risk_tags_zh"), row.get("tdcc_risk_text_zh"), fallback="風險欄位尚未完成 / 暫用現有資料")],
         ["TDCC / 權證 / 來源", f"{display_text(row.get('tdcc_big_holder_summary_zh'), row.get('tdcc_status_zh'), fallback='TDCC 欄位尚未完成')}；{display_text(row.get('warrant_flow_signal_zh'), fallback='權證欄位尚未完成')}；{display_text(row.get('source_hit_labels_zh'), fallback='來源欄位尚未完成')}"],
@@ -2879,7 +2862,7 @@ def _append_group_rotation_section_clean(story: list[Any], style_map: dict[str, 
         return
     story.append(PageBreak())
     story.append(para("族群資金輪動觀察", style_map["h1"]))
-    story.append(para("此區不是個股買進模型，用於觀察族群出量是否由龍頭擴散到老二、老三。", style_map["normal"]))
+    story.append(para("此區不是個股操作模型，用於觀察族群出量是否由龍頭擴散到老二、老三。", style_map["normal"]))
     rows = [["族群", "檔數", "3倍量檔數", "出量比例", "龍頭 / 老二 / 老三", "解讀"]]
     for _, row in rotation.head(20).iterrows():
         rows.append(
@@ -2967,7 +2950,7 @@ def _first_page_rows_final(df: pd.DataFrame) -> list[list[Any]]:
                 f"{safe_str(row.get('stock_id'))} {safe_str(row.get('stock_name'))}",
                 clean_text(f"{safe_str(row.get('model_score'))} / {_rank_for_display_final(row)}", 24),
                 _display_final(row.get("why_selected_human_zh"), row.get("why_selected_zh"), fallback="符合模型主要條件；詳細計分請看 score_components_zh。", limit=72),
-                _display_final(row.get("operation_reminder_zh"), row.get("risk_tags_zh"), row.get("next_confirmation_zh"), row.get("recommended_usage_zh"), fallback="依模型條件入選；買進後依支撐、量價與 TDCC 變化管理。", limit=72),
+                _display_final(row.get("operation_reminder_zh"), row.get("risk_tags_zh"), row.get("next_confirmation_zh"), row.get("recommended_usage_zh"), fallback="依模型條件入選；模型成立後依支撐、量價與 TDCC 變化管理。", limit=72),
             ]
         )
     return rows
@@ -2987,7 +2970,7 @@ def _model_detail_rows_final(df: pd.DataFrame) -> list[list[Any]]:
                 f"{safe_str(row.get('stock_id'))} {safe_str(row.get('stock_name'))}",
                 clean_text(row.get("model_score", ""), 8),
                 _display_final(row.get("why_selected_human_zh"), row.get("why_selected_zh"), fallback="符合模型主要條件；詳細計分請看 score_components_zh。", limit=66),
-                _display_final(row.get("operation_reminder_zh"), row.get("risk_tags_zh"), row.get("next_confirmation_zh"), row.get("recommended_usage_zh"), fallback="依模型條件入選；買進後依支撐、量價與 TDCC 變化管理。", limit=66),
+                _display_final(row.get("operation_reminder_zh"), row.get("risk_tags_zh"), row.get("next_confirmation_zh"), row.get("recommended_usage_zh"), fallback="依模型條件入選；模型成立後依支撐、量價與 TDCC 變化管理。", limit=66),
             ]
         )
     return rows
@@ -3009,12 +2992,12 @@ def _model_signal_card_final(
             para(title, style_map["curated_cell"]),
             para(f"分數 {safe_str(row.get('model_score'))} / {_rank_for_display_final(row)}", style_map["curated_cell"]),
         ],
-        [para("操作提醒", style_map["label"]), para(_display_final(row.get("operation_reminder_zh"), row.get("recommended_usage_zh"), fallback="依模型條件入選；買進後依支撐、量價與 TDCC 變化管理。"), style_map["curated_cell"])],
+        [para("模型提醒", style_map["label"]), para(_display_final(row.get("operation_reminder_zh"), row.get("recommended_usage_zh"), fallback="依模型條件入選；模型成立後依支撐、量價與 TDCC 變化管理。"), style_map["curated_cell"])],
         [para("目前位置", style_map["label"]), para(_display_final(tech.get("price_position_summary_zh"), fallback="技術 snapshot 尚未完成 / 暫用 K 線圖判讀。"), style_map["curated_cell"])],
         [para("技術狀態", style_map["label"]), para(_display_final(tech.get("technical_summary_zh"), fallback="技術 snapshot 尚未完成 / 暫用 K 線圖判讀。"), style_map["curated_cell"])],
         [para("支撐 / 壓力", style_map["label"]), para(_display_final(tech.get("support_resistance_summary_zh"), fallback="支撐壓力欄位尚未完成 / 暫用 23EMA、前高與近期低點管理。"), style_map["curated_cell"])],
         [para("入選優點", style_map["label"]), para(_display_final(row.get("why_selected_human_zh"), row.get("why_selected_zh"), fallback="符合模型主要條件；詳細計分請看 score_components_zh。"), style_map["curated_cell"])],
-        [para("買進條件", style_map["label"]), para(_display_final(tech.get("buy_condition_text_zh"), row.get("operation_reminder_zh"), fallback="依模型條件入選；實際進場以隔日開盤、支撐與量價確認管理。"), style_map["curated_cell"])],
+        [para("下一確認", style_map["label"]), para(_display_final(tech.get("buy_condition_text_zh"), row.get("operation_reminder_zh"), fallback="依模型條件入選；後續以隔日開盤、支撐與量價確認管理。"), style_map["curated_cell"])],
         [para("停利 / 退出", style_map["label"]), para(f"{_display_final(tech.get('take_profit_text_zh'), fallback='接近前高、爆量不漲或量價背離時分批停利。')}；{_display_final(tech.get('exit_condition_text_zh'), fallback='跌破 23EMA、近期低點或出現放量長黑時降低部位或退出。')}", style_map["curated_cell"])],
         [para("主要風險", style_map["label"]), para(_display_final(row.get("risk_tags_zh"), row.get("tdcc_risk_text_zh"), row.get("downgrade_flags_zh"), fallback="風險欄位尚未完成 / 需觀察量價、TDCC 與事件後續。"), style_map["curated_cell"])],
         [para("TDCC / 權證 / 來源", style_map["label"]), para(f"{_display_final(row.get('tdcc_big_holder_summary_zh'), row.get('tdcc_status_zh'), fallback='TDCC 摘要尚未完成')}；{_display_final(row.get('warrant_flow_signal_zh'), fallback='權證訊號尚未完成')}；{_display_final(row.get('source_hit_labels_zh'), fallback='來源分類尚未完成')}", style_map["curated_cell"])],
@@ -3076,7 +3059,7 @@ def _append_group_rotation_section_final(story: list[Any], style_map: dict[str, 
         return
     story.append(PageBreak())
     story.append(para("族群資金輪動觀察", style_map["h1"]))
-    story.append(para("這不是個股買進模型。用途是觀察同族群是否出現資金擴散，判斷資金是否從龍頭擴散到第二、第三順位。", style_map["normal"]))
+    story.append(para("這不是個股操作模型。用途是觀察同族群是否出現資金擴散，判斷資金是否從龍頭擴散到第二、第三順位。", style_map["normal"]))
     rows = [["族群", "股票數", "3倍量家數", "出量比例", "龍頭 / 老二 / 老三", "解讀"]]
     for _, row in rotation.head(20).iterrows():
         rows.append(
@@ -3144,7 +3127,7 @@ PDF_DISPLAY_TOKEN_ZH_CLEAN = {
     "price_pullback_23ema": "股價回檔",
     "tdcc_stealth_accumulation": "TDCC潛伏吸籌",
     "tdcc_short_term_continuation_d5_d10": "TDCC短線延續 D+5/D+10",
-    "volume_range_breakout": "底部放量攻擊",
+    "volume_range_breakout": "放量攻擊",
     "w_bottom_right_side": "W底右側",
     "platform_strengthening": "平台整理轉強",
     "near_high_neckline_challenge": "接近前高/頸線挑戰",
@@ -3412,7 +3395,7 @@ def _model_signal_card_readable(
         [para("技術狀態", style_map["label"]), para(_pdf_human_text(tech.get("technical_summary_zh"), fallback="技術指標摘要尚未完成，暫用K線圖判讀。"), style_map["curated_cell"])],
         [para("支撐 / 壓力", style_map["label"]), para(_pdf_human_text(tech.get("support_resistance_summary_zh"), fallback="支撐壓力摘要尚未完成，請以23EMA、平台與近期高低點管理。"), style_map["curated_cell"])],
         [para("入選優點", style_map["label"]), para(_pdf_human_text(row.get("why_selected_human_zh"), row.get("why_selected_zh"), fallback="模型條件成立。"), style_map["curated_cell"])],
-        [para("買進條件", style_map["label"]), para(_pdf_human_text(tech.get("buy_condition_text_zh"), row.get("operation_reminder_zh"), fallback="依模型入選條件與隔日開盤後量價確認執行。"), style_map["curated_cell"])],
+        [para("下一確認", style_map["label"]), para(_pdf_human_text(tech.get("buy_condition_text_zh"), row.get("operation_reminder_zh"), fallback="依模型入選條件與隔日開盤後量價確認管理。"), style_map["curated_cell"])],
         [para("停利 / 退出", style_map["label"]), para(f"{_pdf_human_text(tech.get('take_profit_text_zh'), fallback='接近壓力或量價背離時分批停利。')} / {_pdf_human_text(tech.get('exit_condition_text_zh'), fallback='跌破關鍵支撐、23EMA或出現量價失敗時退出。')}", style_map["curated_cell"])],
         [para("主要風險", style_map["label"]), para(_pdf_human_text(row.get("risk_tags_zh"), row.get("tdcc_risk_text_zh"), row.get("downgrade_flags_zh"), fallback="風險標籤尚未完成，仍需檢查TDCC、權證、量價與市場背景。"), style_map["curated_cell"])],
         [para("TDCC / 權證 / 來源", style_map["label"]), para(f"{_pdf_human_text(row.get('tdcc_big_holder_summary_zh'), row.get('tdcc_status_zh'), fallback='TDCC摘要尚未完成')} / {_pdf_human_text(row.get('warrant_flow_signal_zh'), fallback='權證摘要尚未完成')} / {_pdf_human_text(row.get('source_hit_labels_zh'), fallback='來源標籤尚未完成')}", style_map["curated_cell"])],
@@ -3472,9 +3455,13 @@ def _append_group_rotation_section_readable(story: list[Any], style_map: dict[st
     rotation = read_csv_safe(LATEST_DIR / "daily_candidate_group_rotation_latest.csv", dtype=str, keep_default_na=False)
     if rotation.empty:
         return
+    if "theme_resolution_status" in rotation.columns:
+        rotation = rotation[rotation["theme_resolution_status"].astype(str).eq("resolved")].copy()
+    if rotation.empty:
+        return
     story.append(PageBreak())
     story.append(para("族群資金輪動觀察", style_map["h1"]))
-    story.append(para("這一段用來觀察同族群是否出現量能擴散，不是直接買進名單。", style_map["normal"]))
+    story.append(para("這一段用來觀察同族群是否出現量能擴散，不是直接操作名單。", style_map["normal"]))
     rows = [["族群", "股票數", "3倍量檔數", "擴散比例", "龍頭 / 老二 / 老三", "解讀"]]
     for _, row in rotation.head(20).iterrows():
         rows.append(
@@ -3628,7 +3615,7 @@ PDF_DISPLAY_TOKEN_ZH_FINAL = {
     "price_pullback_23ema": "\u80a1\u50f9\u56de\u6a94",
     "tdcc_stealth_accumulation": "TDCC\u6f5b\u4f0f\u5438\u7c4c",
     "tdcc_short_term_continuation_d5_d10": "TDCC\u77ed\u7dda\u5ef6\u7e8c D+5/D+10",
-    "volume_range_breakout": "底部放量攻擊",
+    "volume_range_breakout": "放量攻擊",
     "w_bottom_right_side": "W\u5e95\u53f3\u5074",
     "platform_strengthening": "\u5e73\u53f0\u6574\u7406\u8f49\u5f37",
     "near_high_neckline_challenge": "\u63a5\u8fd1\u524d\u9ad8/\u9838\u7dda\u6311\u6230",
@@ -3890,13 +3877,17 @@ def _append_group_rotation_section_readable(story: list[Any], style_map: dict[st
     rotation = read_csv_safe(LATEST_DIR / "daily_candidate_group_rotation_latest.csv", dtype=str, keep_default_na=False)
     if rotation.empty:
         return
+    if "theme_resolution_status" in rotation.columns:
+        rotation = rotation[rotation["theme_resolution_status"].astype(str).eq("resolved")].copy()
+    if rotation.empty:
+        return
     story.append(PageBreak())
     story.append(para("\u65cf\u7fa4\u8cc7\u91d1\u8f2a\u52d5\u89c0\u5bdf", style_map["h1"]))
     story.append(para("\u672c\u7bc0\u53ea\u5224\u8b80\u65cf\u7fa4\u51fa\u91cf\u64f4\u6563\uff0c\u4e0d\u76f4\u63a5\u7576\u500b\u80a1\u8cb7\u9032\u7406\u7531\u3002", style_map["normal"]))
     rows = [["\u65cf\u7fa4", "\u6a94\u6578", "3\u500d\u91cf\u6a94\u6578", "\u64f4\u6563\u6bd4\u4f8b", "\u9f8d\u982d/\u8001\u4e8c/\u8001\u4e09", "\u89e3\u8b80"]]
     for _, row in rotation.head(20).iterrows():
         rows.append([
-            _pdf_human_text(row.get("theme"), fallback="\u65cf\u7fa4\u5c1a\u672a\u5b8c\u6210", limit=18),
+            _pdf_human_text(row.get("theme_display_zh"), row.get("theme"), fallback="\u65cf\u7fa4\u5c1a\u672a\u5b8c\u6210", limit=18),
             clean_text(row.get("stock_count", ""), 8),
             clean_text(row.get("volume_expansion_3x_count", ""), 8),
             clean_text(row.get("volume_expansion_ratio", ""), 8),

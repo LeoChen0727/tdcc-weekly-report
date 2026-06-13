@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6754 匯僑設計
 
 ## Metadata
-- generated_at: 2026-06-11 22:24:01 Asia/Taipei
+- generated_at: 2026-06-13 22:24:13 Asia/Taipei
 - stock_id: 6754
 - stock_name: 匯僑設計
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 44.85
-- high: 45.5
-- low: 44.45
-- close: 44.5
-- volume: 51009
-- ma5: 45.51
+- date: 20260612
+- open: 45.15
+- high: 45.2
+- low: 44.8
+- close: 45
+- volume: 20719
+- ma5: 45.36
 - ema23_primary: 44.98
-- distance_to_ema23_pct: -1.07
-- ma20: 44.56
+- distance_to_ema23_pct: 0.04
+- ma20: 44.55
 - ma60: 45.38
-- ma120: 45.57
-- return_5d: -4.4
-- return_20d: -1.55
-- volume_ratio: 1.55
-- distance_to_ma20_pct_auxiliary: -0.13
-- distance_to_high_60_pct: -7.1
+- ma120: 45.56
+- return_5d: -1.64
+- return_20d: -0.44
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: 1.02
+- distance_to_high_60_pct: -6.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,45.2,45.6,45,45.2,11800,45.92,-1.58,46.41,44.96,0.63
 20260513,45.2,45.2,44.8,45.15,22142,45.86,-1.55,46.32,44.98,1.24
 20260514,44.55,45,44.45,44.45,28315,45.74,-2.82,46.16,44.99,1.61
 20260515,44.45,44.55,43.8,44.05,39661,45.6,-3.4,46.02,45,2.17
@@ -155,18 +154,19 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,46.6,46.6,45,45.75,42115,44.97,1.73,44.61,45.3,1.32
 20260605,46,46,45.55,45.6,13197,45.02,1.28,44.59,45.34,0.42
 20260611,44.85,45.5,44.45,44.5,51009,44.98,-1.07,44.56,45.38,1.55
+20260612,45.15,45.2,44.8,45,20719,44.98,0.04,44.55,45.38,0.62
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 83.06
+- as_of_date: 20260612
+- over_400_ratio: 83.08
 - over_600_ratio: 81.35
 - over_800_ratio: 81.35
 - over_1000_ratio: 81.35
-- over_400_change_1w: 0
+- over_400_change_1w: 0.02
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,83.06,0,81.35,0,81.35,0,0,False,False
 20260529,83.06,0,81.35,0,81.35,0,0,False,False
 20260605,83.06,0,81.35,0,81.35,0,0,False,False
+20260612,83.08,0.02,81.35,0,81.35,0,1,False,False
 ```
 
 ## Candidate Context

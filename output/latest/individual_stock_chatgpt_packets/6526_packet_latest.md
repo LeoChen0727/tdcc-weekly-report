@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6526 達發
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:54 Asia/Taipei
+- generated_at: 2026-06-13 22:24:05 Asia/Taipei
 - stock_id: 6526
 - stock_name: 達發
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 619
-- high: 629
-- low: 598
-- close: 618
-- volume: 770739
-- ma5: 685.4
-- ema23_primary: 669
-- distance_to_ema23_pct: -7.62
-- ma20: 690
-- ma60: 588.87
-- ma120: 522.32
-- return_5d: -8.17
-- return_20d: -17.6
-- volume_ratio: 0.47
-- distance_to_ma20_pct_auxiliary: -10.43
-- distance_to_high_60_pct: -21.47
+- date: 20260612
+- open: 646
+- high: 646
+- low: 630
+- close: 633
+- volume: 381008
+- ma5: 669.2
+- ema23_primary: 666
+- distance_to_ema23_pct: -4.96
+- ma20: 684.95
+- ma60: 590.27
+- ma120: 523.75
+- return_5d: -11.34
+- return_20d: -13.76
+- volume_ratio: 0.25
+- distance_to_ma20_pct_auxiliary: -7.58
+- distance_to_high_60_pct: -19.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,750,753,724,734,2247276,605.74,21.17,593.15,524.23,0.85
 20260513,726,729,695,703,1748310,613.84,14.52,603.65,528.42,0.65
 20260514,722,724,700,706,1424526,621.52,13.59,614.6,532.49,0.52
 20260515,718,724,687,688,1485581,627.06,9.72,623.85,536.42,0.54
@@ -154,18 +154,19 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,684,715,678,714,2511965,674.06,5.93,700.8,584,1.2
 20260605,685,687,660,669,597039,673.64,-0.69,696.6,587.03,0.33
 20260611,619,629,598,618,770739,669,-7.62,690,588.87,0.47
+20260612,646,646,630,633,381008,666,-4.96,684.95,590.27,0.25
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 78.39
-- over_600_ratio: 77.31
+- as_of_date: 20260612
+- over_400_ratio: 78.16
+- over_600_ratio: 77.32
 - over_800_ratio: 75.98
 - over_1000_ratio: 75.41
-- over_400_change_1w: 0.41
+- over_400_change_1w: -0.23
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 2
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -179,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,77.81,-0.01,76.46,-0.02,75.41,0,0,False,False
 20260529,77.98,0.17,75.98,-0.48,75.41,0,1,False,False
 20260605,78.39,0.41,75.98,0,75.41,0,2,False,False
+20260612,78.16,-0.23,75.98,0,75.41,0,3,False,False
 ```
 
 ## Candidate Context
@@ -194,7 +196,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 6526 | 達發 | 36 | 0 | 1651470.0 | 0.0 |  | no_signal |
+| 20260612 | 6526 | 達發 | 36 | 1 | 1177130.0 | 1820.0 | 646.77 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

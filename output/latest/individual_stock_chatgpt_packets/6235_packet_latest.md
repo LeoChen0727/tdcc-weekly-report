@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6235 華孚
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:48 Asia/Taipei
+- generated_at: 2026-06-13 22:23:57 Asia/Taipei
 - stock_id: 6235
 - stock_name: 華孚
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
+- date: 20260612
 - open: 41
-- high: 41
-- low: 39.55
-- close: 40.2
-- volume: 925623
-- ma5: 44.22
-- ema23_primary: 43.31
-- distance_to_ema23_pct: -7.17
-- ma20: 42.34
-- ma60: 44.81
-- ma120: 52.09
-- return_5d: -14.83
-- return_20d: -7.8
-- volume_ratio: 0.5
-- distance_to_ma20_pct_auxiliary: -5.05
-- distance_to_high_60_pct: -21.79
+- high: 41.6
+- low: 40.75
+- close: 40.95
+- volume: 469989
+- ma5: 43.27
+- ema23_primary: 43.11
+- distance_to_ema23_pct: -5.01
+- ma20: 42.25
+- ma60: 44.67
+- ma120: 51.93
+- return_5d: -10.39
+- return_20d: -4.1
+- volume_ratio: 0.25
+- distance_to_ma20_pct_auxiliary: -3.08
+- distance_to_high_60_pct: -20.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,43.6,43.65,42.65,42.7,724591,44.61,-4.29,44.47,48.95,0.97
 20260513,42,42.1,40.3,41.25,1514078,44.33,-6.95,44.27,48.66,1.92
 20260514,41.5,42.05,40.1,40.35,1361737,44,-8.3,44.03,48.32,1.66
 20260515,40.55,41.9,39.95,40.15,1354234,43.68,-8.08,43.74,48.02,1.57
@@ -154,17 +154,18 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,47.2,47.2,45.1,45.7,2965926,43.54,4.97,42.45,45.07,1.61
 20260605,45.1,45.3,44,44.15,1028119,43.59,1.29,42.51,44.99,0.56
 20260611,41,41,39.55,40.2,925623,43.31,-7.17,42.34,44.81,0.5
+20260612,41,41.6,40.75,40.95,469989,43.11,-5.01,42.25,44.67,0.25
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 41.02
-- over_600_ratio: 39.43
-- over_800_ratio: 36.99
-- over_1000_ratio: 36.57
-- over_400_change_1w: -1.92
-- over_800_change_1w: -1.65
-- over_1000_change_1w: -1.16
+- as_of_date: 20260612
+- over_400_ratio: 40.71
+- over_600_ratio: 39.34
+- over_800_ratio: 36.93
+- over_1000_ratio: 36.46
+- over_400_change_1w: -0.31
+- over_800_change_1w: -0.06
+- over_1000_change_1w: -0.11
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -179,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,42.7,0.12,37.9,0.89,36.54,-0.02,3,False,True
 20260529,42.94,0.24,38.64,0.74,37.73,1.19,4,True,True
 20260605,41.02,-1.92,36.99,-1.65,36.57,-1.16,0,False,False
+20260612,40.71,-0.31,36.93,-0.06,36.46,-0.11,0,False,False
 ```
 
 ## Candidate Context
@@ -194,7 +196,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 6235 | 華孚 | 11 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260612 | 6235 | 華孚 | 9 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

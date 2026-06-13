@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6116 彩晶
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:42 Asia/Taipei
+- generated_at: 2026-06-13 22:23:49 Asia/Taipei
 - stock_id: 6116
 - stock_name: 彩晶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 14.25
-- high: 14.25
-- low: 13.1
-- close: 14.2
-- volume: 33646301
-- ma5: 19.33
-- ema23_primary: 14.6
-- distance_to_ema23_pct: -2.76
-- ma20: 14.24
-- ma60: 10.5
-- ma120: 9.55
-- return_5d: -24.47
-- return_20d: 46.24
-- volume_ratio: 0.2
-- distance_to_ma20_pct_auxiliary: -0.28
-- distance_to_high_60_pct: -37.44
+- date: 20260612
+- open: 15.55
+- high: 15.6
+- low: 15.55
+- close: 15.6
+- volume: 21523290
+- ma5: 18.32
+- ema23_primary: 14.69
+- distance_to_ema23_pct: 6.22
+- ma20: 14.49
+- ma60: 10.6
+- ma120: 9.62
+- return_5d: -24.46
+- return_20d: 46.48
+- volume_ratio: 0.14
+- distance_to_ma20_pct_auxiliary: 7.68
+- distance_to_high_60_pct: -31.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,9.73,10.65,9.69,10.65,134250146,8.89,19.83,8.84,8.67,3.78
 20260513,10.85,11.7,10.65,11.25,497020914,9.08,23.84,8.96,8.72,8.46
 20260514,11.25,11.3,10.3,10.4,191343134,9.19,13.11,9.04,8.75,2.86
 20260515,10.5,11.2,10.15,10.25,104759367,9.28,10.43,9.09,8.78,1.51
@@ -155,20 +153,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,20.65,20.65,19,20.65,200560076,14.29,44.48,13.55,10.25,1.17
 20260605,18.45,18.45,18.45,18.45,18628794,14.64,26.03,14.02,10.41,0.11
 20260611,14.25,14.25,13.1,14.2,33646301,14.6,-2.76,14.24,10.5,0.2
+20260612,15.55,15.6,15.55,15.6,21523290,14.69,6.22,14.49,10.6,0.14
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 45.01
-- over_600_ratio: 43.89
-- over_800_ratio: 43.34
-- over_1000_ratio: 42.81
-- over_400_change_1w: -1.46
-- over_800_change_1w: -1
-- over_1000_change_1w: -1.06
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260612
+- over_400_ratio: 46.56
+- over_600_ratio: 45.4
+- over_800_ratio: 44.78
+- over_1000_ratio: 44.31
+- over_400_change_1w: 1.55
+- over_800_change_1w: 1.44
+- over_1000_change_1w: 1.5
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -180,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,48.07,0.55,45.52,0.53,44.47,0.47,3,True,True
 20260529,46.47,-1.6,44.34,-1.18,43.87,-0.6,0,False,False
 20260605,45.01,-1.46,43.34,-1,42.81,-1.06,0,False,False
+20260612,46.56,1.55,44.78,1.44,44.31,1.5,1,True,True
 ```
 
 ## Candidate Context
@@ -195,7 +195,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 6116 | 彩晶 | 34 | 0 | 879940.0 | 0.0 |  | no_signal |
+| 20260612 | 6116 | 彩晶 | 34 | 1 | 1139630.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -20,7 +20,6 @@ HISTORY_DIR = ROOT / "output" / "history" / "volume_breakout"
 PRICE_HISTORY_DIR = ROOT / "data" / "stock_price_history"
 
 ALL_CANDIDATES_CSV = LATEST_DIR / "all_candidates_latest.csv"
-DECISION_CSV = LATEST_DIR / "daily_candidate_decision_latest.csv"
 REPEAT_CSV = LATEST_DIR / "candidate_repeat_appearance_latest.csv"
 WARRANT_CSV = LATEST_DIR / "warrant_flow_by_stock_latest.csv"
 FRESHNESS_CSV = LATEST_DIR / "data_freshness_latest.csv"
@@ -79,8 +78,6 @@ WATCH_COLUMNS = [
     "industry",
     "category",
     "pattern_stage",
-    "decision_priority",
-    "decision_score",
     "tdcc_status",
     "repeat_appear_label",
     "warrant_flow_signal",
@@ -387,7 +384,6 @@ def merge_context(watch: pd.DataFrame) -> pd.DataFrame:
         return watch
     out = watch.copy()
     all_candidates = read_csv(ALL_CANDIDATES_CSV)
-    decision = read_csv(DECISION_CSV)
     repeat = read_csv(REPEAT_CSV)
     warrant = read_csv(WARRANT_CSV)
 
@@ -415,25 +411,6 @@ def merge_context(watch: pd.DataFrame) -> pd.DataFrame:
         existing = [c for c in keep if c in all_candidates.columns]
         ac = all_candidates[existing].drop_duplicates("stock_id", keep="first")
         out = out.merge(ac, on="stock_id", how="left")
-
-    if not decision.empty:
-        keep = [
-            "stock_id",
-            "original_category",
-            "pattern_mapped_category",
-            "decision_priority",
-            "decision_score",
-            "decision_rank_in_category",
-            "downgrade_flags",
-            "risk_tags",
-            "why_selected",
-            "why_downgraded",
-            "next_confirmation",
-            "must_not_overstate",
-        ]
-        existing = [c for c in keep if c in decision.columns]
-        dec = decision[existing].drop_duplicates("stock_id", keep="first")
-        out = out.merge(dec, on="stock_id", how="left", suffixes=("", "_decision"))
 
     if not repeat.empty:
         keep = [
@@ -481,9 +458,7 @@ def classify_watch(df: pd.DataFrame) -> pd.DataFrame:
         priority = "A_bottom_volume_attack"
         if "tdcc_distribution_warning" in risk_flags:
             priority = "B_bottom_volume_attack_with_risk"
-        next_confirmation = (
-            "以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。"
-        )
+        next_confirmation = "以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。"
 
         d.update(
             {
@@ -948,7 +923,6 @@ def write_watch_md(watch: pd.DataFrame, main_date: str) -> None:
         "selection_status",
         "category",
         "pattern_stage",
-        "decision_priority",
         "tdcc_status",
         "repeat_appear_label",
         "volume_ratio",
@@ -959,7 +933,7 @@ def write_watch_md(watch: pd.DataFrame, main_date: str) -> None:
         "next_volume_breakout_confirmation",
     ]
     lines = [
-        "# Bottom Volume Attack Watch",
+        "# Volume Attack Watch",
         "",
         f"- generated_at: `{now_text()}`",
         f"- main_price_date: `{main_date}`",
@@ -975,7 +949,7 @@ def write_watch_md(watch: pd.DataFrame, main_date: str) -> None:
         "- Hard gates: close >= prior 20 trading day high excluding signal day * 1.02, volume_ratio >= 2.0, 20D average volume >= 1000 lots, and bullish candle.",
         "- No 60D-high gate, no moving-average gate, no same-day fake-breakout classification, and no selected/watch/risk sub-status.",
         "- Long upper shadow or TDCC deterioration can reduce score or add risk tags, but they do not change the model hit into another model.",
-        "- Entry basis for research/reporting is next trading day open after the signal date.",
+        "- Research observation basis is next trading day open after the signal date.",
         "- This list is a model-selected universe and backtest layer. It is not standalone buy advice.",
         "",
         "## Top Watch List",
@@ -1029,7 +1003,7 @@ def write_packet(watch: pd.DataFrame, summary: pd.DataFrame, main_date: str) -> 
     bottom_count = int((watch.get("volume_breakout_type", pd.Series(dtype=str)) == "bottom_volume_attack").sum()) if not watch.empty else 0
     risk_count = int(watch.get("risk_flags", pd.Series(dtype=str)).map(lambda v: bool(safe_str(v))).sum()) if not watch.empty else 0
     lines = [
-        "# BOTTOM VOLUME ATTACK CHATGPT PACKET",
+        "# VOLUME ATTACK CHATGPT PACKET",
         "",
         "## Metadata",
         f"- generated_at: `{now_text()}`",
@@ -1045,14 +1019,14 @@ def write_packet(watch: pd.DataFrame, summary: pd.DataFrame, main_date: str) -> 
         "",
         "## Model Definition",
         "",
-        "- Model display name: 底部放量攻擊模型.",
+        "- Model display name: 放量攻擊模型.",
         "- Hard gates: close >= prior 20 trading day high excluding signal day * 1.02; volume_ratio >= 2.0; 20D average volume >= 1000 lots; bullish candle.",
         "- The model intentionally does not require a 60D high breakout or moving-average reclaim.",
         "- The model emits selected rows only. Risk flags and score components are ranking/operation context, not a separate watch/risk status.",
         "- Same-day fake breakout is not confirmed on the signal date. Do not label a selected row as failed breakout until later price action confirms failure.",
-        "- Research entry basis is signal date next trading day open.",
+        "- Research observation basis is signal date next trading day open.",
         "",
-        "## Top Bottom Volume Attack",
+        "## Top Volume Attack",
         "",
         *table_lines(
             watch,
@@ -1066,7 +1040,6 @@ def write_packet(watch: pd.DataFrame, summary: pd.DataFrame, main_date: str) -> 
                 "selection_status",
                 "category",
                 "pattern_stage",
-                "decision_priority",
                 "tdcc_status",
                 "repeat_appear_label",
                 "volume_ratio",
@@ -1106,7 +1079,7 @@ def write_packet(watch: pd.DataFrame, summary: pd.DataFrame, main_date: str) -> 
         "- Do not use price moved too much, short-term overheat, or not breaking 60D high as hard vetoes for this model.",
         "- A long upper shadow can reduce attack quality once; avoid duplicate penalties for the same candle issue.",
         "- TDCC, warrant, revenue, consolidation length, breakout magnitude, and position context are ranking components.",
-        "- If the stock falls back below the prior-20D-high breakout threshold after entry, later reports may tag failure or reduce risk.",
+        "- If the stock falls back below the prior-20D-high breakout threshold after the signal, later reports may tag failure or higher risk.",
         "",
     ]
     PACKET_MD.write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")

@@ -61,6 +61,13 @@ and is the function used by the scheduled daily stock monitor trigger.
 
 `triggerTdccWeeklyReport` dispatches the TDCC weekly report workflow.
 
+`triggerIndividualStockDataRefresh` dispatches
+`.github/workflows/individual_stock_data_refresh.yml`.
+
+`triggerEventCatalystUpdate` dispatches `.github/workflows/event_catalyst_update.yml`.
+
+`triggerWeeklyThemeReview` dispatches `.github/workflows/weekly_theme_review.yml`.
+
 `triggerResearchBacktestPipeline` dispatches
 `.github/workflows/research_backtest_pipeline.yml` with all research inputs set
 to `true`. It is the function used by the scheduled biweekly research/backtest

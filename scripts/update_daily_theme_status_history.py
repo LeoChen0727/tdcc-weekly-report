@@ -51,8 +51,8 @@ OUTPUT_COLUMNS = [
     "candidate_line_group",
     "candidate_line",
     "two_line_overlap_flag",
-    "decision_priority",
-    "decision_score",
+    "presentation_priority",
+    "model_score",
     "tdcc_status",
     "warrant_flow_signal",
     "volume_ratio",
@@ -181,8 +181,8 @@ def build_rows() -> pd.DataFrame:
             out["candidate_line_group"] = choose(out["candidate_line_group"], row_value(row, "candidate_line_group"))
             out["candidate_line"] = choose(out["candidate_line"], row_value(row, "candidate_line"))
             out["two_line_overlap_flag"] = choose(out["two_line_overlap_flag"], normalize_bool(row_value(row, "two_line_overlap_flag")))
-            out["decision_priority"] = choose(out["decision_priority"], row_value(row, "decision_priority"))
-            out["decision_score"] = choose(out["decision_score"], row_value(row, "decision_score"))
+            out["presentation_priority"] = choose(out["presentation_priority"], row_value(row, "presentation_priority"))
+            out["model_score"] = choose(out["model_score"], row_value(row, "model_score"))
             out["tdcc_status"] = choose(out["tdcc_status"], row_value(row, "tdcc_status"))
             out["warrant_flow_signal"] = choose(out["warrant_flow_signal"], row_value(row, "warrant_flow_signal"))
             out["volume_ratio"] = choose(out["volume_ratio"], row_value(row, "volume_ratio"))
@@ -283,7 +283,7 @@ def write_markdown(latest: pd.DataFrame, history: pd.DataFrame) -> None:
                 "theme_status_group",
                 "theme_volume_attack_status",
                 "candidate_source_type",
-                "decision_priority",
+                "presentation_priority",
                 "volume_breakout_type",
                 "selection_status",
             ],

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5880 合庫金
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:40 Asia/Taipei
+- generated_at: 2026-06-13 22:23:47 Asia/Taipei
 - stock_id: 5880
 - stock_name: 合庫金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 23.9
-- high: 23.9
-- low: 23.6
-- close: 23.85
-- volume: 23269984
-- ma5: 23.36
-- ema23_primary: 23.06
-- distance_to_ema23_pct: 3.43
-- ma20: 22.91
-- ma60: 23.18
+- date: 20260612
+- open: 24.25
+- high: 24.25
+- low: 23.9
+- close: 24.05
+- volume: 26503384
+- ma5: 23.56
+- ema23_primary: 23.14
+- distance_to_ema23_pct: 3.92
+- ma20: 22.97
+- ma60: 23.2
 - ma120: 23.59
-- return_5d: 4.38
-- return_20d: 3.7
-- volume_ratio: 0.98
-- distance_to_ma20_pct_auxiliary: 4.11
-- distance_to_high_60_pct: -1.04
+- return_5d: 4.34
+- return_20d: 5.48
+- volume_ratio: 1.11
+- distance_to_ma20_pct_auxiliary: 4.7
+- distance_to_high_60_pct: -0.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,23.05,23.05,22.8,22.8,23232949,23.18,-1.63,23.24,23.42,1.37
 20260513,23.05,23.05,22.75,22.85,16167342,23.15,-1.3,23.19,23.41,0.95
 20260514,22.8,22.95,22.75,22.75,17895045,23.12,-1.59,23.14,23.4,1.05
 20260515,22.8,22.95,22.75,22.85,18639638,23.09,-1.06,23.08,23.38,1.07
@@ -159,18 +158,19 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,22.8,23.1,22.7,23.05,31996097,22.95,0.46,22.84,23.16,1.42
 20260605,23.7,23.7,23.3,23.45,28747769,22.99,2.01,22.86,23.17,1.24
 20260611,23.9,23.9,23.6,23.85,23269984,23.06,3.43,22.91,23.18,0.98
+20260612,24.25,24.25,23.9,24.05,26503384,23.14,3.92,22.97,23.2,1.11
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 72.76
-- over_600_ratio: 70.66
-- over_800_ratio: 69.51
-- over_1000_ratio: 68.68
-- over_400_change_1w: 0.25
-- over_800_change_1w: 0.29
-- over_1000_change_1w: 0.28
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260612
+- over_400_ratio: 73
+- over_600_ratio: 70.91
+- over_800_ratio: 69.77
+- over_1000_ratio: 68.97
+- over_400_change_1w: 0.24
+- over_800_change_1w: 0.26
+- over_1000_change_1w: 0.29
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -184,17 +184,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,72.59,-0.14,69.32,-0.12,68.48,-0.12,0,False,False
 20260529,72.51,-0.08,69.22,-0.1,68.4,-0.08,0,False,False
 20260605,72.76,0.25,69.51,0.29,68.68,0.28,1,True,True
+20260612,73,0.24,69.77,0.26,68.97,0.29,2,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 5880 | 合庫金 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260612 | 5880 | 合庫金 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260612 | 5880 | 合庫金 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 5880 | 合庫金 | 12 | 2 | 5 | 10 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260612 | 5880 | 合庫金 | 13 | 3 | 5 | 10 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

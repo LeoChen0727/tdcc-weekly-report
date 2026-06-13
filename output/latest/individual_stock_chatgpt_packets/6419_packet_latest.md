@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6419 京晨科
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:51 Asia/Taipei
+- generated_at: 2026-06-13 22:24:01 Asia/Taipei
 - stock_id: 6419
 - stock_name: 京晨科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 140
-- high: 140
-- low: 140
-- close: 140
-- volume: 140000
-- ma5: 145.1
-- ema23_primary: 145.92
-- distance_to_ema23_pct: -4.06
-- ma20: 153.45
-- ma60: 126.69
-- ma120: 100.17
-- return_5d: -1.41
-- return_20d: 2.19
-- volume_ratio: 0.24
-- distance_to_ma20_pct_auxiliary: -8.77
-- distance_to_high_60_pct: -28.02
+- date: 20260612
+- open: 154
+- high: 154
+- low: 142.5
+- close: 145
+- volume: 150000
+- ma5: 144.2
+- ema23_primary: 145.84
+- distance_to_ema23_pct: -0.58
+- ma20: 153.18
+- ma60: 127.67
+- ma120: 100.91
+- return_5d: -3.01
+- return_20d: -3.65
+- volume_ratio: 0.26
+- distance_to_ma20_pct_auxiliary: -5.34
+- distance_to_high_60_pct: -25.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,150.5,150.5,150.5,150.5,327000,132.51,13.57,139.47,100.7,0.53
 20260513,156,165.5,156,165.5,1928000,135.26,22.35,141.68,102.29,2.72
 20260514,177,182,169,177,2623000,138.74,27.58,144.32,104.04,3.51
 20260515,178.5,194.5,177,194.5,967000,143.39,35.65,147.25,106.11,1.31
@@ -155,10 +154,11 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,150.5,152,145.5,148,148000,147.04,0.65,153.5,124.51,0.23
 20260605,144.5,145,135.5,140,140000,146.46,-4.41,153.3,125.66,0.23
 20260611,140,140,140,140,140000,145.92,-4.06,153.45,126.69,0.24
+20260612,154,154,142.5,145,150000,145.84,-0.58,153.18,127.67,0.26
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
+- as_of_date: 20260612
 - over_400_ratio: 35.59
 - over_600_ratio: 32.17
 - over_800_ratio: 32.17
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,35.59,0,32.17,0,32.17,0,0,False,False
 20260529,35.59,0,32.17,0,32.17,0,0,False,False
 20260605,35.59,0,32.17,0,32.17,0,0,False,False
+20260612,35.59,0,32.17,0,32.17,0,0,False,False
 ```
 
 ## Candidate Context

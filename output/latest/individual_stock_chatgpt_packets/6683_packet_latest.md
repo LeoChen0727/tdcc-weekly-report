@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6683 雍智科技
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:59 Asia/Taipei
+- generated_at: 2026-06-13 22:24:11 Asia/Taipei
 - stock_id: 6683
 - stock_name: 雍智科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 1390
-- high: 1425
-- low: 1295
-- close: 1390
-- volume: 1351000
-- ma5: 1635
-- ema23_primary: 1753.24
-- distance_to_ema23_pct: -20.72
-- ma20: 1767.5
-- ma60: 1703
-- ma120: 1132.23
-- return_5d: -18.95
-- return_20d: -38.77
-- volume_ratio: 1.17
-- distance_to_ma20_pct_auxiliary: -21.36
-- distance_to_high_60_pct: -45.81
+- date: 20260612
+- open: 1475
+- high: 1495
+- low: 1435
+- close: 1445
+- volume: 1461000
+- ma5: 1575
+- ema23_primary: 1727.55
+- distance_to_ema23_pct: -16.36
+- ma20: 1721.25
+- ma60: 1707.33
+- ma120: 1140.43
+- return_5d: -17.19
+- return_20d: -39.03
+- volume_ratio: 1.2
+- distance_to_ma20_pct_auxiliary: -16.05
+- distance_to_high_60_pct: -43.66
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,2285,2410,2270,2370,246000,2003.48,18.29,2046.75,1414.75,0.39
 20260513,2135,2135,2135,2135,114000,2014.44,5.98,2063.75,1438.73,0.18
 20260514,1925,1925,1925,1925,104000,2006.99,-4.09,2064.5,1458.25,0.17
 20260515,1895,1930,1735,1735,1189000,1984.32,-12.56,2056.75,1475.5,1.75
@@ -154,18 +153,19 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,1760,1855,1700,1715,1764000,1802.29,-4.84,1841.5,1687.43,1.7
 20260605,1650,1660,1520,1610,1591000,1786.26,-9.87,1811.5,1697.83,1.44
 20260611,1390,1425,1295,1390,1351000,1753.24,-20.72,1767.5,1703,1.17
+20260612,1475,1495,1435,1445,1461000,1727.55,-16.36,1721.25,1707.33,1.2
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 18.69
+- as_of_date: 20260612
+- over_400_ratio: 22.13
 - over_600_ratio: 14.63
 - over_800_ratio: 14.63
 - over_1000_ratio: 11.24
-- over_400_change_1w: -1.56
+- over_400_change_1w: 3.44
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,21.72,1.52,14.63,0,11.24,0,1,False,False
 20260529,20.25,-1.47,14.63,0,11.24,0,0,False,False
 20260605,18.69,-1.56,14.63,0,11.24,0,0,False,False
+20260612,22.13,3.44,14.63,0,11.24,0,1,False,False
 ```
 
 ## Candidate Context

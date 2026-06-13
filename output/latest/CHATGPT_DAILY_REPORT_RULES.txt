@@ -1,6 +1,6 @@
 CHATGPT DAILY MARKET REPORT RULES
 
-generated_at=2026-06-12 11:58:10 Asia/Taipei
+generated_at=2026-06-14 03:32:35 Asia/Taipei
 rules_version=2026-05-28-daily-candidate-pdf-contract-v2
 
 PURPOSE
@@ -212,7 +212,7 @@ SPECIALTY SECTION RULES
   - volume_attack_theme_layer_latest.md/csv and volume_attack_theme_stocks_latest.md/csv
   - non_revenue_momentum_watch_latest.md/csv
 - D+5 and D+10 research-stat tables from short-term files may be shown separately as supporting evidence, but they must not remove the core `TDCC短線延續模型 D+5/D+10` rows from the main model list.
-- For `weekly_surge_strict_parameter_search_latest.md/csv`, do not write `週線急漲`, `周線急漲嚴格參數`, `最佳歷史D+5勝率`, or `最佳歷史D+10勝率`. Display it as `隔日開盤買進後 D+1 至 D+10 盤中觸及 +10% 研究`.
+- For `weekly_surge_strict_parameter_search_latest.md/csv`, do not write `週線急漲`, `周線急漲嚴格參數`, `最佳歷史D+5勝率`, or `最佳歷史D+10勝率`. Display it as `隔日開盤後 D+1 至 D+10 盤中觸及 +10% 研究`.
 - `best_dN_touch_rate_pct` is `D+1 open to D+N high >= +10%` touch-rate. It is not close-to-close return and not D+N close win rate. Legacy `best_dN_hit_rate_pct` fields must be interpreted the same way.
 - Explosive-volume-up research must be interpreted by price-position first: bottom/low-zone volume reversal, low-to-mid reclaim, near-high attack, and high-zone extension/chase. Do not mix bottom reversal with high-zone distribution/chase. Theme/mainstream status is a second filter, not a replacement for price-position filtering.
 - Explosive-volume-up signal timing is after the signal-day close. Entry statistics use next trading day open. `high_hit_rate` means the post-entry holding-window high reached the target; it is not an intraday entry rule.
@@ -338,7 +338,7 @@ CURATED DAILY RECOMMENDATION PDF CONTRACT
 - The body must not contain repo read flow, internal rule explanations, fallback/debug labels, ChatGPT apologies, version labels such as `v3`, `流程重跑版`, or similar non-investment wording.
 - PDF font rule: do not use decorative, special, rare, or novelty fonts. Use common, stable, readable fonts with reliable Chinese support. If font choice is uncertain, prefer the default system sans-serif / CJK font and prioritize readability over style.
 - The first page must be a compact table with 1-2 representative stocks from each program-side core category.
-- First-page table columns must include: category, stock, rating/decision_priority, score/decision_score, selected reason from why_selected, and risk/next confirmation from why_downgraded/risk_tags/downgrade_flags/next_confirmation.
+- First-page table columns must include: model/category, stock, model rank/display rank, model_score, score_components or why_selected_zh, and risk/next confirmation from risk_tags_zh/risk_penalty_tags/next_confirmation_zh.
 - After the first page, each core category must include 3-5 representative stocks when available.
 - Each representative stock must be an operation card/page, not just a row. It must include: stock id/name, category, mainstream/non-mainstream status, rating, score, rank, TDCC, warrant, why_selected, why_downgraded/risk_tags/downgrade_flags/must_not_overstate/repeated_but_no_breakout/needs_eps_confirmation/revenue_good_eps_unconfirmed, technical state, conditional entry trigger, take-profit/reduce/exit trigger, do-not-chase or invalidation condition, next confirmation with trigger+action, and K-line chart.
 - K-line charts must use repo price data / half-year windows when available. Charts must show price, volume, 23EMA as the primary line, MA20/MA60 as supporting lines, prior high/platform/support/resistance, breakout zone, and failure line when applicable.

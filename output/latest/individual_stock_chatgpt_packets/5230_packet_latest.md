@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5230 雷笛克光學
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:33 Asia/Taipei
+- generated_at: 2026-06-13 22:23:38 Asia/Taipei
 - stock_id: 5230
 - stock_name: 雷笛克光學
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 17.3
-- high: 17.65
-- low: 17.3
-- close: 17.6
+- date: 20260612
+- open: 17.75
+- high: 17.75
+- low: 17.5
+- close: 17.55
 - volume: 18000
-- ma5: 18.05
-- ema23_primary: 17.39
-- distance_to_ema23_pct: 1.2
-- ma20: 17.22
-- ma60: 17.05
+- ma5: 18.02
+- ema23_primary: 17.4
+- distance_to_ema23_pct: 0.84
+- ma20: 17.27
+- ma60: 17.08
 - ma120: 17.51
-- return_5d: 0.86
-- return_20d: 6.99
-- volume_ratio: 0.23
-- distance_to_ma20_pct_auxiliary: 2.19
-- distance_to_high_60_pct: -9.28
+- return_5d: -0.85
+- return_20d: 5.72
+- volume_ratio: 0.24
+- distance_to_ma20_pct_auxiliary: 1.62
+- distance_to_high_60_pct: -9.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,16.6,16.8,16.1,16.6,132000,17.08,-2.81,17.39,16.99,0.43
 20260513,16.65,16.7,16.35,16.6,38000,17.04,-2.58,17.42,16.97,0.13
 20260514,16.6,16.85,16.05,16.4,300000,16.99,-3.45,17.35,16.94,1.04
 20260515,16.8,17.95,16.75,16.75,433000,16.97,-1.28,17.3,16.92,1.78
@@ -155,16 +154,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,17.95,18.45,17.8,18.3,18000,17.28,5.89,17.09,16.98,0.19
 20260605,18.3,18.8,17.75,18.35,18000,17.37,5.63,17.16,17.03,0.2
 20260611,17.3,17.65,17.3,17.6,18000,17.39,1.2,17.22,17.05,0.23
+20260612,17.75,17.75,17.5,17.55,18000,17.4,0.84,17.27,17.08,0.24
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 25.22
+- as_of_date: 20260612
+- over_400_ratio: 25.21
 - over_600_ratio: 21.04
 - over_800_ratio: 13.63
 - over_1000_ratio: 10.33
-- over_400_change_1w: -0.13
-- over_800_change_1w: -0.12
+- over_400_change_1w: -0.01
+- over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,25.33,0.08,13.75,0.07,10.33,0,3,False,True
 20260529,25.35,0.02,13.75,0,10.33,0,4,False,False
 20260605,25.22,-0.13,13.63,-0.12,10.33,0,0,False,False
+20260612,25.21,-0.01,13.63,0,10.33,0,0,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4935 茂林-KY
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:30 Asia/Taipei
+- generated_at: 2026-06-13 22:23:34 Asia/Taipei
 - stock_id: 4935
 - stock_name: 茂林-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 38.1
-- high: 38.15
-- low: 37.3
-- close: 37.75
-- volume: 129799
-- ma5: 41.1
-- ema23_primary: 38.8
-- distance_to_ema23_pct: -2.7
-- ma20: 38.12
-- ma60: 37.44
-- ma120: 38.71
-- return_5d: -9.36
-- return_20d: 2.44
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: -0.97
-- distance_to_high_60_pct: -12.72
+- date: 20260612
+- open: 37.85
+- high: 39.2
+- low: 37.85
+- close: 39
+- volume: 184208
+- ma5: 40.43
+- ema23_primary: 38.81
+- distance_to_ema23_pct: 0.48
+- ma20: 38.27
+- ma60: 37.49
+- ma120: 38.68
+- return_5d: -7.91
+- return_20d: 8.18
+- volume_ratio: 0.8
+- distance_to_ma20_pct_auxiliary: 1.91
+- distance_to_high_60_pct: -9.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,37.15,37.15,35.9,36.05,164180,37.49,-3.85,37.88,37.48,1.38
 20260513,36,36.25,35.35,36.05,77574,37.37,-3.54,37.86,37.44,0.68
 20260514,36,36.45,36,36.05,107335,37.26,-3.25,37.86,37.38,0.94
 20260515,36.4,36.45,36,36,116260,37.16,-3.12,37.77,37.34,1.07
@@ -155,10 +154,11 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,41.7,42.35,40.25,42.35,574492,38.69,9.46,37.88,37.32,2.54
 20260605,40.5,41.3,40.3,41.1,198427,38.89,5.68,38.08,37.41,0.86
 20260611,38.1,38.15,37.3,37.75,129799,38.8,-2.7,38.12,37.44,0.56
+20260612,37.85,39.2,37.85,39,184208,38.81,0.48,38.27,37.49,0.8
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
+- as_of_date: 20260612
 - over_400_ratio: 62.68
 - over_600_ratio: 60.41
 - over_800_ratio: 59.8
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,62.68,0.01,59.8,0.01,56.83,0.01,3,True,True
 20260529,62.68,0,59.8,0,56.83,0,0,False,False
 20260605,62.68,0,59.8,0,56.83,0,0,False,False
+20260612,62.68,0,59.8,0,56.83,0,0,False,False
 ```
 
 ## Candidate Context

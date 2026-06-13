@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2484 希華
 
 ## Metadata
-- generated_at: 2026-06-11 22:22:49 Asia/Taipei
+- generated_at: 2026-06-13 22:22:44 Asia/Taipei
 - stock_id: 2484
 - stock_name: 希華
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: True
 - sell_strategy_summary_exists: True
@@ -116,29 +116,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 58.5
-- high: 63.9
-- low: 57.2
-- close: 60.7
-- volume: 82086808
-- ma5: 54.36
-- ema23_primary: 49.22
-- distance_to_ema23_pct: 23.33
-- ma20: 48.47
-- ma60: 39.5
-- ma120: 32.15
-- return_5d: 14.1
-- return_20d: 53.28
-- volume_ratio: 3.21
-- distance_to_ma20_pct_auxiliary: 25.23
-- distance_to_high_60_pct: -5.01
+- date: 20260612
+- open: 64
+- high: 66.7
+- low: 61.8
+- close: 66.7
+- volume: 55392354
+- ma5: 57.32
+- ema23_primary: 50.68
+- distance_to_ema23_pct: 31.62
+- ma20: 49.86
+- ma60: 40.16
+- ma120: 32.53
+- return_5d: 28.52
+- return_20d: 71.47
+- volume_ratio: 1.98
+- distance_to_ma20_pct_auxiliary: 33.77
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,39.8,40.5,37.6,38.9,9202220,39.24,-0.87,41.4,32.8,0.59
 20260513,38.9,40.3,37.9,37.9,7426992,39.13,-3.14,41.57,32.97,0.52
 20260514,38.35,38.95,36.85,38.3,7918587,39.06,-1.95,41.66,33.14,0.61
 20260515,38.35,39.2,37,37.3,5114569,38.91,-4.15,41.51,33.3,0.41
@@ -158,20 +157,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,53,53.1,50,51.9,12711853,47.75,8.68,46.87,38.5,0.56
 20260605,50.2,53,47,52.8,17729773,48.17,9.6,47.42,38.95,0.8
 20260611,58.5,63.9,57.2,60.7,82086808,49.22,23.33,48.47,39.5,3.21
+20260612,64,66.7,61.8,66.7,55392354,50.68,31.62,49.86,40.16,1.98
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 26.5
-- over_600_ratio: 24.11
-- over_800_ratio: 23.2
-- over_1000_ratio: 20.45
-- over_400_change_1w: -4.72
-- over_800_change_1w: -4.68
-- over_1000_change_1w: -5.2
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260612
+- over_400_ratio: 29.95
+- over_600_ratio: 27.76
+- over_800_ratio: 25.55
+- over_1000_ratio: 23.27
+- over_400_change_1w: 3.45
+- over_800_change_1w: 2.35
+- over_1000_change_1w: 2.82
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,17 +183,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,23.6,0.15,19.23,-0.46,17.14,-0.38,1,False,False
 20260529,31.22,7.62,27.88,8.65,25.65,8.51,2,True,True
 20260605,26.5,-4.72,23.2,-4.68,20.45,-5.2,0,False,False
+20260612,29.95,3.45,25.55,2.35,23.27,2.82,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 2484 | 希華 | true_breakout | 嚴格突破 | 91.0 |  |  | platform_breakout |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260612 | 2484 | 希華 | true_breakout | 嚴格突破 | 84.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 2484 | 希華 | 2 | 1 | 2 | 5 | 7 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260612 | 2484 | 希華 | 3 | 2 | 3 | 5 | 8 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

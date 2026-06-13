@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9933 中鼎
 
 ## Metadata
-- generated_at: 2026-06-11 22:24:33 Asia/Taipei
+- generated_at: 2026-06-13 22:24:55 Asia/Taipei
 - stock_id: 9933
 - stock_name: 中鼎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 278
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 279
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 40.9
-- high: 41.4
-- low: 40.1
-- close: 41.25
-- volume: 7352904
-- ma5: 41.22
-- ema23_primary: 39.33
-- distance_to_ema23_pct: 4.87
-- ma20: 39.23
-- ma60: 37.18
-- ma120: 34.46
-- return_5d: 4.04
-- return_20d: 13.17
-- volume_ratio: 1.19
-- distance_to_ma20_pct_auxiliary: 5.14
-- distance_to_high_60_pct: -5.06
+- date: 20260612
+- open: 41.75
+- high: 42.1
+- low: 40.8
+- close: 40.95
+- volume: 3836378
+- ma5: 41.54
+- ema23_primary: 39.47
+- distance_to_ema23_pct: 3.76
+- ma20: 39.42
+- ma60: 37.29
+- ma120: 34.52
+- return_5d: 4.07
+- return_20d: 10.38
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: 3.87
+- distance_to_high_60_pct: -5.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,36.6,37.3,36,37.1,4165181,36.55,1.5,36.94,34.53,0.69
 20260513,37.95,38.1,36.6,36.8,5195446,36.57,0.63,37.05,34.63,0.85
 20260514,36.9,37.8,36.75,37.6,3975406,36.66,2.57,37.02,34.73,0.73
 20260515,38,39,37.55,37.6,8592577,36.74,2.35,37.01,34.83,1.73
@@ -159,20 +158,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,39.65,39.65,38.85,39.35,3971774,38.77,1.5,38.66,36.82,0.67
 20260605,42.15,43.45,41.55,43.45,8685086,39.16,10.96,38.99,37.03,1.45
 20260611,40.9,41.4,40.1,41.25,7352904,39.33,4.87,39.23,37.18,1.19
+20260612,41.75,42.1,40.8,40.95,3836378,39.47,3.76,39.42,37.29,0.62
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 59.33
-- over_600_ratio: 56.6
-- over_800_ratio: 54.78
-- over_1000_ratio: 53.47
-- over_400_change_1w: 0.1
-- over_800_change_1w: 0.1
-- over_1000_change_1w: -0.21
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260612
+- over_400_ratio: 59.58
+- over_600_ratio: 56.7
+- over_800_ratio: 54.64
+- over_1000_ratio: 53.24
+- over_400_change_1w: 0.25
+- over_800_change_1w: -0.14
+- over_1000_change_1w: -0.23
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -184,17 +184,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,58.89,0.81,54.23,0.68,53.24,0.57,1,True,True
 20260529,59.23,0.34,54.68,0.45,53.68,0.44,2,True,True
 20260605,59.33,0.1,54.78,0.1,53.47,-0.21,3,False,True
+20260612,59.58,0.25,54.64,-0.14,53.24,-0.23,4,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 9933 | 中鼎 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260612 | 9933 | 中鼎 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 9933 | 中鼎 | 1 | 1 | 4 | 9 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260612 | 9933 | 中鼎 | 2 | 2 | 4 | 9 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

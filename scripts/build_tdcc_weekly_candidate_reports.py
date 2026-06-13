@@ -26,7 +26,6 @@ from tracking_utils import (  # noqa: E402
 
 
 DAILY_MODEL_SIGNALS = LATEST_DIR / "daily_candidate_model_signals_for_report_latest.csv"
-DAILY_DECISION = LATEST_DIR / "daily_candidate_decision_latest.csv"
 STOCK_THEME_TAXONOMY = LATEST_DIR / "stock_theme_taxonomy_latest.csv"
 
 WEEKLY_INCREASE_CSV = LATEST_DIR / "tdcc_weekly_increase_ranking_latest.csv"
@@ -46,7 +45,8 @@ FULL_PDF = LATEST_DIR / "tdcc_weekly_candidate_full_latest.pdf"
 TRACKING_PACKET_MD = LATEST_DIR / "tdcc_chatgpt_tracking_packet_latest.md"
 
 TDCC_FULL_REPORT_ALLOWED_MODEL_CROSS_IDS = {"tdcc_short_term_continuation_d5_d10"}
-TDCC_FULL_REPORT_RANK_SECTION_LIMIT = 100
+TDCC_HIGHLIGHT_REPORT_SECTION_LIMIT = 10
+TDCC_FULL_REPORT_SECTION_LIMIT = 50
 
 README_PATHS = [
     LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT.txt",
@@ -255,9 +255,9 @@ TOKEN_ZH = {
     "revenue_breakout_low_response": "營收爆發股價尚未反應",
     "pullback_rebound": "回檔後短線轉強",
     "short_term_specialty": "短線專項",
-    "volume_range_breakout": "底部放量攻擊",
-    "bottom_volume_attack": "底部放量攻擊",
-    "volume_breakout": "底部放量攻擊",
+    "volume_range_breakout": "放量攻擊",
+    "bottom_volume_attack": "放量攻擊",
+    "volume_breakout": "放量攻擊",
     "w_bottom_right_side": "W底右側",
     "theme_pullback": "熱門族群回檔",
     "hot_theme_pullback": "熱門族群回檔",
@@ -613,21 +613,7 @@ def read_daily_model_signals() -> pd.DataFrame:
     signals = read_csv(DAILY_MODEL_SIGNALS, dtype=str)
     if not signals.empty:
         return signals
-
-    decision = read_csv(DAILY_DECISION, dtype=str)
-    if decision.empty:
-        return pd.DataFrame()
-    decision = decision.copy()
-    decision["model_id"] = decision.get("original_category", "")
-    decision["model_name_zh"] = decision.get("original_category_cn", "").map(zh)
-    decision["display_rank"] = decision.get("decision_rank_overall_for_display", "")
-    decision["model_score"] = decision.get("decision_score", "")
-    decision["source_hit_labels_zh"] = decision.get("original_category_cn", "").map(zh)
-    decision["why_selected_zh"] = decision.get("why_selected", "").map(zh)
-    decision["risk_tags_zh"] = decision.get("risk_tags", "").map(zh)
-    decision["next_confirmation_zh"] = decision.get("next_confirmation", "").map(zh)
-    decision["recommended_usage_zh"] = decision.get("next_confirmation", "").map(zh)
-    return decision
+    return pd.DataFrame()
 
 
 def build_model_cross(
@@ -761,23 +747,24 @@ def build_report_ready(
     report_kind: str,
 ) -> pd.DataFrame:
     rows: list[dict[str, Any]] = []
-    weekly_limit = 5 if report_kind == "highlight" else TDCC_FULL_REPORT_RANK_SECTION_LIMIT
-    consecutive_limit = 5 if report_kind == "highlight" else TDCC_FULL_REPORT_RANK_SECTION_LIMIT
+    section_limit = (
+        TDCC_HIGHLIGHT_REPORT_SECTION_LIMIT
+        if report_kind == "highlight"
+        else TDCC_FULL_REPORT_SECTION_LIMIT
+    )
 
-    for idx, (_, row) in enumerate(weekly.head(weekly_limit).iterrows(), start=1):
+    for idx, (_, row) in enumerate(weekly.head(section_limit).iterrows(), start=1):
         rows.append(row_from_ranking(row, report_kind, "weekly_increase", "當週增幅排名", idx))
-    for idx, (_, row) in enumerate(consecutive.head(consecutive_limit).iterrows(), start=1):
+    for idx, (_, row) in enumerate(consecutive.head(section_limit).iterrows(), start=1):
         rows.append(row_from_ranking(row, report_kind, "consecutive_accumulation", "連續累積排名", idx))
 
     if not model_cross.empty:
         cross = model_cross.copy()
-        if report_kind == "full":
-            cross = cross[cross["model_id"].isin(TDCC_FULL_REPORT_ALLOWED_MODEL_CROSS_IDS)]
+        cross = cross[cross["model_id"].isin(TDCC_FULL_REPORT_ALLOWED_MODEL_CROSS_IDS)]
         for (list_type, model_id), group in cross.groupby(["tdcc_list_type", "model_id"], dropna=False):
             group = group.sort_values(["tdcc_model_rank_in_list", "tdcc_rank"])
-            limit = 3 if report_kind == "highlight" else len(group)
             section_name = f"{list_type_zh(list_type)} × {zh(group.iloc[0].get('model_name_zh')) or zh(model_id)}"
-            for idx, (_, row) in enumerate(group.head(limit).iterrows(), start=1):
+            for idx, (_, row) in enumerate(group.head(section_limit).iterrows(), start=1):
                 rows.append(
                     {
                         "report_kind": report_kind,
@@ -833,6 +820,8 @@ def write_md_table(df: pd.DataFrame, path: Path, title: str, columns: list[str],
     content = [
         f"# {title}",
         "",
+        f"- TDCC data date: {signal_date_label(df)}",
+        "",
         f"- generated_at: {pd.Timestamp.now(tz='Asia/Taipei').strftime('%Y-%m-%d %H:%M:%S Asia/Taipei')}",
         f"- rows: {len(df)}",
         "",
@@ -842,9 +831,20 @@ def write_md_table(df: pd.DataFrame, path: Path, title: str, columns: list[str],
     path.write_text("\n".join(content), encoding="utf-8")
 
 
+def signal_date_label(df: pd.DataFrame) -> str:
+    if df.empty or "signal_date" not in df.columns:
+        return "unknown"
+    dates = sorted({safe_str(value) for value in df["signal_date"].dropna() if safe_str(value)})
+    if not dates:
+        return "unknown"
+    return dates[0] if len(dates) == 1 else ", ".join(dates)
+
+
 def write_report_md(df: pd.DataFrame, path: Path, title: str, max_rows_per_section: int | None = None) -> None:
     lines = [
         f"# {title}",
+        "",
+        f"- TDCC data date: {signal_date_label(df)}",
         "",
         "這份報告使用 TDCC weekly report-ready structured data 產生；TDCC 是籌碼追蹤，不是單獨買進理由。",
         "",
@@ -1113,6 +1113,8 @@ def write_pdf_v2(df: pd.DataFrame, path: Path, title: str, max_rows_per_section:
     story: list[Any] = [
         Paragraph(title, title_style),
         Spacer(1, 0.2 * cm),
+        Paragraph(f"TDCC data date: {signal_date_label(df)}", normal),
+        Spacer(1, 0.2 * cm),
         Paragraph("TDCC 週報以當週增幅、連續累積與每日候選模型交集呈現。TDCC 不作單獨買進理由。", normal),
         Spacer(1, 0.3 * cm),
     ]
@@ -1165,8 +1167,8 @@ def append_tracking_packet(fields: dict[str, str]) -> None:
         marker,
         "",
         "- 精華版與完整版由 report-ready CSV/MD/PDF 產出。",
-        "- 精華版包含當週增幅前五、連續累積前五，以及 TDCC 名單與每日候選模型交集前段。",
-        "- 完整版當週增幅與連續累積最多列前一百名；後段模型分析只保留 TDCC 短線延續模型 D+5/D+10。",
+        "- 精華版包含當週增幅、連續累積、當週增幅 x TDCC 短線延續 D+5/D+10、連續累積 x TDCC 短線延續 D+5/D+10，各最多前十名。",
+        "- 完整版使用相同四個清單，各最多列前五十名；不足五十就全列。",
         "",
     ]
     for key, value in fields.items():
@@ -1186,11 +1188,20 @@ def validate_outputs(highlight: pd.DataFrame, full: pd.DataFrame) -> None:
         raise RuntimeError("TDCC highlight report-ready table is empty.")
     if full.empty:
         raise RuntimeError("TDCC full report-ready table is empty.")
-    for section in ["weekly_increase", "consecutive_accumulation"]:
-        count = len(full[full["section_id"] == section])
-        if count > TDCC_FULL_REPORT_RANK_SECTION_LIMIT:
-            raise RuntimeError(f"{section} has {count} rows; expected <= {TDCC_FULL_REPORT_RANK_SECTION_LIMIT}.")
+    expected_limits = [
+        ("highlight", highlight, TDCC_HIGHLIGHT_REPORT_SECTION_LIMIT),
+        ("full", full, TDCC_FULL_REPORT_SECTION_LIMIT),
+    ]
+    for report_name, report_df, limit in expected_limits:
+        counts = report_df.groupby("section_id", dropna=False).size()
+        too_large = counts[counts > limit]
+        if not too_large.empty:
+            detail = ", ".join(f"{section}={count}" for section, count in too_large.items())
+            raise RuntimeError(f"{report_name} TDCC report has section counts above {limit}: {detail}")
     for report_name, report_df in [("highlight", highlight), ("full", full)]:
+        signal_dates = sorted({safe_str(value) for value in report_df["signal_date"].dropna() if safe_str(value)})
+        if len(signal_dates) != 1:
+            raise RuntimeError(f"{report_name} TDCC report must contain exactly one signal_date, got: {signal_dates}")
         model_rows = report_df[report_df["model_id"].map(safe_str) != ""]
         bad_models = sorted(set(model_rows["model_id"].map(safe_str)) - TDCC_FULL_REPORT_ALLOWED_MODEL_CROSS_IDS)
         if bad_models:
@@ -1231,8 +1242,8 @@ def main() -> int:
     write_csv(highlight, HIGHLIGHT_FOR_REPORT_CSV)
     write_csv(full, FULL_FOR_REPORT_CSV)
 
-    write_md_table(weekly, WEEKLY_INCREASE_MD, "TDCC 當週增幅排名", BASE_COLUMNS, limit=100)
-    write_md_table(consecutive, CONSECUTIVE_MD, "TDCC 連續累積排名", BASE_COLUMNS, limit=100)
+    write_md_table(weekly, WEEKLY_INCREASE_MD, "TDCC 當週增幅排名", BASE_COLUMNS, limit=TDCC_FULL_REPORT_SECTION_LIMIT)
+    write_md_table(consecutive, CONSECUTIVE_MD, "TDCC 連續累積排名", BASE_COLUMNS, limit=TDCC_FULL_REPORT_SECTION_LIMIT)
     write_md_table(model_cross, MODEL_CROSS_MD, "TDCC 名單與每日候選模型交集", MODEL_CROSS_COLUMNS, limit=200)
     write_report_md(highlight, HIGHLIGHT_FOR_REPORT_MD, "TDCC 週報精華版 report-ready table")
     write_report_md(full, FULL_FOR_REPORT_MD, "TDCC 週報完整版 report-ready table")

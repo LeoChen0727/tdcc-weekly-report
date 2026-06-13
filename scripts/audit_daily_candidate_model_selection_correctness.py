@@ -140,6 +140,23 @@ def model_key_set(df: pd.DataFrame, model_ids: set[str] | None = None) -> set[tu
     }
 
 
+def model_stock_key_set(df: pd.DataFrame, model_ids: set[str] | None = None) -> set[tuple[str, str]]:
+    required = {"model_id", "stock_id"}
+    if df.empty or not required.issubset(df.columns):
+        return set()
+    source = df
+    if model_ids is not None:
+        source = source[source["model_id"].astype(str).isin(model_ids)]
+    return {
+        (
+            safe_str(row.get("model_id", "")).strip(),
+            normalize_code(row.get("stock_id", "")),
+        )
+        for _, row in source.iterrows()
+        if safe_str(row.get("model_id", "")).strip() and normalize_code(row.get("stock_id", ""))
+    }
+
+
 def index_candidates(df: pd.DataFrame) -> dict[str, pd.Series]:
     result: dict[str, pd.Series] = {}
     if df.empty or "stock_id" not in df.columns:
@@ -504,8 +521,8 @@ def audit() -> dict[str, Any]:
         specs = build_specs()
         spec_ids = {spec.model_id for spec in specs}
         expected_core = build_signals(candidates, specs, main_date)
-        expected_core_keys = model_key_set(expected_core)
-        actual_core_keys = model_key_set(raw_signals, spec_ids)
+        expected_core_keys = model_stock_key_set(expected_core)
+        actual_core_keys = model_stock_key_set(raw_signals, spec_ids)
         missing_core = sorted(expected_core_keys - actual_core_keys)
         unexpected_core = sorted(actual_core_keys - expected_core_keys)
         details["expected_core_model_signal_rows"] = int(len(expected_core))

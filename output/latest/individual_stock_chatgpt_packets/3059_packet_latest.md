@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3059 華晶科
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:02 Asia/Taipei
+- generated_at: 2026-06-13 22:23:01 Asia/Taipei
 - stock_id: 3059
 - stock_name: 華晶科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 47.3
-- high: 47.65
-- low: 44.2
-- close: 45.25
-- volume: 10924544
-- ma5: 49.35
-- ema23_primary: 44.26
-- distance_to_ema23_pct: 2.23
-- ma20: 43.98
-- ma60: 39.91
-- ma120: 40.1
-- return_5d: -2.58
-- return_20d: 12.7
-- volume_ratio: 0.81
-- distance_to_ma20_pct_auxiliary: 2.89
-- distance_to_high_60_pct: -16.97
+- date: 20260612
+- open: 46.85
+- high: 47.7
+- low: 46
+- close: 46
+- volume: 6423637
+- ma5: 48.35
+- ema23_primary: 44.41
+- distance_to_ema23_pct: 3.59
+- ma20: 44.31
+- ma60: 40.05
+- ma120: 40.12
+- return_5d: -9.8
+- return_20d: 17.05
+- volume_ratio: 0.47
+- distance_to_ma20_pct_auxiliary: 3.81
+- distance_to_high_60_pct: -15.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,40.3,40.3,38.9,39.3,3770091,38.97,0.84,38.89,38.07,0.85
 20260513,39.3,39.55,38.5,38.9,2508067,38.96,-0.17,38.99,38.08,0.56
 20260514,39.15,40.15,39.15,39.9,3431272,39.04,2.2,39.15,38.1,0.75
 20260515,40.3,43.5,40,42.2,27390420,39.31,7.36,39.41,38.16,4.69
@@ -159,20 +158,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,51,51,50.8,51,14608606,43.74,16.59,43.24,39.59,1.23
 20260605,51,53.5,48.85,48.9,25945120,44.17,10.7,43.72,39.79,1.99
 20260611,47.3,47.65,44.2,45.25,10924544,44.26,2.23,43.98,39.91,0.81
+20260612,46.85,47.7,46,46,6423637,44.41,3.59,44.31,40.05,0.47
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 26.34
-- over_600_ratio: 23.94
-- over_800_ratio: 21.66
-- over_1000_ratio: 21.08
-- over_400_change_1w: 0.3
-- over_800_change_1w: 0.05
-- over_1000_change_1w: -0.01
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260612
+- over_400_ratio: 24.95
+- over_600_ratio: 22.59
+- over_800_ratio: 21.4
+- over_1000_ratio: 19.47
+- over_400_change_1w: -1.39
+- over_800_change_1w: -0.26
+- over_1000_change_1w: -1.61
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -184,22 +184,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,24.65,-2.79,21.28,-1.85,20.13,-1.5,0,False,False
 20260529,26.04,1.39,21.61,0.33,21.09,0.96,1,True,True
 20260605,26.34,0.3,21.66,0.05,21.08,-0.01,2,False,True
+20260612,24.95,-1.39,21.4,-0.26,19.47,-1.61,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 3059 | 華晶科 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260612 | 3059 | 華晶科 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 3059 | 華晶科 | 12 | 1 | 5 | 10 | 12 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260612 | 3059 | 華晶科 | 13 | 2 | 5 | 10 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 3059 | 華晶科 | 36 | 0 | 5747410.0 | 0.0 |  | no_signal |
+| 20260612 | 3059 | 華晶科 | 37 | 1 | 2208100.0 | 12000.0 | 184.01 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

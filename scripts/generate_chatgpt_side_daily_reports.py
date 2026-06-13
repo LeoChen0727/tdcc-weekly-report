@@ -65,8 +65,8 @@ REQUEST_DATE = datetime.now().strftime("%Y%m%d")
 OUTPUT_SUFFIX = "_current_rules"
 
 REMOTE_README_URLS = [
-    "https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT.txt",
     "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/READ_ME_FIRST_DAILY_REPORT.txt",
+    "https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT.txt",
 ]
 
 FONT_NAME = "DFKai"
@@ -85,6 +85,13 @@ FRONT_MAINSTREAM_LIMIT = 8
 FRONT_NON_MAINSTREAM_LIMIT = 2
 FULL_REPORT_MAINSTREAM_LIMIT = 12
 FULL_REPORT_NON_MAINSTREAM_LIMIT = 4
+CHATGPT_SIDE_KLINE_DAYS = 126
+
+
+def append_page_break_once(story: list) -> None:
+    if story and isinstance(story[-1], PageBreak):
+        return
+    story.append(PageBreak())
 
 
 def read_readme_value(key: str, default: str = "") -> str:
@@ -128,9 +135,9 @@ def fetch_text_no_cache(url: str) -> str:
 
 def fetch_remote_readme_values(request_date: str) -> tuple[dict[str, str], str]:
     urls = [
-        f"https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT_{request_date}.txt",
         f"https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/READ_ME_FIRST_DAILY_REPORT_{request_date}.txt",
         *REMOTE_README_URLS,
+        f"https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT_{request_date}.txt",
     ]
     errors: list[str] = []
     for url in urls:
@@ -527,13 +534,6 @@ def signed_num(value, ndigits: int = 2, suffix: str = "") -> str:
     return f"{sign}{n:,.{ndigits}f}{suffix}"
 
 
-def score_key(value) -> str:
-    n = to_float(value)
-    if n is None:
-        return ""
-    return f"{n:.4f}"
-
-
 def to_float(value) -> float | None:
     s = clean(value)
     if not s:
@@ -557,21 +557,38 @@ def stock_id_text(value) -> str:
     return re.sub(r"\.0$", "", clean(value))
 
 
-def priority_label(row: pd.Series) -> str:
-    label = clean(row.get("decision_priority_label"))
-    priority = clean(row.get("decision_priority"))
-    if label in {"最優先追蹤", "可等確認"}:
-        return "等確認"
-    if label == "僅觀察":
-        return "僅觀察"
-    if "暫避" in label or "降級" in label or "暫不列" in label:
-        return "不列入"
-    return {
-        "A_priority_watch": "等確認",
-        "B_confirm_needed": "等確認",
-        "C_watch_only": "僅觀察",
-        "D_risk_downgrade": "不列入",
-    }.get(priority, priority)
+def model_score_label(row: pd.Series) -> str:
+    score = num(row.get("model_score"), 1)
+    rank = clean(row.get("display_rank") or row.get("model_rank"))
+    if rank and score:
+        return f"#{rank} / {score}"
+    if rank:
+        return f"#{rank}"
+    return score or "模型分數不足"
+
+
+def model_risk_text(row: pd.Series, limit: int = 72) -> str:
+    text = first_text(
+        row.get("risk_tags_zh"),
+        row.get("merged_risk_penalty_tags_zh"),
+        row.get("risk_penalty_tags"),
+        row.get("risk_tags"),
+        row.get("downgrade_flags"),
+        row.get("tdcc_risk_text_zh"),
+    )
+    return short(text, limit) if text else "未列明重大風險"
+
+
+def model_source_text(row: pd.Series, limit: int = 72) -> str:
+    text = first_text(
+        row.get("score_components_zh"),
+        row.get("merged_score_components"),
+        row.get("score_components"),
+        row.get("why_selected_human_zh"),
+        row.get("why_selected_zh"),
+        row.get("why_selected"),
+    )
+    return short(text, limit) if text else "模型命中條件已成立"
 
 
 def category_display(category: str) -> str:
@@ -988,16 +1005,6 @@ def zh_market_reason(value) -> str:
     return text.replace("; ", "；")
 
 
-def zh_priority_short(value) -> str:
-    raw = clean(value)
-    return {
-        "A_priority_watch": "最優先",
-        "B_confirm_needed": "等確認",
-        "C_watch_only": "僅觀察",
-        "D_risk_downgrade": "暫不列",
-    }.get(raw, raw)
-
-
 def zh_research_note(row: pd.Series) -> str:
     priority = clean(row.get("research_priority"))
     caveat = clean(row.get("research_caveat"))
@@ -1037,7 +1044,7 @@ def line_group_action(group, status) -> str:
     if group_raw == "emerging_theme_watch":
         return "早期題材。樣本少，只能觀察族群是否擴散，不直接列核心。"
     if group_raw == "risk" or "overheated" in status_raw:
-        return "暫不列前排。先等突破、量能或籌碼重新確認；沒確認就不買。"
+        return "暫不列前排。先等突破、量能或籌碼重新確認；沒確認就只列追蹤。"
     return "資料不足 / 僅能觀察；不得用原始代碼自行升級。"
 
 
@@ -1061,17 +1068,14 @@ def volume_action(theme_status, volume_status, structural_status=None, mainstrea
     if status in {"overheated_volume_theme", "failed_volume_theme", "weak_or_non_mainstream_volume_watch"}:
         return "放量品質不夠好。先不追，等重新確認。"
     if "overheated" in theme:
-        return "短線漲幅或量能過熱。放量訊號只能提醒先不追，不能當買進理由。"
+        return "短線漲幅或量能過熱。放量訊號只能提醒風險升高，不能當操作依據。"
     return "資料不足 / 僅能觀察；不得只因放量就升級。"
 
 
 def two_line_row(row: pd.Series, two_map: dict[str, pd.Series]) -> pd.Series:
     sid = clean(row.get("stock_id"))
     cat = clean(row.get("original_category_cn") or row.get("category_cn"))
-    score = score_key(row.get("decision_score"))
-    two = two_map.get((sid, cat, score)) if score else None
-    if two is None:
-        two = two_map.get((sid, cat))
+    two = two_map.get((sid, cat))
     if two is None:
         two = two_map.get(sid, pd.Series(dtype=object))
     return two
@@ -1203,8 +1207,8 @@ def representative_names(df: pd.DataFrame, group: str, status: str, limit: int =
     ].copy()
     if sub.empty:
         return "資料不足"
-    if "decision_score" in sub.columns:
-        sub["_score"] = pd.to_numeric(sub["decision_score"], errors="coerce")
+    if "model_score" in sub.columns:
+        sub["_score"] = pd.to_numeric(sub["model_score"], errors="coerce")
         sub = sub.sort_values("_score", ascending=False)
     names = [f"{clean(r.get('stock_id'))} {clean(r.get('stock_name'))}".strip() for _, r in sub.head(limit).iterrows()]
     return "、".join([n for n in names if n]) or "資料不足"
@@ -1225,27 +1229,6 @@ def candidate_mainstream_bucket(row: pd.Series, two_map: dict[str, pd.Series] | 
     if source == RISK_SOURCE or group == "risk":
         return 4
     return 3
-
-
-def priority_sort_key(row: pd.Series, two_map: dict[str, pd.Series] | None = None) -> tuple:
-    p = {
-        "A_priority_watch": 0,
-        "B_confirm_needed": 1,
-        "C_watch_only": 2,
-        "D_risk_downgrade": 3,
-    }.get(clean(row.get("decision_priority")), 9)
-    rank = to_float(row.get("decision_rank_in_category"))
-    score = to_float(row.get("decision_score"))
-    overall = to_float(row.get("decision_rank_overall_for_display"))
-    quality = candidate_quality_points(row)
-    return (
-        p,
-        candidate_mainstream_bucket(row, two_map),
-        -quality,
-        rank if rank is not None else 9999,
-        -(score if score is not None else -9999),
-        overall if overall is not None else 9999,
-    )
 
 
 def candidate_quality_points(row: pd.Series) -> float:
@@ -1331,11 +1314,45 @@ def candidate_quality_points(row: pd.Series) -> float:
     return score
 
 
-def sort_df(df: pd.DataFrame, two_map: dict[str, pd.Series] | None = None) -> pd.DataFrame:
+def model_risk_order(row: pd.Series) -> int:
+    raw = clean(
+        first_text(
+            row.get("risk_tags"),
+            row.get("risk_penalty_tags"),
+            row.get("merged_risk_penalty_tags"),
+            row.get("downgrade_flags"),
+            row.get("tdcc_status"),
+        )
+    ).lower()
+    if any(token in raw for token in ["distribution", "false_breakout", "missing_data", "source_missing"]):
+        return 3
+    if any(token in raw for token in ["overheat", "priced_in", "stale_signal", "repeated_but_no_breakout"]):
+        return 2
+    if raw and raw not in {"nan", "none", "no_risk", "risk_none"}:
+        return 1
+    return 0
+
+
+def model_sort_key(row: pd.Series, two_map: dict[str, pd.Series] | None = None) -> tuple:
+    model_rank = to_float(row.get("model_rank"))
+    display_rank = to_float(row.get("display_rank"))
+    score = to_float(row.get("model_score"))
+    quality = candidate_quality_points(row)
+    return (
+        model_rank if model_rank is not None else 9999,
+        display_rank if display_rank is not None else 9999,
+        candidate_mainstream_bucket(row, two_map),
+        model_risk_order(row),
+        -(score if score is not None else -9999),
+        -quality,
+    )
+
+
+def sort_model_frame(df: pd.DataFrame, two_map: dict[str, pd.Series] | None = None) -> pd.DataFrame:
     if df.empty:
         return df
     tmp = df.copy()
-    tmp["_sort_key"] = [priority_sort_key(row, two_map) for _, row in tmp.iterrows()]
+    tmp["_sort_key"] = [model_sort_key(row, two_map) for _, row in tmp.iterrows()]
     return tmp.sort_values("_sort_key").drop(columns=["_sort_key"])
 
 
@@ -1453,9 +1470,6 @@ def get_stock_extra_maps(
         for _, row in two_line.iterrows():
             sid = clean(row.get("stock_id"))
             cat = clean(row.get("category_cn") or row.get("original_category_cn"))
-            score = score_key(row.get("decision_score"))
-            if sid and cat and score:
-                two_map.setdefault((sid, cat, score), row)
             if sid and cat:
                 two_map.setdefault((sid, cat), row)
             if sid and sid not in two_map:
@@ -1471,120 +1485,39 @@ def get_stock_extra_maps(
     return all_map, two_map, vol_map
 
 
-def front_eligible(row: pd.Series, two_map: dict[str, pd.Series], vol_map: dict[str, pd.Series]) -> bool:
-    if clean(row.get("decision_priority")) != "A_priority_watch":
-        return False
-    source, _, group, _ = line_source(row, two_map)
-    _, theme_status = line_raw(row, two_map)
-    structural, label = line_structure(row, two_map)
-    if source == RISK_SOURCE or group == "risk":
-        return False
-    if structural != "core_mainstream_theme":
-        return False
-    clean_strict_breakout = (
-        is_strict_breakout_row(row)
-        and theme_status == "mainstream_overheated"
-        and not has_individual_overheat(row)
-    )
-    if theme_status not in MAINSTREAM_THEME_STATUSES and not clean_strict_breakout:
-        return False
-    if ("overheated" in theme_status.lower() or "overheated" in label.lower()) and not clean_strict_breakout:
-        return False
-    if has_text(row.get("why_downgraded")):
-        return False
-    for field in ("downgrade_flags", "risk_tags"):
-        text = clean(row.get(field)).lower()
-        if text and text not in {"no_risk", "risk_none", "none", "nan"}:
-            return False
-    if clean(row.get("must_not_overstate")).lower() == "true":
-        return False
-    if "distribution_warning" in clean(row.get("tdcc_status")).lower():
-        return False
-    overheat = clean(row.get("overheat_status")).lower()
-    if overheat and overheat not in {"not_overheated", "normal", "none"} and "overheated" in overheat:
-        return False
-    sid = clean(row.get("stock_id"))
-    vol_status = clean(vol_map.get(sid, pd.Series(dtype=object)).get("theme_volume_attack_status")).lower()
-    if vol_status in {"overheated_volume_theme", "failed_volume_theme", "weak_or_non_mainstream_volume_watch"}:
-        return False
-    return True
-
-
-def has_hard_exclusion(row: pd.Series, vol_map: dict[str, pd.Series] | None = None) -> bool:
-    priority = clean(row.get("decision_priority"))
-    if priority == "D_risk_downgrade":
-        return True
-    if clean(row.get("must_not_overstate")).lower() == "true":
-        return True
-    tdcc = clean(row.get("tdcc_status")).lower()
-    if "distribution_warning" in tdcc:
-        return True
-    raw = clean(row.get("why_downgraded") or row.get("risk_tags") or row.get("downgrade_flags")).lower()
-    hard_tokens = [
-        "false_breakout",
-        "tdcc_distribution",
-        "distribution_warning",
-        "data_insufficient",
-        "missing_data",
-        "source_missing",
-        "stale_signal",
-        "repeated_but_no_breakout",
-    ]
-    if any(token in raw for token in hard_tokens):
-        return True
-    sid = clean(row.get("stock_id"))
-    vol_row = (vol_map or {}).get(sid, pd.Series(dtype=object))
-    vol_status = clean(vol_row.get("theme_volume_attack_status")).lower()
-    if vol_status in {"failed_volume_theme", "weak_or_non_mainstream_volume_watch"}:
-        return True
-    return False
-
-
-def category_signal_buy_candidate(row: pd.Series, vol_map: dict[str, pd.Series] | None = None) -> bool:
-    return clean(row.get("decision_priority")) == "A_priority_watch" and not has_hard_exclusion(row, vol_map)
-
-
-def clean_risk_gate(row: pd.Series, vol_map: dict[str, pd.Series] | None = None) -> bool:
-    if has_text(row.get("why_downgraded")):
-        return False
-    for field in ("downgrade_flags", "risk_tags"):
-        text = clean(row.get(field)).lower()
-        if text and text not in {"no_risk", "risk_none", "none", "nan"}:
-            return False
-    if clean(row.get("must_not_overstate")).lower() == "true":
-        return False
-    if "distribution_warning" in clean(row.get("tdcc_status")).lower():
-        return False
-    overheat = clean(row.get("overheat_status")).lower()
-    if overheat and overheat not in {"not_overheated", "normal", "none"} and "overheated" in overheat:
-        return False
-    sid = clean(row.get("stock_id"))
-    vol_row = (vol_map or {}).get(sid, pd.Series(dtype=object))
-    vol_status = clean(vol_row.get("theme_volume_attack_status")).lower()
-    if vol_status in {"overheated_volume_theme", "failed_volume_theme", "weak_or_non_mainstream_volume_watch"}:
-        return False
-    return True
-
-
-def non_mainstream_trade_eligible(
+def model_signal_tag(
     row: pd.Series,
     two_map: dict[str, pd.Series],
     vol_map: dict[str, pd.Series] | None = None,
-) -> bool:
-    if clean(row.get("decision_priority")) != "A_priority_watch":
-        return False
+) -> str:
     source, _, group, _ = line_source(row, two_map)
-    _, theme_status = line_raw(row, two_map)
+    _, status = line_raw(row, two_map)
     structural, label = line_structure(row, two_map)
-    if structural != "non_mainstream_theme":
-        return False
+    tdcc = clean(row.get("tdcc_status")).lower()
+    risk_level = model_risk_order(row)
+    sid = clean(row.get("stock_id"))
+    vol_row = (vol_map or {}).get(sid, pd.Series(dtype=object))
+    vol_status = clean(vol_row.get("theme_volume_attack_status")).lower()
     if source == RISK_SOURCE or group == "risk":
-        return False
-    if theme_status not in MAINSTREAM_THEME_STATUSES and theme_status != "emerging_theme":
-        return False
-    if "overheated" in theme_status.lower() or "overheated" in label.lower():
-        return False
-    return clean_risk_gate(row, vol_map)
+        return "風險線"
+    if "distribution_warning" in tdcc or risk_level >= 3:
+        return "高風險模型列"
+    if "overheated" in status or "overheated" in label or "overheated" in vol_status or risk_level == 2:
+        return "模型命中 / 風險較高"
+    if structural == "non_mainstream_theme" or group == "non_mainstream_flow_watch":
+        return "模型命中 / 非主流"
+    if status == "emerging_theme":
+        return "模型命中 / 早期題材"
+    return "模型命中"
+
+
+def display_signal_tag(tag: str) -> str:
+    return clean(tag, "模型命中")
+
+
+def is_report_risk_line(row: pd.Series, two_map: dict[str, pd.Series]) -> bool:
+    source, _, group, _ = line_source(row, two_map)
+    return source == RISK_SOURCE or group == "risk" or model_risk_order(row) >= 3
 
 
 def line_status(row: pd.Series, two_map: dict[str, pd.Series]) -> tuple[str, str]:
@@ -1592,119 +1525,6 @@ def line_status(row: pd.Series, two_map: dict[str, pd.Series]) -> tuple[str, str
     structural, label = line_structure(row, two_map)
     status_text = f"{zh_theme_status(theme_status)} / {zh_structural_status(structural)} / {zh_mainstream_label(label)}"
     return zh_line_group(group), status_text
-
-
-def decision_action_tag(
-    row: pd.Series,
-    two_map: dict[str, pd.Series],
-    vol_map: dict[str, pd.Series] | None = None,
-) -> str:
-    source, _, group, _ = line_source(row, two_map)
-    _, status = line_raw(row, two_map)
-    _, label = line_structure(row, two_map)
-    priority = clean(row.get("decision_priority"))
-    down = clean(row.get("downgrade_flags") or row.get("why_downgraded") or row.get("risk_tags")).lower()
-    must_not = clean(row.get("must_not_overstate")).lower() == "true"
-    tdcc = clean(row.get("tdcc_status")).lower()
-    if "distribution_warning" in tdcc:
-        return "先不碰"
-    if category_signal_buy_candidate(row, vol_map or {}):
-        return "嚴格可買" if is_strict_breakout_row(row) else "條件可買"
-    if "repeated_but_no_breakout" in down or "stale_signal" in down:
-        return "等突破"
-    if source == RISK_SOURCE or group == "risk":
-        return "暫不列"
-    if front_eligible(row, two_map, vol_map or {}):
-        return "嚴格可買"
-    if "overheated" in status or "overheated" in label:
-        return "先不追"
-    if non_mainstream_trade_eligible(row, two_map, vol_map or {}):
-        return "非主流短線考慮"
-    if priority == "A_priority_watch" and not must_not:
-        if is_core_mainstream_row(row, two_map):
-            return "等確認"
-        return "非主流觀察"
-    if priority == "B_confirm_needed":
-        return "等確認"
-    if priority == "C_watch_only":
-        return "僅觀察"
-    if priority == "D_risk_downgrade":
-        return "暫不列"
-    return "等確認"
-
-
-def display_action_tag(action: str) -> str:
-    mapping = {
-        "嚴格可買": "推薦可買",
-        "條件可買": "可買候選",
-        "非主流短線考慮": "短線觀察",
-        "非主流觀察": "觀察",
-        "僅觀察": "觀察",
-        "暫不列": "排除買進",
-        "先不追": "觀察",
-        "先不碰": "不碰",
-    }
-    return mapping.get(clean(action), clean(action))
-
-
-def excluded_from_recommendation_flow(
-    row: pd.Series,
-    two_map: dict[str, pd.Series],
-    vol_map: dict[str, pd.Series] | None = None,
-) -> bool:
-    tag = decision_action_tag(row, two_map, vol_map or {})
-    if tag in {"暫不列", "先不碰"}:
-        return True
-    if clean(row.get("decision_priority")) == "D_risk_downgrade":
-        return True
-    source, _, group, _ = line_source(row, two_map)
-    return source == RISK_SOURCE or group == "risk"
-
-
-def visible_recommendation_rows(
-    rows: list[pd.Series],
-    two_map: dict[str, pd.Series],
-    vol_map: dict[str, pd.Series] | None = None,
-) -> list[pd.Series]:
-    return [row for row in rows if not excluded_from_recommendation_flow(row, two_map, vol_map)]
-
-
-def avoid_reason(row: pd.Series, two_map: dict[str, pd.Series]) -> str:
-    explicit = first_text(row.get("why_downgraded"), row.get("risk_tags"), row.get("downgrade_flags"))
-    if explicit:
-        return short(explicit, 95)
-
-    source, _, group, _ = line_source(row, two_map)
-    _, status = line_raw(row, two_map)
-    _, label = line_structure(row, two_map)
-    action = decision_action_tag(row, two_map)
-    priority = clean(row.get("decision_priority"))
-    tdcc = clean(row.get("tdcc_status")).lower()
-
-    if "distribution_warning" in tdcc:
-        return "籌碼出現派發警示，先排除買進名單"
-    if action == "等突破":
-        return "反覆出現訊號但尚未有效突破"
-    if action == "先不追":
-        return "短線漲幅過大或量能過熱，容易追在短線高點"
-    if source == RISK_SOURCE or group == "risk" or priority == "D_risk_downgrade":
-        return "程式端列為暫不列前排，條件未回復前不列買進候選"
-    if "overheated" in status or "overheated" in label:
-        return "族群短線漲幅或量能過熱，先等回測或重新站穩"
-    return ""
-
-
-def avoid_action(row: pd.Series, two_map: dict[str, pd.Series]) -> str:
-    action = decision_action_tag(row, two_map)
-    if action == "先不碰":
-        return "不買；籌碼派發警示解除前不列候選。"
-    if action == "先不追":
-        return "不追價；等回測後重新站穩，或量能續強但不失控再看。"
-    if action == "等突破":
-        return "等有效突破或收盤站穩壓力區，再回候選名單。"
-    if action == "暫不列":
-        return "不買；價格、量能或籌碼重新確認前不列前排。"
-    return "先等價格、量能或籌碼重新確認。"
 
 
 def technical_state(row: pd.Series, extra: pd.Series) -> str:
@@ -1745,7 +1565,7 @@ def technical_state_brief(row: pd.Series, extra: pd.Series) -> str:
         f"5日 {r5}" if r5 else "",
         f"20日 {r20}" if r20 else "",
         "成交量放大" if vol_ok else "",
-        "假突破風險" if false_risk else "",
+        "漲幅過低" if false_risk else "",
     ]
     return "；".join([p for p in parts if p]) or "資料不足 / 僅能觀察"
 
@@ -1799,39 +1619,6 @@ def selection_brief(row: pd.Series, extra: pd.Series) -> str:
     return "；".join([p for p in parts if p]) or short(row.get("why_selected"), 78)
 
 
-def operation_rules(row: pd.Series) -> tuple[str, str, str, str]:
-    category = category_display(clean(row.get("original_category_cn") or row.get("category_cn")))
-    next_confirm = clean(row.get("next_confirmation"), "後續追蹤價量是否延續。")
-    if "不跌回平台" in next_confirm or "不跌回" in next_confirm:
-        next_confirm = "這是買進後防守條件，不是今天買前等待條件。"
-    if "嚴格突破" in category:
-        buy = "今日收盤已站上突破區或前高上方，且量能高於近期均量時，可列入條件式買點；不需等隔日才判斷今天是否成立。"
-        take = "若急拉遠離短期成本區、爆量不漲或長上影，先分批降低；靠近上一段壓力且量能鈍化時不加碼。"
-        no_buy = "收盤沒有站上突破區、爆量長上影或量能失控時不買；買進後跌回突破區才退出或降部位。"
-    elif "區間內轉強" in category:
-        buy = "收盤有效站上區間上緣或前高壓力，且成交量同步放大時，可列入條件式買點。"
-        take = "接近前高壓力但無法放量突破時先不追；若突破後兩日內失守壓力區，視為失敗。"
-        no_buy = "只碰壓力不過、爆量收黑、或收盤跌回區間內時不買。"
-    elif "營收爆發" in category:
-        buy = "營收題材只能作背景；必須價格守住程式端確認區且量能放大，確認市場開始反應後才買。"
-        take = "若營收利多後股價一次性急漲、隔日無續量，採短線分批落袋或降為觀察。"
-        no_buy = "若已反應過度、EPS/毛利仍未確認、或TDCC轉弱，不買。"
-    elif "營收成長" in category:
-        buy = "只在回檔守住平台低點或程式端支撐區後出現轉強K線，並且量能回升時列入。"
-        take = "反彈靠近前高但量能不足時先降低部位；跌回支撐區下方時退出。"
-        no_buy = "跌破程式端支撐區後沒有快速站回、或營收利多已被價格反應完，不買。"
-    elif "短線轉強" in category:
-        buy = "今日若已收盤站回攻擊K關鍵區且成交量回升，可列入短線條件式買點；隔日跌破攻擊K低點才視為失敗。"
-        take = "5至10日內若急拉、爆量不漲或長上影，先分批落袋。"
-        no_buy = "收盤未站回攻擊K關鍵區、回落攻擊K低點或量能斷裂時不買。"
-    else:
-        buy = "型態必須完成頸線/平台確認，並且收盤守住程式端確認區；未確認前僅能觀察。"
-        take = "靠近型態量測壓力或前高但量能跟不上時降低曝險。"
-        no_buy = "型態未完成、假突破、跌破平台低點或程式端確認區時不買。"
-    exit_rule = f"退出條件：買進後若收盤跌回突破/支撐區，或出現爆量長上影、量能失控，視為失敗。{next_confirm}"
-    return buy, take, exit_rule, no_buy
-
-
 def plot_stock_chart(
     stock_id: str,
     stock_name: str,
@@ -1851,12 +1638,12 @@ def plot_stock_chart(
     for col in ("open", "high", "low", "close", "volume", "ema23", "ma20", "ma60"):
         if col in df.columns:
             df[col] = pd.to_numeric(df[col].astype(str).str.replace(",", ""), errors="coerce")
-    df = df.dropna(subset=["date", "close"]).tail(180)
+    df = df.dropna(subset=["date", "close"]).tail(CHATGPT_SIDE_KLINE_DAYS)
     if df.empty:
         return None
 
     chart_kind = "op" if isinstance(candidate_row, pd.Series) and not candidate_row.empty else "plain"
-    path = CHARTS / f"{stock_id}_kline_180_{chart_kind}.png"
+    path = CHARTS / f"{stock_id}_kline_{CHATGPT_SIDE_KLINE_DAYS}_{chart_kind}.png"
     fig, (ax, axv) = plt.subplots(
         2,
         1,
@@ -1925,11 +1712,11 @@ def plot_stock_chart(
         )
 
     if level_label == "短線壓力" and level_text:
-        add_price_line(level_text, "買進確認/壓力", "#c00000", "-", 1.25)
+        add_price_line(level_text, "模型確認/壓力", "#c00000", "-", 1.25)
     elif level_label == "短線支撐" and level_text:
         add_price_line(level_text, "支撐/跌破退出", "#007a3d", "-", 1.25)
     elif level_label == "關鍵價" and level_text:
-        add_price_line(level_text, "買進確認/關鍵價", "#c00000", "-", 1.25)
+        add_price_line(level_text, "模型確認/關鍵價", "#c00000", "-", 1.25)
 
     for idx, level in enumerate(supports[:2], start=1):
         add_price_line(level, f"支撐{idx}", "#007a3d")
@@ -1958,7 +1745,11 @@ def plot_stock_chart(
     ]
     axv.bar(df["date"], volumes, width=0.8, color=colors_v, alpha=0.38)
     axv.set_ylabel("量", fontproperties=MATPLOTLIB_FONT, fontsize=8)
-    ax.set_title(f"{stock_id} {stock_name} 180日K線 / 23EMA", fontproperties=MATPLOTLIB_FONT, fontsize=11)
+    ax.set_title(
+        f"{stock_id} {stock_name} 半年K線 / 23EMA",
+        fontproperties=MATPLOTLIB_FONT,
+        fontsize=11,
+    )
     ax.grid(True, linewidth=0.25, alpha=0.35)
     axv.grid(True, linewidth=0.25, alpha=0.3)
     ax.legend(prop=MATPLOTLIB_FONT, fontsize=7, loc="upper left")
@@ -2071,7 +1862,6 @@ def plot_put_call_chart() -> Path | None:
 
 def load_inputs() -> dict[str, pd.DataFrame]:
     return {
-        "decision": read_csv(remote_latest_url("daily_candidate_decision_latest.csv")),
         "two_line": read_csv(remote_latest_url("daily_candidate_two_line_view_latest.csv")),
         "all": read_csv(remote_latest_url("all_candidates_latest.csv")),
         "model_registry": read_csv(remote_latest_url("daily_report_model_registry_latest.csv")),
@@ -2160,9 +1950,8 @@ def model_signal_rows(inputs: dict[str, pd.DataFrame], model_id: str, line: str 
     sub["_model_rank"] = pd.to_numeric(sub.get("model_rank"), errors="coerce").fillna(9999)
     sub["_display_rank"] = pd.to_numeric(sub.get("display_rank"), errors="coerce").fillna(9999)
     sub["_model_score"] = pd.to_numeric(sub.get("model_score"), errors="coerce").fillna(-9999)
-    sub["_decision_score"] = pd.to_numeric(sub.get("decision_score"), errors="coerce").fillna(-9999)
-    sub = sub.sort_values(["_model_rank", "_display_rank", "_model_score", "_decision_score"], ascending=[True, True, False, False])
-    return [row.drop(labels=["_model_rank", "_display_rank", "_model_score", "_decision_score"], errors="ignore") for _, row in sub.iterrows()]
+    sub = sub.sort_values(["_model_rank", "_display_rank", "_model_score"], ascending=[True, True, False])
+    return [row.drop(labels=["_model_rank", "_display_rank", "_model_score"], errors="ignore") for _, row in sub.iterrows()]
 
 
 def model_signal_rows_for_stock(inputs: dict[str, pd.DataFrame], stock_id: str, line: str | None = None) -> list[pd.Series]:
@@ -2201,6 +1990,14 @@ def preferred_model_label_for_stock(inputs: dict[str, pd.DataFrame], stock_id: s
     return name
 
 
+def preferred_model_status_for_stock(inputs: dict[str, pd.DataFrame], stock_id: str, line: str | None = None) -> str:
+    rows = model_signal_rows_for_stock(inputs, stock_id, line)
+    if not rows:
+        return "模型訊號未對應"
+    first = rows[0]
+    return f"{model_score_label(first)} / 風險：{model_risk_text(first, 32)}"
+
+
 def model_split_table(
     rows: list[pd.Series],
     two_map: dict[str, pd.Series],
@@ -2208,21 +2005,19 @@ def model_split_table(
     title: str,
     limit: int = 6,
 ) -> Table:
-    data = [["標的", "層級", "模型排名 / 分數", "族群 / 資金", "大戶籌碼", "觀察重點"]]
+    data = [["標的", "模型狀態", "模型排名 / 分數", "族群 / 資金", "大戶籌碼", "模型依據 / 風險"]]
     if not rows:
         data.append(["-", "-", title, "-", "-", "本模型今日無符合條件資料。"])
     for row in rows[:limit]:
         extra = all_map.get(clean(row.get("stock_id")), pd.Series(dtype=object))
-        rank = clean(row.get("display_rank") or row.get("model_rank"))
-        score = num(row.get("model_score"), 1)
         data.append(
             [
                 stock_label(row),
-                priority_label(row),
-                f"#{rank} / {score}" if rank else score,
+                display_signal_tag(model_signal_tag(row, two_map)),
+                model_score_label(row),
                 f"{category_position_text(row, two_map)} / {zh_warrant(row.get('warrant_flow_signal'))}",
                 tdcc_direction(row, extra),
-                short(row.get("operation_reminder_zh") or row.get("why_selected_human_zh") or row.get("why_selected_zh") or row.get("why_selected") or observation_focus(row, extra), 82),
+                f"{model_source_text(row, 54)}；風險：{model_risk_text(row, 34)}",
             ]
         )
     return build_table(data, [32 * mm, 22 * mm, 30 * mm, 54 * mm, 44 * mm, 86 * mm], 12.0)
@@ -2236,27 +2031,23 @@ def model_recommendation_rows_for_line(
     vol_map: dict[str, pd.Series] | None = None,
     limit: int = 8,
 ) -> list[list]:
-    rows = [["??", "??", "??", "??"]]
+    rows = [["分線", "模型", "標的", "模型分數 / 風險"]]
     seen: set[tuple[str, str]] = set()
     _, _, line_label = line_titles(line)
     for spec in core_model_specs(inputs, line):
         model_id = clean(spec.get("model_id"))
         model_name = clean(spec.get("model_name_zh"), model_id)
         for row in model_signal_rows(inputs, model_id, line):
-            if decision_action_tag(row, two_map, vol_map or {}) not in {"??", "?????"}:
-                continue
             sid = clean(row.get("stock_id"))
             key = (sid, model_id)
             if not sid or key in seen:
                 continue
-            extra = all_map.get(sid, pd.Series(dtype=object))
-            verdict = "??" if line == "mainstream" else "????"
             rows.append(
                 [
-                    red(verdict),
                     red(line_label),
+                    red(model_name),
                     red(stock_label(row)),
-                    f"{escape_html(model_name)} / {escape_html(model_stage_label(row, extra))}",
+                    f"{escape_html(model_score_label(row))}<br/>風險：{escape_html(model_risk_text(row, 62))}",
                 ]
             )
             seen.add(key)
@@ -2265,6 +2056,32 @@ def model_recommendation_rows_for_line(
     return rows
 
 
+
+
+def listing_status_label(row: pd.Series, stage: str) -> str:
+    text_parts = [
+        stage,
+        row.get("listing_status_zh"),
+        row.get("appearance_status_zh"),
+        row.get("signal_repeat_status_zh"),
+        row.get("repeat_signal_label_zh"),
+        row.get("repeat_status_zh"),
+        row.get("same_model_repeat_status_zh"),
+        row.get("model_stage_zh"),
+        row.get("signal_stage_zh"),
+    ]
+    text = " ".join(clean(part) for part in text_parts if clean(part))
+    lower_text = text.lower()
+    if "重複" in text or "repeat" in lower_text:
+        return "重複上榜"
+    if "新上榜" in text or "新進" in text or "new" in lower_text:
+        return "新上榜"
+    return "未標示"
+
+
+def listing_status_sort_key(label: str) -> int:
+    order = {"新上榜": 0, "重複上榜": 1}
+    return order.get(label, 2)
 
 
 def model_front_observation_rows_for_line(
@@ -2279,30 +2096,44 @@ def model_front_observation_rows_for_line(
     target_limit = limit if limit is not None else (
         FRONT_MAINSTREAM_LIMIT if line == "mainstream" else FRONT_NON_MAINSTREAM_LIMIT
     )
-    rows = [["模型", line_label]]
-    strict_ids = strict_buy_stock_ids(inputs["decision"], two_map, vol_map)
+    rows = [["榜別", "模型", "股票", "模型狀態", "分數 / 風險"]]
     for spec in core_model_specs(inputs, line):
         model_id = clean(spec.get("model_id"))
         model_name = clean(spec.get("model_name_zh"), model_id)
-        lines: list[str] = []
+        model_rows = 0
+        model_display_rows: list[tuple[int, int, list]] = []
         for row in model_signal_rows(inputs, model_id, line):
             sid = clean(row.get("stock_id"))
-            if sid in strict_ids:
-                continue
-            tag = decision_action_tag(row, two_map, vol_map or {})
-            if tag == "嚴格可買":
-                continue
-            line_text = escape_html(stock_label(row))
-            stage = model_stage_label(row, all_map.get(sid, pd.Series(dtype=object)))
-            if stage:
-                line_text += f"<br/>{escape_html(stage)}"
-            action = display_action_tag(tag)
-            if action:
-                line_text += f"<br/>{escape_html(action)}"
-            lines.append(line_text)
-            if len(lines) >= target_limit:
+            extra = all_map.get(sid, pd.Series(dtype=object))
+            stage = model_stage_label(row, extra) or display_signal_tag(model_signal_tag(row, two_map, vol_map or {}))
+            reminder = (
+                row.get("next_confirmation_zh")
+                or row.get("why_selected_human_zh")
+                or row.get("why_selected_zh")
+                or row.get("why_selected")
+                or observation_focus(row, extra)
+            )
+            listing_label = listing_status_label(row, stage)
+            model_display_rows.append(
+                (
+                    listing_status_sort_key(listing_label),
+                    model_rows,
+                    [
+                        listing_label,
+                        red(model_name),
+                        stock_label(row),
+                        stage,
+                        f"{escape_html(model_score_label(row))}<br/>風險：{escape_html(model_risk_text(row, 48))}<br/>{escape_html(short(reminder, 54))}",
+                    ],
+                )
+            )
+            model_rows += 1
+            if model_rows >= target_limit:
                 break
-        rows.append([red(model_name), "<br/>".join(lines) if lines else "無符合條件資料"])
+        for _, _, row_data in sorted(model_display_rows, key=lambda item: (item[0], item[1])):
+            rows.append(row_data)
+        if model_rows == 0:
+            rows.append(["-", red(model_name), "-", "-", f"{escape_html(line_label)}目前無符合觀察列"])
     return rows
 
 
@@ -2310,7 +2141,11 @@ def append_group_rotation_end_section(story: list, inputs: dict[str, pd.DataFram
     group_rotation = inputs.get("group_rotation", pd.DataFrame()).copy()
     if group_rotation.empty:
         return
-    story.append(PageBreak())
+    if "theme_resolution_status" in group_rotation.columns:
+        group_rotation = group_rotation[group_rotation["theme_resolution_status"].astype(str).eq("resolved")].copy()
+    if group_rotation.empty:
+        return
+    append_page_break_once(story)
     story.append(Paragraph("資金進入族群觀察", H1))
     story.append(
         para(
@@ -2326,7 +2161,7 @@ def append_group_rotation_end_section(story: list, inputs: dict[str, pd.DataFram
         leaders = leaders.strip(" /")
         rows.append(
             [
-                clean(r.get("theme")),
+                clean(r.get("theme_display_zh") or r.get("theme")),
                 clean(r.get("rotation_model_name") or r.get("rotation_model_id")),
                 num(r.get("stock_count"), 0),
                 f"{num(r.get('slow_inflow_count'), 0)} / {num(r.get('slow_inflow_ratio'), 2)}",
@@ -2347,89 +2182,8 @@ def append_group_rotation_end_section(story: list, inputs: dict[str, pd.DataFram
 
 
 
-def operation_overview_rows(
-    decision: pd.DataFrame,
-    two_map: dict[str, pd.Series],
-    vol_map: dict[str, pd.Series] | None = None,
-) -> list[list]:
-    display_limit = 4
-    buckets = {
-        "嚴格可買": [],
-        "非主流短線 / 等確認": [],
-        "先不追 / 已有持股降部位": [],
-    }
-    seen: set[str] = set()
-    for _, row in sort_df(decision).iterrows():
-        sid = clean(row.get("stock_id"))
-        if not sid or sid in seen:
-            continue
-        tag = decision_action_tag(row, two_map, vol_map or {})
-        cat = category_display(clean(row.get("original_category_cn") or row.get("category_cn")))
-        side = "主流" if is_core_mainstream_row(row, two_map) else "非主流"
-        rank = num(row.get("decision_rank_in_category"), 0)
-        text = f"{stock_label(row)}｜{cat}｜{side}｜原#{rank}｜{tag}"
-        if tag == "嚴格可買":
-            buckets["嚴格可買"].append(text)
-        elif tag in {"非主流短線考慮", "非主流觀察", "等確認", "等突破", "僅觀察"}:
-            buckets["非主流短線 / 等確認"].append(text)
-        else:
-            buckets["先不追 / 已有持股降部位"].append(text)
-        seen.add(sid)
-        if all(len(v) >= display_limit for v in buckets.values()):
-            break
-
-    if not buckets["嚴格可買"]:
-        buckets["嚴格可買"].append("今日無嚴格可買")
-    rows = [["嚴格可買", "非主流短線 / 等確認", "先不追 / 已有持股降部位"]]
-    max_len = max([len(v) for v in buckets.values()] + [1])
-    for idx in range(min(max_len, display_limit)):
-        rows.append(
-            [
-                buckets["嚴格可買"][idx] if idx < len(buckets["嚴格可買"]) else "",
-                buckets["非主流短線 / 等確認"][idx] if idx < len(buckets["非主流短線 / 等確認"]) else "",
-                buckets["先不追 / 已有持股降部位"][idx] if idx < len(buckets["先不追 / 已有持股降部位"]) else "",
-            ]
-        )
-    return rows
-
-
-
-
-def strict_buy_stock_ids(
-    decision: pd.DataFrame,
-    two_map: dict[str, pd.Series],
-    vol_map: dict[str, pd.Series] | None = None,
-) -> set[str]:
-    ids: set[str] = set()
-    for _, row in sort_df(decision).iterrows():
-        sid = clean(row.get("stock_id"))
-        if sid and decision_action_tag(row, two_map, vol_map or {}) in {"嚴格可買", "條件可買"}:
-            ids.add(sid)
-    return ids
-
-
-
-
 def matches_line(row: pd.Series, two_map: dict[str, pd.Series], line: str) -> bool:
     return is_core_mainstream_row(row, two_map) if line == "mainstream" else not is_core_mainstream_row(row, two_map)
-
-
-def recommendation_rows_for_line(
-    decision: pd.DataFrame,
-    all_map: dict[str, pd.Series],
-    two_map: dict[str, pd.Series],
-    line: str,
-    vol_map: dict[str, pd.Series] | None = None,
-    limit: int = 8,
-) -> list[list]:
-    # Deprecated compatibility wrapper: do not fall back to legacy six-category rows.
-    # The report entry point uses model_recommendation_rows_for_line(inputs, ...).
-    rows = [["??", "??", "??", "??"]]
-    return rows
-
-
-
-
 
 
 def filter_theme_rows_for_line(themes: pd.DataFrame, line: str) -> pd.DataFrame:
@@ -2513,7 +2267,7 @@ def volume_theme_next_flow_note(row: pd.Series) -> str:
         return "族群剛開始出量；等第二批個股跟上。"
     if status == "confirmed_volume_theme":
         return "族群出量已確認；優先看龍頭回測不破。"
-    return "有出量證據；用來追蹤下一波資金，不直接當買進理由。"
+    return "有出量證據；用來追蹤下一波資金，不直接當操作依據。"
 
 
 def build_volume_theme_section(
@@ -2535,7 +2289,7 @@ def build_volume_theme_section(
     story.append(Paragraph("族群集體出量（預判下一波資金）", H1))
     story.append(
         para(
-            "用途：只列多檔同步、2倍以上量能有擴散，且不是短線過熱或單股輪動的族群。這裡是資金流向預判，不是直接買進名單。",
+            "用途：只列多檔同步、2倍以上量能有擴散，且不是短線過熱或單股輪動的族群。這裡是資金流向預判，不是直接操作名單。",
             BODY_SMALL,
         )
     )
@@ -2611,7 +2365,7 @@ def category_position_text(row: pd.Series, two_map: dict[str, pd.Series]) -> str
     if is_core_mainstream_row(row, two_map):
         return "主流族群，資金線較完整。"
     if source == RISK_SOURCE or group == "risk":
-        return "風險線，條件回復前不列買進。"
+        return "風險線，條件回復前只列風險摘要。"
     if structural == "non_mainstream_theme" or group == "non_mainstream_flow_watch":
         return "非主流族群，只追蹤輪動延續。"
     if source == LATENT_SOURCE:
@@ -2643,14 +2397,8 @@ def pattern_subtype_lines(
 ) -> list[str]:
     lines: list[str] = []
     for row in rows[:limit]:
-        sid = clean(row.get("stock_id"))
-        action_row = row
-        extra = all_map.get(sid, pd.Series(dtype=object))
-        if isinstance(extra, pd.Series) and not extra.empty:
-            if decision_action_tag(extra, two_map, vol_map or {}) == "嚴格可買":
-                action_row = extra
-        action = display_action_tag(decision_action_tag(action_row, two_map, vol_map or {}))
-        lines.append(f"{escape_html(stock_label(row))}｜{escape_html(action)}")
+        tag = display_signal_tag(model_signal_tag(row, two_map, vol_map or {}))
+        lines.append(f"{escape_html(stock_label(row))}｜{escape_html(model_score_label(row))}｜{escape_html(tag)}")
     return lines
 
 
@@ -2683,11 +2431,11 @@ def pattern_subtype_overview_table(
         elif label == "平台右側":
             note = "平台整理偏右側，等站上平台壓力。"
         elif label == "回測支撐":
-            note = "看回測是否守住支撐，失守不買。"
+            note = "看回測是否守住支撐，失守列為模型失效。"
         elif label == "預備發動":
             note = "早期轉強，先看量價是否延續。"
         elif label == "築底整理":
-            note = "仍在整理，不急著買。"
+            note = "仍在整理，等待模型條件完整。"
         else:
             note = "型態資料不足，只能觀察。"
         data.append(
@@ -2741,45 +2489,26 @@ def drawback_brief(
         raw = clean(explicit)
         if "distribution" in text or "派發" in raw:
             return "籌碼派發警示"
-        if "false_breakout" in text or "假突破" in raw:
-            return "假突破風險"
+        if "false_breakout" in text or "假突破" in raw or "漲幅過低" in raw:
+            return "漲幅過低"
         if "overheat" in text or "過熱" in raw or "已反應" in raw:
             return "短線過熱或利多已反應"
         if "資料不足" in raw or "data" in text:
             return "資料不足"
         if "repeated_but_no_breakout" not in text and "反覆上榜" not in raw and "連續上榜" not in raw:
             return short(raw, 72)
-    action = decision_action_tag(row, two_map, vol_map or {})
     source, _, group, _ = line_source(row, two_map)
     _, status = line_raw(row, two_map)
     structural, label = line_structure(row, two_map)
     if "overheated" in status or "overheated" in label:
         return "短線漲幅或量能過熱，先等回測或重新確認"
-    if action in {"嚴格可買", "條件可買"}:
-        cautions: list[str] = []
-        if not is_core_mainstream_row(row, two_map):
-            cautions.append("非核心主流，只能短線處理")
-        overheat = clean(row.get("overheat_status")).lower()
-        if "priced_in" in overheat or "overheated" in overheat:
-            cautions.append("短線已有反應，避免追價")
-        vol = to_float(row.get("volume_ratio"))
-        if vol is not None and vol > 5:
-            cautions.append("量能偏急，注意長上影")
-        ret20 = to_float(row.get("return_20d"))
-        if ret20 is not None and ret20 > 20:
-            cautions.append("短線漲幅偏高")
-        return " / ".join(cautions) if cautions else "不利因素不明顯，重點是照價位控風險"
-    if action == "非主流短線考慮":
-        return "非核心主流，失去量能就退出"
     if structural != "core_mainstream_theme" or group == "non_mainstream_flow_watch":
         return "非主流，族群延續性不足"
     if source == RISK_SOURCE or group == "risk":
-        return "已進風險線，條件回復前不列買進名單"
+        return "已進風險線，條件回復前只列風險摘要"
     if status not in MAINSTREAM_THEME_STATUSES:
         return "主流資金未確認"
-    if action in {"等確認", "等突破"}:
-        return "無明確風險，買點未確認"
-    return "無明確風險"
+    return "模型未列明重大風險，仍需追蹤關鍵價位"
 
 
 def observation_focus(row: pd.Series, extra: pd.Series) -> str:
@@ -2898,53 +2627,53 @@ def quality_reason(row: pd.Series, extra: pd.Series | None = None) -> str:
     return " / ".join(parts[:4]) or "依程式端品質排序"
 
 
-def buy_condition_summary(row: pd.Series, extra: pd.Series) -> str:
+def next_confirmation_summary(row: pd.Series, extra: pd.Series) -> str:
     supports, pressures, close_value = nearby_price_levels(row, extra)
     level_label, level_text, _ = key_level_context(row, extra)
     level_value = to_float(level_text)
     if level_label == "短線壓力" and level_text:
-        return f"收盤放量站上壓力 {level_text}，才由觀察轉買點。"
+        return f"收盤放量站上壓力 {level_text}，模型強度才算延續。"
     if level_label == "短線支撐" and level_text:
-        return f"已站在支撐 {level_text} 上方；若屬推薦可買，只在靠近支撐或量價維持時執行，不追急拉。"
+        return f"已站在支撐 {level_text} 上方；後續需量價維持，不追急拉。"
     if level_label == "關鍵價" and level_text:
         if close_value is not None and level_value is not None and close_value >= level_value:
-            return f"已站上關鍵價 {level_text}；若屬推薦可買，只在量價維持時執行，不追急拉。"
-        return f"收盤站上關鍵價 {level_text}，才可評估。"
+            return f"已站上關鍵價 {level_text}；後續需量價維持。"
+        return f"收盤站上關鍵價 {level_text}，模型強度才算延續。"
     if pressures:
-        return f"收盤站上壓力 {num(pressures[0])}，才可評估。"
+        return f"收盤站上壓力 {num(pressures[0])}，模型強度才算延續。"
     if supports:
-        return f"守住支撐 {num(supports[0])}，並出現轉強K線，才可評估。"
-    return "等收盤站上關鍵價，且成交量延續，才可評估。"
+        return f"守住支撐 {num(supports[0])}，並出現轉強K線，模型強度才算延續。"
+    return "等待收盤站上關鍵價，且成交量延續。"
 
 
-def no_buy_summary(row: pd.Series, extra: pd.Series) -> str:
+def invalidation_summary(row: pd.Series, extra: pd.Series) -> str:
     supports, pressures, _ = nearby_price_levels(row, extra)
     level_label, level_text, _ = key_level_context(row, extra)
     level_value = to_float(level_text)
     close_value = to_float(first_text(row.get("close"), extra.get("close") if isinstance(extra, pd.Series) else ""))
     if level_label == "關鍵價" and level_text:
         if close_value is not None and level_value is not None and close_value >= level_value:
-            return f"買進後跌破關鍵價 {level_text}，不買或退出。"
-        return f"收盤未站上關鍵價 {level_text}，不買。"
+            return f"跌破關鍵價 {level_text}，模型延續性失效。"
+        return f"收盤未站上關鍵價 {level_text}，模型強度不足。"
     if supports:
-        return f"買進後跌破支撐 {num(supports[0])}，不買或退出。"
+        return f"跌破支撐 {num(supports[0])}，模型延續性失效。"
     if pressures:
-        return f"只碰壓力 {num(pressures[0])} 但收盤站不上，不買。"
-    return "價格未站穩關鍵價，或爆量長上影，不買。"
+        return f"只碰壓力 {num(pressures[0])} 但收盤站不上，模型強度不足。"
+    return "價格未站穩關鍵價，或爆量長上影，列為風險升高。"
 
 
-def exit_summary(row: pd.Series, extra: pd.Series) -> str:
+def tracking_summary(row: pd.Series, extra: pd.Series) -> str:
     supports, pressures, _ = nearby_price_levels(row, extra)
     level_label, level_text, _ = key_level_context(row, extra)
     if level_label == "關鍵價" and level_text:
-        return f"跌破關鍵價 {level_text} 退出。急拉長上影先降部位。"
+        return f"跌破關鍵價 {level_text} 視為模型失效；急拉長上影列風險升高。"
     if supports and pressures:
-        return f"靠近壓力 {num(pressures[0])} 轉弱先降部位。跌破支撐 {num(supports[0])} 退出。"
+        return f"靠近壓力 {num(pressures[0])} 轉弱列風險升高；跌破支撐 {num(supports[0])} 視為模型失效。"
     if supports:
-        return f"跌破支撐 {num(supports[0])} 退出。急拉長上影先降部位。"
+        return f"跌破支撐 {num(supports[0])} 視為模型失效；急拉長上影列風險升高。"
     if pressures:
-        return f"靠近壓力 {num(pressures[0])} 量縮或長上影，先降部位。"
-    return "跌回確認區或量能失控，退出。"
+        return f"靠近壓力 {num(pressures[0])} 量縮或長上影，列風險升高。"
+    return "跌回確認區或量能失控，視為模型失效。"
 
 
 def operation_cell_text(value, limit: int = 110) -> str:
@@ -2965,43 +2694,32 @@ def operation_cell_markup(value, highlights: list[str] | None = None, limit: int
     return escaped
 
 
-def operation_decision_sentence(
+def model_signal_sentence(
     row: pd.Series,
     two_map: dict[str, pd.Series],
     vol_map: dict[str, pd.Series] | None,
     extra: pd.Series,
 ) -> tuple[str, list[str]]:
-    action = display_action_tag(decision_action_tag(row, two_map, vol_map or {}))
-    if action in {"推薦可買", "可買候選"}:
-        return f"{action}，但只在買進條件成立時執行。", [action]
-    if action in {"等確認", "等突破", "短線觀察", "觀察"}:
-        return f"{action}，目前不是正式買點。{observation_focus(row, extra)}", [action, "目前不是正式買點"]
-    if action in {"不列入", "不碰"}:
-        return f"{action}，目前不買。{drawback_brief(row, two_map, vol_map)}", [action, "目前不買"]
-    return f"{action or '觀察'}，目前不買。{observation_focus(row, extra)}", [action or "觀察", "目前不買"]
+    tag = display_signal_tag(model_signal_tag(row, two_map, vol_map or {}))
+    text = f"{tag}；{model_score_label(row)}。{observation_focus(row, extra)}"
+    return text, [tag, "模型"]
 
 
-def operation_buy_sentence(
+def operation_confirmation_sentence(
     row: pd.Series,
     two_map: dict[str, pd.Series],
     vol_map: dict[str, pd.Series] | None,
     extra: pd.Series,
 ) -> tuple[str, list[str]]:
-    action = display_action_tag(decision_action_tag(row, two_map, vol_map or {}))
-    condition = buy_condition_summary(row, extra)
-    condition = condition.replace("才由觀察轉買點", "才重新評估買點")
-    condition = condition.replace("才可評估", "才重新評估買點")
-    if action in {"推薦可買", "可買候選"}:
-        return condition, ["買點"]
-    return f"目前不買。{condition}", ["目前不買"]
+    return next_confirmation_summary(row, extra), ["確認", "模型"]
 
 
-def operation_no_buy_sentence(row: pd.Series, extra: pd.Series) -> str:
-    return no_buy_summary(row, extra)
+def operation_invalidation_sentence(row: pd.Series, extra: pd.Series) -> str:
+    return invalidation_summary(row, extra)
 
 
-def operation_exit_sentence(row: pd.Series, extra: pd.Series) -> str:
-    return f"若已持有，{exit_summary(row, extra)}"
+def operation_tracking_sentence(row: pd.Series, extra: pd.Series) -> str:
+    return tracking_summary(row, extra)
 
 
 def operation_risk_sentence(
@@ -3010,8 +2728,8 @@ def operation_risk_sentence(
     vol_map: dict[str, pd.Series] | None,
 ) -> str:
     risk = drawback_brief(row, two_map, vol_map)
-    if risk in {"無明確風險", "無明確風險，買點未確認"}:
-        return "不利因素不明顯，重點是照價位控風險。"
+    if risk == "模型未列明重大風險，仍需追蹤關鍵價位":
+        return risk
     return risk
 
 
@@ -3051,19 +2769,12 @@ def operation_tdcc_sentence(row: pd.Series, extra: pd.Series) -> str:
     if label in {"強正向", "正向"}:
         parts.append("籌碼加分，但仍需價格站穩。")
     elif label in {"負向", "強負向"}:
-        parts.append("籌碼扣分，警示解除前不列買點。")
+        parts.append("籌碼扣分，警示解除前只列風險摘要。")
     elif label == "中性":
         parts.append("籌碼不構成主要加分。")
     else:
         parts.append("資料不足，只能回到價格與量能確認。")
     return " ".join(parts)
-
-
-def operation_conclusion(row: pd.Series, two_map: dict[str, pd.Series], vol_map: dict[str, pd.Series] | None, extra: pd.Series) -> str:
-    action = display_action_tag(decision_action_tag(row, two_map, vol_map or {}))
-    if action in {"推薦可買", "可買候選"}:
-        return f"條件式買進。{buy_condition_summary(row, extra)}"
-    return f"{action}，目前不買。{observation_focus(row, extra)}"
 
 
 def build_operation_page(
@@ -3079,15 +2790,15 @@ def build_operation_page(
     chart = plot_stock_chart(sid, name, extra, row)
     story.append(Paragraph(f"{sid} {name}｜{model_display(row)}", H2))
 
-    decision_text, decision_marks = operation_decision_sentence(row, two_map, vol_map, extra)
-    buy_text, buy_marks = operation_buy_sentence(row, two_map, vol_map, extra)
+    signal_text, signal_marks = model_signal_sentence(row, two_map, vol_map, extra)
+    confirmation_text, confirmation_marks = operation_confirmation_sentence(row, two_map, vol_map, extra)
     op_rows = [
-        ["操作結論", decision_text, decision_marks, 112],
+        ["模型狀態", signal_text, signal_marks, 112],
         ["優點", selection_brief(row, extra), ["成交量放大", "籌碼", "突破"], 106],
         ["關鍵價位", price_plan_summary(row, extra), ["支撐", "壓力"], 98],
-        ["買進條件", buy_text, buy_marks, 112],
-        ["不買條件", operation_no_buy_sentence(row, extra), ["不買"], 100],
-        ["停利退出", operation_exit_sentence(row, extra), ["降部位", "退出"], 104],
+        ["下一確認", confirmation_text, confirmation_marks, 112],
+        ["失效條件", operation_invalidation_sentence(row, extra), ["失效", "風險"], 100],
+        ["追蹤重點", operation_tracking_sentence(row, extra), ["模型失效", "風險"], 104],
         ["主要風險", operation_risk_sentence(row, two_map, vol_map), ["風險"], 94],
         ["籌碼", operation_tdcc_sentence(row, extra), ["強正向", "強負向", "正向", "負向"], 150],
     ]
@@ -3156,51 +2867,45 @@ def build_curated_pdf_for_line(
     vol_map: dict[str, pd.Series],
     line: str,
 ) -> Path:
-    decision = inputs["decision"]
     title, _, line_label = line_titles(line)
     rec_rows = model_recommendation_rows_for_line(inputs, all_map, two_map, line, vol_map)
     story: list = [
         Paragraph(f"{DATA_DATE_SLASH} {title}", TITLE),
         date_note(),
         Spacer(1, 4),
-        Paragraph(f"{line_label}推薦結論", H1),
+        Paragraph(f"{line_label}模型重點", H1),
     ]
     if len(rec_rows) > 1:
         story.extend(
             [
-                para("以下僅使用 repo structured data 既有欄位與排序結果，不在 PDF 端新增買進或排除規則。", BODY_SMALL),
+                para("以下僅使用模型層分數、排名、風險與下一確認欄位，不在 PDF 端新增第二層操作判斷。", BODY_SMALL),
                 build_table(rec_rows, [28 * mm, 24 * mm, 54 * mm, 162 * mm], 12.0),
             ]
         )
     else:
-        story.append(para("本日無符合條件的推薦結論。", BODY))
+        story.append(para("本日無符合條件的模型重點。", BODY))
     story.append(PageBreak())
     story.extend(
         [
             Paragraph(f"{line_label}觀察清單", H1),
             para("以下依 program-side 新版候選模型列示；同一檔股票可在多個模型重複出現。舊六分類只作來源背景，不作本頁主分類。", BODY_SMALL),
-            build_table(model_front_observation_rows_for_line(inputs, all_map, two_map, line, vol_map), [42 * mm, 226 * mm], 12.0),
+            build_table(
+                model_front_observation_rows_for_line(inputs, all_map, two_map, line, vol_map),
+                [24 * mm, 36 * mm, 34 * mm, 112 * mm, 62 * mm],
+                12.0,
+            ),
         ]
     )
 
     operation_seen: set[str] = set()
-    buyable_ids = strict_buy_stock_ids(decision, two_map, vol_map)
     limit = MAIN_REPORT_MAINSTREAM_LIMIT if line == "mainstream" else MAIN_REPORT_NON_MAINSTREAM_LIMIT
     for spec in core_model_specs(inputs, line):
         model_id = clean(spec.get("model_id"))
         model_name = clean(spec.get("model_name_zh"), model_id)
         ranked_rows = model_signal_rows(inputs, model_id, line)
-        ranked_rows = [
-            row
-            for row in ranked_rows
-            if not (
-                clean(row.get("stock_id")) in buyable_ids
-                and decision_action_tag(row, two_map, vol_map or {}) not in {"嚴格可買", "條件可買"}
-            )
-        ]
         if not ranked_rows:
             continue
-        story.append(PageBreak())
+        append_page_break_once(story)
         story.append(Paragraph(model_name, H1))
         desc = clean(spec.get("model_description_zh"))
         if desc:
@@ -3230,7 +2935,7 @@ def build_full_candidate_pdf_for_line(
     all_map: dict[str, pd.Series],
     line: str,
 ) -> Path:
-    decision = inputs["decision"]
+    model_signals = inputs.get("model_signals", pd.DataFrame()).copy()
     _, title, line_label = line_titles(line)
     story: list = [
         Paragraph(f"{DATA_DATE_SLASH} {title}", TITLE),
@@ -3258,9 +2963,9 @@ def build_full_candidate_pdf_for_line(
         story.append(para("本分流沒有可用的族群摘要資料。", BODY))
 
     story.append(Paragraph(f"{line_label}TDCC 重點", H1))
-    tdcc_rows = [["標的", "模型/來源", "操作標記", "TDCC 摘要"]]
+    tdcc_rows = [["標的", "模型/來源", "模型分數 / 狀態", "TDCC 摘要"]]
     seen_tdcc: set[str] = set()
-    for _, r in sort_df(decision).iterrows():
+    for _, r in sort_model_frame(model_signals, two_map).iterrows():
         sid = clean(r.get("stock_id"))
         if not sid or sid in seen_tdcc or not matches_line(r, two_map, line):
             continue
@@ -3272,7 +2977,7 @@ def build_full_candidate_pdf_for_line(
             [
                 stock_label(r),
                 preferred_model_label_for_stock(inputs, sid, line) or "模型訊號未對應",
-                display_action_tag(decision_action_tag(r, two_map)),
+                f"{model_score_label(r)} / {display_signal_tag(model_signal_tag(r, two_map))}",
                 short(detail, 180),
             ]
         )
@@ -3315,7 +3020,7 @@ def build_full_candidate_pdf_for_line(
                 continue
             found_any = True
             story.append(Paragraph(zh_line_group(group), H2))
-            rows = [["標的", "模型/來源", "正式狀態", "優先序", "說明"]]
+            rows = [["標的", "模型/來源", "正式狀態", "模型分數 / 風險", "說明"]]
             for _, r in sub.iterrows():
                 sid = clean(r.get("stock_id"))
                 rows.append(
@@ -3323,7 +3028,7 @@ def build_full_candidate_pdf_for_line(
                         f"{sid} {clean(r.get('stock_name'))}",
                         preferred_model_label_for_stock(inputs, sid, line) or "模型訊號未對應",
                         f"{zh_theme_status(r.get('theme_final_status'))} / {zh_structural_status(r.get('theme_structural_status'))} / {zh_mainstream_label(r.get('theme_mainstream_label'))}",
-                        zh_priority_short(r.get("decision_priority")),
+                        preferred_model_status_for_stock(inputs, sid, line),
                         short(r.get("theme_leadership_note") or r.get("candidate_line") or r.get("why_selected"), 110),
                     ]
                 )
@@ -3341,7 +3046,7 @@ def build_full_candidate_pdf_for_line(
 
 def build_warrant_pdf(inputs: dict[str, pd.DataFrame]) -> Path:
     warrant = inputs["warrant"]
-    decision = inputs["decision"]
+    model_signals = inputs.get("model_signals", pd.DataFrame()).copy()
     story: list = [
         Paragraph(f"{DATA_DATE_SLASH} 權證市場輔助分析", TITLE),
         date_note(),
@@ -3383,23 +3088,23 @@ def build_warrant_pdf(inputs: dict[str, pd.DataFrame]) -> Path:
 
     story.append(PageBreak())
     story.append(Paragraph("候選股交集", H1))
-    if not warrant.empty and not decision.empty:
+    if not warrant.empty and not model_signals.empty:
         w_signal = set(
             warrant[
                 warrant.get("warrant_flow_signal", pd.Series(dtype=str)).astype(str).str.contains("call|bull|inflow", case=False, na=False)
             ]["stock_id"].astype(str)
         )
-        inter = sort_df(decision[decision["stock_id"].astype(str).isin(w_signal)].copy()).head(28)
-        rows = [["標的", "模型/來源", "層級", "權證訊號", "條件式解讀"]]
+        inter = sort_model_frame(model_signals[model_signals["stock_id"].astype(str).isin(w_signal)].copy()).head(28)
+        rows = [["標的", "模型/來源", "模型分數 / 風險", "權證訊號", "條件式解讀"]]
         for _, r in inter.iterrows():
             sid = clean(r.get("stock_id"))
             rows.append(
                 [
                     stock_label(r),
                     preferred_model_label_for_stock(inputs, sid) or "模型訊號未對應",
-                    priority_label(r),
+                    f"{model_score_label(r)} / 風險：{model_risk_text(r, 32)}",
                     zh_warrant(r.get("warrant_flow_signal")),
-                    "權證偏多只能輔助；必須現股收盤守穩關鍵價位且量能延續，否則不買。",
+                    "權證偏多只能輔助；仍回到現股收盤、量能與模型風險欄位確認。",
                 ]
             )
         story.append(build_table(rows, [36 * mm, 44 * mm, 30 * mm, 48 * mm, 110 * mm], 12.0))
@@ -3420,7 +3125,7 @@ def build_warrant_pdf(inputs: dict[str, pd.DataFrame]) -> Path:
                     f"{clean(r.get('stock_id'))} {clean(r.get('stock_name'))}",
                     zh_warrant(r.get("warrant_flow_signal")),
                     short(r.get("warrant_flow_warning") or r.get("warning"), 80),
-                    "只作提醒，不作單獨賣出或買進理由 / 回到現股價量與大戶資料確認。",
+                    "只作提醒，不作單獨操作依據 / 回到現股價量與大戶資料確認。",
                 ]
             )
         if len(rows) == 1:
@@ -3567,7 +3272,7 @@ def validate_outputs(paths: list[Path]) -> None:
         hits = [term for term in forbidden if term in text]
         required_missing: list[str] = []
         if "每日推薦分析" in path.name:
-            required = ["結論", "族群", "可買"]
+            required = ["模型", "族群", "風險"]
             required_missing = [term for term in required if term not in text]
         if missing or hits or required_missing:
             validation_errors.append(

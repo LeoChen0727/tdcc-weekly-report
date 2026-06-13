@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2243 宏旭-KY
 
 ## Metadata
-- generated_at: 2026-06-11 22:22:39 Asia/Taipei
+- generated_at: 2026-06-13 22:22:33 Asia/Taipei
 - stock_id: 2243
 - stock_name: 宏旭-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -116,29 +116,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 30.8
-- high: 33.85
-- low: 30.3
-- close: 33.85
-- volume: 4387150
-- ma5: 28.98
-- ema23_primary: 25.81
-- distance_to_ema23_pct: 31.17
-- ma20: 24.64
-- ma60: 23.05
-- ma120: 17.34
-- return_5d: 13.02
-- return_20d: 56.35
-- volume_ratio: 2.93
-- distance_to_ma20_pct_auxiliary: 37.36
+- date: 20260612
+- open: 34.45
+- high: 37.2
+- low: 34.1
+- close: 37.2
+- volume: 3763311
+- ma5: 30.82
+- ema23_primary: 26.76
+- distance_to_ema23_pct: 39.04
+- ma20: 25.39
+- ma60: 23.42
+- ma120: 17.56
+- return_5d: 32.86
+- return_20d: 67.57
+- volume_ratio: 2.33
+- distance_to_ma20_pct_auxiliary: 46.5
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,21.65,22.8,21.05,22.2,1438943,23.68,-6.25,24.45,19,0.79
 20260513,22.7,22.7,21.7,21.7,615974,23.51,-7.72,24.39,19.18,0.35
 20260514,21.95,21.95,21,21,728154,23.3,-9.89,24.29,19.33,0.41
 20260515,21.4,21.75,20.9,21.2,526636,23.13,-8.34,24.19,19.49,0.3
@@ -158,18 +157,19 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,29.35,29.45,27.1,28,3049156,24.8,12.88,23.82,22.46,2.11
 20260605,27.55,29.1,27.55,28.05,1848401,25.07,11.87,24.03,22.72,1.29
 20260611,30.8,33.85,30.3,33.85,4387150,25.81,31.17,24.64,23.05,2.93
+20260612,34.45,37.2,34.1,37.2,3763311,26.76,39.04,25.39,23.42,2.33
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 59.48
-- over_600_ratio: 52.71
-- over_800_ratio: 44.59
-- over_1000_ratio: 39.21
-- over_400_change_1w: 4.98
-- over_800_change_1w: 0.49
-- over_1000_change_1w: 0.24
-- tdcc_consecutive_up_weeks: 4
+- as_of_date: 20260612
+- over_400_ratio: 61.51
+- over_600_ratio: 56.65
+- over_800_ratio: 48.64
+- over_1000_ratio: 43.26
+- over_400_change_1w: 2.03
+- over_800_change_1w: 4.05
+- over_1000_change_1w: 4.05
+- tdcc_consecutive_up_weeks: 5
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -183,17 +183,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,54.04,-0.63,41.42,0.03,38.81,0.03,2,False,True
 20260529,54.5,0.46,44.1,2.68,38.97,0.16,3,True,True
 20260605,59.48,4.98,44.59,0.49,39.21,0.24,4,True,True
+20260612,61.51,2.03,48.64,4.05,43.26,4.05,5,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 2243 | 宏旭-KY | true_breakout | 嚴格突破 | 104.0 |  |  | breakout_confirmed |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260612 | 2243 | 宏旭-KY | true_breakout | 嚴格突破 | 94.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 2243 | 宏旭-KY | 1 | 1 | 3 | 5 | 5 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260612 | 2243 | 宏旭-KY | 2 | 2 | 3 | 6 | 6 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

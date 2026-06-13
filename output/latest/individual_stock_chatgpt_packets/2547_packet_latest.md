@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2547 日勝生
 
 ## Metadata
-- generated_at: 2026-06-11 22:22:51 Asia/Taipei
+- generated_at: 2026-06-13 22:22:47 Asia/Taipei
 - stock_id: 2547
 - stock_name: 日勝生
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 11
-- high: 11.1
-- low: 10.85
-- close: 11
-- volume: 9859218
-- ma5: 10.46
-- ema23_primary: 10.24
-- distance_to_ema23_pct: 7.46
-- ma20: 10.09
+- date: 20260612
+- open: 11.1
+- high: 11.4
+- low: 11.05
+- close: 11.1
+- volume: 6793820
+- ma5: 10.63
+- ema23_primary: 10.31
+- distance_to_ema23_pct: 7.68
+- ma20: 10.14
 - ma60: 10.48
 - ma120: 10.68
-- return_5d: 10.89
-- return_20d: 7.32
-- volume_ratio: 2.86
-- distance_to_ma20_pct_auxiliary: 8.97
-- distance_to_high_60_pct: -3.51
+- return_5d: 8.29
+- return_20d: 9.36
+- volume_ratio: 1.85
+- distance_to_ma20_pct_auxiliary: 9.45
+- distance_to_high_60_pct: -2.63
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,10.25,10.25,10.15,10.15,2394929,10.46,-2.94,10.49,10.76,1.11
 20260513,10.2,10.2,10,10.05,3531677,10.42,-3.58,10.45,10.74,1.58
 20260514,10.1,10.15,10,10,3079902,10.39,-3.73,10.4,10.73,1.33
 20260515,10.05,10.1,9.93,9.95,3136166,10.35,-3.88,10.36,10.72,1.3
@@ -159,20 +158,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,9.99,10.35,9.98,10.25,6334109,10.14,1.12,10.05,10.5,2.17
 20260605,10.4,10.6,10.35,10.5,4529130,10.17,3.28,10.06,10.48,1.48
 20260611,11,11.1,10.85,11,9859218,10.24,7.46,10.09,10.48,2.86
+20260612,11.1,11.4,11.05,11.1,6793820,10.31,7.68,10.14,10.48,1.85
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 69.58
-- over_600_ratio: 67.08
-- over_800_ratio: 64.53
-- over_1000_ratio: 62.77
-- over_400_change_1w: -0.02
-- over_800_change_1w: 0.24
-- over_1000_change_1w: 0.24
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260612
+- over_400_ratio: 69.12
+- over_600_ratio: 66.76
+- over_800_ratio: 64.42
+- over_1000_ratio: 62.49
+- over_400_change_1w: -0.46
+- over_800_change_1w: -0.11
+- over_1000_change_1w: -0.28
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -184,19 +184,20 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,69.61,-0.39,64.55,-0.25,62.79,-0.08,0,False,False
 20260529,69.6,-0.01,64.29,-0.26,62.53,-0.26,1,False,False
 20260605,69.58,-0.02,64.53,0.24,62.77,0.24,2,False,True
+20260612,69.12,-0.46,64.42,-0.11,62.49,-0.28,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 2547 | 日勝生 | pullback_rebound | 回檔後短線轉強 | 63.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
-| 20260611 | 2547 | 日勝生 | revenue_pullback | 營收成長股價回檔 | 63.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260611 | 2547 | 日勝生 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | platform_breakout |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260612 | 2547 | 日勝生 | pullback_rebound | 回檔後短線轉強 | 63.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260612 | 2547 | 日勝生 | revenue_pullback | 營收成長股價回檔 | 63.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260612 | 2547 | 日勝生 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 2547 | 日勝生 | 3 | 3 | 3 | 3 | 3 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260612 | 2547 | 日勝生 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

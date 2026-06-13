@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6426 統新
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:51 Asia/Taipei
+- generated_at: 2026-06-13 22:24:01 Asia/Taipei
 - stock_id: 6426
 - stock_name: 統新
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 203
-- high: 208
-- low: 189.5
-- close: 195.5
-- volume: 1793675
-- ma5: 237.1
-- ema23_primary: 247.64
-- distance_to_ema23_pct: -21.06
-- ma20: 259.3
-- ma60: 215.43
-- ma120: 163.69
-- return_5d: -26.78
-- return_20d: -24.81
-- volume_ratio: 0.67
-- distance_to_ma20_pct_auxiliary: -24.6
-- distance_to_high_60_pct: -33.5
+- date: 20260612
+- open: 207
+- high: 207
+- low: 193.5
+- close: 193.5
+- volume: 1051049
+- ma5: 224
+- ema23_primary: 243.13
+- distance_to_ema23_pct: -20.41
+- ma20: 255.7
+- ma60: 216.49
+- ma120: 164.65
+- return_5d: -25.29
+- return_20d: -27.12
+- volume_ratio: 0.46
+- distance_to_ma20_pct_auxiliary: -24.33
+- distance_to_high_60_pct: -34.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,273.5,280,265,265.5,8427374,224.35,18.34,230.88,180.33,2.02
 20260513,264,290,264,276,5657625,228.65,20.71,234.72,182.75,1.36
 20260514,290,294,272,275,3304094,232.51,18.27,238.6,185.2,0.8
 20260515,272.5,275.5,251,256,2987704,234.47,9.18,241.07,187.44,0.73
@@ -159,20 +158,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,271,277,250.5,259,1361357,254.46,1.78,264.15,212.59,0.44
 20260605,242.5,242.5,225,229.5,1306056,252.38,-9.07,262.52,214.39,0.45
 20260611,203,208,189.5,195.5,1793675,247.64,-21.06,259.3,215.43,0.67
+20260612,207,207,193.5,193.5,1051049,243.13,-20.41,255.7,216.49,0.46
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 41.78
-- over_600_ratio: 40.65
-- over_800_ratio: 34.93
+- as_of_date: 20260612
+- over_400_ratio: 42.08
+- over_600_ratio: 41.02
+- over_800_ratio: 37.06
 - over_1000_ratio: 34.93
-- over_400_change_1w: -0.59
-- over_800_change_1w: -2.68
-- over_1000_change_1w: -2.68
-- tdcc_consecutive_up_weeks: 0
+- over_400_change_1w: 0.3
+- over_800_change_1w: 2.13
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -184,17 +184,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,41.84,1.24,37.7,0.08,37.7,0.08,2,True,True
 20260529,42.37,0.53,37.61,-0.09,37.61,-0.09,3,False,False
 20260605,41.78,-0.59,34.93,-2.68,34.93,-2.68,0,False,False
+20260612,42.08,0.3,37.06,2.13,34.93,0,1,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 6426 | 統新 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260612 | 6426 | 統新 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 6426 | 統新 | 3 | 3 | 4 | 8 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260612 | 6426 | 統新 | 4 | 4 | 4 | 8 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

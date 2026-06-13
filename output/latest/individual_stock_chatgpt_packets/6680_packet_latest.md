@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6680 鑫創電子
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:59 Asia/Taipei
+- generated_at: 2026-06-13 22:24:11 Asia/Taipei
 - stock_id: 6680
 - stock_name: 鑫創電子
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260605
-- price_rows: 267
-- latest_tdcc_date: 20260605
-- tdcc_rows: 28
+- latest_price_date: 20260612
+- price_rows: 268
+- latest_tdcc_date: 20260612
+- tdcc_rows: 29
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260605
-- open: 54.5
-- high: 54.5
-- low: 54.5
-- close: 54.5
+- date: 20260612
+- open: 55.6
+- high: 55.6
+- low: 54.1
+- close: 54.3
 - volume: 55000
-- ma5: 56.18
-- ema23_primary: 55.88
-- distance_to_ema23_pct: -2.48
-- ma20: 55.61
-- ma60: 56.31
-- ma120: 60.72
-- return_5d: -6.03
-- return_20d: 0
-- volume_ratio: 1.91
-- distance_to_ma20_pct_auxiliary: -2
-- distance_to_high_60_pct: -16.41
+- ma5: 55.48
+- ema23_primary: 55.75
+- distance_to_ema23_pct: -2.6
+- ma20: 55.62
+- ma60: 56.13
+- ma120: 60.59
+- return_5d: -6.06
+- return_20d: 0.37
+- volume_ratio: 1.77
+- distance_to_ma20_pct_auxiliary: -2.37
+- distance_to_high_60_pct: -13.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,54.1,54.2,54.1,54.1,8000,55.21,-2.02,54.82,59.55,0.69
 20260508,53.2,54,53.2,54,2000,55.11,-2.02,54.74,59.32,0.18
 20260511,54.1,54.1,53.1,54,14000,55.02,-1.85,54.69,59.07,1.23
 20260512,53.8,54.1,53.8,54.1,4000,54.94,-1.54,54.67,58.83,0.38
@@ -155,26 +154,26 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260603,56.2,56.2,56.2,56.2,56000,55.99,0.37,55.52,56.65,2.2
 20260604,56.2,56.2,56.2,56.2,56000,56.01,0.34,55.61,56.49,2.07
 20260605,54.5,54.5,54.5,54.5,55000,55.88,-2.48,55.61,56.31,1.91
+20260612,55.6,55.6,54.1,54.3,55000,55.75,-2.6,55.62,56.13,1.77
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 72.65
-- over_600_ratio: 70.68
+- as_of_date: 20260612
+- over_400_ratio: 72.64
+- over_600_ratio: 70.67
 - over_800_ratio: 67.82
 - over_1000_ratio: 64.38
-- over_400_change_1w: 0.02
-- over_800_change_1w: 0.02
-- over_1000_change_1w: 0.02
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- over_400_change_1w: -0.01
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260320,72.41,-0.06,67.61,-0.05,64.17,-0.04,0,False,False
 20260327,72.47,0.06,67.65,0.04,64.21,0.04,1,True,True
 20260402,72.53,0.06,67.73,0.08,64.29,0.08,2,True,True
 20260410,72.54,0.01,67.74,0.01,64.3,0.01,3,True,True
@@ -186,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,72.64,0.01,67.8,0.01,64.36,0.01,2,True,True
 20260529,72.63,-0.01,67.8,0,64.36,0,0,False,False
 20260605,72.65,0.02,67.82,0.02,64.38,0.02,1,True,True
+20260612,72.64,-0.01,67.82,0,64.38,0,0,False,False
 ```
 
 ## Candidate Context

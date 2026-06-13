@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6904 伯鑫
 
 ## Metadata
-- generated_at: 2026-06-11 22:24:05 Asia/Taipei
+- generated_at: 2026-06-13 22:24:19 Asia/Taipei
 - stock_id: 6904
 - stock_name: 伯鑫
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260611
-- price_rows: 113
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 114
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
+- date: 20260612
 - open: 119
-- high: 119
+- high: 119.5
 - low: 119
-- close: 119
+- close: 119.5
 - volume: 119000
-- ma5: 118.4
-- ema23_primary: 117.2
-- distance_to_ema23_pct: 1.54
-- ma20: 115.88
-- ma60: 120.23
-- ma120: 121.2
-- return_5d: 2.59
-- return_20d: 1.71
-- volume_ratio: 3.68
-- distance_to_ma20_pct_auxiliary: 2.7
-- distance_to_high_60_pct: -7.03
+- ma5: 118.7
+- ema23_primary: 117.39
+- distance_to_ema23_pct: 1.8
+- ma20: 116.15
+- ma60: 120.14
+- ma120: 121.19
+- return_5d: 1.27
+- return_20d: 4.82
+- volume_ratio: 3.15
+- distance_to_ma20_pct_auxiliary: 2.88
+- distance_to_high_60_pct: -6.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260505,115,116,113.5,114,11000,119.56,-4.65,119.38,122.88,2.47
 20260506,113.5,113.5,113,113,7000,119.02,-5.05,118.83,122.83,1.49
 20260507,115,115,115,115,1000,118.68,-3.1,118.38,122.82,0.21
 20260508,113,116,112,116,6000,118.46,-2.07,118.12,122.85,1.24
@@ -155,10 +154,11 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,115,118,115,118,117,116.95,0.9,115.7,120.56,0.01
 20260605,118,118,118,118,118000,117.04,0.82,115.78,120.38,4.43
 20260611,119,119,119,119,119000,117.2,1.54,115.88,120.23,3.68
+20260612,119,119.5,119,119.5,119000,117.39,1.8,116.15,120.14,3.15
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
+- as_of_date: 20260612
 - over_400_ratio: 79.9
 - over_600_ratio: 64.36
 - over_800_ratio: 64.36
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,79.9,0,64.36,0,64.36,0,0,False,False
 20260529,79.9,0,64.36,0,64.36,0,0,False,False
 20260605,79.9,0,64.36,0,64.36,0,0,False,False
+20260612,79.9,0,64.36,0,64.36,0,0,False,False
 ```
 
 ## Candidate Context

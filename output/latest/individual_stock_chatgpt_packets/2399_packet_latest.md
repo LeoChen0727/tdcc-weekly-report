@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2399 映泰
 
 ## Metadata
-- generated_at: 2026-06-11 22:22:44 Asia/Taipei
+- generated_at: 2026-06-13 22:22:39 Asia/Taipei
 - stock_id: 2399
 - stock_name: 映泰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 44.9
-- high: 46.35
-- low: 43.05
-- close: 46.15
-- volume: 6182634
-- ma5: 49.16
-- ema23_primary: 46.5
-- distance_to_ema23_pct: -0.76
-- ma20: 47.27
-- ma60: 39.8
-- ma120: 32.23
-- return_5d: -8.07
-- return_20d: 3.01
-- volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: -2.36
-- distance_to_high_60_pct: -15.48
+- date: 20260612
+- open: 47.6
+- high: 48.3
+- low: 47.2
+- close: 47.65
+- volume: 5288078
+- ma5: 48.67
+- ema23_primary: 46.6
+- distance_to_ema23_pct: 2.26
+- ma20: 47.33
+- ma60: 40.16
+- ma120: 32.43
+- return_5d: -4.89
+- return_20d: 2.58
+- volume_ratio: 0.41
+- distance_to_ma20_pct_auxiliary: 0.69
+- distance_to_high_60_pct: -12.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,45,46.6,44.1,46.45,26698445,40.51,14.67,41.08,32.1,1.05
 20260513,45.7,48.8,45.2,48.15,25922388,41.15,17.02,41.8,32.51,1
 20260514,49,49.5,45.9,47.2,27070953,41.65,13.32,42.31,32.91,1.03
 20260515,47.2,47.2,44.6,45.45,13202406,41.97,8.3,42.84,33.28,0.53
@@ -159,20 +158,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,51,51.9,49.05,50.1,11243720,46.33,8.13,46.88,39,0.73
 20260605,49.2,49.7,47.4,48.75,5732946,46.53,4.76,47.2,39.44,0.38
 20260611,44.9,46.35,43.05,46.15,6182634,46.5,-0.76,47.27,39.8,0.44
+20260612,47.6,48.3,47.2,47.65,5288078,46.6,2.26,47.33,40.16,0.41
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 35.1
-- over_600_ratio: 33.34
-- over_800_ratio: 31.75
-- over_1000_ratio: 28.75
-- over_400_change_1w: 1.93
-- over_800_change_1w: 3.14
-- over_1000_change_1w: 3.15
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260612
+- over_400_ratio: 35.03
+- over_600_ratio: 33.02
+- over_800_ratio: 30.97
+- over_1000_ratio: 27.92
+- over_400_change_1w: -0.07
+- over_800_change_1w: -0.78
+- over_1000_change_1w: -0.83
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -184,17 +184,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,28.86,2.12,24.1,1.18,20.65,0.24,2,True,True
 20260529,33.17,4.31,28.61,4.51,25.6,4.95,3,True,True
 20260605,35.1,1.93,31.75,3.14,28.75,3.15,4,True,True
+20260612,35.03,-0.07,30.97,-0.78,27.92,-0.83,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 2399 | 映泰 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260612 | 2399 | 映泰 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 2399 | 映泰 | 1 | 1 | 2 | 4 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260612 | 2399 | 映泰 | 2 | 2 | 2 | 5 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

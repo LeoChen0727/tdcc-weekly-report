@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8016 矽創
 
 ## Metadata
-- generated_at: 2026-06-11 22:24:21 Asia/Taipei
+- generated_at: 2026-06-13 22:24:40 Asia/Taipei
 - stock_id: 8016
 - stock_name: 矽創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 288
-- high: 294.5
-- low: 283
-- close: 286.5
-- volume: 1378867
-- ma5: 299.6
-- ema23_primary: 284.32
-- distance_to_ema23_pct: 0.77
-- ma20: 291.77
-- ma60: 239.9
-- ma120: 213.72
-- return_5d: -7.28
-- return_20d: 6.7
-- volume_ratio: 0.47
-- distance_to_ma20_pct_auxiliary: -1.81
-- distance_to_high_60_pct: -7.58
+- date: 20260612
+- open: 293
+- high: 298
+- low: 287
+- close: 289.5
+- volume: 1835683
+- ma5: 297.1
+- ema23_primary: 284.75
+- distance_to_ema23_pct: 1.67
+- ma20: 292.55
+- ma60: 241.43
+- ma120: 214.63
+- return_5d: -4.14
+- return_20d: 5.66
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: -1.04
+- distance_to_high_60_pct: -6.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,270.5,276.5,268.5,274,2324032,234.78,16.71,233.22,208.18,1.04
 20260513,271.5,272,262,268,1642094,237.55,12.82,236.47,209.43,0.72
 20260514,270.5,294.5,270.5,294.5,6691189,242.29,21.55,240.72,211.12,2.63
 20260515,293.5,293.5,270.5,274,4846561,244.94,11.87,243.9,212.52,1.76
@@ -159,20 +158,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,309,309,296.5,302,2799664,282.36,6.96,289.35,236.52,0.86
 20260605,301.5,306,298,303.5,2132066,284.12,6.82,290.88,238.36,0.71
 20260611,288,294.5,283,286.5,1378867,284.32,0.77,291.77,239.9,0.47
+20260612,293,298,287,289.5,1835683,284.75,1.67,292.55,241.43,0.63
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 42.97
-- over_600_ratio: 35.74
-- over_800_ratio: 32.25
-- over_1000_ratio: 28.55
-- over_400_change_1w: -1.83
-- over_800_change_1w: 0.25
-- over_1000_change_1w: 0.25
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260612
+- over_400_ratio: 44.42
+- over_600_ratio: 35.11
+- over_800_ratio: 31.43
+- over_1000_ratio: 27.67
+- over_400_change_1w: 1.45
+- over_800_change_1w: -0.82
+- over_1000_change_1w: -0.88
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -184,23 +184,24 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,45.06,-0.39,32.92,-0.35,29.97,1.82,3,False,True
 20260529,44.8,-0.26,32,-0.92,28.3,-1.67,0,False,False
 20260605,42.97,-1.83,32.25,0.25,28.55,0.25,1,False,True
+20260612,44.42,1.45,31.43,-0.82,27.67,-0.88,2,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 8016 | 矽創 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: ex_dividend on 20260615; status=confirmed; proximity=within_7d |
-| 20260611 | 8016 | 矽創 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: ex_dividend on 20260615; status=confirmed; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260612 | 8016 | 矽創 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: ex_dividend on 20260615; status=confirmed; proximity=within_3d |
+| 20260612 | 8016 | 矽創 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: ex_dividend on 20260615; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 8016 | 矽創 | 3 | 3 | 3 | 4 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260612 | 8016 | 矽創 | 4 | 4 | 4 | 5 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 8016 | 矽創 | 27 | 0 | 1797050.0 | 0.0 |  | no_signal |
+| 20260612 | 8016 | 矽創 | 27 | 0 | 1980280.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 {
   "status": "pass",
   "parameter_rows": 16,
-  "raw_signal_rows": 513,
-  "signal_rows": 513,
-  "same_model_repeat_rows": 92,
-  "rotation_rows": 8,
+  "raw_signal_rows": 481,
+  "signal_rows": 481,
+  "same_model_repeat_rows": 85,
+  "rotation_rows": 12,
   "packet_lines": 218,
-  "expected_signal_date": "20260611",
+  "expected_signal_date": "20260612",
   "errors": [],
   "warnings": []
 }

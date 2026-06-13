@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3135 凌航
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:04 Asia/Taipei
+- generated_at: 2026-06-13 22:23:03 Asia/Taipei
 - stock_id: 3135
 - stock_name: 凌航
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 196
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 197
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 193.5
-- high: 201
-- low: 188
-- close: 193
-- volume: 6608906
-- ma5: 227.8
-- ema23_primary: 211.8
-- distance_to_ema23_pct: -8.88
-- ma20: 221.75
-- ma60: 160.77
-- ma120: 130.06
-- return_5d: -22.95
-- return_20d: -0.77
-- volume_ratio: 1.26
-- distance_to_ma20_pct_auxiliary: -12.97
-- distance_to_high_60_pct: -27.44
+- date: 20260612
+- open: 201.5
+- high: 205
+- low: 192
+- close: 192.5
+- volume: 2959862
+- ma5: 218.3
+- ema23_primary: 210.19
+- distance_to_ema23_pct: -8.42
+- ma20: 220.7
+- ma60: 162.12
+- ma120: 131.14
+- return_5d: -19.79
+- return_20d: -9.84
+- volume_ratio: 0.58
+- distance_to_ma20_pct_auxiliary: -12.78
+- distance_to_high_60_pct: -27.63
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,209,213.5,208,213.5,6047746,151.58,40.85,146.57,126.71,0.79
 20260513,213.5,218,204,211,17155118,156.53,34.8,150.95,128.43,2.03
 20260514,220,227.5,206,220.5,10454721,161.86,36.23,155.72,130.29,1.18
 20260515,240,240.5,214,216,9573342,166.37,29.83,160.43,132.12,1.03
@@ -160,17 +159,18 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,253,256.5,235,240,7240774,212.24,13.08,219.3,157.53,1.35
 20260605,235.5,235.5,220,227.5,4473231,213.51,6.55,221.82,159.47,0.89
 20260611,193.5,201,188,193,6608906,211.8,-8.88,221.75,160.77,1.26
+20260612,201.5,205,192,192.5,2959862,210.19,-8.42,220.7,162.12,0.58
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 55.25
-- over_600_ratio: 51.68
-- over_800_ratio: 50.15
-- over_1000_ratio: 45.41
-- over_400_change_1w: -3.43
-- over_800_change_1w: -3
-- over_1000_change_1w: -3.83
+- as_of_date: 20260612
+- over_400_ratio: 53.5
+- over_600_ratio: 49.72
+- over_800_ratio: 48.27
+- over_1000_ratio: 44.39
+- over_400_change_1w: -1.75
+- over_800_change_1w: -1.88
+- over_1000_change_1w: -1.02
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -185,17 +185,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,55.94,-1.05,50.64,-0.9,45.68,0.94,2,False,True
 20260529,58.68,2.74,53.15,2.51,49.24,3.56,3,True,True
 20260605,55.25,-3.43,50.15,-3,45.41,-3.83,0,False,False
+20260612,53.5,-1.75,48.27,-1.88,44.39,-1.02,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 3135 | 凌航 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260612 | 3135 | 凌航 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 3135 | 凌航 | 5 | 3 | 5 | 6 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260612 | 3135 | 凌航 | 6 | 4 | 5 | 7 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7822 倍利科
 
 ## Metadata
-- generated_at: 2026-06-11 22:24:21 Asia/Taipei
+- generated_at: 2026-06-13 22:24:39 Asia/Taipei
 - stock_id: 7822
 - stock_name: 倍利科
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260611
-- price_rows: 48
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 49
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 1000
-- high: 1000
-- low: 905
-- close: 946
-- volume: 360062
-- ma5: 1051.2
-- ema23_primary: 1149.46
-- distance_to_ema23_pct: -17.7
-- ma20: 1111.05
-- ma60: 1332.83
-- ma120: 1332.83
-- return_5d: -13.61
-- return_20d: -26.95
-- volume_ratio: 1.06
-- distance_to_ma20_pct_auxiliary: -14.86
-- distance_to_high_60_pct: -49.55
+- date: 20260612
+- open: 989
+- high: 1015
+- low: 965
+- close: 1000
+- volume: 250661
+- ma5: 1042.2
+- ema23_primary: 1137
+- distance_to_ema23_pct: -12.05
+- ma20: 1097.55
+- ma60: 1326.04
+- ma120: 1326.04
+- return_5d: -4.31
+- return_20d: -21.26
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: -8.89
+- distance_to_high_60_pct: -46.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,1310,1330,1250,1270,269490,1413.32,-10.14,1407.75,1483.62,0.56
 20260513,1275,1275,1180,1205,402088,1395.96,-13.68,1390.25,1474.33,0.85
 20260514,1200,1210,1130,1140,618094,1374.63,-17.07,1361.75,1463.55,1.34
 20260515,1145,1180,1125,1155,307915,1356.32,-14.84,1337.25,1453.91,0.7
@@ -154,15 +153,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,1100,1100,1030,1045,254402,1169.59,-10.65,1134,1345.22,0.78
 20260605,1170,1190,1090,1150,392631,1167.95,-1.54,1128.5,1341.06,1.18
 20260611,1000,1000,905,946,360062,1149.46,-17.7,1111.05,1332.83,1.06
+20260612,989,1015,965,1000,250661,1137,-12.05,1097.55,1326.04,0.74
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
+- as_of_date: 20260612
 - over_400_ratio: 68.2
 - over_600_ratio: 66.92
 - over_800_ratio: 65.6
 - over_1000_ratio: 63.73
-- over_400_change_1w: -0.05
+- over_400_change_1w: 0
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,68.25,0,65.6,0,63.73,0,0,False,False
 20260529,68.25,0,65.6,0,63.73,0,0,False,False
 20260605,68.2,-0.05,65.6,0,63.73,0,0,False,False
+20260612,68.2,0,65.6,0,63.73,0,0,False,False
 ```
 
 ## Candidate Context

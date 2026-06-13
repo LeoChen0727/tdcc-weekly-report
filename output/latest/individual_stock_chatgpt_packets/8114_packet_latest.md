@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8114 振樺電
 
 ## Metadata
-- generated_at: 2026-06-11 22:24:25 Asia/Taipei
+- generated_at: 2026-06-13 22:24:44 Asia/Taipei
 - stock_id: 8114
 - stock_name: 振樺電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 202
-- high: 212.5
-- low: 200
-- close: 208
-- volume: 1466966
-- ma5: 238.4
-- ema23_primary: 231.46
-- distance_to_ema23_pct: -10.13
-- ma20: 240.93
-- ma60: 199.26
-- ma120: 189.44
-- return_5d: -19.85
-- return_20d: -4.59
-- volume_ratio: 0.78
-- distance_to_ma20_pct_auxiliary: -13.67
-- distance_to_high_60_pct: -24.77
+- date: 20260612
+- open: 215
+- high: 222
+- low: 209
+- close: 210.5
+- volume: 978380
+- ma5: 229.6
+- ema23_primary: 229.71
+- distance_to_ema23_pct: -8.36
+- ma20: 239.47
+- ma60: 199.87
+- ma120: 189.66
+- return_5d: -17.29
+- return_20d: -12.11
+- volume_ratio: 0.58
+- distance_to_ma20_pct_auxiliary: -12.1
+- distance_to_high_60_pct: -23.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,222.5,239.5,219.5,239.5,5332818,188.75,26.88,186.3,178.36,4.31
 20260513,237.5,259.5,233.5,247,6292286,193.61,27.58,190.38,179.42,4.1
 20260514,243,254,235,240,3350412,197.47,21.54,193.93,180.39,1.99
 20260515,238.5,245.5,216,216,1743774,199.02,8.53,196.18,181.08,0.99
@@ -154,20 +153,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,260,262,239.5,254.5,2336554,234.01,8.76,239.9,197.83,1.12
 20260605,237.5,241,227.5,229,1339998,233.59,-1.96,241.43,198.75,0.67
 20260611,202,212.5,200,208,1466966,231.46,-10.13,240.93,199.26,0.78
+20260612,215,222,209,210.5,978380,229.71,-8.36,239.47,199.87,0.58
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 50.3
-- over_600_ratio: 42.08
-- over_800_ratio: 39.41
-- over_1000_ratio: 35.94
-- over_400_change_1w: -0.42
-- over_800_change_1w: -0.75
-- over_1000_change_1w: -0.67
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260612
+- over_400_ratio: 51.26
+- over_600_ratio: 41.32
+- over_800_ratio: 38.52
+- over_1000_ratio: 36.11
+- over_400_change_1w: 0.96
+- over_800_change_1w: -0.89
+- over_1000_change_1w: 0.17
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,50.65,-0.16,39.29,-0.33,36.83,-1.49,0,False,False
 20260529,50.72,0.07,40.16,0.87,36.61,-0.22,1,False,True
 20260605,50.3,-0.42,39.41,-0.75,35.94,-0.67,2,False,False
+20260612,51.26,0.96,38.52,-0.89,36.11,0.17,3,False,True
 ```
 
 ## Candidate Context
@@ -194,7 +195,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 8114 | 振樺電 | 15 | 0 | 2671730.0 | 0.0 |  | call_inflow |
+| 20260612 | 8114 | 振樺電 | 14 | 0 | 2474910.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

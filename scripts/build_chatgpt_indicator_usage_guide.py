@@ -130,7 +130,6 @@ def file_status(path: str | Path) -> str:
 
 
 def build_guide() -> str:
-    daily_decision = read_csv(LATEST_DIR / "daily_candidate_decision_latest.csv")
     repeat = read_csv(LATEST_DIR / "candidate_repeat_appearance_latest.csv")
     tdcc_strength = read_csv(LATEST_DIR / "tdcc_strength_ranking_top_latest.csv")
     tdcc_abm = read_csv(LATEST_DIR / "tdcc_pre_move_abm_top_latest.csv")
@@ -271,11 +270,11 @@ def build_guide() -> str:
             "Mandatory daily-report specialty packet. Read it even when the six fixed categories are already available.",
         ],
         [
-            "Daily candidate decision",
-            "output/latest/daily_candidate_decision_latest.csv",
-            "decision_priority, decision_score, pattern_mapped_category, downgrade_flags, risk_tags, why_selected, why_downgraded, next_confirmation",
-            count_values(daily_decision, "decision_priority"),
-            "Primary source for daily candidate ranking and downgrade.",
+            "Daily candidate model signals for report",
+            "output/latest/daily_candidate_model_signals_for_report_latest.csv",
+            "model_id, model_name_zh, model_score, model_rank, display_rank, score_components, risk_penalty_tags, risk_tags, next_confirmation",
+            count_values(daily_model_report_signals, "model_id"),
+            "Primary source for daily PDF/packet model rows, scores, ranks, risks, and next confirmations.",
         ],
         [
             "Repeat appearance",
@@ -366,7 +365,7 @@ def build_guide() -> str:
             "output/latest/volume_breakout_watch_latest.csv",
             "volume_breakout_type, volume_watch_scope, volume_breakout_priority, selection_status, not_selected_reason, risk_flags, next_volume_breakout_confirmation",
             f"{count_values(volume_breakout, 'volume_breakout_priority')} / {count_values(volume_breakout, 'volume_breakout_type')}",
-            "Use when asked about 底部放量攻擊 / 放量突破. The core condition is prior-20-day-high breakout with large volume; strict 60-day breakout is a separate concept.",
+            "Use when asked about 放量攻擊 / 放量突破. The core condition is prior-20-day-high breakout with large volume; strict 60-day breakout is a separate concept.",
         ],
         [
             "Stock theme taxonomy",
@@ -471,17 +470,16 @@ def build_guide() -> str:
     lines.append("- For the first page of curated PDFs, use `daily_report_model_registry_latest.csv/md` plus `daily_candidate_model_summary_for_report_latest.csv/md`. Render every official model row for that report line, split new signals and repeated/cumulative signals, and show `今日無候選` when a model has no candidate.")
     lines.append("- `daily_candidate_frontpage_unique_latest.csv/md` is legacy/secondary. Do not use it for the fixed first-page per-model new/repeated summary.")
     lines.append("- If a stock appears in the same model across multiple days, do not subtract score for that fact. Use `daily_candidate_same_model_repeat_latest.csv/md` as a separate repeated-signal table; front-page summaries can prioritize `new_model_signal` rows and place repeated same-model rows in a separate section.")
-    lines.append("- A model main condition being met means the stock enters that model. Do not add a second ChatGPT-side buy/not-buy gate after selection; use risk fields only as score/rank/annotation unless the program-side model marks a hard exclusion.")
+    lines.append("- A model main condition being met means the stock enters that model. Do not add a second ChatGPT-side action gate after selection; use risk fields only as score/rank/annotation unless the program-side model marks a hard exclusion.")
     lines.append("- Do not hard-code the number of models. Render the model rows present in `daily_candidate_model_parameters_latest.csv` and the matching candidates in `daily_candidate_model_signals_for_report_latest.csv`.")
     lines.append("- Mainstream/non-mainstream is a report split and comparison group only. It must not cap score, veto a signal, or remove a stock from a model list.")
     lines.append("- Use `model_score`, `model_rank`, `score_components`, `risk_penalty_tags`, and `report_bucket` for per-model ranking. Curated PDFs should show top rows per model/bucket; full PDFs should keep the complete model list.")
     lines.append("- Use `daily_model_parameter_research_latest.csv` and `daily_model_parameter_research_horizon_detail_latest.csv` only as model-parameter evidence. The backtest entry basis is signal-date next open; close-return and high-return endpoints are separate for D+1 through D+10.")
     lines.append("- Use `daily_model_parameter_recommendations_latest.csv` as the program-side interpretation of the research table: `promote_to_pdf_core`, `pdf_secondary_watch`, `score_component_only`, `intraday_target_watch`, or `research_only`. Do not let the PDF layer invent these statuses.")
     lines.append("- Do not promote research-only rules to a PDF core section until the program-side model parameter file explicitly promotes them.")
-    lines.append("- If the model layer is missing, fall back to `daily_candidate_decision_chatgpt_packet_latest.md` or `daily_candidate_decision_latest.csv` and explicitly mark model-layer data unavailable.")
+    lines.append("- If the model layer is missing, explicitly mark model-layer data unavailable instead of reconstructing a trading-action layer.")
     lines.append("- Also read `daily_short_term_specialty_packet_latest.md`; it is the mandatory source for standalone D+1-D+10 short-term specialty summary plus D+5/D+10 detail sections.")
-    lines.append("- Use `decision_priority` as the primary reporting priority: `A_priority_watch`, `B_confirm_needed`, `C_watch_only`, `D_risk_downgrade`.")
-    lines.append("- Use `why_selected`, `why_downgraded`, and `next_confirmation` directly. Do not invent a different reason when these fields exist.")
+    lines.append("- Use `model_score`, `model_rank`, `display_rank`, `score_components`, `risk_penalty_tags`, `risk_tags`, and `next_confirmation` directly. Do not invent a different reason when these fields exist.")
     lines.append("- `must_not_overstate=True` means do not call the stock a top pick, even if the chart looks attractive.")
     lines.append("- For volume breakout questions, read `volume_breakout_chatgpt_packet_latest.md`, `volume_attack_theme_layer_latest.md/csv`, `volume_attack_theme_stocks_latest.md/csv`, and then `volume_breakout_watch_latest.csv` for detail fields.")
     lines.append("- Every volume-attack / early-theme table must include explicit `theme_final_status`, `theme_structural_status`, `theme_mainstream_label`, and `theme_volume_attack_status`; never show only a generic theme name.")
@@ -543,7 +541,7 @@ def build_guide() -> str:
 
     lines.append("## Current Data Quality Snapshot")
     quality_rows = [
-        ["daily_candidate_decision_latest.csv", file_status(LATEST_DIR / "daily_candidate_decision_latest.csv"), str(len(daily_decision))],
+        ["daily_candidate_model_signals_for_report_latest.csv", file_status(LATEST_DIR / "daily_candidate_model_signals_for_report_latest.csv"), str(len(daily_model_report_signals))],
         ["tdcc_chatgpt_tracking_packet_latest.md", file_status(LATEST_DIR / "tdcc_chatgpt_tracking_packet_latest.md"), "-"],
         ["market_timing_chatgpt_packet_latest.md", file_status(LATEST_DIR / "market_timing_chatgpt_packet_latest.md"), "-"],
         ["market_timing_backtest_chatgpt_packet_latest.md", file_status(LATEST_DIR / "market_timing_backtest_chatgpt_packet_latest.md"), "-"],
@@ -556,7 +554,7 @@ def build_guide() -> str:
     lines.append("")
 
     lines.append("## Copy-Paste Summary For ChatGPT")
-    lines.append("Use program-side indicator classifications first. Start from READ_ME_FIRST, then this indicator usage guide, then the task-specific packet/top-list. Do not re-rank from memory. For daily candidates, use `decision_priority`, `decision_score`, `why_selected`, `why_downgraded`, and `next_confirmation`. For TDCC, keep Strength Ranking separate from ABM Pre-Move Ranking and respect risk buckets. For market timing, use sample_status and mature counts before making any timing statement. For single stocks, verify raw price/TDCC availability before producing a standard raw-data report.")
+    lines.append("Use program-side indicator classifications first. Start from READ_ME_FIRST, then this indicator usage guide, then the task-specific packet/top-list. Do not re-rank from memory. For daily candidates, use `model_id`, `model_name_zh`, `model_score`, `model_rank`, `display_rank`, `score_components`, `risk_penalty_tags`, `risk_tags`, and `next_confirmation`. For TDCC, keep Strength Ranking separate from ABM Pre-Move Ranking and respect risk buckets. For market timing, use sample_status and mature counts before making any timing statement. For single stocks, verify raw price/TDCC availability before producing a standard raw-data report.")
     lines.append("")
     return "\n".join(lines) + "\n"
 

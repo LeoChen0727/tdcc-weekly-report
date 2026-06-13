@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7714 創泓科技
 
 ## Metadata
-- generated_at: 2026-06-11 22:24:18 Asia/Taipei
+- generated_at: 2026-06-13 22:24:36 Asia/Taipei
 - stock_id: 7714
 - stock_name: 創泓科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 128.5
-- high: 132
-- low: 122.5
-- close: 127
-- volume: 127000
-- ma5: 129
-- ema23_primary: 126.3
-- distance_to_ema23_pct: 0.56
-- ma20: 124.6
-- ma60: 129.18
-- ma120: 141.42
-- return_5d: 1.2
-- return_20d: -1.93
+- date: 20260612
+- open: 129
+- high: 131
+- low: 128
+- close: 129
+- volume: 130000
+- ma5: 129.8
+- ema23_primary: 126.52
+- distance_to_ema23_pct: 1.96
+- ma20: 124.67
+- ma60: 129.05
+- ma120: 141.22
+- return_5d: 3.2
+- return_20d: 1.18
 - volume_ratio: 1.43
-- distance_to_ma20_pct_auxiliary: 1.93
-- distance_to_high_60_pct: -9.93
+- distance_to_ma20_pct_auxiliary: 3.47
+- distance_to_high_60_pct: -8.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,129.5,129.5,126.5,127.5,98000,131.07,-2.72,131.12,134.88,1.09
 20260513,127.5,128.5,127,128,52000,130.81,-2.15,131.1,134.54,0.58
 20260514,129,129,125.5,126,77000,130.41,-3.38,130.93,134.16,0.87
 20260515,126.5,128.5,125,125.5,89000,130,-3.46,130.5,133.86,1.05
@@ -155,10 +154,11 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,125.5,130,124,126.5,127000,124.98,1.22,124.3,129.3,1.52
 20260605,128,140,128,140,138000,126.23,10.91,124.72,129.4,1.58
 20260611,128.5,132,122.5,127,127000,126.3,0.56,124.6,129.18,1.43
+20260612,129,131,128,129,130000,126.52,1.96,124.67,129.05,1.43
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
+- as_of_date: 20260612
 - over_400_ratio: 66.65
 - over_600_ratio: 58.86
 - over_800_ratio: 47.95
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,66.65,0,47.95,0,47.95,0,0,False,False
 20260529,66.65,0,47.95,0,47.95,0,0,False,False
 20260605,66.65,0,47.95,0,47.95,0,0,False,False
+20260612,66.65,0,47.95,0,47.95,0,0,False,False
 ```
 
 ## Candidate Context

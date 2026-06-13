@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8249 菱光
 
 ## Metadata
-- generated_at: 2026-06-11 22:24:26 Asia/Taipei
+- generated_at: 2026-06-13 22:24:46 Asia/Taipei
 - stock_id: 8249
 - stock_name: 菱光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 49.3
-- high: 49.9
-- low: 48.6
-- close: 49.4
-- volume: 558271
-- ma5: 53.6
-- ema23_primary: 52.89
-- distance_to_ema23_pct: -6.6
-- ma20: 52.91
-- ma60: 50.77
-- ma120: 52.9
-- return_5d: -11.47
-- return_20d: -3.14
-- volume_ratio: 0.25
-- distance_to_ma20_pct_auxiliary: -6.63
-- distance_to_high_60_pct: -15.99
+- date: 20260612
+- open: 50.4
+- high: 50.5
+- low: 49.8
+- close: 49.9
+- volume: 383051
+- ma5: 52.62
+- ema23_primary: 52.64
+- distance_to_ema23_pct: -5.21
+- ma20: 52.95
+- ma60: 50.75
+- ma120: 52.87
+- return_5d: -8.94
+- return_20d: 1.42
+- volume_ratio: 0.18
+- distance_to_ma20_pct_auxiliary: -5.75
+- distance_to_high_60_pct: -15.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,50.4,50.6,49.05,49.2,916201,49.84,-1.28,49.7,52.38,1.5
 20260513,49,49,48.1,48.2,515107,49.7,-3.02,49.58,52.23,0.84
 20260514,48.4,48.6,47.8,47.9,408234,49.55,-3.33,49.47,52,0.67
 20260515,48.1,50,48,48.5,820980,49.46,-1.95,49.4,51.77,1.3
@@ -154,20 +153,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,56.2,56.2,54,54.8,1137252,53.2,3.01,52.81,50.76,0.51
 20260605,54.3,55.4,53.3,53.3,645339,53.21,0.18,52.99,50.81,0.29
 20260611,49.3,49.9,48.6,49.4,558271,52.89,-6.6,52.91,50.77,0.25
+20260612,50.4,50.5,49.8,49.9,383051,52.64,-5.21,52.95,50.75,0.18
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 56.71
-- over_600_ratio: 55.31
-- over_800_ratio: 54.82
+- as_of_date: 20260612
+- over_400_ratio: 57.47
+- over_600_ratio: 55.32
+- over_800_ratio: 54.83
 - over_1000_ratio: 53.54
-- over_400_change_1w: 0.67
-- over_800_change_1w: -0.08
-- over_1000_change_1w: -0.02
-- tdcc_consecutive_up_weeks: 1
+- over_400_change_1w: 0.76
+- over_800_change_1w: 0.01
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,57.02,-1,54.91,-1.3,53.56,0,0,False,False
 20260529,56.04,-0.98,54.9,-0.01,53.56,0,0,False,False
 20260605,56.71,0.67,54.82,-0.08,53.54,-0.02,1,False,False
+20260612,57.47,0.76,54.83,0.01,53.54,0,2,False,True
 ```
 
 ## Candidate Context
@@ -194,7 +195,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 8249 | 菱光 | 3 | 0 | 390.0 | 0.0 |  | no_signal |
+| 20260612 | 8249 | 菱光 | 3 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

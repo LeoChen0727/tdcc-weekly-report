@@ -23,6 +23,7 @@ WARRANT_FLOW_CSV = LATEST_DIR / "warrant_flow_latest.csv"
 WARRANT_FLOW_BY_STOCK_CSV = LATEST_DIR / "warrant_flow_by_stock_latest.csv"
 WARRANT_DAILY_FETCH_MD = LATEST_DIR / "warrant_daily_fetch_latest.md"
 WARRANT_MARKET_REPORT_MD = LATEST_DIR / "warrant_market_report_latest.md"
+GROUP_ROTATION_CSV = LATEST_DIR / "daily_candidate_group_rotation_latest.csv"
 
 OUTPUT_MD = LATEST_DIR / "data_freshness_latest.md"
 OUTPUT_CSV = LATEST_DIR / "data_freshness_latest.csv"
@@ -140,6 +141,44 @@ def read_csv_text(path: Path) -> pd.DataFrame:
         return pd.read_csv(path, dtype=str).fillna("")
     except Exception:
         return pd.DataFrame()
+
+
+RAW_THEME_PATTERN = re.compile(r"^[A-Za-z][A-Za-z0-9_ -]*$")
+UNRESOLVED_THEME_VALUES = {"", "其他", "其他業", "other", "theme_unknown", "unclassified", "needs_manual_review"}
+
+
+def has_cjk_text(value: str) -> bool:
+    return bool(re.search(r"[\u4e00-\u9fff]", value))
+
+
+def unresolved_theme_value(value: object) -> bool:
+    text = str(value).strip()
+    if text in UNRESOLVED_THEME_VALUES:
+        return True
+    if text.isdigit():
+        return True
+    if RAW_THEME_PATTERN.fullmatch(text) and not has_cjk_text(text):
+        return True
+    return False
+
+
+def group_rotation_theme_state() -> tuple[bool, str]:
+    df = read_csv_text(GROUP_ROTATION_CSV)
+    if df.empty:
+        return True, "group rotation table empty; no theme rows to validate"
+    required = {"theme", "theme_display_zh", "theme_resolution_status"}
+    missing = sorted(required - set(df.columns))
+    if missing:
+        return False, f"group rotation missing theme display columns: {missing}"
+    bad = df[
+        df["theme_resolution_status"].astype(str).ne("resolved")
+        | df["theme"].map(unresolved_theme_value)
+        | df["theme_display_zh"].map(unresolved_theme_value)
+    ]
+    if not bad.empty:
+        sample = bad[["theme", "theme_display_zh", "theme_resolution_status"]].head(5).to_dict("records")
+        return False, f"group rotation has unresolved/raw theme rows: count={len(bad)} sample={sample}"
+    return True, "group rotation themes resolved for PDF display"
 
 
 def csv_date_and_usable_rows(path: Path, preferred_columns: tuple[str, ...] = ()) -> tuple[str, bool]:
@@ -378,12 +417,17 @@ def determine_daily_pdf_ready(
     warrant_ready: bool,
     report_ready_note: str,
     warrant_ready_note: str,
+    group_rotation_theme_ready: bool = True,
+    group_rotation_theme_note: str = "",
 ) -> tuple[bool, str]:
     if not report_ready:
         return False, f"core daily data not ready: {report_ready_note}"
     if not warrant_ready:
         return False, f"warrant layer not ready: {warrant_ready_note}"
-    return True, "core daily data and warrant layer are ready for daily PDF source use"
+    if not group_rotation_theme_ready:
+        return False, f"group rotation theme display not ready: {group_rotation_theme_note}"
+    suffix = f"; {group_rotation_theme_note}" if group_rotation_theme_note else ""
+    return True, f"core daily data, warrant layer, and PDF theme display are ready for daily PDF source use{suffix}"
 
 
 def build_status() -> pd.DataFrame:
@@ -417,11 +461,14 @@ def build_status() -> pd.DataFrame:
         warrant_data_ready=raw_warrant_data_ready,
         warrant_data_note=raw_warrant_data_note,
     )
+    group_rotation_theme_ready, group_rotation_theme_note = group_rotation_theme_state()
     daily_pdf_ready, daily_pdf_ready_note = determine_daily_pdf_ready(
         report_ready=report_ready,
         warrant_ready=warrant_ready,
         report_ready_note=report_ready_note,
         warrant_ready_note=warrant_ready_note,
+        group_rotation_theme_ready=group_rotation_theme_ready,
+        group_rotation_theme_note=group_rotation_theme_note,
     )
 
     row = {

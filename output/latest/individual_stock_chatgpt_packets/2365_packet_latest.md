@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2365 昆盈
 
 ## Metadata
-- generated_at: 2026-06-11 22:22:43 Asia/Taipei
+- generated_at: 2026-06-13 22:22:37 Asia/Taipei
 - stock_id: 2365
 - stock_name: 昆盈
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
+- date: 20260612
 - open: 33.95
-- high: 34.2
-- low: 32.65
-- close: 33.3
-- volume: 1594168
-- ma5: 36.11
-- ema23_primary: 36.47
-- distance_to_ema23_pct: -8.7
-- ma20: 36.73
-- ma60: 35.05
-- ma120: 35.6
-- return_5d: -12.37
-- return_20d: -9.88
-- volume_ratio: 0.23
-- distance_to_ma20_pct_auxiliary: -9.34
-- distance_to_high_60_pct: -17.88
+- high: 34.4
+- low: 33.5
+- close: 33.55
+- volume: 1080115
+- ma5: 35.41
+- ema23_primary: 36.23
+- distance_to_ema23_pct: -7.4
+- ma20: 36.6
+- ma60: 35.03
+- ma120: 35.57
+- return_5d: -9.45
+- return_20d: -7.06
+- volume_ratio: 0.16
+- distance_to_ma20_pct_auxiliary: -8.34
+- distance_to_high_60_pct: -17.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,37.35,37.8,35.85,36.1,8617860,35.42,1.91,35.63,34.62,0.85
 20260513,36.3,36.5,34.75,34.75,5345800,35.37,-1.75,35.66,34.58,0.55
 20260514,34.95,35.5,34.05,35.3,6091755,35.36,-0.18,35.69,34.54,0.63
 20260515,35.3,37.75,35.3,36.65,12153138,35.47,3.33,35.81,34.54,1.19
@@ -160,17 +159,18 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,38.45,38.45,36.1,37.05,4576804,36.83,0.59,36.92,35.02,0.59
 20260605,36.2,38,35.7,36,6314393,36.76,-2.07,36.91,35.08,0.83
 20260611,33.95,34.2,32.65,33.3,1594168,36.47,-8.7,36.73,35.05,0.23
+20260612,33.95,34.4,33.5,33.55,1080115,36.23,-7.4,36.6,35.03,0.16
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 24.19
-- over_600_ratio: 20.82
-- over_800_ratio: 19.27
-- over_1000_ratio: 18.46
-- over_400_change_1w: -0.04
-- over_800_change_1w: -1.6
-- over_1000_change_1w: -0.78
+- as_of_date: 20260612
+- over_400_ratio: 22.78
+- over_600_ratio: 19.59
+- over_800_ratio: 18.6
+- over_1000_ratio: 17.79
+- over_400_change_1w: -1.41
+- over_800_change_1w: -0.67
+- over_1000_change_1w: -0.67
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -185,22 +185,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,23.36,1.47,18.5,1.47,17.69,1.47,3,True,True
 20260529,24.23,0.87,20.87,2.37,19.24,1.55,4,True,True
 20260605,24.19,-0.04,19.27,-1.6,18.46,-0.78,0,False,False
+20260612,22.78,-1.41,18.6,-0.67,17.79,-0.67,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 2365 | 昆盈 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260612 | 2365 | 昆盈 | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 2365 | 昆盈 | 1 | 1 | 3 | 8 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260612 | 2365 | 昆盈 | 2 | 2 | 3 | 8 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 2365 | 昆盈 | 9 | 0 | 76430.0 | 0.0 |  | no_signal |
+| 20260612 | 2365 | 昆盈 | 9 | 0 | 18790.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

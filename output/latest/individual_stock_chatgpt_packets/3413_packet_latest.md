@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3413 京鼎
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:10 Asia/Taipei
+- generated_at: 2026-06-13 22:23:10 Asia/Taipei
 - stock_id: 3413
 - stock_name: 京鼎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 278
-- latest_tdcc_date: 20260605
-- tdcc_rows: 28
+- latest_price_date: 20260612
+- price_rows: 279
+- latest_tdcc_date: 20260612
+- tdcc_rows: 29
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 300.5
-- high: 301.5
-- low: 286
-- close: 292.5
-- volume: 2129523
-- ma5: 310.8
-- ema23_primary: 316.79
-- distance_to_ema23_pct: -7.67
-- ma20: 319.32
-- ma60: 313.48
-- ma120: 302.1
-- return_5d: -7.58
-- return_20d: -5.19
-- volume_ratio: 0.64
-- distance_to_ma20_pct_auxiliary: -8.4
-- distance_to_high_60_pct: -18.52
+- date: 20260612
+- open: 301.5
+- high: 315
+- low: 301
+- close: 307.5
+- volume: 1844378
+- ma5: 309.8
+- ema23_primary: 316.01
+- distance_to_ema23_pct: -2.69
+- ma20: 319.27
+- ma60: 313.52
+- ma120: 302.2
+- return_5d: -1.6
+- return_20d: -0.32
+- volume_ratio: 0.56
+- distance_to_ma20_pct_auxiliary: -3.69
+- distance_to_high_60_pct: -14.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,308.5,315,306.5,308.5,2217693,313.34,-1.54,316.88,306.99,0.94
 20260513,307.5,313,306.5,311,1713108,313.14,-0.68,316.32,307.45,0.76
 20260514,315,326,315,321,4059236,313.8,2.29,316.62,307.93,1.72
 20260515,328,337.5,320.5,325.5,6508719,314.77,3.41,317.12,308.62,2.48
@@ -154,18 +154,19 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,317.5,320,311,312.5,3099439,319.18,-2.09,320.05,313.57,0.9
 20260605,322,323,311.5,317,2160000,318.99,-0.63,320.12,313.77,0.63
 20260611,300.5,301.5,286,292.5,2129523,316.79,-7.67,319.32,313.48,0.64
+20260612,301.5,315,301,307.5,1844378,316.01,-2.69,319.27,313.52,0.56
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 44.49
-- over_600_ratio: 39.16
-- over_800_ratio: 37.32
-- over_1000_ratio: 37.32
-- over_400_change_1w: 0.16
-- over_800_change_1w: -0.99
-- over_1000_change_1w: -0.24
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260612
+- over_400_ratio: 42.05
+- over_600_ratio: 38.96
+- over_800_ratio: 36.49
+- over_1000_ratio: 36.49
+- over_400_change_1w: -2.44
+- over_800_change_1w: -0.83
+- over_1000_change_1w: -0.83
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -173,7 +174,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260320,40.94,0.06,34.44,0.79,32.86,-0.04,5,False,True
 20260327,42.34,1.4,35.47,1.03,33.92,1.06,6,True,True
 20260402,40.63,-1.71,34.58,-0.89,32.05,-1.87,0,False,False
 20260410,40.87,0.24,34.74,0.16,30.58,-1.47,1,False,True
@@ -185,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,47.41,2.87,42.03,3.62,39.47,3.58,7,True,True
 20260529,44.33,-3.08,38.31,-3.72,37.56,-1.91,0,False,False
 20260605,44.49,0.16,37.32,-0.99,37.32,-0.24,1,False,False
+20260612,42.05,-2.44,36.49,-0.83,36.49,-0.83,0,False,False
 ```
 
 ## Candidate Context
@@ -200,7 +201,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 3413 | 京鼎 | 41 | 0 | 5571000.0 | 0.0 |  | no_signal |
+| 20260612 | 3413 | 京鼎 | 39 | 0 | 5928770.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

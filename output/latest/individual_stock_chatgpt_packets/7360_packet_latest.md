@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7360 宏碁資統一57購02
 
 ## Metadata
-- generated_at: 2026-06-11 22:24:16 Asia/Taipei
+- generated_at: 2026-06-13 22:24:33 Asia/Taipei
 - stock_id: 7360
 - stock_name: 宏碁資統一57購02
 - packet_status: standard_180d_window_packet

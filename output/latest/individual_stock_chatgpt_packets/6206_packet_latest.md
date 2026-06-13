@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6206 飛捷
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:46 Asia/Taipei
+- generated_at: 2026-06-13 22:23:55 Asia/Taipei
 - stock_id: 6206
 - stock_name: 飛捷
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 130
-- high: 132.5
-- low: 126.5
-- close: 132
-- volume: 2359960
-- ma5: 139.8
-- ema23_primary: 133.35
-- distance_to_ema23_pct: -1.01
-- ma20: 137.57
-- ma60: 116.05
-- ma120: 104.35
-- return_5d: -6.71
-- return_20d: 1.15
-- volume_ratio: 0.77
-- distance_to_ma20_pct_auxiliary: -4.05
-- distance_to_high_60_pct: -9.59
+- date: 20260612
+- open: 135
+- high: 136.5
+- low: 130.5
+- close: 131
+- volume: 1135721
+- ma5: 137.6
+- ema23_primary: 133.16
+- distance_to_ema23_pct: -1.62
+- ma20: 137.12
+- ma60: 116.53
+- ma120: 104.65
+- return_5d: -7.75
+- return_20d: -6.43
+- volume_ratio: 0.43
+- distance_to_ma20_pct_auxiliary: -4.47
+- distance_to_high_60_pct: -10.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,135,142,132.5,140,9680659,112.3,24.66,111.28,102.13,4.69
 20260513,138.5,141.5,137,138.5,3607355,114.48,20.98,113.05,102.93,1.63
 20260514,141.5,142.5,134,136.5,4342545,116.32,17.35,114.72,103.69,1.81
 20260515,136.5,139.5,130,130,4047061,117.46,10.68,115.9,104.34,1.59
@@ -160,20 +159,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,142.5,143.5,138,142,1912937,132.74,6.97,136.38,114.89,0.56
 20260605,140,143.5,137,141.5,1904333,133.47,6.01,137.5,115.56,0.59
 20260611,130,132.5,126.5,132,2359960,133.35,-1.01,137.57,116.05,0.77
+20260612,135,136.5,130.5,131,1135721,133.16,-1.62,137.12,116.53,0.43
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 53.58
-- over_600_ratio: 48.91
-- over_800_ratio: 46.12
-- over_1000_ratio: 41.16
-- over_400_change_1w: -1.1
-- over_800_change_1w: -1.56
-- over_1000_change_1w: -0.8
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260612
+- over_400_ratio: 53.13
+- over_600_ratio: 47.97
+- over_800_ratio: 45.72
+- over_1000_ratio: 41.98
+- over_400_change_1w: -0.45
+- over_800_change_1w: -0.4
+- over_1000_change_1w: 0.82
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -185,22 +185,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,52.04,-0.37,45.38,1.4,41.63,-1.08,3,False,True
 20260529,54.68,2.64,47.68,2.3,41.96,0.33,4,True,True
 20260605,53.58,-1.1,46.12,-1.56,41.16,-0.8,0,False,False
+20260612,53.13,-0.45,45.72,-0.4,41.98,0.82,1,False,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 6206 | 飛捷 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260612 | 6206 | 飛捷 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 6206 | 飛捷 | 7 | 3 | 5 | 8 | 8 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 8 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260612 | 6206 | 飛捷 | 8 | 4 | 5 | 9 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 6206 | 飛捷 | 15 | 0 | 2308270.0 | 0.0 |  | no_signal |
+| 20260612 | 6206 | 飛捷 | 15 | 0 | 1540700.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

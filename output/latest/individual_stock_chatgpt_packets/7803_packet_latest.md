@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7803 雲象科技-創
 
 ## Metadata
-- generated_at: 2026-06-11 22:24:21 Asia/Taipei
+- generated_at: 2026-06-13 22:24:39 Asia/Taipei
 - stock_id: 7803
 - stock_name: 雲象科技-創
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260611
-- price_rows: 14
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 15
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,22 +113,22 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 22.45
-- high: 23.4
-- low: 22.4
+- date: 20260612
+- open: 22.7
+- high: 22.95
+- low: 22.6
 - close: 22.8
-- volume: 188268
-- ma5: 22.91
-- ema23_primary: 23.04
-- distance_to_ema23_pct: -1.03
-- ma20: 23.17
-- ma60: 23.17
-- ma120: 23.17
-- return_5d: 0.44
+- volume: 135012
+- ma5: 22.84
+- ema23_primary: 23.02
+- distance_to_ema23_pct: -0.94
+- ma20: 23.14
+- ma60: 23.14
+- ma120: 23.14
+- return_5d: -1.51
 - return_20d:
-- volume_ratio: 0.46
-- distance_to_ma20_pct_auxiliary: -1.59
+- volume_ratio: 0.34
+- distance_to_ma20_pct_auxiliary: -1.48
 - distance_to_high_60_pct: -16.48
 
 ## Recent Price Preview
@@ -149,17 +149,18 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,23.2,23.2,22.2,23.15,262731,23.04,0.47,23.19,23.19,0.6
 20260605,23.5,24,22.9,23.25,278808,23.06,0.83,23.2,23.2,0.65
 20260611,22.45,23.4,22.4,22.8,188268,23.04,-1.03,23.17,23.17,0.46
+20260612,22.7,22.95,22.6,22.8,135012,23.02,-0.94,23.14,23.14,0.34
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 79.58
-- over_600_ratio: 75.08
-- over_800_ratio: 73.62
-- over_1000_ratio: 71.61
-- over_400_change_1w: -0.27
-- over_800_change_1w: -0.22
-- over_1000_change_1w: -0.22
+- as_of_date: 20260612
+- over_400_ratio: 79.41
+- over_600_ratio: 74.92
+- over_800_ratio: 73.48
+- over_1000_ratio: 70.42
+- over_400_change_1w: -0.17
+- over_800_change_1w: -0.14
+- over_1000_change_1w: -1.19
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -174,6 +175,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,80.47,-4.66,73.97,-4.7,71.96,-4.58,0,False,False
 20260529,79.85,-0.62,73.84,-0.13,71.83,-0.13,0,False,False
 20260605,79.58,-0.27,73.62,-0.22,71.61,-0.22,0,False,False
+20260612,79.41,-0.17,73.48,-0.14,70.42,-1.19,0,False,False
 ```
 
 ## Candidate Context

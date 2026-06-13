@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6753 龍德造船
 
 ## Metadata
-- generated_at: 2026-06-11 22:24:01 Asia/Taipei
+- generated_at: 2026-06-13 22:24:13 Asia/Taipei
 - stock_id: 6753
 - stock_name: 龍德造船
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 120
-- high: 123
-- low: 118
-- close: 119.5
-- volume: 494980
-- ma5: 123.8
-- ema23_primary: 127.53
-- distance_to_ema23_pct: -6.3
-- ma20: 126.15
-- ma60: 131.8
-- ma120: 135.14
-- return_5d: -8.08
-- return_20d: -9.13
-- volume_ratio: 0.46
-- distance_to_ma20_pct_auxiliary: -5.27
-- distance_to_high_60_pct: -20.86
+- date: 20260612
+- open: 122.5
+- high: 122.5
+- low: 120
+- close: 120
+- volume: 271346
+- ma5: 122.7
+- ema23_primary: 126.91
+- distance_to_ema23_pct: -5.44
+- ma20: 125.5
+- ma60: 131.57
+- ma120: 135.11
+- return_5d: -4.38
+- return_20d: -9.77
+- volume_ratio: 0.26
+- distance_to_ma20_pct_auxiliary: -4.38
+- distance_to_high_60_pct: -20.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,130,135,130,133,1344648,137.59,-3.33,139.45,136.98,0.77
 20260513,132,133,129,130,988236,136.96,-5.08,139.47,136.81,0.57
 20260514,130,131,128,128,999033,136.21,-6.03,138.88,136.57,0.62
 20260515,130,132.5,128.5,129,864435,135.61,-4.87,138.28,136.45,0.57
@@ -154,20 +154,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,130,130,125,125.5,971760,128.74,-2.52,127.85,132.24,0.69
 20260605,124,125,120.5,123,780358,128.26,-4.1,126.75,132.08,0.62
 20260611,120,123,118,119.5,494980,127.53,-6.3,126.15,131.8,0.46
+20260612,122.5,122.5,120,120,271346,126.91,-5.44,125.5,131.57,0.26
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 58.29
-- over_600_ratio: 56.59
-- over_800_ratio: 56.59
-- over_1000_ratio: 53.52
-- over_400_change_1w: 0.15
-- over_800_change_1w: 0.2
-- over_1000_change_1w: 0.19
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260612
+- over_400_ratio: 58.26
+- over_600_ratio: 56.57
+- over_800_ratio: 56.57
+- over_1000_ratio: 53.5
+- over_400_change_1w: -0.03
+- over_800_change_1w: -0.02
+- over_1000_change_1w: -0.02
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -179,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,59.87,-1.03,57.19,-1.15,53.31,-1.15,0,False,False
 20260529,58.14,-1.73,56.39,-0.8,53.33,0.02,1,False,True
 20260605,58.29,0.15,56.59,0.2,53.52,0.19,2,True,True
+20260612,58.26,-0.03,56.57,-0.02,53.5,-0.02,0,False,False
 ```
 
 ## Candidate Context
@@ -194,7 +196,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 6753 | 龍德造船 | 64 | 0 | 217500.0 | 0.0 |  | no_signal |
+| 20260612 | 6753 | 龍德造船 | 63 | 3 | 274840.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

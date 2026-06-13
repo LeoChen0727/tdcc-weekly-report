@@ -139,10 +139,13 @@ jobs:
           python scripts/build_stock_theme_taxonomy.py
           python scripts/validate_stock_theme_taxonomy.py
 
-      - name: Build daily candidate decision layer
+      - name: Remove deprecated daily candidate decision artifacts
         run: |
-          python scripts/build_daily_candidate_decision_layer.py
-          python scripts/validate_daily_candidate_decision_layer.py
+          rm -f output/latest/daily_candidate_decision_latest.csv
+          rm -f output/latest/daily_candidate_decision_latest.md
+          rm -f output/latest/daily_candidate_decision_chatgpt_packet_latest.md
+          rm -f output/latest/daily_candidate_decision_validation_latest.json
+          rm -f output/latest/daily_candidate_decision_validation_latest.md
 
       - name: Build daily theme leadership layer
         run: |
@@ -318,6 +321,7 @@ jobs:
           cp output/latest/market_abnormal_status_latest.md docs/latest/market_abnormal_status_latest.md || true
           cp output/latest/market_sentiment_context_latest.csv docs/latest/market_sentiment_context_latest.csv || true
           cp output/latest/market_sentiment_context_latest.md docs/latest/market_sentiment_context_latest.md || true
+          python scripts/sync_catalyst_pages_artifacts.py
 
           {
             echo "main_price_date=pending"
@@ -332,7 +336,8 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
-          git pull --rebase --autostash origin "$TARGET_BRANCH" || true
+          git pull --rebase --autostash origin "$TARGET_BRANCH"
+          python scripts/validate_no_conflict_markers.py
 
           # Daily pipeline only stages daily report outputs and source data.
           # Heavy research/backtest outputs are maintained by research_backtest_pipeline.yml.
@@ -348,6 +353,7 @@ jobs:
           git add output/history/market_risk/ || true
 
           python scripts/validate_daily_staged_paths.py
+          python scripts/validate_no_conflict_markers.py
           git status --short
           git commit -m "Update daily report artifacts and packets" || echo "No changes to commit"
 
@@ -379,7 +385,8 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
-          git pull --rebase --autostash origin "$TARGET_BRANCH" || true
+          git pull --rebase --autostash origin "$TARGET_BRANCH"
+          python scripts/validate_no_conflict_markers.py
 
           # Publish step only commits readme, URL checks, ChatGPT entry files, and small daily surfaces.
           git add output/latest/READ_ME_FIRST_DAILY_REPORT*.txt || true
@@ -397,6 +404,7 @@ jobs:
           git add docs/latest/ || true
 
           python scripts/validate_daily_staged_paths.py
+          python scripts/validate_no_conflict_markers.py
           git status --short
           git commit -m "Publish daily report readme and ChatGPT entries" || echo "No changes to commit"
 

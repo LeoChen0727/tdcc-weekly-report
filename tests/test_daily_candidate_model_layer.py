@@ -35,6 +35,7 @@ from build_daily_candidate_model_layer import (  # noqa: E402
     score_volume_breakout,
     update_model_signal_log,
 )
+from audit_daily_candidate_model_selection_correctness import model_stock_key_set  # noqa: E402
 
 
 def make_row(**overrides: object) -> pd.Series:
@@ -244,7 +245,8 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         row = out.iloc[0]
         self.assertEqual(row["stock_id"], "1617")
         self.assertEqual(row["model_id"], "volume_range_breakout")
-        self.assertIn("底部", row["model_name_zh"])
+        self.assertEqual(row["model_name_zh"], "放量攻擊模型")
+        self.assertNotIn("底部", row["model_name_zh"])
 
     def test_pullback_model_does_not_require_breakout(self) -> None:
         row = make_row(
@@ -515,7 +517,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
                     "stock_id": "3046",
                     "stock_name": "建碁",
                     "model_id": "volume_range_breakout",
-                    "model_name_zh": "底部放量攻擊模型",
+                    "model_name_zh": "放量攻擊模型",
                     "model_group": "pdf_core_model",
                     "model_score": "75.9",
                     "model_rank": "1",
@@ -610,7 +612,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
                 source_row_index="a",
                 stock_id="9999",
                 category="range_rebound",
-                decision_score="10",
+                score="10",
                 report_line_memberships="mainstream",
                 mainstream_report_eligible="True",
             ),
@@ -618,7 +620,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
                 source_row_index="b",
                 stock_id="9999",
                 category="pattern",
-                decision_score="99",
+                score="99",
                 report_line_memberships="mainstream",
                 mainstream_report_eligible="True",
             ),
@@ -626,6 +628,15 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         out = build_signals(pd.DataFrame(rows), build_specs(), "20260530")
         dup_count = out.duplicated(["model_id", "report_bucket", "stock_id"]).sum()
         self.assertEqual(dup_count, 0)
+
+    def test_audit_core_completeness_ignores_presentation_bucket(self) -> None:
+        expected = pd.DataFrame(
+            [{"report_bucket": "non_mainstream", "model_id": "price_pullback_23ema", "stock_id": "1503"}]
+        )
+        actual = pd.DataFrame(
+            [{"report_bucket": "mainstream", "model_id": "price_pullback_23ema", "stock_id": "1503"}]
+        )
+        self.assertEqual(model_stock_key_set(expected), model_stock_key_set(actual))
 
     def test_report_ready_signals_merge_same_display_model_same_stock(self) -> None:
         signals = pd.DataFrame(
@@ -636,7 +647,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
                     "stock_id": "2374",
                     "stock_name": "CANON",
                     "model_id": "volume_breakout_range",
-                    "model_name_zh": "底部放量攻擊模型",
+                    "model_name_zh": "放量攻擊模型",
                     "model_score": "80",
                     "model_rank": "2",
                     "original_category": "range_rebound",
@@ -651,7 +662,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
                     "stock_id": "2374",
                     "stock_name": "CANON",
                     "model_id": "volume_range_breakout",
-                    "model_name_zh": "底部放量攻擊模型",
+                    "model_name_zh": "放量攻擊模型",
                     "model_score": "90",
                     "model_rank": "1",
                     "original_category": "revenue_pullback",
@@ -836,6 +847,10 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         report_ready = model_layer.attach_report_contract_columns(
             model_layer.build_report_ready_model_signals(signals)
         )
+        self.assertEqual(model_layer.RISK_TAG_ZH["false_breakout_risk"], "漲幅過低")
+        self.assertEqual(model_layer.RISK_TAG_ZH["false_breakout_risk_penalty"], "漲幅過低扣分")
+        self.assertIn("漲幅過低", report_ready["risk_tags_zh"].iloc[0])
+        self.assertNotIn("假突破風險", report_ready["risk_tags_zh"].iloc[0])
         for col in [
             "model_name_zh",
             "source_hit_labels_zh",
@@ -849,7 +864,70 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             self.assertIn(col, report_ready.columns)
             text = " ".join(report_ready[col].astype(str))
             self.assertNotRegex(text, r"\?\?\?|[a-z]+(?:_[a-z0-9]+){1,}")
-        self.assertIn("底部放量攻擊", report_ready["model_name_zh"].iloc[0])
+        self.assertIn("放量攻擊", report_ready["model_name_zh"].iloc[0])
+
+
+    def test_group_rotation_outputs_pdf_safe_theme_display(self) -> None:
+        taxonomy = pd.DataFrame(
+            [
+                {
+                    "stock_id": "9103",
+                    "stock_name": "美德醫療-DR",
+                    "industry": "91",
+                    "basic_theme": "91",
+                    "primary_theme": "DR_or_foreign_listing",
+                    "secondary_themes": "",
+                },
+                {
+                    "stock_id": "9105",
+                    "stock_name": "泰金寶-DR",
+                    "industry": "91",
+                    "basic_theme": "91",
+                    "primary_theme": "DR_or_foreign_listing",
+                    "secondary_themes": "",
+                },
+                {
+                    "stock_id": "9136",
+                    "stock_name": "巨騰-DR",
+                    "industry": "91",
+                    "basic_theme": "91",
+                    "primary_theme": "DR_or_foreign_listing",
+                    "secondary_themes": "",
+                },
+            ]
+        )
+        dates = pd.date_range("2026-04-01", periods=40, freq="B").strftime("%Y%m%d")
+        history = pd.DataFrame(
+            {
+                "date": dates,
+                "close": [100 + i for i in range(40)],
+                "volume": [100] * 39 + [400],
+                "volume_ma20": [100] * 40,
+            }
+        )
+
+        original_path = model_layer.STOCK_THEME_TAXONOMY
+        original_price_history = model_layer.price_history_for_stock
+        with tempfile.TemporaryDirectory() as tmpdir:
+            temp_csv = Path(tmpdir) / "taxonomy.csv"
+            taxonomy.to_csv(temp_csv, index=False, encoding="utf-8-sig")
+            try:
+                model_layer.STOCK_THEME_TAXONOMY = temp_csv
+                model_layer.price_history_for_stock = lambda stock_id: history.copy()
+                rotation = model_layer.build_rotation(pd.DataFrame(), dates[-1])
+            finally:
+                model_layer.STOCK_THEME_TAXONOMY = original_path
+                model_layer.price_history_for_stock = original_price_history
+
+        self.assertFalse(rotation.empty)
+        self.assertIn("theme_display_zh", rotation.columns)
+        self.assertIn("theme_resolution_status", rotation.columns)
+        self.assertIn("theme_key", rotation.columns)
+        self.assertEqual(set(rotation["theme"]), {"DR / 外國上市"})
+        self.assertEqual(set(rotation["theme_display_zh"]), {"DR / 外國上市"})
+        self.assertEqual(set(rotation["theme_resolution_status"]), {"resolved"})
+        self.assertTrue(rotation["theme_key"].str.contains("DR_or_foreign_listing").any())
+        self.assertFalse(rotation["theme"].str.contains(r"^\\d+$|DR_or_foreign_listing|其他", regex=True).any())
 
 
 if __name__ == "__main__":

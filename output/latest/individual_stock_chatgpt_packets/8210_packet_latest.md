@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8210 勤誠
 
 ## Metadata
-- generated_at: 2026-06-11 22:24:26 Asia/Taipei
+- generated_at: 2026-06-13 22:24:45 Asia/Taipei
 - stock_id: 8210
 - stock_name: 勤誠
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 1460
-- high: 1460
-- low: 1385
-- close: 1440
-- volume: 1487382
-- ma5: 1403
-- ema23_primary: 1353.41
-- distance_to_ema23_pct: 6.4
-- ma20: 1399.25
-- ma60: 1142.88
-- ma120: 1038.2
-- return_5d: 2.86
-- return_20d: -7.4
-- volume_ratio: 0.85
-- distance_to_ma20_pct_auxiliary: 2.91
-- distance_to_high_60_pct: -9.43
+- date: 20260612
+- open: 1495
+- high: 1520
+- low: 1445
+- close: 1475
+- volume: 2007424
+- ma5: 1423
+- ema23_primary: 1363.54
+- distance_to_ema23_pct: 8.17
+- ma20: 1395.5
+- ma60: 1152.78
+- ma120: 1043.06
+- return_5d: 7.27
+- return_20d: -4.84
+- volume_ratio: 1.25
+- distance_to_ma20_pct_auxiliary: 5.7
+- distance_to_high_60_pct: -7.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,1505,1590,1485,1550,4957094,1192.48,29.98,1176.15,997.77,1.21
 20260513,1500,1530,1415,1520,3620477,1219.77,24.61,1204.1,1007.18,0.9
 20260514,1560,1560,1450,1460,2311235,1239.79,17.76,1227.5,1015.05,0.6
 20260515,1500,1500,1405,1410,1671106,1253.98,12.44,1247,1020.47,0.45
@@ -160,20 +159,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,1410,1465,1350,1375,1496306,1343.31,2.36,1407.25,1125.73,0.72
 20260605,1420,1420,1320,1370,1727293,1345.54,1.82,1405,1133.78,0.92
 20260611,1460,1460,1385,1440,1487382,1353.41,6.4,1399.25,1142.88,0.85
+20260612,1495,1520,1445,1475,2007424,1363.54,8.17,1395.5,1152.78,1.25
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 71.05
-- over_600_ratio: 66.35
-- over_800_ratio: 64.65
-- over_1000_ratio: 62.47
-- over_400_change_1w: -0.46
-- over_800_change_1w: -0.2
-- over_1000_change_1w: -0.2
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260612
+- over_400_ratio: 73.19
+- over_600_ratio: 69.01
+- over_800_ratio: 66.23
+- over_1000_ratio: 63.4
+- over_400_change_1w: 2.14
+- over_800_change_1w: 1.58
+- over_1000_change_1w: 0.93
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -185,22 +185,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,73.2,-0.01,65.42,-0.34,61.93,-1.01,3,False,False
 20260529,71.51,-1.69,64.85,-0.57,62.67,0.74,4,False,True
 20260605,71.05,-0.46,64.65,-0.2,62.47,-0.2,0,False,False
+20260612,73.19,2.14,66.23,1.58,63.4,0.93,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 8210 | 勤誠 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | continued_2_3d | calendar event: ex_dividend on 20260625; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260612 | 8210 | 勤誠 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | continued_2_3d | calendar event: ex_dividend on 20260625; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 8210 | 勤誠 | 2 | 1 | 3 | 6 | 6 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260612 | 8210 | 勤誠 | 3 | 2 | 4 | 7 | 7 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 8210 | 勤誠 | 187 | 0 | 12419790.0 | 0.0 |  | no_signal |
+| 20260612 | 8210 | 勤誠 | 184 | 5 | 14744940.0 | 39780.0 | 370.66 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

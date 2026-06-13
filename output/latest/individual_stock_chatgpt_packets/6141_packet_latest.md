@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6141 柏承
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:43 Asia/Taipei
+- generated_at: 2026-06-13 22:23:51 Asia/Taipei
 - stock_id: 6141
 - stock_name: 柏承
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 32.6
-- high: 32.6
-- low: 30
-- close: 31.6
-- volume: 1880791
-- ma5: 38.16
-- ema23_primary: 36.13
-- distance_to_ema23_pct: -12.54
-- ma20: 35.69
-- ma60: 29.93
-- ma120: 20.94
-- return_5d: -28.83
-- return_20d: -4.96
-- volume_ratio: 0.46
-- distance_to_ma20_pct_auxiliary: -11.47
-- distance_to_high_60_pct: -33.4
+- date: 20260612
+- open: 32.5
+- high: 33
+- low: 31.5
+- close: 32.05
+- volume: 1271094
+- ma5: 36.5
+- ema23_primary: 35.79
+- distance_to_ema23_pct: -10.45
+- ma20: 35.71
+- ma60: 30.16
+- ma120: 21.12
+- return_5d: -20.57
+- return_20d: 1.1
+- volume_ratio: 0.31
+- distance_to_ma20_pct_auxiliary: -10.25
+- distance_to_high_60_pct: -32.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,34,34.2,31.6,31.7,1743230,30.85,2.75,32.06,22.82,0.7
 20260513,28.55,28.55,28.55,28.55,1607242,30.66,-6.88,32.31,23.12,0.65
 20260514,25.7,25.7,25.7,25.7,1011304,30.25,-15.03,32.31,23.36,0.42
 20260515,23.15,28.25,23.15,28.25,7334148,30.08,-6.08,32.3,23.65,2.76
@@ -159,18 +158,19 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,42.1,42.45,40.05,40.35,3751674,36.36,10.97,35.51,29.36,0.92
 20260605,38.1,40.5,37.8,38.5,2200329,36.54,5.36,35.77,29.71,0.54
 20260611,32.6,32.6,30,31.6,1880791,36.13,-12.54,35.69,29.93,0.46
+20260612,32.5,33,31.5,32.05,1271094,35.79,-10.45,35.71,30.16,0.31
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 50.18
-- over_600_ratio: 46.36
-- over_800_ratio: 43.43
-- over_1000_ratio: 39.43
-- over_400_change_1w: -5.11
-- over_800_change_1w: -4.53
-- over_1000_change_1w: -3.75
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260612
+- over_400_ratio: 50.53
+- over_600_ratio: 47.08
+- over_800_ratio: 43.37
+- over_1000_ratio: 39.29
+- over_400_change_1w: 0.35
+- over_800_change_1w: -0.06
+- over_1000_change_1w: -0.14
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -184,17 +184,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,50.08,4.36,43.85,2.25,40.56,0.57,1,True,True
 20260529,55.29,5.21,47.96,4.11,43.18,2.62,2,True,True
 20260605,50.18,-5.11,43.43,-4.53,39.43,-3.75,0,False,False
+20260612,50.53,0.35,43.37,-0.06,39.29,-0.14,1,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 6141 | 柏承 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260612 | 6141 | 柏承 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 6141 | 柏承 | 1 | 1 | 2 | 6 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260612 | 6141 | 柏承 | 2 | 2 | 2 | 7 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

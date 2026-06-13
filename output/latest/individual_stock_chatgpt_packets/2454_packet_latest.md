@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2454 聯發科
 
 ## Metadata
-- generated_at: 2026-06-11 22:22:47 Asia/Taipei
+- generated_at: 2026-06-13 22:22:42 Asia/Taipei
 - stock_id: 2454
 - stock_name: 聯發科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -117,29 +117,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 4085
-- high: 4150
-- low: 3880
-- close: 4085
-- volume: 17556610
-- ma5: 4396
-- ema23_primary: 3888.04
-- distance_to_ema23_pct: 5.07
-- ma20: 3973
-- ma60: 2703.17
-- ma120: 2146.58
-- return_5d: -10.32
-- return_20d: 5.28
-- volume_ratio: 1.34
-- distance_to_ma20_pct_auxiliary: 2.82
-- distance_to_high_60_pct: -17.81
+- date: 20260612
+- open: 4410
+- high: 4415
+- low: 4165
+- close: 4180
+- volume: 8765007
+- ma5: 4327
+- ema23_primary: 3912.37
+- distance_to_ema23_pct: 6.84
+- ma20: 3997
+- ma60: 2743.08
+- ma120: 2169.71
+- return_5d: -7.62
+- return_20d: 12.97
+- volume_ratio: 0.68
+- distance_to_ma20_pct_auxiliary: 4.58
+- distance_to_high_60_pct: -15.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,3835,3910,3700,3700,11090404,2717.64,36.15,2629.25,2009.67,0.63
 20260513,3625,3680,3400,3495,9694046,2782.42,25.61,2718,2038,0.56
 20260514,3585,3590,3385,3405,7103890,2834.3,20.14,2798.75,2064.75,0.43
 20260515,3425,3555,3200,3260,7341025,2869.77,13.6,2867,2089.58,0.46
@@ -159,17 +158,18 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,4970,4970,4380,4525,15626708,3831.06,18.11,3929.25,2621.25,1.25
 20260605,4360,4430,4130,4300,11919031,3870.14,11.11,3962.75,2664.5,0.94
 20260611,4085,4150,3880,4085,17556610,3888.04,5.07,3973,2703.17,1.34
+20260612,4410,4415,4165,4180,8765007,3912.37,6.84,3997,2743.08,0.68
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 75.98
-- over_600_ratio: 71.45
-- over_800_ratio: 68.88
-- over_1000_ratio: 66.28
-- over_400_change_1w: -0.47
-- over_800_change_1w: -0.17
-- over_1000_change_1w: -0.24
+- as_of_date: 20260612
+- over_400_ratio: 75.41
+- over_600_ratio: 71.18
+- over_800_ratio: 68.29
+- over_1000_ratio: 65.71
+- over_400_change_1w: -0.57
+- over_800_change_1w: -0.59
+- over_1000_change_1w: -0.57
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -184,22 +184,23 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,76.39,-0.22,69.35,-0.38,66.81,-0.46,0,False,False
 20260529,76.45,0.06,69.05,-0.3,66.52,-0.29,1,False,False
 20260605,75.98,-0.47,68.88,-0.17,66.28,-0.24,0,False,False
+20260612,75.41,-0.57,68.29,-0.59,65.71,-0.57,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 2454 | 聯發科 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260612 | 2454 | 聯發科 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 2454 | 聯發科 | 1 | 1 | 2 | 6 | 8 | repeated_but_no_breakout | 近 10 日上榜 6 次、近 20 日上榜 8 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260612 | 2454 | 聯發科 | 2 | 2 | 2 | 6 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 2454 | 聯發科 | 456 | 0 | 29855540.0 | 0.0 |  | no_signal |
+| 20260612 | 2454 | 聯發科 | 449 | 40 | 26204340.0 | 429730.0 | 60.98 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

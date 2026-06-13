@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5469 瀚宇博
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:37 Asia/Taipei
+- generated_at: 2026-06-13 22:23:43 Asia/Taipei
 - stock_id: 5469
 - stock_name: 瀚宇博
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 81.5
-- high: 82.1
-- low: 77.7
-- close: 80.6
-- volume: 2506488
-- ma5: 84.66
-- ema23_primary: 84.21
-- distance_to_ema23_pct: -4.29
-- ma20: 82.92
-- ma60: 85.48
-- ma120: 90.65
-- return_5d: -6.28
-- return_20d: -5.29
-- volume_ratio: 0.67
-- distance_to_ma20_pct_auxiliary: -2.8
-- distance_to_high_60_pct: -19.4
+- date: 20260612
+- open: 82.2
+- high: 85.3
+- low: 82.2
+- close: 83.7
+- volume: 3051234
+- ma5: 84.22
+- ema23_primary: 84.17
+- distance_to_ema23_pct: -0.56
+- ma20: 82.97
+- ma60: 85.42
+- ma120: 90.53
+- return_5d: -2.56
+- return_20d: 1.09
+- volume_ratio: 0.83
+- distance_to_ma20_pct_auxiliary: 0.89
+- distance_to_high_60_pct: -16.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,85.9,85.9,82.6,82.8,4568708,86.58,-4.37,88.78,88.76,0.85
 20260513,82.2,82.7,81.1,81.2,2823932,86.13,-5.73,88.22,88.47,0.55
 20260514,82,82.6,81.2,81.2,2040028,85.72,-5.27,87.75,88.09,0.4
 20260515,81.6,82.4,79.2,79.6,3360819,85.21,-6.58,87.15,87.79,0.67
@@ -155,19 +154,20 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,86.6,86.6,83.6,85.9,3723117,84.59,1.55,83.03,85.64,0.93
 20260605,85.6,85.6,82.2,84,3005036,84.54,-0.64,83.14,85.61,0.76
 20260611,81.5,82.1,77.7,80.6,2506488,84.21,-4.29,82.92,85.48,0.67
+20260612,82.2,85.3,82.2,83.7,3051234,84.17,-0.56,82.97,85.42,0.83
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 71.01
-- over_600_ratio: 69.31
-- over_800_ratio: 67.07
-- over_1000_ratio: 66.32
-- over_400_change_1w: 0.07
-- over_800_change_1w: 0.05
-- over_1000_change_1w: 0.81
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: True
+- as_of_date: 20260612
+- over_400_ratio: 70.77
+- over_600_ratio: 68.94
+- over_800_ratio: 67.27
+- over_1000_ratio: 66.33
+- over_400_change_1w: -0.24
+- over_800_change_1w: 0.2
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 5
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,70.62,-0.14,66.69,-0.17,65.77,0.24,2,False,True
 20260529,70.94,0.32,67.02,0.33,65.51,-0.26,3,False,True
 20260605,71.01,0.07,67.07,0.05,66.32,0.81,4,True,True
+20260612,70.77,-0.24,67.27,0.2,66.33,0.01,5,False,True
 ```
 
 ## Candidate Context
@@ -195,7 +196,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 5469 | 瀚宇博 | 48 | 0 | 661260.0 | 0.0 |  | no_signal |
+| 20260612 | 5469 | 瀚宇博 | 48 | 0 | 1683400.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

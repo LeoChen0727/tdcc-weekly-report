@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4722 國精化
 
 ## Metadata
-- generated_at: 2026-06-11 22:23:27 Asia/Taipei
+- generated_at: 2026-06-13 22:23:31 Asia/Taipei
 - stock_id: 4722
 - stock_name: 國精化
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 280
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
+- date: 20260612
 - open: 217
-- high: 217
-- low: 198.5
-- close: 206
-- volume: 2970030
-- ma5: 263.8
-- ema23_primary: 253.45
-- distance_to_ema23_pct: -18.72
-- ma20: 265.25
-- ma60: 210.48
-- ma120: 190.93
-- return_5d: -27.97
-- return_20d: -12.34
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: -22.34
-- distance_to_high_60_pct: -30.17
+- high: 226.5
+- low: 210.5
+- close: 226.5
+- volume: 1708412
+- ma5: 253.3
+- ema23_primary: 251.2
+- distance_to_ema23_pct: -9.83
+- ma20: 263.65
+- ma60: 211.31
+- ma120: 191.44
+- return_5d: -18.82
+- return_20d: -12.38
+- volume_ratio: 0.55
+- distance_to_ma20_pct_auxiliary: -14.09
+- distance_to_high_60_pct: -23.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,235,258.5,230,258.5,7263601,199.36,29.66,196.32,182.56,1.74
 20260513,255,270,240.5,248,10374416,203.41,21.92,199.57,184.08,2.32
 20260514,255,265,248,258,4616442,207.96,24.06,203.38,185.72,1.02
 20260515,260,273,258.5,264.5,6201588,212.67,24.37,207.75,187.54,1.3
@@ -154,20 +153,21 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,286,286,277,279,468632,256.01,8.98,264.68,208.24,0.11
 20260605,272,281,265,277,534594,257.76,7.46,266.7,210.03,0.15
 20260611,217,217,198.5,206,2970030,253.45,-18.72,265.25,210.48,0.88
+20260612,217,226.5,210.5,226.5,1708412,251.2,-9.83,263.65,211.31,0.55
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 59.58
-- over_600_ratio: 53.26
-- over_800_ratio: 47.77
-- over_1000_ratio: 43.19
-- over_400_change_1w: 0.28
-- over_800_change_1w: 0.03
-- over_1000_change_1w: -0.92
-- tdcc_consecutive_up_weeks: 5
+- as_of_date: 20260612
+- over_400_ratio: 58.85
+- over_600_ratio: 51.26
+- over_800_ratio: 44.37
+- over_1000_ratio: 42.55
+- over_400_change_1w: -0.73
+- over_800_change_1w: -3.4
+- over_1000_change_1w: -0.64
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,59.8,1.31,45.58,-0.15,41.9,0.81,3,False,True
 20260529,59.3,-0.5,47.74,2.16,44.11,2.21,4,False,True
 20260605,59.58,0.28,47.77,0.03,43.19,-0.92,5,False,True
+20260612,58.85,-0.73,44.37,-3.4,42.55,-0.64,0,False,False
 ```
 
 ## Candidate Context
@@ -194,7 +195,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 4722 | 國精化 | 53 | 0 | 1518720.0 | 0.0 |  | call_inflow |
+| 20260612 | 4722 | 國精化 | 53 | 2 | 4957220.0 | 498630.0 | 9.94 | call_put_bullish |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

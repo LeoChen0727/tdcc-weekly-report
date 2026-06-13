@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2371 大同
 
 ## Metadata
-- generated_at: 2026-06-11 22:22:43 Asia/Taipei
+- generated_at: 2026-06-13 22:22:38 Asia/Taipei
 - stock_id: 2371
 - stock_name: 大同
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260611
-- price_rows: 272
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_price_date: 20260612
+- price_rows: 273
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260611
-- open: 28
-- high: 28.15
-- low: 27.4
-- close: 27.9
-- volume: 21033964
-- ma5: 29.91
-- ema23_primary: 29.84
-- distance_to_ema23_pct: -6.5
-- ma20: 29.46
-- ma60: 30.66
-- ma120: 32.79
-- return_5d: -7.77
-- return_20d: -8.67
-- volume_ratio: 0.93
-- distance_to_ma20_pct_auxiliary: -5.31
-- distance_to_high_60_pct: -16.84
+- date: 20260612
+- open: 28.6
+- high: 28.95
+- low: 28.3
+- close: 28.4
+- volume: 10456135
+- ma5: 29.62
+- ema23_primary: 29.72
+- distance_to_ema23_pct: -4.44
+- ma20: 29.38
+- ma60: 30.59
+- ma120: 32.76
+- return_5d: -4.86
+- return_20d: -5.65
+- volume_ratio: 0.47
+- distance_to_ma20_pct_auxiliary: -3.34
+- distance_to_high_60_pct: -15.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260512,30.7,30.7,30,30.1,18800989,31.01,-2.92,31.06,32.64,1.11
 20260513,29.95,30.15,29.6,30,16916044,30.92,-2.98,30.96,32.5,0.99
 20260514,30,30.2,29,29,24081063,30.76,-5.73,30.81,32.35,1.38
 20260515,29.1,29.85,29,29.15,17852241,30.63,-4.83,30.64,32.22,1.01
@@ -154,17 +154,18 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260604,30.25,30.35,29.5,29.85,18001885,29.99,-0.46,29.61,30.79,0.82
 20260605,32,32.2,30.2,30.3,29509725,30.02,0.95,29.6,30.75,1.33
 20260611,28,28.15,27.4,27.9,21033964,29.84,-6.5,29.46,30.66,0.93
+20260612,28.6,28.95,28.3,28.4,10456135,29.72,-4.44,29.38,30.59,0.47
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 48.02
-- over_600_ratio: 45.82
-- over_800_ratio: 44.43
-- over_1000_ratio: 43.1
-- over_400_change_1w: -0.45
-- over_800_change_1w: -0.47
-- over_1000_change_1w: -0.55
+- as_of_date: 20260612
+- over_400_ratio: 47.29
+- over_600_ratio: 44.96
+- over_800_ratio: 43.61
+- over_1000_ratio: 42.4
+- over_400_change_1w: -0.73
+- over_800_change_1w: -0.82
+- over_1000_change_1w: -0.7
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -179,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,48.77,-0.28,45.3,-0.29,43.97,-0.35,0,False,False
 20260529,48.47,-0.3,44.9,-0.4,43.65,-0.32,0,False,False
 20260605,48.02,-0.45,44.43,-0.47,43.1,-0.55,0,False,False
+20260612,47.29,-0.73,43.61,-0.82,42.4,-0.7,0,False,False
 ```
 
 ## Candidate Context
@@ -194,7 +196,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260611 | 2371 | 大同 | 69 | 0 | 1530280.0 | 0.0 |  | no_signal |
+| 20260612 | 2371 | 大同 | 68 | 4 | 376760.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.
