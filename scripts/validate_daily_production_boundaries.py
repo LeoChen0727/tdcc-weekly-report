@@ -85,6 +85,22 @@ def main() -> int:
             errors.append("canonical ChatGPT-side PDF generator must not contain legacy CATEGORY_SPECS fallback")
         if 'REPO = ROOT / "tdcc-weekly-report-git"' in generator_text:
             errors.append("canonical ChatGPT-side PDF generator must not hard-code tdcc-weekly-report-git sibling path")
+        forbidden_chart_literals = {
+            "tail(180)": "ChatGPT-side daily PDF K-line charts must use the half-year 126-trading-day view",
+            "kline_180": "ChatGPT-side daily PDF chart filenames must not imply a 180-day display window",
+            "180日K線": "ChatGPT-side daily PDF chart titles must not label the display as 180 days",
+        }
+        for literal, message in forbidden_chart_literals.items():
+            if literal in generator_text:
+                errors.append(f"{message}: found {literal!r}")
+        raw_readme = "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/READ_ME_FIRST_DAILY_REPORT"
+        pages_readme = "https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT"
+        raw_index = generator_text.find(raw_readme)
+        pages_index = generator_text.find(pages_readme)
+        if raw_index == -1:
+            errors.append("ChatGPT-side daily PDF generator must include raw GitHub README source")
+        if pages_index != -1 and raw_index != -1 and pages_index < raw_index:
+            errors.append("ChatGPT-side daily PDF generator must try raw GitHub README before Pages README")
 
     thread_workflow_text = read_text(THREAD_WORKFLOW_DOC)
     if "generate_repo_chatgpt_side_reports.py" in thread_workflow_text:
@@ -92,6 +108,10 @@ def main() -> int:
 
     if read_text(RULES_DAILY) != read_text(DOCS_RULES_DAILY):
         errors.append("docs/rules/daily_stock_candidate_rules.md must match rules/daily_stock_candidate_rules.md")
+
+    daily_rules_text = read_text(RULES_DAILY)
+    if "180-day windows" in daily_rules_text:
+        errors.append("daily stock candidate rules must not instruct daily PDF K-line charts to use 180-day windows")
 
     if read_text(RULES_MASTER) != read_text(DOCS_RULES_MASTER):
         errors.append("docs/rules/master_priority_rules.md must match rules/master_priority_rules.md")
