@@ -1,6 +1,6 @@
 # TDCC Overheated Short-Term Edge
 
-- generated_at: `2026-06-14 00:42:10 Asia/Taipei`
+- generated_at: `2026-06-13 18:43:58 Asia/Taipei`
 - tuning_status: `not_ready`
 - allowed_changes: `reporting_priority_only`
 - forbidden_changes: `core_weight_change`
