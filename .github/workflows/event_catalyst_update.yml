@@ -5,6 +5,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 jobs:
   update-event-catalysts:
@@ -65,3 +66,42 @@ jobs:
           git commit -m "Update event catalyst data tables" || echo "No changes to commit"
           git pull --rebase origin main
           git push
+
+      - name: Dispatch and wait for catalyst Pages deploy
+        if: ${{ github.ref == 'refs/heads/main' }}
+        timeout-minutes: 10
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          previous_pages_run_id="$(gh run list --workflow pages.yml --branch main --limit 1 --json databaseId --jq '.[0].databaseId // ""')"
+          echo "Previous Pages run id: ${previous_pages_run_id:-none}"
+
+          gh workflow run pages.yml --ref main
+
+          pages_run_id=""
+          for attempt in {1..40}; do
+            latest_pages_run_id="$(gh run list --workflow pages.yml --branch main --limit 1 --json databaseId --jq '.[0].databaseId // ""')"
+
+            if [ -n "$latest_pages_run_id" ] && [ "$latest_pages_run_id" != "$previous_pages_run_id" ]; then
+              pages_run_id="$latest_pages_run_id"
+              status="$(gh run view "$pages_run_id" --json status --jq '.status')"
+              conclusion="$(gh run view "$pages_run_id" --json conclusion --jq '.conclusion // ""')"
+              echo "Pages run $pages_run_id status=$status conclusion=${conclusion:-pending}"
+
+              if [ "$status" = "completed" ]; then
+                if [ "$conclusion" = "success" ]; then
+                  exit 0
+                fi
+
+                echo "::error::GitHub Pages deploy failed: run_id=$pages_run_id conclusion=$conclusion"
+                exit 1
+              fi
+            else
+              echo "Waiting for new Pages run to appear, attempt=$attempt"
+            fi
+
+            sleep 15
+          done
+
+          echo "::error::Timed out waiting for GitHub Pages deploy workflow"
+          exit 1

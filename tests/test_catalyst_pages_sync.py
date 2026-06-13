@@ -40,10 +40,13 @@ def test_event_and_weekly_workflows_publish_pages_and_use_full_validation() -> N
         ROOT / ".github" / "workflows" / "weekly_theme_review.yml",
     ]:
         text = workflow.read_text(encoding="utf-8")
+        assert "actions: write" in text
         assert "tabulate lxml html5lib beautifulsoup4" in text
         assert "python scripts/build_theme_event_watch.py" in text
         assert "python scripts/sync_catalyst_pages_artifacts.py" in text
         assert "git add docs/latest/" in text
+        assert "gh workflow run pages.yml --ref main" in text
+        assert "Timed out waiting for GitHub Pages deploy workflow" in text
         assert "validate_event_calendar_data.py --schema-only" not in text
         assert "validate_catalyst_layer.py --schema-only" not in text
 
