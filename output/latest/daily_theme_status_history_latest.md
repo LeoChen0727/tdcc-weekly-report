@@ -1,6 +1,6 @@
 # Daily Theme Status History
 
-- generated_at: `2026-06-13 17:44:30 Asia/Taipei`
+- generated_at: `2026-06-13 19:46:17 Asia/Taipei`
 - latest_signal_date: `20260612`
 - latest_rows: `354`
 - history_rows: `3788`
@@ -63,7 +63,7 @@
 | 20260612 | 2355 | 敬鵬 | PCB_CCL_ABF材料 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate | C_watch_only |  |  |
 | 20260612 | 2356 | 英業達 | AI伺服器 | mainstream_overheated | mainstream_overheated |  | risk_downgraded_candidate | C_watch_only |  |  |
 | 20260612 | 2360 | 致茂 | 其他電子業_待細分 | mainstream_overheated | mainstream_overheated |  | risk_downgraded_candidate | C_watch_only |  |  |
-| 20260612 | 2363 | 矽統 | 半導體業_待細分 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate | B_confirm_needed |  |  |
+| 20260612 | 2363 | 矽統 | 半導體業_待細分 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate | C_watch_only |  |  |
 | 20260612 | 2368 | 金像電 | PCB_CCL_ABF材料 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate | C_watch_only |  |  |
 | 20260612 | 2369 | 菱生 | 半導體業_待細分 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate | C_watch_only |  |  |
 | 20260612 | 2379 | 瑞昱 | 半導體業_待細分 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate | C_watch_only |  |  |

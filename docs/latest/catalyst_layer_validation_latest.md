@@ -1,6 +1,10 @@
 # Catalyst Layer Validation
 
+<<<<<<< Updated upstream
 - generated_at: `2026-06-13 19:33:18 Asia/Taipei`
+=======
+- generated_at: `2026-06-13 19:49:55 Asia/Taipei`
+>>>>>>> Stashed changes
 - status: `pass`
 - schema_only: `False`
 - all_candidates_rows: `487`

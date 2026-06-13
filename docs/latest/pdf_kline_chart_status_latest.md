@@ -25,7 +25,7 @@
 | 2347 | 聯強 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2347_聯強_revenue_breakout_low_response_126d.png` | `data/daily_price` |
 | 2542 | 興富發 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2542_興富發_revenue_breakout_low_response_126d.png` | `data/daily_price` |
 | 4934 | 太極 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/4934_太極_revenue_breakout_low_response_126d.png` | `data/daily_price` |
-| 8422 | 可寧衛* | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/8422_可寧衛__revenue_breakout_low_response_126d.png` | `data/daily_price` |
+| 1618 | 合機 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/1618_合機_revenue_breakout_low_response_126d.png` | `data/daily_price` |
 | 5522 | 遠雄 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/5522_遠雄_revenue_breakout_low_response_126d.png` | `data/daily_price` |
 | 2388 | 威盛 | revenue_pullback | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2388_威盛_revenue_pullback_126d.png` | `data/daily_price` |
 | 2337 | 旺宏 | revenue_pullback | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2337_旺宏_revenue_pullback_126d.png` | `data/daily_price` |

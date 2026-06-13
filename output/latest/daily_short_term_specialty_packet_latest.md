@@ -1,7 +1,7 @@
 # DAILY SHORT-TERM SPECIALTY PACKET
 
 ## Metadata
-- generated_at: `2026-06-13 09:45:28 UTC`
+- generated_at: `2026-06-13 11:47:29 UTC`
 - main_price_date: `20260612`
 - purpose: Force daily reports to include short-term research-stat support sections without removing active D+5/D+10 core model rows.
 - market_abnormal_status_path: `output/latest/market_abnormal_status_latest.csv`
@@ -40,26 +40,26 @@
 ### Current TDCC Edge Candidates
 | stock_id | stock_name | theme | tdcc_price_phase |
 | --- | --- | --- | --- |
-| 6207 | 雷科 | other | overheated_after_tdcc |
-| 4939 | 亞電 | other | overheated_after_tdcc |
-| 6015 | 宏遠證 | other | overheated_after_tdcc |
+| 4973 | 廣穎 | other | overheated_after_tdcc |
+| 2478 | 大毅 | other | overheated_after_tdcc |
+| 2491 | 吉祥全 | other | overheated_after_tdcc |
+| 9910 | 豐泰 | other | overheated_after_tdcc |
+| 3026 | 禾伸堂 | other | overheated_after_tdcc |
+| 6409 | 旭隼 | other | overheated_after_tdcc |
+| 6270 | 倍微 | other | overheated_after_tdcc |
+| 2887 | 台新新光金 | other | overheated_after_tdcc |
 | 4534 | 慶騰 | other | overheated_after_tdcc |
-| 2357 | 華碩 | other | overheated_after_tdcc |
-| 4707 | 磐亞 | other | overheated_after_tdcc |
-| 3049 | 精金 | other | overheated_after_tdcc |
-| 2883 | 凱基金 | other | overheated_after_tdcc |
-| 3615 | 安可 | other | overheated_after_tdcc |
-| 2882 | 國泰金 | other | overheated_after_tdcc |
-| 1708 | 東鹼 | other | overheated_after_tdcc |
-| 8064 | 東捷 | other | price_leading_tdcc |
-| 8936 | 國統 | other | overheated_after_tdcc |
-| 8101 | 華冠 | other | price_leading_tdcc |
-| 9906 | 欣巴巴 | other | overheated_after_tdcc |
-| 8043 | 蜜望實 | other | overheated_after_tdcc |
-| 2409 | 友達 | other | overheated_after_tdcc |
-| 3406 | 玉晶光 | other | price_leading_tdcc |
-| 6126 | 信音 | other | price_leading_tdcc |
-| 3167 | 大量 | other | price_leading_tdcc |
+| 6173 | 信昌電 | passive components | overheated_after_tdcc |
+| 1904 | 正隆 | other | price_leading_tdcc |
+| 2882 | 國泰金 | other | price_leading_tdcc |
+| 6449 | 鈺邦 | other | overheated_after_tdcc |
+| 2484 | 希華 | other | overheated_after_tdcc |
+| 2413 | 環科 | other | price_leading_tdcc |
+| 3236 | 千如 | other | overheated_after_tdcc |
+| 8121 | 越峰 | other | price_leading_tdcc |
+| 9910 | 豐泰 | other | overheated_after_tdcc |
+| 3026 | 禾伸堂 | other | overheated_after_tdcc |
+| 6409 | 旭隼 | other | overheated_after_tdcc |
 
 ## Next-Open +10pct Touch Strict Parameter Research
 

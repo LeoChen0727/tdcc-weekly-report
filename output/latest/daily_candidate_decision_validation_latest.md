@@ -4,7 +4,7 @@
 - main_price_date: `20260612`
 - decision_rows: `487`
 - decision_md_lines: `333`
-- decision_packet_lines: `226`
+- decision_packet_lines: `225`
 - regression_2484_status: `pass`
 
 ## Errors
