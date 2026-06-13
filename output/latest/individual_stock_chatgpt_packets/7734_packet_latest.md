@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7734 印能科技
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:35 Asia/Taipei
+- generated_at: 2026-06-13 22:24:37 Asia/Taipei
 - stock_id: 7734
 - stock_name: 印能科技
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,7 +157,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
+- as_of_date: 20260612
 - over_400_ratio: 74.94
 - over_600_ratio: 73.24
 - over_800_ratio: 73.24
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,74.94,0.23,73.24,0.07,67.13,0,2,False,True
 20260529,74.94,0,73.24,0,67.13,0,0,False,False
 20260605,74.94,0,73.24,0,67.13,0,0,False,False
+20260612,74.94,0,73.24,0,67.13,0,0,False,False
 ```
 
 ## Candidate Context

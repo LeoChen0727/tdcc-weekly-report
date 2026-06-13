@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3003 健和興
 
 ## Metadata
-- generated_at: 2026-06-12 22:23:02 Asia/Taipei
+- generated_at: 2026-06-13 22:22:57 Asia/Taipei
 - stock_id: 3003
 - stock_name: 健和興
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -163,17 +163,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 57.21
-- over_600_ratio: 54.72
-- over_800_ratio: 52.08
-- over_1000_ratio: 50.91
-- over_400_change_1w: 0.21
-- over_800_change_1w: 0.01
-- over_1000_change_1w: -0.03
-- tdcc_consecutive_up_weeks: 5
+- as_of_date: 20260612
+- over_400_ratio: 57.18
+- over_600_ratio: 55.29
+- over_800_ratio: 51.81
+- over_1000_ratio: 50.76
+- over_400_change_1w: -0.03
+- over_800_change_1w: -0.27
+- over_1000_change_1w: -0.15
+- tdcc_consecutive_up_weeks: 6
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -185,19 +185,20 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,57.65,0.19,51.91,0.04,50.85,0.12,3,True,True
 20260529,57,-0.65,52.07,0.16,50.94,0.09,4,False,True
 20260605,57.21,0.21,52.08,0.01,50.91,-0.03,5,False,True
+20260612,57.18,-0.03,51.81,-0.27,50.76,-0.15,6,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 3003 | 健和興 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260612 | 3003 | 健和興 | revenue_breakout_low_response | 營收爆發低反應股 | 17.0 | 15.0 | B_可觀察 |  |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260612 | 3003 | 健和興 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260612 | 3003 | 健和興 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260612 | 3003 | 健和興 | revenue_breakout_low_response | 營收爆發低反應股 | 12.0 | 19.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260612 | 3003 | 健和興 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 3003 | 健和興 | 3 | 3 | 3 | 7 | 8 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260612 | 3003 | 健和興 | 3 | 3 | 3 | 7 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

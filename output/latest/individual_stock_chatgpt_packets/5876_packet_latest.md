@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5876 上海商銀
 
 ## Metadata
-- generated_at: 2026-06-12 22:23:49 Asia/Taipei
+- generated_at: 2026-06-13 22:23:47 Asia/Taipei
 - stock_id: 5876
 - stock_name: 上海商銀
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 28
+- latest_tdcc_date: 20260612
+- tdcc_rows: 29
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -161,15 +161,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 86.5
-- over_600_ratio: 83.91
-- over_800_ratio: 82.19
-- over_1000_ratio: 80.79
-- over_400_change_1w: 0.35
-- over_800_change_1w: 0.43
-- over_1000_change_1w: 0.47
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260612
+- over_400_ratio: 86.88
+- over_600_ratio: 84.35
+- over_800_ratio: 82.61
+- over_1000_ratio: 81.21
+- over_400_change_1w: 0.38
+- over_800_change_1w: 0.42
+- over_1000_change_1w: 0.42
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -177,7 +177,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260320,86.22,0.04,81.8,0.1,80.41,0.1,1,True,True
 20260327,86.23,0.01,81.85,0.05,80.37,-0.04,2,False,True
 20260402,86.26,0.03,81.85,0,80.43,0.06,3,False,True
 20260410,86.28,0.02,81.85,0,80.49,0.06,4,False,True
@@ -189,6 +188,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,86.41,0.31,82.03,0.32,80.57,0.3,2,True,True
 20260529,86.15,-0.26,81.76,-0.27,80.32,-0.25,0,False,False
 20260605,86.5,0.35,82.19,0.43,80.79,0.47,1,True,True
+20260612,86.88,0.38,82.61,0.42,81.21,0.42,2,True,True
 ```
 
 ## Candidate Context

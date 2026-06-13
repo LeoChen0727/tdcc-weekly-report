@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5299 杰力
 
 ## Metadata
-- generated_at: 2026-06-12 22:23:43 Asia/Taipei
+- generated_at: 2026-06-13 22:23:40 Asia/Taipei
 - stock_id: 5299
 - stock_name: 杰力
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,7 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
+- as_of_date: 20260612
 - over_400_ratio: 51.55
 - over_600_ratio: 50.67
 - over_800_ratio: 46.64
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,53.27,0.02,49.01,-0.03,47.35,-0.03,1,False,False
 20260529,51.55,-1.72,46.64,-2.37,44.98,-2.37,0,False,False
 20260605,51.55,0,46.64,0,44.98,0,0,False,False
+20260612,51.55,0,46.64,0,44.98,0,0,False,False
 ```
 
 ## Candidate Context

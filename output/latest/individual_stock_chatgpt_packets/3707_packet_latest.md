@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3707 漢磊
 
 ## Metadata
-- generated_at: 2026-06-12 22:23:24 Asia/Taipei
+- generated_at: 2026-06-13 22:23:20 Asia/Taipei
 - stock_id: 3707
 - stock_name: 漢磊
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 49.37
-- over_600_ratio: 48.11
-- over_800_ratio: 47.21
-- over_1000_ratio: 46.29
-- over_400_change_1w: -3.38
-- over_800_change_1w: -3.9
-- over_1000_change_1w: -3.47
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260612
+- over_400_ratio: 49.6
+- over_600_ratio: 48.35
+- over_800_ratio: 47.69
+- over_1000_ratio: 46.58
+- over_400_change_1w: 0.23
+- over_800_change_1w: 0.48
+- over_1000_change_1w: 0.29
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,53.17,0.5,51.37,0.21,50.72,0.68,3,True,True
 20260529,52.75,-0.42,51.11,-0.26,49.76,-0.96,0,False,False
 20260605,49.37,-3.38,47.21,-3.9,46.29,-3.47,0,False,False
+20260612,49.6,0.23,47.69,0.48,46.58,0.29,1,True,True
 ```
 
 ## Candidate Context

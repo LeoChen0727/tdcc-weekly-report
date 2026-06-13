@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2331 精英
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:42 Asia/Taipei
+- generated_at: 2026-06-13 22:22:35 Asia/Taipei
 - stock_id: 2331
 - stock_name: 精英
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 58.16
-- over_600_ratio: 56.36
+- as_of_date: 20260612
+- over_400_ratio: 57.84
+- over_600_ratio: 56.07
 - over_800_ratio: 54.92
-- over_1000_ratio: 54.1
-- over_400_change_1w: -0.39
-- over_800_change_1w: -0.37
-- over_1000_change_1w: -0.26
-- tdcc_consecutive_up_weeks: 0
+- over_1000_ratio: 54.42
+- over_400_change_1w: -0.32
+- over_800_change_1w: 0
+- over_1000_change_1w: 0.32
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,59.44,0.11,56.17,-0.03,54.87,-0.25,3,False,False
 20260529,58.55,-0.89,55.29,-0.88,54.36,-0.51,0,False,False
 20260605,58.16,-0.39,54.92,-0.37,54.1,-0.26,0,False,False
+20260612,57.84,-0.32,54.92,0,54.42,0.32,1,False,True
 ```
 
 ## Candidate Context

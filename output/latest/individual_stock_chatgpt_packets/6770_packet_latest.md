@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6770 力積電
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:14 Asia/Taipei
+- generated_at: 2026-06-13 22:24:14 Asia/Taipei
 - stock_id: 6770
 - stock_name: 力積電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -161,14 +161,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 51.73
-- over_600_ratio: 49.79
-- over_800_ratio: 48.5
-- over_1000_ratio: 47.74
-- over_400_change_1w: -3.71
-- over_800_change_1w: -3.78
-- over_1000_change_1w: -3.9
+- as_of_date: 20260612
+- over_400_ratio: 48.46
+- over_600_ratio: 46.52
+- over_800_ratio: 45.29
+- over_1000_ratio: 44.57
+- over_400_change_1w: -3.27
+- over_800_change_1w: -3.21
+- over_1000_change_1w: -3.17
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,43.87,0.19,40.66,0.31,39.92,0.44,1,True,True
 20260529,55.44,11.57,52.28,11.62,51.64,11.72,2,True,True
 20260605,51.73,-3.71,48.5,-3.78,47.74,-3.9,0,False,False
+20260612,48.46,-3.27,45.29,-3.21,44.57,-3.17,0,False,False
 ```
 
 ## Candidate Context

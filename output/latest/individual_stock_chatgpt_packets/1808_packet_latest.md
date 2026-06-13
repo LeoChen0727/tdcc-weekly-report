@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1808 潤隆
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:34 Asia/Taipei
+- generated_at: 2026-06-13 22:22:27 Asia/Taipei
 - stock_id: 1808
 - stock_name: 潤隆
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 273
-- latest_tdcc_date: 20260605
-- tdcc_rows: 28
+- latest_tdcc_date: 20260612
+- tdcc_rows: 29
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -163,23 +163,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 79.58
-- over_600_ratio: 78.52
-- over_800_ratio: 78.05
-- over_1000_ratio: 77.65
-- over_400_change_1w: 0.39
-- over_800_change_1w: 0.41
-- over_1000_change_1w: 0.4
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: True
+- as_of_date: 20260612
+- over_400_ratio: 79.48
+- over_600_ratio: 78.59
+- over_800_ratio: 78.12
+- over_1000_ratio: 77.72
+- over_400_change_1w: -0.1
+- over_800_change_1w: 0.07
+- over_1000_change_1w: 0.07
+- tdcc_consecutive_up_weeks: 5
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260320,78.92,0.05,77.57,0.24,76.79,0.24,6,True,True
 20260327,78.94,0.02,77.67,0.1,76.97,0.18,7,True,True
 20260402,79.03,0.09,77.83,0.16,77.13,0.16,8,True,True
 20260410,78.85,-0.18,77.66,-0.17,77.06,-0.07,0,False,False
@@ -191,6 +190,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,79.12,0.32,77.8,0.3,77.32,0.21,2,True,True
 20260529,79.19,0.07,77.64,-0.16,77.25,-0.07,3,False,False
 20260605,79.58,0.39,78.05,0.41,77.65,0.4,4,True,True
+20260612,79.48,-0.1,78.12,0.07,77.72,0.07,5,False,True
 ```
 
 ## Candidate Context

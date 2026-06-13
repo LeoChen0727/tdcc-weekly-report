@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2430 燦坤
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:48 Asia/Taipei
+- generated_at: 2026-06-13 22:22:41 Asia/Taipei
 - stock_id: 2430
 - stock_name: 燦坤
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 63.88
-- over_600_ratio: 60.52
-- over_800_ratio: 58.8
-- over_1000_ratio: 57.4
-- over_400_change_1w: -0.26
-- over_800_change_1w: -0.3
-- over_1000_change_1w: -0.3
+- as_of_date: 20260612
+- over_400_ratio: 63.81
+- over_600_ratio: 60.45
+- over_800_ratio: 58.7
+- over_1000_ratio: 57.3
+- over_400_change_1w: -0.07
+- over_800_change_1w: -0.1
+- over_1000_change_1w: -0.1
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,64.21,-0.06,59.2,-0.13,57.8,-0.13,2,False,False
 20260529,64.14,-0.07,59.1,-0.1,57.7,-0.1,0,False,False
 20260605,63.88,-0.26,58.8,-0.3,57.4,-0.3,0,False,False
+20260612,63.81,-0.07,58.7,-0.1,57.3,-0.1,0,False,False
 ```
 
 ## Candidate Context

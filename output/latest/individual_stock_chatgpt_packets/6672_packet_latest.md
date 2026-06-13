@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6672 騰輝電子-KY
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:11 Asia/Taipei
+- generated_at: 2026-06-13 22:24:10 Asia/Taipei
 - stock_id: 6672
 - stock_name: 騰輝電子-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -161,15 +161,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 24.26
-- over_600_ratio: 21.7
-- over_800_ratio: 17.41
-- over_1000_ratio: 17.41
-- over_400_change_1w: -2.07
-- over_800_change_1w: 0.09
-- over_1000_change_1w: 0.09
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260612
+- over_400_ratio: 26.33
+- over_600_ratio: 22.73
+- over_800_ratio: 18.49
+- over_1000_ratio: 17.38
+- over_400_change_1w: 2.07
+- over_800_change_1w: 1.08
+- over_1000_change_1w: -0.03
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,31.48,-0.76,19.48,-2.55,16.15,-1.6,0,False,False
 20260529,26.33,-5.15,17.32,-2.16,17.32,1.17,1,False,True
 20260605,24.26,-2.07,17.41,0.09,17.41,0.09,2,False,True
+20260612,26.33,2.07,18.49,1.08,17.38,-0.03,3,False,True
 ```
 
 ## Candidate Context

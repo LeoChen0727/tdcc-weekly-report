@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6693 廣閎科
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:11 Asia/Taipei
+- generated_at: 2026-06-13 22:24:11 Asia/Taipei
 - stock_id: 6693
 - stock_name: 廣閎科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 44.37
-- over_600_ratio: 40.03
-- over_800_ratio: 36.94
+- as_of_date: 20260612
+- over_400_ratio: 42.8
+- over_600_ratio: 38.37
+- over_800_ratio: 35.25
 - over_1000_ratio: 31.39
-- over_400_change_1w: 0.08
-- over_800_change_1w: -0.05
+- over_400_change_1w: -1.57
+- over_800_change_1w: -1.69
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 3
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,43.82,1.12,33.23,0,31.39,0,1,False,False
 20260529,44.29,0.47,36.99,3.76,31.39,0,2,False,True
 20260605,44.37,0.08,36.94,-0.05,31.39,0,3,False,False
+20260612,42.8,-1.57,35.25,-1.69,31.39,0,0,False,False
 ```
 
 ## Candidate Context

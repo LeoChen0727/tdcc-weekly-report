@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8454 富邦媒
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:47 Asia/Taipei
+- generated_at: 2026-06-13 22:24:50 Asia/Taipei
 - stock_id: 8454
 - stock_name: 富邦媒
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 79.74
-- over_600_ratio: 78.28
-- over_800_ratio: 77.23
-- over_1000_ratio: 76.93
-- over_400_change_1w: 0.17
-- over_800_change_1w: 0.63
-- over_1000_change_1w: 1.33
-- tdcc_consecutive_up_weeks: 5
+- as_of_date: 20260612
+- over_400_ratio: 82.35
+- over_600_ratio: 81.33
+- over_800_ratio: 80.24
+- over_1000_ratio: 79.94
+- over_400_change_1w: 2.61
+- over_800_change_1w: 3.01
+- over_1000_change_1w: 3.01
+- tdcc_consecutive_up_weeks: 6
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,79.51,0.53,76.16,0.01,75.52,0,3,False,True
 20260529,79.57,0.06,76.6,0.44,75.6,0.08,4,True,True
 20260605,79.74,0.17,77.23,0.63,76.93,1.33,5,True,True
+20260612,82.35,2.61,80.24,3.01,79.94,3.01,6,True,True
 ```
 
 ## Candidate Context

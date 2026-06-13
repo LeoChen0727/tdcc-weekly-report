@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4977 眾達-KY
 
 ## Metadata
-- generated_at: 2026-06-12 22:23:39 Asia/Taipei
+- generated_at: 2026-06-13 22:23:36 Asia/Taipei
 - stock_id: 4977
 - stock_name: 眾達-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 16.15
-- over_600_ratio: 13.49
-- over_800_ratio: 11.79
+- as_of_date: 20260612
+- over_400_ratio: 17.15
+- over_600_ratio: 15.32
+- over_800_ratio: 11.85
 - over_1000_ratio: 8.7
-- over_400_change_1w: -0.66
-- over_800_change_1w: 3.09
+- over_400_change_1w: 1
+- over_800_change_1w: 0.06
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 2
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,17.52,-2.41,8.7,-1.59,8.7,-1.59,0,False,False
 20260529,16.81,-0.71,8.7,0,8.7,0,1,False,False
 20260605,16.15,-0.66,11.79,3.09,8.7,0,2,False,True
+20260612,17.15,1,11.85,0.06,8.7,0,3,False,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6219 富旺
 
 ## Metadata
-- generated_at: 2026-06-12 22:23:57 Asia/Taipei
+- generated_at: 2026-06-13 22:23:56 Asia/Taipei
 - stock_id: 6219
 - stock_name: 富旺
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 68.55
-- over_600_ratio: 66.13
+- as_of_date: 20260612
+- over_400_ratio: 68.98
+- over_600_ratio: 65.74
 - over_800_ratio: 64.65
 - over_1000_ratio: 64.65
-- over_400_change_1w: 0.14
-- over_800_change_1w: 0.02
-- over_1000_change_1w: 0.02
-- tdcc_consecutive_up_weeks: 5
-- all_thresholds_up: True
-- high_thresholds_up: True
+- over_400_change_1w: 0.43
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 6
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,67.68,0.46,64.35,0.07,64.35,0.07,3,True,True
 20260529,68.41,0.73,64.63,0.28,64.63,0.28,4,True,True
 20260605,68.55,0.14,64.65,0.02,64.65,0.02,5,True,True
+20260612,68.98,0.43,64.65,0,64.65,0,6,False,False
 ```
 
 ## Candidate Context

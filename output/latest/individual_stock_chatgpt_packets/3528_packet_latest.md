@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3528 安馳
 
 ## Metadata
-- generated_at: 2026-06-12 22:23:18 Asia/Taipei
+- generated_at: 2026-06-13 22:23:14 Asia/Taipei
 - stock_id: 3528
 - stock_name: 安馳
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,16 +157,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 70.31
-- over_600_ratio: 66.65
-- over_800_ratio: 65.5
-- over_1000_ratio: 62.93
-- over_400_change_1w: -0.74
-- over_800_change_1w: 0.32
-- over_1000_change_1w: 0.18
-- tdcc_consecutive_up_weeks: 5
-- all_thresholds_up: False
+- as_of_date: 20260612
+- over_400_ratio: 70.51
+- over_600_ratio: 66.89
+- over_800_ratio: 65.69
+- over_1000_ratio: 64.49
+- over_400_change_1w: 0.2
+- over_800_change_1w: 0.19
+- over_1000_change_1w: 1.56
+- tdcc_consecutive_up_weeks: 6
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,66.79,1.38,63.97,-0.03,62.77,-0.03,3,False,False
 20260529,71.05,4.26,65.18,1.21,62.75,-0.02,4,False,True
 20260605,70.31,-0.74,65.5,0.32,62.93,0.18,5,False,True
+20260612,70.51,0.2,65.69,0.19,64.49,1.56,6,True,True
 ```
 
 ## Candidate Context

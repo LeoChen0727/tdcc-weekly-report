@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8054 安國
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:39 Asia/Taipei
+- generated_at: 2026-06-13 22:24:41 Asia/Taipei
 - stock_id: 8054
 - stock_name: 安國
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 34.39
-- over_600_ratio: 29.85
-- over_800_ratio: 28.51
+- as_of_date: 20260612
+- over_400_ratio: 34.78
+- over_600_ratio: 30.4
+- over_800_ratio: 27.72
 - over_1000_ratio: 27.72
-- over_400_change_1w: -0.34
-- over_800_change_1w: -1.42
-- over_1000_change_1w: -2.21
-- tdcc_consecutive_up_weeks: 0
+- over_400_change_1w: 0.39
+- over_800_change_1w: -0.79
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,35.28,0.82,28.59,-1.2,27.72,-1.28,2,False,False
 20260529,34.73,-0.55,29.93,1.34,29.93,2.21,3,False,True
 20260605,34.39,-0.34,28.51,-1.42,27.72,-2.21,0,False,False
+20260612,34.78,0.39,27.72,-0.79,27.72,0,1,False,False
 ```
 
 ## Candidate Context

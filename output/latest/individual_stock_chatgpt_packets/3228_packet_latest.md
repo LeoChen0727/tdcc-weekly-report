@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3228 金麗科
 
 ## Metadata
-- generated_at: 2026-06-12 22:23:10 Asia/Taipei
+- generated_at: 2026-06-13 22:23:06 Asia/Taipei
 - stock_id: 3228
 - stock_name: 金麗科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 24.13
-- over_600_ratio: 22.38
-- over_800_ratio: 20.26
-- over_1000_ratio: 19.09
-- over_400_change_1w: -0.02
-- over_800_change_1w: -0.02
-- over_1000_change_1w: -0.02
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260612
+- over_400_ratio: 24.21
+- over_600_ratio: 22.46
+- over_800_ratio: 21.42
+- over_1000_ratio: 19.1
+- over_400_change_1w: 0.08
+- over_800_change_1w: 1.16
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,23.68,0.22,20.19,0.18,19.02,0.18,2,True,True
 20260529,24.15,0.47,20.28,0.09,19.11,0.09,3,True,True
 20260605,24.13,-0.02,20.26,-0.02,19.09,-0.02,0,False,False
+20260612,24.21,0.08,21.42,1.16,19.1,0.01,1,True,True
 ```
 
 ## Candidate Context

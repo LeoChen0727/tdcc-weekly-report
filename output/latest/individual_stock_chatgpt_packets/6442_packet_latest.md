@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6442 光聖
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:03 Asia/Taipei
+- generated_at: 2026-06-13 22:24:02 Asia/Taipei
 - stock_id: 6442
 - stock_name: 光聖
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 59.55
-- over_600_ratio: 52.59
-- over_800_ratio: 44.75
-- over_1000_ratio: 36.93
-- over_400_change_1w: 2
-- over_800_change_1w: 0.86
-- over_1000_change_1w: 2.1
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
+- as_of_date: 20260612
+- over_400_ratio: 59.16
+- over_600_ratio: 51.39
+- over_800_ratio: 42.74
+- over_1000_ratio: 37.09
+- over_400_change_1w: -0.39
+- over_800_change_1w: -2.01
+- over_1000_change_1w: 0.16
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,57.5,-0.04,41.18,-0.49,36.72,-0.27,1,False,False
 20260529,57.55,0.05,43.89,2.71,34.83,-1.89,2,False,True
 20260605,59.55,2,44.75,0.86,36.93,2.1,3,True,True
+20260612,59.16,-0.39,42.74,-2.01,37.09,0.16,4,False,True
 ```
 
 ## Candidate Context

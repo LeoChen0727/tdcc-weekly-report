@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3419 譁裕
 
 ## Metadata
-- generated_at: 2026-06-12 22:23:15 Asia/Taipei
+- generated_at: 2026-06-13 22:23:10 Asia/Taipei
 - stock_id: 3419
 - stock_name: 譁裕
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 30.98
-- over_600_ratio: 28.26
-- over_800_ratio: 25.36
-- over_1000_ratio: 23.21
-- over_400_change_1w: -0.49
-- over_800_change_1w: -0.04
-- over_1000_change_1w: -0.05
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260612
+- over_400_ratio: 31.12
+- over_600_ratio: 28.39
+- over_800_ratio: 25.55
+- over_1000_ratio: 23.4
+- over_400_change_1w: 0.14
+- over_800_change_1w: 0.19
+- over_1000_change_1w: 0.19
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,31.34,0.16,25.68,0.16,22.81,0.23,3,True,True
 20260529,31.47,0.13,25.4,-0.28,23.26,0.45,4,False,True
 20260605,30.98,-0.49,25.36,-0.04,23.21,-0.05,0,False,False
+20260612,31.12,0.14,25.55,0.19,23.4,0.19,1,True,True
 ```
 
 ## Candidate Context

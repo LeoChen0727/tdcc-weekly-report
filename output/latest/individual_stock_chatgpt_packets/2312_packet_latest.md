@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2312 金寶
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:41 Asia/Taipei
+- generated_at: 2026-06-13 22:22:34 Asia/Taipei
 - stock_id: 2312
 - stock_name: 金寶
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,14 +162,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 51.64
-- over_600_ratio: 49.77
-- over_800_ratio: 48.35
-- over_1000_ratio: 47.34
-- over_400_change_1w: -1.1
-- over_800_change_1w: -1.19
-- over_1000_change_1w: -1.07
+- as_of_date: 20260612
+- over_400_ratio: 50.78
+- over_600_ratio: 48.98
+- over_800_ratio: 47.59
+- over_1000_ratio: 46.72
+- over_400_change_1w: -0.86
+- over_800_change_1w: -0.76
+- over_1000_change_1w: -0.62
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -184,6 +184,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,51.84,3.47,48.62,3.45,47.43,3.73,2,True,True
 20260529,52.74,0.9,49.54,0.92,48.41,0.98,3,True,True
 20260605,51.64,-1.1,48.35,-1.19,47.34,-1.07,0,False,False
+20260612,50.78,-0.86,47.59,-0.76,46.72,-0.62,0,False,False
 ```
 
 ## Candidate Context

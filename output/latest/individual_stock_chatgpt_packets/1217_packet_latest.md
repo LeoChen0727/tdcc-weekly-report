@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1217 愛之味
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:19 Asia/Taipei
+- generated_at: 2026-06-13 22:22:11 Asia/Taipei
 - stock_id: 1217
 - stock_name: 愛之味
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 28
+- latest_tdcc_date: 20260612
+- tdcc_rows: 29
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,23 +158,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 60.18
-- over_600_ratio: 57.28
-- over_800_ratio: 55.63
-- over_1000_ratio: 53.06
-- over_400_change_1w: 0.19
-- over_800_change_1w: -0.07
-- over_1000_change_1w: -0.25
-- tdcc_consecutive_up_weeks: 5
+- as_of_date: 20260612
+- over_400_ratio: 60.29
+- over_600_ratio: 57.57
+- over_800_ratio: 55.76
+- over_1000_ratio: 53.02
+- over_400_change_1w: 0.11
+- over_800_change_1w: 0.13
+- over_1000_change_1w: -0.04
+- tdcc_consecutive_up_weeks: 6
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260320,60.73,-0.12,56.26,0,53.69,0.17,16,False,True
 20260327,60.53,-0.2,56.15,-0.11,53.76,0.07,17,False,True
 20260402,60.62,0.09,56.2,0.05,54.01,0.25,18,True,True
 20260410,60.46,-0.16,56.18,-0.02,54.17,0.16,19,False,True
@@ -186,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,59.96,0.2,55.71,0.23,53.32,0.02,3,True,True
 20260529,59.99,0.03,55.7,-0.01,53.31,-0.01,4,False,False
 20260605,60.18,0.19,55.63,-0.07,53.06,-0.25,5,False,False
+20260612,60.29,0.11,55.76,0.13,53.02,-0.04,6,False,True
 ```
 
 ## Candidate Context

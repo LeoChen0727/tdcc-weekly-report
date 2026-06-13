@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1109 信大
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:19 Asia/Taipei
+- generated_at: 2026-06-13 22:22:10 Asia/Taipei
 - stock_id: 1109
 - stock_name: 信大
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
+- as_of_date: 20260612
 - over_400_ratio: 79.64
-- over_600_ratio: 76.81
-- over_800_ratio: 74.75
+- over_600_ratio: 76.82
+- over_800_ratio: 74.99
 - over_1000_ratio: 72.86
-- over_400_change_1w: -0.07
-- over_800_change_1w: 0.05
-- over_1000_change_1w: 0.05
-- tdcc_consecutive_up_weeks: 5
+- over_400_change_1w: 0
+- over_800_change_1w: 0.24
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 6
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,79.68,-0.04,74.69,0.01,72.8,0.01,3,False,True
 20260529,79.71,0.03,74.7,0.01,72.81,0.01,4,True,True
 20260605,79.64,-0.07,74.75,0.05,72.86,0.05,5,False,True
+20260612,79.64,0,74.99,0.24,72.86,0,6,False,True
 ```
 
 ## Candidate Context

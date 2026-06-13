@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8422 可寧衛*
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:46 Asia/Taipei
+- generated_at: 2026-06-13 22:24:48 Asia/Taipei
 - stock_id: 8422
 - stock_name: 可寧衛*
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 273
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -163,15 +163,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 39.16
-- over_600_ratio: 37.52
-- over_800_ratio: 36.36
-- over_1000_ratio: 35.75
-- over_400_change_1w: 0.23
-- over_800_change_1w: -0.08
-- over_1000_change_1w: -0.08
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260612
+- over_400_ratio: 38.41
+- over_600_ratio: 36.78
+- over_800_ratio: 35.7
+- over_1000_ratio: 34.9
+- over_400_change_1w: -0.75
+- over_800_change_1w: -0.66
+- over_1000_change_1w: -0.85
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -185,18 +185,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,38.88,0.15,36.43,0.23,35.69,-0.04,1,False,True
 20260529,38.93,0.05,36.44,0.01,35.83,0.14,2,False,True
 20260605,39.16,0.23,36.36,-0.08,35.75,-0.08,3,False,False
+20260612,38.41,-0.75,35.7,-0.66,34.9,-0.85,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 8422 | 可寧衛* | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | continued_2_3d | calendar event: ex_dividend on 20260629; status=confirmed; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260612 | 8422 | 可寧衛* | revenue_breakout_low_response | 營收爆發低反應股 | 20.0 | 10.0 | B_可觀察 |  |  | no_signal | continued_2_3d | calendar event: ex_dividend on 20260629; status=confirmed; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260612 | 8422 | 可寧衛* | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | calendar event: ex_dividend on 20260629; status=confirmed; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260612 | 8422 | 可寧衛* | revenue_breakout_low_response | 營收爆發低反應股 | 15.0 | 15.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | calendar event: ex_dividend on 20260629; status=confirmed; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 8422 | 可寧衛* | 2 | 2 | 3 | 5 | 5 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260612 | 8422 | 可寧衛* | 2 | 2 | 3 | 5 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |

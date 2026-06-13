@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1568 倉佑
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:29 Asia/Taipei
+- generated_at: 2026-06-13 22:22:21 Asia/Taipei
 - stock_id: 1568
 - stock_name: 倉佑
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 67.18
-- over_600_ratio: 63.54
-- over_800_ratio: 60.77
-- over_1000_ratio: 58.24
-- over_400_change_1w: -0.63
-- over_800_change_1w: -1.64
-- over_1000_change_1w: -0.85
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260612
+- over_400_ratio: 66.88
+- over_600_ratio: 63.67
+- over_800_ratio: 59.69
+- over_1000_ratio: 58.06
+- over_400_change_1w: -0.3
+- over_800_change_1w: -1.08
+- over_1000_change_1w: -0.18
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,64.12,-0.3,60.01,0,56.64,0,0,False,False
 20260529,67.81,3.69,62.41,2.4,59.09,2.45,1,True,True
 20260605,67.18,-0.63,60.77,-1.64,58.24,-0.85,0,False,False
+20260612,66.88,-0.3,59.69,-1.08,58.06,-0.18,1,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2442 新美齊
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:48 Asia/Taipei
+- generated_at: 2026-06-13 22:22:42 Asia/Taipei
 - stock_id: 2442
 - stock_name: 新美齊
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 57.5
-- over_600_ratio: 53.97
-- over_800_ratio: 53.35
-- over_1000_ratio: 50.51
-- over_400_change_1w: -0.24
-- over_800_change_1w: -0.17
-- over_1000_change_1w: -0.76
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260612
+- over_400_ratio: 57.46
+- over_600_ratio: 54.06
+- over_800_ratio: 53.25
+- over_1000_ratio: 50.46
+- over_400_change_1w: -0.04
+- over_800_change_1w: -0.1
+- over_1000_change_1w: -0.05
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,58.38,0.42,53.59,0.26,51.04,-0.05,1,False,True
 20260529,57.74,-0.64,53.52,-0.07,51.27,0.23,2,False,True
 20260605,57.5,-0.24,53.35,-0.17,50.51,-0.76,0,False,False
+20260612,57.46,-0.04,53.25,-0.1,50.46,-0.05,1,False,False
 ```
 
 ## Candidate Context

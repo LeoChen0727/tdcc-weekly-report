@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4171 瑞基
 
 ## Metadata
-- generated_at: 2026-06-12 22:23:27 Asia/Taipei
+- generated_at: 2026-06-13 22:23:24 Asia/Taipei
 - stock_id: 4171
 - stock_name: 瑞基
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 32.59
-- over_600_ratio: 31.56
-- over_800_ratio: 30.42
-- over_1000_ratio: 27.64
-- over_400_change_1w: 0.08
-- over_800_change_1w: 0.08
-- over_1000_change_1w: 0.08
-- tdcc_consecutive_up_weeks: 5
+- as_of_date: 20260612
+- over_400_ratio: 32.71
+- over_600_ratio: 31.68
+- over_800_ratio: 30.54
+- over_1000_ratio: 27.67
+- over_400_change_1w: 0.12
+- over_800_change_1w: 0.12
+- over_1000_change_1w: 0.03
+- tdcc_consecutive_up_weeks: 6
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,32.38,0.02,30.21,0.02,27.44,0.02,3,True,True
 20260529,32.51,0.13,30.34,0.13,27.56,0.12,4,True,True
 20260605,32.59,0.08,30.42,0.08,27.64,0.08,5,True,True
+20260612,32.71,0.12,30.54,0.12,27.67,0.03,6,True,True
 ```
 
 ## Candidate Context

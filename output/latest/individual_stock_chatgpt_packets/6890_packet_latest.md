@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6890 來億-KY
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:18 Asia/Taipei
+- generated_at: 2026-06-13 22:24:18 Asia/Taipei
 - stock_id: 6890
 - stock_name: 來億-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 89.72
-- over_600_ratio: 89.3
-- over_800_ratio: 89.03
-- over_1000_ratio: 88.3
-- over_400_change_1w: 0.64
-- over_800_change_1w: 0.98
-- over_1000_change_1w: 0.97
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260612
+- over_400_ratio: 92.76
+- over_600_ratio: 92.76
+- over_800_ratio: 92.49
+- over_1000_ratio: 92.11
+- over_400_change_1w: 3.04
+- over_800_change_1w: 3.46
+- over_1000_change_1w: 3.81
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,89.26,-0.09,88,-0.04,86.87,-0.46,0,False,False
 20260529,89.08,-0.18,88.05,0.05,87.33,0.46,1,False,True
 20260605,89.72,0.64,89.03,0.98,88.3,0.97,2,True,True
+20260612,92.76,3.04,92.49,3.46,92.11,3.81,3,True,True
 ```
 
 ## Candidate Context

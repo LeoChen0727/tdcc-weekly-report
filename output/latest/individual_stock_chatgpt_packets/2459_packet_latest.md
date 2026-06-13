@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2459 敦吉
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:49 Asia/Taipei
+- generated_at: 2026-06-13 22:22:43 Asia/Taipei
 - stock_id: 2459
 - stock_name: 敦吉
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 54.15
-- over_600_ratio: 46.86
-- over_800_ratio: 43.6
+- as_of_date: 20260612
+- over_400_ratio: 53.67
+- over_600_ratio: 46.94
+- over_800_ratio: 43.62
 - over_1000_ratio: 42.01
-- over_400_change_1w: 0.23
-- over_800_change_1w: -0.11
+- over_400_change_1w: -0.48
+- over_800_change_1w: 0.02
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,53.94,-0.13,44.09,-0.87,43.31,-0.1,0,False,False
 20260529,53.92,-0.02,43.71,-0.38,42.01,-1.3,0,False,False
 20260605,54.15,0.23,43.6,-0.11,42.01,0,1,False,False
+20260612,53.67,-0.48,43.62,0.02,42.01,0,2,False,True
 ```
 
 ## Candidate Context

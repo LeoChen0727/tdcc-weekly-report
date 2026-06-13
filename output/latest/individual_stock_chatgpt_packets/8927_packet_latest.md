@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8927 北基
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:49 Asia/Taipei
+- generated_at: 2026-06-13 22:24:52 Asia/Taipei
 - stock_id: 8927
 - stock_name: 北基
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 82.75
-- over_600_ratio: 78.31
-- over_800_ratio: 75.9
-- over_1000_ratio: 73.55
-- over_400_change_1w: 0.28
-- over_800_change_1w: -0.02
-- over_1000_change_1w: 0.66
-- tdcc_consecutive_up_weeks: 5
+- as_of_date: 20260612
+- over_400_ratio: 83.15
+- over_600_ratio: 78.75
+- over_800_ratio: 76.17
+- over_1000_ratio: 73.39
+- over_400_change_1w: 0.4
+- over_800_change_1w: 0.27
+- over_1000_change_1w: -0.16
+- tdcc_consecutive_up_weeks: 6
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,82.34,0.35,75.55,0.32,72.81,0.33,3,True,True
 20260529,82.47,0.13,75.92,0.37,72.89,0.08,4,True,True
 20260605,82.75,0.28,75.9,-0.02,73.55,0.66,5,False,True
+20260612,83.15,0.4,76.17,0.27,73.39,-0.16,6,False,True
 ```
 
 ## Candidate Context

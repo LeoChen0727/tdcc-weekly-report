@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2884 玉山金
 
 ## Metadata
-- generated_at: 2026-06-12 22:23:00 Asia/Taipei
+- generated_at: 2026-06-13 22:22:54 Asia/Taipei
 - stock_id: 2884
 - stock_name: 玉山金
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -161,15 +161,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 71.29
-- over_600_ratio: 69.36
-- over_800_ratio: 67.9
-- over_1000_ratio: 66.8
-- over_400_change_1w: 0.62
-- over_800_change_1w: 0.63
-- over_1000_change_1w: 0.63
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260612
+- over_400_ratio: 71.76
+- over_600_ratio: 69.84
+- over_800_ratio: 68.42
+- over_1000_ratio: 67.33
+- over_400_change_1w: 0.47
+- over_800_change_1w: 0.52
+- over_1000_change_1w: 0.53
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,71,-0.02,67.63,-0.01,66.54,0.02,2,False,True
 20260529,70.67,-0.33,67.27,-0.36,66.17,-0.37,0,False,False
 20260605,71.29,0.62,67.9,0.63,66.8,0.63,1,True,True
+20260612,71.76,0.47,68.42,0.52,67.33,0.53,2,True,True
 ```
 
 ## Candidate Context

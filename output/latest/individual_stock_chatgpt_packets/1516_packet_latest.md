@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1516 川飛
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:27 Asia/Taipei
+- generated_at: 2026-06-13 22:22:19 Asia/Taipei
 - stock_id: 1516
 - stock_name: 川飛
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 64.35
-- over_600_ratio: 62.14
-- over_800_ratio: 58.36
-- over_1000_ratio: 58.36
-- over_400_change_1w: 0.32
-- over_800_change_1w: 0.32
-- over_1000_change_1w: 0.32
-- tdcc_consecutive_up_weeks: 5
-- all_thresholds_up: True
+- as_of_date: 20260612
+- over_400_ratio: 63.5
+- over_600_ratio: 62.32
+- over_800_ratio: 58.54
+- over_1000_ratio: 58.54
+- over_400_change_1w: -0.85
+- over_800_change_1w: 0.18
+- over_1000_change_1w: 0.18
+- tdcc_consecutive_up_weeks: 6
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,63.08,-0.11,57.09,1.02,57.09,3.38,3,False,True
 20260529,64.03,0.95,58.04,0.95,58.04,0.95,4,True,True
 20260605,64.35,0.32,58.36,0.32,58.36,0.32,5,True,True
+20260612,63.5,-0.85,58.54,0.18,58.54,0.18,6,False,True
 ```
 
 ## Candidate Context

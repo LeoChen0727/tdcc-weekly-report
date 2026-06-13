@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6834 天二科技
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:16 Asia/Taipei
+- generated_at: 2026-06-13 22:24:16 Asia/Taipei
 - stock_id: 6834
 - stock_name: 天二科技
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,15 +162,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 70.8
-- over_600_ratio: 64.48
-- over_800_ratio: 58.17
-- over_1000_ratio: 49.99
-- over_400_change_1w: 0.18
-- over_800_change_1w: 0.43
-- over_1000_change_1w: -1.67
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260612
+- over_400_ratio: 68.71
+- over_600_ratio: 62.14
+- over_800_ratio: 59.8
+- over_1000_ratio: 50.76
+- over_400_change_1w: -2.09
+- over_800_change_1w: 1.63
+- over_1000_change_1w: 0.77
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -184,6 +184,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,72.12,3.91,61.55,5.31,54.38,4.3,3,True,True
 20260529,70.62,-1.5,57.74,-3.81,51.66,-2.72,0,False,False
 20260605,70.8,0.18,58.17,0.43,49.99,-1.67,1,False,True
+20260612,68.71,-2.09,59.8,1.63,50.76,0.77,2,False,True
 ```
 
 ## Candidate Context

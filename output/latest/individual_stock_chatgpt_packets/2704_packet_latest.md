@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2704 國賓
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:56 Asia/Taipei
+- generated_at: 2026-06-13 22:22:50 Asia/Taipei
 - stock_id: 2704
 - stock_name: 國賓
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 88.28
-- over_600_ratio: 86.47
-- over_800_ratio: 85.01
-- over_1000_ratio: 82.95
-- over_400_change_1w: 0.26
-- over_800_change_1w: 0.14
-- over_1000_change_1w: 0.38
-- tdcc_consecutive_up_weeks: 5
-- all_thresholds_up: True
+- as_of_date: 20260612
+- over_400_ratio: 88.22
+- over_600_ratio: 86.53
+- over_800_ratio: 85.07
+- over_1000_ratio: 83.01
+- over_400_change_1w: -0.06
+- over_800_change_1w: 0.06
+- over_1000_change_1w: 0.06
+- tdcc_consecutive_up_weeks: 6
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,87.91,-0.02,84.79,0.17,82.49,-0.32,3,False,True
 20260529,88.02,0.11,84.87,0.08,82.57,0.08,4,True,True
 20260605,88.28,0.26,85.01,0.14,82.95,0.38,5,True,True
+20260612,88.22,-0.06,85.07,0.06,83.01,0.06,6,False,True
 ```
 
 ## Candidate Context

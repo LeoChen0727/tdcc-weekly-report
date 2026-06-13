@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9921 巨大
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:51 Asia/Taipei
+- generated_at: 2026-06-13 22:24:54 Asia/Taipei
 - stock_id: 9921
 - stock_name: 巨大
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,16 +157,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 64.94
-- over_600_ratio: 61.56
-- over_800_ratio: 57.17
-- over_1000_ratio: 54.68
-- over_400_change_1w: 0.4
-- over_800_change_1w: -0.19
-- over_1000_change_1w: 0.03
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
+- as_of_date: 20260612
+- over_400_ratio: 65.15
+- over_600_ratio: 61.83
+- over_800_ratio: 58
+- over_1000_ratio: 55.03
+- over_400_change_1w: 0.21
+- over_800_change_1w: 0.83
+- over_1000_change_1w: 0.35
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,65.12,-0.39,58.18,-0.34,55.47,-0.39,0,False,False
 20260529,64.54,-0.58,57.36,-0.82,54.65,-0.82,0,False,False
 20260605,64.94,0.4,57.17,-0.19,54.68,0.03,1,False,True
+20260612,65.15,0.21,58,0.83,55.03,0.35,2,True,True
 ```
 
 ## Candidate Context

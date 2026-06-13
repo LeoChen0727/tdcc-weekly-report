@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1522 堤維西
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:27 Asia/Taipei
+- generated_at: 2026-06-13 22:22:19 Asia/Taipei
 - stock_id: 1522
 - stock_name: 堤維西
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 57.69
-- over_600_ratio: 54.85
-- over_800_ratio: 54.04
-- over_1000_ratio: 52.39
-- over_400_change_1w: -0.58
-- over_800_change_1w: -0.33
-- over_1000_change_1w: -0.34
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260612
+- over_400_ratio: 57.76
+- over_600_ratio: 54.91
+- over_800_ratio: 54.1
+- over_1000_ratio: 52.74
+- over_400_change_1w: 0.07
+- over_800_change_1w: 0.06
+- over_1000_change_1w: 0.35
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,57.86,-0.11,54.51,0.07,53.15,0.07,3,False,True
 20260529,58.27,0.41,54.37,-0.14,52.73,-0.42,4,False,False
 20260605,57.69,-0.58,54.04,-0.33,52.39,-0.34,0,False,False
+20260612,57.76,0.07,54.1,0.06,52.74,0.35,1,True,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3550 聯穎
 
 ## Metadata
-- generated_at: 2026-06-12 22:23:19 Asia/Taipei
+- generated_at: 2026-06-13 22:23:15 Asia/Taipei
 - stock_id: 3550
 - stock_name: 聯穎
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,15 +162,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 48.27
-- over_600_ratio: 43.74
-- over_800_ratio: 41.11
-- over_1000_ratio: 38.45
-- over_400_change_1w: 5.04
-- over_800_change_1w: 3.67
-- over_1000_change_1w: 1.81
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260612
+- over_400_ratio: 50.55
+- over_600_ratio: 47.13
+- over_800_ratio: 46.47
+- over_1000_ratio: 43.06
+- over_400_change_1w: 2.28
+- over_800_change_1w: 5.36
+- over_1000_change_1w: 4.61
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -184,6 +184,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,44.32,1.73,38.43,0.32,36.88,0.38,3,True,True
 20260529,43.23,-1.09,37.44,-0.99,36.64,-0.24,0,False,False
 20260605,48.27,5.04,41.11,3.67,38.45,1.81,1,True,True
+20260612,50.55,2.28,46.47,5.36,43.06,4.61,2,True,True
 ```
 
 ## Candidate Context

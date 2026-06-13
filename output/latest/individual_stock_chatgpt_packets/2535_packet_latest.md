@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2535 達欣工
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:53 Asia/Taipei
+- generated_at: 2026-06-13 22:22:46 Asia/Taipei
 - stock_id: 2535
 - stock_name: 達欣工
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 28
+- latest_tdcc_date: 20260612
+- tdcc_rows: 29
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,23 +157,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 61.09
-- over_600_ratio: 57.27
-- over_800_ratio: 55.74
-- over_1000_ratio: 55.05
-- over_400_change_1w: 0.03
-- over_800_change_1w: 0.25
-- over_1000_change_1w: 0.25
-- tdcc_consecutive_up_weeks: 8
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260612
+- over_400_ratio: 61.74
+- over_600_ratio: 57.77
+- over_800_ratio: 55.69
+- over_1000_ratio: 55
+- over_400_change_1w: 0.65
+- over_800_change_1w: -0.05
+- over_1000_change_1w: -0.05
+- tdcc_consecutive_up_weeks: 9
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260320,59.94,-0.04,54.94,-0.42,53.93,-0.11,0,False,False
 20260327,59.94,0,54.52,-0.42,53.51,-0.42,0,False,False
 20260402,59.6,-0.34,53.88,-0.64,53.19,-0.32,1,False,False
 20260410,59.51,-0.09,53.67,-0.21,52.98,-0.21,0,False,False
@@ -185,6 +184,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,60.59,-0.1,55.13,0.28,54.44,0.28,6,False,True
 20260529,61.06,0.47,55.49,0.36,54.8,0.36,7,True,True
 20260605,61.09,0.03,55.74,0.25,55.05,0.25,8,True,True
+20260612,61.74,0.65,55.69,-0.05,55,-0.05,9,False,False
 ```
 
 ## Candidate Context

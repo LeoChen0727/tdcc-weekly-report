@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3702 大聯大
 
 ## Metadata
-- generated_at: 2026-06-12 22:23:23 Asia/Taipei
+- generated_at: 2026-06-13 22:23:19 Asia/Taipei
 - stock_id: 3702
 - stock_name: 大聯大
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -163,14 +163,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 84.99
-- over_600_ratio: 83.22
-- over_800_ratio: 81.56
-- over_1000_ratio: 80.31
-- over_400_change_1w: -0.25
-- over_800_change_1w: -0.29
-- over_1000_change_1w: -0.32
+- as_of_date: 20260612
+- over_400_ratio: 84.76
+- over_600_ratio: 83.05
+- over_800_ratio: 81.28
+- over_1000_ratio: 80.14
+- over_400_change_1w: -0.23
+- over_800_change_1w: -0.28
+- over_1000_change_1w: -0.17
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -185,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,85.52,0.05,81.86,-0.14,80.8,-0.03,3,False,False
 20260529,85.24,-0.28,81.85,-0.01,80.63,-0.17,0,False,False
 20260605,84.99,-0.25,81.56,-0.29,80.31,-0.32,0,False,False
+20260612,84.76,-0.23,81.28,-0.28,80.14,-0.17,0,False,False
 ```
 
 ## Candidate Context

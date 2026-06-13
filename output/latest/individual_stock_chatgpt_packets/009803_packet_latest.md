@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009803 玉山市值動能50
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:18 Asia/Taipei
+- generated_at: 2026-06-13 22:22:09 Asia/Taipei
 - stock_id: 009803
 - stock_name: 玉山市值動能50
 - packet_status: partial_rawdata_packet

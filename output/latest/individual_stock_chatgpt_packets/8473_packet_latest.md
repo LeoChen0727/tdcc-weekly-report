@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8473 山林水
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:48 Asia/Taipei
+- generated_at: 2026-06-13 22:24:50 Asia/Taipei
 - stock_id: 8473
 - stock_name: 山林水
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 67.95
-- over_600_ratio: 66.61
-- over_800_ratio: 66.28
-- over_1000_ratio: 65.35
-- over_400_change_1w: -0.96
-- over_800_change_1w: -0.71
-- over_1000_change_1w: -0.71
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260612
+- over_400_ratio: 69.77
+- over_600_ratio: 68.1
+- over_800_ratio: 67.4
+- over_1000_ratio: 66.91
+- over_400_change_1w: 1.82
+- over_800_change_1w: 1.12
+- over_1000_change_1w: 1.56
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,67.67,1.23,65.11,0.12,64.65,0.68,3,True,True
 20260529,68.91,1.24,66.99,1.88,66.06,1.41,4,True,True
 20260605,67.95,-0.96,66.28,-0.71,65.35,-0.71,0,False,False
+20260612,69.77,1.82,67.4,1.12,66.91,1.56,1,True,True
 ```
 
 ## Candidate Context

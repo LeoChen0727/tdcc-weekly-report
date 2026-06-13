@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3533 嘉澤
 
 ## Metadata
-- generated_at: 2026-06-12 22:23:18 Asia/Taipei
+- generated_at: 2026-06-13 22:23:14 Asia/Taipei
 - stock_id: 3533
 - stock_name: 嘉澤
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 62.4
-- over_600_ratio: 54.91
-- over_800_ratio: 50.87
-- over_1000_ratio: 45.37
-- over_400_change_1w: 1.06
-- over_800_change_1w: 2.05
-- over_1000_change_1w: -0.39
-- tdcc_consecutive_up_weeks: 5
+- as_of_date: 20260612
+- over_400_ratio: 63.06
+- over_600_ratio: 56.96
+- over_800_ratio: 52.29
+- over_1000_ratio: 45.2
+- over_400_change_1w: 0.66
+- over_800_change_1w: 1.42
+- over_1000_change_1w: -0.17
+- tdcc_consecutive_up_weeks: 6
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,62.08,-0.1,49.33,0.61,44.61,3.11,3,False,True
 20260529,61.34,-0.74,48.82,-0.51,45.76,1.15,4,False,True
 20260605,62.4,1.06,50.87,2.05,45.37,-0.39,5,False,True
+20260612,63.06,0.66,52.29,1.42,45.2,-0.17,6,False,True
 ```
 
 ## Candidate Context

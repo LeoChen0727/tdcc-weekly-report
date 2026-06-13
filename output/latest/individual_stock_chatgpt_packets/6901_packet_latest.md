@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6901 鑽石投資
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:18 Asia/Taipei
+- generated_at: 2026-06-13 22:24:18 Asia/Taipei
 - stock_id: 6901
 - stock_name: 鑽石投資
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,17 +162,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 84.86
-- over_600_ratio: 84.26
-- over_800_ratio: 84.03
-- over_1000_ratio: 83.6
-- over_400_change_1w: -0.03
-- over_800_change_1w: 0.12
-- over_1000_change_1w: 0.02
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260612
+- over_400_ratio: 84.81
+- over_600_ratio: 84.05
+- over_800_ratio: 83.59
+- over_1000_ratio: 83.15
+- over_400_change_1w: -0.05
+- over_800_change_1w: -0.44
+- over_1000_change_1w: -0.45
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -184,6 +184,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,84.98,-0.1,84.18,-0.26,83.63,-0.28,0,False,False
 20260529,84.89,-0.09,83.91,-0.27,83.58,-0.05,0,False,False
 20260605,84.86,-0.03,84.03,0.12,83.6,0.02,1,False,True
+20260612,84.81,-0.05,83.59,-0.44,83.15,-0.45,0,False,False
 ```
 
 ## Candidate Context

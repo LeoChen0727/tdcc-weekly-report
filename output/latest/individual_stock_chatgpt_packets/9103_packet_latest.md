@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9103 美德醫療-DR
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:50 Asia/Taipei
+- generated_at: 2026-06-13 22:24:53 Asia/Taipei
 - stock_id: 9103
 - stock_name: 美德醫療-DR
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 11.68
-- over_600_ratio: 8.43
-- over_800_ratio: 5.71
-- over_1000_ratio: 4.41
-- over_400_change_1w: 1.5
-- over_800_change_1w: 0.94
-- over_1000_change_1w: 0.52
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260612
+- over_400_ratio: 10.7
+- over_600_ratio: 7.7
+- over_800_ratio: 4.92
+- over_1000_ratio: 3.13
+- over_400_change_1w: -0.98
+- over_800_change_1w: -0.79
+- over_1000_change_1w: -1.28
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,9.96,0.11,4.46,0.46,3.12,0,1,False,True
 20260529,10.18,0.22,4.77,0.31,3.89,0.77,2,True,True
 20260605,11.68,1.5,5.71,0.94,4.41,0.52,3,True,True
+20260612,10.7,-0.98,4.92,-0.79,3.13,-1.28,0,False,False
 ```
 
 ## Candidate Context

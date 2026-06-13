@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2353 宏碁
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:43 Asia/Taipei
+- generated_at: 2026-06-13 22:22:36 Asia/Taipei
 - stock_id: 2353
 - stock_name: 宏碁
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: True
 - sell_strategy_summary_exists: True
@@ -162,17 +162,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 39.77
-- over_600_ratio: 38.17
-- over_800_ratio: 36.94
-- over_1000_ratio: 36.05
-- over_400_change_1w: -1.09
-- over_800_change_1w: -0.97
-- over_1000_change_1w: -0.88
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260612
+- over_400_ratio: 40.67
+- over_600_ratio: 38.88
+- over_800_ratio: 37.63
+- over_1000_ratio: 36.74
+- over_400_change_1w: 0.9
+- over_800_change_1w: 0.69
+- over_1000_change_1w: 0.69
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -184,6 +184,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,39.99,0.41,36.89,0.41,36.02,0.53,3,True,True
 20260529,40.86,0.87,37.91,1.02,36.93,0.91,4,True,True
 20260605,39.77,-1.09,36.94,-0.97,36.05,-0.88,0,False,False
+20260612,40.67,0.9,37.63,0.69,36.74,0.69,1,True,True
 ```
 
 ## Candidate Context

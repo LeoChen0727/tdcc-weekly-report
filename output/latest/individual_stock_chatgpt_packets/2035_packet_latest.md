@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2035 唐榮
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:37 Asia/Taipei
+- generated_at: 2026-06-13 22:22:30 Asia/Taipei
 - stock_id: 2035
 - stock_name: 唐榮
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 259
-- latest_tdcc_date: 20260605
-- tdcc_rows: 28
+- latest_tdcc_date: 20260612
+- tdcc_rows: 29
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,23 +158,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 96.69
-- over_600_ratio: 96.69
-- over_800_ratio: 96.48
-- over_1000_ratio: 96.22
-- over_400_change_1w: 0
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260612
+- over_400_ratio: 96.7
+- over_600_ratio: 96.7
+- over_800_ratio: 96.49
+- over_1000_ratio: 96.23
+- over_400_change_1w: 0.01
+- over_800_change_1w: 0.01
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260320,96.73,0.02,96.52,0.02,96.26,0.02,1,True,True
 20260327,96.73,0,96.52,0,96.26,0,0,False,False
 20260402,96.73,0,96.52,0,96.26,0,0,False,False
 20260410,96.69,-0.04,96.48,-0.04,96.22,-0.04,0,False,False
@@ -186,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,96.69,0.01,96.48,0.01,96.22,0.01,2,True,True
 20260529,96.69,0,96.48,0,96.22,0,0,False,False
 20260605,96.69,0,96.48,0,96.22,0,0,False,False
+20260612,96.7,0.01,96.49,0.01,96.23,0.01,1,True,True
 ```
 
 ## Candidate Context

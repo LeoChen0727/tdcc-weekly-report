@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2449 京元電子
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:48 Asia/Taipei
+- generated_at: 2026-06-13 22:22:42 Asia/Taipei
 - stock_id: 2449
 - stock_name: 京元電子
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,15 +162,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 64.81
-- over_600_ratio: 62.06
-- over_800_ratio: 59.85
-- over_1000_ratio: 58.13
-- over_400_change_1w: 0.09
-- over_800_change_1w: -0.04
-- over_1000_change_1w: -0.06
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260612
+- over_400_ratio: 61.82
+- over_600_ratio: 59.14
+- over_800_ratio: 57.05
+- over_1000_ratio: 55.78
+- over_400_change_1w: -2.99
+- over_800_change_1w: -2.8
+- over_1000_change_1w: -2.35
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -184,6 +184,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,62.44,-1.62,57.72,-1.47,56.07,-0.83,0,False,False
 20260529,64.72,2.28,59.89,2.17,58.19,2.12,1,True,True
 20260605,64.81,0.09,59.85,-0.04,58.13,-0.06,2,False,False
+20260612,61.82,-2.99,57.05,-2.8,55.78,-2.35,0,False,False
 ```
 
 ## Candidate Context

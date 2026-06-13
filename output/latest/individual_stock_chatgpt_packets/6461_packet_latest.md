@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6461 益得
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:03 Asia/Taipei
+- generated_at: 2026-06-13 22:24:02 Asia/Taipei
 - stock_id: 6461
 - stock_name: 益得
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 62.99
-- over_600_ratio: 58.96
-- over_800_ratio: 55.83
-- over_1000_ratio: 53.87
-- over_400_change_1w: -0.37
-- over_800_change_1w: 0.09
-- over_1000_change_1w: 0.09
-- tdcc_consecutive_up_weeks: 4
-- all_thresholds_up: False
+- as_of_date: 20260612
+- over_400_ratio: 63.25
+- over_600_ratio: 59
+- over_800_ratio: 55.86
+- over_1000_ratio: 53.9
+- over_400_change_1w: 0.26
+- over_800_change_1w: 0.03
+- over_1000_change_1w: 0.03
+- tdcc_consecutive_up_weeks: 5
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,63.1,0.03,55.74,0.01,53.78,0.01,2,False,True
 20260529,63.36,0.26,55.74,0,53.78,0,3,False,False
 20260605,62.99,-0.37,55.83,0.09,53.87,0.09,4,False,True
+20260612,63.25,0.26,55.86,0.03,53.9,0.03,5,True,True
 ```
 
 ## Candidate Context

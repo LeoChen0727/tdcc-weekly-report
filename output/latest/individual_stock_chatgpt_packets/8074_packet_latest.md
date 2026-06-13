@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8074 鉅橡
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:40 Asia/Taipei
+- generated_at: 2026-06-13 22:24:42 Asia/Taipei
 - stock_id: 8074
 - stock_name: 鉅橡
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 38.65
-- over_600_ratio: 34.44
-- over_800_ratio: 31.1
-- over_1000_ratio: 30.07
-- over_400_change_1w: -1
-- over_800_change_1w: -0.12
-- over_1000_change_1w: -0.09
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260612
+- over_400_ratio: 39.03
+- over_600_ratio: 35.06
+- over_800_ratio: 30.85
+- over_1000_ratio: 29.85
+- over_400_change_1w: 0.38
+- over_800_change_1w: -0.25
+- over_1000_change_1w: -0.22
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,41.53,0.44,32.29,1.08,30.05,-0.11,1,False,True
 20260529,39.65,-1.88,31.22,-1.07,30.16,0.11,2,False,True
 20260605,38.65,-1,31.1,-0.12,30.07,-0.09,0,False,False
+20260612,39.03,0.38,30.85,-0.25,29.85,-0.22,1,False,False
 ```
 
 ## Candidate Context

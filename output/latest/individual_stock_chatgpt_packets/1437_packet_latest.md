@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1437 勤益控
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:24 Asia/Taipei
+- generated_at: 2026-06-13 22:22:15 Asia/Taipei
 - stock_id: 1437
 - stock_name: 勤益控
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
+- as_of_date: 20260612
 - over_400_ratio: 79.35
-- over_600_ratio: 75.08
-- over_800_ratio: 70.84
-- over_1000_ratio: 67.07
-- over_400_change_1w: 0.15
-- over_800_change_1w: 0.22
-- over_1000_change_1w: 1.15
-- tdcc_consecutive_up_weeks: 5
+- over_600_ratio: 75.09
+- over_800_ratio: 70.85
+- over_1000_ratio: 67.08
+- over_400_change_1w: 0
+- over_800_change_1w: 0.01
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 6
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,78.98,-0.07,70.05,0.06,65.81,0.06,3,False,True
 20260529,79.2,0.22,70.62,0.57,65.92,0.11,4,True,True
 20260605,79.35,0.15,70.84,0.22,67.07,1.15,5,False,True
+20260612,79.35,0,70.85,0.01,67.08,0.01,6,False,True
 ```
 
 ## Candidate Context

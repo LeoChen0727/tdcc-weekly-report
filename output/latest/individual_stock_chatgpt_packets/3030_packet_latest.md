@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3030 德律
 
 ## Metadata
-- generated_at: 2026-06-12 22:23:04 Asia/Taipei
+- generated_at: 2026-06-13 22:22:59 Asia/Taipei
 - stock_id: 3030
 - stock_name: 德律
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,14 +157,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 59.34
-- over_600_ratio: 56.68
-- over_800_ratio: 54.95
-- over_1000_ratio: 52.43
-- over_400_change_1w: -2.06
-- over_800_change_1w: -1.17
-- over_1000_change_1w: -1.9
+- as_of_date: 20260612
+- over_400_ratio: 58.29
+- over_600_ratio: 55.82
+- over_800_ratio: 53.62
+- over_1000_ratio: 51.03
+- over_400_change_1w: -1.05
+- over_800_change_1w: -1.33
+- over_1000_change_1w: -1.4
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,60.92,-0.68,56.38,-1.11,54.88,-0.7,0,False,False
 20260529,61.4,0.48,56.12,-0.26,54.33,-0.55,1,False,False
 20260605,59.34,-2.06,54.95,-1.17,52.43,-1.9,0,False,False
+20260612,58.29,-1.05,53.62,-1.33,51.03,-1.4,0,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2314 台揚
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:41 Asia/Taipei
+- generated_at: 2026-06-13 22:22:34 Asia/Taipei
 - stock_id: 2314
 - stock_name: 台揚
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 275
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 9.42
+- as_of_date: 20260612
+- over_400_ratio: 9.84
 - over_600_ratio: 6.36
-- over_800_ratio: 3.81
+- over_800_ratio: 3.06
 - over_1000_ratio: 3.06
-- over_400_change_1w: -0.03
-- over_800_change_1w: 0
+- over_400_change_1w: 0.42
+- over_800_change_1w: -0.75
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,10.84,-1.3,5.21,-1.43,5.21,-1.43,0,False,False
 20260529,9.45,-1.39,3.81,-1.4,3.06,-2.15,0,False,False
 20260605,9.42,-0.03,3.81,0,3.06,0,1,False,False
+20260612,9.84,0.42,3.06,-0.75,3.06,0,2,False,False
 ```
 
 ## Candidate Context

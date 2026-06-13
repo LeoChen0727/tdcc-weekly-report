@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6415 矽力*-KY
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:02 Asia/Taipei
+- generated_at: 2026-06-13 22:24:01 Asia/Taipei
 - stock_id: 6415
 - stock_name: 矽力*-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -163,16 +163,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 79.37
-- over_600_ratio: 72.23
-- over_800_ratio: 67.31
-- over_1000_ratio: 65.02
-- over_400_change_1w: -0.31
-- over_800_change_1w: 0.07
-- over_1000_change_1w: 0.22
-- tdcc_consecutive_up_weeks: 5
-- all_thresholds_up: False
+- as_of_date: 20260612
+- over_400_ratio: 79.84
+- over_600_ratio: 72.91
+- over_800_ratio: 68.75
+- over_1000_ratio: 66.42
+- over_400_change_1w: 0.47
+- over_800_change_1w: 1.44
+- over_1000_change_1w: 1.4
+- tdcc_consecutive_up_weeks: 6
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -185,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,79.85,0.59,66.88,-0.51,64.83,0.44,3,False,True
 20260529,79.68,-0.17,67.24,0.36,64.8,-0.03,4,False,True
 20260605,79.37,-0.31,67.31,0.07,65.02,0.22,5,False,True
+20260612,79.84,0.47,68.75,1.44,66.42,1.4,6,True,True
 ```
 
 ## Candidate Context

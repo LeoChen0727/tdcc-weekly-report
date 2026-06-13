@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7730 暉盛-創
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:35 Asia/Taipei
+- generated_at: 2026-06-13 22:24:37 Asia/Taipei
 - stock_id: 7730
 - stock_name: 暉盛-創
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 143
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,14 +157,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
+- as_of_date: 20260612
 - over_400_ratio: 70.47
-- over_600_ratio: 65.11
-- over_800_ratio: 63.46
-- over_1000_ratio: 61.03
+- over_600_ratio: 65.1
+- over_800_ratio: 63.45
+- over_1000_ratio: 61.02
 - over_400_change_1w: 0
-- over_800_change_1w: -0.03
-- over_1000_change_1w: -0.02
+- over_800_change_1w: -0.01
+- over_1000_change_1w: -0.01
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,70.66,-1.37,63.62,-2.93,61.18,-0.39,0,False,False
 20260529,70.47,-0.19,63.49,-0.13,61.05,-0.13,0,False,False
 20260605,70.47,0,63.46,-0.03,61.03,-0.02,0,False,False
+20260612,70.47,0,63.45,-0.01,61.02,-0.01,0,False,False
 ```
 
 ## Candidate Context

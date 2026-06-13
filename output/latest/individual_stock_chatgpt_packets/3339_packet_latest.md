@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3339 泰谷
 
 ## Metadata
-- generated_at: 2026-06-12 22:23:13 Asia/Taipei
+- generated_at: 2026-06-13 22:23:09 Asia/Taipei
 - stock_id: 3339
 - stock_name: 泰谷
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 29.31
-- over_600_ratio: 26.36
-- over_800_ratio: 19.04
-- over_1000_ratio: 17.59
-- over_400_change_1w: -0.71
-- over_800_change_1w: 0.31
-- over_1000_change_1w: 0.24
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260612
+- over_400_ratio: 29.83
+- over_600_ratio: 26.22
+- over_800_ratio: 21.01
+- over_1000_ratio: 19.69
+- over_400_change_1w: 0.52
+- over_800_change_1w: 1.97
+- over_1000_change_1w: 2.1
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,27.76,1.06,18.9,-0.08,18.9,-0.08,1,False,False
 20260529,30.02,2.26,18.73,-0.17,17.35,-1.55,2,False,False
 20260605,29.31,-0.71,19.04,0.31,17.59,0.24,3,False,True
+20260612,29.83,0.52,21.01,1.97,19.69,2.1,4,False,True
 ```
 
 ## Candidate Context

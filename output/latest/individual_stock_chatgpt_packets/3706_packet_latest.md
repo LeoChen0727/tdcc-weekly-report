@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3706 神達
 
 ## Metadata
-- generated_at: 2026-06-12 22:23:24 Asia/Taipei
+- generated_at: 2026-06-13 22:23:20 Asia/Taipei
 - stock_id: 3706
 - stock_name: 神達
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,17 +162,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 55.61
-- over_600_ratio: 54.31
-- over_800_ratio: 53.52
-- over_1000_ratio: 52.48
-- over_400_change_1w: 3.3
-- over_800_change_1w: 3.35
-- over_1000_change_1w: 3.06
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260612
+- over_400_ratio: 54.08
+- over_600_ratio: 52.7
+- over_800_ratio: 51.79
+- over_1000_ratio: 50.88
+- over_400_change_1w: -1.53
+- over_800_change_1w: -1.73
+- over_1000_change_1w: -1.6
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -184,6 +184,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,51.45,0,49.45,0.22,48.69,0.16,1,False,True
 20260529,52.31,0.86,50.17,0.72,49.42,0.73,2,True,True
 20260605,55.61,3.3,53.52,3.35,52.48,3.06,3,True,True
+20260612,54.08,-1.53,51.79,-1.73,50.88,-1.6,0,False,False
 ```
 
 ## Candidate Context

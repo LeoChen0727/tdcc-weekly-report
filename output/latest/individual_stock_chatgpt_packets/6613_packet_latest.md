@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6613 朋億*
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:09 Asia/Taipei
+- generated_at: 2026-06-13 22:24:08 Asia/Taipei
 - stock_id: 6613
 - stock_name: 朋億*
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 61.17
-- over_600_ratio: 57.32
+- as_of_date: 20260612
+- over_400_ratio: 60.69
+- over_600_ratio: 58.18
 - over_800_ratio: 55.52
 - over_1000_ratio: 55.52
-- over_400_change_1w: -0.28
-- over_800_change_1w: -1.14
+- over_400_change_1w: -0.48
+- over_800_change_1w: 0
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,61.35,-0.28,56.6,0.05,55.52,0,3,False,True
 20260529,61.45,0.1,56.66,0.06,55.52,0,4,False,True
 20260605,61.17,-0.28,55.52,-1.14,55.52,0,0,False,False
+20260612,60.69,-0.48,55.52,0,55.52,0,1,False,False
 ```
 
 ## Candidate Context

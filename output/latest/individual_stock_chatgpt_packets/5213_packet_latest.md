@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5213 亞昕
 
 ## Metadata
-- generated_at: 2026-06-12 22:23:40 Asia/Taipei
+- generated_at: 2026-06-13 22:23:38 Asia/Taipei
 - stock_id: 5213
 - stock_name: 亞昕
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 86.35
-- over_600_ratio: 85.17
-- over_800_ratio: 84.6
-- over_1000_ratio: 84.35
-- over_400_change_1w: 0
-- over_800_change_1w: 0.04
-- over_1000_change_1w: 0.04
-- tdcc_consecutive_up_weeks: 4
+- as_of_date: 20260612
+- over_400_ratio: 86.19
+- over_600_ratio: 85.1
+- over_800_ratio: 84.54
+- over_1000_ratio: 84.29
+- over_400_change_1w: -0.16
+- over_800_change_1w: -0.06
+- over_1000_change_1w: -0.06
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,86.52,0.06,84.75,-0.05,84.25,0.08,2,False,True
 20260529,86.35,-0.17,84.56,-0.19,84.31,0.06,3,False,True
 20260605,86.35,0,84.6,0.04,84.35,0.04,4,False,True
+20260612,86.19,-0.16,84.54,-0.06,84.29,-0.06,0,False,False
 ```
 
 ## Candidate Context

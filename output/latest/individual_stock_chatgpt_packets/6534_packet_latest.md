@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6534 正瀚-創
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:06 Asia/Taipei
+- generated_at: 2026-06-13 22:24:05 Asia/Taipei
 - stock_id: 6534
 - stock_name: 正瀚-創
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 28
+- latest_tdcc_date: 20260612
+- tdcc_rows: 29
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,23 +158,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 82.09
-- over_600_ratio: 79.52
-- over_800_ratio: 76.83
-- over_1000_ratio: 76.02
-- over_400_change_1w: 0.09
-- over_800_change_1w: 0.09
-- over_1000_change_1w: 0.14
-- tdcc_consecutive_up_weeks: 9
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260612
+- over_400_ratio: 82.46
+- over_600_ratio: 79.48
+- over_800_ratio: 76.79
+- over_1000_ratio: 75.98
+- over_400_change_1w: 0.37
+- over_800_change_1w: -0.04
+- over_1000_change_1w: -0.04
+- tdcc_consecutive_up_weeks: 10
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260320,79.87,-0.11,73.48,0.3,71.82,-0.49,1,False,True
 20260327,80.16,0.29,73.85,0.37,72.98,1.16,2,True,True
 20260402,79.84,-0.32,73.64,-0.21,71.82,-1.16,0,False,False
 20260410,79.83,-0.01,73.58,-0.06,72.71,0.89,1,False,True
@@ -186,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,81.4,0.2,76.14,0.2,75.27,0.2,7,True,True
 20260529,82,0.6,76.74,0.6,75.88,0.61,8,True,True
 20260605,82.09,0.09,76.83,0.09,76.02,0.14,9,True,True
+20260612,82.46,0.37,76.79,-0.04,75.98,-0.04,10,False,False
 ```
 
 ## Candidate Context

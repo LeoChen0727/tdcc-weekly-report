@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2031 新光鋼
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:37 Asia/Taipei
+- generated_at: 2026-06-13 22:22:29 Asia/Taipei
 - stock_id: 2031
 - stock_name: 新光鋼
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -163,15 +163,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 55.63
-- over_600_ratio: 53.34
-- over_800_ratio: 51.64
-- over_1000_ratio: 50.21
-- over_400_change_1w: 1.64
-- over_800_change_1w: 1.48
-- over_1000_change_1w: 1.44
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260612
+- over_400_ratio: 56.29
+- over_600_ratio: 54.02
+- over_800_ratio: 52.72
+- over_1000_ratio: 51.03
+- over_400_change_1w: 0.66
+- over_800_change_1w: 1.08
+- over_1000_change_1w: 0.82
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -185,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,53.98,-0.29,49.71,-0.19,48.61,-0.7,0,False,False
 20260529,53.99,0.01,50.16,0.45,48.77,0.16,1,True,True
 20260605,55.63,1.64,51.64,1.48,50.21,1.44,2,True,True
+20260612,56.29,0.66,52.72,1.08,51.03,0.82,3,True,True
 ```
 
 ## Candidate Context

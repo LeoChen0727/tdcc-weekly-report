@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2009 第一銅
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:35 Asia/Taipei
+- generated_at: 2026-06-13 22:22:28 Asia/Taipei
 - stock_id: 2009
 - stock_name: 第一銅
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 57.92
-- over_600_ratio: 57.03
-- over_800_ratio: 56.42
-- over_1000_ratio: 55.93
-- over_400_change_1w: -0.5
-- over_800_change_1w: -0.76
-- over_1000_change_1w: -0.54
+- as_of_date: 20260612
+- over_400_ratio: 56.74
+- over_600_ratio: 56.03
+- over_800_ratio: 55.61
+- over_1000_ratio: 55.12
+- over_400_change_1w: -1.18
+- over_800_change_1w: -0.81
+- over_1000_change_1w: -0.81
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,58,-0.47,56.6,-0.66,55.9,-0.37,0,False,False
 20260529,58.42,0.42,57.18,0.58,56.47,0.57,1,True,True
 20260605,57.92,-0.5,56.42,-0.76,55.93,-0.54,0,False,False
+20260612,56.74,-1.18,55.61,-0.81,55.12,-0.81,0,False,False
 ```
 
 ## Candidate Context

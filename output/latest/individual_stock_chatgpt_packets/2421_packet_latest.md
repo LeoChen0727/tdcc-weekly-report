@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2421 建準
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:47 Asia/Taipei
+- generated_at: 2026-06-13 22:22:40 Asia/Taipei
 - stock_id: 2421
 - stock_name: 建準
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 59.97
-- over_600_ratio: 53.72
-- over_800_ratio: 51.01
-- over_1000_ratio: 48.18
-- over_400_change_1w: 2.35
-- over_800_change_1w: 2.53
-- over_1000_change_1w: 2.23
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260612
+- over_400_ratio: 58.02
+- over_600_ratio: 51.22
+- over_800_ratio: 48.36
+- over_1000_ratio: 45.57
+- over_400_change_1w: -1.95
+- over_800_change_1w: -2.65
+- over_1000_change_1w: -2.61
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,55.77,1.15,46.21,1.9,43.76,1.56,1,True,True
 20260529,57.62,1.85,48.48,2.27,45.95,2.19,2,True,True
 20260605,59.97,2.35,51.01,2.53,48.18,2.23,3,True,True
+20260612,58.02,-1.95,48.36,-2.65,45.57,-2.61,0,False,False
 ```
 
 ## Candidate Context

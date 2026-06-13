@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6605 帝寶
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:08 Asia/Taipei
+- generated_at: 2026-06-13 22:24:08 Asia/Taipei
 - stock_id: 6605
 - stock_name: 帝寶
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 28
+- latest_tdcc_date: 20260612
+- tdcc_rows: 29
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,23 +158,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 65.99
-- over_600_ratio: 63.29
-- over_800_ratio: 60.84
-- over_1000_ratio: 57.53
-- over_400_change_1w: -0.05
-- over_800_change_1w: -0.04
-- over_1000_change_1w: -0.04
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260612
+- over_400_ratio: 67.18
+- over_600_ratio: 64.23
+- over_800_ratio: 61.78
+- over_1000_ratio: 58.47
+- over_400_change_1w: 1.19
+- over_800_change_1w: 0.94
+- over_1000_change_1w: 0.94
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260320,68.43,0.24,61.32,-0.03,57.53,0.02,2,False,True
 20260327,68.38,-0.05,60.83,-0.49,57.53,0,0,False,False
 20260402,68.11,-0.27,61.35,0.52,57.52,-0.01,1,False,True
 20260410,68.42,0.31,60.83,-0.52,57.53,0.01,2,False,True
@@ -186,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,66.76,0.03,60.82,0.03,57.51,0.02,3,True,True
 20260529,66.04,-0.72,60.88,0.06,57.57,0.06,4,False,True
 20260605,65.99,-0.05,60.84,-0.04,57.53,-0.04,0,False,False
+20260612,67.18,1.19,61.78,0.94,58.47,0.94,1,True,True
 ```
 
 ## Candidate Context

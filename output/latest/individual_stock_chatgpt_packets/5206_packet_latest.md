@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5206 坤悅
 
 ## Metadata
-- generated_at: 2026-06-12 22:23:40 Asia/Taipei
+- generated_at: 2026-06-13 22:23:37 Asia/Taipei
 - stock_id: 5206
 - stock_name: 坤悅
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 85.26
-- over_600_ratio: 82.76
-- over_800_ratio: 81.26
-- over_1000_ratio: 80.28
-- over_400_change_1w: -0.57
-- over_800_change_1w: -0.57
-- over_1000_change_1w: 0
+- as_of_date: 20260612
+- over_400_ratio: 85.18
+- over_600_ratio: 82.66
+- over_800_ratio: 81.16
+- over_1000_ratio: 80.18
+- over_400_change_1w: -0.08
+- over_800_change_1w: -0.1
+- over_1000_change_1w: -0.1
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,85.92,-0.01,81.93,-0.01,80.95,-0.01,0,False,False
 20260529,85.83,-0.09,81.83,-0.1,80.28,-0.67,0,False,False
 20260605,85.26,-0.57,81.26,-0.57,80.28,0,0,False,False
+20260612,85.18,-0.08,81.16,-0.1,80.18,-0.1,0,False,False
 ```
 
 ## Candidate Context

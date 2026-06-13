@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5328 華容
 
 ## Metadata
-- generated_at: 2026-06-12 22:23:43 Asia/Taipei
+- generated_at: 2026-06-13 22:23:41 Asia/Taipei
 - stock_id: 5328
 - stock_name: 華容
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 40.55
-- over_600_ratio: 38.58
-- over_800_ratio: 36.98
-- over_1000_ratio: 36.44
-- over_400_change_1w: -4.56
-- over_800_change_1w: -3.69
-- over_1000_change_1w: -3.18
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260612
+- over_400_ratio: 46.65
+- over_600_ratio: 45.36
+- over_800_ratio: 43.86
+- over_1000_ratio: 42.83
+- over_400_change_1w: 6.1
+- over_800_change_1w: 6.88
+- over_1000_change_1w: 6.39
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,51.15,6.27,47.64,8.78,45.01,7.27,1,True,True
 20260529,45.11,-6.04,40.67,-6.97,39.62,-5.39,0,False,False
 20260605,40.55,-4.56,36.98,-3.69,36.44,-3.18,0,False,False
+20260612,46.65,6.1,43.86,6.88,42.83,6.39,1,True,True
 ```
 
 ## Candidate Context

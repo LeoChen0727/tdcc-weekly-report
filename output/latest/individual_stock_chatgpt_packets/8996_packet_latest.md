@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8996 高力
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:50 Asia/Taipei
+- generated_at: 2026-06-13 22:24:53 Asia/Taipei
 - stock_id: 8996
 - stock_name: 高力
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,15 +162,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 52.11
-- over_600_ratio: 42.26
-- over_800_ratio: 35.65
-- over_1000_ratio: 30.79
-- over_400_change_1w: 0.1
-- over_800_change_1w: 0.84
-- over_1000_change_1w: 0.73
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260612
+- over_400_ratio: 52.25
+- over_600_ratio: 43.52
+- over_800_ratio: 39.07
+- over_1000_ratio: 31.46
+- over_400_change_1w: 0.14
+- over_800_change_1w: 3.42
+- over_1000_change_1w: 0.67
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -184,6 +184,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,53.55,0.84,38.67,-0.95,34.12,0.92,3,False,True
 20260529,52.01,-1.54,34.81,-3.86,30.06,-4.06,0,False,False
 20260605,52.11,0.1,35.65,0.84,30.79,0.73,1,True,True
+20260612,52.25,0.14,39.07,3.42,31.46,0.67,2,True,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6691 洋基工程
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:11 Asia/Taipei
+- generated_at: 2026-06-13 22:24:11 Asia/Taipei
 - stock_id: 6691
 - stock_name: 洋基工程
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -163,17 +163,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 68.43
-- over_600_ratio: 62.63
-- over_800_ratio: 59.74
-- over_1000_ratio: 53.88
-- over_400_change_1w: -0.91
-- over_800_change_1w: -0.06
-- over_1000_change_1w: -0.14
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260612
+- over_400_ratio: 68.52
+- over_600_ratio: 62.27
+- over_800_ratio: 59.88
+- over_1000_ratio: 53.97
+- over_400_change_1w: 0.09
+- over_800_change_1w: 0.14
+- over_1000_change_1w: 0.09
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -185,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,69.32,-0.32,60.34,1.31,53.77,-0.03,1,False,True
 20260529,69.34,0.02,59.8,-0.54,54.02,0.25,2,False,True
 20260605,68.43,-0.91,59.74,-0.06,53.88,-0.14,3,False,False
+20260612,68.52,0.09,59.88,0.14,53.97,0.09,4,False,True
 ```
 
 ## Candidate Context

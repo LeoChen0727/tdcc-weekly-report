@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6469 大樹
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:03 Asia/Taipei
+- generated_at: 2026-06-13 22:24:03 Asia/Taipei
 - stock_id: 6469
 - stock_name: 大樹
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 47.66
-- over_600_ratio: 44.94
-- over_800_ratio: 43.27
-- over_1000_ratio: 42.04
-- over_400_change_1w: 0.25
-- over_800_change_1w: 0.7
-- over_1000_change_1w: 0.07
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260612
+- over_400_ratio: 47.7
+- over_600_ratio: 44.98
+- over_800_ratio: 43.32
+- over_1000_ratio: 42.06
+- over_400_change_1w: 0.04
+- over_800_change_1w: 0.05
+- over_1000_change_1w: 0.02
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,47.62,0.43,42.87,-0.3,42.27,-0.3,1,False,False
 20260529,47.41,-0.21,42.57,-0.3,41.97,-0.3,0,False,False
 20260605,47.66,0.25,43.27,0.7,42.04,0.07,1,True,True
+20260612,47.7,0.04,43.32,0.05,42.06,0.02,2,True,True
 ```
 
 ## Candidate Context

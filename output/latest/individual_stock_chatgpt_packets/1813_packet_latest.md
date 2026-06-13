@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1813 寶利徠
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:34 Asia/Taipei
+- generated_at: 2026-06-13 22:22:27 Asia/Taipei
 - stock_id: 1813
 - stock_name: 寶利徠
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
+- as_of_date: 20260612
 - over_400_ratio: 48.54
 - over_600_ratio: 40.57
 - over_800_ratio: 37.64
 - over_1000_ratio: 33.69
-- over_400_change_1w: -0.37
-- over_800_change_1w: -0.36
-- over_1000_change_1w: -2.34
+- over_400_change_1w: 0
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,48.91,0.17,38,0,36.03,0,2,False,False
 20260529,48.91,0,38,0,36.03,0,0,False,False
 20260605,48.54,-0.37,37.64,-0.36,33.69,-2.34,0,False,False
+20260612,48.54,0,37.64,0,33.69,0,0,False,False
 ```
 
 ## Candidate Context

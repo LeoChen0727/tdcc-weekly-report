@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00962 台新AI優息動能
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:17 Asia/Taipei
+- generated_at: 2026-06-13 22:22:09 Asia/Taipei
 - stock_id: 00962
 - stock_name: 台新AI優息動能
 - packet_status: partial_rawdata_packet

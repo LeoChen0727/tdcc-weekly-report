@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5263 智崴
 
 ## Metadata
-- generated_at: 2026-06-12 22:23:42 Asia/Taipei
+- generated_at: 2026-06-13 22:23:39 Asia/Taipei
 - stock_id: 5263
 - stock_name: 智崴
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 55.86
-- over_600_ratio: 49.34
-- over_800_ratio: 46.75
-- over_1000_ratio: 45.55
-- over_400_change_1w: 0.19
-- over_800_change_1w: 0.17
-- over_1000_change_1w: 0.09
-- tdcc_consecutive_up_weeks: 5
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260612
+- over_400_ratio: 55.76
+- over_600_ratio: 49.23
+- over_800_ratio: 46.64
+- over_1000_ratio: 45.51
+- over_400_change_1w: -0.1
+- over_800_change_1w: -0.11
+- over_1000_change_1w: -0.04
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,56.06,1.03,45.46,-0.09,45.46,-0.09,3,False,False
 20260529,55.67,-0.39,46.58,1.12,45.46,0,4,False,True
 20260605,55.86,0.19,46.75,0.17,45.55,0.09,5,True,True
+20260612,55.76,-0.1,46.64,-0.11,45.51,-0.04,0,False,False
 ```
 
 ## Candidate Context

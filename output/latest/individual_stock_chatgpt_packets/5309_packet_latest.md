@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5309 系統電
 
 ## Metadata
-- generated_at: 2026-06-12 22:23:43 Asia/Taipei
+- generated_at: 2026-06-13 22:23:40 Asia/Taipei
 - stock_id: 5309
 - stock_name: 系統電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 46.37
-- over_600_ratio: 43.31
-- over_800_ratio: 42.07
-- over_1000_ratio: 40.94
-- over_400_change_1w: 2.31
-- over_800_change_1w: 1.38
-- over_1000_change_1w: 1.8
-- tdcc_consecutive_up_weeks: 5
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260612
+- over_400_ratio: 40.24
+- over_600_ratio: 38.01
+- over_800_ratio: 36.1
+- over_1000_ratio: 33.43
+- over_400_change_1w: -6.13
+- over_800_change_1w: -5.97
+- over_1000_change_1w: -7.51
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,42.59,2.62,39.54,3.04,38.02,3.55,3,True,True
 20260529,44.06,1.47,40.69,1.15,39.14,1.12,4,True,True
 20260605,46.37,2.31,42.07,1.38,40.94,1.8,5,True,True
+20260612,40.24,-6.13,36.1,-5.97,33.43,-7.51,0,False,False
 ```
 
 ## Candidate Context

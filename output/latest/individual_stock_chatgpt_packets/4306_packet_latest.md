@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4306 炎洲
 
 ## Metadata
-- generated_at: 2026-06-12 22:23:28 Asia/Taipei
+- generated_at: 2026-06-13 22:23:25 Asia/Taipei
 - stock_id: 4306
 - stock_name: 炎洲
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 55.62
-- over_600_ratio: 52.64
-- over_800_ratio: 50.81
-- over_1000_ratio: 49.66
-- over_400_change_1w: 0.96
-- over_800_change_1w: 0.86
-- over_1000_change_1w: 0.74
-- tdcc_consecutive_up_weeks: 5
+- as_of_date: 20260612
+- over_400_ratio: 56.25
+- over_600_ratio: 53.23
+- over_800_ratio: 51.61
+- over_1000_ratio: 50.49
+- over_400_change_1w: 0.63
+- over_800_change_1w: 0.8
+- over_1000_change_1w: 0.83
+- tdcc_consecutive_up_weeks: 6
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,54.3,0.61,49.54,0.77,48.51,1.02,3,True,True
 20260529,54.66,0.36,49.95,0.41,48.92,0.41,4,True,True
 20260605,55.62,0.96,50.81,0.86,49.66,0.74,5,True,True
+20260612,56.25,0.63,51.61,0.8,50.49,0.83,6,True,True
 ```
 
 ## Candidate Context

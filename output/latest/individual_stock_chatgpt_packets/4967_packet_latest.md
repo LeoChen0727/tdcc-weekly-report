@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4967 十銓
 
 ## Metadata
-- generated_at: 2026-06-12 22:23:38 Asia/Taipei
+- generated_at: 2026-06-13 22:23:36 Asia/Taipei
 - stock_id: 4967
 - stock_name: 十銓
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,17 +162,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 27.76
-- over_600_ratio: 27.19
-- over_800_ratio: 23.33
-- over_1000_ratio: 21.47
-- over_400_change_1w: 5.95
-- over_800_change_1w: 7.34
-- over_1000_change_1w: 8.13
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260612
+- over_400_ratio: 22.33
+- over_600_ratio: 19.33
+- over_800_ratio: 13.52
+- over_1000_ratio: 11.74
+- over_400_change_1w: -5.43
+- over_800_change_1w: -9.81
+- over_1000_change_1w: -9.73
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -184,6 +184,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,22.37,-2.29,16.93,-2.37,16.01,-1.37,0,False,False
 20260529,21.81,-0.56,15.99,-0.94,13.34,-2.67,0,False,False
 20260605,27.76,5.95,23.33,7.34,21.47,8.13,1,True,True
+20260612,22.33,-5.43,13.52,-9.81,11.74,-9.73,0,False,False
 ```
 
 ## Candidate Context

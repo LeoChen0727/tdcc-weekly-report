@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6525 捷敏-KY
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:05 Asia/Taipei
+- generated_at: 2026-06-13 22:24:05 Asia/Taipei
 - stock_id: 6525
 - stock_name: 捷敏-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -163,13 +163,13 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 65.63
-- over_600_ratio: 64.1
-- over_800_ratio: 59.23
+- as_of_date: 20260612
+- over_400_ratio: 64.42
+- over_600_ratio: 62.99
+- over_800_ratio: 58.54
 - over_1000_ratio: 57.09
-- over_400_change_1w: -1.37
-- over_800_change_1w: -0.79
+- over_400_change_1w: -1.21
+- over_800_change_1w: -0.69
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
@@ -185,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,66.88,-1.35,60.91,0.12,58.77,0.9,3,False,True
 20260529,67,0.12,60.02,-0.89,57.09,-1.68,4,False,False
 20260605,65.63,-1.37,59.23,-0.79,57.09,0,0,False,False
+20260612,64.42,-1.21,58.54,-0.69,57.09,0,0,False,False
 ```
 
 ## Candidate Context

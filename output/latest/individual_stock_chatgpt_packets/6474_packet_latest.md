@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6474 華豫寧
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:04 Asia/Taipei
+- generated_at: 2026-06-13 22:24:03 Asia/Taipei
 - stock_id: 6474
 - stock_name: 華豫寧
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 264
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,13 +158,13 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 68.65
+- as_of_date: 20260612
+- over_400_ratio: 68.62
 - over_600_ratio: 59.22
 - over_800_ratio: 51.53
 - over_1000_ratio: 44.6
-- over_400_change_1w: -0.05
-- over_800_change_1w: -0.01
+- over_400_change_1w: -0.03
+- over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,68.71,0.04,51.55,0,44.6,0,2,False,False
 20260529,68.7,-0.01,51.54,-0.01,44.6,0,0,False,False
 20260605,68.65,-0.05,51.53,-0.01,44.6,0,0,False,False
+20260612,68.62,-0.03,51.53,0,44.6,0,0,False,False
 ```
 
 ## Candidate Context

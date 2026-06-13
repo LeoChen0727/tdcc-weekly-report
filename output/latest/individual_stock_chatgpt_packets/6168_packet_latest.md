@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6168 宏齊
 
 ## Metadata
-- generated_at: 2026-06-12 22:23:54 Asia/Taipei
+- generated_at: 2026-06-13 22:23:53 Asia/Taipei
 - stock_id: 6168
 - stock_name: 宏齊
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,17 +162,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 46.03
-- over_600_ratio: 44.07
-- over_800_ratio: 43.71
-- over_1000_ratio: 42.84
-- over_400_change_1w: -0.53
-- over_800_change_1w: -0.96
-- over_1000_change_1w: -1.35
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260612
+- over_400_ratio: 45.3
+- over_600_ratio: 44.43
+- over_800_ratio: 43.76
+- over_1000_ratio: 43.33
+- over_400_change_1w: -0.73
+- over_800_change_1w: 0.05
+- over_1000_change_1w: 0.49
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -184,6 +184,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,47.97,2.35,45.51,2.34,44.68,1.92,2,True,True
 20260529,46.56,-1.41,44.67,-0.84,44.19,-0.49,0,False,False
 20260605,46.03,-0.53,43.71,-0.96,42.84,-1.35,0,False,False
+20260612,45.3,-0.73,43.76,0.05,43.33,0.49,1,False,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6843 進典
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:16 Asia/Taipei
+- generated_at: 2026-06-13 22:24:16 Asia/Taipei
 - stock_id: 6843
 - stock_name: 進典
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 275
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,14 +157,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 78.62
-- over_600_ratio: 75.28
-- over_800_ratio: 66.99
-- over_1000_ratio: 56.14
-- over_400_change_1w: -0.2
-- over_800_change_1w: -0.2
-- over_1000_change_1w: -0.2
+- as_of_date: 20260612
+- over_400_ratio: 78.45
+- over_600_ratio: 75.23
+- over_800_ratio: 66.94
+- over_1000_ratio: 56.09
+- over_400_change_1w: -0.17
+- over_800_change_1w: -0.05
+- over_1000_change_1w: -0.05
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,79.08,-0.06,67.45,0,56.6,0,0,False,False
 20260529,78.82,-0.26,67.19,-0.26,56.34,-0.26,0,False,False
 20260605,78.62,-0.2,66.99,-0.2,56.14,-0.2,0,False,False
+20260612,78.45,-0.17,66.94,-0.05,56.09,-0.05,0,False,False
 ```
 
 ## Candidate Context

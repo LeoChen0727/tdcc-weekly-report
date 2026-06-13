@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3434 哲固
 
 ## Metadata
-- generated_at: 2026-06-12 22:23:15 Asia/Taipei
+- generated_at: 2026-06-13 22:23:11 Asia/Taipei
 - stock_id: 3434
 - stock_name: 哲固
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 28
+- latest_tdcc_date: 20260612
+- tdcc_rows: 29
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,23 +158,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 45.39
-- over_600_ratio: 40.38
-- over_800_ratio: 32.4
-- over_1000_ratio: 30.15
-- over_400_change_1w: 1.14
-- over_800_change_1w: -0.01
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 27
+- as_of_date: 20260612
+- over_400_ratio: 44.29
+- over_600_ratio: 40.43
+- over_800_ratio: 32.45
+- over_1000_ratio: 30.2
+- over_400_change_1w: -1.1
+- over_800_change_1w: 0.05
+- over_1000_change_1w: 0.05
+- tdcc_consecutive_up_weeks: 28
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260320,42.61,0.17,29.45,0.03,27.19,0.03,16,True,True
 20260327,43,0.39,29.89,0.44,27.63,0.44,17,True,True
 20260402,43.35,0.35,30.22,0.33,27.96,0.33,18,True,True
 20260410,43.65,0.3,30.55,0.33,28.29,0.33,19,True,True
@@ -186,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,44.23,0.14,32.39,0.14,30.13,0.14,25,True,True
 20260529,44.25,0.02,32.41,0.02,30.15,0.02,26,True,True
 20260605,45.39,1.14,32.4,-0.01,30.15,0,27,False,False
+20260612,44.29,-1.1,32.45,0.05,30.2,0.05,28,False,True
 ```
 
 ## Candidate Context

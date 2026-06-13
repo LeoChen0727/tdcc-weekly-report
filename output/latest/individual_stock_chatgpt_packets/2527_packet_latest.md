@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2527 宏璟
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:52 Asia/Taipei
+- generated_at: 2026-06-13 22:22:46 Asia/Taipei
 - stock_id: 2527
 - stock_name: 宏璟
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 80.04
-- over_600_ratio: 77.64
-- over_800_ratio: 76.15
+- as_of_date: 20260612
+- over_400_ratio: 79.82
+- over_600_ratio: 77.61
+- over_800_ratio: 75.83
 - over_1000_ratio: 74.49
-- over_400_change_1w: -0.05
-- over_800_change_1w: 0.37
-- over_1000_change_1w: 0.03
-- tdcc_consecutive_up_weeks: 5
+- over_400_change_1w: -0.22
+- over_800_change_1w: -0.32
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,79.69,0.17,75.12,0.01,74.45,0.01,3,True,True
 20260529,80.09,0.4,75.78,0.66,74.46,0.01,4,True,True
 20260605,80.04,-0.05,76.15,0.37,74.49,0.03,5,False,True
+20260612,79.82,-0.22,75.83,-0.32,74.49,0,0,False,False
 ```
 
 ## Candidate Context

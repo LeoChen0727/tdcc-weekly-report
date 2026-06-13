@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2401 凌陽
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:46 Asia/Taipei
+- generated_at: 2026-06-13 22:22:39 Asia/Taipei
 - stock_id: 2401
 - stock_name: 凌陽
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,17 +162,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 39.17
-- over_600_ratio: 36.73
-- over_800_ratio: 34.92
-- over_1000_ratio: 33.23
-- over_400_change_1w: -0.56
-- over_800_change_1w: -0.21
-- over_1000_change_1w: -0.5
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260612
+- over_400_ratio: 39.43
+- over_600_ratio: 36.68
+- over_800_ratio: 35.07
+- over_1000_ratio: 32.94
+- over_400_change_1w: 0.26
+- over_800_change_1w: 0.15
+- over_1000_change_1w: -0.29
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -184,6 +184,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,40.85,2.67,36.96,2.22,35.57,2.54,3,True,True
 20260529,39.73,-1.12,35.13,-1.83,33.73,-1.84,0,False,False
 20260605,39.17,-0.56,34.92,-0.21,33.23,-0.5,0,False,False
+20260612,39.43,0.26,35.07,0.15,32.94,-0.29,1,False,True
 ```
 
 ## Candidate Context

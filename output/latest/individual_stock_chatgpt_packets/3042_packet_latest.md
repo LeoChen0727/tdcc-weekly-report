@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3042 晶技
 
 ## Metadata
-- generated_at: 2026-06-12 22:23:05 Asia/Taipei
+- generated_at: 2026-06-13 22:23:00 Asia/Taipei
 - stock_id: 3042
 - stock_name: 晶技
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,17 +162,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 64.51
-- over_600_ratio: 61.2
-- over_800_ratio: 59.18
-- over_1000_ratio: 56.73
-- over_400_change_1w: -3.85
-- over_800_change_1w: -3.06
-- over_1000_change_1w: -3.13
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260612
+- over_400_ratio: 66.64
+- over_600_ratio: 63.56
+- over_800_ratio: 61.55
+- over_1000_ratio: 59.33
+- over_400_change_1w: 2.13
+- over_800_change_1w: 2.37
+- over_1000_change_1w: 2.6
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -184,12 +184,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,65.82,-0.24,60.09,-0.7,57.95,-0.47,0,False,False
 20260529,68.36,2.54,62.24,2.15,59.86,1.91,1,True,True
 20260605,64.51,-3.85,59.18,-3.06,56.73,-3.13,0,False,False
+20260612,66.64,2.13,61.55,2.37,59.33,2.6,1,True,True
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 3042 | 晶技 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | continued_overheated | calendar event: ex_dividend on 20260616; status=confirmed; proximity=within_7d |
+| 20260612 | 3042 | 晶技 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  | call_strong_inflow | continued_overheated | calendar event: ex_dividend on 20260616; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

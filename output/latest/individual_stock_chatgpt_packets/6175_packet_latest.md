@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6175 立敦
 
 ## Metadata
-- generated_at: 2026-06-12 22:23:55 Asia/Taipei
+- generated_at: 2026-06-13 22:23:53 Asia/Taipei
 - stock_id: 6175
 - stock_name: 立敦
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,14 +157,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 64.08
-- over_600_ratio: 62.52
-- over_800_ratio: 58.93
-- over_1000_ratio: 57.76
-- over_400_change_1w: -2.89
-- over_800_change_1w: -2.42
-- over_1000_change_1w: -2.37
+- as_of_date: 20260612
+- over_400_ratio: 63.7
+- over_600_ratio: 61.81
+- over_800_ratio: 58.15
+- over_1000_ratio: 57.6
+- over_400_change_1w: -0.38
+- over_800_change_1w: -0.78
+- over_1000_change_1w: -0.16
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,62.57,-0.09,57.99,0.98,56.26,-0.16,1,False,True
 20260529,66.97,4.4,61.35,3.36,60.13,3.87,2,True,True
 20260605,64.08,-2.89,58.93,-2.42,57.76,-2.37,0,False,False
+20260612,63.7,-0.38,58.15,-0.78,57.6,-0.16,0,False,False
 ```
 
 ## Candidate Context

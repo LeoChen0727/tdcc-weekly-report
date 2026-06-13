@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6570 維田
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:07 Asia/Taipei
+- generated_at: 2026-06-13 22:24:06 Asia/Taipei
 - stock_id: 6570
 - stock_name: 維田
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 43.06
-- over_600_ratio: 34.34
-- over_800_ratio: 34.34
-- over_1000_ratio: 29.4
-- over_400_change_1w: 0.2
-- over_800_change_1w: 0.2
-- over_1000_change_1w: 0.2
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260612
+- over_400_ratio: 43.21
+- over_600_ratio: 34.47
+- over_800_ratio: 34.47
+- over_1000_ratio: 29.53
+- over_400_change_1w: 0.15
+- over_800_change_1w: 0.13
+- over_1000_change_1w: 0.13
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,42.83,0.03,34.14,0.03,29.2,0.03,1,True,True
 20260529,42.86,0.03,34.14,0,29.2,0,2,False,False
 20260605,43.06,0.2,34.34,0.2,29.4,0.2,3,True,True
+20260612,43.21,0.15,34.47,0.13,29.53,0.13,4,True,True
 ```
 
 ## Candidate Context

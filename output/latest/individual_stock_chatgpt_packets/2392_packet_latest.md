@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2392 正崴
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:45 Asia/Taipei
+- generated_at: 2026-06-13 22:22:39 Asia/Taipei
 - stock_id: 2392
 - stock_name: 正崴
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 278
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,16 +162,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 48.48
-- over_600_ratio: 46.8
-- over_800_ratio: 44.84
-- over_1000_ratio: 43.97
-- over_400_change_1w: 0.4
-- over_800_change_1w: 0.41
-- over_1000_change_1w: 0.62
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
+- as_of_date: 20260612
+- over_400_ratio: 48.37
+- over_600_ratio: 46.53
+- over_800_ratio: 44.89
+- over_1000_ratio: 43.85
+- over_400_change_1w: -0.11
+- over_800_change_1w: 0.05
+- over_1000_change_1w: -0.12
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -184,6 +184,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,47.47,0.83,43.97,0.93,42.9,0.57,1,True,True
 20260529,48.08,0.61,44.43,0.46,43.35,0.45,2,True,True
 20260605,48.48,0.4,44.84,0.41,43.97,0.62,3,True,True
+20260612,48.37,-0.11,44.89,0.05,43.85,-0.12,4,False,True
 ```
 
 ## Candidate Context

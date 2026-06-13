@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2441 超豐
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:48 Asia/Taipei
+- generated_at: 2026-06-13 22:22:42 Asia/Taipei
 - stock_id: 2441
 - stock_name: 超豐
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,14 +162,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 70.14
-- over_600_ratio: 68.04
-- over_800_ratio: 67.07
-- over_1000_ratio: 66.11
-- over_400_change_1w: -0.89
-- over_800_change_1w: -1.12
-- over_1000_change_1w: -0.79
+- as_of_date: 20260612
+- over_400_ratio: 68.88
+- over_600_ratio: 66.98
+- over_800_ratio: 65.9
+- over_1000_ratio: 64.49
+- over_400_change_1w: -1.26
+- over_800_change_1w: -1.17
+- over_1000_change_1w: -1.62
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -184,6 +184,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,71.31,-1.53,68.27,-1.34,66.5,-1.72,0,False,False
 20260529,71.03,-0.28,68.19,-0.08,66.9,0.4,1,False,True
 20260605,70.14,-0.89,67.07,-1.12,66.11,-0.79,0,False,False
+20260612,68.88,-1.26,65.9,-1.17,64.49,-1.62,0,False,False
 ```
 
 ## Candidate Context

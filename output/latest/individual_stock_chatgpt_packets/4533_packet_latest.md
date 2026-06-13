@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4533 協易機
 
 ## Metadata
-- generated_at: 2026-06-12 22:23:30 Asia/Taipei
+- generated_at: 2026-06-13 22:23:27 Asia/Taipei
 - stock_id: 4533
 - stock_name: 協易機
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 29.32
-- over_600_ratio: 26.17
-- over_800_ratio: 24.32
-- over_1000_ratio: 23.16
-- over_400_change_1w: 0.11
-- over_800_change_1w: -1.19
-- over_1000_change_1w: -0.74
-- tdcc_consecutive_up_weeks: 5
+- as_of_date: 20260612
+- over_400_ratio: 29.39
+- over_600_ratio: 25.46
+- over_800_ratio: 23.63
+- over_1000_ratio: 23.07
+- over_400_change_1w: 0.07
+- over_800_change_1w: -0.69
+- over_1000_change_1w: -0.09
+- tdcc_consecutive_up_weeks: 6
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,28.94,0.55,25.44,0.7,24.35,0.17,3,True,True
 20260529,29.21,0.27,25.51,0.07,23.9,-0.45,4,False,True
 20260605,29.32,0.11,24.32,-1.19,23.16,-0.74,5,False,False
+20260612,29.39,0.07,23.63,-0.69,23.07,-0.09,6,False,False
 ```
 
 ## Candidate Context

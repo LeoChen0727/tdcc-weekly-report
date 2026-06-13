@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1313 聯成
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:21 Asia/Taipei
+- generated_at: 2026-06-13 22:22:13 Asia/Taipei
 - stock_id: 1313
 - stock_name: 聯成
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,16 +162,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 66.65
-- over_600_ratio: 64.87
-- over_800_ratio: 63.32
-- over_1000_ratio: 62.43
-- over_400_change_1w: 0.08
-- over_800_change_1w: 0.07
-- over_1000_change_1w: -0.07
-- tdcc_consecutive_up_weeks: 5
-- all_thresholds_up: False
+- as_of_date: 20260612
+- over_400_ratio: 66.77
+- over_600_ratio: 65
+- over_800_ratio: 63.38
+- over_1000_ratio: 62.56
+- over_400_change_1w: 0.12
+- over_800_change_1w: 0.06
+- over_1000_change_1w: 0.13
+- tdcc_consecutive_up_weeks: 6
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -184,6 +184,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,66.45,0.13,63.02,0.14,62.28,0,3,False,True
 20260529,66.57,0.12,63.25,0.23,62.5,0.22,4,True,True
 20260605,66.65,0.08,63.32,0.07,62.43,-0.07,5,False,True
+20260612,66.77,0.12,63.38,0.06,62.56,0.13,6,True,True
 ```
 
 ## Candidate Context

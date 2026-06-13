@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2383 台光電
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:45 Asia/Taipei
+- generated_at: 2026-06-13 22:22:38 Asia/Taipei
 - stock_id: 2383
 - stock_name: 台光電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -163,17 +163,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 68.82
-- over_600_ratio: 63.8
-- over_800_ratio: 59.53
-- over_1000_ratio: 56.23
-- over_400_change_1w: -0.78
-- over_800_change_1w: -0.15
-- over_1000_change_1w: -0.44
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260612
+- over_400_ratio: 68.99
+- over_600_ratio: 63.5
+- over_800_ratio: 59.75
+- over_1000_ratio: 56.48
+- over_400_change_1w: 0.17
+- over_800_change_1w: 0.22
+- over_1000_change_1w: 0.25
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -185,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,69.73,-0.22,59.98,-0.16,56.97,-0.18,3,False,False
 20260529,69.6,-0.13,59.68,-0.3,56.67,-0.3,0,False,False
 20260605,68.82,-0.78,59.53,-0.15,56.23,-0.44,1,False,False
+20260612,68.99,0.17,59.75,0.22,56.48,0.25,2,False,True
 ```
 
 ## Candidate Context

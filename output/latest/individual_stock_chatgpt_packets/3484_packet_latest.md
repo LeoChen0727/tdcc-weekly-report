@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3484 崧騰
 
 ## Metadata
-- generated_at: 2026-06-12 22:23:16 Asia/Taipei
+- generated_at: 2026-06-13 22:23:12 Asia/Taipei
 - stock_id: 3484
 - stock_name: 崧騰
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 30.32
-- over_600_ratio: 24.72
-- over_800_ratio: 21.29
-- over_1000_ratio: 17.99
-- over_400_change_1w: 0.26
-- over_800_change_1w: 0.02
-- over_1000_change_1w: 0.02
-- tdcc_consecutive_up_weeks: 5
-- all_thresholds_up: True
+- as_of_date: 20260612
+- over_400_ratio: 30.8
+- over_600_ratio: 24.61
+- over_800_ratio: 22.89
+- over_1000_ratio: 19.59
+- over_400_change_1w: 0.48
+- over_800_change_1w: 1.6
+- over_1000_change_1w: 1.6
+- tdcc_consecutive_up_weeks: 6
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,29.43,-0.58,21.26,0.01,17.96,0.01,3,False,True
 20260529,30.06,0.63,21.27,0.01,17.97,0.01,4,True,True
 20260605,30.32,0.26,21.29,0.02,17.99,0.02,5,True,True
+20260612,30.8,0.48,22.89,1.6,19.59,1.6,6,False,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6904 伯鑫
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:18 Asia/Taipei
+- generated_at: 2026-06-13 22:24:19 Asia/Taipei
 - stock_id: 6904
 - stock_name: 伯鑫
 - packet_status: standard_rawdata_packet
 - latest_price_date: 20260612
 - price_rows: 114
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,7 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
+- as_of_date: 20260612
 - over_400_ratio: 79.9
 - over_600_ratio: 64.36
 - over_800_ratio: 64.36
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,79.9,0,64.36,0,64.36,0,0,False,False
 20260529,79.9,0,64.36,0,64.36,0,0,False,False
 20260605,79.9,0,64.36,0,64.36,0,0,False,False
+20260612,79.9,0,64.36,0,64.36,0,0,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2427 三商電
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:47 Asia/Taipei
+- generated_at: 2026-06-13 22:22:41 Asia/Taipei
 - stock_id: 2427
 - stock_name: 三商電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 52.72
-- over_600_ratio: 51.5
-- over_800_ratio: 51.19
+- as_of_date: 20260612
+- over_400_ratio: 52.27
+- over_600_ratio: 51.51
+- over_800_ratio: 51.2
 - over_1000_ratio: 49.83
-- over_400_change_1w: -0.92
-- over_800_change_1w: -0.57
-- over_1000_change_1w: 0.36
-- tdcc_consecutive_up_weeks: 3
+- over_400_change_1w: -0.45
+- over_800_change_1w: 0.01
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,53.55,0.01,52.17,0.06,49.42,-0.01,1,False,True
 20260529,53.64,0.09,51.76,-0.41,49.47,0.05,2,False,True
 20260605,52.72,-0.92,51.19,-0.57,49.83,0.36,3,False,True
+20260612,52.27,-0.45,51.2,0.01,49.83,0,4,False,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6692 進能服
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:11 Asia/Taipei
+- generated_at: 2026-06-13 22:24:11 Asia/Taipei
 - stock_id: 6692
 - stock_name: 進能服
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 278
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,7 +157,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
+- as_of_date: 20260612
 - over_400_ratio: 71.28
 - over_600_ratio: 65.33
 - over_800_ratio: 62.86
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,71.28,0.16,62.86,0.16,61.38,0.16,3,True,True
 20260529,71.28,0,62.86,0,61.38,0,0,False,False
 20260605,71.28,0,62.86,0,61.38,0,0,False,False
+20260612,71.28,0,62.86,0,61.38,0,0,False,False
 ```
 
 ## Candidate Context

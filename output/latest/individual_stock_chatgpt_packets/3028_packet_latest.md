@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3028 增你強
 
 ## Metadata
-- generated_at: 2026-06-12 22:23:04 Asia/Taipei
+- generated_at: 2026-06-13 22:22:58 Asia/Taipei
 - stock_id: 3028
 - stock_name: 增你強
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -163,17 +163,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 45.98
-- over_600_ratio: 43.69
-- over_800_ratio: 43.06
-- over_1000_ratio: 41.6
-- over_400_change_1w: -0.11
-- over_800_change_1w: 0.21
-- over_1000_change_1w: 0.68
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260612
+- over_400_ratio: 45.17
+- over_600_ratio: 43.08
+- over_800_ratio: 42.45
+- over_1000_ratio: 40.21
+- over_400_change_1w: -0.81
+- over_800_change_1w: -0.61
+- over_1000_change_1w: -1.39
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -185,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,46.68,-0.48,43.52,0.85,41.21,-0.32,1,False,True
 20260529,46.09,-0.59,42.85,-0.67,40.92,-0.29,0,False,False
 20260605,45.98,-0.11,43.06,0.21,41.6,0.68,1,False,True
+20260612,45.17,-0.81,42.45,-0.61,40.21,-1.39,0,False,False
 ```
 
 ## Candidate Context

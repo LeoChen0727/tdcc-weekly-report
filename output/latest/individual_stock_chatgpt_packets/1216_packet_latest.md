@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1216 統一
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:19 Asia/Taipei
+- generated_at: 2026-06-13 22:22:11 Asia/Taipei
 - stock_id: 1216
 - stock_name: 統一
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,15 +162,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 88.52
-- over_600_ratio: 87.21
-- over_800_ratio: 86.03
-- over_1000_ratio: 85.06
-- over_400_change_1w: 0.13
+- as_of_date: 20260612
+- over_400_ratio: 88.77
+- over_600_ratio: 87.49
+- over_800_ratio: 86.19
+- over_1000_ratio: 85.25
+- over_400_change_1w: 0.25
 - over_800_change_1w: 0.16
-- over_1000_change_1w: 0.24
-- tdcc_consecutive_up_weeks: 1
+- over_1000_change_1w: 0.19
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -184,6 +184,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,88.67,0.13,86.2,0.15,85.11,0.13,2,True,True
 20260529,88.39,-0.28,85.87,-0.33,84.82,-0.29,0,False,False
 20260605,88.52,0.13,86.03,0.16,85.06,0.24,1,True,True
+20260612,88.77,0.25,86.19,0.16,85.25,0.19,2,True,True
 ```
 
 ## Candidate Context

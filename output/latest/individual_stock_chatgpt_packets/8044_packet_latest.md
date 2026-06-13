@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8044 網家
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:39 Asia/Taipei
+- generated_at: 2026-06-13 22:24:41 Asia/Taipei
 - stock_id: 8044
 - stock_name: 網家
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 61.4
-- over_600_ratio: 59.31
-- over_800_ratio: 58.06
-- over_1000_ratio: 55.81
-- over_400_change_1w: 0.07
-- over_800_change_1w: 0.07
-- over_1000_change_1w: 0.53
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260612
+- over_400_ratio: 61.3
+- over_600_ratio: 59.16
+- over_800_ratio: 57.6
+- over_1000_ratio: 54.98
+- over_400_change_1w: -0.1
+- over_800_change_1w: -0.46
+- over_1000_change_1w: -0.83
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,61.26,-0.33,58.4,-0.14,55.27,-0.21,0,False,False
 20260529,61.33,0.07,57.99,-0.41,55.28,0.01,1,False,True
 20260605,61.4,0.07,58.06,0.07,55.81,0.53,2,True,True
+20260612,61.3,-0.1,57.6,-0.46,54.98,-0.83,0,False,False
 ```
 
 ## Candidate Context

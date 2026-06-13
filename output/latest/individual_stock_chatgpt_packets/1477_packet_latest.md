@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1477 聚陽
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:26 Asia/Taipei
+- generated_at: 2026-06-13 22:22:18 Asia/Taipei
 - stock_id: 1477
 - stock_name: 聚陽
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,17 +162,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 63.47
-- over_600_ratio: 59.88
-- over_800_ratio: 56.13
-- over_1000_ratio: 53.57
-- over_400_change_1w: -0.15
-- over_800_change_1w: -0.33
-- over_1000_change_1w: -0.33
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260612
+- over_400_ratio: 64.29
+- over_600_ratio: 60.34
+- over_800_ratio: 57.52
+- over_1000_ratio: 54.19
+- over_400_change_1w: 0.82
+- over_800_change_1w: 1.39
+- over_1000_change_1w: 0.62
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -184,6 +184,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,64.95,-1.4,57.88,-0.87,54.61,-1.62,0,False,False
 20260529,63.62,-1.33,56.46,-1.42,53.9,-0.71,0,False,False
 20260605,63.47,-0.15,56.13,-0.33,53.57,-0.33,1,False,False
+20260612,64.29,0.82,57.52,1.39,54.19,0.62,2,True,True
 ```
 
 ## Candidate Context

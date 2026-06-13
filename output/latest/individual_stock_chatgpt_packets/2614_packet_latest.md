@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2614 東森
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:55 Asia/Taipei
+- generated_at: 2026-06-13 22:22:49 Asia/Taipei
 - stock_id: 2614
 - stock_name: 東森
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 47.62
-- over_600_ratio: 46.24
-- over_800_ratio: 44.97
-- over_1000_ratio: 43.26
-- over_400_change_1w: 0.05
-- over_800_change_1w: -0.31
-- over_1000_change_1w: -0.05
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260612
+- over_400_ratio: 47.37
+- over_600_ratio: 46
+- over_800_ratio: 44.93
+- over_1000_ratio: 42.96
+- over_400_change_1w: -0.25
+- over_800_change_1w: -0.04
+- over_1000_change_1w: -0.3
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,47.66,0.02,45.21,0.2,42.75,-0.58,1,False,True
 20260529,47.57,-0.09,45.28,0.07,43.31,0.56,2,False,True
 20260605,47.62,0.05,44.97,-0.31,43.26,-0.05,3,False,False
+20260612,47.37,-0.25,44.93,-0.04,42.96,-0.3,0,False,False
 ```
 
 ## Candidate Context

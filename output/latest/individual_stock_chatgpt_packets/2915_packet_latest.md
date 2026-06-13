@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2915 潤泰全
 
 ## Metadata
-- generated_at: 2026-06-12 22:23:01 Asia/Taipei
+- generated_at: 2026-06-13 22:22:56 Asia/Taipei
 - stock_id: 2915
 - stock_name: 潤泰全
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,16 +157,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 68.04
-- over_600_ratio: 65.46
-- over_800_ratio: 63.28
-- over_1000_ratio: 61.83
-- over_400_change_1w: 0.28
-- over_800_change_1w: -0.04
-- over_1000_change_1w: 0.3
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
+- as_of_date: 20260612
+- over_400_ratio: 68.21
+- over_600_ratio: 65.84
+- over_800_ratio: 63.67
+- over_1000_ratio: 62.39
+- over_400_change_1w: 0.17
+- over_800_change_1w: 0.39
+- over_1000_change_1w: 0.56
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,67.78,0.01,63.45,-0.18,61.93,0.07,3,False,True
 20260529,67.76,-0.02,63.32,-0.13,61.53,-0.4,0,False,False
 20260605,68.04,0.28,63.28,-0.04,61.83,0.3,1,False,True
+20260612,68.21,0.17,63.67,0.39,62.39,0.56,2,True,True
 ```
 
 ## Candidate Context

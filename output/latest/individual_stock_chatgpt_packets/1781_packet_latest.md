@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1781 合世
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:33 Asia/Taipei
+- generated_at: 2026-06-13 22:22:26 Asia/Taipei
 - stock_id: 1781
 - stock_name: 合世
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 43.27
-- over_600_ratio: 33
-- over_800_ratio: 30.03
+- as_of_date: 20260612
+- over_400_ratio: 43.56
+- over_600_ratio: 34.22
+- over_800_ratio: 29.97
 - over_1000_ratio: 26.22
-- over_400_change_1w: 0.93
-- over_800_change_1w: -0.23
-- over_1000_change_1w: -0.12
-- tdcc_consecutive_up_weeks: 1
+- over_400_change_1w: 0.29
+- over_800_change_1w: -0.06
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,42.58,0.89,30.6,-0.01,28.77,-0.01,3,False,False
 20260529,42.34,-0.24,30.26,-0.34,26.34,-2.43,0,False,False
 20260605,43.27,0.93,30.03,-0.23,26.22,-0.12,1,False,False
+20260612,43.56,0.29,29.97,-0.06,26.22,0,2,False,False
 ```
 
 ## Candidate Context

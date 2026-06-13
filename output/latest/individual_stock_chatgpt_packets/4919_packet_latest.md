@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4919 新唐
 
 ## Metadata
-- generated_at: 2026-06-12 22:23:37 Asia/Taipei
+- generated_at: 2026-06-13 22:23:34 Asia/Taipei
 - stock_id: 4919
 - stock_name: 新唐
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,17 +162,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 69.05
-- over_600_ratio: 67.99
-- over_800_ratio: 66.17
-- over_1000_ratio: 65.31
-- over_400_change_1w: 0.85
-- over_800_change_1w: 1.16
-- over_1000_change_1w: 1.39
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260612
+- over_400_ratio: 68.67
+- over_600_ratio: 67.3
+- over_800_ratio: 65.66
+- over_1000_ratio: 64.84
+- over_400_change_1w: -0.38
+- over_800_change_1w: -0.51
+- over_1000_change_1w: -0.47
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -184,6 +184,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,66.89,2.39,63.66,1.89,62.35,1.89,1,True,True
 20260529,68.2,1.31,65.01,1.35,63.92,1.57,2,True,True
 20260605,69.05,0.85,66.17,1.16,65.31,1.39,3,True,True
+20260612,68.67,-0.38,65.66,-0.51,64.84,-0.47,0,False,False
 ```
 
 ## Candidate Context

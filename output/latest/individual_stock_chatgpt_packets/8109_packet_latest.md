@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8109 博大
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:42 Asia/Taipei
+- generated_at: 2026-06-13 22:24:44 Asia/Taipei
 - stock_id: 8109
 - stock_name: 博大
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 28
+- latest_tdcc_date: 20260612
+- tdcc_rows: 29
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
+- as_of_date: 20260612
 - over_400_ratio: 54.12
 - over_600_ratio: 47.27
 - over_800_ratio: 42.36
 - over_1000_ratio: 34.8
-- over_400_change_1w: -0.53
-- over_800_change_1w: -0.02
-- over_1000_change_1w: -0.02
+- over_400_change_1w: 0
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -174,7 +174,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260320,54.03,0.73,41.16,-0.46,34.55,-0.46,3,False,False
 20260327,53.01,-1.02,41.22,0.06,34.6,0.05,4,False,True
 20260402,53.7,0.69,41.21,-0.01,34.6,0,5,False,False
 20260410,54.52,0.82,41.21,0,34.6,0,6,False,False
@@ -186,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,54.17,-0.52,42.42,0.02,34.89,0.02,5,False,True
 20260529,54.65,0.48,42.38,-0.04,34.82,-0.07,6,False,False
 20260605,54.12,-0.53,42.36,-0.02,34.8,-0.02,0,False,False
+20260612,54.12,0,42.36,0,34.8,0,0,False,False
 ```
 
 ## Candidate Context

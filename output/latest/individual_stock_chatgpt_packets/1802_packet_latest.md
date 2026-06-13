@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1802 台玻
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:34 Asia/Taipei
+- generated_at: 2026-06-13 22:22:27 Asia/Taipei
 - stock_id: 1802
 - stock_name: 台玻
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -161,14 +161,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 77.2
-- over_600_ratio: 76.56
-- over_800_ratio: 76.07
-- over_1000_ratio: 75.39
-- over_400_change_1w: -1.51
-- over_800_change_1w: -1.56
-- over_1000_change_1w: -1.66
+- as_of_date: 20260612
+- over_400_ratio: 75.79
+- over_600_ratio: 75.14
+- over_800_ratio: 74.67
+- over_1000_ratio: 74.06
+- over_400_change_1w: -1.41
+- over_800_change_1w: -1.4
+- over_1000_change_1w: -1.33
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,76.26,-1.06,75.12,-1.01,74.36,-1.04,0,False,False
 20260529,78.71,2.45,77.63,2.51,77.05,2.69,1,True,True
 20260605,77.2,-1.51,76.07,-1.56,75.39,-1.66,0,False,False
+20260612,75.79,-1.41,74.67,-1.4,74.06,-1.33,0,False,False
 ```
 
 ## Candidate Context

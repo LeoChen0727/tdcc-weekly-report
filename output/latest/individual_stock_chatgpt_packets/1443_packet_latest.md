@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1443 立益物流
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:24 Asia/Taipei
+- generated_at: 2026-06-13 22:22:16 Asia/Taipei
 - stock_id: 1443
 - stock_name: 立益物流
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 273
-- latest_tdcc_date: 20260605
-- tdcc_rows: 28
+- latest_tdcc_date: 20260612
+- tdcc_rows: 29
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,23 +158,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 89.78
-- over_600_ratio: 85.4
-- over_800_ratio: 84.36
-- over_1000_ratio: 81.08
-- over_400_change_1w: 0.05
+- as_of_date: 20260612
+- over_400_ratio: 89.84
+- over_600_ratio: 85.46
+- over_800_ratio: 84.4
+- over_1000_ratio: 81.11
+- over_400_change_1w: 0.06
 - over_800_change_1w: 0.04
-- over_1000_change_1w: -0.71
-- tdcc_consecutive_up_weeks: 21
-- all_thresholds_up: False
+- over_1000_change_1w: 0.03
+- tdcc_consecutive_up_weeks: 22
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260320,89.31,0.03,82.9,0.02,81.59,0.02,10,True,True
 20260327,89.32,0.01,82.91,0.01,81.6,0.01,11,True,True
 20260402,89.38,0.06,83.54,0.63,81.63,0.03,12,True,True
 20260410,89.5,0.12,83.54,0,81.63,0,13,False,False
@@ -186,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,89.69,0.04,84.29,0.02,81.77,0.02,19,True,True
 20260529,89.73,0.04,84.32,0.03,81.79,0.02,20,True,True
 20260605,89.78,0.05,84.36,0.04,81.08,-0.71,21,False,True
+20260612,89.84,0.06,84.4,0.04,81.11,0.03,22,True,True
 ```
 
 ## Candidate Context

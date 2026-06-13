@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2464 盟立
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:49 Asia/Taipei
+- generated_at: 2026-06-13 22:22:43 Asia/Taipei
 - stock_id: 2464
 - stock_name: 盟立
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,14 +162,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 45.82
-- over_600_ratio: 43.7
-- over_800_ratio: 41.49
-- over_1000_ratio: 37.71
-- over_400_change_1w: -0.5
-- over_800_change_1w: -0.3
-- over_1000_change_1w: -2.84
+- as_of_date: 20260612
+- over_400_ratio: 44.35
+- over_600_ratio: 41.78
+- over_800_ratio: 39.19
+- over_1000_ratio: 37.56
+- over_400_change_1w: -1.47
+- over_800_change_1w: -2.3
+- over_1000_change_1w: -0.15
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -184,6 +184,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,47.32,1.75,42.94,1.47,41.61,3.21,2,True,True
 20260529,46.32,-1,41.79,-1.15,40.55,-1.06,0,False,False
 20260605,45.82,-0.5,41.49,-0.3,37.71,-2.84,0,False,False
+20260612,44.35,-1.47,39.19,-2.3,37.56,-0.15,0,False,False
 ```
 
 ## Candidate Context

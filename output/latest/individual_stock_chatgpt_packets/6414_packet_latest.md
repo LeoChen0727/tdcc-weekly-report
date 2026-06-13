@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6414 樺漢
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:02 Asia/Taipei
+- generated_at: 2026-06-13 22:24:01 Asia/Taipei
 - stock_id: 6414
 - stock_name: 樺漢
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,17 +162,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 65.53
-- over_600_ratio: 58.74
-- over_800_ratio: 56.04
-- over_1000_ratio: 52.08
-- over_400_change_1w: 0.53
-- over_800_change_1w: 1.36
-- over_1000_change_1w: 0.25
-- tdcc_consecutive_up_weeks: 5
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260612
+- over_400_ratio: 65.92
+- over_600_ratio: 58.29
+- over_800_ratio: 54.47
+- over_1000_ratio: 51.6
+- over_400_change_1w: 0.39
+- over_800_change_1w: -1.57
+- over_1000_change_1w: -0.48
+- tdcc_consecutive_up_weeks: 6
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -184,13 +184,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,65.15,-0.88,54.61,1.77,50.55,-1.69,3,False,True
 20260529,65,-0.15,54.68,0.07,51.83,1.28,4,False,True
 20260605,65.53,0.53,56.04,1.36,52.08,0.25,5,True,True
+20260612,65.92,0.39,54.47,-1.57,51.6,-0.48,6,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 6414 | 樺漢 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | calendar event: ex_dividend on 20260616; status=confirmed; proximity=within_7d |
-| 20260612 | 6414 | 樺漢 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: ex_dividend on 20260616; status=confirmed; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260612 | 6414 | 樺漢 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | calendar event: ex_dividend on 20260616; status=confirmed; proximity=within_3d |
+| 20260612 | 6414 | 樺漢 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: ex_dividend on 20260616; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

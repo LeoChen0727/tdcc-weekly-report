@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3481 群創
 
 ## Metadata
-- generated_at: 2026-06-12 22:23:16 Asia/Taipei
+- generated_at: 2026-06-13 22:23:12 Asia/Taipei
 - stock_id: 3481
 - stock_name: 群創
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,17 +162,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 45.65
-- over_600_ratio: 43.51
-- over_800_ratio: 42.09
-- over_1000_ratio: 41.17
-- over_400_change_1w: 1.36
-- over_800_change_1w: 1.42
-- over_1000_change_1w: 1.61
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260612
+- over_400_ratio: 44.59
+- over_600_ratio: 42.47
+- over_800_ratio: 41.14
+- over_1000_ratio: 40.22
+- over_400_change_1w: -1.06
+- over_800_change_1w: -0.95
+- over_1000_change_1w: -0.95
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -184,6 +184,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,52.44,2.37,48.8,2.51,47.71,2.5,3,True,True
 20260529,44.29,-8.15,40.67,-8.13,39.56,-8.15,0,False,False
 20260605,45.65,1.36,42.09,1.42,41.17,1.61,1,True,True
+20260612,44.59,-1.06,41.14,-0.95,40.22,-0.95,0,False,False
 ```
 
 ## Candidate Context

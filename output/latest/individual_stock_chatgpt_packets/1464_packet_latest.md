@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1464 得力
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:25 Asia/Taipei
+- generated_at: 2026-06-13 22:22:17 Asia/Taipei
 - stock_id: 1464
 - stock_name: 得力
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 60.83
-- over_600_ratio: 57.94
-- over_800_ratio: 55.82
-- over_1000_ratio: 54.11
-- over_400_change_1w: 0.12
-- over_800_change_1w: 0.26
-- over_1000_change_1w: 0.27
-- tdcc_consecutive_up_weeks: 5
+- as_of_date: 20260612
+- over_400_ratio: 60.97
+- over_600_ratio: 58.44
+- over_800_ratio: 56
+- over_1000_ratio: 54.1
+- over_400_change_1w: 0.14
+- over_800_change_1w: 0.18
+- over_1000_change_1w: -0.01
+- tdcc_consecutive_up_weeks: 6
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,60.42,0.14,55.16,-0.04,53.45,0.35,3,False,True
 20260529,60.71,0.29,55.56,0.4,53.84,0.39,4,True,True
 20260605,60.83,0.12,55.82,0.26,54.11,0.27,5,False,True
+20260612,60.97,0.14,56,0.18,54.1,-0.01,6,False,True
 ```
 
 ## Candidate Context

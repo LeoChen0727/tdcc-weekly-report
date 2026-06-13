@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5425 台半
 
 ## Metadata
-- generated_at: 2026-06-12 22:23:45 Asia/Taipei
+- generated_at: 2026-06-13 22:23:42 Asia/Taipei
 - stock_id: 5425
 - stock_name: 台半
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,14 +157,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 41.61
-- over_600_ratio: 40.33
-- over_800_ratio: 39.07
-- over_1000_ratio: 36.31
-- over_400_change_1w: -10.62
-- over_800_change_1w: -8.29
-- over_1000_change_1w: -9.64
+- as_of_date: 20260612
+- over_400_ratio: 40.52
+- over_600_ratio: 38.76
+- over_800_ratio: 37.98
+- over_1000_ratio: 33.83
+- over_400_change_1w: -1.09
+- over_800_change_1w: -1.09
+- over_1000_change_1w: -2.48
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,46.4,7.81,42.13,7.6,41.07,8.59,1,True,True
 20260529,52.23,5.83,47.36,5.23,45.95,4.88,2,True,True
 20260605,41.61,-10.62,39.07,-8.29,36.31,-9.64,0,False,False
+20260612,40.52,-1.09,37.98,-1.09,33.83,-2.48,0,False,False
 ```
 
 ## Candidate Context

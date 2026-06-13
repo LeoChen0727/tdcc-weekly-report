@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1524 耿鼎
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:27 Asia/Taipei
+- generated_at: 2026-06-13 22:22:19 Asia/Taipei
 - stock_id: 1524
 - stock_name: 耿鼎
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 38.67
-- over_600_ratio: 36.63
-- over_800_ratio: 35.76
-- over_1000_ratio: 35.28
-- over_400_change_1w: -1.87
-- over_800_change_1w: -2
-- over_1000_change_1w: -1.95
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260612
+- over_400_ratio: 38.82
+- over_600_ratio: 36.8
+- over_800_ratio: 36.38
+- over_1000_ratio: 35.88
+- over_400_change_1w: 0.15
+- over_800_change_1w: 0.62
+- over_1000_change_1w: 0.6
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,39.08,0.53,35.79,0,35.28,0,1,False,False
 20260529,40.54,1.46,37.76,1.97,37.23,1.95,2,True,True
 20260605,38.67,-1.87,35.76,-2,35.28,-1.95,0,False,False
+20260612,38.82,0.15,36.38,0.62,35.88,0.6,1,True,True
 ```
 
 ## Candidate Context

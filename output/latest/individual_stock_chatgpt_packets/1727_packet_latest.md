@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1727 中華化
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:32 Asia/Taipei
+- generated_at: 2026-06-13 22:22:25 Asia/Taipei
 - stock_id: 1727
 - stock_name: 中華化
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,15 +162,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 52.3
-- over_600_ratio: 50.62
-- over_800_ratio: 48.93
-- over_1000_ratio: 48.93
-- over_400_change_1w: -2.73
-- over_800_change_1w: -2.33
-- over_1000_change_1w: -1.58
-- tdcc_consecutive_up_weeks: 0
+- as_of_date: 20260612
+- over_400_ratio: 52.74
+- over_600_ratio: 50.13
+- over_800_ratio: 48.43
+- over_1000_ratio: 47.73
+- over_400_change_1w: 0.44
+- over_800_change_1w: -0.5
+- over_1000_change_1w: -1.2
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -184,6 +184,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,58.73,3.85,54.25,4.18,52.73,3.39,1,True,True
 20260529,55.03,-3.7,51.26,-2.99,50.51,-2.22,0,False,False
 20260605,52.3,-2.73,48.93,-2.33,48.93,-1.58,0,False,False
+20260612,52.74,0.44,48.43,-0.5,47.73,-1.2,1,False,False
 ```
 
 ## Candidate Context

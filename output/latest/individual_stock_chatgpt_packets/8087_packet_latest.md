@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8087 麗升能源
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:41 Asia/Taipei
+- generated_at: 2026-06-13 22:24:43 Asia/Taipei
 - stock_id: 8087
 - stock_name: 麗升能源
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 57.45
-- over_600_ratio: 48.76
-- over_800_ratio: 43.54
-- over_1000_ratio: 43.54
-- over_400_change_1w: -0.85
-- over_800_change_1w: -0.58
-- over_1000_change_1w: -0.58
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260612
+- over_400_ratio: 57.52
+- over_600_ratio: 48.8
+- over_800_ratio: 43.63
+- over_1000_ratio: 43.63
+- over_400_change_1w: 0.07
+- over_800_change_1w: 0.09
+- over_1000_change_1w: 0.09
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,58.12,-0.17,43.88,-2.06,43.88,0.26,1,False,True
 20260529,58.3,0.18,44.12,0.24,44.12,0.24,2,True,True
 20260605,57.45,-0.85,43.54,-0.58,43.54,-0.58,0,False,False
+20260612,57.52,0.07,43.63,0.09,43.63,0.09,1,True,True
 ```
 
 ## Candidate Context

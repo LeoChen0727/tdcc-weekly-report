@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1441 大東
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:24 Asia/Taipei
+- generated_at: 2026-06-13 22:22:16 Asia/Taipei
 - stock_id: 1441
 - stock_name: 大東
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,7 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
+- as_of_date: 20260612
 - over_400_ratio: 65
 - over_600_ratio: 61.77
 - over_800_ratio: 60.89
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,64.98,0,60.89,0,58.35,0,0,False,False
 20260529,65,0.02,60.89,0,58.35,0,1,False,False
 20260605,65,0,60.89,0,58.35,0,0,False,False
+20260612,65,0,60.89,0,58.35,0,0,False,False
 ```
 
 ## Candidate Context

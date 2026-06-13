@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1617 榮星
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:31 Asia/Taipei
+- generated_at: 2026-06-13 22:22:23 Asia/Taipei
 - stock_id: 1617
 - stock_name: 榮星
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 28
+- latest_tdcc_date: 20260612
+- tdcc_rows: 29
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,23 +158,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
+- as_of_date: 20260612
 - over_400_ratio: 75.7
-- over_600_ratio: 73.25
-- over_800_ratio: 73.25
-- over_1000_ratio: 70.05
-- over_400_change_1w: 0.59
-- over_800_change_1w: 0.23
-- over_1000_change_1w: 0.24
-- tdcc_consecutive_up_weeks: 8
-- all_thresholds_up: True
+- over_600_ratio: 73.32
+- over_800_ratio: 73.32
+- over_1000_ratio: 70.12
+- over_400_change_1w: 0
+- over_800_change_1w: 0.07
+- over_1000_change_1w: 0.07
+- tdcc_consecutive_up_weeks: 9
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260320,74.64,0.03,72.22,0.01,69.5,0.01,3,True,True
 20260327,74.81,0.17,72.29,0.07,69.57,0.07,4,True,True
 20260402,74.75,-0.06,72.3,0.01,69.58,0.01,5,False,True
 20260410,74.74,-0.01,72.3,0,69.58,0,0,False,False
@@ -186,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,75,0.05,72.92,0.04,69.67,0.02,6,True,True
 20260529,75.11,0.11,73.02,0.1,69.81,0.14,7,True,True
 20260605,75.7,0.59,73.25,0.23,70.05,0.24,8,True,True
+20260612,75.7,0,73.32,0.07,70.12,0.07,9,False,True
 ```
 
 ## Candidate Context

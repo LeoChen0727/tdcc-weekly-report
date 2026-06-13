@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2338 光罩
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:42 Asia/Taipei
+- generated_at: 2026-06-13 22:22:35 Asia/Taipei
 - stock_id: 2338
 - stock_name: 光罩
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -161,14 +161,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 49.19
-- over_600_ratio: 47.91
-- over_800_ratio: 45.92
-- over_1000_ratio: 44.87
-- over_400_change_1w: -1.65
-- over_800_change_1w: -1.68
-- over_1000_change_1w: -1.19
+- as_of_date: 20260612
+- over_400_ratio: 47.63
+- over_600_ratio: 46.08
+- over_800_ratio: 44.32
+- over_1000_ratio: 43.02
+- over_400_change_1w: -1.56
+- over_800_change_1w: -1.6
+- over_1000_change_1w: -1.85
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,48.62,1.61,45.54,2.58,43.52,2.82,1,True,True
 20260529,50.84,2.22,47.6,2.06,46.06,2.54,2,True,True
 20260605,49.19,-1.65,45.92,-1.68,44.87,-1.19,0,False,False
+20260612,47.63,-1.56,44.32,-1.6,43.02,-1.85,0,False,False
 ```
 
 ## Candidate Context

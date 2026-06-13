@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6274 台燿
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:00 Asia/Taipei
+- generated_at: 2026-06-13 22:23:59 Asia/Taipei
 - stock_id: 6274
 - stock_name: 台燿
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 67.41
-- over_600_ratio: 64.89
-- over_800_ratio: 59.91
-- over_1000_ratio: 56.93
-- over_400_change_1w: -0.49
-- over_800_change_1w: -0.47
-- over_1000_change_1w: -0.08
+- as_of_date: 20260612
+- over_400_ratio: 67.08
+- over_600_ratio: 64.16
+- over_800_ratio: 58.75
+- over_1000_ratio: 55.7
+- over_400_change_1w: -0.33
+- over_800_change_1w: -1.16
+- over_1000_change_1w: -1.23
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,69.21,0.49,61.01,0.02,57.96,-0.01,3,False,True
 20260529,67.9,-1.31,60.38,-0.63,57.01,-0.95,0,False,False
 20260605,67.41,-0.49,59.91,-0.47,56.93,-0.08,0,False,False
+20260612,67.08,-0.33,58.75,-1.16,55.7,-1.23,0,False,False
 ```
 
 ## Candidate Context

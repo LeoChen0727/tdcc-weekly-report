@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1438 三地開發
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:24 Asia/Taipei
+- generated_at: 2026-06-13 22:22:16 Asia/Taipei
 - stock_id: 1438
 - stock_name: 三地開發
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 28
+- latest_tdcc_date: 20260612
+- tdcc_rows: 29
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,23 +157,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 83.17
-- over_600_ratio: 80.3
-- over_800_ratio: 78.94
-- over_1000_ratio: 76.35
-- over_400_change_1w: 0.08
-- over_800_change_1w: 0.01
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 9
+- as_of_date: 20260612
+- over_400_ratio: 83.05
+- over_600_ratio: 80.23
+- over_800_ratio: 78.9
+- over_1000_ratio: 76.31
+- over_400_change_1w: -0.12
+- over_800_change_1w: -0.04
+- over_1000_change_1w: -0.04
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260320,82.8,0.01,78.6,0.01,76.01,0.01,11,True,True
 20260327,82.81,0.01,78.61,0.01,76.02,0.01,12,True,True
 20260402,82.81,0,78.61,0,76.02,0,0,False,False
 20260410,82.82,0.01,78.62,0.01,76.03,0.01,1,True,True
@@ -185,6 +184,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,83.07,0.11,78.91,0.12,76.32,0.12,7,True,True
 20260529,83.09,0.02,78.93,0.02,76.34,0.02,8,True,True
 20260605,83.17,0.08,78.94,0.01,76.35,0.01,9,False,True
+20260612,83.05,-0.12,78.9,-0.04,76.31,-0.04,0,False,False
 ```
 
 ## Candidate Context

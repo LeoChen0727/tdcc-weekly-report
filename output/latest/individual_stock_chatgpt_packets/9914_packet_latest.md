@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9914 美利達
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:51 Asia/Taipei
+- generated_at: 2026-06-13 22:24:54 Asia/Taipei
 - stock_id: 9914
 - stock_name: 美利達
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,16 +157,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 65.41
-- over_600_ratio: 62.82
-- over_800_ratio: 61.64
-- over_1000_ratio: 56.26
-- over_400_change_1w: -0.17
-- over_800_change_1w: 0.3
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: False
+- as_of_date: 20260612
+- over_400_ratio: 66.23
+- over_600_ratio: 63.49
+- over_800_ratio: 62.29
+- over_1000_ratio: 56.56
+- over_400_change_1w: 0.82
+- over_800_change_1w: 0.65
+- over_1000_change_1w: 0.3
+- tdcc_consecutive_up_weeks: 2
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,66.06,1.32,62.2,1.79,56.52,1.82,3,True,True
 20260529,65.58,-0.48,61.34,-0.86,56.25,-0.27,0,False,False
 20260605,65.41,-0.17,61.64,0.3,56.26,0.01,1,False,True
+20260612,66.23,0.82,62.29,0.65,56.56,0.3,2,True,True
 ```
 
 ## Candidate Context

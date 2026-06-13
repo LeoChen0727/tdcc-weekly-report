@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3034 聯詠
 
 ## Metadata
-- generated_at: 2026-06-12 22:23:04 Asia/Taipei
+- generated_at: 2026-06-13 22:22:59 Asia/Taipei
 - stock_id: 3034
 - stock_name: 聯詠
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,15 +162,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 70.16
-- over_600_ratio: 66.14
-- over_800_ratio: 62.23
-- over_1000_ratio: 58.43
-- over_400_change_1w: -0.45
-- over_800_change_1w: 0.13
-- over_1000_change_1w: -0.15
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260612
+- over_400_ratio: 69.99
+- over_600_ratio: 66.03
+- over_800_ratio: 62.35
+- over_1000_ratio: 59.27
+- over_400_change_1w: -0.17
+- over_800_change_1w: 0.12
+- over_1000_change_1w: 0.84
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -184,6 +184,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,70.05,-0.32,62.4,-0.56,59,-0.14,0,False,False
 20260529,70.61,0.56,62.1,-0.3,58.58,-0.42,1,False,False
 20260605,70.16,-0.45,62.23,0.13,58.43,-0.15,2,False,True
+20260612,69.99,-0.17,62.35,0.12,59.27,0.84,3,False,True
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3221 台嘉碩
 
 ## Metadata
-- generated_at: 2026-06-12 22:23:10 Asia/Taipei
+- generated_at: 2026-06-13 22:23:05 Asia/Taipei
 - stock_id: 3221
 - stock_name: 台嘉碩
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,14 +157,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 28.23
-- over_600_ratio: 22.53
-- over_800_ratio: 15.24
-- over_1000_ratio: 11.95
-- over_400_change_1w: -5.4
-- over_800_change_1w: -4.12
-- over_1000_change_1w: -4.12
+- as_of_date: 20260612
+- over_400_ratio: 27.8
+- over_600_ratio: 21.22
+- over_800_ratio: 13.92
+- over_1000_ratio: 9.73
+- over_400_change_1w: -0.43
+- over_800_change_1w: -1.32
+- over_1000_change_1w: -2.22
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,28.55,-1.11,14.05,-1.05,10.76,-0.11,0,False,False
 20260529,33.63,5.08,19.36,5.31,16.07,5.31,1,True,True
 20260605,28.23,-5.4,15.24,-4.12,11.95,-4.12,0,False,False
+20260612,27.8,-0.43,13.92,-1.32,9.73,-2.22,0,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2377 微星
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:45 Asia/Taipei
+- generated_at: 2026-06-13 22:22:38 Asia/Taipei
 - stock_id: 2377
 - stock_name: 微星
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 58.58
-- over_600_ratio: 56.65
-- over_800_ratio: 55.49
-- over_1000_ratio: 53.46
-- over_400_change_1w: 0.2
-- over_800_change_1w: -0.02
-- over_1000_change_1w: -0.04
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260612
+- over_400_ratio: 58.77
+- over_600_ratio: 56.52
+- over_800_ratio: 55.38
+- over_1000_ratio: 53.25
+- over_400_change_1w: 0.19
+- over_800_change_1w: -0.11
+- over_1000_change_1w: -0.21
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,58.08,-2.11,55.33,-2.4,53.61,-2.2,0,False,False
 20260529,58.38,0.3,55.51,0.18,53.5,-0.11,1,False,True
 20260605,58.58,0.2,55.49,-0.02,53.46,-0.04,2,False,False
+20260612,58.77,0.19,55.38,-0.11,53.25,-0.21,3,False,False
 ```
 
 ## Candidate Context

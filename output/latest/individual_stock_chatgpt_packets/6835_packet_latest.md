@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6835 圓裕
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:16 Asia/Taipei
+- generated_at: 2026-06-13 22:24:16 Asia/Taipei
 - stock_id: 6835
 - stock_name: 圓裕
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 78.26
-- over_600_ratio: 72.53
-- over_800_ratio: 67.62
-- over_1000_ratio: 66.13
-- over_400_change_1w: 0.73
-- over_800_change_1w: 0.19
-- over_1000_change_1w: 0.19
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
+- as_of_date: 20260612
+- over_400_ratio: 78.25
+- over_600_ratio: 73.17
+- over_800_ratio: 68.27
+- over_1000_ratio: 66.78
+- over_400_change_1w: -0.01
+- over_800_change_1w: 0.65
+- over_1000_change_1w: 0.65
+- tdcc_consecutive_up_weeks: 3
+- all_thresholds_up: False
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,77.58,-0.05,67.41,-0.04,65.91,-1.54,0,False,False
 20260529,77.53,-0.05,67.43,0.02,65.94,0.03,1,False,True
 20260605,78.26,0.73,67.62,0.19,66.13,0.19,2,True,True
+20260612,78.25,-0.01,68.27,0.65,66.78,0.65,3,False,True
 ```
 
 ## Candidate Context

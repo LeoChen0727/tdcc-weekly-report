@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009800 中信NASDAQ
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:17 Asia/Taipei
+- generated_at: 2026-06-13 22:22:09 Asia/Taipei
 - stock_id: 009800
 - stock_name: 中信NASDAQ
 - packet_status: partial_rawdata_packet

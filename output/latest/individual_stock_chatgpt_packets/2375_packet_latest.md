@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2375 凱美
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:44 Asia/Taipei
+- generated_at: 2026-06-13 22:22:38 Asia/Taipei
 - stock_id: 2375
 - stock_name: 凱美
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 8
+- latest_tdcc_date: 20260612
+- tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -156,17 +156,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 31.69
-- over_600_ratio: 30.82
-- over_800_ratio: 29.59
-- over_1000_ratio: 28.01
-- over_400_change_1w: -5.96
-- over_800_change_1w: -5.4
-- over_1000_change_1w: -4.51
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260612
+- over_400_ratio: 33.08
+- over_600_ratio: 31.76
+- over_800_ratio: 31.14
+- over_1000_ratio: 28.74
+- over_400_change_1w: 1.39
+- over_800_change_1w: 1.55
+- over_1000_change_1w: 0.73
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,35.1,7.79,31.57,8.18,29.08,8.27,3,True,True
 20260529,37.65,2.55,34.99,3.42,32.52,3.44,4,True,True
 20260605,31.69,-5.96,29.59,-5.4,28.01,-4.51,0,False,False
+20260612,33.08,1.39,31.14,1.55,28.74,0.73,1,True,True
 ```
 
 ## Candidate Context

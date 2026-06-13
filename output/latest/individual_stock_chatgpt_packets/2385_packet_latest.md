@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2385 群光
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:45 Asia/Taipei
+- generated_at: 2026-06-13 22:22:38 Asia/Taipei
 - stock_id: 2385
 - stock_name: 群光
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -163,15 +163,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 79.67
-- over_600_ratio: 76.63
-- over_800_ratio: 74.49
-- over_1000_ratio: 73.12
-- over_400_change_1w: 1
-- over_800_change_1w: 0.97
-- over_1000_change_1w: 1.23
-- tdcc_consecutive_up_weeks: 5
+- as_of_date: 20260612
+- over_400_ratio: 80.48
+- over_600_ratio: 77.93
+- over_800_ratio: 75.33
+- over_1000_ratio: 73.91
+- over_400_change_1w: 0.81
+- over_800_change_1w: 0.84
+- over_1000_change_1w: 0.79
+- tdcc_consecutive_up_weeks: 6
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -185,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,78.13,0,72.71,0.15,71.33,0.41,3,False,True
 20260529,78.67,0.54,73.52,0.81,71.89,0.56,4,True,True
 20260605,79.67,1,74.49,0.97,73.12,1.23,5,True,True
+20260612,80.48,0.81,75.33,0.84,73.91,0.79,6,True,True
 ```
 
 ## Candidate Context

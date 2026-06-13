@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7723 築間
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:35 Asia/Taipei
+- generated_at: 2026-06-13 22:24:37 Asia/Taipei
 - stock_id: 7723
 - stock_name: 築間
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
+- as_of_date: 20260612
 - over_400_ratio: 56.49
 - over_600_ratio: 55.35
 - over_800_ratio: 48.41
 - over_1000_ratio: 48.41
-- over_400_change_1w: -0.84
-- over_800_change_1w: 0.02
-- over_1000_change_1w: 1.89
-- tdcc_consecutive_up_weeks: 1
+- over_400_change_1w: 0
+- over_800_change_1w: 0
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,57.33,0,48.39,0,46.52,0,0,False,False
 20260529,57.33,0,48.39,0,46.52,0,0,False,False
 20260605,56.49,-0.84,48.41,0.02,48.41,1.89,1,False,True
+20260612,56.49,0,48.41,0,48.41,0,0,False,False
 ```
 
 ## Candidate Context

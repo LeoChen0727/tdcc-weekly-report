@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6279 胡連
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:00 Asia/Taipei
+- generated_at: 2026-06-13 22:24:00 Asia/Taipei
 - stock_id: 6279
 - stock_name: 胡連
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,12 +158,12 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 45.48
-- over_600_ratio: 41
+- as_of_date: 20260612
+- over_400_ratio: 45.15
+- over_600_ratio: 40.97
 - over_800_ratio: 38.69
 - over_1000_ratio: 35.6
-- over_400_change_1w: -0.61
+- over_400_change_1w: -0.33
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,46.48,0.02,38.03,-1.68,35.6,-0.85,1,False,False
 20260529,46.09,-0.39,38.69,0.66,35.6,0,2,False,True
 20260605,45.48,-0.61,38.69,0,35.6,0,0,False,False
+20260612,45.15,-0.33,38.69,0,35.6,0,0,False,False
 ```
 
 ## Candidate Context

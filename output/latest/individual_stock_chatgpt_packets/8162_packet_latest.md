@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8162 微矽電子-創
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:43 Asia/Taipei
+- generated_at: 2026-06-13 22:24:45 Asia/Taipei
 - stock_id: 8162
 - stock_name: 微矽電子-創
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 75.07
-- over_600_ratio: 71.15
-- over_800_ratio: 67.17
-- over_1000_ratio: 63.34
-- over_400_change_1w: -0.93
-- over_800_change_1w: -0.04
-- over_1000_change_1w: -0.04
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260612
+- over_400_ratio: 75.17
+- over_600_ratio: 71.16
+- over_800_ratio: 67.2
+- over_1000_ratio: 62.16
+- over_400_change_1w: 0.1
+- over_800_change_1w: 0.03
+- over_1000_change_1w: -1.18
+- tdcc_consecutive_up_weeks: 4
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,75.3,1.22,67.28,0,63.45,0,1,False,False
 20260529,76,0.7,67.21,-0.07,63.38,-0.07,2,False,False
 20260605,75.07,-0.93,67.17,-0.04,63.34,-0.04,3,False,False
+20260612,75.17,0.1,67.2,0.03,62.16,-1.18,4,False,True
 ```
 
 ## Candidate Context

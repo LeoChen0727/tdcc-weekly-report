@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6263 普萊德
 
 ## Metadata
-- generated_at: 2026-06-12 22:23:59 Asia/Taipei
+- generated_at: 2026-06-13 22:23:59 Asia/Taipei
 - stock_id: 6263
 - stock_name: 普萊德
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,12 +157,12 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
+- as_of_date: 20260612
 - over_400_ratio: 43.35
 - over_600_ratio: 40.96
 - over_800_ratio: 40.96
 - over_1000_ratio: 40.96
-- over_400_change_1w: -0.69
+- over_400_change_1w: 0
 - over_800_change_1w: 0
 - over_1000_change_1w: 0
 - tdcc_consecutive_up_weeks: 0
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,44.09,0.74,40.96,0,40.96,0,1,False,False
 20260529,44.04,-0.05,40.96,0,40.96,0,0,False,False
 20260605,43.35,-0.69,40.96,0,40.96,0,0,False,False
+20260612,43.35,0,40.96,0,40.96,0,0,False,False
 ```
 
 ## Candidate Context

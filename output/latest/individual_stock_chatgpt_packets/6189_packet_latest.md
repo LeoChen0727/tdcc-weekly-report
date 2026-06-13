@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6189 豐藝
 
 ## Metadata
-- generated_at: 2026-06-12 22:23:55 Asia/Taipei
+- generated_at: 2026-06-13 22:23:54 Asia/Taipei
 - stock_id: 6189
 - stock_name: 豐藝
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,14 +162,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 34.72
-- over_600_ratio: 31.6
-- over_800_ratio: 29.42
-- over_1000_ratio: 24.16
-- over_400_change_1w: -0.13
-- over_800_change_1w: -0.36
-- over_1000_change_1w: -1.41
+- as_of_date: 20260612
+- over_400_ratio: 34.19
+- over_600_ratio: 31.55
+- over_800_ratio: 28.84
+- over_1000_ratio: 23.65
+- over_400_change_1w: -0.53
+- over_800_change_1w: -0.58
+- over_1000_change_1w: -0.51
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -184,6 +184,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,34.54,0.52,29.57,0.24,25.37,0.99,1,True,True
 20260529,34.85,0.31,29.78,0.21,25.57,0.2,2,True,True
 20260605,34.72,-0.13,29.42,-0.36,24.16,-1.41,0,False,False
+20260612,34.19,-0.53,28.84,-0.58,23.65,-0.51,0,False,False
 ```
 
 ## Candidate Context

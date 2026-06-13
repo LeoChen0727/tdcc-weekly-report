@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6108 競國
 
 ## Metadata
-- generated_at: 2026-06-12 22:23:51 Asia/Taipei
+- generated_at: 2026-06-13 22:23:49 Asia/Taipei
 - stock_id: 6108
 - stock_name: 競國
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,17 +162,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 52.1
-- over_600_ratio: 48.48
-- over_800_ratio: 45.29
-- over_1000_ratio: 42.85
-- over_400_change_1w: -0.11
-- over_800_change_1w: -0.37
-- over_1000_change_1w: 0.19
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260612
+- over_400_ratio: 51.82
+- over_600_ratio: 49.62
+- over_800_ratio: 45.07
+- over_1000_ratio: 42.65
+- over_400_change_1w: -0.28
+- over_800_change_1w: -0.22
+- over_1000_change_1w: -0.2
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -184,6 +184,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,52.65,-0.22,45.74,0.64,42.73,0.05,1,False,True
 20260529,52.21,-0.44,45.66,-0.08,42.66,-0.07,0,False,False
 20260605,52.1,-0.11,45.29,-0.37,42.85,0.19,1,False,True
+20260612,51.82,-0.28,45.07,-0.22,42.65,-0.2,2,False,False
 ```
 
 ## Candidate Context

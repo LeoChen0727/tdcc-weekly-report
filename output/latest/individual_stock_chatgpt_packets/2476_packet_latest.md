@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2476 鉅祥
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:50 Asia/Taipei
+- generated_at: 2026-06-13 22:22:44 Asia/Taipei
 - stock_id: 2476
 - stock_name: 鉅祥
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,16 +162,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 62.91
-- over_600_ratio: 59.17
-- over_800_ratio: 57.94
-- over_1000_ratio: 55.16
-- over_400_change_1w: -0.35
-- over_800_change_1w: 0.95
-- over_1000_change_1w: -1.01
-- tdcc_consecutive_up_weeks: 3
-- all_thresholds_up: False
+- as_of_date: 20260612
+- over_400_ratio: 63.65
+- over_600_ratio: 60.26
+- over_800_ratio: 57.95
+- over_1000_ratio: 56.73
+- over_400_change_1w: 0.74
+- over_800_change_1w: 0.01
+- over_1000_change_1w: 1.57
+- tdcc_consecutive_up_weeks: 4
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -184,6 +184,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,62.39,1.26,55.57,1.27,54.35,1.23,1,True,True
 20260529,63.26,0.87,56.99,1.42,56.17,1.82,2,True,True
 20260605,62.91,-0.35,57.94,0.95,55.16,-1.01,3,False,True
+20260612,63.65,0.74,57.95,0.01,56.73,1.57,4,True,True
 ```
 
 ## Candidate Context

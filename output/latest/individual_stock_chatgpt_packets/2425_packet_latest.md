@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2425 承啟
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:47 Asia/Taipei
+- generated_at: 2026-06-13 22:22:41 Asia/Taipei
 - stock_id: 2425
 - stock_name: 承啟
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -163,17 +163,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 47.48
-- over_600_ratio: 44.27
-- over_800_ratio: 39.65
+- as_of_date: 20260612
+- over_400_ratio: 48.69
+- over_600_ratio: 43.89
+- over_800_ratio: 40.48
 - over_1000_ratio: 38.7
-- over_400_change_1w: -0.19
-- over_800_change_1w: -0.11
-- over_1000_change_1w: -0.11
-- tdcc_consecutive_up_weeks: 0
+- over_400_change_1w: 1.21
+- over_800_change_1w: 0.83
+- over_1000_change_1w: 0
+- tdcc_consecutive_up_weeks: 1
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -185,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,47.89,0.44,39.73,1.02,37.91,0.15,3,True,True
 20260529,47.67,-0.22,39.76,0.03,38.81,0.9,4,False,True
 20260605,47.48,-0.19,39.65,-0.11,38.7,-0.11,0,False,False
+20260612,48.69,1.21,40.48,0.83,38.7,0,1,False,True
 ```
 
 ## Candidate Context

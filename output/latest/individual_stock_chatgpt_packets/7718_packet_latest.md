@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7718 友鋮
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:35 Asia/Taipei
+- generated_at: 2026-06-13 22:24:36 Asia/Taipei
 - stock_id: 7718
 - stock_name: 友鋮
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 28
+- latest_tdcc_date: 20260612
+- tdcc_rows: 29
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,23 +158,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 78.46
-- over_600_ratio: 74.37
-- over_800_ratio: 71.27
-- over_1000_ratio: 67.54
-- over_400_change_1w: 0
-- over_800_change_1w: 0.03
-- over_1000_change_1w: 0.03
-- tdcc_consecutive_up_weeks: 17
-- all_thresholds_up: False
+- as_of_date: 20260612
+- over_400_ratio: 78.51
+- over_600_ratio: 74.42
+- over_800_ratio: 71.35
+- over_1000_ratio: 67.62
+- over_400_change_1w: 0.05
+- over_800_change_1w: 0.08
+- over_1000_change_1w: 0.08
+- tdcc_consecutive_up_weeks: 18
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260320,77.8,-0.01,70.73,0.1,67,0.11,6,False,True
 20260327,77.87,0.07,70.88,0.15,67.15,0.15,7,True,True
 20260402,77.93,0.06,70.94,0.06,67.21,0.06,8,True,True
 20260410,77.93,0,70.97,0.03,67.24,0.03,9,False,True
@@ -186,6 +185,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,78.38,0.04,71.21,0.02,67.48,0.02,15,True,True
 20260529,78.46,0.08,71.24,0.03,67.51,0.03,16,True,True
 20260605,78.46,0,71.27,0.03,67.54,0.03,17,False,True
+20260612,78.51,0.05,71.35,0.08,67.62,0.08,18,True,True
 ```
 
 ## Candidate Context

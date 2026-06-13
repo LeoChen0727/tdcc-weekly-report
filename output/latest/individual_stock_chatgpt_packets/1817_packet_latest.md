@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1817 凱撒衛
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:35 Asia/Taipei
+- generated_at: 2026-06-13 22:22:27 Asia/Taipei
 - stock_id: 1817
 - stock_name: 凱撒衛
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,7 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
+- as_of_date: 20260612
 - over_400_ratio: 65.2
 - over_600_ratio: 61.22
 - over_800_ratio: 58.44
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,65.21,0,58.45,0,58.45,0,0,False,False
 20260529,65.2,-0.01,58.44,-0.01,58.44,-0.01,0,False,False
 20260605,65.2,0,58.44,0,58.44,0,0,False,False
+20260612,65.2,0,58.44,0,58.44,0,0,False,False
 ```
 
 ## Candidate Context

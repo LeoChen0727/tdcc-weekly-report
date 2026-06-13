@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2606 裕民
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:54 Asia/Taipei
+- generated_at: 2026-06-13 22:22:48 Asia/Taipei
 - stock_id: 2606
 - stock_name: 裕民
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 28
+- latest_tdcc_date: 20260612
+- tdcc_rows: 29
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -163,23 +163,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 76.93
-- over_600_ratio: 75.67
-- over_800_ratio: 75.18
-- over_1000_ratio: 74.14
-- over_400_change_1w: 0.1
-- over_800_change_1w: 0.1
-- over_1000_change_1w: 0.11
-- tdcc_consecutive_up_weeks: 5
+- as_of_date: 20260612
+- over_400_ratio: 76.83
+- over_600_ratio: 75.53
+- over_800_ratio: 75.03
+- over_1000_ratio: 73.97
+- over_400_change_1w: -0.1
+- over_800_change_1w: -0.15
+- over_1000_change_1w: -0.17
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260320,72.54,-0.49,70.47,-0.57,69.6,-0.78,0,False,False
 20260327,72.05,-0.49,70.08,-0.39,69.54,-0.06,0,False,False
 20260402,72.27,0.22,70.38,0.3,69.85,0.31,1,True,True
 20260410,72.72,0.45,70.88,0.5,70.04,0.19,2,True,True
@@ -191,12 +190,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,74.94,0.12,73.19,0.21,72.35,0.1,3,False,True
 20260529,76.83,1.89,75.08,1.89,74.03,1.68,4,True,True
 20260605,76.93,0.1,75.18,0.1,74.14,0.11,5,False,True
+20260612,76.83,-0.1,75.03,-0.15,73.97,-0.17,0,False,False
 ```
 
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 2606 | 裕民 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | stale_signal | calendar event: ex_dividend on 20260616; status=confirmed; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260612 | 2606 | 裕民 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | stale_signal | calendar event: ex_dividend on 20260616; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

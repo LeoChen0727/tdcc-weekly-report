@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6719 力智
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:12 Asia/Taipei
+- generated_at: 2026-06-13 22:24:12 Asia/Taipei
 - stock_id: 6719
 - stock_name: 力智
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 49.7
-- over_600_ratio: 48.68
-- over_800_ratio: 45.97
-- over_1000_ratio: 44.31
-- over_400_change_1w: -0.32
-- over_800_change_1w: 0.8
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260612
+- over_400_ratio: 49.33
+- over_600_ratio: 48.45
+- over_800_ratio: 45.18
+- over_1000_ratio: 44.32
+- over_400_change_1w: -0.37
+- over_800_change_1w: -0.79
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,50.24,-0.41,47.42,0.35,45.69,-0.52,2,False,True
 20260529,50.02,-0.22,45.17,-2.25,44.31,-1.38,0,False,False
 20260605,49.7,-0.32,45.97,0.8,44.31,0,1,False,True
+20260612,49.33,-0.37,45.18,-0.79,44.32,0.01,2,False,True
 ```
 
 ## Candidate Context

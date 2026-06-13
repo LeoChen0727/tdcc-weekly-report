@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0067 期元大S&P黃金反1(原名：元大S&P黃金反1)
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:15 Asia/Taipei
+- generated_at: 2026-06-13 22:22:06 Asia/Taipei
 - stock_id: 0067
 - stock_name: 期元大S&P黃金反1(原名：元大S&P黃金反1)
 - packet_status: insufficient_price_data

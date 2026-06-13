@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2483 百容
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:50 Asia/Taipei
+- generated_at: 2026-06-13 22:22:44 Asia/Taipei
 - stock_id: 2483
 - stock_name: 百容
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -161,17 +161,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 63.53
-- over_600_ratio: 60.43
-- over_800_ratio: 59.1
-- over_1000_ratio: 57.58
-- over_400_change_1w: -0.21
-- over_800_change_1w: -0.52
-- over_1000_change_1w: 0.42
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260612
+- over_400_ratio: 60.08
+- over_600_ratio: 58.64
+- over_800_ratio: 57.38
+- over_1000_ratio: 56.63
+- over_400_change_1w: -3.45
+- over_800_change_1w: -1.72
+- over_1000_change_1w: -0.95
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -183,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,63.96,0.57,59.68,0.7,57.25,-0.05,1,False,True
 20260529,63.74,-0.22,59.62,-0.06,57.16,-0.09,2,False,False
 20260605,63.53,-0.21,59.1,-0.52,57.58,0.42,3,False,True
+20260612,60.08,-3.45,57.38,-1.72,56.63,-0.95,0,False,False
 ```
 
 ## Candidate Context

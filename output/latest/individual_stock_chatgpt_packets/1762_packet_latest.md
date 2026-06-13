@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1762 中化生
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:33 Asia/Taipei
+- generated_at: 2026-06-13 22:22:26 Asia/Taipei
 - stock_id: 1762
 - stock_name: 中化生
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 45.42
-- over_600_ratio: 42.74
-- over_800_ratio: 39.93
-- over_1000_ratio: 37.59
-- over_400_change_1w: 0.59
-- over_800_change_1w: -0.1
-- over_1000_change_1w: -0.1
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260612
+- over_400_ratio: 45.26
+- over_600_ratio: 42.56
+- over_800_ratio: 39.75
+- over_1000_ratio: 37.42
+- over_400_change_1w: -0.16
+- over_800_change_1w: -0.18
+- over_1000_change_1w: -0.17
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,44.82,-0.07,40.02,-0.07,37.68,-0.07,0,False,False
 20260529,44.83,0.01,40.03,0.01,37.69,0.01,1,True,True
 20260605,45.42,0.59,39.93,-0.1,37.59,-0.1,2,False,False
+20260612,45.26,-0.16,39.75,-0.18,37.42,-0.17,0,False,False
 ```
 
 ## Candidate Context

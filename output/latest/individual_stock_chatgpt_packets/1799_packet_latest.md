@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1799 易威
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:34 Asia/Taipei
+- generated_at: 2026-06-13 22:22:27 Asia/Taipei
 - stock_id: 1799
 - stock_name: 易威
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 279
-- latest_tdcc_date: 20260605
-- tdcc_rows: 28
+- latest_tdcc_date: 20260612
+- tdcc_rows: 29
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
+- as_of_date: 20260612
 - over_400_ratio: 68.11
-- over_600_ratio: 67.07
-- over_800_ratio: 66.49
-- over_1000_ratio: 66.49
-- over_400_change_1w: 0.01
-- over_800_change_1w: 0
-- over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 9
+- over_600_ratio: 67.06
+- over_800_ratio: 66.48
+- over_1000_ratio: 66.48
+- over_400_change_1w: 0
+- over_800_change_1w: -0.01
+- over_1000_change_1w: -0.01
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -173,7 +173,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260320,67.61,0.02,66.36,0.01,66.36,0.01,7,True,True
 20260327,67.61,0,66.36,0,66.36,0,0,False,False
 20260402,67.61,0,66.36,0,66.36,0,0,False,False
 20260410,67.63,0.02,66.36,0,66.36,0,1,False,False
@@ -185,6 +184,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,67.79,0.01,66.52,0.01,66.52,0.01,7,True,True
 20260529,68.1,0.31,66.49,-0.03,66.49,-0.03,8,False,False
 20260605,68.11,0.01,66.49,0,66.49,0,9,False,False
+20260612,68.11,0,66.48,-0.01,66.48,-0.01,0,False,False
 ```
 
 ## Candidate Context

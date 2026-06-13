@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1108 幸福
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:18 Asia/Taipei
+- generated_at: 2026-06-13 22:22:10 Asia/Taipei
 - stock_id: 1108
 - stock_name: 幸福
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,14 +158,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 80.74
-- over_600_ratio: 78.03
-- over_800_ratio: 76.8
-- over_1000_ratio: 75.85
-- over_400_change_1w: -0.14
-- over_800_change_1w: -0.07
-- over_1000_change_1w: -0.07
+- as_of_date: 20260612
+- over_400_ratio: 80.64
+- over_600_ratio: 78
+- over_800_ratio: 76.78
+- over_1000_ratio: 75.83
+- over_400_change_1w: -0.1
+- over_800_change_1w: -0.02
+- over_1000_change_1w: -0.02
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,81.01,0.17,77.22,0,76.27,-0.02,1,False,False
 20260529,80.88,-0.13,76.87,-0.35,75.92,-0.35,0,False,False
 20260605,80.74,-0.14,76.8,-0.07,75.85,-0.07,0,False,False
+20260612,80.64,-0.1,76.78,-0.02,75.83,-0.02,0,False,False
 ```
 
 ## Candidate Context

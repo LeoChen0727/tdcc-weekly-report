@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2731 雄獅
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:57 Asia/Taipei
+- generated_at: 2026-06-13 22:22:51 Asia/Taipei
 - stock_id: 2731
 - stock_name: 雄獅
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 28
+- latest_tdcc_date: 20260612
+- tdcc_rows: 29
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,23 +157,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 49.59
-- over_600_ratio: 45.46
-- over_800_ratio: 40.37
-- over_1000_ratio: 38.46
-- over_400_change_1w: 1.52
-- over_800_change_1w: 0.32
-- over_1000_change_1w: 1.18
-- tdcc_consecutive_up_weeks: 5
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260612
+- over_400_ratio: 46.56
+- over_600_ratio: 42.26
+- over_800_ratio: 38.44
+- over_1000_ratio: 35.56
+- over_400_change_1w: -3.03
+- over_800_change_1w: -1.93
+- over_1000_change_1w: -2.9
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260320,54.98,-0.61,46.17,0.84,40.37,-0.18,2,False,True
 20260327,54.25,-0.73,45.87,-0.3,39.18,-1.19,0,False,False
 20260402,52.84,-1.41,43.87,-2,39.07,-0.11,0,False,False
 20260410,52.04,-0.8,43.68,-0.19,37.83,-1.24,0,False,False
@@ -185,6 +184,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,48.38,0.93,39.95,0.89,37.18,1.86,3,True,True
 20260529,48.07,-0.31,40.05,0.1,37.28,0.1,4,False,True
 20260605,49.59,1.52,40.37,0.32,38.46,1.18,5,True,True
+20260612,46.56,-3.03,38.44,-1.93,35.56,-2.9,0,False,False
 ```
 
 ## Candidate Context

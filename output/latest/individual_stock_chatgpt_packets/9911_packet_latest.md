@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9911 櫻花
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:51 Asia/Taipei
+- generated_at: 2026-06-13 22:24:54 Asia/Taipei
 - stock_id: 9911
 - stock_name: 櫻花
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 68.06
-- over_600_ratio: 65.9
-- over_800_ratio: 64.95
-- over_1000_ratio: 61.67
-- over_400_change_1w: -0.06
-- over_800_change_1w: 0.07
-- over_1000_change_1w: -0.73
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260612
+- over_400_ratio: 68.55
+- over_600_ratio: 66.13
+- over_800_ratio: 64.83
+- over_1000_ratio: 61.97
+- over_400_change_1w: 0.49
+- over_800_change_1w: -0.12
+- over_1000_change_1w: 0.3
+- tdcc_consecutive_up_weeks: 2
 - all_thresholds_up: False
 - high_thresholds_up: True
 
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,68.34,0.06,65.74,0.08,62.47,0.09,1,True,True
 20260529,68.12,-0.22,64.88,-0.86,62.4,-0.07,0,False,False
 20260605,68.06,-0.06,64.95,0.07,61.67,-0.73,1,False,True
+20260612,68.55,0.49,64.83,-0.12,61.97,0.3,2,False,True
 ```
 
 ## Candidate Context

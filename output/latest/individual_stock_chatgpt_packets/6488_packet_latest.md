@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6488 環球晶
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:04 Asia/Taipei
+- generated_at: 2026-06-13 22:24:03 Asia/Taipei
 - stock_id: 6488
 - stock_name: 環球晶
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 81.57
-- over_600_ratio: 77.72
-- over_800_ratio: 75.67
-- over_1000_ratio: 72.46
-- over_400_change_1w: 0.56
-- over_800_change_1w: 0.28
-- over_1000_change_1w: -0.66
-- tdcc_consecutive_up_weeks: 2
+- as_of_date: 20260612
+- over_400_ratio: 80.87
+- over_600_ratio: 77.19
+- over_800_ratio: 75.08
+- over_1000_ratio: 72.21
+- over_400_change_1w: -0.7
+- over_800_change_1w: -0.59
+- over_1000_change_1w: -0.25
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,80.33,-0.67,74.07,-1.31,71.7,-0.95,0,False,False
 20260529,81.01,0.68,75.39,1.32,73.12,1.42,1,True,True
 20260605,81.57,0.56,75.67,0.28,72.46,-0.66,2,False,True
+20260612,80.87,-0.7,75.08,-0.59,72.21,-0.25,0,False,False
 ```
 
 ## Candidate Context

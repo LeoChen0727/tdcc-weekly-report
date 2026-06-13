@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1563 巧新
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:28 Asia/Taipei
+- generated_at: 2026-06-13 22:22:21 Asia/Taipei
 - stock_id: 1563
 - stock_name: 巧新
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 28
+- latest_tdcc_date: 20260612
+- tdcc_rows: 29
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -156,23 +156,22 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 47.25
-- over_600_ratio: 41.86
-- over_800_ratio: 38.49
-- over_1000_ratio: 34.65
-- over_400_change_1w: 2.55
-- over_800_change_1w: 2.73
-- over_1000_change_1w: 2.05
-- tdcc_consecutive_up_weeks: 6
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260612
+- over_400_ratio: 47.03
+- over_600_ratio: 42.13
+- over_800_ratio: 37.82
+- over_1000_ratio: 34.29
+- over_400_change_1w: -0.22
+- over_800_change_1w: -0.67
+- over_1000_change_1w: -0.36
+- tdcc_consecutive_up_weeks: 7
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260320,41.71,0.22,34.01,0.03,31.31,0.03,16,True,True
 20260327,41.82,0.11,34.77,0.76,31.7,0.39,17,True,True
 20260402,41.91,0.09,34.96,0.19,32.26,0.56,18,False,True
 20260410,41.02,-0.89,33.65,-1.31,30.88,-1.38,0,False,False
@@ -184,6 +183,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,42.78,0.14,35.38,0.11,31.87,0.53,4,True,True
 20260529,44.7,1.92,35.76,0.38,32.6,0.73,5,True,True
 20260605,47.25,2.55,38.49,2.73,34.65,2.05,6,True,True
+20260612,47.03,-0.22,37.82,-0.67,34.29,-0.36,7,False,False
 ```
 
 ## Candidate Context

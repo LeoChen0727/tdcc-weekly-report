@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6655 科定
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:10 Asia/Taipei
+- generated_at: 2026-06-13 22:24:10 Asia/Taipei
 - stock_id: 6655
 - stock_name: 科定
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 264
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,15 +157,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 86.08
-- over_600_ratio: 83.11
-- over_800_ratio: 79.76
-- over_1000_ratio: 76.4
-- over_400_change_1w: 0.01
-- over_800_change_1w: 0.01
-- over_1000_change_1w: 0.01
-- tdcc_consecutive_up_weeks: 4
+- as_of_date: 20260612
+- over_400_ratio: 86.14
+- over_600_ratio: 83.16
+- over_800_ratio: 79.81
+- over_1000_ratio: 76.45
+- over_400_change_1w: 0.06
+- over_800_change_1w: 0.05
+- over_1000_change_1w: 0.05
+- tdcc_consecutive_up_weeks: 5
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,85.98,0.03,79.66,0.03,76.36,0.03,2,True,True
 20260529,86.07,0.09,79.75,0.09,76.39,0.03,3,True,True
 20260605,86.08,0.01,79.76,0.01,76.4,0.01,4,True,True
+20260612,86.14,0.06,79.81,0.05,76.45,0.05,5,True,True
 ```
 
 ## Candidate Context

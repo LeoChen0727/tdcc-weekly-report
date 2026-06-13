@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2316 楠梓電
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:41 Asia/Taipei
+- generated_at: 2026-06-13 22:22:34 Asia/Taipei
 - stock_id: 2316
 - stock_name: 楠梓電
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,17 +162,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 64.28
-- over_600_ratio: 61.46
-- over_800_ratio: 58.02
-- over_1000_ratio: 55.56
-- over_400_change_1w: -0.83
-- over_800_change_1w: -2.12
-- over_1000_change_1w: -0.61
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260612
+- over_400_ratio: 64.7
+- over_600_ratio: 62.33
+- over_800_ratio: 60.09
+- over_1000_ratio: 57.66
+- over_400_change_1w: 0.42
+- over_800_change_1w: 2.07
+- over_1000_change_1w: 2.1
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -184,6 +184,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,66.73,2.17,61.15,1.28,58.76,0.27,3,True,True
 20260529,65.11,-1.62,60.14,-1.01,56.17,-2.59,0,False,False
 20260605,64.28,-0.83,58.02,-2.12,55.56,-0.61,0,False,False
+20260612,64.7,0.42,60.09,2.07,57.66,2.1,1,True,True
 ```
 
 ## Candidate Context

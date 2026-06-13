@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3047 訊舟
 
 ## Metadata
-- generated_at: 2026-06-12 22:23:05 Asia/Taipei
+- generated_at: 2026-06-13 22:23:00 Asia/Taipei
 - stock_id: 3047
 - stock_name: 訊舟
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,17 +162,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 20.75
-- over_600_ratio: 17.28
-- over_800_ratio: 15.17
-- over_1000_ratio: 15.17
-- over_400_change_1w: 0.15
-- over_800_change_1w: -1.13
-- over_1000_change_1w: -0.71
-- tdcc_consecutive_up_weeks: 5
+- as_of_date: 20260612
+- over_400_ratio: 20.57
+- over_600_ratio: 16.92
+- over_800_ratio: 15.18
+- over_1000_ratio: 15.18
+- over_400_change_1w: -0.18
+- over_800_change_1w: 0.01
+- over_1000_change_1w: 0.01
+- tdcc_consecutive_up_weeks: 6
 - all_thresholds_up: False
-- high_thresholds_up: False
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -184,6 +184,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,19.89,0.58,15.38,-0.27,15.38,0.08,3,False,True
 20260529,20.6,0.71,16.3,0.92,15.88,0.5,4,True,True
 20260605,20.75,0.15,15.17,-1.13,15.17,-0.71,5,False,False
+20260612,20.57,-0.18,15.18,0.01,15.18,0.01,6,False,True
 ```
 
 ## Candidate Context

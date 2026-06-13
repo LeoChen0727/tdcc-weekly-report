@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8383 千附
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:45 Asia/Taipei
+- generated_at: 2026-06-13 22:24:47 Asia/Taipei
 - stock_id: 8383
 - stock_name: 千附
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 51.12
-- over_600_ratio: 48.21
-- over_800_ratio: 46.31
-- over_1000_ratio: 44.73
-- over_400_change_1w: -0.77
-- over_800_change_1w: -0.36
-- over_1000_change_1w: -0.34
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260612
+- over_400_ratio: 51.36
+- over_600_ratio: 48.46
+- over_800_ratio: 46.56
+- over_1000_ratio: 45.03
+- over_400_change_1w: 0.24
+- over_800_change_1w: 0.25
+- over_1000_change_1w: 0.3
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,51.81,-0.16,45.83,-0.12,45.04,-0.12,0,False,False
 20260529,51.89,0.08,46.67,0.84,45.07,0.03,1,True,True
 20260605,51.12,-0.77,46.31,-0.36,44.73,-0.34,0,False,False
+20260612,51.36,0.24,46.56,0.25,45.03,0.3,1,True,True
 ```
 
 ## Candidate Context

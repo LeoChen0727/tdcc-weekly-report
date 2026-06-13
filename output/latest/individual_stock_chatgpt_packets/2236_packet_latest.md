@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2236 百達-KY
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:40 Asia/Taipei
+- generated_at: 2026-06-13 22:22:33 Asia/Taipei
 - stock_id: 2236
 - stock_name: 百達-KY
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 74.73
-- over_600_ratio: 70.03
-- over_800_ratio: 67.92
-- over_1000_ratio: 66.58
-- over_400_change_1w: 0.63
-- over_800_change_1w: -1.38
-- over_1000_change_1w: 0.14
-- tdcc_consecutive_up_weeks: 1
+- as_of_date: 20260612
+- over_400_ratio: 73.31
+- over_600_ratio: 69.24
+- over_800_ratio: 67.06
+- over_1000_ratio: 64.13
+- over_400_change_1w: -1.42
+- over_800_change_1w: -0.86
+- over_1000_change_1w: -2.45
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
-- high_thresholds_up: True
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,75.21,0.8,69.86,0.53,66.98,-1,1,False,True
 20260529,74.1,-1.11,69.3,-0.56,66.44,-0.54,0,False,False
 20260605,74.73,0.63,67.92,-1.38,66.58,0.14,1,False,True
+20260612,73.31,-1.42,67.06,-0.86,64.13,-2.45,0,False,False
 ```
 
 ## Candidate Context

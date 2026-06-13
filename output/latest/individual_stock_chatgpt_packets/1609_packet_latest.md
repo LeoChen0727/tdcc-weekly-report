@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1609 大亞
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:30 Asia/Taipei
+- generated_at: 2026-06-13 22:22:22 Asia/Taipei
 - stock_id: 1609
 - stock_name: 大亞
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,15 +162,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 32.15
-- over_600_ratio: 30.34
-- over_800_ratio: 28.8
-- over_1000_ratio: 27.92
-- over_400_change_1w: 0.11
-- over_800_change_1w: -0.2
-- over_1000_change_1w: -0.28
-- tdcc_consecutive_up_weeks: 3
+- as_of_date: 20260612
+- over_400_ratio: 30.81
+- over_600_ratio: 29.12
+- over_800_ratio: 27.8
+- over_1000_ratio: 26.55
+- over_400_change_1w: -1.34
+- over_800_change_1w: -1
+- over_1000_change_1w: -1.37
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -184,6 +184,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,31.61,0.21,28.79,0.64,28.02,0.56,1,True,True
 20260529,32.04,0.43,29,0.21,28.2,0.18,2,True,True
 20260605,32.15,0.11,28.8,-0.2,27.92,-0.28,3,False,False
+20260612,30.81,-1.34,27.8,-1,26.55,-1.37,0,False,False
 ```
 
 ## Candidate Context

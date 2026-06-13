@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3541 西柏
 
 ## Metadata
-- generated_at: 2026-06-12 22:23:18 Asia/Taipei
+- generated_at: 2026-06-13 22:23:14 Asia/Taipei
 - stock_id: 3541
 - stock_name: 西柏
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 35.43
-- over_600_ratio: 33.81
-- over_800_ratio: 29.03
-- over_1000_ratio: 24.47
-- over_400_change_1w: 1.09
-- over_800_change_1w: 0.2
-- over_1000_change_1w: 0.19
-- tdcc_consecutive_up_weeks: 5
+- as_of_date: 20260612
+- over_400_ratio: 35.48
+- over_600_ratio: 33.86
+- over_800_ratio: 29.08
+- over_1000_ratio: 24.52
+- over_400_change_1w: 0.05
+- over_800_change_1w: 0.05
+- over_1000_change_1w: 0.05
+- tdcc_consecutive_up_weeks: 6
 - all_thresholds_up: True
 - high_thresholds_up: True
 
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,34.94,0.25,28.54,0.25,24,0.25,3,True,True
 20260529,34.34,-0.6,28.83,0.29,24.28,0.28,4,False,True
 20260605,35.43,1.09,29.03,0.2,24.47,0.19,5,True,True
+20260612,35.48,0.05,29.08,0.05,24.52,0.05,6,True,True
 ```
 
 ## Candidate Context

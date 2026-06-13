@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6712 長聖
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:12 Asia/Taipei
+- generated_at: 2026-06-13 22:24:12 Asia/Taipei
 - stock_id: 6712
 - stock_name: 長聖
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,16 +158,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 42.15
-- over_600_ratio: 38.07
-- over_800_ratio: 34.64
-- over_1000_ratio: 31.04
-- over_400_change_1w: 0.5
-- over_800_change_1w: 0.87
-- over_1000_change_1w: -0.06
-- tdcc_consecutive_up_weeks: 5
-- all_thresholds_up: False
+- as_of_date: 20260612
+- over_400_ratio: 42.81
+- over_600_ratio: 38.31
+- over_800_ratio: 34.79
+- over_1000_ratio: 32.16
+- over_400_change_1w: 0.66
+- over_800_change_1w: 0.15
+- over_1000_change_1w: 1.12
+- tdcc_consecutive_up_weeks: 6
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,40.89,-0.03,33.77,0.01,31.1,0.01,3,False,True
 20260529,41.65,0.76,33.77,0,31.1,0,4,False,False
 20260605,42.15,0.5,34.64,0.87,31.04,-0.06,5,False,True
+20260612,42.81,0.66,34.79,0.15,32.16,1.12,6,True,True
 ```
 
 ## Candidate Context

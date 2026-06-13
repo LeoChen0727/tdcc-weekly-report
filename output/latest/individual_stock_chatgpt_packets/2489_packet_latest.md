@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2489 瑞軒
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:51 Asia/Taipei
+- generated_at: 2026-06-13 22:22:45 Asia/Taipei
 - stock_id: 2489
 - stock_name: 瑞軒
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 274
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,14 +157,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 34.76
-- over_600_ratio: 33
-- over_800_ratio: 32.13
-- over_1000_ratio: 31.52
-- over_400_change_1w: -2.11
-- over_800_change_1w: -1.66
-- over_1000_change_1w: -1.67
+- as_of_date: 20260612
+- over_400_ratio: 32.57
+- over_600_ratio: 30.85
+- over_800_ratio: 29.52
+- over_1000_ratio: 29.06
+- over_400_change_1w: -2.19
+- over_800_change_1w: -2.61
+- over_1000_change_1w: -2.46
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,40.49,6.75,37.47,7.1,37.02,7.25,1,True,True
 20260529,36.87,-3.62,33.79,-3.68,33.19,-3.83,0,False,False
 20260605,34.76,-2.11,32.13,-1.66,31.52,-1.67,0,False,False
+20260612,32.57,-2.19,29.52,-2.61,29.06,-2.46,0,False,False
 ```
 
 ## Candidate Context

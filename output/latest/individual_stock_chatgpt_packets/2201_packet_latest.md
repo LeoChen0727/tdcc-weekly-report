@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2201 裕隆
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:39 Asia/Taipei
+- generated_at: 2026-06-13 22:22:32 Asia/Taipei
 - stock_id: 2201
 - stock_name: 裕隆
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,16 +162,16 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 63.4
-- over_600_ratio: 61.86
-- over_800_ratio: 60.77
-- over_1000_ratio: 59.42
-- over_400_change_1w: 0.12
-- over_800_change_1w: 0.12
-- over_1000_change_1w: 0.1
-- tdcc_consecutive_up_weeks: 5
-- all_thresholds_up: False
+- as_of_date: 20260612
+- over_400_ratio: 63.5
+- over_600_ratio: 62.02
+- over_800_ratio: 60.87
+- over_1000_ratio: 59.6
+- over_400_change_1w: 0.1
+- over_800_change_1w: 0.1
+- over_1000_change_1w: 0.18
+- tdcc_consecutive_up_weeks: 6
+- all_thresholds_up: True
 - high_thresholds_up: True
 
 ## TDCC Preview
@@ -184,6 +184,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,63.14,-0.17,60.4,-0.3,59.12,0.01,3,False,True
 20260529,63.28,0.14,60.65,0.25,59.32,0.2,4,True,True
 20260605,63.4,0.12,60.77,0.12,59.42,0.1,5,False,True
+20260612,63.5,0.1,60.87,0.1,59.6,0.18,6,True,True
 ```
 
 ## Candidate Context

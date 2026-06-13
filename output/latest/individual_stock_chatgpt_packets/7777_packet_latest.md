@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7777 能率亞洲
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:37 Asia/Taipei
+- generated_at: 2026-06-13 22:24:38 Asia/Taipei
 - stock_id: 7777
 - stock_name: 能率亞洲
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 245
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,14 +157,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 72.18
-- over_600_ratio: 71.41
-- over_800_ratio: 69.97
-- over_1000_ratio: 66.46
-- over_400_change_1w: -3.79
-- over_800_change_1w: -2.76
-- over_1000_change_1w: -2.74
+- as_of_date: 20260612
+- over_400_ratio: 71.37
+- over_600_ratio: 71.13
+- over_800_ratio: 69.69
+- over_1000_ratio: 66.18
+- over_400_change_1w: -0.81
+- over_800_change_1w: -0.28
+- over_1000_change_1w: -0.28
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,76.15,-2.58,72.9,-3.19,69.37,-3.09,0,False,False
 20260529,75.97,-0.18,72.73,-0.17,69.2,-0.17,0,False,False
 20260605,72.18,-3.79,69.97,-2.76,66.46,-2.74,0,False,False
+20260612,71.37,-0.81,69.69,-0.28,66.18,-0.28,0,False,False
 ```
 
 ## Candidate Context

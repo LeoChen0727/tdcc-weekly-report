@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3710 連展投控
 
 ## Metadata
-- generated_at: 2026-06-12 22:23:24 Asia/Taipei
+- generated_at: 2026-06-13 22:23:20 Asia/Taipei
 - stock_id: 3710
 - stock_name: 連展投控
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,17 +158,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 31.76
-- over_600_ratio: 26.79
-- over_800_ratio: 23.53
-- over_1000_ratio: 22.28
-- over_400_change_1w: 0.3
-- over_800_change_1w: 0.13
-- over_1000_change_1w: 0.13
-- tdcc_consecutive_up_weeks: 5
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260612
+- over_400_ratio: 31.3
+- over_600_ratio: 26.12
+- over_800_ratio: 23.11
+- over_1000_ratio: 21.85
+- over_400_change_1w: -0.46
+- over_800_change_1w: -0.42
+- over_1000_change_1w: -0.43
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,31.09,0.13,23.17,-0.15,21.94,0.43,3,False,True
 20260529,31.46,0.37,23.4,0.23,22.15,0.21,4,True,True
 20260605,31.76,0.3,23.53,0.13,22.28,0.13,5,True,True
+20260612,31.3,-0.46,23.11,-0.42,21.85,-0.43,0,False,False
 ```
 
 ## Candidate Context

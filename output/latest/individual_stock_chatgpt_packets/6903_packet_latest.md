@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6903 巨漢
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:18 Asia/Taipei
+- generated_at: 2026-06-13 22:24:19 Asia/Taipei
 - stock_id: 6903
 - stock_name: 巨漢
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 69.79
-- over_600_ratio: 67.59
-- over_800_ratio: 65.68
-- over_1000_ratio: 64.24
-- over_400_change_1w: 0.01
-- over_800_change_1w: -0.03
+- as_of_date: 20260612
+- over_400_ratio: 69.63
+- over_600_ratio: 67.54
+- over_800_ratio: 65.63
+- over_1000_ratio: 64.21
+- over_400_change_1w: -0.16
+- over_800_change_1w: -0.05
 - over_1000_change_1w: -0.03
-- tdcc_consecutive_up_weeks: 2
+- tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,68.39,-1.27,65.8,0,64.34,0,0,False,False
 20260529,69.78,1.39,65.71,-0.09,64.27,-0.07,1,False,False
 20260605,69.79,0.01,65.68,-0.03,64.24,-0.03,2,False,False
+20260612,69.63,-0.16,65.63,-0.05,64.21,-0.03,0,False,False
 ```
 
 ## Candidate Context

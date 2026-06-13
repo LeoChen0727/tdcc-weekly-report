@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2337 旺宏
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:42 Asia/Taipei
+- generated_at: 2026-06-13 22:22:35 Asia/Taipei
 - stock_id: 2337
 - stock_name: 旺宏
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,17 +162,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 52.02
-- over_600_ratio: 50.02
-- over_800_ratio: 48.42
-- over_1000_ratio: 47.46
-- over_400_change_1w: 1.31
-- over_800_change_1w: 1.5
-- over_1000_change_1w: 1.5
-- tdcc_consecutive_up_weeks: 2
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260612
+- over_400_ratio: 49.68
+- over_600_ratio: 47.55
+- over_800_ratio: 46.04
+- over_1000_ratio: 45.26
+- over_400_change_1w: -2.34
+- over_800_change_1w: -2.38
+- over_1000_change_1w: -2.2
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -184,6 +184,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,46.41,-6.36,42.37,-6.57,41.45,-6.51,0,False,False
 20260529,50.71,4.3,46.92,4.55,45.96,4.51,1,True,True
 20260605,52.02,1.31,48.42,1.5,47.46,1.5,2,True,True
+20260612,49.68,-2.34,46.04,-2.38,45.26,-2.2,0,False,False
 ```
 
 ## Candidate Context

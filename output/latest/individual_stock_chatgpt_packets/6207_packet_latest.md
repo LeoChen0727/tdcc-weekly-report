@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6207 雷科
 
 ## Metadata
-- generated_at: 2026-06-12 22:23:57 Asia/Taipei
+- generated_at: 2026-06-13 22:23:55 Asia/Taipei
 - stock_id: 6207
 - stock_name: 雷科
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,17 +157,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 27.41
-- over_600_ratio: 22.16
-- over_800_ratio: 19.97
-- over_1000_ratio: 14.86
-- over_400_change_1w: 4.86
-- over_800_change_1w: 5.46
-- over_1000_change_1w: 2.34
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260612
+- over_400_ratio: 21.9
+- over_600_ratio: 17.5
+- over_800_ratio: 13.22
+- over_1000_ratio: 12.15
+- over_400_change_1w: -5.51
+- over_800_change_1w: -6.75
+- over_1000_change_1w: -2.71
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,26.75,6.63,19.26,4.77,17.03,3.64,3,True,True
 20260529,22.55,-4.2,14.51,-4.75,12.52,-4.51,0,False,False
 20260605,27.41,4.86,19.97,5.46,14.86,2.34,1,True,True
+20260612,21.9,-5.51,13.22,-6.75,12.15,-2.71,0,False,False
 ```
 
 ## Candidate Context

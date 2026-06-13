@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2409 友達
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:46 Asia/Taipei
+- generated_at: 2026-06-13 22:22:40 Asia/Taipei
 - stock_id: 2409
 - stock_name: 友達
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,17 +162,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 51.58
-- over_600_ratio: 49.35
-- over_800_ratio: 48
-- over_1000_ratio: 46.56
-- over_400_change_1w: 1.19
-- over_800_change_1w: 1.14
-- over_1000_change_1w: 0.97
-- tdcc_consecutive_up_weeks: 1
-- all_thresholds_up: True
-- high_thresholds_up: True
+- as_of_date: 20260612
+- over_400_ratio: 48.3
+- over_600_ratio: 46.07
+- over_800_ratio: 44.76
+- over_1000_ratio: 43.5
+- over_400_change_1w: -3.28
+- over_800_change_1w: -3.24
+- over_1000_change_1w: -3.06
+- tdcc_consecutive_up_weeks: 0
+- all_thresholds_up: False
+- high_thresholds_up: False
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -184,6 +184,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,53.08,1.64,49.43,1.82,48.24,1.77,2,True,True
 20260529,50.39,-2.69,46.86,-2.57,45.59,-2.65,0,False,False
 20260605,51.58,1.19,48,1.14,46.56,0.97,1,True,True
+20260612,48.3,-3.28,44.76,-3.24,43.5,-3.06,0,False,False
 ```
 
 ## Candidate Context

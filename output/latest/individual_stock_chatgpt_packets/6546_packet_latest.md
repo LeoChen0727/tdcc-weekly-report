@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6546 正基
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:06 Asia/Taipei
+- generated_at: 2026-06-13 22:24:06 Asia/Taipei
 - stock_id: 6546
 - stock_name: 正基
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,15 +158,15 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 42.95
-- over_600_ratio: 37.06
-- over_800_ratio: 35.19
+- as_of_date: 20260612
+- over_400_ratio: 43.26
+- over_600_ratio: 36.08
+- over_800_ratio: 35.17
 - over_1000_ratio: 29.91
-- over_400_change_1w: -1.81
-- over_800_change_1w: -0.22
+- over_400_change_1w: 0.31
+- over_800_change_1w: -0.02
 - over_1000_change_1w: 0
-- tdcc_consecutive_up_weeks: 2
+- tdcc_consecutive_up_weeks: 3
 - all_thresholds_up: False
 - high_thresholds_up: False
 
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,40.98,-0.16,31.38,-1.42,29.91,0,0,False,False
 20260529,44.76,3.78,35.41,4.03,29.91,0,1,False,True
 20260605,42.95,-1.81,35.19,-0.22,29.91,0,2,False,False
+20260612,43.26,0.31,35.17,-0.02,29.91,0,3,False,False
 ```
 
 ## Candidate Context

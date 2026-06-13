@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2439 美律
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:48 Asia/Taipei
+- generated_at: 2026-06-13 22:22:42 Asia/Taipei
 - stock_id: 2439
 - stock_name: 美律
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -162,17 +162,17 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 36.65
-- over_600_ratio: 32.96
-- over_800_ratio: 28.81
-- over_1000_ratio: 27.74
-- over_400_change_1w: -0.45
-- over_800_change_1w: -0.64
-- over_1000_change_1w: -0.27
-- tdcc_consecutive_up_weeks: 0
-- all_thresholds_up: False
-- high_thresholds_up: False
+- as_of_date: 20260612
+- over_400_ratio: 37.12
+- over_600_ratio: 33.16
+- over_800_ratio: 28.93
+- over_1000_ratio: 27.86
+- over_400_change_1w: 0.47
+- over_800_change_1w: 0.12
+- over_1000_change_1w: 0.12
+- tdcc_consecutive_up_weeks: 1
+- all_thresholds_up: True
+- high_thresholds_up: True
 
 ## TDCC Preview
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
@@ -184,6 +184,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,39.1,-0.08,32.13,0.08,29.96,-0.98,1,False,True
 20260529,37.1,-2,29.45,-2.68,28.01,-1.95,0,False,False
 20260605,36.65,-0.45,28.81,-0.64,27.74,-0.27,0,False,False
+20260612,37.12,0.47,28.93,0.12,27.86,0.12,1,True,True
 ```
 
 ## Candidate Context

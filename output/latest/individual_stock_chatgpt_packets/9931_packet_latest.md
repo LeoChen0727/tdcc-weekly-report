@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9931 欣高
 
 ## Metadata
-- generated_at: 2026-06-12 22:24:52 Asia/Taipei
+- generated_at: 2026-06-13 22:24:55 Asia/Taipei
 - stock_id: 9931
 - stock_name: 欣高
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 276
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -158,7 +158,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
+- as_of_date: 20260612
 - over_400_ratio: 77.96
 - over_600_ratio: 75.96
 - over_800_ratio: 73.71
@@ -180,6 +180,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,77.95,-0.06,73.7,-0.06,72.97,-0.06,0,False,False
 20260529,77.96,0.01,73.71,0.01,72.98,0.01,1,True,True
 20260605,77.96,0,73.71,0,72.98,0,0,False,False
+20260612,77.96,0,73.71,0,72.98,0,0,False,False
 ```
 
 ## Candidate Context

@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1582 信錦
 
 ## Metadata
-- generated_at: 2026-06-12 22:22:29 Asia/Taipei
+- generated_at: 2026-06-13 22:22:21 Asia/Taipei
 - stock_id: 1582
 - stock_name: 信錦
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 28
+- latest_tdcc_date: 20260612
+- tdcc_rows: 29
 - tdcc_history_status: tdcc_history_ready
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,14 +157,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 36.25
-- over_600_ratio: 33.66
-- over_800_ratio: 31.79
-- over_1000_ratio: 30.49
-- over_400_change_1w: -3.81
-- over_800_change_1w: -1.71
-- over_1000_change_1w: -3.01
+- as_of_date: 20260612
+- over_400_ratio: 32.48
+- over_600_ratio: 29.51
+- over_800_ratio: 28.05
+- over_1000_ratio: 26.87
+- over_400_change_1w: -3.77
+- over_800_change_1w: -3.74
+- over_1000_change_1w: -3.62
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -173,7 +173,6 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 This is a short preview only. For all available weekly TDCC rows read tdcc_window_txt_* above.
 ```csv
 as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,over_1000_ratio,over_1000_change_1w,tdcc_consecutive_up_weeks,all_thresholds_up,high_thresholds_up
-20260320,33.26,-2.35,28.09,-1.8,26.24,0.09,5,False,True
 20260327,36.64,3.38,27.58,-0.51,24.55,-1.69,6,False,False
 20260402,38.88,2.24,30.88,3.3,27.32,2.77,7,True,True
 20260410,35.91,-2.97,29.78,-1.1,26.82,-0.5,0,False,False
@@ -185,6 +184,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,42.42,8.61,36.32,7.48,34.3,6.59,3,True,True
 20260529,40.06,-2.36,33.5,-2.82,33.5,-0.8,0,False,False
 20260605,36.25,-3.81,31.79,-1.71,30.49,-3.01,0,False,False
+20260612,32.48,-3.77,28.05,-3.74,26.87,-3.62,0,False,False
 ```
 
 ## Candidate Context

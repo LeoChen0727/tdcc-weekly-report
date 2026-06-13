@@ -1,14 +1,14 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5228 鈺鎧
 
 ## Metadata
-- generated_at: 2026-06-12 22:23:41 Asia/Taipei
+- generated_at: 2026-06-13 22:23:38 Asia/Taipei
 - stock_id: 5228
 - stock_name: 鈺鎧
 - packet_status: standard_180d_window_packet
 - latest_price_date: 20260612
 - price_rows: 280
-- latest_tdcc_date: 20260605
-- tdcc_rows: 6
+- latest_tdcc_date: 20260612
+- tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
 - individual_report_md_exists: False
 - sell_strategy_summary_exists: False
@@ -157,14 +157,14 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 ```
 
 ## Latest TDCC Snapshot
-- as_of_date: 20260605
-- over_400_ratio: 56.4
-- over_600_ratio: 50.1
-- over_800_ratio: 48.41
-- over_1000_ratio: 48.41
-- over_400_change_1w: -0.55
-- over_800_change_1w: -0.5
-- over_1000_change_1w: -0.5
+- as_of_date: 20260612
+- over_400_ratio: 56.09
+- over_600_ratio: 49.85
+- over_800_ratio: 48.18
+- over_1000_ratio: 48.18
+- over_400_change_1w: -0.31
+- over_800_change_1w: -0.23
+- over_1000_change_1w: -0.23
 - tdcc_consecutive_up_weeks: 0
 - all_thresholds_up: False
 - high_thresholds_up: False
@@ -179,6 +179,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 20260522,58.52,-0.59,49.31,-0.42,49.31,-0.42,0,False,False
 20260529,56.95,-1.57,48.91,-0.4,48.91,-0.4,0,False,False
 20260605,56.4,-0.55,48.41,-0.5,48.41,-0.5,0,False,False
+20260612,56.09,-0.31,48.18,-0.23,48.18,-0.23,0,False,False
 ```
 
 ## Candidate Context
