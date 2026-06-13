@@ -1,8 +1,8 @@
 # TDCC Weekly Run Status
 
-- generated_at: `2026-06-13 18:38:35 Asia/Taipei`
-- github_run: https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/27464296997
-- commit: `b9ad4c406d52238458df60d3c2f6b1f7bff77e54`
+- generated_at: `2026-06-13 18:44:42 Asia/Taipei`
+- github_run: https://github.com/LeoChen0727/tdcc-weekly-report/actions/runs/27464427504
+- commit: `76d01bdacd07fe9d9ad12fff11448d54b4d87e80`
 
 ## Outputs
 
