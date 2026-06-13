@@ -337,17 +337,6 @@ def tdcc_trend_to_map(tdcc_trend_df: pd.DataFrame) -> dict:
     }
 
 
-def latest_tdcc_to_map(latest_tdcc_df: pd.DataFrame) -> dict:
-    if latest_tdcc_df.empty:
-        return {}
-
-    return {
-        normalize_code(row["stock_id"]): row
-        for _, row in latest_tdcc_df.iterrows()
-        if normalize_code(row.get("stock_id", ""))
-    }
-
-
 def main() -> int:
     TDCC_DEBUG_OUTPUT.parent.mkdir(parents=True, exist_ok=True)
 
