@@ -1,7 +1,7 @@
 # VOLUME ATTACK CHATGPT PACKET
 
 ## Metadata
-- generated_at: `2026-06-14 03:28:22 Asia/Taipei`
+- generated_at: `2026-06-14 06:39:05 Asia/Taipei`
 - main_price_date: `20260612`
 - watch_rows: `6`
 - bottom_volume_attack_count: `6`
@@ -34,7 +34,10 @@
 
 ## Backtest Summary
 
-_No rows._
+| group_name | group_value | sample_count | mature_d5_count | avg_return_d5 | win_rate_d5 | mature_d10_count | avg_return_d10 | win_rate_d10 | mature_d20_count | avg_return_d20 | win_rate_d20 | sample_status |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| volume_breakout_type | bottom_volume_attack | 3905 | 3809 | 1.6666 | 46.31 | 3705 | 3.5823 | 49.18 | 3500 | 6.8631 | 50.06 | ok |
+| volume_watch_scope | bottom_volume_attack | 3905 | 3809 | 1.6666 | 46.31 | 3705 | 3.5823 | 49.18 | 3500 | 6.8631 | 50.06 | ok |
 
 ## Rules
 

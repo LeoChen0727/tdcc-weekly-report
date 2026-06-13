@@ -9,7 +9,12 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
-from build_volume_breakout_watch import WATCH_COLUMNS, ensure_watch_schema, filter_latest_to_effective_signal_date  # noqa: E402
+from build_volume_breakout_watch import (  # noqa: E402
+    WATCH_COLUMNS,
+    ensure_watch_schema,
+    event_log_has_formal_bottom_history,
+    filter_latest_to_effective_signal_date,
+)
 
 
 class VolumeBreakoutWatchTest(unittest.TestCase):
@@ -52,6 +57,22 @@ class VolumeBreakoutWatchTest(unittest.TestCase):
 
         self.assertEqual(effective_date, "20260530")
         self.assertEqual(out["stock_id"].tolist(), ["2330"])
+
+    def test_old_broad_event_log_forces_formal_bottom_rebuild(self) -> None:
+        old_events = pd.DataFrame(
+            [
+                {"volume_breakout_type": "loose_platform_volume_watch"},
+                {"volume_breakout_type": "strict_60d_volume_breakout"},
+            ]
+        )
+        formal_events = pd.DataFrame(
+            [
+                {"volume_breakout_type": "bottom_volume_attack"},
+            ]
+        )
+
+        self.assertFalse(event_log_has_formal_bottom_history(old_events))
+        self.assertTrue(event_log_has_formal_bottom_history(formal_events))
 
 
 if __name__ == "__main__":

@@ -1096,6 +1096,14 @@ def latest_only_summary() -> pd.DataFrame:
     return pd.DataFrame()
 
 
+def event_log_has_formal_bottom_history(events: pd.DataFrame) -> bool:
+    return (
+        not events.empty
+        and "volume_breakout_type" in events.columns
+        and events["volume_breakout_type"].map(safe_str).eq("bottom_volume_attack").any()
+    )
+
+
 def build_arg_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Build daily volume breakout watch outputs and optional research backtest outputs.")
     parser.add_argument(
@@ -1137,7 +1145,14 @@ def main() -> int:
     if EVENT_LOG_CSV.exists() and not full_rebuild:
         latest = build_latest_frame_fast(target_date=main_date)
         events = read_csv(EVENT_LOG_CSV)
-        events = append_latest_events_to_history(events, latest)
+        if event_log_has_formal_bottom_history(events):
+            events = append_latest_events_to_history(events, latest)
+        else:
+            print(
+                "Existing volume breakout event log has no bottom_volume_attack history; "
+                "rebuilding from price history."
+            )
+            latest, events = build_latest_and_event_frames(target_date=main_date)
     else:
         latest, events = build_latest_and_event_frames(target_date=main_date)
     if not events.empty and "volume_breakout_type" in events.columns:
