@@ -35,6 +35,7 @@ from build_daily_candidate_model_layer import (  # noqa: E402
     score_volume_breakout,
     update_model_signal_log,
 )
+from audit_daily_candidate_model_selection_correctness import model_stock_key_set  # noqa: E402
 
 
 def make_row(**overrides: object) -> pd.Series:
@@ -627,6 +628,15 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         out = build_signals(pd.DataFrame(rows), build_specs(), "20260530")
         dup_count = out.duplicated(["model_id", "report_bucket", "stock_id"]).sum()
         self.assertEqual(dup_count, 0)
+
+    def test_audit_core_completeness_ignores_presentation_bucket(self) -> None:
+        expected = pd.DataFrame(
+            [{"report_bucket": "non_mainstream", "model_id": "price_pullback_23ema", "stock_id": "1503"}]
+        )
+        actual = pd.DataFrame(
+            [{"report_bucket": "mainstream", "model_id": "price_pullback_23ema", "stock_id": "1503"}]
+        )
+        self.assertEqual(model_stock_key_set(expected), model_stock_key_set(actual))
 
     def test_report_ready_signals_merge_same_display_model_same_stock(self) -> None:
         signals = pd.DataFrame(
