@@ -1,10 +1,6 @@
 # Upcoming Macro Event Calendar
 
-<<<<<<< Updated upstream
-- generated_at: `2026-06-13 19:33:13 Asia/Taipei`
-=======
-- generated_at: `2026-06-13 19:43:39 Asia/Taipei`
->>>>>>> Stashed changes
+- generated_at: `2026-06-13 19:55:16 Asia/Taipei`
 - rows: `13`
 - note: Macro events are market-risk reminders for the market dashboard. They are not individual stock catalysts by themselves.
 

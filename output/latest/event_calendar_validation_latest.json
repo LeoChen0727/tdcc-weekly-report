@@ -1,9 +1,5 @@
 {
-<<<<<<< Updated upstream
-  "generated_at": "2026-06-13 19:33:18 Asia/Taipei",
-=======
-  "generated_at": "2026-06-13 19:49:55 Asia/Taipei",
->>>>>>> Stashed changes
+  "generated_at": "2026-06-13 19:55:22 Asia/Taipei",
   "status": "pass",
   "schema_only": false,
   "issues": [],
@@ -48,19 +44,19 @@
       "path": "output/latest/theme_event_watch_latest.md",
       "exists": true,
       "rows": 0,
-      "size_bytes": 8925
+      "size_bytes": 9010
     },
     "status_json": {
       "path": "output/latest/calendar_data_source_status_latest.json",
       "exists": true,
       "rows": 0,
-      "size_bytes": 2519
+      "size_bytes": 2590
     },
     "status_md": {
       "path": "output/latest/calendar_data_source_status_latest.md",
       "exists": true,
       "rows": 0,
-      "size_bytes": 2236
+      "size_bytes": 2262
     },
     "needs_review_csv": {
       "path": "output/latest/catalyst_needs_review_latest.csv",
@@ -72,7 +68,7 @@
       "path": "output/latest/catalyst_needs_review_latest.md",
       "exists": true,
       "rows": 0,
-      "size_bytes": 2009
+      "size_bytes": 2031
     }
   }
 }
