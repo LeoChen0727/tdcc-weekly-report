@@ -167,8 +167,8 @@ WARRANT_SIGNAL_ZH = {
 }
 
 RISK_TAG_ZH = {
-    "false_breakout_risk": "假突破風險",
-    "false_breakout_risk_penalty": "假突破風險扣分",
+    "false_breakout_risk": "漲幅過低",
+    "false_breakout_risk_penalty": "漲幅過低扣分",
     "tdcc_distribution_penalty": "TDCC轉弱扣分",
     "tdcc_distribution_warning": "TDCC轉弱警示",
     "continued_overheated": "連續過熱",
@@ -1811,7 +1811,7 @@ def build_specs() -> list[ModelSpec]:
             "signal_date_next_open",
             "不含今日的前20日最高價為突破基準；收盤價 >= 基準 * 1.02、量比 >= 2.0、20日均量 >= 1000張，且為實體紅K或漲停型態。",
             "量比越高、盤整時間越久、收盤越接近日高、低位階、TDCC正向、權證偏多、營收或題材支持可加分。",
-            "不使用60日高點、短線過熱、漲幅大小或隔日假突破作為入選否決；訊號日只輸出入選，風險用扣分與標籤處理。",
+            "不使用60日高點、短線過熱、漲幅大小或隔日跌回突破區作為入選否決；訊號日只輸出入選，風險用扣分與標籤處理。",
             "隔日開盤作為回測進場原點；適合找盤整後突然放大量攻擊的股票，後續用支撐、突破區和量價品質管理。",
             cond_volume_breakout,
             score_volume_breakout,
@@ -2580,7 +2580,7 @@ def append_volume_breakout_signals(signals: pd.DataFrame, candidates: pd.DataFra
                 "next_confirmation": text(row, "next_volume_breakout_confirmation") or text(source, "next_confirmation"),
                 "model_main_conditions": "以前20個交易日最高價（不含訊號日）為突破基準；收盤價 >= 基準 * 1.02，量比 >= 2.0，20日均量 >= 1000張，且為實體紅K或漲停式紅K。",
                 "model_add_score_items": "量比越高、突破幅度越大、盤整時間越久、盤整品質越乾淨、TDCC越好、權證偏多、營收越好、位階越低、收盤越接近日高可加分。",
-                "model_forbidden_veto": "不得用60日高點、均線、漲幅過大、高位爆量、同日假突破、watch/risk子狀態直接否決；風險只作扣分與操作提醒。",
+                "model_forbidden_veto": "不得用60日高點、均線、漲幅過大、高位爆量、同日漲幅過低、watch/risk子狀態直接否決；風險只作扣分與操作提醒。",
                 "model_operation_guidance": "以訊號日隔天開盤為進場原點；用跌回突破區、支撐失守、量價失敗或長上影品質風險管理。",
                 "selection_semantics": "volume_breakout_condition_met_from_dedicated_table",
             }
@@ -2844,7 +2844,7 @@ PDF_TOKEN_ZH = {
     "ma_reclaim_volume_attack": "帶量站回均線",
     "near_high_volume_watch": "接近前高帶量觀察",
     "strict_high_breakout": "帶量突破波段高點",
-    "failed_range_breakout_risk": "盤整區間假突破風險",
+    "failed_range_breakout_risk": "盤整突破漲幅過低風險",
     "revenue_breakout_low_response": "營收爆發股價尚未反應",
     "revenue_pullback": "營收成長股價回檔",
     "pullback_rebound": "回檔後短線轉強",

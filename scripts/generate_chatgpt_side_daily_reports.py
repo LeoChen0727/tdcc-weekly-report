@@ -1752,7 +1752,7 @@ def technical_state_brief(row: pd.Series, extra: pd.Series) -> str:
         f"5日 {r5}" if r5 else "",
         f"20日 {r20}" if r20 else "",
         "成交量放大" if vol_ok else "",
-        "假突破風險" if false_risk else "",
+        "漲幅過低" if false_risk else "",
     ]
     return "；".join([p for p in parts if p]) or "資料不足 / 僅能觀察"
 
@@ -1834,7 +1834,7 @@ def operation_rules(row: pd.Series) -> tuple[str, str, str, str]:
     else:
         buy = "型態必須完成頸線/平台確認，並且收盤守住程式端確認區；未確認前僅能觀察。"
         take = "靠近型態量測壓力或前高但量能跟不上時降低曝險。"
-        no_buy = "型態未完成、假突破、跌破平台低點或程式端確認區時不買。"
+        no_buy = "型態未完成、突破後跌回平台/頸線、跌破平台低點或程式端確認區時不買。"
     exit_rule = f"退出條件：買進後若收盤跌回突破/支撐區，或出現爆量長上影、量能失控，視為失敗。{next_confirm}"
     return buy, take, exit_rule, no_buy
 
@@ -2804,8 +2804,8 @@ def drawback_brief(
         raw = clean(explicit)
         if "distribution" in text or "派發" in raw:
             return "籌碼派發警示"
-        if "false_breakout" in text or "假突破" in raw:
-            return "假突破風險"
+        if "false_breakout" in text or "假突破" in raw or "漲幅過低" in raw:
+            return "漲幅過低"
         if "overheat" in text or "過熱" in raw or "已反應" in raw:
             return "短線過熱或利多已反應"
         if "資料不足" in raw or "data" in text:

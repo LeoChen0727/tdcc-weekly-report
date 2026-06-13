@@ -837,6 +837,10 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         report_ready = model_layer.attach_report_contract_columns(
             model_layer.build_report_ready_model_signals(signals)
         )
+        self.assertEqual(model_layer.RISK_TAG_ZH["false_breakout_risk"], "漲幅過低")
+        self.assertEqual(model_layer.RISK_TAG_ZH["false_breakout_risk_penalty"], "漲幅過低扣分")
+        self.assertIn("漲幅過低", report_ready["risk_tags_zh"].iloc[0])
+        self.assertNotIn("假突破風險", report_ready["risk_tags_zh"].iloc[0])
         for col in [
             "model_name_zh",
             "source_hit_labels_zh",
