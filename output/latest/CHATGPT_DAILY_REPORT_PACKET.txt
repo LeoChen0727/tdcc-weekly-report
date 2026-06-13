@@ -1,6 +1,6 @@
 CHATGPT DAILY REPORT PACKET
 
-generated_at: 2026-06-14 00:26:17 Asia/Taipei
+generated_at: 2026-06-14 02:28:05 Asia/Taipei
 repo: LeoChen0727/tdcc-weekly-report
 main_price_date: 20260612
 report_ready: True
@@ -45,14 +45,14 @@ CURATED PDF REPORT
 pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_market_curated_report_latest.pdf
 raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_curated_report_latest.pdf
 file_path: output/latest/daily_market_curated_report_latest.pdf
-generated_at: 2026-06-14 00:26:10 Asia/Taipei
+generated_at: 2026-06-14 02:27:58 Asia/Taipei
 status: generated
 
 FULL TABLE PDF REPORT
 pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_market_full_table_report_latest.pdf
 raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_market_full_table_report_latest.pdf
 file_path: output/latest/daily_market_full_table_report_latest.pdf
-generated_at: 2026-06-14 00:26:10 Asia/Taipei
+generated_at: 2026-06-14 02:27:58 Asia/Taipei
 status: generated
 
 FIXED PDF VALIDATION
@@ -80,7 +80,7 @@ daily_short_term_specialty_packet_path: output/latest/daily_short_term_specialty
 status: generated
 required_in_daily_pdf: True
 fields_or_sections: TDCC Overheated Short-Term Edge, Next-Open +10pct Touch Strict Parameter Research, D+5 tables, D+10 tables
-note: Do not translate the legacy `weekly_surge` file prefix as `周線急漲`; display it as `隔日開盤買進後 D+5 / D+10 盤中觸及 +10% 研究`.
+note: Do not translate the legacy `weekly_surge` file prefix as `周線急漲`; display it as `隔日開盤後 D+5 / D+10 盤中觸及 +10% 研究`.
 note: Win rate for this section is next-open entry touch-rate: D+1 open to D+N high >= +10%, not close-to-close return.
 note: `TDCC短線延續模型 D+5/D+10` is a core model when active in the program-side registry. Separate D+5/D+10 research-stat tables are supporting evidence and must not override model ranking.
 
@@ -89,7 +89,7 @@ EMBEDDED DAILY SHORT-TERM SPECIALTY PACKET
 # DAILY SHORT-TERM SPECIALTY PACKET
 
 ## Metadata
-- generated_at: `2026-06-13 16:23:54 UTC`
+- generated_at: `2026-06-13 18:25:50 UTC`
 - main_price_date: `20260612`
 - purpose: Force daily reports to include short-term research-stat support sections without removing active D+5/D+10 core model rows.
 - market_abnormal_status_path: `output/latest/market_abnormal_status_latest.csv`
@@ -490,7 +490,7 @@ performance_csv_path: output/history/daily_signals/daily_candidate_signal_perfor
 summary_latest_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_signal_performance_summary_latest.md
 weekly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_weekly_latest.pdf
 monthly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_monthly_latest.pdf
-last_updated_at: 2026-06-14 00:26:17 Asia/Taipei
+last_updated_at: 2026-06-14 02:28:05 Asia/Taipei
 status: generated
 
 CANDIDATE REPEAT APPEARANCE
@@ -505,14 +505,16 @@ latest_signal_date: 20260612
 fields: consecutive_appear_days_any_category,consecutive_appear_days_same_category,appear_count_5d,appear_count_10d,appear_count_20d,first_seen_date,last_seen_date,multi_category_flags,repeat_appear_label,repeat_appear_note
 note: Repeat appearance is calculated from raw daily candidate signal logs. ChatGPT must not infer consecutive days manually.
 
-DAILY CANDIDATE DECISION LAYER
-decision_csv_path: output/latest/daily_candidate_decision_latest.csv
-decision_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_candidate_decision_latest.md
-decision_csv_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_candidate_decision_latest.csv
-decision_chatgpt_packet_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_candidate_decision_chatgpt_packet_latest.md
+DAILY CANDIDATE MODEL SIGNALS FOR REPORT
+model_signals_for_report_csv_path: output/latest/daily_candidate_model_signals_for_report_latest.csv
+model_signals_for_report_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_candidate_model_signals_for_report_latest.md
+model_signals_for_report_csv_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_candidate_model_signals_for_report_latest.csv
+model_parameters_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_candidate_model_parameters_latest.md
+model_parameters_csv_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_candidate_model_parameters_latest.csv
+model_layer_packet_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_candidate_model_layer_packet_latest.md
 status: generated
-fields: pattern_mapped_category,decision_priority,decision_score,downgrade_flags,risk_tags,why_selected,why_downgraded,next_confirmation,must_not_overstate
-note: This is the program-side ranking/downgrade layer. ChatGPT should use it before 舊記憶解讀.
+fields: model_id,model_name_zh,model_score,model_rank,display_rank,score_components,risk_penalty_tags,risk_tags,next_confirmation,report_line,report_bucket
+note: This is the PDF/packet source for model-layer signals, scores, ranks, risk tags, and next confirmations. Do not add a second buy/sell or action-rating layer in PDF text.
 
 DAILY THEME LEADERSHIP LAYER
 theme_leadership_csv_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_theme_leadership_latest.csv
@@ -600,7 +602,7 @@ EMBEDDED SUMMARY REPORT
 # 每日全市場候選股監測報告 - 精華版
 
 - 主資料日期：`20260612`
-- 產生時間：`2026-06-14 00:24:11 Asia/Taipei`
+- 產生時間：`2026-06-14 02:26:07 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
 - 判斷說明：core daily data dates match main_price_date
 - 權證資料日期：`20260612`
@@ -1025,25 +1027,25 @@ EMBEDDED FULL REPORT
 # 完整候選股清單 - 完整版
 
 - 主資料日期：`20260612`
-- 產生時間：`2026-06-14 00:24:12 Asia/Taipei`
+- 產生時間：`2026-06-14 02:26:08 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
 - 權證資料日期：`20260612`
 
 ## 帶量突破 / 放量攻擊觀察
 
 - 這個區塊由程式端從日價 raw data 偵測，會列出嚴格 60 日突破、平台突破、頸線突破、右側放量攻擊與異常放量上漲。
-- 它是完整報告的可見度與回測層，不等於單獨買進理由；仍需搭配 TDCC、連續上榜、過熱與漲幅過低風險。
+- 它是完整報告的可見度與回測層，不等於單獨操作依據；仍需搭配 TDCC、連續上榜、過熱與漲幅過低風險。
 
 - watch_rows: `6`
 
-| volume_breakout_rank | stock_id | stock_name | volume_breakout_type | volume_watch_scope | volume_breakout_priority | selection_status | category | pattern_stage | decision_priority | tdcc_status | repeat_appear_label | volume_ratio | return_5d | return_20d | risk_flags | next_volume_breakout_confirmation |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | 1714 | 和桐 | bottom_volume_attack | bottom_volume_attack | A_bottom_volume_attack | selected | 嚴格突破 | platform_breakout | C_watch_only | 大戶溫和增加 | 連續過熱 | 6.358 | 52.0 | 48.2927 | 連續過熱/long_upper_shadow_quality_penalty | 以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。 |
-| 2 | 8105 | 凌巨 | bottom_volume_attack | bottom_volume_attack | A_bottom_volume_attack | selected | 嚴格突破 | breakout_confirmed | C_watch_only | 大戶同步增加 | 連續過熱 | 2.1366 | 5.8962 | 52.2034 | 連續過熱 | 以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。 |
-| 3 | 1307 | 三芳 | bottom_volume_attack | bottom_volume_attack | A_bottom_volume_attack | selected | 嚴格突破 | breakout_confirmed | A_priority_watch | 大戶溫和增加 | first_seen | 2.4243 | 10.8597 | 13.7771 |  | 以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。 |
-| 4 | 2243 | 宏旭-KY | bottom_volume_attack | bottom_volume_attack | B_bottom_volume_attack_with_risk | selected | 嚴格突破 | breakout_confirmed | C_watch_only | TDCC 大戶轉弱 | 連續過熱 | 2.3306 | 32.8571 | 67.5676 | tdcc_distribution_warning/連續過熱 | 以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。 |
-| 5 | 2483 | 百容 | bottom_volume_attack | bottom_volume_attack | B_bottom_volume_attack_with_risk | selected | 嚴格突破 | breakout_confirmed | C_watch_only | TDCC 大戶轉弱 | 連續過熱 | 2.1612 | 49.4118 | 54.878 | tdcc_distribution_warning/連續過熱 | 以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。 |
-| 6 | 6153 | 嘉聯益 | bottom_volume_attack | bottom_volume_attack | B_bottom_volume_attack_with_risk | selected | 嚴格突破 | breakout_confirmed | C_watch_only | TDCC 大戶轉弱 | first_seen | 4.0304 | 17.1053 | 20.5962 | tdcc_distribution_warning | 以訊號日隔天開盤為進場假設；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則降低部位或退出。 |
+| volume_breakout_rank | stock_id | stock_name | volume_breakout_type | volume_watch_scope | volume_breakout_priority | selection_status | category | pattern_stage | tdcc_status | repeat_appear_label | volume_ratio | return_5d | return_20d | risk_flags | next_volume_breakout_confirmation |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 1714 | 和桐 | bottom_volume_attack | bottom_volume_attack | A_bottom_volume_attack | selected | 嚴格突破 | platform_breakout | 大戶溫和增加 | 連續過熱 | 6.358 | 52.0 | 48.2927 | 連續過熱/long_upper_shadow_quality_penalty | 以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。 |
+| 2 | 8105 | 凌巨 | bottom_volume_attack | bottom_volume_attack | A_bottom_volume_attack | selected | 嚴格突破 | breakout_confirmed | 大戶同步增加 | 連續過熱 | 2.1366 | 5.8962 | 52.2034 | 連續過熱 | 以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。 |
+| 3 | 1307 | 三芳 | bottom_volume_attack | bottom_volume_attack | A_bottom_volume_attack | selected | 嚴格突破 | breakout_confirmed | 大戶溫和增加 | first_seen | 2.4243 | 10.8597 | 13.7771 |  | 以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。 |
+| 4 | 2243 | 宏旭-KY | bottom_volume_attack | bottom_volume_attack | B_bottom_volume_attack_with_risk | selected | 嚴格突破 | breakout_confirmed | TDCC 大戶轉弱 | 連續過熱 | 2.3306 | 32.8571 | 67.5676 | tdcc_distribution_warning/連續過熱 | 以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。 |
+| 5 | 2483 | 百容 | bottom_volume_attack | bottom_volume_attack | B_bottom_volume_attack_with_risk | selected | 嚴格突破 | breakout_confirmed | TDCC 大戶轉弱 | 連續過熱 | 2.1612 | 49.4118 | 54.878 | tdcc_distribution_warning/連續過熱 | 以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。 |
+| 6 | 6153 | 嘉聯益 | bottom_volume_attack | bottom_volume_attack | B_bottom_volume_attack_with_risk | selected | 嚴格突破 | breakout_confirmed | TDCC 大戶轉弱 | first_seen | 4.0304 | 17.1053 | 20.5962 | tdcc_distribution_warning | 以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。 |
 
 ## 嚴格突破
 

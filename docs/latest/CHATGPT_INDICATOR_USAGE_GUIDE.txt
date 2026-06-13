@@ -1,6 +1,6 @@
 # ChatGPT Indicator Usage Guide
 
-- generated_at: `2026-06-13 16:26:17 UTC`
+- generated_at: `2026-06-13 18:28:05 UTC`
 - main_price_date: `20260612`
 - purpose: Use program-side classifications first. ChatGPT should explain and synthesize, not re-rank from memory.
 - rule: If memory, PDF, or ad-hoc interpretation conflicts with program-side fields, use the structured program-side fields.
@@ -38,7 +38,7 @@
 | Daily model parameter research | output/latest/daily_model_parameter_research_latest.csv | model_id, parameter_set_id, entry_basis, selected_stock_days, best_horizon_by_avg_return, best_d1_to_d10_close_win_rate_pct, sample_status | rows=74 / details=814 / ok_first_pass=74 | Research/backtest layer only. Entry is next trading day open; D+1-D+10 close/high endpoints are in the horizon detail table. Use to tune future parameters, not as PDF-side veto logic. |
 | Daily model parameter recommendations | output/latest/daily_model_parameter_recommendations_latest.csv | model_id, parameter_set_id, recommended_usage, recommended_close_exit_horizon, best_close_win_rate_pct, model_revision_note | rows=74 / intraday_target_watch=55; research_only=14; score_component_only=3; promote_to_pdf_core=2 | Program-side conversion from backtest to reporting usage. Use this for whether a parameter is core, secondary, intraday-target only, or research-only. |
 | Daily short-term specialty packet | output/latest/daily_short_term_specialty_packet_latest.md | Usage Contract, TDCC Overheated Short-Term Edge, Next-Open +10pct Touch Strict Parameter Research, D+5/D+10 tables | ready | Mandatory daily-report specialty packet. Read it even when the six fixed categories are already available. |
-| Daily candidate decision | output/latest/daily_candidate_decision_latest.csv | decision_priority, decision_score, pattern_mapped_category, downgrade_flags, risk_tags, why_selected, why_downgraded, next_confirmation | C_watch_only=362; B_confirm_needed=107; A_priority_watch=18 | Primary source for daily candidate ranking and downgrade. |
+| Daily candidate model signals for report | output/latest/daily_candidate_model_signals_for_report_latest.csv | model_id, model_name_zh, model_score, model_rank, display_rank, score_components, risk_penalty_tags, risk_tags, next_confirmation | price_pullback_23ema=170; tdcc_stealth_accumulation=129; pullback_short_reclaim=118; revenue_unreacted_range=116; hot_theme_pullback=46; tdcc_short_term_continuation_d5_d10=18; volume_range_breakout=6; near_high_neckline_challenge=4; platform_strengthening=2; w_bottom_right_side=1 | Primary source for daily PDF/packet model rows, scores, ranks, risks, and next confirmations. |
 | Repeat appearance | output/latest/candidate_repeat_appearance_latest.csv | repeat_appear_label, consecutive_appear_days_any_category, appear_count_5d/10d/20d | stale_signal=233; repeated_but_no_breakout=49; continued_overheated=28; first_seen=20; continued_2_3d=17; continued_many_days=7 | Use as persistence/staleness signal, never as a standalone upgrade. |
 | TDCC strength | output/latest/tdcc_strength_ranking_top_latest.csv | tdcc_strength_score, tdcc_price_phase, risk_bucket, theme_mainstream_status | insufficient_data=22; strong_but_pre_move=9; strong_but_late=9; strong_but_divergent=6; strong_confirmed=2; strong_but_overheated=2 | Strength list only. It is not the pre-move list. |
 | TDCC pre-move / ABM | output/latest/tdcc_pre_move_abm_top_latest.csv | tracking_priority, accumulation_label, tdcc_price_phase, setup_type, trigger_to_watch | C_weak_or_discounted=19; B_confirm_needed=8; A_prime_watch=4 | Use for hidden accumulation candidates, subject to mature-sample caveats. |
@@ -74,17 +74,16 @@
 - For the first page of curated PDFs, use `daily_report_model_registry_latest.csv/md` plus `daily_candidate_model_summary_for_report_latest.csv/md`. Render every official model row for that report line, split new signals and repeated/cumulative signals, and show `今日無候選` when a model has no candidate.
 - `daily_candidate_frontpage_unique_latest.csv/md` is legacy/secondary. Do not use it for the fixed first-page per-model new/repeated summary.
 - If a stock appears in the same model across multiple days, do not subtract score for that fact. Use `daily_candidate_same_model_repeat_latest.csv/md` as a separate repeated-signal table; front-page summaries can prioritize `new_model_signal` rows and place repeated same-model rows in a separate section.
-- A model main condition being met means the stock enters that model. Do not add a second ChatGPT-side buy/not-buy gate after selection; use risk fields only as score/rank/annotation unless the program-side model marks a hard exclusion.
+- A model main condition being met means the stock enters that model. Do not add a second ChatGPT-side action gate after selection; use risk fields only as score/rank/annotation unless the program-side model marks a hard exclusion.
 - Do not hard-code the number of models. Render the model rows present in `daily_candidate_model_parameters_latest.csv` and the matching candidates in `daily_candidate_model_signals_for_report_latest.csv`.
 - Mainstream/non-mainstream is a report split and comparison group only. It must not cap score, veto a signal, or remove a stock from a model list.
 - Use `model_score`, `model_rank`, `score_components`, `risk_penalty_tags`, and `report_bucket` for per-model ranking. Curated PDFs should show top rows per model/bucket; full PDFs should keep the complete model list.
 - Use `daily_model_parameter_research_latest.csv` and `daily_model_parameter_research_horizon_detail_latest.csv` only as model-parameter evidence. The backtest entry basis is signal-date next open; close-return and high-return endpoints are separate for D+1 through D+10.
 - Use `daily_model_parameter_recommendations_latest.csv` as the program-side interpretation of the research table: `promote_to_pdf_core`, `pdf_secondary_watch`, `score_component_only`, `intraday_target_watch`, or `research_only`. Do not let the PDF layer invent these statuses.
 - Do not promote research-only rules to a PDF core section until the program-side model parameter file explicitly promotes them.
-- If the model layer is missing, fall back to `daily_candidate_decision_chatgpt_packet_latest.md` or `daily_candidate_decision_latest.csv` and explicitly mark model-layer data unavailable.
+- If the model layer is missing, explicitly mark model-layer data unavailable instead of reconstructing a trading-action layer.
 - Also read `daily_short_term_specialty_packet_latest.md`; it is the mandatory source for standalone D+1-D+10 short-term specialty summary plus D+5/D+10 detail sections.
-- Use `decision_priority` as the primary reporting priority: `A_priority_watch`, `B_confirm_needed`, `C_watch_only`, `D_risk_downgrade`.
-- Use `why_selected`, `why_downgraded`, and `next_confirmation` directly. Do not invent a different reason when these fields exist.
+- Use `model_score`, `model_rank`, `display_rank`, `score_components`, `risk_penalty_tags`, `risk_tags`, and `next_confirmation` directly. Do not invent a different reason when these fields exist.
 - `must_not_overstate=True` means do not call the stock a top pick, even if the chart looks attractive.
 - For volume breakout questions, read `volume_breakout_chatgpt_packet_latest.md`, `volume_attack_theme_layer_latest.md/csv`, `volume_attack_theme_stocks_latest.md/csv`, and then `volume_breakout_watch_latest.csv` for detail fields.
 - Every volume-attack / early-theme table must include explicit `theme_final_status`, `theme_structural_status`, `theme_mainstream_label`, and `theme_volume_attack_status`; never show only a generic theme name.
@@ -140,7 +139,7 @@
 ## Current Data Quality Snapshot
 | file | status | rows |
 | --- | --- | --- |
-| daily_candidate_decision_latest.csv | ready | 487 |
+| daily_candidate_model_signals_for_report_latest.csv | ready | 610 |
 | tdcc_chatgpt_tracking_packet_latest.md | ready | - |
 | market_timing_chatgpt_packet_latest.md | ready | - |
 | market_timing_backtest_chatgpt_packet_latest.md | missing | - |
@@ -150,5 +149,5 @@
 | catalyst_needs_review_latest.csv | ready | 4 |
 
 ## Copy-Paste Summary For ChatGPT
-Use program-side indicator classifications first. Start from READ_ME_FIRST, then this indicator usage guide, then the task-specific packet/top-list. Do not re-rank from memory. For daily candidates, use `decision_priority`, `decision_score`, `why_selected`, `why_downgraded`, and `next_confirmation`. For TDCC, keep Strength Ranking separate from ABM Pre-Move Ranking and respect risk buckets. For market timing, use sample_status and mature counts before making any timing statement. For single stocks, verify raw price/TDCC availability before producing a standard raw-data report.
+Use program-side indicator classifications first. Start from READ_ME_FIRST, then this indicator usage guide, then the task-specific packet/top-list. Do not re-rank from memory. For daily candidates, use `model_id`, `model_name_zh`, `model_score`, `model_rank`, `display_rank`, `score_components`, `risk_penalty_tags`, `risk_tags`, and `next_confirmation`. For TDCC, keep Strength Ranking separate from ABM Pre-Move Ranking and respect risk buckets. For market timing, use sample_status and mature counts before making any timing statement. For single stocks, verify raw price/TDCC availability before producing a standard raw-data report.
 
