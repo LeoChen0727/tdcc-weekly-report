@@ -318,6 +318,7 @@ jobs:
           cp output/latest/market_abnormal_status_latest.md docs/latest/market_abnormal_status_latest.md || true
           cp output/latest/market_sentiment_context_latest.csv docs/latest/market_sentiment_context_latest.csv || true
           cp output/latest/market_sentiment_context_latest.md docs/latest/market_sentiment_context_latest.md || true
+          python scripts/sync_catalyst_pages_artifacts.py
 
           {
             echo "main_price_date=pending"
