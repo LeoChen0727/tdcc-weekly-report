@@ -1,5 +1,7 @@
 # TDCC 大戶籌碼週報精華版
 
+- TDCC data date: 20260612
+
 這份報告使用 TDCC weekly report-ready structured data 產生；TDCC 是籌碼追蹤，不是單獨買進理由。
 
 ## 當週增幅排名

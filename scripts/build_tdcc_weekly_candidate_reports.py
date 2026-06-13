@@ -835,6 +835,8 @@ def write_md_table(df: pd.DataFrame, path: Path, title: str, columns: list[str],
     content = [
         f"# {title}",
         "",
+        f"- TDCC data date: {signal_date_label(df)}",
+        "",
         f"- generated_at: {pd.Timestamp.now(tz='Asia/Taipei').strftime('%Y-%m-%d %H:%M:%S Asia/Taipei')}",
         f"- rows: {len(df)}",
         "",
@@ -844,9 +846,20 @@ def write_md_table(df: pd.DataFrame, path: Path, title: str, columns: list[str],
     path.write_text("\n".join(content), encoding="utf-8")
 
 
+def signal_date_label(df: pd.DataFrame) -> str:
+    if df.empty or "signal_date" not in df.columns:
+        return "unknown"
+    dates = sorted({safe_str(value) for value in df["signal_date"].dropna() if safe_str(value)})
+    if not dates:
+        return "unknown"
+    return dates[0] if len(dates) == 1 else ", ".join(dates)
+
+
 def write_report_md(df: pd.DataFrame, path: Path, title: str, max_rows_per_section: int | None = None) -> None:
     lines = [
         f"# {title}",
+        "",
+        f"- TDCC data date: {signal_date_label(df)}",
         "",
         "這份報告使用 TDCC weekly report-ready structured data 產生；TDCC 是籌碼追蹤，不是單獨買進理由。",
         "",
@@ -1115,6 +1128,8 @@ def write_pdf_v2(df: pd.DataFrame, path: Path, title: str, max_rows_per_section:
     story: list[Any] = [
         Paragraph(title, title_style),
         Spacer(1, 0.2 * cm),
+        Paragraph(f"TDCC data date: {signal_date_label(df)}", normal),
+        Spacer(1, 0.2 * cm),
         Paragraph("TDCC 週報以當週增幅、連續累積與每日候選模型交集呈現。TDCC 不作單獨買進理由。", normal),
         Spacer(1, 0.3 * cm),
     ]
@@ -1199,6 +1214,9 @@ def validate_outputs(highlight: pd.DataFrame, full: pd.DataFrame) -> None:
             detail = ", ".join(f"{section}={count}" for section, count in too_large.items())
             raise RuntimeError(f"{report_name} TDCC report has section counts above {limit}: {detail}")
     for report_name, report_df in [("highlight", highlight), ("full", full)]:
+        signal_dates = sorted({safe_str(value) for value in report_df["signal_date"].dropna() if safe_str(value)})
+        if len(signal_dates) != 1:
+            raise RuntimeError(f"{report_name} TDCC report must contain exactly one signal_date, got: {signal_dates}")
         model_rows = report_df[report_df["model_id"].map(safe_str) != ""]
         bad_models = sorted(set(model_rows["model_id"].map(safe_str)) - TDCC_FULL_REPORT_ALLOWED_MODEL_CROSS_IDS)
         if bad_models:
