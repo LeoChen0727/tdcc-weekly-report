@@ -49,16 +49,16 @@ These two lists must be ranked separately. Do not merge them into one total rank
 
 The highlight report must include:
 
-- top 5 weekly-increase names
-- top 5 consecutive-accumulation names
-- weekly-increase names cross-ranked by daily candidate models, top 3 per model
-- consecutive-accumulation names cross-ranked by daily candidate models, top 3 per model
+- top 10 weekly-increase names
+- top 10 consecutive-accumulation names
+- weekly-increase names cross-ranked by the TDCC short-term continuation D+5/D+10 model, top 10
+- consecutive-accumulation names cross-ranked by the TDCC short-term continuation D+5/D+10 model, top 10
 
-The highlight report must make clear whether a row comes from weekly increase, consecutive accumulation, or a daily-model cross section.
+The highlight report must make clear whether a row comes from weekly increase, consecutive accumulation, weekly-increase x TDCC short-term continuation D+5/D+10, or consecutive-accumulation x TDCC short-term continuation D+5/D+10.
 
 ## Full Report
 
-The full report must use the same structure as the highlight report, but include all rows from the program-side report-ready table.
+The full report must use the same four-section structure as the highlight report. Each section may include at most the top 50 rows; if a section has fewer than 50 rows, include all available rows.
 
 ## Interpretation Rules
 
