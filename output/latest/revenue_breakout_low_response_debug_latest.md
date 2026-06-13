@@ -1,21 +1,21 @@
 # 營收爆發低反應股 Debug Report
 
-- 產生時間：`2026-06-13 00:17:19 Asia/Taipei`
+- 產生時間：`2026-06-13 15:10:32 Asia/Taipei`
 
 ## 診斷統計
 
 | item | value |
 |---|---:|
-| raw_revenue_rows | 1951 |
-| standardized_revenue_rows | 1951 |
+| raw_revenue_rows | 1959 |
+| standardized_revenue_rows | 1959 |
 | price_rows | 581112 |
 | tdcc_rows | 1972 |
 | tdcc_trend_rows | 1972 |
 | tdcc_strong_accumulation_count | 440 |
 | tdcc_mild_accumulation_count | 742 |
 | tdcc_distribution_warning_count | 638 |
-| revenue_condition_pass | 293 |
-| price_metrics_pass | 288 |
+| revenue_condition_pass | 295 |
+| price_metrics_pass | 290 |
 | low_response_pass | 50 |
 | already_priced_in_excluded | 24 |
 | overheat_pass | 26 |
@@ -54,8 +54,8 @@
 
 | reason | count |
 |---|---:|
-| fail_revenue_condition | 1658 |
-| fail_low_response_condition | 238 |
+| fail_revenue_condition | 1664 |
+| fail_low_response_condition | 240 |
 | fail_already_priced_in | 24 |
 | fail_defensive_or_traditional_excluded | 5 |
 | missing_or_insufficient_price_metrics | 5 |
@@ -112,9 +112,11 @@
 | 2543 | 皇昌 | 建材營造 | neutral | D_降級_TDCC轉弱 | 86.14284031322353 | 42.934476141944494 | 2.4 | 23.61 | -32.78 | -21.66 | 26.45 | 26.45 | False |  | distribution_warning | -0.14 | -0.33 | 1 | 1 | 4.62 | 2.57 | -36.69 | 12 | selected |
 | 2547 | 日勝生 | 建材營造 | neutral |  | 69.90066780612314 | 22.241457982263142 | 8.29 | 11.9 | -0.45 | 3.74 | 13.15 | 13.15 | False |  | distribution_warning | -0.42 | -0.1 | 0 | 1 | 9.5 | 7.96 | -2.63 |  | fail_low_response_condition |
 | 2855 | 統一證 | 金融保險業 | defensive_or_traditional |  | 428.43428527421696 | 383.3438851601268 | 2.12 | 26.88 | 48.97 | 106.54 | 64.76 | 112.18 | True | 近20日漲幅>25%；近60日漲幅>40%；距60日低點反彈>50%；近120日漲幅>70%；距120日低點反彈>80% | distribution_warning | -0.1 | -0.36 | 1 | 0 | 9.13 | 7.85 | -15.55 |  | fail_already_priced_in |
+| 2881 | 富邦金 | 金融保險業 | defensive_or_traditional |  | 155.02666088498714 | 258.385032023246 | 7.49 | 28.15 | 36.31 | 28.15 | 43.02 | 46.11 | True | 近20日漲幅>25% | strong_accumulation | 0.53 | 0.51 | 3 | 2 | 13.91 | 12.93 | -5.43 |  | fail_low_response_condition |
 | 2882 | 國泰金 | 金融保險業 | defensive_or_traditional |  | 130.63810203221996 | 223.540679705256 | 12.67 | 30.86 | 36.92 | 46.72 | 45.44 | 49.33 | True | 近20日漲幅>25% | strong_accumulation | 0.32 | 0.42 | 3 | 3 | 16.18 | 14.68 | -4.74 |  | fail_low_response_condition |
 | 2887 | 台新新光金 | 金融保險業 | defensive_or_traditional |  | 317.18131813619806 | 335.3574814056247 | 15.71 | 28.78 | 22.76 | 57.7 | 32.17 | 57.7 | True | 近20日漲幅>25% | strong_accumulation | 0.75 | 0.88 | 2 | 2 | 20.53 | 17.73 | -1.95 |  | fail_low_response_condition |
 | 2890 | 永豐金 | 金融保險業 | defensive_or_traditional |  | 82.69197880820118 | 56.17182732754353 | 10.16 | 13.83 | 6.55 | 24.41 | 19.2 | 25.55 | False |  | distribution_warning | -0.13 | -0.13 | 1 | 1 | 11.56 | 9.15 | -2.29 |  | fail_low_response_condition |
+| 2891 | 中信金 | 金融保險業 | defensive_or_traditional |  | 341.3211844301598 | 175.7452659074452 | 5.46 | 23.36 | 26.83 | 50.89 | 34.13 | 51.91 | False |  | strong_accumulation | 0.44 | 0.57 | 3 | 3 | 10.39 | 9.67 | -4.11 |  | fail_low_response_condition |
 | 2923 | 鼎固-KY | 建材營造 | neutral |  | 133.58068386512642 | 149.57727987056475 | -10.31 | 12.98 | 25.0 | 8.29 | 37.83 | 37.83 | False |  | neutral | 0.0 | 0.0 | 1 | 0 | -0.58 | -2.42 | -21.27 |  | fail_low_response_condition |
 | 3003 | 健和興 | 電子零組件業 | mainstream_growth | B_可觀察 | 52.80006873442736 | 30.333657817463656 | 3.4 | 8.31 | 25.79 | 34.38 | 32.3 | 41.06 | False |  | mild_accumulation | -0.25 | 0.18 | 2 | 2 | 2.8 | 3.72 | -6.3 | 17 | selected |
 | 3004 | 豐達科 | 鋼鐵工業 | cyclical_turnaround |  | 56.16201695665634 | 32.12627399775476 | 11.72 | 0.38 | 25.35 | 34.98 | 35.53 | 39.06 | False |  | distribution_warning | -0.01 | -2.16 | 2 | 0 | 4.83 | 6.16 | -5.99 |  | fail_low_response_condition |
@@ -183,5 +185,3 @@
 | 7610 | 聯友金屬-創 | 綠能環保 | neutral |  | 462.17814001937097 | 435.1662155750742 | -5.64 | 54.37 | 395.33 | 1264.81 | 421.31 | 1338.91 | True | 近20日漲幅>25%；近60日漲幅>40%；距60日低點反彈>50%；近120日漲幅>70%；距120日低點反彈>80% | strong_accumulation | 1.59 | 4.37 | 2 | 2 | 12.71 | 16.35 | -12.15 |  | fail_low_response_condition |
 | 7631 | 聚賢研發-創 | 其他電子業 | mainstream_growth |  | 140.81698992306858 | 101.0361337726689 | 0.0 | 1.63 | 5.93 | -1.19 | 16.28 | 17.92 | False |  | mild_accumulation | 2.05 | 0.01 | 2 | 1 | -0.26 | -0.44 | -16.67 |  | fail_low_response_condition |
 | 7721 | 微程式 | 數位雲端 | neutral |  | 72.32514177693761 | 35.98132967883204 | 8.06 | 11.75 | 64.59 | 67.11 | 74.6 | 76.48 | True | 近60日漲幅>40%；距60日低點反彈>50% | distribution_warning | -1.83 | 0.0 | 0 | 0 | 7.02 | 6.76 | -12.04 |  | fail_low_response_condition |
-| 7740 | 熙特爾-創 | 綠能環保 | neutral |  | 1254.6047846317863 | 1420.9203745156804 | -0.3 | 5.64 | -15.96 | 1.51 | 7.32 | 22.1 | False |  | distribution_warning | -1.38 | -0.96 | 1 | 1 | -4.03 | -3.99 | -18.0 |  | fail_low_response_condition |
-| 7749 | 意騰-KY | 半導體業 | mainstream_growth |  | 73.6849472054308 | 64.05199366520502 | 2.85 | -1.17 | 16.09 | 18.54 | 45.32 | 45.32 | False |  | distribution_warning | -1.96 | -0.01 | 0 | 0 | 0.36 | 2.38 | -9.82 |  | fail_low_response_condition |

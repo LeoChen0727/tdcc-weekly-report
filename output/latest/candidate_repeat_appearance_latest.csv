@@ -60,7 +60,7 @@ signal_date,stock_id,stock_name,consecutive_appear_days_any_category,consecutive
 20260612,5388,中磊,13,4,5,10,13,20260523,20260612,revenue_breakout_low_response|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260612,5471,松翰,13,4,5,10,13,20260523,20260612,pullback_rebound|range_rebound|revenue_pullback,repeated_but_no_breakout,近 10 日上榜 10 次、近 20 日上榜 13 次，但尚未有效突破，需等待攻擊確認。
 20260612,5871,中租-KY,13,2,5,10,13,20260523,20260612,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20260612,5880,合庫金,13,3,5,10,13,20260523,20260612,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20260612,5880,合庫金,13,3,5,10,13,20260523,20260612,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260612,6005,群益證,13,2,5,10,13,20260523,20260612,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260612,6139,亞翔,13,4,5,10,13,20260523,20260612,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260612,6177,達麗,13,4,5,10,13,20260523,20260612,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
@@ -265,6 +265,7 @@ signal_date,stock_id,stock_name,consecutive_appear_days_any_category,consecutive
 20260612,2402,毅嘉,1,1,3,8,11,20260523,20260612,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260612,2413,環科,1,1,3,8,11,20260523,20260612,true_breakout,first_seen,首次上榜或資料有限，需後續確認。
 20260612,2885,元大金,1,1,3,8,11,20260523,20260612,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
+20260612,2891,中信金,1,1,3,8,11,20260523,20260612,revenue_pullback,repeated_but_no_breakout,近 10 日上榜 8 次、近 20 日上榜 11 次，但尚未有效突破，需等待攻擊確認。
 20260612,3011,今皓,1,1,3,8,11,20260523,20260612,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260612,4938,和碩,1,1,3,8,11,20260523,20260612,pattern,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260612,6214,精誠,1,1,3,8,11,20260523,20260612,pattern,repeated_but_no_breakout,近 10 日上榜 8 次、近 20 日上榜 11 次，但尚未有效突破，需等待攻擊確認。

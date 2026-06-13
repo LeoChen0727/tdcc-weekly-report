@@ -1,6 +1,6 @@
 # Daily Candidate Decision Layer
 
-- generated_at: `2026-06-13 00:24:26 Asia/Taipei`
+- generated_at: `2026-06-13 15:17:31 Asia/Taipei`
 - signal_date: `20260612`
 - source: `output/latest/all_candidates_latest.csv`
 - purpose: deterministic candidate classification, downgrade, sorting, and ChatGPT guidance.
@@ -28,7 +28,7 @@
 |:--------------------|:--------------------------|--------:|
 | A_priority_watch    | 最優先追蹤                     |      19 |
 | B_confirm_needed    | 可等確認                      |     111 |
-| C_watch_only        | 僅觀察                       |     355 |
+| C_watch_only        | 僅觀察                       |     357 |
 
 ## 2484 Regression Guardrail
 
