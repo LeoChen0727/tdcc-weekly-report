@@ -224,7 +224,7 @@ def sanitize_display_text(text: str) -> str:
 DISPLAY_TOKEN_SUBSTRING_MAP.update(
     {
         "tdcc_distribution_penalty": "TDCC轉弱扣分",
-        "false_breakout_risk_penalty": "假突破風險扣分",
+        "false_breakout_risk_penalty": "漲幅過低扣分",
         "continued_many_days": "連續多日上榜",
         "repeated_but_no_breakout": "反覆上榜未突破",
     }
@@ -257,7 +257,7 @@ DISPLAY_TOKEN_MAP.update(
         "distribution_warning": "TDCC 大戶轉弱",
         "stale_signal": "反覆上榜未突破",
         "tdcc_distribution_penalty": "TDCC 轉弱扣分",
-        "false_breakout_risk_penalty": "假突破風險扣分",
+        "false_breakout_risk_penalty": "漲幅過低扣分",
         "continued_many_days": "連續多日上榜",
         "repeated_but_no_breakout": "反覆上榜未突破",
     }
