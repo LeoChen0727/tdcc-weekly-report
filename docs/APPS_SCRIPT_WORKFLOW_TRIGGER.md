@@ -44,6 +44,8 @@ installDailyStockMonitorTrigger
 triggerDailyStockMonitor
 triggerDailyFullPipeline
 triggerTdccWeeklyReport
+triggerEventCatalystUpdate
+triggerWeeklyThemeReview
 testGithubTokenAndWorkflowAccess
 ```
 
@@ -53,6 +55,10 @@ and is the function used by the scheduled daily stock monitor trigger.
 `triggerDailyFullPipeline` is the manual full daily pipeline dispatcher.
 
 `triggerTdccWeeklyReport` dispatches the TDCC weekly report workflow.
+
+`triggerEventCatalystUpdate` dispatches `.github/workflows/event_catalyst_update.yml`.
+
+`triggerWeeklyThemeReview` dispatches `.github/workflows/weekly_theme_review.yml`.
 
 ## Recovery Flow
 
@@ -103,6 +109,16 @@ installDailyStockMonitorTrigger
 
 This removes existing `triggerDailyStockMonitor` triggers and installs a fresh
 time-driven trigger for the evening run.
+
+To recreate all workflow triggers, including event catalyst and weekly theme
+review triggers, run:
+
+```text
+installAllWorkflowTriggers
+```
+
+The event catalyst trigger runs twice daily at 08:10 and 18:10 Asia/Taipei.
+The weekly theme review trigger runs Sunday 18:30 Asia/Taipei.
 
 ## Deployment Note
 

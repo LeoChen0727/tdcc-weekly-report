@@ -24,14 +24,16 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pandas requests openpyxl
+          pip install pandas requests openpyxl lxml html5lib beautifulsoup4
 
       - name: Prepare catalyst data tables
         run: |
           python scripts/update_event_calendar_data.py
           python scripts/update_event_catalyst_data.py
-          python scripts/validate_event_calendar_data.py --schema-only
-          python scripts/validate_catalyst_layer.py --schema-only
+          python scripts/build_theme_event_watch.py
+          python scripts/validate_event_calendar_data.py
+          python scripts/validate_catalyst_layer.py
+          python scripts/sync_catalyst_pages_artifacts.py
 
       - name: Commit catalyst data tables
         run: |
@@ -50,12 +52,15 @@ jobs:
           git add output/latest/calendar_data_source_status_latest.json || true
           git add output/latest/catalyst_needs_review_latest.csv || true
           git add output/latest/catalyst_needs_review_latest.md || true
+          git add output/latest/theme_event_watch_latest.csv || true
+          git add output/latest/theme_event_watch_latest.md || true
           git add output/latest/event_calendar_validation_latest.md || true
           git add output/latest/event_calendar_validation_latest.json || true
           git add output/latest/catalyst_data_source_status_latest.md || true
           git add output/latest/catalyst_data_source_status_latest.json || true
           git add output/latest/catalyst_layer_validation_latest.md || true
           git add output/latest/catalyst_layer_validation_latest.json || true
+          git add docs/latest/ || true
           git commit -m "Update event catalyst data tables" || echo "No changes to commit"
           git pull --rebase origin main || true
           git push || true
