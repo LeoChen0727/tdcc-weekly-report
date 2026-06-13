@@ -41,6 +41,14 @@ def test_canonical_chatgpt_side_generator_is_tracked_and_not_legacy_six_category
     assert "model_recommendation_rows_for_line" in text
     assert "資金進入族群觀察" in text
     assert "daily_candidate_group_rotation_latest.csv" in text
+    assert "CHATGPT_SIDE_KLINE_DAYS = 126" in text
+    assert ".tail(CHATGPT_SIDE_KLINE_DAYS)" in text
+    assert "kline_180" not in text
+    assert "tail(180)" not in text
+    assert "180日K線" not in text
+    raw_readme = "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/READ_ME_FIRST_DAILY_REPORT"
+    pages_readme = "https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT"
+    assert text.index(raw_readme) < text.index(pages_readme)
 
 
 def test_observation_list_is_row_per_stock_not_joined_cell() -> None:
@@ -81,6 +89,8 @@ def test_docs_daily_rules_match_authoritative_rules() -> None:
     assert published == authoritative
     assert "six ChatGPT-side PDF deliverables" in published
     assert "four ChatGPT-side PDF deliverables" not in published
+    assert "approximately 126 trading days" in published
+    assert "180-day windows" not in published
 
 
 def test_docs_master_rules_match_authoritative_rules() -> None:

@@ -442,7 +442,7 @@ Each representative stock must be rendered as an operation card/page, not only a
 - next confirmation with `trigger + action`
 - K-line chart on the same page or directly adjacent page
 
-K-line charts for representative stocks must use repo price data / 180-day windows when available. The chart must include price, volume, 23EMA as the primary line, MA20/MA60 as supporting lines, prior high/platform/support/resistance, breakout zone, and failure line when applicable. The chart is not decoration; it must match the buy/exit text.
+K-line charts for representative stocks must use repo price data and show the latest half-year trading window by default, approximately 126 trading days. The chart may read a longer raw price window for technical context, but the PDF-facing chart must not display a 180-day window unless the user explicitly asks for a longer view. The chart must include price, volume, 23EMA as the primary line, MA20/MA60 as supporting lines, prior high/platform/support/resistance, breakout zone, and failure line when applicable. The chart is not decoration; it must match the buy/exit text.
 
 The curated PDF must include a `降級 / 鈍化 / 風險清單` near the back. This is a risk summary, not a recommendation table. It should include only stock, original category, risk reason, and handling action.
 

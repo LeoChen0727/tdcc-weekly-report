@@ -65,8 +65,8 @@ REQUEST_DATE = datetime.now().strftime("%Y%m%d")
 OUTPUT_SUFFIX = "_current_rules"
 
 REMOTE_README_URLS = [
-    "https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT.txt",
     "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/READ_ME_FIRST_DAILY_REPORT.txt",
+    "https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT.txt",
 ]
 
 FONT_NAME = "DFKai"
@@ -85,6 +85,7 @@ FRONT_MAINSTREAM_LIMIT = 8
 FRONT_NON_MAINSTREAM_LIMIT = 2
 FULL_REPORT_MAINSTREAM_LIMIT = 12
 FULL_REPORT_NON_MAINSTREAM_LIMIT = 4
+CHATGPT_SIDE_KLINE_DAYS = 126
 
 
 def append_page_break_once(story: list) -> None:
@@ -134,9 +135,9 @@ def fetch_text_no_cache(url: str) -> str:
 
 def fetch_remote_readme_values(request_date: str) -> tuple[dict[str, str], str]:
     urls = [
-        f"https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT_{request_date}.txt",
         f"https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/READ_ME_FIRST_DAILY_REPORT_{request_date}.txt",
         *REMOTE_README_URLS,
+        f"https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT_{request_date}.txt",
     ]
     errors: list[str] = []
     for url in urls:
@@ -1857,12 +1858,12 @@ def plot_stock_chart(
     for col in ("open", "high", "low", "close", "volume", "ema23", "ma20", "ma60"):
         if col in df.columns:
             df[col] = pd.to_numeric(df[col].astype(str).str.replace(",", ""), errors="coerce")
-    df = df.dropna(subset=["date", "close"]).tail(180)
+    df = df.dropna(subset=["date", "close"]).tail(CHATGPT_SIDE_KLINE_DAYS)
     if df.empty:
         return None
 
     chart_kind = "op" if isinstance(candidate_row, pd.Series) and not candidate_row.empty else "plain"
-    path = CHARTS / f"{stock_id}_kline_180_{chart_kind}.png"
+    path = CHARTS / f"{stock_id}_kline_{CHATGPT_SIDE_KLINE_DAYS}_{chart_kind}.png"
     fig, (ax, axv) = plt.subplots(
         2,
         1,
@@ -1964,7 +1965,11 @@ def plot_stock_chart(
     ]
     axv.bar(df["date"], volumes, width=0.8, color=colors_v, alpha=0.38)
     axv.set_ylabel("量", fontproperties=MATPLOTLIB_FONT, fontsize=8)
-    ax.set_title(f"{stock_id} {stock_name} 180日K線 / 23EMA", fontproperties=MATPLOTLIB_FONT, fontsize=11)
+    ax.set_title(
+        f"{stock_id} {stock_name} 半年K線 / 23EMA",
+        fontproperties=MATPLOTLIB_FONT,
+        fontsize=11,
+    )
     ax.grid(True, linewidth=0.25, alpha=0.35)
     axv.grid(True, linewidth=0.25, alpha=0.3)
     ax.legend(prop=MATPLOTLIB_FONT, fontsize=7, loc="upper left")
