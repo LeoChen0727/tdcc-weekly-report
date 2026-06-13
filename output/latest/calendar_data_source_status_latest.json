@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13 20:21:25 Asia/Taipei",
+  "generated_at": "2026-06-13 20:24:51 Asia/Taipei",
   "files": {
     "company_event_calendar": {
       "path": "data/company_calendar/company_event_calendar.csv",
@@ -21,10 +21,10 @@
   "sources": {
     "twse_ex_right_ex_dividend": {
       "url": "https://www.twse.com.tw/rwd/zh/exRight/TWT48U?response=json",
-      "status": "ok",
-      "rows": 276,
-      "error": "",
-      "http_status": 200
+      "status": "failed",
+      "rows": 0,
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "http_status": 307
     },
     "monthly_revenue_expected_window": {
       "url": "https://mops.twse.com.tw/mops/web/t05st10_ifrs",
