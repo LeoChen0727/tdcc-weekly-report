@@ -65,6 +65,7 @@ jobs:
           git add output/latest/catalyst_layer_validation_latest.md || true
           git add output/latest/catalyst_layer_validation_latest.json || true
           git add docs/latest/ || true
+          python scripts/validate_no_conflict_markers.py
           git commit -m "Update weekly catalyst theme review" || echo "No changes to commit"
-          git pull --rebase origin main || true
-          git push || true
+          git pull --rebase origin main
+          git push
