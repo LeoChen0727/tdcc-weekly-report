@@ -184,8 +184,8 @@ RISK_TAG_ZH = {
     "insufficient_tdcc_history": "TDCC歷史不足",
     "insufficient_price_data": "價格資料不足",
     "long_upper_shadow_quality_penalty": "長上影攻擊品質扣分",
-    "A_bottom_volume_attack": "底部放量攻擊A級",
-    "B_bottom_volume_attack_with_risk": "底部放量攻擊但有風險標籤",
+    "A_bottom_volume_attack": "放量攻擊A級",
+    "B_bottom_volume_attack_with_risk": "放量攻擊但有風險標籤",
 }
 
 STRUCTURAL_BUCKET_ZH = {
@@ -223,7 +223,7 @@ STRUCTURAL_BUCKET_ZH = {
 SCORE_COMPONENT_ZH_REPLACEMENTS = {
     "base=50": "基礎分=50",
     "base=35": "基礎分=35",
-    "profile=volume_range_breakout": "參數=底部放量攻擊模型",
+    "profile=volume_range_breakout": "參數=放量攻擊模型",
     "profile=price_pullback_23ema": "參數=股價回檔模型",
     "profile=hot_theme_pullback": "參數=熱門族群回檔模型",
     "profile=revenue_unreacted_range": "參數=營收爆發但股價尚未反應模型",
@@ -243,7 +243,7 @@ SCORE_COMPONENT_ZH_REPLACEMENTS = {
     "type=range_breakout_volume": "類型=盤整區間帶量突破",
     "type=strict_high_breakout": "類型=波段高點帶量突破",
     "type=strict_60d_volume_breakout": "類型=60日高點帶量突破",
-    "type=bottom_volume_attack": "類型=底部放量攻擊",
+    "type=bottom_volume_attack": "類型=放量攻擊",
     "breakout_pct": "突破幅度",
     "close_ge_prior20_high_102pct": "收盤突破前20日高點2%以上",
     "volume_ma20_lots_ge_1000": "20日均量>=1000張",
@@ -259,8 +259,8 @@ SCORE_COMPONENT_ZH_REPLACEMENTS = {
     "base_duration_10d_plus": "盤整10日以上",
     "long_upper_shadow_quality_penalty": "長上影攻擊品質扣分",
     "volume_breakout_notes": "放量攻擊註記",
-    "A_bottom_volume_attack": "底部放量攻擊A級",
-    "B_bottom_volume_attack_with_risk": "底部放量攻擊但有風險標籤",
+    "A_bottom_volume_attack": "放量攻擊A級",
+    "B_bottom_volume_attack_with_risk": "放量攻擊但有風險標籤",
     "type=平台_volume_breakout": "類型=平台帶量突破",
     "volume_score=": "量能分數=",
     "close_above_previous_20d_high": "收盤站上20日前高",
@@ -1806,7 +1806,7 @@ def build_specs() -> list[ModelSpec]:
     return [
         ModelSpec(
             "volume_range_breakout",
-            "底部放量攻擊模型",
+            "放量攻擊模型",
             "pdf_core_model",
             "signal_date_next_open",
             "不含今日的前20日最高價為突破基準；收盤價 >= 基準 * 1.02、量比 >= 2.0、20日均量 >= 1000張，且為實體紅K或漲停型態。",
@@ -2562,7 +2562,7 @@ def append_volume_breakout_signals(signals: pd.DataFrame, candidates: pd.DataFra
                 "dual_report_membership_flag": dual_report_membership_flag_value(source),
                 "report_bucket": external_report_bucket(row, source),
                 "model_id": "volume_range_breakout",
-                "model_name_zh": "底部放量攻擊模型",
+                "model_name_zh": "放量攻擊模型",
                 "model_group": "pdf_core_model",
                 "main_condition_met": "True",
                 "entry_basis": "signal_date_next_open",
@@ -2900,7 +2900,7 @@ PDF_TOKEN_ZH = {
 }
 
 MODEL_NAME_ZH_BY_ID = {
-    "volume_range_breakout": "底部放量攻擊模型",
+    "volume_range_breakout": "放量攻擊模型",
     "price_pullback_23ema": "股價回檔模型",
     "hot_theme_pullback": "熱門族群回檔模型",
     "revenue_unreacted_range": "營收爆發但股價尚未反應模型",
@@ -2916,7 +2916,7 @@ MODEL_NAME_ZH_BY_ID = {
 }
 
 MODEL_HUMAN_REASON_ZH = {
-    "volume_range_breakout": "符合底部放量攻擊模型，收盤有效站上前20日高點突破基準，量能明顯放大，後續依突破區與量價品質管理。",
+    "volume_range_breakout": "符合放量攻擊模型，收盤有效站上前20日高點突破基準，量能明顯放大，後續依突破區與量價品質管理。",
     "price_pullback_23ema": "符合股價回檔模型，股價接近23EMA或支撐區，回測後轉強。",
     "hot_theme_pullback": "符合熱門族群回檔模型，具熱門族群標籤，股價回測23EMA或支撐後轉強。",
     "revenue_unreacted_range": "符合營收爆發但股價尚未反應模型，營收動能較強且股價仍在整理區。",

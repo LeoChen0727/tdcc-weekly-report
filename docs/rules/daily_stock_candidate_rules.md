@@ -270,9 +270,9 @@ Allowed volume-attack theme statuses:
 
 `theme_status_missing` means the theme mapping is not reliable. Do not classify it as mainstream or non-mainstream.
 
-## Bottom Volume Attack Rules
+## Volume Attack Rules
 
-The formal daily `volume_range_breakout` model is the independent `底部放量攻擊模型`. It replaces the old broad volume-breakout/watch/risk taxonomy for PDF model selection.
+The formal daily `volume_range_breakout` model is the independent `放量攻擊模型`. It replaces the old broad volume-breakout/watch/risk taxonomy for PDF model selection.
 
 Hard selection conditions:
 
