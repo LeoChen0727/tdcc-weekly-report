@@ -24,8 +24,8 @@ VALIDATION_MD = LATEST_DIR / "daily_theme_leadership_validation_latest.md"
 REQUIRED_THEME_COLUMNS = [
     "theme_name",
     "theme_candidate_count",
-    "theme_A_candidate_count",
-    "theme_B_candidate_count",
+    "theme_priority_high_count",
+    "theme_priority_confirm_count",
     "theme_strict_breakout_count",
     "theme_true_breakout_count",
     "theme_volume_breakout_count",

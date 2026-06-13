@@ -160,8 +160,8 @@ def candidate_lookup() -> pd.DataFrame:
         return pd.DataFrame(columns=["stock_id", "stock_name", "model_name_zh", "model_score", "display_rank", "report_line"])
     cand["stock_id"] = cand["stock_id"].map(normalize_code)
     cand["model_name_zh"] = cand.get("category_cn", cand.get("category", ""))
-    cand["model_score"] = cand.get("decision_score", cand.get("score", ""))
-    cand["display_rank"] = cand.get("decision_rank_in_category", cand.get("rank", ""))
+    cand["model_score"] = cand.get("model_score", cand.get("score", ""))
+    cand["display_rank"] = cand.get("model_rank", cand.get("rank", ""))
     cand["report_line"] = cand.get("report_line_memberships", "")
     return cand
 

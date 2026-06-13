@@ -121,6 +121,42 @@ def test_daily_pdf_packet_and_rules_do_not_depend_on_decision_layer() -> None:
     assert "risk_penalty_tags" in packet_text
 
 
+def test_daily_production_sources_do_not_build_or_depend_on_decision_layer() -> None:
+    workflow = (ROOT / ".github" / "workflows" / "daily_full_pipeline.yml").read_text(
+        encoding="utf-8",
+        errors="replace",
+    )
+    assert "build_daily_candidate_decision_layer.py" not in workflow
+    assert "validate_daily_candidate_decision_layer.py" not in workflow
+
+    assert not (ROOT / "scripts" / "build_daily_candidate_decision_layer.py").exists()
+    assert not (ROOT / "scripts" / "validate_daily_candidate_decision_layer.py").exists()
+
+    paths = [
+        ROOT / "scripts" / "build_daily_candidate_model_layer.py",
+        ROOT / "scripts" / "build_daily_theme_leadership_layer.py",
+        ROOT / "scripts" / "validate_daily_theme_leadership_layer.py",
+        ROOT / "scripts" / "build_non_revenue_momentum_watch.py",
+        ROOT / "scripts" / "build_theme_event_watch.py",
+        ROOT / "scripts" / "update_daily_theme_status_history.py",
+        ROOT / "scripts" / "check_raw_data_health.py",
+        ROOT / "publish_chatgpt_report_readme_and_check.py",
+    ]
+
+    for path in paths:
+        text = path.read_text(encoding="utf-8", errors="replace")
+        if path.name == "build_daily_theme_leadership_layer.py":
+            start = text.index("DEPRECATED_DECISION_COLUMNS = [")
+            end = text.index("\n\nBULLISH_WARRANT_SIGNALS", start)
+            cleanup_block = text[start:end]
+            for field in DAILY_DECISION_LAYER_FIELDS:
+                if field != "daily_candidate_decision":
+                    assert field in cleanup_block
+            text = text[:start] + text[end:]
+        for field in DAILY_DECISION_LAYER_FIELDS:
+            assert field not in text, f"{path.as_posix()} still references {field}"
+
+
 def test_daily_workflow_uses_latest_only_volume_breakout_watch() -> None:
     text = (ROOT / ".github" / "workflows" / "daily_full_pipeline.yml").read_text(
         encoding="utf-8"

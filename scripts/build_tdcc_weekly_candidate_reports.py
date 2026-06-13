@@ -26,7 +26,6 @@ from tracking_utils import (  # noqa: E402
 
 
 DAILY_MODEL_SIGNALS = LATEST_DIR / "daily_candidate_model_signals_for_report_latest.csv"
-DAILY_DECISION = LATEST_DIR / "daily_candidate_decision_latest.csv"
 STOCK_THEME_TAXONOMY = LATEST_DIR / "stock_theme_taxonomy_latest.csv"
 
 WEEKLY_INCREASE_CSV = LATEST_DIR / "tdcc_weekly_increase_ranking_latest.csv"
@@ -614,21 +613,7 @@ def read_daily_model_signals() -> pd.DataFrame:
     signals = read_csv(DAILY_MODEL_SIGNALS, dtype=str)
     if not signals.empty:
         return signals
-
-    decision = read_csv(DAILY_DECISION, dtype=str)
-    if decision.empty:
-        return pd.DataFrame()
-    decision = decision.copy()
-    decision["model_id"] = decision.get("original_category", "")
-    decision["model_name_zh"] = decision.get("original_category_cn", "").map(zh)
-    decision["display_rank"] = decision.get("decision_rank_overall_for_display", "")
-    decision["model_score"] = decision.get("decision_score", "")
-    decision["source_hit_labels_zh"] = decision.get("original_category_cn", "").map(zh)
-    decision["why_selected_zh"] = decision.get("why_selected", "").map(zh)
-    decision["risk_tags_zh"] = decision.get("risk_tags", "").map(zh)
-    decision["next_confirmation_zh"] = decision.get("next_confirmation", "").map(zh)
-    decision["recommended_usage_zh"] = decision.get("next_confirmation", "").map(zh)
-    return decision
+    return pd.DataFrame()
 
 
 def build_model_cross(
