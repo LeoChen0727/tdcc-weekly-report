@@ -1,6 +1,6 @@
 # Historical Pattern Operation Registry
 
-- generated_at: `2026-06-14 06:34:59 Asia/Taipei`
+- generated_at: `2026-06-14 06:48:02 Asia/Taipei`
 - model_id: `volume_range_breakout`
 - detail_rows: `158218`
 - registry_rows: `85`
@@ -113,3 +113,4 @@
 
 - Minimum gate for future daily adoption: enough `sample_size`, `out_of_sample_pass=True`, `confidence_status` not `low`, explicit pattern rules, and separate human/code approval.
 - This artifact intentionally separates entry, stop, hold, and exit rules from the daily stock-selection model.
+
