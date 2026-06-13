@@ -24,7 +24,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pandas requests lxml html5lib tabulate matplotlib reportlab pypdf
+          pip install pandas requests tabulate matplotlib reportlab pypdf
 
       - name: Run TDCC weekly report
         run: |
