@@ -1,7 +1,7 @@
-# BOTTOM VOLUME ATTACK CHATGPT PACKET
+# VOLUME ATTACK CHATGPT PACKET
 
 ## Metadata
-- generated_at: `2026-06-13 00:25:20 Asia/Taipei`
+- generated_at: `2026-06-13 14:28:40 Asia/Taipei`
 - main_price_date: `20260612`
 - watch_rows: `6`
 - bottom_volume_attack_count: `6`
@@ -14,14 +14,14 @@
 
 ## Model Definition
 
-- Model display name: 底部放量攻擊模型.
+- Model display name: 放量攻擊模型.
 - Hard gates: close >= prior 20 trading day high excluding signal day * 1.02; volume_ratio >= 2.0; 20D average volume >= 1000 lots; bullish candle.
 - The model intentionally does not require a 60D high breakout or moving-average reclaim.
 - The model emits selected rows only. Risk flags and score components are ranking/operation context, not a separate watch/risk status.
 - Same-day fake breakout is not confirmed on the signal date. Do not label a selected row as failed breakout until later price action confirms failure.
 - Research entry basis is signal date next trading day open.
 
-## Top Bottom Volume Attack
+## Top Volume Attack
 
 | volume_breakout_rank | stock_id | stock_name | volume_breakout_type | volume_watch_scope | volume_breakout_priority | selection_status | category | pattern_stage | decision_priority | tdcc_status | repeat_appear_label | volume_ratio | return_5d | return_20d | risk_flags | next_volume_breakout_confirmation |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |

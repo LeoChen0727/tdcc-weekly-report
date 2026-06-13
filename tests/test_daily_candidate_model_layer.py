@@ -244,7 +244,8 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         row = out.iloc[0]
         self.assertEqual(row["stock_id"], "1617")
         self.assertEqual(row["model_id"], "volume_range_breakout")
-        self.assertIn("底部", row["model_name_zh"])
+        self.assertEqual(row["model_name_zh"], "放量攻擊模型")
+        self.assertNotIn("底部", row["model_name_zh"])
 
     def test_pullback_model_does_not_require_breakout(self) -> None:
         row = make_row(
@@ -515,7 +516,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
                     "stock_id": "3046",
                     "stock_name": "建碁",
                     "model_id": "volume_range_breakout",
-                    "model_name_zh": "底部放量攻擊模型",
+                    "model_name_zh": "放量攻擊模型",
                     "model_group": "pdf_core_model",
                     "model_score": "75.9",
                     "model_rank": "1",
@@ -636,7 +637,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
                     "stock_id": "2374",
                     "stock_name": "CANON",
                     "model_id": "volume_breakout_range",
-                    "model_name_zh": "底部放量攻擊模型",
+                    "model_name_zh": "放量攻擊模型",
                     "model_score": "80",
                     "model_rank": "2",
                     "original_category": "range_rebound",
@@ -651,7 +652,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
                     "stock_id": "2374",
                     "stock_name": "CANON",
                     "model_id": "volume_range_breakout",
-                    "model_name_zh": "底部放量攻擊模型",
+                    "model_name_zh": "放量攻擊模型",
                     "model_score": "90",
                     "model_rank": "1",
                     "original_category": "revenue_pullback",
@@ -849,7 +850,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             self.assertIn(col, report_ready.columns)
             text = " ".join(report_ready[col].astype(str))
             self.assertNotRegex(text, r"\?\?\?|[a-z]+(?:_[a-z0-9]+){1,}")
-        self.assertIn("底部放量攻擊", report_ready["model_name_zh"].iloc[0])
+        self.assertIn("放量攻擊", report_ready["model_name_zh"].iloc[0])
 
 
     def test_group_rotation_outputs_pdf_safe_theme_display(self) -> None:

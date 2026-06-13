@@ -214,7 +214,7 @@ def rule_specs() -> list[RuleSpec]:
                 specs.append(
                     RuleSpec(
                         "volume_range_breakout",
-                        "底部放量攻擊模型",
+                        "放量攻擊模型",
                         f"prior20x{1 + breakout_pct / 100:.2f}_vol{vol:g}_minvol{min_lots}",
                         f"收盤突破前20日高點 {breakout_pct:g}% + 量比 >= {vol:g} + 20日均量 >= {min_lots}張 + 實體紅K",
                         "pdf_core_model",

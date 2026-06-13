@@ -959,7 +959,7 @@ def write_watch_md(watch: pd.DataFrame, main_date: str) -> None:
         "next_volume_breakout_confirmation",
     ]
     lines = [
-        "# Bottom Volume Attack Watch",
+        "# Volume Attack Watch",
         "",
         f"- generated_at: `{now_text()}`",
         f"- main_price_date: `{main_date}`",
@@ -1029,7 +1029,7 @@ def write_packet(watch: pd.DataFrame, summary: pd.DataFrame, main_date: str) -> 
     bottom_count = int((watch.get("volume_breakout_type", pd.Series(dtype=str)) == "bottom_volume_attack").sum()) if not watch.empty else 0
     risk_count = int(watch.get("risk_flags", pd.Series(dtype=str)).map(lambda v: bool(safe_str(v))).sum()) if not watch.empty else 0
     lines = [
-        "# BOTTOM VOLUME ATTACK CHATGPT PACKET",
+        "# VOLUME ATTACK CHATGPT PACKET",
         "",
         "## Metadata",
         f"- generated_at: `{now_text()}`",
@@ -1045,14 +1045,14 @@ def write_packet(watch: pd.DataFrame, summary: pd.DataFrame, main_date: str) -> 
         "",
         "## Model Definition",
         "",
-        "- Model display name: 底部放量攻擊模型.",
+        "- Model display name: 放量攻擊模型.",
         "- Hard gates: close >= prior 20 trading day high excluding signal day * 1.02; volume_ratio >= 2.0; 20D average volume >= 1000 lots; bullish candle.",
         "- The model intentionally does not require a 60D high breakout or moving-average reclaim.",
         "- The model emits selected rows only. Risk flags and score components are ranking/operation context, not a separate watch/risk status.",
         "- Same-day fake breakout is not confirmed on the signal date. Do not label a selected row as failed breakout until later price action confirms failure.",
         "- Research entry basis is signal date next trading day open.",
         "",
-        "## Top Bottom Volume Attack",
+        "## Top Volume Attack",
         "",
         *table_lines(
             watch,
