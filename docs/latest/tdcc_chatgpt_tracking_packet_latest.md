@@ -1,7 +1,7 @@
 # TDCC CHATGPT TRACKING PACKET
 
 ## Metadata
-- generated_at: 2026-06-13 18:27:56 Asia/Taipei
+- generated_at: 2026-06-13 18:38:31 Asia/Taipei
 - main_price_date: 20260612
 - latest_tdcc_signal_date: 20260612
 - source_files: tdcc_signal_snapshot.csv, tdcc_normalized_signal_log.csv, tdcc_signal_performance.csv, tdcc_pre_move_accumulation_latest.csv, tdcc_signal_effectiveness_latest.md
@@ -468,8 +468,8 @@
 ## TDCC Weekly Increase and Consecutive Candidate Reports
 
 - 精華版與完整版由 report-ready CSV/MD/PDF 產出。
-- 精華版包含當週增幅前五、連續累積前五，以及 TDCC 名單與每日候選模型交集前段。
-- 完整版當週增幅與連續累積最多列前一百名；後段模型分析只保留 TDCC 短線延續模型 D+5/D+10。
+- 精華版包含當週增幅、連續累積、當週增幅 x TDCC 短線延續 D+5/D+10、連續累積 x TDCC 短線延續 D+5/D+10，各最多前十名。
+- 完整版使用相同四個清單，各最多列前五十名；不足五十就全列。
 
 - tdcc_weekly_candidate_highlight_for_report_csv_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_weekly_candidate_highlight_for_report_latest.csv
 - tdcc_weekly_candidate_highlight_for_report_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_weekly_candidate_highlight_for_report_latest.md
