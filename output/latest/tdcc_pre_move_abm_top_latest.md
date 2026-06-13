@@ -1,6 +1,6 @@
 # TDCC Pre-Move Accumulation / ABM Top
 
-- generated_at: 2026-06-13 18:44:37 Asia/Taipei
+- generated_at: 2026-06-14 00:42:52 Asia/Taipei
 - latest_signal_date: 20260612
 - relaxed_filter: False
 - ranking_quality: complete
