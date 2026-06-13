@@ -64,15 +64,25 @@ The normal daily pipeline must be able to finish without long research jobs.
 - `daily_model_parameter_recommendations_latest.csv/md` is the program-side interpretation layer for these backtests. It may mark a parameter as `promote_to_pdf_core`, `pdf_secondary_watch`, `score_component_only`, `intraday_target_watch`, or `research_only`.
 - These parameter research and recommendation tables are not PDF-side selection rules. The program-side model layer attaches the current recommendation fields into `daily_candidate_model_parameters_latest.csv` and `daily_candidate_model_signals_latest.csv`; ChatGPT must read those fields and must not promote a research-only row by itself.
 
-## Program-Side Fields Are Binding
+## Model-Layer Fields Are Binding
 
-Use program-side fields first:
+Use program-side model-layer fields first:
 
-- `decision_priority`
-- `decision_score`
-- `why_selected`
-- `why_downgraded`
+- `model_id`
+- `model_name_zh`
+- `model_score`
+- `model_rank`
+- `display_rank`
+- `score_components`
+- `score_components_zh`
+- `risk_penalty_tags`
+- `risk_tags`
+- `risk_tags_zh`
 - `next_confirmation`
+- `next_confirmation_zh`
+- `why_selected`
+- `why_selected_zh`
+- `why_selected_human_zh`
 - `theme_final_status`
 - `candidate_source_type`
 - `candidate_line_group`
@@ -82,38 +92,12 @@ Use program-side fields first:
 - `volume_breakout_priority`
 - `sample_status`
 - `tuning_status`
-- `action_rating`
-- `action_rating_label_zh`
-- `entry_style`
-- `position_sizing`
-- `management_plan`
-- `entry_prerequisites`
-- `post_entry_watch_items`
-- `downgrade_reason`
-- `confidence_level`
-- `thesis_state`
 
-Do not reorder or upgrade stocks by memory when these fields exist.
+Do not reorder or upgrade stocks by memory when these fields exist. Daily PDF and packet text must not use a separate trading-action layer as a second conclusion over the model layer.
 
-## Program-Side Action Rating
+## No Daily PDF Action Rating Layer
 
-`action_rating` is the program-side trading-language field. The report must use `action_rating_label_zh` instead of inventing a more conservative conclusion.
-
-Allowed action ratings:
-
-- `buy_now`: 建議買進
-- `scale_in`: 可分批買進
-- `starter_position`: 可小量試單
-- `wait_pullback`: 等待回檔
-- `wait_reclaim`: 等待站回
-- `hold_only`: 已持有續抱
-- `take_profit`: 停利
-- `reduce`: 減碼
-- `avoid`: 不建議買進 / 避開
-
-`entry_prerequisites` are first-tranche requirements. `post_entry_watch_items` are post-entry management checks. Do not treat all post-entry watch items as buy-before blockers.
-
-If `action_rating` is `buy_now`, `scale_in`, or `starter_position`, the report must not rewrite it as `wait_pullback`, `wait_reclaim`, or generic "wait for confirmation" unless current repo price, volume, TDCC, or fundamental data directly contradicts the program-side action decision. If the report downgrades the action, it must show the original action, downgraded action, and concrete reason.
+Daily PDF and packet output must not depend on action-rating or position-sizing fields. The daily report may describe model hits, model score, rank, risk tags, technical state, TDCC/warrant context, and next confirmation. It must not convert those fields into a program-side buy/sell instruction until a separate historical pattern operation module exists.
 
 ## Independent Model Selection Contract
 
@@ -253,7 +237,7 @@ Textile, financial, steel, shipping, construction, chemical, plastic and similar
 
 Non-mainstream groups with strong daily flow should be shown as non-mainstream rotation, short-term theme, or risk/watch sections; do not call them mainstream leaders.
 
-Mainstream / non-mainstream is a report-section field, not a score penalty and not a buy veto. The decision layer must keep `decision_score` and `decision_priority` based on the stock condition, risk flags, TDCC, volume, price pattern, warrant support, and confirmation state. Use `theme_group`, `display_section`, and `section_rank` to compare core-mainstream, non-mainstream, and unknown-theme names inside their own sections. Do not downgrade a stock only because it is non-mainstream; apply downgrades only for actual risk fields such as TDCC distribution, stale signal, overheat, false breakout, missing confirmation, or execution-risk flags.
+Mainstream / non-mainstream is a report-section field, not a score penalty and not a buy veto. The model layer must keep model scores and ranks based on each model's own conditions, score components, risk tags, TDCC, volume, price pattern, warrant support, and confirmation state. Use `report_line`, `report_bucket`, `candidate_line_group`, and model rank/display rank to compare core-mainstream, non-mainstream, and unknown-theme names inside their own sections. Do not downgrade a stock only because it is non-mainstream; apply risk display only for actual risk fields such as TDCC distribution, stale signal, overheat, false breakout, missing confirmation, or execution-risk flags.
 
 Allowed volume-attack theme statuses:
 
@@ -341,7 +325,7 @@ If `weekly_surge_strict_parameter_search_latest.md/csv` exists, the daily report
 - For sell-point analysis, use `D+1 open` as the entry and `D+N close` as the exit. Report D+1 through D+10 close-exit win rate and average/median return separately from the +10% intraperiod high touch-rate.
 - Close-exit win rate must use only rows with a mature `D+N close` as the denominator. Do not count pending rows without D+N close as losses.
 - This is not weekly candlestick analysis. The file prefix `weekly_surge` is legacy/backward-compatible only.
-- Display title in Chinese: `隔日開盤買進後 D+1 至 D+10 盤中觸及 +10% 研究`.
+- Display title in Chinese: `隔日開盤後 D+1 至 D+10 盤中觸及 +10% 研究`.
 - Do not write `週線急漲`, `周線急漲嚴格參數`, `最佳歷史D+5勝率`, or `最佳歷史D+10勝率`.
 - The `best_dN_touch_rate_pct` field is a next-open entry high-touch rate, not close-to-close return or D+N close win rate.
 - If legacy fields named `best_d5_hit_rate_pct` or `best_d10_hit_rate_pct` still appear, interpret them as `+10% intraperiod high touch rate`, not a close-exit win rate.
@@ -417,34 +401,34 @@ PDF font rule: do not use decorative, special, rare, or novelty fonts. Use commo
 
 The first page must be a compact table, not a long bullet list. It must show 1-2 representative stocks per program-side core category with these columns:
 
-- category
+- model / category
 - stock
-- rating / `decision_priority`
-- score / `decision_score`
-- selected reason from `why_selected`
-- risk / next confirmation from `why_downgraded`, `risk_tags`, `downgrade_flags`, and `next_confirmation`
+- model rank / display rank
+- score / `model_score`
+- selected reason from `score_components`, `score_components_zh`, `why_selected`, or `why_selected_zh`
+- risk / next confirmation from `risk_tags`, `risk_tags_zh`, `risk_penalty_tags`, and `next_confirmation`
 
 Each core category must then include 3-5 representative stocks when available. If fewer exist, say that program-side qualified rows are insufficient.
 
 Each representative stock must be rendered as an operation card/page, not only a row in a table. Each card must include:
 
 - stock id / name
-- category
+- model / category
 - mainstream or non-mainstream status from program-side fields
-- rating / score / rank
+- model score / model rank / display rank
 - TDCC and warrant status
-- selected reason from `why_selected`
-- downgrade/risk disclosure from `why_downgraded`, `risk_tags`, `downgrade_flags`, `must_not_overstate`, `repeated_but_no_breakout`, `needs_eps_confirmation`, and `revenue_good_eps_unconfirmed`
+- selected reason from `score_components`, `score_components_zh`, `why_selected`, or `why_selected_zh`
+- risk disclosure from `risk_tags`, `risk_tags_zh`, `risk_penalty_tags`, `must_not_overstate`, `repeated_but_no_breakout`, `needs_eps_confirmation`, and `revenue_good_eps_unconfirmed`
 - technical state: latest close, 23EMA, MA20, MA60, prior high, platform, support, resistance, volume, volume ratio, breakout/pullback/failure status
-- conditional buy trigger
-- take-profit / reduce / exit trigger
-- no-buy condition
-- next confirmation with `trigger + action`
+- next confirmation / model continuation condition
+- model invalidation or risk-escalation condition
+- follow-up tracking condition
+- next confirmation without a PDF-side action rating
 - K-line chart on the same page or directly adjacent page
 
-K-line charts for representative stocks must use repo price data and show the latest half-year trading window by default, approximately 126 trading days. The chart may read a longer raw price window for technical context, but the PDF-facing chart must not display a 180-day window unless the user explicitly asks for a longer view. The chart must include price, volume, 23EMA as the primary line, MA20/MA60 as supporting lines, prior high/platform/support/resistance, breakout zone, and failure line when applicable. The chart is not decoration; it must match the buy/exit text.
+K-line charts for representative stocks must use repo price data and show the latest half-year trading window by default, approximately 126 trading days. The chart may read a longer raw price window for technical context, but the PDF-facing chart must not display a 180-day window unless the user explicitly asks for a longer view. The chart must include price, volume, 23EMA as the primary line, MA20/MA60 as supporting lines, prior high/platform/support/resistance, breakout zone, and failure line when applicable. The chart is not decoration; it must match the model confirmation and invalidation text.
 
-The curated PDF must include a `降級 / 鈍化 / 風險清單` near the back. This is a risk summary, not a recommendation table. It should include only stock, original category, risk reason, and handling action.
+The curated PDF must include a `降級 / 鈍化 / 風險清單` near the back. This is a risk summary, not a recommendation table. It should include only stock, original category, risk reason, and presentation note.
 
 Wide tables must be split into readable tables or operation cards. Do not put long `why_selected`, `why_downgraded`, or `next_confirmation` text into a narrow table cell.
 

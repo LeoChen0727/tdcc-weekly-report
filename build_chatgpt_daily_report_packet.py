@@ -30,9 +30,11 @@ DAILY_SIGNAL_PERFORMANCE = Path("output/history/daily_signals/daily_candidate_si
 DAILY_SIGNAL_SUMMARY_MD = LATEST_DIR / "daily_signal_performance_summary_latest.md"
 CANDIDATE_REPEAT_CSV = LATEST_DIR / "candidate_repeat_appearance_latest.csv"
 CANDIDATE_REPEAT_MD = LATEST_DIR / "candidate_repeat_appearance_latest.md"
-DAILY_CANDIDATE_DECISION_CSV = LATEST_DIR / "daily_candidate_decision_latest.csv"
-DAILY_CANDIDATE_DECISION_MD = LATEST_DIR / "daily_candidate_decision_latest.md"
-DAILY_CANDIDATE_DECISION_PACKET_MD = LATEST_DIR / "daily_candidate_decision_chatgpt_packet_latest.md"
+DAILY_CANDIDATE_MODEL_SIGNALS_FOR_REPORT_CSV = LATEST_DIR / "daily_candidate_model_signals_for_report_latest.csv"
+DAILY_CANDIDATE_MODEL_SIGNALS_FOR_REPORT_MD = LATEST_DIR / "daily_candidate_model_signals_for_report_latest.md"
+DAILY_CANDIDATE_MODEL_PARAMETERS_CSV = LATEST_DIR / "daily_candidate_model_parameters_latest.csv"
+DAILY_CANDIDATE_MODEL_PARAMETERS_MD = LATEST_DIR / "daily_candidate_model_parameters_latest.md"
+DAILY_CANDIDATE_MODEL_LAYER_PACKET_MD = LATEST_DIR / "daily_candidate_model_layer_packet_latest.md"
 DAILY_THEME_LEADERSHIP_CSV = LATEST_DIR / "daily_theme_leadership_latest.csv"
 DAILY_THEME_LEADERSHIP_MD = LATEST_DIR / "daily_theme_leadership_latest.md"
 DAILY_CANDIDATE_TWO_LINE_VIEW_CSV = LATEST_DIR / "daily_candidate_two_line_view_latest.csv"
@@ -552,7 +554,7 @@ def build_packet_text(main_date: str, report_ready: str, paths: dict[str, Path],
     lines.append(f"status: {'generated' if SHORT_TERM_SPECIALTY_PACKET_MD.exists() else 'missing'}")
     lines.append("required_in_daily_pdf: True")
     lines.append("fields_or_sections: TDCC Overheated Short-Term Edge, Next-Open +10pct Touch Strict Parameter Research, D+5 tables, D+10 tables")
-    lines.append("note: Do not translate the legacy `weekly_surge` file prefix as `周線急漲`; display it as `隔日開盤買進後 D+5 / D+10 盤中觸及 +10% 研究`.")
+    lines.append("note: Do not translate the legacy `weekly_surge` file prefix as `周線急漲`; display it as `隔日開盤後 D+5 / D+10 盤中觸及 +10% 研究`.")
     lines.append("note: Win rate for this section is next-open entry touch-rate: D+1 open to D+N high >= +10%, not close-to-close return.")
     lines.append("note: `TDCC短線延續模型 D+5/D+10` is a core model when active in the program-side registry. Separate D+5/D+10 research-stat tables are supporting evidence and must not override model ranking.")
     lines.append("")
@@ -646,14 +648,16 @@ def build_packet_text(main_date: str, report_ready: str, paths: dict[str, Path],
     lines.append("fields: consecutive_appear_days_any_category,consecutive_appear_days_same_category,appear_count_5d,appear_count_10d,appear_count_20d,first_seen_date,last_seen_date,multi_category_flags,repeat_appear_label,repeat_appear_note")
     lines.append("note: Repeat appearance is calculated from raw daily candidate signal logs. ChatGPT must not infer consecutive days manually.")
     lines.append("")
-    lines.append("DAILY CANDIDATE DECISION LAYER")
-    lines.append(f"decision_csv_path: {DAILY_CANDIDATE_DECISION_CSV.as_posix()}")
-    lines.append(f"decision_md_raw_url: {raw_url(DAILY_CANDIDATE_DECISION_MD)}")
-    lines.append(f"decision_csv_raw_url: {raw_url(DAILY_CANDIDATE_DECISION_CSV)}")
-    lines.append(f"decision_chatgpt_packet_raw_url: {raw_url(DAILY_CANDIDATE_DECISION_PACKET_MD)}")
-    lines.append(f"status: {'generated' if DAILY_CANDIDATE_DECISION_CSV.exists() and DAILY_CANDIDATE_DECISION_PACKET_MD.exists() else 'missing'}")
-    lines.append("fields: pattern_mapped_category,decision_priority,decision_score,downgrade_flags,risk_tags,why_selected,why_downgraded,next_confirmation,must_not_overstate")
-    lines.append("note: This is the program-side ranking/downgrade layer. ChatGPT should use it before memory-based interpretation.")
+    lines.append("DAILY CANDIDATE MODEL SIGNALS FOR REPORT")
+    lines.append(f"model_signals_for_report_csv_path: {DAILY_CANDIDATE_MODEL_SIGNALS_FOR_REPORT_CSV.as_posix()}")
+    lines.append(f"model_signals_for_report_md_raw_url: {raw_url(DAILY_CANDIDATE_MODEL_SIGNALS_FOR_REPORT_MD)}")
+    lines.append(f"model_signals_for_report_csv_raw_url: {raw_url(DAILY_CANDIDATE_MODEL_SIGNALS_FOR_REPORT_CSV)}")
+    lines.append(f"model_parameters_md_raw_url: {raw_url(DAILY_CANDIDATE_MODEL_PARAMETERS_MD)}")
+    lines.append(f"model_parameters_csv_raw_url: {raw_url(DAILY_CANDIDATE_MODEL_PARAMETERS_CSV)}")
+    lines.append(f"model_layer_packet_raw_url: {raw_url(DAILY_CANDIDATE_MODEL_LAYER_PACKET_MD)}")
+    lines.append(f"status: {'generated' if DAILY_CANDIDATE_MODEL_SIGNALS_FOR_REPORT_CSV.exists() and DAILY_CANDIDATE_MODEL_PARAMETERS_CSV.exists() else 'missing'}")
+    lines.append("fields: model_id,model_name_zh,model_score,model_rank,display_rank,score_components,risk_penalty_tags,risk_tags,next_confirmation,report_line,report_bucket")
+    lines.append("note: This is the PDF/packet source for model-layer signals, scores, ranks, risk tags, and next confirmations. Do not add a second buy/sell or action-rating layer in PDF text.")
     lines.append("")
     lines.append("DAILY THEME LEADERSHIP LAYER")
     lines.append(f"theme_leadership_csv_raw_url: {raw_url(DAILY_THEME_LEADERSHIP_CSV)}")
@@ -847,10 +851,12 @@ def write_packet_manifest(main_date: str, report_ready: str, paths: dict[str, Pa
         "candidate_repeat_appearance_raw_url": raw_url(CANDIDATE_REPEAT_CSV),
         "candidate_repeat_appearance_md_raw_url": raw_url(CANDIDATE_REPEAT_MD),
         "candidate_repeat_appearance_status": "generated" if CANDIDATE_REPEAT_CSV.exists() and CANDIDATE_REPEAT_MD.exists() else "missing",
-        "daily_candidate_decision_csv_raw_url": raw_url(DAILY_CANDIDATE_DECISION_CSV),
-        "daily_candidate_decision_md_raw_url": raw_url(DAILY_CANDIDATE_DECISION_MD),
-        "daily_candidate_decision_chatgpt_packet_raw_url": raw_url(DAILY_CANDIDATE_DECISION_PACKET_MD),
-        "daily_candidate_decision_status": "generated" if DAILY_CANDIDATE_DECISION_CSV.exists() and DAILY_CANDIDATE_DECISION_PACKET_MD.exists() else "missing",
+        "daily_candidate_model_signals_for_report_csv_raw_url": raw_url(DAILY_CANDIDATE_MODEL_SIGNALS_FOR_REPORT_CSV),
+        "daily_candidate_model_signals_for_report_md_raw_url": raw_url(DAILY_CANDIDATE_MODEL_SIGNALS_FOR_REPORT_MD),
+        "daily_candidate_model_parameters_csv_raw_url": raw_url(DAILY_CANDIDATE_MODEL_PARAMETERS_CSV),
+        "daily_candidate_model_parameters_md_raw_url": raw_url(DAILY_CANDIDATE_MODEL_PARAMETERS_MD),
+        "daily_candidate_model_layer_packet_raw_url": raw_url(DAILY_CANDIDATE_MODEL_LAYER_PACKET_MD),
+        "daily_candidate_model_layer_status": "generated" if DAILY_CANDIDATE_MODEL_SIGNALS_FOR_REPORT_CSV.exists() and DAILY_CANDIDATE_MODEL_PARAMETERS_CSV.exists() else "missing",
         "daily_theme_leadership_csv_raw_url": raw_url(DAILY_THEME_LEADERSHIP_CSV),
         "daily_theme_leadership_md_raw_url": raw_url(DAILY_THEME_LEADERSHIP_MD),
         "daily_candidate_two_line_view_csv_raw_url": raw_url(DAILY_CANDIDATE_TWO_LINE_VIEW_CSV),

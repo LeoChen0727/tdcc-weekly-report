@@ -9,6 +9,26 @@ from scripts import validate_daily_staged_paths
 
 
 ROOT = Path(__file__).resolve().parents[1]
+DAILY_DECISION_LAYER_FIELDS = [
+    "decision_priority",
+    "trade_decision",
+    "action_rating",
+    "entry_style",
+    "position_sizing",
+    "decision_score",
+    "daily_candidate_decision",
+]
+DAILY_OPERATION_CONCLUSION_PHRASES = [
+    "推薦可買",
+    "可買候選",
+    "買進條件",
+    "不買條件",
+    "目前不買",
+    "條件式買進",
+    "買進後",
+    "先不買",
+    "排除買進",
+]
 
 
 def test_daily_production_boundary_validator_passes_current_repo() -> None:
@@ -38,6 +58,10 @@ def test_canonical_chatgpt_side_generator_is_tracked_and_not_legacy_six_category
     assert 'REPO = ROOT / "tdcc-weekly-report-git"' not in text
     assert "daily_report_model_registry_latest.csv" in text
     assert "daily_candidate_model_signals_for_report_latest.csv" in text
+    assert "model_score" in text
+    assert "risk_tags" in text
+    for field in DAILY_DECISION_LAYER_FIELDS:
+        assert field not in text
     assert "model_recommendation_rows_for_line" in text
     assert "資金進入族群觀察" in text
     assert "daily_candidate_group_rotation_latest.csv" in text
@@ -58,7 +82,7 @@ def test_observation_list_is_row_per_stock_not_joined_cell() -> None:
     end = text.index("\ndef append_group_rotation_end_section(", start)
     function_text = text[start:end]
 
-    assert 'rows = [["榜別", "模型", "股票", "狀態", "操作提醒"]]' in function_text
+    assert 'rows = [["榜別", "模型", "股票", "模型狀態", "分數 / 風險"]]' in function_text
     assert "listing_status_label(row, stage)" in function_text
     assert "listing_status_sort_key(listing_label)" in function_text
     assert '"新上榜": 0' in text
@@ -66,6 +90,35 @@ def test_observation_list_is_row_per_stock_not_joined_cell() -> None:
     assert "model_rows += 1" in function_text
     assert '".join(lines)' not in function_text
     assert "[24 * mm, 36 * mm, 34 * mm, 112 * mm, 62 * mm]" in text
+
+
+def test_daily_pdf_packet_and_rules_do_not_depend_on_decision_layer() -> None:
+    paths = [
+        ROOT / "scripts" / "generate_chatgpt_side_daily_reports.py",
+        ROOT / "scripts" / "generate_daily_market_pdf.py",
+        ROOT / "scripts" / "validate_daily_market_report.py",
+        ROOT / "build_chatgpt_daily_report_packet.py",
+        ROOT / "build_daily_market_report_artifacts.py",
+        ROOT / "build_chatgpt_daily_report_rules.py",
+        ROOT / "scripts" / "build_chatgpt_indicator_usage_guide.py",
+        ROOT / "scripts" / "build_volume_breakout_watch.py",
+        ROOT / "rules" / "daily_stock_candidate_rules.md",
+        ROOT / "docs" / "rules" / "daily_stock_candidate_rules.md",
+    ]
+
+    for path in paths:
+        text = path.read_text(encoding="utf-8", errors="replace")
+        for field in DAILY_DECISION_LAYER_FIELDS:
+            assert field not in text, f"{path.name} still references {field}"
+        for phrase in DAILY_OPERATION_CONCLUSION_PHRASES:
+            assert phrase not in text, f"{path.name} still emits {phrase}"
+
+    packet_text = (ROOT / "build_chatgpt_daily_report_packet.py").read_text(
+        encoding="utf-8"
+    )
+    assert "daily_candidate_model_signals_for_report_latest.csv" in packet_text
+    assert "model_score" in packet_text
+    assert "risk_penalty_tags" in packet_text
 
 
 def test_daily_workflow_uses_latest_only_volume_breakout_watch() -> None:
