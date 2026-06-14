@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-06-14 08:05:33 Asia/Taipei",
+  "generated_at": "2026-06-14 12:39:36 Asia/Taipei",
   "files": {
     "company_event_calendar": {
       "path": "data/company_calendar/company_event_calendar.csv",
-      "rows": 1765
+      "rows": 2287
     },
     "macro_event_calendar": {
       "path": "data/macro_events/macro_event_calendar.csv",
-      "rows": 39
+      "rows": 52
     },
     "upcoming_catalyst_calendar": {
       "path": "output/latest/upcoming_catalyst_calendar_latest.csv",
-      "rows": 819
+      "rows": 1075
     },
     "upcoming_macro_event_calendar": {
       "path": "output/latest/upcoming_macro_event_calendar_latest.csv",
-      "rows": 13
+      "rows": 20
     }
   },
   "sources": {
@@ -25,6 +25,14 @@
       "rows": 276,
       "error": "",
       "http_status": 200
+    },
+    "twse_shareholder_meeting_from_dividend_distribution": {
+      "url": "https://openapi.twse.com.tw/v1/opendata/t187ap45_L",
+      "status": "ok",
+      "rows": 544,
+      "error": "",
+      "http_status": 200,
+      "note": "TWSE-listed shareholder meeting dates parsed from official OpenAPI t187ap45_L when available."
     },
     "monthly_revenue_expected_window": {
       "url": "https://mops.twse.com.tw/mops/web/t05st10_ifrs",
@@ -48,25 +56,25 @@
     },
     "bls_cpi_release_schedule": {
       "url": "https://www.bls.gov/schedule/news_release/cpi.htm",
-      "status": "reachable_not_parsed",
-      "rows": 0,
+      "status": "ok",
+      "rows": 7,
       "error": "",
       "http_status": 200,
-      "note": "BLS CPI release schedule was reachable, but this pipeline has not found a stable parser/output format yet. No rows were stored."
+      "note": "Parsed 7 release rows from the official BLS schedule table."
     },
     "bls_employment_release_schedule": {
       "url": "https://www.bls.gov/schedule/news_release/empsit.htm",
-      "status": "reachable_not_parsed",
-      "rows": 0,
+      "status": "ok",
+      "rows": 6,
       "error": "",
       "http_status": 200,
-      "note": "BLS employment release schedule was reachable, but this pipeline has not found a stable parser/output format yet. No rows were stored."
+      "note": "Parsed 6 release rows from the official BLS schedule table."
     },
     "mops_shareholder_meeting_calendar": {
-      "url": "https://mops.twse.com.tw/mops/web/t108sb19_q1",
-      "status": "pending_endpoint_verification",
-      "rows": 0,
-      "note": "MOPS shareholder meeting calendar exists on the website, but this pipeline has not confirmed a stable machine-readable endpoint yet."
+      "url": "https://mops.twse.com.tw/mops/web/t108sb31new",
+      "status": "partial_coverage_twse_only",
+      "rows": 544,
+      "note": "TWSE-listed shareholder meeting dates are stored from t187ap45_L. Direct MOPS shareholder pages are blocked or unavailable from this environment, and OTC coverage still needs a stable official endpoint."
     }
   }
 }

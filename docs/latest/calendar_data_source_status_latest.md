@@ -1,17 +1,18 @@
 # Calendar Data Source Status
 
-- generated_at: `2026-06-14 08:05:33 Asia/Taipei`
+- generated_at: `2026-06-14 12:39:36 Asia/Taipei`
 - policy: Official/known-calendar sources are stored. Missing or blocked sources remain pending instead of being fabricated.
 
 | source | status | rows | url | note |
 |---|---|---:|---|---|
 | twse_ex_right_ex_dividend | ok | 276 | https://www.twse.com.tw/rwd/zh/exRight/TWT48U?response=json |  |
+| twse_shareholder_meeting_from_dividend_distribution | ok | 544 | https://openapi.twse.com.tw/v1/opendata/t187ap45_L | TWSE-listed shareholder meeting dates parsed from official OpenAPI t187ap45_L when available. |
 | monthly_revenue_expected_window | rule_based_expected_window | 369 | https://mops.twse.com.tw/mops/web/t05st10_ifrs | Expected monthly revenue publication window generated for tracked stocks; not a confirmed company catalyst. |
 | federal_reserve_fomc | ok | 13 | https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm |  |
 | bea_release_schedule | ok | 22 | https://www.bea.gov/news/schedule |  |
-| bls_cpi_release_schedule | reachable_not_parsed | 0 | https://www.bls.gov/schedule/news_release/cpi.htm | BLS CPI release schedule was reachable, but this pipeline has not found a stable parser/output format yet. No rows were stored. |
-| bls_employment_release_schedule | reachable_not_parsed | 0 | https://www.bls.gov/schedule/news_release/empsit.htm | BLS employment release schedule was reachable, but this pipeline has not found a stable parser/output format yet. No rows were stored. |
-| mops_shareholder_meeting_calendar | pending_endpoint_verification | 0 | https://mops.twse.com.tw/mops/web/t108sb19_q1 | MOPS shareholder meeting calendar exists on the website, but this pipeline has not confirmed a stable machine-readable endpoint yet. |
+| bls_cpi_release_schedule | ok | 7 | https://www.bls.gov/schedule/news_release/cpi.htm | Parsed 7 release rows from the official BLS schedule table. |
+| bls_employment_release_schedule | ok | 6 | https://www.bls.gov/schedule/news_release/empsit.htm | Parsed 6 release rows from the official BLS schedule table. |
+| mops_shareholder_meeting_calendar | partial_coverage_twse_only | 544 | https://mops.twse.com.tw/mops/web/t108sb31new | TWSE-listed shareholder meeting dates are stored from t187ap45_L. Direct MOPS shareholder pages are blocked or unavailable from this environment, and OTC coverage still needs a stable official endpoint. |
 
 ## What Is Already Stored
 
@@ -21,6 +22,6 @@
 
 ## Pending Sources
 
-- Shareholder meeting dates need a stable MOPS endpoint before automated storage.
-- BLS CPI/employment schedules may be blocked from this environment; keep them pending until a reliable official endpoint is found.
+- TWSE shareholder meeting dates are stored from official OpenAPI where available; MOPS/TPEX coverage remains pending if blocked.
+- BLS CPI/employment schedules are stored when official schedule tables are reachable and parseable.
 - Company-specific technology validation, exhibitions, law conferences, and news catalysts need explicit source rows in event_catalyst_log.csv before they can affect stock ranking.

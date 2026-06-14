@@ -29,13 +29,15 @@ jobs:
 
       - name: Refresh theme mapping and catalyst performance
         run: |
-          python scripts/update_event_calendar_data.py
           python scripts/update_event_catalyst_data.py
+          python scripts/update_event_calendar_data.py
+          python scripts/apply_fundamental_catalyst_layer.py
           python scripts/update_catalyst_performance.py
           python scripts/build_theme_event_watch.py
           python scripts/validate_event_calendar_data.py
           python scripts/validate_catalyst_layer.py
           python scripts/sync_catalyst_pages_artifacts.py
+          python scripts/build_chatgpt_indicator_usage_guide.py
 
       - name: Commit weekly theme review outputs
         run: |
@@ -55,12 +57,17 @@ jobs:
           git add output/latest/calendar_data_source_status_latest.json || true
           git add output/latest/catalyst_needs_review_latest.csv || true
           git add output/latest/catalyst_needs_review_latest.md || true
+          git add output/latest/all_candidates_latest.csv || true
+          git add output/latest/all_candidates_latest.xlsx || true
+          git add output/latest/fundamental_catalyst_layer_latest.md || true
           git add output/latest/event_calendar_validation_latest.md || true
           git add output/latest/event_calendar_validation_latest.json || true
           git add output/latest/catalyst_data_source_status_latest.md || true
           git add output/latest/catalyst_data_source_status_latest.json || true
           git add output/latest/catalyst_summary_latest.csv || true
           git add output/latest/catalyst_summary_latest.md || true
+          git add output/latest/chatgpt_indicator_usage_guide_latest.md || true
+          git add output/latest/CHATGPT_INDICATOR_USAGE_GUIDE.txt || true
           git add output/latest/theme_event_watch_latest.csv || true
           git add output/latest/theme_event_watch_latest.md || true
           git add output/latest/catalyst_layer_validation_latest.md || true

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14 08:05:38 Asia/Taipei",
+  "generated_at": "2026-06-14 12:40:22 Asia/Taipei",
   "status": "pass",
   "schema_only": false,
   "issues": [],
@@ -7,26 +7,26 @@
     "company_event_calendar": {
       "path": "data/company_calendar/company_event_calendar.csv",
       "exists": true,
-      "rows": 1765,
-      "size_bytes": 783314
+      "rows": 2287,
+      "size_bytes": 1016801
     },
     "macro_event_calendar": {
       "path": "data/macro_events/macro_event_calendar.csv",
       "exists": true,
-      "rows": 39,
-      "size_bytes": 13221
+      "rows": 52,
+      "size_bytes": 17849
     },
     "upcoming_company_calendar": {
       "path": "output/latest/upcoming_catalyst_calendar_latest.csv",
       "exists": true,
-      "rows": 819,
-      "size_bytes": 344508
+      "rows": 1075,
+      "size_bytes": 459425
     },
     "upcoming_macro_calendar": {
       "path": "output/latest/upcoming_macro_event_calendar_latest.csv",
       "exists": true,
-      "rows": 13,
-      "size_bytes": 4461
+      "rows": 20,
+      "size_bytes": 6932
     },
     "theme_event_calendar": {
       "path": "data/theme_events/theme_event_calendar.csv",
@@ -44,31 +44,31 @@
       "path": "output/latest/theme_event_watch_latest.md",
       "exists": true,
       "rows": 0,
-      "size_bytes": 8993
+      "size_bytes": 9095
     },
     "status_json": {
       "path": "output/latest/calendar_data_source_status_latest.json",
       "exists": true,
       "rows": 0,
-      "size_bytes": 2519
+      "size_bytes": 2820
     },
     "status_md": {
       "path": "output/latest/calendar_data_source_status_latest.md",
       "exists": true,
       "rows": 0,
-      "size_bytes": 2236
+      "size_bytes": 2386
     },
     "needs_review_csv": {
       "path": "output/latest/catalyst_needs_review_latest.csv",
       "exists": true,
-      "rows": 4,
-      "size_bytes": 2497
+      "rows": 2,
+      "size_bytes": 1600
     },
     "needs_review_md": {
       "path": "output/latest/catalyst_needs_review_latest.md",
       "exists": true,
       "rows": 0,
-      "size_bytes": 2009
+      "size_bytes": 1645
     }
   }
 }
