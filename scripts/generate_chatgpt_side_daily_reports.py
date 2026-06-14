@@ -153,13 +153,6 @@ def fetch_remote_readme_values(request_date: str) -> tuple[dict[str, str], str]:
     raise RuntimeError(f"remote_readme_fetch_failed: {detail}")
 
 
-def local_readme_values() -> dict[str, str]:
-    path = LATEST / "READ_ME_FIRST_DAILY_REPORT.txt"
-    if not path.exists():
-        raise RuntimeError(f"local_readme_missing: {path}")
-    return parse_key_value_text(path.read_text(encoding="utf-8", errors="replace"))
-
-
 def enforce_fresh_repo_data() -> None:
     global DATA_DATE, DATA_DATE_SLASH, REQUEST_DATE, REQUEST_DATE_SLASH, REMOTE_README
 
@@ -361,11 +354,6 @@ def clean(value, default: str = "") -> str:
     if s.lower() in {"nan", "none", "nat", "<na>"}:
         return default
     return s
-
-
-def has_text(value) -> bool:
-    s = clean(value)
-    return bool(s) and s.lower() not in {"false", "0", "[]", "{}", "no", "none"}
 
 
 CODE_REPLACEMENTS = [
@@ -746,11 +734,6 @@ def zh_mainstream_label(value) -> str:
     return MAINSTREAM_LABELS.get(raw, raw)
 
 
-def zh_volume_status(value) -> str:
-    raw = clean(value, "volume_status_missing")
-    return VOLUME_STATUS_LABELS.get(raw, raw)
-
-
 def zh_theme_name(value) -> str:
     raw = clean(value, "資料不足")
     return {"other": "其他", "TWSE": "整體上市"}.get(raw, raw)
@@ -928,19 +911,6 @@ def tdcc_detail(row: pd.Series, extra: pd.Series | None = None) -> str:
     return "；".join([p for p in parts if p]) or "TDCC資料不足"
 
 
-def tdcc_latest_levels(row: pd.Series, extra: pd.Series | None = None) -> str:
-    extra = extra if isinstance(extra, pd.Series) else pd.Series(dtype=object)
-    sid = clean(series_value(row, extra, "stock_id"))
-    latest = latest_tdcc_window_row(sid)
-    parts = []
-    for level in ("400", "600", "800", "1000"):
-        ratio = num(latest.get(f"over_{level}_ratio"), 2, "%")
-        change = signed_num(latest.get(f"over_{level}_change_1w"), 2)
-        if ratio:
-            parts.append(f"{level}張 {ratio} / {change or '0'}")
-    return "；".join(parts) or "級距資料不足"
-
-
 def zh_warrant(value) -> str:
     raw = clean(value, "no_signal")
     if raw in WARRANT_SIGNAL_LABELS:
@@ -999,73 +969,6 @@ def zh_market_reason(value) -> str:
     return text.replace("; ", "；")
 
 
-def zh_research_note(row: pd.Series) -> str:
-    priority = clean(row.get("research_priority"))
-    caveat = clean(row.get("research_caveat"))
-    pieces = []
-    if priority:
-        pieces.append(
-            {
-                "A_strict_research_watch": "嚴格研究觀察名單",
-            }.get(priority, "研究觀察名單")
-        )
-    if "research_only" in caveat:
-        pieces.append("僅供研究，不直接改變核心權重")
-    if "entry_basis_D+1_open" in caveat:
-        pieces.append("進場基準需看次日開盤後確認")
-    if "target_next_open_to_high_10pct" in caveat:
-        pieces.append("觀察次日開盤至高點的短線彈性")
-    if "strict_no_latest_theme_label" in caveat:
-        pieces.append("未納入最新族群標籤")
-    return "；".join(pieces) or "資料不足 / 僅能觀察"
-
-
-def line_group_action(group, status) -> str:
-    group_raw = clean(group)
-    status_raw = clean(status)
-    if group_raw == "mainstream_leader_stock":
-        return "主線核心。只挑 A 級與價量續強者，失去族群領先或爆量長上影就先降低部位。"
-    if group_raw == "mainstream_follow_through_stock":
-        return "主線續強。可列優先追蹤，但需等待突破、回測或量能延續，不追高。"
-    if group_raw == "two_line_overlap":
-        return "族群與個股條件重疊。優先檢查下一確認條件，成立才可升級。"
-    if group_raw == "non_mainstream_flow_watch":
-        return "非主流輪動。條件乾淨時可列短線考慮，但不能補位成主流資金線。"
-    if group_raw == "individual_tdcc_latent_watch":
-        return "非主流個股線。只看個股確認，不當成族群主線，不用族群熱度追價。"
-    if group_raw == "individual_revenue_low_response_watch":
-        return "營收低反應線。等價格與量能開始反應，EPS / 毛利未確認前不升級。"
-    if group_raw == "emerging_theme_watch":
-        return "早期題材。樣本少，只能觀察族群是否擴散，不直接列核心。"
-    if group_raw == "risk" or "overheated" in status_raw:
-        return "暫不列前排。先等突破、量能或籌碼重新確認；沒確認就只列追蹤。"
-    return "資料不足 / 僅能觀察；不得用原始代碼自行升級。"
-
-
-def volume_action(theme_status, volume_status, structural_status=None, mainstream_label=None) -> str:
-    theme = clean(theme_status)
-    status = clean(volume_status)
-    structural = clean(structural_status)
-    label = clean(mainstream_label)
-    if structural == "non_mainstream_theme":
-        return "非主流族群放量。可列短線輪動考慮，不能放進主流資金線。"
-    if "overheated" in label or status in {"overheated_volume_theme", "failed_volume_theme"}:
-        return "量能過熱或突破失敗。先不追，等重新站穩後再看。"
-    if status == "confirmed_volume_theme":
-        return "族群放量已確認。只從主流或雙線交集名單挑選，仍需個股價量確認，不追單日急拉。"
-    if status == "watch_volume_theme":
-        return "族群有放量跡象但廣度仍不足。等待第二批個股跟進或回測不破後再升級。"
-    if status == "early_mainstream_candidate":
-        return "早期主流候選。先看族群擴散，不直接當核心推薦。"
-    if status == "single_stock_volume_attack":
-        return "偏單股訊號。不能代表族群主線，只回到該股下一確認條件。"
-    if status in {"overheated_volume_theme", "failed_volume_theme", "weak_or_non_mainstream_volume_watch"}:
-        return "放量品質不夠好。先不追，等重新確認。"
-    if "overheated" in theme:
-        return "短線漲幅或量能過熱。放量訊號只能提醒風險升高，不能當操作依據。"
-    return "資料不足 / 僅能觀察；不得只因放量就升級。"
-
-
 def two_line_row(row: pd.Series, two_map: dict[str, pd.Series]) -> pd.Series:
     sid = clean(row.get("stock_id"))
     cat = clean(row.get("original_category_cn") or row.get("category_cn"))
@@ -1100,44 +1003,6 @@ def line_structure(row: pd.Series, two_map: dict[str, pd.Series]) -> tuple[str, 
     )
 
 
-def line_bucket(row: pd.Series, two_map: dict[str, pd.Series]) -> str:
-    source, _, group, _ = line_source(row, two_map)
-    _, status = line_raw(row, two_map)
-    structural, label = line_structure(row, two_map)
-    if (
-        structural == "core_mainstream_theme"
-        and status in MAINSTREAM_THEME_STATUSES
-        and source != RISK_SOURCE
-        and group != "risk"
-        and "overheated" not in label
-    ):
-        return "主流資金線"
-    if source == RISK_SOURCE or status in RISK_THEME_STATUSES or group == "risk" or "overheated" in label:
-        return "先不追 / 等確認"
-    if structural == "non_mainstream_theme" or source == "individual_quality_candidate" or group == "non_mainstream_flow_watch":
-        return "非主流輪動觀察"
-    if status == "emerging_theme":
-        return "早期題材觀察"
-    if status == "single_name_signal":
-        return "個股訊號觀察"
-    if source == LATENT_SOURCE:
-        return "個股潛伏觀察"
-    return "分線資料不足"
-
-
-def is_mainstream_row(row: pd.Series, two_map: dict[str, pd.Series]) -> bool:
-    source, _, group, _ = line_source(row, two_map)
-    _, status = line_raw(row, two_map)
-    structural, label = line_structure(row, two_map)
-    return (
-        structural == "core_mainstream_theme"
-        and status in MAINSTREAM_THEME_STATUSES
-        and source != RISK_SOURCE
-        and group != "risk"
-        and "overheated" not in label
-    )
-
-
 def is_core_mainstream_row(row: pd.Series, two_map: dict[str, pd.Series]) -> bool:
     structural, _ = line_structure(row, two_map)
     return structural == "core_mainstream_theme"
@@ -1147,65 +1012,6 @@ def is_strict_breakout_row(row: pd.Series) -> bool:
     category = category_display(clean(row.get("original_category_cn") or row.get("category_cn"))).lower()
     raw_category = clean(row.get("original_category_cn") or row.get("category_cn")).lower()
     return "嚴格突破" in category or raw_category in {"true_breakout", "breakout"}
-
-
-def has_individual_overheat(row: pd.Series) -> bool:
-    overheat = clean(row.get("overheat_status")).lower()
-    if overheat and overheat not in {"not_overheated", "normal", "none", "nan"} and "overheated" in overheat:
-        return True
-    text = clean(row.get("downgrade_flags") or row.get("why_downgraded") or row.get("risk_tags")).lower()
-    return any(
-        token in text
-        for token in (
-            "overheat",
-            "過熱",
-            "已反應",
-            "priced_in",
-            "return_20d_gt_30",
-            "distance_ma20_gt_20",
-            "short_term_volume_overheat",
-            "catalyst_overheated",
-        )
-    )
-
-
-def split_mainstream_rows(rows: list[pd.Series], two_map: dict[str, pd.Series]) -> tuple[list[pd.Series], list[pd.Series]]:
-    main = [row for row in rows if is_core_mainstream_row(row, two_map)]
-    non = [row for row in rows if not is_core_mainstream_row(row, two_map)]
-    return main, non
-
-
-def split_by_official_line(rows: list[pd.Series], two_map: dict[str, pd.Series]) -> tuple[list[pd.Series], list[pd.Series], list[pd.Series]]:
-    main: list[pd.Series] = []
-    latent: list[pd.Series] = []
-    risk: list[pd.Series] = []
-    for row in rows:
-        source, _, group, _ = line_source(row, two_map)
-        _, status = line_raw(row, two_map)
-        _, label = line_structure(row, two_map)
-        if is_mainstream_row(row, two_map):
-            main.append(row)
-        elif source == RISK_SOURCE or status in RISK_THEME_STATUSES or group == "risk" or "overheated" in label:
-            risk.append(row)
-        else:
-            latent.append(row)
-    return main, latent, risk
-
-
-def representative_names(df: pd.DataFrame, group: str, status: str, limit: int = 4) -> str:
-    if df.empty:
-        return "資料不足"
-    sub = df[
-        (df.get("candidate_line_group", pd.Series(dtype=str)).astype(str) == clean(group))
-        & (df.get("theme_final_status", pd.Series(dtype=str)).astype(str) == clean(status))
-    ].copy()
-    if sub.empty:
-        return "資料不足"
-    if "model_score" in sub.columns:
-        sub["_score"] = pd.to_numeric(sub["model_score"], errors="coerce")
-        sub = sub.sort_values("_score", ascending=False)
-    names = [f"{clean(r.get('stock_id'))} {clean(r.get('stock_name'))}".strip() for _, r in sub.head(limit).iterrows()]
-    return "、".join([n for n in names if n]) or "資料不足"
 
 
 def candidate_mainstream_bucket(row: pd.Series, two_map: dict[str, pd.Series] | None = None) -> int:
@@ -1389,31 +1195,6 @@ def build_table(
     return table
 
 
-def build_summary_table(rows: list[list], widths: list[float]) -> Table:
-    data: list[list] = []
-    for idx, row in enumerate(rows):
-        if idx == 0:
-            data.append([rich_para(escape_html(cell), SUMMARY_HEADER) for cell in row])
-        else:
-            data.append([rich_para(cell, SUMMARY_CELL) for cell in row])
-    table = Table(data, colWidths=widths, repeatRows=1, splitByRow=1)
-    table.setStyle(
-        TableStyle(
-            [
-                ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#1f4e79")),
-                ("GRID", (0, 0), (-1, -1), 0.35, colors.HexColor("#b7b7b7")),
-                ("VALIGN", (0, 0), (-1, -1), "TOP"),
-                ("LEFTPADDING", (0, 0), (-1, -1), 5),
-                ("RIGHTPADDING", (0, 0), (-1, -1), 5),
-                ("TOPPADDING", (0, 0), (-1, -1), 2),
-                ("BOTTOMPADDING", (0, 0), (-1, -1), 2),
-                ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, colors.HexColor("#f6f8fa")]),
-            ]
-        )
-    )
-    return table
-
-
 def date_note() -> Paragraph:
     return para(
         f"主資料日期：{DATA_DATE_SLASH}；本次請求日期：{REQUEST_DATE_SLASH}。",
@@ -1507,61 +1288,6 @@ def model_signal_tag(
 
 def display_signal_tag(tag: str) -> str:
     return clean(tag, "模型命中")
-
-
-def is_report_risk_line(row: pd.Series, two_map: dict[str, pd.Series]) -> bool:
-    source, _, group, _ = line_source(row, two_map)
-    return source == RISK_SOURCE or group == "risk" or model_risk_order(row) >= 3
-
-
-def line_status(row: pd.Series, two_map: dict[str, pd.Series]) -> tuple[str, str]:
-    group, theme_status = line_raw(row, two_map)
-    structural, label = line_structure(row, two_map)
-    status_text = f"{zh_theme_status(theme_status)} / {zh_structural_status(structural)} / {zh_mainstream_label(label)}"
-    return zh_line_group(group), status_text
-
-
-def technical_state(row: pd.Series, extra: pd.Series) -> str:
-    close = num(row.get("close"))
-    vol = num(row.get("volume_ratio"), 2)
-    r5 = num(row.get("return_5d"), 2, "%")
-    r20 = num(row.get("return_20d"), 2, "%")
-    ema23 = num(extra.get("ema23"))
-    ma20 = num(extra.get("ma20"))
-    ma60 = num(extra.get("ma60"))
-    high = num(extra.get("previous_60d_high") or extra.get("previous_high"))
-    parts = [
-        f"收盤 {close}" if close else "",
-        f"成交量約 {vol} 倍" if vol else "",
-        f"5日 {r5}" if r5 else "",
-        f"20日 {r20}" if r20 else "",
-        f"23EMA {ema23}" if ema23 else "",
-        f"MA20 {ma20}" if ma20 else "",
-        f"MA60 {ma60}" if ma60 else "",
-        f"前高/60日高 {high}" if high else "",
-    ]
-    return "；".join([p for p in parts if p]) or "資料不足 / 僅能觀察"
-
-
-def technical_state_brief(row: pd.Series, extra: pd.Series) -> str:
-    source = extra if isinstance(extra, pd.Series) and not extra.empty else row
-    stage = translate_codes(first_text(row.get("pattern_stage"), source.get("pattern_stage"), row.get("breakout_type"), source.get("pattern_route")))
-    level_label, level_text, _ = key_level_context(row, extra)
-    r5 = num(first_text(row.get("return_5d"), source.get("return_5d_pct")), 2, "%")
-    r20 = num(first_text(row.get("return_20d"), source.get("return_20d_pct")), 2, "%")
-    broke = clean(source.get("neckline_breakout_flag")).lower() == "true" or clean(source.get("platform_breakout_flag")).lower() == "true"
-    vol_ok = clean(source.get("volume_confirmed_breakout")).lower() == "true"
-    false_risk = clean(source.get("false_breakout_risk")).lower() == "true"
-    parts = [
-        stage or "",
-        "已突破" if broke else "挑戰壓力",
-        f"{level_label} {level_text}" if level_label and level_text else "",
-        f"5日 {r5}" if r5 else "",
-        f"20日 {r20}" if r20 else "",
-        "成交量放大" if vol_ok else "",
-        "漲幅過低" if false_risk else "",
-    ]
-    return "；".join([p for p in parts if p]) or "資料不足 / 僅能觀察"
 
 
 def key_level_context(row: pd.Series, extra: pd.Series) -> tuple[str, str, float | None]:
@@ -2512,154 +2238,6 @@ def filter_theme_rows_for_line(themes: pd.DataFrame, line: str) -> pd.DataFrame:
     return themes[mask].copy()
 
 
-def valid_volume_themes(volume_layer: pd.DataFrame) -> pd.DataFrame:
-    if volume_layer.empty:
-        return volume_layer
-    df = volume_layer[
-        ~volume_layer.get("theme_name", pd.Series(dtype=str)).astype(str).str.lower().isin({"", "other", "nan"})
-    ].copy()
-    df = df[df.get("theme_volume_attack_status", pd.Series(dtype=str)).astype(str) != "theme_status_missing"].copy()
-    if "volume_attack_count" in df.columns:
-        df["_attack_count"] = pd.to_numeric(df["volume_attack_count"], errors="coerce").fillna(0)
-        df = df[df["_attack_count"] > 0].copy()
-    else:
-        df["_attack_count"] = 0
-    for col in ("theme_breadth_score", "theme_strength_score", "theme_risk_score", "median_volume_ratio"):
-        df[f"_{col}"] = pd.to_numeric(df.get(col, pd.Series(dtype=float)), errors="coerce").fillna(0)
-    df["_overheated"] = (
-        df.get("theme_volume_attack_status", pd.Series(dtype=str)).astype(str).str.contains("overheated", case=False, na=False)
-        | df.get("theme_mainstream_label", pd.Series(dtype=str)).astype(str).str.contains("overheated", case=False, na=False)
-        | df.get("theme_final_status", pd.Series(dtype=str)).astype(str).str.contains("overheated", case=False, na=False)
-    ).astype(int)
-    df["_above2_count"] = pd.to_numeric(df.get("volume_ratio_above_2_0_count", pd.Series(dtype=float)), errors="coerce").fillna(0)
-    df["_leader_confirmed"] = df.get("leader_confirmed", pd.Series(dtype=str)).astype(str).str.lower().isin({"true", "1", "yes"})
-    collective_status = df.get("theme_volume_attack_status", pd.Series(dtype=str)).astype(str).isin(
-        {"confirmed_volume_theme", "watch_volume_theme"}
-    )
-    mainstream_structure = df.get("theme_structural_status", pd.Series(dtype=str)).astype(str).eq("core_mainstream_theme")
-    breadth_ok = (
-        (df["_attack_count"] >= 3)
-        & (df["_above2_count"] >= 2)
-        & (df["_median_volume_ratio"] >= 1.8)
-        & (collective_status | mainstream_structure)
-    )
-    df = df[(df["_overheated"] == 0) & breadth_ok].copy()
-    return df.sort_values(
-        ["_theme_breadth_score", "_above2_count", "_attack_count", "_median_volume_ratio", "_theme_strength_score"],
-        ascending=[False, False, False, False, False],
-    )
-
-
-def volume_theme_stock_rows(volume_stocks: pd.DataFrame, theme_name: str, limit: int = 3) -> list[pd.Series]:
-    if volume_stocks.empty or "theme_name" not in volume_stocks.columns:
-        return []
-    sub = volume_stocks[volume_stocks["theme_name"].astype(str) == clean(theme_name)].copy()
-    if sub.empty:
-        return []
-    sub["_rank"] = pd.to_numeric(sub.get("volume_breakout_rank", pd.Series(dtype=float)), errors="coerce").fillna(9999)
-    sub["_score"] = pd.to_numeric(sub.get("volume_breakout_score", pd.Series(dtype=float)), errors="coerce").fillna(0)
-    sub["_ratio"] = pd.to_numeric(sub.get("volume_ratio", pd.Series(dtype=float)), errors="coerce").fillna(0)
-    sub = sub.sort_values(["_rank", "_score", "_ratio"], ascending=[True, False, False])
-    return [row for _, row in sub.head(limit).iterrows()]
-
-
-def volume_leader_name(rows: list[pd.Series], idx: int) -> str:
-    if idx >= len(rows):
-        return "-"
-    return stock_label(rows[idx])
-
-
-def volume_theme_next_flow_note(row: pd.Series) -> str:
-    status = clean(row.get("theme_volume_attack_status"))
-    label = clean(row.get("theme_mainstream_label"))
-    attack_count = to_float(row.get("volume_attack_count")) or 0
-    if "overheated" in status or "overheated" in label:
-        return "已出量但短線過熱，偏已反應；等回測或第二波擴散。"
-    if status == "single_stock_volume_attack" or attack_count <= 1:
-        return "目前偏單一個股；看老二、老三是否補量。"
-    if status == "non_mainstream_volume_watch":
-        return "非主流輪動出量；可用來預判資金是否擴散。"
-    if status == "watch_volume_theme":
-        return "族群剛開始出量；等第二批個股跟上。"
-    if status == "confirmed_volume_theme":
-        return "族群出量已確認；優先看龍頭回測不破。"
-    return "有出量證據；用來追蹤下一波資金，不直接當操作依據。"
-
-
-def build_volume_theme_section(
-    story: list,
-    volume_layer: pd.DataFrame,
-    volume_stocks: pd.DataFrame,
-    chart_limit: int = 12,
-) -> None:
-    themes = valid_volume_themes(volume_layer)
-    if themes.empty:
-        story.append(Paragraph("族群集體出量", H1))
-        story.append(
-            para(
-                "今日無合格族群。集體出量必須是多檔同步、2倍以上量能有擴散，且不是短線過熱或單股輪動；未達條件不列龍頭表，也不畫龍頭 K 線。",
-                BODY,
-            )
-        )
-        return
-    story.append(Paragraph("族群集體出量（預判下一波資金）", H1))
-    story.append(
-        para(
-            "用途：只列多檔同步、2倍以上量能有擴散，且不是短線過熱或單股輪動的族群。這裡是資金流向預判，不是直接操作名單。",
-            BODY_SMALL,
-        )
-    )
-    rows = [["族群", "出量強度", "龍頭", "老二", "老三", "判讀"]]
-    leaders_for_charts: list[tuple[str, pd.Series]] = []
-    for _, r in themes.iterrows():
-        theme = zh_theme_name(r.get("theme_name"))
-        stock_rows = volume_theme_stock_rows(volume_stocks, clean(r.get("theme_name")), limit=3)
-        if stock_rows:
-            leaders_for_charts.append((theme, stock_rows[0]))
-        strength = (
-            f"{num(r.get('volume_attack_count'), 0)}檔出量；"
-            f"中位成交量約 {num(r.get('median_volume_ratio'), 2)}倍；"
-            f"2倍以上 {num(r.get('volume_ratio_above_2_0_count'), 0)}檔"
-        )
-        rows.append(
-            [
-                theme,
-                strength,
-                volume_leader_name(stock_rows, 0),
-                volume_leader_name(stock_rows, 1),
-                volume_leader_name(stock_rows, 2),
-                volume_theme_next_flow_note(r),
-            ]
-        )
-    story.append(build_table(rows, [28 * mm, 47 * mm, 34 * mm, 34 * mm, 34 * mm, 91 * mm], 12.0))
-
-    chart_items: list[list] = []
-    for theme, row in leaders_for_charts[:chart_limit]:
-        sid = stock_id_text(row.get("stock_id"))
-        name = clean(row.get("stock_name"))
-        chart = plot_stock_chart(sid, name, row)
-        if chart:
-            img = Image(str(chart), width=252 * mm, height=105 * mm)
-            img.hAlign = "CENTER"
-            chart_items.append(
-                [
-                    Paragraph(f"{escape_html(theme)} 龍頭：{escape_html(sid)} {escape_html(name)}", H2),
-                    img,
-                ]
-            )
-    if chart_items:
-        story.append(Spacer(1, 7))
-        story.append(Paragraph("出量族群龍頭 K 線", H2))
-        for item in chart_items:
-            story.append(KeepTogether(item))
-
-
-
-
-
-
-
-
 def mainstream_curated_operation_representatives(
     ranked_rows: list[pd.Series],
     total_limit: int = 3,
@@ -2691,107 +2269,6 @@ def category_position_text(row: pd.Series, two_map: dict[str, pd.Series]) -> str
     if "overheated" in status or "overheated" in label:
         return "短線過熱，先等回測。"
     return "資料不足，只能觀察。"
-
-
-def pattern_subtype_label(row: pd.Series, extra: pd.Series | None = None) -> str:
-    return pattern_stage_label(row, prefer_w_bottom=True, extra=extra) or "型態待確認"
-
-
-def pattern_subtype_order_key(label: str) -> int:
-    try:
-        return PATTERN_SUBTYPE_ORDER.index(label)
-    except ValueError:
-        return len(PATTERN_SUBTYPE_ORDER)
-
-
-def pattern_subtype_lines(
-    rows: list[pd.Series],
-    limit: int,
-    all_map: dict[str, pd.Series],
-    two_map: dict[str, pd.Series],
-    vol_map: dict[str, pd.Series] | None = None,
-) -> list[str]:
-    lines: list[str] = []
-    for row in rows[:limit]:
-        tag = display_signal_tag(model_signal_tag(row, two_map, vol_map or {}))
-        lines.append(f"{escape_html(stock_label(row))}｜{escape_html(model_score_label(row))}｜{escape_html(tag)}")
-    return lines
-
-
-def pattern_subtype_overview_table(
-    ranked_rows: list[pd.Series],
-    all_map: dict[str, pd.Series],
-    two_map: dict[str, pd.Series],
-    vol_map: dict[str, pd.Series] | None = None,
-    main_limit: int = PATTERN_SUBTYPE_MAIN_LIMIT,
-    non_limit: int = PATTERN_SUBTYPE_NON_LIMIT,
-) -> Table:
-    grouped: dict[str, list[pd.Series]] = {}
-    for row in ranked_rows:
-        extra = all_map.get(clean(row.get("stock_id")), pd.Series(dtype=object))
-        grouped.setdefault(pattern_subtype_label(row, extra), []).append(row)
-    labels = sorted(grouped, key=pattern_subtype_order_key)
-    data = [["型態分型", f"主流前{main_limit}", f"非主流前{non_limit}", "看法"]]
-    for label in labels:
-        main_rows, non_rows = split_mainstream_rows(grouped[label], two_map)
-        main_lines = pattern_subtype_lines(main_rows, main_limit, all_map, two_map, vol_map)
-        non_lines = pattern_subtype_lines(non_rows, non_limit, all_map, two_map, vol_map)
-        if not main_lines and not non_lines:
-            continue
-        if label == "W底右側":
-            note = "優先觀察底部右側是否延續，不能只因回升就追價。"
-        elif label == "已突破待確認":
-            note = "已突破但仍看是否守住關鍵價，跌回就降級。"
-        elif label == "接近突破":
-            note = "接近壓力，等放量突破才升級。"
-        elif label == "平台右側":
-            note = "平台整理偏右側，等站上平台壓力。"
-        elif label == "回測支撐":
-            note = "看回測是否守住支撐，失守列為模型失效。"
-        elif label == "預備發動":
-            note = "早期轉強，先看量價是否延續。"
-        elif label == "築底整理":
-            note = "仍在整理，等待模型條件完整。"
-        else:
-            note = "型態資料不足，只能觀察。"
-        data.append(
-            [
-                red(label),
-                "<br/>".join(main_lines) if main_lines else "無主流候選",
-                "<br/>".join(non_lines) if non_lines else "無非主流候選",
-                note,
-            ]
-        )
-    if len(data) == 1:
-        data.append(["型態待確認", "無主流候選", "無非主流候選", "資料不足，只能觀察。"])
-    return build_table(data, [34 * mm, 82 * mm, 58 * mm, 94 * mm], 12.0)
-
-
-def pattern_subtype_representatives(
-    ranked_rows: list[pd.Series],
-    all_map: dict[str, pd.Series],
-    two_map: dict[str, pd.Series],
-    total_limit: int = PATTERN_SUBTYPE_OPERATION_LIMIT,
-) -> list[pd.Series]:
-    grouped: dict[str, list[pd.Series]] = {}
-    for row in ranked_rows:
-        extra = all_map.get(clean(row.get("stock_id")), pd.Series(dtype=object))
-        grouped.setdefault(pattern_subtype_label(row, extra), []).append(row)
-    reps: list[pd.Series] = []
-    seen: set[str] = set()
-    for label in sorted(grouped, key=pattern_subtype_order_key):
-        main_rows, non_rows = split_mainstream_rows(grouped[label], two_map)
-        candidates = main_rows or non_rows
-        if not candidates:
-            continue
-        row = candidates[0]
-        sid = clean(row.get("stock_id"))
-        if sid and sid not in seen:
-            reps.append(row)
-            seen.add(sid)
-        if len(reps) >= total_limit:
-            break
-    return reps
 
 
 def drawback_brief(
@@ -2907,40 +2384,6 @@ def price_plan_summary(row: pd.Series, extra: pd.Series) -> str:
     if pressures:
         parts.append("壓力 " + " / ".join(num(v) for v in pressures))
     return " / ".join([p for p in parts if p]) or "關鍵價資料不足"
-
-
-def quality_reason(row: pd.Series, extra: pd.Series | None = None) -> str:
-    source = extra if isinstance(extra, pd.Series) and not extra.empty else row
-    parts: list[str] = []
-    tdcc = tdcc_direction(row, source).replace("大戶籌碼：", "大戶")
-    if tdcc:
-        parts.append(tdcc)
-    ret20 = to_float(first_text(row.get("return_20d"), source.get("return_20d_pct")))
-    if ret20 is not None:
-        if ret20 <= 10:
-            parts.append("位階較低")
-        elif ret20 <= 20:
-            parts.append("位階尚可")
-        elif ret20 <= 30:
-            parts.append("短線漲幅偏高")
-        else:
-            parts.append("短線漲幅過大")
-    vol = to_float(first_text(row.get("volume_ratio"), source.get("volume_ratio")))
-    if vol is not None:
-        if 1.5 <= vol <= 5:
-            parts.append("量能放大")
-        elif vol > 5:
-            parts.append("量大偏急")
-        elif vol > 0:
-            parts.append("量能不足")
-    overheat = clean(first_text(row.get("overheat_status"), source.get("overheat_status"))).lower()
-    if overheat in {"not_overheated", "normal", "none", ""}:
-        parts.append("未過熱")
-    elif "priced_in" in overheat:
-        parts.append("已反應風險")
-    elif "overheated" in overheat:
-        parts.append("過熱風險")
-    return " / ".join(parts[:4]) or "依程式端品質排序"
 
 
 def next_confirmation_summary(row: pd.Series, extra: pd.Series) -> str:

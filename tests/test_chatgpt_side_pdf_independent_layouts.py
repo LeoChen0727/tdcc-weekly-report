@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from scripts import validate_chatgpt_side_pdf_layout_independence as validator
+
 
 ROOT = Path(__file__).resolve().parents[1]
 GENERATOR = ROOT / "scripts" / "generate_chatgpt_side_daily_reports.py"
@@ -57,6 +59,10 @@ def test_six_chatgpt_side_pdf_builders_are_explicit_independent_entrypoints() ->
     assert "LINE_TITLE_MAP" not in text
 
 
+def test_pdf_layout_independence_validator_passes() -> None:
+    assert validator.main() == 0
+
+
 def test_stock_pdf_layout_builders_do_not_share_line_dispatch() -> None:
     text = _source()
 
@@ -86,4 +92,3 @@ def test_candidate_pdf_layout_components_are_report_specific() -> None:
     assert "def append_group_rotation_end_section(" not in text
     assert "def build_operation_page(" not in text
     assert "def operation_representatives(" not in text
-
