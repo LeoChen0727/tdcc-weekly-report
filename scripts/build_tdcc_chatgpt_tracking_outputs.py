@@ -16,6 +16,7 @@ from tracking_utils import (  # noqa: E402
     markdown_table,
     normalize_code,
     now_text,
+    pages_url,
     raw_url,
     read_csv,
     safe_str,
@@ -44,6 +45,20 @@ PHASE_CSV = LATEST_DIR / "tdcc_phase_distribution_latest.csv"
 TOP_RISK_MD = LATEST_DIR / "tdcc_top_risk_list_latest.md"
 TOP_RISK_CSV = LATEST_DIR / "tdcc_top_risk_list_latest.csv"
 PACKET_MD = LATEST_DIR / "tdcc_chatgpt_tracking_packet_latest.md"
+WEEKLY_INCREASE_MD = LATEST_DIR / "tdcc_weekly_increase_ranking_latest.md"
+WEEKLY_INCREASE_CSV = LATEST_DIR / "tdcc_weekly_increase_ranking_latest.csv"
+CONSECUTIVE_MD = LATEST_DIR / "tdcc_consecutive_accumulation_ranking_latest.md"
+CONSECUTIVE_CSV = LATEST_DIR / "tdcc_consecutive_accumulation_ranking_latest.csv"
+MODEL_CROSS_MD = LATEST_DIR / "tdcc_weekly_model_cross_summary_latest.md"
+MODEL_CROSS_CSV = LATEST_DIR / "tdcc_weekly_model_cross_summary_latest.csv"
+WEEKLY_HIGHLIGHT_FOR_REPORT_MD = LATEST_DIR / "tdcc_weekly_candidate_highlight_for_report_latest.md"
+WEEKLY_HIGHLIGHT_FOR_REPORT_CSV = LATEST_DIR / "tdcc_weekly_candidate_highlight_for_report_latest.csv"
+WEEKLY_FULL_FOR_REPORT_MD = LATEST_DIR / "tdcc_weekly_candidate_full_for_report_latest.md"
+WEEKLY_FULL_FOR_REPORT_CSV = LATEST_DIR / "tdcc_weekly_candidate_full_for_report_latest.csv"
+WEEKLY_HIGHLIGHT_MD = LATEST_DIR / "tdcc_weekly_candidate_highlight_latest.md"
+WEEKLY_FULL_MD = LATEST_DIR / "tdcc_weekly_candidate_full_latest.md"
+WEEKLY_HIGHLIGHT_PDF = LATEST_DIR / "tdcc_weekly_candidate_highlight_latest.pdf"
+WEEKLY_FULL_PDF = LATEST_DIR / "tdcc_weekly_candidate_full_latest.pdf"
 
 README_PATHS = [
     LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT.txt",
@@ -1363,6 +1378,27 @@ def write_packet(meta: dict[str, Any], strength_top: pd.DataFrame, abm_top: pd.D
         "",
         markdown_table(performance, PHASE_PERFORMANCE_COLUMNS),
         "",
+        "## TDCC Weekly Increase and Consecutive Candidate Reports",
+        "",
+        "- Highlight and full TDCC weekly candidate reports are generated from report-ready CSV/MD/PDF artifacts.",
+        "- The highlight report includes weekly increase leaders, consecutive accumulation leaders, and TDCC candidates that intersect with daily model signals.",
+        "- The full report keeps the broad weekly increase and consecutive accumulation tables, while model-cross rows are limited to the TDCC short-term continuation model.",
+        "",
+        f"- tdcc_weekly_increase_ranking_csv_raw_url: {raw_url(WEEKLY_INCREASE_CSV)}",
+        f"- tdcc_weekly_increase_ranking_md_raw_url: {raw_url(WEEKLY_INCREASE_MD)}",
+        f"- tdcc_consecutive_accumulation_ranking_csv_raw_url: {raw_url(CONSECUTIVE_CSV)}",
+        f"- tdcc_consecutive_accumulation_ranking_md_raw_url: {raw_url(CONSECUTIVE_MD)}",
+        f"- tdcc_weekly_model_cross_summary_csv_raw_url: {raw_url(MODEL_CROSS_CSV)}",
+        f"- tdcc_weekly_model_cross_summary_md_raw_url: {raw_url(MODEL_CROSS_MD)}",
+        f"- tdcc_weekly_candidate_highlight_for_report_csv_raw_url: {raw_url(WEEKLY_HIGHLIGHT_FOR_REPORT_CSV)}",
+        f"- tdcc_weekly_candidate_highlight_for_report_md_raw_url: {raw_url(WEEKLY_HIGHLIGHT_FOR_REPORT_MD)}",
+        f"- tdcc_weekly_candidate_full_for_report_csv_raw_url: {raw_url(WEEKLY_FULL_FOR_REPORT_CSV)}",
+        f"- tdcc_weekly_candidate_full_for_report_md_raw_url: {raw_url(WEEKLY_FULL_FOR_REPORT_MD)}",
+        f"- tdcc_weekly_candidate_highlight_pdf_raw_url: {raw_url(WEEKLY_HIGHLIGHT_PDF)}",
+        f"- tdcc_weekly_candidate_full_pdf_raw_url: {raw_url(WEEKLY_FULL_PDF)}",
+        f"- tdcc_weekly_candidate_highlight_pdf_pages_url: {pages_url(WEEKLY_HIGHLIGHT_PDF)}",
+        f"- tdcc_weekly_candidate_full_pdf_pages_url: {pages_url(WEEKLY_FULL_PDF)}",
+        "",
         "## Model Tuning Recommendation",
         "",
         "- tuning_status: not_ready",
@@ -1397,6 +1433,22 @@ def upsert_readme_fields() -> None:
         "tdcc_top_risk_list_md_raw_url": raw_url(TOP_RISK_MD),
         "tdcc_top_risk_list_csv_raw_url": raw_url(TOP_RISK_CSV),
         "tdcc_chatgpt_tracking_packet_raw_url": raw_url(PACKET_MD),
+        "tdcc_weekly_increase_ranking_csv_raw_url": raw_url(WEEKLY_INCREASE_CSV),
+        "tdcc_weekly_increase_ranking_md_raw_url": raw_url(WEEKLY_INCREASE_MD),
+        "tdcc_consecutive_accumulation_ranking_csv_raw_url": raw_url(CONSECUTIVE_CSV),
+        "tdcc_consecutive_accumulation_ranking_md_raw_url": raw_url(CONSECUTIVE_MD),
+        "tdcc_weekly_model_cross_summary_csv_raw_url": raw_url(MODEL_CROSS_CSV),
+        "tdcc_weekly_model_cross_summary_md_raw_url": raw_url(MODEL_CROSS_MD),
+        "tdcc_weekly_candidate_highlight_for_report_csv_raw_url": raw_url(WEEKLY_HIGHLIGHT_FOR_REPORT_CSV),
+        "tdcc_weekly_candidate_highlight_for_report_md_raw_url": raw_url(WEEKLY_HIGHLIGHT_FOR_REPORT_MD),
+        "tdcc_weekly_candidate_full_for_report_csv_raw_url": raw_url(WEEKLY_FULL_FOR_REPORT_CSV),
+        "tdcc_weekly_candidate_full_for_report_md_raw_url": raw_url(WEEKLY_FULL_FOR_REPORT_MD),
+        "tdcc_weekly_candidate_highlight_md_raw_url": raw_url(WEEKLY_HIGHLIGHT_MD),
+        "tdcc_weekly_candidate_full_md_raw_url": raw_url(WEEKLY_FULL_MD),
+        "tdcc_weekly_candidate_highlight_pdf_raw_url": raw_url(WEEKLY_HIGHLIGHT_PDF),
+        "tdcc_weekly_candidate_full_pdf_raw_url": raw_url(WEEKLY_FULL_PDF),
+        "tdcc_weekly_candidate_highlight_pdf_pages_url": pages_url(WEEKLY_HIGHLIGHT_PDF),
+        "tdcc_weekly_candidate_full_pdf_pages_url": pages_url(WEEKLY_FULL_PDF),
     }
     for path in README_PATHS:
         existing_lines = path.read_text(encoding="utf-8", errors="replace").splitlines() if path.exists() else []
