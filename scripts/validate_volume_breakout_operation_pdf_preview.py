@@ -13,6 +13,7 @@ PREVIEW_PDF = LATEST_DIR / "volume_breakout_operation_pdf_preview_latest.pdf"
 SPEC_MD = ROOT / "docs" / "specs" / "volume_breakout_operation_pdf_table_spec.md"
 
 REQUIRED_COLUMNS = {
+    "model_id",
     "pdf_view",
     "pdf_section",
     "display_order",
@@ -73,6 +74,9 @@ def main() -> int:
     missing = sorted(REQUIRED_COLUMNS - set(preview.columns))
     if missing:
         fail(f"{PREVIEW_CSV} missing columns: {missing}")
+    bad_models = sorted(set(preview["model_id"].astype(str)) - {"volume_range_breakout"})
+    if bad_models:
+        fail(f"volume breakout operation preview must not include other models: {bad_models}")
 
     bad_views = sorted(set(preview["pdf_view"].astype(str)) - {"highlight", "full"})
     if bad_views:

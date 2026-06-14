@@ -24,6 +24,7 @@ MODEL_ID = "volume_range_breakout"
 HIGHLIGHT_CONFIRMED_LIMIT = 10
 
 PREVIEW_COLUMNS = [
+    "model_id",
     "pdf_view",
     "pdf_section",
     "display_order",
@@ -201,6 +202,7 @@ def classification_note(row: pd.Series) -> str:
 
 def confirmed_row(row: pd.Series, pdf_view: str, pdf_section: str, display_order: int) -> dict[str, Any]:
     return {
+        "model_id": MODEL_ID,
         "pdf_view": pdf_view,
         "pdf_section": pdf_section,
         "display_order": display_order,
@@ -248,6 +250,7 @@ def pending_age_zh(age_value: Any) -> str:
 def pending_row(row: pd.Series, pdf_view: str, pdf_section: str, display_order: int, count: int) -> dict[str, Any]:
     age = int(to_number(row.get("signal_age_trading_days"), 0))
     return {
+        "model_id": MODEL_ID,
         "pdf_view": pdf_view,
         "pdf_section": pdf_section,
         "display_order": display_order,
@@ -322,10 +325,6 @@ def build_preview(rank: pd.DataFrame, pending: pd.DataFrame) -> pd.DataFrame:
 MARKDOWN_HEADERS = {
     "display_order": "排序",
     "model_id": "模型ID",
-    "model_name_zh": "模型",
-    "pdf_visibility": "PDF 層級",
-    "recommended_usage": "研究用途",
-    "research_status_zh": "操作研究狀態",
     "stock_display": "股票",
     "operation_status_zh": "狀態",
     "quality_status_zh": "研究品質",

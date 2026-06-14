@@ -12,6 +12,8 @@ daily PDF 之後若要接入，應只讀 preview 欄位，不在 PDF 端重新�
 ## 共同規則
 
 - 只使用 `volume_range_breakout` 現行模型命中後的研究結果。
+- 本契約只能套用於 `volume_range_breakout`。其他模型尚未完成各自 operation backtest 前，不得沿用本表格產生操作狀態。
+- daily PDF 若接入本 artifact，必須以 `model_id=volume_range_breakout` 精準對應，不得改動其他 PDF core model 的表格、欄位或操作文字。
 - 已確認操作的進場基準固定為「確認後下一交易日開盤」。
 - 停損顯示必須用日期最低點，例如 `跌破 6/13 最低價 49.00`。
 - 不使用 `訊號 K 低點`、`signal_low`、`median` 等內部或英文顯示文字。
@@ -94,3 +96,4 @@ holding 需要 daily production 有持有追蹤狀態後才可正式接入。
 | `planned_exit_zh` | 預定出場 | `進場後第 10 個交易日收盤` |
 
 在 holding 狀態尚未接入前，PDF preview 不應硬生假持有表。
+但 PDF 格式預覽可保留「操作中」空表格，明確顯示目前沒有操作中股票。

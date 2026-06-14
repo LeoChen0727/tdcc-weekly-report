@@ -151,8 +151,6 @@ jobs:
           python scripts/build_volume_breakout_operation_pdf_preview.py
           python scripts/build_volume_breakout_operation_pdf_preview_pdf.py
           python scripts/validate_volume_breakout_operation_pdf_preview.py
-          python scripts/build_research_operation_pdf_format_preview.py
-          python scripts/validate_research_operation_pdf_format_preview.py
 
       - name: Build surge precondition model
         if: ${{ github.event.inputs.run_surge_model == 'true' }}
@@ -214,7 +212,6 @@ jobs:
           git add output/history/research/daily_model_parameter_research.csv || true
           git add output/history/volume_breakout/ || true
           git add output/latest/volume_breakout_*.csv output/latest/volume_breakout_*.md output/latest/volume_breakout_*.pdf || true
-          git add output/latest/research_operation_*.pdf || true
           git add output/latest/historical_pattern_operation_*.csv output/latest/historical_pattern_operation_*.md || true
 
           git add output/latest/surge_model_*.csv output/latest/surge_model_*.md output/latest/surge_precondition_candidates_latest.csv output/latest/surge_precondition_candidates_latest.md || true
