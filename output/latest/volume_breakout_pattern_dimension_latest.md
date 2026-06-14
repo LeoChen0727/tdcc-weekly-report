@@ -1,6 +1,6 @@
 # Volume Breakout Pattern Dimensions
 
-- generated_at: `2026-06-14 21:35:50 Asia/Taipei`
+- generated_at: `2026-06-14 22:34:33 Asia/Taipei`
 - model_id: `volume_range_breakout`
 - unique_event_rows: `4068`
 - dimensions: consolidation, price position, attack method, candle quality, follow-through, risk type.
