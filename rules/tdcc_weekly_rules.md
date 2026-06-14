@@ -1,6 +1,52 @@
 # TDCC Weekly Report Rules
 
+Last updated: 2026-06-12
+
 This task is the TDCC weekly large-holder flow report. It is not the daily full-market stock recommendation report, holdings management, a single-stock report, market-opening analysis, or backtest tuning report.
+
+## Required Read Order
+
+When producing a TDCC weekly large-holder report, read repo raw / GitHub API structured data first. Do not start from PDFs and do not start from `tdcc_signal_performance_latest.md`.
+
+Required order:
+
+1. `output/latest/READ_ME_FIRST_DAILY_REPORT.txt`
+2. `rules/master_priority_rules.md`
+3. `rules/tdcc_weekly_rules.md`
+4. `output/latest/tdcc_weekly_candidate_highlight_for_report_latest.csv`
+5. `output/latest/tdcc_weekly_candidate_full_for_report_latest.csv`
+6. Corresponding Markdown / PDF files only as cross-checks or shareable attachments.
+
+The report-producing conversation or PDF generator must use these program-side report-ready CSV files as the primary rendering contract:
+
+- `output/latest/tdcc_weekly_candidate_highlight_for_report_latest.csv`
+- `output/latest/tdcc_weekly_candidate_full_for_report_latest.csv`
+
+The following files are supporting data only. They must not override the report-ready CSV date, ranking, row inclusion, section assignment, or display fields:
+
+- `tdcc_weekly_increase_ranking_csv_raw_url`
+- `tdcc_consecutive_accumulation_ranking_csv_raw_url`
+- `tdcc_weekly_model_cross_summary_csv_raw_url`
+- `tdcc_top_risk_list_csv_raw_url`
+- `tdcc_chatgpt_tracking_packet_raw_url`
+- `tdcc_signal_performance_latest.md`
+- older PDFs, Markdown summaries, or prior ChatGPT outputs.
+
+## Date Rules
+
+The TDCC weekly report main date is the unique `signal_date` in the report-ready CSV files, not the daily pipeline `main_price_date` and not any historical signal date in `tdcc_signal_performance_latest.md`.
+
+As of the 2026-06-12 handoff, the expected latest TDCC data date is `20260612`. For later weeks, use the current report-ready CSV `signal_date` after validation.
+
+Before producing any TDCC weekly PDF or chat report:
+
+1. Read both report-ready CSV files.
+2. Validate that each file contains exactly one `signal_date`.
+3. Validate that the `signal_date` in the highlight CSV equals the `signal_date` in the full CSV.
+4. If a corresponding PDF / MD begins with `TDCC data date` or equivalent date metadata, validate that it equals the report-ready CSV `signal_date`.
+5. If any date mismatch exists, stop and report the inconsistency. Do not produce the report.
+6. If either report-ready CSV contains multiple `signal_date` values, stop and report the mixed-date error. Do not produce the report.
+7. Do not treat a historical `signal_date` from `tdcc_signal_performance_latest.md`, such as `20260605`, as the current weekly report date.
 
 ## Required Outputs
 
@@ -27,14 +73,14 @@ Score fields may use at most two decimals and must strip redundant trailing zero
 
 PDF text must not print raw slug or snake_case fields. If a display value has no approved Chinese label, render `資料不足 / 暫用現有資料` instead of the raw token.
 
-The report-producing conversation or PDF generator must read these program-side report-ready sources first:
+## Required Four Sections
 
-- `tdcc_weekly_candidate_highlight_for_report_latest.csv`
-- `tdcc_weekly_candidate_highlight_for_report_latest.md`
-- `tdcc_weekly_candidate_full_for_report_latest.csv`
-- `tdcc_weekly_candidate_full_for_report_latest.md`
+Both the highlight report and the full report must use the same four-section structure:
 
-The older ranking, model-cross, and packet files are supporting data. They are not the primary rendering contract when the report-ready files exist.
+1. Weekly increase ranking: one-week large-holder increase.
+2. Consecutive accumulation ranking: continued accumulation for at least two weeks.
+3. Weekly increase x TDCC short-term continuation D+5/D+10.
+4. Consecutive accumulation x TDCC short-term continuation D+5/D+10.
 
 ## Ranking Lines
 
@@ -66,9 +112,13 @@ TDCC is a chip-flow background signal, not a standalone buy command.
 
 - `tdcc_weekly_increase_score` ranks one-week large-holder increases.
 - `tdcc_consecutive_accumulation_score` ranks continued accumulation.
-- `tdcc_phase_group_zh`, `risk_bucket`, `report_usage_zh`, and `operation_note_zh` must be shown or summarized.
+- `tdcc_phase_group_zh`, `risk_bucket_zh`, `why_selected_zh`, `risk_tags_zh`, `next_confirmation_zh`, `recommended_usage_zh`, `report_usage_zh`, and `operation_note_zh` must be shown or summarized from program-side fields.
 - Stocks that are price-leading, overheated, divergent, or data-insufficient must not be described as quiet accumulation.
 - Daily model cross rows are used to show where TDCC-selected stocks appear in daily stock-selection models. Do not use them to rewrite TDCC ranking.
+- Strength Ranking is not the same as hidden accumulation.
+- Pre-Move / ABM is the hidden-accumulation observation line, when it is present in program-side fields.
+
+The report may use practical categories such as priority research, worth tracking, observation only, downgrade / avoid, but these must be derived from program-side display fields and risk buckets. Do not turn them into direct buy or sell commands.
 
 ## Report Generator Rules
 
@@ -77,7 +127,13 @@ The report generator must render program-side fields. It must not:
 - invent a new TDCC ranking
 - combine weekly increase and consecutive accumulation into one rank
 - drop rows because they are non-mainstream
+- create a PDF-layer buy/sell judgment
+- create a PDF-layer mainstream / non-mainstream filter that is not in the program-side table
+- create a PDF-layer risk veto that is not in the program-side table
+- create new model judgments not present in the program-side table
 - turn TDCC risk labels into automatic deletion rules unless the program-side table marks hard exclusion
-- use raw PDF artifacts as the primary source when report-ready CSV/MD exists
+- use raw PDF artifacts as the primary source when report-ready CSV exists
+- use `tdcc_signal_performance_latest.md` as the primary weekly report source
+- use a historical signal-performance date as the current weekly report date
 
 If any report-ready field is missing, write `欄位尚未完成 / 暫用現有資料` rather than guessing.
