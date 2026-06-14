@@ -91,6 +91,27 @@ The weekly report has two independent TDCC ranking lines:
 
 These two lists must be ranked separately. Do not merge them into one total ranking.
 
+## Ranking Formula Contract
+
+Effective TDCC holder increase means the holder-ratio change is greater than `0.5` percentage points. Do not treat tiny positive changes such as `0.02` as an effective increase for sync bonuses or high-threshold continuation.
+
+Weekly increase score:
+
+- Base score = `1000-share weekly change * 4 + 800-share weekly change * 3 + 600-share weekly change * 2 + 400-share weekly change * 1`.
+- Sync bonus uses effective increases only: four thresholds +15, three thresholds +10, two thresholds +5, otherwise +0.
+- Mainstream theme bonus: +5 when `theme_mainstream_status` is a mainstream status.
+- Low liquidity penalty: -10 when 20-day average volume is below 1000 lots after normalizing raw share volume to lots.
+- Weekly increase ranking is sorted by weekly increase score, then weighted base score, then 1000-share weekly change, then 800-share weekly change.
+
+Consecutive accumulation score:
+
+- Hard inclusion gate: 800-share and 1000-share holders must both have effective increases for at least two consecutive TDCC weeks.
+- Base score uses the same weighted weekly-change formula as the weekly increase score.
+- Sync bonus uses the same effective-increase threshold and bonus table as the weekly increase score.
+- High-threshold continuation bonus: 2 weeks +5, 3 weeks +10, 4 weeks +15, 5 or more weeks capped at +20.
+- Mainstream theme bonus and low liquidity penalty use the same definitions as the weekly increase score.
+- Consecutive accumulation ranking is sorted by consecutive accumulation score, then effective 800/1000 consecutive weeks, then weighted base score.
+
 ## Highlight Report
 
 The highlight report must include:
