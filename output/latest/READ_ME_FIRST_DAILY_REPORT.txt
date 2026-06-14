@@ -386,3 +386,5 @@ tdcc_weekly_candidate_highlight_pdf_raw_url=https://raw.githubusercontent.com/Le
 tdcc_weekly_candidate_full_pdf_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_weekly_candidate_full_latest.pdf
 tdcc_weekly_candidate_highlight_pdf_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/tdcc_weekly_candidate_highlight_latest.pdf
 tdcc_weekly_candidate_full_pdf_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/tdcc_weekly_candidate_full_latest.pdf
+tdcc_weekly_report_section_manifest_csv_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_weekly_report_section_manifest_latest.csv
+tdcc_weekly_report_section_manifest_csv_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/tdcc_weekly_report_section_manifest_latest.csv
