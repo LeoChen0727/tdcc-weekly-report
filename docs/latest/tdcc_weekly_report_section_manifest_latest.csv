@@ -1,0 +1,5 @@
+section_order,section_id,section_title_zh,table_contract,include_in_highlight,highlight_limit,include_in_full,full_limit,required,enabled,notes_zh
+1,weekly_increase,當週增幅排名,tdcc_ranking,True,10,True,50,True,True,核心 section；本週正增幅排名。
+2,consecutive_accumulation,連續累積排名,tdcc_ranking,True,10,True,50,True,True,核心 section；800/1000 張大戶有效連續增加。
+3,model_cross_weekly_increase_tdcc_short_term_continuation_d5_d10,當週增幅榜 × TDCC短線延續模型 D+5/D+10,model_cross,True,10,True,50,True,True,核心 section；當週增幅名單與 TDCC 短線延續模型交集。
+4,model_cross_consecutive_accumulation_tdcc_short_term_continuation_d5_d10,連續累積榜 × TDCC短線延續模型 D+5/D+10,model_cross,True,10,True,50,True,True,核心 section；連續累積名單與 TDCC 短線延續模型交集。

@@ -15,12 +15,14 @@ Required order:
 3. `rules/tdcc_weekly_rules.md`
 4. `output/latest/tdcc_weekly_candidate_highlight_for_report_latest.csv`
 5. `output/latest/tdcc_weekly_candidate_full_for_report_latest.csv`
-6. Corresponding Markdown / PDF files only as cross-checks or shareable attachments.
+6. `output/latest/tdcc_weekly_report_section_manifest_latest.csv`
+7. Corresponding Markdown / PDF files only as cross-checks or shareable attachments.
 
 The report-producing conversation or PDF generator must use these program-side report-ready CSV files as the primary rendering contract:
 
 - `output/latest/tdcc_weekly_candidate_highlight_for_report_latest.csv`
 - `output/latest/tdcc_weekly_candidate_full_for_report_latest.csv`
+- `output/latest/tdcc_weekly_report_section_manifest_latest.csv`
 
 The following files are supporting data only. They must not override the report-ready CSV date, ranking, row inclusion, section assignment, or display fields:
 
@@ -73,14 +75,22 @@ Score fields may use at most two decimals and must strip redundant trailing zero
 
 PDF text must not print raw slug or snake_case fields. If a display value has no approved Chinese label, render `資料不足 / 暫用現有資料` instead of the raw token.
 
-## Required Four Sections
+## Section Manifest Contract
 
-Both the highlight report and the full report must use the same four-section structure:
+The report generator must render sections dynamically from `output/latest/tdcc_weekly_report_section_manifest_latest.csv` and the report-ready CSV files. Do not hard-code the number of tables in the PDF or Markdown renderer.
 
-1. Weekly increase ranking: one-week large-holder increase.
-2. Consecutive accumulation ranking: continued accumulation for at least two weeks.
-3. Weekly increase x TDCC short-term continuation D+5/D+10.
-4. Consecutive accumulation x TDCC short-term continuation D+5/D+10.
+The current core sections are:
+
+1. `weekly_increase`: 當週增幅排名.
+2. `consecutive_accumulation`: 連續累積排名.
+3. `model_cross_weekly_increase_tdcc_short_term_continuation_d5_d10`: 當週增幅榜 × TDCC短線延續模型 D+5/D+10.
+4. `model_cross_consecutive_accumulation_tdcc_short_term_continuation_d5_d10`: 連續累積榜 × TDCC短線延續模型 D+5/D+10.
+
+These four sections are the current core manifest defaults, not a permanent four-table rule. If the manifest later adds, disables, or removes a section, the Markdown and PDF output must follow the enabled manifest sections and per-section limits.
+
+The previous week's PDF or any reference PDF is a visual style reference only. It must not override the current report-ready CSV structure, the section manifest, section membership, ordering, limits, ranking, or date.
+
+Each rendered table must correspond to exactly one `section_id`. The generator must filter with the section ID for each section and must not combine multiple `section_id` values into one table. The weekly-increase model-cross section and consecutive-accumulation model-cross section must remain separate sections; they must not be merged through a generic source column.
 
 ## Ranking Lines
 
@@ -114,7 +124,9 @@ Consecutive accumulation score:
 
 ## Highlight Report
 
-The highlight report must include:
+The highlight report must include every enabled manifest section where `include_in_highlight=True`, using each section's `highlight_limit`.
+
+The current core manifest defaults include:
 
 - top 10 weekly-increase names
 - top 10 consecutive-accumulation names
@@ -125,7 +137,7 @@ The highlight report must make clear whether a row comes from weekly increase, c
 
 ## Full Report
 
-The full report must use the same four-section structure as the highlight report. Each section may include at most the top 50 rows; if a section has fewer than 50 rows, include all available rows.
+The full report must include every enabled manifest section where `include_in_full=True`, using each section's `full_limit`. The current core manifest default is at most the top 50 rows per section; if a section has fewer rows than its manifest limit, include all available rows.
 
 ## Interpretation Rules
 
@@ -156,5 +168,7 @@ The report generator must render program-side fields. It must not:
 - use raw PDF artifacts as the primary source when report-ready CSV exists
 - use `tdcc_signal_performance_latest.md` as the primary weekly report source
 - use a historical signal-performance date as the current weekly report date
+- hard-code a fixed section count instead of following the section manifest
+- use the section title or source label as a substitute for exact `section_id` filtering
 
 If any report-ready field is missing, write `欄位尚未完成 / 暫用現有資料` rather than guessing.

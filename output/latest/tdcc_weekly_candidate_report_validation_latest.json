@@ -1,0 +1,70 @@
+{
+  "status": "pass",
+  "signal_date": "20260612",
+  "row_counts": {
+    "weekly_increase": 416,
+    "consecutive_accumulation": 26,
+    "model_cross": 16,
+    "highlight_report": 31,
+    "full_report": 92,
+    "manifest_sections": 4
+  },
+  "section_counts": {
+    "highlight": {
+      "consecutive_accumulation": 10,
+      "model_cross_consecutive_accumulation_tdcc_short_term_continuation_d5_d10": 1,
+      "model_cross_weekly_increase_tdcc_short_term_continuation_d5_d10": 10,
+      "weekly_increase": 10
+    },
+    "full": {
+      "consecutive_accumulation": 26,
+      "model_cross_consecutive_accumulation_tdcc_short_term_continuation_d5_d10": 1,
+      "model_cross_weekly_increase_tdcc_short_term_continuation_d5_d10": 15,
+      "weekly_increase": 50
+    }
+  },
+  "manifest_sections": [
+    {
+      "section_order": "1",
+      "section_id": "weekly_increase",
+      "section_title_zh": "當週增幅排名",
+      "table_contract": "tdcc_ranking",
+      "highlight_limit": 10,
+      "full_limit": 50,
+      "required": true,
+      "enabled": true
+    },
+    {
+      "section_order": "2",
+      "section_id": "consecutive_accumulation",
+      "section_title_zh": "連續累積排名",
+      "table_contract": "tdcc_ranking",
+      "highlight_limit": 10,
+      "full_limit": 50,
+      "required": true,
+      "enabled": true
+    },
+    {
+      "section_order": "3",
+      "section_id": "model_cross_weekly_increase_tdcc_short_term_continuation_d5_d10",
+      "section_title_zh": "當週增幅榜 × TDCC短線延續模型 D+5/D+10",
+      "table_contract": "model_cross",
+      "highlight_limit": 10,
+      "full_limit": 50,
+      "required": true,
+      "enabled": true
+    },
+    {
+      "section_order": "4",
+      "section_id": "model_cross_consecutive_accumulation_tdcc_short_term_continuation_d5_d10",
+      "section_title_zh": "連續累積榜 × TDCC短線延續模型 D+5/D+10",
+      "table_contract": "model_cross",
+      "highlight_limit": 10,
+      "full_limit": 50,
+      "required": true,
+      "enabled": true
+    }
+  ],
+  "errors": [],
+  "warnings": []
+}

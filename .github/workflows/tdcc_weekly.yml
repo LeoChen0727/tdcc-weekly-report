@@ -58,6 +58,10 @@ jobs:
         run: |
           python scripts/build_tdcc_weekly_candidate_reports.py
 
+      - name: Validate TDCC weekly candidate reports
+        run: |
+          python scripts/validate_tdcc_weekly_candidate_reports.py
+
       - name: Validate TDCC ChatGPT tracking outputs
         run: |
           python scripts/validate_tdcc_chatgpt_tracking_outputs.py
@@ -112,6 +116,7 @@ jobs:
               output/latest/tdcc_consecutive_accumulation_ranking_latest.csv \
               output/latest/tdcc_weekly_model_cross_summary_latest.md \
               output/latest/tdcc_weekly_model_cross_summary_latest.csv \
+              output/latest/tdcc_weekly_report_section_manifest_latest.csv \
               output/latest/tdcc_weekly_candidate_highlight_for_report_latest.md \
               output/latest/tdcc_weekly_candidate_highlight_for_report_latest.csv \
               output/latest/tdcc_weekly_candidate_full_for_report_latest.md \
@@ -120,6 +125,8 @@ jobs:
               output/latest/tdcc_weekly_candidate_full_latest.md \
               output/latest/tdcc_weekly_candidate_highlight_latest.pdf \
               output/latest/tdcc_weekly_candidate_full_latest.pdf \
+              output/latest/tdcc_weekly_candidate_report_validation_latest.md \
+              output/latest/tdcc_weekly_candidate_report_validation_latest.json \
               output/latest/tdcc_chatgpt_tracking_validation_latest.md \
               output/latest/tdcc_chatgpt_tracking_validation_latest.json \
               output/history/tdcc_signals/tdcc_signal_log.csv \
@@ -191,7 +198,7 @@ jobs:
           git config user.email "github-actions@github.com"
           git add output/ data/ config/stock_theme_map.csv docs/tdcc_signal_tracking.md docs/tdcc_pre_move_accumulation.md || true
           git add docs/latest/tdcc_* || true
-          git add scripts/tracking_utils.py scripts/build_tdcc_signal_structures.py scripts/build_tdcc_stock_history.py scripts/tdcc_stock_history_utils.py scripts/build_tdcc_pre_move_accumulation.py scripts/build_tdcc_chatgpt_tracking_outputs.py scripts/build_tdcc_weekly_candidate_reports.py scripts/validate_tdcc_chatgpt_tracking_outputs.py scripts/validate_pdf_facing_display_text.py scripts/backfill_tdcc_history.py || true
+          git add scripts/tracking_utils.py scripts/build_tdcc_signal_structures.py scripts/build_tdcc_stock_history.py scripts/tdcc_stock_history_utils.py scripts/build_tdcc_pre_move_accumulation.py scripts/build_tdcc_chatgpt_tracking_outputs.py scripts/build_tdcc_weekly_candidate_reports.py scripts/validate_tdcc_weekly_candidate_reports.py scripts/validate_tdcc_chatgpt_tracking_outputs.py scripts/validate_pdf_facing_display_text.py scripts/backfill_tdcc_history.py || true
           git add scripts/build_tdcc_overheated_short_term_edge.py || true
           git status --short
           git commit -m "Update TDCC weekly report, ABM, and signal effectiveness" || echo "No changes to commit"
