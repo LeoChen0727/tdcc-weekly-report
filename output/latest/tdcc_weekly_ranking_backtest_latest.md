@@ -2,7 +2,7 @@
 
 - model_id: `tdcc_weekly_ranking_formula`
 - ranking_model_version: `tdcc_weekly_ranking_formula_20260614`
-- generated_at: `2026-06-14 20:50:23 Asia/Taipei`
+- generated_at: `2026-06-14 21:30:57 Asia/Taipei`
 - event_rows: `736`
 - scope: research only; this does not generate TDCC weekly PDFs and does not approve production buy signals.
 - theme_context: latest taxonomy is used for the +5 mainstream bonus; treat that as a first-pass research limitation.
