@@ -111,6 +111,14 @@ Do not mix task types:
 
 Daily candidate reports are not holdings management. Holdings reports are not full-market ranking reports. Market reports are not stock recommendation lists.
 
+## Default Code Isolation
+
+Program code must default to independent business surfaces. Report builders, model parameters, scoring logic, filters, ranking, field transforms, validation contracts, output writers, and workflow steps must not share business-semantic code across unrelated outputs unless the relationship is explicit in repo rules or the user has approved the coupling.
+
+Shared code is allowed only for low-level technical utilities that do not decide business content, such as file reads, type conversion, date formatting, font registration, basic table drawing, PDF file writing, and validation plumbing.
+
+Before changing any shared function that can affect multiple reports, models, parameters, or workflows, state the affected outputs and either split the code path first or make the coupling explicit in the change. A request to adjust one report, model, parameter, or field must not silently change another surface.
+
 ## Daily Model / Presentation Display Fields
 
 Daily PDF and daily packet text must be sourced from the model layer and presentation-routing layer. They must not create a separate operation or trade-decision layer.

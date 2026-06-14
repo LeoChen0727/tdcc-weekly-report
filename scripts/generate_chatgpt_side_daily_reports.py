@@ -345,14 +345,8 @@ MAINSTREAM_CURATED_TITLE = "\u4e3b\u6d41\u80a1\u6bcf\u65e5\u63a8\u85a6\u7cbe\u83
 MAINSTREAM_FULL_TITLE = "\u4e3b\u6d41\u80a1\u5b8c\u6574\u5019\u9078\u6e05\u55ae"
 NON_MAINSTREAM_CURATED_TITLE = "\u975e\u4e3b\u6d41\u80a1\u6bcf\u65e5\u63a8\u85a6\u7cbe\u83ef"
 NON_MAINSTREAM_FULL_TITLE = "\u975e\u4e3b\u6d41\u80a1\u5b8c\u6574\u5019\u9078\u6e05\u55ae"
-LINE_TITLE_MAP = {
-    "mainstream": (MAINSTREAM_CURATED_TITLE, MAINSTREAM_FULL_TITLE, "\u4e3b\u6d41\u80a1"),
-    "non_mainstream": (NON_MAINSTREAM_CURATED_TITLE, NON_MAINSTREAM_FULL_TITLE, "\u975e\u4e3b\u6d41\u80a1"),
-}
-
-
-def line_titles(line: str) -> tuple[str, str, str]:
-    return LINE_TITLE_MAP[line]
+MAINSTREAM_LINE_LABEL = "\u4e3b\u6d41\u80a1"
+NON_MAINSTREAM_LINE_LABEL = "\u975e\u4e3b\u6d41\u80a1"
 
 
 def clean(value, default: str = "") -> str:
@@ -1998,13 +1992,13 @@ def preferred_model_status_for_stock(inputs: dict[str, pd.DataFrame], stock_id: 
     return f"{model_score_label(first)} / 風險：{model_risk_text(first, 32)}"
 
 
-def model_split_table(
+def build_mainstream_curated_model_table(
     rows: list[pd.Series],
     two_map: dict[str, pd.Series],
     all_map: dict[str, pd.Series],
-    title: str,
     limit: int = 6,
 ) -> Table:
+    title = MAINSTREAM_LINE_LABEL
     data = [["標的", "模型狀態", "模型排名 / 分數", "族群 / 資金", "大戶籌碼", "模型依據 / 風險"]]
     if not rows:
         data.append(["-", "-", title, "-", "-", "本模型今日無符合條件資料。"])
@@ -2023,17 +2017,101 @@ def model_split_table(
     return build_table(data, [32 * mm, 22 * mm, 30 * mm, 54 * mm, 44 * mm, 86 * mm], 12.0)
 
 
-def model_recommendation_rows_for_line(
+
+
+def build_mainstream_full_model_table(
+    rows: list[pd.Series],
+    two_map: dict[str, pd.Series],
+    all_map: dict[str, pd.Series],
+    limit: int = 6,
+) -> Table:
+    title = MAINSTREAM_LINE_LABEL
+    data = [["標的", "模型狀態", "模型排名 / 分數", "族群 / 資金", "大戶籌碼", "模型依據 / 風險"]]
+    if not rows:
+        data.append(["-", "-", title, "-", "-", "本模型今日無符合條件資料。"])
+    for row in rows[:limit]:
+        extra = all_map.get(clean(row.get("stock_id")), pd.Series(dtype=object))
+        data.append(
+            [
+                stock_label(row),
+                display_signal_tag(model_signal_tag(row, two_map)),
+                model_score_label(row),
+                f"{category_position_text(row, two_map)} / {zh_warrant(row.get('warrant_flow_signal'))}",
+                tdcc_direction(row, extra),
+                f"{model_source_text(row, 54)}；風險：{model_risk_text(row, 34)}",
+            ]
+        )
+    return build_table(data, [32 * mm, 22 * mm, 30 * mm, 54 * mm, 44 * mm, 86 * mm], 12.0)
+
+
+
+
+def build_non_mainstream_curated_model_table(
+    rows: list[pd.Series],
+    two_map: dict[str, pd.Series],
+    all_map: dict[str, pd.Series],
+    limit: int = 6,
+) -> Table:
+    title = NON_MAINSTREAM_LINE_LABEL
+    data = [["標的", "模型狀態", "模型排名 / 分數", "族群 / 資金", "大戶籌碼", "模型依據 / 風險"]]
+    if not rows:
+        data.append(["-", "-", title, "-", "-", "本模型今日無符合條件資料。"])
+    for row in rows[:limit]:
+        extra = all_map.get(clean(row.get("stock_id")), pd.Series(dtype=object))
+        data.append(
+            [
+                stock_label(row),
+                display_signal_tag(model_signal_tag(row, two_map)),
+                model_score_label(row),
+                f"{category_position_text(row, two_map)} / {zh_warrant(row.get('warrant_flow_signal'))}",
+                tdcc_direction(row, extra),
+                f"{model_source_text(row, 54)}；風險：{model_risk_text(row, 34)}",
+            ]
+        )
+    return build_table(data, [32 * mm, 22 * mm, 30 * mm, 54 * mm, 44 * mm, 86 * mm], 12.0)
+
+
+
+
+def build_non_mainstream_full_model_table(
+    rows: list[pd.Series],
+    two_map: dict[str, pd.Series],
+    all_map: dict[str, pd.Series],
+    limit: int = 6,
+) -> Table:
+    title = NON_MAINSTREAM_LINE_LABEL
+    data = [["標的", "模型狀態", "模型排名 / 分數", "族群 / 資金", "大戶籌碼", "模型依據 / 風險"]]
+    if not rows:
+        data.append(["-", "-", title, "-", "-", "本模型今日無符合條件資料。"])
+    for row in rows[:limit]:
+        extra = all_map.get(clean(row.get("stock_id")), pd.Series(dtype=object))
+        data.append(
+            [
+                stock_label(row),
+                display_signal_tag(model_signal_tag(row, two_map)),
+                model_score_label(row),
+                f"{category_position_text(row, two_map)} / {zh_warrant(row.get('warrant_flow_signal'))}",
+                tdcc_direction(row, extra),
+                f"{model_source_text(row, 54)}；風險：{model_risk_text(row, 34)}",
+            ]
+        )
+    return build_table(data, [32 * mm, 22 * mm, 30 * mm, 54 * mm, 44 * mm, 86 * mm], 12.0)
+
+
+
+
+
+def mainstream_curated_recommendation_rows(
     inputs: dict[str, pd.DataFrame],
     all_map: dict[str, pd.Series],
     two_map: dict[str, pd.Series],
-    line: str,
     vol_map: dict[str, pd.Series] | None = None,
     limit: int = 8,
 ) -> list[list]:
+    line = "mainstream"
+    line_label = MAINSTREAM_LINE_LABEL
     rows = [["分線", "模型", "標的", "模型分數 / 風險"]]
     seen: set[tuple[str, str]] = set()
-    _, _, line_label = line_titles(line)
     for spec in core_model_specs(inputs, line):
         model_id = clean(spec.get("model_id"))
         model_name = clean(spec.get("model_name_zh"), model_id)
@@ -2054,6 +2132,46 @@ def model_recommendation_rows_for_line(
             if len(rows) > limit:
                 return rows
     return rows
+
+
+
+
+
+
+def non_mainstream_curated_recommendation_rows(
+    inputs: dict[str, pd.DataFrame],
+    all_map: dict[str, pd.Series],
+    two_map: dict[str, pd.Series],
+    vol_map: dict[str, pd.Series] | None = None,
+    limit: int = 8,
+) -> list[list]:
+    line = "non_mainstream"
+    line_label = NON_MAINSTREAM_LINE_LABEL
+    rows = [["分線", "模型", "標的", "模型分數 / 風險"]]
+    seen: set[tuple[str, str]] = set()
+    for spec in core_model_specs(inputs, line):
+        model_id = clean(spec.get("model_id"))
+        model_name = clean(spec.get("model_name_zh"), model_id)
+        for row in model_signal_rows(inputs, model_id, line):
+            sid = clean(row.get("stock_id"))
+            key = (sid, model_id)
+            if not sid or key in seen:
+                continue
+            rows.append(
+                [
+                    red(line_label),
+                    red(model_name),
+                    red(stock_label(row)),
+                    f"{escape_html(model_score_label(row))}<br/>風險：{escape_html(model_risk_text(row, 62))}",
+                ]
+            )
+            seen.add(key)
+            if len(rows) > limit:
+                return rows
+    return rows
+
+
+
 
 
 
@@ -2084,18 +2202,16 @@ def listing_status_sort_key(label: str) -> int:
     return order.get(label, 2)
 
 
-def model_front_observation_rows_for_line(
+def mainstream_curated_front_observation_rows(
     inputs: dict[str, pd.DataFrame],
     all_map: dict[str, pd.Series],
     two_map: dict[str, pd.Series],
-    line: str,
     vol_map: dict[str, pd.Series] | None = None,
     limit: int | None = None,
 ) -> list[list]:
-    _, _, line_label = line_titles(line)
-    target_limit = limit if limit is not None else (
-        FRONT_MAINSTREAM_LIMIT if line == "mainstream" else FRONT_NON_MAINSTREAM_LIMIT
-    )
+    line = "mainstream"
+    line_label = MAINSTREAM_LINE_LABEL
+    target_limit = limit if limit is not None else FRONT_MAINSTREAM_LIMIT
     rows = [["榜別", "模型", "股票", "模型狀態", "分數 / 風險"]]
     for spec in core_model_specs(inputs, line):
         model_id = clean(spec.get("model_id"))
@@ -2137,7 +2253,63 @@ def model_front_observation_rows_for_line(
     return rows
 
 
-def append_group_rotation_end_section(story: list, inputs: dict[str, pd.DataFrame], limit: int = 18) -> None:
+
+
+def non_mainstream_curated_front_observation_rows(
+    inputs: dict[str, pd.DataFrame],
+    all_map: dict[str, pd.Series],
+    two_map: dict[str, pd.Series],
+    vol_map: dict[str, pd.Series] | None = None,
+    limit: int | None = None,
+) -> list[list]:
+    line = "non_mainstream"
+    line_label = NON_MAINSTREAM_LINE_LABEL
+    target_limit = limit if limit is not None else FRONT_NON_MAINSTREAM_LIMIT
+    rows = [["榜別", "模型", "股票", "模型狀態", "分數 / 風險"]]
+    for spec in core_model_specs(inputs, line):
+        model_id = clean(spec.get("model_id"))
+        model_name = clean(spec.get("model_name_zh"), model_id)
+        model_rows = 0
+        model_display_rows: list[tuple[int, int, list]] = []
+        for row in model_signal_rows(inputs, model_id, line):
+            sid = clean(row.get("stock_id"))
+            extra = all_map.get(sid, pd.Series(dtype=object))
+            stage = model_stage_label(row, extra) or display_signal_tag(model_signal_tag(row, two_map, vol_map or {}))
+            reminder = (
+                row.get("next_confirmation_zh")
+                or row.get("why_selected_human_zh")
+                or row.get("why_selected_zh")
+                or row.get("why_selected")
+                or observation_focus(row, extra)
+            )
+            listing_label = listing_status_label(row, stage)
+            model_display_rows.append(
+                (
+                    listing_status_sort_key(listing_label),
+                    model_rows,
+                    [
+                        listing_label,
+                        red(model_name),
+                        stock_label(row),
+                        stage,
+                        f"{escape_html(model_score_label(row))}<br/>風險：{escape_html(model_risk_text(row, 48))}<br/>{escape_html(short(reminder, 54))}",
+                    ],
+                )
+            )
+            model_rows += 1
+            if model_rows >= target_limit:
+                break
+        for _, _, row_data in sorted(model_display_rows, key=lambda item: (item[0], item[1])):
+            rows.append(row_data)
+        if model_rows == 0:
+            rows.append(["-", red(model_name), "-", "-", f"{escape_html(line_label)}目前無符合觀察列"])
+    return rows
+
+
+
+
+
+def append_mainstream_curated_group_rotation_end_section(story: list, inputs: dict[str, pd.DataFrame], limit: int = 18) -> None:
     group_rotation = inputs.get("group_rotation", pd.DataFrame()).copy()
     if group_rotation.empty:
         return
@@ -2172,6 +2344,150 @@ def append_group_rotation_end_section(story: list, inputs: dict[str, pd.DataFram
             ]
         )
     story.append(build_table(rows, [26 * mm, 32 * mm, 18 * mm, 24 * mm, 34 * mm, 28 * mm, 46 * mm, 60 * mm], 11.0))
+
+
+
+
+
+
+
+
+
+
+
+
+def append_mainstream_full_group_rotation_end_section(story: list, inputs: dict[str, pd.DataFrame], limit: int = 18) -> None:
+    group_rotation = inputs.get("group_rotation", pd.DataFrame()).copy()
+    if group_rotation.empty:
+        return
+    if "theme_resolution_status" in group_rotation.columns:
+        group_rotation = group_rotation[group_rotation["theme_resolution_status"].astype(str).eq("resolved")].copy()
+    if group_rotation.empty:
+        return
+    append_page_break_once(story)
+    story.append(Paragraph("資金進入族群觀察", H1))
+    story.append(
+        para(
+            "本表只作族群資金擴散與慢速進場觀察；需等個股模型觸發後，才可成為個股進場依據。",
+            BODY_SMALL,
+        )
+    )
+    rows = [["族群", "模型", "族群股票數", "慢速進場", "量能擴散", "15日/30日", "領先股", "判讀"]]
+    for _, r in group_rotation.head(limit).iterrows():
+        leaders = " / ".join(
+            [clean(r.get("leader_1")), clean(r.get("leader_2")), clean(r.get("leader_3"))]
+        )
+        leaders = leaders.strip(" /")
+        rows.append(
+            [
+                clean(r.get("theme_display_zh") or r.get("theme")),
+                clean(r.get("rotation_model_name") or r.get("rotation_model_id")),
+                num(r.get("stock_count"), 0),
+                f"{num(r.get('slow_inflow_count'), 0)} / {num(r.get('slow_inflow_ratio'), 2)}",
+                f"3x:{num(r.get('volume_expansion_3x_count'), 0)} / 1.5x:{num(r.get('volume_expansion_1_5x_count'), 0)}",
+                f"{num(r.get('median_return_15d'), 1)}% / {num(r.get('median_return_30d'), 1)}%",
+                leaders,
+                short(r.get("interpretation_zh") or r.get("interpretation") or r.get("diffusion_status_zh"), 95),
+            ]
+        )
+    story.append(build_table(rows, [26 * mm, 32 * mm, 18 * mm, 24 * mm, 34 * mm, 28 * mm, 46 * mm, 60 * mm], 11.0))
+
+
+
+
+
+
+
+
+
+
+
+
+def append_non_mainstream_curated_group_rotation_end_section(story: list, inputs: dict[str, pd.DataFrame], limit: int = 18) -> None:
+    group_rotation = inputs.get("group_rotation", pd.DataFrame()).copy()
+    if group_rotation.empty:
+        return
+    if "theme_resolution_status" in group_rotation.columns:
+        group_rotation = group_rotation[group_rotation["theme_resolution_status"].astype(str).eq("resolved")].copy()
+    if group_rotation.empty:
+        return
+    append_page_break_once(story)
+    story.append(Paragraph("資金進入族群觀察", H1))
+    story.append(
+        para(
+            "本表只作族群資金擴散與慢速進場觀察；需等個股模型觸發後，才可成為個股進場依據。",
+            BODY_SMALL,
+        )
+    )
+    rows = [["族群", "模型", "族群股票數", "慢速進場", "量能擴散", "15日/30日", "領先股", "判讀"]]
+    for _, r in group_rotation.head(limit).iterrows():
+        leaders = " / ".join(
+            [clean(r.get("leader_1")), clean(r.get("leader_2")), clean(r.get("leader_3"))]
+        )
+        leaders = leaders.strip(" /")
+        rows.append(
+            [
+                clean(r.get("theme_display_zh") or r.get("theme")),
+                clean(r.get("rotation_model_name") or r.get("rotation_model_id")),
+                num(r.get("stock_count"), 0),
+                f"{num(r.get('slow_inflow_count'), 0)} / {num(r.get('slow_inflow_ratio'), 2)}",
+                f"3x:{num(r.get('volume_expansion_3x_count'), 0)} / 1.5x:{num(r.get('volume_expansion_1_5x_count'), 0)}",
+                f"{num(r.get('median_return_15d'), 1)}% / {num(r.get('median_return_30d'), 1)}%",
+                leaders,
+                short(r.get("interpretation_zh") or r.get("interpretation") or r.get("diffusion_status_zh"), 95),
+            ]
+        )
+    story.append(build_table(rows, [26 * mm, 32 * mm, 18 * mm, 24 * mm, 34 * mm, 28 * mm, 46 * mm, 60 * mm], 11.0))
+
+
+
+
+
+
+
+
+
+
+
+
+def append_non_mainstream_full_group_rotation_end_section(story: list, inputs: dict[str, pd.DataFrame], limit: int = 18) -> None:
+    group_rotation = inputs.get("group_rotation", pd.DataFrame()).copy()
+    if group_rotation.empty:
+        return
+    if "theme_resolution_status" in group_rotation.columns:
+        group_rotation = group_rotation[group_rotation["theme_resolution_status"].astype(str).eq("resolved")].copy()
+    if group_rotation.empty:
+        return
+    append_page_break_once(story)
+    story.append(Paragraph("資金進入族群觀察", H1))
+    story.append(
+        para(
+            "本表只作族群資金擴散與慢速進場觀察；需等個股模型觸發後，才可成為個股進場依據。",
+            BODY_SMALL,
+        )
+    )
+    rows = [["族群", "模型", "族群股票數", "慢速進場", "量能擴散", "15日/30日", "領先股", "判讀"]]
+    for _, r in group_rotation.head(limit).iterrows():
+        leaders = " / ".join(
+            [clean(r.get("leader_1")), clean(r.get("leader_2")), clean(r.get("leader_3"))]
+        )
+        leaders = leaders.strip(" /")
+        rows.append(
+            [
+                clean(r.get("theme_display_zh") or r.get("theme")),
+                clean(r.get("rotation_model_name") or r.get("rotation_model_id")),
+                num(r.get("stock_count"), 0),
+                f"{num(r.get('slow_inflow_count'), 0)} / {num(r.get('slow_inflow_ratio'), 2)}",
+                f"3x:{num(r.get('volume_expansion_3x_count'), 0)} / 1.5x:{num(r.get('volume_expansion_1_5x_count'), 0)}",
+                f"{num(r.get('median_return_15d'), 1)}% / {num(r.get('median_return_30d'), 1)}%",
+                leaders,
+                short(r.get("interpretation_zh") or r.get("interpretation") or r.get("diffusion_status_zh"), 95),
+            ]
+        )
+    story.append(build_table(rows, [26 * mm, 32 * mm, 18 * mm, 24 * mm, 34 * mm, 28 * mm, 46 * mm, 60 * mm], 11.0))
+
+
+
 
 
 
@@ -2343,19 +2659,19 @@ def build_volume_theme_section(
 
 
 
-def operation_representatives(
-    main_rows: list[pd.Series],
-    non_rows: list[pd.Series],
+
+def mainstream_curated_operation_representatives(
+    ranked_rows: list[pd.Series],
     total_limit: int = 3,
-    non_limit: int = 1,
 ) -> list[pd.Series]:
-    reps = list(main_rows[:total_limit])
-    remaining = total_limit - len(reps)
-    if remaining > 0 and non_rows:
-        reps.extend(non_rows[: min(non_limit, remaining)])
-    return reps[:total_limit]
+    return list(ranked_rows[:total_limit])
 
 
+def non_mainstream_curated_operation_representatives(
+    ranked_rows: list[pd.Series],
+    total_limit: int = 1,
+) -> list[pd.Series]:
+    return list(ranked_rows[:total_limit])
 
 
 def category_position_text(row: pd.Series, two_map: dict[str, pd.Series]) -> str:
@@ -2777,7 +3093,7 @@ def operation_tdcc_sentence(row: pd.Series, extra: pd.Series) -> str:
     return " ".join(parts)
 
 
-def build_operation_page(
+def build_mainstream_curated_operation_page(
     row: pd.Series,
     all_map: dict[str, pd.Series],
     two_map: dict[str, pd.Series],
@@ -2860,15 +3176,104 @@ def build_operation_page(
 
 
 
-def build_curated_pdf_for_line(
+
+
+def build_non_mainstream_curated_operation_page(
+    row: pd.Series,
+    all_map: dict[str, pd.Series],
+    two_map: dict[str, pd.Series],
+    story: list,
+    vol_map: dict[str, pd.Series] | None = None,
+) -> None:
+    sid = clean(row.get("stock_id"))
+    name = clean(row.get("stock_name"))
+    extra = all_map.get(sid, pd.Series(dtype=object))
+    chart = plot_stock_chart(sid, name, extra, row)
+    story.append(Paragraph(f"{sid} {name}｜{model_display(row)}", H2))
+
+    signal_text, signal_marks = model_signal_sentence(row, two_map, vol_map, extra)
+    confirmation_text, confirmation_marks = operation_confirmation_sentence(row, two_map, vol_map, extra)
+    op_rows = [
+        ["模型狀態", signal_text, signal_marks, 112],
+        ["優點", selection_brief(row, extra), ["成交量放大", "籌碼", "突破"], 106],
+        ["關鍵價位", price_plan_summary(row, extra), ["支撐", "壓力"], 98],
+        ["下一確認", confirmation_text, confirmation_marks, 112],
+        ["失效條件", operation_invalidation_sentence(row, extra), ["失效", "風險"], 100],
+        ["追蹤重點", operation_tracking_sentence(row, extra), ["模型失效", "風險"], 104],
+        ["主要風險", operation_risk_sentence(row, two_map, vol_map), ["風險"], 94],
+        ["籌碼", operation_tdcc_sentence(row, extra), ["強正向", "強負向", "正向", "負向"], 150],
+    ]
+    paired_rows = []
+    for idx in range(0, len(op_rows), 2):
+        left_item = op_rows[idx]
+        right_item = op_rows[idx + 1] if idx + 1 < len(op_rows) else ["", "", [], 80]
+        paired_rows.append(
+            [
+                rich_para(left_item[0], OP_LABEL),
+                rich_para(operation_cell_markup(left_item[1], left_item[2], left_item[3]), OP_VALUE),
+                rich_para(right_item[0], OP_LABEL),
+                rich_para(operation_cell_markup(right_item[1], right_item[2], right_item[3]), OP_VALUE),
+            ]
+        )
+    op_table = Table(
+        paired_rows,
+        colWidths=[22 * mm, 111 * mm, 22 * mm, 111 * mm],
+        splitByRow=1,
+    )
+    op_table.setStyle(
+        TableStyle(
+            [
+                ("GRID", (0, 0), (-1, -1), 0.25, colors.HexColor("#d9d9d9")),
+                ("BACKGROUND", (0, 0), (0, -1), colors.HexColor("#fff2f2")),
+                ("BACKGROUND", (2, 0), (2, -1), colors.HexColor("#fff2f2")),
+                ("VALIGN", (0, 0), (-1, -1), "TOP"),
+                ("LEFTPADDING", (0, 0), (-1, -1), 4),
+                ("RIGHTPADDING", (0, 0), (-1, -1), 4),
+                ("TOPPADDING", (0, 0), (-1, -1), 2),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), 2),
+            ]
+        )
+    )
+    if chart and chart.exists():
+        img = Image(str(chart), width=266 * mm, height=111 * mm)
+    else:
+        img = para("K線圖：資料不足 / 僅能觀察", BODY)
+    chart_table = Table([[img]], colWidths=[266 * mm])
+    chart_table.setStyle(
+        TableStyle(
+            [
+                ("VALIGN", (0, 0), (-1, -1), "TOP"),
+                ("BOX", (0, 0), (-1, -1), 0.25, colors.HexColor("#cccccc")),
+                ("LEFTPADDING", (0, 0), (-1, -1), 5),
+                ("RIGHTPADDING", (0, 0), (-1, -1), 5),
+                ("TOPPADDING", (0, 0), (-1, -1), 3),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), 3),
+            ]
+        )
+    )
+    story.append(op_table)
+    story.append(Spacer(1, 4))
+    story.append(chart_table)
+    story.append(PageBreak())
+
+
+
+
+
+
+
+
+
+def build_mainstream_curated_pdf(
     inputs: dict[str, pd.DataFrame],
     all_map: dict[str, pd.Series],
     two_map: dict[str, pd.Series],
     vol_map: dict[str, pd.Series],
-    line: str,
 ) -> Path:
-    title, _, line_label = line_titles(line)
-    rec_rows = model_recommendation_rows_for_line(inputs, all_map, two_map, line, vol_map)
+    line = "mainstream"
+    title = MAINSTREAM_CURATED_TITLE
+    line_label = MAINSTREAM_LINE_LABEL
+    rec_rows = mainstream_curated_recommendation_rows(inputs, all_map, two_map, vol_map)
     story: list = [
         Paragraph(f"{DATA_DATE_SLASH} {title}", TITLE),
         date_note(),
@@ -2890,7 +3295,7 @@ def build_curated_pdf_for_line(
             Paragraph(f"{line_label}觀察清單", H1),
             para("以下依 program-side 新版候選模型列示；同一檔股票可在多個模型重複出現。舊六分類只作來源背景，不作本頁主分類。", BODY_SMALL),
             build_table(
-                model_front_observation_rows_for_line(inputs, all_map, two_map, line, vol_map),
+                mainstream_curated_front_observation_rows(inputs, all_map, two_map, vol_map),
                 [24 * mm, 36 * mm, 34 * mm, 112 * mm, 62 * mm],
                 12.0,
             ),
@@ -2898,7 +3303,7 @@ def build_curated_pdf_for_line(
     )
 
     operation_seen: set[str] = set()
-    limit = MAIN_REPORT_MAINSTREAM_LIMIT if line == "mainstream" else MAIN_REPORT_NON_MAINSTREAM_LIMIT
+    limit = MAIN_REPORT_MAINSTREAM_LIMIT
     for spec in core_model_specs(inputs, line):
         model_id = clean(spec.get("model_id"))
         model_name = clean(spec.get("model_name_zh"), model_id)
@@ -2910,33 +3315,103 @@ def build_curated_pdf_for_line(
         desc = clean(spec.get("model_description_zh"))
         if desc:
             story.append(para(desc, BODY_SMALL))
-        story.append(model_split_table(ranked_rows, two_map, all_map, line_label, limit=limit))
-        reps = operation_representatives(
-            ranked_rows if line == "mainstream" else [],
-            ranked_rows if line != "mainstream" else [],
-        )
+        story.append(build_mainstream_curated_model_table(ranked_rows, two_map, all_map, limit=limit))
+        reps = mainstream_curated_operation_representatives(ranked_rows)
         for row in reps:
             sid = clean(row.get("stock_id"))
             if sid and sid in operation_seen:
                 continue
-            build_operation_page(row, all_map, two_map, story, vol_map)
+            build_mainstream_curated_operation_page(row, all_map, two_map, story, vol_map)
             if sid:
                 operation_seen.add(sid)
 
-    append_group_rotation_end_section(story, inputs)
+    append_mainstream_curated_group_rotation_end_section(story, inputs)
     out = OUT / f"{REQUEST_DATE}_requested_repo{DATA_DATE}_{title}{OUTPUT_SUFFIX}.pdf"
     write_pdf(out, story, title)
     return out
 
 
-def build_full_candidate_pdf_for_line(
+
+
+def build_non_mainstream_curated_pdf(
+    inputs: dict[str, pd.DataFrame],
+    all_map: dict[str, pd.Series],
+    two_map: dict[str, pd.Series],
+    vol_map: dict[str, pd.Series],
+) -> Path:
+    line = "non_mainstream"
+    title = NON_MAINSTREAM_CURATED_TITLE
+    line_label = NON_MAINSTREAM_LINE_LABEL
+    rec_rows = non_mainstream_curated_recommendation_rows(inputs, all_map, two_map, vol_map)
+    story: list = [
+        Paragraph(f"{DATA_DATE_SLASH} {title}", TITLE),
+        date_note(),
+        Spacer(1, 4),
+        Paragraph(f"{line_label}模型重點", H1),
+    ]
+    if len(rec_rows) > 1:
+        story.extend(
+            [
+                para("以下僅使用模型層分數、排名、風險與下一確認欄位，不在 PDF 端新增第二層操作判斷。", BODY_SMALL),
+                build_table(rec_rows, [28 * mm, 24 * mm, 54 * mm, 162 * mm], 12.0),
+            ]
+        )
+    else:
+        story.append(para("本日無符合條件的模型重點。", BODY))
+    story.append(PageBreak())
+    story.extend(
+        [
+            Paragraph(f"{line_label}觀察清單", H1),
+            para("以下依 program-side 新版候選模型列示；同一檔股票可在多個模型重複出現。舊六分類只作來源背景，不作本頁主分類。", BODY_SMALL),
+            build_table(
+                non_mainstream_curated_front_observation_rows(inputs, all_map, two_map, vol_map),
+                [24 * mm, 36 * mm, 34 * mm, 112 * mm, 62 * mm],
+                12.0,
+            ),
+        ]
+    )
+
+    operation_seen: set[str] = set()
+    limit = MAIN_REPORT_NON_MAINSTREAM_LIMIT
+    for spec in core_model_specs(inputs, line):
+        model_id = clean(spec.get("model_id"))
+        model_name = clean(spec.get("model_name_zh"), model_id)
+        ranked_rows = model_signal_rows(inputs, model_id, line)
+        if not ranked_rows:
+            continue
+        append_page_break_once(story)
+        story.append(Paragraph(model_name, H1))
+        desc = clean(spec.get("model_description_zh"))
+        if desc:
+            story.append(para(desc, BODY_SMALL))
+        story.append(build_non_mainstream_curated_model_table(ranked_rows, two_map, all_map, limit=limit))
+        reps = non_mainstream_curated_operation_representatives(ranked_rows)
+        for row in reps:
+            sid = clean(row.get("stock_id"))
+            if sid and sid in operation_seen:
+                continue
+            build_non_mainstream_curated_operation_page(row, all_map, two_map, story, vol_map)
+            if sid:
+                operation_seen.add(sid)
+
+    append_non_mainstream_curated_group_rotation_end_section(story, inputs)
+    out = OUT / f"{REQUEST_DATE}_requested_repo{DATA_DATE}_{title}{OUTPUT_SUFFIX}.pdf"
+    write_pdf(out, story, title)
+    return out
+
+
+
+
+
+def build_mainstream_full_candidate_pdf(
     inputs: dict[str, pd.DataFrame],
     two_map: dict[str, pd.Series],
     all_map: dict[str, pd.Series],
-    line: str,
 ) -> Path:
+    line = "mainstream"
+    title = MAINSTREAM_FULL_TITLE
+    line_label = MAINSTREAM_LINE_LABEL
     model_signals = inputs.get("model_signals", pd.DataFrame()).copy()
-    _, title, line_label = line_titles(line)
     story: list = [
         Paragraph(f"{DATA_DATE_SLASH} {title}", TITLE),
         date_note(),
@@ -2987,7 +3462,7 @@ def build_full_candidate_pdf_for_line(
     story.append(build_table(tdcc_rows, [34 * mm, 42 * mm, 22 * mm, 170 * mm], 12.0) if len(tdcc_rows) > 1 else para("本分流沒有可用的 TDCC 摘要。", BODY))
 
     story.append(Paragraph(f"{line_label}完整候選", H1))
-    limit = FULL_REPORT_MAINSTREAM_LIMIT if line == "mainstream" else FULL_REPORT_NON_MAINSTREAM_LIMIT
+    limit = FULL_REPORT_MAINSTREAM_LIMIT
     for spec in core_model_specs(inputs, line):
         model_id = clean(spec.get("model_id"))
         model_name = clean(spec.get("model_name_zh"), model_id)
@@ -2996,7 +3471,7 @@ def build_full_candidate_pdf_for_line(
         if not line_rows:
             story.append(para("無符合條件資料。", BODY))
             continue
-        story.append(model_split_table(line_rows, two_map, all_map, line_label, limit=limit))
+        story.append(build_mainstream_full_model_table(line_rows, two_map, all_map, limit=limit))
 
     story.append(PageBreak())
     story.append(Paragraph(f"{line_label}雙線與輪動摘要", H1))
@@ -3038,13 +3513,134 @@ def build_full_candidate_pdf_for_line(
     else:
         story.append(para("本分流沒有可用的雙線與輪動摘要。", BODY))
 
-    append_group_rotation_end_section(story, inputs)
+    append_mainstream_full_group_rotation_end_section(story, inputs)
     out = OUT / f"{REQUEST_DATE}_requested_repo{DATA_DATE}_{title}{OUTPUT_SUFFIX}.pdf"
     write_pdf(out, story, title)
     return out
 
 
-def build_warrant_pdf(inputs: dict[str, pd.DataFrame]) -> Path:
+
+
+def build_non_mainstream_full_candidate_pdf(
+    inputs: dict[str, pd.DataFrame],
+    two_map: dict[str, pd.Series],
+    all_map: dict[str, pd.Series],
+) -> Path:
+    line = "non_mainstream"
+    title = NON_MAINSTREAM_FULL_TITLE
+    line_label = NON_MAINSTREAM_LINE_LABEL
+    model_signals = inputs.get("model_signals", pd.DataFrame()).copy()
+    story: list = [
+        Paragraph(f"{DATA_DATE_SLASH} {title}", TITLE),
+        date_note(),
+        Spacer(1, 4),
+        Paragraph(f"{line_label}族群與候選摘要", H1),
+    ]
+    themes = filter_theme_rows_for_line(inputs["themes"], line)
+    if not themes.empty:
+        rows = [["族群", "候選數", "嚴格突破", "營收", "TDCC", "權證", "正式狀態"]]
+        for _, r in themes.head(18).iterrows():
+            rows.append(
+                [
+                    zh_theme_name(r.get("theme_name")),
+                    num(r.get("candidate_count"), 0),
+                    num(r.get("strict_breakout_count"), 0),
+                    num(r.get("revenue_count"), 0),
+                    num(r.get("tdcc_positive_count") or r.get("tdcc_strength_count"), 0),
+                    num(r.get("warrant_positive_count") or r.get("warrant_strength_count"), 0),
+                    f"{zh_theme_status(r.get('theme_final_status'))} / {zh_structural_status(r.get('theme_structural_status'))} / {zh_mainstream_label(r.get('theme_mainstream_label'))}",
+                ]
+            )
+        story.append(build_table(rows, [40 * mm, 18 * mm, 22 * mm, 18 * mm, 22 * mm, 22 * mm, 126 * mm], 12.0))
+    else:
+        story.append(para("本分流沒有可用的族群摘要資料。", BODY))
+
+    story.append(Paragraph(f"{line_label}TDCC 重點", H1))
+    tdcc_rows = [["標的", "模型/來源", "模型分數 / 狀態", "TDCC 摘要"]]
+    seen_tdcc: set[str] = set()
+    for _, r in sort_model_frame(model_signals, two_map).iterrows():
+        sid = clean(r.get("stock_id"))
+        if not sid or sid in seen_tdcc or not matches_line(r, two_map, line):
+            continue
+        extra = all_map.get(sid, pd.Series(dtype=object))
+        detail = tdcc_detail(r, extra)
+        if "TDCC資料不足" in detail:
+            continue
+        tdcc_rows.append(
+            [
+                stock_label(r),
+                preferred_model_label_for_stock(inputs, sid, line) or "模型訊號未對應",
+                f"{model_score_label(r)} / {display_signal_tag(model_signal_tag(r, two_map))}",
+                short(detail, 180),
+            ]
+        )
+        seen_tdcc.add(sid)
+        if len(tdcc_rows) >= 19:
+            break
+    story.append(build_table(tdcc_rows, [34 * mm, 42 * mm, 22 * mm, 170 * mm], 12.0) if len(tdcc_rows) > 1 else para("本分流沒有可用的 TDCC 摘要。", BODY))
+
+    story.append(Paragraph(f"{line_label}完整候選", H1))
+    limit = FULL_REPORT_NON_MAINSTREAM_LIMIT
+    for spec in core_model_specs(inputs, line):
+        model_id = clean(spec.get("model_id"))
+        model_name = clean(spec.get("model_name_zh"), model_id)
+        line_rows = model_signal_rows(inputs, model_id, line)
+        story.append(Paragraph(model_name, H2))
+        if not line_rows:
+            story.append(para("無符合條件資料。", BODY))
+            continue
+        story.append(build_non_mainstream_full_model_table(line_rows, two_map, all_map, limit=limit))
+
+    story.append(PageBreak())
+    story.append(Paragraph(f"{line_label}雙線與輪動摘要", H1))
+    two_line = inputs["two_line"]
+    if not two_line.empty:
+        found_any = False
+        for group in [
+            "mainstream_leader_stock",
+            "mainstream_follow_through_stock",
+            "two_line_overlap",
+            "non_mainstream_flow_watch",
+            "individual_tdcc_latent_watch",
+            "individual_revenue_low_response_watch",
+            "individual_pattern_watch",
+            "risk",
+        ]:
+            sub = two_line[two_line["candidate_line_group"].astype(str) == group].copy()
+            if not sub.empty:
+                sub = sub[sub.apply(lambda r: matches_line(r, two_map, line), axis=1)].head(14)
+            if sub.empty:
+                continue
+            found_any = True
+            story.append(Paragraph(zh_line_group(group), H2))
+            rows = [["標的", "模型/來源", "正式狀態", "模型分數 / 風險", "說明"]]
+            for _, r in sub.iterrows():
+                sid = clean(r.get("stock_id"))
+                rows.append(
+                    [
+                        f"{sid} {clean(r.get('stock_name'))}",
+                        preferred_model_label_for_stock(inputs, sid, line) or "模型訊號未對應",
+                        f"{zh_theme_status(r.get('theme_final_status'))} / {zh_structural_status(r.get('theme_structural_status'))} / {zh_mainstream_label(r.get('theme_mainstream_label'))}",
+                        preferred_model_status_for_stock(inputs, sid, line),
+                        short(r.get("theme_leadership_note") or r.get("candidate_line") or r.get("why_selected"), 110),
+                    ]
+                )
+            story.append(build_table(rows, [36 * mm, 44 * mm, 76 * mm, 30 * mm, 82 * mm], 12.0))
+        if not found_any:
+            story.append(para("本分流沒有可用的雙線與輪動摘要。", BODY))
+    else:
+        story.append(para("本分流沒有可用的雙線與輪動摘要。", BODY))
+
+    append_non_mainstream_full_group_rotation_end_section(story, inputs)
+    out = OUT / f"{REQUEST_DATE}_requested_repo{DATA_DATE}_{title}{OUTPUT_SUFFIX}.pdf"
+    write_pdf(out, story, title)
+    return out
+
+
+
+
+
+def build_warrant_market_auxiliary_pdf(inputs: dict[str, pd.DataFrame]) -> Path:
     warrant = inputs["warrant"]
     model_signals = inputs.get("model_signals", pd.DataFrame()).copy()
     story: list = [
@@ -3139,7 +3735,7 @@ def build_warrant_pdf(inputs: dict[str, pd.DataFrame]) -> Path:
     return out
 
 
-def build_market_pdf(inputs: dict[str, pd.DataFrame]) -> Path:
+def build_market_risk_background_pdf(inputs: dict[str, pd.DataFrame]) -> Path:
     market = inputs["market_regime"]
     bench = inputs["market_benchmark"]
     futures = inputs["futures"]
@@ -3341,12 +3937,12 @@ def main() -> None:
     inputs = load_inputs()
     all_map, two_map, vol_map = get_stock_extra_maps(inputs["all"], inputs["two_line"], inputs["volume_stocks"])
     paths = [
-        build_curated_pdf_for_line(inputs, all_map, two_map, vol_map, "mainstream"),
-        build_full_candidate_pdf_for_line(inputs, two_map, all_map, "mainstream"),
-        build_curated_pdf_for_line(inputs, all_map, two_map, vol_map, "non_mainstream"),
-        build_full_candidate_pdf_for_line(inputs, two_map, all_map, "non_mainstream"),
-        build_warrant_pdf(inputs),
-        build_market_pdf(inputs),
+        build_mainstream_curated_pdf(inputs, all_map, two_map, vol_map),
+        build_mainstream_full_candidate_pdf(inputs, two_map, all_map),
+        build_non_mainstream_curated_pdf(inputs, all_map, two_map, vol_map),
+        build_non_mainstream_full_candidate_pdf(inputs, two_map, all_map),
+        build_warrant_market_auxiliary_pdf(inputs),
+        build_market_risk_background_pdf(inputs),
     ]
     validate_outputs(paths)
     for path in paths:

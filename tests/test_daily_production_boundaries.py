@@ -67,7 +67,8 @@ def test_canonical_chatgpt_side_generator_is_tracked_and_not_legacy_six_category
     assert "risk_tags" in text
     for field in DAILY_DECISION_LAYER_FIELDS:
         assert field not in text
-    assert "model_recommendation_rows_for_line" in text
+    assert "mainstream_curated_recommendation_rows" in text
+    assert "non_mainstream_curated_recommendation_rows" in text
     assert "資金進入族群觀察" in text
     assert "daily_candidate_group_rotation_latest.csv" in text
     assert "CHATGPT_SIDE_KLINE_DAYS = 126" in text
@@ -83,8 +84,8 @@ def test_canonical_chatgpt_side_generator_is_tracked_and_not_legacy_six_category
 def test_observation_list_is_row_per_stock_not_joined_cell() -> None:
     path = ROOT / "scripts" / "generate_chatgpt_side_daily_reports.py"
     text = path.read_text(encoding="utf-8", errors="replace")
-    start = text.index("def model_front_observation_rows_for_line(")
-    end = text.index("\ndef append_group_rotation_end_section(", start)
+    start = text.index("def mainstream_curated_front_observation_rows(")
+    end = text.index("\ndef non_mainstream_curated_front_observation_rows(", start)
     function_text = text[start:end]
 
     assert 'rows = [["榜別", "模型", "股票", "模型狀態", "分數 / 風險"]]' in function_text
@@ -203,6 +204,18 @@ def test_thread_workflow_points_to_canonical_pdf_generator() -> None:
 
     assert "scripts/generate_chatgpt_side_daily_reports.py" in text
     assert "generate_repo_chatgpt_side_reports.py" not in text
+
+
+def test_repo_agent_rules_default_to_independent_business_surfaces() -> None:
+    text = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
+    workflow_text = (ROOT / "docs" / "CODEX_THREAD_WORKFLOW.md").read_text(
+        encoding="utf-8"
+    )
+
+    assert "All business-facing code in this repository defaults to independent ownership." in text
+    assert "Changing A must not silently change B." in text
+    assert "Stock model parameters, thresholds, scoring weights, ranking rules, and gates" in text
+    assert "Business-facing code defaults to independent ownership." in workflow_text
 
 
 def test_daily_staged_path_validator_accepts_current_staged_set() -> None:
