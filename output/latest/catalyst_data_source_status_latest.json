@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15 03:59:32 Asia/Taipei",
+  "generated_at": "2026-06-15 04:27:33 Asia/Taipei",
   "external_fetch_status": "partial_ok",
   "note": "Official monthly revenue and material-information sources are used when reachable. No unverified news, MOPS pages, or social rumor data is fabricated.",
   "files": {
@@ -27,11 +27,12 @@
   "sources": {
     "TWSE monthly revenue OpenAPI": {
       "url": "https://openapi.twse.com.tw/v1/opendata/t187ap05_L",
-      "status": "failed",
-      "rows": 0,
-      "error": "HTTPSConnectionPool(host='openapi.twse.com.tw', port=443): Max retries exceeded with url: /v1/opendata/t187ap05_L (Caused by ConnectTimeoutError(<HTTPSConnection(host='openapi.twse.com.tw', port=443) at 0x7f13b1f7ee90>, 'Connection to openapi.twse.com.tw timed out. (connect timeout=30)'))",
-      "matched_tracked_rows": 0,
-      "stored_rows": 0,
+      "status": "ok",
+      "rows": 1076,
+      "error": "",
+      "http_status": 200,
+      "matched_tracked_rows": 350,
+      "stored_rows": 350,
       "note": "Official monthly revenue rows are stored as fundamental source rows with EPS/margin fields blank. They can flag revenue_good_eps_unconfirmed only; they are not EPS confirmation."
     },
     "TPEX monthly revenue OpenAPI": {
@@ -46,9 +47,10 @@
     },
     "TWSE material information OpenAPI": {
       "url": "https://openapi.twse.com.tw/v1/opendata/t187ap04_L",
-      "status": "failed",
-      "rows": 0,
-      "error": "HTTPSConnectionPool(host='openapi.twse.com.tw', port=443): Max retries exceeded with url: /v1/opendata/t187ap04_L (Caused by ConnectTimeoutError(<HTTPSConnection(host='openapi.twse.com.tw', port=443) at 0x7f13b1f83cd0>, 'Connection to openapi.twse.com.tw timed out. (connect timeout=30)'))",
+      "status": "ok",
+      "rows": 4,
+      "error": "",
+      "http_status": 200,
       "matched_tracked_rows": 0,
       "stored_rows": 0,
       "note": "Official material-information rows are filtered to tracked stocks. Only objective order/customer/capacity/production/certification keywords become evidence event types; other rows stay material_information context."
