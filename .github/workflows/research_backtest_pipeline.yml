@@ -148,6 +148,8 @@ jobs:
           python scripts/validate_volume_breakout_tdcc_confluence_backtest.py
           python scripts/build_volume_breakout_confirmed_operation_backtest.py
           python scripts/validate_volume_breakout_confirmed_operation_backtest.py
+          python scripts/build_volume_breakout_operation_pdf_preview.py
+          python scripts/validate_volume_breakout_operation_pdf_preview.py
 
       - name: Build surge precondition model
         if: ${{ github.event.inputs.run_surge_model == 'true' }}
