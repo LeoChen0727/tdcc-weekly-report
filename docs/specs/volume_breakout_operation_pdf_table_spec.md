@@ -3,6 +3,12 @@
 本文件先定義 research/backtest 產出的 PDF preview 表格，不直接修改 daily PDF。
 daily PDF 之後若要接入，應只讀 preview 欄位，不在 PDF 端重新判斷買點、停損、排序或英文代碼翻譯。
 
+輸出檔：
+
+- `output/latest/volume_breakout_operation_pdf_preview_latest.csv`
+- `output/latest/volume_breakout_operation_pdf_preview_latest.md`
+- `output/latest/volume_breakout_operation_pdf_preview_latest.pdf`
+
 ## 共同規則
 
 - 只使用 `volume_range_breakout` 現行模型命中後的研究結果。
