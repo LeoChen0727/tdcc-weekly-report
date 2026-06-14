@@ -401,6 +401,8 @@ Only low-level rendering utilities may be shared across the six PDFs, such as fo
 
 When changing one PDF format, inspect and report whether any shared helper would affect the other PDFs. If the helper carries business meaning, split it before making the requested change.
 
+Daily PDF layout independence is enforced by `scripts/validate_chatgpt_side_pdf_layout_independence.py`, pytest, and the Daily Full Pipeline. Do not remove these gates when changing report format code.
+
 The curated recommendation PDF title must be:
 
 `YYYY/M/D 台股推薦標的`
