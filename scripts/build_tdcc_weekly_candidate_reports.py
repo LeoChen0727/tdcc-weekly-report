@@ -15,6 +15,7 @@ from build_tdcc_chatgpt_tracking_outputs import prepare_latest_frame, risk_bucke
 from tracking_utils import (  # noqa: E402
     DOCS_LATEST_DIR,
     LATEST_DIR,
+    load_price_history,
     markdown_table,
     pages_url,
     raw_url,
@@ -47,6 +48,14 @@ TRACKING_PACKET_MD = LATEST_DIR / "tdcc_chatgpt_tracking_packet_latest.md"
 TDCC_FULL_REPORT_ALLOWED_MODEL_CROSS_IDS = {"tdcc_short_term_continuation_d5_d10"}
 TDCC_HIGHLIGHT_REPORT_SECTION_LIMIT = 10
 TDCC_FULL_REPORT_SECTION_LIMIT = 50
+TDCC_EFFECTIVE_INCREASE_THRESHOLD = 0.5
+TDCC_LOW_VOLUME_MA20_LOTS_THRESHOLD = 1000.0
+TDCC_LOW_VOLUME_PENALTY = 10.0
+TDCC_HIGH_PAIR_STREAK_BONUS_STEP = 5.0
+TDCC_HIGH_PAIR_STREAK_BONUS_CAP = 20.0
+TDCC_STOCK_HISTORY_DIR = Path("data/tdcc_stock_history")
+PRICE_HISTORY_CACHE: dict[str, pd.DataFrame] = {}
+TDCC_STOCK_HISTORY_CACHE: dict[str, pd.DataFrame] = {}
 
 README_PATHS = [
     LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT.txt",
@@ -76,6 +85,12 @@ DELTA_COLS = [
     "tdcc_1w_change_800",
     "tdcc_1w_change_1000",
 ]
+DELTA_WEIGHTS = {
+    "tdcc_1w_change_400": 1,
+    "tdcc_1w_change_600": 2,
+    "tdcc_1w_change_800": 3,
+    "tdcc_1w_change_1000": 4,
+}
 
 BASE_COLUMNS = [
     "rank",
@@ -91,6 +106,14 @@ BASE_COLUMNS = [
     "tdcc_1w_change_800",
     "tdcc_1w_change_1000",
     "tdcc_four_threshold_weekly_increase_sum",
+    "tdcc_weighted_weekly_increase_score",
+    "tdcc_effective_increase_count",
+    "tdcc_sync_bonus",
+    "tdcc_theme_bonus",
+    "volume_ma20_lots",
+    "tdcc_low_volume_penalty",
+    "tdcc_high_pair_effective_streak_weeks",
+    "tdcc_high_pair_streak_bonus",
     "tdcc_consecutive_up_weeks",
     "all_thresholds_up",
     "high_thresholds_up",
@@ -151,6 +174,14 @@ REPORT_COLUMNS = [
     "tdcc_1w_change_600",
     "tdcc_1w_change_800",
     "tdcc_1w_change_1000",
+    "tdcc_weighted_weekly_increase_score",
+    "tdcc_effective_increase_count",
+    "tdcc_sync_bonus",
+    "tdcc_theme_bonus",
+    "volume_ma20_lots",
+    "tdcc_low_volume_penalty",
+    "tdcc_high_pair_effective_streak_weeks",
+    "tdcc_high_pair_streak_bonus",
     "tdcc_consecutive_up_weeks",
     "model_id",
     "model_name_zh",
@@ -218,6 +249,14 @@ PDF_HEADER_ZH = {
     "tdcc_1w_change_800": ">800張週變化",
     "tdcc_1w_change_1000": ">1000張週變化",
     "tdcc_four_threshold_weekly_increase_sum": "四級距週變化合計",
+    "tdcc_weighted_weekly_increase_score": "加權週增基礎分",
+    "tdcc_effective_increase_count": "有效增加級距數",
+    "tdcc_sync_bonus": "同步增加加分",
+    "tdcc_theme_bonus": "主流題材加分",
+    "volume_ma20_lots": "20日均量(張)",
+    "tdcc_low_volume_penalty": "低量扣分",
+    "tdcc_high_pair_effective_streak_weeks": "800/1000有效連續週數",
+    "tdcc_high_pair_streak_bonus": "高級距連續加分",
     "tdcc_consecutive_up_weeks": "連續增加週數",
     "all_thresholds_up": "四級距同步增加",
     "high_thresholds_up": "高級距同步增加",
@@ -514,45 +553,140 @@ def ensure_columns(df: pd.DataFrame, columns: list[str]) -> pd.DataFrame:
     return out[columns]
 
 
+def sync_bonus(effective_count: Any) -> float:
+    try:
+        count = int(effective_count)
+    except Exception:
+        return 0.0
+    return {4: 15.0, 3: 10.0, 2: 5.0}.get(count, 0.0)
+
+
+def is_mainstream_theme(value: Any) -> bool:
+    return safe_str(value).startswith("mainstream")
+
+
+def normalize_volume_ma20_lots(value: Any) -> float:
+    volume = to_number(value)
+    if math.isnan(volume):
+        return math.nan
+    return volume / 1000.0 if volume >= 100000 else volume
+
+
+def cached_price_history(stock_id: Any) -> pd.DataFrame:
+    code = safe_str(stock_id)
+    if not code:
+        return pd.DataFrame()
+    if code not in PRICE_HISTORY_CACHE:
+        PRICE_HISTORY_CACHE[code] = load_price_history(code)
+    return PRICE_HISTORY_CACHE[code]
+
+
+def latest_volume_ma20_lots(row: pd.Series) -> float:
+    stock_id = safe_str(row.get("stock_id")) or safe_str(row.get("code"))
+    signal_date = safe_str(row.get("signal_date")) or safe_str(row.get("signal_trade_date"))
+    price = cached_price_history(stock_id)
+    if price.empty or "volume_ma20" not in price.columns:
+        return math.nan
+    part = price
+    if signal_date and "date" in price.columns:
+        part = price[price["date"].astype(str) <= signal_date]
+    if part.empty:
+        return math.nan
+    return normalize_volume_ma20_lots(part.iloc[-1].get("volume_ma20"))
+
+
+def cached_tdcc_stock_history(stock_id: Any) -> pd.DataFrame:
+    code = safe_str(stock_id)
+    if not code:
+        return pd.DataFrame()
+    if code not in TDCC_STOCK_HISTORY_CACHE:
+        path = TDCC_STOCK_HISTORY_DIR / f"{code}.csv"
+        history = read_csv(path, dtype=str)
+        if not history.empty and "as_of_date" in history.columns:
+            history = history.copy()
+            history["as_of_date"] = history["as_of_date"].map(safe_str)
+        TDCC_STOCK_HISTORY_CACHE[code] = history
+    return TDCC_STOCK_HISTORY_CACHE[code]
+
+
+def high_pair_effective_streak_weeks(row: pd.Series) -> int:
+    stock_id = safe_str(row.get("stock_id")) or safe_str(row.get("code"))
+    signal_date = safe_str(row.get("signal_date")) or safe_str(row.get("signal_trade_date"))
+    history = cached_tdcc_stock_history(stock_id)
+    if history.empty or "as_of_date" not in history.columns:
+        return 0
+    part = history
+    if signal_date:
+        part = history[history["as_of_date"].astype(str) <= signal_date]
+    if part.empty:
+        return 0
+    part = part.sort_values("as_of_date")
+    streak = 0
+    for _, hist_row in part.iloc[::-1].iterrows():
+        change_800 = to_number(hist_row.get("over_800_change_1w"))
+        change_1000 = to_number(hist_row.get("over_1000_change_1w"))
+        if (
+            not math.isnan(change_800)
+            and not math.isnan(change_1000)
+            and change_800 > TDCC_EFFECTIVE_INCREASE_THRESHOLD
+            and change_1000 > TDCC_EFFECTIVE_INCREASE_THRESHOLD
+        ):
+            streak += 1
+            continue
+        break
+    return streak
+
+
+def high_pair_streak_bonus(streak: Any) -> float:
+    weeks = to_number(streak)
+    if math.isnan(weeks) or weeks < 2:
+        return 0.0
+    return min((weeks - 1) * TDCC_HIGH_PAIR_STREAK_BONUS_STEP, TDCC_HIGH_PAIR_STREAK_BONUS_CAP)
+
+
 def add_tdcc_scores(df: pd.DataFrame) -> pd.DataFrame:
     out = df.copy()
     for col in DELTA_COLS:
         out[col] = out.get(col, pd.Series(index=out.index, dtype="float64")).map(to_number)
 
-    positive_count = sum((out[col].fillna(0) > 0).astype(int) for col in DELTA_COLS)
-    high_positive_count = (
-        (out["tdcc_1w_change_800"].fillna(0) > 0).astype(int)
-        + (out["tdcc_1w_change_1000"].fillna(0) > 0).astype(int)
-    )
     weekly_sum = sum(out[col].fillna(0).clip(lower=0) for col in DELTA_COLS)
     out["tdcc_four_threshold_weekly_increase_sum"] = weekly_sum
 
-    theme_bonus = out.get("theme_mainstream_status", "").map(
-        lambda x: 4
-        if safe_str(x) in {"mainstream_leader", "mainstream_follow_through"}
-        else 2
-        if safe_str(x) == "emerging_theme"
-        else 0
+    effective_count = sum(
+        (out[col].fillna(0) > TDCC_EFFECTIVE_INCREASE_THRESHOLD).astype(int) for col in DELTA_COLS
     )
-    phase_bonus = out.get("tdcc_price_phase", "").map(
-        lambda x: 5
-        if safe_str(x) in {"tdcc_leading_price", "tdcc_price_confirmed"}
-        else -4
-        if safe_str(x) in {"price_leading_tdcc", "overheated_after_tdcc", "tdcc_price_divergence"}
-        else 0
+    weighted_score = sum(out[col].fillna(0) * weight for col, weight in DELTA_WEIGHTS.items())
+    theme_bonus = out.get("theme_mainstream_status", "").map(lambda x: 5.0 if is_mainstream_theme(x) else 0.0)
+    volume_ma20_lots = out.apply(latest_volume_ma20_lots, axis=1)
+    low_volume_penalty = volume_ma20_lots.map(
+        lambda x: TDCC_LOW_VOLUME_PENALTY
+        if not math.isnan(to_number(x)) and to_number(x) < TDCC_LOW_VOLUME_MA20_LOTS_THRESHOLD
+        else 0.0
     )
-    risk_penalty = out.get("tdcc_price_phase", "").map(
-        lambda x: 6
-        if safe_str(x) in {"overheated_after_tdcc", "tdcc_price_divergence", "failed_after_tdcc"}
-        else 0
-    )
-    consecutive = out.get("tdcc_consecutive_up_weeks", pd.Series(index=out.index)).map(to_number).fillna(0)
+    high_pair_streak = out.apply(high_pair_effective_streak_weeks, axis=1)
+    streak_bonus = high_pair_streak.map(high_pair_streak_bonus)
+
+    out["tdcc_weighted_weekly_increase_score"] = weighted_score.round(2)
+    out["tdcc_effective_increase_count"] = effective_count
+    out["tdcc_sync_bonus"] = effective_count.map(sync_bonus)
+    out["tdcc_theme_bonus"] = theme_bonus
+    out["volume_ma20_lots"] = volume_ma20_lots.round(2)
+    out["tdcc_low_volume_penalty"] = low_volume_penalty
+    out["tdcc_high_pair_effective_streak_weeks"] = high_pair_streak
+    out["tdcc_high_pair_streak_bonus"] = streak_bonus
 
     out["tdcc_weekly_increase_score"] = (
-        weekly_sum * 12 + positive_count * 6 + high_positive_count * 5 + theme_bonus + phase_bonus - risk_penalty
+        out["tdcc_weighted_weekly_increase_score"]
+        + out["tdcc_sync_bonus"]
+        + out["tdcc_theme_bonus"]
+        - out["tdcc_low_volume_penalty"]
     ).round(2)
     out["tdcc_consecutive_accumulation_score"] = (
-        out["tdcc_weekly_increase_score"] + consecutive.clip(upper=8) * 4
+        out["tdcc_weighted_weekly_increase_score"]
+        + out["tdcc_sync_bonus"]
+        + out["tdcc_high_pair_streak_bonus"]
+        + out["tdcc_theme_bonus"]
+        - out["tdcc_low_volume_penalty"]
     ).round(2)
     out["risk_bucket"] = out.get("tdcc_price_phase", "").map(risk_bucket)
     out["risk_bucket_zh"] = out["risk_bucket"].map(lambda x: RISK_BUCKET_ZH.get(safe_str(x), zh(x)))
@@ -568,12 +702,16 @@ def ranking_note(row: pd.Series) -> str:
         to_number(row.get("tdcc_1w_change_800")),
         to_number(row.get("tdcc_1w_change_1000")),
     ]
-    pos = sum(1 for x in deltas if not pd.isna(x) and x > 0)
-    high_pos = sum(1 for x in deltas[2:] if not pd.isna(x) and x > 0)
-    parts = [f"四級距本週增加 {pos}/4，高級距增加 {high_pos}/2"]
-    weeks = to_number(row.get("tdcc_consecutive_up_weeks"))
-    if not pd.isna(weeks) and weeks >= 2:
-        parts.append(f"連續增加 {weeks:.0f} 週")
+    effective_count = sum(
+        1 for x in deltas if not pd.isna(x) and x > TDCC_EFFECTIVE_INCREASE_THRESHOLD
+    )
+    high_pair_streak = to_number(row.get("tdcc_high_pair_effective_streak_weeks"))
+    parts = [f"有效級距增加 {effective_count}/4（門檻 >0.5）"]
+    if not pd.isna(high_pair_streak) and high_pair_streak >= 2:
+        parts.append(f"800/1000張有效連續增加 {high_pair_streak:.0f} 週")
+    volume_lots = to_number(row.get("volume_ma20_lots"))
+    if not pd.isna(volume_lots) and volume_lots < TDCC_LOW_VOLUME_MA20_LOTS_THRESHOLD:
+        parts.append("20日均量低於1000張")
     phase = row.get("tdcc_phase_group_zh")
     if safe_str(phase):
         parts.append(safe_str(phase))
@@ -582,28 +720,33 @@ def ranking_note(row: pd.Series) -> str:
 
 def build_weekly_increase(df: pd.DataFrame) -> pd.DataFrame:
     eligible = df.copy()
-    positive = pd.Series(False, index=eligible.index)
-    for col in DELTA_COLS:
-        positive = positive | (eligible[col].fillna(0) > 0)
-    eligible = eligible[positive].copy()
+    effective_count = eligible.get("tdcc_effective_increase_count", pd.Series(index=eligible.index)).map(to_number).fillna(0)
+    eligible = eligible[effective_count >= 1].copy()
     eligible = eligible.sort_values(
-        ["tdcc_weekly_increase_score", "tdcc_four_threshold_weekly_increase_sum"],
-        ascending=[False, False],
+        [
+            "tdcc_weekly_increase_score",
+            "tdcc_weighted_weekly_increase_score",
+            "tdcc_1w_change_1000",
+            "tdcc_1w_change_800",
+        ],
+        ascending=[False, False, False, False],
     )
     eligible["rank"] = range(1, len(eligible) + 1)
     return ensure_columns(eligible, BASE_COLUMNS)
 
 
 def build_consecutive_accumulation(df: pd.DataFrame) -> pd.DataFrame:
-    weeks = df.get("tdcc_consecutive_up_weeks", pd.Series(index=df.index)).map(to_number).fillna(0)
-    eligible = df[
-        (weeks >= 2)
-        | df.get("all_thresholds_up", pd.Series(False, index=df.index)).map(boolish)
-        | df.get("high_thresholds_up", pd.Series(False, index=df.index)).map(boolish)
-    ].copy()
+    high_pair_streak = (
+        df.get("tdcc_high_pair_effective_streak_weeks", pd.Series(index=df.index)).map(to_number).fillna(0)
+    )
+    eligible = df[high_pair_streak >= 2].copy()
     eligible = eligible.sort_values(
-        ["tdcc_consecutive_accumulation_score", "tdcc_weekly_increase_score"],
-        ascending=[False, False],
+        [
+            "tdcc_consecutive_accumulation_score",
+            "tdcc_high_pair_effective_streak_weeks",
+            "tdcc_weighted_weekly_increase_score",
+        ],
+        ascending=[False, False, False],
     )
     eligible["rank"] = range(1, len(eligible) + 1)
     return ensure_columns(eligible, BASE_COLUMNS)
@@ -724,6 +867,14 @@ def row_from_ranking(row: pd.Series, report_kind: str, section_id: str, section_
         "tdcc_1w_change_600": row.get("tdcc_1w_change_600", ""),
         "tdcc_1w_change_800": row.get("tdcc_1w_change_800", ""),
         "tdcc_1w_change_1000": row.get("tdcc_1w_change_1000", ""),
+        "tdcc_weighted_weekly_increase_score": row.get("tdcc_weighted_weekly_increase_score", ""),
+        "tdcc_effective_increase_count": row.get("tdcc_effective_increase_count", ""),
+        "tdcc_sync_bonus": row.get("tdcc_sync_bonus", ""),
+        "tdcc_theme_bonus": row.get("tdcc_theme_bonus", ""),
+        "volume_ma20_lots": row.get("volume_ma20_lots", ""),
+        "tdcc_low_volume_penalty": row.get("tdcc_low_volume_penalty", ""),
+        "tdcc_high_pair_effective_streak_weeks": row.get("tdcc_high_pair_effective_streak_weeks", ""),
+        "tdcc_high_pair_streak_bonus": row.get("tdcc_high_pair_streak_bonus", ""),
         "tdcc_consecutive_up_weeks": row.get("tdcc_consecutive_up_weeks", ""),
         "model_id": "",
         "model_name_zh": "",
@@ -787,6 +938,14 @@ def build_report_ready(
                         "tdcc_1w_change_600": "",
                         "tdcc_1w_change_800": "",
                         "tdcc_1w_change_1000": "",
+                        "tdcc_weighted_weekly_increase_score": "",
+                        "tdcc_effective_increase_count": "",
+                        "tdcc_sync_bonus": "",
+                        "tdcc_theme_bonus": "",
+                        "volume_ma20_lots": "",
+                        "tdcc_low_volume_penalty": "",
+                        "tdcc_high_pair_effective_streak_weeks": "",
+                        "tdcc_high_pair_streak_bonus": "",
                         "tdcc_consecutive_up_weeks": "",
                         "model_id": row.get("model_id", ""),
                         "model_name_zh": zh(row.get("model_name_zh")) or zh(row.get("model_id")),
@@ -1202,6 +1361,17 @@ def validate_outputs(highlight: pd.DataFrame, full: pd.DataFrame) -> None:
         signal_dates = sorted({safe_str(value) for value in report_df["signal_date"].dropna() if safe_str(value)})
         if len(signal_dates) != 1:
             raise RuntimeError(f"{report_name} TDCC report must contain exactly one signal_date, got: {signal_dates}")
+        consecutive_rows = report_df[report_df["section_id"].map(safe_str) == "consecutive_accumulation"]
+        high_pair_weeks = consecutive_rows["tdcc_high_pair_effective_streak_weeks"].map(to_number).fillna(0)
+        bad_consecutive = consecutive_rows[high_pair_weeks < 2]
+        if not bad_consecutive.empty:
+            examples = ", ".join(
+                f"{safe_str(row.get('stock_id'))}:{safe_str(row.get('tdcc_high_pair_effective_streak_weeks'))}"
+                for _, row in bad_consecutive.head(10).iterrows()
+            )
+            raise RuntimeError(
+                f"{report_name} TDCC consecutive accumulation section contains rows below 2-week 800/1000 effective streak: {examples}"
+            )
         model_rows = report_df[report_df["model_id"].map(safe_str) != ""]
         bad_models = sorted(set(model_rows["model_id"].map(safe_str)) - TDCC_FULL_REPORT_ALLOWED_MODEL_CROSS_IDS)
         if bad_models:
