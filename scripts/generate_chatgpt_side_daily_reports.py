@@ -86,6 +86,19 @@ FRONT_NON_MAINSTREAM_LIMIT = 2
 FULL_REPORT_MAINSTREAM_LIMIT = 12
 FULL_REPORT_NON_MAINSTREAM_LIMIT = 4
 CHATGPT_SIDE_KLINE_DAYS = 126
+VOLUME_BREAKOUT_MODEL_ID = "volume_range_breakout"
+VOLUME_OPERATION_ARTIFACT_NAME = "volume_breakout_operation_pdf_preview_latest.csv"
+VOLUME_OPERATION_SECTION_ORDER = {
+    "confirmed_operation": 0,
+    "active_operation": 1,
+    "holding_operation": 1,
+    "pending_confirmation": 2,
+}
+VOLUME_OPERATION_SECTION_LABELS = [
+    ("confirmed_operation", "已確認操作"),
+    ("active_operation", "操作中"),
+    ("pending_confirmation", "待確認"),
+]
 
 
 def append_page_break_once(story: list) -> None:
@@ -339,6 +352,32 @@ def read_csv(path: Path | str, **kwargs) -> pd.DataFrame:
         if col in df.columns:
             df[col] = df[col].astype(str).str.replace(r"\.0$", "", regex=True)
     return df
+
+
+def read_optional_csv(path: Path | str, **kwargs) -> pd.DataFrame:
+    try:
+        return read_csv(path, **kwargs)
+    except (urllib.error.HTTPError, urllib.error.URLError, OSError, pd.errors.EmptyDataError, pd.errors.ParserError):
+        return pd.DataFrame()
+
+
+def load_volume_operation_artifact() -> pd.DataFrame:
+    override = os.environ.get("CHATGPT_DAILY_VOLUME_OPERATION_ARTIFACT", "").strip()
+    sources: list[Path | str] = []
+    if override:
+        sources.append(Path(override))
+    sources.extend([remote_latest_url(VOLUME_OPERATION_ARTIFACT_NAME), LATEST / VOLUME_OPERATION_ARTIFACT_NAME])
+    for source in sources:
+        df = read_optional_csv(source, dtype=str, keep_default_na=False)
+        if df.empty:
+            continue
+        if "model_id" in df.columns:
+            df = df[df["model_id"].astype(str).eq(VOLUME_BREAKOUT_MODEL_ID)].copy()
+        if "stock_id" in df.columns:
+            df["stock_id"] = df["stock_id"].astype(str).str.replace(r"\.0$", "", regex=True)
+        if not df.empty:
+            return df.fillna("")
+    return pd.DataFrame()
 
 
 MAINSTREAM_CURATED_TITLE = "\u4e3b\u6d41\u80a1\u6bcf\u65e5\u63a8\u85a6\u7cbe\u83ef"
@@ -1880,6 +1919,7 @@ def load_inputs() -> dict[str, pd.DataFrame]:
         "put_call": read_csv(remote_latest_url("futures_options_put_call_ratio_latest.csv")),
         "tdcc_edge": read_csv(remote_latest_url("tdcc_overheated_short_term_edge_candidates_latest.csv")),
         "weekly_surge": read_csv(remote_latest_url("weekly_surge_strict_parameter_candidates_latest.csv")),
+        "volume_operation": load_volume_operation_artifact(),
     }
 
 
@@ -2021,6 +2061,109 @@ def model_split_table(
             ]
         )
     return build_table(data, [32 * mm, 22 * mm, 30 * mm, 54 * mm, 44 * mm, 86 * mm], 12.0)
+
+
+def volume_operation_stock_ids(rows: list[pd.Series]) -> set[str]:
+    return {stock_id_text(row.get("stock_id")) for row in rows if stock_id_text(row.get("stock_id"))}
+
+
+def volume_operation_subset(
+    operation_df: pd.DataFrame,
+    pdf_view: str,
+    section: str,
+    stock_ids: set[str],
+) -> pd.DataFrame:
+    if operation_df.empty:
+        return operation_df
+    work = operation_df.copy()
+    if "pdf_view" in work.columns:
+        work = work[work["pdf_view"].astype(str).eq(pdf_view)].copy()
+    if "pdf_section" in work.columns:
+        if section == "active_operation":
+            work = work[work["pdf_section"].astype(str).isin(["active_operation", "holding_operation"])].copy()
+        else:
+            work = work[work["pdf_section"].astype(str).eq(section)].copy()
+    if stock_ids and "stock_id" in work.columns:
+        work = work[work["stock_id"].astype(str).isin(stock_ids)].copy()
+    if "display_order" in work.columns:
+        work["_display_order"] = pd.to_numeric(work["display_order"], errors="coerce").fillna(9999)
+        work = work.sort_values(["_display_order", "stock_id"], ascending=[True, True]).drop(columns=["_display_order"])
+    return work
+
+
+def volume_operation_section_rows(
+    operation_df: pd.DataFrame,
+    pdf_view: str,
+    section: str,
+    stock_ids: set[str],
+) -> list[list[str]]:
+    label = dict(VOLUME_OPERATION_SECTION_LABELS).get(section, section)
+    rows = [["狀態", "標的", "觸發 / 日期", "買進 / 停損 / 賣出", "歷史統計"]]
+    part = volume_operation_subset(operation_df, pdf_view, section, stock_ids)
+    if part.empty:
+        rows.append([label, "目前無", "-", f"目前無{label}。", "-"])
+        return rows
+    for _, row in part.iterrows():
+        trigger_parts = [
+            clean(row.get("trigger_zh")),
+            clean(row.get("signal_date")),
+            clean(row.get("confirmation_date")),
+            clean(row.get("pending_age_zh")),
+            clean(row.get("pending_confirmation_zh")),
+        ]
+        plan_parts = [
+            clean(row.get("entry_basis_zh")),
+            clean(row.get("entry_price_status_zh")),
+            clean(row.get("stop_basis_zh")),
+            clean(row.get("exit_rule_zh")),
+        ]
+        stat_parts = [
+            f"樣本 {clean(row.get('sample_size'))}" if clean(row.get("sample_size")) else "",
+            f"勝率 {clean(row.get('win_rate_zh'))}" if clean(row.get("win_rate_zh")) else "",
+            f"平均報酬 {clean(row.get('avg_return_zh'))}" if clean(row.get("avg_return_zh")) else "",
+            f"中位數報酬 {clean(row.get('median_return_zh'))}" if clean(row.get("median_return_zh")) else "",
+            f"信心 {clean(row.get('confidence_zh'))}" if clean(row.get("confidence_zh")) else "",
+            clean(row.get("tdcc_status_zh")),
+            clean(row.get("pdf_note_zh")),
+        ]
+        rows.append(
+            [
+                clean(row.get("operation_status_zh")) or label,
+                clean(row.get("stock_display")) or f"{stock_id_text(row.get('stock_id'))} {clean(row.get('stock_name'))}".strip(),
+                short(" / ".join(part for part in trigger_parts if part), 78),
+                short(" / ".join(part for part in plan_parts if part), 110),
+                short(" / ".join(part for part in stat_parts if part), 110),
+            ]
+        )
+    return rows
+
+
+def append_volume_breakout_operation_research(
+    story: list,
+    inputs: dict[str, pd.DataFrame],
+    model_id: str,
+    ranked_rows: list[pd.Series],
+    *,
+    full: bool,
+) -> None:
+    if model_id != VOLUME_BREAKOUT_MODEL_ID:
+        return
+    operation_df = inputs.get("volume_operation", pd.DataFrame()).copy()
+    stock_ids = volume_operation_stock_ids(ranked_rows)
+    story.append(Spacer(1, 4))
+    story.append(Paragraph("放量攻擊操作研究", H2))
+    story.append(
+        para(
+            "以下只套用於放量攻擊模型；進場以確認後下一交易日開盤為計算基準，停損改以日期最低點呈現，賣出規則列在同表。其他模型不套用本表。",
+            BODY_SMALL,
+        )
+    )
+    pdf_view = "full" if full else "highlight"
+    for section, label in VOLUME_OPERATION_SECTION_LABELS:
+        story.append(Paragraph(label, H2))
+        rows = volume_operation_section_rows(operation_df, pdf_view, section, stock_ids)
+        story.append(build_table(rows, [20 * mm, 30 * mm, 48 * mm, 92 * mm, 78 * mm], 10.5))
+        story.append(Spacer(1, 4))
 
 
 def model_recommendation_rows_for_line(
@@ -2911,6 +3054,7 @@ def build_curated_pdf_for_line(
         if desc:
             story.append(para(desc, BODY_SMALL))
         story.append(model_split_table(ranked_rows, two_map, all_map, line_label, limit=limit))
+        append_volume_breakout_operation_research(story, inputs, model_id, ranked_rows, full=False)
         reps = operation_representatives(
             ranked_rows if line == "mainstream" else [],
             ranked_rows if line != "mainstream" else [],
@@ -2997,6 +3141,7 @@ def build_full_candidate_pdf_for_line(
             story.append(para("無符合條件資料。", BODY))
             continue
         story.append(model_split_table(line_rows, two_map, all_map, line_label, limit=limit))
+        append_volume_breakout_operation_research(story, inputs, model_id, line_rows, full=True)
 
     story.append(PageBreak())
     story.append(Paragraph(f"{line_label}雙線與輪動摘要", H1))

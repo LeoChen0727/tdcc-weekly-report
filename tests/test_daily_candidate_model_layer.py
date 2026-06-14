@@ -231,6 +231,21 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         self.assertGreater(score, 0)
         self.assertTrue(any("locked_limit_up_breakout" in item for item in components))
 
+    def test_locked_limit_up_watch_row_uses_return_when_previous_close_missing(self) -> None:
+        row = make_row(
+            volume_breakout_type="bottom_volume_attack",
+            close="207",
+            open="207",
+            high="207",
+            low="207",
+            return_1d="9.8143",
+            previous_20d_high="192",
+            volume_ratio="0.43",
+            volume_ma20="5956813.95",
+        )
+
+        self.assertTrue(cond_volume_breakout(row))
+
     def test_non_locked_low_volume_ratio_breakout_is_not_volume_breakout(self) -> None:
         row = make_row(
             close="110",
