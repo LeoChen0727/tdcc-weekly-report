@@ -10,6 +10,7 @@ import re
 
 import pandas as pd
 import requests
+from bs4 import BeautifulSoup
 
 from tracking_utils import LATEST_DIR, now_text, normalize_code, normalize_date, read_csv, safe_str, write_csv
 
@@ -22,6 +23,7 @@ THEME_EVENTS_DIR = DATA_DIR / "theme_events"
 COMPANY_EVENT_CALENDAR = COMPANY_CALENDAR_DIR / "company_event_calendar.csv"
 MACRO_EVENT_CALENDAR = MACRO_EVENTS_DIR / "macro_event_calendar.csv"
 THEME_EVENT_CALENDAR = THEME_EVENTS_DIR / "theme_event_calendar.csv"
+EVENT_CATALYST_LOG = DATA_DIR / "event_catalysts" / "event_catalyst_log.csv"
 
 UPCOMING_COMPANY_CALENDAR = LATEST_DIR / "upcoming_catalyst_calendar_latest.csv"
 UPCOMING_COMPANY_MD = LATEST_DIR / "upcoming_catalyst_calendar_latest.md"
@@ -36,11 +38,12 @@ ALL_CANDIDATES = LATEST_DIR / "all_candidates_latest.csv"
 COMPANY_THEME_MAPPING = THEME_EVENTS_DIR / "company_theme_mapping.csv"
 
 TWSE_EX_RIGHT_URL = "https://www.twse.com.tw/rwd/zh/exRight/TWT48U?response=json"
+TWSE_DIVIDEND_DISTRIBUTION_URL = "https://openapi.twse.com.tw/v1/opendata/t187ap45_L"
 FED_FOMC_URL = "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
 BEA_SCHEDULE_URL = "https://www.bea.gov/news/schedule"
 BLS_CPI_URL = "https://www.bls.gov/schedule/news_release/cpi.htm"
 BLS_EMPSIT_URL = "https://www.bls.gov/schedule/news_release/empsit.htm"
-MOPS_SHAREHOLDER_MEETING_URL = "https://mops.twse.com.tw/mops/web/t108sb19_q1"
+MOPS_SHAREHOLDER_MEETING_URL = "https://mops.twse.com.tw/mops/web/t108sb31new"
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (compatible; tdcc-weekly-report calendar fetcher)",
@@ -128,6 +131,22 @@ MONTHS = {
     "December": 12,
 }
 
+MONTH_ALIASES = {
+    **MONTHS,
+    "Jan.": 1,
+    "Feb.": 2,
+    "Mar.": 3,
+    "Apr.": 4,
+    "Jun.": 6,
+    "Jul.": 7,
+    "Aug.": 8,
+    "Sep.": 9,
+    "Sept.": 9,
+    "Oct.": 10,
+    "Nov.": 11,
+    "Dec.": 12,
+}
+
 
 def today_taipei() -> date:
     return datetime.now(ZoneInfo("Asia/Taipei")).date()
@@ -144,6 +163,17 @@ def ymd(day: date | datetime | str | Any) -> str:
 def parse_roc_date(value: Any) -> str:
     text = safe_str(value)
     nums = re.findall(r"\d+", text)
+    if len(nums) == 1 and len(nums[0]) in {6, 7}:
+        raw = nums[0].zfill(7)
+        year = int(raw[:-4])
+        month = int(raw[-4:-2])
+        day = int(raw[-2:])
+        if year < 1911:
+            year += 1911
+        try:
+            return date(year, month, day).strftime("%Y%m%d")
+        except ValueError:
+            return ""
     if len(nums) >= 3:
         year = int(nums[0])
         if year < 1911:
@@ -155,6 +185,25 @@ def parse_roc_date(value: Any) -> str:
         except ValueError:
             return ""
     return normalize_date(text)
+
+
+def parse_english_release_date(value: Any) -> str:
+    text = safe_str(value).replace(",", "")
+    match = re.search(
+        r"\b(?P<month>Jan\.|Feb\.|Mar\.|Apr\.|May|Jun\.|Jul\.|Aug\.|Sep\.|Sept\.|Oct\.|Nov\.|Dec\.|"
+        r"January|February|March|April|June|July|August|September|October|November|December)\s+"
+        r"(?P<day>\d{1,2})\s+(?P<year>20\d{2})",
+        text,
+    )
+    if not match:
+        return ""
+    month = MONTH_ALIASES.get(match.group("month"))
+    if not month:
+        return ""
+    try:
+        return date(int(match.group("year")), month, int(match.group("day"))).strftime("%Y%m%d")
+    except ValueError:
+        return ""
 
 
 def parse_ymd(value: Any) -> date | None:
@@ -315,6 +364,48 @@ def twse_ex_right_rows(base: date) -> tuple[pd.DataFrame, dict[str, Any]]:
             }
         )
     status["rows"] = len(rows)
+    return pd.DataFrame(rows, columns=COMPANY_COLUMNS), status
+
+
+def twse_shareholder_meeting_rows(base: date) -> tuple[pd.DataFrame, dict[str, Any]]:
+    data, status = fetch_json(TWSE_DIVIDEND_DISTRIBUTION_URL)
+    if not isinstance(data, list):
+        return pd.DataFrame(columns=COMPANY_COLUMNS), status
+    rows: list[dict[str, str]] = []
+    for item in data:
+        if not isinstance(item, dict):
+            continue
+        event_date = parse_roc_date(item.get("股東會日期", ""))
+        stock_id = normalize_code(item.get("公司代號", ""))
+        stock_name = safe_str(item.get("公司名稱", ""))
+        if not event_date or not stock_id:
+            continue
+        rows.append(
+            {
+                "event_date": event_date,
+                "event_end_date": event_date,
+                "stock_id": stock_id,
+                "stock_name": stock_name,
+                "market": "TWSE",
+                "event_type": "shareholder_meeting",
+                "event_name": "股東會日期",
+                "event_status": "confirmed",
+                "event_confidence": "high",
+                "catalyst_tags": "shareholder_meeting_calendar",
+                "source": "TWSE OpenAPI dividend distribution shareholder meeting date",
+                "source_url": TWSE_DIVIDEND_DISTRIBUTION_URL,
+                "days_to_event": days_to(event_date, base),
+                "proximity_bucket": proximity_bucket(event_date, base),
+                "expected_impact": "calendar_event_not_standalone_catalyst",
+                "notes": (
+                    "股東會日期欄位來自 TWSE OpenAPI t187ap45_L。"
+                    "This is a governance calendar reminder, not a standalone recommendation catalyst."
+                ),
+                "last_updated": now_text(),
+            }
+        )
+    status["rows"] = len(rows)
+    status["note"] = "TWSE-listed shareholder meeting dates parsed from official OpenAPI t187ap45_L when available."
     return pd.DataFrame(rows, columns=COMPANY_COLUMNS), status
 
 
@@ -479,6 +570,68 @@ def parse_bea_events(base: date) -> tuple[pd.DataFrame, dict[str, Any]]:
     return pd.DataFrame(rows, columns=MACRO_COLUMNS), status
 
 
+def parse_bls_release_events(
+    url: str,
+    label: str,
+    event_type: str,
+    related_themes: str,
+    importance: str,
+    base: date,
+) -> tuple[pd.DataFrame, dict[str, Any]]:
+    text, status = fetch_text(url)
+    if not text:
+        status["status"] = "blocked_or_unavailable"
+        status["note"] = f"{label} was not stored because the official endpoint did not return usable data in this environment."
+        return pd.DataFrame(columns=MACRO_COLUMNS), status
+
+    soup = BeautifulSoup(text, "html.parser")
+    rows: list[dict[str, str]] = []
+    for table in soup.find_all("table"):
+        headers = [cell.get_text(" ", strip=True) for cell in table.find_all("th")]
+        if not {"Reference Month", "Release Date", "Release Time"}.issubset(set(headers)):
+            continue
+        for tr in table.find_all("tr"):
+            values = [cell.get_text(" ", strip=True) for cell in tr.find_all(["td", "th"])]
+            if len(values) < 3 or values[:3] == ["Reference Month", "Release Date", "Release Time"]:
+                continue
+            release_date = parse_english_release_date(values[1])
+            if not release_date:
+                continue
+            event_day = parse_ymd(release_date)
+            if event_day is None or event_day < base - timedelta(days=7):
+                continue
+            rows.append(
+                {
+                    "event_date": release_date,
+                    "event_end_date": release_date,
+                    "event_name": f"{label}: {values[0]}",
+                    "event_type": event_type,
+                    "region": "US",
+                    "importance": importance,
+                    "source": f"BLS {label}",
+                    "source_url": url,
+                    "days_to_event": days_to(release_date, base),
+                    "proximity_bucket": proximity_bucket(release_date, base),
+                    "related_themes": related_themes,
+                    "market_report_section": "macro_calendar",
+                    "notes": f"Release time: {values[2]}. Market-risk calendar reminder, not a stock-specific catalyst.",
+                    "last_updated": now_text(),
+                }
+            )
+        if rows:
+            break
+
+    if rows:
+        status["status"] = "ok"
+        status["rows"] = len(rows)
+        status["note"] = f"Parsed {len(rows)} release rows from the official BLS schedule table."
+    else:
+        status["status"] = "reachable_not_parsed"
+        status["rows"] = 0
+        status["note"] = f"{label} was reachable, but no stable release-date rows were parsed."
+    return pd.DataFrame(rows, columns=MACRO_COLUMNS), status
+
+
 def blocked_source_status(url: str, label: str) -> dict[str, Any]:
     _, status = fetch_text(url)
     if status.get("status") == "ok":
@@ -619,8 +772,8 @@ def write_upcoming_reports(company: pd.DataFrame, macro: pd.DataFrame, status: d
             "",
             "## Pending Sources",
             "",
-            "- Shareholder meeting dates need a stable MOPS endpoint before automated storage.",
-            "- BLS CPI/employment schedules may be blocked from this environment; keep them pending until a reliable official endpoint is found.",
+            "- TWSE shareholder meeting dates are stored from official OpenAPI where available; MOPS/TPEX coverage remains pending if blocked.",
+            "- BLS CPI/employment schedules are stored when official schedule tables are reachable and parseable.",
             "- Company-specific technology validation, exhibitions, law conferences, and news catalysts need explicit source rows in event_catalyst_log.csv before they can affect stock ranking.",
         ]
     )
@@ -631,6 +784,15 @@ def needs_review_rows(status: dict[str, Any]) -> pd.DataFrame:
     rows: list[dict[str, str]] = []
     generated_at = safe_str(status.get("generated_at")) or now_text()
     sources = status.get("sources", {})
+    event_log = read_csv(EVENT_CATALYST_LOG)
+    traceable_event_rows = 0
+    if not event_log.empty:
+        required_cols = ["event_date", "stock_id", "event_type", "source", "source_url", "catalyst_confidence"]
+        if all(col in event_log.columns for col in required_cols):
+            traceable = event_log.copy()
+            for col in required_cols:
+                traceable[col] = traceable[col].map(safe_str)
+            traceable_event_rows = int((traceable[required_cols] != "").all(axis=1).sum())
 
     def add(
         *,
@@ -667,12 +829,12 @@ def needs_review_rows(status: dict[str, Any]) -> pd.DataFrame:
         item_id="mops_shareholder_meeting_calendar",
         source_area="company_calendar",
         requested_data="Stock-level shareholder meeting dates",
-        current_status=safe_str(shareholder.get("status")) or "pending_endpoint_verification",
+        current_status=safe_str(shareholder.get("status")) or "partial_coverage_twse_only",
         owner="codex_data_source_work",
-        required_evidence="Stable MOPS machine-readable endpoint or a maintained official export with stock_id and meeting date.",
-        next_action="Find and test a stable MOPS endpoint before storing rows.",
+        required_evidence="Stable MOPS/TPEX machine-readable endpoint or a maintained official export with stock_id and meeting date.",
+        next_action="Keep TWSE OpenAPI rows; find and test a stable MOPS/TPEX endpoint before claiming full-market coverage.",
         source_url=safe_str(shareholder.get("url")) or MOPS_SHAREHOLDER_MEETING_URL,
-        notes=safe_str(shareholder.get("note")) or "Do not use shareholder meeting proximity as a stock catalyst until rows are confirmed.",
+        notes=safe_str(shareholder.get("note")) or "TWSE-listed rows may be stored, but this does not prove full listed/OTC shareholder-meeting coverage.",
     )
 
     for key, label, url in [
@@ -680,6 +842,8 @@ def needs_review_rows(status: dict[str, Any]) -> pd.DataFrame:
         ("bls_employment_release_schedule", "BLS employment release schedule", BLS_EMPSIT_URL),
     ]:
         info = sources.get(key, {})
+        if safe_str(info.get("status")) == "ok" and int(info.get("rows") or 0) > 0:
+            continue
         add(
             item_id=key,
             source_area="macro_calendar",
@@ -696,12 +860,20 @@ def needs_review_rows(status: dict[str, Any]) -> pd.DataFrame:
         item_id="company_specific_event_sources",
         source_area="event_catalyst",
         requested_data="Company-specific technology validation, exhibitions, news, investor conference, material information, and order/customer-win events",
-        current_status="needs_explicit_source_rows",
+        current_status="partial_official_material_info_rows" if traceable_event_rows else "needs_explicit_source_rows",
         owner="program_auto_confirm_after_source_integration",
         required_evidence="Rows in data/event_catalysts/event_catalyst_log.csv with source, source_url, confidence, and event_type.",
-        next_action="Load explicit source rows from official announcements, MOPS, company releases, exhibition pages, or reliable news before scoring.",
+        next_action=(
+            "Broaden beyond official material-information rows to company releases, exhibition pages, and reliable news before claiming full company-specific coverage."
+            if traceable_event_rows
+            else "Load explicit source rows from official announcements, MOPS, company releases, exhibition pages, or reliable news before scoring."
+        ),
         source_url="data/event_catalysts/event_catalyst_log.csv",
-        notes="Theme labels or calendar proximity alone must not upgrade stocks or appear as formal PDF recommendation reasons.",
+        notes=(
+            f"{traceable_event_rows} traceable event source rows are present; uncovered company-specific catalyst categories remain blocked."
+            if traceable_event_rows
+            else "Theme labels or calendar proximity alone must not upgrade stocks or appear as formal PDF recommendation reasons."
+        ),
     )
 
     return pd.DataFrame(rows, columns=NEEDS_REVIEW_COLUMNS)
@@ -755,16 +927,34 @@ def main() -> int:
     LATEST_DIR.mkdir(parents=True, exist_ok=True)
 
     twse_rows, twse_status = twse_ex_right_rows(base)
+    shareholder_rows, shareholder_twse_status = twse_shareholder_meeting_rows(base)
     revenue_rows = monthly_revenue_expected_rows(base)
     fomc_rows, fomc_status = parse_fomc_events(base)
     bea_rows, bea_status = parse_bea_events(base)
-    bls_cpi_status = blocked_source_status(BLS_CPI_URL, "BLS CPI release schedule")
-    bls_empsit_status = blocked_source_status(BLS_EMPSIT_URL, "BLS employment release schedule")
+    bls_cpi_rows, bls_cpi_status = parse_bls_release_events(
+        BLS_CPI_URL,
+        "CPI release schedule",
+        "US_CPI",
+        "US_CPI;inflation;Fed_policy;global_risk",
+        "high",
+        base,
+    )
+    bls_empsit_rows, bls_empsit_status = parse_bls_release_events(
+        BLS_EMPSIT_URL,
+        "Employment Situation release schedule",
+        "US_employment_situation",
+        "US_jobs;Fed_policy;global_growth;global_risk",
+        "high",
+        base,
+    )
     shareholder_status = {
         "url": MOPS_SHAREHOLDER_MEETING_URL,
-        "status": "pending_endpoint_verification",
-        "rows": 0,
-        "note": "MOPS shareholder meeting calendar exists on the website, but this pipeline has not confirmed a stable machine-readable endpoint yet.",
+        "status": "partial_coverage_twse_only" if len(shareholder_rows) else "blocked_or_unavailable",
+        "rows": int(len(shareholder_rows)),
+        "note": (
+            "TWSE-listed shareholder meeting dates are stored from t187ap45_L. "
+            "Direct MOPS shareholder pages are blocked or unavailable from this environment, and OTC coverage still needs a stable official endpoint."
+        ),
     }
 
     revenue_status = {
@@ -774,8 +964,8 @@ def main() -> int:
         "note": "Expected monthly revenue publication window generated for tracked stocks; not a confirmed company catalyst.",
     }
 
-    company_new = pd.concat([twse_rows, revenue_rows], ignore_index=True, sort=False)
-    macro_new = pd.concat([fomc_rows, bea_rows], ignore_index=True, sort=False)
+    company_new = pd.concat([twse_rows, shareholder_rows, revenue_rows], ignore_index=True, sort=False)
+    macro_new = pd.concat([fomc_rows, bea_rows, bls_cpi_rows, bls_empsit_rows], ignore_index=True, sort=False)
 
     company_all = append_update(
         COMPANY_EVENT_CALENDAR,
@@ -808,6 +998,7 @@ def main() -> int:
         },
         "sources": {
             "twse_ex_right_ex_dividend": twse_status,
+            "twse_shareholder_meeting_from_dividend_distribution": shareholder_twse_status,
             "monthly_revenue_expected_window": revenue_status,
             "federal_reserve_fomc": fomc_status,
             "bea_release_schedule": bea_status,

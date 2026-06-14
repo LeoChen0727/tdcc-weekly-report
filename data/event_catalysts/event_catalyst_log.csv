@@ -1,1 +1,73 @@
 event_date,stock_id,stock_name,event_type,theme_tags,title,summary,source,source_url,catalyst_strength,catalyst_confidence,is_confirmed,is_speculative,related_to_revenue,related_to_eps,related_to_orders,related_to_capacity,related_to_customer,last_updated
+20260612,3498,陽程,shareholder_meeting,semiconductor_equipment_theme;automation equipment;automation;equipment,公告本公司115年股東常會補選董事當選名單,"1.發生變動日期:115/06/12
+2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、
+自然人董事或自然人監察人）:法人董事、獨立董事
+3.舊任者職稱及姓名:不適用
+4.舊任者簡歷:不適用
+5.新任者職稱及姓名:
+董事：華準投資股份有限公司代表人 李進興先生
+獨立董事：呂正華先生
+獨立董事：殷偉雄先生
+6.新任者簡歷:
+李進興先生：鴻準精密工業股份有限公司協理
+呂正華先生：中華民國全國工業總會秘書長
+殷偉雄先生：商業總會顧問
+7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:
+新任
+8.異動原因:新任
+9.新任者選任時持股數:
+董事：華準投資股份有限公司代表人 李進興先生，持股9,470,000股。
+獨立董事：呂正華先生，持股0股。
+獨立董事：殷偉雄先生，持股0股。
+10.原任期（例xx/xx/xx ~ xx/xx/xx）:113/06/14 ~ 116/06/13
+11.新任生效日期:115/06/12
+12.同任期董事變動比率:3/8
+13.同任期獨立董事變動比率:2/4
+14.同任期監察人變動比率:不適用
+15.屬三分之一以上董事發生變動（請輸入是或否）:是
+16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，
+本則重大訊息同時符合證券交易法施行細則第7條第6款所定
+對股東權益或證券價格有重大影響之事項):無",TPEX material information OpenAPI,https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap04_O,low,high,True,False,False,False,False,False,False,2026-06-14 12:58:18 Asia/Taipei
+20260612,3498,陽程,shareholder_meeting,semiconductor_equipment_theme;automation equipment;automation;equipment,公告本公司115年股東常會重要決議事項,"1.股東常會日期:115/06/12
+2.重要決議事項一、盈餘分配或盈虧撥補:通過承認114年度盈餘分配案
+3.重要決議事項二、章程修訂:無
+4.重要決議事項三、營業報告書及財務報表:通過承認114年度營業報告書及決算表冊案
+5.重要決議事項四、董監事選舉:完成補選本公司董事三席(含獨立董事二席)
+6.重要決議事項五、其他事項:通過解除本公司新任董事競業禁止案
+7.其他應敘明事項:無",TPEX material information OpenAPI,https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap04_O,low,high,True,False,False,False,False,False,False,2026-06-14 12:58:18 Asia/Taipei
+20260612,3498,陽程,material_information,semiconductor_equipment_theme;automation equipment;automation;equipment,公告本公司獨立董事新任審計委員會委員職務,"1.發生變動日期:115/06/12
+2.功能性委員會名稱:審計委員會
+3.舊任者姓名:不適用
+4.舊任者簡歷:不適用
+5.新任者姓名:
+獨立董事：呂正華先生
+獨立董事：殷偉雄先生
+6.新任者簡歷:
+呂正華先生：中華民國全國工業總會秘書長
+殷偉雄先生：商業總會顧問
+7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）:新任
+8.異動原因:新任
+9.原任期（例xx/xx/xx ~ xx/xx/xx）:113/06/14 ~ 116/06/13
+10.新任生效日期:115/06/12
+11.其他應敘明事項:無",TPEX material information OpenAPI,https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap04_O,low,high,True,False,False,False,False,False,False,2026-06-14 12:58:18 Asia/Taipei
+20260612,3498,陽程,shareholder_meeting,semiconductor_equipment_theme;automation equipment;automation;equipment,本公司115年股東常會決議解除新任董事競業禁止之限制案,"1.股東會決議日:115/06/12
+2.許可從事競業行為之董事姓名及職稱:
+(1)董事：華準投資股份有限公司代表人：李進興
+上頂醫學影像科技股份有限公司 法人董事
+(2)獨立董事：呂正華
+中華民國全國工業總會秘書長
+(3)獨立董事：殷偉雄
+商業總會顧問
+威鋒電子股份有限公司 獨立董事
+3.許可從事競業行為之項目:與本公司營業範圍相同或類似之公司
+4.許可從事競業行為之期間:任職本公司董事之職務期間
+5.決議情形（請依公司法第209條說明表決結果）:
+經出席股東表決結果贊成權數已逾法定數額，本案照案通過
+6.所許可之競業行為如屬大陸地區事業之營業者，董事姓名及職稱
+（非屬大陸地區事業之營業者，以下請輸〝不適用〞）:不適用
+7.所擔任該大陸地區事業之公司名稱及職務:不適用
+8.所擔任該大陸地區事業地址:不適用
+9.所擔任該大陸地區事業營業項目:不適用
+10.對本公司財務業務之影響程度:不適用
+11.董事如有對該大陸地區事業從事投資者，其投資金額及持股比例:不適用
+12.其他應敘明事項:無",TPEX material information OpenAPI,https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap04_O,low,high,True,False,False,False,False,False,False,2026-06-14 12:58:18 Asia/Taipei
