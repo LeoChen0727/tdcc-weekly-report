@@ -99,6 +99,14 @@ class HistoricalPatternOperationRegistryTest(unittest.TestCase):
         self.assertFalse(current_model_hit(low_volume_signal))
         self.assertTrue(relaxed_limit_locked_low_volume(low_volume_signal))
 
+    def test_locked_limit_up_low_volume_ratio_is_current_model_hit(self) -> None:
+        locked = base_history({"volume": 1_000_000, "close": 110, "high": 110, "low": 110, "open": 110})
+        signal = locked.iloc[70]
+
+        self.assertTrue(current_model_hit(signal))
+        self.assertFalse(relaxed_limit_locked_low_volume(signal))
+        self.assertTrue(bool(signal["limit_up_like"]))
+
     def test_long_base_low_position_uses_current_model_hit(self) -> None:
         df = base_history()
         self.assertTrue(long_base_low_position(df.iloc[70]))

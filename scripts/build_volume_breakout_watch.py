@@ -32,6 +32,7 @@ EVENT_LOG_CSV = HISTORY_DIR / "volume_breakout_event_log.csv"
 PACKET_MD = LATEST_DIR / "volume_breakout_chatgpt_packet_latest.md"
 
 RAW_PREFIX = "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main"
+VOLUME_BREAKOUT_RULE_VERSION = "bottom_volume_attack_v2_locked_limit_up"
 
 HORIZONS = [1, 3, 5, 10, 20]
 
@@ -247,6 +248,77 @@ def bottom_volume_breakout_level(value: Any) -> float:
     return prev20 * 1.02
 
 
+def signal_return_pct(row: pd.Series) -> float:
+    ret = safe_float(row.get("daily_return_calc"))
+    if not math.isnan(ret):
+        return ret
+    ret = safe_float(row.get("return_1d"))
+    if not math.isnan(ret):
+        return ret
+    close = safe_float(row.get("close"))
+    prev_close = safe_float(row.get("previous_close_calc"))
+    if math.isnan(close) or math.isnan(prev_close) or prev_close <= 0:
+        return math.nan
+    return (close / prev_close - 1.0) * 100.0
+
+
+def locked_limit_up_breakout(row: pd.Series) -> bool:
+    close = safe_float(row.get("close"))
+    open_ = safe_float(row.get("open"))
+    high = safe_float(row.get("high"))
+    low = safe_float(row.get("low"))
+    prev_close = safe_float(row.get("previous_close_calc"))
+    volume_ratio = safe_float(row.get("volume_ratio"))
+    volume_ma20_lots = normalize_volume_ma20_lots(row.get("volume_ma20"))
+    breakout_level = bottom_volume_breakout_level(row.get("previous_20d_high_calc"))
+    ret = signal_return_pct(row)
+    if any(
+        math.isnan(x)
+        for x in [close, open_, high, low, prev_close, volume_ratio, volume_ma20_lots, breakout_level, ret]
+    ):
+        return False
+    if prev_close <= 0 or volume_ratio <= 0 or volume_ratio >= 2.0:
+        return False
+    range_pct = (high - low) / prev_close * 100.0
+    locked_or_tight_range = high == low or range_pct <= 1.0
+    return (
+        close >= breakout_level
+        and ret >= 9.0
+        and close >= high * 0.995
+        and open_ >= close * 0.995
+        and locked_or_tight_range
+        and volume_ma20_lots >= 1000
+    )
+
+
+def locked_limit_up_breakout_mask(df: pd.DataFrame) -> pd.Series:
+    close = pd.to_numeric(df["close"], errors="coerce")
+    open_ = pd.to_numeric(df["open"], errors="coerce")
+    high = pd.to_numeric(df["high"], errors="coerce")
+    low = pd.to_numeric(df["low"], errors="coerce")
+    prev_close = pd.to_numeric(df["previous_close_calc"], errors="coerce")
+    prev20 = pd.to_numeric(df["previous_20d_high_calc"], errors="coerce")
+    volume_ratio = pd.to_numeric(df["volume_ratio"], errors="coerce")
+    volume_ma20 = pd.to_numeric(df["volume_ma20"], errors="coerce")
+    volume_ma20_lots = volume_ma20.where(volume_ma20 < 100000, volume_ma20 / 1000.0)
+    ret = pd.to_numeric(df["daily_return_calc"], errors="coerce")
+    if "return_1d" in df.columns:
+        ret = ret.fillna(pd.to_numeric(df["return_1d"], errors="coerce"))
+    ret = ret.fillna((close / prev_close.replace(0, pd.NA) - 1.0) * 100.0)
+    range_pct = (high - low) / prev_close.replace(0, pd.NA) * 100.0
+    locked_or_tight_range = high.eq(low) | range_pct.le(1.0)
+    return (
+        (close >= prev20 * 1.02)
+        & (ret >= 9.0)
+        & (close >= high * 0.995)
+        & (open_ >= close * 0.995)
+        & locked_or_tight_range
+        & (volume_ratio > 0)
+        & (volume_ratio < 2.0)
+        & (volume_ma20_lots >= 1000)
+    ).fillna(False)
+
+
 def scope_for_event_type(event_type: Any) -> str:
     text = safe_str(event_type)
     if text == "bottom_volume_attack":
@@ -270,17 +342,28 @@ def detect_volume_breakout(row: pd.Series) -> BreakoutSignal | None:
     if any(math.isnan(x) for x in [close, open_, high, low, volume_ratio, breakout_level, volume_ma20_lots]):
         return None
     bullish_candle = close > open_ or (close == open_ and not math.isnan(prev_close) and close > prev_close)
-    if not (close >= breakout_level and volume_ratio >= 2.0 and volume_ma20_lots >= 1000 and bullish_candle):
+    normal_volume_attack = close >= breakout_level and volume_ratio >= 2.0 and volume_ma20_lots >= 1000 and bullish_candle
+    locked_limit_attack = locked_limit_up_breakout(row)
+    if not (normal_volume_attack or locked_limit_attack):
         return None
 
     notes: list[str] = []
     score = 35.0
     notes.append("close_ge_prior20_high_102pct")
-    notes.append("volume_ratio_ge_2")
     notes.append("volume_ma20_lots_ge_1000")
+    if normal_volume_attack:
+        notes.append("volume_ratio_ge_2")
+    else:
+        notes.append("locked_limit_up_breakout")
+        notes.append("volume_ratio_lt_2_locked_limit")
+        score += 8
+        if high == low:
+            notes.append("one_price_limit_up")
+            score += 4
     breakout_pct = (close / breakout_level - 1.0) * 100.0
     score += min(12.0, max(0.0, breakout_pct * 1.5))
-    score += min(20.0, max(0.0, (volume_ratio - 2.0) * 4.0))
+    if normal_volume_attack:
+        score += min(20.0, max(0.0, (volume_ratio - 2.0) * 4.0))
     if not math.isnan(close_pos):
         if close_pos >= 0.97:
             score += 5
@@ -499,12 +582,13 @@ def build_event_log() -> pd.DataFrame:
         volume_ma20_lots = volume_ma20.where(volume_ma20 < 100000, volume_ma20 / 1000.0)
         breakout_level = prev20 * 1.02
         bullish = (close > open_) | ((close == open_) & (close > prev_close))
-        bottom_volume_attack = (
+        normal_volume_attack = (
             (close >= breakout_level)
             & (volume_ratio >= 2.0)
             & (volume_ma20_lots >= 1000)
             & bullish
         )
+        bottom_volume_attack = normal_volume_attack | locked_limit_up_breakout_mask(df)
         event_type = pd.Series("", index=df.index, dtype="object")
         event_type.loc[bottom_volume_attack] = "bottom_volume_attack"
 
@@ -526,6 +610,7 @@ def build_event_log() -> pd.DataFrame:
                 "market": safe_str(row.get("market")),
                 "volume_breakout_type": signal_type,
                 "volume_watch_scope": signal_scope,
+                "volume_breakout_rule_version": VOLUME_BREAKOUT_RULE_VERSION,
                 "volume_breakout_score": score,
                 "volume_ratio": row.get("volume_ratio"),
                 "return_5d_before": row.get("return_5d"),
@@ -617,12 +702,13 @@ def _process_price_history_path(path: Path, target_date: str = "") -> tuple[list
     volume_ma20_lots = volume_ma20.where(volume_ma20 < 100000, volume_ma20 / 1000.0)
     breakout_level = prev20 * 1.02
     bullish = (close_s > open_s) | ((close_s == open_s) & (close_s > prev_close))
-    bottom_volume_attack = (
+    normal_volume_attack = (
         (close_s >= breakout_level)
         & (volume_ratio >= 2.0)
         & (volume_ma20_lots >= 1000)
         & bullish
     )
+    bottom_volume_attack = normal_volume_attack | locked_limit_up_breakout_mask(df)
 
     event_type = pd.Series("", index=df.index, dtype="object")
     event_type.loc[bottom_volume_attack] = "bottom_volume_attack"
@@ -643,6 +729,7 @@ def _process_price_history_path(path: Path, target_date: str = "") -> tuple[list
             "market": safe_str(row.get("market")),
             "volume_breakout_type": safe_str(event_type.loc[idx]),
             "volume_watch_scope": signal_scope,
+            "volume_breakout_rule_version": VOLUME_BREAKOUT_RULE_VERSION,
             "volume_breakout_score": signal.score if signal else 0,
             "volume_ratio": row.get("volume_ratio"),
             "return_5d_before": row.get("return_5d"),
@@ -778,6 +865,7 @@ def append_latest_events_to_history(events: pd.DataFrame, latest: pd.DataFrame) 
             "market": safe_str(row.get("market")),
             "volume_breakout_type": safe_str(row.get("volume_breakout_type")),
             "volume_watch_scope": safe_str(row.get("volume_watch_scope")),
+            "volume_breakout_rule_version": VOLUME_BREAKOUT_RULE_VERSION,
             "volume_breakout_score": row.get("volume_breakout_score"),
             "volume_ratio": row.get("volume_ratio"),
             "return_5d_before": row.get("return_5d"),
@@ -946,7 +1034,7 @@ def write_watch_md(watch: pd.DataFrame, main_date: str) -> None:
         "## Interpretation",
         "",
         "- Official model type is `bottom_volume_attack` only.",
-        "- Hard gates: close >= prior 20 trading day high excluding signal day * 1.02, volume_ratio >= 2.0, 20D average volume >= 1000 lots, and bullish candle.",
+        "- Hard gates: close >= prior 20 trading day high excluding signal day * 1.02, 20D average volume >= 1000 lots, and either normal volume_ratio >= 2.0 bullish attack or locked limit-up breakout with volume_ratio < 2.0.",
         "- No 60D-high gate, no moving-average gate, no same-day fake-breakout classification, and no selected/watch/risk sub-status.",
         "- Long upper shadow or TDCC deterioration can reduce score or add risk tags, but they do not change the model hit into another model.",
         "- Research observation basis is next trading day open after the signal date.",
@@ -1020,7 +1108,7 @@ def write_packet(watch: pd.DataFrame, summary: pd.DataFrame, main_date: str) -> 
         "## Model Definition",
         "",
         "- Model display name: 放量攻擊模型.",
-        "- Hard gates: close >= prior 20 trading day high excluding signal day * 1.02; volume_ratio >= 2.0; 20D average volume >= 1000 lots; bullish candle.",
+        "- Hard gates: close >= prior 20 trading day high excluding signal day * 1.02; 20D average volume >= 1000 lots; plus either normal volume_ratio >= 2.0 bullish attack or locked limit-up breakout with volume_ratio < 2.0.",
         "- The model intentionally does not require a 60D high breakout or moving-average reclaim.",
         "- The model emits selected rows only. Risk flags and score components are ranking/operation context, not a separate watch/risk status.",
         "- Same-day fake breakout is not confirmed on the signal date. Do not label a selected row as failed breakout until later price action confirms failure.",
@@ -1100,7 +1188,9 @@ def event_log_has_formal_bottom_history(events: pd.DataFrame) -> bool:
     return (
         not events.empty
         and "volume_breakout_type" in events.columns
+        and "volume_breakout_rule_version" in events.columns
         and events["volume_breakout_type"].map(safe_str).eq("bottom_volume_attack").any()
+        and events["volume_breakout_rule_version"].map(safe_str).eq(VOLUME_BREAKOUT_RULE_VERSION).any()
     )
 
 

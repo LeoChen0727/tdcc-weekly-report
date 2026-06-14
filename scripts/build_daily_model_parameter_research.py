@@ -78,6 +78,7 @@ def add_price_structure_features(df: pd.DataFrame) -> pd.DataFrame:
     out["ema23_prev5"] = groups["ema23"].shift(5)
     out["ema23_slope_5d_pct"] = (out["ema23"] / out["ema23_prev5"] - 1.0) * 100.0
     out["previous_close"] = groups["close"].shift(1)
+    out["signal_return_1d_pct"] = (out["close"] / out["previous_close"] - 1.0) * 100.0
     out["close_above_open"] = out["close"] > out["open"]
     out["bullish_attack_candle"] = (out["close"] > out["open"]) | (
         out["close"].eq(out["open"]) & (out["close"] > out["previous_close"])
@@ -116,6 +117,18 @@ def add_price_structure_features(df: pd.DataFrame) -> pd.DataFrame:
         out[f"range_width_{window}d_pct"] = (high / low - 1.0) * 100.0
         out[f"range_breakout_{window}d_pct"] = (out["close"] / high - 1.0) * 100.0
         out[f"distance_to_range_high_{window}d_pct"] = (out["close"] / high - 1.0) * 100.0
+
+    range_pct = (out["high"] - out["low"]) / out["previous_close"].replace(0, pd.NA) * 100.0
+    out["locked_limit_up_breakout"] = (
+        (out["range_breakout_20d_pct"] >= 2.0)
+        & (out["signal_return_1d_pct"] >= 9.0)
+        & (out["close"] >= out["high"] * 0.995)
+        & (out["open"] >= out["close"] * 0.995)
+        & ((out["high"] == out["low"]) | (range_pct <= 1.0))
+        & (out["volume_ratio_prev20"] > 0)
+        & (out["volume_ratio_prev20"] < 2.0)
+        & (out["volume_ma20_lots"] >= 1000)
+    )
 
     # A simple W-bottom proxy for research: the latest 35 trading days contain two
     # similar lows and the second low is higher, while price is back in the upper half.
@@ -227,6 +240,17 @@ def rule_specs() -> list[RuleSpec]:
                         "主條件是前20日高點突破、量能放大、流動性與實體紅K。漲幅、過熱、均線與60日高點不作為此模型否決條件。",
                     )
                 )
+    specs.append(
+        RuleSpec(
+            "volume_range_breakout",
+            "放量攻擊模型",
+            "locked_limit_up_breakout_minvol1000",
+            "鎖量漲停突破前20日高點 2% + 漲幅 >= 9% + 一價或極窄區間 + 20日均量 >= 1000張；允許量比 < 2",
+            "pdf_core_model",
+            lambda d: d["locked_limit_up_breakout"],
+            "這是現行放量攻擊模型的鎖量漲停旁路；不是全面降低一般突破的量比門檻。",
+        )
+    )
 
     for low, high in [(-1.5, 3.0), (-2.5, 5.0), (-4.0, 7.0)]:
         for vol_max in [1.0, 1.2, 1.5]:
@@ -281,7 +305,7 @@ def rule_specs() -> list[RuleSpec]:
                 "revenue_unreacted_range",
                 "營收爆發但股價尚未反應模型",
                 f"range23_tol{tolerance}",
-                f"股價位於 23 日區間上下 {tolerance}% 內；營收確認由每日候選決策層提供",
+                f"股價位於 23 日區間上下 {tolerance}% 內；營收確認由每日模型層欄位提供",
                 "pdf_core_model",
                 lambda d, tolerance=tolerance: (
                     (d["close"] >= d["range_low_23d_prev"] * (1 - tolerance / 100))

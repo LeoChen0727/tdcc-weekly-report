@@ -143,6 +143,8 @@ jobs:
           python scripts/validate_volume_breakout_watch.py
           python scripts/build_historical_pattern_operation_registry.py
           python scripts/validate_historical_pattern_operation_registry.py
+          python scripts/build_volume_breakout_pattern_classification.py
+          python scripts/validate_volume_breakout_pattern_classification.py
 
       - name: Build surge precondition model
         if: ${{ github.event.inputs.run_surge_model == 'true' }}

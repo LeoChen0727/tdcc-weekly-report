@@ -15,6 +15,7 @@ from build_volume_breakout_watch import (
     PRICE_HISTORY_DIR,
     add_price_metrics,
     detect_volume_breakout,
+    locked_limit_up_breakout_mask,
     normalize_date,
     normalize_stock_id,
     normalize_volume_ma20_lots,
@@ -231,9 +232,10 @@ def add_research_features(df: pd.DataFrame) -> pd.DataFrame:
     prev60_lo = numeric_series(out, "previous_60d_low_calc")
     out["low_position_60_pct"] = (close - prev60_lo) / (prev60_hi - prev60_lo).replace(0, pd.NA) * 100.0
     out["signal_return_1d_pct"] = (close / prev_close - 1.0) * 100.0
+    one_price_or_close_high = (high == low) | (out["close_position_in_range"] >= 0.9)
     out["limit_up_like"] = (
         (out["signal_return_1d_pct"] >= 9.0)
-        & (out["close_position_in_range"] >= 0.9)
+        & one_price_or_close_high
         & (close >= numeric_series(out, "previous_20d_high_calc") * 1.02)
     )
     out["volume_ratio_bucket"] = pd.cut(
@@ -725,12 +727,13 @@ def formal_model_hit_mask(price: pd.DataFrame) -> pd.Series:
     volume_ma20 = numeric_series(price, "volume_ma20")
     volume_ma20_lots = volume_ma20.where(volume_ma20 < 100000, volume_ma20 / 1000.0)
     bullish = (close > open_) | ((close == open_) & (close > prev_close))
-    base_mask = (
+    normal_volume_attack = (
         (close >= prev20 * 1.02)
         & (volume_ratio >= 2.0)
         & (volume_ma20_lots >= 1000)
         & bullish
     ).fillna(False)
+    base_mask = (normal_volume_attack | locked_limit_up_breakout_mask(price)).fillna(False)
     if not base_mask.any():
         return base_mask
     validated = pd.Series(False, index=price.index)

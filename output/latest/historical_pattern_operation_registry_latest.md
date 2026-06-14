@@ -1,8 +1,8 @@
 # Historical Pattern Operation Registry
 
-- generated_at: `2026-06-14 06:48:02 Asia/Taipei`
+- generated_at: `2026-06-14 14:04:58 Asia/Taipei`
 - model_id: `volume_range_breakout`
-- detail_rows: `158218`
+- detail_rows: `170409`
 - registry_rows: `85`
 - registry_csv_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/historical_pattern_operation_registry_latest.csv
 - detail_csv_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/history/research/historical_pattern_operation_events.csv
@@ -18,96 +18,96 @@
 
 | event_filter_id | pattern_id | sample_size | win_rate | avg_return | median_return | max_drawdown | avg_holding_days | profit_factor | out_of_sample_size | out_of_sample_win_rate | out_of_sample_avg_return | confidence_status | out_of_sample_pass | approved_for_daily |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| current_model_hit_all | next_open_hold_20d | 3497 | 46.84 | 5.2545 | -0.9864 | -91.7928 | 20.0 | 1.9682 | 1183 | 54.1 | 11.4975 | high | True | False |
-| current_model_hit_all | pullback_10ma_hold_10d | 2299 | 52.37 | 3.5238 | 0.5445 | -89.805 | 10.0 | 2.2057 | 866 | 61.09 | 7.1666 | high | True | False |
-| current_model_hit_all | pullback_5ma_hold_10d | 3317 | 50.26 | 3.1335 | 0.1016 | -91.3518 | 10.0 | 1.9397 | 1197 | 55.72 | 6.1436 | high | True | False |
-| current_model_hit_all | next_day_break_signal_high_hold_10d | 2803 | 45.7 | 2.5871 | -1.0651 | -90.5777 | 10.0 | 1.5777 | 1097 | 48.22 | 4.7025 | high | True | False |
-| current_model_hit_all | next_open_hold_10d | 3702 | 44.76 | 2.0344 | -1.2157 | -90.8539 | 10.0 | 1.4533 | 1388 | 47.84 | 4.2564 | high | True | False |
-| current_model_hit_all | signal_close_hold_5d | 3805 | 46.28 | 1.6709 | -0.7042 | -32.2188 | 5.0 | 1.4942 | 1491 | 47.28 | 2.351 | high | True | False |
-| current_model_hit_all | next_open_10ma_trailing_20d | 3497 | 34.06 | 1.5762 | -3.4483 | -90.5777 | 8.55 | 1.3292 | 1183 | 34.57 | 4.0044 | medium | False | False |
-| current_model_hit_all | next_open_large_black_exit_10d | 3702 | 39.36 | 1.42 | -2.2798 | -32.0847 | 6.7 | 1.3731 | 1388 | 39.77 | 2.8877 | medium | False | False |
-| current_model_hit_all | next_open_signal_low_stop_10d | 3702 | 31.9 | 0.9661 | -3.2306 | -90.5777 | 6.41 | 1.2309 | 1388 | 31.27 | 1.9898 | medium | False | False |
-| current_model_hit_all | next_open_5ma_trailing_20d | 3497 | 33.54 | 0.9231 | -2.6087 | -23.9623 | 4.68 | 1.248 | 1183 | 33.47 | 2.7425 | medium | False | False |
-| current_model_hit_all | next_open_5pct_stop_10d | 3702 | 26.39 | 0.686 | -5.0 | -19.9536 | 5.18 | 1.1914 | 1388 | 22.98 | 1.1125 | medium | False | False |
-| current_model_hit_all | next_open_hold_5d | 3805 | 41.29 | 0.1242 | -1.675 | -34.6101 | 5.0 | 1.0312 | 1491 | 42.99 | 0.4727 | low | False | False |
-| current_model_hit_all | chase_day3_signal_low_stop_5d | 3749 | 30.17 | 0.0677 | -0.6659 | -36.5617 | 3.56 | 1.0236 | 1435 | 28.29 | 0.0708 | low | False | False |
-| current_model_hit_all | chase_day1_signal_low_stop_5d | 3805 | 33.9 | -0.0794 | -2.5048 | -26.1603 | 3.82 | 0.978 | 1491 | 33.53 | 0.0792 | low | False | False |
-| current_model_hit_all | chase_day2_signal_low_stop_5d | 3774 | 31.4 | -0.1554 | -1.407 | -28.5714 | 3.67 | 0.9509 | 1460 | 30.0 | -0.1806 | low | False | False |
-| current_model_hit_all | next_open_tp10_signal_low_stop_20d | 3497 | 39.38 | -0.1903 | -2.7304 | -90.5777 | 5.51 | 0.9523 | 1183 | 41.84 | -0.0002 | low | False | False |
-| current_model_hit_all | next_open_tp5_signal_low_stop_10d | 3702 | 50.81 | -0.4995 | 2.2176 | -90.5777 | 3.1 | 0.8335 | 1388 | 52.16 | -0.5951 | low | False | False |
-| limit_up_like_current_hit | next_open_hold_20d | 1652 | 47.34 | 5.7265 | -0.9153 | -91.7928 | 20.0 | 1.9754 | 622 | 54.18 | 10.9159 | high | True | False |
-| limit_up_like_current_hit | pullback_10ma_hold_10d | 1042 | 54.03 | 4.5424 | 1.2481 | -89.805 | 10.0 | 2.5411 | 449 | 63.03 | 7.8383 | high | True | False |
-| limit_up_like_current_hit | pullback_5ma_hold_10d | 1546 | 51.75 | 3.7266 | 0.5868 | -91.3518 | 10.0 | 2.0631 | 622 | 56.91 | 6.3687 | high | True | False |
-| limit_up_like_current_hit | signal_close_hold_5d | 1819 | 49.04 | 2.3719 | -0.241 | -29.912 | 5.0 | 1.6667 | 789 | 48.04 | 2.5584 | high | True | False |
-| limit_up_like_current_hit | next_day_break_signal_high_hold_10d | 1616 | 44.18 | 2.3706 | -1.323 | -90.5777 | 10.0 | 1.4876 | 673 | 46.81 | 4.0408 | high | True | False |
-| limit_up_like_current_hit | next_open_hold_10d | 1762 | 44.38 | 2.3611 | -1.3077 | -90.5777 | 10.0 | 1.4936 | 732 | 47.13 | 4.0613 | high | True | False |
-| limit_up_like_current_hit | next_open_10ma_trailing_20d | 1652 | 34.5 | 1.4364 | -4.1715 | -90.5777 | 8.75 | 1.2632 | 622 | 33.76 | 3.2207 | medium | False | False |
-| limit_up_like_current_hit | next_open_large_black_exit_10d | 1762 | 37.57 | 1.3544 | -2.9942 | -32.0847 | 6.09 | 1.325 | 732 | 37.43 | 2.3979 | medium | False | False |
-| limit_up_like_current_hit | next_open_signal_low_stop_10d | 1762 | 33.65 | 0.9275 | -4.1565 | -90.5777 | 6.96 | 1.185 | 732 | 32.1 | 1.5657 | medium | False | False |
-| limit_up_like_current_hit | next_open_5pct_stop_10d | 1762 | 23.33 | 0.7522 | -5.0 | -17.4028 | 4.54 | 1.1968 | 732 | 19.95 | 0.9657 | medium | False | False |
-| limit_up_like_current_hit | next_open_5ma_trailing_20d | 1652 | 33.72 | 0.3967 | -3.1037 | -22.3799 | 4.73 | 1.0917 | 622 | 33.28 | 1.4627 | medium | False | False |
-| limit_up_like_current_hit | next_open_hold_5d | 1819 | 41.34 | 0.0007 | -2.0218 | -34.6101 | 5.0 | 1.0001 | 789 | 43.73 | 0.0343 | low | False | False |
-| limit_up_like_current_hit | chase_day3_signal_low_stop_5d | 1784 | 31.33 | -0.1533 | -1.1597 | -30.999 | 3.78 | 0.9561 | 754 | 28.38 | -0.4321 | low | False | False |
-| limit_up_like_current_hit | next_open_tp10_signal_low_stop_20d | 1652 | 45.46 | -0.1865 | -1.745 | -90.5777 | 5.67 | 0.9596 | 622 | 46.46 | -0.0799 | low | False | False |
-| limit_up_like_current_hit | chase_day1_signal_low_stop_5d | 1819 | 35.35 | -0.2138 | -2.8311 | -26.1603 | 4.03 | 0.95 | 789 | 35.11 | -0.2542 | low | False | False |
-| limit_up_like_current_hit | next_open_tp5_signal_low_stop_10d | 1762 | 57.83 | -0.4614 | 5.0 | -90.5777 | 3.03 | 0.8615 | 732 | 58.47 | -0.5028 | low | False | False |
-| limit_up_like_current_hit | chase_day2_signal_low_stop_5d | 1801 | 32.76 | -0.4968 | -1.8868 | -28.5714 | 3.89 | 0.871 | 771 | 30.09 | -0.7496 | low | False | False |
-| long_base_low_position | signal_close_hold_5d | 179 | 44.69 | 1.7086 | -0.8251 | -16.2076 | 5.0 | 1.7217 | 48 | 33.33 | 0.1312 | medium | False | False |
-| long_base_low_position | pullback_5ma_hold_10d | 154 | 46.1 | 1.5493 | -0.1245 | -22.2365 | 10.0 | 1.6211 | 36 | 58.33 | 1.6782 | medium | True | False |
-| long_base_low_position | next_open_hold_20d | 162 | 42.59 | 0.8187 | -2.23 | -22.3164 | 20.0 | 1.1891 | 31 | 45.16 | 2.1009 | medium | True | False |
-| long_base_low_position | next_open_5ma_trailing_20d | 162 | 37.04 | 0.3001 | -2.0273 | -13.961 | 4.88 | 1.107 | 31 | 19.35 | -2.9653 | medium | False | False |
-| long_base_low_position | chase_day2_signal_low_stop_5d | 176 | 38.07 | 0.2846 | 0.0 | -14.5788 | 3.86 | 1.1323 | 45 | 33.33 | -1.0487 | medium | False | False |
-| long_base_low_position | next_open_hold_5d | 179 | 40.78 | 0.1767 | -1.3378 | -19.3503 | 5.0 | 1.0604 | 48 | 33.33 | -1.2808 | medium | False | False |
-| long_base_low_position | pullback_10ma_hold_10d | 106 | 49.06 | 1.2582 | -0.0993 | -15.8349 | 10.0 | 1.6254 | 27 | 66.67 | 2.4916 | low | False | False |
-| long_base_low_position | chase_day1_signal_low_stop_5d | 179 | 36.31 | 0.0878 | -1.8265 | -16.2076 | 3.93 | 1.0306 | 48 | 27.08 | -1.8904 | low | False | False |
-| long_base_low_position | next_open_tp10_signal_low_stop_20d | 162 | 38.27 | -0.0052 | -2.5717 | -16.3594 | 6.78 | 0.9985 | 31 | 32.26 | -0.7089 | low | False | False |
-| long_base_low_position | next_open_10ma_trailing_20d | 162 | 28.4 | -0.0282 | -2.7542 | -14.9306 | 8.07 | 0.9924 | 31 | 19.35 | -2.4607 | low | False | False |
-| long_base_low_position | chase_day3_signal_low_stop_5d | 173 | 31.79 | -0.0412 | -0.5865 | -15.5894 | 3.75 | 0.9804 | 42 | 21.43 | -1.3598 | low | False | False |
-| long_base_low_position | next_open_large_black_exit_10d | 171 | 39.77 | -0.1142 | -2.3316 | -15.6297 | 6.97 | 0.9657 | 40 | 20.0 | -3.3456 | low | False | False |
-| long_base_low_position | next_open_hold_10d | 171 | 36.84 | -0.23 | -2.3316 | -20.6215 | 10.0 | 0.938 | 40 | 22.5 | -2.6851 | low | False | False |
-| long_base_low_position | next_open_5pct_stop_10d | 171 | 27.49 | -0.4369 | -5.0 | -13.961 | 6.03 | 0.8693 | 40 | 15.0 | -2.9531 | low | False | False |
-| long_base_low_position | next_open_tp5_signal_low_stop_10d | 171 | 47.37 | -0.4713 | -0.8824 | -14.977 | 3.72 | 0.8292 | 40 | 35.0 | -1.6742 | low | False | False |
-| long_base_low_position | next_open_signal_low_stop_10d | 171 | 28.65 | -0.6742 | -2.521 | -15.8485 | 6.81 | 0.8092 | 40 | 12.5 | -3.6104 | low | False | False |
-| long_base_low_position | next_day_break_signal_high_hold_10d | 118 | 36.44 | -0.7348 | -2.8066 | -20.6215 | 10.0 | 0.8208 | 26 | 19.23 | -5.0519 | low | False | False |
-| simple_or_high_position_breakout | next_open_hold_20d | 3335 | 47.05 | 5.4699 | -0.9029 | -91.7928 | 20.0 | 1.9981 | 1152 | 54.34 | 11.7504 | high | True | False |
-| simple_or_high_position_breakout | pullback_10ma_hold_10d | 2193 | 52.53 | 3.6333 | 0.5545 | -89.805 | 10.0 | 2.2247 | 839 | 60.91 | 7.317 | high | True | False |
-| simple_or_high_position_breakout | pullback_5ma_hold_10d | 3163 | 50.46 | 3.2106 | 0.165 | -91.3518 | 10.0 | 1.9512 | 1161 | 55.64 | 6.282 | high | True | False |
-| simple_or_high_position_breakout | next_day_break_signal_high_hold_10d | 2685 | 46.11 | 2.7331 | -0.9302 | -90.5777 | 10.0 | 1.608 | 1071 | 48.93 | 4.9393 | high | True | False |
-| simple_or_high_position_breakout | next_open_hold_10d | 3531 | 45.14 | 2.1441 | -1.1407 | -90.8539 | 10.0 | 1.4738 | 1348 | 48.59 | 4.4624 | high | True | False |
-| simple_or_high_position_breakout | signal_close_hold_5d | 3626 | 46.36 | 1.669 | -0.6981 | -32.2188 | 5.0 | 1.4864 | 1443 | 47.75 | 2.4249 | high | True | False |
-| simple_or_high_position_breakout | next_open_10ma_trailing_20d | 3335 | 34.33 | 1.6542 | -3.4985 | -90.5777 | 8.57 | 1.3418 | 1152 | 34.98 | 4.1784 | medium | False | False |
-| simple_or_high_position_breakout | next_open_large_black_exit_10d | 3531 | 39.34 | 1.4943 | -2.2782 | -32.0847 | 6.69 | 1.3902 | 1348 | 40.36 | 3.0726 | medium | False | False |
-| simple_or_high_position_breakout | next_open_signal_low_stop_10d | 3531 | 32.06 | 1.0455 | -3.2887 | -90.5777 | 6.39 | 1.248 | 1348 | 31.82 | 2.156 | medium | False | False |
-| simple_or_high_position_breakout | next_open_5ma_trailing_20d | 3335 | 33.37 | 0.9533 | -2.6726 | -23.9623 | 4.67 | 1.2531 | 1152 | 33.85 | 2.8961 | medium | False | False |
-| simple_or_high_position_breakout | next_open_5pct_stop_10d | 3531 | 26.34 | 0.7404 | -5.0 | -19.9536 | 5.13 | 1.2059 | 1348 | 23.22 | 1.2331 | medium | False | False |
-| simple_or_high_position_breakout | next_open_hold_5d | 3626 | 41.31 | 0.1216 | -1.7241 | -34.6101 | 5.0 | 1.0302 | 1443 | 43.31 | 0.5311 | low | False | False |
-| simple_or_high_position_breakout | chase_day3_signal_low_stop_5d | 3576 | 30.09 | 0.073 | -0.6885 | -36.5617 | 3.55 | 1.0251 | 1393 | 28.5 | 0.114 | low | False | False |
-| simple_or_high_position_breakout | chase_day1_signal_low_stop_5d | 3626 | 33.78 | -0.0877 | -2.5713 | -26.1603 | 3.81 | 0.976 | 1443 | 33.75 | 0.1447 | low | False | False |
-| simple_or_high_position_breakout | chase_day2_signal_low_stop_5d | 3598 | 31.07 | -0.1769 | -1.4547 | -28.5714 | 3.66 | 0.945 | 1415 | 29.89 | -0.153 | low | False | False |
-| simple_or_high_position_breakout | next_open_tp10_signal_low_stop_20d | 3335 | 39.43 | -0.1993 | -2.734 | -90.5777 | 5.44 | 0.9503 | 1152 | 42.1 | 0.0188 | low | False | False |
-| simple_or_high_position_breakout | next_open_tp5_signal_low_stop_10d | 3531 | 50.98 | -0.5009 | 3.1008 | -90.5777 | 3.07 | 0.8337 | 1348 | 52.67 | -0.5631 | low | False | False |
+| current_model_hit_all | next_open_hold_20d | 3685 | 47.11 | 5.5063 | -0.9302 | -91.7928 | 20.0 | 2.0044 | 1304 | 54.52 | 11.9448 | high | True | False |
+| current_model_hit_all | pullback_10ma_hold_10d | 2400 | 52.33 | 3.6871 | 0.551 | -89.805 | 10.0 | 2.2467 | 936 | 60.79 | 7.3882 | high | True | False |
+| current_model_hit_all | pullback_5ma_hold_10d | 3498 | 50.49 | 3.2449 | 0.1608 | -91.3518 | 10.0 | 1.9609 | 1317 | 56.26 | 6.3336 | high | True | False |
+| current_model_hit_all | next_day_break_signal_high_hold_10d | 3019 | 46.04 | 2.896 | -0.9363 | -90.5777 | 10.0 | 1.6351 | 1255 | 49.0 | 5.3001 | high | True | False |
+| current_model_hit_all | next_open_hold_10d | 3931 | 45.1 | 2.2853 | -1.1407 | -90.8539 | 10.0 | 1.5016 | 1550 | 48.52 | 4.7594 | high | True | False |
+| current_model_hit_all | signal_close_hold_5d | 4068 | 47.15 | 2.0355 | -0.5307 | -34.3949 | 5.0 | 1.6024 | 1687 | 49.32 | 3.1362 | high | True | False |
+| current_model_hit_all | next_open_10ma_trailing_20d | 3685 | 34.3 | 1.8528 | -3.442 | -90.5777 | 8.62 | 1.3822 | 1304 | 35.28 | 4.5977 | medium | False | False |
+| current_model_hit_all | next_open_large_black_exit_10d | 3931 | 39.76 | 1.6748 | -2.2222 | -44.7633 | 6.77 | 1.4328 | 1550 | 40.65 | 3.4197 | medium | False | False |
+| current_model_hit_all | next_open_signal_low_stop_10d | 3931 | 31.42 | 1.1488 | -3.2028 | -90.5777 | 6.28 | 1.2762 | 1550 | 30.65 | 2.2962 | medium | False | False |
+| current_model_hit_all | next_open_5ma_trailing_20d | 3685 | 33.76 | 1.1003 | -2.5532 | -26.2609 | 4.71 | 1.2925 | 1304 | 33.97 | 3.1273 | medium | False | False |
+| current_model_hit_all | next_open_5pct_stop_10d | 3931 | 26.46 | 0.8691 | -5.0 | -19.9536 | 5.17 | 1.2416 | 1550 | 23.23 | 1.5326 | medium | False | False |
+| current_model_hit_all | chase_day3_signal_low_stop_5d | 3991 | 30.12 | 0.1463 | -0.5464 | -36.5617 | 3.52 | 1.0511 | 1610 | 28.82 | 0.2436 | medium | False | False |
+| current_model_hit_all | next_open_hold_5d | 4068 | 41.45 | 0.2019 | -1.6412 | -34.6101 | 5.0 | 1.0497 | 1687 | 43.27 | 0.6396 | low | False | False |
+| current_model_hit_all | chase_day1_signal_low_stop_5d | 4068 | 33.36 | 0.017 | -2.4569 | -31.2057 | 3.75 | 1.0047 | 1687 | 32.9 | 0.2727 | low | False | False |
+| current_model_hit_all | chase_day2_signal_low_stop_5d | 4027 | 31.11 | -0.1063 | -1.3605 | -31.2057 | 3.62 | 0.9667 | 1646 | 30.26 | -0.0535 | low | False | False |
+| current_model_hit_all | next_open_tp10_signal_low_stop_20d | 3685 | 39.05 | -0.1658 | -2.6362 | -90.5777 | 5.35 | 0.9579 | 1304 | 41.72 | 0.0264 | low | False | False |
+| current_model_hit_all | next_open_tp5_signal_low_stop_10d | 3931 | 50.17 | -0.5048 | 0.2933 | -90.5777 | 3.01 | 0.8304 | 1550 | 51.48 | -0.6177 | low | False | False |
+| limit_up_like_current_hit | next_open_hold_20d | 1914 | 47.54 | 6.8845 | -0.8972 | -91.7928 | 20.0 | 2.1455 | 785 | 54.39 | 13.5284 | high | True | False |
+| limit_up_like_current_hit | pullback_10ma_hold_10d | 1185 | 52.91 | 4.6055 | 0.8206 | -89.805 | 10.0 | 2.488 | 542 | 61.25 | 7.8994 | high | True | False |
+| limit_up_like_current_hit | pullback_5ma_hold_10d | 1783 | 51.6 | 3.8199 | 0.5683 | -91.3518 | 10.0 | 2.0552 | 773 | 57.05 | 6.5925 | high | True | False |
+| limit_up_like_current_hit | signal_close_hold_5d | 2165 | 50.67 | 3.2967 | 0.3306 | -34.3949 | 5.0 | 1.9408 | 1036 | 51.54 | 4.2531 | high | True | False |
+| limit_up_like_current_hit | next_day_break_signal_high_hold_10d | 1908 | 44.81 | 3.2533 | -1.2489 | -90.5777 | 10.0 | 1.6493 | 873 | 48.22 | 5.8533 | high | True | False |
+| limit_up_like_current_hit | next_open_hold_10d | 2069 | 44.8 | 3.1197 | -1.25 | -90.5777 | 10.0 | 1.6282 | 940 | 48.3 | 5.6642 | high | True | False |
+| limit_up_like_current_hit | next_open_10ma_trailing_20d | 1914 | 35.16 | 2.8795 | -4.0944 | -90.5777 | 8.89 | 1.5187 | 785 | 35.54 | 6.4738 | medium | False | False |
+| limit_up_like_current_hit | next_open_large_black_exit_10d | 2069 | 38.57 | 2.2491 | -2.8056 | -44.7633 | 6.26 | 1.5268 | 940 | 39.68 | 4.1919 | medium | False | False |
+| limit_up_like_current_hit | next_open_5ma_trailing_20d | 1914 | 34.64 | 1.828 | -3.0545 | -26.2609 | 4.84 | 1.4178 | 785 | 34.9 | 4.7296 | medium | False | False |
+| limit_up_like_current_hit | next_open_signal_low_stop_10d | 2069 | 32.43 | 1.6559 | -3.9568 | -90.5777 | 6.59 | 1.3409 | 940 | 30.85 | 2.9382 | medium | False | False |
+| limit_up_like_current_hit | next_open_5pct_stop_10d | 2069 | 23.78 | 1.4324 | -5.0 | -18.1025 | 4.58 | 1.3738 | 940 | 21.38 | 2.4196 | medium | False | False |
+| limit_up_like_current_hit | next_open_hold_5d | 2165 | 41.76 | 0.2806 | -1.9481 | -34.6101 | 5.0 | 1.0604 | 1036 | 44.02 | 0.6008 | medium | False | False |
+| limit_up_like_current_hit | chase_day3_signal_low_stop_5d | 2109 | 31.01 | 0.1491 | -0.6659 | -31.2057 | 3.66 | 1.0439 | 980 | 29.08 | 0.1883 | low | False | False |
+| limit_up_like_current_hit | chase_day1_signal_low_stop_5d | 2165 | 34.09 | 0.129 | -2.7381 | -31.2057 | 3.85 | 1.0309 | 1036 | 33.49 | 0.343 | low | False | False |
+| limit_up_like_current_hit | next_open_tp10_signal_low_stop_20d | 1914 | 44.1 | -0.1169 | -1.109 | -90.5777 | 5.26 | 0.9736 | 785 | 44.97 | -0.0433 | low | False | False |
+| limit_up_like_current_hit | chase_day2_signal_low_stop_5d | 2137 | 31.96 | -0.263 | -1.6997 | -31.2057 | 3.74 | 0.9317 | 1008 | 30.26 | -0.233 | low | False | False |
+| limit_up_like_current_hit | next_open_tp5_signal_low_stop_10d | 2069 | 55.63 | -0.4726 | 5.0 | -90.5777 | 2.84 | 0.8539 | 940 | 55.64 | -0.5872 | low | False | False |
+| long_base_low_position | signal_close_hold_5d | 182 | 45.6 | 1.782 | -0.7368 | -16.2076 | 5.0 | 1.7653 | 51 | 37.25 | 0.4858 | medium | False | False |
+| long_base_low_position | pullback_5ma_hold_10d | 155 | 46.45 | 1.6363 | -0.1245 | -22.2365 | 10.0 | 1.6603 | 37 | 59.46 | 2.0391 | medium | True | False |
+| long_base_low_position | next_open_hold_20d | 164 | 43.29 | 0.8701 | -2.2024 | -22.3164 | 20.0 | 1.2034 | 33 | 48.48 | 2.2785 | medium | True | False |
+| long_base_low_position | chase_day2_signal_low_stop_5d | 179 | 38.55 | 0.3442 | 0.0 | -14.5788 | 3.85 | 1.1627 | 48 | 35.42 | -0.7432 | medium | False | False |
+| long_base_low_position | next_open_5ma_trailing_20d | 164 | 37.2 | 0.2744 | -2.0273 | -13.961 | 4.9 | 1.0982 | 33 | 21.21 | -2.8952 | medium | False | False |
+| long_base_low_position | next_open_hold_5d | 182 | 40.66 | 0.1626 | -1.3795 | -19.3503 | 5.0 | 1.0558 | 51 | 33.33 | -1.2456 | medium | False | False |
+| long_base_low_position | pullback_10ma_hold_10d | 107 | 49.53 | 1.3927 | -0.0387 | -15.8349 | 10.0 | 1.6987 | 28 | 67.86 | 2.9614 | low | False | False |
+| long_base_low_position | chase_day1_signal_low_stop_5d | 182 | 35.71 | 0.0477 | -1.8898 | -16.2076 | 3.92 | 1.0167 | 51 | 25.49 | -1.9173 | low | False | False |
+| long_base_low_position | chase_day3_signal_low_stop_5d | 176 | 31.82 | 0.0157 | -0.5927 | -15.5894 | 3.77 | 1.0075 | 45 | 22.22 | -1.0496 | low | False | False |
+| long_base_low_position | next_open_tp10_signal_low_stop_20d | 164 | 38.41 | 0.0058 | -2.5016 | -16.3594 | 6.82 | 1.0017 | 33 | 33.33 | -0.6116 | low | False | False |
+| long_base_low_position | next_open_10ma_trailing_20d | 164 | 28.66 | -0.0028 | -2.7542 | -14.9306 | 8.12 | 0.9992 | 33 | 21.21 | -2.1869 | low | False | False |
+| long_base_low_position | next_open_large_black_exit_10d | 173 | 39.31 | -0.1621 | -2.3729 | -15.6297 | 6.95 | 0.9514 | 42 | 19.05 | -3.3893 | low | False | False |
+| long_base_low_position | next_open_hold_10d | 173 | 36.99 | -0.2077 | -2.3316 | -20.6215 | 10.0 | 0.9436 | 42 | 23.81 | -2.4763 | low | False | False |
+| long_base_low_position | next_open_5pct_stop_10d | 173 | 27.17 | -0.4896 | -5.0 | -13.961 | 5.97 | 0.8544 | 42 | 14.29 | -3.0505 | low | False | False |
+| long_base_low_position | next_open_tp5_signal_low_stop_10d | 173 | 46.82 | -0.4896 | -1.1538 | -14.977 | 3.74 | 0.822 | 42 | 33.33 | -1.6921 | low | False | False |
+| long_base_low_position | next_open_signal_low_stop_10d | 173 | 28.32 | -0.6901 | -2.521 | -15.8485 | 6.79 | 0.8037 | 42 | 11.9 | -3.5361 | low | False | False |
+| long_base_low_position | next_day_break_signal_high_hold_10d | 120 | 36.67 | -0.6942 | -2.8066 | -20.6215 | 10.0 | 0.8288 | 28 | 21.43 | -4.5697 | low | False | False |
+| simple_or_high_position_breakout | next_open_hold_20d | 3521 | 47.29 | 5.7222 | -0.8475 | -91.7928 | 20.0 | 2.0333 | 1271 | 54.68 | 12.1958 | high | True | False |
+| simple_or_high_position_breakout | pullback_10ma_hold_10d | 2293 | 52.46 | 3.7941 | 0.5545 | -89.805 | 10.0 | 2.2637 | 908 | 60.57 | 7.5247 | high | True | False |
+| simple_or_high_position_breakout | pullback_5ma_hold_10d | 3343 | 50.67 | 3.3195 | 0.2358 | -91.3518 | 10.0 | 1.971 | 1280 | 56.17 | 6.4578 | high | True | False |
+| simple_or_high_position_breakout | next_day_break_signal_high_hold_10d | 2899 | 46.43 | 3.0446 | -0.8602 | -90.5777 | 10.0 | 1.6646 | 1227 | 49.63 | 5.5253 | high | True | False |
+| simple_or_high_position_breakout | next_open_hold_10d | 3758 | 45.48 | 2.4001 | -1.0807 | -90.8539 | 10.0 | 1.5222 | 1508 | 49.2 | 4.961 | high | True | False |
+| simple_or_high_position_breakout | signal_close_hold_5d | 3886 | 47.22 | 2.0474 | -0.496 | -34.3949 | 5.0 | 1.5972 | 1636 | 49.69 | 3.2188 | high | True | False |
+| simple_or_high_position_breakout | next_open_10ma_trailing_20d | 3521 | 34.56 | 1.9393 | -3.4796 | -90.5777 | 8.64 | 1.3956 | 1271 | 35.64 | 4.7738 | medium | False | False |
+| simple_or_high_position_breakout | next_open_large_black_exit_10d | 3758 | 39.78 | 1.7594 | -2.2048 | -44.7633 | 6.76 | 1.4518 | 1508 | 41.25 | 3.6094 | medium | False | False |
+| simple_or_high_position_breakout | next_open_signal_low_stop_10d | 3758 | 31.56 | 1.2334 | -3.2353 | -90.5777 | 6.25 | 1.2945 | 1508 | 31.17 | 2.4587 | medium | False | False |
+| simple_or_high_position_breakout | next_open_5ma_trailing_20d | 3521 | 33.6 | 1.1388 | -2.6144 | -26.2609 | 4.7 | 1.2991 | 1271 | 34.3 | 3.2836 | medium | False | False |
+| simple_or_high_position_breakout | next_open_5pct_stop_10d | 3758 | 26.42 | 0.9316 | -5.0 | -19.9536 | 5.13 | 1.2582 | 1508 | 23.47 | 1.6603 | medium | False | False |
+| simple_or_high_position_breakout | chase_day3_signal_low_stop_5d | 3815 | 30.04 | 0.1523 | -0.5396 | -36.5617 | 3.51 | 1.0525 | 1565 | 29.01 | 0.2807 | medium | False | False |
+| simple_or_high_position_breakout | next_open_hold_5d | 3886 | 41.48 | 0.2038 | -1.6779 | -34.6101 | 5.0 | 1.0495 | 1636 | 43.58 | 0.6984 | low | False | False |
+| simple_or_high_position_breakout | chase_day1_signal_low_stop_5d | 3886 | 33.25 | 0.0156 | -2.5 | -31.2057 | 3.74 | 1.0043 | 1636 | 33.13 | 0.341 | low | False | False |
+| simple_or_high_position_breakout | chase_day2_signal_low_stop_5d | 3848 | 30.77 | -0.1273 | -1.4105 | -31.2057 | 3.61 | 0.9607 | 1598 | 30.1 | -0.0328 | low | False | False |
+| simple_or_high_position_breakout | next_open_tp10_signal_low_stop_20d | 3521 | 39.08 | -0.1738 | -2.6419 | -90.5777 | 5.28 | 0.9561 | 1271 | 41.94 | 0.0429 | low | False | False |
+| simple_or_high_position_breakout | next_open_tp5_signal_low_stop_10d | 3758 | 50.32 | -0.5055 | 0.8779 | -90.5777 | 2.98 | 0.8307 | 1508 | 51.99 | -0.5877 | low | False | False |
 
 ## Research-Only Relaxed Comparison
 
 | event_filter_id | pattern_id | sample_size | win_rate | avg_return | median_return | max_drawdown | out_of_sample_size | out_of_sample_avg_return | confidence_status | out_of_sample_pass | approved_for_daily |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| limit_locked_volume_lt2_research_only | next_open_hold_20d | 544 | 53.31 | 8.3342 | 2.9555 | -55.5556 | 311 | 12.5267 | high | True | False |
-| limit_locked_volume_lt2_research_only | pullback_10ma_hold_10d | 348 | 56.03 | 5.0536 | 1.4935 | -45.3571 | 197 | 8.302 | high | True | False |
-| limit_locked_volume_lt2_research_only | pullback_5ma_hold_10d | 514 | 54.86 | 4.7092 | 2.0446 | -41.7808 | 304 | 6.5863 | high | True | False |
-| limit_locked_volume_lt2_research_only | signal_close_hold_5d | 640 | 53.12 | 3.4415 | 1.2376 | -36.5617 | 407 | 4.728 | high | True | False |
-| limit_locked_volume_lt2_research_only | next_open_hold_10d | 612 | 50.0 | 3.0388 | 0.0878 | -41.2424 | 379 | 4.7265 | high | True | False |
-| limit_locked_volume_lt2_research_only | next_day_break_signal_high_hold_10d | 569 | 49.38 | 2.833 | 0.0 | -41.2424 | 348 | 4.4565 | high | True | False |
-| limit_locked_volume_lt2_research_only | next_open_large_black_exit_10d | 612 | 44.77 | 2.157 | -1.8264 | -41.2424 | 379 | 3.1137 | high | True | False |
-| limit_locked_volume_lt2_research_only | next_open_10ma_trailing_20d | 544 | 38.42 | 2.1897 | -4.5679 | -28.5587 | 311 | 2.8652 | medium | False | False |
-| limit_locked_volume_lt2_research_only | next_open_signal_low_stop_10d | 612 | 36.44 | 1.8326 | -4.45 | -23.6842 | 379 | 2.14 | medium | False | False |
-| limit_locked_volume_lt2_research_only | next_open_5pct_stop_10d | 612 | 24.84 | 1.5015 | -5.0 | -17.9204 | 379 | 2.1297 | medium | False | False |
-| limit_locked_volume_lt2_research_only | next_open_5ma_trailing_20d | 544 | 35.85 | 1.1266 | -2.8757 | -25.7613 | 311 | 2.2417 | medium | False | False |
-| limit_locked_volume_lt2_research_only | next_open_hold_5d | 640 | 45.94 | 0.5839 | -0.9031 | -39.2111 | 407 | 1.5616 | medium | True | False |
-| limit_locked_volume_lt2_research_only | chase_day1_signal_low_stop_5d | 640 | 37.66 | 0.3697 | -2.7561 | -23.6842 | 407 | 1.0709 | medium | False | False |
-| limit_locked_volume_lt2_research_only | chase_day3_signal_low_stop_5d | 625 | 32.8 | 0.2191 | -1.0221 | -39.2111 | 392 | 0.5766 | medium | False | False |
-| limit_locked_volume_lt2_research_only | next_open_tp10_signal_low_stop_20d | 544 | 47.24 | 0.1797 | -0.7839 | -23.6842 | 311 | 0.67 | low | True | False |
-| limit_locked_volume_lt2_research_only | chase_day2_signal_low_stop_5d | 632 | 34.49 | -0.0776 | -1.887 | -36.5617 | 399 | 0.3726 | low | False | False |
-| limit_locked_volume_lt2_research_only | next_open_tp5_signal_low_stop_10d | 612 | 61.27 | -0.1197 | 5.0 | -23.6842 | 379 | 0.0543 | low | False | False |
+| limit_locked_volume_lt2_research_only | next_open_hold_20d | 538 | 53.53 | 8.4594 | 3.0303 | -55.5556 | 307 | 12.6868 | high | True | False |
+| limit_locked_volume_lt2_research_only | pullback_10ma_hold_10d | 344 | 56.69 | 5.167 | 1.6528 | -45.3571 | 195 | 8.4311 | high | True | False |
+| limit_locked_volume_lt2_research_only | pullback_5ma_hold_10d | 509 | 55.4 | 4.8776 | 2.3815 | -41.7808 | 301 | 6.7871 | high | True | False |
+| limit_locked_volume_lt2_research_only | signal_close_hold_5d | 630 | 53.17 | 3.3799 | 1.2376 | -36.5617 | 399 | 4.585 | high | True | False |
+| limit_locked_volume_lt2_research_only | next_open_hold_10d | 605 | 50.08 | 3.0809 | 0.1757 | -41.2424 | 374 | 4.7186 | high | True | False |
+| limit_locked_volume_lt2_research_only | next_day_break_signal_high_hold_10d | 563 | 49.38 | 2.8123 | 0.0 | -41.2424 | 344 | 4.3333 | high | True | False |
+| limit_locked_volume_lt2_research_only | next_open_large_black_exit_10d | 605 | 44.79 | 2.1708 | -1.845 | -41.2424 | 374 | 3.1143 | high | True | False |
+| limit_locked_volume_lt2_research_only | next_open_10ma_trailing_20d | 538 | 38.48 | 2.2572 | -4.5391 | -28.5587 | 307 | 2.9081 | medium | False | False |
+| limit_locked_volume_lt2_research_only | next_open_signal_low_stop_10d | 605 | 36.69 | 1.8534 | -4.5273 | -23.6842 | 374 | 2.1513 | medium | False | False |
+| limit_locked_volume_lt2_research_only | next_open_5pct_stop_10d | 605 | 24.79 | 1.4669 | -5.0 | -17.9204 | 374 | 2.0473 | medium | False | False |
+| limit_locked_volume_lt2_research_only | next_open_5ma_trailing_20d | 538 | 36.06 | 1.1384 | -2.8571 | -25.7613 | 307 | 2.2007 | medium | False | False |
+| limit_locked_volume_lt2_research_only | next_open_hold_5d | 630 | 46.03 | 0.5399 | -0.8929 | -39.2111 | 399 | 1.4448 | medium | True | False |
+| limit_locked_volume_lt2_research_only | chase_day1_signal_low_stop_5d | 630 | 37.94 | 0.2841 | -2.7561 | -23.6842 | 399 | 0.9323 | medium | False | False |
+| limit_locked_volume_lt2_research_only | chase_day3_signal_low_stop_5d | 617 | 32.74 | 0.2015 | -1.2012 | -39.2111 | 386 | 0.5529 | medium | False | False |
+| limit_locked_volume_lt2_research_only | next_open_tp10_signal_low_stop_20d | 538 | 47.21 | 0.1375 | -1.3487 | -23.6842 | 307 | 0.5811 | low | True | False |
+| limit_locked_volume_lt2_research_only | next_open_tp5_signal_low_stop_10d | 605 | 61.49 | -0.1322 | 5.0 | -23.6842 | 374 | 0.0203 | low | False | False |
+| limit_locked_volume_lt2_research_only | chase_day2_signal_low_stop_5d | 623 | 34.51 | -0.1529 | -1.8692 | -36.5617 | 392 | 0.2358 | low | False | False |
 
 ## Promotion Gate
 
