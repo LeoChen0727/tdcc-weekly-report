@@ -596,11 +596,7 @@ def build_weekly_increase(df: pd.DataFrame) -> pd.DataFrame:
 
 def build_consecutive_accumulation(df: pd.DataFrame) -> pd.DataFrame:
     weeks = df.get("tdcc_consecutive_up_weeks", pd.Series(index=df.index)).map(to_number).fillna(0)
-    eligible = df[
-        (weeks >= 2)
-        | df.get("all_thresholds_up", pd.Series(False, index=df.index)).map(boolish)
-        | df.get("high_thresholds_up", pd.Series(False, index=df.index)).map(boolish)
-    ].copy()
+    eligible = df[weeks >= 2].copy()
     eligible = eligible.sort_values(
         ["tdcc_consecutive_accumulation_score", "tdcc_weekly_increase_score"],
         ascending=[False, False],
@@ -1202,6 +1198,17 @@ def validate_outputs(highlight: pd.DataFrame, full: pd.DataFrame) -> None:
         signal_dates = sorted({safe_str(value) for value in report_df["signal_date"].dropna() if safe_str(value)})
         if len(signal_dates) != 1:
             raise RuntimeError(f"{report_name} TDCC report must contain exactly one signal_date, got: {signal_dates}")
+        consecutive_rows = report_df[report_df["section_id"].map(safe_str) == "consecutive_accumulation"]
+        consecutive_weeks = consecutive_rows["tdcc_consecutive_up_weeks"].map(to_number).fillna(0)
+        bad_consecutive = consecutive_rows[consecutive_weeks < 2]
+        if not bad_consecutive.empty:
+            examples = ", ".join(
+                f"{safe_str(row.get('stock_id'))}:{safe_str(row.get('tdcc_consecutive_up_weeks'))}"
+                for _, row in bad_consecutive.head(10).iterrows()
+            )
+            raise RuntimeError(
+                f"{report_name} TDCC consecutive accumulation section contains rows below 2-week streak: {examples}"
+            )
         model_rows = report_df[report_df["model_id"].map(safe_str) != ""]
         bad_models = sorted(set(model_rows["model_id"].map(safe_str)) - TDCC_FULL_REPORT_ALLOWED_MODEL_CROSS_IDS)
         if bad_models:
