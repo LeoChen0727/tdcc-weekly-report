@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14 12:40:22 Asia/Taipei",
+  "generated_at": "2026-06-14 12:47:16 Asia/Taipei",
   "status": "pass",
   "schema_only": false,
   "issues": [],
@@ -44,19 +44,19 @@
       "path": "output/latest/theme_event_watch_latest.md",
       "exists": true,
       "rows": 0,
-      "size_bytes": 9095
+      "size_bytes": 8993
     },
     "status_json": {
       "path": "output/latest/calendar_data_source_status_latest.json",
       "exists": true,
       "rows": 0,
-      "size_bytes": 2820
+      "size_bytes": 2741
     },
     "status_md": {
       "path": "output/latest/calendar_data_source_status_latest.md",
       "exists": true,
       "rows": 0,
-      "size_bytes": 2386
+      "size_bytes": 2359
     },
     "needs_review_csv": {
       "path": "output/latest/catalyst_needs_review_latest.csv",
@@ -68,7 +68,7 @@
       "path": "output/latest/catalyst_needs_review_latest.md",
       "exists": true,
       "rows": 0,
-      "size_bytes": 1645
+      "size_bytes": 1625
     }
   }
 }
