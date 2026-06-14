@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8105 凌巨
 
 ## Metadata
-- generated_at: 2026-06-13 22:24:44 Asia/Taipei
+- generated_at: 2026-06-14 22:24:16 Asia/Taipei
 - stock_id: 8105
 - stock_name: 凌巨
 - packet_status: standard_180d_window_packet
@@ -58,7 +58,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 停利
 - model_category_display_zh: 嚴格突破
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前以風險管理為主，不適合新買第一筆。
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前以風險管理為主，不適合新買第一筆。
 - action_summary_zh: 嚴格突破 已出現風險管理訊號，操作評級為「停利」。
 - entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_score_high
 - price_structure_not_broken
 - revenue_not_deteriorating
 - no_major_tdcc_warning

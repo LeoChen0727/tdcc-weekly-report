@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8163 達方
 
 ## Metadata
-- generated_at: 2026-06-13 22:24:45 Asia/Taipei
+- generated_at: 2026-06-14 22:24:17 Asia/Taipei
 - stock_id: 8163
 - stock_name: 達方
 - packet_status: standard_180d_window_packet

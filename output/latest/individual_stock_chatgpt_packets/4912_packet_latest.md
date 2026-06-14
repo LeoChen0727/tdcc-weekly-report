@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4912 聯德控股-KY
 
 ## Metadata
-- generated_at: 2026-06-13 22:23:33 Asia/Taipei
+- generated_at: 2026-06-14 22:23:21 Asia/Taipei
 - stock_id: 4912
 - stock_name: 聯德控股-KY
 - packet_status: standard_180d_window_packet

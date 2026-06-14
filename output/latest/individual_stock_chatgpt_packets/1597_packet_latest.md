@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1597 直得
 
 ## Metadata
-- generated_at: 2026-06-13 22:22:22 Asia/Taipei
+- generated_at: 2026-06-14 22:22:23 Asia/Taipei
 - stock_id: 1597
 - stock_name: 直得
 - packet_status: standard_180d_window_packet
@@ -58,7 +58,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
@@ -92,6 +92,7 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating

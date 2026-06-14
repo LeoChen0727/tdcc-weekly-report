@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00771 元大US高息特別股
 
 ## Metadata
-- generated_at: 2026-06-13 22:22:07 Asia/Taipei
+- generated_at: 2026-06-14 22:22:11 Asia/Taipei
 - stock_id: 00771
 - stock_name: 元大US高息特別股
 - packet_status: partial_rawdata_packet

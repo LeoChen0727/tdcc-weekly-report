@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6953 家碩
 
 ## Metadata
-- generated_at: 2026-06-13 22:24:21 Asia/Taipei
+- generated_at: 2026-06-14 22:23:58 Asia/Taipei
 - stock_id: 6953
 - stock_name: 家碩
 - packet_status: standard_180d_window_packet

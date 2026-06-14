@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4971 IET-KY
 
 ## Metadata
-- generated_at: 2026-06-13 22:23:36 Asia/Taipei
+- generated_at: 2026-06-14 22:23:23 Asia/Taipei
 - stock_id: 4971
 - stock_name: IET-KY
 - packet_status: standard_180d_window_packet

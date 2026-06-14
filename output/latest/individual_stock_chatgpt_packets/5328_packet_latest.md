@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5328 華容
 
 ## Metadata
-- generated_at: 2026-06-13 22:23:41 Asia/Taipei
+- generated_at: 2026-06-14 22:23:27 Asia/Taipei
 - stock_id: 5328
 - stock_name: 華容
 - packet_status: standard_180d_window_packet

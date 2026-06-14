@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1409 新纖
 
 ## Metadata
-- generated_at: 2026-06-13 22:22:14 Asia/Taipei
+- generated_at: 2026-06-14 22:22:17 Asia/Taipei
 - stock_id: 1409
 - stock_name: 新纖
 - packet_status: standard_180d_window_packet

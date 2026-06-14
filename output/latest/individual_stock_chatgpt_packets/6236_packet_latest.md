@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6236 中湛
 
 ## Metadata
-- generated_at: 2026-06-13 22:23:57 Asia/Taipei
+- generated_at: 2026-06-14 22:23:40 Asia/Taipei
 - stock_id: 6236
 - stock_name: 中湛
 - packet_status: partial_rawdata_packet

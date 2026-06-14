@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2762 世界健身-KY
 
 ## Metadata
-- generated_at: 2026-06-13 22:22:52 Asia/Taipei
+- generated_at: 2026-06-14 22:22:48 Asia/Taipei
 - stock_id: 2762
 - stock_name: 世界健身-KY
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6517 保勝光學
 
 ## Metadata
-- generated_at: 2026-06-13 22:24:04 Asia/Taipei
+- generated_at: 2026-06-14 22:23:46 Asia/Taipei
 - stock_id: 6517
 - stock_name: 保勝光學
 - packet_status: standard_180d_window_packet

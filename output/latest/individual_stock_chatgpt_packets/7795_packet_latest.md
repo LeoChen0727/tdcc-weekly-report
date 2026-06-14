@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7795 長廣
 
 ## Metadata
-- generated_at: 2026-06-13 22:24:39 Asia/Taipei
+- generated_at: 2026-06-14 22:24:12 Asia/Taipei
 - stock_id: 7795
 - stock_name: 長廣
 - packet_status: standard_rawdata_packet

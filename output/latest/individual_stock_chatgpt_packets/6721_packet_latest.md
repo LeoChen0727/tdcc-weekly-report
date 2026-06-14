@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6721 信實
 
 ## Metadata
-- generated_at: 2026-06-13 22:24:12 Asia/Taipei
+- generated_at: 2026-06-14 22:23:52 Asia/Taipei
 - stock_id: 6721
 - stock_name: 信實
 - packet_status: standard_180d_window_packet

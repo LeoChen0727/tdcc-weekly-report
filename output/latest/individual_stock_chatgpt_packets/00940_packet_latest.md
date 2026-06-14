@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00940 元大台灣價值高息
 
 ## Metadata
-- generated_at: 2026-06-13 22:22:09 Asia/Taipei
+- generated_at: 2026-06-14 22:22:12 Asia/Taipei
 - stock_id: 00940
 - stock_name: 元大台灣價值高息
 - packet_status: partial_rawdata_packet

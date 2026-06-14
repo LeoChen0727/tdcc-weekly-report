@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1784 訊聯
 
 ## Metadata
-- generated_at: 2026-06-13 22:22:26 Asia/Taipei
+- generated_at: 2026-06-14 22:22:27 Asia/Taipei
 - stock_id: 1784
 - stock_name: 訊聯
 - packet_status: standard_180d_window_packet

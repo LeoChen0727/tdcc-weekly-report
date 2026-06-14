@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7823 奧義賽博-KY創
 
 ## Metadata
-- generated_at: 2026-06-13 22:24:39 Asia/Taipei
+- generated_at: 2026-06-14 22:24:13 Asia/Taipei
 - stock_id: 7823
 - stock_name: 奧義賽博-KY創
 - packet_status: standard_rawdata_packet

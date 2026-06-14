@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3504 揚明光
 
 ## Metadata
-- generated_at: 2026-06-13 22:23:13 Asia/Taipei
+- generated_at: 2026-06-14 22:23:04 Asia/Taipei
 - stock_id: 3504
 - stock_name: 揚明光
 - packet_status: standard_180d_window_packet

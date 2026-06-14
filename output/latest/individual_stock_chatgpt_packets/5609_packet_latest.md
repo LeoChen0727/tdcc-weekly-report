@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5609 中菲行
 
 ## Metadata
-- generated_at: 2026-06-13 22:23:47 Asia/Taipei
+- generated_at: 2026-06-14 22:23:32 Asia/Taipei
 - stock_id: 5609
 - stock_name: 中菲行
 - packet_status: standard_180d_window_packet

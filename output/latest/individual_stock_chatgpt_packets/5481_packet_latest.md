@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5481 新華
 
 ## Metadata
-- generated_at: 2026-06-13 22:23:44 Asia/Taipei
+- generated_at: 2026-06-14 22:23:30 Asia/Taipei
 - stock_id: 5481
 - stock_name: 新華
 - packet_status: standard_180d_window_packet

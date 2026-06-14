@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2374 佳能
 
 ## Metadata
-- generated_at: 2026-06-13 22:22:38 Asia/Taipei
+- generated_at: 2026-06-14 22:22:36 Asia/Taipei
 - stock_id: 2374
 - stock_name: 佳能
 - packet_status: standard_180d_window_packet
@@ -58,7 +58,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
@@ -92,6 +92,7 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -191,7 +192,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 2374 | 佳能 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260612 | 2374 | 佳能 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | stale_signal | calendar event: shareholder_meeting on 20260625; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |

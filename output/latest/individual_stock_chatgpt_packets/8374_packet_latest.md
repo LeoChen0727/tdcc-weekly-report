@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8374 羅昇
 
 ## Metadata
-- generated_at: 2026-06-13 22:24:47 Asia/Taipei
+- generated_at: 2026-06-14 22:24:19 Asia/Taipei
 - stock_id: 8374
 - stock_name: 羅昇
 - packet_status: standard_180d_window_packet

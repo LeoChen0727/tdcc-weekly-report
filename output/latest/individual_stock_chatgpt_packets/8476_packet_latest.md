@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8476 台境*
 
 ## Metadata
-- generated_at: 2026-06-13 22:24:50 Asia/Taipei
+- generated_at: 2026-06-14 22:24:21 Asia/Taipei
 - stock_id: 8476
 - stock_name: 台境*
 - packet_status: standard_180d_window_packet
@@ -56,38 +56,43 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 減碼
+- action_rating_display_zh: 停利
 - model_category_display_zh: 區間內轉強 / 挑戰前高觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以風險管理為主，不適合新買第一筆。
-- action_summary_zh: 區間內轉強 / 挑戰前高觀察 已出現風險管理訊號，操作評級為「減碼」。
-- entry_strategy_zh: 目前風險升高，以降低部位為主，不建議新買。
-- position_sizing_zh: 降低部位；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前以風險管理為主，不適合新買第一筆。
+- action_summary_zh: 區間內轉強 / 挑戰前高觀察 已出現風險管理訊號，操作評級為「停利」。
+- entry_strategy_zh: 目前進入停利管理，不建議新買第一筆。
+- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足、量價失敗、股價乖離過大
+- risk_control_zh: TDCC 歷史不足、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 區間內轉強 / 挑戰前高觀察 已出現風險管理訊號，操作評級為「減碼」。 進場策略：目前風險升高，以降低部位為主，不建議新買。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、量價失敗、股價乖離過大
+- final_decision_zh: 區間內轉強 / 挑戰前高觀察 已出現風險管理訊號，操作評級為「停利」。 進場策略：目前進入停利管理，不建議新買第一筆。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: reduce
-- action_rating_label_zh: 減碼
+- action_rating: take_profit
+- action_rating_label_zh: 停利
 - confidence_level: low
-- thesis_state: failed_breakout
+- thesis_state: breakout_initial
 - entry_style: no_entry_now
-- position_sizing: reduce_position
+- position_sizing: observe_only
 
 ### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- model_recommended
+- price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
+- no_major_volume_price_failure
 
 ### post_entry_watch_items
 - next_monthly_revenue
@@ -101,7 +106,6 @@
 
 ### downgrade_reason
 - insufficient_tdcc_history
-- volume_price_failure
 - price_too_extended
 
 ### chatgpt_instruction

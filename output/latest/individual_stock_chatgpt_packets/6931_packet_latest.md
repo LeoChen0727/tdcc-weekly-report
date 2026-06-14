@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6931 青松健康
 
 ## Metadata
-- generated_at: 2026-06-13 22:24:20 Asia/Taipei
+- generated_at: 2026-06-14 22:23:58 Asia/Taipei
 - stock_id: 6931
 - stock_name: 青松健康
 - packet_status: standard_180d_window_packet

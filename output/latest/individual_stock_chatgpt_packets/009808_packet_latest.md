@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009808 華南永昌優選50
 
 ## Metadata
-- generated_at: 2026-06-13 22:22:09 Asia/Taipei
+- generated_at: 2026-06-14 22:22:13 Asia/Taipei
 - stock_id: 009808
 - stock_name: 華南永昌優選50
 - packet_status: partial_rawdata_packet

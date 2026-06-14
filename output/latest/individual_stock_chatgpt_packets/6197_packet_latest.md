@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6197 佳必琪
 
 ## Metadata
-- generated_at: 2026-06-13 22:23:55 Asia/Taipei
+- generated_at: 2026-06-14 22:23:38 Asia/Taipei
 - stock_id: 6197
 - stock_name: 佳必琪
 - packet_status: standard_180d_window_packet

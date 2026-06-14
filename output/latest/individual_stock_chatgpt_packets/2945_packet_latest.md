@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2945 三商家購
 
 ## Metadata
-- generated_at: 2026-06-13 22:22:56 Asia/Taipei
+- generated_at: 2026-06-14 22:22:51 Asia/Taipei
 - stock_id: 2945
 - stock_name: 三商家購
 - packet_status: standard_180d_window_packet

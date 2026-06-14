@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5450 南良
 
 ## Metadata
-- generated_at: 2026-06-13 22:23:43 Asia/Taipei
+- generated_at: 2026-06-14 22:23:29 Asia/Taipei
 - stock_id: 5450
 - stock_name: 南良
 - packet_status: standard_180d_window_packet

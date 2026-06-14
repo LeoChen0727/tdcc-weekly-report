@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3535 晶彩科
 
 ## Metadata
-- generated_at: 2026-06-13 22:23:14 Asia/Taipei
+- generated_at: 2026-06-14 22:23:05 Asia/Taipei
 - stock_id: 3535
 - stock_name: 晶彩科
 - packet_status: standard_180d_window_packet

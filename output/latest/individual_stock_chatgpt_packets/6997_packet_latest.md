@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6997 博弘
 
 ## Metadata
-- generated_at: 2026-06-13 22:24:22 Asia/Taipei
+- generated_at: 2026-06-14 22:23:59 Asia/Taipei
 - stock_id: 6997
 - stock_name: 博弘
 - packet_status: standard_180d_window_packet

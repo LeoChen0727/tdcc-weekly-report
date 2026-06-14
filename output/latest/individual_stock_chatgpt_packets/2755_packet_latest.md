@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2755 揚秦
 
 ## Metadata
-- generated_at: 2026-06-13 22:22:52 Asia/Taipei
+- generated_at: 2026-06-14 22:22:48 Asia/Taipei
 - stock_id: 2755
 - stock_name: 揚秦
 - packet_status: standard_180d_window_packet

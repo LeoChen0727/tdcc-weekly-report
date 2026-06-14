@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1236 宏亞
 
 ## Metadata
-- generated_at: 2026-06-13 22:22:12 Asia/Taipei
+- generated_at: 2026-06-14 22:22:15 Asia/Taipei
 - stock_id: 1236
 - stock_name: 宏亞
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6263 普萊德
 
 ## Metadata
-- generated_at: 2026-06-13 22:23:59 Asia/Taipei
+- generated_at: 2026-06-14 22:23:41 Asia/Taipei
 - stock_id: 6263
 - stock_name: 普萊德
 - packet_status: standard_180d_window_packet

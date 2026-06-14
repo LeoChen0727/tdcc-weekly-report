@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2890 永豐金
 
 ## Metadata
-- generated_at: 2026-06-13 22:22:54 Asia/Taipei
+- generated_at: 2026-06-14 22:22:49 Asia/Taipei
 - stock_id: 2890
 - stock_name: 永豐金
 - packet_status: standard_180d_window_packet
@@ -56,36 +56,40 @@
 
 ## ACTION_DISPLAY
 - pdf_visible: true
-- action_rating_display_zh: 減碼
+- action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以風險管理為主，不適合新買第一筆。
-- action_summary_zh: 型態觀察 已出現風險管理訊號，操作評級為「減碼」。
-- entry_strategy_zh: 目前風險升高，以降低部位為主，不建議新買。
-- position_sizing_zh: 降低部位；部位大小需依支撐距離、波動與模型確認度控制。
-- add_position_strategy_zh: 跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「初步突破」，以既有部位管理與條件追蹤為主。
+- entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
+- position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
+- add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
-- risk_control_zh: TDCC 歷史不足、TDCC 轉弱警訊、量價失敗
+- risk_control_zh: TDCC 歷史不足、TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 已出現風險管理訊號，操作評級為「減碼」。 進場策略：目前風險升高，以降低部位為主，不建議新買。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊、量價失敗
+- final_decision_zh: 型態觀察 目前屬於「初步突破」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
 - internal_use_only: true
-- action_rating: reduce
-- action_rating_label_zh: 減碼
-- confidence_level: low
-- thesis_state: failed_breakout
+- action_rating: hold_only
+- action_rating_label_zh: 已持有續抱
+- confidence_level: medium
+- thesis_state: breakout_initial
 - entry_style: no_entry_now
-- position_sizing: reduce_position
+- position_sizing: observe_only
 
 ### management_plan
+- take_profit_near_prior_high
+- take_profit_on_volume_price_failure
 - exit_if_lost_23ema
 - exit_if_lost_recent_low
 - exit_if_revenue_breaks
 - exit_if_tdcc_and_price_both_weaken
 
 ### entry_prerequisites
+- price_structure_not_broken
 - revenue_not_deteriorating
+- no_major_volume_price_failure
 - acceptable_risk_reward
 
 ### post_entry_watch_items
@@ -101,7 +105,6 @@
 ### downgrade_reason
 - insufficient_tdcc_history
 - tdcc_distribution_warning
-- volume_price_failure
 
 ### chatgpt_instruction
 - Formal PDF/report output must use ACTION_DISPLAY fields, not raw ACTION_DECISION field names or raw action values.

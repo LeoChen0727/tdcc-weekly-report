@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6109 亞元
 
 ## Metadata
-- generated_at: 2026-06-13 22:23:49 Asia/Taipei
+- generated_at: 2026-06-14 22:23:34 Asia/Taipei
 - stock_id: 6109
 - stock_name: 亞元
 - packet_status: standard_180d_window_packet

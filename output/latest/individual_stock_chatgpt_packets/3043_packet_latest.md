@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3043 科風
 
 ## Metadata
-- generated_at: 2026-06-13 22:23:00 Asia/Taipei
+- generated_at: 2026-06-14 22:22:54 Asia/Taipei
 - stock_id: 3043
 - stock_name: 科風
 - packet_status: standard_180d_window_packet

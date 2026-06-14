@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2221 大甲
 
 ## Metadata
-- generated_at: 2026-06-13 22:22:32 Asia/Taipei
+- generated_at: 2026-06-14 22:22:32 Asia/Taipei
 - stock_id: 2221
 - stock_name: 大甲
 - packet_status: standard_180d_window_packet

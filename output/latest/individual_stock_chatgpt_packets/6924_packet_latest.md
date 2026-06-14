@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6924 榮惠-KY創
 
 ## Metadata
-- generated_at: 2026-06-13 22:24:20 Asia/Taipei
+- generated_at: 2026-06-14 22:23:58 Asia/Taipei
 - stock_id: 6924
 - stock_name: 榮惠-KY創
 - packet_status: standard_180d_window_packet

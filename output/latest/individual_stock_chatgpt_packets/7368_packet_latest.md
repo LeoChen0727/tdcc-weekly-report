@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7368 大樹統一57購01
 
 ## Metadata
-- generated_at: 2026-06-13 22:24:33 Asia/Taipei
+- generated_at: 2026-06-14 22:24:08 Asia/Taipei
 - stock_id: 7368
 - stock_name: 大樹統一57購01
 - packet_status: standard_180d_window_packet

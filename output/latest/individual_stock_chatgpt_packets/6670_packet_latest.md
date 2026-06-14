@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6670 復盛應用
 
 ## Metadata
-- generated_at: 2026-06-13 22:24:10 Asia/Taipei
+- generated_at: 2026-06-14 22:23:50 Asia/Taipei
 - stock_id: 6670
 - stock_name: 復盛應用
 - packet_status: standard_180d_window_packet

@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3376 新日興
 
 ## Metadata
-- generated_at: 2026-06-13 22:23:10 Asia/Taipei
+- generated_at: 2026-06-14 22:23:02 Asia/Taipei
 - stock_id: 3376
 - stock_name: 新日興
 - packet_status: standard_180d_window_packet

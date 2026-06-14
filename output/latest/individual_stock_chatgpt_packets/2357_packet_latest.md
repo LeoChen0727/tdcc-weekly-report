@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2357 華碩
 
 ## Metadata
-- generated_at: 2026-06-13 22:22:37 Asia/Taipei
+- generated_at: 2026-06-14 22:22:35 Asia/Taipei
 - stock_id: 2357
 - stock_name: 華碩
 - packet_status: standard_180d_window_packet

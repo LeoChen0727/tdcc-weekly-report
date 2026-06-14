@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4953 緯軟
 
 ## Metadata
-- generated_at: 2026-06-13 22:23:35 Asia/Taipei
+- generated_at: 2026-06-14 22:23:23 Asia/Taipei
 - stock_id: 4953
 - stock_name: 緯軟
 - packet_status: standard_180d_window_packet
