@@ -11,6 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from build_historical_pattern_operation_registry import (  # noqa: E402
+    EVENT_FILTERS,
     PATTERN_SPECS,
     add_research_features,
     current_model_hit,
@@ -106,6 +107,12 @@ class HistoricalPatternOperationRegistryTest(unittest.TestCase):
         self.assertTrue(current_model_hit(signal))
         self.assertFalse(relaxed_limit_locked_low_volume(signal))
         self.assertTrue(bool(signal["limit_up_like"]))
+
+    def test_research_only_locked_limit_filter_is_documented_as_non_production_remainder(self) -> None:
+        event_filter = next(f for f in EVENT_FILTERS if f.event_filter_id == "limit_locked_volume_lt2_research_only")
+
+        self.assertIn("未達production鎖量旁路", event_filter.event_filter_zh)
+        self.assertIn("排除現行 production 命中", event_filter.risk_note_zh)
 
     def test_long_base_low_position_uses_current_model_hit(self) -> None:
         df = base_history()

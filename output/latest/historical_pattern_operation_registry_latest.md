@@ -1,6 +1,6 @@
 # Historical Pattern Operation Registry
 
-- generated_at: `2026-06-15 01:15:40 Asia/Taipei`
+- generated_at: `2026-06-15 03:57:42 Asia/Taipei`
 - model_id: `volume_range_breakout`
 - detail_rows: `170409`
 - registry_rows: `85`
@@ -12,7 +12,7 @@
 - This is research/backtest output only.
 - It does not write production config, daily candidate files, or PDF operation text.
 - `approved_for_daily` remains `False` until a separate promotion PR explicitly approves a pattern.
-- `limit_locked_volume_lt2_research_only` is a comparison group for locked limit-up behavior and is not a current production model hit.
+- Current model hit groups include production locked-limit low-volume breakouts; `limit_locked_volume_lt2_research_only` is only the remaining non-production comparison group after excluding current model hits.
 
 ## Current Model Hit Patterns
 

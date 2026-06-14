@@ -333,6 +333,14 @@ SCORE_COMPONENT_ZH_REPLACEMENTS = {
 }
 
 
+VOLUME_RANGE_BREAKOUT_MAIN_CONDITIONS_ZH = (
+    "不含今日的前20日最高價為突破基準；一般放量突破需收盤價 >= 基準 * 1.02、"
+    "量比 >= 2.0、20日均量 >= 1000張，且為實體紅K或漲停型態；"
+    "鎖量漲停突破允許量比 < 2.0，但需漲幅 >= 9%、一價漲停或極窄區間、"
+    "開盤與收盤貼近漲停價，且20日均量 >= 1000張。"
+)
+
+
 @dataclass(frozen=True)
 class ModelSpec:
     model_id: str
@@ -1847,7 +1855,7 @@ def build_specs() -> list[ModelSpec]:
             "放量攻擊模型",
             "pdf_core_model",
             "signal_date_next_open",
-            "不含今日的前20日最高價為突破基準；收盤價 >= 基準 * 1.02、量比 >= 2.0、20日均量 >= 1000張，且為實體紅K或漲停型態。",
+            VOLUME_RANGE_BREAKOUT_MAIN_CONDITIONS_ZH,
             "量比越高、盤整時間越久、收盤越接近日高、低位階、TDCC正向、權證偏多、營收或題材支持可加分。",
             "不使用60日高點、短線過熱、漲幅大小或隔日跌回突破區作為入選否決；訊號日只輸出入選，風險用扣分與標籤處理。",
             "隔日開盤作為回測進場原點；適合找盤整後突然放大量攻擊的股票，後續用支撐、突破區和量價品質管理。",
@@ -2612,7 +2620,7 @@ def append_volume_breakout_signals(signals: pd.DataFrame, candidates: pd.DataFra
                 "return_5d": num(row, "return_5d", "return_5d_pct"),
                 "return_20d": num(row, "return_20d", "return_20d_pct"),
                 "next_confirmation": text(row, "next_volume_breakout_confirmation") or text(source, "next_confirmation"),
-                "model_main_conditions": "以前20個交易日最高價（不含訊號日）為突破基準；收盤價 >= 基準 * 1.02，量比 >= 2.0，20日均量 >= 1000張，且為實體紅K或漲停式紅K。",
+                "model_main_conditions": VOLUME_RANGE_BREAKOUT_MAIN_CONDITIONS_ZH,
                 "model_add_score_items": "量比越高、突破幅度越大、盤整時間越久、盤整品質越乾淨、TDCC越好、權證偏多、營收越好、位階越低、收盤越接近日高可加分。",
                 "model_forbidden_veto": "不得用60日高點、均線、漲幅過大、高位爆量、同日漲幅過低、watch/risk子狀態直接否決；風險只作扣分與風險提醒。",
                 "model_operation_guidance": "以訊號日隔天開盤作為研究觀察基準；用跌回突破區、支撐失守、量價失敗或長上影品質風險管理。",

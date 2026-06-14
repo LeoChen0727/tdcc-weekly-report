@@ -321,10 +321,10 @@ EVENT_FILTERS = [
     ),
     EventFilter(
         "limit_locked_volume_lt2_research_only",
-        "漲停鎖量但量比低於2.0的研究對照",
+        "未達production鎖量旁路的低量比漲停研究對照",
         "research_relaxed_not_current_model",
         relaxed_limit_locked_low_volume,
-        "不是現行 production 命中，只用來研究量比門檻是否漏掉鎖量漲停。",
+        "排除現行 production 命中；用來監控仍可能被量比或鎖量旁路條件漏掉的低量比漲停樣本。",
     ),
 ]
 
@@ -984,7 +984,7 @@ def write_registry_md(registry: pd.DataFrame, detail: pd.DataFrame) -> None:
         "- This is research/backtest output only.",
         "- It does not write production config, daily candidate files, or PDF operation text.",
         "- `approved_for_daily` remains `False` until a separate promotion PR explicitly approves a pattern.",
-        "- `limit_locked_volume_lt2_research_only` is a comparison group for locked limit-up behavior and is not a current production model hit.",
+        "- Current model hit groups include production locked-limit low-volume breakouts; `limit_locked_volume_lt2_research_only` is only the remaining non-production comparison group after excluding current model hits.",
         "",
         "## Current Model Hit Patterns",
         "",
