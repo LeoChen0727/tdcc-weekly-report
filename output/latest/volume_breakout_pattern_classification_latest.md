@@ -1,6 +1,6 @@
 # Volume Breakout Pattern Classification
 
-- generated_at: `2026-06-14 14:20:52 Asia/Taipei`
+- generated_at: `2026-06-14 17:09:30 Asia/Taipei`
 - model_id: `volume_range_breakout`
 - unique_event_rows: `4068`
 - summary_rows: `119`
@@ -44,4 +44,3 @@
 | wide_range_breakout | next_open_hold_20d | 107 | 57.01 | 6.5445 | 1.6129 | 36 | 13.1472 | medium | True |
 | wide_range_breakout | pullback_10ma_hold_10d | 73 | 57.53 | 4.5155 | 1.2389 | 27 | 10.8374 | low | False |
 | wide_range_breakout | pullback_5ma_hold_10d | 103 | 57.28 | 3.2941 | 1.4451 | 34 | 4.3089 | medium | True |
-
