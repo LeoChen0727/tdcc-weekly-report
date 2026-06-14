@@ -974,6 +974,62 @@ def bottom_volume_attack_breakout_pct(row: pd.Series) -> float:
     return (close / level - 1) * 100
 
 
+def daily_signal_return_pct(row: pd.Series) -> float:
+    ret = num(row, "daily_return_calc", "return_1d", "return_1d_pct")
+    if not math.isnan(ret):
+        return ret
+    close = close_price(row)
+    prev_close = previous_close_price(row)
+    if math.isnan(close) or math.isnan(prev_close) or prev_close <= 0:
+        return math.nan
+    return (close / prev_close - 1.0) * 100.0
+
+
+def bottom_volume_attack_normal_volume(row: pd.Series) -> bool:
+    vol = num(row, "volume_ratio")
+    volume_ma20 = volume_ma20_lots(row)
+    breakout_level = bottom_volume_attack_breakout_level(row)
+    close = close_price(row)
+    if any(math.isnan(v) for v in [vol, volume_ma20, breakout_level, close]):
+        return False
+    return (
+        close >= breakout_level * 1.02
+        and vol >= 2.0
+        and volume_ma20 >= 1000
+        and bottom_volume_attack_bullish_candle(row)
+    )
+
+
+def bottom_volume_attack_locked_limit_up(row: pd.Series) -> bool:
+    close = close_price(row)
+    open_ = num(row, "open")
+    high = num(row, "high")
+    low = num(row, "low")
+    prev_close = previous_close_price(row)
+    vol = num(row, "volume_ratio")
+    volume_ma20 = volume_ma20_lots(row)
+    breakout_level = bottom_volume_attack_breakout_level(row)
+    ret = daily_signal_return_pct(row)
+    if any(math.isnan(v) for v in [close, open_, high, low, prev_close, vol, volume_ma20, breakout_level, ret]):
+        return False
+    if prev_close <= 0 or vol <= 0 or vol >= 2.0:
+        return False
+    range_pct = (high - low) / prev_close * 100.0
+    locked_or_tight_range = high == low or range_pct <= 1.0
+    return (
+        close >= breakout_level * 1.02
+        and ret >= 9.0
+        and close >= high * 0.995
+        and open_ >= close * 0.995
+        and locked_or_tight_range
+        and volume_ma20 >= 1000
+    )
+
+
+def bottom_volume_attack_like(row: pd.Series) -> bool:
+    return bottom_volume_attack_normal_volume(row) or bottom_volume_attack_locked_limit_up(row)
+
+
 def close_position_in_day_range(row: pd.Series) -> float:
     close = close_price(row)
     high = num(row, "high")
@@ -1168,6 +1224,12 @@ def model_score_common(row: pd.Series) -> tuple[float, list[str], list[str]]:
 def score_volume_breakout(row: pd.Series) -> tuple[float, list[str], list[str]]:
     score, comps, risks = score_from_profile(row, MODEL_SCORE_PROFILES["volume_range_breakout"])
     breakout_pct = bottom_volume_attack_breakout_pct(row)
+    if bottom_volume_attack_locked_limit_up(row):
+        score += 8
+        comps.append("locked_limit_up_breakout +8")
+        if num(row, "high") == num(row, "low"):
+            score += 4
+            comps.append("one_price_limit_up +4")
     if not math.isnan(breakout_pct):
         add = min(12.0, max(0.0, breakout_pct - 2.0) * 2.0)
         if add:
@@ -1422,36 +1484,15 @@ def score_tdcc_stealth(row: pd.Series) -> tuple[float, list[str], list[str]]:
 
 
 def cond_volume_breakout(row: pd.Series) -> bool:
-    vol = num(row, "volume_ratio")
-    volume_ma20 = volume_ma20_lots(row)
-    breakout_level = bottom_volume_attack_breakout_level(row)
-    close = close_price(row)
-    if any(math.isnan(v) for v in [vol, volume_ma20, breakout_level, close]):
-        return False
-    return (
-        close >= breakout_level * 1.02
-        and vol >= 2.0
-        and volume_ma20 >= 1000
-        and bottom_volume_attack_bullish_candle(row)
-    )
+    return bottom_volume_attack_like(row)
 
 
 def active_price_attack_for_early_models(row: pd.Series) -> bool:
     vol = num(row, "volume_ratio")
     ret5 = num(row, "return_5d", "return_5d_pct")
     ret20 = num(row, "return_20d", "return_20d_pct")
-    volume_ma20 = volume_ma20_lots(row)
-    breakout_level = bottom_volume_attack_breakout_level(row)
-    close = close_price(row)
-    bottom_attack_like = (
-        not any(math.isnan(v) for v in [vol, volume_ma20, breakout_level, close])
-        and close >= breakout_level * 1.02
-        and vol >= 2.0
-        and volume_ma20 >= 1000
-        and bottom_volume_attack_bullish_candle(row)
-    )
     return (
-        bottom_attack_like
+        bottom_volume_attack_like(row)
         or flag(row, "volume_confirmed_breakout")
         or (not math.isnan(vol) and vol >= 2.5)
         or (not math.isnan(ret5) and ret5 >= 8)
@@ -1466,17 +1507,7 @@ def tdcc_stealth_attack_already_started(row: pd.Series) -> bool:
     does not silently inherit changes from the bottom-volume attack model.
     """
     vol = num(row, "volume_ratio")
-    volume_ma20 = volume_ma20_lots(row)
-    breakout_level = bottom_volume_attack_breakout_level(row)
-    close = close_price(row)
-    bottom_attack_like = (
-        not any(math.isnan(v) for v in [vol, volume_ma20, breakout_level, close])
-        and close >= breakout_level * 1.02
-        and vol >= 2.0
-        and volume_ma20 >= 1000
-        and bottom_volume_attack_bullish_candle(row)
-    )
-    return bottom_attack_like or flag(row, "volume_confirmed_breakout")
+    return bottom_volume_attack_like(row) or flag(row, "volume_confirmed_breakout")
 
 
 def cond_pullback(row: pd.Series) -> bool:

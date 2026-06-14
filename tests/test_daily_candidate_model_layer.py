@@ -212,6 +212,39 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         )
         self.assertTrue(cond_volume_breakout(row))
 
+    def test_locked_limit_up_low_volume_ratio_is_volume_breakout(self) -> None:
+        row = make_row(
+            volume_breakout_type="bottom_volume_attack",
+            close="81.8",
+            open="81.8",
+            high="81.8",
+            low="81.8",
+            previous_close="74.4",
+            previous_20d_high="74.4",
+            volume_ratio="0.504",
+            volume_ma20="7099858.7",
+        )
+
+        score, components, _risks = score_volume_breakout(row)
+
+        self.assertTrue(cond_volume_breakout(row))
+        self.assertGreater(score, 0)
+        self.assertTrue(any("locked_limit_up_breakout" in item for item in components))
+
+    def test_non_locked_low_volume_ratio_breakout_is_not_volume_breakout(self) -> None:
+        row = make_row(
+            close="110",
+            open="101",
+            high="110",
+            low="99",
+            previous_close="98",
+            previous_20d_high="100",
+            volume_ratio="1.5",
+            volume_ma20="2000",
+        )
+
+        self.assertFalse(cond_volume_breakout(row))
+
     def test_dedicated_volume_breakout_table_is_independent_from_candidate_model(self) -> None:
         source = pd.DataFrame(
             [
