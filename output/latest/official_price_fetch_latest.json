@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15 03:20:17 Asia/Taipei",
+  "generated_at": "2026-06-15 03:43:34 Asia/Taipei",
   "target_date": "20260615",
   "saved_price_date": "20260612",
   "is_target_date": false,
@@ -10,14 +10,12 @@
   "total_rows": 0,
   "full_market_ok": false,
   "stale_markets": [
-    "TPEx",
-    "TWSE"
+    "TPEx"
   ],
-  "stale_market_rows": 6272,
-  "data_quality_note": "partial_market_stale_rejected: TPEx,TWSE matched previous trading day file daily_price_20260612.csv",
+  "stale_market_rows": 5037,
+  "data_quality_note": "partial_market_stale_rejected: TPEx matched previous trading day file daily_price_20260612.csv",
   "market_same_ratios": {
-    "TPEx": 1.0,
-    "TWSE": 1.0
+    "TPEx": 1.0
   },
   "attempts": [
     {
@@ -30,11 +28,10 @@
       "full_market_ok": false,
       "universe_rows": 6272,
       "stale_markets": [
-        "TPEx",
-        "TWSE"
+        "TPEx"
       ],
-      "stale_market_rows": 6272,
-      "data_quality_note": "partial_market_stale_rejected: TPEx,TWSE matched previous trading day file daily_price_20260612.csv"
+      "stale_market_rows": 5037,
+      "data_quality_note": "partial_market_stale_rejected: TPEx matched previous trading day file daily_price_20260612.csv"
     }
   ],
   "paths": {
