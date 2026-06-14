@@ -391,6 +391,16 @@ This task delivers six ChatGPT-side PDFs when the user asks to run the daily rec
 
 Repo pipeline PDFs are validation/reference artifacts. They cannot be presented as the newly generated ChatGPT-side PDFs unless the user asks only for repo artifact links or status.
 
+## ChatGPT-Side PDF Layout Isolation
+
+The six ChatGPT-side daily PDFs must have independent report builder and layout boundaries. Do not use one line-parameterized PDF builder to produce multiple deliverables.
+
+Mainstream highlight, mainstream full list, non-mainstream highlight, non-mainstream full list, warrant auxiliary analysis, and market risk/background must each have an explicit builder entrypoint. Their chapter structure, table columns, section order, row limits, and wording rules must not be controlled by a shared business-semantic template.
+
+Only low-level rendering utilities may be shared across the six PDFs, such as font registration, PDF file writing, basic table drawing, paragraph creation, date formatting, CSV reads, and chart rendering. Shared utilities must not choose report sections, columns, ranking, model interpretation, risk wording, or output-specific row limits.
+
+When changing one PDF format, inspect and report whether any shared helper would affect the other PDFs. If the helper carries business meaning, split it before making the requested change.
+
 The curated recommendation PDF title must be:
 
 `YYYY/M/D 台股推薦標的`

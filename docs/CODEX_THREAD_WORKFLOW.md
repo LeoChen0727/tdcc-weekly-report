@@ -46,6 +46,14 @@ separate pull requests unless a single integration fix is clearly safer.
   raw health sweeps, TDCC historical backfills, or nonessential backtest work.
 - Research/backtest work must not silently change daily production weights,
   ranking, PDF logic, or model behavior.
+- Business-facing code defaults to independent ownership. Do not share
+  report builders, model parameters, scoring logic, filters, ranking, field
+  transforms, validation contracts, output writers, PDF layouts, or workflow
+  behavior across unrelated surfaces unless the coupling is explicit in repo
+  rules and approved by the user.
+- Before editing any shared helper or parameter source, identify which reports,
+  models, outputs, and validations depend on it. If the requested change is for
+  one surface, split the shared path before changing behavior.
 - Stock screening models must remain independent at the code and parameter
   level. Shared helpers are allowed only when they do not hide shared model
   parameters, thresholds, weights, ranking settings, or decision logic.
