@@ -249,6 +249,9 @@ SCORE_COMPONENT_ZH_REPLACEMENTS = {
     "volume_ma20_lots_ge_1000": "20日均量>=1000張",
     "close_above_mid_high": "收盤高於日內中高位",
     "breakout_magnitude": "突破幅度",
+    "locked_limit_up_breakout": "鎖量漲停突破",
+    "one_price_limit_up": "一價漲停",
+    "volume_ratio_lt_2_locked_limit": "量比低於2但鎖量漲停",
     "close_near_day_high": "收盤接近日高",
     "close_high_position": "收盤位於日內高位",
     "strong_red_body": "實體紅K",
@@ -1010,12 +1013,17 @@ def bottom_volume_attack_locked_limit_up(row: pd.Series) -> bool:
     volume_ma20 = volume_ma20_lots(row)
     breakout_level = bottom_volume_attack_breakout_level(row)
     ret = daily_signal_return_pct(row)
-    if any(math.isnan(v) for v in [close, open_, high, low, prev_close, vol, volume_ma20, breakout_level, ret]):
+    if any(math.isnan(v) for v in [close, open_, high, low, vol, volume_ma20, breakout_level, ret]):
         return False
-    if prev_close <= 0 or vol <= 0 or vol >= 2.0:
+    if vol <= 0 or vol >= 2.0:
         return False
-    range_pct = (high - low) / prev_close * 100.0
-    locked_or_tight_range = high == low or range_pct <= 1.0
+    one_price_locked = high == low
+    range_pct = math.nan
+    if not one_price_locked:
+        if math.isnan(prev_close) or prev_close <= 0:
+            return False
+        range_pct = (high - low) / prev_close * 100.0
+    locked_or_tight_range = one_price_locked or range_pct <= 1.0
     return (
         close >= breakout_level * 1.02
         and ret >= 9.0
