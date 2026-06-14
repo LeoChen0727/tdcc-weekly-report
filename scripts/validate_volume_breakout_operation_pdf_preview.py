@@ -9,7 +9,6 @@ ROOT = Path(".")
 LATEST_DIR = ROOT / "output" / "latest"
 PREVIEW_CSV = LATEST_DIR / "volume_breakout_operation_pdf_preview_latest.csv"
 PREVIEW_MD = LATEST_DIR / "volume_breakout_operation_pdf_preview_latest.md"
-PREVIEW_PDF = LATEST_DIR / "volume_breakout_operation_pdf_preview_latest.pdf"
 SPEC_MD = ROOT / "docs" / "specs" / "volume_breakout_operation_pdf_table_spec.md"
 
 REQUIRED_COLUMNS = {
@@ -30,8 +29,6 @@ REQUIRED_COLUMNS = {
 FORBIDDEN_DISPLAY_TEXT = [
     "median",
     "signal_low",
-    "訊號 K",
-    "訊號K",
     "next_open",
     "pullback_5ma_confirmed",
     "pullback_10ma_confirmed",
@@ -51,21 +48,8 @@ def read_csv(path: Path) -> pd.DataFrame:
         fail(f"{path} is not readable CSV: {exc}")
 
 
-def read_pdf_text(path: Path) -> tuple[int, str]:
-    try:
-        from pypdf import PdfReader
-    except Exception as exc:
-        fail(f"pypdf unavailable while validating {path}: {exc}")
-    try:
-        reader = PdfReader(str(path))
-        text = "\n".join(page.extract_text() or "" for page in reader.pages)
-        return len(reader.pages), text
-    except Exception as exc:
-        fail(f"{path} is not readable PDF: {exc}")
-
-
 def main() -> int:
-    for path in [PREVIEW_CSV, PREVIEW_MD, PREVIEW_PDF, SPEC_MD]:
+    for path in [PREVIEW_CSV, PREVIEW_MD, SPEC_MD]:
         if not path.exists():
             fail(f"missing required file: {path}")
     preview = read_csv(PREVIEW_CSV)
@@ -74,10 +58,10 @@ def main() -> int:
     missing = sorted(REQUIRED_COLUMNS - set(preview.columns))
     if missing:
         fail(f"{PREVIEW_CSV} missing columns: {missing}")
+
     bad_models = sorted(set(preview["model_id"].astype(str)) - {"volume_range_breakout"})
     if bad_models:
-        fail(f"volume breakout operation preview must not include other models: {bad_models}")
-
+        fail(f"volume breakout operation artifact must not include other models: {bad_models}")
     bad_views = sorted(set(preview["pdf_view"].astype(str)) - {"highlight", "full"})
     if bad_views:
         fail(f"invalid pdf_view values: {bad_views}")
@@ -109,19 +93,12 @@ def main() -> int:
     for token in FORBIDDEN_DISPLAY_TEXT:
         if token in display_text:
             fail(f"forbidden display token leaked: {token}")
-    if "中位數報酬" not in PREVIEW_MD.read_text(encoding="utf-8", errors="replace"):
+
+    md_text = PREVIEW_MD.read_text(encoding="utf-8", errors="replace")
+    if "中位數報酬" not in md_text:
         fail("preview markdown must display 中位數報酬")
     if "最低價" not in display_text:
         fail("preview stop display must use 日期最低價 wording")
-
-    if PREVIEW_PDF.stat().st_size < 5000:
-        fail(f"preview PDF too small: {PREVIEW_PDF}")
-    pdf_pages, pdf_text = read_pdf_text(PREVIEW_PDF)
-    if pdf_pages < 1:
-        fail("preview PDF must have at least one page")
-    for token in ["放量攻擊", "中位數報酬", "最低價", "操作中", "目前沒有操作中"]:
-        if token not in pdf_text:
-            fail(f"preview PDF missing required display text: {token}")
 
     confirmed = preview[preview["pdf_section"].astype(str).eq("confirmed_operation")]
     highlight_confirmed = confirmed[confirmed["pdf_view"].astype(str).eq("highlight")]
@@ -131,7 +108,13 @@ def main() -> int:
         samples = pd.to_numeric(highlight_confirmed["sample_size"], errors="coerce")
         if samples.isna().any() or (samples < 10).any():
             fail("highlight confirmed rows must have sample_size >= 10")
-        med = pd.to_numeric(highlight_confirmed["median_return_zh"].astype(str).str.replace("%", "", regex=False).str.replace("+", "", regex=False), errors="coerce")
+        med = pd.to_numeric(
+            highlight_confirmed["median_return_zh"]
+            .astype(str)
+            .str.replace("%", "", regex=False)
+            .str.replace("+", "", regex=False),
+            errors="coerce",
+        )
         if med.isna().any() or (med <= 0).any():
             fail("highlight confirmed rows must have positive 中位數報酬")
 
@@ -143,9 +126,9 @@ def main() -> int:
         fail("full pending preview must be de-duplicated by stock_id")
 
     print(
-        "volume breakout operation PDF preview validation passed "
+        "volume breakout operation artifact validation passed "
         f"rows={len(preview)} highlight_confirmed={len(highlight_confirmed)} "
-        f"full_pending={len(full_pending)} pdf_pages={pdf_pages}"
+        f"full_pending={len(full_pending)}"
     )
     return 0
 

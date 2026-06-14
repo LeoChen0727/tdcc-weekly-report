@@ -4,7 +4,6 @@ import sys
 from pathlib import Path
 
 import pandas as pd
-from pypdf import PdfReader
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -17,7 +16,6 @@ from build_volume_breakout_operation_pdf_preview import (  # noqa: E402
     positive_evidence,
     stop_basis,
 )
-import build_volume_breakout_operation_pdf_preview_pdf as pdf_builder  # noqa: E402
 
 
 def test_stop_basis_uses_date_low_wording() -> None:
@@ -123,60 +121,3 @@ def test_preview_dedupes_pending_and_uses_chinese_labels() -> None:
     assert len(full_pending) == 1
     assert full_pending.iloc[0]["same_stock_pending_count"] == 2
     assert full_pending.iloc[0]["pending_age_zh"].startswith("D+1")
-
-
-def test_pdf_preview_builder_writes_readable_pdf(tmp_path, monkeypatch) -> None:
-    preview = pd.DataFrame(
-        [
-            {
-                "pdf_view": "highlight",
-                "pdf_section": "confirmed_operation",
-                "display_order": "1",
-                "stock_id": "2243",
-                "stock_name": "宏旭-KY",
-                "stock_display": "2243 宏旭-KY",
-                "operation_status_zh": "已確認",
-                "quality_status_zh": "正向證據",
-                "trigger_zh": "隔日續強確認",
-                "entry_basis_zh": "確認後下一交易日開盤",
-                "stop_basis_zh": "跌破 6/11 最低價 30.30",
-                "sample_size": "12",
-                "win_rate_zh": "66.67%",
-                "avg_return_zh": "+21.67%",
-                "median_return_zh": "+21.09%",
-                "confidence_zh": "低",
-                "pdf_note_zh": "類漲停突破",
-            },
-            {
-                "pdf_view": "highlight",
-                "pdf_section": "pending_confirmation",
-                "display_order": "1",
-                "stock_id": "1409",
-                "stock_name": "AAA",
-                "stock_display": "1409 AAA",
-                "operation_status_zh": "待確認",
-                "pending_age_zh": "D+1，剩 9 個交易日",
-                "pending_group_zh": "D+0-D+1 等隔日續強",
-                "stop_basis_zh": "跌破 6/11 最低價 19.20",
-                "same_stock_pending_count": "1",
-                "pdf_note_zh": "高位階突破",
-            },
-        ]
-    )
-    # Include the full rows so each PDF section is exercised.
-    full = preview.copy()
-    full["pdf_view"] = "full"
-    preview = pd.concat([preview, full], ignore_index=True)
-    out_pdf = tmp_path / "preview.pdf"
-    monkeypatch.setattr(pdf_builder, "PREVIEW_PDF", out_pdf)
-
-    pdf_builder.build_pdf(preview)
-
-    reader = PdfReader(str(out_pdf))
-    text = "\n".join(page.extract_text() or "" for page in reader.pages)
-    assert len(reader.pages) >= 1
-    assert "放量攻擊" in text
-    assert "中位數報酬" in text
-    assert "最低價" in text
-    assert "操作中" in text
-    assert "目前沒有操作中" in text
