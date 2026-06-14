@@ -115,7 +115,7 @@ def main() -> int:
     pdf_pages, pdf_text = read_pdf_text(PREVIEW_PDF)
     if pdf_pages < 1:
         fail("preview PDF must have at least one page")
-    for token in ["放量攻擊", "中位數報酬", "最低價"]:
+    for token in ["放量攻擊", "中位數報酬", "最低價", "操作中", "目前沒有操作中"]:
         if token not in pdf_text:
             fail(f"preview PDF missing required display text: {token}")
 

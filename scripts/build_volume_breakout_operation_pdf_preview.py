@@ -321,6 +321,11 @@ def build_preview(rank: pd.DataFrame, pending: pd.DataFrame) -> pd.DataFrame:
 
 MARKDOWN_HEADERS = {
     "display_order": "排序",
+    "model_id": "模型ID",
+    "model_name_zh": "模型",
+    "pdf_visibility": "PDF 層級",
+    "recommended_usage": "研究用途",
+    "research_status_zh": "操作研究狀態",
     "stock_display": "股票",
     "operation_status_zh": "狀態",
     "quality_status_zh": "研究品質",
@@ -334,6 +339,8 @@ MARKDOWN_HEADERS = {
     "confidence_zh": "信心",
     "pending_age_zh": "待確認天數",
     "pending_group_zh": "待確認分組",
+    "holding_age_zh": "操作天數",
+    "planned_exit_zh": "預定出場",
     "same_stock_pending_count": "同股待確認筆數",
     "pdf_note_zh": "PDF 備註",
     "research_score": "研究分數",

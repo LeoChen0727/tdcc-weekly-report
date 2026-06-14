@@ -128,32 +128,30 @@ def add_table(
     empty_text: str,
 ) -> None:
     story.append(Paragraph(title, styles["section"]))
+    rows = table_rows(df, columns, styles)
+    table_style_commands: list[tuple[Any, ...]] = [
+        ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#1d3557")),
+        ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
+        ("FONTNAME", (0, 0), (-1, -1), FONT_NAME),
+        ("GRID", (0, 0), (-1, -1), 0.3, colors.HexColor("#cbd5e1")),
+        ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, colors.HexColor("#f8fafc")]),
+        ("VALIGN", (0, 0), (-1, -1), "TOP"),
+        ("LEFTPADDING", (0, 0), (-1, -1), 3),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 3),
+        ("TOPPADDING", (0, 0), (-1, -1), 3),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 3),
+    ]
     if df.empty:
-        story.append(Paragraph(empty_text, styles["note"]))
-        story.append(Spacer(1, 0.2 * cm))
-        return
+        rows.append([paragraph(empty_text if idx == 0 else "", styles["cell"]) for idx, _ in enumerate(columns)])
+        table_style_commands.append(("SPAN", (0, 1), (-1, 1)))
+        table_style_commands.append(("BACKGROUND", (0, 1), (-1, 1), colors.HexColor("#fff7ed")))
     table = LongTable(
-        table_rows(df, columns, styles),
+        rows,
         colWidths=[width * cm for width in widths_cm],
         repeatRows=1,
         hAlign="LEFT",
     )
-    table.setStyle(
-        TableStyle(
-            [
-                ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#1d3557")),
-                ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
-                ("FONTNAME", (0, 0), (-1, -1), FONT_NAME),
-                ("GRID", (0, 0), (-1, -1), 0.3, colors.HexColor("#cbd5e1")),
-                ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, colors.HexColor("#f8fafc")]),
-                ("VALIGN", (0, 0), (-1, -1), "TOP"),
-                ("LEFTPADDING", (0, 0), (-1, -1), 3),
-                ("RIGHTPADDING", (0, 0), (-1, -1), 3),
-                ("TOPPADDING", (0, 0), (-1, -1), 3),
-                ("BOTTOMPADDING", (0, 0), (-1, -1), 3),
-            ]
-        )
-    )
+    table.setStyle(TableStyle(table_style_commands))
     story.append(table)
     story.append(Spacer(1, 0.25 * cm))
 
@@ -171,6 +169,7 @@ def build_pdf(preview: pd.DataFrame) -> None:
     highlight_pending = filtered(preview, "highlight", "pending_confirmation")
     full_confirmed = filtered(preview, "full", "confirmed_operation")
     full_pending = filtered(preview, "full", "pending_confirmation")
+    active_empty = pd.DataFrame()
 
     doc = SimpleDocTemplate(
         str(PREVIEW_PDF),
@@ -221,6 +220,24 @@ def build_pdf(preview: pd.DataFrame) -> None:
     )
     add_table(
         story,
+        "精華版 操作中",
+        active_empty,
+        [
+            "display_order",
+            "stock_display",
+            "operation_status_zh",
+            "entry_basis_zh",
+            "stop_basis_zh",
+            "holding_age_zh",
+            "planned_exit_zh",
+            "pdf_note_zh",
+        ],
+        [1.0, 3.0, 1.7, 3.2, 4.0, 2.4, 4.2, 7.0],
+        styles,
+        "目前沒有操作中股票；已確認股票若隔日開盤進場且尚未觸發停損或到達預定出場日，會固定顯示在這裡。",
+    )
+    add_table(
+        story,
         "精華版 待確認",
         highlight_pending,
         [
@@ -264,6 +281,24 @@ def build_pdf(preview: pd.DataFrame) -> None:
         [1.0, 3.0, 2.0, 2.6, 4.0, 1.5, 1.8, 2.1, 2.0],
         styles,
         "目前沒有已確認操作。",
+    )
+    add_table(
+        story,
+        "完整版 操作中",
+        active_empty,
+        [
+            "display_order",
+            "stock_display",
+            "operation_status_zh",
+            "entry_basis_zh",
+            "stop_basis_zh",
+            "holding_age_zh",
+            "planned_exit_zh",
+            "pdf_note_zh",
+        ],
+        [1.0, 3.2, 1.8, 3.4, 4.0, 2.4, 4.2, 8.0],
+        styles,
+        "目前沒有操作中股票；此表格保留給持有追蹤狀態，不應在 PDF 端臨時重建規則。",
     )
     add_table(
         story,

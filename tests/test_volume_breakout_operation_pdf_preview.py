@@ -178,3 +178,5 @@ def test_pdf_preview_builder_writes_readable_pdf(tmp_path, monkeypatch) -> None:
     assert "放量攻擊" in text
     assert "中位數報酬" in text
     assert "最低價" in text
+    assert "操作中" in text
+    assert "目前沒有操作中" in text
