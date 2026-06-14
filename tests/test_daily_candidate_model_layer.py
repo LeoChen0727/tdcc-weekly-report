@@ -14,6 +14,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 import build_daily_candidate_model_layer as model_layer  # noqa: E402
 from build_daily_candidate_model_layer import (  # noqa: E402
     MODEL_SCORE_PROFILES,
+    VOLUME_RANGE_BREAKOUT_MAIN_CONDITIONS_ZH,
     annotate_frontpage_uniqueness,
     attach_model_recommendations,
     attach_same_model_repeat,
@@ -199,6 +200,15 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         pdf_rows = params[params["pdf_visibility"].isin(["pdf_core_model", "pdf_specialty_section"])]
         self.assertTrue((pdf_rows["entry_basis"] == "signal_date_next_open").all())
 
+    def test_volume_breakout_main_condition_text_includes_locked_limit_bypass(self) -> None:
+        params = build_parameter_table(build_specs()).set_index("model_id")
+        condition_text = params.loc["volume_range_breakout", "main_conditions"]
+
+        self.assertEqual(condition_text, VOLUME_RANGE_BREAKOUT_MAIN_CONDITIONS_ZH)
+        self.assertIn("一般放量突破", condition_text)
+        self.assertIn("量比 >= 2.0", condition_text)
+        self.assertIn("鎖量漲停突破允許量比 < 2.0", condition_text)
+
     def test_volume_breakout_condition_is_bottom_volume_attack_not_60d_only(self) -> None:
         row = make_row(
             volume_breakout_type="bottom_volume_attack",
@@ -230,6 +240,25 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         self.assertTrue(cond_volume_breakout(row))
         self.assertGreater(score, 0)
         self.assertTrue(any("locked_limit_up_breakout" in item for item in components))
+
+    def test_locked_limit_up_signal_row_uses_current_condition_text(self) -> None:
+        row = make_row(
+            volume_breakout_type="bottom_volume_attack",
+            close="81.8",
+            open="81.8",
+            high="81.8",
+            low="81.8",
+            previous_close="74.4",
+            previous_20d_high="74.4",
+            volume_ratio="0.504",
+            volume_ma20="7099858.7",
+        )
+
+        out = build_signals(pd.DataFrame([row]), build_specs(), "20260612")
+        volume_row = out[out["model_id"].eq("volume_range_breakout")].iloc[0]
+
+        self.assertEqual(volume_row["model_main_conditions"], VOLUME_RANGE_BREAKOUT_MAIN_CONDITIONS_ZH)
+        self.assertIn("鎖量漲停突破允許量比 < 2.0", volume_row["model_main_conditions"])
 
     def test_locked_limit_up_watch_row_uses_return_when_previous_close_missing(self) -> None:
         row = make_row(
