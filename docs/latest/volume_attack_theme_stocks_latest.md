@@ -1,6 +1,6 @@
 # Volume Attack Theme Stocks
 
-- generated_at: `2026-06-15 04:28:53 Asia/Taipei`
+- generated_at: `2026-06-15 04:49:25 Asia/Taipei`
 - signal_date: `20260612`
 - rule: Every volume attack stock row carries explicit mainstream/non-mainstream status.
 
