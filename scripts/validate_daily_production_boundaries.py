@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import re
+import importlib.util
 from pathlib import Path
 
 
@@ -13,6 +14,7 @@ RULES_DAILY = ROOT / "rules" / "daily_stock_candidate_rules.md"
 DOCS_RULES_DAILY = ROOT / "docs" / "rules" / "daily_stock_candidate_rules.md"
 RULES_MASTER = ROOT / "rules" / "master_priority_rules.md"
 DOCS_RULES_MASTER = ROOT / "docs" / "rules" / "master_priority_rules.md"
+CODE_ISOLATION_POLICY_VALIDATOR = ROOT / "scripts" / "validate_repo_code_isolation_policy.py"
 
 
 FORBIDDEN_DAILY_SCRIPT_PATTERNS = {
@@ -55,9 +57,24 @@ def read_text(path: Path) -> str:
     return path.read_text(encoding="utf-8", errors="replace")
 
 
+def run_code_isolation_policy_validation() -> list[str]:
+    spec = importlib.util.spec_from_file_location(
+        "validate_repo_code_isolation_policy",
+        CODE_ISOLATION_POLICY_VALIDATOR,
+    )
+    if spec is None or spec.loader is None:
+        return [f"cannot load repo code-isolation policy validator: {CODE_ISOLATION_POLICY_VALIDATOR}"]
+
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return list(module.validate())
+
+
 def main() -> int:
     errors: list[str] = []
     daily_text = read_text(DAILY_WORKFLOW)
+
+    errors.extend(run_code_isolation_policy_validation())
 
     for label, pattern in FORBIDDEN_DAILY_SCRIPT_PATTERNS.items():
         if re.search(pattern, daily_text):

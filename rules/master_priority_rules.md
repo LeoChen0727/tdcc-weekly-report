@@ -119,6 +119,8 @@ Shared code is allowed only for low-level technical utilities that do not decide
 
 Before changing any shared function that can affect multiple reports, models, parameters, or workflows, state the affected outputs and either split the code path first or make the coupling explicit in the change. A request to adjust one report, model, parameter, or field must not silently change another surface.
 
+This policy is enforced by `scripts/validate_repo_code_isolation_policy.py`, pytest, and the Daily Full Pipeline. A change that weakens code isolation must update the validator and tests in the same reviewed PR.
+
 ## Daily Model / Presentation Display Fields
 
 Daily PDF and daily packet text must be sourced from the model layer and presentation-routing layer. They must not create a separate operation or trade-decision layer.

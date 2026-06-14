@@ -57,6 +57,8 @@ separate pull requests unless a single integration fix is clearly safer.
 - Stock screening models must remain independent at the code and parameter
   level. Shared helpers are allowed only when they do not hide shared model
   parameters, thresholds, weights, ranking settings, or decision logic.
+- Repository-level code-isolation policy is enforced by `scripts/validate_repo_code_isolation_policy.py`,
+  pytest, and the Daily Full Pipeline.
 - A stock may appear in multiple models. Do not collapse model hits into one
   global ranking unless a program-side contract explicitly does that.
 - Do not invent buy/sell decisions, mainstream/non-mainstream labels, ranking,

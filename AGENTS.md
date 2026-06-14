@@ -29,3 +29,8 @@ relationship is encoded in source rules and tests.
 Changing A must not silently change B. If A and B are intentionally coupled,
 state that coupling before making the change.
 
+This is a repository-level engineering gate, not a style preference. Daily
+production validation must run `scripts/validate_repo_code_isolation_policy.py`
+and `scripts/validate_chatgpt_side_pdf_layout_independence.py`; weakening these
+guards requires changing the validator and tests in the same reviewed PR.
+
