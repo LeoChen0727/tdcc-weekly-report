@@ -1,6 +1,6 @@
 # Volume Breakout Backtest
 
-- generated_at: `2026-06-14 17:12:10 Asia/Taipei`
+- generated_at: `2026-06-14 20:41:36 Asia/Taipei`
 - main_price_date: `20260612`
 - event_log_rows: `4180`
 - rule: Features are detected on event date only. Future data is used only for D+N performance labels.

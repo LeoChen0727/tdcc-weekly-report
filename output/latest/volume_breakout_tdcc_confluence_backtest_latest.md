@@ -1,6 +1,6 @@
 # Volume Breakout TDCC Confluence Backtest
 
-- generated_at: `2026-06-14 20:38:08 Asia/Taipei`
+- generated_at: `2026-06-14 20:45:54 Asia/Taipei`
 - model_id: `volume_range_breakout`
 - overlay_model_id: `tdcc_weekly_ranking_formula`
 - tdcc_as_of_rule: `tdcc_signal_date <= event_date and tdcc_signal_age_days <= 7`

@@ -1,6 +1,6 @@
 # Volume Breakout Pattern Classification
 
-- generated_at: `2026-06-14 17:17:12 Asia/Taipei`
+- generated_at: `2026-06-14 20:45:44 Asia/Taipei`
 - model_id: `volume_range_breakout`
 - unique_event_rows: `4068`
 - summary_rows: `119`
