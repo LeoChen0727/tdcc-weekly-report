@@ -36,7 +36,7 @@ on:
         required: false
         default: "true"
       run_tdcc_signal_performance:
-        description: "Run TDCC normalized signal performance/effectiveness backtest"
+        description: "Run TDCC weekly ranking formula backtest"
         required: false
         default: "true"
       run_tdcc_short_term_edge:
@@ -98,16 +98,15 @@ jobs:
       - name: Build TDCC overheated short-term edge
         if: ${{ github.event.inputs.run_tdcc_short_term_edge == 'true' }}
         run: |
-          python scripts/build_tdcc_overheated_short_term_edge.py
-
-      - name: Build TDCC normalized signal performance and effectiveness
-        if: ${{ github.event.inputs.run_tdcc_signal_performance == 'true' }}
-        run: |
           python scripts/build_tdcc_signal_structures.py --full-history --price-metrics-limit 0
           python scripts/update_tdcc_normalized_signal_performance.py
-          python scripts/build_tdcc_signal_effectiveness_report.py
-          python scripts/build_tdcc_chatgpt_tracking_outputs.py
-          python scripts/validate_tdcc_chatgpt_tracking_outputs.py
+          python scripts/build_tdcc_overheated_short_term_edge.py
+
+      - name: Build TDCC weekly ranking formula backtest
+        if: ${{ github.event.inputs.run_tdcc_signal_performance == 'true' }}
+        run: |
+          python scripts/build_tdcc_weekly_ranking_backtest.py
+          python scripts/validate_tdcc_weekly_ranking_backtest.py
 
       - name: Build weekly surge parameter research
         if: ${{ github.event.inputs.run_weekly_surge == 'true' }}
@@ -199,9 +198,7 @@ jobs:
           git add output/latest/tdcc_overheated_short_term_edge_latest.csv || true
           git add output/latest/tdcc_overheated_short_term_edge_latest.md || true
           git add output/latest/tdcc_overheated_short_term_edge_candidates_latest.csv || true
-          git add output/latest/tdcc_signal_effectiveness_latest.csv output/latest/tdcc_signal_effectiveness_latest.md || true
-          git add output/latest/tdcc_chatgpt_tracking_packet_latest.md output/latest/tdcc_chatgpt_tracking_validation_latest.* || true
-          git add output/latest/tdcc_strength_ranking_top_latest.* output/latest/tdcc_pre_move_abm_top_latest.* output/latest/tdcc_phase_distribution_latest.* output/latest/tdcc_top_risk_list_latest.* || true
+          git add output/latest/tdcc_weekly_ranking_backtest_latest.csv output/latest/tdcc_weekly_ranking_backtest_latest.md || true
           git add output/latest/daily_short_term_specialty_packet_latest.md || true
           git add output/latest/daily_model_parameter_research_*.csv output/latest/daily_model_parameter_research_*.md || true
           git add output/latest/daily_model_parameter_recommendations_latest.csv output/latest/daily_model_parameter_recommendations_latest.md || true
