@@ -43,6 +43,7 @@ HIGHLIGHT_MD = LATEST_DIR / "tdcc_weekly_candidate_highlight_latest.md"
 FULL_MD = LATEST_DIR / "tdcc_weekly_candidate_full_latest.md"
 HIGHLIGHT_PDF = LATEST_DIR / "tdcc_weekly_candidate_highlight_latest.pdf"
 FULL_PDF = LATEST_DIR / "tdcc_weekly_candidate_full_latest.pdf"
+SECTION_MANIFEST_CSV = LATEST_DIR / "tdcc_weekly_report_section_manifest_latest.csv"
 TRACKING_PACKET_MD = LATEST_DIR / "tdcc_chatgpt_tracking_packet_latest.md"
 
 TDCC_FULL_REPORT_ALLOWED_MODEL_CROSS_IDS = {"tdcc_short_term_continuation_d5_d10"}
@@ -56,6 +57,75 @@ TDCC_HIGH_PAIR_STREAK_BONUS_CAP = 20.0
 TDCC_STOCK_HISTORY_DIR = Path("data/tdcc_stock_history")
 PRICE_HISTORY_CACHE: dict[str, pd.DataFrame] = {}
 TDCC_STOCK_HISTORY_CACHE: dict[str, pd.DataFrame] = {}
+
+SECTION_MANIFEST_COLUMNS = [
+    "section_order",
+    "section_id",
+    "section_title_zh",
+    "table_contract",
+    "include_in_highlight",
+    "highlight_limit",
+    "include_in_full",
+    "full_limit",
+    "required",
+    "enabled",
+    "notes_zh",
+]
+
+DEFAULT_SECTION_MANIFEST_ROWS = [
+    {
+        "section_order": 1,
+        "section_id": "weekly_increase",
+        "section_title_zh": "當週增幅排名",
+        "table_contract": "tdcc_ranking",
+        "include_in_highlight": True,
+        "highlight_limit": TDCC_HIGHLIGHT_REPORT_SECTION_LIMIT,
+        "include_in_full": True,
+        "full_limit": TDCC_FULL_REPORT_SECTION_LIMIT,
+        "required": True,
+        "enabled": True,
+        "notes_zh": "核心 section；本週正增幅排名。",
+    },
+    {
+        "section_order": 2,
+        "section_id": "consecutive_accumulation",
+        "section_title_zh": "連續累積排名",
+        "table_contract": "tdcc_ranking",
+        "include_in_highlight": True,
+        "highlight_limit": TDCC_HIGHLIGHT_REPORT_SECTION_LIMIT,
+        "include_in_full": True,
+        "full_limit": TDCC_FULL_REPORT_SECTION_LIMIT,
+        "required": True,
+        "enabled": True,
+        "notes_zh": "核心 section；800/1000 張大戶有效連續增加。",
+    },
+    {
+        "section_order": 3,
+        "section_id": "model_cross_weekly_increase_tdcc_short_term_continuation_d5_d10",
+        "section_title_zh": "當週增幅榜 × TDCC短線延續模型 D+5/D+10",
+        "table_contract": "model_cross",
+        "include_in_highlight": True,
+        "highlight_limit": TDCC_HIGHLIGHT_REPORT_SECTION_LIMIT,
+        "include_in_full": True,
+        "full_limit": TDCC_FULL_REPORT_SECTION_LIMIT,
+        "required": True,
+        "enabled": True,
+        "notes_zh": "核心 section；當週增幅名單與 TDCC 短線延續模型交集。",
+    },
+    {
+        "section_order": 4,
+        "section_id": "model_cross_consecutive_accumulation_tdcc_short_term_continuation_d5_d10",
+        "section_title_zh": "連續累積榜 × TDCC短線延續模型 D+5/D+10",
+        "table_contract": "model_cross",
+        "include_in_highlight": True,
+        "highlight_limit": TDCC_HIGHLIGHT_REPORT_SECTION_LIMIT,
+        "include_in_full": True,
+        "full_limit": TDCC_FULL_REPORT_SECTION_LIMIT,
+        "required": True,
+        "enabled": True,
+        "notes_zh": "核心 section；連續累積名單與 TDCC 短線延續模型交集。",
+    },
+]
 
 README_PATHS = [
     LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT.txt",
@@ -77,6 +147,7 @@ DOCS_SYNC_PATHS = [
     FULL_MD,
     HIGHLIGHT_PDF,
     FULL_PDF,
+    SECTION_MANIFEST_CSV,
 ]
 
 DELTA_COLS = [
@@ -553,6 +624,145 @@ def ensure_columns(df: pd.DataFrame, columns: list[str]) -> pd.DataFrame:
     return out[columns]
 
 
+def manifest_bool(value: Any, default: bool) -> bool:
+    text = safe_str(value).strip().lower()
+    if not text:
+        return default
+    return text in {"1", "true", "yes", "y", "on", "是", "啟用"}
+
+
+def manifest_limit(value: Any, default: int) -> int:
+    number = to_number(value)
+    if math.isnan(number) or number <= 0:
+        return default
+    return int(number)
+
+
+def manifest_table_contract(section_id: Any, value: Any = "") -> str:
+    text = safe_str(value).strip()
+    if text:
+        return text
+    return "model_cross" if safe_str(section_id).startswith("model_cross_") else "tdcc_ranking"
+
+
+def fallback_section_manifest(source_df: pd.DataFrame) -> pd.DataFrame:
+    default_by_id = {safe_str(row["section_id"]): row for row in DEFAULT_SECTION_MANIFEST_ROWS}
+    rows: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    if source_df.empty or "section_id" not in source_df.columns:
+        return pd.DataFrame(DEFAULT_SECTION_MANIFEST_ROWS, columns=SECTION_MANIFEST_COLUMNS)
+    for _, source_row in source_df.iterrows():
+        section_id = safe_str(source_row.get("section_id"))
+        if not section_id or section_id in seen:
+            continue
+        seen.add(section_id)
+        default = default_by_id.get(section_id, {})
+        rows.append(
+            {
+                "section_order": len(rows) + 1,
+                "section_id": section_id,
+                "section_title_zh": safe_str(default.get("section_title_zh"))
+                or safe_str(source_row.get("section_name_zh"))
+                or section_id,
+                "table_contract": safe_str(default.get("table_contract")) or manifest_table_contract(section_id),
+                "include_in_highlight": default.get("include_in_highlight", True),
+                "highlight_limit": default.get("highlight_limit", TDCC_HIGHLIGHT_REPORT_SECTION_LIMIT),
+                "include_in_full": default.get("include_in_full", True),
+                "full_limit": default.get("full_limit", TDCC_FULL_REPORT_SECTION_LIMIT),
+                "required": default.get("required", True),
+                "enabled": default.get("enabled", True),
+                "notes_zh": safe_str(default.get("notes_zh")),
+            }
+        )
+    if not rows:
+        rows = DEFAULT_SECTION_MANIFEST_ROWS
+    return pd.DataFrame(rows, columns=SECTION_MANIFEST_COLUMNS)
+
+
+def normalize_section_manifest(manifest: pd.DataFrame, source_df: pd.DataFrame) -> pd.DataFrame:
+    if manifest.empty:
+        manifest = fallback_section_manifest(source_df)
+    manifest = ensure_columns(manifest, SECTION_MANIFEST_COLUMNS)
+    source_title_by_id: dict[str, str] = {}
+    if not source_df.empty and {"section_id", "section_name_zh"}.issubset(source_df.columns):
+        for _, source_row in source_df.iterrows():
+            section_id = safe_str(source_row.get("section_id"))
+            if section_id and section_id not in source_title_by_id:
+                source_title_by_id[section_id] = safe_str(source_row.get("section_name_zh"))
+
+    rows: list[dict[str, Any]] = []
+    for idx, row in manifest.iterrows():
+        section_id = safe_str(row.get("section_id"))
+        if not section_id:
+            continue
+        order = manifest_limit(row.get("section_order"), idx + 1)
+        rows.append(
+            {
+                "section_order": order,
+                "section_id": section_id,
+                "section_title_zh": safe_str(row.get("section_title_zh"))
+                or source_title_by_id.get(section_id, "")
+                or section_id,
+                "table_contract": manifest_table_contract(section_id, row.get("table_contract")),
+                "include_in_highlight": manifest_bool(row.get("include_in_highlight"), True),
+                "highlight_limit": manifest_limit(row.get("highlight_limit"), TDCC_HIGHLIGHT_REPORT_SECTION_LIMIT),
+                "include_in_full": manifest_bool(row.get("include_in_full"), True),
+                "full_limit": manifest_limit(row.get("full_limit"), TDCC_FULL_REPORT_SECTION_LIMIT),
+                "required": manifest_bool(row.get("required"), True),
+                "enabled": manifest_bool(row.get("enabled"), True),
+                "notes_zh": safe_str(row.get("notes_zh")),
+            }
+        )
+    out = pd.DataFrame(rows, columns=SECTION_MANIFEST_COLUMNS)
+    if out.empty:
+        out = fallback_section_manifest(source_df)
+    return out.sort_values(
+        by=["section_order", "section_id"],
+        key=lambda series: pd.to_numeric(series, errors="coerce").fillna(999999)
+        if series.name == "section_order"
+        else series,
+    ).reset_index(drop=True)
+
+
+def load_section_manifest(source_df: pd.DataFrame) -> pd.DataFrame:
+    manifest = read_csv(SECTION_MANIFEST_CSV, dtype=str)
+    manifest = normalize_section_manifest(manifest, source_df)
+    write_csv(manifest, SECTION_MANIFEST_CSV)
+    return manifest
+
+
+def sections_for_report(manifest: pd.DataFrame, report_kind: str) -> pd.DataFrame:
+    include_col = "include_in_highlight" if report_kind == "highlight" else "include_in_full"
+    if include_col not in manifest.columns:
+        return pd.DataFrame(columns=SECTION_MANIFEST_COLUMNS)
+    out = manifest[
+        manifest["enabled"].map(lambda value: manifest_bool(value, True))
+        & manifest[include_col].map(lambda value: manifest_bool(value, True))
+    ].copy()
+    return out.sort_values(
+        by=["section_order", "section_id"],
+        key=lambda series: pd.to_numeric(series, errors="coerce").fillna(999999)
+        if series.name == "section_order"
+        else series,
+    )
+
+
+def section_limit(row: pd.Series, report_kind: str) -> int:
+    return manifest_limit(
+        row.get("highlight_limit" if report_kind == "highlight" else "full_limit"),
+        TDCC_HIGHLIGHT_REPORT_SECTION_LIMIT if report_kind == "highlight" else TDCC_FULL_REPORT_SECTION_LIMIT,
+    )
+
+
+def pdf_columns_for_contract(table_contract: Any, fallback_group: pd.DataFrame | None = None) -> list[str]:
+    contract = safe_str(table_contract)
+    if contract == "model_cross":
+        return PDF_MODEL_CROSS_COLUMNS
+    if contract == "tdcc_ranking":
+        return PDF_RANKING_COLUMNS
+    return pdf_columns_for_section(fallback_group if fallback_group is not None else pd.DataFrame())
+
+
 def sync_bonus(effective_count: Any) -> float:
     try:
         count = int(effective_count)
@@ -891,35 +1101,34 @@ def row_from_ranking(row: pd.Series, report_kind: str, section_id: str, section_
     }
 
 
-def build_report_ready(
+def build_report_source_sections(
     weekly: pd.DataFrame,
     consecutive: pd.DataFrame,
     model_cross: pd.DataFrame,
-    report_kind: str,
 ) -> pd.DataFrame:
     rows: list[dict[str, Any]] = []
-    section_limit = (
-        TDCC_HIGHLIGHT_REPORT_SECTION_LIMIT
-        if report_kind == "highlight"
-        else TDCC_FULL_REPORT_SECTION_LIMIT
-    )
 
-    for idx, (_, row) in enumerate(weekly.head(section_limit).iterrows(), start=1):
-        rows.append(row_from_ranking(row, report_kind, "weekly_increase", "當週增幅排名", idx))
-    for idx, (_, row) in enumerate(consecutive.head(section_limit).iterrows(), start=1):
-        rows.append(row_from_ranking(row, report_kind, "consecutive_accumulation", "連續累積排名", idx))
+    for idx, (_, row) in enumerate(weekly.iterrows(), start=1):
+        rows.append(row_from_ranking(row, "", "weekly_increase", "當週增幅排名", idx))
+    for idx, (_, row) in enumerate(consecutive.iterrows(), start=1):
+        rows.append(row_from_ranking(row, "", "consecutive_accumulation", "連續累積排名", idx))
 
     if not model_cross.empty:
         cross = model_cross.copy()
         cross = cross[cross["model_id"].isin(TDCC_FULL_REPORT_ALLOWED_MODEL_CROSS_IDS)]
-        for (list_type, model_id), group in cross.groupby(["tdcc_list_type", "model_id"], dropna=False):
+        cross["_tdcc_list_order"] = cross["tdcc_list_type"].map(
+            lambda value: {"weekly_increase": 1, "consecutive_accumulation": 2}.get(safe_str(value), 99)
+        )
+        cross = cross.sort_values(["_tdcc_list_order", "model_id", "tdcc_model_rank_in_list", "tdcc_rank"])
+        for (list_type, model_id), group in cross.groupby(["tdcc_list_type", "model_id"], dropna=False, sort=False):
             group = group.sort_values(["tdcc_model_rank_in_list", "tdcc_rank"])
+            section_id = f"model_cross_{list_type}_{model_id}"
             section_name = f"{list_type_zh(list_type)} × {zh(group.iloc[0].get('model_name_zh')) or zh(model_id)}"
-            for idx, (_, row) in enumerate(group.head(section_limit).iterrows(), start=1):
+            for idx, (_, row) in enumerate(group.iterrows(), start=1):
                 rows.append(
                     {
-                        "report_kind": report_kind,
-                        "section_id": f"model_cross_{list_type}_{model_id}",
+                        "report_kind": "",
+                        "section_id": section_id,
                         "section_name_zh": section_name,
                         "section_rank": idx,
                         "tdcc_list_type": list_type,
@@ -966,6 +1175,27 @@ def build_report_ready(
     return ensure_columns(pd.DataFrame(rows), REPORT_COLUMNS)
 
 
+def build_report_ready(source_sections: pd.DataFrame, manifest: pd.DataFrame, report_kind: str) -> pd.DataFrame:
+    frames: list[pd.DataFrame] = []
+    for _, section_row in sections_for_report(manifest, report_kind).iterrows():
+        section_id = safe_str(section_row.get("section_id"))
+        if not section_id:
+            continue
+        section_rows = source_sections[source_sections["section_id"].map(safe_str) == section_id].copy()
+        if section_rows.empty:
+            continue
+        limit = section_limit(section_row, report_kind)
+        section_rows = section_rows.head(limit)
+        section_rows["report_kind"] = report_kind
+        section_rows["section_name_zh"] = safe_str(section_row.get("section_title_zh")) or section_id
+        section_rows["section_rank"] = range(1, len(section_rows) + 1)
+        frames.append(section_rows)
+
+    if not frames:
+        return ensure_columns(pd.DataFrame(), REPORT_COLUMNS)
+    return ensure_columns(pd.concat(frames, ignore_index=True), REPORT_COLUMNS)
+
+
 def list_type_zh(value: Any) -> str:
     return {
         "weekly_increase": "當週增幅榜",
@@ -999,7 +1229,7 @@ def signal_date_label(df: pd.DataFrame) -> str:
     return dates[0] if len(dates) == 1 else ", ".join(dates)
 
 
-def write_report_md(df: pd.DataFrame, path: Path, title: str, max_rows_per_section: int | None = None) -> None:
+def write_report_md(df: pd.DataFrame, path: Path, title: str, manifest: pd.DataFrame, report_kind: str) -> None:
     lines = [
         f"# {title}",
         "",
@@ -1011,14 +1241,18 @@ def write_report_md(df: pd.DataFrame, path: Path, title: str, max_rows_per_secti
     if df.empty:
         lines.append("目前沒有可用資料。")
     else:
-        for section, group in df.groupby("section_name_zh", sort=False):
-            show = group.head(max_rows_per_section) if max_rows_per_section else group
-            columns = pdf_columns_for_section(show)
+        for _, section_row in sections_for_report(manifest, report_kind).iterrows():
+            section_id = safe_str(section_row.get("section_id"))
+            section = safe_str(section_row.get("section_title_zh")) or section_id
+            show = df[df["section_id"].map(safe_str) == section_id].copy()
+            columns = pdf_columns_for_contract(section_row.get("table_contract"), show)
             display_df = pdf_display_table(show, columns)
             lines += [
                 f"## {section}",
                 "",
-                markdown_table(display_df, list(display_df.columns), limit=None),
+                markdown_table(display_df, list(display_df.columns), limit=None)
+                if not display_df.empty
+                else "沒有可用報告資料。",
                 "",
             ]
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -1097,7 +1331,7 @@ def write_pdf(df: pd.DataFrame, path: Path, title: str, max_rows_per_section: in
         first = True
         headers = ["序", "代號", "股票", "族群", "TDCC階段", "風險桶", "TDCC分數", "模型", "模型名次", "模型分數", "入選 / 用途", "操作提醒"]
         col_widths = [0.8 * cm, 1.3 * cm, 1.6 * cm, 2.1 * cm, 3.0 * cm, 2.5 * cm, 1.4 * cm, 3.0 * cm, 1.2 * cm, 1.3 * cm, 5.0 * cm, 5.0 * cm]
-        for section, group in df.groupby("section_name_zh", sort=False):
+        for section, group in df.groupby("section_id", sort=False):
             if not first:
                 story.append(PageBreak())
             first = False
@@ -1140,7 +1374,7 @@ def write_pdf(df: pd.DataFrame, path: Path, title: str, max_rows_per_section: in
     doc.build(story)
 
 
-def write_pdf_v2(df: pd.DataFrame, path: Path, title: str, max_rows_per_section: int | None = None) -> None:
+def write_pdf_v2(df: pd.DataFrame, path: Path, title: str, manifest: pd.DataFrame, report_kind: str) -> None:
     try:
         from reportlab.lib import colors
         from reportlab.lib.pagesizes import A4, landscape
@@ -1281,14 +1515,21 @@ def write_pdf_v2(df: pd.DataFrame, path: Path, title: str, max_rows_per_section:
         story.append(Paragraph("目前沒有可用資料。", normal))
     else:
         first = True
-        for section, group in df.groupby("section_name_zh", sort=False):
+        for _, section_row in sections_for_report(manifest, report_kind).iterrows():
+            section_id = safe_str(section_row.get("section_id"))
+            section = safe_str(section_row.get("section_title_zh")) or section_id
+            group = df[df["section_id"].map(safe_str) == section_id].copy()
             if not first:
                 story.append(PageBreak())
             first = False
             story.append(Paragraph(safe_str(section), h2))
-            show = group.head(max_rows_per_section) if max_rows_per_section else group
+            show = group
 
-            columns = pdf_columns_for_section(show)
+            if show.empty:
+                story.append(Paragraph("沒有可用報告資料。", normal))
+                continue
+
+            columns = pdf_columns_for_contract(section_row.get("table_contract"), show)
             col_widths = widths_for_columns(columns)
             table_data = [headers_for_columns(columns)]
             for _, row in show.iterrows():
@@ -1342,21 +1583,26 @@ def append_tracking_packet(fields: dict[str, str]) -> None:
     TRACKING_PACKET_MD.write_text(text, encoding="utf-8")
 
 
-def validate_outputs(highlight: pd.DataFrame, full: pd.DataFrame) -> None:
+def validate_outputs(highlight: pd.DataFrame, full: pd.DataFrame, manifest: pd.DataFrame) -> None:
     if highlight.empty:
         raise RuntimeError("TDCC highlight report-ready table is empty.")
     if full.empty:
         raise RuntimeError("TDCC full report-ready table is empty.")
-    expected_limits = [
-        ("highlight", highlight, TDCC_HIGHLIGHT_REPORT_SECTION_LIMIT),
-        ("full", full, TDCC_FULL_REPORT_SECTION_LIMIT),
-    ]
-    for report_name, report_df, limit in expected_limits:
+    for report_name, report_df in [("highlight", highlight), ("full", full)]:
         counts = report_df.groupby("section_id", dropna=False).size()
-        too_large = counts[counts > limit]
-        if not too_large.empty:
-            detail = ", ".join(f"{section}={count}" for section, count in too_large.items())
-            raise RuntimeError(f"{report_name} TDCC report has section counts above {limit}: {detail}")
+        for _, section_row in sections_for_report(manifest, report_name).iterrows():
+            section_id = safe_str(section_row.get("section_id"))
+            count = int(counts.get(section_id, 0))
+            limit = section_limit(section_row, report_name)
+            if count > limit:
+                raise RuntimeError(f"{report_name} TDCC report section {section_id} has {count} rows above limit {limit}")
+            if manifest_bool(section_row.get("required"), True) and count == 0:
+                raise RuntimeError(f"{report_name} TDCC report required section is empty: {section_id}")
+        title_groups = report_df.groupby("section_name_zh", dropna=False)["section_id"].nunique()
+        merged_titles = title_groups[title_groups > 1]
+        if not merged_titles.empty:
+            detail = ", ".join(safe_str(section) for section in merged_titles.index)
+            raise RuntimeError(f"{report_name} TDCC report maps multiple section_id values to one section title: {detail}")
     for report_name, report_df in [("highlight", highlight), ("full", full)]:
         signal_dates = sorted({safe_str(value) for value in report_df["signal_date"].dropna() if safe_str(value)})
         if len(signal_dates) != 1:
@@ -1376,6 +1622,10 @@ def validate_outputs(highlight: pd.DataFrame, full: pd.DataFrame) -> None:
         bad_models = sorted(set(model_rows["model_id"].map(safe_str)) - TDCC_FULL_REPORT_ALLOWED_MODEL_CROSS_IDS)
         if bad_models:
             raise RuntimeError(f"{report_name} TDCC report contains unsupported model cross sections: {bad_models}")
+    highlight_date = sorted({safe_str(value) for value in highlight["signal_date"].dropna() if safe_str(value)})
+    full_date = sorted({safe_str(value) for value in full["signal_date"].dropna() if safe_str(value)})
+    if highlight_date != full_date:
+        raise RuntimeError(f"TDCC highlight/full signal_date mismatch: highlight={highlight_date}, full={full_date}")
     for path in [HIGHLIGHT_PDF, FULL_PDF]:
         if not path.exists() or path.stat().st_size < 10_000:
             raise RuntimeError(f"TDCC PDF not generated or too small: {path}")
@@ -1403,8 +1653,10 @@ def main() -> int:
     daily_models = read_daily_model_signals()
     model_cross = build_model_cross(weekly, consecutive, daily_models)
 
-    highlight = build_report_ready(weekly, consecutive, model_cross, "highlight")
-    full = build_report_ready(weekly, consecutive, model_cross, "full")
+    report_source_sections = build_report_source_sections(weekly, consecutive, model_cross)
+    manifest = load_section_manifest(report_source_sections)
+    highlight = build_report_ready(report_source_sections, manifest, "highlight")
+    full = build_report_ready(report_source_sections, manifest, "full")
 
     write_csv(weekly, WEEKLY_INCREASE_CSV)
     write_csv(consecutive, CONSECUTIVE_CSV)
@@ -1412,18 +1664,25 @@ def main() -> int:
     write_csv(highlight, HIGHLIGHT_FOR_REPORT_CSV)
     write_csv(full, FULL_FOR_REPORT_CSV)
 
+    highlight_for_render = read_csv(HIGHLIGHT_FOR_REPORT_CSV, dtype=str)
+    full_for_render = read_csv(FULL_FOR_REPORT_CSV, dtype=str)
+    render_source = pd.concat([highlight_for_render, full_for_render], ignore_index=True)
+    render_manifest = load_section_manifest(render_source)
+
     write_md_table(weekly, WEEKLY_INCREASE_MD, "TDCC 當週增幅排名", BASE_COLUMNS, limit=TDCC_FULL_REPORT_SECTION_LIMIT)
     write_md_table(consecutive, CONSECUTIVE_MD, "TDCC 連續累積排名", BASE_COLUMNS, limit=TDCC_FULL_REPORT_SECTION_LIMIT)
     write_md_table(model_cross, MODEL_CROSS_MD, "TDCC 名單與每日候選模型交集", MODEL_CROSS_COLUMNS, limit=200)
-    write_report_md(highlight, HIGHLIGHT_FOR_REPORT_MD, "TDCC 週報精華版 report-ready table")
-    write_report_md(full, FULL_FOR_REPORT_MD, "TDCC 週報完整版 report-ready table")
-    write_report_md(highlight, HIGHLIGHT_MD, "TDCC 大戶籌碼週報精華版")
-    write_report_md(full, FULL_MD, "TDCC 大戶籌碼週報完整版")
+    write_report_md(highlight_for_render, HIGHLIGHT_FOR_REPORT_MD, "TDCC 週報精華版 report-ready table", render_manifest, "highlight")
+    write_report_md(full_for_render, FULL_FOR_REPORT_MD, "TDCC 週報完整版 report-ready table", render_manifest, "full")
+    write_report_md(highlight_for_render, HIGHLIGHT_MD, "TDCC 大戶籌碼週報精華版", render_manifest, "highlight")
+    write_report_md(full_for_render, FULL_MD, "TDCC 大戶籌碼週報完整版", render_manifest, "full")
 
-    write_pdf_v2(highlight, HIGHLIGHT_PDF, "TDCC 大戶籌碼週報精華版")
-    write_pdf_v2(full, FULL_PDF, "TDCC 大戶籌碼週報完整版")
+    write_pdf_v2(highlight_for_render, HIGHLIGHT_PDF, "TDCC 大戶籌碼週報精華版", render_manifest, "highlight")
+    write_pdf_v2(full_for_render, FULL_PDF, "TDCC 大戶籌碼週報完整版", render_manifest, "full")
 
     fields = {
+        "tdcc_weekly_report_section_manifest_csv_raw_url": raw_url(SECTION_MANIFEST_CSV),
+        "tdcc_weekly_report_section_manifest_csv_pages_url": pages_url(SECTION_MANIFEST_CSV),
         "tdcc_weekly_candidate_highlight_for_report_csv_raw_url": raw_url(HIGHLIGHT_FOR_REPORT_CSV),
         "tdcc_weekly_candidate_highlight_for_report_md_raw_url": raw_url(HIGHLIGHT_FOR_REPORT_MD),
         "tdcc_weekly_candidate_full_for_report_csv_raw_url": raw_url(FULL_FOR_REPORT_CSV),
@@ -1435,7 +1694,7 @@ def main() -> int:
     }
     upsert_readme_fields(fields)
     append_tracking_packet(fields)
-    validate_outputs(highlight, full)
+    validate_outputs(highlight_for_render, full_for_render, render_manifest)
     sync_docs_latest()
 
     print(f"latest_signal_date={meta.get('latest_signal_date', '')}")
@@ -1443,6 +1702,7 @@ def main() -> int:
         WEEKLY_INCREASE_CSV,
         CONSECUTIVE_CSV,
         MODEL_CROSS_CSV,
+        SECTION_MANIFEST_CSV,
         HIGHLIGHT_FOR_REPORT_CSV,
         FULL_FOR_REPORT_CSV,
         HIGHLIGHT_PDF,
