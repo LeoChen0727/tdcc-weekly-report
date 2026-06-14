@@ -1,6 +1,6 @@
 # Historical Pattern Operation Registry
 
-- generated_at: `2026-06-14 22:54:36 Asia/Taipei`
+- generated_at: `2026-06-14 23:18:23 Asia/Taipei`
 - model_id: `volume_range_breakout`
 - detail_rows: `170409`
 - registry_rows: `85`
