@@ -1,7 +1,7 @@
 # 每日全市場候選股監測報告 - 精華版
 
 - 主資料日期：`20260612`
-- 產生時間：`2026-06-14 03:30:49 Asia/Taipei`
+- 產生時間：`2026-06-15 01:49:22 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
 - 判斷說明：core daily data dates match main_price_date
 - 權證資料日期：`20260612`
@@ -33,16 +33,16 @@
 |---|---|---|---|
 | 3028 增你強 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;dividend_calendar;calendar_ex_divide... | 大戶溫和增加 |
 | 2606 裕民 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;dividend_calendar;calendar_ex_divide... | 大戶同步增加 |
+| 2401 凌陽 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;shareholder_meeting_calendar;calenda... | 大戶溫和增加 |
+| 2353 宏碁 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;dividend_calendar;calendar_ex_divide... | 大戶同步增加 |
+| 3060 銘異 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;shareholder_meeting_calendar;calenda... | 大戶溫和增加 |
+| 5471 松翰 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;shareholder_meeting_calendar;calenda... | 大戶溫和增加 |
 | 8016 矽創 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;dividend_calendar;calendar_ex_divide... | 大戶溫和增加 |
-| 2455 全新 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;dividend_calendar;calendar_ex_divide... | 大戶溫和增加 |
-| 8210 勤誠 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;dividend_calendar;calendar_ex_divide... | 大戶溫和增加 |
+| 6414 樺漢 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;dividend_calendar;calendar_ex_divide... | 大戶同步增加 |
+| 2027 大成鋼 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;shareholder_meeting_calendar;calenda... | 大戶同步增加 |
+| 6944 兆聯實業 | 營收成長股價回檔 | score 28 / theme 73.1/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;shareholder_meeting_calendar;calendar... | 大戶溫和增加 |
 | 4952 凌通 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;dividend_calendar;calendar_ex_divide... | 大戶溫和增加 |
-| 2451 創見 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;dividend_calendar;calendar_ex_divide... | 大戶溫和增加 |
-| 2368 金像電 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;dividend_calendar;calendar_ex_divide... | 大戶溫和增加 |
-| 4576 大銀微系統 | 營收成長股價回檔 | score 28 / theme 71.3/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mon... | 大戶溫和增加 |
-| 1597 直得 | 營收成長股價回檔 | score 28 / theme 71.3/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mon... | 大戶溫和增加 |
-| 2049 上銀 | 營收成長股價回檔 | score 28 / theme 71.3/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mon... | 大戶同步增加 |
-| 4949 有成精密 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_mo... | 大戶溫和增加 |
+| 8210 勤誠 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;dividend_calendar;calendar_ex_divide... | 大戶溫和增加 |
 
 ## 精華候選股
 
@@ -79,7 +79,7 @@
 - 連續上榜：首次上榜；近5日 2；近10日 3；多分類 true_breakout
 - TDCC：大戶溫和增加
 - 權證：
-- 財報 / 事件催化：score 0 / theme 52.3/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window;貿易百貨 / monthly_revenue_calendar;calendar_monthly_...
+- 財報 / 事件催化：score 0 / theme 52.3/5 / shareholder_meeting_calendar;calendar_shareholder_meeting;貿易百貨 / shareholder_meeting_calendar;calendar_shareholder_...
 - 摘要：突破 / 量能2.45x / 大戶溫和增加
 - 完整原因：近幾週其中一項大戶級距增加；嚴格突破；量比2.45x；月營收YoY -20.0%；累計YoY 22.4%；TDCC近幾週大戶溫和增加
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
@@ -327,7 +327,7 @@
 - 連續上榜：首次上榜；近5日 1；近10日 1；多分類 pullback_rebound|range_rebound|revenue_pullback
 - TDCC：大戶溫和增加
 - 權證：
-- 財報 / 事件催化：score 0 / theme 100.0/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window;建材營造 / monthly_revenue_calendar;calendar_monthly...
+- 財報 / 事件催化：score 0 / theme 100.0/5 / shareholder_meeting_calendar;calendar_shareholder_meeting;建材營造 / shareholder_meeting_calendar;calendar_shareholder...
 - 摘要：回檔轉強 / pullback_rebound / 大戶溫和增加
 - 完整原因：近幾週其中一項大戶級距增加；量比2.82x；月營收YoY 367.4%；累計YoY 58.2%；TDCC近幾週大戶溫和增加
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）

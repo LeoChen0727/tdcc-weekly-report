@@ -70,7 +70,7 @@ signal_date,stock_id,stock_name,consecutive_appear_days_any_category,consecutive
 20260612,6282,康舒,13,2,5,10,13,20260523,20260612,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260612,6446,藥華藥,13,4,5,10,13,20260523,20260612,revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260612,6757,台灣虎航,13,4,5,10,13,20260523,20260612,pullback_rebound|range_rebound|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
-20260612,6901,鑽石投資,13,1,5,10,13,20260523,20260612,range_rebound,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
+20260612,6901,鑽石投資,13,1,5,10,13,20260523,20260612,range_rebound,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260612,7788,松川精密,13,1,5,10,13,20260523,20260612,range_rebound,continued_overheated,連續上榜但短線過熱，需避免追高並等待量價重新確認。
 20260612,8046,南電,13,7,5,10,13,20260523,20260612,pattern|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。
 20260612,8112,至上,13,4,5,10,13,20260523,20260612,pullback_rebound|range_rebound|revenue_pullback,stale_signal,反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。

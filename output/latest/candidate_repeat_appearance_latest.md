@@ -1,6 +1,6 @@
 # Candidate Repeat Appearance Latest
 
-- generated_at: `2026-06-14 03:27:27 Asia/Taipei`
+- generated_at: `2026-06-15 01:46:05 Asia/Taipei`
 - signal_date: `20260612`
 - history_available_days: `13`
 - source_signal_log: `output/history/daily_signals/daily_candidate_signal_log.csv`
@@ -89,7 +89,7 @@
 |       6282 | 康舒           |                                     13 |                                       2 |                 5 |                 10 |                 13 | pattern|revenue_pullback                                                      | stale_signal             | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 |       6446 | 藥華藥          |                                     13 |                                       4 |                 5 |                 10 |                 13 | revenue_pullback                                                              | stale_signal             | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 |       6757 | 台灣虎航         |                                     13 |                                       4 |                 5 |                 10 |                 13 | pullback_rebound|range_rebound|revenue_pullback                               | stale_signal             | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
-|       6901 | 鑽石投資         |                                     13 |                                       1 |                 5 |                 10 |                 13 | range_rebound                                                                 | continued_overheated     | 連續上榜但短線過熱，需避免追高並等待量價重新確認。                     |
+|       6901 | 鑽石投資         |                                     13 |                                       1 |                 5 |                 10 |                 13 | range_rebound                                                                 | stale_signal             | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 |       7788 | 松川精密         |                                     13 |                                       1 |                 5 |                 10 |                 13 | range_rebound                                                                 | continued_overheated     | 連續上榜但短線過熱，需避免追高並等待量價重新確認。                     |
 |       8046 | 南電           |                                     13 |                                       7 |                 5 |                 10 |                 13 | pattern|revenue_pullback                                                      | stale_signal             | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 |       8112 | 至上           |                                     13 |                                       4 |                 5 |                 10 |                 13 | pullback_rebound|range_rebound|revenue_pullback                               | stale_signal             | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |

@@ -1,7 +1,7 @@
 # Non-Revenue Momentum Watch
 
 ## Metadata
-- generated_at: `2026-06-13 19:28:24 UTC`
+- generated_at: `2026-06-14 17:47:05 UTC`
 - main_price_date: `20260612`
 - section_type: `specialty_section_not_core_category`
 - model_effect_allowed: `False`
@@ -18,7 +18,7 @@
 ## Type Counts
 | non_revenue_momentum_type | count |
 | --- | --- |
-| C_hot_money_watch | 28 |
+| C_hot_money_watch | 29 |
 | D_overheated_or_failed_risk | 11 |
 | A_fund_flow_confirmed_revenue_unconfirmed | 1 |
 
@@ -31,7 +31,7 @@
 | C_hot_money_watch | 2107 | 厚生 | 橡膠工業 |  | 69.0 | revenue_negative | mainstream_follow_through | non_mainstream_theme | non_mainstream_flow_active |  |  | 4.21 |  |  | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
 | C_hot_money_watch | 8476 | 台境* | 綠能環保 |  | 69.0 | revenue_negative | mainstream_leader | non_mainstream_theme | non_mainstream_flow_active |  |  | 3.46 |  |  | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
 | C_hot_money_watch | 2501 | 國建 | 建材營造 |  | 69.0 | revenue_negative | mainstream_follow_through | non_mainstream_theme | non_mainstream_flow_active |  |  | 2.48 |  |  | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
-| C_hot_money_watch | 6189 | 豐藝 | 電子通路業 |  | 69.0 | revenue_negative | mainstream_follow_through | non_mainstream_theme | non_mainstream_flow_active |  |  | 2.4 |  | no_signal | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
+| C_hot_money_watch | 6189 | 豐藝 | 電子通路業 |  | 69.0 | revenue_negative | mainstream_leader | non_mainstream_theme | non_mainstream_flow_active |  |  | 2.4 |  | no_signal | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
 | C_hot_money_watch | 5519 | 隆大 | 建材營造 |  | 69.0 | revenue_negative | mainstream_follow_through | non_mainstream_theme | non_mainstream_flow_active |  |  | 2.26 |  |  | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
 | C_hot_money_watch | 1442 | 名軒 | 建材營造 |  | 69.0 | revenue_negative | mainstream_follow_through | non_mainstream_theme | non_mainstream_flow_active |  |  | 1.93 |  | no_signal | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
 | C_hot_money_watch | 2031 | 新光鋼 | 鋼鐵工業 |  | 69.0 | revenue_negative | mainstream_follow_through | non_mainstream_theme | non_mainstream_flow_active |  |  | 1.83 |  | no_signal | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
@@ -41,6 +41,7 @@
 | C_hot_money_watch | 3703 | 欣陸 | 建材營造 |  | 69.0 | revenue_negative | mainstream_follow_through | non_mainstream_theme | non_mainstream_flow_active |  |  | 1.53 |  |  | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
 | C_hot_money_watch | 2034 | 允強 | 鋼鐵工業 |  | 69.0 | revenue_negative | mainstream_follow_through | non_mainstream_theme | non_mainstream_flow_active |  |  | 1.52 |  | no_signal | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
 | C_hot_money_watch | 1618 | 合機 | 電器電纜 |  | 54.0 | revenue_negative | mainstream_follow_through | non_mainstream_theme | non_mainstream_flow_active |  |  | 1.52 |  | no_signal | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
+| C_hot_money_watch | 4938 | 和碩 | 電腦及週邊設備業 |  | 54.0 | revenue_negative | mainstream_follow_through | core_mainstream_theme | core_mainstream_supported |  |  | 0.87 |  | no_signal | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
 | C_hot_money_watch | 2409 | 友達 | 光電業 |  | 54.0 | revenue_negative | mainstream_follow_through | core_mainstream_theme | core_mainstream_supported |  |  | 0.64 |  | no_signal | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
 | C_hot_money_watch | 3049 | 精金 | 光電業 |  | 54.0 | revenue_negative | mainstream_follow_through | core_mainstream_theme | core_mainstream_supported |  |  | 0.5 |  | no_signal | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
 | C_hot_money_watch | 3047 | 訊舟 | 通信網路業 |  | 54.0 | revenue_negative | mainstream_follow_through | core_mainstream_theme | core_mainstream_supported |  |  | 0.48 |  |  | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
@@ -64,4 +65,3 @@
 | D_overheated_or_failed_risk | 2340 | 台亞 | 半導體業 |  | 45.0 | revenue_negative | mainstream_overheated | core_mainstream_theme | core_mainstream_overheated |  |  | 0.58 |  | call_inflow | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
 | D_overheated_or_failed_risk | 6862 | 三集瑞-KY | 電子零組件業 |  | 40.0 | revenue_negative | mainstream_overheated | core_mainstream_theme | core_mainstream_overheated |  |  | 0.69 |  | call_inflow | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
 | D_overheated_or_failed_risk | 6412 | 群電 | 電子零組件業 |  | 40.0 | revenue_negative | mainstream_overheated | core_mainstream_theme | core_mainstream_overheated |  |  | 0.62 |  | call_strong_inflow | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
-| D_overheated_or_failed_risk | 2312 | 金寶 | 其他電子業 |  | 40.0 | revenue_negative | mainstream_overheated | non_mainstream_theme | non_mainstream_overheated |  |  | 0.38 |  | call_put_bullish | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
