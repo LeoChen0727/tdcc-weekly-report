@@ -1,6 +1,6 @@
 # 財報 / 事件催化層
 
-- generated_at: `2026-06-16 04:03:01 Asia/Taipei`
+- generated_at: `2026-06-16 05:03:18 Asia/Taipei`
 - candidate_rows: `468`
 - financial_source: `data/fundamental_catalysts/quarterly_catalyst.csv`
 - event_source: `data/event_catalysts/event_catalyst_log.csv`
