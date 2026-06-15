@@ -1,6 +1,6 @@
 # Official Daily Price Fetch Report
 
-- generated_at: `2026-06-15 19:33:30 Asia/Taipei`
+- generated_at: `2026-06-15 20:03:50 Asia/Taipei`
 - target_date: `20260615`
 - saved_price_date: `20260615`
 - is_target_date: `True`
@@ -31,7 +31,8 @@
 - TWSE_RWD_JSON_MI_INDEX: parsed TWSE rows=1236
 - TWSE batch selected source=TWSE_RWD_JSON_MI_INDEX, rows=1236
 - Trying TPEx batch source=TPEX_NEW_AFTERTRADING_JSON date=20260615
-- GET https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/06/15&type=EW&response=json failed: ReadTimeout: HTTPSConnectionPool(host='www.tpex.org.tw', port=443): Read timed out. (read timeout=25)
+- GET https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/06/15&type=EW&response=json -> status=200, chars=11371
+- TPEX_NEW_AFTERTRADING_JSON: JSON parse failed
 - Trying TPEx batch source=TPEX_NEW_AFTERTRADING_CSV date=20260615
 - GET https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/06/15&type=EW&response=csv -> status=200, chars=11371
 - TPEX_NEW_AFTERTRADING_CSV: parsed TPEx CSV rows=0

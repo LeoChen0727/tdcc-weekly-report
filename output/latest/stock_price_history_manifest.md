@@ -1,6 +1,6 @@
 # Stock Price History Manifest
 
-- generated_at: `2026-06-15 19:34:53 Asia/Taipei`
+- generated_at: `2026-06-15 20:04:49 Asia/Taipei`
 - stock_count: `2371`
 - history_dir: `data/stock_price_history/`
 - manifest_csv: `output/latest/stock_price_history_manifest.csv`
