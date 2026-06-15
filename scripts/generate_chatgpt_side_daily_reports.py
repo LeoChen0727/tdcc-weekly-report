@@ -2023,24 +2023,37 @@ def build_mainstream_curated_model_table(
     two_map: dict[str, pd.Series],
     all_map: dict[str, pd.Series],
     limit: int = 6,
-) -> Table:
+) -> list:
     title = MAINSTREAM_LINE_LABEL
-    data = [["標的", "模型狀態", "模型排名 / 分數", "族群 / 資金", "大戶籌碼", "模型依據 / 風險"]]
-    if not rows:
-        data.append(["-", "-", title, "-", "-", "本模型今日無符合條件資料。"])
-    for row in rows[:limit]:
-        extra = all_map.get(clean(row.get("stock_id")), pd.Series(dtype=object))
-        data.append(
-            [
-                stock_label(row),
-                display_signal_tag(model_signal_tag(row, two_map)),
-                model_score_label(row),
-                f"{category_position_text(row, two_map)} / {zh_warrant(row.get('warrant_flow_signal'))}",
-                tdcc_direction(row, extra),
-                f"{model_source_text(row, 54)}；風險：{model_risk_text(row, 34)}",
-            ]
-        )
-    return build_table(data, [32 * mm, 22 * mm, 30 * mm, 54 * mm, 44 * mm, 86 * mm], 12.0)
+    selected_rows = rows[:limit]
+    story: list = []
+    for label, color in [("新上榜", "#c00000"), ("重複上榜", "#1f4e79")]:
+        data = [["標的", "模型狀態", "模型排名 / 分數", "族群 / 資金", "大戶籌碼", "模型依據 / 風險"]]
+        matched = False
+        for row in selected_rows:
+            stage = display_signal_tag(model_signal_tag(row, two_map))
+            row_label = listing_status_label(row, stage)
+            if label == "新上榜" and row_label != "新上榜":
+                continue
+            if label == "重複上榜" and row_label == "新上榜":
+                continue
+            matched = True
+            extra = all_map.get(clean(row.get("stock_id")), pd.Series(dtype=object))
+            data.append(
+                [
+                    stock_label(row),
+                    stage,
+                    model_score_label(row),
+                    f"{category_position_text(row, two_map)} / {zh_warrant(row.get('warrant_flow_signal'))}",
+                    tdcc_direction(row, extra),
+                    f"{model_source_text(row, 54)}；風險：{model_risk_text(row, 34)}",
+                ]
+            )
+        if not matched:
+            data.append(["-", "-", title, "-", "-", f"本模型今日無{label}資料。"])
+        story.append(Paragraph(f'<font color="{color}">{label}</font>', H2))
+        story.append(build_table(data, [32 * mm, 22 * mm, 30 * mm, 54 * mm, 44 * mm, 86 * mm], 12.0))
+    return story
 
 
 
@@ -2050,24 +2063,37 @@ def build_mainstream_full_model_table(
     two_map: dict[str, pd.Series],
     all_map: dict[str, pd.Series],
     limit: int = 6,
-) -> Table:
+) -> list:
     title = MAINSTREAM_LINE_LABEL
-    data = [["標的", "模型狀態", "模型排名 / 分數", "族群 / 資金", "大戶籌碼", "模型依據 / 風險"]]
-    if not rows:
-        data.append(["-", "-", title, "-", "-", "本模型今日無符合條件資料。"])
-    for row in rows[:limit]:
-        extra = all_map.get(clean(row.get("stock_id")), pd.Series(dtype=object))
-        data.append(
-            [
-                stock_label(row),
-                display_signal_tag(model_signal_tag(row, two_map)),
-                model_score_label(row),
-                f"{category_position_text(row, two_map)} / {zh_warrant(row.get('warrant_flow_signal'))}",
-                tdcc_direction(row, extra),
-                f"{model_source_text(row, 54)}；風險：{model_risk_text(row, 34)}",
-            ]
-        )
-    return build_table(data, [32 * mm, 22 * mm, 30 * mm, 54 * mm, 44 * mm, 86 * mm], 12.0)
+    selected_rows = rows[:limit]
+    story: list = []
+    for label, color in [("新上榜", "#c00000"), ("重複上榜", "#1f4e79")]:
+        data = [["標的", "模型狀態", "模型排名 / 分數", "族群 / 資金", "大戶籌碼", "模型依據 / 風險"]]
+        matched = False
+        for row in selected_rows:
+            stage = display_signal_tag(model_signal_tag(row, two_map))
+            row_label = listing_status_label(row, stage)
+            if label == "新上榜" and row_label != "新上榜":
+                continue
+            if label == "重複上榜" and row_label == "新上榜":
+                continue
+            matched = True
+            extra = all_map.get(clean(row.get("stock_id")), pd.Series(dtype=object))
+            data.append(
+                [
+                    stock_label(row),
+                    stage,
+                    model_score_label(row),
+                    f"{category_position_text(row, two_map)} / {zh_warrant(row.get('warrant_flow_signal'))}",
+                    tdcc_direction(row, extra),
+                    f"{model_source_text(row, 54)}；風險：{model_risk_text(row, 34)}",
+                ]
+            )
+        if not matched:
+            data.append(["-", "-", title, "-", "-", f"本模型今日無{label}資料。"])
+        story.append(Paragraph(f'<font color="{color}">{label}</font>', H2))
+        story.append(build_table(data, [32 * mm, 22 * mm, 30 * mm, 54 * mm, 44 * mm, 86 * mm], 12.0))
+    return story
 
 
 
@@ -2077,24 +2103,37 @@ def build_non_mainstream_curated_model_table(
     two_map: dict[str, pd.Series],
     all_map: dict[str, pd.Series],
     limit: int = 6,
-) -> Table:
+) -> list:
     title = NON_MAINSTREAM_LINE_LABEL
-    data = [["標的", "模型狀態", "模型排名 / 分數", "族群 / 資金", "大戶籌碼", "模型依據 / 風險"]]
-    if not rows:
-        data.append(["-", "-", title, "-", "-", "本模型今日無符合條件資料。"])
-    for row in rows[:limit]:
-        extra = all_map.get(clean(row.get("stock_id")), pd.Series(dtype=object))
-        data.append(
-            [
-                stock_label(row),
-                display_signal_tag(model_signal_tag(row, two_map)),
-                model_score_label(row),
-                f"{category_position_text(row, two_map)} / {zh_warrant(row.get('warrant_flow_signal'))}",
-                tdcc_direction(row, extra),
-                f"{model_source_text(row, 54)}；風險：{model_risk_text(row, 34)}",
-            ]
-        )
-    return build_table(data, [32 * mm, 22 * mm, 30 * mm, 54 * mm, 44 * mm, 86 * mm], 12.0)
+    selected_rows = rows[:limit]
+    story: list = []
+    for label, color in [("新上榜", "#c00000"), ("重複上榜", "#1f4e79")]:
+        data = [["標的", "模型狀態", "模型排名 / 分數", "族群 / 資金", "大戶籌碼", "模型依據 / 風險"]]
+        matched = False
+        for row in selected_rows:
+            stage = display_signal_tag(model_signal_tag(row, two_map))
+            row_label = listing_status_label(row, stage)
+            if label == "新上榜" and row_label != "新上榜":
+                continue
+            if label == "重複上榜" and row_label == "新上榜":
+                continue
+            matched = True
+            extra = all_map.get(clean(row.get("stock_id")), pd.Series(dtype=object))
+            data.append(
+                [
+                    stock_label(row),
+                    stage,
+                    model_score_label(row),
+                    f"{category_position_text(row, two_map)} / {zh_warrant(row.get('warrant_flow_signal'))}",
+                    tdcc_direction(row, extra),
+                    f"{model_source_text(row, 54)}；風險：{model_risk_text(row, 34)}",
+                ]
+            )
+        if not matched:
+            data.append(["-", "-", title, "-", "-", f"本模型今日無{label}資料。"])
+        story.append(Paragraph(f'<font color="{color}">{label}</font>', H2))
+        story.append(build_table(data, [32 * mm, 22 * mm, 30 * mm, 54 * mm, 44 * mm, 86 * mm], 12.0))
+    return story
 
 
 
@@ -2104,24 +2143,37 @@ def build_non_mainstream_full_model_table(
     two_map: dict[str, pd.Series],
     all_map: dict[str, pd.Series],
     limit: int = 6,
-) -> Table:
+) -> list:
     title = NON_MAINSTREAM_LINE_LABEL
-    data = [["標的", "模型狀態", "模型排名 / 分數", "族群 / 資金", "大戶籌碼", "模型依據 / 風險"]]
-    if not rows:
-        data.append(["-", "-", title, "-", "-", "本模型今日無符合條件資料。"])
-    for row in rows[:limit]:
-        extra = all_map.get(clean(row.get("stock_id")), pd.Series(dtype=object))
-        data.append(
-            [
-                stock_label(row),
-                display_signal_tag(model_signal_tag(row, two_map)),
-                model_score_label(row),
-                f"{category_position_text(row, two_map)} / {zh_warrant(row.get('warrant_flow_signal'))}",
-                tdcc_direction(row, extra),
-                f"{model_source_text(row, 54)}；風險：{model_risk_text(row, 34)}",
-            ]
-        )
-    return build_table(data, [32 * mm, 22 * mm, 30 * mm, 54 * mm, 44 * mm, 86 * mm], 12.0)
+    selected_rows = rows[:limit]
+    story: list = []
+    for label, color in [("新上榜", "#c00000"), ("重複上榜", "#1f4e79")]:
+        data = [["標的", "模型狀態", "模型排名 / 分數", "族群 / 資金", "大戶籌碼", "模型依據 / 風險"]]
+        matched = False
+        for row in selected_rows:
+            stage = display_signal_tag(model_signal_tag(row, two_map))
+            row_label = listing_status_label(row, stage)
+            if label == "新上榜" and row_label != "新上榜":
+                continue
+            if label == "重複上榜" and row_label == "新上榜":
+                continue
+            matched = True
+            extra = all_map.get(clean(row.get("stock_id")), pd.Series(dtype=object))
+            data.append(
+                [
+                    stock_label(row),
+                    stage,
+                    model_score_label(row),
+                    f"{category_position_text(row, two_map)} / {zh_warrant(row.get('warrant_flow_signal'))}",
+                    tdcc_direction(row, extra),
+                    f"{model_source_text(row, 54)}；風險：{model_risk_text(row, 34)}",
+                ]
+            )
+        if not matched:
+            data.append(["-", "-", title, "-", "-", f"本模型今日無{label}資料。"])
+        story.append(Paragraph(f'<font color="{color}">{label}</font>', H2))
+        story.append(build_table(data, [32 * mm, 22 * mm, 30 * mm, 54 * mm, 44 * mm, 86 * mm], 12.0))
+    return story
 
 
 
@@ -3040,7 +3092,7 @@ def build_mainstream_curated_pdf(
         if model_id == VOLUME_BREAKOUT_MODEL_ID:
             render_volume_range_breakout_operation_section(story, inputs, "highlight")
             continue
-        story.append(build_mainstream_curated_model_table(ranked_rows, two_map, all_map, limit=limit))
+        story.extend(build_mainstream_curated_model_table(ranked_rows, two_map, all_map, limit=limit))
         reps = mainstream_curated_operation_representatives(ranked_rows)
         for row in reps:
             sid = clean(row.get("stock_id"))
@@ -3112,7 +3164,7 @@ def build_non_mainstream_curated_pdf(
         if model_id == VOLUME_BREAKOUT_MODEL_ID:
             render_volume_range_breakout_operation_section(story, inputs, "highlight")
             continue
-        story.append(build_non_mainstream_curated_model_table(ranked_rows, two_map, all_map, limit=limit))
+        story.extend(build_non_mainstream_curated_model_table(ranked_rows, two_map, all_map, limit=limit))
         reps = non_mainstream_curated_operation_representatives(ranked_rows)
         for row in reps:
             sid = clean(row.get("stock_id"))
@@ -3202,7 +3254,7 @@ def build_mainstream_full_candidate_pdf(
         if model_id == VOLUME_BREAKOUT_MODEL_ID:
             render_volume_range_breakout_operation_section(story, inputs, "full")
             continue
-        story.append(build_mainstream_full_model_table(line_rows, two_map, all_map, limit=limit))
+        story.extend(build_mainstream_full_model_table(line_rows, two_map, all_map, limit=limit))
 
     story.append(PageBreak())
     story.append(Paragraph(f"{line_label}雙線與輪動摘要", H1))
@@ -3323,7 +3375,7 @@ def build_non_mainstream_full_candidate_pdf(
         if model_id == VOLUME_BREAKOUT_MODEL_ID:
             render_volume_range_breakout_operation_section(story, inputs, "full")
             continue
-        story.append(build_non_mainstream_full_model_table(line_rows, two_map, all_map, limit=limit))
+        story.extend(build_non_mainstream_full_model_table(line_rows, two_map, all_map, limit=limit))
 
     story.append(PageBreak())
     story.append(Paragraph(f"{line_label}雙線與輪動摘要", H1))
