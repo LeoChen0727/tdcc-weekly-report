@@ -3933,6 +3933,124 @@ def build_model_line_pdf(report_line: str, full: bool, main_date: str, path: Pat
     doc.build(story)
 
 
+def build_mainstream_daily_recommendation_highlight_pdf(main_date: str, path: Path) -> None:
+    style_map = styles()
+    signals = load_model_report_signals()
+    model_summary = _load_model_summary_for_report()
+    tech_map = load_technical_snapshot()
+    chart_map = load_pdf_kline_chart_map()
+    mainstream_signals = signals[signals.get("report_line", "").astype(str).eq("mainstream")].copy() if not signals.empty else signals
+    doc = SimpleDocTemplate(str(path), pagesize=A4, leftMargin=1.5 * cm, rightMargin=1.5 * cm, topMargin=1.2 * cm, bottomMargin=1.2 * cm)
+    story: list[Any] = []
+    story.append(para(f"{main_date} \u4e3b\u6d41\u80a1\u6bcf\u65e5\u63a8\u85a6\u7cbe\u83ef", style_map["title"]))
+    story.append(para("\u8cc7\u6599\u4f86\u6e90\uff1a\u5831\u544a\u7528\u6a21\u578b\u8a0a\u865f\u8868\uff1b\u540c\u4e00\u6a21\u578b\u5167\u5206\u6210\u65b0\u9032\u699c\u8207\u9023\u7e8c/\u7d2f\u8a08\u9032\u699c\uff0c\u4e26\u5404\u81ea\u4f7f\u7528\u7a0b\u5f0f\u7aef\u6392\u540d\u3002", style_map["subtitle"]))
+    story.append(para("\u5404\u6a21\u578b\u65b0\u9032\u699c / \u9023\u7e8c\u699c\u56fa\u5b9a\u6458\u8981", style_map["h1"]))
+    story.append(make_table(_fixed_model_summary_rows(model_summary, "mainstream"), style_map, [3.0 * cm, 2.0 * cm, 1.5 * cm, 3.1 * cm, 1.3 * cm, 6.8 * cm]))
+    story.append(PageBreak())
+    story.append(para("\u5404\u6a21\u578b\u4ee3\u8868\u80a1\u5206\u6790", style_map["h1"]))
+    for model_name in _model_names_in_report_order(mainstream_signals):
+        story.append(para(model_name, style_map["h2"]))
+        for section in ["new", "repeated"]:
+            group = _rows_for_model_section(mainstream_signals, model_name, section, 5)
+            if group.empty:
+                continue
+            story.append(para(_repeat_label(section), style_map["h2"]))
+            story.append(make_table(_detail_table_rows_for_section(group, section), style_map, [2.0 * cm, 2.6 * cm, 1.4 * cm, 6.0 * cm, 6.0 * cm]))
+            story.append(Spacer(1, 0.18 * cm))
+            for _, row in group.iterrows():
+                story.append(_model_signal_card_readable(row, section, style_map, tech_map, chart_map, include_chart=True))
+            story.append(Spacer(1, 0.25 * cm))
+    _append_theme_event_watch_section_readable(story, style_map, compact=True)
+    _append_group_rotation_section_readable(story, style_map)
+    doc.build(story)
+
+
+def build_mainstream_full_candidate_list_pdf(main_date: str, path: Path) -> None:
+    style_map = styles()
+    signals = load_model_report_signals()
+    model_summary = _load_model_summary_for_report()
+    mainstream_signals = signals[signals.get("report_line", "").astype(str).eq("mainstream")].copy() if not signals.empty else signals
+    doc = SimpleDocTemplate(str(path), pagesize=A4, leftMargin=1.5 * cm, rightMargin=1.5 * cm, topMargin=1.2 * cm, bottomMargin=1.2 * cm)
+    story: list[Any] = []
+    story.append(para(f"{main_date} \u4e3b\u6d41\u80a1\u5b8c\u6574\u5019\u9078\u6e05\u55ae", style_map["title"]))
+    story.append(para("\u8cc7\u6599\u4f86\u6e90\uff1a\u5831\u544a\u7528\u6a21\u578b\u8a0a\u865f\u8868\uff1b\u540c\u4e00\u6a21\u578b\u5167\u5206\u6210\u65b0\u9032\u699c\u8207\u9023\u7e8c/\u7d2f\u8a08\u9032\u699c\uff0c\u4e26\u5404\u81ea\u4f7f\u7528\u7a0b\u5f0f\u7aef\u6392\u540d\u3002", style_map["subtitle"]))
+    story.append(para("\u5404\u6a21\u578b\u65b0\u9032\u699c / \u9023\u7e8c\u699c\u56fa\u5b9a\u6458\u8981", style_map["h1"]))
+    story.append(make_table(_fixed_model_summary_rows(model_summary, "mainstream"), style_map, [3.0 * cm, 2.0 * cm, 1.5 * cm, 3.1 * cm, 1.3 * cm, 6.8 * cm]))
+    story.append(PageBreak())
+    story.append(para("\u5b8c\u6574\u6a21\u578b\u6e05\u55ae", style_map["h1"]))
+    for model_name in _model_names_in_report_order(mainstream_signals):
+        story.append(para(model_name, style_map["h2"]))
+        for section in ["new", "repeated"]:
+            group = _rows_for_model_section(mainstream_signals, model_name, section, None)
+            if group.empty:
+                continue
+            story.append(para(_repeat_label(section), style_map["h2"]))
+            story.append(make_table(_detail_table_rows_for_section(group, section), style_map, [2.0 * cm, 2.6 * cm, 1.4 * cm, 6.0 * cm, 6.0 * cm]))
+            story.append(Spacer(1, 0.25 * cm))
+    _append_theme_event_watch_section_readable(story, style_map, compact=False)
+    _append_group_rotation_section_readable(story, style_map)
+    doc.build(story)
+
+
+def build_non_mainstream_daily_recommendation_highlight_pdf(main_date: str, path: Path) -> None:
+    style_map = styles()
+    signals = load_model_report_signals()
+    model_summary = _load_model_summary_for_report()
+    tech_map = load_technical_snapshot()
+    chart_map = load_pdf_kline_chart_map()
+    non_mainstream_signals = signals[signals.get("report_line", "").astype(str).eq("non_mainstream")].copy() if not signals.empty else signals
+    doc = SimpleDocTemplate(str(path), pagesize=A4, leftMargin=1.5 * cm, rightMargin=1.5 * cm, topMargin=1.2 * cm, bottomMargin=1.2 * cm)
+    story: list[Any] = []
+    story.append(para(f"{main_date} \u975e\u4e3b\u6d41\u80a1\u6bcf\u65e5\u63a8\u85a6\u7cbe\u83ef", style_map["title"]))
+    story.append(para("\u8cc7\u6599\u4f86\u6e90\uff1a\u5831\u544a\u7528\u6a21\u578b\u8a0a\u865f\u8868\uff1b\u540c\u4e00\u6a21\u578b\u5167\u5206\u6210\u65b0\u9032\u699c\u8207\u9023\u7e8c/\u7d2f\u8a08\u9032\u699c\uff0c\u4e26\u5404\u81ea\u4f7f\u7528\u7a0b\u5f0f\u7aef\u6392\u540d\u3002", style_map["subtitle"]))
+    story.append(para("\u5404\u6a21\u578b\u65b0\u9032\u699c / \u9023\u7e8c\u699c\u56fa\u5b9a\u6458\u8981", style_map["h1"]))
+    story.append(make_table(_fixed_model_summary_rows(model_summary, "non_mainstream"), style_map, [3.0 * cm, 2.0 * cm, 1.5 * cm, 3.1 * cm, 1.3 * cm, 6.8 * cm]))
+    story.append(PageBreak())
+    story.append(para("\u5404\u6a21\u578b\u4ee3\u8868\u80a1\u5206\u6790", style_map["h1"]))
+    for model_name in _model_names_in_report_order(non_mainstream_signals):
+        story.append(para(model_name, style_map["h2"]))
+        for section in ["new", "repeated"]:
+            group = _rows_for_model_section(non_mainstream_signals, model_name, section, 5)
+            if group.empty:
+                continue
+            story.append(para(_repeat_label(section), style_map["h2"]))
+            story.append(make_table(_detail_table_rows_for_section(group, section), style_map, [2.0 * cm, 2.6 * cm, 1.4 * cm, 6.0 * cm, 6.0 * cm]))
+            story.append(Spacer(1, 0.18 * cm))
+            for _, row in group.iterrows():
+                story.append(_model_signal_card_readable(row, section, style_map, tech_map, chart_map, include_chart=True))
+            story.append(Spacer(1, 0.25 * cm))
+    _append_theme_event_watch_section_readable(story, style_map, compact=True)
+    _append_group_rotation_section_readable(story, style_map)
+    doc.build(story)
+
+
+def build_non_mainstream_full_candidate_list_pdf(main_date: str, path: Path) -> None:
+    style_map = styles()
+    signals = load_model_report_signals()
+    model_summary = _load_model_summary_for_report()
+    non_mainstream_signals = signals[signals.get("report_line", "").astype(str).eq("non_mainstream")].copy() if not signals.empty else signals
+    doc = SimpleDocTemplate(str(path), pagesize=A4, leftMargin=1.5 * cm, rightMargin=1.5 * cm, topMargin=1.2 * cm, bottomMargin=1.2 * cm)
+    story: list[Any] = []
+    story.append(para(f"{main_date} \u975e\u4e3b\u6d41\u80a1\u5b8c\u6574\u5019\u9078\u6e05\u55ae", style_map["title"]))
+    story.append(para("\u8cc7\u6599\u4f86\u6e90\uff1a\u5831\u544a\u7528\u6a21\u578b\u8a0a\u865f\u8868\uff1b\u540c\u4e00\u6a21\u578b\u5167\u5206\u6210\u65b0\u9032\u699c\u8207\u9023\u7e8c/\u7d2f\u8a08\u9032\u699c\uff0c\u4e26\u5404\u81ea\u4f7f\u7528\u7a0b\u5f0f\u7aef\u6392\u540d\u3002", style_map["subtitle"]))
+    story.append(para("\u5404\u6a21\u578b\u65b0\u9032\u699c / \u9023\u7e8c\u699c\u56fa\u5b9a\u6458\u8981", style_map["h1"]))
+    story.append(make_table(_fixed_model_summary_rows(model_summary, "non_mainstream"), style_map, [3.0 * cm, 2.0 * cm, 1.5 * cm, 3.1 * cm, 1.3 * cm, 6.8 * cm]))
+    story.append(PageBreak())
+    story.append(para("\u5b8c\u6574\u6a21\u578b\u6e05\u55ae", style_map["h1"]))
+    for model_name in _model_names_in_report_order(non_mainstream_signals):
+        story.append(para(model_name, style_map["h2"]))
+        for section in ["new", "repeated"]:
+            group = _rows_for_model_section(non_mainstream_signals, model_name, section, None)
+            if group.empty:
+                continue
+            story.append(para(_repeat_label(section), style_map["h2"]))
+            story.append(make_table(_detail_table_rows_for_section(group, section), style_map, [2.0 * cm, 2.6 * cm, 1.4 * cm, 6.0 * cm, 6.0 * cm]))
+            story.append(Spacer(1, 0.25 * cm))
+    _append_theme_event_watch_section_readable(story, style_map, compact=False)
+    _append_group_rotation_section_readable(story, style_map)
+    doc.build(story)
+
+
 def copy_outputs(main_date: str) -> dict[str, str]:
     DOCS_LATEST_DIR.mkdir(parents=True, exist_ok=True)
     HISTORY_REPORT_DIR.mkdir(parents=True, exist_ok=True)
@@ -4065,10 +4183,10 @@ def main() -> int:
 
     build_curated_pdf(df, freshness, main_date, CURATED_PDF)
     build_full_table_pdf(df, freshness, main_date, FULL_TABLE_PDF)
-    build_model_line_pdf("mainstream", False, main_date, MAINSTREAM_CURATED_PDF)
-    build_model_line_pdf("mainstream", True, main_date, MAINSTREAM_FULL_PDF)
-    build_model_line_pdf("non_mainstream", False, main_date, NON_MAINSTREAM_CURATED_PDF)
-    build_model_line_pdf("non_mainstream", True, main_date, NON_MAINSTREAM_FULL_PDF)
+    build_mainstream_daily_recommendation_highlight_pdf(main_date, MAINSTREAM_CURATED_PDF)
+    build_mainstream_full_candidate_list_pdf(main_date, MAINSTREAM_FULL_PDF)
+    build_non_mainstream_daily_recommendation_highlight_pdf(main_date, NON_MAINSTREAM_CURATED_PDF)
+    build_non_mainstream_full_candidate_list_pdf(main_date, NON_MAINSTREAM_FULL_PDF)
     history_paths = copy_outputs(main_date)
     write_manifest(main_date, freshness, history_paths)
 
