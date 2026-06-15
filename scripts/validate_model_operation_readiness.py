@@ -8,6 +8,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from build_model_operation_readiness import (  # noqa: E402
+    APPROVAL_CSV,
     DAILY_VOLUME_ADAPTER_CSV,
     DOCS_CSV,
     DOCS_MD,
@@ -26,6 +27,9 @@ REQUIRED_COLUMNS = {
     "operation_module_status",
     "daily_adapter_status",
     "approved_for_daily",
+    "approval_status",
+    "operation_module_id",
+    "approval_version",
     "presentation_allowed",
     "operation_directive_level",
     "pdf_integration_status",
@@ -75,9 +79,10 @@ def validate_readiness_csv() -> list[str]:
         if extra:
             errors.append(f"readiness has model_ids not in parity artifact: {extra}")
 
-    if as_bool_text(df["approved_for_daily"]).ne("false").any():
-        approved = df.loc[as_bool_text(df["approved_for_daily"]).ne("false"), "model_id"].tolist()
-        errors.append(f"no current readiness row may set approved_for_daily=True: {approved}")
+    approved = df[as_bool_text(df["approved_for_daily"]).eq("true")]
+    approved_ids = sorted(approved["model_id"].astype(str).tolist())
+    if approved_ids != [VOLUME_MODEL_ID]:
+        errors.append(f"only {VOLUME_MODEL_ID} may currently be approved_for_daily=True, got {approved_ids}")
 
     volume = df[df["model_id"].astype(str).eq(VOLUME_MODEL_ID)]
     if len(volume) != 1:
@@ -85,19 +90,29 @@ def validate_readiness_csv() -> list[str]:
     else:
         row = volume.iloc[0]
         expected = {
-            "operation_module_status": "research_reference_ready",
-            "daily_adapter_status": "ready_research_reference_only",
-            "approved_for_daily": "False",
+            "operation_module_status": "approved_operation_v1",
+            "approved_for_daily": "True",
+            "approval_status": "approved_for_daily_v1",
             "presentation_allowed": "True",
-            "operation_directive_level": "research_reference_only",
+            "operation_directive_level": "approved_daily_operation_guidance",
             "pdf_integration_status": "pending_pdf_renderer",
             "packet_integration_status": "pending_packet_renderer",
         }
         for col, value in expected.items():
             if str(row.get(col, "")) != value:
                 errors.append(f"{VOLUME_MODEL_ID} readiness {col} must be {value!r}, got {row.get(col, '')!r}")
-        if "formal buy/sell" not in str(row.get("blocker", "")):
-            errors.append(f"{VOLUME_MODEL_ID} blocker must state that no formal buy/sell directive is approved")
+        if str(row.get("daily_adapter_status", "")) not in {
+            "ready_pending_approval_metadata",
+            "ready_approved_operation_guidance",
+        }:
+            errors.append(
+                f"{VOLUME_MODEL_ID} daily_adapter_status must be pending/ready approved metadata, "
+                f"got {row.get('daily_adapter_status', '')!r}"
+            )
+        if not str(row.get("operation_module_id", "")):
+            errors.append(f"{VOLUME_MODEL_ID} operation_module_id must be populated")
+        if not str(row.get("approval_version", "")):
+            errors.append(f"{VOLUME_MODEL_ID} approval_version must be populated")
 
     others = df[~df["model_id"].astype(str).eq(VOLUME_MODEL_ID)]
     if not others.empty:
@@ -112,6 +127,12 @@ def validate_readiness_csv() -> list[str]:
             errors.append(
                 "non-volume models must not claim daily adapters: "
                 + ", ".join(bad_adapter["model_id"].astype(str).tolist())
+            )
+        bad_approval = others[as_bool_text(others["approved_for_daily"]).ne("false")]
+        if not bad_approval.empty:
+            errors.append(
+                "non-volume models must not be approved: "
+                + ", ".join(bad_approval["model_id"].astype(str).tolist())
             )
         bad_presentation = others[as_bool_text(others["presentation_allowed"]).ne("false")]
         if not bad_presentation.empty:
@@ -146,8 +167,18 @@ def validate_daily_adapter_boundary() -> list[str]:
     return errors
 
 
+def validate_approval_source() -> list[str]:
+    approval = read_csv(APPROVAL_CSV, dtype=str).fillna("")
+    if approval.empty:
+        return [f"missing approval source for readiness validation: {APPROVAL_CSV}"]
+    approved = approval[approval["model_id"].astype(str).eq(VOLUME_MODEL_ID)]
+    if approved.empty:
+        return [f"approval source must contain {VOLUME_MODEL_ID}: {APPROVAL_CSV}"]
+    return []
+
+
 def main() -> int:
-    errors = validate_files() + validate_readiness_csv() + validate_daily_adapter_boundary()
+    errors = validate_files() + validate_readiness_csv() + validate_daily_adapter_boundary() + validate_approval_source()
     if errors:
         for error in errors:
             print(f"ERROR: {error}")

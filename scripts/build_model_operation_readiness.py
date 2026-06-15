@@ -14,6 +14,7 @@ from tracking_utils import DOCS_LATEST_DIR, LATEST_DIR, markdown_table, now_text
 PARITY_CSV = LATEST_DIR / "daily_model_research_parity_latest.csv"
 REGISTRY_CSV = LATEST_DIR / "historical_pattern_operation_registry_latest.csv"
 DAILY_VOLUME_ADAPTER_CSV = LATEST_DIR / "daily_volume_breakout_operation_section_latest.csv"
+APPROVAL_CSV = LATEST_DIR / "approved_operation_patterns_latest.csv"
 
 OUT_CSV = LATEST_DIR / "model_operation_readiness_latest.csv"
 OUT_MD = LATEST_DIR / "model_operation_readiness_latest.md"
@@ -25,30 +26,25 @@ VOLUME_MODEL_ID = "volume_range_breakout"
 
 def truthy(value: Any) -> bool:
     text = safe_str(value).lower()
-    return text in {"true", "1", "yes", "y"}
+    return text in {"true", "1", "1.0", "yes", "y"}
 
 
 def summarize_volume_registry(registry: pd.DataFrame) -> dict[str, Any]:
+    empty = {
+        "operation_module_status": "registry_missing",
+        "registry_pattern_count": 0,
+        "registry_current_model_pattern_count": 0,
+        "registry_best_pattern_id": "",
+        "registry_best_sample_size": 0,
+        "registry_best_win_rate": "",
+        "registry_best_median_return": "",
+    }
     if registry.empty or "model_id" not in registry.columns:
-        return {
-            "operation_module_status": "registry_missing",
-            "registry_pattern_count": 0,
-            "registry_current_model_pattern_count": 0,
-            "registry_best_sample_size": 0,
-            "registry_best_win_rate": "",
-            "registry_best_median_return": "",
-        }
+        return empty
 
     part = registry[registry["model_id"].astype(str).eq(VOLUME_MODEL_ID)].copy()
     if part.empty:
-        return {
-            "operation_module_status": "registry_missing",
-            "registry_pattern_count": 0,
-            "registry_current_model_pattern_count": 0,
-            "registry_best_sample_size": 0,
-            "registry_best_win_rate": "",
-            "registry_best_median_return": "",
-        }
+        return empty
 
     current = part[part.get("model_hit_status", "").astype(str).eq("current_model_hit")].copy()
     if current.empty:
@@ -64,10 +60,7 @@ def summarize_volume_registry(registry: pd.DataFrame) -> dict[str, Any]:
             current[col] = pd.to_numeric(current[col], errors="coerce")
 
     sort_cols = [col for col in ["median_return", "avg_return", "win_rate", "sample_size"] if col in current.columns]
-    if sort_cols:
-        best = current.sort_values(sort_cols, ascending=[False] * len(sort_cols)).iloc[0]
-    else:
-        best = current.iloc[0]
+    best = current.sort_values(sort_cols, ascending=[False] * len(sort_cols)).iloc[0] if sort_cols else current.iloc[0]
 
     return {
         "operation_module_status": "research_reference_ready",
@@ -103,13 +96,61 @@ def summarize_volume_daily_adapter(adapter: pd.DataFrame) -> dict[str, Any]:
     data_rows = int(row_type.eq("data").sum())
     sections = sorted(set(adapter.get("pdf_section", pd.Series(dtype=str)).astype(str)))
     source_statuses = sorted(set(adapter.get("adapter_source_status", pd.Series(dtype=str)).astype(str)))
-    ready = models == [VOLUME_MODEL_ID] and data_rows > 0 and (not source_statuses or source_statuses == ["ready"])
+    base_ready = models == [VOLUME_MODEL_ID] and data_rows > 0 and (not source_statuses or source_statuses == ["ready"])
+
+    approved_metadata_ready = False
+    if base_ready and {"approved_for_daily", "operation_directive_level"}.issubset(adapter.columns):
+        approved_metadata_ready = (
+            set(adapter["approved_for_daily"].astype(str)) == {"True"}
+            and set(adapter["operation_directive_level"].astype(str)) == {"approved_daily_operation_guidance"}
+        )
+
+    if approved_metadata_ready:
+        status = "ready_approved_operation_guidance"
+    elif base_ready:
+        status = "ready_pending_approval_metadata"
+    else:
+        status = "blocked"
 
     return {
-        "daily_adapter_status": "ready_research_reference_only" if ready else "blocked",
+        "daily_adapter_status": status,
         "daily_adapter_row_count": len(adapter),
         "daily_adapter_data_row_count": data_rows,
         "daily_adapter_sections": ",".join(section for section in sections if section),
+    }
+
+
+def summarize_volume_approval(approval: pd.DataFrame) -> dict[str, Any]:
+    if approval.empty or "model_id" not in approval.columns:
+        return {
+            "approved_for_daily": "False",
+            "approval_status": "missing",
+            "operation_module_id": "",
+            "approval_version": "",
+            "operation_directive_level": "no_operation_directive",
+            "approval_note_zh": "尚未建立 approved operation artifact。",
+        }
+    part = approval[approval["model_id"].astype(str).eq(VOLUME_MODEL_ID)].copy()
+    if part.empty:
+        return {
+            "approved_for_daily": "False",
+            "approval_status": "missing",
+            "operation_module_id": "",
+            "approval_version": "",
+            "operation_directive_level": "no_operation_directive",
+            "approval_note_zh": "尚未批准放量攻擊操作模組。",
+        }
+    row = part.iloc[0]
+    approved = "True" if truthy(row.get("approved_for_daily")) else "False"
+    return {
+        "approved_for_daily": approved,
+        "approval_status": safe_str(row.get("approval_status")),
+        "operation_module_id": safe_str(row.get("operation_module_id")),
+        "approval_version": safe_str(row.get("approval_version")),
+        "operation_directive_level": (
+            safe_str(row.get("operation_directive_level")) if approved == "True" else "no_operation_directive"
+        ),
+        "approval_note_zh": safe_str(row.get("approval_note_zh")),
     }
 
 
@@ -117,6 +158,7 @@ def build_model_operation_readiness(
     parity: pd.DataFrame,
     registry: pd.DataFrame,
     adapter: pd.DataFrame,
+    approval: pd.DataFrame | None = None,
     generated_at: str | None = None,
 ) -> pd.DataFrame:
     if parity.empty:
@@ -129,10 +171,13 @@ def build_model_operation_readiness(
     generated = generated_at or now_text()
     volume_registry = summarize_volume_registry(registry)
     volume_adapter = summarize_volume_daily_adapter(adapter)
-    volume_presentation_allowed = (
-        volume_registry["operation_module_status"] == "research_reference_ready"
-        and volume_adapter["daily_adapter_status"] == "ready_research_reference_only"
-    )
+    volume_approval = summarize_volume_approval(approval if approval is not None else pd.DataFrame())
+    volume_approved = volume_approval["approved_for_daily"] == "True"
+    adapter_ready = volume_adapter["daily_adapter_status"] in {
+        "ready_pending_approval_metadata",
+        "ready_approved_operation_guidance",
+    }
+    volume_presentation_allowed = volume_registry["operation_module_status"] == "research_reference_ready" and adapter_ready
 
     rows: list[dict[str, Any]] = []
     for _, row in parity.iterrows():
@@ -142,7 +187,11 @@ def build_model_operation_readiness(
         parity_blocker = safe_str(row.get("parity_blocker", ""))
 
         if model_id == VOLUME_MODEL_ID:
-            blocker = "PDF/packet renderer pending; operation section is a research reference, not a formal buy/sell directive"
+            blocker = (
+                "PDF/packet renderer pending; daily adapter approval metadata pending"
+                if volume_adapter["daily_adapter_status"] == "ready_pending_approval_metadata"
+                else "PDF/packet renderer pending"
+            )
             rows.append(
                 {
                     "generated_at": generated,
@@ -150,12 +199,19 @@ def build_model_operation_readiness(
                     "model_name_zh": model_name,
                     "parity_status": parity_status,
                     "blocker": blocker,
-                    "operation_module_status": volume_registry["operation_module_status"],
+                    "operation_module_status": (
+                        "approved_operation_v1" if volume_approved else volume_registry["operation_module_status"]
+                    ),
                     "daily_adapter_status": volume_adapter["daily_adapter_status"],
-                    "approved_for_daily": "False",
+                    "approved_for_daily": volume_approval["approved_for_daily"],
+                    "approval_status": volume_approval["approval_status"],
+                    "operation_module_id": volume_approval["operation_module_id"],
+                    "approval_version": volume_approval["approval_version"],
                     "presentation_allowed": "True" if volume_presentation_allowed else "False",
                     "operation_directive_level": (
-                        "research_reference_only" if volume_presentation_allowed else "no_operation_directive"
+                        volume_approval["operation_directive_level"]
+                        if volume_presentation_allowed and volume_approved
+                        else ("research_reference_only" if volume_presentation_allowed else "no_operation_directive")
                     ),
                     "pdf_integration_status": "pending_pdf_renderer",
                     "packet_integration_status": "pending_packet_renderer",
@@ -169,8 +225,8 @@ def build_model_operation_readiness(
                     "daily_adapter_data_row_count": volume_adapter["daily_adapter_data_row_count"],
                     "daily_adapter_sections": volume_adapter["daily_adapter_sections"],
                     "status_note_zh": (
-                        "放量攻擊已有研究統計操作參考與 daily adapter；只能呈現為歷史證據參考，"
-                        "不是正式買賣指令。PDF/packet 之後只能讀 adapter artifact，不可重算規則。"
+                        "放量攻擊 v1 已由 approved_operation_patterns 批准為 daily 操作建議；"
+                        "confirmed rows 才能列買進排名，pending rows 只列待確認。PDF/packet 仍只能讀 adapter artifact。"
                     ),
                 }
             )
@@ -187,6 +243,9 @@ def build_model_operation_readiness(
                 "operation_module_status": "baseline_only_no_validated_operation_module",
                 "daily_adapter_status": "not_started",
                 "approved_for_daily": "False",
+                "approval_status": "not_started",
+                "operation_module_id": "",
+                "approval_version": "",
                 "presentation_allowed": "False",
                 "operation_directive_level": "no_operation_directive",
                 "pdf_integration_status": "not_started",
@@ -220,8 +279,8 @@ def write_markdown(df: pd.DataFrame) -> None:
         "",
         f"- generated_at: `{now_text()}`",
         "- purpose: track model parity, operation-module readiness, daily adapter status, and promotion boundaries",
-        "- rule: `approved_for_daily=False` means no formal daily buy/sell directive is approved",
-        "- rule: `presentation_allowed=True` only permits research-derived historical reference rendering",
+        "- rule: `approved_for_daily=True` requires an explicit approved operation artifact",
+        "- rule: raw research evidence rows can remain research-only even after an operation module is approved",
         "- rule: PDF/packet integration must render adapter artifacts and must not recalculate operation rules",
         "",
     ]
@@ -241,6 +300,9 @@ def write_markdown(df: pd.DataFrame) -> None:
             "operation_module_status",
             "daily_adapter_status",
             "approved_for_daily",
+            "approval_status",
+            "operation_module_id",
+            "approval_version",
             "presentation_allowed",
             "operation_directive_level",
             "pdf_integration_status",
@@ -260,7 +322,8 @@ def main() -> int:
     parity = read_csv(PARITY_CSV, dtype=str).fillna("")
     registry = read_csv(REGISTRY_CSV, dtype=str).fillna("")
     adapter = read_csv(DAILY_VOLUME_ADAPTER_CSV, dtype=str).fillna("")
-    readiness = build_model_operation_readiness(parity, registry, adapter)
+    approval = read_csv(APPROVAL_CSV, dtype=str).fillna("")
+    readiness = build_model_operation_readiness(parity, registry, adapter, approval)
     write_csv(readiness, OUT_CSV)
     DOCS_LATEST_DIR.mkdir(parents=True, exist_ok=True)
     write_csv(readiness, DOCS_CSV)
