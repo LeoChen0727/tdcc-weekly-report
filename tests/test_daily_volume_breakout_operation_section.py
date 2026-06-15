@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 import build_daily_volume_breakout_operation_section as builder  # noqa: E402
+import generate_chatgpt_side_daily_reports as pdf_generator  # noqa: E402
 
 
 def approval_stub() -> dict[str, str]:
@@ -204,7 +205,124 @@ def test_daily_pdf_generator_does_not_read_research_operation_artifacts_directly
         return
     source = generator.read_text(encoding="utf-8", errors="replace")
 
+    assert "daily_volume_breakout_operation_section_latest.csv" in source
+    assert "render_volume_range_breakout_operation_section" in source
     assert "volume_breakout_operation_pdf_preview_latest.csv" not in source
     assert "volume_breakout_confirmed_operation_rank_latest.csv" not in source
     assert "volume_breakout_pending_operation_queue_latest.csv" not in source
     assert "approved_operation_patterns_latest.csv" not in source
+
+
+def test_daily_packet_builder_uses_daily_adapter_not_research_operation_artifacts() -> None:
+    packet_builder = ROOT / "build_chatgpt_daily_report_packet.py"
+    source = packet_builder.read_text(encoding="utf-8", errors="replace")
+
+    assert "daily_volume_breakout_operation_section_latest.csv" in source
+    assert "build_volume_operation_packet_lines" in source
+    assert "volume_breakout_operation_pdf_preview_latest.csv" not in source
+    assert "volume_breakout_confirmed_operation_rank_latest.csv" not in source
+    assert "volume_breakout_pending_operation_queue_latest.csv" not in source
+    assert "historical_pattern_operation_registry_latest.csv" not in source
+    assert "approved_operation_patterns_latest.csv" not in source
+
+
+def test_pdf_operation_renderer_uses_row_level_buy_eligibility(monkeypatch) -> None:
+    captured_tables: list[list[list[str]]] = []
+
+    def capture_table(rows, widths, font_size=7.2, header_bg=None):
+        captured_tables.append(rows)
+        return rows
+
+    monkeypatch.setattr(pdf_generator, "build_table", capture_table)
+    rows = pd.DataFrame(
+        [
+            {
+                "model_id": "volume_range_breakout",
+                "pdf_view": "highlight",
+                "pdf_section": "confirmed_operation",
+                "row_type": "data",
+                "display_order": "1",
+                "stock_id": "1111",
+                "stock_display": "1111 測試A",
+                "trigger_zh": "隔日續強確認",
+                "entry_basis_zh": "確認後下一交易日開盤",
+                "entry_price_status_zh": "進場價待下一交易日開盤",
+                "stop_basis_zh": "跌破 6/11 最低價 10.00",
+                "exit_rule_zh": "第 10 個交易日收盤出場",
+                "sample_size": "12",
+                "win_rate_zh": "66.67%",
+                "avg_return_zh": "+21.67%",
+                "median_return_zh": "+21.09%",
+                "confidence_zh": "低",
+                "operation_status_zh": "已確認",
+                "row_action_status": "confirmed_buy_candidate",
+                "buy_rank_eligible": "True",
+            },
+            {
+                "model_id": "volume_range_breakout",
+                "pdf_view": "highlight",
+                "pdf_section": "pending_confirmation",
+                "row_type": "data",
+                "display_order": "1",
+                "stock_id": "2222",
+                "stock_display": "2222 測試B",
+                "pending_age_zh": "D+1，剩 9 個交易日",
+                "pending_group_zh": "D+0-D+1 等隔日續強",
+                "pending_confirmation_zh": "等待隔日續強 / 回測 5MA / 回測 10MA",
+                "entry_basis_zh": "尚未確認，不列進場價",
+                "stop_basis_zh": "跌破 6/11 最低價 20.00",
+                "operation_status_zh": "待確認",
+                "row_action_status": "pending_confirmation",
+                "buy_rank_eligible": "False",
+            },
+            {
+                "model_id": "volume_range_breakout",
+                "pdf_view": "highlight",
+                "pdf_section": "active_operation",
+                "row_type": "empty_state",
+                "display_order": "0",
+                "stock_id": "",
+                "stock_display": "目前無資料",
+                "operation_status_zh": "操作中",
+                "adapter_note_zh": "目前無操作中追蹤列。",
+                "row_action_status": "empty_state",
+                "buy_rank_eligible": "False",
+            },
+        ]
+    )
+
+    story: list = []
+    pdf_generator.render_volume_range_breakout_operation_section(
+        story,
+        {"volume_operation": rows},
+        "highlight",
+    )
+
+    assert len(captured_tables) == 3
+    confirmed, pending, active = captured_tables
+    assert confirmed[0] == [
+        "排名",
+        "股票",
+        "確認方式",
+        "買入方式",
+        "進場價狀態",
+        "停損價",
+        "出場規則",
+        "樣本數",
+        "勝率",
+        "平均報酬",
+        "中位數報酬",
+        "信心",
+    ]
+    assert confirmed[1][1] == "1111 測試A"
+    assert "2222 測試B" not in " ".join(str(cell) for row in confirmed for cell in row)
+    assert pending[0] == ["股票", "等待天數", "等待分組", "待確認條件", "進場價狀態", "停損基準", "狀態"]
+    assert pending[1][0] == "2222 測試B"
+    assert pending[1][4] == "尚未確認，不列進場價"
+    assert active[0] == ["狀態", "股票 / 說明", "備註"]
+    assert active[1][0] == "操作中"
+
+    visible = "\n".join(str(cell) for table in captured_tables for row in table for cell in row)
+    assert "buy_rank_eligible" not in visible
+    assert "row_action_status" not in visible
+    assert "confirmed_buy_candidate" not in visible

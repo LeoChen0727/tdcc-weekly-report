@@ -92,7 +92,8 @@ def test_volume_breakout_approval_promotes_only_volume_model() -> None:
     assert volume["approved_for_daily"] == "True"
     assert volume["approval_status"] == "approved_for_daily_v1"
     assert volume["operation_directive_level"] == "approved_daily_operation_guidance"
-    assert volume["pdf_integration_status"] == "pending_pdf_renderer"
+    assert volume["pdf_integration_status"] == "pdf_integrated_daily_adapter"
+    assert volume["packet_integration_status"] == "packet_integrated_daily_adapter"
 
     pullback = readiness[readiness["model_id"].eq("price_pullback_23ema")].iloc[0]
     assert pullback["operation_module_status"] == "baseline_only_no_validated_operation_module"

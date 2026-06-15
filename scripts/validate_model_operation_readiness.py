@@ -95,8 +95,8 @@ def validate_readiness_csv() -> list[str]:
             "approval_status": "approved_for_daily_v1",
             "presentation_allowed": "True",
             "operation_directive_level": "approved_daily_operation_guidance",
-            "pdf_integration_status": "pending_pdf_renderer",
-            "packet_integration_status": "pending_packet_renderer",
+            "pdf_integration_status": "pdf_integrated_daily_adapter",
+            "packet_integration_status": "packet_integrated_daily_adapter",
         }
         for col, value in expected.items():
             if str(row.get(col, "")) != value:

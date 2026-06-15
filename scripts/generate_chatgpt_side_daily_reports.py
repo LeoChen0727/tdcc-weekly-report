@@ -64,6 +64,7 @@ TDCC_WINDOW_DIRS = [
 REMOTE_README: dict[str, str] = {}
 REMOTE_LATEST_BASE = "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest"
 REMOTE_DATA_BASE = "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data"
+VOLUME_BREAKOUT_MODEL_ID = "volume_range_breakout"
 
 REQUEST_DATE = ""
 OUTPUT_SUFFIX = "_current_rules"
@@ -1549,6 +1550,7 @@ def load_inputs() -> dict[str, pd.DataFrame]:
         "model_parameters": read_csv(remote_latest_url("daily_candidate_model_parameters_latest.csv")),
         "model_signals": read_csv(remote_latest_url("daily_candidate_model_signals_for_report_latest.csv")),
         "model_summary": read_csv(remote_latest_url("daily_candidate_model_summary_for_report_latest.csv")),
+        "volume_operation": read_csv(remote_latest_url("daily_volume_breakout_operation_section_latest.csv")),
         "group_rotation": read_csv(remote_latest_url("daily_candidate_group_rotation_latest.csv")),
         "themes": read_csv(remote_latest_url("daily_theme_leadership_latest.csv")),
         "volume_layer": read_csv(remote_latest_url("volume_attack_theme_layer_latest.csv")),
@@ -1633,6 +1635,171 @@ def model_signal_rows(inputs: dict[str, pd.DataFrame], model_id: str, line: str 
     sub["_model_score"] = pd.to_numeric(sub.get("model_score"), errors="coerce").fillna(-9999)
     sub = sub.sort_values(["_model_rank", "_display_rank", "_model_score"], ascending=[True, True, False])
     return [row.drop(labels=["_model_rank", "_display_rank", "_model_score"], errors="ignore") for _, row in sub.iterrows()]
+
+
+def is_true_text(value) -> bool:
+    return clean(value).lower() in {"true", "1", "yes", "y"}
+
+
+def volume_operation_frame(
+    inputs: dict[str, pd.DataFrame],
+    pdf_view: str,
+    pdf_section: str,
+) -> pd.DataFrame:
+    frame = inputs.get("volume_operation", pd.DataFrame()).copy()
+    required = {"model_id", "pdf_view", "pdf_section", "row_type", "display_order"}
+    if frame.empty or not required.issubset(frame.columns):
+        return pd.DataFrame()
+    frame = frame[
+        frame["model_id"].astype(str).eq(VOLUME_BREAKOUT_MODEL_ID)
+        & frame["pdf_view"].astype(str).eq(pdf_view)
+        & frame["pdf_section"].astype(str).eq(pdf_section)
+    ].copy()
+    if frame.empty:
+        return frame
+    frame["_display_order"] = pd.to_numeric(frame["display_order"], errors="coerce").fillna(9999)
+    return frame.sort_values(["_display_order", "stock_id"]).drop(columns=["_display_order"], errors="ignore")
+
+
+def volume_operation_empty_text(rows: pd.DataFrame, fallback: str) -> str:
+    if rows.empty:
+        return fallback
+    for col in ("adapter_note_zh", "pdf_note_zh", "operation_status_zh", "stock_display"):
+        if col in rows.columns:
+            text = " / ".join(clean(v) for v in rows[col].tolist() if clean(v))
+            if text:
+                return text
+    return fallback
+
+
+def build_volume_confirmed_operation_table(rows: pd.DataFrame) -> Table:
+    data = [[
+        "排名",
+        "股票",
+        "確認方式",
+        "買入方式",
+        "進場價狀態",
+        "停損價",
+        "出場規則",
+        "樣本數",
+        "勝率",
+        "平均報酬",
+        "中位數報酬",
+        "信心",
+    ]]
+    if rows.empty:
+        data.append(["-", "-", "-", "-", "-", "-", "目前無已確認操作。", "-", "-", "-", "-", "-"])
+    for _, row in rows.iterrows():
+        data.append(
+            [
+                clean(row.get("display_order"), "-"),
+                clean(row.get("stock_display"), "-"),
+                clean(row.get("trigger_zh"), "-"),
+                clean(row.get("entry_basis_zh"), "-"),
+                clean(row.get("entry_price_status_zh"), "-"),
+                clean(row.get("stop_basis_zh"), "-"),
+                clean(row.get("exit_rule_zh"), "-"),
+                clean(row.get("sample_size"), "-"),
+                clean(row.get("win_rate_zh"), "-"),
+                clean(row.get("avg_return_zh"), "-"),
+                clean(row.get("median_return_zh"), "-"),
+                clean(row.get("confidence_zh"), "-"),
+            ]
+        )
+    return build_table(
+        data,
+        [8 * mm, 20 * mm, 20 * mm, 24 * mm, 24 * mm, 28 * mm, 44 * mm, 11 * mm, 14 * mm, 15 * mm, 17 * mm, 13 * mm],
+        12.0,
+        header_bg=colors.HexColor("#7f6000"),
+    )
+
+
+def build_volume_pending_operation_table(rows: pd.DataFrame) -> Table:
+    data = [["股票", "等待天數", "等待分組", "待確認條件", "進場價狀態", "停損基準", "狀態"]]
+    if rows.empty:
+        data.append(["-", "-", "-", "目前無待確認列。", "不列進場價", "-", "待確認"])
+    for _, row in rows.iterrows():
+        data.append(
+            [
+                clean(row.get("stock_display"), "-"),
+                clean(row.get("pending_age_zh"), "-"),
+                clean(row.get("pending_group_zh"), "-"),
+                clean(row.get("pending_confirmation_zh"), "-"),
+                first_text(row.get("entry_price_status_zh"), row.get("entry_basis_zh"), default="尚未確認，不列進場價"),
+                clean(row.get("stop_basis_zh"), "-"),
+                clean(row.get("operation_status_zh"), "待確認"),
+            ]
+        )
+    return build_table(
+        data,
+        [28 * mm, 24 * mm, 36 * mm, 50 * mm, 34 * mm, 42 * mm, 22 * mm],
+        12.0,
+        header_bg=colors.HexColor("#5f7530"),
+    )
+
+
+def build_volume_active_operation_table(rows: pd.DataFrame) -> Table:
+    data = [["狀態", "股票 / 說明", "備註"]]
+    if rows.empty:
+        data.append(["操作中", "目前無資料", "目前無操作中追蹤列。"])
+    for _, row in rows.iterrows():
+        data.append(
+            [
+                clean(row.get("operation_status_zh"), "操作中"),
+                clean(row.get("stock_display"), "目前無資料"),
+                first_text(row.get("adapter_note_zh"), row.get("pdf_note_zh"), default="目前無操作中追蹤列。"),
+            ]
+        )
+    return build_table(
+        data,
+        [30 * mm, 58 * mm, 148 * mm],
+        12.0,
+        header_bg=colors.HexColor("#44546a"),
+    )
+
+
+def render_volume_range_breakout_operation_section(
+    story: list,
+    inputs: dict[str, pd.DataFrame],
+    pdf_view: str,
+) -> None:
+    confirmed_all = volume_operation_frame(inputs, pdf_view, "confirmed_operation")
+    pending_all = volume_operation_frame(inputs, pdf_view, "pending_confirmation")
+    active_rows = volume_operation_frame(inputs, pdf_view, "active_operation")
+
+    confirmed = confirmed_all[
+        confirmed_all.get("row_type", pd.Series(dtype=str)).astype(str).eq("data")
+        & confirmed_all.get("row_action_status", pd.Series(dtype=str)).astype(str).eq("confirmed_buy_candidate")
+        & confirmed_all.get("buy_rank_eligible", pd.Series(dtype=str)).map(is_true_text)
+    ].copy() if not confirmed_all.empty else pd.DataFrame()
+
+    pending = pending_all[
+        pending_all.get("row_type", pd.Series(dtype=str)).astype(str).eq("data")
+        & pending_all.get("row_action_status", pd.Series(dtype=str)).astype(str).eq("pending_confirmation")
+        & ~pending_all.get("buy_rank_eligible", pd.Series(dtype=str)).map(is_true_text)
+    ].copy() if not pending_all.empty else pd.DataFrame()
+
+    story.append(Spacer(1, 6))
+    story.append(Paragraph("放量攻擊模型操作參考", H2))
+    story.append(
+        para(
+            "以下僅呈現 daily adapter 已核准欄位；PDF 不重新計算進場、停損、出場或排名。"
+            "待確認列只作觀察，不列進場價，也不放入已確認操作表。",
+            BODY_SMALL,
+        )
+    )
+    story.append(Paragraph("已確認操作 / 可列買入排名", H2))
+    story.append(build_volume_confirmed_operation_table(confirmed))
+    story.append(Spacer(1, 5))
+    story.append(Paragraph("待確認", H2))
+    if pending.empty:
+        story.append(para(volume_operation_empty_text(pending_all, "目前無待確認列。"), BODY_SMALL))
+    story.append(build_volume_pending_operation_table(pending))
+    story.append(Spacer(1, 5))
+    story.append(Paragraph("操作中", H2))
+    if active_rows.empty:
+        story.append(para("目前無操作中追蹤列。", BODY_SMALL))
+    story.append(build_volume_active_operation_table(active_rows))
 
 
 def model_signal_rows_for_stock(inputs: dict[str, pd.DataFrame], stock_id: str, line: str | None = None) -> list[pd.Series]:
@@ -2720,6 +2887,8 @@ def build_mainstream_curated_pdf(
         if desc:
             story.append(para(desc, BODY_SMALL))
         story.append(build_mainstream_curated_model_table(ranked_rows, two_map, all_map, limit=limit))
+        if model_id == VOLUME_BREAKOUT_MODEL_ID:
+            render_volume_range_breakout_operation_section(story, inputs, "highlight")
         reps = mainstream_curated_operation_representatives(ranked_rows)
         for row in reps:
             sid = clean(row.get("stock_id"))
@@ -2789,6 +2958,8 @@ def build_non_mainstream_curated_pdf(
         if desc:
             story.append(para(desc, BODY_SMALL))
         story.append(build_non_mainstream_curated_model_table(ranked_rows, two_map, all_map, limit=limit))
+        if model_id == VOLUME_BREAKOUT_MODEL_ID:
+            render_volume_range_breakout_operation_section(story, inputs, "highlight")
         reps = non_mainstream_curated_operation_representatives(ranked_rows)
         for row in reps:
             sid = clean(row.get("stock_id"))
@@ -2876,6 +3047,8 @@ def build_mainstream_full_candidate_pdf(
             story.append(para("無符合條件資料。", BODY))
             continue
         story.append(build_mainstream_full_model_table(line_rows, two_map, all_map, limit=limit))
+        if model_id == VOLUME_BREAKOUT_MODEL_ID:
+            render_volume_range_breakout_operation_section(story, inputs, "full")
 
     story.append(PageBreak())
     story.append(Paragraph(f"{line_label}雙線與輪動摘要", H1))
@@ -2994,6 +3167,8 @@ def build_non_mainstream_full_candidate_pdf(
             story.append(para("無符合條件資料。", BODY))
             continue
         story.append(build_non_mainstream_full_model_table(line_rows, two_map, all_map, limit=limit))
+        if model_id == VOLUME_BREAKOUT_MODEL_ID:
+            render_volume_range_breakout_operation_section(story, inputs, "full")
 
     story.append(PageBreak())
     story.append(Paragraph(f"{line_label}雙線與輪動摘要", H1))
