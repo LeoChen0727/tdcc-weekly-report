@@ -249,6 +249,32 @@ def find_existing_stock_flow_fallback(date: str) -> tuple[Path | None, pd.DataFr
     return None, pd.DataFrame(columns=FLOW_COLUMNS)
 
 
+def select_report_date(raw: pd.DataFrame, flow: pd.DataFrame) -> str:
+    """Use the accepted main price date as the warrant report date.
+
+    Official warrant raw feeds can temporarily lag the stock price date.  This
+    report is a latest daily-production artifact, so stale raw data must not
+    pull `warrant_flow_by_stock_latest.csv` back to an older date when same-day
+    stock-level warrant flow already exists.
+    """
+
+    price_date = normalize_date(latest_price_date())
+    if price_date:
+        return price_date
+
+    return latest_date(flow) or latest_date(raw) or normalize_date(now_text()) or "unknown"
+
+
+def snapshot_for_date(df: pd.DataFrame, date: str) -> pd.DataFrame:
+    if df.empty:
+        return df.copy()
+    if "date" not in df.columns:
+        return df.copy()
+    out = df.copy()
+    out["date"] = out["date"].map(normalize_date).replace("", date)
+    return out[out["date"].eq(date)].copy()
+
+
 def empty_flow(date: str, note: str) -> pd.DataFrame:
     df = pd.DataFrame(columns=FLOW_COLUMNS)
     df.loc[0, "date"] = date
@@ -606,24 +632,32 @@ def write_report(flow: pd.DataFrame, heat: pd.DataFrame, date: str, raw_rows: in
 
 def main() -> int:
     raw = read_csv(RAW_LATEST, dtype=str)
+    raw_date = latest_date(raw)
     flow_source = read_csv(FLOW_LATEST, dtype=str)
-    date = latest_date(raw) or latest_date(flow_source) or latest_price_date()
+    date = select_report_date(raw, flow_source)
     if not date:
         date = normalize_date(now_text()) or "unknown"
+    raw_for_report = snapshot_for_date(raw, date)
+    flow_source = usable_stock_flow_snapshot(flow_source, date)
     flow_fallback_path: Path | None = None
 
     DATA_WARRANT_DAILY.mkdir(parents=True, exist_ok=True)
     DATA_WARRANT_FLOW.mkdir(parents=True, exist_ok=True)
-    if not raw.empty:
-        write_csv(raw, DATA_WARRANT_DAILY / f"{date}.csv")
+    saved_raw_path: Path | None = None
+    if not raw_for_report.empty:
+        saved_raw_path = DATA_WARRANT_DAILY / f"{date}.csv"
+        write_csv(raw_for_report, saved_raw_path)
+    elif not raw.empty and raw_date:
+        saved_raw_path = DATA_WARRANT_DAILY / f"{raw_date}.csv"
+        write_csv(raw, saved_raw_path)
 
-    if raw.empty and flow_source.empty:
+    if flow_source.empty:
         flow_fallback_path, flow_fallback = find_existing_stock_flow_fallback(date)
 
         if not flow_fallback.empty:
             flow_source = flow_fallback
 
-    flow = prepare_flow(raw, flow_source, date)
+    flow = prepare_flow(raw_for_report, flow_source, date)
     if "date" in flow.columns:
         flow["date"] = flow["date"].map(normalize_date).replace("", date)
         flow = flow[flow["date"].eq(date) | flow["date"].eq("")].copy()
@@ -637,18 +671,23 @@ def main() -> int:
 
     perf = build_performance_table(flow)
     write_performance_md(perf)
-    write_report(flow, heat, date, len(raw), len(flow_source))
+    write_report(flow, heat, date, len(raw_for_report), len(flow_source))
 
-    print(f"Saved: {DATA_WARRANT_DAILY / f'{date}.csv'}")
+    if saved_raw_path is not None:
+        print(f"Saved: {saved_raw_path}")
+        if raw_date and raw_date != date:
+            print(f"WARNING: raw warrant date {raw_date} did not match report date {date}; raw was not used for latest stock-level flow.")
+    else:
+        print("WARNING: no same-date warrant raw snapshot was available for report date.")
     print(f"Saved: {DATA_WARRANT_FLOW / f'{date}.csv'}")
     print(f"Saved: {REPORT_MD}")
     print(f"Saved: {REPORT_PDF}")
     print(f"Saved: {FLOW_BY_STOCK_LATEST}")
     print(f"Saved: {SECTOR_HEAT_LATEST}")
     print(f"Saved: {PERFORMANCE_MD}")
-    if raw.empty and flow_source.empty:
+    if raw_for_report.empty and flow_source.empty:
         print("WARNING: warrant raw/flow latest files are missing; emitted observe-only outputs.")
-    elif raw.empty and flow_fallback_path is not None:
+    elif raw_for_report.empty and flow_fallback_path is not None:
         print(f"Preserved existing same-date warrant stock flow from {flow_fallback_path}.")
     return 0
 
