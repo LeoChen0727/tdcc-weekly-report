@@ -1,14 +1,14 @@
 # TDCC CHATGPT TRACKING PACKET
 
 ## Metadata
-- generated_at: 2026-06-14 20:49:14 Asia/Taipei
-- main_price_date: 20260612
+- generated_at: 2026-06-15 22:13:21 Asia/Taipei
+- main_price_date: 20260615
 - latest_tdcc_signal_date: 20260612
 - source_files: tdcc_signal_snapshot.csv, tdcc_normalized_signal_log.csv, tdcc_signal_performance.csv, tdcc_pre_move_accumulation_latest.csv, tdcc_signal_effectiveness_latest.md
 - overall_mature_d5_count: 119
 - phase_mature_d5_count: 119
-- overall_mature_d10_count: 82
-- phase_mature_d10_count: 82
+- overall_mature_d10_count: 119
+- phase_mature_d10_count: 119
 - overall_mature_d20_count: 41
 - phase_mature_d20_count: 41
 - pending_count: 99
@@ -39,7 +39,7 @@
 - benchmark_available: yes
 - theme_data_available: yes
 - theme_lookup_rows: 333
-- theme_lookup_sources: {'config': 28, 'company_theme_mapping': 28, 'all_candidates': 426}
+- theme_lookup_sources: {'config': 28, 'company_theme_mapping': 28, 'all_candidates': 406}
 - theme_other_before: 1083
 - theme_other_after: 220
 - theme_other_pct: 20.11
@@ -51,8 +51,8 @@
 
 - overall_mature_d5_count: 119
 - phase_mature_d5_count: 119
-- overall_mature_d10_count: 82
-- phase_mature_d10_count: 82
+- overall_mature_d10_count: 119
+- phase_mature_d10_count: 119
 - overall_mature_d20_count: 41
 - phase_mature_d20_count: 41
 - pending_count: 99
@@ -66,89 +66,89 @@
 
 | rank | stock_id | stock_name | theme | theme_mainstream_status | theme_heat_level | tdcc_strength_score | tdcc_consecutive_up_weeks | all_thresholds_up | high_thresholds_up | tdcc_price_phase | setup_type | abm_score | price_return_5d | price_return_20d | relative_return_vs_benchmark | distance_ma20_pct | volume_ratio_20d | theme_breadth_score | theme_momentum_score | theme_tdcc_breadth_score | theme_price_breadth_score | theme_warrant_heat_score | theme_relative_strength | risk_label | risk_bucket | interpretation |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | 1233 | 天仁 | other | single_name_signal | high | 235.00 | 7 | True | True | tdcc_price_divergence | quiet_accumulation | 86.00 | 0.72 | -2.97 | -0.68 | -1.53 | 0.30 | 10.00 | 162.88 | 10.00 | 23.00 | 0.00 | 2.88 | divergence_failed_watch | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
-| 2 | 1304 | 台聚 | traditional industries | mainstream_leader | high | 235.00 | 7 | True | True | insufficient_price_context | quiet_accumulation | 82.00 | -4.51 | -0.39 | 6.22 | 0.59 | 0.52 | 10.00 | 194.04 | 10.00 | 42.00 | 0.00 | 5.04 | insufficient_data | insufficient_data | 價格或 benchmark 資料不足，不列入強弱判斷。 |
-| 3 | 1323 | 永裕 | traditional industries | mainstream_leader | high | 235.00 | 7 | True | True | tdcc_price_divergence | watch_only | 81.00 | -3.18 | 1.80 | -0.96 | -0.94 | 1.32 | 10.00 | 194.04 | 10.00 | 42.00 | 0.00 | 5.04 | divergence_failed_watch | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
-| 4 | 1410 | 南染 | traditional industries | mainstream_leader | high | 235.00 | 7 | True | True | tdcc_price_divergence | watch_only | 65.00 | -2.75 | -7.46 | -4.08 | -5.36 | 1.66 | 10.00 | 194.04 | 10.00 | 42.00 | 0.00 | 5.04 | divergence_failed_watch | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
-| 5 | 1443 | 立益物流 | traditional industries | mainstream_leader | high | 235.00 | 7 | True | True | insufficient_price_context | watch_only | 83.00 | 5.95 | -1.48 | 6.17 | 2.93 | 0.94 | 10.00 | 194.04 | 10.00 | 42.00 | 0.00 | 5.04 | insufficient_data | insufficient_data | 價格或 benchmark 資料不足，不列入強弱判斷。 |
-| 6 | 1460 | 宏遠 | traditional industries | mainstream_leader | high | 235.00 | 7 | True | True | insufficient_price_context | quiet_accumulation | 100.00 | -0.70 | 1.00 | 3.27 | 0.46 | 0.64 | 10.00 | 194.04 | 10.00 | 42.00 | 0.00 | 5.04 | insufficient_data | insufficient_data | 價格或 benchmark 資料不足，不列入強弱判斷。 |
-| 7 | 1626 | 艾美特-KY | other electronics | mainstream_leader | high | 235.00 | 7 | True | True | tdcc_leading_price | watch_only | 70.00 | -0.50 | -5.19 | 1.96 | 0.23 | 0.46 | 10.00 | 199.40 | 10.00 | 47.00 | 0.00 | 2.40 | potential_accumulation | strong_but_pre_move | 籌碼持續改善，但股價尚未明顯反應。 |
-| 8 | 1734 | 杏輝 | biotechnology | mainstream_leader | high | 235.00 | 7 | True | True | insufficient_price_context | quiet_accumulation | 100.00 | 0.64 | 1.78 | 4.54 | 2.12 | 1.03 | 10.00 | 80.72 | 10.00 | 12.00 | 0.00 | 2.72 | insufficient_data | insufficient_data | 價格或 benchmark 資料不足，不列入強弱判斷。 |
-| 9 | 1737 | 臺鹽 | biotechnology | mainstream_leader | high | 235.00 | 7 | True | True | tdcc_leading_price | quiet_accumulation | 100.00 | 0.47 | 0.95 | 1.89 | 0.61 | 0.64 | 10.00 | 80.72 | 10.00 | 12.00 | 0.00 | 2.72 | potential_accumulation | strong_but_pre_move | 籌碼持續改善，但股價尚未明顯反應。 |
-| 10 | 2024 | 志聯 | traditional industries | mainstream_leader | high | 235.00 | 7 | True | True | tdcc_leading_price | quiet_accumulation | 90.00 | -1.05 | 2.16 | 2.69 | 1.92 | 0.67 | 10.00 | 194.04 | 10.00 | 42.00 | 0.00 | 5.04 | potential_accumulation | strong_but_pre_move | 籌碼持續改善，但股價尚未明顯反應。 |
-| 11 | 3705 | 永信 | other electronics | mainstream_leader | high | 235.00 | 7 | True | True | insufficient_price_context | quiet_accumulation | 100.00 | 1.60 | 3.25 | 3.95 | 1.96 | 0.83 | 10.00 | 199.40 | 10.00 | 47.00 | 0.00 | 2.40 | insufficient_data | insufficient_data | 價格或 benchmark 資料不足，不列入強弱判斷。 |
-| 12 | 4527 | 方土霖 | other | single_name_signal | high | 235.00 | 7 | True | True | tdcc_price_divergence | quiet_accumulation | 95.00 | -1.78 | -5.16 | -1.06 | -4.44 | 1.21 | 10.00 | 162.88 | 10.00 | 23.00 | 0.00 | 2.88 | divergence_failed_watch | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
-| 13 | 7718 | 友鋮 | other | single_name_signal | high | 235.00 | 7 | True | True | tdcc_leading_price | quiet_accumulation | 91.00 | -4.33 | -3.16 | 2.43 | -2.87 | 1.37 | 10.00 | 162.88 | 10.00 | 23.00 | 0.00 | 2.88 | potential_accumulation | strong_but_pre_move | 籌碼持續改善，但股價尚未明顯反應。 |
-| 14 | 8409 | 商之器 | biotechnology | mainstream_leader | high | 235.00 | 7 | True | True | insufficient_price_context | quiet_accumulation | 91.00 | 0.00 | 0.00 | 4.87 | -0.49 | 1.26 | 10.00 | 80.72 | 10.00 | 12.00 | 0.00 | 2.72 | insufficient_data | insufficient_data | 價格或 benchmark 資料不足，不列入強弱判斷。 |
-| 15 | 1236 | 宏亞 | other | single_name_signal | high | 225.00 | 6 | True | True | insufficient_price_context | quiet_accumulation | 95.00 | 4.05 | 2.19 | 7.46 | 5.02 | 1.04 | 10.00 | 162.88 | 10.00 | 23.00 | 0.00 | 2.88 | insufficient_data | insufficient_data | 價格或 benchmark 資料不足，不列入強弱判斷。 |
-| 16 | 1313 | 聯成 | traditional industries | mainstream_leader | high | 225.00 | 6 | True | True | insufficient_price_context | watch_only | 69.00 | 0.90 | 0.45 | 8.92 | 4.02 | 0.88 | 10.00 | 194.04 | 10.00 | 42.00 | 0.00 | 5.04 | insufficient_data | insufficient_data | 價格或 benchmark 資料不足，不列入強弱判斷。 |
-| 17 | 1423 | 利華 | traditional industries | mainstream_leader | high | 225.00 | 6 | True | True | price_leading_tdcc | watch_only | 79.00 | 4.76 | 12.19 | 11.66 | 7.66 | 11.27 | 10.00 | 194.04 | 10.00 | 42.00 | 0.00 | 5.04 | late_or_chasing_risk | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
-| 18 | 1455 | 集盛 | traditional industries | mainstream_leader | high | 225.00 | 6 | True | True | price_leading_tdcc | strong_momentum | 65.00 | 8.59 | 23.33 | 25.82 | 16.10 | 1.48 | 10.00 | 194.04 | 10.00 | 42.00 | 0.00 | 5.04 | late_or_chasing_risk | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
-| 19 | 1459 | 聯發 | traditional industries | mainstream_leader | high | 225.00 | 6 | True | True | tdcc_leading_price | watch_only | 80.00 | 1.72 | -0.84 | 2.55 | 0.60 | 0.42 | 10.00 | 194.04 | 10.00 | 42.00 | 0.00 | 5.04 | potential_accumulation | strong_but_pre_move | 籌碼持續改善，但股價尚未明顯反應。 |
-| 20 | 1733 | 五鼎 | biotechnology | mainstream_leader | high | 225.00 | 6 | True | True | tdcc_price_divergence | quiet_accumulation | 96.00 | -3.62 | 2.99 | -1.40 | -1.39 | 0.42 | 10.00 | 80.72 | 10.00 | 12.00 | 0.00 | 2.72 | divergence_failed_watch | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
-| 21 | 2008 | 高興昌 | traditional industries | mainstream_leader | high | 225.00 | 6 | True | True | tdcc_price_confirmed | quiet_accumulation | 85.00 | 2.74 | 9.09 | 9.37 | 5.36 | 0.31 | 10.00 | 194.04 | 10.00 | 42.00 | 0.00 | 5.04 | confirmed_move | strong_confirmed | 籌碼改善且股價已開始確認。 |
-| 22 | 2027 | 大成鋼 | traditional industries | mainstream_leader | high | 225.00 | 6 | True | True | insufficient_price_context | quiet_accumulation | 91.00 | -0.23 | 9.70 | 6.58 | 3.96 | 0.47 | 10.00 | 194.04 | 10.00 | 42.00 | 0.00 | 5.04 | insufficient_data | insufficient_data | 價格或 benchmark 資料不足，不列入強弱判斷。 |
-| 23 | 2064 | 晉椿 | traditional industries | mainstream_leader | high | 225.00 | 6 | True | True | price_leading_tdcc | quiet_accumulation | 88.00 | -4.39 | 9.27 | 10.99 | 3.13 | 0.84 | 10.00 | 194.04 | 10.00 | 42.00 | 0.00 | 5.04 | late_or_chasing_risk | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
-| 24 | 2107 | 厚生 | biotechnology | mainstream_leader | high | 225.00 | 6 | True | True | insufficient_price_context | watch_only | 92.00 | 3.32 | 1.93 | 7.91 | 4.30 | 3.67 | 10.00 | 80.72 | 10.00 | 12.00 | 0.00 | 2.72 | insufficient_data | insufficient_data | 價格或 benchmark 資料不足，不列入強弱判斷。 |
-| 25 | 2380 | 虹光 | semiconductor equipment/materials | non_mainstream_watch | low | 225.00 | 6 | True | True | price_leading_tdcc | watch_only | 65.00 | 11.44 | 10.67 | 13.28 | 10.41 | 3.66 | 10.00 | 17.60 | 10.00 | 4.00 | 0.00 | 5.60 | late_or_chasing_risk | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
-| 26 | 2385 | 群光 | other electronics | mainstream_leader | high | 225.00 | 6 | True | True | insufficient_price_context | quiet_accumulation | 95.00 | -1.74 | 4.44 | 7.28 | 5.07 | 1.43 | 10.00 | 199.40 | 10.00 | 47.00 | 0.00 | 2.40 | insufficient_data | insufficient_data | 價格或 benchmark 資料不足，不列入強弱判斷。 |
-| 27 | 2477 | 美隆電 | other electronics | mainstream_leader | high | 225.00 | 6 | True | True | insufficient_price_context | watch_only | 66.00 | -1.35 | 4.51 | 6.52 | 2.64 | 0.51 | 10.00 | 199.40 | 10.00 | 47.00 | 0.00 | 2.40 | insufficient_data | insufficient_data | 價格或 benchmark 資料不足，不列入強弱判斷。 |
+| 1 | 1233 | 天仁 | other | single_name_signal | high | 235.00 | 7 | True | True | tdcc_price_divergence | quiet_accumulation | 86.00 | 0.72 | -2.97 | -0.68 | -1.53 | 0.30 | 10.00 | 166.01 | 10.00 | 24.00 | 0.00 | 3.01 | divergence_failed_watch | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
+| 2 | 1304 | 台聚 | traditional industries | mainstream_leader | high | 235.00 | 7 | True | True | insufficient_price_context | quiet_accumulation | 82.00 | -4.51 | -0.39 | 6.22 | 0.59 | 0.52 | 10.00 | 184.78 | 10.00 | 39.00 | 0.00 | 4.78 | insufficient_data | insufficient_data | 價格或 benchmark 資料不足，不列入強弱判斷。 |
+| 3 | 1323 | 永裕 | traditional industries | mainstream_leader | high | 235.00 | 7 | True | True | tdcc_price_divergence | watch_only | 81.00 | -3.18 | 1.80 | -0.96 | -0.94 | 1.32 | 10.00 | 184.78 | 10.00 | 39.00 | 0.00 | 4.78 | divergence_failed_watch | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
+| 4 | 1410 | 南染 | traditional industries | mainstream_leader | high | 235.00 | 7 | True | True | tdcc_price_divergence | watch_only | 65.00 | -2.75 | -7.46 | -4.08 | -5.36 | 1.66 | 10.00 | 184.78 | 10.00 | 39.00 | 0.00 | 4.78 | divergence_failed_watch | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
+| 5 | 1443 | 立益物流 | traditional industries | mainstream_leader | high | 235.00 | 7 | True | True | insufficient_price_context | watch_only | 83.00 | 5.95 | -1.48 | 6.17 | 2.93 | 0.94 | 10.00 | 184.78 | 10.00 | 39.00 | 0.00 | 4.78 | insufficient_data | insufficient_data | 價格或 benchmark 資料不足，不列入強弱判斷。 |
+| 6 | 1460 | 宏遠 | traditional industries | mainstream_leader | high | 235.00 | 7 | True | True | insufficient_price_context | quiet_accumulation | 100.00 | -0.70 | 1.00 | 3.27 | 0.46 | 0.64 | 10.00 | 184.78 | 10.00 | 39.00 | 0.00 | 4.78 | insufficient_data | insufficient_data | 價格或 benchmark 資料不足，不列入強弱判斷。 |
+| 7 | 1626 | 艾美特-KY | other electronics | mainstream_leader | high | 235.00 | 7 | True | True | tdcc_leading_price | watch_only | 70.00 | -0.50 | -5.19 | 1.96 | 0.23 | 0.46 | 10.00 | 205.60 | 10.00 | 49.00 | 0.00 | 2.60 | potential_accumulation | strong_but_pre_move | 籌碼持續改善，但股價尚未明顯反應。 |
+| 8 | 1734 | 杏輝 | biotechnology | mainstream_leader | high | 235.00 | 7 | True | True | insufficient_price_context | quiet_accumulation | 100.00 | 0.64 | 1.78 | 4.54 | 2.12 | 1.03 | 10.00 | 83.86 | 10.00 | 13.00 | 0.00 | 2.86 | insufficient_data | insufficient_data | 價格或 benchmark 資料不足，不列入強弱判斷。 |
+| 9 | 1737 | 臺鹽 | biotechnology | mainstream_leader | high | 235.00 | 7 | True | True | tdcc_leading_price | quiet_accumulation | 100.00 | 0.47 | 0.95 | 1.89 | 0.61 | 0.64 | 10.00 | 83.86 | 10.00 | 13.00 | 0.00 | 2.86 | potential_accumulation | strong_but_pre_move | 籌碼持續改善，但股價尚未明顯反應。 |
+| 10 | 2024 | 志聯 | traditional industries | mainstream_leader | high | 235.00 | 7 | True | True | tdcc_leading_price | quiet_accumulation | 90.00 | -1.05 | 2.16 | 2.69 | 1.92 | 0.67 | 10.00 | 184.78 | 10.00 | 39.00 | 0.00 | 4.78 | potential_accumulation | strong_but_pre_move | 籌碼持續改善，但股價尚未明顯反應。 |
+| 11 | 3705 | 永信 | other electronics | mainstream_leader | high | 235.00 | 7 | True | True | insufficient_price_context | quiet_accumulation | 100.00 | 1.60 | 3.25 | 3.95 | 1.96 | 0.83 | 10.00 | 205.60 | 10.00 | 49.00 | 0.00 | 2.60 | insufficient_data | insufficient_data | 價格或 benchmark 資料不足，不列入強弱判斷。 |
+| 12 | 4527 | 方土霖 | other | single_name_signal | high | 235.00 | 7 | True | True | tdcc_price_divergence | quiet_accumulation | 95.00 | -1.78 | -5.16 | -1.06 | -4.44 | 1.21 | 10.00 | 166.01 | 10.00 | 24.00 | 0.00 | 3.01 | divergence_failed_watch | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
+| 13 | 7718 | 友鋮 | other | single_name_signal | high | 235.00 | 7 | True | True | tdcc_leading_price | quiet_accumulation | 91.00 | -4.33 | -3.16 | 2.43 | -2.87 | 1.37 | 10.00 | 166.01 | 10.00 | 24.00 | 0.00 | 3.01 | potential_accumulation | strong_but_pre_move | 籌碼持續改善，但股價尚未明顯反應。 |
+| 14 | 8409 | 商之器 | biotechnology | mainstream_leader | high | 235.00 | 7 | True | True | insufficient_price_context | quiet_accumulation | 91.00 | 0.00 | 0.00 | 4.87 | -0.49 | 1.26 | 10.00 | 83.86 | 10.00 | 13.00 | 0.00 | 2.86 | insufficient_data | insufficient_data | 價格或 benchmark 資料不足，不列入強弱判斷。 |
+| 15 | 1236 | 宏亞 | other | single_name_signal | high | 225.00 | 6 | True | True | insufficient_price_context | quiet_accumulation | 95.00 | 4.05 | 2.19 | 7.46 | 5.02 | 1.04 | 10.00 | 166.01 | 10.00 | 24.00 | 0.00 | 3.01 | insufficient_data | insufficient_data | 價格或 benchmark 資料不足，不列入強弱判斷。 |
+| 16 | 1313 | 聯成 | traditional industries | mainstream_leader | high | 225.00 | 6 | True | True | insufficient_price_context | watch_only | 69.00 | 0.90 | 0.45 | 8.92 | 4.02 | 0.88 | 10.00 | 184.78 | 10.00 | 39.00 | 0.00 | 4.78 | insufficient_data | insufficient_data | 價格或 benchmark 資料不足，不列入強弱判斷。 |
+| 17 | 1423 | 利華 | traditional industries | mainstream_leader | high | 225.00 | 6 | True | True | price_leading_tdcc | watch_only | 79.00 | 4.76 | 12.19 | 11.66 | 7.66 | 11.27 | 10.00 | 184.78 | 10.00 | 39.00 | 0.00 | 4.78 | late_or_chasing_risk | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
+| 18 | 1455 | 集盛 | traditional industries | mainstream_leader | high | 225.00 | 6 | True | True | price_leading_tdcc | strong_momentum | 65.00 | 8.59 | 23.33 | 25.82 | 16.10 | 1.48 | 10.00 | 184.78 | 10.00 | 39.00 | 0.00 | 4.78 | late_or_chasing_risk | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
+| 19 | 1459 | 聯發 | traditional industries | mainstream_leader | high | 225.00 | 6 | True | True | tdcc_leading_price | watch_only | 80.00 | 1.72 | -0.84 | 2.55 | 0.60 | 0.42 | 10.00 | 184.78 | 10.00 | 39.00 | 0.00 | 4.78 | potential_accumulation | strong_but_pre_move | 籌碼持續改善，但股價尚未明顯反應。 |
+| 20 | 1733 | 五鼎 | biotechnology | mainstream_leader | high | 225.00 | 6 | True | True | tdcc_price_divergence | quiet_accumulation | 96.00 | -3.62 | 2.99 | -1.40 | -1.39 | 0.42 | 10.00 | 83.86 | 10.00 | 13.00 | 0.00 | 2.86 | divergence_failed_watch | strong_but_divergent | TDCC 增加但股價轉弱，需防訊號失效。 |
+| 21 | 2008 | 高興昌 | traditional industries | mainstream_leader | high | 225.00 | 6 | True | True | tdcc_price_confirmed | quiet_accumulation | 85.00 | 2.74 | 9.09 | 9.37 | 5.36 | 0.31 | 10.00 | 184.78 | 10.00 | 39.00 | 0.00 | 4.78 | confirmed_move | strong_confirmed | 籌碼改善且股價已開始確認。 |
+| 22 | 2027 | 大成鋼 | traditional industries | mainstream_leader | high | 225.00 | 6 | True | True | insufficient_price_context | quiet_accumulation | 91.00 | -0.23 | 9.70 | 6.58 | 3.96 | 0.47 | 10.00 | 184.78 | 10.00 | 39.00 | 0.00 | 4.78 | insufficient_data | insufficient_data | 價格或 benchmark 資料不足，不列入強弱判斷。 |
+| 23 | 2064 | 晉椿 | traditional industries | mainstream_leader | high | 225.00 | 6 | True | True | price_leading_tdcc | quiet_accumulation | 88.00 | -4.39 | 9.27 | 10.99 | 3.13 | 0.84 | 10.00 | 184.78 | 10.00 | 39.00 | 0.00 | 4.78 | late_or_chasing_risk | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
+| 24 | 2107 | 厚生 | biotechnology | mainstream_leader | high | 225.00 | 6 | True | True | insufficient_price_context | watch_only | 92.00 | 3.32 | 1.93 | 7.91 | 4.30 | 3.67 | 10.00 | 83.86 | 10.00 | 13.00 | 0.00 | 2.86 | insufficient_data | insufficient_data | 價格或 benchmark 資料不足，不列入強弱判斷。 |
+| 25 | 2380 | 虹光 | other electronics | mainstream_leader | high | 225.00 | 6 | True | True | price_leading_tdcc | watch_only | 65.00 | 11.44 | 10.67 | 13.28 | 10.41 | 3.66 | 10.00 | 205.60 | 10.00 | 49.00 | 0.00 | 2.60 | late_or_chasing_risk | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
+| 26 | 2385 | 群光 | other electronics | mainstream_leader | high | 225.00 | 6 | True | True | insufficient_price_context | quiet_accumulation | 95.00 | -1.74 | 4.44 | 7.28 | 5.07 | 1.43 | 10.00 | 205.60 | 10.00 | 49.00 | 0.00 | 2.60 | insufficient_data | insufficient_data | 價格或 benchmark 資料不足，不列入強弱判斷。 |
+| 27 | 2477 | 美隆電 | other electronics | mainstream_leader | high | 225.00 | 6 | True | True | insufficient_price_context | watch_only | 66.00 | -1.35 | 4.51 | 6.52 | 2.64 | 0.51 | 10.00 | 205.60 | 10.00 | 49.00 | 0.00 | 2.60 | insufficient_data | insufficient_data | 價格或 benchmark 資料不足，不列入強弱判斷。 |
 | 28 | 2492 | 華新科 | passive components | mainstream_overheated | overheated | 225.00 | 6 | True | True | overheated_after_tdcc | overheated | 0.00 | -10.31 | 116.98 | 25.77 | 22.96 | 0.38 | 10.00 | 29.05 | 10.00 | 0.00 | 0.00 | 29.05 | overheated | strong_but_overheated | 籌碼強但股價已過熱，需防追高。 |
-| 29 | 2505 | 國揚 | traditional industries | mainstream_leader | high | 225.00 | 6 | True | True | insufficient_price_context | quiet_accumulation | 95.00 | 7.43 | 4.44 | 7.18 | 5.48 | 1.39 | 10.00 | 194.04 | 10.00 | 42.00 | 0.00 | 5.04 | insufficient_data | insufficient_data | 價格或 benchmark 資料不足，不列入強弱判斷。 |
-| 30 | 2542 | 興富發 | traditional industries | mainstream_leader | high | 225.00 | 6 | True | True | insufficient_price_context | quiet_accumulation | 92.00 | 5.89 | 9.37 | 7.27 | 4.04 | 1.79 | 10.00 | 194.04 | 10.00 | 42.00 | 0.00 | 5.04 | insufficient_data | insufficient_data | 價格或 benchmark 資料不足，不列入強弱判斷。 |
+| 29 | 2505 | 國揚 | traditional industries | mainstream_leader | high | 225.00 | 6 | True | True | insufficient_price_context | quiet_accumulation | 95.00 | 7.43 | 4.44 | 7.18 | 5.48 | 1.39 | 10.00 | 184.78 | 10.00 | 39.00 | 0.00 | 4.78 | insufficient_data | insufficient_data | 價格或 benchmark 資料不足，不列入強弱判斷。 |
+| 30 | 2542 | 興富發 | traditional industries | mainstream_leader | high | 225.00 | 6 | True | True | insufficient_price_context | quiet_accumulation | 92.00 | 5.89 | 9.37 | 7.27 | 4.04 | 1.79 | 10.00 | 184.78 | 10.00 | 39.00 | 0.00 | 4.78 | insufficient_data | insufficient_data | 價格或 benchmark 資料不足，不列入強弱判斷。 |
 
 ## Pre-Move Accumulation / ABM Top 30
 
 | abm_rank | stock_id | stock_name | theme | theme_mainstream_status | theme_heat_level | abm_score | tdcc_strength_score | tdcc_consecutive_up_weeks | all_thresholds_up | high_thresholds_up | tdcc_price_phase | setup_type | price_return_5d | price_return_20d | relative_return_vs_benchmark | distance_ma20_pct | volume_ratio_20d | theme_breadth_score | theme_momentum_score | theme_tdcc_breadth_score | theme_price_breadth_score | theme_warrant_heat_score | theme_relative_strength | accumulation_label | tracking_priority | trigger_to_watch | interpretation |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | 2034 | 允強 | traditional industries | mainstream_leader | high | 97.00 | 195.00 | 3 | True | True | tdcc_leading_price | quiet_accumulation | 0.75 | -0.25 | 1.51 | 0.85 | 1.45 | 10.00 | 194.04 | 10.00 | 42.00 | 0.00 | 5.04 | prime_pre_move | A_prime_watch | 量縮守住 MA20；相對 benchmark 維持轉強；避免爆量長上影 | 籌碼持續改善，但股價尚未明顯反應。 |
-| 2 | 2024 | 志聯 | traditional industries | mainstream_leader | high | 90.00 | 235.00 | 7 | True | True | tdcc_leading_price | quiet_accumulation | -1.05 | 2.16 | 2.69 | 1.92 | 0.67 | 10.00 | 194.04 | 10.00 | 42.00 | 0.00 | 5.04 | prime_pre_move | A_prime_watch | 量縮守住 MA20；相對 benchmark 維持轉強；避免爆量長上影 | 籌碼持續改善，但股價尚未明顯反應。 |
-| 3 | 5283 | 禾聯碩 | other electronics | mainstream_leader | high | 90.00 | 225.00 | 6 | True | True | tdcc_leading_price | quiet_accumulation | -0.19 | 2.92 | 2.41 | 0.92 | 0.77 | 10.00 | 199.40 | 10.00 | 47.00 | 0.00 | 2.40 | prime_pre_move | A_prime_watch | 量縮守住 MA20；相對 benchmark 維持轉強；避免爆量長上影 | 籌碼持續改善，但股價尚未明顯反應。 |
-| 4 | 1737 | 臺鹽 | biotechnology | mainstream_leader | high | 100.00 | 235.00 | 7 | True | True | tdcc_leading_price | quiet_accumulation | 0.47 | 0.95 | 1.89 | 0.61 | 0.64 | 10.00 | 80.72 | 10.00 | 12.00 | 0.00 | 2.72 | prime_pre_move | A_prime_watch | 量縮守住 MA20；相對 benchmark 維持轉強；避免爆量長上影 | 籌碼持續改善，但股價尚未明顯反應。 |
-| 5 | 2926 | 誠品生活 | biotechnology | mainstream_leader | high | 91.00 | 225.00 | 6 | True | True | tdcc_leading_price | quiet_accumulation | 0.87 | -4.13 | 2.33 | -2.49 | 1.51 | 10.00 | 80.72 | 10.00 | 12.00 | 0.00 | 2.72 | prime_pre_move | B_confirm_needed | 站回 MA20；避免爆量長上影；價格止跌並重新轉強 | 籌碼持續改善，但股價尚未明顯反應。 |
-| 6 | 6198 | 瑞築 | other electronics | mainstream_leader | high | 91.00 | 195.00 | 3 | True | True | tdcc_leading_price | quiet_accumulation | 1.96 | -4.15 | 2.14 | -2.43 | 1.19 | 10.00 | 199.40 | 10.00 | 47.00 | 0.00 | 2.40 | prime_pre_move | B_confirm_needed | 站回 MA20；放量站上 5 日 / 10 日均線；價格止跌並重新轉強 | 籌碼持續改善，但股價尚未明顯反應。 |
-| 7 | 8367 | 建新國際 | traditional industries | mainstream_leader | high | 86.00 | 225.00 | 6 | True | True | tdcc_leading_price | quiet_accumulation | -1.59 | -3.81 | 0.64 | -1.82 | 0.37 | 10.00 | 194.04 | 10.00 | 42.00 | 0.00 | 5.04 | prime_pre_move | B_confirm_needed | 站回 MA20；放量站上 5 日 / 10 日均線；價格止跌並重新轉強 | 籌碼持續改善，但股價尚未明顯反應。 |
-| 8 | 3023 | 信邦 | other electronics | mainstream_leader | high | 86.00 | 155.00 | 2 | False | True | tdcc_leading_price | quiet_accumulation | 0.32 | 4.15 | 0.63 | 1.63 | 0.34 | 10.00 | 199.40 | 10.00 | 47.00 | 0.00 | 2.40 | prime_pre_move | B_confirm_needed | 量縮守住 MA20；放量站上 5 日 / 10 日均線 | 籌碼持續改善，但股價尚未明顯反應。 |
-| 9 | 3252 | 海灣 | semiconductor | non_mainstream_watch | medium | 91.00 | 205.00 | 4 | True | True | tdcc_leading_price | quiet_accumulation | 0.00 | -5.82 | 2.93 | -1.32 | 1.22 | 10.00 | 40.50 | 10.00 | 10.00 | 0.00 | 3.50 | prime_pre_move | B_confirm_needed | 站回 MA20；放量站上 5 日 / 10 日均線；價格止跌並重新轉強；等待第二檔 / 第三檔同族群股票同步轉強 | 籌碼持續改善，但股價尚未明顯反應。 |
-| 10 | 1459 | 聯發 | traditional industries | mainstream_leader | high | 80.00 | 225.00 | 6 | True | True | tdcc_leading_price | watch_only | 1.72 | -0.84 | 2.55 | 0.60 | 0.42 | 10.00 | 194.04 | 10.00 | 42.00 | 0.00 | 5.04 | watch_pre_move | B_confirm_needed | 量縮守住 MA20；放量站上 5 日 / 10 日均線 | 籌碼持續改善，但股價尚未明顯反應。 |
-| 11 | 2373 | 震旦行 | other electronics | mainstream_leader | high | 80.00 | 195.00 | 3 | True | True | tdcc_leading_price | watch_only | -1.71 | 1.41 | 1.61 | 0.26 | 0.39 | 10.00 | 199.40 | 10.00 | 47.00 | 0.00 | 2.40 | watch_pre_move | B_confirm_needed | 量縮守住 MA20；放量站上 5 日 / 10 日均線 | 籌碼持續改善，但股價尚未明顯反應。 |
-| 12 | 1720 | 生達 | biotechnology | mainstream_leader | high | 80.00 | 185.00 | 2 | True | True | tdcc_leading_price | watch_only | 0.81 | 2.80 | 2.72 | 1.03 | 0.49 | 10.00 | 80.72 | 10.00 | 12.00 | 0.00 | 2.72 | watch_pre_move | B_confirm_needed | 量縮守住 MA20；放量站上 5 日 / 10 日均線 | 籌碼持續改善，但股價尚未明顯反應。 |
-| 13 | 9908 | 大台北 | other | single_name_signal | high | 93.00 | 225.00 | 6 | True | True | tdcc_leading_price | quiet_accumulation | 0.51 | 0.34 | 2.29 | 0.58 | 0.88 | 10.00 | 162.88 | 10.00 | 23.00 | 0.00 | 2.88 | prime_pre_move | C_weak_or_discounted | 量縮守住 MA20；放量站上 5 日 / 10 日均線；等待第二檔 / 第三檔同族群股票同步轉強 | 籌碼持續改善，但股價尚未明顯反應。 |
-| 14 | 7718 | 友鋮 | other | single_name_signal | high | 91.00 | 235.00 | 7 | True | True | tdcc_leading_price | quiet_accumulation | -4.33 | -3.16 | 2.43 | -2.87 | 1.37 | 10.00 | 162.88 | 10.00 | 23.00 | 0.00 | 2.88 | prime_pre_move | C_weak_or_discounted | 站回 MA20；放量站上 5 日 / 10 日均線；價格止跌並重新轉強；等待第二檔 / 第三檔同族群股票同步轉強 | 籌碼持續改善，但股價尚未明顯反應。 |
-| 15 | 8941 | 關中 | other | single_name_signal | high | 91.00 | 225.00 | 6 | True | True | tdcc_leading_price | quiet_accumulation | -1.95 | -4.57 | 2.55 | -2.52 | 1.69 | 10.00 | 162.88 | 10.00 | 23.00 | 0.00 | 2.88 | prime_pre_move | C_weak_or_discounted | 站回 MA20；避免爆量長上影；價格止跌並重新轉強；等待第二檔 / 第三檔同族群股票同步轉強 | 籌碼持續改善，但股價尚未明顯反應。 |
-| 16 | 4119 | 旭富 | other | single_name_signal | high | 90.00 | 225.00 | 6 | True | True | tdcc_leading_price | quiet_accumulation | 1.46 | -1.19 | 1.99 | 0.24 | 0.66 | 10.00 | 162.88 | 10.00 | 23.00 | 0.00 | 2.88 | prime_pre_move | C_weak_or_discounted | 量縮守住 MA20；放量站上 5 日 / 10 日均線；等待第二檔 / 第三檔同族群股票同步轉強 | 籌碼持續改善，但股價尚未明顯反應。 |
-| 17 | 8930 | 青鋼 | other | single_name_signal | high | 89.00 | 225.00 | 6 | True | True | tdcc_leading_price | quiet_accumulation | -1.42 | -3.98 | 2.76 | -2.35 | 0.94 | 10.00 | 162.88 | 10.00 | 23.00 | 0.00 | 2.88 | prime_pre_move | C_weak_or_discounted | 站回 MA20；放量站上 5 日 / 10 日均線；價格止跌並重新轉強；等待第二檔 / 第三檔同族群股票同步轉強 | 籌碼持續改善，但股價尚未明顯反應。 |
-| 18 | 4106 | 雃博 | other | single_name_signal | high | 88.00 | 225.00 | 6 | True | True | tdcc_leading_price | quiet_accumulation | -3.12 | 4.95 | 0.62 | -0.96 | 0.63 | 10.00 | 162.88 | 10.00 | 23.00 | 0.00 | 2.88 | prime_pre_move | C_weak_or_discounted | 站回 MA20；放量站上 5 日 / 10 日均線；等待第二檔 / 第三檔同族群股票同步轉強 | 籌碼持續改善，但股價尚未明顯反應。 |
-| 19 | 4171 | 瑞基 | other | single_name_signal | high | 86.00 | 225.00 | 6 | True | True | tdcc_leading_price | quiet_accumulation | -3.59 | -4.64 | 1.54 | -2.92 | 0.33 | 10.00 | 162.88 | 10.00 | 23.00 | 0.00 | 2.88 | prime_pre_move | C_weak_or_discounted | 站回 MA20；放量站上 5 日 / 10 日均線；價格止跌並重新轉強；等待第二檔 / 第三檔同族群股票同步轉強 | 籌碼持續改善，但股價尚未明顯反應。 |
-| 20 | 4108 | 懷特 | other | single_name_signal | high | 86.00 | 215.00 | 5 | True | True | tdcc_leading_price | quiet_accumulation | 1.23 | 4.24 | 1.67 | 1.11 | 0.54 | 10.00 | 162.88 | 10.00 | 23.00 | 0.00 | 2.88 | prime_pre_move | C_weak_or_discounted | 量縮守住 MA20；放量站上 5 日 / 10 日均線；等待第二檔 / 第三檔同族群股票同步轉強 | 籌碼持續改善，但股價尚未明顯反應。 |
-| 21 | 9912 | 偉聯 | other | single_name_signal | high | 100.00 | 225.00 | 6 | True | True | tdcc_leading_price | quiet_accumulation | 0.40 | 2.46 | 1.66 | 0.20 | 0.17 | 10.00 | 162.88 | 10.00 | 23.00 | 0.00 | 2.88 | prime_pre_move | C_weak_or_discounted | 量縮守住 MA20；放量站上 5 日 / 10 日均線；等待第二檔 / 第三檔同族群股票同步轉強 | 籌碼持續改善，但股價尚未明顯反應。 |
-| 22 | 4747 | 強生 | biotechnology | mainstream_leader | high | 75.00 | 195.00 | 6 | False | True | tdcc_leading_price | quiet_accumulation | -2.87 | -0.55 | 0.64 | -3.97 | 1.04 | 10.00 | 80.72 | 10.00 | 12.00 | 0.00 | 2.72 | watch_pre_move | C_weak_or_discounted | 站回 MA20；放量站上 5 日 / 10 日均線 | 籌碼持續改善，但股價尚未明顯反應。 |
-| 23 | 1776 | 展宇 | biotechnology | mainstream_leader | high | 73.00 | 185.00 | 2 | True | True | tdcc_leading_price | quiet_accumulation | -1.62 | 8.01 | 0.71 | -0.27 | 0.37 | 10.00 | 80.72 | 10.00 | 12.00 | 0.00 | 2.72 | watch_pre_move | C_weak_or_discounted | 站回 MA20；放量站上 5 日 / 10 日均線 | 籌碼持續改善，但股價尚未明顯反應。 |
-| 24 | 1626 | 艾美特-KY | other electronics | mainstream_leader | high | 70.00 | 235.00 | 7 | True | True | tdcc_leading_price | watch_only | -0.50 | -5.19 | 1.96 | 0.23 | 0.46 | 10.00 | 199.40 | 10.00 | 47.00 | 0.00 | 2.40 | watch_pre_move | C_weak_or_discounted | 量縮守住 MA20；放量站上 5 日 / 10 日均線；價格止跌並重新轉強 | 籌碼持續改善，但股價尚未明顯反應。 |
-| 25 | 2613 | 中櫃 | traditional industries | mainstream_leader | high | 70.00 | 205.00 | 4 | True | True | tdcc_leading_price | watch_only | -1.56 | 0.68 | 2.63 | 1.03 | 0.65 | 10.00 | 194.04 | 10.00 | 42.00 | 0.00 | 5.04 | watch_pre_move | C_weak_or_discounted | 量縮守住 MA20；放量站上 5 日 / 10 日均線 | 籌碼持續改善，但股價尚未明顯反應。 |
-| 26 | 1604 | 聲寶 | other electronics | mainstream_leader | high | 70.00 | 175.00 | 4 | False | True | tdcc_leading_price | watch_only | 1.30 | 2.63 | 1.47 | 0.86 | 0.80 | 10.00 | 199.40 | 10.00 | 47.00 | 0.00 | 2.40 | watch_pre_move | C_weak_or_discounted | 量縮守住 MA20；放量站上 5 日 / 10 日均線 | 籌碼持續改善，但股價尚未明顯反應。 |
-| 27 | 1712 | 興農 | biotechnology | mainstream_leader | high | 66.00 | 165.00 | 3 | False | True | tdcc_leading_price | watch_only | 1.66 | -3.75 | 2.66 | -0.22 | 0.41 | 10.00 | 80.72 | 10.00 | 12.00 | 0.00 | 2.72 | watch_pre_move | C_weak_or_discounted | 站回 MA20；放量站上 5 日 / 10 日均線；價格止跌並重新轉強 | 籌碼持續改善，但股價尚未明顯反應。 |
-| 28 | 1512 | 瑞利 | other electronics | mainstream_leader | high | 62.00 | 185.00 | 2 | True | True | tdcc_leading_price | watch_only | -1.44 | -3.79 | 0.11 | -1.27 | 0.75 | 10.00 | 199.40 | 10.00 | 47.00 | 0.00 | 2.40 | watch_pre_move | C_weak_or_discounted | 站回 MA20；放量站上 5 日 / 10 日均線；價格止跌並重新轉強 | 籌碼持續改善，但股價尚未明顯反應。 |
-| 29 | 3704 | 合勤控 | networking | non_mainstream_watch | medium | 62.00 | 225.00 | 6 | True | True | tdcc_leading_price | strong_momentum | -5.42 | 22.54 | 1.59 | 4.51 | 0.56 | 10.00 | 11.68 | 10.00 | 1.00 | 0.00 | 1.68 | watch_pre_move | C_weak_or_discounted | 量縮守住 MA20；放量站上 5 日 / 10 日均線；等待第二檔 / 第三檔同族群股票同步轉強 | 籌碼持續改善，但股價尚未明顯反應。 |
-| 30 | 9918 | 欣天然 | other | single_name_signal | high | 78.00 | 185.00 | 2 | True | True | tdcc_leading_price | quiet_accumulation | -1.14 | 0.35 | 1.38 | -0.61 | 0.61 | 10.00 | 162.88 | 10.00 | 23.00 | 0.00 | 2.88 | watch_pre_move | C_weak_or_discounted | 站回 MA20；放量站上 5 日 / 10 日均線；等待第二檔 / 第三檔同族群股票同步轉強 | 籌碼持續改善，但股價尚未明顯反應。 |
+| 1 | 2034 | 允強 | traditional industries | mainstream_leader | high | 97.00 | 195.00 | 3 | True | True | tdcc_leading_price | quiet_accumulation | 0.75 | -0.25 | 1.51 | 0.85 | 1.45 | 10.00 | 184.78 | 10.00 | 39.00 | 0.00 | 4.78 | prime_pre_move | A_prime_watch | 量縮守住 MA20；相對 benchmark 維持轉強；避免爆量長上影 | 籌碼持續改善，但股價尚未明顯反應。 |
+| 2 | 2024 | 志聯 | traditional industries | mainstream_leader | high | 90.00 | 235.00 | 7 | True | True | tdcc_leading_price | quiet_accumulation | -1.05 | 2.16 | 2.69 | 1.92 | 0.67 | 10.00 | 184.78 | 10.00 | 39.00 | 0.00 | 4.78 | prime_pre_move | A_prime_watch | 量縮守住 MA20；相對 benchmark 維持轉強；避免爆量長上影 | 籌碼持續改善，但股價尚未明顯反應。 |
+| 3 | 5283 | 禾聯碩 | other electronics | mainstream_leader | high | 90.00 | 225.00 | 6 | True | True | tdcc_leading_price | quiet_accumulation | -0.19 | 2.92 | 2.41 | 0.92 | 0.77 | 10.00 | 205.60 | 10.00 | 49.00 | 0.00 | 2.60 | prime_pre_move | A_prime_watch | 量縮守住 MA20；相對 benchmark 維持轉強；避免爆量長上影 | 籌碼持續改善，但股價尚未明顯反應。 |
+| 4 | 1737 | 臺鹽 | biotechnology | mainstream_leader | high | 100.00 | 235.00 | 7 | True | True | tdcc_leading_price | quiet_accumulation | 0.47 | 0.95 | 1.89 | 0.61 | 0.64 | 10.00 | 83.86 | 10.00 | 13.00 | 0.00 | 2.86 | prime_pre_move | A_prime_watch | 量縮守住 MA20；相對 benchmark 維持轉強；避免爆量長上影 | 籌碼持續改善，但股價尚未明顯反應。 |
+| 5 | 2926 | 誠品生活 | biotechnology | mainstream_leader | high | 91.00 | 225.00 | 6 | True | True | tdcc_leading_price | quiet_accumulation | 0.87 | -4.13 | 2.33 | -2.49 | 1.51 | 10.00 | 83.86 | 10.00 | 13.00 | 0.00 | 2.86 | prime_pre_move | B_confirm_needed | 站回 MA20；避免爆量長上影；價格止跌並重新轉強 | 籌碼持續改善，但股價尚未明顯反應。 |
+| 6 | 6198 | 瑞築 | other electronics | mainstream_leader | high | 91.00 | 195.00 | 3 | True | True | tdcc_leading_price | quiet_accumulation | 1.96 | -4.15 | 2.14 | -2.43 | 1.19 | 10.00 | 205.60 | 10.00 | 49.00 | 0.00 | 2.60 | prime_pre_move | B_confirm_needed | 站回 MA20；放量站上 5 日 / 10 日均線；價格止跌並重新轉強 | 籌碼持續改善，但股價尚未明顯反應。 |
+| 7 | 8367 | 建新國際 | traditional industries | mainstream_leader | high | 86.00 | 225.00 | 6 | True | True | tdcc_leading_price | quiet_accumulation | -1.59 | -3.81 | 0.64 | -1.82 | 0.37 | 10.00 | 184.78 | 10.00 | 39.00 | 0.00 | 4.78 | prime_pre_move | B_confirm_needed | 站回 MA20；放量站上 5 日 / 10 日均線；價格止跌並重新轉強 | 籌碼持續改善，但股價尚未明顯反應。 |
+| 8 | 3023 | 信邦 | other electronics | mainstream_leader | high | 86.00 | 155.00 | 2 | False | True | tdcc_leading_price | quiet_accumulation | 0.32 | 4.15 | 0.63 | 1.63 | 0.34 | 10.00 | 205.60 | 10.00 | 49.00 | 0.00 | 2.60 | prime_pre_move | B_confirm_needed | 量縮守住 MA20；放量站上 5 日 / 10 日均線 | 籌碼持續改善，但股價尚未明顯反應。 |
+| 9 | 3252 | 海灣 | semiconductor | non_mainstream_watch | medium | 91.00 | 205.00 | 4 | True | True | tdcc_leading_price | quiet_accumulation | 0.00 | -5.82 | 2.93 | -1.32 | 1.22 | 10.00 | 46.46 | 10.00 | 12.00 | 0.00 | 3.46 | prime_pre_move | B_confirm_needed | 站回 MA20；放量站上 5 日 / 10 日均線；價格止跌並重新轉強；等待第二檔 / 第三檔同族群股票同步轉強 | 籌碼持續改善，但股價尚未明顯反應。 |
+| 10 | 1459 | 聯發 | traditional industries | mainstream_leader | high | 80.00 | 225.00 | 6 | True | True | tdcc_leading_price | watch_only | 1.72 | -0.84 | 2.55 | 0.60 | 0.42 | 10.00 | 184.78 | 10.00 | 39.00 | 0.00 | 4.78 | watch_pre_move | B_confirm_needed | 量縮守住 MA20；放量站上 5 日 / 10 日均線 | 籌碼持續改善，但股價尚未明顯反應。 |
+| 11 | 2373 | 震旦行 | other electronics | mainstream_leader | high | 80.00 | 195.00 | 3 | True | True | tdcc_leading_price | watch_only | -1.71 | 1.41 | 1.61 | 0.26 | 0.39 | 10.00 | 205.60 | 10.00 | 49.00 | 0.00 | 2.60 | watch_pre_move | B_confirm_needed | 量縮守住 MA20；放量站上 5 日 / 10 日均線 | 籌碼持續改善，但股價尚未明顯反應。 |
+| 12 | 1720 | 生達 | biotechnology | mainstream_leader | high | 80.00 | 185.00 | 2 | True | True | tdcc_leading_price | watch_only | 0.81 | 2.80 | 2.72 | 1.03 | 0.49 | 10.00 | 83.86 | 10.00 | 13.00 | 0.00 | 2.86 | watch_pre_move | B_confirm_needed | 量縮守住 MA20；放量站上 5 日 / 10 日均線 | 籌碼持續改善，但股價尚未明顯反應。 |
+| 13 | 9908 | 大台北 | other | single_name_signal | high | 93.00 | 225.00 | 6 | True | True | tdcc_leading_price | quiet_accumulation | 0.51 | 0.34 | 2.29 | 0.58 | 0.88 | 10.00 | 166.01 | 10.00 | 24.00 | 0.00 | 3.01 | prime_pre_move | C_weak_or_discounted | 量縮守住 MA20；放量站上 5 日 / 10 日均線；等待第二檔 / 第三檔同族群股票同步轉強 | 籌碼持續改善，但股價尚未明顯反應。 |
+| 14 | 7718 | 友鋮 | other | single_name_signal | high | 91.00 | 235.00 | 7 | True | True | tdcc_leading_price | quiet_accumulation | -4.33 | -3.16 | 2.43 | -2.87 | 1.37 | 10.00 | 166.01 | 10.00 | 24.00 | 0.00 | 3.01 | prime_pre_move | C_weak_or_discounted | 站回 MA20；放量站上 5 日 / 10 日均線；價格止跌並重新轉強；等待第二檔 / 第三檔同族群股票同步轉強 | 籌碼持續改善，但股價尚未明顯反應。 |
+| 15 | 8941 | 關中 | other | single_name_signal | high | 91.00 | 225.00 | 6 | True | True | tdcc_leading_price | quiet_accumulation | -1.95 | -4.57 | 2.55 | -2.52 | 1.69 | 10.00 | 166.01 | 10.00 | 24.00 | 0.00 | 3.01 | prime_pre_move | C_weak_or_discounted | 站回 MA20；避免爆量長上影；價格止跌並重新轉強；等待第二檔 / 第三檔同族群股票同步轉強 | 籌碼持續改善，但股價尚未明顯反應。 |
+| 16 | 4119 | 旭富 | other | single_name_signal | high | 90.00 | 225.00 | 6 | True | True | tdcc_leading_price | quiet_accumulation | 1.46 | -1.19 | 1.99 | 0.24 | 0.66 | 10.00 | 166.01 | 10.00 | 24.00 | 0.00 | 3.01 | prime_pre_move | C_weak_or_discounted | 量縮守住 MA20；放量站上 5 日 / 10 日均線；等待第二檔 / 第三檔同族群股票同步轉強 | 籌碼持續改善，但股價尚未明顯反應。 |
+| 17 | 8930 | 青鋼 | other | single_name_signal | high | 89.00 | 225.00 | 6 | True | True | tdcc_leading_price | quiet_accumulation | -1.42 | -3.98 | 2.76 | -2.35 | 0.94 | 10.00 | 166.01 | 10.00 | 24.00 | 0.00 | 3.01 | prime_pre_move | C_weak_or_discounted | 站回 MA20；放量站上 5 日 / 10 日均線；價格止跌並重新轉強；等待第二檔 / 第三檔同族群股票同步轉強 | 籌碼持續改善，但股價尚未明顯反應。 |
+| 18 | 4106 | 雃博 | other | single_name_signal | high | 88.00 | 225.00 | 6 | True | True | tdcc_leading_price | quiet_accumulation | -3.12 | 4.95 | 0.62 | -0.96 | 0.63 | 10.00 | 166.01 | 10.00 | 24.00 | 0.00 | 3.01 | prime_pre_move | C_weak_or_discounted | 站回 MA20；放量站上 5 日 / 10 日均線；等待第二檔 / 第三檔同族群股票同步轉強 | 籌碼持續改善，但股價尚未明顯反應。 |
+| 19 | 4171 | 瑞基 | other | single_name_signal | high | 86.00 | 225.00 | 6 | True | True | tdcc_leading_price | quiet_accumulation | -3.59 | -4.64 | 1.54 | -2.92 | 0.33 | 10.00 | 166.01 | 10.00 | 24.00 | 0.00 | 3.01 | prime_pre_move | C_weak_or_discounted | 站回 MA20；放量站上 5 日 / 10 日均線；價格止跌並重新轉強；等待第二檔 / 第三檔同族群股票同步轉強 | 籌碼持續改善，但股價尚未明顯反應。 |
+| 20 | 4108 | 懷特 | other | single_name_signal | high | 86.00 | 215.00 | 5 | True | True | tdcc_leading_price | quiet_accumulation | 1.23 | 4.24 | 1.67 | 1.11 | 0.54 | 10.00 | 166.01 | 10.00 | 24.00 | 0.00 | 3.01 | prime_pre_move | C_weak_or_discounted | 量縮守住 MA20；放量站上 5 日 / 10 日均線；等待第二檔 / 第三檔同族群股票同步轉強 | 籌碼持續改善，但股價尚未明顯反應。 |
+| 21 | 9912 | 偉聯 | other | single_name_signal | high | 100.00 | 225.00 | 6 | True | True | tdcc_leading_price | quiet_accumulation | 0.40 | 2.46 | 1.66 | 0.20 | 0.17 | 10.00 | 166.01 | 10.00 | 24.00 | 0.00 | 3.01 | prime_pre_move | C_weak_or_discounted | 量縮守住 MA20；放量站上 5 日 / 10 日均線；等待第二檔 / 第三檔同族群股票同步轉強 | 籌碼持續改善，但股價尚未明顯反應。 |
+| 22 | 4747 | 強生 | biotechnology | mainstream_leader | high | 75.00 | 195.00 | 6 | False | True | tdcc_leading_price | quiet_accumulation | -2.87 | -0.55 | 0.64 | -3.97 | 1.04 | 10.00 | 83.86 | 10.00 | 13.00 | 0.00 | 2.86 | watch_pre_move | C_weak_or_discounted | 站回 MA20；放量站上 5 日 / 10 日均線 | 籌碼持續改善，但股價尚未明顯反應。 |
+| 23 | 1776 | 展宇 | biotechnology | mainstream_leader | high | 73.00 | 185.00 | 2 | True | True | tdcc_leading_price | quiet_accumulation | -1.62 | 8.01 | 0.71 | -0.27 | 0.37 | 10.00 | 83.86 | 10.00 | 13.00 | 0.00 | 2.86 | watch_pre_move | C_weak_or_discounted | 站回 MA20；放量站上 5 日 / 10 日均線 | 籌碼持續改善，但股價尚未明顯反應。 |
+| 24 | 1626 | 艾美特-KY | other electronics | mainstream_leader | high | 70.00 | 235.00 | 7 | True | True | tdcc_leading_price | watch_only | -0.50 | -5.19 | 1.96 | 0.23 | 0.46 | 10.00 | 205.60 | 10.00 | 49.00 | 0.00 | 2.60 | watch_pre_move | C_weak_or_discounted | 量縮守住 MA20；放量站上 5 日 / 10 日均線；價格止跌並重新轉強 | 籌碼持續改善，但股價尚未明顯反應。 |
+| 25 | 2613 | 中櫃 | traditional industries | mainstream_leader | high | 70.00 | 205.00 | 4 | True | True | tdcc_leading_price | watch_only | -1.56 | 0.68 | 2.63 | 1.03 | 0.65 | 10.00 | 184.78 | 10.00 | 39.00 | 0.00 | 4.78 | watch_pre_move | C_weak_or_discounted | 量縮守住 MA20；放量站上 5 日 / 10 日均線 | 籌碼持續改善，但股價尚未明顯反應。 |
+| 26 | 1604 | 聲寶 | other electronics | mainstream_leader | high | 70.00 | 175.00 | 4 | False | True | tdcc_leading_price | watch_only | 1.30 | 2.63 | 1.47 | 0.86 | 0.80 | 10.00 | 205.60 | 10.00 | 49.00 | 0.00 | 2.60 | watch_pre_move | C_weak_or_discounted | 量縮守住 MA20；放量站上 5 日 / 10 日均線 | 籌碼持續改善，但股價尚未明顯反應。 |
+| 27 | 1712 | 興農 | biotechnology | mainstream_leader | high | 66.00 | 165.00 | 3 | False | True | tdcc_leading_price | watch_only | 1.66 | -3.75 | 2.66 | -0.22 | 0.41 | 10.00 | 83.86 | 10.00 | 13.00 | 0.00 | 2.86 | watch_pre_move | C_weak_or_discounted | 站回 MA20；放量站上 5 日 / 10 日均線；價格止跌並重新轉強 | 籌碼持續改善，但股價尚未明顯反應。 |
+| 28 | 1512 | 瑞利 | other electronics | mainstream_leader | high | 62.00 | 185.00 | 2 | True | True | tdcc_leading_price | watch_only | -1.44 | -3.79 | 0.11 | -1.27 | 0.75 | 10.00 | 205.60 | 10.00 | 49.00 | 0.00 | 2.60 | watch_pre_move | C_weak_or_discounted | 站回 MA20；放量站上 5 日 / 10 日均線；價格止跌並重新轉強 | 籌碼持續改善，但股價尚未明顯反應。 |
+| 29 | 3704 | 合勤控 | networking | non_mainstream_watch | medium | 62.00 | 225.00 | 6 | True | True | tdcc_leading_price | strong_momentum | -5.42 | 22.54 | 1.59 | 4.51 | 0.56 | 10.00 | 11.82 | 10.00 | 1.00 | 0.00 | 1.82 | watch_pre_move | C_weak_or_discounted | 量縮守住 MA20；放量站上 5 日 / 10 日均線；等待第二檔 / 第三檔同族群股票同步轉強 | 籌碼持續改善，但股價尚未明顯反應。 |
+| 30 | 9918 | 欣天然 | other | single_name_signal | high | 78.00 | 185.00 | 2 | True | True | tdcc_leading_price | quiet_accumulation | -1.14 | 0.35 | 1.38 | -0.61 | 0.61 | 10.00 | 166.01 | 10.00 | 24.00 | 0.00 | 3.01 | watch_pre_move | C_weak_or_discounted | 站回 MA20；放量站上 5 日 / 10 日均線；等待第二檔 / 第三檔同族群股票同步轉強 | 籌碼持續改善，但股價尚未明顯反應。 |
 
 ## Theme Mainstream Summary
 
 | theme | theme_mainstream_status | signal_count | leading_count | confirmed_count | late_or_overheated_count | divergence_count | avg_tdcc_strength_score | avg_abm_score | representative_codes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| other electronics | mainstream_leader | 410 | 8 | 0 | 50 | 25 | 149.50 | 51.97 | 1626/3705/8084/8083/2477 |
-| other | single_name_signal | 220 | 13 | 0 | 19 | 17 | 159.25 | 57.14 | 1233/4527/7718/4106/4119 |
-| traditional industries | mainstream_leader | 200 | 6 | 3 | 35 | 7 | 165.32 | 62.42 | 1304/1460/1410/2024/1443 |
-| biotechnology | mainstream_leader | 105 | 6 | 0 | 7 | 10 | 161.33 | 59.09 | 1734/1737/8409/2107/2926 |
-| semiconductor | non_mainstream_watch | 74 | 1 | 0 | 13 | 5 | 149.19 | 49.09 | 3266/3285/3092/3147/3252 |
-| finance | mainstream_follow_through | 31 | 0 | 2 | 11 | 0 | 170.81 | 64.23 | 2836/2867/2881/2886/2882 |
-| semiconductor equipment/materials | non_mainstream_watch | 14 | 0 | 0 | 5 | 1 | 156.07 | 49.36 | 2380/3022/5234/4938/2353 |
-| networking | non_mainstream_watch | 12 | 1 | 0 | 0 | 0 | 144.58 | 57.67 | 3704/2412/3045/2439/3047 |
-| consumer electronics | non_mainstream_watch | 11 | 0 | 0 | 2 | 0 | 139.09 | 45.82 | 2393/3008/5243/6168/4949 |
-| EV/auto electronics | non_mainstream_watch | 6 | 0 | 0 | 2 | 0 | 188.33 | 48.67 | 2204/2243/2201/2241/2206 |
+| other electronics | mainstream_leader | 403 | 8 | 0 | 52 | 25 | 149.78 | 51.99 | 3705/1626/5460/6180/6111 |
+| other | single_name_signal | 220 | 13 | 0 | 20 | 17 | 159.48 | 57.45 | 1233/4527/7718/4106/4119 |
+| traditional industries | mainstream_leader | 202 | 6 | 3 | 33 | 7 | 163.71 | 61.63 | 1304/1323/1443/1460/1410 |
+| biotechnology | mainstream_leader | 106 | 6 | 0 | 8 | 10 | 161.89 | 59.58 | 1737/1734/8409/2926/6508 |
+| semiconductor | non_mainstream_watch | 73 | 1 | 0 | 15 | 5 | 151.30 | 49.45 | 3285/3266/3092/3293/3236 |
+| finance | mainstream_follow_through | 30 | 0 | 2 | 10 | 0 | 171.67 | 64.37 | 2836/2881/2867/2886/2882 |
+| consumer electronics | non_mainstream_watch | 15 | 0 | 0 | 1 | 0 | 142.00 | 47.40 | 3050/3504/3008/3356/6668 |
+| networking | non_mainstream_watch | 14 | 1 | 0 | 0 | 0 | 146.43 | 58.93 | 3704/2444/3045/2412/2439 |
+| semiconductor equipment/materials | non_mainstream_watch | 14 | 0 | 0 | 3 | 1 | 146.43 | 45.21 | 3022/5234/6831/8163/8210 |
+| EV/auto electronics | non_mainstream_watch | 6 | 0 | 0 | 2 | 0 | 190.00 | 56.00 | 2243/2204/2201/1319/2206 |
 | passive components | mainstream_overheated | 4 | 0 | 0 | 4 | 0 | 190.00 | 0.00 | 2492/6173/2375/3624 |
 | PCB/CCL | non_mainstream_watch | 3 | 0 | 0 | 0 | 0 | 146.67 | 50.33 | 5464/2355/5439 |
-| green energy | non_mainstream_watch | 3 | 0 | 0 | 0 | 0 | 143.33 | 61.67 | 6944/8476/1529 |
+| green energy | non_mainstream_watch | 3 | 0 | 0 | 0 | 0 | 146.67 | 51.33 | 6994/8476/1529 |
 | optical communication/CPO | single_name_signal | 1 | 0 | 0 | 0 | 1 | 155.00 | 52.00 | 4903 |
 
 ## TDCC Strength Ranking by Theme Mainstream Status
@@ -179,7 +179,7 @@
 | 2027 | 大成鋼 | traditional industries | mainstream_leader | 225.00 | insufficient_price_context | insufficient_data | 價格或 benchmark 資料不足，不列入強弱判斷。 |
 | 2064 | 晉椿 | traditional industries | mainstream_leader | 225.00 | price_leading_tdcc | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
 | 2107 | 厚生 | biotechnology | mainstream_leader | 225.00 | insufficient_price_context | insufficient_data | 價格或 benchmark 資料不足，不列入強弱判斷。 |
-| 2380 | 虹光 | semiconductor equipment/materials | non_mainstream_watch | 225.00 | price_leading_tdcc | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
+| 2380 | 虹光 | other electronics | mainstream_leader | 225.00 | price_leading_tdcc | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
 | 2385 | 群光 | other electronics | mainstream_leader | 225.00 | insufficient_price_context | insufficient_data | 價格或 benchmark 資料不足，不列入強弱判斷。 |
 | 2477 | 美隆電 | other electronics | mainstream_leader | 225.00 | insufficient_price_context | insufficient_data | 價格或 benchmark 資料不足，不列入強弱判斷。 |
 | 2492 | 華新科 | passive components | mainstream_overheated | 225.00 | overheated_after_tdcc | strong_but_overheated | 籌碼強但股價已過熱，需防追高。 |
@@ -312,12 +312,12 @@
 | 8121 | 越峰 | other electronics | mainstream_leader | 225.00 | price_leading_tdcc | 30.59 | 12.38 | 14.94 | 0.04 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
 | 2881 | 富邦金 | finance | mainstream_follow_through | 225.00 | price_leading_tdcc | 30.20 | 19.13 | 15.53 | 0.66 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
 | 1455 | 集盛 | traditional industries | mainstream_leader | 225.00 | price_leading_tdcc | 23.33 | 25.82 | 16.10 | 1.48 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
-| 4306 | 炎洲 | traditional industries | mainstream_leader | 225.00 | price_leading_tdcc | 22.43 | 19.21 | 13.82 | 2.40 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
+| 4306 | 炎洲 | other | single_name_signal | 225.00 | price_leading_tdcc | 22.43 | 19.21 | 13.82 | 2.40 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
 | 2597 | 潤弘 | traditional industries | mainstream_leader | 225.00 | price_leading_tdcc | 17.23 | 22.21 | 13.38 | 1.18 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
 | 3713 | 新晶投控 | other electronics | mainstream_leader | 225.00 | price_leading_tdcc | 14.08 | 19.48 | 8.96 | 0.30 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
 | 6180 | 橘子 | other electronics | mainstream_leader | 225.00 | price_leading_tdcc | 12.63 | 15.11 | 9.03 | 0.30 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
 | 1423 | 利華 | traditional industries | mainstream_leader | 225.00 | price_leading_tdcc | 12.19 | 11.66 | 7.66 | 11.27 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
-| 2380 | 虹光 | semiconductor equipment/materials | non_mainstream_watch | 225.00 | price_leading_tdcc | 10.67 | 13.28 | 10.41 | 3.66 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
+| 2380 | 虹光 | other electronics | mainstream_leader | 225.00 | price_leading_tdcc | 10.67 | 13.28 | 10.41 | 3.66 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
 | 2618 | 長榮航 | traditional industries | mainstream_leader | 225.00 | price_leading_tdcc | 10.26 | 11.20 | 7.72 | 1.32 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
 | 6662 | 樂斯科 | other electronics | mainstream_leader | 225.00 | price_leading_tdcc | 0.67 | 10.25 | 2.94 | 1.68 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
 | 8047 | 星雲 | other electronics | mainstream_leader | 225.00 | price_leading_tdcc | -3.92 | 26.00 | 9.32 | 0.75 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
@@ -439,31 +439,12 @@
 | tdcc_price_phase | mature_sample_d5 | avg_ret_d5 | avg_relative_ret_d5 | mature_sample_d10 | avg_ret_d10 | avg_relative_ret_d10 | mature_sample_d20 | avg_ret_d20 | avg_relative_ret_d20 | avg_mfe_d10 | avg_mae_d10 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | failed_after_tdcc | 0.0 |  |  | 0.0 |  |  | 0.0 |  |  |  |  |
-| insufficient_price_context | 26.0 | 5.21 | 3.03 | 18.0 | 14.38 | 7.79 | 11.0 | 10.70 | 5.78 | 24.57 | -6.95 |
-| overheated_after_tdcc | 57.0 | 5.54 | 2.72 | 39.0 | 16.22 | 10.14 | 16.0 | 22.64 | 17.96 | 24.48 | -6.54 |
-| price_leading_tdcc | 26.0 | 6.24 | 4.19 | 16.0 | 9.09 | 3.09 | 8.0 | -1.66 | -6.99 | 19.56 | -5.94 |
-| tdcc_leading_price | 7.0 | 4.36 | 1.40 | 6.0 | 2.15 | -5.78 | 5.0 | -2.69 | -6.85 | 11.42 | -5.64 |
+| insufficient_price_context | 26.0 | 5.21 | 3.03 | 26.0 | 10.52 | 6.83 | 11.0 | 10.70 | 5.78 | 22.29 | -8.88 |
+| overheated_after_tdcc | 57.0 | 5.54 | 2.72 | 57.0 | 11.44 | 8.11 | 16.0 | 22.64 | 17.96 | 20.62 | -10.24 |
+| price_leading_tdcc | 26.0 | 6.24 | 4.19 | 26.0 | 7.02 | 4.60 | 8.0 | -1.66 | -6.99 | 17.77 | -7.58 |
+| tdcc_leading_price | 7.0 | 4.36 | 1.40 | 7.0 | 1.87 | -4.75 | 5.0 | -2.69 | -6.85 | 11.79 | -6.28 |
 | tdcc_price_confirmed | 2.0 | 5.29 | 0.47 | 2.0 | 21.87 | 20.03 | 0.0 |  |  | 23.17 | -3.99 |
 | tdcc_price_divergence | 1.0 | -1.74 | -4.68 | 1.0 | 19.34 | 11.44 | 1.0 | 5.75 | 3.67 | 19.34 | -11.15 |
-
-## Model Tuning Recommendation
-
-- tuning_status: not_ready
-- reason: insufficient mature D+10 / D+20 samples
-- allowed_changes: reporting_priority_only
-- forbidden_changes: core_weight_change
-- threshold_for_review: each major phase mature_d10 >= 30, or overall mature_d20 >= 100 with at least 3-4 weeks of data
-- note: 目前可以調整追蹤優先級與報告分層，但不可調整核心 TDCC / ABM 權重。
-
-## Interpretation Rules
-- pending 不可視為正面或負面。
-- same stock_id + signal_date 只能算一筆 normalized signal。
-- TDCC Strength Ranking 找籌碼最強，不等於潛伏吸籌。
-- Pre-Move / ABM Ranking 才是找潛伏吸籌。
-- price_leading_tdcc / overheated_after_tdcc 不可寫成潛伏吸籌。
-- tdcc_price_divergence 要列為失效觀察。
-- 必須同時看絕對報酬與相對 TWSE / TPEx benchmark。
-- 在 tuning_status=not_ready 前，不可調整核心模型權重。
 
 ## TDCC Weekly Increase and Consecutive Candidate Reports
 
@@ -481,3 +462,21 @@
 - tdcc_weekly_candidate_full_pdf_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_weekly_candidate_full_latest.pdf
 - tdcc_weekly_candidate_highlight_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/tdcc_weekly_candidate_highlight_latest.pdf
 - tdcc_weekly_candidate_full_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/tdcc_weekly_candidate_full_latest.pdf
+
+## Model Tuning Recommendation
+- tuning_status: not_ready
+- reason: insufficient mature D+10 / D+20 samples
+- allowed_changes: reporting_priority_only
+- forbidden_changes: core_weight_change
+- threshold_for_review: each major phase mature_d10 >= 30, or overall mature_d20 >= 100 with at least 3-4 weeks of data
+- note: 目前可以調整追蹤優先級與報告分層，但不可調整核心 TDCC / ABM 權重。
+
+## Interpretation Rules
+- pending 不可視為正面或負面。
+- same stock_id + signal_date 只能算一筆 normalized signal。
+- TDCC Strength Ranking 找籌碼最強，不等於潛伏吸籌。
+- Pre-Move / ABM Ranking 才是找潛伏吸籌。
+- price_leading_tdcc / overheated_after_tdcc 不可寫成潛伏吸籌。
+- tdcc_price_divergence 要列為失效觀察。
+- 必須同時看絕對報酬與相對 TWSE / TPEx benchmark。
+- 在 tuning_status=not_ready 前，不可調整核心模型權重。

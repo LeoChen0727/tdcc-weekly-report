@@ -1,6 +1,6 @@
 # TDCC Top Risk List
 
-- generated_at: 2026-06-14 20:49:14 Asia/Taipei
+- generated_at: 2026-06-15 22:13:21 Asia/Taipei
 - purpose: identify TDCC-strong names that are late, overheated, or divergent; do not treat these as pre-move accumulation.
 
 ## price_leading_tdcc Top 20
@@ -13,12 +13,12 @@
 | 8121 | 越峰 | other electronics | mainstream_leader | 225.00 | price_leading_tdcc | 30.59 | 12.38 | 14.94 | 0.04 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
 | 2881 | 富邦金 | finance | mainstream_follow_through | 225.00 | price_leading_tdcc | 30.20 | 19.13 | 15.53 | 0.66 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
 | 1455 | 集盛 | traditional industries | mainstream_leader | 225.00 | price_leading_tdcc | 23.33 | 25.82 | 16.10 | 1.48 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
-| 4306 | 炎洲 | traditional industries | mainstream_leader | 225.00 | price_leading_tdcc | 22.43 | 19.21 | 13.82 | 2.40 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
+| 4306 | 炎洲 | other | single_name_signal | 225.00 | price_leading_tdcc | 22.43 | 19.21 | 13.82 | 2.40 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
 | 2597 | 潤弘 | traditional industries | mainstream_leader | 225.00 | price_leading_tdcc | 17.23 | 22.21 | 13.38 | 1.18 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
 | 3713 | 新晶投控 | other electronics | mainstream_leader | 225.00 | price_leading_tdcc | 14.08 | 19.48 | 8.96 | 0.30 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
 | 6180 | 橘子 | other electronics | mainstream_leader | 225.00 | price_leading_tdcc | 12.63 | 15.11 | 9.03 | 0.30 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
 | 1423 | 利華 | traditional industries | mainstream_leader | 225.00 | price_leading_tdcc | 12.19 | 11.66 | 7.66 | 11.27 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
-| 2380 | 虹光 | semiconductor equipment/materials | non_mainstream_watch | 225.00 | price_leading_tdcc | 10.67 | 13.28 | 10.41 | 3.66 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
+| 2380 | 虹光 | other electronics | mainstream_leader | 225.00 | price_leading_tdcc | 10.67 | 13.28 | 10.41 | 3.66 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
 | 2618 | 長榮航 | traditional industries | mainstream_leader | 225.00 | price_leading_tdcc | 10.26 | 11.20 | 7.72 | 1.32 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
 | 6662 | 樂斯科 | other electronics | mainstream_leader | 225.00 | price_leading_tdcc | 0.67 | 10.25 | 2.94 | 1.68 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |
 | 8047 | 星雲 | other electronics | mainstream_leader | 225.00 | price_leading_tdcc | -3.92 | 26.00 | 9.32 | 0.75 | strong_but_late | 股價已先漲，TDCC 訊號可能偏晚。 |

@@ -356,6 +356,10 @@ packet_latest_raw_ok=True
 packet_github_api_ok=True
 read_order=packet_commit_raw_url,packet_latest_raw_url,packet_github_api_url,packet_pages_url
 
+tdcc_weekly_candidate_highlight_pdf_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_weekly_candidate_highlight_latest.pdf
+tdcc_weekly_candidate_full_pdf_raw_url=https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/tdcc_weekly_candidate_full_latest.pdf
+tdcc_weekly_candidate_highlight_pdf_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/tdcc_weekly_candidate_highlight_latest.pdf
+tdcc_weekly_candidate_full_pdf_pages_url=https://LeoChen0727.github.io/tdcc-weekly-report/latest/tdcc_weekly_candidate_full_latest.pdf
 RULES:
 1. Read this entry file first.
 1a. For daily stock/PDF tasks, prefer raw/GitHub API README entries. Read readme_date_stamped_raw_url, then readme_date_stamped_github_api_url, then readme_index_github_api_url, then readme_latest_raw_url. Use Pages only as an auxiliary fallback when its main_price_date matches raw/API.

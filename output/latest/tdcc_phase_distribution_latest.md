@@ -1,9 +1,9 @@
 # TDCC Phase Distribution
 
-- generated_at: 2026-06-14 20:49:14 Asia/Taipei
+- generated_at: 2026-06-15 22:13:21 Asia/Taipei
 - latest_signal_count: 1094
 - phase_mature_d5_count: 119
-- phase_mature_d10_count: 82
+- phase_mature_d10_count: 119
 - phase_mature_d20_count: 41
 
 ## Phase 分布
@@ -123,9 +123,9 @@
 | tdcc_price_phase | mature_sample_d5 | avg_ret_d5 | avg_relative_ret_d5 | mature_sample_d10 | avg_ret_d10 | avg_relative_ret_d10 | mature_sample_d20 | avg_ret_d20 | avg_relative_ret_d20 | avg_mfe_d10 | avg_mae_d10 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | failed_after_tdcc | 0.0 |  |  | 0.0 |  |  | 0.0 |  |  |  |  |
-| insufficient_price_context | 26.0 | 5.21 | 3.03 | 18.0 | 14.38 | 7.79 | 11.0 | 10.70 | 5.78 | 24.57 | -6.95 |
-| overheated_after_tdcc | 57.0 | 5.54 | 2.72 | 39.0 | 16.22 | 10.14 | 16.0 | 22.64 | 17.96 | 24.48 | -6.54 |
-| price_leading_tdcc | 26.0 | 6.24 | 4.19 | 16.0 | 9.09 | 3.09 | 8.0 | -1.66 | -6.99 | 19.56 | -5.94 |
-| tdcc_leading_price | 7.0 | 4.36 | 1.40 | 6.0 | 2.15 | -5.78 | 5.0 | -2.69 | -6.85 | 11.42 | -5.64 |
+| insufficient_price_context | 26.0 | 5.21 | 3.03 | 26.0 | 10.52 | 6.83 | 11.0 | 10.70 | 5.78 | 22.29 | -8.88 |
+| overheated_after_tdcc | 57.0 | 5.54 | 2.72 | 57.0 | 11.44 | 8.11 | 16.0 | 22.64 | 17.96 | 20.62 | -10.24 |
+| price_leading_tdcc | 26.0 | 6.24 | 4.19 | 26.0 | 7.02 | 4.60 | 8.0 | -1.66 | -6.99 | 17.77 | -7.58 |
+| tdcc_leading_price | 7.0 | 4.36 | 1.40 | 7.0 | 1.87 | -4.75 | 5.0 | -2.69 | -6.85 | 11.79 | -6.28 |
 | tdcc_price_confirmed | 2.0 | 5.29 | 0.47 | 2.0 | 21.87 | 20.03 | 0.0 |  |  | 23.17 | -3.99 |
 | tdcc_price_divergence | 1.0 | -1.74 | -4.68 | 1.0 | 19.34 | 11.44 | 1.0 | 5.75 | 3.67 | 19.34 | -11.15 |
