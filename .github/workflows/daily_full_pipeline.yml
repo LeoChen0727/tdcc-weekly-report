@@ -250,6 +250,10 @@ jobs:
         run: |
           python scripts/validate_daily_market_report.py
 
+      - name: Validate official daily PDF contract
+        run: |
+          python scripts/validate_chatgpt_side_pdf_contract.py
+
       - name: Build ChatGPT indicator usage guide
         run: |
           python scripts/build_chatgpt_indicator_usage_guide.py

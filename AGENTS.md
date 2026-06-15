@@ -34,3 +34,67 @@ production validation must run `scripts/validate_repo_code_isolation_policy.py`
 and `scripts/validate_chatgpt_side_pdf_layout_independence.py`; weakening these
 guards requires changing the validator and tests in the same reviewed PR.
 
+## Repository PDF Contract And Independence Rules
+
+This thread is governed by the repository PDF independence rule and the Daily
+PDF Contract PR scope. The higher-level project rule is that every production
+PDF and packet in this repository must have independent business ownership. The
+six official daily PDFs listed below are the required minimum contract set for
+this Daily Full Pipeline PR; they are not the limit of the repository-wide PDF
+independence requirement.
+
+The goal of this PR is to build an end-to-end contract and layout safety net for
+the official daily production PDFs. Do not change stock models, ranking logic,
+scoring, backtest logic, selection conditions, or PDF visual/content design
+unless the user explicitly orders that separate change.
+
+All production PDFs must be treated as separate production surfaces. For this
+Daily PDF Contract PR, the six required official daily PDFs are:
+
+1. Mainstream daily recommendation digest.
+2. Mainstream full candidate list.
+3. Non-mainstream daily recommendation digest.
+4. Non-mainstream full candidate list.
+5. Warrant market support analysis.
+6. Market risk and index/options background.
+
+Each production PDF must have independent template, renderer, and content
+section assembly ownership. The six daily PDFs above must satisfy this
+independence immediately in this PR. Shared code is allowed only for low-level,
+business-neutral utilities such as font registration, page size constants, basic
+style constants, file IO, and generic PDF validation plumbing. Do not share
+field selection, section composition, sorting, table content, model blocks, or
+operation blocks through one content renderer.
+
+Changing PDF A must not silently affect PDF B. If two PDFs are intentionally
+changed together, that coupling must be stated before implementation and must
+be covered by validation.
+
+The formal Daily PDF contract validator for this PR must read at least the six
+official generated production PDFs, not single-page previews. It must use
+`pypdf` to confirm each PDF opens, has a reasonable page count, and has
+extractable text. It must verify that digest PDFs and full-list PDFs are not
+crossed, that required first-page and candidate-area sections such as `newly
+listed` and `consecutive listed` remain present, and that mainstream,
+non-mainstream, warrant, and market-risk PDFs do not contaminate each other.
+
+Daily Full Pipeline must run the PDF contract validator after official PDF
+generation. Tests must prove that the workflow invokes the validator and that
+the validator covers all six PDFs, digest/full boundaries, and newly-listed /
+consecutive-listed section checks.
+
+Do not modify `generate_repo_chatgpt_side_reports.py` for this work. Do not put
+research or backtest artifacts directly into production PDFs.
+
+Current known integration status: `model_operation_readiness_latest.csv` may
+show `pdf_integration_status=pending_pdf_renderer` and
+`packet_integration_status=pending_packet_renderer`; that is expected until the
+official PDF/packet renderer integration is completed. When daily PDF rendering
+uses readiness data, buy ranking must be driven by `buy_rank_eligible=True`,
+not only by `approved_for_daily`, because pending rows can still contain module
+approval fields.
+
+Full-list PDFs can be large. Page-count validation must define an explicit
+reasonable range instead of treating the current high page count as an implicit
+failure.
+
