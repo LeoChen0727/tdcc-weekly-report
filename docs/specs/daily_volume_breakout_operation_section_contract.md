@@ -13,6 +13,7 @@ The PDF renderer must not read these research artifacts directly:
 - `output/latest/volume_breakout_confirmed_operation_rank_latest.csv`
 - `output/latest/volume_breakout_pending_operation_queue_latest.csv`
 - `output/latest/historical_pattern_operation_registry_latest.csv`
+- `output/latest/approved_operation_patterns_latest.csv`
 
 ## Scope
 
@@ -21,6 +22,28 @@ The PDF renderer must not read these research artifacts directly:
 - It may consume latest available research outputs, but it must not run backtests inside `daily_full_pipeline.yml`.
 - Missing or empty research inputs must produce explicit empty-state rows instead of blocking the daily pipeline.
 - Other stock models must not reuse this operation section, ranking, entry rule, stop rule, or exit rule.
+- `approved_for_daily=True` means this adapter is allowed to present `volume_range_breakout` v1 operation guidance. It does not approve any other model.
+- The adapter must copy approval metadata from `approved_operation_patterns_latest.csv`; the PDF renderer must not read that approval table directly.
+- `confirmed_operation` data rows must be positive evidence only. Weak-evidence confirmed rows from research previews must not be presented as daily buy guidance.
+
+## Required Approval Fields
+
+The CSV must include these approval fields on every row:
+
+- `approval_source`
+- `approved_for_daily`
+- `approval_status`
+- `operation_module_id`
+- `approval_version`
+- `operation_directive_level`
+- `buy_filter_id`
+- `approval_note_zh`
+
+For the approved v1 daily adapter, these fields must show:
+
+- `approved_for_daily=True`
+- `approval_status=approved_for_daily_v1`
+- `operation_directive_level=approved_daily_operation_guidance`
 
 ## Sections
 

@@ -42,6 +42,14 @@ REQUIRED_COLUMNS = {
     "daily_volume_model_signal_count",
     "adapter_source",
     "adapter_source_status",
+    "approval_source",
+    "approved_for_daily",
+    "approval_status",
+    "operation_module_id",
+    "approval_version",
+    "operation_directive_level",
+    "buy_filter_id",
+    "approval_note_zh",
     "adapter_note_zh",
     "generated_at",
 }
@@ -63,6 +71,10 @@ DISPLAY_COLUMNS = [
     "win_rate_zh",
     "avg_return_zh",
     "median_return_zh",
+    "approved_for_daily",
+    "approval_status",
+    "approval_version",
+    "operation_directive_level",
     "confidence_zh",
     "pdf_note_zh",
     "adapter_note_zh",
@@ -122,6 +134,25 @@ def validate_shape(section: pd.DataFrame) -> None:
     if bad_status:
         fail(f"invalid adapter_source_status values: {bad_status}")
 
+    if set(section["approved_for_daily"].astype(str)) != {"True"}:
+        fail("daily volume breakout operation section must be approved_for_daily=True")
+    if set(section["approval_status"].astype(str)) != {"approved_for_daily_v1"}:
+        fail("daily volume breakout operation section must carry approval_status=approved_for_daily_v1")
+    if set(section["operation_directive_level"].astype(str)) != {"approved_daily_operation_guidance"}:
+        fail("daily volume breakout operation section must carry approved daily operation guidance")
+    if section["operation_module_id"].astype(str).str.strip().eq("").any():
+        fail("daily volume breakout operation section must carry operation_module_id")
+    if section["approval_version"].astype(str).str.strip().eq("").any():
+        fail("daily volume breakout operation section must carry approval_version")
+
+    confirmed_data = section[
+        section["pdf_section"].eq("confirmed_operation") & section["row_type"].eq("data")
+    ].copy()
+    if not confirmed_data.empty:
+        bad_quality = sorted(set(confirmed_data["quality_status_zh"].astype(str)) - {"正向證據"})
+        if bad_quality:
+            fail(f"confirmed operation rows must be positive evidence only: {bad_quality}")
+
     for view in PDF_VIEWS:
         for section_id in PDF_SECTIONS:
             part = section[section["pdf_view"].eq(view) & section["pdf_section"].eq(section_id)]
@@ -159,6 +190,7 @@ def validate_pdf_generator_boundary() -> None:
         "volume_breakout_confirmed_operation_rank_latest.csv",
         "volume_breakout_pending_operation_queue_latest.csv",
         "historical_pattern_operation_registry_latest.csv",
+        "approved_operation_patterns_latest.csv",
     ]
     for token in forbidden:
         if token in source:
