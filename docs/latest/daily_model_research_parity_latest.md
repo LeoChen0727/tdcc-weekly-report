@@ -1,6 +1,6 @@
 # Daily Model Research Baseline Parity
 
-- generated_at: `2026-06-15 15:22:21 Asia/Taipei`
+- generated_at: `2026-06-15 15:27:56 Asia/Taipei`
 - purpose: verify that every daily production core model has a research production-baseline row before parameter variants are compared
 - production_parity: historical research fields can replay the production baseline directly
 - production_proxy / proxy_only: baseline exists, but one or more production fields are not fully available point-in-time in the research frame

@@ -1,6 +1,6 @@
 # Model Operation Readiness
 
-- generated_at: `2026-06-15 15:22:23 Asia/Taipei`
+- generated_at: `2026-06-15 15:27:58 Asia/Taipei`
 - purpose: track model parity, operation-module readiness, daily adapter status, and promotion boundaries
 - rule: `approved_for_daily=False` means no formal daily buy/sell directive is approved
 - rule: `presentation_allowed=True` only permits research-derived historical reference rendering

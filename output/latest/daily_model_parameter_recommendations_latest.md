@@ -1,6 +1,6 @@
 # DAILY MODEL PARAMETER RECOMMENDATIONS
 
-- generated_at: 2026-06-15 15:22:22 Asia/Taipei
+- generated_at: 2026-06-15 15:27:57 Asia/Taipei
 - purpose: convert parameter backtests into program-side reporting recommendations
 - entry_basis: signal date next trading day open
 - close_return: D+n close divided by next open minus 1
