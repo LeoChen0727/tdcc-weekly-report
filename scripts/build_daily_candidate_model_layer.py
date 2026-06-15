@@ -485,19 +485,6 @@ MODEL_SCORE_PROFILES: dict[str, ScoreProfile] = {
         tdcc_distribution_penalty=12.0,
         false_breakout_penalty=4.0,
     ),
-    "legacy_common": ScoreProfile(
-        "legacy_common",
-        volume_ratio_bonus_per_1x=4.0,
-        volume_ratio_bonus_cap=15.0,
-        tdcc_positive_bonus=8.0,
-        warrant_bullish_bonus=6.0,
-        strong_revenue_bonus=6.0,
-        lower_position_bonus=5.0,
-        high_return_penalty_threshold_20d=35.0,
-        high_return_penalty=5.0,
-        tdcc_distribution_penalty=8.0,
-        false_breakout_penalty=8.0,
-    ),
 }
 
 
@@ -525,17 +512,6 @@ def has_cjk(value: str) -> bool:
     return any("\u4e00" <= ch <= "\u9fff" for ch in safe_str(value))
 
 
-def zh_or_pending(value: Any, mapping: dict[str, str] | None = None) -> str:
-    raw = safe_str(value)
-    if not raw:
-        return ""
-    if mapping and raw in mapping:
-        return mapping[raw]
-    if has_cjk(raw) and "_" not in raw:
-        return raw
-    return "欄位尚未完成"
-
-
 def split_tags(value: Any) -> list[str]:
     raw = safe_str(value)
     if not raw:
@@ -543,23 +519,6 @@ def split_tags(value: Any) -> list[str]:
     for sep in [";", ",", "/", "、"]:
         raw = raw.replace(sep, "|")
     return [part.strip() for part in raw.split("|") if part.strip()]
-
-
-def zh_tag_list(value: Any, mapping: dict[str, str]) -> str:
-    tags = split_tags(value)
-    if not tags:
-        return ""
-    translated = []
-    for tag in tags:
-        translated.append(mapping.get(tag, tag if has_cjk(tag) and "_" not in tag else "欄位尚未完成"))
-    return " | ".join(dict.fromkeys(translated))
-
-
-def zh_text_or_pending(value: Any) -> str:
-    raw = safe_str(value)
-    if raw and has_cjk(raw):
-        return raw
-    return "欄位尚未完成 / 暫用現有資料"
 
 
 def score_components_zh(value: Any) -> str:
@@ -751,12 +710,6 @@ def clamp(value: float, low: float = 0, high: float = 100) -> float:
     if math.isnan(value):
         return low
     return max(low, min(high, value))
-
-
-def pct_points(value: float, threshold: float, points: float, cap: float) -> float:
-    if math.isnan(value) or value < threshold:
-        return 0
-    return min(cap, (value - threshold) * points)
 
 
 def category(row: pd.Series) -> str:
@@ -1224,17 +1177,6 @@ def score_from_profile(row: pd.Series, profile: ScoreProfile) -> tuple[float, li
         if profile.false_breakout_penalty:
             risks.append(f"false_breakout_risk_penalty:{profile.false_breakout_penalty:g}")
     return score, comps, risks
-
-
-def model_score_common(row: pd.Series) -> tuple[float, list[str], list[str]]:
-    """Legacy neutral scoring entrypoint.
-
-    Formal daily models must call their own ScoreProfile through their own
-    score_* function.  This remains only for compatibility with historical
-    tests and ad-hoc diagnostics.
-    """
-
-    return score_from_profile(row, MODEL_SCORE_PROFILES["legacy_common"])
 
 
 def score_volume_breakout(row: pd.Series) -> tuple[float, list[str], list[str]]:
@@ -2789,55 +2731,6 @@ def append_tdcc_short_term(signals: pd.DataFrame, signal_date: str) -> pd.DataFr
                     "model_forbidden_veto": "不是低位布局模型，不可混入TDCC潛伏吸籌。",
                     "model_operation_guidance": "隔日開盤作為研究觀察基準；依D+1到D+10收盤/最高價統計做短線延續檢查。",
                     "selection_semantics": "specialty_condition_met_rank_by_tdcc_short_term_score",
-                }
-            )
-    # Short-term surge is a research/backtest model. It is intentionally kept
-    # out of the daily PDF candidate signal table until its parameters mature.
-    surge = pd.DataFrame()
-    if not surge.empty:
-        for idx, row in surge.iterrows():
-            stock_id = normalize_code(text(row, "stock_id"))
-            source = taxonomy_or_source(stock_id, row)
-            d10 = to_number(row.get("best_d10_hit_rate_pct", ""))
-            d5 = to_number(row.get("best_d5_hit_rate_pct", ""))
-            score = 50 + (0 if math.isnan(d10) else d10 * 0.35) + (0 if math.isnan(d5) else d5 * 0.15)
-            rows.append(
-                {
-                    "signal_date": text(row, "date") or signal_date,
-                    "source_row_index": f"short_surge:{idx}",
-                    "stock_id": stock_id,
-                    "stock_name": text(row, "stock_name"),
-                    "industry": text(source, "industry"),
-                    "primary_theme": primary_theme(source) or text(row, "theme"),
-                    "effective_primary_theme": primary_theme(source) or text(row, "theme"),
-                    "secondary_themes": text(source, "secondary_themes", "taxonomy_secondary_themes"),
-                    "effective_structural_theme_bucket": effective_structural_theme_bucket(source),
-                    "effective_mainstream_label": effective_mainstream_label(source),
-                    "report_line_memberships": report_line_memberships_value(source),
-                    "mainstream_report_eligible": mainstream_report_eligible_value(source),
-                    "non_mainstream_report_eligible": non_mainstream_report_eligible_value(source),
-                    "dual_report_membership_flag": dual_report_membership_flag_value(source),
-                    "report_bucket": report_bucket(source),
-                    "model_id": "short_term_surge_d5_d10",
-                    "model_name_zh": "短線急漲D+5/D+10模型",
-                    "model_group": "research_only_not_pdf_core",
-                    "main_condition_met": "True",
-                    "entry_basis": "signal_date_next_open",
-                    "model_score": round(clamp(score), 1),
-                    "score_components": f"best D+5={row.get('best_d5_hit_rate_pct','')} / best D+10={row.get('best_d10_hit_rate_pct','')}",
-                    "risk_penalty_tags": text(row, "market_abnormal_status", "execution_risk_note"),
-                    "original_category": "short_term_specialty",
-                    "tdcc_status": "",
-                    "warrant_flow_signal": "",
-                    "volume_ratio": text(row, "start_5d_avg_volume_ratio_vs_prev20"),
-                    "return_5d": text(row, "return_5d_pct"),
-                    "return_20d": text(row, "return_20d_pct"),
-                    "next_confirmation": "短線急漲研究專項；用隔日開盤作為研究觀察基準，分D+1到D+20檢查。",
-                    "model_main_conditions": "5日或10日漲幅達標、量能擴張、技術動能強。",
-                    "model_add_score_items": "D+1到D+20 close/high統計、處置/注意標籤、TDCC與市場狀態分層。",
-                    "model_forbidden_veto": "不得稱為周線K；必須標清楚單位與研究觀察基準。",
-                    "model_operation_guidance": "隔日開盤作為研究觀察基準；依D+1到D+20收盤/最高價統計檢查短線延續。",
-                    "selection_semantics": "specialty_condition_met_rank_by_backtest_stats",
                 }
             )
     if not rows:

@@ -406,62 +406,6 @@ def _select_latest_signal_row(df: pd.DataFrame, target_date: str) -> pd.Series |
     return df.iloc[-1]
 
 
-def build_latest_price_signal_frame(target_date: str = "") -> pd.DataFrame:
-    rows: list[dict[str, Any]] = []
-    for path in sorted(PRICE_HISTORY_DIR.glob("*.csv")):
-        df = read_csv(path)
-        if df.empty or len(df) < 40:
-            continue
-        if not {"date", "stock_id", "stock_name", "close", "high", "low", "volume"}.issubset(df.columns):
-            continue
-        df = add_price_metrics(df)
-        if df.empty:
-            continue
-        row = _select_latest_signal_row(df, target_date)
-        if row is None:
-            continue
-        signal = detect_volume_breakout(row)
-        if signal is None:
-            continue
-        stock_id = normalize_stock_id(row.get("stock_id"))
-        rows.append(
-            {
-                "signal_date": normalize_date(row.get("date")),
-                "stock_id": stock_id,
-                "stock_name": safe_str(row.get("stock_name")),
-                "market": safe_str(row.get("market")),
-                "close": row.get("close"),
-                "open": row.get("open"),
-                "high": row.get("high"),
-                "low": row.get("low"),
-                "volume": row.get("volume"),
-                "volume_ma20": row.get("volume_ma20"),
-                "volume_ratio": row.get("volume_ratio"),
-                "return_1d": row.get("return_1d"),
-                "return_5d": row.get("return_5d"),
-                "return_20d": row.get("return_20d"),
-                "distance_to_ma20_pct": row.get("distance_to_ma20_calc"),
-                "distance_to_ma60_pct": row.get("distance_to_ma60_calc"),
-                "distance_to_previous_20d_high_pct": row.get("distance_to_previous_20d_high_calc"),
-                "distance_to_previous_60d_high_pct": row.get("distance_to_previous_60d_high_calc"),
-                "ma20": row.get("ma20"),
-                "ma60": row.get("ma60"),
-                "ema23": row.get("ema23"),
-                "previous_20d_high": row.get("previous_20d_high_calc"),
-                "previous_60d_high": row.get("previous_60d_high_calc"),
-                "previous_20d_low": row.get("previous_20d_low_calc"),
-                "previous_60d_low": row.get("previous_60d_low_calc"),
-                "volume_breakout_type": signal.event_type,
-                "volume_watch_scope": signal.scope,
-                "volume_breakout_score": signal.score,
-                "volume_breakout_notes": "|".join(signal.notes),
-                "false_breakout_risk_calc": "False",
-                "overheated_breakout": "False",
-            }
-        )
-    return pd.DataFrame(rows)
-
-
 def merge_context(watch: pd.DataFrame) -> pd.DataFrame:
     if watch.empty:
         return watch
