@@ -91,6 +91,20 @@ def test_canonical_chatgpt_side_generator_is_tracked_and_not_legacy_six_category
     assert "OneDrive" in resolver_text
 
 
+def test_chatgpt_side_pdf_load_inputs_reads_local_latest_artifacts() -> None:
+    path = ROOT / "scripts" / "generate_chatgpt_side_daily_reports.py"
+    text = path.read_text(encoding="utf-8", errors="replace")
+    start = text.index("def load_inputs()")
+    end = text.index("\ndef volume_operation_frame(", start)
+    function_text = text[start:end]
+
+    assert "def read_latest_csv(" in text
+    assert "remote_latest_url(" not in function_text
+    assert 'read_latest_csv("daily_candidate_model_signals_for_report_latest.csv")' in function_text
+    assert 'read_latest_csv("daily_volume_breakout_operation_section_latest.csv")' in function_text
+    assert 'read_latest_csv("stock_theme_taxonomy_latest.csv")' in function_text
+
+
 def test_observation_list_is_row_per_stock_not_joined_cell() -> None:
     path = ROOT / "scripts" / "generate_chatgpt_side_daily_reports.py"
     text = path.read_text(encoding="utf-8", errors="replace")
@@ -101,8 +115,16 @@ def test_observation_list_is_row_per_stock_not_joined_cell() -> None:
     assert 'rows = [["榜別", "模型", "股票", "模型狀態", "分數 / 風險"]]' in function_text
     assert "listing_status_label(row, stage)" in function_text
     assert "listing_status_sort_key(listing_label)" in function_text
+    assert "listing_status_display(listing_label)" in function_text
     assert '"新上榜": 0' in text
     assert '"重複上榜": 1' in text
+    assert '"新進榜" in text' in text
+    assert '"重複進榜" in text' in text
+    assert "def font_color(" in text
+    assert "#c00000" in text
+    assert "#1f4e79" in text
+    assert "#1f4e79" in text
+    assert "__BLUE_OPEN__" in text
     assert "model_rows += 1" in function_text
     assert '".join(lines)' not in function_text
     assert "[24 * mm, 36 * mm, 34 * mm, 112 * mm, 62 * mm]" in text

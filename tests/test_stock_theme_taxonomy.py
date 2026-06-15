@@ -19,6 +19,7 @@ class StockThemeTaxonomyTests(unittest.TestCase):
         self.assertEqual(taxonomy.infer_industry_mainstream_label("電器電纜"), "core_mainstream")
         self.assertEqual(taxonomy.infer_industry_mainstream_label("金融保險業"), "non_mainstream")
         self.assertEqual(taxonomy.infer_industry_mainstream_label("塑膠工業"), "non_mainstream")
+        self.assertEqual(taxonomy.infer_industry_mainstream_label("建材營造"), "non_mainstream")
 
     def test_theme_keywords_are_core_mainstream(self) -> None:
         cases = [

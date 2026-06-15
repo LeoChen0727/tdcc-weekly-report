@@ -104,9 +104,11 @@ def validate_readiness_csv() -> list[str]:
         if str(row.get("daily_adapter_status", "")) not in {
             "ready_pending_approval_metadata",
             "ready_approved_operation_guidance",
+            "ready_empty_stale_research_source",
+            "ready_empty_no_operation_rows",
         }:
             errors.append(
-                f"{VOLUME_MODEL_ID} daily_adapter_status must be pending/ready approved metadata, "
+                f"{VOLUME_MODEL_ID} daily_adapter_status must be renderable pending/ready/empty adapter metadata, "
                 f"got {row.get('daily_adapter_status', '')!r}"
             )
         if not str(row.get("operation_module_id", "")):
@@ -162,8 +164,8 @@ def validate_daily_adapter_boundary() -> list[str]:
         errors.append(f"daily volume breakout adapter must contain only {VOLUME_MODEL_ID}, got {models}")
     if "adapter_note_zh" in adapter.columns:
         joined = " ".join(adapter["adapter_note_zh"].astype(str).head(10).tolist())
-        if "must not recalculate operation rules" not in joined:
-            errors.append("daily adapter note must state that PDF renderers must not recalculate operation rules")
+        if "不重新計算" not in joined:
+            errors.append("daily adapter note must state in Chinese that PDF renderers do not recalculate operation rules")
     return errors
 
 

@@ -100,6 +100,7 @@ TAXONOMY_SANITY_CASES = {
     "2313": {"name": "華通", "theme_contains": ["PCB", "低軌"], "membership_any": ["mainstream"]},
     "2317": {"name": "鴻海", "theme_contains": ["AI"], "membership_any": ["mainstream"]},
     "1303": {"name": "南亞", "membership_any": ["mainstream", "non_mainstream"]},
+    "1438": {"name": "三地開發", "theme_contains": ["建材營造"], "membership_any": ["non_mainstream"]},
     "1617": {"name": "Rongxing", "theme_contains": ["\u96fb\u5668\u96fb\u7e9c"]},
     "1618": {"name": "Heji", "theme_contains": ["\u91cd\u96fb", "\u96fb\u5668\u96fb\u7e9c"]},
 }
