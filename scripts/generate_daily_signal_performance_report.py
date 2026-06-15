@@ -267,7 +267,53 @@ def build_md(title: str, perf: pd.DataFrame, summary: pd.DataFrame, period_note:
     return "\n".join(lines)
 
 
-def write_pdf_from_markdown(md_path: Path, pdf_path: Path) -> None:
+def write_weekly_signal_performance_pdf_from_markdown(md_path: Path, pdf_path: Path) -> None:
+    try:
+        from reportlab.lib.pagesizes import A4
+        from reportlab.pdfbase import pdfmetrics
+        from reportlab.pdfbase.cidfonts import UnicodeCIDFont
+        from reportlab.pdfgen import canvas
+    except Exception as exc:
+        print(f"WARNING: reportlab unavailable, skip PDF {pdf_path}: {exc}")
+        return
+
+    pdf_path.parent.mkdir(parents=True, exist_ok=True)
+    pdfmetrics.registerFont(UnicodeCIDFont("STSong-Light"))
+    c = canvas.Canvas(str(pdf_path), pagesize=A4)
+    width, height = A4
+    x = 42
+    y = height - 42
+    font = "STSong-Light"
+    c.setFont(font, 11)
+
+    for raw_line in md_path.read_text(encoding="utf-8", errors="replace").splitlines():
+        line = raw_line.replace("`", "")
+        if line.startswith("# "):
+            c.setFont(font, 18)
+            step = 25
+            text = line[2:]
+        elif line.startswith("## "):
+            c.setFont(font, 14)
+            step = 21
+            text = line[3:]
+        else:
+            c.setFont(font, 9)
+            step = 14
+            text = line
+
+        chunks = [text[i : i + 90] for i in range(0, len(text), 90)] or [""]
+        for chunk in chunks:
+            if y < 48:
+                c.showPage()
+                c.setFont(font, 9)
+                y = height - 42
+            c.drawString(x, y, chunk)
+            y -= step
+            step = 14
+    c.save()
+
+
+def write_monthly_signal_performance_pdf_from_markdown(md_path: Path, pdf_path: Path) -> None:
     try:
         from reportlab.lib.pagesizes import A4
         from reportlab.pdfbase import pdfmetrics
@@ -348,12 +394,12 @@ def main() -> int:
     weekly_perf = subset_by_days(perf, 14)
     weekly_summary = build_summary(weekly_perf)
     WEEKLY_MD.write_text(build_md("每日候選股訊號績效週報", weekly_perf, weekly_summary, "latest 14 calendar days"), encoding="utf-8")
-    write_pdf_from_markdown(WEEKLY_MD, WEEKLY_PDF)
+    write_weekly_signal_performance_pdf_from_markdown(WEEKLY_MD, WEEKLY_PDF)
 
     monthly_perf = subset_month(perf)
     monthly_summary = build_summary(monthly_perf)
     MONTHLY_MD.write_text(build_md("每日候選股模型績效月報", monthly_perf, monthly_summary, "latest signal month"), encoding="utf-8")
-    write_pdf_from_markdown(MONTHLY_MD, MONTHLY_PDF)
+    write_monthly_signal_performance_pdf_from_markdown(MONTHLY_MD, MONTHLY_PDF)
 
     print(f"Saved: {SUMMARY_CSV}")
     print(f"Saved: {SUMMARY_MD}")

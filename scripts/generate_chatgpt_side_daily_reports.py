@@ -1637,6 +1637,178 @@ def model_signal_rows(inputs: dict[str, pd.DataFrame], model_id: str, line: str 
     return [row.drop(labels=["_model_rank", "_display_rank", "_model_score"], errors="ignore") for _, row in sub.iterrows()]
 
 
+def mainstream_curated_core_model_specs(inputs: dict[str, pd.DataFrame]) -> list[pd.Series]:
+    line = "mainstream"
+    registry = inputs.get("model_registry", pd.DataFrame()).copy()
+    params = inputs.get("model_parameters", pd.DataFrame()).copy()
+    if registry.empty:
+        signals = inputs.get("model_signals", pd.DataFrame()).copy()
+        if signals.empty:
+            return []
+        registry = signals[["model_id", "model_name_zh"]].drop_duplicates().copy()
+        registry["model_registry_order"] = range(1, len(registry) + 1)
+        registry["model_registry_active"] = True
+        registry["report_line_applicability"] = "both"
+    if "model_registry_active" in registry.columns:
+        registry = registry[registry["model_registry_active"].astype(str).str.lower().isin({"true", "1", "yes", "y"})].copy()
+    if "report_line_applicability" in registry.columns:
+        registry = registry[registry["report_line_applicability"].astype(str).isin(["both", line])].copy()
+    if not params.empty and {"model_id", "pdf_visibility"}.issubset(params.columns):
+        registry = registry.merge(params[["model_id", "pdf_visibility"]], on="model_id", how="left")
+        registry = registry[registry["pdf_visibility"].astype(str).isin(["pdf_core_model", "pdf_specialty_section"])].copy()
+    if registry.empty:
+        return []
+    registry["_order"] = pd.to_numeric(registry.get("model_registry_order"), errors="coerce").fillna(9999)
+    return [row.drop(labels=["_order"], errors="ignore") for _, row in registry.sort_values(["_order", "model_id"]).iterrows()]
+
+
+def mainstream_full_core_model_specs(inputs: dict[str, pd.DataFrame]) -> list[pd.Series]:
+    line = "mainstream"
+    registry = inputs.get("model_registry", pd.DataFrame()).copy()
+    params = inputs.get("model_parameters", pd.DataFrame()).copy()
+    if registry.empty:
+        signals = inputs.get("model_signals", pd.DataFrame()).copy()
+        if signals.empty:
+            return []
+        registry = signals[["model_id", "model_name_zh"]].drop_duplicates().copy()
+        registry["model_registry_order"] = range(1, len(registry) + 1)
+        registry["model_registry_active"] = True
+        registry["report_line_applicability"] = "both"
+    if "model_registry_active" in registry.columns:
+        registry = registry[registry["model_registry_active"].astype(str).str.lower().isin({"true", "1", "yes", "y"})].copy()
+    if "report_line_applicability" in registry.columns:
+        registry = registry[registry["report_line_applicability"].astype(str).isin(["both", line])].copy()
+    if not params.empty and {"model_id", "pdf_visibility"}.issubset(params.columns):
+        registry = registry.merge(params[["model_id", "pdf_visibility"]], on="model_id", how="left")
+        registry = registry[registry["pdf_visibility"].astype(str).isin(["pdf_core_model", "pdf_specialty_section"])].copy()
+    if registry.empty:
+        return []
+    registry["_order"] = pd.to_numeric(registry.get("model_registry_order"), errors="coerce").fillna(9999)
+    return [row.drop(labels=["_order"], errors="ignore") for _, row in registry.sort_values(["_order", "model_id"]).iterrows()]
+
+
+def non_mainstream_curated_core_model_specs(inputs: dict[str, pd.DataFrame]) -> list[pd.Series]:
+    line = "non_mainstream"
+    registry = inputs.get("model_registry", pd.DataFrame()).copy()
+    params = inputs.get("model_parameters", pd.DataFrame()).copy()
+    if registry.empty:
+        signals = inputs.get("model_signals", pd.DataFrame()).copy()
+        if signals.empty:
+            return []
+        registry = signals[["model_id", "model_name_zh"]].drop_duplicates().copy()
+        registry["model_registry_order"] = range(1, len(registry) + 1)
+        registry["model_registry_active"] = True
+        registry["report_line_applicability"] = "both"
+    if "model_registry_active" in registry.columns:
+        registry = registry[registry["model_registry_active"].astype(str).str.lower().isin({"true", "1", "yes", "y"})].copy()
+    if "report_line_applicability" in registry.columns:
+        registry = registry[registry["report_line_applicability"].astype(str).isin(["both", line])].copy()
+    if not params.empty and {"model_id", "pdf_visibility"}.issubset(params.columns):
+        registry = registry.merge(params[["model_id", "pdf_visibility"]], on="model_id", how="left")
+        registry = registry[registry["pdf_visibility"].astype(str).isin(["pdf_core_model", "pdf_specialty_section"])].copy()
+    if registry.empty:
+        return []
+    registry["_order"] = pd.to_numeric(registry.get("model_registry_order"), errors="coerce").fillna(9999)
+    return [row.drop(labels=["_order"], errors="ignore") for _, row in registry.sort_values(["_order", "model_id"]).iterrows()]
+
+
+def non_mainstream_full_core_model_specs(inputs: dict[str, pd.DataFrame]) -> list[pd.Series]:
+    line = "non_mainstream"
+    registry = inputs.get("model_registry", pd.DataFrame()).copy()
+    params = inputs.get("model_parameters", pd.DataFrame()).copy()
+    if registry.empty:
+        signals = inputs.get("model_signals", pd.DataFrame()).copy()
+        if signals.empty:
+            return []
+        registry = signals[["model_id", "model_name_zh"]].drop_duplicates().copy()
+        registry["model_registry_order"] = range(1, len(registry) + 1)
+        registry["model_registry_active"] = True
+        registry["report_line_applicability"] = "both"
+    if "model_registry_active" in registry.columns:
+        registry = registry[registry["model_registry_active"].astype(str).str.lower().isin({"true", "1", "yes", "y"})].copy()
+    if "report_line_applicability" in registry.columns:
+        registry = registry[registry["report_line_applicability"].astype(str).isin(["both", line])].copy()
+    if not params.empty and {"model_id", "pdf_visibility"}.issubset(params.columns):
+        registry = registry.merge(params[["model_id", "pdf_visibility"]], on="model_id", how="left")
+        registry = registry[registry["pdf_visibility"].astype(str).isin(["pdf_core_model", "pdf_specialty_section"])].copy()
+    if registry.empty:
+        return []
+    registry["_order"] = pd.to_numeric(registry.get("model_registry_order"), errors="coerce").fillna(9999)
+    return [row.drop(labels=["_order"], errors="ignore") for _, row in registry.sort_values(["_order", "model_id"]).iterrows()]
+
+
+def mainstream_curated_model_signal_rows(inputs: dict[str, pd.DataFrame], model_id: str) -> list[pd.Series]:
+    signals = inputs.get("model_signals", pd.DataFrame()).copy()
+    if signals.empty or "model_id" not in signals.columns:
+        return []
+    sub = signals[signals["model_id"].astype(str).eq(model_id)].copy()
+    if "report_line" in sub.columns:
+        sub = sub[sub["report_line"].astype(str).eq("mainstream")].copy()
+    elif "report_bucket" in sub.columns:
+        sub = sub[sub["report_bucket"].astype(str).eq("mainstream")].copy()
+    if sub.empty:
+        return []
+    sub["_model_rank"] = pd.to_numeric(sub.get("model_rank"), errors="coerce").fillna(9999)
+    sub["_display_rank"] = pd.to_numeric(sub.get("display_rank"), errors="coerce").fillna(9999)
+    sub["_model_score"] = pd.to_numeric(sub.get("model_score"), errors="coerce").fillna(-9999)
+    sub = sub.sort_values(["_model_rank", "_display_rank", "_model_score"], ascending=[True, True, False])
+    return [row.drop(labels=["_model_rank", "_display_rank", "_model_score"], errors="ignore") for _, row in sub.iterrows()]
+
+
+def mainstream_full_model_signal_rows(inputs: dict[str, pd.DataFrame], model_id: str) -> list[pd.Series]:
+    signals = inputs.get("model_signals", pd.DataFrame()).copy()
+    if signals.empty or "model_id" not in signals.columns:
+        return []
+    sub = signals[signals["model_id"].astype(str).eq(model_id)].copy()
+    if "report_line" in sub.columns:
+        sub = sub[sub["report_line"].astype(str).eq("mainstream")].copy()
+    elif "report_bucket" in sub.columns:
+        sub = sub[sub["report_bucket"].astype(str).eq("mainstream")].copy()
+    if sub.empty:
+        return []
+    sub["_model_rank"] = pd.to_numeric(sub.get("model_rank"), errors="coerce").fillna(9999)
+    sub["_display_rank"] = pd.to_numeric(sub.get("display_rank"), errors="coerce").fillna(9999)
+    sub["_model_score"] = pd.to_numeric(sub.get("model_score"), errors="coerce").fillna(-9999)
+    sub = sub.sort_values(["_model_rank", "_display_rank", "_model_score"], ascending=[True, True, False])
+    return [row.drop(labels=["_model_rank", "_display_rank", "_model_score"], errors="ignore") for _, row in sub.iterrows()]
+
+
+def non_mainstream_curated_model_signal_rows(inputs: dict[str, pd.DataFrame], model_id: str) -> list[pd.Series]:
+    signals = inputs.get("model_signals", pd.DataFrame()).copy()
+    if signals.empty or "model_id" not in signals.columns:
+        return []
+    sub = signals[signals["model_id"].astype(str).eq(model_id)].copy()
+    if "report_line" in sub.columns:
+        sub = sub[sub["report_line"].astype(str).eq("non_mainstream")].copy()
+    elif "report_bucket" in sub.columns:
+        sub = sub[sub["report_bucket"].astype(str).eq("non_mainstream")].copy()
+    if sub.empty:
+        return []
+    sub["_model_rank"] = pd.to_numeric(sub.get("model_rank"), errors="coerce").fillna(9999)
+    sub["_display_rank"] = pd.to_numeric(sub.get("display_rank"), errors="coerce").fillna(9999)
+    sub["_model_score"] = pd.to_numeric(sub.get("model_score"), errors="coerce").fillna(-9999)
+    sub = sub.sort_values(["_model_rank", "_display_rank", "_model_score"], ascending=[True, True, False])
+    return [row.drop(labels=["_model_rank", "_display_rank", "_model_score"], errors="ignore") for _, row in sub.iterrows()]
+
+
+def non_mainstream_full_model_signal_rows(inputs: dict[str, pd.DataFrame], model_id: str) -> list[pd.Series]:
+    signals = inputs.get("model_signals", pd.DataFrame()).copy()
+    if signals.empty or "model_id" not in signals.columns:
+        return []
+    sub = signals[signals["model_id"].astype(str).eq(model_id)].copy()
+    if "report_line" in sub.columns:
+        sub = sub[sub["report_line"].astype(str).eq("non_mainstream")].copy()
+    elif "report_bucket" in sub.columns:
+        sub = sub[sub["report_bucket"].astype(str).eq("non_mainstream")].copy()
+    if sub.empty:
+        return []
+    sub["_model_rank"] = pd.to_numeric(sub.get("model_rank"), errors="coerce").fillna(9999)
+    sub["_display_rank"] = pd.to_numeric(sub.get("display_rank"), errors="coerce").fillna(9999)
+    sub["_model_score"] = pd.to_numeric(sub.get("model_score"), errors="coerce").fillna(-9999)
+    sub = sub.sort_values(["_model_rank", "_display_rank", "_model_score"], ascending=[True, True, False])
+    return [row.drop(labels=["_model_rank", "_display_rank", "_model_score"], errors="ignore") for _, row in sub.iterrows()]
+
+
 def is_true_text(value) -> bool:
     return clean(value).lower() in {"true", "1", "yes", "y"}
 
@@ -2852,19 +3024,22 @@ def build_mainstream_curated_pdf(
     operation_seen: set[str] = set()
     started_model_sections = False
     limit = MAIN_REPORT_MAINSTREAM_LIMIT
-    for spec in core_model_specs(inputs, line):
+    for spec in mainstream_curated_core_model_specs(inputs):
         model_id = clean(spec.get("model_id"))
         model_name = clean(spec.get("model_name_zh"), model_id)
-        ranked_rows = model_signal_rows(inputs, model_id, line)
+        ranked_rows = mainstream_curated_model_signal_rows(inputs, model_id)
         if not ranked_rows:
             continue
         if started_model_sections:
             append_page_break_once(story)
-        started_model_sections = True
         story.append(Paragraph(model_name, H1))
+        started_model_sections = True
         desc = clean(spec.get("model_description_zh"))
         if desc:
             story.append(para(desc, BODY_SMALL))
+        if model_id == VOLUME_BREAKOUT_MODEL_ID:
+            render_volume_range_breakout_operation_section(story, inputs, "highlight")
+            continue
         story.append(build_mainstream_curated_model_table(ranked_rows, two_map, all_map, limit=limit))
         reps = mainstream_curated_operation_representatives(ranked_rows)
         for row in reps:
@@ -2923,10 +3098,10 @@ def build_non_mainstream_curated_pdf(
 
     operation_seen: set[str] = set()
     limit = MAIN_REPORT_NON_MAINSTREAM_LIMIT
-    for spec in core_model_specs(inputs, line):
+    for spec in non_mainstream_curated_core_model_specs(inputs):
         model_id = clean(spec.get("model_id"))
         model_name = clean(spec.get("model_name_zh"), model_id)
-        ranked_rows = model_signal_rows(inputs, model_id, line)
+        ranked_rows = non_mainstream_curated_model_signal_rows(inputs, model_id)
         if not ranked_rows:
             continue
         append_page_break_once(story)
@@ -2934,9 +3109,10 @@ def build_non_mainstream_curated_pdf(
         desc = clean(spec.get("model_description_zh"))
         if desc:
             story.append(para(desc, BODY_SMALL))
-        story.append(build_non_mainstream_curated_model_table(ranked_rows, two_map, all_map, limit=limit))
         if model_id == VOLUME_BREAKOUT_MODEL_ID:
             render_volume_range_breakout_operation_section(story, inputs, "highlight")
+            continue
+        story.append(build_non_mainstream_curated_model_table(ranked_rows, two_map, all_map, limit=limit))
         reps = non_mainstream_curated_operation_representatives(ranked_rows)
         for row in reps:
             sid = clean(row.get("stock_id"))
@@ -3015,17 +3191,18 @@ def build_mainstream_full_candidate_pdf(
 
     story.append(Paragraph(f"{line_label}完整候選", H1))
     limit = FULL_REPORT_MAINSTREAM_LIMIT
-    for spec in core_model_specs(inputs, line):
+    for spec in mainstream_full_core_model_specs(inputs):
         model_id = clean(spec.get("model_id"))
         model_name = clean(spec.get("model_name_zh"), model_id)
-        line_rows = model_signal_rows(inputs, model_id, line)
+        line_rows = mainstream_full_model_signal_rows(inputs, model_id)
         story.append(Paragraph(model_name, H2))
         if not line_rows:
             story.append(para("無符合條件資料。", BODY))
             continue
-        story.append(build_mainstream_full_model_table(line_rows, two_map, all_map, limit=limit))
         if model_id == VOLUME_BREAKOUT_MODEL_ID:
             render_volume_range_breakout_operation_section(story, inputs, "full")
+            continue
+        story.append(build_mainstream_full_model_table(line_rows, two_map, all_map, limit=limit))
 
     story.append(PageBreak())
     story.append(Paragraph(f"{line_label}雙線與輪動摘要", H1))
@@ -3135,17 +3312,18 @@ def build_non_mainstream_full_candidate_pdf(
 
     story.append(Paragraph(f"{line_label}完整候選", H1))
     limit = FULL_REPORT_NON_MAINSTREAM_LIMIT
-    for spec in core_model_specs(inputs, line):
+    for spec in non_mainstream_full_core_model_specs(inputs):
         model_id = clean(spec.get("model_id"))
         model_name = clean(spec.get("model_name_zh"), model_id)
-        line_rows = model_signal_rows(inputs, model_id, line)
+        line_rows = non_mainstream_full_model_signal_rows(inputs, model_id)
         story.append(Paragraph(model_name, H2))
         if not line_rows:
             story.append(para("無符合條件資料。", BODY))
             continue
-        story.append(build_non_mainstream_full_model_table(line_rows, two_map, all_map, limit=limit))
         if model_id == VOLUME_BREAKOUT_MODEL_ID:
             render_volume_range_breakout_operation_section(story, inputs, "full")
+            continue
+        story.append(build_non_mainstream_full_model_table(line_rows, two_map, all_map, limit=limit))
 
     story.append(PageBreak())
     story.append(Paragraph(f"{line_label}雙線與輪動摘要", H1))
