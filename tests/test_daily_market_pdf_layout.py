@@ -9,6 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 import generate_daily_market_pdf as pdf  # noqa: E402
+import validate_daily_market_report as market_validator  # noqa: E402
 
 
 def test_mainstream_highlight_summary_splits_multi_stock_cell_into_rows() -> None:
@@ -65,3 +66,21 @@ def test_model_summary_empty_line_fallback_does_not_emit_raw_report_line() -> No
 
     assert "mainstream" not in mainstream_rows[1][5]
     assert "\u4e3b\u6d41" in mainstream_rows[1][5]
+
+
+def test_raw_slug_validator_does_not_match_mainstream_inside_hyphenated_english() -> None:
+    errors: list[str] = []
+
+    market_validator.check_raw_slug_terms("full_table", "plain English non-mainstream phrase", errors)
+
+    assert errors == []
+
+
+def test_raw_slug_validator_still_catches_report_line_and_theme_raw_ids() -> None:
+    errors: list[str] = []
+
+    market_validator.check_raw_slug_terms("full_table", "mainstream \u7121\u6a21\u578b\u6458\u8981\u8cc7\u6599", errors)
+    market_validator.check_raw_slug_terms("full_table", "theme value non_mainstream_theme leaked", errors)
+
+    assert any("raw slug appears in formal PDF text: mainstream;" in error for error in errors)
+    assert any("raw slug appears in formal PDF text: non_mainstream_theme;" in error for error in errors)
