@@ -1574,6 +1574,62 @@ def upsert_readme_fields(fields: dict[str, str]) -> None:
         path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
+MODEL_TUNING_MARKER = "## Model Tuning Recommendation"
+INTERPRETATION_RULES_MARKER = "## Interpretation Rules"
+
+
+def tracking_model_tuning_section() -> str:
+    lines = [
+        MODEL_TUNING_MARKER,
+        "",
+        "- tuning_status: not_ready",
+        "- reason: insufficient mature D+10 / D+20 samples",
+        "- allowed_changes: reporting_priority_only",
+        "- forbidden_changes: core_weight_change",
+        "- threshold_for_review: each major phase mature_d10 >= 30, or overall mature_d20 >= 100 with at least 3-4 weeks of data",
+        "- note: keep TDCC/ABM model weights frozen until mature samples are sufficient.",
+    ]
+    return "\n".join(lines)
+
+
+def ensure_tracking_model_tuning_contract(text: str) -> str:
+    required = [
+        MODEL_TUNING_MARKER,
+        "tuning_status: not_ready",
+        "forbidden_changes: core_weight_change",
+    ]
+    if all(item in text for item in required):
+        return text.rstrip() + "\n"
+
+    section = tracking_model_tuning_section()
+    if MODEL_TUNING_MARKER in text:
+        prefix, tail = text.split(MODEL_TUNING_MARKER, 1)
+        if INTERPRETATION_RULES_MARKER in tail:
+            _, suffix = tail.split(INTERPRETATION_RULES_MARKER, 1)
+            return prefix.rstrip() + "\n\n" + section + "\n\n" + INTERPRETATION_RULES_MARKER + "\n" + suffix.lstrip("\r\n")
+        return prefix.rstrip() + "\n\n" + section + "\n"
+
+    if INTERPRETATION_RULES_MARKER in text:
+        prefix, suffix = text.split(INTERPRETATION_RULES_MARKER, 1)
+        return prefix.rstrip() + "\n\n" + section + "\n\n" + INTERPRETATION_RULES_MARKER + "\n" + suffix.lstrip("\r\n")
+
+    return text.rstrip() + "\n\n" + section + "\n"
+
+
+def upsert_tracking_weekly_section(text: str, marker: str, legacy_marker: str, section: list[str]) -> str:
+    section_text = "\n".join(section).rstrip()
+    active_marker = marker if marker in text else legacy_marker if legacy_marker in text else ""
+    if not active_marker:
+        return text.rstrip() + "\n\n" + section_text + "\n"
+
+    prefix, tail = text.split(active_marker, 1)
+    for next_marker in [MODEL_TUNING_MARKER, INTERPRETATION_RULES_MARKER]:
+        if next_marker in tail:
+            _, suffix = tail.split(next_marker, 1)
+            return prefix.rstrip() + "\n\n" + section_text + "\n\n" + next_marker + "\n" + suffix.lstrip("\r\n")
+    return prefix.rstrip() + "\n\n" + section_text + "\n"
+
+
 def append_tracking_packet(fields: dict[str, str]) -> None:
     if not TRACKING_PACKET_MD.exists():
         return
@@ -1591,12 +1647,8 @@ def append_tracking_packet(fields: dict[str, str]) -> None:
     for key, value in fields.items():
         section.append(f"- {key}: {value}")
     section.append("")
-    if marker in text:
-        text = text.split(marker, 1)[0].rstrip() + "\n\n" + "\n".join(section)
-    elif legacy_marker in text:
-        text = text.split(legacy_marker, 1)[0].rstrip() + "\n\n" + "\n".join(section)
-    else:
-        text = text.rstrip() + "\n\n" + "\n".join(section)
+    text = upsert_tracking_weekly_section(text, marker, legacy_marker, section)
+    text = ensure_tracking_model_tuning_contract(text)
     TRACKING_PACKET_MD.write_text(text, encoding="utf-8")
 
 
