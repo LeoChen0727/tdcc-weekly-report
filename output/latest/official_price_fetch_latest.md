@@ -1,6 +1,6 @@
 # Official Daily Price Fetch Report
 
-- generated_at: `2026-06-15 14:24:09 Asia/Taipei`
+- generated_at: `2026-06-15 14:44:17 Asia/Taipei`
 - target_date: `20260615`
 - saved_price_date: `20260612`
 - is_target_date: `False`
@@ -29,21 +29,18 @@
 - ===== Fetch price for date 20260615 =====
 - Loaded universe rows=6272
 - Trying TWSE batch source=TWSE_RWD_JSON_MI_INDEX date=20260615
-- GET https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260615&type=ALLBUT0999&response=json -> status=200, chars=230061
+- GET https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260615&type=ALLBUT0999&response=json -> status=200, chars=230688
 - TWSE_RWD_JSON_MI_INDEX: parsed TWSE rows=1236
 - TWSE batch selected source=TWSE_RWD_JSON_MI_INDEX, rows=1236
 - Trying TPEx batch source=TPEX_NEW_AFTERTRADING_JSON date=20260615
 - GET https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/06/15&type=EW&response=json -> status=200, chars=11371
 - TPEX_NEW_AFTERTRADING_JSON: JSON parse failed
 - Trying TPEx batch source=TPEX_NEW_AFTERTRADING_CSV date=20260615
-- GET https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/06/15&type=EW&response=csv -> status=200, chars=11371
-- TPEX_NEW_AFTERTRADING_CSV: parsed TPEx CSV rows=0
+- GET https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/06/15&type=EW&response=csv failed: ReadTimeout: HTTPSConnectionPool(host='www.tpex.org.tw', port=443): Read timed out. (read timeout=25)
 - Trying TPEx batch source=TPEX_OLD_DAILY_JSON date=20260615
-- GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=json&d=115/06/15&s=0,asc,0 -> status=520, chars=959
-- Trying TPEx batch source=TPEX_OLD_DAILY_CSV date=20260615
-- GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=csv&d=115/06/15&s=0,asc,0 -> status=200, chars=1410530
-- TPEX_OLD_DAILY_CSV: parsed TPEx CSV rows=5037
-- TPEx batch selected source=TPEX_OLD_DAILY_CSV, rows=5037
+- GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=json&d=115/06/15&s=0,asc,0 -> status=200, chars=1421188
+- TPEX_OLD_DAILY_JSON: parsed TPEx JSON rows=5037
+- TPEx batch selected source=TPEX_OLD_DAILY_JSON, rows=5037
 - date=20260615 twse_rows=1236 tpex_rows=5037 total_rows=6273 full_market_ok=True
 - Reject stale TPEx target-date rows: 100.0% match previous file daily_price_20260612.csv
 - Published previous valid daily price file as latest: data/daily_price/daily_price_20260612.csv
