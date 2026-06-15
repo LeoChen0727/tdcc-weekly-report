@@ -14,12 +14,14 @@ DOCS_LATEST_DIR = ROOT / "docs" / "latest"
 
 SOURCE_PREVIEW_CSV = LATEST_DIR / "volume_breakout_operation_pdf_preview_latest.csv"
 DAILY_SIGNALS_CSV = LATEST_DIR / "daily_candidate_model_signals_for_report_latest.csv"
+APPROVAL_CSV = LATEST_DIR / "approved_operation_patterns_latest.csv"
 
 OUT_CSV = LATEST_DIR / "daily_volume_breakout_operation_section_latest.csv"
 OUT_MD = LATEST_DIR / "daily_volume_breakout_operation_section_latest.md"
 
 MODEL_ID = "volume_range_breakout"
 ADAPTER_SOURCE = "volume_breakout_operation_pdf_preview_latest.csv"
+APPROVAL_SOURCE = "approved_operation_patterns_latest.csv"
 PDF_VIEWS = ("highlight", "full")
 PDF_SECTIONS = ("confirmed_operation", "pending_confirmation", "active_operation")
 
@@ -70,8 +72,27 @@ OUTPUT_COLUMNS = [
     "daily_volume_model_signal_count",
     "adapter_source",
     "adapter_source_status",
+    "approval_source",
+    "approved_for_daily",
+    "approval_status",
+    "operation_module_id",
+    "approval_version",
+    "operation_directive_level",
+    "buy_filter_id",
+    "approval_note_zh",
     "adapter_note_zh",
     "generated_at",
+]
+
+APPROVAL_FIELDS = [
+    "approval_source",
+    "approved_for_daily",
+    "approval_status",
+    "operation_module_id",
+    "approval_version",
+    "operation_directive_level",
+    "buy_filter_id",
+    "approval_note_zh",
 ]
 
 
@@ -103,6 +124,57 @@ def read_csv(path: Path) -> pd.DataFrame:
         return pd.DataFrame()
 
 
+def number_text(value: Any) -> float:
+    text = safe_str(value).replace("%", "").replace("+", "").replace(",", "")
+    if not text:
+        return float("nan")
+    try:
+        return float(text)
+    except Exception:
+        return float("nan")
+
+
+def approval_context(approval: pd.DataFrame) -> dict[str, str]:
+    default = {
+        "approval_source": APPROVAL_SOURCE,
+        "approved_for_daily": "False",
+        "approval_status": "missing",
+        "operation_module_id": "",
+        "approval_version": "",
+        "operation_directive_level": "no_operation_directive",
+        "buy_filter_id": "",
+        "approval_note_zh": "尚未建立放量攻擊 approved operation artifact。",
+    }
+    if approval.empty or "model_id" not in approval.columns:
+        return default
+    part = approval[approval["model_id"].astype(str).str.strip().eq(MODEL_ID)].copy()
+    if part.empty:
+        return default
+    row = part.iloc[0]
+    approved = safe_str(row.get("approved_for_daily"))
+    return {
+        "approval_source": APPROVAL_SOURCE,
+        "approved_for_daily": "True" if approved.lower() == "true" else "False",
+        "approval_status": safe_str(row.get("approval_status")),
+        "operation_module_id": safe_str(row.get("operation_module_id")),
+        "approval_version": safe_str(row.get("approval_version")),
+        "operation_directive_level": safe_str(row.get("operation_directive_level")),
+        "buy_filter_id": safe_str(row.get("buy_filter_id")),
+        "approval_note_zh": safe_str(row.get("approval_note_zh")),
+    }
+
+
+def approved_confirmed_source_row(row: pd.Series) -> bool:
+    quality = safe_str(row.get("quality_status_zh"))
+    if quality:
+        return quality == "正向證據"
+    sample = number_text(row.get("sample_size"))
+    win = number_text(row.get("win_rate_zh"))
+    median = number_text(row.get("median_return_zh"))
+    score = number_text(row.get("research_score"))
+    return sample >= 10 and win >= 50 and median > 0 and score > 0
+
+
 def daily_signal_context(signals: pd.DataFrame) -> tuple[str, int]:
     if signals.empty or "model_id" not in signals.columns:
         return "", 0
@@ -123,6 +195,7 @@ def empty_row(
     source_status: str,
     daily_signal_date: str,
     daily_volume_count: int,
+    approval: dict[str, str],
     generated_at: str,
 ) -> dict[str, Any]:
     section_zh = SECTION_ZH[pdf_section]
@@ -161,6 +234,7 @@ def empty_row(
         "daily_volume_model_signal_count": daily_volume_count,
         "adapter_source": ADAPTER_SOURCE,
         "adapter_source_status": source_status,
+        **approval,
         "adapter_note_zh": SECTION_EMPTY_NOTE_ZH[pdf_section],
         "generated_at": generated_at,
     }
@@ -171,6 +245,7 @@ def normalize_source_rows(
     source_status: str,
     daily_signal_date: str,
     daily_volume_count: int,
+    approval: dict[str, str],
     generated_at: str,
 ) -> pd.DataFrame:
     rows: list[dict[str, Any]] = []
@@ -188,6 +263,10 @@ def normalize_source_rows(
             allowed = allowed[allowed["pdf_view"].astype(str).str.strip().isin(PDF_VIEWS)].copy()
         else:
             allowed = allowed.iloc[0:0].copy()
+        if not allowed.empty:
+            confirmed = allowed["pdf_section"].astype(str).str.strip().eq("confirmed_operation")
+            approved_confirmed = allowed.apply(approved_confirmed_source_row, axis=1)
+            allowed = allowed[(~confirmed) | approved_confirmed].copy()
 
     for _, row in allowed.iterrows():
         record = {col: safe_str(row.get(col)) for col in OUTPUT_COLUMNS}
@@ -201,7 +280,13 @@ def normalize_source_rows(
         record["daily_volume_model_signal_count"] = daily_volume_count
         record["adapter_source"] = ADAPTER_SOURCE
         record["adapter_source_status"] = source_status
-        record["adapter_note_zh"] = "research-derived operation section; PDF must render only this model section and must not recalculate operation rules."
+        for col in APPROVAL_FIELDS:
+            record[col] = approval[col]
+        record["adapter_note_zh"] = (
+            "approved daily operation guidance; PDF must render only this model section and must not recalculate operation rules."
+            if approval["approved_for_daily"] == "True"
+            else "research-derived operation section; PDF must render only this model section and must not recalculate operation rules."
+        )
         record["generated_at"] = generated_at
         rows.append(record)
 
@@ -213,7 +298,9 @@ def normalize_source_rows(
     for pdf_view in PDF_VIEWS:
         for pdf_section in PDF_SECTIONS:
             if (pdf_view, pdf_section) not in existing:
-                rows.append(empty_row(pdf_view, pdf_section, source_status, daily_signal_date, daily_volume_count, generated_at))
+                rows.append(
+                    empty_row(pdf_view, pdf_section, source_status, daily_signal_date, daily_volume_count, approval, generated_at)
+                )
 
     out = pd.DataFrame(rows, columns=OUTPUT_COLUMNS)
     out["_view_order"] = out["pdf_view"].map({"highlight": 0, "full": 1}).fillna(9)
@@ -237,6 +324,9 @@ def write_outputs(df: pd.DataFrame, source_rows: int, source_status: str) -> Non
         f"- generated_at: `{safe_str(df['generated_at'].iloc[0]) if not df.empty else now_text()}`",
         f"- model_id: `{MODEL_ID}`",
         f"- source: `{ADAPTER_SOURCE}`",
+        f"- approval_source: `{safe_str(df['approval_source'].iloc[0]) if not df.empty else APPROVAL_SOURCE}`",
+        f"- approved_for_daily: `{safe_str(df['approved_for_daily'].iloc[0]) if not df.empty else 'False'}`",
+        f"- approval_version: `{safe_str(df['approval_version'].iloc[0]) if not df.empty else ''}`",
         f"- source_status: `{source_status}`",
         f"- source_rows: `{source_rows}`",
         "- purpose: production presentation adapter only; formal PDF rendering must read this artifact and must not recalculate operation rules.",
@@ -260,6 +350,8 @@ def write_outputs(df: pd.DataFrame, source_rows: int, source_status: str) -> Non
                 "sample_size",
                 "win_rate_zh",
                 "median_return_zh",
+                "approved_for_daily",
+                "operation_directive_level",
                 "adapter_note_zh",
             ]
             try:
@@ -277,9 +369,10 @@ def write_outputs(df: pd.DataFrame, source_rows: int, source_status: str) -> Non
 def build() -> pd.DataFrame:
     source = read_csv(SOURCE_PREVIEW_CSV)
     signals = read_csv(DAILY_SIGNALS_CSV)
+    approval = read_csv(APPROVAL_CSV)
     source_status = "ready" if not source.empty else "missing_or_empty_research_source"
     daily_signal_date, daily_volume_count = daily_signal_context(signals)
-    return normalize_source_rows(source, source_status, daily_signal_date, daily_volume_count, now_text())
+    return normalize_source_rows(source, source_status, daily_signal_date, daily_volume_count, approval_context(approval), now_text())
 
 
 def main() -> int:
