@@ -243,11 +243,17 @@ def safe_str(value: Any) -> str:
     return text
 
 
+def pdf_display_token_map() -> dict[str, str]:
+    display_map = dict(PDF_TOKEN_ZH)
+    display_map.update(globals().get("PDF_DISPLAY_TOKEN_ZH_FINAL", {}))
+    return display_map
+
+
 def display_zh(value: Any, fallback: str = "") -> str:
     text = safe_str(value)
     if not text:
         return fallback
-    clean_map = dict(PDF_TOKEN_ZH)
+    clean_map = pdf_display_token_map()
     out = text
     for src in sorted(clean_map, key=len, reverse=True):
         out = re.sub(rf"(?<![A-Za-z0-9_]){re.escape(src)}(?![A-Za-z0-9_])", clean_map[src], out)
@@ -307,7 +313,7 @@ def clean_text(text: Any, limit: int | None = None) -> str:
     result = re.sub(r"\s+", " ", result).strip()
     for old in sorted(FORBIDDEN_WORD_REPLACEMENTS, key=len, reverse=True):
         result = result.replace(old, FORBIDDEN_WORD_REPLACEMENTS[old])
-    display_map = globals().get("PDF_DISPLAY_TOKEN_ZH_FINAL", {})
+    display_map = pdf_display_token_map()
     for raw, zh in sorted(display_map.items(), key=lambda item: len(item[0]), reverse=True):
         result = re.sub(rf"(?<![A-Za-z0-9_]){re.escape(raw)}(?![A-Za-z0-9_])", zh, result)
     if limit and len(result) > limit:
@@ -3201,6 +3207,11 @@ PDF_DISPLAY_TOKEN_ZH_FINAL = {
     "repeated_same_model_signal": "\u9023\u7e8c/\u7d2f\u8a08\u9032\u699c",
     "mainstream": "\u4e3b\u6d41",
     "non_mainstream": "\u975e\u4e3b\u6d41",
+    "mainstream_overheated": "\u4e3b\u6d41\u904e\u71b1",
+    "core_mainstream": "\u6838\u5fc3\u4e3b\u6d41\u984c\u6750",
+    "core_mainstream_theme": "\u6838\u5fc3\u4e3b\u6d41\u984c\u6750",
+    "non_mainstream_theme": "\u975e\u4e3b\u6d41\u984c\u6750",
+    "non_mainstream_overheated": "\u975e\u4e3b\u6d41\u904e\u71b1",
     "strong_accumulation": "\u5927\u6236\u5f37\u7d2f\u7a4d",
     "mild_accumulation": "\u5927\u6236\u6eab\u548c\u589e\u52a0",
     "distribution_warning": "\u5927\u6236\u8f49\u5f31\u8b66\u793a",
@@ -3227,7 +3238,7 @@ def _pdf_human_text(*values: Any, fallback: str = "\u8cc7\u6599\u4e0d\u8db3 / \u
             break
     if not text:
         text = fallback
-    for raw, zh in PDF_DISPLAY_TOKEN_ZH_FINAL.items():
+    for raw, zh in sorted(pdf_display_token_map().items(), key=lambda item: len(item[0]), reverse=True):
         text = re.sub(rf"(?<![A-Za-z0-9_]){re.escape(raw)}(?![A-Za-z0-9_])", zh, text)
     if re.fullmatch(r"[A-Za-z0-9_./ -]+", text or "") and "_" in text:
         text = fallback
@@ -3467,7 +3478,7 @@ def mainstream_highlight_summary_rows(summary: pd.DataFrame) -> list[list[Any]]:
         return rows
     part = summary[summary.get("report_line", "").astype(str).eq(report_line)].copy()
     if part.empty:
-        rows.append(["資料不足", "-", "-", "今日無候選", "-", f"{report_line} 無模型摘要資料。"])
+        rows.append(["資料不足", "-", "-", "今日無候選", "-", f"{_pdf_human_text(report_line)} 無模型摘要資料。"])
         return rows
     for _, row in part.iterrows():
         model_name = _pdf_human_text(row.get("model_name_zh"), fallback="模型名稱尚未完成", limit=24)
@@ -3501,7 +3512,7 @@ def mainstream_full_summary_rows(summary: pd.DataFrame) -> list[list[Any]]:
         return rows
     part = summary[summary.get("report_line", "").astype(str).eq(report_line)].copy()
     if part.empty:
-        rows.append(["資料不足", "-", "-", "今日無候選", "-", f"{report_line} 無模型摘要資料。"])
+        rows.append(["資料不足", "-", "-", "今日無候選", "-", f"{_pdf_human_text(report_line)} 無模型摘要資料。"])
         return rows
     for _, row in part.iterrows():
         model_name = _pdf_human_text(row.get("model_name_zh"), fallback="模型名稱尚未完成", limit=24)
@@ -3535,7 +3546,7 @@ def non_mainstream_highlight_summary_rows(summary: pd.DataFrame) -> list[list[An
         return rows
     part = summary[summary.get("report_line", "").astype(str).eq(report_line)].copy()
     if part.empty:
-        rows.append(["資料不足", "-", "-", "今日無候選", "-", f"{report_line} 無模型摘要資料。"])
+        rows.append(["資料不足", "-", "-", "今日無候選", "-", f"{_pdf_human_text(report_line)} 無模型摘要資料。"])
         return rows
     for _, row in part.iterrows():
         model_name = _pdf_human_text(row.get("model_name_zh"), fallback="模型名稱尚未完成", limit=24)
@@ -3569,7 +3580,7 @@ def non_mainstream_full_summary_rows(summary: pd.DataFrame) -> list[list[Any]]:
         return rows
     part = summary[summary.get("report_line", "").astype(str).eq(report_line)].copy()
     if part.empty:
-        rows.append(["資料不足", "-", "-", "今日無候選", "-", f"{report_line} 無模型摘要資料。"])
+        rows.append(["資料不足", "-", "-", "今日無候選", "-", f"{_pdf_human_text(report_line)} 無模型摘要資料。"])
         return rows
     for _, row in part.iterrows():
         model_name = _pdf_human_text(row.get("model_name_zh"), fallback="模型名稱尚未完成", limit=24)

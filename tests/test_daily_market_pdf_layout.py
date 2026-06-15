@@ -39,3 +39,29 @@ def test_make_table_uses_full_grid_and_zebra_rows() -> None:
     assert any(cmd[:5] == ("GRID", (0, 0), (-1, -1), 0.35, pdf.colors.HexColor("#bfbfbf")) for cmd in table._linecmds)
     assert ("BACKGROUND", (0, 0), (-1, 0), pdf.colors.HexColor("#1D3557")) in table._bkgrndcmds
     assert ("ROWBACKGROUNDS", (0, 1), (-1, -1), [pdf.colors.white, pdf.colors.HexColor("#f4f7fa")]) in table._bkgrndcmds
+
+
+def test_formal_pdf_text_sanitizes_report_line_raw_tokens() -> None:
+    text = pdf.pdf_text("mainstream / non_mainstream / mainstream_overheated / non_mainstream_theme")
+
+    assert "mainstream" not in text
+    assert "non_mainstream" not in text
+    assert "\u4e3b\u6d41" in text
+    assert "\u975e\u4e3b\u6d41" in text
+
+
+def test_model_summary_empty_line_fallback_does_not_emit_raw_report_line() -> None:
+    summary = pd.DataFrame(
+        [
+            {
+                "report_line": "non_mainstream",
+                "model_name_zh": "\u653e\u91cf\u653b\u64ca\u6a21\u578b",
+                "operation_reminder_zh": "\u4f9d\u6a21\u578b\u689d\u4ef6\u8207\u98a8\u96aa\u6b04\u4f4d\u89c0\u5bdf\u3002",
+            }
+        ]
+    )
+
+    mainstream_rows = pdf.mainstream_full_summary_rows(summary)
+
+    assert "mainstream" not in mainstream_rows[1][5]
+    assert "\u4e3b\u6d41" in mainstream_rows[1][5]
