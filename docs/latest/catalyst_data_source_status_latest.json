@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15 04:48:11 Asia/Taipei",
+  "generated_at": "2026-06-15 08:05:38 Asia/Taipei",
   "external_fetch_status": "partial_ok",
   "note": "Official monthly revenue and material-information sources are used when reachable. No unverified news, MOPS pages, or social rumor data is fabricated.",
   "files": {
@@ -48,7 +48,7 @@
     "TWSE material information OpenAPI": {
       "url": "https://openapi.twse.com.tw/v1/opendata/t187ap04_L",
       "status": "ok",
-      "rows": 4,
+      "rows": 2,
       "error": "",
       "http_status": 200,
       "matched_tracked_rows": 0,
