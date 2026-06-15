@@ -7,6 +7,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 AGENTS = ROOT / "AGENTS.md"
 DAILY_WORKFLOW = ROOT / ".github" / "workflows" / "daily_full_pipeline.yml"
+RESEARCH_WORKFLOW = ROOT / ".github" / "workflows" / "research_backtest_pipeline.yml"
 BOUNDARY_VALIDATOR = ROOT / "scripts" / "validate_daily_production_boundaries.py"
 PDF_LAYOUT_VALIDATOR = ROOT / "scripts" / "validate_chatgpt_side_pdf_layout_independence.py"
 THREAD_WORKFLOW_DOC = ROOT / "docs" / "CODEX_THREAD_WORKFLOW.md"
@@ -59,6 +60,16 @@ REQUIRED_WORKFLOW_COMMANDS = [
 ]
 
 
+FORBIDDEN_RESEARCH_WORKFLOW_SNIPPETS = [
+    "python build_chatgpt_daily_report_packet.py",
+    "python build_chatgpt_daily_report_rules.py",
+    "python publish_chatgpt_report_readme_and_check.py",
+    "git add output/latest/CHATGPT_DAILY_REPORT",
+    "git add output/latest/READ_ME_FIRST_DAILY_REPORT",
+    "git add docs/latest/ || true",
+]
+
+
 def read_text(path: Path) -> str:
     if not path.exists():
         raise FileNotFoundError(path)
@@ -71,6 +82,7 @@ def validate() -> list[str]:
     required_files = [
         AGENTS,
         DAILY_WORKFLOW,
+        RESEARCH_WORKFLOW,
         BOUNDARY_VALIDATOR,
         PDF_LAYOUT_VALIDATOR,
         THREAD_WORKFLOW_DOC,
@@ -108,6 +120,15 @@ def validate() -> list[str]:
             if command not in workflow_text:
                 errors.append(f"daily_full_pipeline.yml must run {command}")
 
+    if RESEARCH_WORKFLOW.exists():
+        research_workflow_text = read_text(RESEARCH_WORKFLOW)
+        for snippet in FORBIDDEN_RESEARCH_WORKFLOW_SNIPPETS:
+            if snippet in research_workflow_text:
+                errors.append(
+                    "research_backtest_pipeline.yml must not rebuild or stage daily production route files: "
+                    f"{snippet}"
+                )
+
     if BOUNDARY_VALIDATOR.exists():
         boundary_text = read_text(BOUNDARY_VALIDATOR)
         if "validate_repo_code_isolation_policy.py" not in boundary_text:
@@ -133,6 +154,7 @@ def main() -> int:
     print(f"validated_master_rules={RULES_MASTER.relative_to(ROOT).as_posix()}")
     print(f"validated_daily_rules={RULES_DAILY.relative_to(ROOT).as_posix()}")
     print(f"validated_workflow={DAILY_WORKFLOW.relative_to(ROOT).as_posix()}")
+    print(f"validated_research_workflow={RESEARCH_WORKFLOW.relative_to(ROOT).as_posix()}")
     return 0
 
 

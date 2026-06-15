@@ -175,14 +175,6 @@ jobs:
         run: |
           python scripts/build_msci_taiwan_rebalance_backtest.py
 
-      - name: Rebuild ChatGPT route files
-        if: ${{ env.ANY_RESEARCH_SELECTED == 'true' }}
-        run: |
-          python scripts/build_chatgpt_indicator_usage_guide.py
-          python build_chatgpt_daily_report_packet.py
-          python build_chatgpt_daily_report_rules.py
-          python publish_chatgpt_report_readme_and_check.py
-
       - name: Commit research and backtest outputs
         if: ${{ env.ANY_RESEARCH_SELECTED == 'true' }}
         run: |
@@ -207,27 +199,33 @@ jobs:
           git add output/latest/tdcc_overheated_short_term_edge_candidates_latest.csv || true
           git add output/latest/tdcc_weekly_ranking_backtest_latest.csv output/latest/tdcc_weekly_ranking_backtest_latest.md || true
           git add output/latest/daily_short_term_specialty_packet_latest.md || true
+          git add docs/latest/weekly_surge_*.csv docs/latest/weekly_surge_*.md || true
+          git add docs/latest/explosive_volume_up_*.csv docs/latest/explosive_volume_up_*.md || true
+          git add docs/latest/tdcc_overheated_short_term_edge_latest.csv docs/latest/tdcc_overheated_short_term_edge_latest.md || true
+          git add docs/latest/tdcc_overheated_short_term_edge_candidates_latest.csv || true
+          git add docs/latest/tdcc_weekly_ranking_backtest_latest.csv docs/latest/tdcc_weekly_ranking_backtest_latest.md || true
+          git add docs/latest/daily_short_term_specialty_packet_latest.md || true
           git add output/latest/daily_model_parameter_research_*.csv output/latest/daily_model_parameter_research_*.md || true
           git add output/latest/daily_model_parameter_recommendations_latest.csv output/latest/daily_model_parameter_recommendations_latest.md || true
           git add output/latest/daily_model_research_parity_latest.csv output/latest/daily_model_research_parity_latest.md || true
+          git add docs/latest/daily_model_parameter_research_*.csv docs/latest/daily_model_parameter_research_*.md || true
+          git add docs/latest/daily_model_parameter_recommendations_latest.csv docs/latest/daily_model_parameter_recommendations_latest.md || true
+          git add docs/latest/daily_model_research_parity_latest.csv docs/latest/daily_model_research_parity_latest.md || true
           git add output/history/research/daily_model_parameter_research.csv || true
           git add output/history/volume_breakout/ || true
           git add output/latest/volume_breakout_*.csv output/latest/volume_breakout_*.md output/latest/volume_breakout_*.pdf || true
           git add output/latest/historical_pattern_operation_*.csv output/latest/historical_pattern_operation_*.md || true
+          git add docs/latest/volume_breakout_*.csv docs/latest/volume_breakout_*.md docs/latest/volume_breakout_*.pdf || true
+          git add docs/latest/historical_pattern_operation_*.csv docs/latest/historical_pattern_operation_*.md || true
 
           git add output/latest/surge_model_*.csv output/latest/surge_model_*.md output/latest/surge_precondition_candidates_latest.csv output/latest/surge_precondition_candidates_latest.md || true
           git add output/latest/market_timing_*.csv output/latest/market_timing_*.md || true
           git add output/latest/daily_signal_performance_*.csv output/latest/daily_signal_performance_*.md output/latest/daily_signal_performance_*.pdf || true
           git add output/latest/msci_taiwan_rebalance_*.csv output/latest/msci_taiwan_rebalance_*.md || true
-
-          git add output/latest/chatgpt_indicator_usage_guide_latest.md || true
-          git add output/latest/CHATGPT_INDICATOR_USAGE_GUIDE.txt || true
-          git add output/latest/chatgpt_daily_report_packet_latest.txt || true
-          git add output/latest/CHATGPT_DAILY_REPORT_PACKET.txt || true
-          git add output/latest/CHATGPT_DAILY_REPORT_RULES.txt || true
-          git add output/latest/READ_ME_FIRST_DAILY_REPORT*.txt || true
-
-          git add docs/latest/ || true
+          git add docs/latest/surge_model_*.csv docs/latest/surge_model_*.md docs/latest/surge_precondition_candidates_latest.csv docs/latest/surge_precondition_candidates_latest.md || true
+          git add docs/latest/market_timing_*.csv docs/latest/market_timing_*.md || true
+          git add docs/latest/daily_signal_performance_*.csv docs/latest/daily_signal_performance_*.md docs/latest/daily_signal_performance_*.pdf || true
+          git add docs/latest/msci_taiwan_rebalance_*.csv docs/latest/msci_taiwan_rebalance_*.md || true
 
           git status --short
           git commit -m "Update research backtest outputs" || echo "No changes to commit"

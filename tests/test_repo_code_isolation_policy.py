@@ -35,3 +35,16 @@ def test_research_pipeline_runs_model_parity_validator() -> None:
     )
 
     assert "python scripts/validate_daily_model_research_parity.py" in workflow_text
+
+
+def test_research_pipeline_does_not_stage_daily_route_files() -> None:
+    workflow_text = (ROOT / ".github" / "workflows" / "research_backtest_pipeline.yml").read_text(
+        encoding="utf-8"
+    )
+
+    assert "python build_chatgpt_daily_report_packet.py" not in workflow_text
+    assert "python build_chatgpt_daily_report_rules.py" not in workflow_text
+    assert "python publish_chatgpt_report_readme_and_check.py" not in workflow_text
+    assert "git add output/latest/CHATGPT_DAILY_REPORT" not in workflow_text
+    assert "git add output/latest/READ_ME_FIRST_DAILY_REPORT" not in workflow_text
+    assert "git add docs/latest/ || true" not in workflow_text
