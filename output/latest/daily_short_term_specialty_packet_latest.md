@@ -1,7 +1,7 @@
 # DAILY SHORT-TERM SPECIALTY PACKET
 
 ## Metadata
-- generated_at: `2026-06-15 13:28:42 UTC`
+- generated_at: `2026-06-15 15:14:02 UTC`
 - main_price_date: `20260615`
 - purpose: Force daily reports to include short-term research-stat support sections without removing active D+5/D+10 core model rows.
 - market_abnormal_status_path: `output/latest/market_abnormal_status_latest.csv`
@@ -33,8 +33,8 @@
 ### D+10 Stats
 | rule_name | mature_count | win_rate_close_to_close_pct | avg_relative_return_vs_benchmark_pct | win_rate_next_open_to_close_pct | avg_next_open_relative_return_vs_benchmark_pct | sample_status |
 | --- | --- | --- | --- | --- | --- | --- |
-| all_thresholds_overheated + 1w return 10~30 + MACD hist > 0 | 25 | 84.0 | 9.02344693871493 | 88.0 | 9.011494226065427 | insufficient_sample |
-| phase_overheated_after_tdcc + KD bullish K<90 + 1w return 10~30 + 2w return 20~50 | 15 | 73.33333333333333 | 1.4175026775491744 | 73.33333333333333 | 1.648604941932877 | insufficient_sample |
+| all_thresholds_overheated + 1w return 10~30 + MACD hist > 0 | 38 | 71.05263157894737 | 7.530798109219531 | 88.0 | 9.011494226065427 | ok_initial_sample |
+| phase_overheated_after_tdcc + KD bullish K<90 + 1w return 10~30 + 2w return 20~50 | 22 | 63.63636363636363 | 3.337836925484295 | 73.33333333333333 | 1.648604941932877 | insufficient_sample |
 | phase_overheated_after_tdcc + Bollinger width pct<=80 + 2w return 20~50 + TDCC 1w | 2 | 0.0 | -12.54181939956227 | 0.0 | -20.139627605676154 | insufficient_sample |
 
 ### Current TDCC Edge Candidates
