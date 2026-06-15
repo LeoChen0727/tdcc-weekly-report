@@ -38,7 +38,7 @@ The following files are supporting data only. They must not override the report-
 
 The TDCC weekly report main date is the unique `signal_date` in the report-ready CSV files, not the daily pipeline `main_price_date` and not any historical signal date in `tdcc_signal_performance_latest.md`.
 
-As of the 2026-06-12 handoff, the expected latest TDCC data date is `20260612`. For later weeks, use the current report-ready CSV `signal_date` after validation.
+Do not set or infer an expected latest TDCC date in rules, memory, README text, Pages state, or the computer's current calendar date. The report date is decided only by the program-side report-ready CSV `signal_date` after validation.
 
 Before producing any TDCC weekly PDF or chat report:
 
@@ -48,7 +48,9 @@ Before producing any TDCC weekly PDF or chat report:
 4. If a corresponding PDF / MD begins with `TDCC data date` or equivalent date metadata, validate that it equals the report-ready CSV `signal_date`.
 5. If any date mismatch exists, stop and report the inconsistency. Do not produce the report.
 6. If either report-ready CSV contains multiple `signal_date` values, stop and report the mixed-date error. Do not produce the report.
-7. Do not treat a historical `signal_date` from `tdcc_signal_performance_latest.md`, such as `20260605`, as the current weekly report date.
+7. Do not treat any historical `signal_date` from `tdcc_signal_performance_latest.md` as the current weekly report date.
+8. The builder must fail before rendering Markdown or PDF if the report-ready CSV files do not expose exactly one matching `signal_date`.
+9. The validation artifact must expose the date contract and identify `report_ready_csv_signal_date` as the date source.
 
 ## Required Outputs
 

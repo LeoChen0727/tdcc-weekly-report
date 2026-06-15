@@ -482,12 +482,24 @@ def write_validation(result: dict[str, Any]) -> None:
         "",
         f"- status: {result['status']}",
         f"- signal_date: {result.get('signal_date', '')}",
+        f"- date_source: {result.get('date_contract', {}).get('date_source', '')}",
         f"- error_count: {len(result['errors'])}",
         f"- warning_count: {len(result['warnings'])}",
         "",
-        "## Manifest Sections",
+        "## Date Contract",
         "",
     ]
+    date_contract = result.get("date_contract", {})
+    if date_contract:
+        for key, value in date_contract.items():
+            lines.append(f"- {key}: `{value}`")
+    else:
+        lines.append("- none")
+    lines.extend([
+        "",
+        "## Manifest Sections",
+        "",
+    ])
     manifest_sections = result.get("manifest_sections", [])
     if manifest_sections:
         for section in manifest_sections:
@@ -604,9 +616,18 @@ def main() -> None:
         }
         for _, row in manifest.iterrows()
     ]
+    date_contract = {
+        "date_source": "report_ready_csv_signal_date",
+        "report_date": signal_date,
+        "highlight_report_ready_signal_dates": sorted_signal_dates(highlight),
+        "full_report_ready_signal_dates": sorted_signal_dates(full),
+        "weekly_source_signal_dates": source_date_sets["weekly"],
+        "consecutive_source_signal_dates": source_date_sets["consecutive"],
+    }
     result: dict[str, Any] = {
         "status": "pass" if not errors else "fail",
         "signal_date": signal_date,
+        "date_contract": date_contract,
         "row_counts": row_counts,
         "section_counts": section_counts,
         "manifest_sections": manifest_sections,

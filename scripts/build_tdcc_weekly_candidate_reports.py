@@ -1229,7 +1229,24 @@ def signal_date_label(df: pd.DataFrame) -> str:
     return dates[0] if len(dates) == 1 else ", ".join(dates)
 
 
-def write_report_md(df: pd.DataFrame, path: Path, title: str, manifest: pd.DataFrame, report_kind: str) -> None:
+def unique_report_signal_date(df: pd.DataFrame, label: str) -> str:
+    if df.empty or "signal_date" not in df.columns:
+        raise RuntimeError(f"{label} must contain a signal_date column before TDCC report rendering.")
+    dates = sorted({safe_str(value) for value in df["signal_date"].dropna() if safe_str(value)})
+    if len(dates) != 1:
+        raise RuntimeError(f"{label} must contain exactly one signal_date before TDCC report rendering, got: {dates}")
+    return dates[0]
+
+
+def report_date_from_ready_csvs(highlight: pd.DataFrame, full: pd.DataFrame) -> str:
+    highlight_date = unique_report_signal_date(highlight, "highlight report-ready CSV")
+    full_date = unique_report_signal_date(full, "full report-ready CSV")
+    if highlight_date != full_date:
+        raise RuntimeError(f"TDCC report-ready CSV signal_date mismatch: highlight={highlight_date}, full={full_date}")
+    return highlight_date
+
+
+def write_report_md(df: pd.DataFrame, path: Path, title: str, manifest: pd.DataFrame, report_kind: str, report_date: str) -> None:
     lines = [
         f"# {title}",
         "",
@@ -1374,7 +1391,7 @@ def write_pdf(df: pd.DataFrame, path: Path, title: str, max_rows_per_section: in
     doc.build(story)
 
 
-def write_pdf_v2(df: pd.DataFrame, path: Path, title: str, manifest: pd.DataFrame, report_kind: str) -> None:
+def write_pdf_v2(df: pd.DataFrame, path: Path, title: str, manifest: pd.DataFrame, report_kind: str, report_date: str) -> None:
     try:
         from reportlab.lib import colors
         from reportlab.lib.pagesizes import A4, landscape
@@ -1506,7 +1523,7 @@ def write_pdf_v2(df: pd.DataFrame, path: Path, title: str, manifest: pd.DataFram
     story: list[Any] = [
         Paragraph(title, title_style),
         Spacer(1, 0.2 * cm),
-        Paragraph(f"TDCC data date: {signal_date_label(df)}", normal),
+        Paragraph(f"TDCC data date: {report_date}", normal),
         Spacer(1, 0.2 * cm),
         Paragraph("TDCC 週報以當週增幅、連續累積與每日候選模型交集呈現。TDCC 不作單獨買進理由。", normal),
         Spacer(1, 0.3 * cm),
@@ -1666,19 +1683,20 @@ def main() -> int:
 
     highlight_for_render = read_csv(HIGHLIGHT_FOR_REPORT_CSV, dtype=str)
     full_for_render = read_csv(FULL_FOR_REPORT_CSV, dtype=str)
+    report_date = report_date_from_ready_csvs(highlight_for_render, full_for_render)
     render_source = pd.concat([highlight_for_render, full_for_render], ignore_index=True)
     render_manifest = load_section_manifest(render_source)
 
     write_md_table(weekly, WEEKLY_INCREASE_MD, "TDCC 當週增幅排名", BASE_COLUMNS, limit=TDCC_FULL_REPORT_SECTION_LIMIT)
     write_md_table(consecutive, CONSECUTIVE_MD, "TDCC 連續累積排名", BASE_COLUMNS, limit=TDCC_FULL_REPORT_SECTION_LIMIT)
     write_md_table(model_cross, MODEL_CROSS_MD, "TDCC 名單與每日候選模型交集", MODEL_CROSS_COLUMNS, limit=200)
-    write_report_md(highlight_for_render, HIGHLIGHT_FOR_REPORT_MD, "TDCC 週報精華版 report-ready table", render_manifest, "highlight")
-    write_report_md(full_for_render, FULL_FOR_REPORT_MD, "TDCC 週報完整版 report-ready table", render_manifest, "full")
-    write_report_md(highlight_for_render, HIGHLIGHT_MD, "TDCC 大戶籌碼週報精華版", render_manifest, "highlight")
-    write_report_md(full_for_render, FULL_MD, "TDCC 大戶籌碼週報完整版", render_manifest, "full")
+    write_report_md(highlight_for_render, HIGHLIGHT_FOR_REPORT_MD, "TDCC 週報精華版 report-ready table", render_manifest, "highlight", report_date)
+    write_report_md(full_for_render, FULL_FOR_REPORT_MD, "TDCC 週報完整版 report-ready table", render_manifest, "full", report_date)
+    write_report_md(highlight_for_render, HIGHLIGHT_MD, "TDCC 大戶籌碼週報精華版", render_manifest, "highlight", report_date)
+    write_report_md(full_for_render, FULL_MD, "TDCC 大戶籌碼週報完整版", render_manifest, "full", report_date)
 
-    write_pdf_v2(highlight_for_render, HIGHLIGHT_PDF, "TDCC 大戶籌碼週報精華版", render_manifest, "highlight")
-    write_pdf_v2(full_for_render, FULL_PDF, "TDCC 大戶籌碼週報完整版", render_manifest, "full")
+    write_pdf_v2(highlight_for_render, HIGHLIGHT_PDF, "TDCC 大戶籌碼週報精華版", render_manifest, "highlight", report_date)
+    write_pdf_v2(full_for_render, FULL_PDF, "TDCC 大戶籌碼週報完整版", render_manifest, "full", report_date)
 
     fields = {
         "tdcc_weekly_report_section_manifest_csv_raw_url": raw_url(SECTION_MANIFEST_CSV),
