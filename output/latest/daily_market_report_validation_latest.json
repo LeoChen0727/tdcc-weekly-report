@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15 12:41:12 Asia/Taipei",
+  "generated_at": "2026-06-15 13:19:31 Asia/Taipei",
   "status": "pass",
   "main_price_date": "20260612",
   "curated_pdf": {
@@ -11,7 +11,7 @@
   "full_table_pdf": {
     "path": "output/latest/daily_market_full_table_report_latest.pdf",
     "exists": true,
-    "size_bytes": 450481,
+    "size_bytes": 450702,
     "pages": 156
   },
   "model_line_pdfs": {
@@ -24,19 +24,19 @@
     "mainstream_full": {
       "path": "output/latest/mainstream_full_candidate_list_latest.pdf",
       "exists": true,
-      "size_bytes": 50332,
+      "size_bytes": 50408,
       "pages": 16
     },
     "non_mainstream_highlight": {
       "path": "output/latest/non_mainstream_daily_recommendation_highlight_latest.pdf",
       "exists": true,
-      "size_bytes": 3552862,
-      "pages": 46
+      "size_bytes": 3623519,
+      "pages": 47
     },
     "non_mainstream_full": {
       "path": "output/latest/non_mainstream_full_candidate_list_latest.pdf",
       "exists": true,
-      "size_bytes": 34337,
+      "size_bytes": 34410,
       "pages": 11
     }
   },
@@ -52,7 +52,7 @@
   "model_report_signals_for_report": {
     "path": "output/latest/daily_candidate_model_signals_for_report_latest.csv",
     "exists": true,
-    "rows": 485,
+    "rows": 487,
     "duplicate_report_model_stock_rows": 0
   },
   "checks": {
