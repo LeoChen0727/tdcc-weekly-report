@@ -15,6 +15,7 @@ DOCS_LATEST_DIR = ROOT / "docs" / "latest"
 SOURCE_PREVIEW_CSV = LATEST_DIR / "volume_breakout_operation_pdf_preview_latest.csv"
 DAILY_SIGNALS_CSV = LATEST_DIR / "daily_candidate_model_signals_for_report_latest.csv"
 APPROVAL_CSV = LATEST_DIR / "approved_operation_patterns_latest.csv"
+DATA_FRESHNESS_CSV = LATEST_DIR / "data_freshness_latest.csv"
 
 OUT_CSV = LATEST_DIR / "daily_volume_breakout_operation_section_latest.csv"
 OUT_MD = LATEST_DIR / "daily_volume_breakout_operation_section_latest.md"
@@ -43,6 +44,8 @@ OUTPUT_COLUMNS = [
     "pdf_section",
     "pdf_section_zh",
     "row_type",
+    "operation_asof_date",
+    "operation_source_date_status",
     "display_order",
     "stock_id",
     "stock_name",
@@ -138,6 +141,18 @@ def number_text(value: Any) -> float:
         return float("nan")
 
 
+def normalize_date_text(value: Any) -> str:
+    text = safe_str(value).replace("-", "").replace("/", "")
+    return text if len(text) == 8 and text.isdigit() else ""
+
+
+def main_price_date() -> str:
+    freshness = read_csv(DATA_FRESHNESS_CSV)
+    if freshness.empty or "main_price_date" not in freshness.columns:
+        return ""
+    return normalize_date_text(freshness.iloc[0].get("main_price_date"))
+
+
 def approval_context(approval: pd.DataFrame) -> dict[str, str]:
     default = {
         "approval_source": APPROVAL_SOURCE,
@@ -185,12 +200,17 @@ def approved_confirmed_source_row(row: pd.Series) -> bool:
     return sample >= 10 and win >= 50 and median > 0 and score > 0
 
 
-def daily_signal_context(signals: pd.DataFrame) -> tuple[str, int]:
+def daily_signal_context(signals: pd.DataFrame, report_date: str = "") -> tuple[str, int]:
+    report_date = normalize_date_text(report_date)
     if signals.empty or "model_id" not in signals.columns:
-        return "", 0
+        return report_date, 0
     volume = signals[signals["model_id"].astype(str).str.strip().eq(MODEL_ID)].copy()
     if volume.empty:
-        return "", 0
+        return report_date, 0
+    if report_date and "signal_date" in volume.columns:
+        volume = volume[volume["signal_date"].map(normalize_date_text).eq(report_date)].copy()
+        unique_count = volume.get("stock_id", pd.Series(dtype=str)).astype(str).str.strip().replace("", pd.NA).dropna().nunique()
+        return report_date, int(unique_count)
     signal_dates = sorted(
         {safe_str(value) for value in volume.get("signal_date", pd.Series(dtype=str)).tolist() if safe_str(value)}
     )
@@ -207,14 +227,25 @@ def empty_row(
     daily_volume_count: int,
     approval: dict[str, str],
     generated_at: str,
+    operation_asof_date: str = "",
 ) -> dict[str, Any]:
     section_zh = SECTION_ZH[pdf_section]
+    if source_status == "stale_research_source":
+        adapter_note = (
+            f"{section_zh}：operation research source date "
+            f"{operation_asof_date or 'missing'} does not match daily report date {daily_signal_date}; "
+            "PDF renders an empty section instead of stale rows."
+        )
+    else:
+        adapter_note = SECTION_EMPTY_NOTE_ZH[pdf_section]
     return {
         "model_id": MODEL_ID,
         "pdf_view": pdf_view,
         "pdf_section": pdf_section,
         "pdf_section_zh": section_zh,
         "row_type": "empty_state",
+        "operation_asof_date": operation_asof_date,
+        "operation_source_date_status": source_status,
         "display_order": 0,
         "stock_id": "",
         "stock_name": "",
@@ -247,9 +278,27 @@ def empty_row(
         **approval,
         "row_action_status": "empty_state",
         "buy_rank_eligible": "False",
-        "adapter_note_zh": SECTION_EMPTY_NOTE_ZH[pdf_section],
+        "adapter_note_zh": adapter_note,
         "generated_at": generated_at,
     }
+
+
+def operation_asof_dates(source: pd.DataFrame) -> list[str]:
+    if source.empty or "operation_asof_date" not in source.columns:
+        return []
+    return sorted(
+        {normalize_date_text(value) for value in source["operation_asof_date"].tolist() if normalize_date_text(value)}
+    )
+
+
+def source_date_status(source: pd.DataFrame, daily_signal_date: str, source_status: str) -> tuple[str, str]:
+    if source.empty or source_status != "ready":
+        return source_status, ""
+    dates = operation_asof_dates(source)
+    daily_date = normalize_date_text(daily_signal_date)
+    if len(dates) == 1 and dates[0] == daily_date:
+        return "ready", dates[0]
+    return "stale_research_source", "|".join(dates) if dates else "missing"
 
 
 def normalize_source_rows(
@@ -262,6 +311,9 @@ def normalize_source_rows(
 ) -> pd.DataFrame:
     rows: list[dict[str, Any]] = []
     allowed = source.copy()
+    effective_source_status, operation_asof_date = source_date_status(allowed, daily_signal_date, source_status)
+    if effective_source_status == "stale_research_source":
+        allowed = allowed.iloc[0:0].copy()
     if not allowed.empty:
         if "model_id" in allowed.columns:
             allowed = allowed[allowed["model_id"].astype(str).str.strip().eq(MODEL_ID)].copy()
@@ -288,10 +340,12 @@ def normalize_source_rows(
         record["pdf_section"] = section
         record["pdf_section_zh"] = SECTION_ZH.get(section, section)
         record["row_type"] = "data"
+        record["operation_asof_date"] = normalize_date_text(row.get("operation_asof_date"))
+        record["operation_source_date_status"] = effective_source_status
         record["daily_signal_date"] = daily_signal_date
         record["daily_volume_model_signal_count"] = daily_volume_count
         record["adapter_source"] = ADAPTER_SOURCE
-        record["adapter_source_status"] = source_status
+        record["adapter_source_status"] = effective_source_status
         for col in APPROVAL_FIELDS:
             record[col] = approval[col]
         is_confirmed_buy = (
@@ -324,7 +378,16 @@ def normalize_source_rows(
         for pdf_section in PDF_SECTIONS:
             if (pdf_view, pdf_section) not in existing:
                 rows.append(
-                    empty_row(pdf_view, pdf_section, source_status, daily_signal_date, daily_volume_count, approval, generated_at)
+                    empty_row(
+                        pdf_view,
+                        pdf_section,
+                        effective_source_status,
+                        daily_signal_date,
+                        daily_volume_count,
+                        approval,
+                        generated_at,
+                        operation_asof_date,
+                    )
                 )
 
     out = pd.DataFrame(rows, columns=OUTPUT_COLUMNS)
@@ -399,7 +462,8 @@ def build() -> pd.DataFrame:
     signals = read_csv(DAILY_SIGNALS_CSV)
     approval = read_csv(APPROVAL_CSV)
     source_status = "ready" if not source.empty else "missing_or_empty_research_source"
-    daily_signal_date, daily_volume_count = daily_signal_context(signals)
+    report_date = main_price_date()
+    daily_signal_date, daily_volume_count = daily_signal_context(signals, report_date)
     return normalize_source_rows(source, source_status, daily_signal_date, daily_volume_count, approval_context(approval), now_text())
 
 

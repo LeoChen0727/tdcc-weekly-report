@@ -11,6 +11,7 @@ DOCS_LATEST_DIR = ROOT / "docs" / "latest"
 
 SECTION_CSV = LATEST_DIR / "daily_volume_breakout_operation_section_latest.csv"
 SECTION_MD = LATEST_DIR / "daily_volume_breakout_operation_section_latest.md"
+TAXONOMY_CSV = LATEST_DIR / "stock_theme_taxonomy_latest.csv"
 DOCS_SECTION_CSV = DOCS_LATEST_DIR / SECTION_CSV.name
 DOCS_SECTION_MD = DOCS_LATEST_DIR / SECTION_MD.name
 PDF_GENERATOR = ROOT / "scripts" / "generate_chatgpt_side_daily_reports.py"
@@ -21,7 +22,7 @@ MODEL_ID = "volume_range_breakout"
 PDF_VIEWS = {"highlight", "full"}
 PDF_SECTIONS = {"confirmed_operation", "pending_confirmation", "active_operation"}
 ROW_TYPES = {"data", "empty_state"}
-SOURCE_STATUSES = {"ready", "missing_or_empty_research_source"}
+SOURCE_STATUSES = {"ready", "missing_or_empty_research_source", "stale_research_source"}
 
 REQUIRED_COLUMNS = {
     "model_id",
@@ -29,6 +30,8 @@ REQUIRED_COLUMNS = {
     "pdf_section",
     "pdf_section_zh",
     "row_type",
+    "operation_asof_date",
+    "operation_source_date_status",
     "display_order",
     "stock_id",
     "stock_display",
@@ -108,6 +111,16 @@ def read_csv(path: Path) -> pd.DataFrame:
         fail(f"{path} is not readable CSV: {exc}")
 
 
+def stock_id_text(value: object) -> str:
+    text = str(value).strip().replace(".0", "")
+    return text.zfill(4) if text.isdigit() else text
+
+
+def split_memberships(value: object) -> set[str]:
+    tokens = str(value).replace(";", "|").replace(",", "|").split("|")
+    return {token.strip() for token in tokens if token.strip()}
+
+
 def validate_file_presence() -> None:
     for path in [SECTION_CSV, SECTION_MD, DOCS_SECTION_CSV, DOCS_SECTION_MD, CONTRACT_MD]:
         if not path.exists():
@@ -140,6 +153,9 @@ def validate_shape(section: pd.DataFrame) -> None:
     bad_status = sorted(set(section["adapter_source_status"].astype(str)) - SOURCE_STATUSES)
     if bad_status:
         fail(f"invalid adapter_source_status values: {bad_status}")
+    bad_date_status = sorted(set(section["operation_source_date_status"].astype(str)) - SOURCE_STATUSES)
+    if bad_date_status:
+        fail(f"invalid operation_source_date_status values: {bad_date_status}")
 
     if set(section["approved_for_daily"].astype(str)) != {"True"}:
         fail("daily volume breakout operation section must be approved_for_daily=True")
@@ -157,6 +173,45 @@ def validate_shape(section: pd.DataFrame) -> None:
     confirmed_data = section[
         section["pdf_section"].eq("confirmed_operation") & section["row_type"].eq("data")
     ].copy()
+    data_rows = section[section["row_type"].eq("data")].copy()
+    if not data_rows.empty:
+        bad_dates = data_rows[
+            data_rows["operation_asof_date"].astype(str).ne(data_rows["daily_signal_date"].astype(str))
+        ]
+        if not bad_dates.empty:
+            fail("operation data rows must have operation_asof_date equal to daily_signal_date")
+        bad_data_status = data_rows[data_rows["adapter_source_status"].astype(str).ne("ready")]
+        if not bad_data_status.empty:
+            fail("operation data rows are allowed only when adapter_source_status=ready")
+    stale_rows = section[section["adapter_source_status"].astype(str).eq("stale_research_source")]
+    if not stale_rows.empty and stale_rows["row_type"].astype(str).ne("empty_state").any():
+        fail("stale operation research source must render only empty_state rows")
+    if not data_rows.empty:
+        taxonomy = read_csv(TAXONOMY_CSV)
+        if taxonomy.empty or "stock_id" not in taxonomy.columns:
+            fail("stock_theme_taxonomy_latest.csv is required to validate operation row report routing")
+        taxonomy_ids = {stock_id_text(value) for value in taxonomy["stock_id"].tolist() if stock_id_text(value)}
+        missing_taxonomy = sorted(
+            set(data_rows["stock_id"].map(stock_id_text).tolist()) - taxonomy_ids
+        )
+        if missing_taxonomy:
+            fail(f"operation data rows missing stock taxonomy/basic industry source: {missing_taxonomy}")
+        if "report_line_memberships" not in taxonomy.columns:
+            fail("stock taxonomy must include report_line_memberships")
+        taxonomy_membership = {
+            stock_id_text(row.get("stock_id")): split_memberships(row.get("report_line_memberships"))
+            for _, row in taxonomy.iterrows()
+        }
+        unrouted = sorted(
+            {
+                stock_id
+                for stock_id in data_rows["stock_id"].map(stock_id_text).tolist()
+                if not taxonomy_membership.get(stock_id)
+                or bool(taxonomy_membership.get(stock_id, set()) - {"mainstream", "non_mainstream"})
+            }
+        )
+        if unrouted:
+            fail(f"operation data rows have invalid stock taxonomy report routing: {unrouted}")
     if not confirmed_data.empty:
         bad_quality = sorted(set(confirmed_data["quality_status_zh"].astype(str)) - {"正向證據"})
         if bad_quality:

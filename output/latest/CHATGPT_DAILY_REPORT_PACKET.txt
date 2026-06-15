@@ -1,6 +1,6 @@
 CHATGPT DAILY REPORT PACKET
 
-generated_at: 2026-06-16 00:05:04 Asia/Taipei
+generated_at: 2026-06-16 01:24:41 Asia/Taipei
 repo: LeoChen0727/tdcc-weekly-report
 main_price_date: 20260615
 report_ready: True
@@ -476,7 +476,7 @@ performance_csv_path: output/history/daily_signals/daily_candidate_signal_perfor
 summary_latest_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_signal_performance_summary_latest.md
 weekly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_weekly_latest.pdf
 monthly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_monthly_latest.pdf
-last_updated_at: 2026-06-16 00:05:04 Asia/Taipei
+last_updated_at: 2026-06-16 01:24:41 Asia/Taipei
 status: generated
 
 CANDIDATE REPEAT APPEARANCE
@@ -485,9 +485,9 @@ legacy_signal_log_path: output/history/daily_signals/daily_candidate_signal_log.
 repeat_appearance_path: output/latest/candidate_repeat_appearance_latest.csv
 repeat_appearance_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/candidate_repeat_appearance_latest.csv
 repeat_appearance_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/candidate_repeat_appearance_latest.md
-history_available_days: 14
+history_available_days: 13
 status: generated
-latest_signal_date: 20260615
+latest_signal_date: 20260612
 fields: consecutive_appear_days_any_category,consecutive_appear_days_same_category,appear_count_5d,appear_count_10d,appear_count_20d,first_seen_date,last_seen_date,multi_category_flags,repeat_appear_label,repeat_appear_note
 note: Repeat appearance is calculated from raw daily candidate signal logs. ChatGPT must not infer consecutive days manually.
 
@@ -533,81 +533,17 @@ pdf_integration_status: pdf_integrated_daily_adapter
 packet_integration_status: packet_integrated_daily_adapter
 operation_directive_level: approved_daily_operation_guidance
 highlight_confirmed_operation:
-- rank=1 | stock=2243 宏旭-KY | trigger=隔日續強確認 | entry=確認後下一交易日開盤 | entry_price_status=進場價待下一交易日開盤 | stop=跌破 6/11 最低價 30.30 | exit=先跌破停損基準出場，否則進場後第 10 個交易日收盤出場 | sample_size=12 | win_rate=66.67% | avg_return=+21.67% | median_return=+21.09% | confidence=低
-- rank=2 | stock=2484 希華 | trigger=隔日續強確認 | entry=確認後下一交易日開盤 | entry_price_status=進場價待下一交易日開盤 | stop=跌破 6/11 最低價 57.20 | exit=先跌破停損基準出場，否則進場後第 10 個交易日收盤出場 | sample_size=12 | win_rate=66.67% | avg_return=+21.67% | median_return=+21.09% | confidence=低
-- rank=3 | stock=2491 吉祥全 | trigger=回測 5MA 確認 | entry=確認後下一交易日開盤 | entry_price_status=進場價待下一交易日開盤 | stop=跌破 6/2 最低價 28.15 | exit=先跌破停損基準出場，否則進場後第 10 個交易日收盤出場 | sample_size=44 | win_rate=63.64% | avg_return=+12.75% | median_return=+5.63% | confidence=中
+- none
 highlight_pending_confirmation:
-- stock=1438 三地開發 | pending_age=D+1，剩 9 個交易日 | pending_group=D+0-D+1 等隔日續強 | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/11 最低價 22.90
-- stock=2537 聯上發 | pending_age=D+1，剩 9 個交易日 | pending_group=D+0-D+1 等隔日續強 | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/11 最低價 10.90
-- stock=7788 松川精密 | pending_age=D+1，剩 9 個交易日 | pending_group=D+0-D+1 等隔日續強 | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/11 最低價 256.50
-- stock=8021 尖點 | pending_age=D+1，剩 9 個交易日 | pending_group=D+0-D+1 等隔日續強 | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/11 最低價 501.00
-- stock=1904 正隆 | pending_age=D+2，剩 8 個交易日 | pending_group=D+2-D+5 等回測 5MA/10MA | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/5 最低價 20.80
-- stock=2442 新美齊 | pending_age=D+2，剩 8 個交易日 | pending_group=D+2-D+5 等回測 5MA/10MA | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/5 最低價 19.50
-- stock=2461 光群雷 | pending_age=D+2，剩 8 個交易日 | pending_group=D+2-D+5 等回測 5MA/10MA | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/5 最低價 18.00
-- stock=2483 百容 | pending_age=D+2，剩 8 個交易日 | pending_group=D+2-D+5 等回測 5MA/10MA | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/5 最低價 25.80
-- stock=2501 國建 | pending_age=D+2，剩 8 個交易日 | pending_group=D+2-D+5 等回測 5MA/10MA | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/5 最低價 23.40
-- stock=2883 凱基金 | pending_age=D+2，剩 8 個交易日 | pending_group=D+2-D+5 等回測 5MA/10MA | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/5 最低價 27.00
+- none
 highlight_active_operation:
-- status=操作中 | stock=目前無資料 | note=目前 research artifact 尚未提供操作中追蹤列；正式 PDF 可保留空表格。
+- status=操作中 | stock=目前無資料 | note=操作中：operation research source date 20260612 does not match daily report date 20260615; PDF renders an empty section instead of stale rows.
 full_confirmed_operation:
-- rank=1 | stock=2243 宏旭-KY | trigger=隔日續強確認 | entry=確認後下一交易日開盤 | entry_price_status=進場價待下一交易日開盤 | stop=跌破 6/11 最低價 30.30 | exit=先跌破停損基準出場，否則進場後第 10 個交易日收盤出場 | sample_size=12 | win_rate=66.67% | avg_return=+21.67% | median_return=+21.09% | confidence=低
-- rank=2 | stock=2484 希華 | trigger=隔日續強確認 | entry=確認後下一交易日開盤 | entry_price_status=進場價待下一交易日開盤 | stop=跌破 6/11 最低價 57.20 | exit=先跌破停損基準出場，否則進場後第 10 個交易日收盤出場 | sample_size=12 | win_rate=66.67% | avg_return=+21.67% | median_return=+21.09% | confidence=低
-- rank=3 | stock=2491 吉祥全 | trigger=回測 5MA 確認 | entry=確認後下一交易日開盤 | entry_price_status=進場價待下一交易日開盤 | stop=跌破 6/2 最低價 28.15 | exit=先跌破停損基準出場，否則進場後第 10 個交易日收盤出場 | sample_size=44 | win_rate=63.64% | avg_return=+12.75% | median_return=+5.63% | confidence=中
+- none
 full_pending_confirmation:
-- stock=1438 三地開發 | pending_age=D+1，剩 9 個交易日 | pending_group=D+0-D+1 等隔日續強 | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/11 最低價 22.90
-- stock=2537 聯上發 | pending_age=D+1，剩 9 個交易日 | pending_group=D+0-D+1 等隔日續強 | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/11 最低價 10.90
-- stock=7788 松川精密 | pending_age=D+1，剩 9 個交易日 | pending_group=D+0-D+1 等隔日續強 | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/11 最低價 256.50
-- stock=8021 尖點 | pending_age=D+1，剩 9 個交易日 | pending_group=D+0-D+1 等隔日續強 | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/11 最低價 501.00
-- stock=1904 正隆 | pending_age=D+2，剩 8 個交易日 | pending_group=D+2-D+5 等回測 5MA/10MA | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/5 最低價 20.80
-- stock=2442 新美齊 | pending_age=D+2，剩 8 個交易日 | pending_group=D+2-D+5 等回測 5MA/10MA | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/5 最低價 19.50
-- stock=2461 光群雷 | pending_age=D+2，剩 8 個交易日 | pending_group=D+2-D+5 等回測 5MA/10MA | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/5 最低價 18.00
-- stock=2483 百容 | pending_age=D+2，剩 8 個交易日 | pending_group=D+2-D+5 等回測 5MA/10MA | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/5 最低價 25.80
-- stock=2501 國建 | pending_age=D+2，剩 8 個交易日 | pending_group=D+2-D+5 等回測 5MA/10MA | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/5 最低價 23.40
-- stock=2883 凱基金 | pending_age=D+2，剩 8 個交易日 | pending_group=D+2-D+5 等回測 5MA/10MA | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/5 最低價 27.00
-- stock=2903 遠百 | pending_age=D+2，剩 8 個交易日 | pending_group=D+2-D+5 等回測 5MA/10MA | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/5 最低價 22.80
-- stock=3018 隆銘綠能 | pending_age=D+2，剩 8 個交易日 | pending_group=D+2-D+5 等回測 5MA/10MA | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/5 最低價 10.70
-- stock=3226 龍鋒 | pending_age=D+2，剩 8 個交易日 | pending_group=D+2-D+5 等回測 5MA/10MA | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/5 最低價 47.65
-- stock=3406 玉晶光 | pending_age=D+2，剩 8 個交易日 | pending_group=D+2-D+5 等回測 5MA/10MA | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/5 最低價 636.00
-- stock=6890 來億-KY | pending_age=D+2，剩 8 個交易日 | pending_group=D+2-D+5 等回測 5MA/10MA | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/5 最低價 230.50
-- stock=6916 華凌 | pending_age=D+2，剩 8 個交易日 | pending_group=D+2-D+5 等回測 5MA/10MA | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/5 最低價 18.80
-- stock=8077 洛碁 | pending_age=D+4，剩 6 個交易日 | pending_group=D+2-D+5 等回測 5MA/10MA | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/3 最低價 49.00
-- stock=1229 聯華 | pending_age=D+5，剩 5 個交易日 | pending_group=D+2-D+5 等回測 5MA/10MA | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/2 最低價 40.05
-- stock=1718 中纖 | pending_age=D+5，剩 5 個交易日 | pending_group=D+2-D+5 等回測 5MA/10MA | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/2 最低價 7.70
-- stock=2105 正新 | pending_age=D+5，剩 5 個交易日 | pending_group=D+2-D+5 等回測 5MA/10MA | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/2 最低價 32.70
-- stock=2106 建大 | pending_age=D+5，剩 5 個交易日 | pending_group=D+2-D+5 等回測 5MA/10MA | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/2 最低價 17.15
-- stock=2323 中環 | pending_age=D+5，剩 5 個交易日 | pending_group=D+2-D+5 等回測 5MA/10MA | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/2 最低價 10.55
-- stock=2347 聯強 | pending_age=D+5，剩 5 個交易日 | pending_group=D+2-D+5 等回測 5MA/10MA | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/2 最低價 86.40
-- stock=2379 瑞昱 | pending_age=D+5，剩 5 個交易日 | pending_group=D+2-D+5 等回測 5MA/10MA | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/2 最低價 602.00
-- stock=3049 精金 | pending_age=D+5，剩 5 個交易日 | pending_group=D+2-D+5 等回測 5MA/10MA | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/2 最低價 12.90
-- stock=3288 點晶 | pending_age=D+5，剩 5 個交易日 | pending_group=D+2-D+5 等回測 5MA/10MA | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/2 最低價 20.05
-- stock=4938 和碩 | pending_age=D+5，剩 5 個交易日 | pending_group=D+2-D+5 等回測 5MA/10MA | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/2 最低價 90.80
-- stock=6155 鈞寶 | pending_age=D+5，剩 5 個交易日 | pending_group=D+2-D+5 等回測 5MA/10MA | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/2 最低價 64.50
-- stock=8070 長華* | pending_age=D+5，剩 5 個交易日 | pending_group=D+2-D+5 等回測 5MA/10MA | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/2 最低價 51.40
-- stock=8105 凌巨 | pending_age=D+5，剩 5 個交易日 | pending_group=D+2-D+5 等回測 5MA/10MA | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/2 最低價 17.80
-- stock=8454 富邦媒 | pending_age=D+5，剩 5 個交易日 | pending_group=D+2-D+5 等回測 5MA/10MA | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/2 最低價 231.00
-- stock=1444 力麗 | pending_age=D+6，剩 4 個交易日 | pending_group=D+6-D+10 接近過期 | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/1 最低價 6.25
-- stock=2352 佳世達 | pending_age=D+6，剩 4 個交易日 | pending_group=D+6-D+10 接近過期 | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/1 最低價 29.20
-- stock=2497 怡利電 | pending_age=D+6，剩 4 個交易日 | pending_group=D+6-D+10 接近過期 | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/1 最低價 60.10
-- stock=2601 益航 | pending_age=D+6，剩 4 個交易日 | pending_group=D+6-D+10 接近過期 | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/1 最低價 5.15
-- stock=3059 華晶科 | pending_age=D+6，剩 4 個交易日 | pending_group=D+6-D+10 接近過期 | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/1 最低價 42.45
-- stock=6214 精誠 | pending_age=D+6，剩 4 個交易日 | pending_group=D+6-D+10 接近過期 | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 6/1 最低價 137.50
-- stock=1409 新纖 | pending_age=D+7，剩 3 個交易日 | pending_group=D+6-D+10 接近過期 | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 5/29 最低價 22.80
-- stock=2324 仁寶 | pending_age=D+7，剩 3 個交易日 | pending_group=D+6-D+10 接近過期 | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 5/29 最低價 35.00
-- stock=2357 華碩 | pending_age=D+7，剩 3 個交易日 | pending_group=D+6-D+10 接近過期 | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 5/29 最低價 708.00
-- stock=6654 天正國際 | pending_age=D+7，剩 3 個交易日 | pending_group=D+6-D+10 接近過期 | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 5/29 最低價 153.50
-- stock=8472 夠麻吉 | pending_age=D+7，剩 3 個交易日 | pending_group=D+6-D+10 接近過期 | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 5/29 最低價 71.90
-- stock=8473 山林水 | pending_age=D+7，剩 3 個交易日 | pending_group=D+6-D+10 接近過期 | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 5/29 最低價 46.10
-- stock=1319 東陽 | pending_age=D+8，剩 2 個交易日 | pending_group=D+6-D+10 接近過期 | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 5/28 最低價 86.50
-- stock=1521 大億 | pending_age=D+8，剩 2 個交易日 | pending_group=D+6-D+10 接近過期 | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 5/28 最低價 24.90
-- stock=2239 英利-KY | pending_age=D+8，剩 2 個交易日 | pending_group=D+6-D+10 接近過期 | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 5/28 最低價 22.25
-- stock=3523 迎輝 | pending_age=D+8，剩 2 個交易日 | pending_group=D+6-D+10 接近過期 | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 5/28 最低價 14.50
-- stock=1503 士電 | pending_age=D+9，剩 1 個交易日 | pending_group=D+6-D+10 接近過期 | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 5/27 最低價 209.00
-- stock=2881 富邦金 | pending_age=D+9，剩 1 個交易日 | pending_group=D+6-D+10 接近過期 | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 5/27 最低價 103.00
-- stock=3528 安馳 | pending_age=D+9，剩 1 個交易日 | pending_group=D+6-D+10 接近過期 | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 5/27 最低價 96.40
-- stock=4973 廣穎 | pending_age=D+9，剩 1 個交易日 | pending_group=D+6-D+10 接近過期 | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 5/27 最低價 138.50
-- stock=5285 界霖 | pending_age=D+10，剩 0 個交易日 | pending_group=D+6-D+10 接近過期 | pending_confirmation=等待隔日續強 / 回測 5MA / 回測 10MA | entry_price_status=尚未確認，不列進場價 | stop=跌破 5/26 最低價 82.50
+- none
 full_active_operation:
-- status=操作中 | stock=目前無資料 | note=目前 research artifact 尚未提供操作中追蹤列；正式 PDF 可保留空表格。
+- status=操作中 | stock=目前無資料 | note=操作中：operation research source date 20260612 does not match daily report date 20260615; PDF renders an empty section instead of stale rows.
 
 NON-REVENUE MOMENTUM WATCH
 non_revenue_momentum_watch_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/non_revenue_momentum_watch_latest.md

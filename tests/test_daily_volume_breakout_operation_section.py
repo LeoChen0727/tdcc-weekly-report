@@ -36,6 +36,7 @@ def test_daily_volume_breakout_operation_section_adds_active_empty_rows() -> Non
                 "model_id": "volume_range_breakout",
                 "pdf_view": "highlight",
                 "pdf_section": "confirmed_operation",
+                "operation_asof_date": "20260612",
                 "display_order": "1",
                 "stock_id": "1234",
                 "stock_name": "TEST",
@@ -87,6 +88,7 @@ def test_pending_confirmation_rows_are_not_buy_rank_eligible() -> None:
                 "model_id": "volume_range_breakout",
                 "pdf_view": "highlight",
                 "pdf_section": "pending_confirmation",
+                "operation_asof_date": "20260612",
                 "display_order": "1",
                 "stock_id": "1234",
                 "stock_name": "TEST",
@@ -117,6 +119,34 @@ def test_pending_confirmation_rows_are_not_buy_rank_eligible() -> None:
     assert row["buy_rank_eligible"] == "False"
 
 
+def test_daily_signal_context_uses_report_date_as_authority() -> None:
+    signals = pd.DataFrame(
+        [
+            {"model_id": "volume_range_breakout", "signal_date": "20260612", "stock_id": "1111"},
+            {"model_id": "volume_range_breakout", "signal_date": "20260615", "stock_id": "2222"},
+            {"model_id": "volume_range_breakout", "signal_date": "20260615", "stock_id": "3333"},
+        ]
+    )
+
+    signal_date, count = builder.daily_signal_context(signals, "20260615")
+
+    assert signal_date == "20260615"
+    assert count == 2
+
+
+def test_daily_signal_context_does_not_promote_stale_model_signal_date() -> None:
+    signals = pd.DataFrame(
+        [
+            {"model_id": "volume_range_breakout", "signal_date": "20260612", "stock_id": "1111"},
+        ]
+    )
+
+    signal_date, count = builder.daily_signal_context(signals, "20260615")
+
+    assert signal_date == "20260615"
+    assert count == 0
+
+
 def test_daily_volume_breakout_operation_section_ignores_other_models() -> None:
     source = pd.DataFrame(
         [
@@ -124,6 +154,7 @@ def test_daily_volume_breakout_operation_section_ignores_other_models() -> None:
                 "model_id": "price_pullback_23ema",
                 "pdf_view": "highlight",
                 "pdf_section": "confirmed_operation",
+                "operation_asof_date": "20260612",
                 "display_order": "1",
                 "stock_id": "9999",
             }
@@ -151,6 +182,7 @@ def test_confirmed_operation_keeps_positive_evidence_only() -> None:
                 "model_id": "volume_range_breakout",
                 "pdf_view": "full",
                 "pdf_section": "confirmed_operation",
+                "operation_asof_date": "20260612",
                 "display_order": "1",
                 "stock_id": "1111",
                 "quality_status_zh": "正向證據",
@@ -163,6 +195,7 @@ def test_confirmed_operation_keeps_positive_evidence_only() -> None:
                 "model_id": "volume_range_breakout",
                 "pdf_view": "full",
                 "pdf_section": "confirmed_operation",
+                "operation_asof_date": "20260612",
                 "display_order": "2",
                 "stock_id": "2222",
                 "quality_status_zh": "證據偏弱",
@@ -190,6 +223,117 @@ def test_confirmed_operation_keeps_positive_evidence_only() -> None:
     assert confirmed["quality_status_zh"].tolist() == ["正向證據"]
     assert confirmed["row_action_status"].tolist() == ["confirmed_buy_candidate"]
     assert confirmed["buy_rank_eligible"].tolist() == ["True"]
+
+
+def test_stale_operation_source_renders_empty_rows_only() -> None:
+    source = pd.DataFrame(
+        [
+            {
+                "model_id": "volume_range_breakout",
+                "pdf_view": "highlight",
+                "pdf_section": "pending_confirmation",
+                "operation_asof_date": "20260612",
+                "display_order": "1",
+                "stock_id": "1438",
+                "stock_name": "三地開發",
+                "stock_display": "1438 三地開發",
+                "operation_status_zh": "待確認",
+                "entry_basis_zh": "尚未確認，不列進場價",
+                "stop_basis_zh": "跌破 6/11 最低價 22.90",
+                "exit_rule_zh": "尚未成立；確認後才啟動進場與出場規則",
+            }
+        ]
+    )
+
+    out = builder.normalize_source_rows(
+        source,
+        "ready",
+        "20260615",
+        19,
+        approval_stub(),
+        "2026-06-16 12:00:00 Asia/Taipei",
+    )
+
+    assert set(out["row_type"]) == {"empty_state"}
+    assert set(out["adapter_source_status"]) == {"stale_research_source"}
+    assert set(out["operation_source_date_status"]) == {"stale_research_source"}
+    assert out["stock_id"].eq("").all()
+    assert out["adapter_note_zh"].str.contains("20260612").all()
+    assert out["adapter_note_zh"].str.contains("20260615").all()
+
+
+def test_pdf_volume_operation_uses_taxonomy_for_report_line_fallback() -> None:
+    rows = pd.DataFrame(
+        [
+            {
+                "model_id": "volume_range_breakout",
+                "pdf_view": "highlight",
+                "pdf_section": "pending_confirmation",
+                "row_type": "data",
+                "display_order": "1",
+                "stock_id": "1438",
+                "stock_display": "1438 三地開發",
+                "row_action_status": "pending_confirmation",
+                "buy_rank_eligible": "False",
+            },
+            {
+                "model_id": "volume_range_breakout",
+                "pdf_view": "highlight",
+                "pdf_section": "active_operation",
+                "row_type": "empty_state",
+                "display_order": "0",
+                "stock_id": "",
+                "stock_display": "目前無資料",
+                "row_action_status": "empty_state",
+                "buy_rank_eligible": "False",
+            },
+        ]
+    )
+    inputs = {
+        "stock_theme_taxonomy": pd.DataFrame(
+            [
+                {
+                    "stock_id": "1438",
+                    "stock_name": "三地開發",
+                    "industry": "建材營造",
+                    "report_line_memberships": "non_mainstream",
+                    "mainstream_report_eligible": "False",
+                    "non_mainstream_report_eligible": "True",
+                }
+            ]
+        )
+    }
+
+    mainstream = pdf_generator.filter_volume_operation_rows_for_line(rows, inputs, "mainstream")
+    non_mainstream = pdf_generator.filter_volume_operation_rows_for_line(rows, inputs, "non_mainstream")
+
+    assert "1438" not in set(mainstream["stock_id"].astype(str))
+    assert "1438" in set(non_mainstream["stock_id"].astype(str))
+    assert mainstream[mainstream["row_type"].eq("empty_state")]["stock_display"].tolist() == ["目前無資料"]
+
+
+def test_pdf_volume_operation_does_not_guess_missing_taxonomy() -> None:
+    rows = pd.DataFrame(
+        [
+            {
+                "model_id": "volume_range_breakout",
+                "pdf_view": "highlight",
+                "pdf_section": "pending_confirmation",
+                "row_type": "data",
+                "display_order": "1",
+                "stock_id": "9999",
+                "stock_display": "9999 未分類",
+                "row_action_status": "pending_confirmation",
+                "buy_rank_eligible": "False",
+            }
+        ]
+    )
+
+    mainstream = pdf_generator.filter_volume_operation_rows_for_line(rows, {}, "mainstream")
+    non_mainstream = pdf_generator.filter_volume_operation_rows_for_line(rows, {}, "non_mainstream")
+
+    assert mainstream.empty
+    assert non_mainstream.empty
 
 
 def test_daily_pipeline_runs_volume_breakout_operation_adapter() -> None:
@@ -240,6 +384,7 @@ def test_pdf_operation_renderer_uses_row_level_buy_eligibility(monkeypatch) -> N
                 "model_id": "volume_range_breakout",
                 "pdf_view": "highlight",
                 "pdf_section": "confirmed_operation",
+                "operation_asof_date": "20260612",
                 "row_type": "data",
                 "display_order": "1",
                 "stock_id": "1111",
@@ -262,6 +407,7 @@ def test_pdf_operation_renderer_uses_row_level_buy_eligibility(monkeypatch) -> N
                 "model_id": "volume_range_breakout",
                 "pdf_view": "highlight",
                 "pdf_section": "pending_confirmation",
+                "operation_asof_date": "20260612",
                 "row_type": "data",
                 "display_order": "1",
                 "stock_id": "2222",
@@ -279,6 +425,7 @@ def test_pdf_operation_renderer_uses_row_level_buy_eligibility(monkeypatch) -> N
                 "model_id": "volume_range_breakout",
                 "pdf_view": "highlight",
                 "pdf_section": "active_operation",
+                "operation_asof_date": "20260612",
                 "row_type": "empty_state",
                 "display_order": "0",
                 "stock_id": "",

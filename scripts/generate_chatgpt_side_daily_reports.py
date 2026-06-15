@@ -1551,6 +1551,7 @@ def load_inputs() -> dict[str, pd.DataFrame]:
         "model_signals": read_csv(remote_latest_url("daily_candidate_model_signals_for_report_latest.csv")),
         "model_summary": read_csv(remote_latest_url("daily_candidate_model_summary_for_report_latest.csv")),
         "volume_operation": read_csv(remote_latest_url("daily_volume_breakout_operation_section_latest.csv")),
+        "stock_theme_taxonomy": read_csv(remote_latest_url("stock_theme_taxonomy_latest.csv")),
         "group_rotation": read_csv(remote_latest_url("daily_candidate_group_rotation_latest.csv")),
         "themes": read_csv(remote_latest_url("daily_theme_leadership_latest.csv")),
         "volume_layer": read_csv(remote_latest_url("volume_attack_theme_layer_latest.csv")),
@@ -1661,18 +1662,46 @@ def volume_operation_frame(
     return frame.sort_values(["_display_order", "stock_id"]).drop(columns=["_display_order"], errors="ignore")
 
 
-def volume_operation_allowed_stock_ids(inputs: dict[str, pd.DataFrame], line: str | None) -> set[str]:
-    if not line:
+def report_lines_for_stock_from_frame(frame: pd.DataFrame, stock_id: str) -> set[str]:
+    if frame.empty or "stock_id" not in frame.columns or not stock_id:
         return set()
-    signals = inputs.get("model_signals", pd.DataFrame()).copy()
-    if signals.empty or "model_id" not in signals.columns or "stock_id" not in signals.columns:
+    part = frame[frame["stock_id"].map(stock_id_text).eq(stock_id)].copy()
+    if part.empty:
         return set()
-    sub = signals[signals["model_id"].astype(str).eq(VOLUME_BREAKOUT_MODEL_ID)].copy()
-    if "report_line" in sub.columns:
-        sub = sub[sub["report_line"].astype(str).eq(line)].copy()
-    elif "report_bucket" in sub.columns:
-        sub = sub[sub["report_bucket"].astype(str).eq(line)].copy()
-    return {stock_id_text(value) for value in sub["stock_id"].tolist() if stock_id_text(value)}
+    lines: set[str] = set()
+    for col in ("report_line", "report_bucket"):
+        if col in part.columns:
+            lines.update(value for value in part[col].astype(str).tolist() if value in {"mainstream", "non_mainstream"})
+    for col in ("report_line_memberships", "taxonomy_report_line_memberships"):
+        if col in part.columns:
+            for value in part[col].astype(str).tolist():
+                for token in value.replace(";", "|").replace(",", "|").split("|"):
+                    token = token.strip()
+                    if token in {"mainstream", "non_mainstream"}:
+                        lines.add(token)
+    truth_cols = [
+        ("mainstream_report_eligible", "mainstream"),
+        ("taxonomy_mainstream_report_eligible", "mainstream"),
+        ("non_mainstream_report_eligible", "non_mainstream"),
+        ("taxonomy_non_mainstream_report_eligible", "non_mainstream"),
+    ]
+    for col, line in truth_cols:
+        if col in part.columns and part[col].map(is_true_text).any():
+            lines.add(line)
+    return lines
+
+
+def volume_operation_report_lines_for_stock(inputs: dict[str, pd.DataFrame], stock_id: str) -> set[str]:
+    lines: set[str] = set()
+    sources = [
+        inputs.get("model_signals", pd.DataFrame()),
+        inputs.get("two_line", pd.DataFrame()),
+        inputs.get("all", pd.DataFrame()),
+        inputs.get("stock_theme_taxonomy", pd.DataFrame()),
+    ]
+    for frame in sources:
+        lines.update(report_lines_for_stock_from_frame(frame.copy(), stock_id))
+    return lines
 
 
 def filter_volume_operation_rows_for_line(
@@ -1686,10 +1715,11 @@ def filter_volume_operation_rows_for_line(
         return rows[rows["report_line"].astype(str).eq(line)].copy()
     if "report_bucket" in rows.columns:
         return rows[rows["report_bucket"].astype(str).eq(line)].copy()
-    allowed_ids = volume_operation_allowed_stock_ids(inputs, line)
-    if not allowed_ids:
-        return rows.iloc[0:0].copy()
-    return rows[rows["stock_id"].map(stock_id_text).isin(allowed_ids)].copy()
+    row_type = rows.get("row_type", pd.Series(dtype=str)).astype(str)
+    stock_ids = rows["stock_id"].map(stock_id_text)
+    empty_state = row_type.eq("empty_state") & stock_ids.eq("")
+    mask = empty_state | stock_ids.map(lambda value: line in volume_operation_report_lines_for_stock(inputs, value))
+    return rows[mask].copy()
 
 
 def volume_operation_empty_text(rows: pd.DataFrame, fallback: str) -> str:
