@@ -250,26 +250,6 @@ def current_model_hit(row: pd.Series) -> bool:
     return detect_volume_breakout(row) is not None
 
 
-def relaxed_limit_locked_low_volume(row: pd.Series) -> bool:
-    close = safe_float(row.get("close"))
-    open_ = safe_float(row.get("open"))
-    prev20 = safe_float(row.get("previous_20d_high_calc"))
-    volume_ratio = safe_float(row.get("volume_ratio"))
-    volume_ma20_lots = normalize_volume_ma20_lots(row.get("volume_ma20"))
-    if any(math.isnan(v) for v in [close, open_, prev20, volume_ratio, volume_ma20_lots]):
-        return False
-    if current_model_hit(row):
-        return False
-    return (
-        is_equity_stock_id(row.get("stock_id"))
-        and close >= prev20 * 1.02
-        and close >= open_
-        and volume_ma20_lots >= 1000
-        and 1.0 <= volume_ratio < 2.0
-        and bool_value(row.get("limit_up_like"))
-    )
-
-
 def long_base_low_position(row: pd.Series) -> bool:
     width40 = safe_float(row.get("range_width_40_pct"))
     low_pos60 = safe_float(row.get("low_position_60_pct"))
@@ -318,13 +298,6 @@ EVENT_FILTERS = [
         "current_model_hit",
         limit_up_current_hit,
         "檢驗漲停後第1/2/3天追價與停損風險。",
-    ),
-    EventFilter(
-        "limit_locked_volume_lt2_research_only",
-        "未達production鎖量旁路的低量比漲停研究對照",
-        "research_relaxed_not_current_model",
-        relaxed_limit_locked_low_volume,
-        "排除現行 production 命中；用來監控仍可能被量比或鎖量旁路條件漏掉的低量比漲停樣本。",
     ),
 ]
 
@@ -742,24 +715,6 @@ def formal_model_hit_mask(price: pd.DataFrame) -> pd.Series:
     return validated
 
 
-def relaxed_limit_locked_low_volume_mask(price: pd.DataFrame, model_mask: pd.Series) -> pd.Series:
-    close = numeric_series(price, "close")
-    open_ = numeric_series(price, "open")
-    prev20 = numeric_series(price, "previous_20d_high_calc")
-    volume_ratio = numeric_series(price, "volume_ratio")
-    volume_ma20 = numeric_series(price, "volume_ma20")
-    volume_ma20_lots = volume_ma20.where(volume_ma20 < 100000, volume_ma20 / 1000.0)
-    return (
-        (~model_mask)
-        & (close >= prev20 * 1.02)
-        & (close >= open_)
-        & (volume_ma20_lots >= 1000)
-        & (volume_ratio >= 1.0)
-        & (volume_ratio < 2.0)
-        & price["limit_up_like"].fillna(False)
-    ).fillna(False)
-
-
 def event_filter_masks(price: pd.DataFrame) -> dict[str, pd.Series]:
     model_mask = formal_model_hit_mask(price)
     width40 = numeric_series(price, "range_width_40_pct")
@@ -770,7 +725,6 @@ def event_filter_masks(price: pd.DataFrame) -> dict[str, pd.Series]:
         "long_base_low_position": long_low,
         "simple_or_high_position_breakout": (model_mask & ~long_low).fillna(False),
         "limit_up_like_current_hit": (model_mask & price["limit_up_like"].fillna(False)).fillna(False),
-        "limit_locked_volume_lt2_research_only": relaxed_limit_locked_low_volume_mask(price, model_mask),
     }
 
 
@@ -984,7 +938,7 @@ def write_registry_md(registry: pd.DataFrame, detail: pd.DataFrame) -> None:
         "- This is research/backtest output only.",
         "- It does not write production config, daily candidate files, or PDF operation text.",
         "- `approved_for_daily` remains `False` until a separate promotion PR explicitly approves a pattern.",
-        "- Current model hit groups include production locked-limit low-volume breakouts; `limit_locked_volume_lt2_research_only` is only the remaining non-production comparison group after excluding current model hits.",
+        "- Current model hit groups include locked-limit breakouts without volume-ratio or 20D average-volume gates; non-current research comparisons must not reintroduce the removed volume gate.",
         "",
         "## Current Model Hit Patterns",
         "",

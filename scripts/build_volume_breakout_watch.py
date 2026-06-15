@@ -268,18 +268,19 @@ def locked_limit_up_breakout(row: pd.Series) -> bool:
     high = safe_float(row.get("high"))
     low = safe_float(row.get("low"))
     prev_close = safe_float(row.get("previous_close_calc"))
-    volume_ratio = safe_float(row.get("volume_ratio"))
-    volume_ma20_lots = normalize_volume_ma20_lots(row.get("volume_ma20"))
     breakout_level = bottom_volume_breakout_level(row.get("previous_20d_high_calc"))
     ret = signal_return_pct(row)
     if any(
         math.isnan(x)
-        for x in [close, open_, high, low, prev_close, volume_ratio, volume_ma20_lots, breakout_level, ret]
+        for x in [close, open_, high, low, breakout_level, ret]
     ):
         return False
-    if prev_close <= 0 or volume_ratio <= 0 or volume_ratio >= 2.0:
-        return False
-    range_pct = (high - low) / prev_close * 100.0
+    if high == low:
+        range_pct = 0.0
+    else:
+        if math.isnan(prev_close) or prev_close <= 0:
+            return False
+        range_pct = (high - low) / prev_close * 100.0
     locked_or_tight_range = high == low or range_pct <= 1.0
     return (
         close >= breakout_level
@@ -287,7 +288,6 @@ def locked_limit_up_breakout(row: pd.Series) -> bool:
         and close >= high * 0.995
         and open_ >= close * 0.995
         and locked_or_tight_range
-        and volume_ma20_lots >= 1000
     )
 
 
@@ -298,9 +298,6 @@ def locked_limit_up_breakout_mask(df: pd.DataFrame) -> pd.Series:
     low = pd.to_numeric(df["low"], errors="coerce")
     prev_close = pd.to_numeric(df["previous_close_calc"], errors="coerce")
     prev20 = pd.to_numeric(df["previous_20d_high_calc"], errors="coerce")
-    volume_ratio = pd.to_numeric(df["volume_ratio"], errors="coerce")
-    volume_ma20 = pd.to_numeric(df["volume_ma20"], errors="coerce")
-    volume_ma20_lots = volume_ma20.where(volume_ma20 < 100000, volume_ma20 / 1000.0)
     ret = pd.to_numeric(df["daily_return_calc"], errors="coerce")
     if "return_1d" in df.columns:
         ret = ret.fillna(pd.to_numeric(df["return_1d"], errors="coerce"))
@@ -313,9 +310,6 @@ def locked_limit_up_breakout_mask(df: pd.DataFrame) -> pd.Series:
         & (close >= high * 0.995)
         & (open_ >= close * 0.995)
         & locked_or_tight_range
-        & (volume_ratio > 0)
-        & (volume_ratio < 2.0)
-        & (volume_ma20_lots >= 1000)
     ).fillna(False)
 
 
@@ -339,23 +333,29 @@ def detect_volume_breakout(row: pd.Series) -> BreakoutSignal | None:
     upper_shadow = safe_float(row.get("upper_shadow_pct"))
 
     breakout_level = bottom_volume_breakout_level(prev20)
-    if any(math.isnan(x) for x in [close, open_, high, low, volume_ratio, breakout_level, volume_ma20_lots]):
+    if any(math.isnan(x) for x in [close, open_, high, low, breakout_level]):
         return None
     bullish_candle = close > open_ or (close == open_ and not math.isnan(prev_close) and close > prev_close)
-    normal_volume_attack = close >= breakout_level and volume_ratio >= 2.0 and volume_ma20_lots >= 1000 and bullish_candle
     locked_limit_attack = locked_limit_up_breakout(row)
+    normal_volume_attack = (
+        not any(math.isnan(x) for x in [volume_ratio, volume_ma20_lots])
+        and close >= breakout_level
+        and volume_ratio >= 2.0
+        and volume_ma20_lots >= 1000
+        and bullish_candle
+    )
     if not (normal_volume_attack or locked_limit_attack):
         return None
 
     notes: list[str] = []
     score = 35.0
     notes.append("close_ge_prior20_high_102pct")
-    notes.append("volume_ma20_lots_ge_1000")
     if normal_volume_attack:
+        notes.append("volume_ma20_lots_ge_1000")
         notes.append("volume_ratio_ge_2")
     else:
         notes.append("locked_limit_up_breakout")
-        notes.append("volume_ratio_lt_2_locked_limit")
+        notes.append("locked_limit_no_volume_gate")
         score += 8
         if high == low:
             notes.append("one_price_limit_up")
@@ -978,7 +978,7 @@ def write_watch_md(watch: pd.DataFrame, main_date: str) -> None:
         "## Interpretation",
         "",
         "- Official model type is `bottom_volume_attack` only.",
-        "- Hard gates: close >= prior 20 trading day high excluding signal day * 1.02, 20D average volume >= 1000 lots, and either normal volume_ratio >= 2.0 bullish attack or locked limit-up breakout with volume_ratio < 2.0.",
+        "- Hard gates: normal attack requires close >= prior 20 trading day high excluding signal day * 1.02, 20D average volume >= 1000 lots, volume_ratio >= 2.0, and bullish candle; locked limit-up breakout uses the same breakout price plus limit-up shape and does not require volume_ratio or 20D average volume.",
         "- No 60D-high gate, no moving-average gate, no same-day fake-breakout classification, and no selected/watch/risk sub-status.",
         "- Long upper shadow or TDCC deterioration can reduce score or add risk tags, but they do not change the model hit into another model.",
         "- Research observation basis is next trading day open after the signal date.",
@@ -1052,7 +1052,7 @@ def write_packet(watch: pd.DataFrame, summary: pd.DataFrame, main_date: str) -> 
         "## Model Definition",
         "",
         "- Model display name: 放量攻擊模型.",
-        "- Hard gates: close >= prior 20 trading day high excluding signal day * 1.02; 20D average volume >= 1000 lots; plus either normal volume_ratio >= 2.0 bullish attack or locked limit-up breakout with volume_ratio < 2.0.",
+        "- Hard gates: normal attack requires close >= prior 20 trading day high excluding signal day * 1.02, 20D average volume >= 1000 lots, volume_ratio >= 2.0, and bullish candle; locked limit-up breakout uses the same breakout price plus limit-up shape and does not require volume_ratio or 20D average volume.",
         "- The model intentionally does not require a 60D high breakout or moving-average reclaim.",
         "- The model emits selected rows only. Risk flags and score components are ranking/operation context, not a separate watch/risk status.",
         "- Same-day fake breakout is not confirmed on the signal date. Do not label a selected row as failed breakout until later price action confirms failure.",

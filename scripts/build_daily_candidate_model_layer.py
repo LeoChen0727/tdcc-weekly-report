@@ -251,7 +251,7 @@ SCORE_COMPONENT_ZH_REPLACEMENTS = {
     "breakout_magnitude": "突破幅度",
     "locked_limit_up_breakout": "鎖量漲停突破",
     "one_price_limit_up": "一價漲停",
-    "volume_ratio_lt_2_locked_limit": "量比低於2但鎖量漲停",
+    "locked_limit_no_volume_gate": "鎖量漲停不套用量能門檻",
     "close_near_day_high": "收盤接近日高",
     "close_high_position": "收盤位於日內高位",
     "strong_red_body": "實體紅K",
@@ -336,8 +336,8 @@ SCORE_COMPONENT_ZH_REPLACEMENTS = {
 VOLUME_RANGE_BREAKOUT_MAIN_CONDITIONS_ZH = (
     "不含今日的前20日最高價為突破基準；一般放量突破需收盤價 >= 基準 * 1.02、"
     "量比 >= 2.0、20日均量 >= 1000張，且為實體紅K或漲停型態；"
-    "鎖量漲停突破允許量比 < 2.0，但需漲幅 >= 9%、一價漲停或極窄區間、"
-    "開盤與收盤貼近漲停價，且20日均量 >= 1000張。"
+    "鎖量漲停突破不要求量比或20日均量，但需收盤價 >= 基準 * 1.02、"
+    "漲幅 >= 9%、一價漲停或極窄區間，且開盤與收盤貼近漲停價。"
 )
 
 
@@ -970,13 +970,9 @@ def bottom_volume_attack_locked_limit_up(row: pd.Series) -> bool:
     high = num(row, "high")
     low = num(row, "low")
     prev_close = previous_close_price(row)
-    vol = num(row, "volume_ratio")
-    volume_ma20 = volume_ma20_lots(row)
     breakout_level = bottom_volume_attack_breakout_level(row)
     ret = daily_signal_return_pct(row)
-    if any(math.isnan(v) for v in [close, open_, high, low, vol, volume_ma20, breakout_level, ret]):
-        return False
-    if vol <= 0 or vol >= 2.0:
+    if any(math.isnan(v) for v in [close, open_, high, low, breakout_level, ret]):
         return False
     one_price_locked = high == low
     range_pct = math.nan
@@ -991,7 +987,6 @@ def bottom_volume_attack_locked_limit_up(row: pd.Series) -> bool:
         and close >= high * 0.995
         and open_ >= close * 0.995
         and locked_or_tight_range
-        and volume_ma20 >= 1000
     )
 
 

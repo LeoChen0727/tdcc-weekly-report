@@ -125,9 +125,6 @@ def add_price_structure_features(df: pd.DataFrame) -> pd.DataFrame:
         & (out["close"] >= out["high"] * 0.995)
         & (out["open"] >= out["close"] * 0.995)
         & ((out["high"] == out["low"]) | (range_pct <= 1.0))
-        & (out["volume_ratio_prev20"] > 0)
-        & (out["volume_ratio_prev20"] < 2.0)
-        & (out["volume_ma20_lots"] >= 1000)
     )
 
     # A simple W-bottom proxy for research: the latest 35 trading days contain two
@@ -244,8 +241,8 @@ def rule_specs() -> list[RuleSpec]:
         RuleSpec(
             "volume_range_breakout",
             "放量攻擊模型",
-            "locked_limit_up_breakout_minvol1000",
-            "鎖量漲停突破前20日高點 2% + 漲幅 >= 9% + 一價或極窄區間 + 20日均量 >= 1000張；允許量比 < 2",
+            "locked_limit_up_breakout_no_volume_gate",
+            "鎖量漲停突破前20日高點 2% + 漲幅 >= 9% + 一價或極窄區間；不要求量比或20日均量",
             "pdf_core_model",
             lambda d: d["locked_limit_up_breakout"],
             "這是現行放量攻擊模型的鎖量漲停旁路；不是全面降低一般突破的量比門檻。",

@@ -16,7 +16,6 @@ from build_historical_pattern_operation_registry import (  # noqa: E402
     add_research_features,
     current_model_hit,
     long_base_low_position,
-    relaxed_limit_locked_low_volume,
     simulate_trade,
     summarize_registry,
 )
@@ -88,37 +87,34 @@ def base_history(signal_overrides: dict[str, object] | None = None) -> pd.DataFr
 
 
 class HistoricalPatternOperationRegistryTest(unittest.TestCase):
-    def test_current_model_hit_keeps_volume_ratio_gate(self) -> None:
+    def test_current_model_hit_keeps_normal_volume_ratio_gate(self) -> None:
         df = base_history()
         signal = df.iloc[70]
 
         self.assertTrue(current_model_hit(signal))
 
-        low_volume = base_history({"volume": 3_000_000, "close": 110, "high": 110, "open": 110})
+        low_volume = base_history({"volume": 3_000_000, "close": 110, "high": 111, "open": 100})
         low_volume_signal = low_volume.iloc[70]
 
         self.assertFalse(current_model_hit(low_volume_signal))
-        self.assertTrue(relaxed_limit_locked_low_volume(low_volume_signal))
 
-    def test_locked_limit_up_low_volume_ratio_is_current_model_hit(self) -> None:
-        locked = base_history({"volume": 1_000_000, "close": 110, "high": 110, "low": 110, "open": 110})
+    def test_locked_limit_up_does_not_require_volume_ratio_or_average_volume(self) -> None:
+        locked = base_history({"volume": 10, "close": 110, "high": 110, "low": 110, "open": 110})
         signal = locked.iloc[70]
 
         self.assertTrue(current_model_hit(signal))
-        self.assertFalse(relaxed_limit_locked_low_volume(signal))
         self.assertTrue(bool(signal["limit_up_like"]))
 
-    def test_research_only_locked_limit_filter_is_documented_as_non_production_remainder(self) -> None:
-        event_filter = next(f for f in EVENT_FILTERS if f.event_filter_id == "limit_locked_volume_lt2_research_only")
+    def test_removed_low_volume_locked_limit_filter_is_not_registered(self) -> None:
+        filter_ids = [f.event_filter_id for f in EVENT_FILTERS]
 
-        self.assertIn("未達production鎖量旁路", event_filter.event_filter_zh)
-        self.assertIn("排除現行 production 命中", event_filter.risk_note_zh)
+        self.assertFalse(any("locked" in filter_id and "research_only" in filter_id for filter_id in filter_ids))
 
     def test_long_base_low_position_uses_current_model_hit(self) -> None:
         df = base_history()
         self.assertTrue(long_base_low_position(df.iloc[70]))
 
-        relaxed = base_history({"volume": 3_000_000, "close": 110, "high": 110, "open": 110})
+        relaxed = base_history({"volume": 3_000_000, "close": 110, "high": 111, "open": 100})
         self.assertFalse(long_base_low_position(relaxed.iloc[70]))
 
     def test_signal_low_stop_exits_before_take_profit_for_same_day_ambiguity(self) -> None:

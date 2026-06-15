@@ -331,7 +331,7 @@ def price_position_dimension(row: pd.Series) -> tuple[str, str]:
 def attack_method_dimension(row: pd.Series) -> tuple[str, str]:
     volume_ratio = safe_float(row.get("volume_ratio"))
     limit_up_like = bool_value(row.get("limit_up_like"))
-    if limit_up_like and not math.isnan(volume_ratio) and volume_ratio < 2:
+    if limit_up_like:
         return "locked_limit_up", ZH["locked_limit_up"]
     if not math.isnan(volume_ratio) and volume_ratio >= 3:
         return "volume_attack", ZH["volume_attack"]
@@ -487,10 +487,8 @@ def classify_event(row: pd.Series) -> dict[str, str]:
             tags.append("middle_position_60")
     tags.extend([consolidation_type, price_position_type, attack_method, candle_quality, follow_type, risk_type])
 
-    if limit_up_like and not math.isnan(volume_ratio) and volume_ratio < 2:
+    if limit_up_like:
         classification_id = "locked_limit_up_breakout"
-    elif limit_up_like:
-        classification_id = "limit_up_like_breakout"
     elif not math.isnan(width40) and not math.isnan(low_pos60) and width40 <= 25 and low_pos60 <= 60:
         classification_id = "long_base_low_position"
     elif not math.isnan(low_pos60) and low_pos60 <= 60:

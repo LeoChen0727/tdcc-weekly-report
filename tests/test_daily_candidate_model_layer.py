@@ -205,7 +205,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         self.assertEqual(condition_text, VOLUME_RANGE_BREAKOUT_MAIN_CONDITIONS_ZH)
         self.assertIn("一般放量突破", condition_text)
         self.assertIn("量比 >= 2.0", condition_text)
-        self.assertIn("鎖量漲停突破允許量比 < 2.0", condition_text)
+        self.assertIn("鎖量漲停突破不要求量比或20日均量", condition_text)
 
     def test_volume_breakout_condition_is_bottom_volume_attack_not_60d_only(self) -> None:
         row = make_row(
@@ -239,6 +239,21 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         self.assertGreater(score, 0)
         self.assertTrue(any("locked_limit_up_breakout" in item for item in components))
 
+    def test_locked_limit_up_does_not_require_volume_fields(self) -> None:
+        row = make_row(
+            volume_breakout_type="bottom_volume_attack",
+            close="81.8",
+            open="81.8",
+            high="81.8",
+            low="81.8",
+            previous_close="74.4",
+            previous_20d_high="74.4",
+            volume_ratio="",
+            volume_ma20="",
+        )
+
+        self.assertTrue(cond_volume_breakout(row))
+
     def test_locked_limit_up_signal_row_uses_current_condition_text(self) -> None:
         row = make_row(
             volume_breakout_type="bottom_volume_attack",
@@ -256,7 +271,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         volume_row = out[out["model_id"].eq("volume_range_breakout")].iloc[0]
 
         self.assertEqual(volume_row["model_main_conditions"], VOLUME_RANGE_BREAKOUT_MAIN_CONDITIONS_ZH)
-        self.assertIn("鎖量漲停突破允許量比 < 2.0", volume_row["model_main_conditions"])
+        self.assertIn("鎖量漲停突破不要求量比或20日均量", volume_row["model_main_conditions"])
 
     def test_locked_limit_up_watch_row_uses_return_when_previous_close_missing(self) -> None:
         row = make_row(

@@ -120,7 +120,7 @@ def test_normalize_inputs_keeps_only_current_volume_breakout_hits() -> None:
                 "model_id": "volume_range_breakout",
                 "event_date": "20260610",
                 "stock_id": "5678",
-                "event_filter_id": "limit_locked_volume_lt2_research_only",
+                "event_filter_id": "non_current_research_control",
                 "model_hit_status": "research_relaxed_not_current_model",
             },
         ]
