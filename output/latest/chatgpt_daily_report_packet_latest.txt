@@ -1,6 +1,6 @@
 CHATGPT DAILY REPORT PACKET
 
-generated_at: 2026-06-16 01:24:41 Asia/Taipei
+generated_at: 2026-06-16 02:09:50 Asia/Taipei
 repo: LeoChen0727/tdcc-weekly-report
 main_price_date: 20260615
 report_ready: True
@@ -476,7 +476,7 @@ performance_csv_path: output/history/daily_signals/daily_candidate_signal_perfor
 summary_latest_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_signal_performance_summary_latest.md
 weekly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_weekly_latest.pdf
 monthly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_monthly_latest.pdf
-last_updated_at: 2026-06-16 01:24:41 Asia/Taipei
+last_updated_at: 2026-06-16 02:09:50 Asia/Taipei
 status: generated
 
 CANDIDATE REPEAT APPEARANCE
@@ -500,7 +500,7 @@ model_parameters_csv_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc
 model_layer_packet_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_candidate_model_layer_packet_latest.md
 status: generated
 fields: model_id,model_name_zh,model_score,model_rank,display_rank,score_components,risk_penalty_tags,risk_tags,next_confirmation,report_line,report_bucket
-note: This is the PDF/packet source for model-layer signals, scores, ranks, risk tags, and next confirmations. Do not add a second buy/sell or action-rating layer in PDF text.
+note: 這是 PDF/packet 使用的模型層訊號、分數、排名、風險標籤與後續確認資料來源；PDF 文字不得再新增第二層買賣或操作評級。
 
 DAILY THEME LEADERSHIP LAYER
 theme_leadership_csv_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_theme_leadership_latest.csv
@@ -535,15 +535,51 @@ operation_directive_level: approved_daily_operation_guidance
 highlight_confirmed_operation:
 - none
 highlight_pending_confirmation:
-- none
+- stock=6153 嘉聯益 | pending_age=今日訊號 | pending_group=重複進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=6645 金萬林-創 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=2484 希華 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=2537 聯上發 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=1714 和桐 | pending_age=今日訊號 | pending_group=重複進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=6834 天二科技 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=2305 全友 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=6904 伯鑫 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=3285 微端 | pending_age=今日訊號 | pending_group=重複進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=4556 旭然 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=7631 聚賢研發-創 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=3026 禾伸堂 | pending_age=今日訊號 | pending_group=重複進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=6613 朋億* | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=2493 揚博 | pending_age=今日訊號 | pending_group=重複進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=5227 立凱-KY | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=5468 凱鈺 | pending_age=今日訊號 | pending_group=重複進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=8042 金山電 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=6449 鈺邦 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=7828 創新服務 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
 highlight_active_operation:
-- status=操作中 | stock=目前無資料 | note=操作中：operation research source date 20260612 does not match daily report date 20260615; PDF renders an empty section instead of stale rows.
+- status=操作中 | stock=目前無資料 | note=操作中：來源日期不符，今日不顯示舊操作列；不重新計算操作規則。
 full_confirmed_operation:
 - none
 full_pending_confirmation:
-- none
+- stock=6153 嘉聯益 | pending_age=今日訊號 | pending_group=重複進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=6645 金萬林-創 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=2484 希華 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=2537 聯上發 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=1714 和桐 | pending_age=今日訊號 | pending_group=重複進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=6834 天二科技 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=2305 全友 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=6904 伯鑫 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=3285 微端 | pending_age=今日訊號 | pending_group=重複進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=4556 旭然 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=7631 聚賢研發-創 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=3026 禾伸堂 | pending_age=今日訊號 | pending_group=重複進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=6613 朋億* | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=2493 揚博 | pending_age=今日訊號 | pending_group=重複進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=5227 立凱-KY | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=5468 凱鈺 | pending_age=今日訊號 | pending_group=重複進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=8042 金山電 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=6449 鈺邦 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=7828 創新服務 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
 full_active_operation:
-- status=操作中 | stock=目前無資料 | note=操作中：operation research source date 20260612 does not match daily report date 20260615; PDF renders an empty section instead of stale rows.
+- status=操作中 | stock=目前無資料 | note=操作中：來源日期不符，今日不顯示舊操作列；不重新計算操作規則。
 
 NON-REVENUE MOMENTUM WATCH
 non_revenue_momentum_watch_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/non_revenue_momentum_watch_latest.md

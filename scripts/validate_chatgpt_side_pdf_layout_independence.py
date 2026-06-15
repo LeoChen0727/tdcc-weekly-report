@@ -51,6 +51,12 @@ def function_text(text: str, name: str) -> str:
     return text[start:end]
 
 
+def style_text(text: str, name: str, next_name: str) -> str:
+    start = text.index(f"{name} = ParagraphStyle(")
+    end = text.index(f"{next_name} = ParagraphStyle(", start + 1)
+    return text[start:end]
+
+
 def validate() -> list[str]:
     errors: list[str] = []
     text = GENERATOR.read_text(encoding="utf-8", errors="replace")
@@ -66,6 +72,21 @@ def validate() -> list[str]:
     for forbidden in FORBIDDEN_SHARED_LAYOUT_ENTRIES:
         if forbidden in text:
             errors.append(f"forbidden shared PDF layout entry remains: {forbidden}")
+
+    try:
+        h1_text = style_text(text, "H1", "H2")
+        h2_text = style_text(text, "H2", "OP_LABEL")
+    except ValueError:
+        errors.append("missing H1/H2 group heading styles")
+        h1_text = ""
+        h2_text = ""
+    for name, body, expected_size in [("H1", h1_text, "fontSize=18"), ("H2", h2_text, "fontSize=15")]:
+        if "fontName=FONT_BOLD" not in body:
+            errors.append(f"{name} group heading style must use bold font")
+        if expected_size not in body:
+            errors.append(f"{name} group heading style must keep the approved larger font size")
+        if 'textColor=colors.HexColor("#c00000")' not in body:
+            errors.append(f"{name} group heading style must stay red")
 
     try:
         main_text = function_text(text, "main")
@@ -111,4 +132,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

@@ -12,6 +12,7 @@ DOCS_LATEST_DIR = ROOT / "docs" / "latest"
 SECTION_CSV = LATEST_DIR / "daily_volume_breakout_operation_section_latest.csv"
 SECTION_MD = LATEST_DIR / "daily_volume_breakout_operation_section_latest.md"
 TAXONOMY_CSV = LATEST_DIR / "stock_theme_taxonomy_latest.csv"
+DAILY_SIGNALS_CSV = LATEST_DIR / "daily_candidate_model_signals_for_report_latest.csv"
 DOCS_SECTION_CSV = DOCS_LATEST_DIR / SECTION_CSV.name
 DOCS_SECTION_MD = DOCS_LATEST_DIR / SECTION_MD.name
 PDF_GENERATOR = ROOT / "scripts" / "generate_chatgpt_side_daily_reports.py"
@@ -96,6 +97,11 @@ FORBIDDEN_DISPLAY_TOKENS = [
     "pullback_5ma_confirmed",
     "pullback_10ma_confirmed",
     "next_day_continuation_confirmed",
+    "operation research source date",
+    "PDF renders an empty section",
+    "stale rows",
+    "must render only this model section",
+    "must not recalculate operation rules",
 ]
 
 
@@ -116,9 +122,24 @@ def stock_id_text(value: object) -> str:
     return text.zfill(4) if text.isdigit() else text
 
 
+def normalize_date_text(value: object) -> str:
+    text = str(value).strip().replace("-", "").replace("/", "")
+    return text if len(text) == 8 and text.isdigit() else ""
+
+
 def split_memberships(value: object) -> set[str]:
     tokens = str(value).replace(";", "|").replace(",", "|").split("|")
     return {token.strip() for token in tokens if token.strip()}
+
+
+def daily_volume_signal_ids(report_date: str) -> set[str]:
+    signals = read_csv(DAILY_SIGNALS_CSV)
+    if signals.empty or "model_id" not in signals.columns or "stock_id" not in signals.columns:
+        return set()
+    volume = signals[signals["model_id"].astype(str).str.strip().eq(MODEL_ID)].copy()
+    if report_date and "signal_date" in volume.columns:
+        volume = volume[volume["signal_date"].map(normalize_date_text).eq(report_date)].copy()
+    return {stock_id_text(value) for value in volume["stock_id"].tolist() if stock_id_text(value)}
 
 
 def validate_file_presence() -> None:
@@ -183,9 +204,67 @@ def validate_shape(section: pd.DataFrame) -> None:
         bad_data_status = data_rows[data_rows["adapter_source_status"].astype(str).ne("ready")]
         if not bad_data_status.empty:
             fail("operation data rows are allowed only when adapter_source_status=ready")
+    pending_data = section[
+        section["pdf_section"].eq("pending_confirmation") & section["row_type"].eq("data")
+    ].copy()
+    report_dates = {
+        normalize_date_text(value)
+        for value in section["daily_signal_date"].astype(str).tolist()
+        if normalize_date_text(value)
+    }
+    daily_ids = set()
+    for report_date in report_dates:
+        daily_ids.update(daily_volume_signal_ids(report_date))
+    if not pending_data.empty:
+        bad_pending_source = pending_data[
+            pending_data["adapter_source"].astype(str).ne("daily_candidate_model_signals_for_report_latest.csv")
+        ]
+        if not bad_pending_source.empty:
+            fail("pending_confirmation data must come from daily model signals")
+        if pending_data["row_action_status"].astype(str).ne("pending_confirmation").any():
+            fail("pending_confirmation data rows must carry row_action_status=pending_confirmation")
+        if pending_data["buy_rank_eligible"].astype(str).ne("False").any():
+            fail("pending_confirmation data rows must keep buy_rank_eligible=False")
+    confirmed_ids = {
+        stock_id_text(value)
+        for value in confirmed_data["stock_id"].tolist()
+        if stock_id_text(value)
+    }
+    active_data = section[
+        section["pdf_section"].eq("active_operation") & section["row_type"].eq("data")
+    ].copy()
+    active_ids = {
+        stock_id_text(value)
+        for value in active_data["stock_id"].tolist()
+        if stock_id_text(value)
+    }
+    if daily_ids:
+        pending_ids = {
+            stock_id_text(value)
+            for value in pending_data["stock_id"].tolist()
+            if stock_id_text(value)
+        }
+        expected_pending_ids = daily_ids - confirmed_ids - active_ids
+        missing_pending_ids = sorted(expected_pending_ids - pending_ids)
+        if missing_pending_ids:
+            fail(f"current daily volume signals missing from pending_confirmation: {missing_pending_ids}")
+        extra_pending_ids = sorted(pending_ids - expected_pending_ids)
+        if extra_pending_ids:
+            fail(f"pending_confirmation rows are not current unconfirmed daily volume signals: {extra_pending_ids}")
     stale_rows = section[section["adapter_source_status"].astype(str).eq("stale_research_source")]
-    if not stale_rows.empty and stale_rows["row_type"].astype(str).ne("empty_state").any():
-        fail("stale operation research source must render only empty_state rows")
+    if not stale_rows.empty:
+        bad_stale = stale_rows[
+            stale_rows["row_type"].astype(str).ne("empty_state")
+            | (
+                bool(daily_ids)
+                & stale_rows["pdf_section"].astype(str).eq("pending_confirmation")
+            )
+        ]
+        if not bad_stale.empty:
+            fail(
+                "stale operation research source may only create empty_state rows; "
+                "pending_confirmation data must come from daily model signals"
+            )
     if not data_rows.empty:
         taxonomy = read_csv(TAXONOMY_CSV)
         if taxonomy.empty or "stock_id" not in taxonomy.columns:

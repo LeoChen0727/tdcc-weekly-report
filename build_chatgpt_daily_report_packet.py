@@ -794,7 +794,7 @@ def build_packet_text(main_date: str, report_ready: str, paths: dict[str, Path],
     lines.append(f"model_layer_packet_raw_url: {raw_url(DAILY_CANDIDATE_MODEL_LAYER_PACKET_MD)}")
     lines.append(f"status: {'generated' if DAILY_CANDIDATE_MODEL_SIGNALS_FOR_REPORT_CSV.exists() and DAILY_CANDIDATE_MODEL_PARAMETERS_CSV.exists() else 'missing'}")
     lines.append("fields: model_id,model_name_zh,model_score,model_rank,display_rank,score_components,risk_penalty_tags,risk_tags,next_confirmation,report_line,report_bucket")
-    lines.append("note: This is the PDF/packet source for model-layer signals, scores, ranks, risk tags, and next confirmations. Do not add a second buy/sell or action-rating layer in PDF text.")
+    lines.append("note: 這是 PDF/packet 使用的模型層訊號、分數、排名、風險標籤與後續確認資料來源；PDF 文字不得再新增第二層買賣或操作評級。")
     lines.append("")
     lines.append("DAILY THEME LEADERSHIP LAYER")
     lines.append(f"theme_leadership_csv_raw_url: {raw_url(DAILY_THEME_LEADERSHIP_CSV)}")

@@ -43,6 +43,11 @@ FORBIDDEN_RAW_TOKENS = [
     "buy_rank_eligible",
     "row_action_status",
     "confirmed_buy_candidate",
+    "operation research source date",
+    "PDF renders an empty section",
+    "stale rows",
+    "must render only this model section",
+    "must not recalculate operation rules",
 ]
 
 FORBIDDEN_DECISION_LAYER_TEXT = [
