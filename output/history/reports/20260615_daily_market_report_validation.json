@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15 19:08:23 Asia/Taipei",
+  "generated_at": "2026-06-15 19:50:31 Asia/Taipei",
   "status": "pass",
   "main_price_date": "20260615",
   "curated_pdf": {
@@ -24,19 +24,19 @@
     "mainstream_full": {
       "path": "output/latest/mainstream_full_candidate_list_latest.pdf",
       "exists": true,
-      "size_bytes": 52722,
+      "size_bytes": 52741,
       "pages": 17
     },
     "non_mainstream_highlight": {
       "path": "output/latest/non_mainstream_daily_recommendation_highlight_latest.pdf",
       "exists": true,
-      "size_bytes": 3756264,
+      "size_bytes": 3756250,
       "pages": 49
     },
     "non_mainstream_full": {
       "path": "output/latest/non_mainstream_full_candidate_list_latest.pdf",
       "exists": true,
-      "size_bytes": 30734,
+      "size_bytes": 30732,
       "pages": 10
     }
   },
