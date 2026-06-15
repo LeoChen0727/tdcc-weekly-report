@@ -44,10 +44,13 @@ REQUIRED_COLUMNS = {
     "adapter_source_status",
     "approval_source",
     "approved_for_daily",
+    "operation_module_approved_for_daily",
     "approval_status",
     "operation_module_id",
     "approval_version",
     "operation_directive_level",
+    "row_action_status",
+    "buy_rank_eligible",
     "buy_filter_id",
     "approval_note_zh",
     "adapter_note_zh",
@@ -72,9 +75,12 @@ DISPLAY_COLUMNS = [
     "avg_return_zh",
     "median_return_zh",
     "approved_for_daily",
+    "operation_module_approved_for_daily",
     "approval_status",
     "approval_version",
     "operation_directive_level",
+    "row_action_status",
+    "buy_rank_eligible",
     "confidence_zh",
     "pdf_note_zh",
     "adapter_note_zh",
@@ -136,6 +142,8 @@ def validate_shape(section: pd.DataFrame) -> None:
 
     if set(section["approved_for_daily"].astype(str)) != {"True"}:
         fail("daily volume breakout operation section must be approved_for_daily=True")
+    if set(section["operation_module_approved_for_daily"].astype(str)) != {"True"}:
+        fail("daily volume breakout operation section must carry operation_module_approved_for_daily=True")
     if set(section["approval_status"].astype(str)) != {"approved_for_daily_v1"}:
         fail("daily volume breakout operation section must carry approval_status=approved_for_daily_v1")
     if set(section["operation_directive_level"].astype(str)) != {"approved_daily_operation_guidance"}:
@@ -152,6 +160,29 @@ def validate_shape(section: pd.DataFrame) -> None:
         bad_quality = sorted(set(confirmed_data["quality_status_zh"].astype(str)) - {"正向證據"})
         if bad_quality:
             fail(f"confirmed operation rows must be positive evidence only: {bad_quality}")
+        if set(confirmed_data["row_action_status"].astype(str)) != {"confirmed_buy_candidate"}:
+            fail("confirmed operation data rows must carry row_action_status=confirmed_buy_candidate")
+        if set(confirmed_data["buy_rank_eligible"].astype(str)) != {"True"}:
+            fail("confirmed operation data rows must be buy_rank_eligible=True")
+
+    buy_eligible = section[section["buy_rank_eligible"].astype(str).eq("True")]
+    bad_buy = buy_eligible[
+        ~(
+            buy_eligible["pdf_section"].eq("confirmed_operation")
+            & buy_eligible["row_type"].eq("data")
+            & buy_eligible["row_action_status"].eq("confirmed_buy_candidate")
+        )
+    ]
+    if not bad_buy.empty:
+        fail("buy_rank_eligible=True is allowed only on confirmed_operation data rows")
+
+    pending = section[section["pdf_section"].eq("pending_confirmation") & section["row_type"].eq("data")]
+    bad_pending = pending[
+        pending["buy_rank_eligible"].astype(str).ne("False")
+        | pending["row_action_status"].astype(str).ne("pending_confirmation")
+    ]
+    if not bad_pending.empty:
+        fail("pending_confirmation rows must stay buy_rank_eligible=False with row_action_status=pending_confirmation")
 
     for view in PDF_VIEWS:
         for section_id in PDF_SECTIONS:
@@ -164,6 +195,10 @@ def validate_shape(section: pd.DataFrame) -> None:
         fail("active_operation section is required even when empty")
     if set(active["row_type"].astype(str)) != {"empty_state"}:
         fail("active_operation must remain an explicit empty table until a holding-tracker source exists")
+    if active["buy_rank_eligible"].astype(str).ne("False").any():
+        fail("active_operation empty rows must not be buy_rank_eligible")
+    if set(active["row_action_status"].astype(str)) != {"empty_state"}:
+        fail("active_operation empty rows must carry row_action_status=empty_state")
     if not active["adapter_note_zh"].astype(str).str.contains("操作中").any():
         fail("active_operation empty row must explain operation-in-progress status")
 

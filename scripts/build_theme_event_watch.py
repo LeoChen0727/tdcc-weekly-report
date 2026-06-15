@@ -17,6 +17,8 @@ MODEL_SIGNALS_FOR_REPORT = LATEST_DIR / "daily_candidate_model_signals_for_repor
 THEME_EVENT_WATCH_CSV = LATEST_DIR / "theme_event_watch_latest.csv"
 THEME_EVENT_WATCH_MD = LATEST_DIR / "theme_event_watch_latest.md"
 
+EMPTY_WATCH_STATUS = "no_current_theme_event_watch"
+
 WATCH_COLUMNS = [
     "signal_date",
     "event_date",
@@ -40,6 +42,41 @@ WATCH_COLUMNS = [
     "interpretation_zh",
     "source_url",
 ]
+
+
+def empty_watch_row(signal_date: str, event_count: int) -> dict[str, Any]:
+    return {
+        "signal_date": signal_date,
+        "event_date": "",
+        "event_end_date": "",
+        "days_to_event": "",
+        "event_phase": "empty_state",
+        "event_name": "目前無可顯示主題事件",
+        "event_type": "",
+        "theme_tag": "",
+        "importance": "",
+        "matched_stock_count": 0,
+        "matched_stock_ids": "",
+        "matched_stock_names": "",
+        "candidate_intersection_count": 0,
+        "candidate_intersection_stock_ids": "",
+        "candidate_intersection_stock_names": "",
+        "candidate_intersection_models": "",
+        "top_candidate_summary_zh": "目前無符合顯示條件的主題事件觀察列",
+        "theme_event_watch_status": EMPTY_WATCH_STATUS,
+        "pdf_section_zh": "主題事件觀察",
+        "interpretation_zh": (
+            f"theme_event_calendar 已有 {event_count} 筆資料，但目前沒有落在可顯示觀察窗或候選股交集的主題事件；"
+            "PDF 僅顯示空狀態，不補造事件判斷。"
+        ),
+        "source_url": "",
+    }
+
+
+def ensure_nonempty_watch(out: pd.DataFrame, signal_date: str, event_count: int) -> pd.DataFrame:
+    if out.empty and event_count > 0:
+        return pd.DataFrame([empty_watch_row(signal_date, event_count)], columns=WATCH_COLUMNS)
+    return out
 
 
 def split_tags(value: Any) -> list[str]:
@@ -290,6 +327,7 @@ def main() -> int:
         if col not in out.columns:
             out[col] = ""
     out = out[WATCH_COLUMNS]
+    out = ensure_nonempty_watch(out, signal_date, len(events))
     if not out.empty:
         out = out.sort_values(["days_to_event", "event_name", "theme_tag"], kind="stable").reset_index(drop=True)
     write_csv(out, THEME_EVENT_WATCH_CSV)

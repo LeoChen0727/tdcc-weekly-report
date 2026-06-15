@@ -74,10 +74,13 @@ OUTPUT_COLUMNS = [
     "adapter_source_status",
     "approval_source",
     "approved_for_daily",
+    "operation_module_approved_for_daily",
     "approval_status",
     "operation_module_id",
     "approval_version",
     "operation_directive_level",
+    "row_action_status",
+    "buy_rank_eligible",
     "buy_filter_id",
     "approval_note_zh",
     "adapter_note_zh",
@@ -87,6 +90,7 @@ OUTPUT_COLUMNS = [
 APPROVAL_FIELDS = [
     "approval_source",
     "approved_for_daily",
+    "operation_module_approved_for_daily",
     "approval_status",
     "operation_module_id",
     "approval_version",
@@ -138,10 +142,13 @@ def approval_context(approval: pd.DataFrame) -> dict[str, str]:
     default = {
         "approval_source": APPROVAL_SOURCE,
         "approved_for_daily": "False",
+        "operation_module_approved_for_daily": "False",
         "approval_status": "missing",
         "operation_module_id": "",
         "approval_version": "",
         "operation_directive_level": "no_operation_directive",
+        "row_action_status": "empty_state",
+        "buy_rank_eligible": "False",
         "buy_filter_id": "",
         "approval_note_zh": "尚未建立放量攻擊 approved operation artifact。",
     }
@@ -155,10 +162,13 @@ def approval_context(approval: pd.DataFrame) -> dict[str, str]:
     return {
         "approval_source": APPROVAL_SOURCE,
         "approved_for_daily": "True" if approved.lower() == "true" else "False",
+        "operation_module_approved_for_daily": "True" if approved.lower() == "true" else "False",
         "approval_status": safe_str(row.get("approval_status")),
         "operation_module_id": safe_str(row.get("operation_module_id")),
         "approval_version": safe_str(row.get("approval_version")),
         "operation_directive_level": safe_str(row.get("operation_directive_level")),
+        "row_action_status": "",
+        "buy_rank_eligible": "False",
         "buy_filter_id": safe_str(row.get("buy_filter_id")),
         "approval_note_zh": safe_str(row.get("approval_note_zh")),
     }
@@ -235,6 +245,8 @@ def empty_row(
         "adapter_source": ADAPTER_SOURCE,
         "adapter_source_status": source_status,
         **approval,
+        "row_action_status": "empty_state",
+        "buy_rank_eligible": "False",
         "adapter_note_zh": SECTION_EMPTY_NOTE_ZH[pdf_section],
         "generated_at": generated_at,
     }
@@ -282,6 +294,19 @@ def normalize_source_rows(
         record["adapter_source_status"] = source_status
         for col in APPROVAL_FIELDS:
             record[col] = approval[col]
+        is_confirmed_buy = (
+            section == "confirmed_operation"
+            and approval["approved_for_daily"] == "True"
+            and approval["operation_directive_level"] == "approved_daily_operation_guidance"
+            and approved_confirmed_source_row(row)
+        )
+        if section == "confirmed_operation":
+            record["row_action_status"] = "confirmed_buy_candidate" if is_confirmed_buy else "confirmed_not_buy_rank_eligible"
+        elif section == "pending_confirmation":
+            record["row_action_status"] = "pending_confirmation"
+        else:
+            record["row_action_status"] = "display_only"
+        record["buy_rank_eligible"] = "True" if is_confirmed_buy else "False"
         record["adapter_note_zh"] = (
             "approved daily operation guidance; PDF must render only this model section and must not recalculate operation rules."
             if approval["approved_for_daily"] == "True"
@@ -351,7 +376,10 @@ def write_outputs(df: pd.DataFrame, source_rows: int, source_status: str) -> Non
                 "win_rate_zh",
                 "median_return_zh",
                 "approved_for_daily",
+                "operation_module_approved_for_daily",
                 "operation_directive_level",
+                "row_action_status",
+                "buy_rank_eligible",
                 "adapter_note_zh",
             ]
             try:
