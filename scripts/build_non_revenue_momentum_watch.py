@@ -20,6 +20,44 @@ OUT_MD = LATEST_DIR / "non_revenue_momentum_watch_latest.md"
 DOCS_CSV = DOCS_LATEST_DIR / OUT_CSV.name
 DOCS_MD = DOCS_LATEST_DIR / OUT_MD.name
 
+OUTPUT_COLUMNS = [
+    "signal_date",
+    "stock_id",
+    "stock_name",
+    "category",
+    "category_cn",
+    "theme_name",
+    "presentation_priority",
+    "model_score",
+    "model_rank",
+    "revenue_confirmation_status",
+    "revenue_confirmation_note",
+    "non_revenue_momentum_flag",
+    "non_revenue_momentum_type",
+    "non_revenue_presentation_status",
+    "fundamental_confirmation_needed",
+    "theme_final_status",
+    "theme_structural_status",
+    "theme_mainstream_label",
+    "theme_volume_attack_status",
+    "candidate_source_type",
+    "volume_breakout_type",
+    "volume_breakout_priority",
+    "selection_status",
+    "volume_ratio",
+    "return_5d",
+    "return_20d",
+    "tdcc_status",
+    "warrant_flow_signal",
+    "must_not_overstate",
+    "downgrade_flags",
+    "risk_tags",
+    "why_selected",
+    "why_downgraded",
+    "next_confirmation",
+    "interpretation",
+]
+
 STRONG_THEME_STATUSES = {
     "mainstream_leader",
     "mainstream_follow_through",
@@ -411,7 +449,7 @@ def build_rows(df: pd.DataFrame) -> pd.DataFrame:
             }
         )
 
-    out = pd.DataFrame(rows)
+    out = pd.DataFrame(rows, columns=OUTPUT_COLUMNS)
     if out.empty:
         return out
 
@@ -510,7 +548,7 @@ def write_outputs(out: pd.DataFrame) -> None:
 
 def main() -> int:
     base = merge_sources()
-    out = build_rows(base) if not base.empty else pd.DataFrame()
+    out = build_rows(base) if not base.empty else pd.DataFrame(columns=OUTPUT_COLUMNS)
     write_outputs(out)
     print(f"Saved: {OUT_CSV} rows={len(out)}")
     print(f"Saved: {OUT_MD}")

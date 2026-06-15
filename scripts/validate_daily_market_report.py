@@ -480,6 +480,8 @@ def check_non_revenue_momentum_section(curated_text: str, full_text: str, errors
         return
     try:
         df = pd.read_csv(NON_REVENUE_MOMENTUM_CSV, dtype=str, keep_default_na=False)
+    except pd.errors.EmptyDataError:
+        return
     except Exception as exc:
         errors.append(f"failed to inspect non-revenue momentum CSV: {exc}")
         return
