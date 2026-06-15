@@ -66,12 +66,13 @@ def test_volume_range_breakout_does_not_veto_large_prior_gain() -> None:
 def test_volume_range_breakout_has_locked_limit_up_parameter_set() -> None:
     spec = next(
         s for s in rule_specs()
-        if s.model_id == "volume_range_breakout" and s.parameter_set_id == "locked_limit_up_breakout_minvol1000"
+        if s.model_id == "volume_range_breakout" and s.parameter_set_id == "locked_limit_up_breakout_no_volume_gate"
     )
     df = pd.DataFrame({"locked_limit_up_breakout": [True, False]})
 
     assert spec.condition(df).tolist() == [True, False]
     assert "鎖量漲停" in spec.parameter_summary
+    assert "不要求量比或20日均量" in spec.parameter_summary
 
 
 def test_parameter_research_no_longer_references_decision_layer() -> None:

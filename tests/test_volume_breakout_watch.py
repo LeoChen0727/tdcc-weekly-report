@@ -122,7 +122,47 @@ class VolumeBreakoutWatchTest(unittest.TestCase):
         assert signal is not None
         self.assertEqual(signal.event_type, "bottom_volume_attack")
         self.assertIn("locked_limit_up_breakout", signal.notes)
+        self.assertIn("locked_limit_no_volume_gate", signal.notes)
         self.assertLess(float(df.iloc[-1]["volume_ratio"]), 2.0)
+
+    def test_locked_limit_up_does_not_require_average_volume_gate(self) -> None:
+        rows: list[dict[str, object]] = []
+        for idx in range(25):
+            rows.append(
+                {
+                    "date": f"202606{idx + 1:02d}",
+                    "stock_id": "4916",
+                    "stock_name": "TEST",
+                    "market": "TWSE",
+                    "open": 72.0,
+                    "high": 74.4,
+                    "low": 70.0,
+                    "close": 74.4,
+                    "volume": 10,
+                }
+            )
+        rows.append(
+            {
+                "date": "20260626",
+                "stock_id": "4916",
+                "stock_name": "TEST",
+                "market": "TWSE",
+                "open": 81.8,
+                "high": 81.8,
+                "low": 81.8,
+                "close": 81.8,
+                "volume": 10,
+            }
+        )
+        df = add_price_metrics(pd.DataFrame(rows))
+        signal = detect_volume_breakout(df.iloc[-1])
+
+        self.assertIsNotNone(signal)
+        assert signal is not None
+        self.assertEqual(signal.event_type, "bottom_volume_attack")
+        self.assertIn("locked_limit_up_breakout", signal.notes)
+        self.assertIn("locked_limit_no_volume_gate", signal.notes)
+        self.assertNotIn("volume_ma20_lots_ge_1000", signal.notes)
 
     def test_non_locked_low_volume_ratio_breakout_still_fails(self) -> None:
         rows: list[dict[str, object]] = []

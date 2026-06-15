@@ -261,7 +261,7 @@ def source_volume_breakout_condition(row: pd.Series) -> bool:
 
 def locked_limit_up_volume_breakout_row(row: pd.Series | dict[str, Any]) -> bool:
     notes = text(row, "volume_breakout_notes", "score_components").lower()
-    return "locked_limit_up_breakout" in notes and "volume_ratio_lt_2_locked_limit" in notes
+    return "locked_limit_up_breakout" in notes
 
 
 def active_attack(row: pd.Series) -> bool:
@@ -308,8 +308,8 @@ def audit_selected_row(
             if status not in VALID_VOLUME_STATUSES:
                 errors.append(f"{sid}: volume selection_status not valid for selected model: {status}")
             vol = num(vrow, "volume_ratio")
-            if math.isnan(vol) or (vol < 2.0 and not locked_limit_up_volume_breakout_row(vrow)):
-                errors.append(f"{sid}: bottom volume attack selected but volume_ratio < 2.0")
+            if not locked_limit_up_volume_breakout_row(vrow) and (math.isnan(vol) or vol < 2.0):
+                errors.append(f"{sid}: normal bottom volume attack selected but volume_ratio < 2.0")
         return errors, warnings
 
     if model == "tdcc_short_term_continuation_d5_d10":

@@ -40,6 +40,23 @@ def test_classify_locked_limit_up_breakout() -> None:
     assert out["attack_method"] == "locked_limit_up"
 
 
+def test_classify_limit_up_breakout_does_not_require_low_volume_ratio() -> None:
+    row = pd.Series(
+        {
+            "volume_ratio": "3.2",
+            "range_width_40_pct": "18",
+            "low_position_60_pct": "55",
+            "limit_up_like": "True",
+        }
+    )
+
+    out = classify_event(row)
+
+    assert out["classification_id"] == "locked_limit_up_breakout"
+    assert "volume_ratio_ge_3" in out["pattern_tags"]
+    assert out["attack_method"] == "locked_limit_up"
+
+
 def test_classify_long_base_low_position_before_generic_low_position() -> None:
     row = pd.Series(
         {
@@ -69,6 +86,7 @@ def test_pattern_dimensions_cover_requested_categories() -> None:
     assert consolidation_dimension(pd.Series({"range_width_20_pct": "35"}))[0] == "non_consolidation"
 
     assert attack_method_dimension(pd.Series({"limit_up_like": "True", "volume_ratio": "0.8"}))[0] == "locked_limit_up"
+    assert attack_method_dimension(pd.Series({"limit_up_like": "True", "volume_ratio": "3.2"}))[0] == "locked_limit_up"
     assert attack_method_dimension(pd.Series({"limit_up_like": "False", "volume_ratio": "3.2"}))[0] == "volume_attack"
     assert attack_method_dimension(pd.Series({"limit_up_like": "False", "volume_ratio": "2.2"}))[0] == "general_breakout"
 
