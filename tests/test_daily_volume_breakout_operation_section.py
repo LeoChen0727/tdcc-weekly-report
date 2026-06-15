@@ -16,10 +16,13 @@ def approval_stub() -> dict[str, str]:
     return {
         "approval_source": "approved_operation_patterns_latest.csv",
         "approved_for_daily": "True",
+        "operation_module_approved_for_daily": "True",
         "approval_status": "approved_for_daily_v1",
         "operation_module_id": "volume_breakout_confirmed_operation_v1",
         "approval_version": "volume_breakout_operation_v1_20260615",
         "operation_directive_level": "approved_daily_operation_guidance",
+        "row_action_status": "",
+        "buy_rank_eligible": "False",
         "buy_filter_id": "positive_evidence_oos_rank_v1",
         "approval_note_zh": "approved for test",
     }
@@ -37,6 +40,7 @@ def test_daily_volume_breakout_operation_section_adds_active_empty_rows() -> Non
                 "stock_name": "TEST",
                 "stock_display": "1234 TEST",
                 "operation_status_zh": "已確認操作",
+                "quality_status_zh": "正向證據",
                 "trigger_zh": "隔日續強確認",
                 "entry_basis_zh": "確認後下一交易日開盤",
                 "stop_basis_zh": "跌破 6/12 最低價 10.00",
@@ -61,12 +65,55 @@ def test_daily_volume_breakout_operation_section_adds_active_empty_rows() -> Non
     assert set(out["pdf_view"]) == {"highlight", "full"}
     assert set(out["pdf_section"]) == {"confirmed_operation", "pending_confirmation", "active_operation"}
     assert set(out["approved_for_daily"]) == {"True"}
+    assert set(out["operation_module_approved_for_daily"]) == {"True"}
     assert set(out["approval_status"]) == {"approved_for_daily_v1"}
     assert set(out["operation_directive_level"]) == {"approved_daily_operation_guidance"}
+    confirmed = out[out["pdf_section"].eq("confirmed_operation") & out["row_type"].eq("data")]
+    assert confirmed["row_action_status"].tolist() == ["confirmed_buy_candidate"]
+    assert confirmed["buy_rank_eligible"].tolist() == ["True"]
     active = out[out["pdf_section"].eq("active_operation")]
     assert len(active) == 2
     assert set(active["row_type"]) == {"empty_state"}
     assert active["stock_display"].eq("目前無資料").all()
+    assert active["buy_rank_eligible"].eq("False").all()
+    assert active["row_action_status"].eq("empty_state").all()
+
+
+def test_pending_confirmation_rows_are_not_buy_rank_eligible() -> None:
+    source = pd.DataFrame(
+        [
+            {
+                "model_id": "volume_range_breakout",
+                "pdf_view": "highlight",
+                "pdf_section": "pending_confirmation",
+                "display_order": "1",
+                "stock_id": "1234",
+                "stock_name": "TEST",
+                "stock_display": "1234 TEST",
+                "operation_status_zh": "待確認",
+                "entry_basis_zh": "尚未確認，不列進場價",
+                "stop_basis_zh": "跌破 6/12 最低價 10.00",
+                "exit_rule_zh": "尚未成立；確認後才啟動進場與出場規則",
+            }
+        ]
+    )
+
+    out = builder.normalize_source_rows(
+        source,
+        "ready",
+        "20260612",
+        1,
+        approval_stub(),
+        "2026-06-15 12:00:00 Asia/Taipei",
+    )
+
+    pending = out[out["pdf_section"].eq("pending_confirmation") & out["row_type"].eq("data")]
+    assert len(pending) == 1
+    row = pending.iloc[0]
+    assert row["approved_for_daily"] == "True"
+    assert row["operation_module_approved_for_daily"] == "True"
+    assert row["row_action_status"] == "pending_confirmation"
+    assert row["buy_rank_eligible"] == "False"
 
 
 def test_daily_volume_breakout_operation_section_ignores_other_models() -> None:
@@ -140,6 +187,8 @@ def test_confirmed_operation_keeps_positive_evidence_only() -> None:
     ].copy()
     assert confirmed["stock_id"].tolist() == ["1111"]
     assert confirmed["quality_status_zh"].tolist() == ["正向證據"]
+    assert confirmed["row_action_status"].tolist() == ["confirmed_buy_candidate"]
+    assert confirmed["buy_rank_eligible"].tolist() == ["True"]
 
 
 def test_daily_pipeline_runs_volume_breakout_operation_adapter() -> None:

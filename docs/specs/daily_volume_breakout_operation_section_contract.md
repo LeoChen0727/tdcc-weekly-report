@@ -23,6 +23,9 @@ The PDF renderer must not read these research artifacts directly:
 - Missing or empty research inputs must produce explicit empty-state rows instead of blocking the daily pipeline.
 - Other stock models must not reuse this operation section, ranking, entry rule, stop rule, or exit rule.
 - `approved_for_daily=True` means this adapter is allowed to present `volume_range_breakout` v1 operation guidance. It does not approve any other model.
+- `approved_for_daily=True` is module-level approval, not row-level buy permission.
+- The PDF renderer must use `buy_rank_eligible=True` plus `row_action_status=confirmed_buy_candidate` for buy-ranking rows.
+- `pending_confirmation` rows must remain `buy_rank_eligible=False` even when `approved_for_daily=True`.
 - The adapter must copy approval metadata from `approved_operation_patterns_latest.csv`; the PDF renderer must not read that approval table directly.
 - `confirmed_operation` data rows must be positive evidence only. Weak-evidence confirmed rows from research previews must not be presented as daily buy guidance.
 
@@ -32,18 +35,28 @@ The CSV must include these approval fields on every row:
 
 - `approval_source`
 - `approved_for_daily`
+- `operation_module_approved_for_daily`
 - `approval_status`
 - `operation_module_id`
 - `approval_version`
 - `operation_directive_level`
+- `row_action_status`
+- `buy_rank_eligible`
 - `buy_filter_id`
 - `approval_note_zh`
 
 For the approved v1 daily adapter, these fields must show:
 
 - `approved_for_daily=True`
+- `operation_module_approved_for_daily=True`
 - `approval_status=approved_for_daily_v1`
 - `operation_directive_level=approved_daily_operation_guidance`
+
+Row-level meaning:
+
+- `confirmed_operation` + `row_type=data` + `row_action_status=confirmed_buy_candidate` + `buy_rank_eligible=True`: eligible for the daily buy ranking table.
+- `pending_confirmation` + `row_type=data` + `row_action_status=pending_confirmation` + `buy_rank_eligible=False`: display only as pending confirmation; no entry price and no buy ranking.
+- `active_operation` empty rows must use `row_action_status=empty_state` and `buy_rank_eligible=False` until a holding tracker exists.
 
 ## Sections
 
