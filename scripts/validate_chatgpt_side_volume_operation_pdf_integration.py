@@ -19,6 +19,10 @@ FULL_CANDIDATE_PDF_TITLE_PARTS = [
 
 CANDIDATE_PDF_TITLE_PARTS = CURATED_CANDIDATE_PDF_TITLE_PARTS + FULL_CANDIDATE_PDF_TITLE_PARTS
 
+MAINSTREAM_CURATED_REQUIRED_TEXT = [
+    "放量攻擊模型",
+]
+
 REQUIRED_VOLUME_OPERATION_TEXT = [
     "放量攻擊模型",
     "已確認操作",
@@ -27,9 +31,11 @@ REQUIRED_VOLUME_OPERATION_TEXT = [
     "中位數報酬",
 ]
 
-REQUIRED_OBSERVATION_TEXT = [
+MAINSTREAM_CURATED_FORBIDDEN_TEXT = [
+    "主流股觀察清單",
     "新上榜",
     "重複上榜",
+    "可列買入排名",
 ]
 
 FORBIDDEN_RAW_TOKENS = [
@@ -89,18 +95,21 @@ def validate_output_dir(output_dir: Path) -> list[str]:
             continue
         text = all_text.get(pdf, "")
         compact = compact_text(text)
-        for required in REQUIRED_VOLUME_OPERATION_TEXT:
+        required_text = (
+            MAINSTREAM_CURATED_REQUIRED_TEXT
+            if title_part == "主流股每日推薦精華"
+            else REQUIRED_VOLUME_OPERATION_TEXT
+        )
+        for required in required_text:
             if required not in compact:
                 errors.append(f"{pdf.name}: missing volume operation text {required!r}")
 
-    for title_part in CURATED_CANDIDATE_PDF_TITLE_PARTS:
-        pdf = find_pdf(output_dir, title_part)
-        if pdf is None:
-            continue
-        compact = compact_text(all_text.get(pdf, ""))
-        for required in REQUIRED_OBSERVATION_TEXT:
-            if required not in compact:
-                errors.append(f"{pdf.name}: missing observation table text {required!r}")
+    mainstream_curated = find_pdf(output_dir, "主流股每日推薦精華")
+    if mainstream_curated is not None:
+        compact = compact_text(all_text.get(mainstream_curated, ""))
+        for forbidden in MAINSTREAM_CURATED_FORBIDDEN_TEXT:
+            if forbidden in compact:
+                errors.append(f"{mainstream_curated.name}: mainstream curated PDF still contains front observation text {forbidden!r}")
 
     return errors
 
