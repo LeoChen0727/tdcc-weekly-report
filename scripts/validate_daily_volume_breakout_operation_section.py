@@ -14,6 +14,7 @@ SECTION_MD = LATEST_DIR / "daily_volume_breakout_operation_section_latest.md"
 DOCS_SECTION_CSV = DOCS_LATEST_DIR / SECTION_CSV.name
 DOCS_SECTION_MD = DOCS_LATEST_DIR / SECTION_MD.name
 PDF_GENERATOR = ROOT / "scripts" / "generate_chatgpt_side_daily_reports.py"
+PACKET_BUILDER = ROOT / "build_chatgpt_daily_report_packet.py"
 CONTRACT_MD = ROOT / "docs" / "specs" / "daily_volume_breakout_operation_section_contract.md"
 
 MODEL_ID = "volume_range_breakout"
@@ -220,6 +221,10 @@ def validate_pdf_generator_boundary() -> None:
     if not PDF_GENERATOR.exists():
         return
     source = PDF_GENERATOR.read_text(encoding="utf-8", errors="replace")
+    if "daily_volume_breakout_operation_section_latest.csv" not in source:
+        fail("PDF generator must read the daily volume breakout operation adapter artifact")
+    if "render_volume_range_breakout_operation_section" not in source:
+        fail("PDF generator must expose an independent volume breakout operation renderer")
     forbidden = [
         "volume_breakout_operation_pdf_preview_latest.csv",
         "volume_breakout_confirmed_operation_rank_latest.csv",
@@ -232,12 +237,33 @@ def validate_pdf_generator_boundary() -> None:
             fail(f"PDF generator must not read research artifact directly: {token}")
 
 
+def validate_packet_builder_boundary() -> None:
+    if not PACKET_BUILDER.exists():
+        return
+    source = PACKET_BUILDER.read_text(encoding="utf-8", errors="replace")
+    if "daily_volume_breakout_operation_section_latest.csv" not in source:
+        fail("packet builder must read the daily volume breakout operation adapter artifact")
+    if "build_volume_operation_packet_lines" not in source:
+        fail("packet builder must render the volume breakout operation adapter section")
+    forbidden = [
+        "volume_breakout_operation_pdf_preview_latest.csv",
+        "volume_breakout_confirmed_operation_rank_latest.csv",
+        "volume_breakout_pending_operation_queue_latest.csv",
+        "historical_pattern_operation_registry_latest.csv",
+        "approved_operation_patterns_latest.csv",
+    ]
+    for token in forbidden:
+        if token in source:
+            fail(f"packet builder must not read research artifact directly: {token}")
+
+
 def main() -> int:
     validate_file_presence()
     section = read_csv(SECTION_CSV)
     validate_shape(section)
     validate_display_text(section)
     validate_pdf_generator_boundary()
+    validate_packet_builder_boundary()
     print(
         "daily volume breakout operation section validation passed "
         f"rows={len(section)} "

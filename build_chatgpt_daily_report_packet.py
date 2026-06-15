@@ -99,6 +99,10 @@ VOLUME_BREAKOUT_WATCH_CSV = LATEST_DIR / "volume_breakout_watch_latest.csv"
 VOLUME_BREAKOUT_BACKTEST_MD = LATEST_DIR / "volume_breakout_backtest_latest.md"
 VOLUME_BREAKOUT_BACKTEST_CSV = LATEST_DIR / "volume_breakout_backtest_latest.csv"
 VOLUME_BREAKOUT_PACKET_MD = LATEST_DIR / "volume_breakout_chatgpt_packet_latest.md"
+DAILY_VOLUME_BREAKOUT_OPERATION_SECTION_CSV = LATEST_DIR / "daily_volume_breakout_operation_section_latest.csv"
+DAILY_VOLUME_BREAKOUT_OPERATION_SECTION_MD = LATEST_DIR / "daily_volume_breakout_operation_section_latest.md"
+MODEL_OPERATION_READINESS_CSV = LATEST_DIR / "model_operation_readiness_latest.csv"
+MODEL_OPERATION_READINESS_MD = LATEST_DIR / "model_operation_readiness_latest.md"
 
 SUMMARY_LATEST_MD = LATEST_DIR / "daily_market_summary_latest.md"
 FULL_LATEST_MD = LATEST_DIR / "daily_market_full_latest.md"
@@ -341,6 +345,139 @@ def read_json(path: Path) -> dict[str, Any]:
         pass
 
     return {}
+
+
+def safe_read_csv(path: Path) -> pd.DataFrame:
+    if not path.exists():
+        return pd.DataFrame()
+    try:
+        return pd.read_csv(path, dtype=str, keep_default_na=False).fillna("")
+    except Exception:
+        return pd.DataFrame()
+
+
+def true_text(value: Any) -> bool:
+    return str(value).strip().lower() in {"true", "1", "yes", "y"}
+
+
+def operation_row_line(row: pd.Series, fields: list[tuple[str, str]]) -> str:
+    parts: list[str] = []
+    for label, field in fields:
+        value = str(row.get(field, "")).strip()
+        if value:
+            parts.append(f"{label}={value}")
+    return " | ".join(parts)
+
+
+def sort_operation_frame(frame: pd.DataFrame) -> pd.DataFrame:
+    if frame.empty:
+        return frame
+    frame = frame.copy()
+    frame["_display_order"] = pd.to_numeric(frame.get("display_order"), errors="coerce").fillna(9999)
+    return frame.sort_values(["_display_order", "stock_id"]).drop(columns=["_display_order"], errors="ignore")
+
+
+def build_volume_operation_packet_lines() -> list[str]:
+    section = safe_read_csv(DAILY_VOLUME_BREAKOUT_OPERATION_SECTION_CSV)
+    readiness = safe_read_csv(MODEL_OPERATION_READINESS_CSV)
+    lines: list[str] = []
+    lines.append("VOLUME RANGE BREAKOUT OPERATION GUIDANCE")
+    lines.append(f"operation_section_csv_raw_url: {raw_url(DAILY_VOLUME_BREAKOUT_OPERATION_SECTION_CSV)}")
+    lines.append(f"operation_section_md_raw_url: {raw_url(DAILY_VOLUME_BREAKOUT_OPERATION_SECTION_MD)}")
+    lines.append(f"operation_readiness_csv_raw_url: {raw_url(MODEL_OPERATION_READINESS_CSV)}")
+    lines.append(f"operation_readiness_md_raw_url: {raw_url(MODEL_OPERATION_READINESS_MD)}")
+    lines.append(f"status: {'generated' if not section.empty else 'missing'}")
+    lines.append("model_id: volume_range_breakout")
+    lines.append("pdf_packet_usage: render the daily adapter artifact only; do not read research operation artifacts directly and do not recalculate entry, stop, exit, ranking, sample size, win rate, or median return.")
+    if not readiness.empty and "model_id" in readiness.columns:
+        volume = readiness[readiness["model_id"].astype(str).eq("volume_range_breakout")]
+        if not volume.empty:
+            row = volume.iloc[0]
+            lines.append(f"pdf_integration_status: {row.get('pdf_integration_status', '')}")
+            lines.append(f"packet_integration_status: {row.get('packet_integration_status', '')}")
+            lines.append(f"operation_directive_level: {row.get('operation_directive_level', '')}")
+    if section.empty:
+        lines.append("[daily_volume_breakout_operation_section_latest.csv missing or empty]")
+        lines.append("")
+        return lines
+
+    section = section[section.get("model_id", pd.Series(dtype=str)).astype(str).eq("volume_range_breakout")].copy()
+    for view in ["highlight", "full"]:
+        view_frame = section[section.get("pdf_view", pd.Series(dtype=str)).astype(str).eq(view)].copy()
+        if view_frame.empty:
+            continue
+        lines.append(f"{view}_confirmed_operation:")
+        confirmed = view_frame[
+            view_frame.get("pdf_section", pd.Series(dtype=str)).astype(str).eq("confirmed_operation")
+            & view_frame.get("row_type", pd.Series(dtype=str)).astype(str).eq("data")
+            & view_frame.get("row_action_status", pd.Series(dtype=str)).astype(str).eq("confirmed_buy_candidate")
+            & view_frame.get("buy_rank_eligible", pd.Series(dtype=str)).map(true_text)
+        ].copy()
+        if confirmed.empty:
+            lines.append("- none")
+        for _, row in sort_operation_frame(confirmed).iterrows():
+            lines.append(
+                "- "
+                + operation_row_line(
+                    row,
+                    [
+                        ("rank", "display_order"),
+                        ("stock", "stock_display"),
+                        ("trigger", "trigger_zh"),
+                        ("entry", "entry_basis_zh"),
+                        ("entry_price_status", "entry_price_status_zh"),
+                        ("stop", "stop_basis_zh"),
+                        ("exit", "exit_rule_zh"),
+                        ("sample_size", "sample_size"),
+                        ("win_rate", "win_rate_zh"),
+                        ("avg_return", "avg_return_zh"),
+                        ("median_return", "median_return_zh"),
+                        ("confidence", "confidence_zh"),
+                    ],
+                )
+            )
+        lines.append(f"{view}_pending_confirmation:")
+        pending = view_frame[
+            view_frame.get("pdf_section", pd.Series(dtype=str)).astype(str).eq("pending_confirmation")
+            & view_frame.get("row_type", pd.Series(dtype=str)).astype(str).eq("data")
+            & view_frame.get("row_action_status", pd.Series(dtype=str)).astype(str).eq("pending_confirmation")
+            & ~view_frame.get("buy_rank_eligible", pd.Series(dtype=str)).map(true_text)
+        ].copy()
+        if pending.empty:
+            lines.append("- none")
+        for _, row in sort_operation_frame(pending).head(80).iterrows():
+            lines.append(
+                "- "
+                + operation_row_line(
+                    row,
+                    [
+                        ("stock", "stock_display"),
+                        ("pending_age", "pending_age_zh"),
+                        ("pending_group", "pending_group_zh"),
+                        ("pending_confirmation", "pending_confirmation_zh"),
+                        ("entry_price_status", "entry_basis_zh"),
+                        ("stop", "stop_basis_zh"),
+                    ],
+                )
+            )
+        lines.append(f"{view}_active_operation:")
+        active = view_frame[view_frame.get("pdf_section", pd.Series(dtype=str)).astype(str).eq("active_operation")].copy()
+        if active.empty:
+            lines.append("- status=操作中 | stock=目前無資料 | note=目前無操作中追蹤列")
+        for _, row in sort_operation_frame(active).iterrows():
+            lines.append(
+                "- "
+                + operation_row_line(
+                    row,
+                    [
+                        ("status", "operation_status_zh"),
+                        ("stock", "stock_display"),
+                        ("note", "adapter_note_zh"),
+                    ],
+                )
+            )
+    lines.append("")
+    return lines
 
 
 def extract_data_freshness() -> dict[str, Any]:
@@ -678,6 +815,7 @@ def build_packet_text(main_date: str, report_ready: str, paths: dict[str, Path],
     lines.append("fields: volume_breakout_type,volume_watch_scope,volume_breakout_priority,selection_status,not_selected_reason,risk_flags,next_volume_breakout_confirmation")
     lines.append("note: Strict breakout is not the same as all volume-confirmed attacks. Use this packet when asked about 帶量突破 / 放量突破 / 放量攻擊.")
     lines.append("")
+    lines.extend(build_volume_operation_packet_lines())
     lines.append("NON-REVENUE MOMENTUM WATCH")
     lines.append(f"non_revenue_momentum_watch_md_raw_url: {raw_url(NON_REVENUE_MOMENTUM_MD)}")
     lines.append(f"non_revenue_momentum_watch_csv_raw_url: {raw_url(NON_REVENUE_MOMENTUM_CSV)}")
@@ -857,6 +995,11 @@ def write_packet_manifest(main_date: str, report_ready: str, paths: dict[str, Pa
         "daily_candidate_model_parameters_md_raw_url": raw_url(DAILY_CANDIDATE_MODEL_PARAMETERS_MD),
         "daily_candidate_model_layer_packet_raw_url": raw_url(DAILY_CANDIDATE_MODEL_LAYER_PACKET_MD),
         "daily_candidate_model_layer_status": "generated" if DAILY_CANDIDATE_MODEL_SIGNALS_FOR_REPORT_CSV.exists() and DAILY_CANDIDATE_MODEL_PARAMETERS_CSV.exists() else "missing",
+        "daily_volume_breakout_operation_section_csv_raw_url": raw_url(DAILY_VOLUME_BREAKOUT_OPERATION_SECTION_CSV),
+        "daily_volume_breakout_operation_section_md_raw_url": raw_url(DAILY_VOLUME_BREAKOUT_OPERATION_SECTION_MD),
+        "daily_volume_breakout_operation_section_status": "generated" if DAILY_VOLUME_BREAKOUT_OPERATION_SECTION_CSV.exists() and DAILY_VOLUME_BREAKOUT_OPERATION_SECTION_MD.exists() else "missing",
+        "model_operation_readiness_csv_raw_url": raw_url(MODEL_OPERATION_READINESS_CSV),
+        "model_operation_readiness_md_raw_url": raw_url(MODEL_OPERATION_READINESS_MD),
         "daily_theme_leadership_csv_raw_url": raw_url(DAILY_THEME_LEADERSHIP_CSV),
         "daily_theme_leadership_md_raw_url": raw_url(DAILY_THEME_LEADERSHIP_MD),
         "daily_candidate_two_line_view_csv_raw_url": raw_url(DAILY_CANDIDATE_TWO_LINE_VIEW_CSV),

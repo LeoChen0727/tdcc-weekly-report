@@ -188,9 +188,9 @@ def build_model_operation_readiness(
 
         if model_id == VOLUME_MODEL_ID:
             blocker = (
-                "PDF/packet renderer pending; daily adapter approval metadata pending"
+                "daily adapter approval metadata pending"
                 if volume_adapter["daily_adapter_status"] == "ready_pending_approval_metadata"
-                else "PDF/packet renderer pending"
+                else "PDF/packet renderer connected to daily adapter artifact"
             )
             rows.append(
                 {
@@ -213,8 +213,8 @@ def build_model_operation_readiness(
                         if volume_presentation_allowed and volume_approved
                         else ("research_reference_only" if volume_presentation_allowed else "no_operation_directive")
                     ),
-                    "pdf_integration_status": "pending_pdf_renderer",
-                    "packet_integration_status": "pending_packet_renderer",
+                    "pdf_integration_status": "pdf_integrated_daily_adapter",
+                    "packet_integration_status": "packet_integrated_daily_adapter",
                     "registry_pattern_count": volume_registry["registry_pattern_count"],
                     "registry_current_model_pattern_count": volume_registry["registry_current_model_pattern_count"],
                     "registry_best_pattern_id": volume_registry.get("registry_best_pattern_id", ""),
