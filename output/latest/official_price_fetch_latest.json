@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15 18:56:56 Asia/Taipei",
+  "generated_at": "2026-06-15 19:41:26 Asia/Taipei",
   "target_date": "20260615",
   "saved_price_date": "20260615",
   "is_target_date": true,
@@ -25,7 +25,7 @@
       "twse_ok": true,
       "tpex_ok": true,
       "full_market_ok": true,
-      "universe_rows": 6272
+      "universe_rows": 6379
     }
   ],
   "paths": {

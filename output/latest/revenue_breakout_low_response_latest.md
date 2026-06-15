@@ -1,6 +1,6 @@
 # 營收爆發低反應股
 
-- 產生時間：`2026-06-15 19:01:04 Asia/Taipei`
+- 產生時間：`2026-06-15 19:44:33 Asia/Taipei`
 - 輸出 CSV：`output/latest/revenue_breakout_low_response_latest.csv`
 - Debug：`output/latest/revenue_breakout_low_response_debug_latest.md`
 

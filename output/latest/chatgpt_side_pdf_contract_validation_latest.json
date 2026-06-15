@@ -1,0 +1,83 @@
+{
+  "generated_at": "2026-06-15 19:58:02 Asia/Taipei",
+  "status": "pass",
+  "contract_count": 6,
+  "expected_contract_count": 6,
+  "pdfs": [
+    {
+      "label": "mainstream_highlight",
+      "path": "output/latest/mainstream_daily_recommendation_highlight_latest.pdf",
+      "exists": true,
+      "size_bytes": 4057937,
+      "pages": 58,
+      "text_chars": 28932,
+      "first_title": "主流股每日推薦精華",
+      "report_family": "mainstream",
+      "pdf_kind": "highlight"
+    },
+    {
+      "label": "mainstream_full",
+      "path": "output/latest/mainstream_full_candidate_list_latest.pdf",
+      "exists": true,
+      "size_bytes": 52741,
+      "pages": 17,
+      "text_chars": 33568,
+      "first_title": "主流股完整候選清單",
+      "report_family": "mainstream",
+      "pdf_kind": "full"
+    },
+    {
+      "label": "non_mainstream_highlight",
+      "path": "output/latest/non_mainstream_daily_recommendation_highlight_latest.pdf",
+      "exists": true,
+      "size_bytes": 3756250,
+      "pages": 49,
+      "text_chars": 24308,
+      "first_title": "非主流股每日推薦精華",
+      "report_family": "non_mainstream",
+      "pdf_kind": "highlight"
+    },
+    {
+      "label": "non_mainstream_full",
+      "path": "output/latest/non_mainstream_full_candidate_list_latest.pdf",
+      "exists": true,
+      "size_bytes": 30732,
+      "pages": 10,
+      "text_chars": 15789,
+      "first_title": "非主流股完整候選清單",
+      "report_family": "non_mainstream",
+      "pdf_kind": "full"
+    },
+    {
+      "label": "warrant_market",
+      "path": "output/latest/warrant_market_report_latest.pdf",
+      "exists": true,
+      "size_bytes": 12518,
+      "pages": 4,
+      "text_chars": 6099,
+      "first_title": "權證市場輔助分析",
+      "report_family": "warrant",
+      "pdf_kind": "auxiliary"
+    },
+    {
+      "label": "market_risk",
+      "path": "output/latest/market_risk_dashboard_latest.pdf",
+      "exists": true,
+      "size_bytes": 566316,
+      "pages": 4,
+      "text_chars": 2212,
+      "first_title": "市場風險與大盤期權背景",
+      "report_family": "market_risk",
+      "pdf_kind": "background"
+    }
+  ],
+  "checks": {
+    "uses_output_latest_formal_pdfs": true,
+    "covers_six_official_daily_pdfs": true,
+    "has_highlight_full_boundary_rules": true,
+    "has_new_and_consecutive_section_rules": true,
+    "has_cross_report_title_pollution_rules": true
+  },
+  "errors": [],
+  "warnings": []
+}
