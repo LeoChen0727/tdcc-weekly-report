@@ -239,15 +239,24 @@ def check_raw_slug_terms(label: str, text: str, errors: list[str]) -> None:
         "strong_accumulation",
         "tdcc_short_term_edge",
         "hot_theme_pullback",
+        "mainstream_overheated",
+        "core_mainstream",
+        "core_mainstream_theme",
+        "non_mainstream_theme",
+        "non_mainstream_overheated",
         "non_mainstream",
         "mainstream",
         "insufficient_data",
         "neckline",
     ]
-    compact = normalize_for_search(text)
     for term in raw_terms:
-        if normalize_for_search(term) in compact:
-            errors.append(f"{label}: raw slug appears in formal PDF text: {term}")
+        pattern = re.compile(rf"(?<![A-Za-z0-9_-]){re.escape(term)}(?![A-Za-z0-9_-])", re.IGNORECASE)
+        match = pattern.search(text or "")
+        if match:
+            context_start = max(0, match.start() - 60)
+            context_end = min(len(text), match.end() + 60)
+            context = re.sub(r"\s+", " ", text[context_start:context_end]).strip()
+            errors.append(f"{label}: raw slug appears in formal PDF text: {term}; context={context}")
 
 
 def check_category_order(label: str, text: str, errors: list[str]) -> None:
