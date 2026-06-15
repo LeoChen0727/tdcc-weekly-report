@@ -2843,37 +2843,14 @@ def build_mainstream_curated_pdf(
 ) -> Path:
     line = "mainstream"
     title = MAINSTREAM_CURATED_TITLE
-    line_label = MAINSTREAM_LINE_LABEL
-    rec_rows = mainstream_curated_recommendation_rows(inputs, all_map, two_map, vol_map)
     story: list = [
         Paragraph(f"{DATA_DATE_SLASH} {title}", TITLE),
         date_note(),
         Spacer(1, 4),
-        Paragraph(f"{line_label}模型重點", H1),
     ]
-    if len(rec_rows) > 1:
-        story.extend(
-            [
-                para("以下僅使用模型層分數、排名、風險與下一確認欄位，不在 PDF 端新增第二層操作判斷。", BODY_SMALL),
-                build_table(rec_rows, [28 * mm, 24 * mm, 54 * mm, 162 * mm], 12.0),
-            ]
-        )
-    else:
-        story.append(para("本日無符合條件的模型重點。", BODY))
-    story.append(PageBreak())
-    story.extend(
-        [
-            Paragraph(f"{line_label}觀察清單", H1),
-            para("以下依 program-side 新版候選模型列示；同一檔股票可在多個模型重複出現。舊六分類只作來源背景，不作本頁主分類。", BODY_SMALL),
-            build_table(
-                mainstream_curated_front_observation_rows(inputs, all_map, two_map, vol_map),
-                [24 * mm, 36 * mm, 34 * mm, 112 * mm, 62 * mm],
-                12.0,
-            ),
-        ]
-    )
 
     operation_seen: set[str] = set()
+    started_model_sections = False
     limit = MAIN_REPORT_MAINSTREAM_LIMIT
     for spec in core_model_specs(inputs, line):
         model_id = clean(spec.get("model_id"))
@@ -2881,14 +2858,14 @@ def build_mainstream_curated_pdf(
         ranked_rows = model_signal_rows(inputs, model_id, line)
         if not ranked_rows:
             continue
-        append_page_break_once(story)
+        if started_model_sections:
+            append_page_break_once(story)
+        started_model_sections = True
         story.append(Paragraph(model_name, H1))
         desc = clean(spec.get("model_description_zh"))
         if desc:
             story.append(para(desc, BODY_SMALL))
         story.append(build_mainstream_curated_model_table(ranked_rows, two_map, all_map, limit=limit))
-        if model_id == VOLUME_BREAKOUT_MODEL_ID:
-            render_volume_range_breakout_operation_section(story, inputs, "highlight")
         reps = mainstream_curated_operation_representatives(ranked_rows)
         for row in reps:
             sid = clean(row.get("stock_id"))
