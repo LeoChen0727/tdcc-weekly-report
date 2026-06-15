@@ -30,7 +30,6 @@ from build_daily_candidate_model_layer import (  # noqa: E402
     cond_tdcc_stealth,
     cond_volume_breakout,
     cond_w_bottom_right,
-    model_score_common,
     report_bucket,
     score_pullback,
     score_volume_breakout,
@@ -98,13 +97,12 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         self.assertEqual(params.loc["explosive_volume_red_candle", "pdf_visibility"], "research_only_not_pdf_core")
         self.assertEqual(params.loc["disposition_attention_event_tag", "pdf_visibility"], "pdf_risk_tag_only")
 
-    def test_formal_pdf_models_do_not_share_legacy_common_scoring(self) -> None:
-        offenders = [
-            spec.model_id
-            for spec in build_specs()
-            if spec.pdf_visibility == "pdf_core_model" and spec.score_func is model_score_common
-        ]
-        self.assertEqual(offenders, [])
+    def test_formal_pdf_models_do_not_keep_legacy_common_scoring(self) -> None:
+        source_path = ROOT / "scripts" / "build_daily_candidate_model_layer.py"
+        source = source_path.read_text(encoding="utf-8")
+
+        self.assertNotIn("def model_score_common(", source)
+        self.assertNotIn('"legacy_common"', source)
 
     def test_pdf_core_models_have_independent_condition_and_score_functions(self) -> None:
         specs = [spec for spec in build_specs() if spec.pdf_visibility == "pdf_core_model"]
@@ -133,7 +131,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         condition_by_func = {spec.condition_func.__name__: spec.model_id for spec in specs}
         score_by_func = {spec.score_func.__name__: spec.model_id for spec in specs}
         all_condition_funcs = set(condition_by_func)
-        all_score_funcs = set(score_by_func) | {"model_score_common"}
+        all_score_funcs = set(score_by_func)
 
         source_path = ROOT / "scripts" / "build_daily_candidate_model_layer.py"
         tree = ast.parse(source_path.read_text(encoding="utf-8"))
@@ -193,7 +191,7 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
             params.loc["tdcc_stealth_accumulation", "tdcc_positive_bonus"],
             params.loc["volume_range_breakout", "tdcc_positive_bonus"],
         )
-        self.assertIn("legacy_common", MODEL_SCORE_PROFILES)
+        self.assertNotIn("legacy_common", MODEL_SCORE_PROFILES)
 
     def test_pdf_models_use_next_open_entry_basis(self) -> None:
         params = build_parameter_table(build_specs())
