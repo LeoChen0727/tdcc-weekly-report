@@ -1,6 +1,6 @@
 # 市場風險與大盤期權背景
 
-- generated_at: `2026-06-15 20:31:00 Asia/Taipei`
+- generated_at: `2026-06-15 21:28:38 Asia/Taipei`
 - data_date: `20260615`
 - market_regime: `mild_bull`
 - risk_level: `very_high_risk`

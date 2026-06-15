@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15 20:33:15 Asia/Taipei",
+  "generated_at": "2026-06-15 21:31:01 Asia/Taipei",
   "status": "pass",
   "contract_count": 6,
   "expected_contract_count": 6,
@@ -52,7 +52,7 @@
       "label": "warrant_market",
       "path": "output/latest/warrant_market_report_latest.pdf",
       "exists": true,
-      "size_bytes": 12515,
+      "size_bytes": 12521,
       "pages": 4,
       "text_chars": 6099,
       "first_title": "權證市場輔助分析",
