@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3035 智原
 
 ## Metadata
-- generated_at: 2026-06-14 22:22:53 Asia/Taipei
+- generated_at: 2026-06-15 22:23:06 Asia/Taipei
 - stock_id: 3035
 - stock_name: 智原
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 185
-- high: 191
-- low: 184
-- close: 184
-- volume: 4770456
-- ma5: 193.3
-- ema23_primary: 195.02
-- distance_to_ema23_pct: -5.65
-- ma20: 200.2
-- ma60: 175.18
-- ma120: 170.95
-- return_5d: -12.17
-- return_20d: -11.75
-- volume_ratio: 0.31
-- distance_to_ma20_pct_auxiliary: -8.09
-- distance_to_high_60_pct: -20.35
+- date: 20260615
+- open: 190.5
+- high: 202
+- low: 190
+- close: 202
+- volume: 13753200
+- ma5: 193.1
+- ema23_primary: 195.6
+- distance_to_ema23_pct: 3.27
+- ma20: 200.6
+- ma60: 176.03
+- ma120: 171.19
+- return_5d: -0.49
+- return_20d: 4.12
+- volume_ratio: 0.92
+- distance_to_ma20_pct_auxiliary: 0.7
+- distance_to_high_60_pct: -12.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,201.5,204,192,194,21341274,176.28,10.05,176.8,162.45,1.15
 20260514,197,200,188.5,198.5,19023300,178.13,11.44,179.25,163.03,0.98
 20260515,200,202,188.5,190,17316908,179.12,6.08,180.93,163.5,0.87
 20260518,184.5,193.5,177,193,10899387,180.27,7.06,182.62,164.05,0.54
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,190.5,195.5,183,192,8741854,197.66,-2.86,202.3,174.28,0.48
 20260611,174.5,179,172.5,178,5096409,196.02,-9.19,201.43,174.68,0.3
 20260612,185,191,184,184,4770456,195.02,-5.65,200.2,175.18,0.31
+20260615,190.5,202,190,202,13753200,195.6,3.27,200.6,176.03,0.92
 ```
 
 ## Latest TDCC Snapshot
@@ -185,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 3035 | 智原 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: ex_dividend on 20260616; status=confirmed; proximity=within_3d |
+| 20260615 | 3035 | 智原 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  | call_strong_inflow | continued_2_3d | calendar event: ex_dividend on 20260616; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 3035 | 智原 | 1 | 1 | 4 | 9 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260615 | 3035 | 智原 | 2 | 2 | 4 | 9 | 13 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 3035 | 智原 | 126 | 1 | 9343280.0 | 14600.0 | 639.95 | no_signal |
+| 20260615 | 3035 | 智原 | 126 | 1 | 24644610.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

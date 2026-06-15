@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6134 萬旭
 
 ## Metadata
-- generated_at: 2026-06-14 22:23:35 Asia/Taipei
+- generated_at: 2026-06-15 22:23:38 Asia/Taipei
 - stock_id: 6134
 - stock_name: 萬旭
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 35.55
-- high: 37.75
-- low: 35.5
-- close: 35.5
-- volume: 37000
-- ma5: 36.16
-- ema23_primary: 34.2
-- distance_to_ema23_pct: 3.81
-- ma20: 33.72
-- ma60: 31.84
-- ma120: 30.61
-- return_5d: -6.95
-- return_20d: 7.25
-- volume_ratio: 0.15
-- distance_to_ma20_pct_auxiliary: 5.27
-- distance_to_high_60_pct: -15.07
+- date: 20260615
+- open: 35.75
+- high: 37.1
+- low: 35.3
+- close: 36.7
+- volume: 36000
+- ma5: 36.05
+- ema23_primary: 34.41
+- distance_to_ema23_pct: 6.67
+- ma20: 33.95
+- ma60: 31.95
+- ma120: 30.71
+- return_5d: -1.48
+- return_20d: 14.51
+- volume_ratio: 0.17
+- distance_to_ma20_pct_auxiliary: 8.08
+- distance_to_high_60_pct: -12.2
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,32.9,32.9,31.7,32.05,935000,31.54,1.62,31.47,31.16,0.86
 20260514,32.5,33.6,31.9,31.9,865000,31.57,1.05,31.44,31.15,0.81
 20260515,32.45,32.45,30.2,30.35,1150000,31.47,-3.55,31.36,31.14,1.06
 20260518,30.35,31.55,29.6,31,428000,31.43,-1.36,31.34,31.12,0.4
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,36.45,37.3,34.9,35.35,36000,33.95,4.11,33.51,31.69,0.08
 20260611,34.2,36.3,32.4,35.45,34000,34.08,4.02,33.6,31.76,0.11
 20260612,35.55,37.75,35.5,35.5,37000,34.2,3.81,33.72,31.84,0.15
+20260615,35.75,37.1,35.3,36.7,36000,34.41,6.67,33.95,31.95,0.17
 ```
 
 ## Latest TDCC Snapshot

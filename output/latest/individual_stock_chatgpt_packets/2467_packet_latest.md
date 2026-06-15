@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2467 志聖
 
 ## Metadata
-- generated_at: 2026-06-14 22:22:41 Asia/Taipei
+- generated_at: 2026-06-15 22:22:56 Asia/Taipei
 - stock_id: 2467
 - stock_name: 志聖
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 573
-- high: 573
-- low: 548
-- close: 552
-- volume: 989861
-- ma5: 575.4
-- ema23_primary: 587.53
-- distance_to_ema23_pct: -6.05
-- ma20: 603.05
-- ma60: 524.92
-- ma120: 397.32
-- return_5d: -6.12
-- return_20d: -14.95
+- date: 20260615
+- open: 570
+- high: 580
+- low: 568
+- close: 576
+- volume: 957211
+- ma5: 567.6
+- ema23_primary: 586.57
+- distance_to_ema23_pct: -1.8
+- ma20: 600.55
+- ma60: 528.46
+- ma120: 400.4
+- return_5d: -6.34
+- return_20d: -7.99
 - volume_ratio: 0.39
-- distance_to_ma20_pct_auxiliary: -8.47
-- distance_to_high_60_pct: -20.23
+- distance_to_ma20_pct_auxiliary: -4.09
+- distance_to_high_60_pct: -16.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,635,653,618,626,3477650,548.42,14.15,562.77,436.93,1.36
 20260514,636,639,598,610,2431699,553.55,10.2,567.77,442.48,0.94
 20260515,628,634,572,587,2793680,556.34,5.51,571.38,447.66,1.04
 20260518,579,594,561,594,1506671,559.48,6.17,573.58,453,0.56
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,626,626,580,580,3038548,595.19,-2.55,610.3,518.9,1.06
 20260611,530,553,520,542,1427345,590.76,-8.25,607.9,521.8,0.52
 20260612,573,573,548,552,989861,587.53,-6.05,603.05,524.92,0.39
+20260615,570,580,568,576,957211,586.57,-1.8,600.55,528.46,0.39
 ```
 
 ## Latest TDCC Snapshot
@@ -195,7 +196,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 2467 | 志聖 | 58 | 2 | 2640610.0 | 0.0 |  | no_signal |
+| 20260615 | 2467 | 志聖 | 59 | 2 | 4549820.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

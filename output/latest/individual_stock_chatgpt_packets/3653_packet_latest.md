@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3653 健策
 
 ## Metadata
-- generated_at: 2026-06-14 22:23:08 Asia/Taipei
+- generated_at: 2026-06-15 22:23:18 Asia/Taipei
 - stock_id: 3653
 - stock_name: 健策
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 3755
-- high: 3820
-- low: 3495
-- close: 3690
-- volume: 1850384
-- ma5: 3765
-- ema23_primary: 3791.94
-- distance_to_ema23_pct: -2.69
-- ma20: 3577.5
-- ma60: 4050.83
-- ma120: 3451.25
-- return_5d: -7.52
-- return_20d: -5.87
-- volume_ratio: 1.12
-- distance_to_ma20_pct_auxiliary: 3.14
-- distance_to_high_60_pct: -35.09
+- date: 20260615
+- open: 3800
+- high: 3970
+- low: 3775
+- close: 3835
+- volume: 1451242
+- ma5: 3751
+- ema23_primary: 3795.53
+- distance_to_ema23_pct: 1.04
+- ma20: 3592.75
+- ma60: 4060.67
+- ma120: 3457.71
+- return_5d: -1.79
+- return_20d: 8.64
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: 6.74
+- distance_to_high_60_pct: -32.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,3800,3800,3530,3530,1282165,4364.2,-19.11,4684.5,3920,0.82
 20260514,3640,3640,3310,3365,1062721,4280.94,-21.4,4645,3924.25,0.68
 20260515,3365,3470,3350,3465,816195,4212.94,-17.75,4599.25,3932,0.54
 20260518,3305,3345,3200,3270,1062497,4134.36,-20.91,4534.5,3937,0.71
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,3550,3680,3460,3620,1169958,3817.69,-5.18,3608.75,4044.42,0.65
 20260611,3800,3860,3420,3620,2496268,3801.21,-4.77,3589,4046.67,1.44
 20260612,3755,3820,3495,3690,1850384,3791.94,-2.69,3577.5,4050.83,1.12
+20260615,3800,3970,3775,3835,1451242,3795.53,1.04,3592.75,4060.67,0.88
 ```
 
 ## Latest TDCC Snapshot
@@ -186,18 +186,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 3653 | 健策 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | put_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
-| 20260612 | 3653 | 健策 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | put_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260615 | 3653 | 健策 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | mixed_flow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260615 | 3653 | 健策 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | mixed_flow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 3653 | 健策 | 1 | 1 | 3 | 5 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260615 | 3653 | 健策 | 2 | 2 | 4 | 6 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 3653 | 健策 | 33 | 5 | 1677250.0 | 1549810.0 | 1.08 | put_inflow |
+| 20260615 | 3653 | 健策 | 32 | 5 | 2819820.0 | 1492030.0 | 1.89 | mixed_flow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

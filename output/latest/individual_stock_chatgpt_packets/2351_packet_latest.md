@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2351 順德
 
 ## Metadata
-- generated_at: 2026-06-14 22:22:35 Asia/Taipei
+- generated_at: 2026-06-15 22:22:52 Asia/Taipei
 - stock_id: 2351
 - stock_name: 順德
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 189.5
-- high: 189.5
-- low: 181.5
-- close: 183
-- volume: 2501051
-- ma5: 194.2
-- ema23_primary: 188.57
-- distance_to_ema23_pct: -2.95
-- ma20: 194.93
-- ma60: 149.78
-- ma120: 115.54
-- return_5d: -8.5
-- return_20d: 0.55
-- volume_ratio: 0.33
-- distance_to_ma20_pct_auxiliary: -6.12
-- distance_to_high_60_pct: -21.46
+- date: 20260615
+- open: 186.5
+- high: 188
+- low: 182
+- close: 184
+- volume: 2273644
+- ma5: 189.5
+- ema23_primary: 188.18
+- distance_to_ema23_pct: -2.22
+- ma20: 195.03
+- ma60: 151.37
+- ma120: 116.42
+- return_5d: -11.33
+- return_20d: 1.1
+- volume_ratio: 0.31
+- distance_to_ma20_pct_auxiliary: -5.65
+- distance_to_high_60_pct: -21.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,178,184,171.5,182,7178195,153.05,18.91,155.25,114.67,0.64
 20260514,190.5,197,177,182,10222202,155.46,17.07,158.3,116.24,0.9
 20260515,181,191.5,178,180,6262482,157.51,14.28,161.2,117.77,0.54
 20260518,174,182,171.5,180.5,4617276,159.42,13.22,163.78,119.34,0.41
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,201.5,207.5,196,200.5,5867962,189.9,5.58,195.4,146.6,0.7
 20260611,180,183,173.5,180,4492925,189.07,-4.8,194.88,148.19,0.57
 20260612,189.5,189.5,181.5,183,2501051,188.57,-2.95,194.93,149.78,0.33
+20260615,186.5,188,182,184,2273644,188.18,-2.22,195.03,151.37,0.31
 ```
 
 ## Latest TDCC Snapshot
@@ -186,18 +186,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 2351 | 順德 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
-| 20260612 | 2351 | 順德 | revenue_pullback | 營收成長股價回檔 | 68.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260615 | 2351 | 順德 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260615 | 2351 | 順德 | revenue_pullback | 營收成長股價回檔 | 68.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 2351 | 順德 | 6 | 3 | 5 | 8 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260615 | 2351 | 順德 | 7 | 4 | 5 | 8 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 2351 | 順德 | 65 | 0 | 3668320.0 | 0.0 |  | no_signal |
+| 20260615 | 2351 | 順德 | 65 | 0 | 3018420.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

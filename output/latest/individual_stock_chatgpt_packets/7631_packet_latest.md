@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7631 聚賢研發-創
 
 ## Metadata
-- generated_at: 2026-06-14 22:24:10 Asia/Taipei
+- generated_at: 2026-06-15 22:24:05 Asia/Taipei
 - stock_id: 7631
 - stock_name: 聚賢研發-創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 269
+- latest_price_date: 20260615
+- price_rows: 270
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 128
-- high: 128
-- low: 124.5
-- close: 125
-- volume: 36129
-- ma5: 126.1
-- ema23_primary: 125.51
-- distance_to_ema23_pct: -0.41
-- ma20: 125.08
-- ma60: 122.97
-- ma120: 124.25
-- return_5d: 0
-- return_20d: -1.96
-- volume_ratio: 1.24
-- distance_to_ma20_pct_auxiliary: -0.06
-- distance_to_high_60_pct: -16.67
+- date: 20260615
+- open: 126.5
+- high: 137.5
+- low: 125
+- close: 136
+- volume: 107471
+- ma5: 127.9
+- ema23_primary: 126.39
+- distance_to_ema23_pct: 7.61
+- ma20: 125.58
+- ma60: 123.28
+- ma120: 124.3
+- return_5d: 7.09
+- return_20d: 7.94
+- volume_ratio: 3.25
+- distance_to_ma20_pct_auxiliary: 8.3
+- distance_to_high_60_pct: -9.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,128,128,123.5,126,30156,126.14,-0.11,130.25,120.72,0.29
 20260514,124.5,126,123,123,60314,125.88,-2.29,130.15,120.76,0.58
 20260515,123,124,120.5,123,26308,125.64,-2.1,129.43,120.79,0.27
 20260518,120,124,120,124,20728,125.5,-1.2,128.78,120.84,0.28
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,127,127,124,126.5,18315,125.43,0.85,125.28,122.73,0.5
 20260611,127,131.5,124,127,73254,125.56,1.15,125.2,122.88,2.09
 20260612,128,128,124.5,125,36129,125.51,-0.41,125.08,122.97,1.24
+20260615,126.5,137.5,125,136,107471,126.39,7.61,125.58,123.28,3.25
 ```
 
 ## Latest TDCC Snapshot

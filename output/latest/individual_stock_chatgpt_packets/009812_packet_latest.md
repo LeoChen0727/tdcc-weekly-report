@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009812 野村日本東證
 
 ## Metadata
-- generated_at: 2026-06-14 22:22:13 Asia/Taipei
+- generated_at: 2026-06-15 22:22:36 Asia/Taipei
 - stock_id: 009812
 - stock_name: 野村日本東證
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260612
-- price_rows: 13
+- latest_price_date: 20260615
+- price_rows: 14
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 12.06
-- high: 12.09
-- low: 11.98
-- close: 12.03
-- volume: 1410543
-- ma5: 12.09
-- ema23_primary: 12.11
-- distance_to_ema23_pct: -0.65
-- ma20: 12.12
-- ma60: 12.12
-- ma120: 12.12
-- return_5d: -0.58
+- date: 20260615
+- open: 12.43
+- high: 12.43
+- low: 12.35
+- close: 12.35
+- volume: 555232
+- ma5: 12.1
+- ema23_primary: 12.13
+- distance_to_ema23_pct: 1.83
+- ma20: 12.14
+- ma60: 12.14
+- ma120: 12.14
+- return_5d: 0.24
 - return_20d:
-- volume_ratio: 1.27
-- distance_to_ma20_pct_auxiliary: -0.77
-- distance_to_high_60_pct: -2.35
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: 1.74
+- distance_to_high_60_pct: -0.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -148,6 +148,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,12.22,12.22,12.13,12.18,605578,12.14,0.33,12.16,12.16,0.53
 20260611,11.86,11.87,11.65,11.84,522264,12.12,-2.27,12.13,12.13,0.48
 20260612,12.06,12.09,11.98,12.03,1410543,12.11,-0.65,12.12,12.12,1.27
+20260615,12.43,12.43,12.35,12.35,555232,12.13,1.83,12.14,12.14,0.52
 ```
 
 ## Latest TDCC Snapshot

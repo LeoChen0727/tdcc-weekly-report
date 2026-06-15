@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6919 康霈*
 
 ## Metadata
-- generated_at: 2026-06-14 22:23:57 Asia/Taipei
+- generated_at: 2026-06-15 22:23:56 Asia/Taipei
 - stock_id: 6919
 - stock_name: 康霈*
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 275
+- latest_price_date: 20260615
+- price_rows: 276
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 89.9
-- high: 93
-- low: 89.1
-- close: 92.7
-- volume: 2878718
-- ma5: 94.04
-- ema23_primary: 98.58
-- distance_to_ema23_pct: -5.96
-- ma20: 98.56
-- ma60: 101.63
-- ma120: 129.36
-- return_5d: -4.24
-- return_20d: -4.53
-- volume_ratio: 0.51
-- distance_to_ma20_pct_auxiliary: -5.95
-- distance_to_high_60_pct: -26.43
+- date: 20260615
+- open: 94
+- high: 98.5
+- low: 93
+- close: 95.5
+- volume: 4331095
+- ma5: 93.84
+- ema23_primary: 98.32
+- distance_to_ema23_pct: -2.87
+- ma20: 98.38
+- ma60: 101.2
+- ma120: 128.76
+- return_5d: -1.04
+- return_20d: -3.83
+- volume_ratio: 0.8
+- distance_to_ma20_pct_auxiliary: -2.92
+- distance_to_high_60_pct: -24.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,95,106.5,95,99.3,8417349,103.9,-4.43,103.94,118.64,1.19
 20260514,99.6,101.5,97.4,97.4,3845253,103.36,-5.77,103.46,117.44,0.55
 20260515,98.4,99.9,96,96.1,4019569,102.76,-6.48,102.92,116.26,0.59
 20260518,95.3,97.8,94.8,94.9,2657721,102.1,-7.05,102.26,114.99,0.39
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,97.1,99.8,96,96,4288969,100.1,-4.1,99.53,102.97,0.73
 20260611,88.9,89.4,87,88.2,3248974,99.11,-11.01,98.78,102.19,0.56
 20260612,89.9,93,89.1,92.7,2878718,98.58,-5.96,98.56,101.63,0.51
+20260615,94,98.5,93,95.5,4331095,98.32,-2.87,98.38,101.2,0.8
 ```
 
 ## Latest TDCC Snapshot
@@ -195,7 +196,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 6919 | 康霈* | 19 | 0 | 518710.0 | 0.0 |  | no_signal |
+| 20260615 | 6919 | 康霈* | 19 | 0 | 1226000.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

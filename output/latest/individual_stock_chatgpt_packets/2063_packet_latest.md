@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2063 世鎧
 
 ## Metadata
-- generated_at: 2026-06-14 22:22:30 Asia/Taipei
+- generated_at: 2026-06-15 22:22:48 Asia/Taipei
 - stock_id: 2063
 - stock_name: 世鎧
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 279
+- latest_price_date: 20260615
+- price_rows: 280
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,21 +113,21 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 25.15
-- high: 25.15
-- low: 24.8
+- date: 20260615
+- open: 24.75
+- high: 25.05
+- low: 24.75
 - close: 25
 - volume: 25000
-- ma5: 25.22
-- ema23_primary: 25.39
-- distance_to_ema23_pct: -1.55
+- ma5: 25.13
+- ema23_primary: 25.36
+- distance_to_ema23_pct: -1.42
 - ma20: 25.25
-- ma60: 26.18
+- ma60: 26.15
 - ma120: 26.12
-- return_5d: -2.72
-- return_20d: -1.96
-- volume_ratio: 1.04
+- return_5d: -1.77
+- return_20d: 0
+- volume_ratio: 1.34
 - distance_to_ma20_pct_auxiliary: -0.98
 - distance_to_high_60_pct: -9.42
 
@@ -135,7 +135,6 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,25.5,25.5,24.95,25,132000,26.04,-3.99,26.08,26.65,3.61
 20260514,25.05,25.5,25.05,25.5,13000,25.99,-1.9,26,26.64,0.36
 20260515,25.35,25.35,24.9,25.15,19000,25.92,-2.98,25.89,26.62,0.53
 20260518,25.15,25.6,25.15,25.6,16000,25.9,-1.15,25.8,26.61,0.46
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,25.25,25.25,25.05,25.15,25000,25.46,-1.23,25.33,26.25,0.97
 20260611,25.4,25.4,24.8,25.05,25000,25.43,-1.49,25.27,26.21,1.07
 20260612,25.15,25.15,24.8,25,25000,25.39,-1.55,25.25,26.18,1.04
+20260615,24.75,25.05,24.75,25,25000,25.36,-1.42,25.25,26.15,1.34
 ```
 
 ## Latest TDCC Snapshot

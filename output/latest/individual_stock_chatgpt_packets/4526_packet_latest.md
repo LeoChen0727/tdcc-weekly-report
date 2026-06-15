@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4526 東台
 
 ## Metadata
-- generated_at: 2026-06-14 22:23:16 Asia/Taipei
+- generated_at: 2026-06-15 22:23:23 Asia/Taipei
 - stock_id: 4526
 - stock_name: 東台
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 40.2
-- high: 40.6
-- low: 38.75
-- close: 38.8
-- volume: 5316840
-- ma5: 41.41
-- ema23_primary: 39.45
-- distance_to_ema23_pct: -1.64
-- ma20: 39.64
-- ma60: 36.19
-- ma120: 34.49
-- return_5d: -7.95
-- return_20d: 5.01
-- volume_ratio: 0.41
-- distance_to_ma20_pct_auxiliary: -2.12
-- distance_to_high_60_pct: -15.38
+- date: 20260615
+- open: 39.5
+- high: 39.8
+- low: 38.35
+- close: 38.55
+- volume: 3897296
+- ma5: 40.18
+- ema23_primary: 39.37
+- distance_to_ema23_pct: -2.09
+- ma20: 39.78
+- ma60: 36.27
+- ma120: 34.54
+- return_5d: -13.76
+- return_20d: 7.68
+- volume_ratio: 0.3
+- distance_to_ma20_pct_auxiliary: -3.09
+- distance_to_high_60_pct: -15.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,36.1,36.35,35.25,35.8,3483350,35.3,1.4,35.13,34.13,0.4
 20260514,35.45,36.35,35.2,35.55,4223762,35.33,0.64,35.2,34.15,0.48
 20260515,35.85,37.8,35.85,37.05,13194411,35.47,4.46,35.35,34.16,1.41
 20260518,36.6,38.95,35.5,38.35,13510671,35.71,7.4,35.55,34.24,1.36
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,44.05,45.3,41.5,42.15,10753250,39.53,6.63,39.35,35.97,0.82
 20260611,39.15,39.9,38,39.25,5754385,39.5,-0.65,39.55,36.09,0.43
 20260612,40.2,40.6,38.75,38.8,5316840,39.45,-1.64,39.64,36.19,0.41
+20260615,39.5,39.8,38.35,38.55,3897296,39.37,-2.09,39.78,36.27,0.3
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 4526 | 東台 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: shareholder_meeting on 20260617; status=confirmed; proximity=within_3d |
+| 20260615 | 4526 | 東台 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: shareholder_meeting on 20260617; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 4526 | 東台 | 1 | 1 | 2 | 7 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260615 | 4526 | 東台 | 2 | 2 | 2 | 7 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 4526 | 東台 | 9 | 0 | 230590.0 | 0.0 |  | no_signal |
+| 20260615 | 4526 | 東台 | 9 | 0 | 428980.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

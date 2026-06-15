@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1605 華新
 
 ## Metadata
-- generated_at: 2026-06-14 22:22:24 Asia/Taipei
+- generated_at: 2026-06-15 22:22:43 Asia/Taipei
 - stock_id: 1605
 - stock_name: 華新
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 35.3
-- high: 37.7
-- low: 35.3
-- close: 37.7
-- volume: 56774874
-- ma5: 38.94
-- ema23_primary: 36.84
-- distance_to_ema23_pct: 2.33
-- ma20: 37.05
-- ma60: 33.59
-- ma120: 34.52
-- return_5d: -6.8
-- return_20d: 9.28
-- volume_ratio: 0.89
-- distance_to_ma20_pct_auxiliary: 1.74
-- distance_to_high_60_pct: -13.13
+- date: 20260615
+- open: 39.05
+- high: 40.7
+- low: 38.75
+- close: 40
+- volume: 74844979
+- ma5: 38.4
+- ema23_primary: 37.1
+- distance_to_ema23_pct: 7.81
+- ma20: 37.3
+- ma60: 33.72
+- ma120: 34.6
+- return_5d: -6.32
+- return_20d: 13.64
+- volume_ratio: 1.16
+- distance_to_ma20_pct_auxiliary: 7.25
+- distance_to_high_60_pct: -7.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,34.5,35.7,34.3,35.2,57385069,32.74,7.5,32.38,32.75,1.34
 20260514,35.8,36.7,34.6,35.6,68254583,32.98,7.94,32.54,32.72,1.53
 20260515,36.05,36.35,34.75,34.9,49836006,33.14,5.31,32.68,32.69,1.07
 20260518,34.55,34.8,33.1,34.7,31426553,33.27,4.3,32.8,32.7,0.67
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,41.3,41.3,38.25,39.55,70754422,36.99,6.93,36.93,33.48,1.08
 20260611,34.3,34.6,33.2,34.3,31568318,36.76,-6.7,36.9,33.49,0.5
 20260612,35.3,37.7,35.3,37.7,56774874,36.84,2.33,37.05,33.59,0.89
+20260615,39.05,40.7,38.75,40,74844979,37.1,7.81,37.3,33.72,1.16
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +185,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 1605 | 華新 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260615 | 1605 | 華新 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_put_bullish | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 1605 | 華新 | 1 | 1 | 4 | 9 | 12 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260615 | 1605 | 華新 | 2 | 2 | 4 | 9 | 13 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 1605 | 華新 | 143 | 5 | 11893360.0 | 1960.0 | 6068.04 | no_signal |
+| 20260615 | 1605 | 華新 | 142 | 5 | 30375030.0 | 19740.0 | 1538.76 | call_put_bullish |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

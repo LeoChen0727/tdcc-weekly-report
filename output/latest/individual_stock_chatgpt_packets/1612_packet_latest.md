@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1612 宏泰
 
 ## Metadata
-- generated_at: 2026-06-14 22:22:24 Asia/Taipei
+- generated_at: 2026-06-15 22:22:44 Asia/Taipei
 - stock_id: 1612
 - stock_name: 宏泰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 37.45
-- high: 38
-- low: 37.4
-- close: 37.7
-- volume: 1133438
-- ma5: 38.28
-- ema23_primary: 37.15
-- distance_to_ema23_pct: 1.49
-- ma20: 37.01
-- ma60: 36.02
-- ma120: 35.65
-- return_5d: 0.27
-- return_20d: 2.45
-- volume_ratio: 0.79
-- distance_to_ma20_pct_auxiliary: 1.86
-- distance_to_high_60_pct: -6.1
+- date: 20260615
+- open: 38.2
+- high: 38.45
+- low: 38
+- close: 38.1
+- volume: 1388849
+- ma5: 38
+- ema23_primary: 37.23
+- distance_to_ema23_pct: 2.34
+- ma20: 37.07
+- ma60: 36.08
+- ma120: 35.68
+- return_5d: -3.54
+- return_20d: 3.39
+- volume_ratio: 0.94
+- distance_to_ma20_pct_auxiliary: 2.77
+- distance_to_high_60_pct: -5.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,36.95,37,36.55,36.85,557304,36.07,2.16,35.98,35.45,0.6
 20260514,36.85,37.05,36.15,36.15,826641,36.08,0.2,36.02,35.45,0.89
 20260515,36.15,36.4,35.7,35.8,840316,36.06,-0.71,36.03,35.44,0.89
 20260518,35.55,35.85,35.25,35.7,473669,36.03,-0.9,36.03,35.44,0.51
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,40.15,40.15,38.9,39.5,3772327,37.1,6.47,36.97,35.91,2.7
 20260611,37.3,37.3,36.4,37.1,1642001,37.1,0.01,36.97,35.96,1.16
 20260612,37.45,38,37.4,37.7,1133438,37.15,1.49,37.01,36.02,0.79
+20260615,38.2,38.45,38,38.1,1388849,37.23,2.34,37.07,36.08,0.94
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 1612 | 宏泰 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260615 | 1612 | 宏泰 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 1612 | 宏泰 | 1 | 1 | 4 | 7 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260615 | 1612 | 宏泰 | 2 | 2 | 4 | 8 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 1612 | 宏泰 | 5 | 0 | 61400.0 | 0.0 |  | no_signal |
+| 20260615 | 1612 | 宏泰 | 5 | 0 | 17000.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

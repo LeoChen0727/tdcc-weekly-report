@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1909 榮成
 
 ## Metadata
-- generated_at: 2026-06-14 22:22:28 Asia/Taipei
+- generated_at: 2026-06-15 22:22:47 Asia/Taipei
 - stock_id: 1909
 - stock_name: 榮成
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 9.75
-- high: 9.96
-- low: 9.75
+- date: 20260615
+- open: 9.87
+- high: 10.05
+- low: 9.87
 - close: 9.87
-- volume: 3961352
-- ma5: 9.56
-- ema23_primary: 9.25
-- distance_to_ema23_pct: 6.7
-- ma20: 9.12
-- ma60: 9.36
-- ma120: 9.67
-- return_5d: 8.7
-- return_20d: 7.4
-- volume_ratio: 1.16
-- distance_to_ma20_pct_auxiliary: 8.18
+- volume: 4386270
+- ma5: 9.66
+- ema23_primary: 9.3
+- distance_to_ema23_pct: 6.11
+- ma20: 9.16
+- ma60: 9.37
+- ma120: 9.66
+- return_5d: 5.45
+- return_20d: 8.34
+- volume_ratio: 1.26
+- distance_to_ma20_pct_auxiliary: 7.73
 - distance_to_high_60_pct: -11.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,9.1,9.14,9.04,9.11,3150389,9.29,-1.9,9.24,9.53,1.05
 20260514,9.01,9.06,8.91,8.95,4181912,9.26,-3.33,9.21,9.52,1.37
 20260515,8.93,9.24,8.93,8.97,2939791,9.23,-2.86,9.17,9.51,0.94
 20260518,8.9,9.01,8.87,9,2285414,9.21,-2.33,9.14,9.5,0.74
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,9.75,9.87,9.55,9.74,7808525,9.14,6.53,9.07,9.35,2.31
 20260611,9.78,9.87,9.64,9.75,2886194,9.19,6.05,9.09,9.35,0.86
 20260612,9.75,9.96,9.75,9.87,3961352,9.25,6.7,9.12,9.36,1.16
+20260615,9.87,10.05,9.87,9.87,4386270,9.3,6.11,9.16,9.37,1.26
 ```
 
 ## Latest TDCC Snapshot
@@ -185,12 +185,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 1909 | 榮成 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260615 | 1909 | 榮成 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 1909 | 榮成 | 2 | 2 | 4 | 5 | 5 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260615 | 1909 | 榮成 | 3 | 3 | 4 | 6 | 6 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

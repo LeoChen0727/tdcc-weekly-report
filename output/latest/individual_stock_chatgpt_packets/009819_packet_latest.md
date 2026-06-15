@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009819 中信數據及電力
 
 ## Metadata
-- generated_at: 2026-06-14 22:22:13 Asia/Taipei
+- generated_at: 2026-06-15 22:22:36 Asia/Taipei
 - stock_id: 009819
 - stock_name: 中信數據及電力
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260612
-- price_rows: 13
+- latest_price_date: 20260615
+- price_rows: 14
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 10.28
-- high: 10.28
-- low: 10.12
-- close: 10.16
-- volume: 9199790
-- ma5: 10.71
-- ema23_primary: 10.43
-- distance_to_ema23_pct: -2.63
-- ma20: 10.53
-- ma60: 10.53
-- ma120: 10.53
-- return_5d: -8.05
+- date: 20260615
+- open: 10.24
+- high: 10.26
+- low: 10.22
+- close: 10.26
+- volume: 11321299
+- ma5: 10.45
+- ema23_primary: 10.42
+- distance_to_ema23_pct: -1.54
+- ma20: 10.51
+- ma60: 10.51
+- ma120: 10.51
+- return_5d: -11.17
 - return_20d:
-- volume_ratio: 0.4
-- distance_to_ma20_pct_auxiliary: -3.52
-- distance_to_high_60_pct: -13.01
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: -2.39
+- distance_to_high_60_pct: -12.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -148,6 +148,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,10.76,10.8,10.66,10.75,31243284,10.5,2.39,10.61,10.61,1.28
 20260611,9.97,10.04,9.96,10.03,22735704,10.46,-4.11,10.56,10.56,0.94
 20260612,10.28,10.28,10.12,10.16,9199790,10.43,-2.63,10.53,10.53,0.4
+20260615,10.24,10.26,10.22,10.26,11321299,10.42,-1.54,10.51,10.51,0.51
 ```
 
 ## Latest TDCC Snapshot

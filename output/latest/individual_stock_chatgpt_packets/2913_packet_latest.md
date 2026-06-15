@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2913 農林
 
 ## Metadata
-- generated_at: 2026-06-14 22:22:50 Asia/Taipei
+- generated_at: 2026-06-15 22:23:04 Asia/Taipei
 - stock_id: 2913
 - stock_name: 農林
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 11.15
+- date: 20260615
+- open: 11.3
 - high: 11.35
-- low: 11.1
+- low: 11.15
 - close: 11.2
-- volume: 1954994
-- ma5: 11.27
+- volume: 1721569
+- ma5: 11.21
 - ema23_primary: 11.15
-- distance_to_ema23_pct: 0.47
-- ma20: 11
-- ma60: 11.61
-- ma120: 12.42
-- return_5d: -0.89
-- return_20d: 0
-- volume_ratio: 0.82
-- distance_to_ma20_pct_auxiliary: 1.84
+- distance_to_ema23_pct: 0.43
+- ma20: 11.01
+- ma60: 11.59
+- ma120: 12.39
+- return_5d: -2.61
+- return_20d: 1.36
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: 1.77
 - distance_to_high_60_pct: -13.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,11.2,11.2,10.95,11.05,2366839,11.51,-4,11.47,12.18,1.07
 20260514,11.05,11.15,10.95,10.95,1802173,11.46,-4.48,11.41,12.15,0.81
 20260515,11,11.1,10.85,10.9,2214229,11.42,-4.53,11.34,12.11,0.98
 20260518,10.95,10.95,10.75,10.85,1462670,11.37,-4.57,11.27,12.08,0.65
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,11.55,11.55,11.2,11.25,3299221,11.15,0.93,11.01,11.65,1.49
 20260611,11.2,11.35,11,11.1,3484326,11.14,-0.38,11,11.62,1.5
 20260612,11.15,11.35,11.1,11.2,1954994,11.15,0.47,11,11.61,0.82
+20260615,11.3,11.35,11.15,11.2,1721569,11.15,0.43,11.01,11.59,0.74
 ```
 
 ## Latest TDCC Snapshot
@@ -186,12 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 2913 | 農林 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260615 | 2913 | 農林 | pattern | 型態觀察 | 51.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 2913 | 農林 | 1 | 1 | 2 | 3 | 3 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260615 | 2913 | 農林 | 2 | 2 | 2 | 4 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

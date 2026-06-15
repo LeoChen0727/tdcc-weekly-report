@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6168 宏齊
 
 ## Metadata
-- generated_at: 2026-06-14 22:23:37 Asia/Taipei
+- generated_at: 2026-06-15 22:23:39 Asia/Taipei
 - stock_id: 6168
 - stock_name: 宏齊
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 24.8
-- high: 26.45
-- low: 24.8
-- close: 26
-- volume: 2951499
+- date: 20260615
+- open: 26.95
+- high: 28.1
+- low: 26.15
+- close: 27.6
+- volume: 6212079
 - ma5: 26.24
-- ema23_primary: 26.96
-- distance_to_ema23_pct: -3.55
-- ma20: 27.27
-- ma60: 26.27
-- ma120: 23.3
-- return_5d: -5.28
-- return_20d: -3.17
-- volume_ratio: 0.47
-- distance_to_ma20_pct_auxiliary: -4.65
-- distance_to_high_60_pct: -20.61
+- ema23_primary: 27.01
+- distance_to_ema23_pct: 2.18
+- ma20: 27.36
+- ma60: 26.36
+- ma120: 23.36
+- return_5d: 0
+- return_20d: 6.98
+- volume_ratio: 0.97
+- distance_to_ma20_pct_auxiliary: 0.89
+- distance_to_high_60_pct: -15.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,26.6,27.05,25.75,25.8,2809402,26.23,-1.64,26.8,23.96,0.33
 20260514,26.3,28,25.8,26.9,7308943,26.29,2.34,26.74,24.06,0.93
 20260515,26.95,27.3,26,26.2,3424743,26.28,-0.3,26.64,24.15,0.48
 20260518,26.05,26.1,25.1,25.95,1958790,26.25,-1.15,26.5,24.24,0.32
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,26.35,26.5,25.5,26.05,2166036,27.31,-4.62,27.43,26.13,0.34
 20260611,24,24.25,23.25,24.1,1335570,27.05,-10.89,27.31,26.2,0.21
 20260612,24.8,26.45,24.8,26,2951499,26.96,-3.55,27.27,26.27,0.47
+20260615,26.95,28.1,26.15,27.6,6212079,27.01,2.18,27.36,26.36,0.97
 ```
 
 ## Latest TDCC Snapshot
@@ -186,12 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 6168 | 宏齊 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260615 | 6168 | 宏齊 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 6168 | 宏齊 | 1 | 1 | 2 | 7 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260615 | 6168 | 宏齊 | 2 | 2 | 2 | 7 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

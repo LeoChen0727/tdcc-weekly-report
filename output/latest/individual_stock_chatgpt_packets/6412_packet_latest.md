@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6412 群電
 
 ## Metadata
-- generated_at: 2026-06-14 22:23:43 Asia/Taipei
+- generated_at: 2026-06-15 22:23:44 Asia/Taipei
 - stock_id: 6412
 - stock_name: 群電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 93.2
-- high: 94.8
-- low: 91.6
-- close: 91.7
-- volume: 2642915
-- ma5: 97.9
-- ema23_primary: 95.9
-- distance_to_ema23_pct: -4.38
-- ma20: 97.72
-- ma60: 85.81
-- ma120: 86.79
-- return_5d: -11.83
-- return_20d: -4.97
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: -6.16
-- distance_to_high_60_pct: -18.12
+- date: 20260615
+- open: 93
+- high: 95.5
+- low: 89.4
+- close: 94.2
+- volume: 3710152
+- ma5: 95.84
+- ema23_primary: 95.76
+- distance_to_ema23_pct: -1.63
+- ma20: 97.65
+- ma60: 86.04
+- ma120: 86.8
+- return_5d: -9.86
+- return_20d: -1.36
+- volume_ratio: 0.9
+- distance_to_ma20_pct_auxiliary: -3.53
+- distance_to_high_60_pct: -15.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,95.4,96.4,93.8,95.5,3005718,84.92,12.46,83.23,83.48,0.98
 20260514,95.5,96.2,91.6,91.7,3110362,85.48,7.27,83.92,83.47,0.99
 20260515,93.5,93.8,86.7,88.1,2953985,85.7,2.8,84.39,83.35,0.9
 20260518,88.1,90,86.1,88.4,1338023,85.92,2.88,84.88,83.25,0.41
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,102.5,102.5,97.2,97.9,5894566,96.73,1.21,98.06,85.47,1.31
 20260611,87,91.5,86.8,91.4,4838571,96.29,-5.07,97.95,85.62,1.09
 20260612,93.2,94.8,91.6,91.7,2642915,95.9,-4.38,97.72,85.81,0.65
+20260615,93,95.5,89.4,94.2,3710152,95.76,-1.63,97.65,86.04,0.9
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 6412 | 群電 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260615 | 6412 | 群電 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 6412 | 群電 | 1 | 1 | 3 | 8 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260615 | 6412 | 群電 | 2 | 2 | 3 | 8 | 12 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 6412 | 群電 | 25 | 0 | 8673410.0 | 0.0 |  | call_strong_inflow |
+| 20260615 | 6412 | 群電 | 26 | 0 | 5588930.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2726 雅茗-KY
 
 ## Metadata
-- generated_at: 2026-06-14 22:22:47 Asia/Taipei
+- generated_at: 2026-06-15 22:23:01 Asia/Taipei
 - stock_id: 2726
 - stock_name: 雅茗-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 9.86
-- high: 9.98
-- low: 9.76
+- date: 20260615
+- open: 9.84
+- high: 9.99
+- low: 9.8
 - close: 9.98
 - volume: 10000
-- ma5: 9.94
+- ma5: 9.96
 - ema23_primary: 9.97
 - distance_to_ema23_pct: 0.06
-- ma20: 9.83
+- ma20: 9.85
 - ma60: 10.04
-- ma120: 11.22
-- return_5d: 0
-- return_20d: 0.5
-- volume_ratio: 0.27
-- distance_to_ma20_pct_auxiliary: 1.52
+- ma120: 11.19
+- return_5d: 0.81
+- return_20d: 4.18
+- volume_ratio: 0.34
+- distance_to_ma20_pct_auxiliary: 1.31
 - distance_to_high_60_pct: -14.7
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,10,10,9.5,9.58,178000,10.18,-5.92,10.17,10.44,1.3
 20260514,9.83,9.83,9.32,9.32,151000,10.11,-7.83,10.13,10.39,1.05
 20260515,9.33,9.63,9.24,9.34,84000,10.05,-7.04,10.1,10.34,0.57
 20260518,9.44,9.53,9.32,9.47,35000,10,-5.29,10.08,10.29,0.24
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,10.3,10.35,10,10.15,10000,9.99,1.6,9.84,10.05,0.23
 20260611,9.62,9.8,9.62,9.79,10000,9.97,-1.84,9.83,10.04,0.24
 20260612,9.86,9.98,9.76,9.98,10000,9.97,0.06,9.83,10.04,0.27
+20260615,9.84,9.99,9.8,9.98,10000,9.97,0.06,9.85,10.04,0.34
 ```
 
 ## Latest TDCC Snapshot

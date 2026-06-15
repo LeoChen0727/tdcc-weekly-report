@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6683 雍智科技
 
 ## Metadata
-- generated_at: 2026-06-14 22:23:51 Asia/Taipei
+- generated_at: 2026-06-15 22:23:50 Asia/Taipei
 - stock_id: 6683
 - stock_name: 雍智科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 1475
-- high: 1495
-- low: 1435
-- close: 1445
-- volume: 1461000
-- ma5: 1575
-- ema23_primary: 1727.55
-- distance_to_ema23_pct: -16.36
-- ma20: 1721.25
-- ma60: 1707.33
-- ma120: 1140.43
-- return_5d: -17.19
-- return_20d: -39.03
-- volume_ratio: 1.2
-- distance_to_ma20_pct_auxiliary: -16.05
-- distance_to_high_60_pct: -43.66
+- date: 20260615
+- open: 1510
+- high: 1585
+- low: 1480
+- close: 1585
+- volume: 1564000
+- ma5: 1549
+- ema23_primary: 1715.67
+- distance_to_ema23_pct: -7.62
+- ma20: 1693.75
+- ma60: 1714.92
+- ma120: 1149.78
+- return_5d: -7.58
+- return_20d: -25.76
+- volume_ratio: 1.21
+- distance_to_ma20_pct_auxiliary: -6.42
+- distance_to_high_60_pct: -38.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,2135,2135,2135,2135,114000,2014.44,5.98,2063.75,1438.73,0.18
 20260514,1925,1925,1925,1925,104000,2006.99,-4.09,2064.5,1458.25,0.17
 20260515,1895,1930,1735,1735,1189000,1984.32,-12.56,2056.75,1475.5,1.75
 20260518,1610,1800,1565,1800,802000,1968.96,-8.58,2053.25,1493.7,1.13
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,1650,1660,1520,1610,1591000,1786.26,-9.87,1811.5,1697.83,1.44
 20260611,1390,1425,1295,1390,1351000,1753.24,-20.72,1767.5,1703,1.17
 20260612,1475,1495,1435,1445,1461000,1727.55,-16.36,1721.25,1707.33,1.2
+20260615,1510,1585,1480,1585,1564000,1715.67,-7.62,1693.75,1714.92,1.21
 ```
 
 ## Latest TDCC Snapshot

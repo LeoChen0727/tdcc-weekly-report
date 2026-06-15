@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2402 毅嘉
 
 ## Metadata
-- generated_at: 2026-06-14 22:22:37 Asia/Taipei
+- generated_at: 2026-06-15 22:22:54 Asia/Taipei
 - stock_id: 2402
 - stock_name: 毅嘉
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 62.2
-- high: 66.6
-- low: 62.1
-- close: 66.6
-- volume: 9410428
-- ma5: 66.38
-- ema23_primary: 66.95
-- distance_to_ema23_pct: -0.52
-- ma20: 66.48
-- ma60: 63.8
-- ma120: 60.26
-- return_5d: -3.06
-- return_20d: -5.93
-- volume_ratio: 1.01
-- distance_to_ma20_pct_auxiliary: 0.17
-- distance_to_high_60_pct: -21.65
+- date: 20260615
+- open: 67.6
+- high: 70.4
+- low: 67.5
+- close: 68.5
+- volume: 10350167
+- ma5: 66.14
+- ema23_primary: 67.08
+- distance_to_ema23_pct: 2.12
+- ma20: 66.51
+- ma60: 64.09
+- ma120: 60.4
+- return_5d: -1.72
+- return_20d: 0.74
+- volume_ratio: 1.1
+- distance_to_ma20_pct_auxiliary: 2.99
+- distance_to_high_60_pct: -19.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,69.9,70.7,67.7,68,8219202,68.16,-0.23,71.67,59.54,0.34
 20260514,68.8,69.2,67.1,67.9,5517198,68.13,-0.34,71.44,59.76,0.24
 20260515,67.9,68.3,63.5,63.9,10167451,67.78,-5.73,71.11,59.95,0.49
 20260518,63.2,64,61.2,64,5152765,67.47,-5.14,70.42,60.17,0.27
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,68.9,69,65.6,66.3,7255287,67.56,-1.86,67.11,63.38,0.75
 20260611,60,61.1,57.6,60.6,5121913,66.98,-9.52,66.69,63.53,0.53
 20260612,62.2,66.6,62.1,66.6,9410428,66.95,-0.52,66.48,63.8,1.01
+20260615,67.6,70.4,67.5,68.5,10350167,67.08,2.12,66.51,64.09,1.1
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 2402 | 毅嘉 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | mixed_flow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260615 | 2402 | 毅嘉 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 2402 | 毅嘉 | 1 | 1 | 3 | 8 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260615 | 2402 | 毅嘉 | 2 | 2 | 3 | 8 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 2402 | 毅嘉 | 92 | 9 | 6991600.0 | 1747930.0 | 4.0 | mixed_flow |
+| 20260615 | 2402 | 毅嘉 | 92 | 9 | 13579810.0 | 6570.0 | 2066.94 | call_put_bullish |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

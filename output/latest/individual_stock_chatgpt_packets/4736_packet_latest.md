@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4736 泰博
 
 ## Metadata
-- generated_at: 2026-06-14 22:23:19 Asia/Taipei
+- generated_at: 2026-06-15 22:23:26 Asia/Taipei
 - stock_id: 4736
 - stock_name: 泰博
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 124.5
+- date: 20260615
+- open: 125.5
 - high: 126
-- low: 124.5
+- low: 123.5
 - close: 124.5
-- volume: 123669
-- ma5: 125.2
-- ema23_primary: 124.1
-- distance_to_ema23_pct: 0.32
-- ma20: 123.12
+- volume: 190303
+- ma5: 124.9
+- ema23_primary: 124.13
+- distance_to_ema23_pct: 0.29
+- ma20: 123.25
 - ma60: 124.47
-- ma120: 125.03
-- return_5d: -0.4
-- return_20d: 0.81
-- volume_ratio: 0.71
-- distance_to_ma20_pct_auxiliary: 1.12
+- ma120: 125.04
+- return_5d: -1.19
+- return_20d: 2.05
+- volume_ratio: 1.11
+- distance_to_ma20_pct_auxiliary: 1.01
 - distance_to_high_60_pct: -3.86
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,123,123.5,122,122,249816,125.46,-2.76,125.97,125.43,1
 20260514,122,123.5,122,122,195749,125.17,-2.54,125.8,125.3,0.78
 20260515,122.5,123,121,121,203043,124.83,-3.07,125.55,125.13,0.81
 20260518,121.5,122,120.5,122,226632,124.59,-2.08,125.38,125.03,0.89
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,126,126.5,124.5,126,153959,124.02,1.59,123.1,124.58,0.8
 20260611,126,126,124,124.5,119724,124.06,0.35,123.08,124.5,0.65
 20260612,124.5,126,124.5,124.5,123669,124.1,0.32,123.12,124.47,0.71
+20260615,125.5,126,123.5,124.5,190303,124.13,0.29,123.25,124.47,1.11
 ```
 
 ## Latest TDCC Snapshot

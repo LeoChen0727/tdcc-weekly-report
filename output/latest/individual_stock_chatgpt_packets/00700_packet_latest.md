@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00700 富邦恒生國企
 
 ## Metadata
-- generated_at: 2026-06-14 22:22:11 Asia/Taipei
+- generated_at: 2026-06-15 22:22:34 Asia/Taipei
 - stock_id: 00700
 - stock_name: 富邦恒生國企
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260612
-- price_rows: 13
+- latest_price_date: 20260615
+- price_rows: 14
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 16.6
-- high: 16.95
-- low: 16.6
-- close: 16.95
-- volume: 234925
-- ma5: 16.99
-- ema23_primary: 17.02
-- distance_to_ema23_pct: -0.44
-- ma20: 16.97
-- ma60: 16.97
-- ma120: 16.97
-- return_5d: -2.53
+- date: 20260615
+- open: 17.04
+- high: 17.1
+- low: 16.88
+- close: 16.91
+- volume: 194982
+- ma5: 16.95
+- ema23_primary: 17.01
+- distance_to_ema23_pct: -0.62
+- ma20: 16.96
+- ma60: 16.96
+- ma120: 16.96
+- return_5d: -1.23
 - return_20d:
-- volume_ratio: 0.68
-- distance_to_ma20_pct_auxiliary: -0.11
-- distance_to_high_60_pct: -3.14
+- volume_ratio: 0.58
+- distance_to_ma20_pct_auxiliary: -0.32
+- distance_to_high_60_pct: -3.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -148,6 +148,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,16.95,16.99,16.89,16.93,138970,17.07,-0.84,17.01,17.01,0.37
 20260611,16.72,16.85,16.52,16.57,113672,17.03,-2.71,16.97,16.97,0.32
 20260612,16.6,16.95,16.6,16.95,234925,17.02,-0.44,16.97,16.97,0.68
+20260615,17.04,17.1,16.88,16.91,194982,17.01,-0.62,16.96,16.96,0.58
 ```
 
 ## Latest TDCC Snapshot

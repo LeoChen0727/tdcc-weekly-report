@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4510 高鋒
 
 ## Metadata
-- generated_at: 2026-06-14 22:23:15 Asia/Taipei
+- generated_at: 2026-06-15 22:23:23 Asia/Taipei
 - stock_id: 4510
 - stock_name: 高鋒
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 44.9
-- high: 45.2
-- low: 43.8
-- close: 43.9
-- volume: 44000
-- ma5: 47.66
-- ema23_primary: 48.39
-- distance_to_ema23_pct: -9.28
-- ma20: 48.84
-- ma60: 46.23
-- ma120: 45.22
-- return_5d: -18.1
-- return_20d: -9.11
+- date: 20260615
+- open: 44.4
+- high: 46.75
+- low: 44.2
+- close: 46
+- volume: 46000
+- ma5: 46.74
+- ema23_primary: 48.19
+- distance_to_ema23_pct: -4.55
+- ma20: 48.8
+- ma60: 46.27
+- ma120: 45.26
+- return_5d: -9.09
+- return_20d: -1.29
 - volume_ratio: 0.04
-- distance_to_ma20_pct_auxiliary: -10.11
-- distance_to_high_60_pct: -22.3
+- distance_to_ma20_pct_auxiliary: -5.75
+- distance_to_high_60_pct: -18.58
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,47.85,48,46.2,46.6,1528000,46.48,0.26,47.04,44.93,0.36
 20260514,46.65,47.35,45.5,45.85,1374000,46.43,-1.25,46.93,44.86,0.38
 20260515,46.85,49,46.5,48.55,7164000,46.61,4.17,47,44.88,1.85
 20260518,47.8,50,46.8,49.85,7778000,46.88,6.35,47.14,44.9,1.87
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,49.1,51.9,48.85,49.4,50000,49.26,0.29,49.22,46.19,0.04
 20260611,44.85,45.1,43,43.8,44000,48.8,-10.25,49.05,46.21,0.03
 20260612,44.9,45.2,43.8,43.9,44000,48.39,-9.28,48.84,46.23,0.04
+20260615,44.4,46.75,44.2,46,46000,48.19,-4.55,48.8,46.27,0.04
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1802 台玻
 
 ## Metadata
-- generated_at: 2026-06-14 22:22:27 Asia/Taipei
+- generated_at: 2026-06-15 22:22:46 Asia/Taipei
 - stock_id: 1802
 - stock_name: 台玻
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 62.3
-- high: 64.9
-- low: 62.1
-- close: 64.1
-- volume: 44252855
-- ma5: 66.76
-- ema23_primary: 68.23
-- distance_to_ema23_pct: -6.05
-- ma20: 68.52
-- ma60: 64.9
-- ma120: 54.78
-- return_5d: -9.72
-- return_20d: -9.85
-- volume_ratio: 0.41
-- distance_to_ma20_pct_auxiliary: -6.44
-- distance_to_high_60_pct: -21.06
+- date: 20260615
+- open: 66
+- high: 69
+- low: 64.6
+- close: 67.4
+- volume: 82939780
+- ma5: 65.88
+- ema23_primary: 68.16
+- distance_to_ema23_pct: -1.11
+- ma20: 68.48
+- ma60: 65.06
+- ma120: 55.04
+- return_5d: -6.13
+- return_20d: -0.88
+- volume_ratio: 0.77
+- distance_to_ma20_pct_auxiliary: -1.58
+- distance_to_high_60_pct: -17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,70,70.1,68,68,60464923,67.2,1.19,69.37,60.6,0.37
 20260514,68.6,69.2,66.5,66.9,65655018,67.17,-0.41,69.25,60.83,0.43
 20260515,67.2,68.6,64.6,65,69667144,66.99,-2.97,69.01,61.03,0.49
 20260518,64.3,65.2,61.8,64.8,45175182,66.81,-3.01,68.54,61.32,0.35
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,68.5,68.5,65,67.6,54773961,69.45,-2.66,69.39,64.71,0.49
 20260611,59.8,60.5,56.7,59.3,51096344,68.6,-13.56,68.86,64.75,0.46
 20260612,62.3,64.9,62.1,64.1,44252855,68.23,-6.05,68.52,64.9,0.41
+20260615,66,69,64.6,67.4,82939780,68.16,-1.11,68.48,65.06,0.77
 ```
 
 ## Latest TDCC Snapshot
@@ -185,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 1802 | 台玻 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260615 | 1802 | 台玻 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | mixed_flow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 1802 | 台玻 | 1 | 1 | 4 | 9 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260615 | 1802 | 台玻 | 2 | 2 | 4 | 9 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 1802 | 台玻 | 119 | 18 | 28054440.0 | 839860.0 | 33.4 | call_inflow |
+| 20260615 | 1802 | 台玻 | 119 | 18 | 54761840.0 | 1652000.0 | 33.15 | mixed_flow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

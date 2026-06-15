@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2316 楠梓電
 
 ## Metadata
-- generated_at: 2026-06-14 22:22:33 Asia/Taipei
+- generated_at: 2026-06-15 22:22:51 Asia/Taipei
 - stock_id: 2316
 - stock_name: 楠梓電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 159
-- high: 162
-- low: 154
-- close: 156
-- volume: 3484756
-- ma5: 160.8
-- ema23_primary: 150.87
-- distance_to_ema23_pct: 3.4
-- ma20: 154.47
-- ma60: 124.83
-- ma120: 112.22
-- return_5d: -3.11
-- return_20d: 15.13
-- volume_ratio: 0.34
-- distance_to_ma20_pct_auxiliary: 0.99
-- distance_to_high_60_pct: -17.02
+- date: 20260615
+- open: 160.5
+- high: 171.5
+- low: 158.5
+- close: 171.5
+- volume: 5675841
+- ma5: 161.8
+- ema23_primary: 152.59
+- distance_to_ema23_pct: 12.39
+- ma20: 155.93
+- ma60: 126.16
+- ma120: 112.78
+- return_5d: 3
+- return_20d: 20.35
+- volume_ratio: 0.61
+- distance_to_ma20_pct_auxiliary: 9.99
+- distance_to_high_60_pct: -8.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,140,146,135.5,142.5,22249523,117.6,21.17,117.85,106.28,2.8
 20260514,144.5,149.5,132,134,16089050,118.97,12.63,118.78,106.87,1.93
 20260515,136.5,138.5,129,129.5,7841494,119.85,8.06,119.53,107.44,0.93
 20260518,128,128,122.5,126.5,8578193,120.4,5.07,120.12,107.96,1
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,162,171,161.5,167,10573085,150.12,11.24,151.95,122.76,1.02
 20260611,154.5,160,150,153.5,3573267,150.4,2.06,153.45,123.74,0.35
 20260612,159,162,154,156,3484756,150.87,3.4,154.47,124.83,0.34
+20260615,160.5,171.5,158.5,171.5,5675841,152.59,12.39,155.93,126.16,0.61
 ```
 
 ## Latest TDCC Snapshot
@@ -186,18 +185,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 2316 | 楠梓電 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
-| 20260612 | 2316 | 楠梓電 | revenue_pullback | 營收成長股價回檔 | 76.0 |  |  |  |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260615 | 2316 | 楠梓電 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260615 | 2316 | 楠梓電 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 2316 | 楠梓電 | 5 | 4 | 5 | 6 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260615 | 2316 | 楠梓電 | 6 | 5 | 5 | 6 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 2316 | 楠梓電 | 80 | 1 | 17219940.0 | 0.0 |  | call_strong_inflow |
+| 20260615 | 2316 | 楠梓電 | 80 | 1 | 24586790.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

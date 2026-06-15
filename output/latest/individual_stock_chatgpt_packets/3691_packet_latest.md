@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3691 碩禾
 
 ## Metadata
-- generated_at: 2026-06-14 22:23:09 Asia/Taipei
+- generated_at: 2026-06-15 22:23:19 Asia/Taipei
 - stock_id: 3691
 - stock_name: 碩禾
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 170.5
-- high: 177
-- low: 157.5
-- close: 158.5
-- volume: 167000
-- ma5: 162.5
-- ema23_primary: 151.64
-- distance_to_ema23_pct: 4.52
-- ma20: 154.12
-- ma60: 130.18
-- ma120: 115.24
-- return_5d: -0.31
-- return_20d: 2.26
-- volume_ratio: 0.11
-- distance_to_ma20_pct_auxiliary: 2.84
-- distance_to_high_60_pct: -10.45
+- date: 20260615
+- open: 162
+- high: 165.5
+- low: 155.5
+- close: 158
+- volume: 160000
+- ma5: 161.4
+- ema23_primary: 152.17
+- distance_to_ema23_pct: 3.83
+- ma20: 154.32
+- ma60: 130.88
+- ma120: 115.96
+- return_5d: -3.36
+- return_20d: 2.6
+- volume_ratio: 0.12
+- distance_to_ma20_pct_auxiliary: 2.38
+- distance_to_high_60_pct: -10.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,155,157,146.5,154,4243000,127.82,20.48,125.58,117.96,2.53
 20260514,154,154.5,139,139,4808000,128.75,7.96,126.53,118.25,2.77
 20260515,152.5,152.5,146.5,152.5,5096000,130.73,16.65,127.97,118.86,2.66
 20260518,157,167,150,154,9123000,132.67,16.08,129.43,119.68,3.95
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,162.5,165,154,160,159000,149.57,6.98,152.65,128.63,0.09
 20260611,160,167.5,156,167,162000,151.02,10.58,153.95,129.45,0.1
 20260612,170.5,177,157.5,158.5,167000,151.64,4.52,154.12,130.18,0.11
+20260615,162,165.5,155.5,158,160000,152.17,3.83,154.32,130.88,0.12
 ```
 
 ## Latest TDCC Snapshot

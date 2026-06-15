@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009818 華南永昌NASDAQxT
 
 ## Metadata
-- generated_at: 2026-06-14 22:22:13 Asia/Taipei
+- generated_at: 2026-06-15 22:22:36 Asia/Taipei
 - stock_id: 009818
 - stock_name: 華南永昌NASDAQxT
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260612
-- price_rows: 13
+- latest_price_date: 20260615
+- price_rows: 14
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 19.3
-- high: 19.33
-- low: 19.23
-- close: 19.29
-- volume: 446342
-- ma5: 19.7
-- ema23_primary: 19.47
-- distance_to_ema23_pct: -0.93
-- ma20: 19.61
-- ma60: 19.61
-- ma120: 19.61
-- return_5d: -4.46
+- date: 20260615
+- open: 19.73
+- high: 19.75
+- low: 19.68
+- close: 19.74
+- volume: 241819
+- ma5: 19.57
+- ema23_primary: 19.49
+- distance_to_ema23_pct: 1.27
+- ma20: 19.62
+- ma60: 19.62
+- ma120: 19.62
+- return_5d: -3.14
 - return_20d:
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: -1.65
-- distance_to_high_60_pct: -5.44
+- volume_ratio: 0.38
+- distance_to_ma20_pct_auxiliary: 0.6
+- distance_to_high_60_pct: -3.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -148,6 +148,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,20.15,20.15,19.82,19.92,273352,19.56,1.86,19.72,19.72,0.38
 20260611,18.45,18.82,18.45,18.72,493621,19.49,-3.93,19.64,19.64,0.71
 20260612,19.3,19.33,19.23,19.29,446342,19.47,-0.93,19.61,19.61,0.66
+20260615,19.73,19.75,19.68,19.74,241819,19.49,1.27,19.62,19.62,0.38
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4973 廣穎
 
 ## Metadata
-- generated_at: 2026-06-14 22:23:23 Asia/Taipei
+- generated_at: 2026-06-15 22:23:29 Asia/Taipei
 - stock_id: 4973
 - stock_name: 廣穎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 198.5
-- high: 199
-- low: 191
-- close: 191
-- volume: 194000
-- ma5: 179.6
-- ema23_primary: 142.65
-- distance_to_ema23_pct: 33.89
-- ma20: 141.07
-- ma60: 101.31
-- ma120: 72.74
-- return_5d: 22.04
-- return_20d: 59.17
-- volume_ratio: 0.08
-- distance_to_ma20_pct_auxiliary: 35.39
-- distance_to_high_60_pct: -4.02
+- date: 20260615
+- open: 195.5
+- high: 210
+- low: 192.5
+- close: 210
+- volume: 201000
+- ma5: 187.2
+- ema23_primary: 148.26
+- distance_to_ema23_pct: 41.64
+- ma20: 145.65
+- ma60: 103.69
+- ma120: 74.22
+- return_5d: 22.09
+- return_20d: 77.22
+- volume_ratio: 0.1
+- distance_to_ma20_pct_auxiliary: 44.18
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,119.5,121.5,112,118.5,9396000,91.37,29.7,90.5,70.93,1.14
 20260514,122,129,116,116.5,11123000,93.46,24.65,92.42,72.12,1.29
 20260515,119,121.5,114,117,7470000,95.42,22.61,94.42,73.34,0.85
 20260518,115,120.5,111.5,120.5,4788000,97.51,23.57,96.57,74.66,0.54
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,173.5,173.5,160,171.5,168000,133.41,28.55,133.43,96.88,0.05
 20260611,191.5,194,175,191.5,185000,138.25,38.51,137.53,99.14,0.06
 20260612,198.5,199,191,191,194000,142.65,33.89,141.07,101.31,0.08
+20260615,195.5,210,192.5,210,201000,148.26,41.64,145.65,103.69,0.1
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2458 義隆
 
 ## Metadata
-- generated_at: 2026-06-14 22:22:40 Asia/Taipei
+- generated_at: 2026-06-15 22:22:56 Asia/Taipei
 - stock_id: 2458
 - stock_name: 義隆
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 150
-- high: 151.5
-- low: 146
-- close: 146.5
-- volume: 1893242
-- ma5: 156.7
-- ema23_primary: 154.66
-- distance_to_ema23_pct: -5.28
-- ma20: 156.75
-- ma60: 142.72
-- ma120: 132.53
-- return_5d: -12.54
-- return_20d: 0.69
-- volume_ratio: 0.5
-- distance_to_ma20_pct_auxiliary: -6.54
-- distance_to_high_60_pct: -13.82
+- date: 20260615
+- open: 149.5
+- high: 155
+- low: 147.5
+- close: 151
+- volume: 2870446
+- ma5: 153.9
+- ema23_primary: 154.35
+- distance_to_ema23_pct: -2.17
+- ma20: 157.18
+- ma60: 142.86
+- ma120: 132.71
+- return_5d: -8.48
+- return_20d: 5.96
+- volume_ratio: 0.78
+- distance_to_ma20_pct_auxiliary: -3.93
+- distance_to_high_60_pct: -11.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,145.5,147.5,141,142.5,3884586,139.52,2.13,139.7,132.49,0.94
 20260514,144,151.5,143.5,149.5,4454806,140.36,6.52,140.35,132.99,1.06
 20260515,150.5,150.5,141,142.5,3922993,140.53,1.4,140.55,133.41,0.96
 20260518,140,145,138,145,2087946,140.91,2.91,140.9,133.88,0.52
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,161.5,163,157,158.5,2441865,156.25,1.44,156.9,142.58,0.62
 20260611,146.5,148,141,146,2813181,155.4,-6.05,156.7,142.67,0.74
 20260612,150,151.5,146,146.5,1893242,154.66,-5.28,156.75,142.72,0.5
+20260615,149.5,155,147.5,151,2870446,154.35,-2.17,157.18,142.86,0.78
 ```
 
 ## Latest TDCC Snapshot
@@ -185,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 2458 | 義隆 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260615 | 2458 | 義隆 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | call_inflow | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 2458 | 義隆 | 1 | 1 | 3 | 5 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260615 | 2458 | 義隆 | 2 | 2 | 4 | 5 | 6 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 2458 | 義隆 | 30 | 0 | 1248260.0 | 0.0 |  | no_signal |
+| 20260615 | 2458 | 義隆 | 30 | 0 | 2857020.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

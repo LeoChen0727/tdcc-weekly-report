@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00739 元大MSCI A股
 
 ## Metadata
-- generated_at: 2026-06-14 22:22:11 Asia/Taipei
+- generated_at: 2026-06-15 22:22:34 Asia/Taipei
 - stock_id: 00739
 - stock_name: 元大MSCI A股
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260612
-- price_rows: 13
+- latest_price_date: 20260615
+- price_rows: 14
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 28.21
-- high: 28.83
-- low: 28.21
-- close: 28.81
-- volume: 185042
-- ma5: 28.87
-- ema23_primary: 28.76
-- distance_to_ema23_pct: 0.17
+- date: 20260615
+- open: 28.82
+- high: 29
+- low: 28.69
+- close: 28.96
+- volume: 57431
+- ma5: 28.78
+- ema23_primary: 28.78
+- distance_to_ema23_pct: 0.64
 - ma20: 28.89
 - ma60: 28.89
 - ma120: 28.89
-- return_5d: -1
+- return_5d: -1.56
 - return_20d:
-- volume_ratio: 2.15
-- distance_to_ma20_pct_auxiliary: -0.26
-- distance_to_high_60_pct: -2.34
+- volume_ratio: 0.68
+- distance_to_ma20_pct_auxiliary: 0.24
+- distance_to_high_60_pct: -1.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -148,6 +148,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,28.77,29,28.77,28.91,46062,28.81,0.33,28.96,28.96,0.55
 20260611,28.21,28.25,27.98,28.11,18490,28.76,-2.25,28.89,28.89,0.24
 20260612,28.21,28.83,28.21,28.81,185042,28.76,0.17,28.89,28.89,2.15
+20260615,28.82,29,28.69,28.96,57431,28.78,0.64,28.89,28.89,0.68
 ```
 
 ## Latest TDCC Snapshot

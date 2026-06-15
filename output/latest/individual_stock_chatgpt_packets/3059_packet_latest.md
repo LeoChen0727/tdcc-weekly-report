@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3059 華晶科
 
 ## Metadata
-- generated_at: 2026-06-14 22:22:55 Asia/Taipei
+- generated_at: 2026-06-15 22:23:07 Asia/Taipei
 - stock_id: 3059
 - stock_name: 華晶科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 46.85
-- high: 47.7
+- date: 20260615
+- open: 46.8
+- high: 48.35
 - low: 46
-- close: 46
-- volume: 6423637
-- ma5: 48.35
-- ema23_primary: 44.41
-- distance_to_ema23_pct: 3.59
-- ma20: 44.31
-- ma60: 40.05
-- ma120: 40.12
-- return_5d: -9.8
-- return_20d: 17.05
-- volume_ratio: 0.47
-- distance_to_ma20_pct_auxiliary: 3.81
-- distance_to_high_60_pct: -15.6
+- close: 47.5
+- volume: 8602198
+- ma5: 47.73
+- ema23_primary: 44.66
+- distance_to_ema23_pct: 6.35
+- ma20: 44.74
+- ma60: 40.22
+- ma120: 40.16
+- return_5d: -6.13
+- return_20d: 22.11
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: 6.16
+- distance_to_high_60_pct: -12.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,39.3,39.55,38.5,38.9,2508067,38.96,-0.17,38.99,38.08,0.56
 20260514,39.15,40.15,39.15,39.9,3431272,39.04,2.2,39.15,38.1,0.75
 20260515,40.3,43.5,40,42.2,27390420,39.31,7.36,39.41,38.16,4.69
 20260518,41.95,43.45,41.15,43.2,12820200,39.63,9.01,39.69,38.26,2.02
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,51,53.5,48.85,48.9,25945120,44.17,10.7,43.72,39.79,1.99
 20260611,47.3,47.65,44.2,45.25,10924544,44.26,2.23,43.98,39.91,0.81
 20260612,46.85,47.7,46,46,6423637,44.41,3.59,44.31,40.05,0.47
+20260615,46.8,48.35,46,47.5,8602198,44.66,6.35,44.74,40.22,0.62
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +185,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 3059 | 華晶科 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260615 | 3059 | 華晶科 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 3059 | 華晶科 | 13 | 2 | 5 | 10 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260615 | 3059 | 華晶科 | 14 | 3 | 5 | 10 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 3059 | 華晶科 | 37 | 1 | 2208100.0 | 12000.0 | 184.01 | no_signal |
+| 20260615 | 3059 | 華晶科 | 36 | 1 | 4028190.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

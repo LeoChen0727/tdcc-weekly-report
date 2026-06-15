@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8027 鈦昇
 
 ## Metadata
-- generated_at: 2026-06-14 22:24:13 Asia/Taipei
+- generated_at: 2026-06-15 22:24:08 Asia/Taipei
 - stock_id: 8027
 - stock_name: 鈦昇
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 240
-- high: 242.5
-- low: 231
-- close: 232.5
-- volume: 236000
-- ma5: 267.8
-- ema23_primary: 246.56
-- distance_to_ema23_pct: -5.7
-- ma20: 259.23
-- ma60: 187.93
-- ma120: 146.45
-- return_5d: -16.22
-- return_20d: -3.73
-- volume_ratio: 0.09
-- distance_to_ma20_pct_auxiliary: -10.31
-- distance_to_high_60_pct: -21.72
+- date: 20260615
+- open: 235
+- high: 248
+- low: 235
+- close: 239
+- volume: 242000
+- ma5: 257.4
+- ema23_primary: 245.93
+- distance_to_ema23_pct: -2.82
+- ma20: 258.68
+- ma60: 190.09
+- ma120: 147.6
+- return_5d: -17.87
+- return_20d: -4.4
+- volume_ratio: 0.1
+- distance_to_ma20_pct_auxiliary: -7.61
+- distance_to_high_60_pct: -19.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,234.5,251,233,250,3072000,184.63,35.41,180.5,136.68,0.25
 20260514,258,275,257.5,264,4425000,191.24,38.05,185.9,139.13,0.37
 20260515,268,278.5,242.5,247,5603000,195.89,26.09,190.97,141.35,0.48
 20260518,241,271.5,231.5,271.5,5662000,202.19,34.28,197.12,144.17,0.5
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,287,293,279.5,293,286000,249.33,17.52,259.25,183.62,0.1
 20260611,229.5,244.5,220,231.5,232000,247.84,-6.59,259.68,185.78,0.08
 20260612,240,242.5,231,232.5,236000,246.56,-5.7,259.23,187.93,0.09
+20260615,235,248,235,239,242000,245.93,-2.82,258.68,190.09,0.1
 ```
 
 ## Latest TDCC Snapshot

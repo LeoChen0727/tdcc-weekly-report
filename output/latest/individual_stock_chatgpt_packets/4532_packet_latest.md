@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4532 瑞智
 
 ## Metadata
-- generated_at: 2026-06-14 22:23:16 Asia/Taipei
+- generated_at: 2026-06-15 22:23:24 Asia/Taipei
 - stock_id: 4532
 - stock_name: 瑞智
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 24.35
-- high: 24.8
-- low: 24.3
-- close: 24.45
-- volume: 1077658
-- ma5: 24.41
-- ema23_primary: 23.92
-- distance_to_ema23_pct: 2.21
-- ma20: 23.75
-- ma60: 24.52
+- date: 20260615
+- open: 24.8
+- high: 24.85
+- low: 24.45
+- close: 24.55
+- volume: 1148679
+- ma5: 24.35
+- ema23_primary: 23.97
+- distance_to_ema23_pct: 2.4
+- ma20: 23.82
+- ma60: 24.49
 - ma120: 24.79
-- return_5d: 1.45
-- return_20d: 5.62
-- volume_ratio: 0.9
-- distance_to_ma20_pct_auxiliary: 2.97
-- distance_to_high_60_pct: -10.93
+- return_5d: -1.21
+- return_20d: 6.51
+- volume_ratio: 0.94
+- distance_to_ma20_pct_auxiliary: 3.06
+- distance_to_high_60_pct: -10.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,23.15,23.25,23.05,23.05,847752,23.7,-2.75,23.48,25.12,0.74
 20260514,23.1,23.45,23.1,23.3,1064575,23.67,-1.56,23.45,25.07,0.93
 20260515,23.45,23.45,22.95,23,1161175,23.61,-2.6,23.39,25.03,1.01
 20260518,23.05,23.7,22.9,23.65,1184407,23.62,0.14,23.34,25,1.02
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,25.4,25.4,24.45,24.55,1946731,23.85,2.92,23.64,24.58,1.54
 20260611,24.25,24.25,23.8,24.1,953852,23.87,0.95,23.68,24.55,0.78
 20260612,24.35,24.8,24.3,24.45,1077658,23.92,2.21,23.75,24.52,0.9
+20260615,24.8,24.85,24.45,24.55,1148679,23.97,2.4,23.82,24.49,0.94
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 4532 | 瑞智 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260615 | 4532 | 瑞智 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 4532 | 瑞智 | 1 | 1 | 3 | 6 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260615 | 4532 | 瑞智 | 2 | 2 | 3 | 6 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 4532 | 瑞智 | 5 | 0 | 0.0 | 0.0 |  | no_signal |
+| 20260615 | 4532 | 瑞智 | 5 | 0 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

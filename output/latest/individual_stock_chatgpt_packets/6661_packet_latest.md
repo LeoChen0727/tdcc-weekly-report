@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6661 威健生技
 
 ## Metadata
-- generated_at: 2026-06-14 22:23:50 Asia/Taipei
+- generated_at: 2026-06-15 22:23:50 Asia/Taipei
 - stock_id: 6661
 - stock_name: 威健生技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 275
+- latest_price_date: 20260615
+- price_rows: 276
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 16
-- high: 16
+- date: 20260615
+- open: 16.7
+- high: 16.7
 - low: 16
 - close: 16
 - volume: 16000
 - ma5: 16.07
-- ema23_primary: 16.96
-- distance_to_ema23_pct: -5.63
-- ma20: 16.98
-- ma60: 17.98
-- ma120: 18.39
-- return_5d: -1.23
-- return_20d: -9.35
-- volume_ratio: 1.42
-- distance_to_ma20_pct_auxiliary: -5.77
+- ema23_primary: 16.88
+- distance_to_ema23_pct: -5.19
+- ma20: 16.9
+- ma60: 17.93
+- ma120: 18.37
+- return_5d: 0
+- return_20d: -9.09
+- volume_ratio: 1.37
+- distance_to_ma20_pct_auxiliary: -5.33
 - distance_to_high_60_pct: -20.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,17.25,17.6,17.25,17.6,8000,18.13,-2.9,18.17,18.58,0.88
 20260514,17.6,17.6,17.6,17.6,1000,18.08,-2.67,18.13,18.56,0.11
 20260515,17.35,17.35,17.2,17.2,4000,18.01,-4.49,18.08,18.53,0.45
 20260518,17.65,17.65,17.35,17.35,3000,17.95,-3.36,18.01,18.49,0.35
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,16.2,16.35,16.1,16.35,16000,17.14,-4.59,17.14,18.06,1.47
 20260611,16,16,15.5,16,16000,17.04,-6.12,17.06,18.02,1.47
 20260612,16,16,16,16,16000,16.96,-5.63,16.98,17.98,1.42
+20260615,16.7,16.7,16,16,16000,16.88,-5.19,16.9,17.93,1.37
 ```
 
 ## Latest TDCC Snapshot

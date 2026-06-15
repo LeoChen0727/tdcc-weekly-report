@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6697 東捷資訊
 
 ## Metadata
-- generated_at: 2026-06-14 22:23:51 Asia/Taipei
+- generated_at: 2026-06-15 22:23:51 Asia/Taipei
 - stock_id: 6697
 - stock_name: 東捷資訊
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 279
+- latest_price_date: 20260615
+- price_rows: 280
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 42.65
-- high: 42.65
-- low: 41.25
+- date: 20260615
+- open: 41.8
+- high: 42.35
+- low: 41.8
 - close: 41.9
 - volume: 42000
-- ma5: 42.98
-- ema23_primary: 42.31
-- distance_to_ema23_pct: -0.97
-- ma20: 41.96
-- ma60: 42.43
-- ma120: 44.47
-- return_5d: -9.5
+- ma5: 42.46
+- ema23_primary: 42.28
+- distance_to_ema23_pct: -0.89
+- ma20: 42.01
+- ma60: 42.38
+- ma120: 44.41
+- return_5d: -5.84
 - return_20d: 2.2
 - volume_ratio: 1.02
-- distance_to_ma20_pct_auxiliary: -0.14
+- distance_to_ma20_pct_auxiliary: -0.25
 - distance_to_high_60_pct: -14.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,41.45,41.5,41,41,38000,42,-2.39,42.02,43.1,0.42
 20260514,41.1,41.1,40.15,40.4,98000,41.87,-3.51,42.02,43.03,1.03
 20260515,40.4,41,40.3,40.5,33000,41.76,-3.01,42,42.98,0.35
 20260518,40.9,41.75,40.9,41.75,34000,41.76,-0.01,42.03,42.94,0.36
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,43.8,43.8,42.15,42.8,43000,42.45,0.82,41.91,42.53,1.04
 20260611,41.6,41.6,41.1,41.2,41000,42.35,-2.71,41.91,42.49,1
 20260612,42.65,42.65,41.25,41.9,42000,42.31,-0.97,41.96,42.43,1.02
+20260615,41.8,42.35,41.8,41.9,42000,42.28,-0.89,42.01,42.38,1.02
 ```
 
 ## Latest TDCC Snapshot

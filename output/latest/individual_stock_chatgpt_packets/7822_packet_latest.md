@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7822 倍利科
 
 ## Metadata
-- generated_at: 2026-06-14 22:24:13 Asia/Taipei
+- generated_at: 2026-06-15 22:24:07 Asia/Taipei
 - stock_id: 7822
 - stock_name: 倍利科
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260612
-- price_rows: 49
+- latest_price_date: 20260615
+- price_rows: 50
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 989
-- high: 1015
-- low: 965
-- close: 1000
-- volume: 250661
-- ma5: 1042.2
-- ema23_primary: 1137
-- distance_to_ema23_pct: -12.05
-- ma20: 1097.55
-- ma60: 1326.04
-- ma120: 1326.04
-- return_5d: -4.31
-- return_20d: -21.26
-- volume_ratio: 0.74
-- distance_to_ma20_pct_auxiliary: -8.89
-- distance_to_high_60_pct: -46.67
+- date: 20260615
+- open: 1050
+- high: 1100
+- low: 1050
+- close: 1100
+- volume: 191168
+- ma5: 1048.2
+- ema23_primary: 1133.92
+- distance_to_ema23_pct: -2.99
+- ma20: 1092.3
+- ma60: 1321.52
+- ma120: 1321.52
+- return_5d: 2.8
+- return_20d: -8.71
+- volume_ratio: 0.58
+- distance_to_ma20_pct_auxiliary: 0.7
+- distance_to_high_60_pct: -41.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,1275,1275,1180,1205,402088,1395.96,-13.68,1390.25,1474.33,0.85
 20260514,1200,1210,1130,1140,618094,1374.63,-17.07,1361.75,1463.55,1.34
 20260515,1145,1180,1125,1155,307915,1356.32,-14.84,1337.25,1453.91,0.7
 20260518,1150,1185,1100,1170,249379,1340.8,-12.74,1317,1445.3,0.59
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,1170,1190,1090,1150,392631,1167.95,-1.54,1128.5,1341.06,1.18
 20260611,1000,1000,905,946,360062,1149.46,-17.7,1111.05,1332.83,1.06
 20260612,989,1015,965,1000,250661,1137,-12.05,1097.55,1326.04,0.74
+20260615,1050,1100,1050,1100,191168,1133.92,-2.99,1092.3,1321.52,0.58
 ```
 
 ## Latest TDCC Snapshot

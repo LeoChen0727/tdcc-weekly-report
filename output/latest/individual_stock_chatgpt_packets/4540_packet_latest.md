@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4540 全球傳動
 
 ## Metadata
-- generated_at: 2026-06-14 22:23:16 Asia/Taipei
+- generated_at: 2026-06-15 22:23:24 Asia/Taipei
 - stock_id: 4540
 - stock_name: 全球傳動
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,7 +58,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
@@ -92,6 +92,7 @@
 
 ### entry_prerequisites
 - model_recommended
+- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -118,29 +119,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 62.7
-- high: 63.3
-- low: 61.1
-- close: 61.5
-- volume: 2183728
-- ma5: 68.28
-- ema23_primary: 68.03
-- distance_to_ema23_pct: -9.6
-- ma20: 69.71
-- ma60: 58.72
-- ma120: 50.39
-- return_5d: -20.44
-- return_20d: -10.74
-- volume_ratio: 0.17
-- distance_to_ma20_pct_auxiliary: -11.78
-- distance_to_high_60_pct: -24.91
+- date: 20260615
+- open: 62.9
+- high: 63.5
+- low: 61.4
+- close: 61.4
+- volume: 2432627
+- ma5: 66.16
+- ema23_primary: 67.48
+- distance_to_ema23_pct: -9.01
+- ma20: 69.5
+- ma60: 58.93
+- ma120: 50.6
+- return_5d: -14.72
+- return_20d: -6.26
+- volume_ratio: 0.19
+- distance_to_ma20_pct_auxiliary: -11.66
+- distance_to_high_60_pct: -25.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,68,68.2,64,65.5,5707608,61.69,6.17,62.64,51.8,0.43
 20260514,65.7,66.8,64.2,64.5,4368822,61.93,4.16,63.2,52.07,0.34
 20260515,64.7,70.9,64.7,70.9,18409898,62.67,13.12,64.09,52.49,1.38
 20260518,69.9,74.3,68.4,71,25776422,63.37,12.04,64.75,52.93,1.87
@@ -160,6 +160,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,70.9,73.6,69.5,69.6,8619588,69.32,0.4,70.5,58.27,0.65
 20260611,61,62.1,59.1,61,2895360,68.63,-11.11,70.08,58.49,0.22
 20260612,62.7,63.3,61.1,61.5,2183728,68.03,-9.6,69.71,58.72,0.17
+20260615,62.9,63.5,61.4,61.4,2432627,67.48,-9.01,69.5,58.93,0.19
 ```
 
 ## Latest TDCC Snapshot
@@ -191,12 +192,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 4540 | 全球傳動 | revenue_pullback | 營收成長股價回檔 | 76.0 |  |  |  |  |  | stale_signal | calendar event: shareholder_meeting on 20260629; status=confirmed; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260615 | 4540 | 全球傳動 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  |  | stale_signal | calendar event: shareholder_meeting on 20260629; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 4540 | 全球傳動 | 13 | 4 | 5 | 10 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260615 | 4540 | 全球傳動 | 14 | 5 | 5 | 10 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

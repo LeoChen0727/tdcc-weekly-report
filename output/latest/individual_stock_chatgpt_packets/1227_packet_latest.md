@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1227 佳格
 
 ## Metadata
-- generated_at: 2026-06-14 22:22:15 Asia/Taipei
+- generated_at: 2026-06-15 22:22:37 Asia/Taipei
 - stock_id: 1227
 - stock_name: 佳格
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 29.2
-- high: 29.45
-- low: 29
-- close: 29.1
-- volume: 1923673
-- ma5: 28.63
-- ema23_primary: 28.57
-- distance_to_ema23_pct: 1.84
-- ma20: 28.38
-- ma60: 29.36
-- ma120: 29.58
-- return_5d: 4.11
-- return_20d: 1.04
-- volume_ratio: 0.95
-- distance_to_ma20_pct_auxiliary: 2.54
-- distance_to_high_60_pct: -6.88
+- date: 20260615
+- open: 29.3
+- high: 29.3
+- low: 28.8
+- close: 28.95
+- volume: 1600710
+- ma5: 28.74
+- ema23_primary: 28.61
+- distance_to_ema23_pct: 1.2
+- ma20: 28.39
+- ma60: 29.35
+- ma120: 29.56
+- return_5d: 1.94
+- return_20d: 0.52
+- volume_ratio: 0.78
+- distance_to_ma20_pct_auxiliary: 1.98
+- distance_to_high_60_pct: -7.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,28.85,28.85,28.7,28.8,1064312,29.3,-1.7,29.32,29.71,0.97
 20260514,28.8,28.95,28.55,28.55,1327841,29.23,-2.34,29.26,29.71,1.18
 20260515,28.6,28.65,28.45,28.5,899248,29.17,-2.31,29.19,29.7,0.79
 20260518,28.5,28.55,28.3,28.3,882520,29.1,-2.75,29.07,29.69,0.83
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,28.7,28.9,28.55,28.85,2950700,28.5,1.24,28.36,29.37,1.55
 20260611,28.5,29.1,28.45,28.85,2727374,28.53,1.13,28.36,29.36,1.37
 20260612,29.2,29.45,29,29.1,1923673,28.57,1.84,28.38,29.36,0.95
+20260615,29.3,29.3,28.8,28.95,1600710,28.61,1.2,28.39,29.35,0.78
 ```
 
 ## Latest TDCC Snapshot
@@ -186,12 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 1227 | 佳格 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | calendar event: shareholder_meeting on 20260617; status=confirmed; proximity=within_3d |
+| 20260615 | 1227 | 佳格 | pattern | 型態觀察 | 51.0 |  |  | base_building |  |  | stale_signal | calendar event: shareholder_meeting on 20260617; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 1227 | 佳格 | 3 | 1 | 4 | 4 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260615 | 1227 | 佳格 | 4 | 2 | 4 | 5 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

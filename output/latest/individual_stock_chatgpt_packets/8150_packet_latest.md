@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8150 南茂
 
 ## Metadata
-- generated_at: 2026-06-14 22:24:17 Asia/Taipei
+- generated_at: 2026-06-15 22:24:11 Asia/Taipei
 - stock_id: 8150
 - stock_name: 南茂
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 101.5
-- high: 104
-- low: 96.7
-- close: 97
-- volume: 83036676
-- ma5: 97.06
-- ema23_primary: 91.04
-- distance_to_ema23_pct: 6.55
-- ma20: 90.61
-- ma60: 75.48
-- ma120: 65.64
-- return_5d: -1.62
-- return_20d: 11.49
-- volume_ratio: 1.71
-- distance_to_ma20_pct_auxiliary: 7.06
-- distance_to_high_60_pct: -14.91
+- date: 20260615
+- open: 100.5
+- high: 102
+- low: 95.9
+- close: 95.9
+- volume: 44055468
+- ma5: 97.08
+- ema23_primary: 91.44
+- distance_to_ema23_pct: 4.87
+- ma20: 91.12
+- ma60: 76.08
+- ma120: 66.07
+- return_5d: 0.1
+- return_20d: 12.16
+- volume_ratio: 0.89
+- distance_to_ma20_pct_auxiliary: 5.24
+- distance_to_high_60_pct: -15.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,85.1,89.4,84.6,85.5,28772358,77.44,10.4,77.4,65.5,0.59
 20260514,86,88,82.5,83.9,31450051,77.98,7.59,78.25,65.97,0.65
 20260515,84.2,84.2,80,80.9,23693876,78.23,3.42,78.61,66.43,0.5
 20260518,79,84.4,76.9,82.3,18660090,78.56,4.75,79.36,66.93,0.42
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,96.7,99.3,92.8,96.8,34134453,89.89,7.68,89.8,74.33,0.75
 20260611,91.2,97.1,90.4,97.1,65334546,90.5,7.3,90.11,74.89,1.42
 20260612,101.5,104,96.7,97,83036676,91.04,6.55,90.61,75.48,1.71
+20260615,100.5,102,95.9,95.9,44055468,91.44,4.87,91.12,76.08,0.89
 ```
 
 ## Latest TDCC Snapshot
@@ -185,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 8150 | 南茂 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | stale_signal | calendar event: ex_dividend on 20260629; status=confirmed; proximity=within_30d |
+| 20260615 | 8150 | 南茂 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: ex_dividend on 20260629; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 8150 | 南茂 | 2 | 2 | 3 | 7 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260615 | 8150 | 南茂 | 3 | 3 | 3 | 7 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 8150 | 南茂 | 145 | 2 | 19866740.0 | 0.0 |  | call_inflow |
+| 20260615 | 8150 | 南茂 | 144 | 2 | 12450410.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

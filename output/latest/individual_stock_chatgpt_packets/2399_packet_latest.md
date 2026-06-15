@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2399 映泰
 
 ## Metadata
-- generated_at: 2026-06-14 22:22:37 Asia/Taipei
+- generated_at: 2026-06-15 22:22:54 Asia/Taipei
 - stock_id: 2399
 - stock_name: 映泰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 47.6
-- high: 48.3
-- low: 47.2
-- close: 47.65
-- volume: 5288078
-- ma5: 48.67
-- ema23_primary: 46.6
-- distance_to_ema23_pct: 2.26
-- ma20: 47.33
-- ma60: 40.16
-- ma120: 32.43
-- return_5d: -4.89
-- return_20d: 2.58
-- volume_ratio: 0.41
-- distance_to_ma20_pct_auxiliary: 0.69
-- distance_to_high_60_pct: -12.73
+- date: 20260615
+- open: 48.3
+- high: 48.8
+- low: 47.4
+- close: 48
+- volume: 5249129
+- ma5: 48.13
+- ema23_primary: 46.71
+- distance_to_ema23_pct: 2.75
+- ma20: 47.32
+- ma60: 40.52
+- ma120: 32.62
+- return_5d: -5.33
+- return_20d: -0.31
+- volume_ratio: 0.44
+- distance_to_ma20_pct_auxiliary: 1.44
+- distance_to_high_60_pct: -12.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,45.7,48.8,45.2,48.15,25922388,41.15,17.02,41.8,32.51,1
 20260514,49,49.5,45.9,47.2,27070953,41.65,13.32,42.31,32.91,1.03
 20260515,47.2,47.2,44.6,45.45,13202406,41.97,8.3,42.84,33.28,0.53
 20260518,45.05,46.2,43.6,45.6,9013170,42.27,7.88,43.35,33.67,0.36
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,49.2,49.7,47.4,48.75,5732946,46.53,4.76,47.2,39.44,0.38
 20260611,44.9,46.35,43.05,46.15,6182634,46.5,-0.76,47.27,39.8,0.44
 20260612,47.6,48.3,47.2,47.65,5288078,46.6,2.26,47.33,40.16,0.41
+20260615,48.3,48.8,47.4,48,5249129,46.71,2.75,47.32,40.52,0.44
 ```
 
 ## Latest TDCC Snapshot
@@ -186,12 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 2399 | 映泰 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: shareholder_meeting on 20260617; status=confirmed; proximity=within_3d |
+| 20260615 | 2399 | 映泰 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: shareholder_meeting on 20260617; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 2399 | 映泰 | 2 | 2 | 2 | 5 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260615 | 2399 | 映泰 | 3 | 3 | 3 | 5 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

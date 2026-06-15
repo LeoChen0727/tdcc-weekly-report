@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00952 凱基台灣AI50
 
 ## Metadata
-- generated_at: 2026-06-14 22:22:13 Asia/Taipei
+- generated_at: 2026-06-15 22:22:35 Asia/Taipei
 - stock_id: 00952
 - stock_name: 凱基台灣AI50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260612
-- price_rows: 13
+- latest_price_date: 20260615
+- price_rows: 14
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 18.45
-- high: 18.54
-- low: 18.23
-- close: 18.23
-- volume: 2889000
-- ma5: 19.08
+- date: 20260615
+- open: 18.61
+- high: 18.69
+- low: 18.48
+- close: 18.53
+- volume: 2703458
+- ma5: 18.75
 - ema23_primary: 18.61
-- distance_to_ema23_pct: -2.06
-- ma20: 18.92
-- ma60: 18.92
-- ma120: 18.92
-- return_5d: -8.39
+- distance_to_ema23_pct: -0.41
+- ma20: 18.89
+- ma60: 18.89
+- ma120: 18.89
+- return_5d: -8.31
 - return_20d:
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: -3.65
-- distance_to_high_60_pct: -10.2
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: -1.92
+- distance_to_high_60_pct: -8.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -148,6 +148,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,19.44,19.44,18.75,19.23,5757745,18.72,2.71,19.08,19.08,1.26
 20260611,17.89,18.06,17.41,17.84,3764050,18.65,-4.34,18.98,18.98,0.83
 20260612,18.45,18.54,18.23,18.23,2889000,18.61,-2.06,18.92,18.92,0.66
+20260615,18.61,18.69,18.48,18.53,2703458,18.61,-0.41,18.89,18.89,0.63
 ```
 
 ## Latest TDCC Snapshot

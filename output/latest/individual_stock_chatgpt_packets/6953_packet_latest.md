@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6953 家碩
 
 ## Metadata
-- generated_at: 2026-06-14 22:23:58 Asia/Taipei
+- generated_at: 2026-06-15 22:23:56 Asia/Taipei
 - stock_id: 6953
 - stock_name: 家碩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 279
+- latest_price_date: 20260615
+- price_rows: 280
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 227
-- high: 236.5
-- low: 224.5
-- close: 233
-- volume: 232000
-- ma5: 235.7
-- ema23_primary: 247.01
-- distance_to_ema23_pct: -5.67
-- ma20: 248.15
-- ma60: 241.78
-- ma120: 233.65
-- return_5d: -5.86
-- return_20d: -15.88
-- volume_ratio: 1.2
-- distance_to_ma20_pct_auxiliary: -6.11
-- distance_to_high_60_pct: -22.07
+- date: 20260615
+- open: 236.5
+- high: 243
+- low: 236.5
+- close: 236.5
+- volume: 240000
+- ma5: 233.8
+- ema23_primary: 246.14
+- distance_to_ema23_pct: -3.92
+- ma20: 247.03
+- ma60: 242.04
+- ma120: 234.1
+- return_5d: -3.86
+- return_20d: -8.69
+- volume_ratio: 1.3
+- distance_to_ma20_pct_auxiliary: -4.26
+- distance_to_high_60_pct: -20.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,271,271,249.5,259,412000,260.47,-0.56,263.75,234.58,1.09
 20260514,260.5,266,259,260.5,176000,260.47,0.01,266.32,235.12,0.46
 20260515,260,263,253,253.5,123000,259.89,-2.46,267.52,235.59,0.32
 20260518,250.5,251.5,239.5,250,138000,259.07,-3.5,268.02,236.03,0.37
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,235,237.5,232.5,237,235000,251.18,-5.64,253.57,241.63,1.21
 20260611,205,220,205,216.5,211000,248.29,-12.8,250.35,241.55,1.09
 20260612,227,236.5,224.5,233,232000,247.01,-5.67,248.15,241.78,1.2
+20260615,236.5,243,236.5,236.5,240000,246.14,-3.92,247.03,242.04,1.3
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9914 美利達
 
 ## Metadata
-- generated_at: 2026-06-14 22:24:24 Asia/Taipei
+- generated_at: 2026-06-15 22:24:16 Asia/Taipei
 - stock_id: 9914
 - stock_name: 美利達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 74.7
-- high: 75.4
-- low: 72.7
-- close: 73.4
-- volume: 3083751
-- ma5: 70.88
-- ema23_primary: 67.36
-- distance_to_ema23_pct: 8.97
-- ma20: 68.22
-- ma60: 64.25
-- ma120: 73.5
-- return_5d: 6.53
-- return_20d: 23.36
-- volume_ratio: 1.12
-- distance_to_ma20_pct_auxiliary: 7.59
-- distance_to_high_60_pct: -2.78
+- date: 20260615
+- open: 74
+- high: 76
+- low: 73
+- close: 73.7
+- volume: 2903092
+- ma5: 71.76
+- ema23_primary: 67.88
+- distance_to_ema23_pct: 8.57
+- ma20: 68.76
+- ma60: 64.33
+- ma120: 73.35
+- return_5d: 6.35
+- return_20d: 17.17
+- volume_ratio: 1.09
+- distance_to_ma20_pct_auxiliary: 7.18
+- distance_to_high_60_pct: -3.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,59.6,63.4,59,62.9,4887176,59.86,5.08,58.94,66.64,3.12
 20260514,63.5,65.6,63,63.8,4035922,60.19,6,59.1,66.28,2.36
 20260515,65,70.1,64.6,70.1,7273623,61.01,14.89,59.49,66,3.64
 20260518,70,71,67.3,68.4,4717338,61.63,10.99,59.87,65.75,2.18
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,68.7,69.8,67.5,69.1,1217061,66.18,4.41,66.72,64.13,0.47
 20260611,69.4,75.5,68.7,73.7,4794831,66.81,10.32,67.53,64.19,1.75
 20260612,74.7,75.4,72.7,73.4,3083751,67.36,8.97,68.22,64.25,1.12
+20260615,74,76,73,73.7,2903092,67.88,8.57,68.76,64.33,1.09
 ```
 
 ## Latest TDCC Snapshot
@@ -195,7 +195,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 9914 | 美利達 | 7 | 0 | 1110490.0 | 0.0 |  | call_inflow |
+| 20260615 | 9914 | 美利達 | 7 | 0 | 635260.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7792 安葆
 
 ## Metadata
-- generated_at: 2026-06-14 22:24:12 Asia/Taipei
+- generated_at: 2026-06-15 22:24:07 Asia/Taipei
 - stock_id: 7792
 - stock_name: 安葆
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 220
+- latest_price_date: 20260615
+- price_rows: 221
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 267.5
-- high: 267.5
-- low: 256
-- close: 257
-- volume: 260000
-- ma5: 279.1
-- ema23_primary: 288.04
-- distance_to_ema23_pct: -10.77
-- ma20: 278.85
-- ma60: 315.4
-- ma120: 311.17
-- return_5d: -11.53
-- return_20d: -17.5
-- volume_ratio: 1.02
-- distance_to_ma20_pct_auxiliary: -7.84
-- distance_to_high_60_pct: -33.25
+- date: 20260615
+- open: 268
+- high: 268
+- low: 260
+- close: 264.5
+- volume: 265000
+- ma5: 272.1
+- ema23_primary: 286.07
+- distance_to_ema23_pct: -7.54
+- ma20: 276.82
+- ma60: 314.35
+- ma120: 311.02
+- return_5d: -11.69
+- return_20d: -13.28
+- volume_ratio: 1.04
+- distance_to_ma20_pct_auxiliary: -4.45
+- distance_to_high_60_pct: -31.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,308,320,305,305,292000,334.66,-8.86,343.88,334.52,0.79
 20260514,301,308,291.5,300,443000,331.77,-9.58,340.75,334,1.18
 20260515,306.5,306.5,289.5,293,268000,328.54,-10.82,337.52,333.75,0.71
 20260518,295,295,277.5,282,355000,324.66,-13.14,333.18,333.48,0.96
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,295,295,280.5,280.5,285000,293.75,-4.51,284.43,318.05,1.1
 20260611,260.5,261.5,250,259,256000,290.86,-10.95,281.57,316.73,1
 20260612,267.5,267.5,256,257,260000,288.04,-10.77,278.85,315.4,1.02
+20260615,268,268,260,264.5,265000,286.07,-7.54,276.82,314.35,1.04
 ```
 
 ## Latest TDCC Snapshot

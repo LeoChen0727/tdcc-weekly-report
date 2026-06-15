@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00851 台新全球AI
 
 ## Metadata
-- generated_at: 2026-06-14 22:22:11 Asia/Taipei
+- generated_at: 2026-06-15 22:22:34 Asia/Taipei
 - stock_id: 00851
 - stock_name: 台新全球AI
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260612
-- price_rows: 13
+- latest_price_date: 20260615
+- price_rows: 14
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 69.7
-- high: 70.85
-- low: 69.7
-- close: 70.85
-- volume: 19587
-- ma5: 71.69
-- ema23_primary: 69.01
-- distance_to_ema23_pct: 2.67
-- ma20: 70.19
-- ma60: 70.19
-- ma120: 70.19
-- return_5d: -3.41
+- date: 20260615
+- open: 71.85
+- high: 72.85
+- low: 71.85
+- close: 72.5
+- volume: 26057
+- ma5: 71.41
+- ema23_primary: 69.3
+- distance_to_ema23_pct: 4.62
+- ma20: 70.36
+- ma60: 70.36
+- ma120: 70.36
+- return_5d: -1.89
 - return_20d:
-- volume_ratio: 0.81
-- distance_to_ma20_pct_auxiliary: 0.94
-- distance_to_high_60_pct: -4.13
+- volume_ratio: 1.07
+- distance_to_ma20_pct_auxiliary: 3.05
+- distance_to_high_60_pct: -1.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -148,6 +148,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,71.7,71.8,71.4,71.7,19784,68.86,4.12,70.27,70.27,0.75
 20260611,68.7,68.7,68,68.65,6163,68.84,-0.28,70.14,70.14,0.25
 20260612,69.7,70.85,69.7,70.85,19587,69.01,2.67,70.19,70.19,0.81
+20260615,71.85,72.85,71.85,72.5,26057,69.3,4.62,70.36,70.36,1.07
 ```
 
 ## Latest TDCC Snapshot

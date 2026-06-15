@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2027 大成鋼
 
 ## Metadata
-- generated_at: 2026-06-14 22:22:29 Asia/Taipei
+- generated_at: 2026-06-15 22:22:48 Asia/Taipei
 - stock_id: 2027
 - stock_name: 大成鋼
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 43.35
-- high: 44.05
-- low: 42.85
-- close: 43.55
-- volume: 15120012
-- ma5: 43.48
-- ema23_primary: 41.75
-- distance_to_ema23_pct: 4.31
-- ma20: 41.89
-- ma60: 39.03
-- ma120: 37.92
-- return_5d: -0.23
-- return_20d: 9.7
-- volume_ratio: 0.47
-- distance_to_ma20_pct_auxiliary: 3.96
-- distance_to_high_60_pct: -2.68
+- date: 20260615
+- open: 44.3
+- high: 44.3
+- low: 43.05
+- close: 43.65
+- volume: 10954192
+- ma5: 43.44
+- ema23_primary: 41.91
+- distance_to_ema23_pct: 4.15
+- ma20: 42.17
+- ma60: 39.15
+- ma120: 37.96
+- return_5d: -0.46
+- return_20d: 14.57
+- volume_ratio: 0.36
+- distance_to_ma20_pct_auxiliary: 3.51
+- distance_to_high_60_pct: -2.46
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,39.05,39.05,37.6,38.1,40973530,38.12,-0.05,37.83,37.45,1.74
 20260514,38.25,40.5,38.1,39.8,57508095,38.26,4.03,37.95,37.47,2.31
 20260515,40.05,41.2,39.75,39.85,47747482,38.39,3.8,38.08,37.51,1.8
 20260518,39.5,41,39.25,39.4,37468752,38.48,2.4,38.16,37.55,1.34
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,44.5,44.5,43.35,43.8,22945418,41.5,5.54,41.57,38.83,0.69
 20260611,42.1,42.55,41.65,42.55,21682577,41.59,2.31,41.7,38.92,0.66
 20260612,43.35,44.05,42.85,43.55,15120012,41.75,4.31,41.89,39.03,0.47
+20260615,44.3,44.3,43.05,43.65,10954192,41.91,4.15,42.17,39.15,0.36
 ```
 
 ## Latest TDCC Snapshot
@@ -186,18 +186,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 2027 | 大成鋼 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | calendar event: shareholder_meeting on 20260616; status=confirmed; proximity=within_3d |
-| 20260612 | 2027 | 大成鋼 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | stale_signal | calendar event: shareholder_meeting on 20260616; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260615 | 2027 | 大成鋼 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: shareholder_meeting on 20260616; status=confirmed; proximity=within_3d |
+| 20260615 | 2027 | 大成鋼 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: shareholder_meeting on 20260616; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 2027 | 大成鋼 | 13 | 13 | 5 | 10 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260615 | 2027 | 大成鋼 | 14 | 14 | 5 | 10 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 2027 | 大成鋼 | 70 | 0 | 8844780.0 | 0.0 |  | call_inflow |
+| 20260615 | 2027 | 大成鋼 | 70 | 0 | 11172580.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

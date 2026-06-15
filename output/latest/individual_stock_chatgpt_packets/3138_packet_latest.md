@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3138 耀登
 
 ## Metadata
-- generated_at: 2026-06-14 22:22:56 Asia/Taipei
+- generated_at: 2026-06-15 22:23:09 Asia/Taipei
 - stock_id: 3138
 - stock_name: 耀登
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 149
-- high: 152.5
-- low: 142
-- close: 142.5
-- volume: 680572
-- ma5: 155.4
-- ema23_primary: 161.27
-- distance_to_ema23_pct: -11.64
-- ma20: 161.88
-- ma60: 168.82
-- ma120: 157.62
-- return_5d: -13.64
-- return_20d: -11.21
-- volume_ratio: 0.38
-- distance_to_ma20_pct_auxiliary: -11.97
-- distance_to_high_60_pct: -32.14
+- date: 20260615
+- open: 147
+- high: 147.5
+- low: 140.5
+- close: 140.5
+- volume: 653583
+- ma5: 149.9
+- ema23_primary: 159.54
+- distance_to_ema23_pct: -11.94
+- ma20: 161.15
+- ma60: 168.1
+- ma120: 158.06
+- return_5d: -16.37
+- return_20d: -9.35
+- volume_ratio: 0.37
+- distance_to_ma20_pct_auxiliary: -12.81
+- distance_to_high_60_pct: -33.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,158,159.5,154,155,795121,163.93,-5.45,165.5,175.29,0.26
 20260514,156.5,159.5,152,153,948733,163.02,-6.14,164.32,174.54,0.33
 20260515,155,156,147,148.5,1234614,161.81,-8.22,163,173.95,0.43
 20260518,146,163,146,163,2303979,161.91,0.68,161.95,173.75,0.82
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,163,168.5,157.5,159.5,1195374,164.89,-3.27,163.57,170.22,0.65
 20260611,141,149,136,142,1010553,162.98,-12.87,162.78,169.53,0.55
 20260612,149,152.5,142,142.5,680572,161.27,-11.64,161.88,168.82,0.38
+20260615,147,147.5,140.5,140.5,653583,159.54,-11.94,161.15,168.1,0.37
 ```
 
 ## Latest TDCC Snapshot
@@ -195,7 +195,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 3138 | 耀登 | 4 | 0 | 567310.0 | 0.0 |  | no_signal |
+| 20260615 | 3138 | 耀登 | 4 | 0 | 362360.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

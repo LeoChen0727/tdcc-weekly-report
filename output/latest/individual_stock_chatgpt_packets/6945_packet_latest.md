@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6945 圓祥生技
 
 ## Metadata
-- generated_at: 2026-06-14 22:23:58 Asia/Taipei
+- generated_at: 2026-06-15 22:23:56 Asia/Taipei
 - stock_id: 6945
 - stock_name: 圓祥生技
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260612
-- price_rows: 3
+- latest_price_date: 20260615
+- price_rows: 4
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,11 +112,11 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 101
-- high: 101.5
-- low: 97.8
-- close: 99.9
+- date: 20260615
+- open: 100
+- high: 102.5
+- low: 99.2
+- close: 102.5
 - volume: 100000
 - ma5:
 - ema23_primary:
@@ -137,6 +137,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,102,107,98.3,105,103000,,,,,
 20260611,102,104,99.9,100,101000,,,,,
 20260612,101,101.5,97.8,99.9,100000,,,,,
+20260615,100,102.5,99.2,102.5,100000,,,,,
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2401 凌陽
 
 ## Metadata
-- generated_at: 2026-06-14 22:22:37 Asia/Taipei
+- generated_at: 2026-06-15 22:22:54 Asia/Taipei
 - stock_id: 2401
 - stock_name: 凌陽
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 28.35
-- high: 29.8
-- low: 28.3
-- close: 28.6
-- volume: 17498848
-- ma5: 28.37
-- ema23_primary: 27.75
-- distance_to_ema23_pct: 3.06
-- ma20: 28.12
-- ma60: 24.31
-- ma120: 22.8
-- return_5d: -1.04
-- return_20d: 10.21
-- volume_ratio: 1
-- distance_to_ma20_pct_auxiliary: 1.7
-- distance_to_high_60_pct: -13.33
+- date: 20260615
+- open: 29.25
+- high: 31.45
+- low: 28.85
+- close: 31.45
+- volume: 29213733
+- ma5: 28.79
+- ema23_primary: 28.06
+- distance_to_ema23_pct: 12.08
+- ma20: 28.45
+- ma60: 24.49
+- ma120: 22.9
+- return_5d: 7.16
+- return_20d: 26.05
+- volume_ratio: 1.56
+- distance_to_ma20_pct_auxiliary: 10.55
+- distance_to_high_60_pct: -4.7
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,25.4,25.4,24.2,24.95,6411646,24.1,3.51,24.55,22.23,0.6
 20260514,25.05,25.2,24.25,24.85,5533656,24.17,2.83,24.67,22.28,0.52
 20260515,25.05,25.3,24.4,24.65,4555114,24.21,1.83,24.77,22.33,0.42
 20260518,24.8,24.9,23.45,24.8,4362868,24.26,2.24,24.82,22.39,0.42
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,28,28.15,26.7,27.45,6301964,27.69,-0.85,27.89,24.09,0.37
 20260611,25.5,27.6,25.5,27.55,9367274,27.68,-0.45,27.99,24.19,0.55
 20260612,28.35,29.8,28.3,28.6,17498848,27.75,3.06,28.12,24.31,1
+20260615,29.25,31.45,28.85,31.45,29213733,28.06,12.08,28.45,24.49,1.56
 ```
 
 ## Latest TDCC Snapshot
@@ -186,18 +185,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 2401 | 凌陽 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | calendar event: shareholder_meeting on 20260615; status=confirmed; proximity=within_3d |
-| 20260612 | 2401 | 凌陽 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | stale_signal | calendar event: shareholder_meeting on 20260615; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260615 | 2401 | 凌陽 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_strong_inflow | repeated_but_no_breakout | calendar event: shareholder_meeting on 20260615; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 2401 | 凌陽 | 5 | 5 | 5 | 7 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260615 | 2401 | 凌陽 | 6 | 6 | 5 | 7 | 10 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 2401 | 凌陽 | 14 | 0 | 2479410.0 | 0.0 |  | call_inflow |
+| 20260615 | 2401 | 凌陽 | 14 | 0 | 4528500.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

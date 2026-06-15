@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8077 洛碁
 
 ## Metadata
-- generated_at: 2026-06-14 22:24:15 Asia/Taipei
+- generated_at: 2026-06-15 22:24:09 Asia/Taipei
 - stock_id: 8077
 - stock_name: 洛碁
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 211
+- latest_price_date: 20260615
+- price_rows: 212
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 51.6
-- high: 51.6
-- low: 49
-- close: 49
-- volume: 49000
-- ma5: 51.3
-- ema23_primary: 47.1
-- distance_to_ema23_pct: 4.02
-- ma20: 46.1
-- ma60: 44.47
-- ma120: 46.09
-- return_5d: 0
-- return_20d: 16.67
-- volume_ratio: 1.7
-- distance_to_ma20_pct_auxiliary: 6.29
-- distance_to_high_60_pct: -12.97
+- date: 20260615
+- open: 50.7
+- high: 50.7
+- low: 50.7
+- close: 50.7
+- volume: 51000
+- ma5: 51.28
+- ema23_primary: 47.4
+- distance_to_ema23_pct: 6.95
+- ma20: 46.62
+- ma60: 44.58
+- ma120: 46.1
+- return_5d: -0.2
+- return_20d: 25.65
+- volume_ratio: 1.65
+- distance_to_ma20_pct_auxiliary: 8.76
+- distance_to_high_60_pct: -9.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260507,41,41,39.8,40.35,10000,43.11,-6.4,43.18,44.4,2.6
 20260508,40.2,40.2,39.7,39.7,16000,42.83,-7.3,42.87,44.26,3.52
 20260511,40,40,40,40,1000,42.59,-6.08,42.6,44.12,0.23
 20260512,41,42.95,41,42.95,8000,42.62,0.77,42.56,44.03,1.84
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,54.6,56.3,53.5,54,54000,46.48,16.18,45.26,44.26,2.25
 20260611,52.9,53.4,50,51.9,51000,46.93,10.59,45.75,44.38,1.92
 20260612,51.6,51.6,49,49,49000,47.1,4.02,46.1,44.47,1.7
+20260615,50.7,50.7,50.7,50.7,51000,47.4,6.95,46.62,44.58,1.65
 ```
 
 ## Latest TDCC Snapshot

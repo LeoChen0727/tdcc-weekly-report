@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3037 欣興
 
 ## Metadata
-- generated_at: 2026-06-14 22:22:53 Asia/Taipei
+- generated_at: 2026-06-15 22:23:06 Asia/Taipei
 - stock_id: 3037
 - stock_name: 欣興
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 922
-- high: 930
-- low: 890
-- close: 902
-- volume: 15944333
-- ma5: 932.8
-- ema23_primary: 921.31
-- distance_to_ema23_pct: -2.1
-- ma20: 942.5
-- ma60: 754.21
-- ma120: 532.69
-- return_5d: -7.49
-- return_20d: 3.09
-- volume_ratio: 0.6
-- distance_to_ma20_pct_auxiliary: -4.3
-- distance_to_high_60_pct: -20.18
+- date: 20260615
+- open: 948
+- high: 961
+- low: 920
+- close: 960
+- volume: 16599358
+- ma5: 924.8
+- ema23_primary: 924.53
+- distance_to_ema23_pct: 3.84
+- ma20: 945.9
+- ma60: 761.74
+- ma120: 538.9
+- return_5d: -4
+- return_20d: 7.62
+- volume_ratio: 0.64
+- distance_to_ma20_pct_auxiliary: 1.49
+- distance_to_high_60_pct: -15.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,853,903,853,892,26722633,779.37,14.45,794.6,587.83,1.21
 20260514,910,918,879,881,29924774,787.84,11.82,807.75,596.04,1.29
 20260515,901,902,814,821,31599903,790.6,3.85,816.55,603.63,1.3
 20260518,791,818,776,816,21413916,792.72,2.94,825.2,611.57,0.85
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,950,969,890,933,26076886,929.34,0.39,941.5,740.71,0.96
 20260611,884,906,811,854,27061060,923.06,-7.48,941.15,747.17,1
 20260612,922,930,890,902,15944333,921.31,-2.1,942.5,754.21,0.6
+20260615,948,961,920,960,16599358,924.53,3.84,945.9,761.74,0.64
 ```
 
 ## Latest TDCC Snapshot
@@ -186,18 +186,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 3037 | 欣興 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
-| 20260612 | 3037 | 欣興 | revenue_pullback | 營收成長股價回檔 | 68.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260615 | 3037 | 欣興 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260615 | 3037 | 欣興 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 3037 | 欣興 | 5 | 4 | 5 | 6 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260615 | 3037 | 欣興 | 6 | 5 | 5 | 6 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 3037 | 欣興 | 200 | 36 | 9684190.0 | 19990.0 | 484.45 | no_signal |
+| 20260615 | 3037 | 欣興 | 200 | 34 | 11135890.0 | 22190.0 | 501.84 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

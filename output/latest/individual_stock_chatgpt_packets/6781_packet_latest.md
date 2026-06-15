@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6781 AES-KY
 
 ## Metadata
-- generated_at: 2026-06-14 22:23:53 Asia/Taipei
+- generated_at: 2026-06-15 22:23:52 Asia/Taipei
 - stock_id: 6781
 - stock_name: AES-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 1180
-- high: 1190
-- low: 1140
-- close: 1145
-- volume: 1238632
-- ma5: 1155
-- ema23_primary: 1162.59
-- distance_to_ema23_pct: -1.51
-- ma20: 1173.5
-- ma60: 1105.82
-- ma120: 1158.45
-- return_5d: 1.33
-- return_20d: -10.89
-- volume_ratio: 0.8
-- distance_to_ma20_pct_auxiliary: -2.43
-- distance_to_high_60_pct: -16.42
+- date: 20260615
+- open: 1170
+- high: 1210
+- low: 1160
+- close: 1170
+- volume: 1381309
+- ma5: 1147
+- ema23_primary: 1163.21
+- distance_to_ema23_pct: 0.58
+- ma20: 1170
+- ma60: 1108.57
+- ma120: 1156.58
+- return_5d: -3.31
+- return_20d: -5.65
+- volume_ratio: 0.9
+- distance_to_ma20_pct_auxiliary: 0
+- distance_to_high_60_pct: -14.6
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,1255,1305,1225,1240,1944926,1146.15,8.19,1135.4,1085.4,0.82
 20260514,1245,1260,1170,1185,1867751,1149.39,3.1,1145.5,1086.4,0.77
 20260515,1200,1235,1145,1160,1700091,1150.28,0.85,1152.75,1086.57,0.7
 20260518,1145,1185,1095,1185,1084489,1153.17,2.76,1160,1087.73,0.45
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,1160,1160,1100,1135,1011467,1165.02,-2.58,1188.75,1101.57,0.57
 20260611,1080,1155,1065,1155,2197628,1164.19,-0.79,1180.5,1103.57,1.33
 20260612,1180,1190,1140,1145,1238632,1162.59,-1.51,1173.5,1105.82,0.8
+20260615,1170,1210,1160,1170,1381309,1163.21,0.58,1170,1108.57,0.9
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 6781 | AES-KY | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260615 | 6781 | AES-KY | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 6781 | AES-KY | 3 | 2 | 4 | 9 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260615 | 6781 | AES-KY | 4 | 3 | 4 | 9 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 6781 | AES-KY | 173 | 2 | 14536290.0 | 9910.0 | 1466.83 | no_signal |
+| 20260615 | 6781 | AES-KY | 168 | 2 | 20212330.0 | 5640.0 | 3583.75 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

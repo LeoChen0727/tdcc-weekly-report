@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1714 和桐
 
 ## Metadata
-- generated_at: 2026-06-14 22:22:25 Asia/Taipei
+- generated_at: 2026-06-15 22:22:44 Asia/Taipei
 - stock_id: 1714
 - stock_name: 和桐
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -74,7 +74,7 @@
 - action_rating: take_profit
 - action_rating_label_zh: 停利
 - confidence_level: low
-- thesis_state: breakout_initial
+- thesis_state: breakout_confirmed
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -114,29 +114,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 14.95
-- high: 15.7
-- low: 14.15
-- close: 15.2
-- volume: 132650748
-- ma5: 12.42
-- ema23_primary: 10.71
-- distance_to_ema23_pct: 41.92
-- ma20: 10.37
-- ma60: 9.89
-- ma120: 9.41
-- return_5d: 52
-- return_20d: 48.29
-- volume_ratio: 6.36
-- distance_to_ma20_pct_auxiliary: 46.52
-- distance_to_high_60_pct: -3.18
+- date: 20260615
+- open: 16
+- high: 16.7
+- low: 16
+- close: 16.7
+- volume: 50826789
+- ma5: 13.56
+- ema23_primary: 11.21
+- distance_to_ema23_pct: 48.98
+- ma20: 10.71
+- ma60: 10.02
+- ma120: 9.48
+- return_5d: 51.82
+- return_20d: 68.86
+- volume_ratio: 2.2
+- distance_to_ma20_pct_auxiliary: 55.86
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,10.15,10.15,9.88,9.89,6931941,9.63,2.71,9.63,9.62,1.31
 20260514,10,10.1,9.89,10,4377614,9.66,3.52,9.64,9.63,0.85
 20260515,10.05,10.1,9.81,9.84,4838247,9.68,1.71,9.64,9.64,0.92
 20260518,9.85,9.88,9.64,9.75,4572793,9.68,0.71,9.64,9.65,0.87
@@ -156,6 +155,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,12.1,12.15,10.9,11.5,64868308,9.93,15.81,9.9,9.72,6.01
 20260611,13.95,14.4,13.3,14.4,98457282,10.3,39.78,10.13,9.79,6.44
 20260612,14.95,15.7,14.15,15.2,132650748,10.71,41.92,10.37,9.89,6.36
+20260615,16,16.7,16,16.7,50826789,11.21,48.98,10.71,10.02,2.2
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 1714 | 和桐 | true_breakout | 嚴格突破 | 89.0 |  |  | platform_breakout |  | call_strong_inflow | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260615 | 1714 | 和桐 | true_breakout | 嚴格突破 | 94.0 |  |  | breakout_confirmed |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 1714 | 和桐 | 13 | 2 | 5 | 10 | 13 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260615 | 1714 | 和桐 | 14 | 3 | 5 | 10 | 14 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 1714 | 和桐 | 4 | 0 | 4312940.0 | 0.0 |  | call_strong_inflow |
+| 20260615 | 1714 | 和桐 | 4 | 0 | 1408360.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

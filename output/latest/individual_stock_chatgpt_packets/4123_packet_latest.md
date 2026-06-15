@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4123 晟德
 
 ## Metadata
-- generated_at: 2026-06-14 22:23:12 Asia/Taipei
+- generated_at: 2026-06-15 22:23:20 Asia/Taipei
 - stock_id: 4123
 - stock_name: 晟德
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 37.7
-- high: 37.85
-- low: 37.5
+- date: 20260615
+- open: 37.85
+- high: 37.9
+- low: 37.6
 - close: 37.65
 - volume: 38000
-- ma5: 38.1
-- ema23_primary: 38.34
-- distance_to_ema23_pct: -1.8
-- ma20: 38.19
-- ma60: 39.76
+- ma5: 37.96
+- ema23_primary: 38.28
+- distance_to_ema23_pct: -1.65
+- ma20: 38.16
+- ma60: 39.66
 - ma120: 40.32
 - return_5d: -1.83
-- return_20d: -1.83
-- volume_ratio: 0.03
-- distance_to_ma20_pct_auxiliary: -1.41
+- return_20d: -1.7
+- volume_ratio: 0.04
+- distance_to_ma20_pct_auxiliary: -1.32
 - distance_to_high_60_pct: -16.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,38.25,38.45,38.1,38.3,1738000,39.29,-2.51,39.24,41.41,0.66
 20260514,39.05,40,38.75,39.45,9236000,39.3,0.38,39.13,41.4,3.28
 20260515,39.75,39.75,38.3,38.3,4021000,39.22,-2.34,38.97,41.38,1.4
 20260518,38.3,38.35,37.85,37.95,1987000,39.11,-2.97,38.84,41.36,0.72
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,38.5,39.4,38.5,38.8,39000,38.5,0.78,38.27,40,0.03
 20260611,38,38,37.1,37.35,37000,38.4,-2.74,38.22,39.88,0.03
 20260612,37.7,37.85,37.5,37.65,38000,38.34,-1.8,38.19,39.76,0.03
+20260615,37.85,37.9,37.6,37.65,38000,38.28,-1.65,38.16,39.66,0.04
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8171 天宇
 
 ## Metadata
-- generated_at: 2026-06-14 22:24:17 Asia/Taipei
+- generated_at: 2026-06-15 22:24:11 Asia/Taipei
 - stock_id: 8171
 - stock_name: 天宇
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 23
-- high: 23.25
-- low: 22.7
-- close: 22.95
-- volume: 23000
-- ma5: 23.9
-- ema23_primary: 23.65
-- distance_to_ema23_pct: -2.97
-- ma20: 23.59
-- ma60: 24.11
-- ma120: 25.52
-- return_5d: -3.57
-- return_20d: -6.71
-- volume_ratio: 0.31
-- distance_to_ma20_pct_auxiliary: -2.71
-- distance_to_high_60_pct: -16.24
+- date: 20260615
+- open: 22.3
+- high: 22.35
+- low: 20.7
+- close: 20.95
+- volume: 21000
+- ma5: 23.2
+- ema23_primary: 23.43
+- distance_to_ema23_pct: -10.57
+- ma20: 23.44
+- ma60: 24.03
+- ma120: 25.49
+- return_5d: -14.31
+- return_20d: -12.53
+- volume_ratio: 0.32
+- distance_to_ma20_pct_auxiliary: -10.62
+- distance_to_high_60_pct: -23.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,24.25,24.25,23.65,23.95,173000,23.67,1.17,23.39,25.31,0.79
 20260514,23.75,23.75,23.3,23.3,177000,23.64,-1.45,23.35,25.23,0.8
 20260515,23.6,23.9,22.9,22.9,171000,23.58,-2.89,23.29,25.12,0.77
 20260518,23.3,23.95,22.8,23.95,283000,23.61,1.44,23.29,25.04,1.24
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,25.9,25.9,24.35,24.75,25000,23.79,4.04,23.73,24.22,0.2
 20260611,23.5,23.5,22.75,22.9,23000,23.72,-3.44,23.67,24.16,0.26
 20260612,23,23.25,22.7,22.95,23000,23.65,-2.97,23.59,24.11,0.31
+20260615,22.3,22.35,20.7,20.95,21000,23.43,-10.57,23.44,24.03,0.32
 ```
 
 ## Latest TDCC Snapshot

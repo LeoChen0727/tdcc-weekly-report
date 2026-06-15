@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6732 昇佳電子
 
 ## Metadata
-- generated_at: 2026-06-14 22:23:52 Asia/Taipei
+- generated_at: 2026-06-15 22:23:51 Asia/Taipei
 - stock_id: 6732
 - stock_name: 昇佳電子
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 152.5
-- high: 155
-- low: 152.5
-- close: 153
-- volume: 154000
-- ma5: 162.4
-- ema23_primary: 166.87
-- distance_to_ema23_pct: -8.31
-- ma20: 170.45
-- ma60: 160.19
-- ma120: 167.75
-- return_5d: -11.56
-- return_20d: -10.26
-- volume_ratio: 0.82
-- distance_to_ma20_pct_auxiliary: -10.24
-- distance_to_high_60_pct: -18.4
+- date: 20260615
+- open: 154.5
+- high: 158
+- low: 154.5
+- close: 157
+- volume: 157000
+- ma5: 159.3
+- ema23_primary: 166.05
+- distance_to_ema23_pct: -5.45
+- ma20: 170.03
+- ma60: 160.04
+- ma120: 167.55
+- return_5d: -8.99
+- return_20d: -5.14
+- volume_ratio: 0.86
+- distance_to_ma20_pct_auxiliary: -7.66
+- distance_to_high_60_pct: -16.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,169,169,164,165.5,234000,158.56,4.38,157.65,160.32,0.84
 20260514,167.5,177.5,167,172.5,391000,159.72,8,158.75,160.25,1.34
 20260515,175,175.5,165.5,166.5,291000,160.29,3.88,159.47,160.11,0.99
 20260518,164,166,161,166,147000,160.76,3.26,159.88,159.97,0.52
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,167,168,163,163.5,165000,169.74,-3.67,172.15,160.77,0.82
 20260611,152,154,148.5,150.5,151000,168.13,-10.49,171.32,160.43,0.75
 20260612,152.5,155,152.5,153,154000,166.87,-8.31,170.45,160.19,0.82
+20260615,154.5,158,154.5,157,157000,166.05,-5.45,170.03,160.04,0.86
 ```
 
 ## Latest TDCC Snapshot

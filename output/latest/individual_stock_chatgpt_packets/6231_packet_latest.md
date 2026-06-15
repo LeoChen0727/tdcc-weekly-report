@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6231 系微
 
 ## Metadata
-- generated_at: 2026-06-14 22:23:40 Asia/Taipei
+- generated_at: 2026-06-15 22:23:42 Asia/Taipei
 - stock_id: 6231
 - stock_name: 系微
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 279
-- high: 279
-- low: 266
-- close: 267.5
-- volume: 270000
-- ma5: 294
-- ema23_primary: 295.36
-- distance_to_ema23_pct: -9.43
-- ma20: 293.6
-- ma60: 285.84
-- ma120: 246.55
-- return_5d: -16.28
-- return_20d: -14.13
-- volume_ratio: 0.58
-- distance_to_ma20_pct_auxiliary: -8.89
-- distance_to_high_60_pct: -28.28
+- date: 20260615
+- open: 274.5
+- high: 282.5
+- low: 274.5
+- close: 282.5
+- volume: 279000
+- ma5: 288.1
+- ema23_primary: 294.29
+- distance_to_ema23_pct: -4.01
+- ma20: 292.43
+- ma60: 286.99
+- ma120: 247.16
+- return_5d: -9.46
+- return_20d: -7.68
+- volume_ratio: 0.68
+- distance_to_ma20_pct_auxiliary: -3.39
+- distance_to_high_60_pct: -24.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,308.5,317.5,302.5,306,1262000,301.58,1.46,307.68,255.02,0.58
 20260514,310,312,286,289,1794000,300.53,-3.84,309.45,256.39,0.81
 20260515,292,295.5,281,282.5,1016000,299.03,-5.53,310.5,257.57,0.45
 20260518,280,286.5,275,285,506000,297.86,-4.32,311.62,259.01,0.23
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,317.5,321.5,309.5,312,314000,300.75,3.74,298.27,283.69,0.56
 20260611,279,280.5,260,266.5,269000,297.89,-10.54,295.8,284.78,0.52
 20260612,279,279,266,267.5,270000,295.36,-9.43,293.6,285.84,0.58
+20260615,274.5,282.5,274.5,282.5,279000,294.29,-4.01,292.43,286.99,0.68
 ```
 
 ## Latest TDCC Snapshot

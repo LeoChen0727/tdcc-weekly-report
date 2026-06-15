@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2615 萬海
 
 ## Metadata
-- generated_at: 2026-06-14 22:22:45 Asia/Taipei
+- generated_at: 2026-06-15 22:23:00 Asia/Taipei
 - stock_id: 2615
 - stock_name: 萬海
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 84.5
-- high: 87.1
-- low: 84
-- close: 85
-- volume: 12918055
-- ma5: 84.6
-- ema23_primary: 81.65
-- distance_to_ema23_pct: 4.11
-- ma20: 81.41
-- ma60: 78.27
-- ma120: 77.98
-- return_5d: 0.95
-- return_20d: 10.53
-- volume_ratio: 0.93
-- distance_to_ma20_pct_auxiliary: 4.42
-- distance_to_high_60_pct: -2.41
+- date: 20260615
+- open: 87.4
+- high: 87.8
+- low: 83.5
+- close: 83.5
+- volume: 12778582
+- ma5: 84.52
+- ema23_primary: 81.8
+- distance_to_ema23_pct: 2.08
+- ma20: 81.86
+- ma60: 78.35
+- ma120: 78.01
+- return_5d: -0.48
+- return_20d: 12.38
+- volume_ratio: 0.92
+- distance_to_ma20_pct_auxiliary: 2
+- distance_to_high_60_pct: -4.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,77.7,78,74.2,74.3,12043296,76.3,-2.63,75.74,77,1.61
 20260514,74.3,75.5,73.5,74.8,9727716,76.18,-1.81,75.6,77,1.3
 20260515,74.8,75.9,74,74.2,5759610,76.01,-2.39,75.47,76.99,0.78
 20260518,74.5,78.3,74.4,76.9,16577354,76.09,1.07,75.55,77.04,2.16
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,85,87.1,84.5,86.1,26268026,81.12,6.14,80.73,78.12,1.94
 20260611,84,84.4,82.5,83.8,7275284,81.34,3.02,81,78.19,0.54
 20260612,84.5,87.1,84,85,12918055,81.65,4.11,81.41,78.27,0.93
+20260615,87.4,87.8,83.5,83.5,12778582,81.8,2.08,81.86,78.35,0.92
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 2615 | 萬海 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_put_bullish | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260615 | 2615 | 萬海 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 2615 | 萬海 | 13 | 2 | 5 | 10 | 13 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 13 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260615 | 2615 | 萬海 | 14 | 3 | 5 | 10 | 14 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 14 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 2615 | 萬海 | 67 | 6 | 11551340.0 | 12900.0 | 895.45 | call_put_bullish |
+| 20260615 | 2615 | 萬海 | 66 | 6 | 9454850.0 | 19150.0 | 493.73 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

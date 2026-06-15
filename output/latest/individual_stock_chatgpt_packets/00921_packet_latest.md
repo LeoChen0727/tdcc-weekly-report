@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00921 兆豐龍頭等權重
 
 ## Metadata
-- generated_at: 2026-06-14 22:22:12 Asia/Taipei
+- generated_at: 2026-06-15 22:22:35 Asia/Taipei
 - stock_id: 00921
 - stock_name: 兆豐龍頭等權重
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260612
-- price_rows: 13
+- latest_price_date: 20260615
+- price_rows: 14
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 22.98
-- high: 23
-- low: 22.7
-- close: 22.7
-- volume: 236668
-- ma5: 22.98
-- ema23_primary: 22.4
-- distance_to_ema23_pct: 1.34
-- ma20: 22.62
-- ma60: 22.62
-- ma120: 22.62
-- return_5d: -1.77
+- date: 20260615
+- open: 23.15
+- high: 23.22
+- low: 23.06
+- close: 23.12
+- volume: 279674
+- ma5: 22.9
+- ema23_primary: 22.46
+- distance_to_ema23_pct: 2.94
+- ma20: 22.66
+- ma60: 22.66
+- ma120: 22.66
+- return_5d: -1.66
 - return_20d:
-- volume_ratio: 0.35
-- distance_to_ma20_pct_auxiliary: 0.34
-- distance_to_high_60_pct: -3.69
+- volume_ratio: 0.43
+- distance_to_ma20_pct_auxiliary: 2.04
+- distance_to_high_60_pct: -1.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -148,6 +148,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,23.44,23.44,22.74,23.1,355551,22.36,3.3,22.63,22.63,0.46
 20260611,22.5,22.6,22,22.49,166922,22.37,0.53,22.62,22.62,0.23
 20260612,22.98,23,22.7,22.7,236668,22.4,1.34,22.62,22.62,0.35
+20260615,23.15,23.22,23.06,23.12,279674,22.46,2.94,22.66,22.66,0.43
 ```
 
 ## Latest TDCC Snapshot

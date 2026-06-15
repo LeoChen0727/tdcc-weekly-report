@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3617 碩天
 
 ## Metadata
-- generated_at: 2026-06-14 22:23:08 Asia/Taipei
+- generated_at: 2026-06-15 22:23:17 Asia/Taipei
 - stock_id: 3617
 - stock_name: 碩天
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 29
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 215
-- high: 219
-- low: 212.5
-- close: 217
-- volume: 428240
-- ma5: 214.8
-- ema23_primary: 205.56
-- distance_to_ema23_pct: 5.57
-- ma20: 204.72
-- ma60: 189.99
-- ma120: 192.55
-- return_5d: 2.12
-- return_20d: 11.86
-- volume_ratio: 0.99
-- distance_to_ma20_pct_auxiliary: 6
-- distance_to_high_60_pct: -2.91
+- date: 20260615
+- open: 219
+- high: 219.5
+- low: 215
+- close: 215.5
+- volume: 282439
+- ma5: 214.4
+- ema23_primary: 206.39
+- distance_to_ema23_pct: 4.42
+- ma20: 205.65
+- ma60: 190.62
+- ma120: 192.68
+- return_5d: -0.92
+- return_20d: 9.39
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: 4.79
+- distance_to_high_60_pct: -3.58
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,195,197.5,193,197,424780,190.67,3.32,192.5,184.81,1.22
 20260514,198,198,193.5,193.5,273974,190.91,1.36,192.78,184.79,0.82
 20260515,194,198,188.5,190,357403,190.83,-0.44,192.8,184.74,1.08
 20260518,186,192.5,185.5,191.5,158125,190.89,0.32,192.78,184.8,0.49
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,221.5,223.5,214,217,561023,204.02,6.36,203.2,188.93,1.26
 20260611,210,214.5,204.5,210,477203,204.52,2.68,203.57,189.37,1.07
 20260612,215,219,212.5,217,428240,205.56,5.57,204.72,189.99,0.99
+20260615,219,219.5,215,215.5,282439,206.39,4.42,205.65,190.62,0.66
 ```
 
 ## Latest TDCC Snapshot
@@ -200,7 +201,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 3617 | 碩天 | 5 | 0 | 1404910.0 | 0.0 |  | call_inflow |
+| 20260615 | 3617 | 碩天 | 5 | 0 | 897840.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

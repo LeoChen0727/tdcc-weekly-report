@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4582 聚恆-創
 
 ## Metadata
-- generated_at: 2026-06-14 22:23:18 Asia/Taipei
+- generated_at: 2026-06-15 22:23:25 Asia/Taipei
 - stock_id: 4582
 - stock_name: 聚恆-創
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260612
-- price_rows: 13
+- latest_price_date: 20260615
+- price_rows: 14
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 26.35
-- high: 27
-- low: 25.9
-- close: 26
-- volume: 198406
-- ma5: 25.86
-- ema23_primary: 25.05
-- distance_to_ema23_pct: 3.77
-- ma20: 25.27
-- ma60: 25.27
-- ma120: 25.27
-- return_5d: 0.39
+- date: 20260615
+- open: 26.05
+- high: 26.25
+- low: 25.6
+- close: 26.15
+- volume: 475541
+- ma5: 25.89
+- ema23_primary: 25.15
+- distance_to_ema23_pct: 3.99
+- ma20: 25.34
+- ma60: 25.34
+- ma120: 25.34
+- return_5d: 0.58
 - return_20d:
-- volume_ratio: 0.29
-- distance_to_ma20_pct_auxiliary: 2.88
-- distance_to_high_60_pct: -5.11
+- volume_ratio: 0.7
+- distance_to_ma20_pct_auxiliary: 3.21
+- distance_to_high_60_pct: -4.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -148,6 +148,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,26.35,26.35,25.5,25.5,293250,24.88,2.47,25.15,25.15,0.39
 20260611,27,27.4,25.9,25.9,612097,24.97,3.73,25.21,25.21,0.83
 20260612,26.35,27,25.9,26,198406,25.05,3.77,25.27,25.27,0.29
+20260615,26.05,26.25,25.6,26.15,475541,25.15,3.99,25.34,25.34,0.7
 ```
 
 ## Latest TDCC Snapshot

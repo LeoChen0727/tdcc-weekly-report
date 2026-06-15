@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2201 裕隆
 
 ## Metadata
-- generated_at: 2026-06-14 22:22:31 Asia/Taipei
+- generated_at: 2026-06-15 22:22:49 Asia/Taipei
 - stock_id: 2201
 - stock_name: 裕隆
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 27.95
-- high: 28.4
-- low: 27.75
-- close: 27.8
-- volume: 2740968
-- ma5: 28.27
-- ema23_primary: 27.6
-- distance_to_ema23_pct: 0.72
-- ma20: 27.4
+- date: 20260615
+- open: 28.15
+- high: 28.35
+- low: 28
+- close: 28.1
+- volume: 2347762
+- ma5: 28.06
+- ema23_primary: 27.64
+- distance_to_ema23_pct: 1.65
+- ma20: 27.43
 - ma60: 27.4
-- ma120: 29.61
-- return_5d: -1.24
-- return_20d: 0.36
-- volume_ratio: 0.76
-- distance_to_ma20_pct_auxiliary: 1.46
-- distance_to_high_60_pct: -5.92
+- ma120: 29.56
+- return_5d: -3.6
+- return_20d: 1.81
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: 2.46
+- distance_to_high_60_pct: -4.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,27.7,27.7,27.25,27.6,2294955,27.44,0.57,27.34,28.17,0.61
 20260514,27.85,27.95,27.2,27.3,2626041,27.43,-0.48,27.34,28.11,0.79
 20260515,27.45,27.65,26.85,26.9,3742762,27.39,-1.78,27.32,28.04,1.18
 20260518,26.9,27,26.55,26.65,3482501,27.33,-2.47,27.31,27.97,1.11
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,28.75,28.9,28.05,28.7,3257655,27.59,4.03,27.41,27.42,0.89
 20260611,27.9,27.9,27.3,27.55,1944730,27.58,-0.12,27.39,27.4,0.54
 20260612,27.95,28.4,27.75,27.8,2740968,27.6,0.72,27.4,27.4,0.76
+20260615,28.15,28.35,28,28.1,2347762,27.64,1.65,27.43,27.4,0.65
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 2201 | 裕隆 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260615 | 2201 | 裕隆 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 2201 | 裕隆 | 8 | 3 | 5 | 9 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260615 | 2201 | 裕隆 | 9 | 4 | 5 | 9 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 2201 | 裕隆 | 4 | 0 | 22960.0 | 0.0 |  | no_signal |
+| 20260615 | 2201 | 裕隆 | 4 | 0 | 25790.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

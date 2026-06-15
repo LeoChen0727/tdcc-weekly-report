@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1307 三芳
 
 ## Metadata
-- generated_at: 2026-06-14 22:22:16 Asia/Taipei
+- generated_at: 2026-06-15 22:22:38 Asia/Taipei
 - stock_id: 1307
 - stock_name: 三芳
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -74,7 +74,7 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: breakout_confirmed
+- thesis_state: unclear
 - entry_style: breakout_follow
 - position_sizing: starter_1_3
 
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 35.7
-- high: 36.9
-- low: 35.6
-- close: 36.75
-- volume: 2857558
-- ma5: 34.68
-- ema23_primary: 32.8
-- distance_to_ema23_pct: 12.05
-- ma20: 32.35
-- ma60: 32.45
-- ma120: 32.51
-- return_5d: 10.86
-- return_20d: 13.78
-- volume_ratio: 2.42
-- distance_to_ma20_pct_auxiliary: 13.61
-- distance_to_high_60_pct: -0.41
+- date: 20260615
+- open: 37.05
+- high: 38
+- low: 36.6
+- close: 37.05
+- volume: 2003475
+- ma5: 35.29
+- ema23_primary: 33.15
+- distance_to_ema23_pct: 11.76
+- ma20: 32.61
+- ma60: 32.51
+- ma120: 32.55
+- return_5d: 8.97
+- return_20d: 16.33
+- volume_ratio: 1.61
+- distance_to_ma20_pct_auxiliary: 13.62
+- distance_to_high_60_pct: -2.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,32.05,32.35,31.85,31.85,636276,31.95,-0.3,31.72,32.75,0.67
 20260514,31.9,32.1,31.7,31.9,900619,31.94,-0.14,31.71,32.76,0.94
 20260515,32,32.4,31.8,31.85,647647,31.94,-0.27,31.7,32.76,0.67
 20260518,31.8,32.1,31.7,31.8,428749,31.92,-0.39,31.7,32.77,0.45
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,34.45,34.95,33.5,34.3,2012802,32.19,6.57,31.99,32.36,1.79
 20260611,35.25,35.6,34.7,35.2,1292262,32.44,8.52,32.12,32.4,1.18
 20260612,35.7,36.9,35.6,36.75,2857558,32.8,12.05,32.35,32.45,2.42
+20260615,37.05,38,36.6,37.05,2003475,33.15,11.76,32.61,32.51,1.61
 ```
 
 ## Latest TDCC Snapshot
@@ -191,17 +191,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 1307 | 三芳 | true_breakout | 嚴格突破 | 138.0 |  |  | breakout_confirmed |  | call_inflow | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260615 | 1307 | 三芳 | true_breakout | 嚴格突破 | 101.0 |  |  | neckline_challenge |  | call_inflow | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 1307 | 三芳 | 1 | 1 | 4 | 5 | 5 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260615 | 1307 | 三芳 | 2 | 2 | 4 | 6 | 6 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 1307 | 三芳 | 8 | 0 | 2181550.0 | 0.0 |  | call_inflow |
+| 20260615 | 1307 | 三芳 | 8 | 0 | 1864690.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

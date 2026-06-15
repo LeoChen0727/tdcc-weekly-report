@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2495 普安
 
 ## Metadata
-- generated_at: 2026-06-14 22:22:42 Asia/Taipei
+- generated_at: 2026-06-15 22:22:57 Asia/Taipei
 - stock_id: 2495
 - stock_name: 普安
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 50.6
-- high: 51.4
-- low: 49.3
-- close: 50.3
-- volume: 14663418
-- ma5: 50.77
-- ema23_primary: 46.11
-- distance_to_ema23_pct: 9.09
-- ma20: 44.99
-- ma60: 40.44
-- ma120: 35.91
-- return_5d: -2.52
-- return_20d: 39.34
-- volume_ratio: 1.06
-- distance_to_ma20_pct_auxiliary: 11.8
-- distance_to_high_60_pct: -6.51
+- date: 20260615
+- open: 51.4
+- high: 52.2
+- low: 50.4
+- close: 50.5
+- volume: 18666222
+- ma5: 50.31
+- ema23_primary: 46.48
+- distance_to_ema23_pct: 8.66
+- ma20: 45.74
+- ma60: 40.73
+- ma120: 36.11
+- return_5d: -4.36
+- return_20d: 42.25
+- volume_ratio: 1.28
+- distance_to_ma20_pct_auxiliary: 10.4
+- distance_to_high_60_pct: -6.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,36.05,36.05,34.8,35.5,4037788,38.9,-8.74,40.87,35.84,0.36
 20260514,36,36.5,35.55,36.4,3372119,38.69,-5.92,40.43,35.9,0.33
 20260515,36.7,36.8,34.95,35.15,3408201,38.4,-8.45,40.01,35.96,0.38
 20260518,35.3,36.7,34.65,36.7,3582139,38.25,-4.06,39.7,36.05,0.43
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,50.1,50.4,48,49.5,6580184,45.37,9.1,43.62,39.78,0.51
 20260611,48.1,50.3,47.8,49.65,12999963,45.73,8.57,44.28,40.1,0.98
 20260612,50.6,51.4,49.3,50.3,14663418,46.11,9.09,44.99,40.44,1.06
+20260615,51.4,52.2,50.4,50.5,18666222,46.48,8.66,45.74,40.73,1.28
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 2495 | 普安 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260615 | 2495 | 普安 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 2495 | 普安 | 3 | 3 | 4 | 9 | 12 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260615 | 2495 | 普安 | 4 | 4 | 4 | 9 | 13 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 2495 | 普安 | 23 | 0 | 1428990.0 | 0.0 |  | no_signal |
+| 20260615 | 2495 | 普安 | 23 | 0 | 1881870.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2618 長榮航
 
 ## Metadata
-- generated_at: 2026-06-14 22:22:45 Asia/Taipei
+- generated_at: 2026-06-15 22:23:00 Asia/Taipei
 - stock_id: 2618
 - stock_name: 長榮航
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 29
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 38.1
-- high: 39.4
-- low: 38.05
-- close: 38.7
-- volume: 75680658
-- ma5: 37.81
-- ema23_primary: 36.24
-- distance_to_ema23_pct: 6.78
-- ma20: 35.93
-- ma60: 35.15
-- ma120: 35.87
-- return_5d: 3.89
-- return_20d: 10.26
-- volume_ratio: 1.32
-- distance_to_ma20_pct_auxiliary: 7.72
-- distance_to_high_60_pct: -1.78
+- date: 20260615
+- open: 40
+- high: 40.45
+- low: 39.4
+- close: 39.95
+- volume: 78426978
+- ma5: 38.26
+- ema23_primary: 36.55
+- distance_to_ema23_pct: 9.3
+- ma20: 36.2
+- ma60: 35.25
+- ma120: 35.92
+- return_5d: 5.97
+- return_20d: 15.97
+- volume_ratio: 1.3
+- distance_to_ma20_pct_auxiliary: 10.35
+- distance_to_high_60_pct: -1.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,35,35,34.35,34.45,21572695,34.68,-0.66,34.54,35.25,0.77
 20260514,35.5,36.2,34.95,35,37043843,34.71,0.85,34.55,35.2,1.31
 20260515,35.2,35.4,34.65,34.65,23270613,34.7,-0.15,34.52,35.13,0.81
 20260518,34.5,34.75,34.1,34.1,26384216,34.65,-1.59,34.47,35.06,0.91
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,37.95,38.1,37.35,37.7,39384323,35.87,5.11,35.66,35,0.72
 20260611,37,37.8,36.75,37.7,41921727,36.02,4.67,35.75,35.06,0.76
 20260612,38.1,39.4,38.05,38.7,75680658,36.24,6.78,35.93,35.15,1.32
+20260615,40,40.45,39.4,39.95,78426978,36.55,9.3,36.2,35.25,1.3
 ```
 
 ## Latest TDCC Snapshot
@@ -200,7 +200,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 2618 | 長榮航 | 31 | 0 | 5688200.0 | 0.0 |  | call_strong_inflow |
+| 20260615 | 2618 | 長榮航 | 30 | 0 | 12720240.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2014 中鴻
 
 ## Metadata
-- generated_at: 2026-06-14 22:22:29 Asia/Taipei
+- generated_at: 2026-06-15 22:22:47 Asia/Taipei
 - stock_id: 2014
 - stock_name: 中鴻
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 17.7
-- high: 18.25
-- low: 17.6
-- close: 18
-- volume: 8943270
-- ma5: 18.24
-- ema23_primary: 18.01
-- distance_to_ema23_pct: -0.08
-- ma20: 17.89
-- ma60: 18.06
-- ma120: 17.45
-- return_5d: -1.1
-- return_20d: 0.28
-- volume_ratio: 0.98
-- distance_to_ma20_pct_auxiliary: 0.63
-- distance_to_high_60_pct: -11.55
+- date: 20260615
+- open: 18.35
+- high: 18.7
+- low: 18.1
+- close: 18.15
+- volume: 6268416
+- ma5: 18.11
+- ema23_primary: 18.03
+- distance_to_ema23_pct: 0.69
+- ma20: 17.9
+- ma60: 18.08
+- ma120: 17.47
+- return_5d: -3.46
+- return_20d: 1.11
+- volume_ratio: 0.68
+- distance_to_ma20_pct_auxiliary: 1.41
+- distance_to_high_60_pct: -10.81
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,18.35,18.35,17.85,17.95,3918587,17.97,-0.09,17.93,18.09,0.7
 20260514,18,18.25,17.85,17.9,4432477,17.96,-0.34,17.9,18.06,0.79
 20260515,17.95,17.95,17.2,17.3,5148374,17.91,-3.38,17.84,18.04,0.92
 20260518,17.2,17.3,17,17.1,3969745,17.84,-4.14,17.76,18.02,0.74
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,18.75,18.85,18.35,18.75,6357484,18.07,3.78,17.92,18.06,0.69
 20260611,17.65,17.65,17,17.45,5893559,18.02,-3.14,17.89,18.06,0.66
 20260612,17.7,18.25,17.6,18,8943270,18.01,-0.08,17.89,18.06,0.98
+20260615,18.35,18.7,18.1,18.15,6268416,18.03,0.69,17.9,18.08,0.68
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 2014 | 中鴻 | pattern | 型態觀察 | 53.0 |  |  | base_building |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260615 | 2014 | 中鴻 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 2014 | 中鴻 | 1 | 1 | 4 | 9 | 10 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260615 | 2014 | 中鴻 | 2 | 2 | 4 | 9 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 2014 | 中鴻 | 1 | 0 | 2050.0 | 0.0 |  | no_signal |
+| 20260615 | 2014 | 中鴻 | 1 | 0 | 12410.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

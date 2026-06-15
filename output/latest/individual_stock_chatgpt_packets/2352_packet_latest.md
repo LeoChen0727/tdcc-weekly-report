@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2352 佳世達
 
 ## Metadata
-- generated_at: 2026-06-14 22:22:35 Asia/Taipei
+- generated_at: 2026-06-15 22:22:52 Asia/Taipei
 - stock_id: 2352
 - stock_name: 佳世達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 274
+- latest_price_date: 20260615
+- price_rows: 275
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 30.9
-- high: 31.3
-- low: 30.7
-- close: 31
-- volume: 8443093
-- ma5: 31.66
-- ema23_primary: 28.75
-- distance_to_ema23_pct: 7.84
-- ma20: 28.52
-- ma60: 25.79
-- ma120: 25.46
-- return_5d: -1.59
-- return_20d: 19.46
-- volume_ratio: 0.63
-- distance_to_ma20_pct_auxiliary: 8.68
-- distance_to_high_60_pct: -10.53
+- date: 20260615
+- open: 31.45
+- high: 31.7
+- low: 31.05
+- close: 31.3
+- volume: 8721153
+- ma5: 30.99
+- ema23_primary: 28.96
+- distance_to_ema23_pct: 8.09
+- ma20: 28.78
+- ma60: 25.91
+- ma120: 25.49
+- return_5d: -9.67
+- return_20d: 19.24
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: 8.77
+- distance_to_high_60_pct: -9.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,25.8,26.35,25.5,26.25,9103295,24.98,5.08,25.11,24.57,1.52
 20260514,26.5,26.5,25.55,25.6,6371055,25.03,2.27,25.15,24.56,1.07
 20260515,25.8,26.25,25.15,25.2,5297872,25.05,0.61,25.15,24.56,0.89
 20260518,25.4,25.4,24.85,25.1,3373080,25.05,0.2,25.12,24.56,0.58
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,33.5,33.65,30.9,31.1,26702502,28.4,9.49,28.05,25.57,1.97
 20260611,30.1,30.35,29.3,30.05,5885351,28.54,5.29,28.27,25.67,0.44
 20260612,30.9,31.3,30.7,31,8443093,28.75,7.84,28.52,25.79,0.63
+20260615,31.45,31.7,31.05,31.3,8721153,28.96,8.09,28.78,25.91,0.65
 ```
 
 ## Latest TDCC Snapshot
@@ -195,7 +195,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 2352 | 佳世達 | 20 | 2 | 1591400.0 | 0.0 |  | call_inflow |
+| 20260615 | 2352 | 佳世達 | 20 | 2 | 1215130.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

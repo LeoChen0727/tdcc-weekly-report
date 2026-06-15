@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3006 晶豪科
 
 ## Metadata
-- generated_at: 2026-06-14 22:22:51 Asia/Taipei
+- generated_at: 2026-06-15 22:23:05 Asia/Taipei
 - stock_id: 3006
 - stock_name: 晶豪科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 217
-- high: 221.5
-- low: 215
-- close: 217
-- volume: 9024259
-- ma5: 234.2
-- ema23_primary: 227.53
-- distance_to_ema23_pct: -4.63
-- ma20: 237.72
-- ma60: 194.88
-- ma120: 164.86
-- return_5d: -18.88
-- return_20d: -1.36
+- date: 20260615
+- open: 223
+- high: 227.5
+- low: 219
+- close: 222.5
+- volume: 8721614
+- ma5: 226.8
+- ema23_primary: 227.11
+- distance_to_ema23_pct: -2.03
+- ma20: 238.03
+- ma60: 195.9
+- ma120: 166.05
+- return_5d: -14.26
+- return_20d: 2.77
 - volume_ratio: 0.33
-- distance_to_ma20_pct_auxiliary: -8.72
-- distance_to_high_60_pct: -20.66
+- distance_to_ma20_pct_auxiliary: -6.52
+- distance_to_high_60_pct: -18.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,217.5,221,211.5,216.5,13974959,184.41,17.4,178.2,168.86,0.55
 20260514,230,238,229.5,238,20445860,188.88,26.01,182.3,169.94,0.79
 20260515,238,261,233.5,251,42081863,194.06,29.34,187,171.3,1.52
 20260518,243,252.5,228.5,252,24726848,198.88,26.71,191.95,172.83,0.87
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,236,238.5,220.5,222.5,18612983,230.66,-3.54,238.75,193.23,0.63
 20260611,202,214.5,198.5,204.5,10575983,228.48,-10.5,237.88,193.98,0.37
 20260612,217,221.5,215,217,9024259,227.53,-4.63,237.72,194.88,0.33
+20260615,223,227.5,219,222.5,8721614,227.11,-2.03,238.03,195.9,0.33
 ```
 
 ## Latest TDCC Snapshot
@@ -186,18 +186,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 3006 | 晶豪科 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
-| 20260612 | 3006 | 晶豪科 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260615 | 3006 | 晶豪科 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260615 | 3006 | 晶豪科 | revenue_pullback | 營收成長股價回檔 | 83.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 3006 | 晶豪科 | 4 | 4 | 4 | 9 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260615 | 3006 | 晶豪科 | 5 | 5 | 5 | 9 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 3006 | 晶豪科 | 143 | 13 | 28147530.0 | 50060.0 | 562.28 | no_signal |
+| 20260615 | 3006 | 晶豪科 | 145 | 14 | 20587380.0 | 84690.0 | 243.09 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

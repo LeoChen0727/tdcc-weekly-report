@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00678 群益那斯達克生技
 
 ## Metadata
-- generated_at: 2026-06-14 22:22:10 Asia/Taipei
+- generated_at: 2026-06-15 22:22:33 Asia/Taipei
 - stock_id: 00678
 - stock_name: 群益那斯達克生技
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260612
-- price_rows: 13
+- latest_price_date: 20260615
+- price_rows: 14
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 35.95
-- high: 35.99
-- low: 35.85
-- close: 35.99
-- volume: 371828
-- ma5: 35.4
-- ema23_primary: 35.68
-- distance_to_ema23_pct: 0.87
-- ma20: 35.64
-- ma60: 35.64
-- ma120: 35.64
-- return_5d: 1.41
+- date: 20260615
+- open: 36.4
+- high: 36.42
+- low: 36.37
+- close: 36.42
+- volume: 374222
+- ma5: 35.81
+- ema23_primary: 35.74
+- distance_to_ema23_pct: 1.9
+- ma20: 35.7
+- ma60: 35.7
+- ma120: 35.7
+- return_5d: 5.96
 - return_20d:
-- volume_ratio: 1.29
-- distance_to_ma20_pct_auxiliary: 0.97
-- distance_to_high_60_pct: -0.47
+- volume_ratio: 1.27
+- distance_to_ma20_pct_auxiliary: 2.02
+- distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -148,6 +148,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,35.35,35.82,35.35,35.78,319244,35.67,0.3,35.64,35.64,1.14
 20260611,35.35,35.45,35.25,35.38,303923,35.65,-0.76,35.61,35.61,1.08
 20260612,35.95,35.99,35.85,35.99,371828,35.68,0.87,35.64,35.64,1.29
+20260615,36.4,36.42,36.37,36.42,374222,35.74,1.9,35.7,35.7,1.27
 ```
 
 ## Latest TDCC Snapshot

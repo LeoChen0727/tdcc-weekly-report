@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2465 麗臺
 
 ## Metadata
-- generated_at: 2026-06-14 22:22:40 Asia/Taipei
+- generated_at: 2026-06-15 22:22:56 Asia/Taipei
 - stock_id: 2465
 - stock_name: 麗臺
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 78
-- high: 79.4
-- low: 76.1
-- close: 76.5
-- volume: 1208982
-- ma5: 81.52
-- ema23_primary: 81.06
-- distance_to_ema23_pct: -5.62
+- date: 20260615
+- open: 79.8
+- high: 84
+- low: 77.4
+- close: 83
+- volume: 2318615
+- ma5: 81.56
+- ema23_primary: 81.22
+- distance_to_ema23_pct: 2.19
 - ma20: 82.42
-- ma60: 70.8
-- ma120: 63.58
-- return_5d: -14.14
-- return_20d: -10.42
-- volume_ratio: 0.52
-- distance_to_ma20_pct_auxiliary: -7.19
-- distance_to_high_60_pct: -18.44
+- ma60: 71.27
+- ma120: 63.81
+- return_5d: 0.24
+- return_20d: -0.12
+- volume_ratio: 0.98
+- distance_to_ma20_pct_auxiliary: 0.7
+- distance_to_high_60_pct: -11.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,85,86,82.5,83.1,1602026,74.4,11.7,74.02,61.32,0.46
 20260514,83.4,84,81.4,82.6,1559772,75.08,10.01,75.17,61.8,0.44
 20260515,84.1,84.7,76.6,77.3,3036570,75.27,2.7,76.1,62.17,0.85
 20260518,75.2,76.3,72.6,76,1736572,75.33,0.89,76.88,62.56,0.48
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,85.1,85.9,81.6,83.3,1252740,81.98,1.61,83.42,70.12,0.5
 20260611,75,77.5,72.3,75.9,1525257,81.47,-6.84,82.87,70.47,0.63
 20260612,78,79.4,76.1,76.5,1208982,81.06,-5.62,82.42,70.8,0.52
+20260615,79.8,84,77.4,83,2318615,81.22,2.19,82.42,71.27,0.98
 ```
 
 ## Latest TDCC Snapshot
@@ -185,13 +186,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 2465 | 麗臺 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
-| 20260612 | 2465 | 麗臺 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260615 | 2465 | 麗臺 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260615 | 2465 | 麗臺 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 2465 | 麗臺 | 13 | 4 | 5 | 10 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260615 | 2465 | 麗臺 | 14 | 5 | 5 | 10 | 14 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 14 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

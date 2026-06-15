@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1314 中石化
 
 ## Metadata
-- generated_at: 2026-06-14 22:22:16 Asia/Taipei
+- generated_at: 2026-06-15 22:22:38 Asia/Taipei
 - stock_id: 1314
 - stock_name: 中石化
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 279
+- latest_price_date: 20260615
+- price_rows: 280
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 7.88
-- high: 7.98
-- low: 7.8
-- close: 7.84
-- volume: 22177338
-- ma5: 7.86
-- ema23_primary: 7.43
-- distance_to_ema23_pct: 5.58
-- ma20: 7.24
-- ma60: 7.68
+- date: 20260615
+- open: 7.89
+- high: 7.92
+- low: 7.81
+- close: 7.82
+- volume: 14520313
+- ma5: 7.81
+- ema23_primary: 7.46
+- distance_to_ema23_pct: 4.84
+- ma20: 7.28
+- ma60: 7.66
 - ma120: 7.88
-- return_5d: 4.12
-- return_20d: 10.73
-- volume_ratio: 0.64
-- distance_to_ma20_pct_auxiliary: 8.31
-- distance_to_high_60_pct: -17.91
+- return_5d: -3.22
+- return_20d: 11.4
+- volume_ratio: 0.42
+- distance_to_ma20_pct_auxiliary: 7.44
+- distance_to_high_60_pct: -18.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,7.08,7.08,6.98,7.02,20976716,7.47,-6.01,7.43,8.01,1.18
 20260514,7.02,7.03,6.87,6.91,27451039,7.42,-6.9,7.39,8,1.55
 20260515,6.91,6.93,6.71,6.72,25849958,7.36,-8.74,7.33,7.97,1.42
 20260518,6.73,6.93,6.69,6.87,18404819,7.32,-6.18,7.29,7.96,1.03
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,8.26,8.37,8.03,8.09,49831634,7.35,10,7.17,7.71,1.45
 20260611,7.76,7.9,7.7,7.76,19490252,7.39,5.03,7.2,7.69,0.57
 20260612,7.88,7.98,7.8,7.84,22177338,7.43,5.58,7.24,7.68,0.64
+20260615,7.89,7.92,7.81,7.82,14520313,7.46,4.84,7.28,7.66,0.42
 ```
 
 ## Latest TDCC Snapshot

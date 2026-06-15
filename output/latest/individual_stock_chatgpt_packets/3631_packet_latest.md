@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3631 晟楠
 
 ## Metadata
-- generated_at: 2026-06-14 22:23:08 Asia/Taipei
+- generated_at: 2026-06-15 22:23:18 Asia/Taipei
 - stock_id: 3631
 - stock_name: 晟楠
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 33.3
-- high: 34.5
-- low: 33.15
-- close: 33.95
+- date: 20260615
+- open: 34.8
+- high: 35.55
+- low: 34
+- close: 34.1
 - volume: 34000
-- ma5: 34.29
-- ema23_primary: 35.97
-- distance_to_ema23_pct: -5.62
-- ma20: 36.83
-- ma60: 33.59
-- ma120: 29.92
-- return_5d: -2.72
-- return_20d: -18.09
-- volume_ratio: 0.43
-- distance_to_ma20_pct_auxiliary: -7.83
-- distance_to_high_60_pct: -20.68
+- ma5: 34.12
+- ema23_primary: 35.82
+- distance_to_ema23_pct: -4.79
+- ma20: 36.5
+- ma60: 33.72
+- ma120: 30.01
+- return_5d: -2.43
+- return_20d: -16.42
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: -6.57
+- distance_to_high_60_pct: -20.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,41.35,41.35,39.95,40.8,248000,36.49,11.81,36.86,30.98,0.53
 20260514,40.75,40.95,39,39.4,206000,36.73,7.26,37.49,31.15,0.43
 20260515,39,39.5,38.1,38.1,183000,36.85,3.4,38.06,31.3,0.38
 20260518,38.05,38.4,37.15,38.1,136000,36.95,3.11,38.5,31.48,0.28
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,34.85,35,33.65,34.45,34000,36.43,-5.43,37.6,33.38,0.27
 20260611,32.35,33.15,32.05,33.15,33000,36.16,-8.31,37.21,33.48,0.29
 20260612,33.3,34.5,33.15,33.95,34000,35.97,-5.62,36.83,33.59,0.43
+20260615,34.8,35.55,34,34.1,34000,35.82,-4.79,36.5,33.72,0.5
 ```
 
 ## Latest TDCC Snapshot

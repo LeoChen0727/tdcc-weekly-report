@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1609 大亞
 
 ## Metadata
-- generated_at: 2026-06-14 22:22:24 Asia/Taipei
+- generated_at: 2026-06-15 22:22:44 Asia/Taipei
 - stock_id: 1609
 - stock_name: 大亞
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 36.9
-- high: 37.8
-- low: 36.9
-- close: 37.3
-- volume: 5971219
-- ma5: 38.64
-- ema23_primary: 36.66
-- distance_to_ema23_pct: 1.75
-- ma20: 36.44
-- ma60: 34.52
-- ma120: 36.97
-- return_5d: -2.74
-- return_20d: 5.67
-- volume_ratio: 0.55
-- distance_to_ma20_pct_auxiliary: 2.36
-- distance_to_high_60_pct: -12.65
+- date: 20260615
+- open: 38.3
+- high: 38.5
+- low: 37.8
+- close: 38.3
+- volume: 5680150
+- ma5: 37.87
+- ema23_primary: 36.8
+- distance_to_ema23_pct: 4.09
+- ma20: 36.63
+- ma60: 34.56
+- ma120: 36.96
+- return_5d: -9.13
+- return_20d: 10.85
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: 4.57
+- distance_to_high_60_pct: -10.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,35.3,35.45,34.3,34.55,4874133,33.99,1.64,33.73,35.17,0.98
 20260514,34.55,35.2,34.05,34.1,4011744,34,0.29,33.73,35.08,0.8
 20260515,34.45,34.8,33.3,33.5,4736048,33.96,-1.35,33.69,35,0.92
 20260518,33.45,34.15,32.8,34.05,3388035,33.97,0.25,33.66,34.94,0.65
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,42.35,42.7,38.9,39.1,23436346,36.63,6.75,36.34,34.51,2.09
 20260611,36.7,36.7,35.55,36.3,5231718,36.6,-0.82,36.34,34.5,0.48
 20260612,36.9,37.8,36.9,37.3,5971219,36.66,1.75,36.44,34.52,0.55
+20260615,38.3,38.5,37.8,38.3,5680150,36.8,4.09,36.63,34.56,0.52
 ```
 
 ## Latest TDCC Snapshot
@@ -186,18 +186,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 1609 | 大亞 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: ex_dividend on 20260623; status=confirmed; proximity=within_14d |
-| 20260612 | 1609 | 大亞 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: ex_dividend on 20260623; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260615 | 1609 | 大亞 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: ex_dividend on 20260623; status=confirmed; proximity=within_14d |
+| 20260615 | 1609 | 大亞 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: ex_dividend on 20260623; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 1609 | 大亞 | 13 | 2 | 5 | 10 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260615 | 1609 | 大亞 | 14 | 3 | 5 | 10 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 1609 | 大亞 | 24 | 1 | 1444050.0 | 0.0 |  | no_signal |
+| 20260615 | 1609 | 大亞 | 24 | 1 | 847440.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

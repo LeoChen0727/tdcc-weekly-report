@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00888 永豐台灣ESG
 
 ## Metadata
-- generated_at: 2026-06-14 22:22:11 Asia/Taipei
+- generated_at: 2026-06-15 22:22:34 Asia/Taipei
 - stock_id: 00888
 - stock_name: 永豐台灣ESG
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260612
-- price_rows: 13
+- latest_price_date: 20260615
+- price_rows: 14
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 34.28
-- high: 34.62
-- low: 34.18
-- close: 34.21
-- volume: 34000
-- ma5: 34.56
-- ema23_primary: 33.52
-- distance_to_ema23_pct: 2.07
-- ma20: 34.34
-- ma60: 34.34
-- ma120: 34.34
-- return_5d: -3.82
+- date: 20260615
+- open: 35.49
+- high: 35.53
+- low: 35.03
+- close: 35.27
+- volume: 35000
+- ma5: 34.49
+- ema23_primary: 33.66
+- distance_to_ema23_pct: 4.78
+- ma20: 34.4
+- ma60: 34.4
+- ma120: 34.4
+- return_5d: -0.95
 - return_20d:
-- volume_ratio: 1.18
-- distance_to_ma20_pct_auxiliary: -0.37
-- distance_to_high_60_pct: -5.47
+- volume_ratio: 1.19
+- distance_to_ma20_pct_auxiliary: 2.52
+- distance_to_high_60_pct: -2.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -148,6 +148,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,34.47,34.71,33.64,34.46,34000,33.5,2.86,34.48,34.48,1.21
 20260611,32.29,33.07,31.71,32.9,32000,33.45,-1.65,34.35,34.35,1.13
 20260612,34.28,34.62,34.18,34.21,34000,33.52,2.07,34.34,34.34,1.18
+20260615,35.49,35.53,35.03,35.27,35000,33.66,4.78,34.4,34.4,1.19
 ```
 
 ## Latest TDCC Snapshot

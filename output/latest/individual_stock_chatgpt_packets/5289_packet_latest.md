@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5289 宜鼎
 
 ## Metadata
-- generated_at: 2026-06-14 22:23:26 Asia/Taipei
+- generated_at: 2026-06-15 22:23:32 Asia/Taipei
 - stock_id: 5289
 - stock_name: 宜鼎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 1825
-- high: 1830
-- low: 1760
-- close: 1805
-- volume: 1798000
-- ma5: 1810
-- ema23_primary: 1705.56
-- distance_to_ema23_pct: 5.83
-- ma20: 1775.5
-- ma60: 1375.47
-- ma120: 1025.62
-- return_5d: -3.73
-- return_20d: 0.56
-- volume_ratio: 0.7
-- distance_to_ma20_pct_auxiliary: 1.66
-- distance_to_high_60_pct: -8.84
+- date: 20260615
+- open: 1850
+- high: 1950
+- low: 1845
+- close: 1920
+- volume: 1909000
+- ma5: 1816
+- ema23_primary: 1723.43
+- distance_to_ema23_pct: 11.41
+- ma20: 1783.25
+- ma60: 1390.55
+- ma120: 1037.72
+- return_5d: 1.59
+- return_20d: 8.78
+- volume_ratio: 0.77
+- distance_to_ma20_pct_auxiliary: 7.67
+- distance_to_high_60_pct: -3.03
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,1730,1780,1720,1765,3373000,1368.8,28.94,1323.25,1070.35,0.65
 20260514,1880,1935,1850,1865,5792000,1410.15,32.26,1359.5,1088.47,1.1
 20260515,1865,1875,1760,1760,4762000,1439.31,22.28,1393.25,1104.63,0.89
 20260518,1785,1890,1750,1865,5677000,1474.78,26.46,1436.25,1123.87,1.07
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,1860,1860,1715,1755,1776000,1695.3,3.52,1777.5,1350.63,0.62
 20260611,1780,1815,1665,1710,1736000,1696.52,0.79,1775,1362.55,0.62
 20260612,1825,1830,1760,1805,1798000,1705.56,5.83,1775.5,1375.47,0.7
+20260615,1850,1950,1845,1920,1909000,1723.43,11.41,1783.25,1390.55,0.77
 ```
 
 ## Latest TDCC Snapshot

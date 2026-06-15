@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7819 精誠金融
 
 ## Metadata
-- generated_at: 2026-06-14 22:24:13 Asia/Taipei
+- generated_at: 2026-06-15 22:24:07 Asia/Taipei
 - stock_id: 7819
 - stock_name: 精誠金融
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 146
+- latest_price_date: 20260615
+- price_rows: 147
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 46.25
-- high: 46.4
-- low: 45.8
-- close: 45.95
+- date: 20260615
+- open: 46
+- high: 46.05
+- low: 45.5
+- close: 45.55
 - volume: 46000
-- ma5: 47.45
-- ema23_primary: 46.36
-- distance_to_ema23_pct: -0.88
+- ma5: 46.94
+- ema23_primary: 46.29
+- distance_to_ema23_pct: -1.6
 - ma20: 46.2
 - ma60: 45.73
 - ma120: 45.62
-- return_5d: -5.55
-- return_20d: 0.99
-- volume_ratio: 0.28
-- distance_to_ma20_pct_auxiliary: -0.53
-- distance_to_high_60_pct: -8.83
+- return_5d: -5.3
+- return_20d: 0.11
+- volume_ratio: 0.3
+- distance_to_ma20_pct_auxiliary: -1.4
+- distance_to_high_60_pct: -9.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20251016,46.3,46.55,45.15,45.5,296357,45.5,0,45.5,45.5,1
 20251020,46.3,46.55,45.15,45.5,296357,45.5,0,45.5,45.5,1
 20251021,46.3,46.55,45.15,45.5,296357,45.5,0,45.5,45.5,1
 20251022,46.3,46.55,45.15,45.5,296357,45.5,0,45.5,45.5,1
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,49.25,49.25,48,49.1,49000,46.43,5.74,46.15,45.72,0.26
 20260611,47.7,47.7,45.8,46,46000,46.4,-0.86,46.17,45.72,0.26
 20260612,46.25,46.4,45.8,45.95,46000,46.36,-0.88,46.2,45.73,0.28
+20260615,46,46.05,45.5,45.55,46000,46.29,-1.6,46.2,45.73,0.3
 ```
 
 ## Latest TDCC Snapshot

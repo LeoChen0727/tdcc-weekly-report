@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2923 鼎固-KY
 
 ## Metadata
-- generated_at: 2026-06-14 22:22:51 Asia/Taipei
+- generated_at: 2026-06-15 22:23:04 Asia/Taipei
 - stock_id: 2923
 - stock_name: 鼎固-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 23.45
-- high: 24
-- low: 23.1
-- close: 23.5
-- volume: 91549
-- ma5: 24.7
-- ema23_primary: 23.95
-- distance_to_ema23_pct: -1.89
-- ma20: 23.38
-- ma60: 22.24
-- ma120: 21.64
-- return_5d: -10.31
-- return_20d: -8.02
-- volume_ratio: 0.83
-- distance_to_ma20_pct_auxiliary: 0.52
-- distance_to_high_60_pct: -21.27
+- date: 20260615
+- open: 24.7
+- high: 25.7
+- low: 24.15
+- close: 25.65
+- volume: 364894
+- ma5: 24.73
+- ema23_primary: 24.09
+- distance_to_ema23_pct: 6.46
+- ma20: 23.45
+- ma60: 22.36
+- ma120: 21.68
+- return_5d: 0.59
+- return_20d: 5.77
+- volume_ratio: 2.94
+- distance_to_ma20_pct_auxiliary: 9.39
+- distance_to_high_60_pct: -14.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,26,26,24.15,24.25,88864,24.02,0.95,25.05,21.93,0.72
 20260514,23.9,25,21.9,21.9,224680,23.85,-8.16,24.92,21.96,1.87
 20260515,22.4,22.4,21.3,21.65,66578,23.66,-8.5,24.65,21.98,0.66
 20260518,21.5,21.65,20.6,20.8,131000,23.42,-11.2,24.29,22,1.39
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,25,25.3,24.95,25,31656,24.06,3.92,23.71,22.09,0.29
 20260611,22.7,23.75,21.45,23.3,207020,23.99,-2.89,23.48,22.15,1.82
 20260612,23.45,24,23.1,23.5,91549,23.95,-1.89,23.38,22.24,0.83
+20260615,24.7,25.7,24.15,25.65,364894,24.09,6.46,23.45,22.36,2.94
 ```
 
 ## Latest TDCC Snapshot

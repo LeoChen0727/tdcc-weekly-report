@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1597 直得
 
 ## Metadata
-- generated_at: 2026-06-14 22:22:23 Asia/Taipei
+- generated_at: 2026-06-15 22:22:43 Asia/Taipei
 - stock_id: 1597
 - stock_name: 直得
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -58,7 +58,7 @@
 - pdf_visible: true
 - action_rating_display_zh: 可分批買進
 - model_category_display_zh: 營收成長股價回檔
-- score_interpretation_zh: 模型分數高，代表條件集中度較強。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
+- score_interpretation_zh: 模型分數中上，代表條件有支持，但仍需依風控管理。 目前允許依部位規則建立第一筆，後續用風控與追蹤項目管理。
 - action_summary_zh: 符合 營收成長股價回檔，價格結構尚未破壞，操作評級為「可分批買進」。
 - entry_strategy_zh: 回測 23EMA 附近；可依「半部位」建立第一筆，不需把買進後追蹤項目全部當成買進前條件。
 - position_sizing_zh: 半部位；部位大小需依支撐距離、波動與模型確認度控制。
@@ -92,7 +92,6 @@
 
 ### entry_prerequisites
 - model_recommended
-- decision_score_high
 - price_structure_not_broken
 - near_23ema_or_support
 - revenue_not_deteriorating
@@ -119,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 150
-- high: 152
-- low: 144
-- close: 150.5
-- volume: 2105178
-- ma5: 159.5
-- ema23_primary: 167.56
-- distance_to_ema23_pct: -10.18
-- ma20: 178.35
-- ma60: 134.3
-- ma120: 105.24
-- return_5d: -11.21
-- return_20d: -19.52
-- volume_ratio: 0.5
-- distance_to_ma20_pct_auxiliary: -15.62
-- distance_to_high_60_pct: -31.9
+- date: 20260615
+- open: 156
+- high: 158
+- low: 153.5
+- close: 154.5
+- volume: 1482974
+- ma5: 157.1
+- ema23_primary: 166.47
+- distance_to_ema23_pct: -7.19
+- ma20: 176.62
+- ma60: 135.62
+- ma120: 105.92
+- return_5d: -7.21
+- return_20d: -18.25
+- volume_ratio: 0.35
+- distance_to_ma20_pct_auxiliary: -12.53
+- distance_to_high_60_pct: -30.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,187,189,179.5,189,1481066,144.28,30.99,141.85,102.41,0.28
 20260514,195,195,180,180,1210759,147.26,22.23,145.07,104.08,0.25
 20260515,178,188,178,179.5,1396454,149.95,19.71,148.2,105.74,0.31
 20260518,180,190.5,172.5,189.5,1476067,153.24,23.66,151.8,107.62,0.34
@@ -161,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,169.5,174,165,167.5,2756062,171.44,-2.3,182.1,131.9,0.67
 20260611,145.5,147.5,138,143.5,3959255,169.11,-15.14,180.18,133.05,0.95
 20260612,150,152,144,150.5,2105178,167.56,-10.18,178.35,134.3,0.5
+20260615,156,158,153.5,154.5,1482974,166.47,-7.19,176.62,135.62,0.35
 ```
 
 ## Latest TDCC Snapshot
@@ -192,17 +191,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 1597 | 直得 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260615 | 1597 | 直得 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 1597 | 直得 | 4 | 4 | 4 | 9 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260615 | 1597 | 直得 | 5 | 5 | 5 | 9 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 1597 | 直得 | 16 | 0 | 569790.0 | 0.0 |  | no_signal |
+| 20260615 | 1597 | 直得 | 16 | 0 | 491910.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

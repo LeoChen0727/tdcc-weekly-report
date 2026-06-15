@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2243 宏旭-KY
 
 ## Metadata
-- generated_at: 2026-06-14 22:22:32 Asia/Taipei
+- generated_at: 2026-06-15 22:22:50 Asia/Taipei
 - stock_id: 2243
 - stock_name: 宏旭-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 280
+- latest_price_date: 20260615
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -114,29 +114,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 34.45
-- high: 37.2
-- low: 34.1
-- close: 37.2
-- volume: 3763311
-- ma5: 30.82
-- ema23_primary: 26.76
-- distance_to_ema23_pct: 39.04
-- ma20: 25.39
-- ma60: 23.42
-- ma120: 17.56
-- return_5d: 32.86
-- return_20d: 67.57
-- volume_ratio: 2.33
-- distance_to_ma20_pct_auxiliary: 46.5
+- date: 20260615
+- open: 39.3
+- high: 40.9
+- low: 39
+- close: 40.9
+- volume: 3098658
+- ma5: 33.6
+- ema23_primary: 27.93
+- distance_to_ema23_pct: 46.42
+- ma20: 26.35
+- ma60: 23.84
+- ma120: 17.81
+- return_5d: 51.48
+- return_20d: 88.48
+- volume_ratio: 1.78
+- distance_to_ma20_pct_auxiliary: 55.2
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,22.7,22.7,21.7,21.7,615974,23.51,-7.72,24.39,19.18,0.35
 20260514,21.95,21.95,21,21,728154,23.3,-9.89,24.29,19.33,0.41
 20260515,21.4,21.75,20.9,21.2,526636,23.13,-8.34,24.19,19.49,0.3
 20260518,21.3,22.65,20.95,21.7,876240,23.01,-5.69,24.09,19.66,0.51
@@ -156,6 +155,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,27.55,29.1,27.55,28.05,1848401,25.07,11.87,24.03,22.72,1.29
 20260611,30.8,33.85,30.3,33.85,4387150,25.81,31.17,24.64,23.05,2.93
 20260612,34.45,37.2,34.1,37.2,3763311,26.76,39.04,25.39,23.42,2.33
+20260615,39.3,40.9,39,40.9,3098658,27.93,46.42,26.35,23.84,1.78
 ```
 
 ## Latest TDCC Snapshot
@@ -187,12 +187,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 2243 | 宏旭-KY | true_breakout | 嚴格突破 | 94.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260615 | 2243 | 宏旭-KY | true_breakout | 嚴格突破 | 87.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260612 | 2243 | 宏旭-KY | 2 | 2 | 3 | 6 | 6 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260615 | 2243 | 宏旭-KY | 3 | 3 | 4 | 7 | 7 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |
