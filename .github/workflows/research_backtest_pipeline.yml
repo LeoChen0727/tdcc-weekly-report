@@ -135,6 +135,8 @@ jobs:
           python scripts/build_daily_model_parameter_research.py
           python scripts/validate_daily_model_research_parity.py
           python scripts/build_daily_model_parameter_recommendations.py
+          python scripts/build_model_operation_readiness.py
+          python scripts/validate_model_operation_readiness.py
 
       - name: Build volume breakout watch backtest
         if: ${{ github.event.inputs.run_volume_breakout == 'true' }}
@@ -208,9 +210,11 @@ jobs:
           git add output/latest/daily_model_parameter_research_*.csv output/latest/daily_model_parameter_research_*.md || true
           git add output/latest/daily_model_parameter_recommendations_latest.csv output/latest/daily_model_parameter_recommendations_latest.md || true
           git add output/latest/daily_model_research_parity_latest.csv output/latest/daily_model_research_parity_latest.md || true
+          git add output/latest/model_operation_readiness_latest.csv output/latest/model_operation_readiness_latest.md || true
           git add docs/latest/daily_model_parameter_research_*.csv docs/latest/daily_model_parameter_research_*.md || true
           git add docs/latest/daily_model_parameter_recommendations_latest.csv docs/latest/daily_model_parameter_recommendations_latest.md || true
           git add docs/latest/daily_model_research_parity_latest.csv docs/latest/daily_model_research_parity_latest.md || true
+          git add docs/latest/model_operation_readiness_latest.csv docs/latest/model_operation_readiness_latest.md || true
           git add output/history/research/daily_model_parameter_research.csv || true
           git add output/history/volume_breakout/ || true
           git add output/latest/volume_breakout_*.csv output/latest/volume_breakout_*.md output/latest/volume_breakout_*.pdf || true
