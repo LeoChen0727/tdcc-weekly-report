@@ -5,7 +5,6 @@ import math
 import os
 import re
 import textwrap
-import urllib.error
 import urllib.request
 from io import StringIO
 from datetime import datetime
@@ -36,6 +35,11 @@ from reportlab.platypus import (
     TableStyle,
 )
 
+try:
+    from scripts.resolve_daily_report_source_state import resolve_daily_report_source_state
+except ImportError:  # pragma: no cover - script execution from scripts/
+    from resolve_daily_report_source_state import resolve_daily_report_source_state
+
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 DEFAULT_REPO = SCRIPT_DIR.parents[0]
@@ -61,13 +65,8 @@ REMOTE_README: dict[str, str] = {}
 REMOTE_LATEST_BASE = "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest"
 REMOTE_DATA_BASE = "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data"
 
-REQUEST_DATE = datetime.now().strftime("%Y%m%d")
+REQUEST_DATE = ""
 OUTPUT_SUFFIX = "_current_rules"
-
-REMOTE_README_URLS = [
-    "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/READ_ME_FIRST_DAILY_REPORT.txt",
-    "https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT.txt",
-]
 
 FONT_NAME = "DFKai"
 FONT_BOLD = "DFKai-Bold"
@@ -107,17 +106,6 @@ def read_readme_value(key: str, default: str = "") -> str:
     return default
 
 
-def parse_key_value_text(text: str) -> dict[str, str]:
-    values: dict[str, str] = {}
-    for raw in text.splitlines():
-        line = raw.strip()
-        if not line or "=" not in line:
-            continue
-        key, value = line.split("=", 1)
-        values[key.strip()] = value.strip()
-    return values
-
-
 def fetch_text_no_cache(url: str) -> str:
     cache_buster = datetime.utcnow().strftime("%Y%m%d%H%M%S%f")
     sep = "&" if "?" in url else "?"
@@ -133,39 +121,12 @@ def fetch_text_no_cache(url: str) -> str:
         return response.read().decode("utf-8", errors="replace")
 
 
-def fetch_remote_readme_values(request_date: str) -> tuple[dict[str, str], str]:
-    urls = [
-        f"https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/READ_ME_FIRST_DAILY_REPORT_{request_date}.txt",
-        *REMOTE_README_URLS,
-        f"https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT_{request_date}.txt",
-    ]
-    errors: list[str] = []
-    for url in urls:
-        try:
-            text = fetch_text_no_cache(url)
-            values = parse_key_value_text(text)
-            if values.get("main_price_date") and values.get("commit_sha"):
-                return values, url
-            errors.append(f"{url}: content_not_expanded")
-        except (urllib.error.URLError, TimeoutError, OSError) as exc:
-            errors.append(f"{url}: raw_fetch_failed: {exc}")
-    detail = " | ".join(errors[-4:])
-    raise RuntimeError(f"remote_readme_fetch_failed: {detail}")
-
-
 def enforce_fresh_repo_data() -> None:
     global DATA_DATE, DATA_DATE_SLASH, REQUEST_DATE, REQUEST_DATE_SLASH, REMOTE_README
 
-    remote, remote_url = fetch_remote_readme_values(REQUEST_DATE)
-    remote_date = remote.get("main_price_date", "")
-    report_ready = remote.get("report_ready", "")
-    if not remote_date:
-        raise RuntimeError(f"remote_readme_missing_main_price_date: source={remote_url}")
-    if clean(report_ready).lower() != "true":
-        raise RuntimeError(
-            "remote_report_not_ready: "
-            f"main_price_date={remote_date}, report_ready={report_ready}, source={remote_url}"
-        )
+    source_state = resolve_daily_report_source_state(REPO)
+    remote = source_state["readme_fields"]
+    remote_date = source_state["main_price_date"]
 
     REMOTE_README = remote
     DATA_DATE = remote_date
@@ -182,9 +143,9 @@ def date_slash(value: str) -> str:
     return f"{dt.year}/{dt.month}/{dt.day}"
 
 
-DATA_DATE = read_readme_value("main_price_date", REQUEST_DATE)
-DATA_DATE_SLASH = date_slash(DATA_DATE)
-REQUEST_DATE_SLASH = date_slash(REQUEST_DATE)
+DATA_DATE = ""
+DATA_DATE_SLASH = ""
+REQUEST_DATE_SLASH = ""
 
 
 def setup_fonts() -> None:
@@ -3350,8 +3311,11 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--request-date",
-        default=REQUEST_DATE,
-        help="Requested calendar date in YYYYMMDD. Freshness is still determined by repo README.",
+        default=None,
+        help=(
+            "Deprecated diagnostic label. Official report date is always resolved from "
+            "origin/main output/latest/data_freshness_latest.csv."
+        ),
     )
     return parser.parse_args()
 
@@ -3368,7 +3332,7 @@ def configure_paths(args: argparse.Namespace) -> None:
         LATEST / "individual_stock_tdcc_windows",
         REPO / "docs" / "latest" / "individual_stock_tdcc_windows",
     ]
-    REQUEST_DATE = str(args.request_date)
+    REQUEST_DATE = str(args.request_date or "")
 
 
 def main() -> None:
