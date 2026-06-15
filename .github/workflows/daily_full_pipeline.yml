@@ -173,6 +173,8 @@ jobs:
           python scripts/build_daily_candidate_model_layer.py
           python scripts/validate_daily_candidate_model_layer.py
           python scripts/build_daily_report_model_summary.py
+          python scripts/build_daily_volume_breakout_operation_section.py
+          python scripts/validate_daily_volume_breakout_operation_section.py
 
       - name: Build theme event watch
         run: |
