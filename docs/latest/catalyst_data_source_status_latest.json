@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-15 14:53:30 Asia/Taipei",
-  "external_fetch_status": "partial_ok",
+  "generated_at": "2026-06-15 18:05:21 Asia/Taipei",
+  "external_fetch_status": "not_configured",
   "note": "Official monthly revenue and material-information sources are used when reachable. No unverified news, MOPS pages, or social rumor data is fabricated.",
   "files": {
     "theme_event_calendar": {
@@ -27,29 +27,28 @@
   "sources": {
     "TWSE monthly revenue OpenAPI": {
       "url": "https://openapi.twse.com.tw/v1/opendata/t187ap05_L",
-      "status": "ok",
-      "rows": 1076,
-      "error": "",
+      "status": "failed",
+      "rows": 0,
+      "error": "Expecting value: line 1 column 1 (char 0)",
       "http_status": 200,
-      "matched_tracked_rows": 350,
-      "stored_rows": 350,
+      "matched_tracked_rows": 0,
+      "stored_rows": 0,
       "note": "Official monthly revenue rows are stored as fundamental source rows with EPS/margin fields blank. They can flag revenue_good_eps_unconfirmed only; they are not EPS confirmation."
     },
     "TPEX monthly revenue OpenAPI": {
       "url": "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O",
-      "status": "ok",
-      "rows": 889,
-      "error": "",
-      "http_status": 200,
-      "matched_tracked_rows": 12,
-      "stored_rows": 12,
+      "status": "failed",
+      "rows": 0,
+      "error": "Response ended prematurely",
+      "matched_tracked_rows": 0,
+      "stored_rows": 0,
       "note": "Official monthly revenue rows are stored as fundamental source rows with EPS/margin fields blank. They can flag revenue_good_eps_unconfirmed only; they are not EPS confirmation."
     },
     "TWSE material information OpenAPI": {
       "url": "https://openapi.twse.com.tw/v1/opendata/t187ap04_L",
-      "status": "ok",
-      "rows": 2,
-      "error": "",
+      "status": "failed",
+      "rows": 0,
+      "error": "Expecting value: line 1 column 1 (char 0)",
       "http_status": 200,
       "matched_tracked_rows": 0,
       "stored_rows": 0,
