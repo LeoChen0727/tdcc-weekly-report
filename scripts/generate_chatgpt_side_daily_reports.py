@@ -26,6 +26,7 @@ from reportlab.pdfbase.cidfonts import UnicodeCIDFont
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.platypus import (
     Image,
+    CondPageBreak,
     KeepTogether,
     PageBreak,
     Paragraph,
@@ -85,6 +86,8 @@ FRONT_MAINSTREAM_LIMIT = 8
 FRONT_NON_MAINSTREAM_LIMIT = 2
 FULL_REPORT_MAINSTREAM_LIMIT = 12
 FULL_REPORT_NON_MAINSTREAM_LIMIT = 4
+MODEL_SECTION_MIN_ROOM = 58 * mm
+MODEL_SUBSECTION_MIN_ROOM = 42 * mm
 CHATGPT_SIDE_KLINE_DAYS = 126
 
 
@@ -2151,6 +2154,7 @@ def build_mainstream_curated_model_table(
             )
         if not matched:
             data.append(["-", "-", title, "-", "-", f"本模型今日無{label}資料。"])
+        story.append(CondPageBreak(MODEL_SUBSECTION_MIN_ROOM))
         story.append(Paragraph(f'<font color="{color}">{label}</font>', H2))
         story.append(build_table(data, [32 * mm, 22 * mm, 30 * mm, 54 * mm, 44 * mm, 86 * mm], 12.0))
     return story
@@ -2191,6 +2195,7 @@ def build_mainstream_full_model_table(
             )
         if not matched:
             data.append(["-", "-", title, "-", "-", f"本模型今日無{label}資料。"])
+        story.append(CondPageBreak(MODEL_SUBSECTION_MIN_ROOM))
         story.append(Paragraph(f'<font color="{color}">{label}</font>', H2))
         story.append(build_table(data, [32 * mm, 22 * mm, 30 * mm, 54 * mm, 44 * mm, 86 * mm], 12.0))
     return story
@@ -2231,6 +2236,7 @@ def build_non_mainstream_curated_model_table(
             )
         if not matched:
             data.append(["-", "-", title, "-", "-", f"本模型今日無{label}資料。"])
+        story.append(CondPageBreak(MODEL_SUBSECTION_MIN_ROOM))
         story.append(Paragraph(f'<font color="{color}">{label}</font>', H2))
         story.append(build_table(data, [32 * mm, 22 * mm, 30 * mm, 54 * mm, 44 * mm, 86 * mm], 12.0))
     return story
@@ -2271,6 +2277,7 @@ def build_non_mainstream_full_model_table(
             )
         if not matched:
             data.append(["-", "-", title, "-", "-", f"本模型今日無{label}資料。"])
+        story.append(CondPageBreak(MODEL_SUBSECTION_MIN_ROOM))
         story.append(Paragraph(f'<font color="{color}">{label}</font>', H2))
         story.append(build_table(data, [32 * mm, 22 * mm, 30 * mm, 54 * mm, 44 * mm, 86 * mm], 12.0))
     return story
@@ -3230,37 +3237,14 @@ def build_non_mainstream_curated_pdf(
 ) -> Path:
     line = "non_mainstream"
     title = NON_MAINSTREAM_CURATED_TITLE
-    line_label = NON_MAINSTREAM_LINE_LABEL
-    rec_rows = non_mainstream_curated_recommendation_rows(inputs, all_map, two_map, vol_map)
     story: list = [
         Paragraph(f"{DATA_DATE_SLASH} {title}", TITLE),
         date_note(),
         Spacer(1, 4),
-        Paragraph(f"{line_label}模型重點", H1),
     ]
-    if len(rec_rows) > 1:
-        story.extend(
-            [
-                para("以下僅使用模型層分數、排名、風險與下一確認欄位，不在 PDF 端新增第二層操作判斷。", BODY_SMALL),
-                build_table(rec_rows, [28 * mm, 24 * mm, 54 * mm, 162 * mm], 12.0),
-            ]
-        )
-    else:
-        story.append(para("本日無符合條件的模型重點。", BODY))
-    story.append(PageBreak())
-    story.extend(
-        [
-            Paragraph(f"{line_label}觀察清單", H1),
-            para("以下依 program-side 新版候選模型列示；同一檔股票可在多個模型重複出現。舊六分類只作來源背景，不作本頁主分類。", BODY_SMALL),
-            build_table(
-                non_mainstream_curated_front_observation_rows(inputs, all_map, two_map, vol_map),
-                [24 * mm, 36 * mm, 34 * mm, 112 * mm, 62 * mm],
-                12.0,
-            ),
-        ]
-    )
 
     operation_seen: set[str] = set()
+    started_model_sections = False
     limit = MAIN_REPORT_NON_MAINSTREAM_LIMIT
     for spec in non_mainstream_curated_core_model_specs(inputs):
         model_id = clean(spec.get("model_id"))
@@ -3268,8 +3252,10 @@ def build_non_mainstream_curated_pdf(
         ranked_rows = non_mainstream_curated_model_signal_rows(inputs, model_id)
         if not ranked_rows:
             continue
-        append_page_break_once(story)
+        if started_model_sections:
+            append_page_break_once(story)
         story.append(Paragraph(model_name, H1))
+        started_model_sections = True
         desc = clean(spec.get("model_description_zh"))
         if desc:
             story.append(para(desc, BODY_SMALL))
@@ -3353,12 +3339,14 @@ def build_mainstream_full_candidate_pdf(
             break
     story.append(build_table(tdcc_rows, [34 * mm, 42 * mm, 22 * mm, 170 * mm], 12.0) if len(tdcc_rows) > 1 else para("本分流沒有可用的 TDCC 摘要。", BODY))
 
+    story.append(CondPageBreak(MODEL_SECTION_MIN_ROOM))
     story.append(Paragraph(f"{line_label}完整候選", H1))
     limit = FULL_REPORT_MAINSTREAM_LIMIT
     for spec in mainstream_full_core_model_specs(inputs):
         model_id = clean(spec.get("model_id"))
         model_name = clean(spec.get("model_name_zh"), model_id)
         line_rows = mainstream_full_model_signal_rows(inputs, model_id)
+        story.append(CondPageBreak(MODEL_SECTION_MIN_ROOM))
         story.append(Paragraph(model_name, H2))
         if not line_rows:
             story.append(para("無符合條件資料。", BODY))
@@ -3389,6 +3377,7 @@ def build_mainstream_full_candidate_pdf(
             if sub.empty:
                 continue
             found_any = True
+            story.append(CondPageBreak(MODEL_SUBSECTION_MIN_ROOM))
             story.append(Paragraph(zh_line_group(group), H2))
             rows = [["標的", "模型/來源", "正式狀態", "模型分數 / 風險", "說明"]]
             for _, r in sub.iterrows():
@@ -3474,12 +3463,14 @@ def build_non_mainstream_full_candidate_pdf(
             break
     story.append(build_table(tdcc_rows, [34 * mm, 42 * mm, 22 * mm, 170 * mm], 12.0) if len(tdcc_rows) > 1 else para("本分流沒有可用的 TDCC 摘要。", BODY))
 
+    story.append(CondPageBreak(MODEL_SECTION_MIN_ROOM))
     story.append(Paragraph(f"{line_label}完整候選", H1))
     limit = FULL_REPORT_NON_MAINSTREAM_LIMIT
     for spec in non_mainstream_full_core_model_specs(inputs):
         model_id = clean(spec.get("model_id"))
         model_name = clean(spec.get("model_name_zh"), model_id)
         line_rows = non_mainstream_full_model_signal_rows(inputs, model_id)
+        story.append(CondPageBreak(MODEL_SECTION_MIN_ROOM))
         story.append(Paragraph(model_name, H2))
         if not line_rows:
             story.append(para("無符合條件資料。", BODY))
@@ -3510,6 +3501,7 @@ def build_non_mainstream_full_candidate_pdf(
             if sub.empty:
                 continue
             found_any = True
+            story.append(CondPageBreak(MODEL_SUBSECTION_MIN_ROOM))
             story.append(Paragraph(zh_line_group(group), H2))
             rows = [["標的", "模型/來源", "正式狀態", "模型分數 / 風險", "說明"]]
             for _, r in sub.iterrows():

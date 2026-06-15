@@ -242,6 +242,7 @@ def test_standard_model_tables_are_split_into_new_and_repeated_sections() -> Non
         body = _function_text(text, name)
         signature_block = "\n".join(body.splitlines()[:8])
         assert "-> list" in signature_block
+        assert "CondPageBreak(MODEL_SUBSECTION_MIN_ROOM)" in body
         assert "新上榜" in body
         assert "重複上榜" in body
         assert '"#c00000"' in body
@@ -253,3 +254,27 @@ def test_standard_model_tables_are_split_into_new_and_repeated_sections() -> Non
         for table_builder in REPORT_SPECIFIC_TABLE_BUILDERS:
             if f"{table_builder}(" in body:
                 assert f"story.extend({table_builder}(" in body
+
+
+def test_non_mainstream_curated_pdf_matches_mainstream_model_first_layout() -> None:
+    text = _source()
+    body = _function_text(text, "build_non_mainstream_curated_pdf")
+
+    assert "non_mainstream_curated_recommendation_rows(" not in body
+    assert "non_mainstream_curated_front_observation_rows(" not in body
+    assert "模型重點" not in body
+    assert "觀察清單" not in body
+    assert "started_model_sections = False" in body
+    assert "if started_model_sections:" in body
+    assert "append_page_break_once(story)" in body
+    assert "story.append(Paragraph(model_name, H1))" in body
+
+
+def test_full_candidate_model_headings_have_page_bottom_guard() -> None:
+    text = _source()
+
+    for name in ["build_mainstream_full_candidate_pdf", "build_non_mainstream_full_candidate_pdf"]:
+        body = _function_text(text, name)
+        assert "story.append(CondPageBreak(MODEL_SECTION_MIN_ROOM))\n    story.append(Paragraph(f\"{line_label}完整候選\", H1))" in body
+        assert "story.append(CondPageBreak(MODEL_SECTION_MIN_ROOM))\n        story.append(Paragraph(model_name, H2))" in body
+        assert "story.append(CondPageBreak(MODEL_SUBSECTION_MIN_ROOM))\n            story.append(Paragraph(zh_line_group(group), H2))" in body

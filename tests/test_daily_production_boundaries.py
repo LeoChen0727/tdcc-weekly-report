@@ -105,7 +105,15 @@ def test_observation_list_is_row_per_stock_not_joined_cell() -> None:
     assert '"重複上榜": 1' in text
     assert "model_rows += 1" in function_text
     assert '".join(lines)' not in function_text
-    assert "[24 * mm, 36 * mm, 34 * mm, 112 * mm, 62 * mm]" in text
+
+    non_mainstream_pdf = text[
+        text.index("def build_non_mainstream_curated_pdf(") : text.index(
+            "\ndef build_mainstream_full_candidate_pdf(",
+            text.index("def build_non_mainstream_curated_pdf("),
+        )
+    ]
+    assert "non_mainstream_curated_front_observation_rows(" not in non_mainstream_pdf
+    assert "non_mainstream_curated_recommendation_rows(" not in non_mainstream_pdf
 
 
 def test_daily_pdf_packet_and_rules_do_not_depend_on_decision_layer() -> None:
