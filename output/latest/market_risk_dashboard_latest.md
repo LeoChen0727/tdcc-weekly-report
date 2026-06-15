@@ -1,10 +1,10 @@
 # 市場風險與大盤期權背景
 
-- generated_at: `2026-06-15 14:55:55 Asia/Taipei`
-- data_date: `20260612`
-- market_regime: `correction`
+- generated_at: `2026-06-15 19:06:07 Asia/Taipei`
+- data_date: `20260615`
+- market_regime: `mild_bull`
 - risk_level: `very_high_risk`
-- risk_score: `7`
+- risk_score: `6`
 - futures_options_source_status: `ready`
 
 ## 資料狀態
@@ -13,31 +13,31 @@
 
 | source | status | rows | latest_date |
 | --- | --- | ---: | --- |
-| institutional_fo | ok | 3 | 20260612 |
-| futures_contracts | ok | 66 | 20260612 |
-| options_call_put | ok | 30 | 20260612 |
-| put_call_ratio | ok | 23 | 20260612 |
-| taiwan_vix | ok | 72 | 20260612 |
+| institutional_fo | ok | 3 | 20260615 |
+| futures_contracts | ok | 66 | 20260615 |
+| options_call_put | ok | 30 | 20260615 |
+| put_call_ratio | ok | 21 | 20260615 |
+| taiwan_vix | ok | 73 | 20260615 |
 
 ## 大盤指數結構
 
 | index | close | 5d | 20d | MA20 | MA60 | regime |
 | --- | --- | --- | --- | --- | --- | --- |
-| TWSE | 44,169.04 | -2.00% | +7.28% | True | True | strong_bull |
-| TPEx | 419.72 | -2.63% | +2.08% | False | True | correction |
+| TWSE | 45,396.99 | +4.35% | +11.02% | True | True | strong_bull |
+| TPEx | 429.37 | +4.07% | +4.82% | True | True | mild_bull |
 
 ## 期貨選擇權部位
 
 | indicator | value | state |
 | --- | --- | --- |
-| Foreign TX futures net OI | -65,039 | foreign_heavy_net_short |
-| Dealer TX futures net OI | +3,568 |  |
-| Trust TX futures net OI | +57,111 |  |
-| Retail MTX net OI proxy | +9,801 | neutral |
-| Foreign TXO call net OI | +2,347 |  |
-| Foreign TXO put net OI | +5,948 |  |
-| TXO put/call OI ratio | 168.35% | put_hedge_elevated |
-| Taiwan VIX | 41.96 | panic_high |
+| Foreign TX futures net OI | -66,734 | foreign_heavy_net_short |
+| Dealer TX futures net OI | +2,618 |  |
+| Trust TX futures net OI | +57,702 |  |
+| Retail MTX net OI proxy | +13,498 | retail_net_long_watch |
+| Foreign TXO call net OI | +3,267 |  |
+| Foreign TXO put net OI | +12,682 |  |
+| TXO put/call OI ratio | 172.00% | put_hedge_elevated |
+| Taiwan VIX | 39.98 | panic_high |
 
 ## 近期總經事件日曆
 
@@ -63,24 +63,24 @@ Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available wi
 
 ## 技術與型態重點
 
-- TWSE / TAIEX: strong_bull; close 44,169.04; 6M range 27,468.53-46,459.16; distance from 6M high -4.93%; above MA20=True, above MA60=True.
-- TPEx / OTC: correction; close 419.72; 6M range 259.39-446.82; distance from 6M high -6.07%; above MA20=False, above MA60=True.
+- TWSE / TAIEX: strong_bull; close 45,396.99; 6M range 27,468.53-46,459.16; distance from 6M high -2.29%; above MA20=True, above MA60=True.
+- TPEx / OTC: mild_bull; close 429.37; 6M range 259.39-446.82; distance from 6M high -3.91%; above MA20=True, above MA60=True.
 
 ## 散戶小台 proxy
 
 - 這是反向情緒輔助指標，以三大法人小台淨未平倉的反向 proxy 估算。
-- latest_proxy_value: `+9,801`
-- state: `neutral`
+- latest_proxy_value: `+13,498`
+- state: `retail_net_long_watch`
 - proxy 為正代表非三大法人帳戶偏多；擁擠偏多只能視為追高風險，不是單獨放空訊號。
 - proxy 為負代表非三大法人帳戶偏空；極端偏空可列反彈觀察，但仍需指數與廣度確認。
 
 ## 風險提醒
 
 - TWSE strong bull
-- TPEx correction
 - Taiwan VIX panic-high
 - TXO put/call OI hedge elevated
 - Foreign TX futures heavy net short
+- Retail MTX proxy net long watch
 
 ## 使用邊界
 
@@ -91,17 +91,17 @@ Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available wi
 <!-- MARKET_SENTIMENT_CONTEXT_START -->
 ## VIX Historical Context
 
-- Taiwan VIX latest: `41.96`
-- 252D high / low / percentile: `43.92` / `25.68` / `96.43%`
+- Taiwan VIX latest: `39.98`
+- 252D high / low / percentile: `43.92` / `25.68` / `94.12%`
 - 504D percentile: `-`
-- z-score: `1.77`
-- vix_return_5d / 10d / 20d: `15.69%` / `16.98%` / `8.65%`
-- TWSE / TPEx position: TWSE dist 60D high `-4.93%`, TPEx dist 60D high `-6.07%`
-- vix_index_interpretation: `vix_context_neutral_observe`
+- z-score: `1.29`
+- vix_return_5d / 10d / 20d: `-5.44%` / `9.47%` / `2.33%`
+- TWSE / TPEx position: TWSE dist 60D high `-2.29%`, TPEx dist 60D high `-3.91%`
+- vix_index_interpretation: `index_strong_but_hedging_elevated`
 
 ## Retail MTX Historical Context
 
-- retail_mtx_net_oi_proxy latest: `9,801`
+- retail_mtx_net_oi_proxy latest: `13,498`
 - proxy method: `negative_sum_of_three_institution_mtx_net_oi`
 - 252D high / low / percentile: `-` / `-` / `-`
 - 504D percentile: `-`

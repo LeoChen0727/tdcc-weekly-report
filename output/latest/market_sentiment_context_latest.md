@@ -1,26 +1,26 @@
 # Market Sentiment Context
 
-- generated_at: `2026-06-15 14:55:56 Asia/Taipei`
-- date: `20260612`
+- generated_at: `2026-06-15 19:06:09 Asia/Taipei`
+- date: `20260615`
 - sample_status: `insufficient_history`
 - data_quality_note: 資料不足 / 僅能觀察：VIX 或散戶小台歷史樣本未達 60 筆，不能判斷是否達歷史極端。
 
 ## VIX Historical Context
 
-- Taiwan VIX latest: `41.96`
+- Taiwan VIX latest: `39.98`
 - 252D high / low: `43.92` / `25.68`
-- 252D percentile: `96.43%`
+- 252D percentile: `94.12%`
 - 504D percentile: `-`
-- z-score 252D: `1.77`
-- vix_return_5d / 10d / 20d: `15.69%` / `16.98%` / `8.65%`
+- z-score 252D: `1.29`
+- vix_return_5d / 10d / 20d: `-5.44%` / `9.47%` / `2.33%`
 - vix_context_label: `extreme_fear_or_hedging`
-- vix_index_interpretation: `vix_context_neutral_observe`
+- vix_index_interpretation: `index_strong_but_hedging_elevated`
 
 VIX interpretation: VIX must be read with TWSE / TPEx position, market_regime, Put/Call, and foreign TX futures net OI. It is not a standalone buy/sell signal.
 
 ## Retail MTX Historical Context
 
-- retail_mtx_net_oi_proxy latest: `9,801`
+- retail_mtx_net_oi_proxy latest: `13,498`
 - proxy method: `negative_sum_of_three_institution_mtx_net_oi`
 - 252D high / low: `-` / `-`
 - 252D percentile: `-`
@@ -34,16 +34,16 @@ Retail MTX interpretation: retail positioning is a contrarian sentiment proxy on
 
 | index | close | dist 20D high | dist 60D high | dist 252D high | above MA20 | above MA60 |
 | --- | ---: | ---: | ---: | ---: | --- | --- |
-| TWSE | 44,169 | -4.93% | -4.93% | -4.93% | True | True |
-| TPEx | 419.72 | -6.07% | -6.07% | -6.07% | False | True |
+| TWSE | 45,397 | -2.29% | -2.29% | -2.29% | True | True |
+| TPEx | 429.37 | -3.91% | -3.91% | -3.91% | True | True |
 
 ## Combined Sentiment Interpretation
 
 - combined_sentiment_interpretation: `insufficient_history_observe_only`
 - sentiment_warning_level: `insufficient`
-- foreign_tx_futures_net_oi: `-65,039`
-- foreign_futures_net_oi: `-584,963` (whole futures exposure background only, not TX direction)
-- put_call_oi_ratio_pct: `168.35%`
+- foreign_tx_futures_net_oi: `-66,734`
+- foreign_futures_net_oi: `-570,201` (whole futures exposure background only, not TX direction)
+- put_call_oi_ratio_pct: `172%`
 
 資料不足 / 僅能觀察：目前 VIX / 散戶小台缺少足夠歷史分位資料，不可作為反指標結論。
 
