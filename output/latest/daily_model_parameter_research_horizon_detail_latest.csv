@@ -1,4 +1,114 @@
 model_id,model_name_zh,parameter_set_id,horizon,entry_basis,exit_close_basis,exit_high_basis,mature_count,close_win_rate_pct,avg_close_return_pct,median_close_return_pct,avg_high_return_pct,high_5pct_hit_rate_pct
+volume_range_breakout,放量攻擊模型,production_current,D+1,signal_date_next_open,D+1_close,D+1_intraday_high,4349,37.34,-0.59,-0.28,2.74,20.58
+volume_range_breakout,放量攻擊模型,production_current,D+2,signal_date_next_open,D+2_close,D+2_intraday_high,4333,43.85,-0.11,-0.79,5.21,41.98
+volume_range_breakout,放量攻擊模型,production_current,D+3,signal_date_next_open,D+3_close,D+3_intraday_high,4312,43.07,0.03,-1.0,6.84,48.08
+volume_range_breakout,放量攻擊模型,production_current,D+4,signal_date_next_open,D+4_close,D+4_intraday_high,4312,42.07,0.15,-1.39,8.13,52.04
+volume_range_breakout,放量攻擊模型,production_current,D+5,signal_date_next_open,D+5_close,D+5_intraday_high,4249,41.82,0.23,-1.61,9.09,54.67
+volume_range_breakout,放量攻擊模型,production_current,D+6,signal_date_next_open,D+6_close,D+6_intraday_high,4203,42.07,0.59,-1.57,10.02,56.96
+volume_range_breakout,放量攻擊模型,production_current,D+7,signal_date_next_open,D+7_close,D+7_intraday_high,4163,43.45,0.93,-1.66,10.89,58.68
+volume_range_breakout,放量攻擊模型,production_current,D+8,signal_date_next_open,D+8_close,D+8_intraday_high,4130,43.73,1.37,-1.49,11.75,60.53
+volume_range_breakout,放量攻擊模型,production_current,D+9,signal_date_next_open,D+9_close,D+9_intraday_high,4105,44.31,1.82,-1.38,12.67,62.34
+volume_range_breakout,放量攻擊模型,production_current,D+10,signal_date_next_open,D+10_close,D+10_intraday_high,4085,44.82,2.24,-1.24,13.49,63.72
+volume_range_breakout,放量攻擊模型,production_current,D+20,signal_date_next_open,D+20_close,D+20_intraday_high,3791,47.16,5.46,-0.99,20.96,71.38
+price_pullback_23ema,股價回檔模型,production_current_proxy,D+1,signal_date_next_open,D+1_close,D+1_intraday_high,105679,38.53,-0.2,-0.21,1.34,4.97
+price_pullback_23ema,股價回檔模型,production_current_proxy,D+2,signal_date_next_open,D+2_close,D+2_intraday_high,104832,41.45,-0.12,-0.28,2.22,12.08
+price_pullback_23ema,股價回檔模型,production_current_proxy,D+3,signal_date_next_open,D+3_close,D+3_intraday_high,104011,42.16,-0.04,-0.33,2.92,17.52
+price_pullback_23ema,股價回檔模型,production_current_proxy,D+4,signal_date_next_open,D+4_close,D+4_intraday_high,103245,42.64,0.08,-0.36,3.56,22.04
+price_pullback_23ema,股價回檔模型,production_current_proxy,D+5,signal_date_next_open,D+5_close,D+5_intraday_high,102687,42.82,0.19,-0.4,4.14,25.93
+price_pullback_23ema,股價回檔模型,production_current_proxy,D+6,signal_date_next_open,D+6_close,D+6_intraday_high,102150,42.87,0.3,-0.43,4.67,29.07
+price_pullback_23ema,股價回檔模型,production_current_proxy,D+7,signal_date_next_open,D+7_close,D+7_intraday_high,101678,43.11,0.41,-0.45,5.17,31.87
+price_pullback_23ema,股價回檔模型,production_current_proxy,D+8,signal_date_next_open,D+8_close,D+8_intraday_high,101155,43.31,0.52,-0.48,5.65,34.32
+price_pullback_23ema,股價回檔模型,production_current_proxy,D+9,signal_date_next_open,D+9_close,D+9_intraday_high,100574,43.72,0.68,-0.48,6.1,36.51
+price_pullback_23ema,股價回檔模型,production_current_proxy,D+10,signal_date_next_open,D+10_close,D+10_intraday_high,100060,43.91,0.84,-0.49,6.54,38.42
+price_pullback_23ema,股價回檔模型,production_current_proxy,D+20,signal_date_next_open,D+20_close,D+20_intraday_high,95788,44.62,1.97,-0.66,10.32,51.18
+hot_theme_pullback,熱門族群回檔模型,production_current_proxy,D+1,signal_date_next_open,D+1_close,D+1_intraday_high,1502,43.61,-0.17,-0.14,2.04,9.79
+hot_theme_pullback,熱門族群回檔模型,production_current_proxy,D+2,signal_date_next_open,D+2_close,D+2_intraday_high,1354,56.5,1.12,0.58,4.08,30.58
+hot_theme_pullback,熱門族群回檔模型,production_current_proxy,D+3,signal_date_next_open,D+3_close,D+3_intraday_high,1165,56.14,0.74,0.62,5.26,40.52
+hot_theme_pullback,熱門族群回檔模型,production_current_proxy,D+4,signal_date_next_open,D+4_close,D+4_intraday_high,1164,57.39,1.12,1.36,6.75,50.26
+hot_theme_pullback,熱門族群回檔模型,production_current_proxy,D+5,signal_date_next_open,D+5_close,D+5_intraday_high,1017,57.13,1.22,1.13,7.82,57.92
+hot_theme_pullback,熱門族群回檔模型,production_current_proxy,D+6,signal_date_next_open,D+6_close,D+6_intraday_high,776,57.86,1.75,1.44,8.67,62.37
+hot_theme_pullback,熱門族群回檔模型,production_current_proxy,D+7,signal_date_next_open,D+7_close,D+7_intraday_high,518,49.81,-0.01,0.0,10.35,70.66
+hot_theme_pullback,熱門族群回檔模型,production_current_proxy,D+8,signal_date_next_open,D+8_close,D+8_intraday_high,518,45.75,-0.51,-1.49,11.16,72.59
+hot_theme_pullback,熱門族群回檔模型,production_current_proxy,D+9,signal_date_next_open,D+9_close,D+9_intraday_high,207,53.14,1.12,0.8,12.08,74.4
+hot_theme_pullback,熱門族群回檔模型,production_current_proxy,D+10,signal_date_next_open,D+10_close,D+10_intraday_high,0,,,,,
+hot_theme_pullback,熱門族群回檔模型,production_current_proxy,D+20,signal_date_next_open,D+20_close,D+20_intraday_high,0,,,,,
+revenue_unreacted_range,營收爆發但股價尚未反應模型,production_current_proxy,D+1,signal_date_next_open,D+1_close,D+1_intraday_high,453519,39.89,-0.02,0.0,1.61,6.36
+revenue_unreacted_range,營收爆發但股價尚未反應模型,production_current_proxy,D+2,signal_date_next_open,D+2_close,D+2_intraday_high,451729,42.06,0.04,0.0,2.25,11.18
+revenue_unreacted_range,營收爆發但股價尚未反應模型,production_current_proxy,D+3,signal_date_next_open,D+3_close,D+3_intraday_high,449991,42.79,0.1,0.0,2.76,15.06
+revenue_unreacted_range,營收爆發但股價尚未反應模型,production_current_proxy,D+4,signal_date_next_open,D+4_close,D+4_intraday_high,448299,43.19,0.17,0.0,3.22,18.37
+revenue_unreacted_range,營收爆發但股價尚未反應模型,production_current_proxy,D+5,signal_date_next_open,D+5_close,D+5_intraday_high,446745,43.42,0.24,0.0,3.64,21.23
+revenue_unreacted_range,營收爆發但股價尚未反應模型,production_current_proxy,D+6,signal_date_next_open,D+6_close,D+6_intraday_high,445040,43.53,0.29,0.0,4.03,23.63
+revenue_unreacted_range,營收爆發但股價尚未反應模型,production_current_proxy,D+7,signal_date_next_open,D+7_close,D+7_intraday_high,443346,43.68,0.36,0.0,4.4,25.76
+revenue_unreacted_range,營收爆發但股價尚未反應模型,production_current_proxy,D+8,signal_date_next_open,D+8_close,D+8_intraday_high,441646,43.76,0.42,0.0,4.75,27.63
+revenue_unreacted_range,營收爆發但股價尚未反應模型,production_current_proxy,D+9,signal_date_next_open,D+9_close,D+9_intraday_high,439921,43.83,0.48,0.0,5.08,29.28
+revenue_unreacted_range,營收爆發但股價尚未反應模型,production_current_proxy,D+10,signal_date_next_open,D+10_close,D+10_intraday_high,438343,43.82,0.53,0.0,5.4,30.77
+revenue_unreacted_range,營收爆發但股價尚未反應模型,production_current_proxy,D+20,signal_date_next_open,D+20_close,D+20_intraday_high,420686,44.32,1.04,-0.13,8.17,40.76
+w_bottom_right_side,W底右側模型,production_current_proxy,D+1,signal_date_next_open,D+1_close,D+1_intraday_high,95910,38.82,-0.23,-0.25,1.59,7.67
+w_bottom_right_side,W底右側模型,production_current_proxy,D+2,signal_date_next_open,D+2_close,D+2_intraday_high,95429,41.32,-0.13,-0.34,2.64,16.21
+w_bottom_right_side,W底右側模型,production_current_proxy,D+3,signal_date_next_open,D+3_close,D+3_intraday_high,94670,42.13,-0.02,-0.39,3.48,22.05
+w_bottom_right_side,W底右側模型,production_current_proxy,D+4,signal_date_next_open,D+4_close,D+4_intraday_high,93877,42.67,0.12,-0.42,4.22,26.77
+w_bottom_right_side,W底右側模型,production_current_proxy,D+5,signal_date_next_open,D+5_close,D+5_intraday_high,93181,42.87,0.27,-0.47,4.89,30.64
+w_bottom_right_side,W底右側模型,production_current_proxy,D+6,signal_date_next_open,D+6_close,D+6_intraday_high,92586,43.17,0.42,-0.5,5.52,33.8
+w_bottom_right_side,W底右側模型,production_current_proxy,D+7,signal_date_next_open,D+7_close,D+7_intraday_high,92006,43.38,0.57,-0.52,6.11,36.53
+w_bottom_right_side,W底右側模型,production_current_proxy,D+8,signal_date_next_open,D+8_close,D+8_intraday_high,91474,43.64,0.74,-0.54,6.66,38.9
+w_bottom_right_side,W底右側模型,production_current_proxy,D+9,signal_date_next_open,D+9_close,D+9_intraday_high,90988,44.1,0.9,-0.52,7.19,40.99
+w_bottom_right_side,W底右側模型,production_current_proxy,D+10,signal_date_next_open,D+10_close,D+10_intraday_high,90523,44.28,1.07,-0.54,7.69,42.83
+w_bottom_right_side,W底右側模型,production_current_proxy,D+20,signal_date_next_open,D+20_close,D+20_intraday_high,86489,45.37,2.59,-0.66,12.07,54.87
+near_high_neckline_challenge,接近前高 / 頸線挑戰模型,production_current_proxy,D+1,signal_date_next_open,D+1_close,D+1_intraday_high,17861,39.26,-0.22,-0.21,1.71,9.5
+near_high_neckline_challenge,接近前高 / 頸線挑戰模型,production_current_proxy,D+2,signal_date_next_open,D+2_close,D+2_intraday_high,17793,41.38,-0.19,-0.33,2.78,17.98
+near_high_neckline_challenge,接近前高 / 頸線挑戰模型,production_current_proxy,D+3,signal_date_next_open,D+3_close,D+3_intraday_high,17685,40.89,-0.17,-0.42,3.58,23.2
+near_high_neckline_challenge,接近前高 / 頸線挑戰模型,production_current_proxy,D+4,signal_date_next_open,D+4_close,D+4_intraday_high,17544,41.18,-0.09,-0.48,4.27,27.18
+near_high_neckline_challenge,接近前高 / 頸線挑戰模型,production_current_proxy,D+5,signal_date_next_open,D+5_close,D+5_intraday_high,17415,41.36,0.03,-0.53,4.89,30.73
+near_high_neckline_challenge,接近前高 / 頸線挑戰模型,production_current_proxy,D+6,signal_date_next_open,D+6_close,D+6_intraday_high,17337,41.94,0.16,-0.58,5.48,33.64
+near_high_neckline_challenge,接近前高 / 頸線挑戰模型,production_current_proxy,D+7,signal_date_next_open,D+7_close,D+7_intraday_high,17241,41.69,0.31,-0.62,6.01,35.95
+near_high_neckline_challenge,接近前高 / 頸線挑戰模型,production_current_proxy,D+8,signal_date_next_open,D+8_close,D+8_intraday_high,17148,41.74,0.46,-0.65,6.51,38.0
+near_high_neckline_challenge,接近前高 / 頸線挑戰模型,production_current_proxy,D+9,signal_date_next_open,D+9_close,D+9_intraday_high,17066,42.3,0.6,-0.64,7.01,39.81
+near_high_neckline_challenge,接近前高 / 頸線挑戰模型,production_current_proxy,D+10,signal_date_next_open,D+10_close,D+10_intraday_high,16978,42.77,0.76,-0.64,7.48,41.52
+near_high_neckline_challenge,接近前高 / 頸線挑戰模型,production_current_proxy,D+20,signal_date_next_open,D+20_close,D+20_intraday_high,16125,43.67,2.19,-0.84,11.56,51.79
+platform_strengthening,平台整理轉強模型,production_current_proxy,D+1,signal_date_next_open,D+1_close,D+1_intraday_high,11572,39.85,-0.13,-0.13,1.26,5.11
+platform_strengthening,平台整理轉強模型,production_current_proxy,D+2,signal_date_next_open,D+2_close,D+2_intraday_high,11527,42.09,-0.03,-0.24,2.12,11.04
+platform_strengthening,平台整理轉強模型,production_current_proxy,D+3,signal_date_next_open,D+3_close,D+3_intraday_high,11469,42.0,-0.01,-0.27,2.71,15.42
+platform_strengthening,平台整理轉強模型,production_current_proxy,D+4,signal_date_next_open,D+4_close,D+4_intraday_high,11368,42.0,0.01,-0.37,3.21,18.87
+platform_strengthening,平台整理轉強模型,production_current_proxy,D+5,signal_date_next_open,D+5_close,D+5_intraday_high,11236,41.84,0.05,-0.4,3.64,21.75
+platform_strengthening,平台整理轉強模型,production_current_proxy,D+6,signal_date_next_open,D+6_close,D+6_intraday_high,11149,41.91,0.09,-0.45,4.03,24.47
+platform_strengthening,平台整理轉強模型,production_current_proxy,D+7,signal_date_next_open,D+7_close,D+7_intraday_high,11026,41.68,0.15,-0.48,4.39,26.86
+platform_strengthening,平台整理轉強模型,production_current_proxy,D+8,signal_date_next_open,D+8_close,D+8_intraday_high,10937,41.86,0.23,-0.52,4.77,29.01
+platform_strengthening,平台整理轉強模型,production_current_proxy,D+9,signal_date_next_open,D+9_close,D+9_intraday_high,10904,42.0,0.28,-0.54,5.13,30.83
+platform_strengthening,平台整理轉強模型,production_current_proxy,D+10,signal_date_next_open,D+10_close,D+10_intraday_high,10866,41.75,0.34,-0.63,5.48,32.49
+platform_strengthening,平台整理轉強模型,production_current_proxy,D+20,signal_date_next_open,D+20_close,D+20_intraday_high,10470,42.83,1.11,-0.73,8.58,45.0
+pullback_short_reclaim,回檔後短線轉強模型,production_current_proxy,D+1,signal_date_next_open,D+1_close,D+1_intraday_high,88658,38.59,-0.36,-0.42,2.12,12.82
+pullback_short_reclaim,回檔後短線轉強模型,production_current_proxy,D+2,signal_date_next_open,D+2_close,D+2_intraday_high,88183,41.82,-0.18,-0.54,3.6,25.47
+pullback_short_reclaim,回檔後短線轉強模型,production_current_proxy,D+3,signal_date_next_open,D+3_close,D+3_intraday_high,87457,42.68,0.01,-0.61,4.75,32.71
+pullback_short_reclaim,回檔後短線轉強模型,production_current_proxy,D+4,signal_date_next_open,D+4_close,D+4_intraday_high,86735,43.61,0.25,-0.63,5.77,38.17
+pullback_short_reclaim,回檔後短線轉強模型,production_current_proxy,D+5,signal_date_next_open,D+5_close,D+5_intraday_high,85924,43.99,0.49,-0.68,6.68,42.57
+pullback_short_reclaim,回檔後短線轉強模型,production_current_proxy,D+6,signal_date_next_open,D+6_close,D+6_intraday_high,85212,44.34,0.74,-0.71,7.54,45.9
+pullback_short_reclaim,回檔後短線轉強模型,production_current_proxy,D+7,signal_date_next_open,D+7_close,D+7_intraday_high,84462,44.65,0.98,-0.72,8.34,48.8
+pullback_short_reclaim,回檔後短線轉強模型,production_current_proxy,D+8,signal_date_next_open,D+8_close,D+8_intraday_high,83752,44.89,1.21,-0.73,9.09,51.25
+pullback_short_reclaim,回檔後短線轉強模型,production_current_proxy,D+9,signal_date_next_open,D+9_close,D+9_intraday_high,83118,45.25,1.44,-0.72,9.8,53.28
+pullback_short_reclaim,回檔後短線轉強模型,production_current_proxy,D+10,signal_date_next_open,D+10_close,D+10_intraday_high,82452,45.56,1.7,-0.72,10.48,55.05
+pullback_short_reclaim,回檔後短線轉強模型,production_current_proxy,D+20,signal_date_next_open,D+20_close,D+20_intraday_high,77062,47.48,4.15,-0.55,16.18,65.43
+tdcc_stealth_accumulation,TDCC潛伏吸籌模型,production_current_proxy,D+1,signal_date_next_open,D+1_close,D+1_intraday_high,24273,40.04,-0.13,-0.17,1.41,5.52
+tdcc_stealth_accumulation,TDCC潛伏吸籌模型,production_current_proxy,D+2,signal_date_next_open,D+2_close,D+2_intraday_high,23370,43.39,0.03,-0.17,2.45,14.01
+tdcc_stealth_accumulation,TDCC潛伏吸籌模型,production_current_proxy,D+3,signal_date_next_open,D+3_close,D+3_intraday_high,22531,44.98,0.2,-0.17,3.27,20.32
+tdcc_stealth_accumulation,TDCC潛伏吸籌模型,production_current_proxy,D+4,signal_date_next_open,D+4_close,D+4_intraday_high,21671,47.29,0.46,0.0,4.06,25.81
+tdcc_stealth_accumulation,TDCC潛伏吸籌模型,production_current_proxy,D+5,signal_date_next_open,D+5_close,D+5_intraday_high,20899,48.35,0.73,0.0,4.75,30.28
+tdcc_stealth_accumulation,TDCC潛伏吸籌模型,production_current_proxy,D+6,signal_date_next_open,D+6_close,D+6_intraday_high,20038,49.76,1.04,0.0,5.4,33.93
+tdcc_stealth_accumulation,TDCC潛伏吸籌模型,production_current_proxy,D+7,signal_date_next_open,D+7_close,D+7_intraday_high,19170,50.89,1.35,0.17,6.01,37.33
+tdcc_stealth_accumulation,TDCC潛伏吸籌模型,production_current_proxy,D+8,signal_date_next_open,D+8_close,D+8_intraday_high,18292,51.85,1.69,0.32,6.55,39.68
+tdcc_stealth_accumulation,TDCC潛伏吸籌模型,production_current_proxy,D+9,signal_date_next_open,D+9_close,D+9_intraday_high,17381,52.89,2.03,0.41,7.06,41.79
+tdcc_stealth_accumulation,TDCC潛伏吸籌模型,production_current_proxy,D+10,signal_date_next_open,D+10_close,D+10_intraday_high,16576,53.17,2.23,0.46,7.55,43.84
+tdcc_stealth_accumulation,TDCC潛伏吸籌模型,production_current_proxy,D+20,signal_date_next_open,D+20_close,D+20_intraday_high,7856,49.94,1.42,0.0,9.08,50.28
+tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,production_current_proxy,D+1,signal_date_next_open,D+1_close,D+1_intraday_high,2313,39.21,-0.53,-0.7,2.82,21.49
+tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,production_current_proxy,D+2,signal_date_next_open,D+2_close,D+2_intraday_high,2261,41.04,-0.36,-1.2,5.04,39.41
+tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,production_current_proxy,D+3,signal_date_next_open,D+3_close,D+3_intraday_high,2163,40.5,-0.33,-1.52,6.61,46.28
+tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,production_current_proxy,D+4,signal_date_next_open,D+4_close,D+4_intraday_high,2044,41.73,0.2,-1.61,8.05,52.25
+tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,production_current_proxy,D+5,signal_date_next_open,D+5_close,D+5_intraday_high,1893,44.16,0.86,-1.38,9.32,55.94
+tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,production_current_proxy,D+6,signal_date_next_open,D+6_close,D+6_intraday_high,1784,45.24,1.75,-1.13,10.66,59.53
+tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,production_current_proxy,D+7,signal_date_next_open,D+7_close,D+7_intraday_high,1679,47.29,2.57,-0.82,12.01,62.54
+tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,production_current_proxy,D+8,signal_date_next_open,D+8_close,D+8_intraday_high,1575,48.19,3.23,-0.44,13.38,64.44
+tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,production_current_proxy,D+9,signal_date_next_open,D+9_close,D+9_intraday_high,1509,49.3,3.84,0.0,14.63,66.53
+tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,production_current_proxy,D+10,signal_date_next_open,D+10_close,D+10_intraday_high,1350,52.59,5.03,0.98,16.15,69.04
+tdcc_short_term_continuation_d5_d10,TDCC短線延續模型 D+5/D+10,production_current_proxy,D+20,signal_date_next_open,D+20_close,D+20_intraday_high,465,49.68,6.64,0.0,24.14,76.99
 volume_range_breakout,放量攻擊模型,prior20x1.01_vol2_minvol500,D+1,signal_date_next_open,D+1_close,D+1_intraday_high,5887,38.63,-0.55,-0.58,2.78,20.38
 volume_range_breakout,放量攻擊模型,prior20x1.01_vol2_minvol500,D+2,signal_date_next_open,D+2_close,D+2_intraday_high,5870,41.74,-0.32,-0.97,4.76,36.92
 volume_range_breakout,放量攻擊模型,prior20x1.01_vol2_minvol500,D+3,signal_date_next_open,D+3_close,D+3_intraday_high,5837,41.43,-0.23,-1.09,6.1,43.17
@@ -296,17 +406,17 @@ volume_range_breakout,放量攻擊模型,prior20x1.03_vol5_minvol2000,D+8,signal
 volume_range_breakout,放量攻擊模型,prior20x1.03_vol5_minvol2000,D+9,signal_date_next_open,D+9_close,D+9_intraday_high,1001,37.76,0.34,-2.96,11.47,57.34
 volume_range_breakout,放量攻擊模型,prior20x1.03_vol5_minvol2000,D+10,signal_date_next_open,D+10_close,D+10_intraday_high,998,36.97,0.49,-2.88,12.07,58.32
 volume_range_breakout,放量攻擊模型,prior20x1.03_vol5_minvol2000,D+20,signal_date_next_open,D+20_close,D+20_intraday_high,958,41.02,2.92,-3.17,18.4,65.66
-volume_range_breakout,放量攻擊模型,locked_limit_up_breakout_minvol1000,D+1,signal_date_next_open,D+1_close,D+1_intraday_high,264,26.52,-0.51,0.0,1.78,15.53
-volume_range_breakout,放量攻擊模型,locked_limit_up_breakout_minvol1000,D+2,signal_date_next_open,D+2_close,D+2_intraday_high,262,53.05,1.15,1.01,6.26,55.73
-volume_range_breakout,放量攻擊模型,locked_limit_up_breakout_minvol1000,D+3,signal_date_next_open,D+3_close,D+3_intraday_high,262,50.76,1.2,0.19,8.99,62.21
-volume_range_breakout,放量攻擊模型,locked_limit_up_breakout_minvol1000,D+4,signal_date_next_open,D+4_close,D+4_intraday_high,262,46.18,0.83,-0.27,10.84,65.27
-volume_range_breakout,放量攻擊模型,locked_limit_up_breakout_minvol1000,D+5,signal_date_next_open,D+5_close,D+5_intraday_high,256,43.75,1.43,-1.09,12.55,66.8
-volume_range_breakout,放量攻擊模型,locked_limit_up_breakout_minvol1000,D+6,signal_date_next_open,D+6_close,D+6_intraday_high,246,46.34,2.49,-0.86,14.11,68.29
-volume_range_breakout,放量攻擊模型,locked_limit_up_breakout_minvol1000,D+7,signal_date_next_open,D+7_close,D+7_intraday_high,235,50.21,3.74,0.11,15.5,68.94
-volume_range_breakout,放量攻擊模型,locked_limit_up_breakout_minvol1000,D+8,signal_date_next_open,D+8_close,D+8_intraday_high,227,49.34,4.54,0.0,16.88,70.48
-volume_range_breakout,放量攻擊模型,locked_limit_up_breakout_minvol1000,D+9,signal_date_next_open,D+9_close,D+9_intraday_high,224,49.55,5.04,-0.11,18.59,71.88
-volume_range_breakout,放量攻擊模型,locked_limit_up_breakout_minvol1000,D+10,signal_date_next_open,D+10_close,D+10_intraday_high,222,50.45,5.66,0.21,19.92,72.07
-volume_range_breakout,放量攻擊模型,locked_limit_up_breakout_minvol1000,D+20,signal_date_next_open,D+20_close,D+20_intraday_high,181,52.49,10.29,1.0,31.17,74.59
+volume_range_breakout,放量攻擊模型,locked_limit_up_breakout_no_volume_gate,D+1,signal_date_next_open,D+1_close,D+1_intraday_high,657,23.14,-1.02,0.0,1.45,11.11
+volume_range_breakout,放量攻擊模型,locked_limit_up_breakout_no_volume_gate,D+2,signal_date_next_open,D+2_close,D+2_intraday_high,655,50.69,0.52,0.34,6.01,53.59
+volume_range_breakout,放量攻擊模型,locked_limit_up_breakout_no_volume_gate,D+3,signal_date_next_open,D+3_close,D+3_intraday_high,654,46.33,0.85,-0.47,8.78,58.56
+volume_range_breakout,放量攻擊模型,locked_limit_up_breakout_no_volume_gate,D+4,signal_date_next_open,D+4_close,D+4_intraday_high,654,43.73,0.73,-1.2,10.76,62.08
+volume_range_breakout,放量攻擊模型,locked_limit_up_breakout_no_volume_gate,D+5,signal_date_next_open,D+5_close,D+5_intraday_high,640,42.81,0.95,-1.93,12.25,63.91
+volume_range_breakout,放量攻擊模型,locked_limit_up_breakout_no_volume_gate,D+6,signal_date_next_open,D+6_close,D+6_intraday_high,624,42.47,1.44,-2.18,13.55,65.38
+volume_range_breakout,放量攻擊模型,locked_limit_up_breakout_no_volume_gate,D+7,signal_date_next_open,D+7_close,D+7_intraday_high,607,44.15,1.62,-2.3,14.63,65.9
+volume_range_breakout,放量攻擊模型,locked_limit_up_breakout_no_volume_gate,D+8,signal_date_next_open,D+8_close,D+8_intraday_high,593,45.03,2.13,-1.89,15.75,66.61
+volume_range_breakout,放量攻擊模型,locked_limit_up_breakout_no_volume_gate,D+9,signal_date_next_open,D+9_close,D+9_intraday_high,581,43.55,2.8,-2.2,17.18,67.81
+volume_range_breakout,放量攻擊模型,locked_limit_up_breakout_no_volume_gate,D+10,signal_date_next_open,D+10_close,D+10_intraday_high,572,44.76,3.85,-2.16,18.41,68.18
+volume_range_breakout,放量攻擊模型,locked_limit_up_breakout_no_volume_gate,D+20,signal_date_next_open,D+20_close,D+20_intraday_high,494,44.33,7.49,-2.85,28.6,70.85
 price_pullback_23ema,股價回檔模型,ema-1.5_3_volmax1,D+1,signal_date_next_open,D+1_close,D+1_intraday_high,53341,38.26,-0.19,-0.19,1.23,4.11
 price_pullback_23ema,股價回檔模型,ema-1.5_3_volmax1,D+2,signal_date_next_open,D+2_close,D+2_intraday_high,53004,40.93,-0.14,-0.26,2.05,10.48
 price_pullback_23ema,股價回檔模型,ema-1.5_3_volmax1,D+3,signal_date_next_open,D+3_close,D+3_intraday_high,52639,42.09,-0.04,-0.31,2.7,15.55

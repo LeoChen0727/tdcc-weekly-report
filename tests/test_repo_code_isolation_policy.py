@@ -27,3 +27,11 @@ def test_daily_boundary_validator_runs_code_isolation_policy() -> None:
     )
 
     assert "validate_repo_code_isolation_policy.py" in boundary_text
+
+
+def test_research_pipeline_runs_model_parity_validator() -> None:
+    workflow_text = (ROOT / ".github" / "workflows" / "research_backtest_pipeline.yml").read_text(
+        encoding="utf-8"
+    )
+
+    assert "python scripts/validate_daily_model_research_parity.py" in workflow_text

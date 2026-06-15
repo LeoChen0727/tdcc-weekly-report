@@ -133,6 +133,7 @@ jobs:
         if: ${{ github.event.inputs.run_model_parameter_research == 'true' }}
         run: |
           python scripts/build_daily_model_parameter_research.py
+          python scripts/validate_daily_model_research_parity.py
           python scripts/build_daily_model_parameter_recommendations.py
 
       - name: Build volume breakout watch backtest
@@ -208,6 +209,7 @@ jobs:
           git add output/latest/daily_short_term_specialty_packet_latest.md || true
           git add output/latest/daily_model_parameter_research_*.csv output/latest/daily_model_parameter_research_*.md || true
           git add output/latest/daily_model_parameter_recommendations_latest.csv output/latest/daily_model_parameter_recommendations_latest.md || true
+          git add output/latest/daily_model_research_parity_latest.csv output/latest/daily_model_research_parity_latest.md || true
           git add output/history/research/daily_model_parameter_research.csv || true
           git add output/history/volume_breakout/ || true
           git add output/latest/volume_breakout_*.csv output/latest/volume_breakout_*.md output/latest/volume_breakout_*.pdf || true

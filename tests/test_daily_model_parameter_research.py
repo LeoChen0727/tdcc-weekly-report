@@ -11,7 +11,8 @@ if str(SCRIPTS) not in sys.path:
     sys.path.insert(0, str(SCRIPTS))
 
 from build_daily_candidate_model_layer import build_parameter_table, build_specs  # noqa: E402
-from build_daily_model_parameter_research import rule_specs, sample_status  # noqa: E402
+from build_daily_model_parameter_research import build_model_parity, rule_specs, sample_status  # noqa: E402
+from validate_daily_model_research_parity import validate_rule_specs  # noqa: E402
 
 
 def test_sample_status_thresholds() -> None:
@@ -37,6 +38,62 @@ def test_pdf_core_research_models_exist_in_current_daily_model_layer() -> None:
     research_core = {spec.model_id for spec in rule_specs() if spec.pdf_visibility == "pdf_core_model"}
 
     assert not sorted(research_core - current_core)
+
+
+def test_every_daily_core_model_has_research_production_baseline() -> None:
+    current = build_parameter_table(build_specs())
+    current_core = set(current[current["pdf_visibility"].eq("pdf_core_model")]["model_id"])
+    baselines = {spec.model_id for spec in rule_specs() if spec.parameter_role == "production_baseline"}
+
+    assert current_core <= baselines
+
+
+def test_research_baselines_are_labeled_as_parity_or_proxy() -> None:
+    baselines = [spec for spec in rule_specs() if spec.parameter_role == "production_baseline"]
+
+    assert baselines
+    assert {spec.production_parity_status for spec in baselines} <= {
+        "production_parity",
+        "production_proxy",
+        "proxy_only",
+    }
+    assert any(spec.production_parity_status == "production_parity" for spec in baselines)
+    assert all(spec.variant_of == "production_current" for spec in baselines)
+    assert all(
+        spec.parity_blocker
+        for spec in baselines
+        if spec.production_parity_status in {"production_proxy", "proxy_only"}
+    )
+
+
+def test_model_parity_artifact_marks_proxy_blockers() -> None:
+    summaries = pd.DataFrame(
+        [
+            {
+                "model_id": spec.model_id,
+                "parameter_set_id": spec.parameter_set_id,
+                "parameter_role": spec.parameter_role,
+                "production_parity_status": spec.production_parity_status,
+                "parity_blocker": spec.parity_blocker,
+                "selected_stock_days": 1,
+                "selected_unique_stocks": 1,
+            }
+            for spec in rule_specs()
+        ]
+    )
+
+    parity = build_model_parity(summaries)
+
+    assert not parity.empty
+    assert not parity["research_baseline_parameter_set_id"].eq("").any()
+    assert set(parity["research_baseline_status"]) <= {"production_parity", "production_proxy", "proxy_only"}
+    proxy_rows = parity[parity["research_baseline_status"].isin(["production_proxy", "proxy_only"])]
+    assert not proxy_rows.empty
+    assert not proxy_rows["parity_blocker"].eq("").any()
+
+
+def test_daily_model_research_parity_validator_rule_specs_pass() -> None:
+    assert validate_rule_specs() == []
 
 
 def test_research_only_rule_not_pdf_core() -> None:
