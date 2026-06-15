@@ -62,3 +62,25 @@ def test_group_rotation_end_sections_use_single_pagebreak_helper() -> None:
 
         assert "append_page_break_once(story)" in function_text
         assert "story.append(PageBreak())" not in function_text
+
+
+def test_curated_operation_pages_keep_stock_table_and_chart_together() -> None:
+    text = (ROOT / "scripts" / "generate_chatgpt_side_daily_reports.py").read_text(
+        encoding="utf-8",
+        errors="replace",
+    )
+    cases = [
+        ("build_mainstream_curated_operation_page", "build_non_mainstream_curated_operation_page"),
+        ("build_non_mainstream_curated_operation_page", "build_mainstream_curated_pdf"),
+    ]
+
+    for name, next_name in cases:
+        function_text = _function_text(text, name, next_name)
+
+        assert "story.append(\n        KeepTogether(" in function_text
+        assert 'Paragraph(f"{sid} {name}｜{model_display(row)}", H2)' in function_text
+        assert "op_table," in function_text
+        assert "Spacer(1, 4)," in function_text
+        assert "chart_table," in function_text
+        assert "story.append(op_table)" not in function_text
+        assert "story.append(chart_table)" not in function_text
