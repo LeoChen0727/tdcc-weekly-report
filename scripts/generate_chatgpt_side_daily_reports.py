@@ -1661,6 +1661,37 @@ def volume_operation_frame(
     return frame.sort_values(["_display_order", "stock_id"]).drop(columns=["_display_order"], errors="ignore")
 
 
+def volume_operation_allowed_stock_ids(inputs: dict[str, pd.DataFrame], line: str | None) -> set[str]:
+    if not line:
+        return set()
+    signals = inputs.get("model_signals", pd.DataFrame()).copy()
+    if signals.empty or "model_id" not in signals.columns or "stock_id" not in signals.columns:
+        return set()
+    sub = signals[signals["model_id"].astype(str).eq(VOLUME_BREAKOUT_MODEL_ID)].copy()
+    if "report_line" in sub.columns:
+        sub = sub[sub["report_line"].astype(str).eq(line)].copy()
+    elif "report_bucket" in sub.columns:
+        sub = sub[sub["report_bucket"].astype(str).eq(line)].copy()
+    return {stock_id_text(value) for value in sub["stock_id"].tolist() if stock_id_text(value)}
+
+
+def filter_volume_operation_rows_for_line(
+    rows: pd.DataFrame,
+    inputs: dict[str, pd.DataFrame],
+    line: str | None,
+) -> pd.DataFrame:
+    if rows.empty or not line:
+        return rows
+    if "report_line" in rows.columns:
+        return rows[rows["report_line"].astype(str).eq(line)].copy()
+    if "report_bucket" in rows.columns:
+        return rows[rows["report_bucket"].astype(str).eq(line)].copy()
+    allowed_ids = volume_operation_allowed_stock_ids(inputs, line)
+    if not allowed_ids:
+        return rows.iloc[0:0].copy()
+    return rows[rows["stock_id"].map(stock_id_text).isin(allowed_ids)].copy()
+
+
 def volume_operation_empty_text(rows: pd.DataFrame, fallback: str) -> str:
     if rows.empty:
         return fallback
@@ -1762,10 +1793,23 @@ def render_volume_range_breakout_operation_section(
     story: list,
     inputs: dict[str, pd.DataFrame],
     pdf_view: str,
+    line: str | None = None,
 ) -> None:
-    confirmed_all = volume_operation_frame(inputs, pdf_view, "confirmed_operation")
-    pending_all = volume_operation_frame(inputs, pdf_view, "pending_confirmation")
-    active_rows = volume_operation_frame(inputs, pdf_view, "active_operation")
+    confirmed_all = filter_volume_operation_rows_for_line(
+        volume_operation_frame(inputs, pdf_view, "confirmed_operation"),
+        inputs,
+        line,
+    )
+    pending_all = filter_volume_operation_rows_for_line(
+        volume_operation_frame(inputs, pdf_view, "pending_confirmation"),
+        inputs,
+        line,
+    )
+    active_rows = filter_volume_operation_rows_for_line(
+        volume_operation_frame(inputs, pdf_view, "active_operation"),
+        inputs,
+        line,
+    )
 
     confirmed = confirmed_all[
         confirmed_all.get("row_type", pd.Series(dtype=str)).astype(str).eq("data")
@@ -2866,6 +2910,9 @@ def build_mainstream_curated_pdf(
         if desc:
             story.append(para(desc, BODY_SMALL))
         story.append(build_mainstream_curated_model_table(ranked_rows, two_map, all_map, limit=limit))
+        if model_id == VOLUME_BREAKOUT_MODEL_ID:
+            render_volume_range_breakout_operation_section(story, inputs, "highlight", line)
+            continue
         reps = mainstream_curated_operation_representatives(ranked_rows)
         for row in reps:
             sid = clean(row.get("stock_id"))
@@ -2936,7 +2983,7 @@ def build_non_mainstream_curated_pdf(
             story.append(para(desc, BODY_SMALL))
         story.append(build_non_mainstream_curated_model_table(ranked_rows, two_map, all_map, limit=limit))
         if model_id == VOLUME_BREAKOUT_MODEL_ID:
-            render_volume_range_breakout_operation_section(story, inputs, "highlight")
+            render_volume_range_breakout_operation_section(story, inputs, "highlight", line)
         reps = non_mainstream_curated_operation_representatives(ranked_rows)
         for row in reps:
             sid = clean(row.get("stock_id"))
@@ -3025,7 +3072,7 @@ def build_mainstream_full_candidate_pdf(
             continue
         story.append(build_mainstream_full_model_table(line_rows, two_map, all_map, limit=limit))
         if model_id == VOLUME_BREAKOUT_MODEL_ID:
-            render_volume_range_breakout_operation_section(story, inputs, "full")
+            render_volume_range_breakout_operation_section(story, inputs, "full", line)
 
     story.append(PageBreak())
     story.append(Paragraph(f"{line_label}雙線與輪動摘要", H1))
@@ -3145,7 +3192,7 @@ def build_non_mainstream_full_candidate_pdf(
             continue
         story.append(build_non_mainstream_full_model_table(line_rows, two_map, all_map, limit=limit))
         if model_id == VOLUME_BREAKOUT_MODEL_ID:
-            render_volume_range_breakout_operation_section(story, inputs, "full")
+            render_volume_range_breakout_operation_section(story, inputs, "full", line)
 
     story.append(PageBreak())
     story.append(Paragraph(f"{line_label}雙線與輪動摘要", H1))

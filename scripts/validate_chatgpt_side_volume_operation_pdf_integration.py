@@ -21,6 +21,10 @@ CANDIDATE_PDF_TITLE_PARTS = CURATED_CANDIDATE_PDF_TITLE_PARTS + FULL_CANDIDATE_P
 
 MAINSTREAM_CURATED_REQUIRED_TEXT = [
     "放量攻擊模型",
+    "已確認操作",
+    "待確認",
+    "操作中",
+    "中位數報酬",
 ]
 
 REQUIRED_VOLUME_OPERATION_TEXT = [
@@ -33,9 +37,6 @@ REQUIRED_VOLUME_OPERATION_TEXT = [
 
 MAINSTREAM_CURATED_FORBIDDEN_TEXT = [
     "主流股觀察清單",
-    "新上榜",
-    "重複上榜",
-    "可列買入排名",
 ]
 
 FORBIDDEN_RAW_TOKENS = [
