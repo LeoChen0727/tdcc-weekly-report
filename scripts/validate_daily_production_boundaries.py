@@ -8,6 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DAILY_WORKFLOW = ROOT / ".github" / "workflows" / "daily_full_pipeline.yml"
 CANONICAL_CHATGPT_PDF_GENERATOR = ROOT / "scripts" / "generate_chatgpt_side_daily_reports.py"
+DAILY_REPORT_SOURCE_RESOLVER = ROOT / "scripts" / "resolve_daily_report_source_state.py"
 STAGED_PATH_VALIDATOR = ROOT / "scripts" / "validate_daily_staged_paths.py"
 THREAD_WORKFLOW_DOC = ROOT / "docs" / "CODEX_THREAD_WORKFLOW.md"
 RULES_DAILY = ROOT / "rules" / "daily_stock_candidate_rules.md"
@@ -112,14 +113,30 @@ def main() -> int:
         for literal, message in forbidden_chart_literals.items():
             if literal in generator_text:
                 errors.append(f"{message}: found {literal!r}")
-        raw_readme = "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/READ_ME_FIRST_DAILY_REPORT"
-        pages_readme = "https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT"
-        raw_index = generator_text.find(raw_readme)
-        pages_index = generator_text.find(pages_readme)
-        if raw_index == -1:
-            errors.append("ChatGPT-side daily PDF generator must include raw GitHub README source")
-        if pages_index != -1 and raw_index != -1 and pages_index < raw_index:
-            errors.append("ChatGPT-side daily PDF generator must try raw GitHub README before Pages README")
+        if "resolve_daily_report_source_state" not in generator_text:
+            errors.append("ChatGPT-side daily PDF generator must use the origin/main daily report source resolver")
+        if "fetch_remote_readme_values" in generator_text:
+            errors.append("ChatGPT-side daily PDF generator must not resolve freshness from raw/Pages README fallback")
+        if "REMOTE_README_URLS" in generator_text:
+            errors.append("ChatGPT-side daily PDF generator must not keep raw/Pages README fallback URL order")
+        if 'REQUEST_DATE = datetime.now().strftime("%Y%m%d")' in generator_text:
+            errors.append("ChatGPT-side daily PDF generator must not derive report date from wall-clock time")
+
+    if not DAILY_REPORT_SOURCE_RESOLVER.exists():
+        errors.append(f"missing daily report source resolver: {DAILY_REPORT_SOURCE_RESOLVER}")
+    else:
+        resolver_text = read_text(DAILY_REPORT_SOURCE_RESOLVER)
+        required_resolver_literals = {
+            "git fetch": "daily report source resolver must fetch origin/main before official generation",
+            "git show": "daily report source resolver must read origin/main files through git show",
+            "origin/main": "daily report source resolver must default to origin/main",
+            "data_freshness_latest.csv": "daily report source resolver must gate on freshness CSV",
+            "READ_ME_FIRST_DAILY_REPORT.txt": "daily report source resolver must cross-check README fields",
+            "OneDrive": "daily report source resolver must reject OneDrive/helper source paths",
+        }
+        for literal, message in required_resolver_literals.items():
+            if literal not in resolver_text:
+                errors.append(f"{message}: missing {literal!r}")
 
     thread_workflow_text = read_text(THREAD_WORKFLOW_DOC)
     if "generate_repo_chatgpt_side_reports.py" in thread_workflow_text:

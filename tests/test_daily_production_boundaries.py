@@ -76,9 +76,19 @@ def test_canonical_chatgpt_side_generator_is_tracked_and_not_legacy_six_category
     assert "kline_180" not in text
     assert "tail(180)" not in text
     assert "180日K線" not in text
-    raw_readme = "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/READ_ME_FIRST_DAILY_REPORT"
-    pages_readme = "https://LeoChen0727.github.io/tdcc-weekly-report/latest/READ_ME_FIRST_DAILY_REPORT"
-    assert text.index(raw_readme) < text.index(pages_readme)
+    assert "resolve_daily_report_source_state" in text
+    assert "fetch_remote_readme_values" not in text
+    assert "REMOTE_README_URLS" not in text
+    assert 'REQUEST_DATE = datetime.now().strftime("%Y%m%d")' not in text
+
+    resolver = ROOT / "scripts" / "resolve_daily_report_source_state.py"
+    resolver_text = resolver.read_text(encoding="utf-8", errors="replace")
+    assert resolver.exists()
+    assert "origin/main" in resolver_text
+    assert "git show" in resolver_text
+    assert "data_freshness_latest.csv" in resolver_text
+    assert "READ_ME_FIRST_DAILY_REPORT.txt" in resolver_text
+    assert "OneDrive" in resolver_text
 
 
 def test_observation_list_is_row_per_stock_not_joined_cell() -> None:
