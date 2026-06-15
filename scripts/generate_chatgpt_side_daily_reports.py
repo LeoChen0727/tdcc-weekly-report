@@ -2999,7 +2999,6 @@ def build_mainstream_curated_operation_page(
     name = clean(row.get("stock_name"))
     extra = all_map.get(sid, pd.Series(dtype=object))
     chart = plot_stock_chart(sid, name, extra, row)
-    story.append(Paragraph(f"{sid} {name}｜{model_display(row)}", H2))
 
     signal_text, signal_marks = model_signal_sentence(row, two_map, vol_map, extra)
     confirmation_text, confirmation_marks = operation_confirmation_sentence(row, two_map, vol_map, extra)
@@ -3061,9 +3060,16 @@ def build_mainstream_curated_operation_page(
             ]
         )
     )
-    story.append(op_table)
-    story.append(Spacer(1, 4))
-    story.append(chart_table)
+    story.append(
+        KeepTogether(
+            [
+                Paragraph(f"{sid} {name}｜{model_display(row)}", H2),
+                op_table,
+                Spacer(1, 4),
+                chart_table,
+            ]
+        )
+    )
     story.append(PageBreak())
 
 
@@ -3084,7 +3090,6 @@ def build_non_mainstream_curated_operation_page(
     name = clean(row.get("stock_name"))
     extra = all_map.get(sid, pd.Series(dtype=object))
     chart = plot_stock_chart(sid, name, extra, row)
-    story.append(Paragraph(f"{sid} {name}｜{model_display(row)}", H2))
 
     signal_text, signal_marks = model_signal_sentence(row, two_map, vol_map, extra)
     confirmation_text, confirmation_marks = operation_confirmation_sentence(row, two_map, vol_map, extra)
@@ -3146,9 +3151,16 @@ def build_non_mainstream_curated_operation_page(
             ]
         )
     )
-    story.append(op_table)
-    story.append(Spacer(1, 4))
-    story.append(chart_table)
+    story.append(
+        KeepTogether(
+            [
+                Paragraph(f"{sid} {name}｜{model_display(row)}", H2),
+                op_table,
+                Spacer(1, 4),
+                chart_table,
+            ]
+        )
+    )
     story.append(PageBreak())
 
 
