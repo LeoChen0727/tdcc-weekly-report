@@ -2693,46 +2693,6 @@ def append_theme_event_watch_section(story: list[Any], style_map: dict[str, Para
     story.append(make_table(rows, style_map, [3.1 * cm, 2.0 * cm, 2.2 * cm, 1.5 * cm, 4.2 * cm, 5.2 * cm]))
 
 
-def build_model_line_pdf(report_line: str, full: bool, main_date: str, path: Path) -> None:
-    style_map = styles()
-    signals = load_model_report_signals()
-    model_summary = _load_model_summary_for_report()
-    tech_map = load_technical_snapshot()
-    chart_map = load_pdf_kline_chart_map()
-    part = signals[signals.get("report_line", "").astype(str).eq(report_line)].copy() if not signals.empty else signals
-    title_prefix = "主流股" if report_line == "mainstream" else "非主流股"
-    title = f"{title_prefix}{'完整候選清單' if full else '每日推薦精華'}"
-    doc = SimpleDocTemplate(
-        str(path),
-        pagesize=A4,
-        leftMargin=1.5 * cm,
-        rightMargin=1.5 * cm,
-        topMargin=1.2 * cm,
-        bottomMargin=1.2 * cm,
-    )
-    story: list[Any] = []
-    story.append(para(f"{main_date} {title}", style_map["title"]))
-    story.append(para("資料來源：報告用模型訊號表；不同模型不混成單一排名。", style_map["subtitle"]))
-    story.append(para("各模型第一名摘要", style_map["h1"]))
-    story.append(make_table(first_page_rows(part), style_map, [3.1 * cm, 3.1 * cm, 2.2 * cm, 5.0 * cm, 5.0 * cm]))
-    story.append(PageBreak())
-    if full:
-        story.append(para("完整模型候選清單", style_map["h1"]))
-        for model_name, section_label, group in sectioned_model_rows(part, None):
-            story.append(para(safe_str(model_name) or "模型欄位尚未完成", style_map["h2"]))
-            story.append(para(section_label, style_map["normal"]))
-            story.append(make_table(model_detail_rows(group), style_map, [2.3 * cm, 1.4 * cm, 1.2 * cm, 2.4 * cm, 1.2 * cm, 4.8 * cm, 5.2 * cm]))
-            story.append(Spacer(1, 0.3 * cm))
-    else:
-        story.append(para("各模型代表股操作卡", style_map["h1"]))
-        for model_name, section_label, group in sectioned_model_rows(part, 5):
-            story.append(para(safe_str(model_name) or "模型欄位尚未完成", style_map["h2"]))
-            story.append(para(section_label, style_map["normal"]))
-            for _, row in group.iterrows():
-                story.append(model_signal_card(row, style_map, tech_map, chart_map, include_chart=True))
-    append_theme_event_watch_section(story, style_map, compact=not full)
-    append_group_rotation_section(story, style_map)
-    doc.build(story)
 
 
 def _rank_for_display(row: pd.Series) -> str:
@@ -2878,45 +2838,6 @@ def _append_group_rotation_section_clean(story: list[Any], style_map: dict[str, 
     story.append(make_table(rows, style_map, [2.5 * cm, 1.6 * cm, 1.8 * cm, 1.8 * cm, 4.1 * cm, 6.0 * cm]))
 
 
-def build_model_line_pdf(report_line: str, full: bool, main_date: str, path: Path) -> None:
-    style_map = styles()
-    signals = load_model_report_signals()
-    tech_map = load_technical_snapshot()
-    chart_map = load_pdf_kline_chart_map()
-    part = signals[signals.get("report_line", "").astype(str).eq(report_line)].copy() if not signals.empty else signals
-    title_prefix = "主流股" if report_line == "mainstream" else "非主流股"
-    title = f"{title_prefix}{'完整候選清單' if full else '每日推薦精華'}"
-    doc = SimpleDocTemplate(
-        str(path),
-        pagesize=A4,
-        leftMargin=1.5 * cm,
-        rightMargin=1.5 * cm,
-        topMargin=1.2 * cm,
-        bottomMargin=1.2 * cm,
-    )
-    story: list[Any] = []
-    story.append(para(f"{main_date} {title}", style_map["title"]))
-    story.append(para("資料來源：報告用模型訊號表；各模型獨立呈現，不混成單一總排名。", style_map["subtitle"]))
-    story.append(para("各模型第一名摘要", style_map["h1"]))
-    story.append(make_table(_first_page_rows_clean(part), style_map, [3.1 * cm, 3.1 * cm, 2.2 * cm, 5.0 * cm, 5.0 * cm]))
-    story.append(PageBreak())
-    if full:
-        story.append(para("完整模型候選清單", style_map["h1"]))
-        for model_name, section_label, group in sectioned_model_rows(part, None):
-            story.append(para(display_text(model_name, fallback="模型名稱未完成"), style_map["h2"]))
-            story.append(para(section_label, style_map["normal"]))
-            story.append(make_table(_model_detail_rows_clean(group), style_map, [2.3 * cm, 1.4 * cm, 1.2 * cm, 2.4 * cm, 1.2 * cm, 4.8 * cm, 5.2 * cm]))
-            story.append(Spacer(1, 0.3 * cm))
-    else:
-        story.append(para("各模型代表股解析", style_map["h1"]))
-        for model_name, section_label, group in sectioned_model_rows(part, 5):
-            story.append(para(display_text(model_name, fallback="模型名稱未完成"), style_map["h2"]))
-            story.append(para(section_label, style_map["normal"]))
-            for _, row in group.iterrows():
-                story.append(_model_signal_card_clean(row, style_map, tech_map, chart_map, include_chart=True))
-    _append_theme_event_watch_section_clean(story, style_map, compact=not full)
-    _append_group_rotation_section_clean(story, style_map)
-    doc.build(story)
 
 
 def _rank_for_display_final(row: pd.Series) -> str:
@@ -3075,45 +2996,6 @@ def _append_group_rotation_section_final(story: list[Any], style_map: dict[str, 
     story.append(make_table(rows, style_map, [2.5 * cm, 1.6 * cm, 1.8 * cm, 1.8 * cm, 4.1 * cm, 6.0 * cm]))
 
 
-def build_model_line_pdf(report_line: str, full: bool, main_date: str, path: Path) -> None:
-    style_map = styles()
-    signals = load_model_report_signals()
-    tech_map = load_technical_snapshot()
-    chart_map = load_pdf_kline_chart_map()
-    part = signals[signals.get("report_line", "").astype(str).eq(report_line)].copy() if not signals.empty else signals
-    title_prefix = "主流股" if report_line == "mainstream" else "非主流股"
-    title_suffix = "完整候選清單" if full else "每日推薦精華"
-    doc = SimpleDocTemplate(
-        str(path),
-        pagesize=A4,
-        leftMargin=1.5 * cm,
-        rightMargin=1.5 * cm,
-        topMargin=1.2 * cm,
-        bottomMargin=1.2 * cm,
-    )
-    story: list[Any] = []
-    story.append(para(f"{main_date} {title_prefix}{title_suffix}", style_map["title"]))
-    story.append(para("資料來源：報告用模型訊號表；同一模型同一股票已去重，並依新進榜 / 重複進榜分段呈現。", style_map["subtitle"]))
-    story.append(para("各模型第一名摘要", style_map["h1"]))
-    story.append(make_table(_first_page_rows_final(part), style_map, [3.1 * cm, 3.1 * cm, 2.2 * cm, 5.0 * cm, 5.0 * cm]))
-    story.append(PageBreak())
-    if full:
-        story.append(para("完整模型名單", style_map["h1"]))
-        for model_name, section_label, group in sectioned_model_rows(part, None):
-            story.append(para(_display_final(model_name, fallback="模型名稱未完成"), style_map["h2"]))
-            story.append(para(_display_final(section_label, fallback="榜別未完成"), style_map["h2"]))
-            story.append(make_table(_model_detail_rows_final(group), style_map, [2.3 * cm, 1.4 * cm, 1.2 * cm, 2.4 * cm, 1.2 * cm, 4.8 * cm, 5.2 * cm]))
-            story.append(Spacer(1, 0.3 * cm))
-    else:
-        story.append(para("各模型代表股", style_map["h1"]))
-        for model_name, section_label, group in sectioned_model_rows(part, 5):
-            story.append(para(_display_final(model_name, fallback="模型名稱未完成"), style_map["h2"]))
-            story.append(para(_display_final(section_label, fallback="榜別未完成"), style_map["h2"]))
-            for _, row in group.iterrows():
-                story.append(_model_signal_card_final(row, style_map, tech_map, chart_map, include_chart=True))
-    _append_theme_event_watch_section_final(story, style_map, compact=not full)
-    _append_group_rotation_section_final(story, style_map)
-    doc.build(story)
 
 
 PDF_DISPLAY_TOKEN_ZH_CLEAN = {
@@ -3230,70 +3112,6 @@ def _score_sort_number(row: pd.Series) -> float:
     except Exception:
         return -999999.0
 
-
-def _model_names_in_report_order(df: pd.DataFrame) -> list[str]:
-    if df.empty or "model_name_zh" not in df.columns:
-        return []
-    work = df.copy()
-    work["_rank"] = work.apply(lambda row: min(_rank_sort_number(row, "new"), _rank_sort_number(row, "repeated")), axis=1)
-    work["_score"] = work.apply(_score_sort_number, axis=1)
-    work = work.sort_values(["_rank", "_score"], ascending=[True, False])
-    names: list[str] = []
-    seen: set[str] = set()
-    for name in work["model_name_zh"].astype(str).tolist():
-        name = _pdf_human_text(name, fallback="模型名稱未完成")
-        if name in seen:
-            continue
-        seen.add(name)
-        names.append(name)
-    return names
-
-
-def _rows_for_model_section(df: pd.DataFrame, model_name: str, section: str, limit: int | None) -> pd.DataFrame:
-    if df.empty:
-        return df
-    work = df[df["model_name_zh"].astype(str).map(lambda x: _pdf_human_text(x, fallback="模型名稱未完成") == model_name)].copy()
-    if work.empty:
-        return work
-    if section == "repeated":
-        work = work[work.apply(_repeat_key, axis=1).eq("repeated")]
-    else:
-        work = work[work.apply(_repeat_key, axis=1).eq("new")]
-    if work.empty:
-        return work
-    work["_rank"] = work.apply(lambda row: _rank_sort_number(row, section), axis=1)
-    work["_score"] = work.apply(_score_sort_number, axis=1)
-    work = work.sort_values(["_rank", "_score"], ascending=[True, False])
-    if limit is not None:
-        work = work.head(limit)
-    return work.drop(columns=["_rank", "_score"], errors="ignore")
-
-
-def _summary_rows_for_section(df: pd.DataFrame, section: str) -> list[list[Any]]:
-    rows = [["模型", "第一名標的", "分數", "榜別排名", "入選優點", "風險 / 操作提醒"]]
-    if df.empty:
-        rows.append(["資料不足", "-", "-", "-", "報告用欄位無資料", "資料不足 / 僅能觀察"])
-        return rows
-    for model_name in _model_names_in_report_order(df):
-        picked = _rows_for_model_section(df, model_name, section, 1)
-        if picked.empty:
-            continue
-        row = picked.iloc[0]
-        rows.append(
-            [
-                _pdf_human_text(model_name, fallback="模型名稱未完成", limit=16),
-                f"{safe_str(row.get('stock_id'))} {safe_str(row.get('stock_name'))}",
-                _model_score_text(row.get("model_score")),
-                _rank_for_section(row, section),
-                _pdf_human_text(row.get("why_selected_human_zh"), row.get("why_selected_zh"), fallback="模型條件成立，細節請見個股頁。", limit=48),
-                _pdf_human_text(row.get("operation_reminder_zh"), row.get("risk_tags_zh"), row.get("next_confirmation_zh"), row.get("recommended_usage_zh"), fallback="依支撐、壓力與量價失敗條件管理。", limit=48),
-            ]
-        )
-    if len(rows) == 1:
-        rows.append(["本段無資料", "-", "-", "-", f"今日沒有{_repeat_label(section)}資料", ""])
-    return rows
-
-
 def _load_model_summary_for_report() -> pd.DataFrame:
     df = read_csv_safe(MODEL_SUMMARY_FOR_REPORT_CSV, dtype=str, keep_default_na=False)
     if df.empty:
@@ -3323,159 +3141,6 @@ def _summary_rank_text(row: pd.Series, prefix: str) -> str:
     if prefix == "new":
         return _pdf_human_text(row.get("new_signal_rank_label_zh"), row.get("new_rank_label"), fallback="-", limit=18)
     return _pdf_human_text(row.get("repeated_signal_rank_label_zh"), row.get("repeated_rank_label"), fallback="-", limit=18)
-
-
-def _fixed_model_summary_rows(summary: pd.DataFrame, report_line: str) -> list[list[Any]]:
-    rows = [[
-        "模型",
-        "新進榜第一名",
-        "新進分數",
-        "新進排名",
-        "連續/累計第一名",
-        "連續分數",
-        "連續排名",
-        "重點提醒",
-    ]]
-    if summary.empty:
-        rows.append(["資料不足", "今日無候選", "-", "-", "今日無候選", "-", "-", "daily_candidate_model_summary_for_report_latest.csv 無資料。"])
-        return rows
-    part = summary[summary.get("report_line", "").astype(str).eq(report_line)].copy()
-    if part.empty:
-        rows.append(["資料不足", "今日無候選", "-", "-", "今日無候選", "-", "-", f"{report_line} 無模型摘要資料。"])
-        return rows
-    for _, row in part.iterrows():
-        rows.append([
-            _pdf_human_text(row.get("model_name_zh"), fallback="模型名稱尚未完成", limit=24),
-            _summary_stock_text(row, "new"),
-            _summary_score_text(row, "new"),
-            _summary_rank_text(row, "new"),
-            _summary_stock_text(row, "repeated"),
-            _summary_score_text(row, "repeated"),
-            _summary_rank_text(row, "repeated"),
-            _pdf_human_text(row.get("operation_reminder_zh"), fallback="依程式端模型條件與風險欄位管理。", limit=58),
-        ])
-    return rows
-
-
-def _detail_table_rows_for_section(df: pd.DataFrame, section: str) -> list[list[Any]]:
-    rows = [["排名", "標的", "分數", "入選優點", "風險 / 操作提醒"]]
-    if df.empty:
-        rows.append(["-", "-", "-", "本段無資料", ""])
-        return rows
-    for _, row in df.iterrows():
-        rows.append(
-            [
-                _rank_for_section(row, section),
-                f"{safe_str(row.get('stock_id'))} {safe_str(row.get('stock_name'))}",
-                _model_score_text(row.get("model_score")),
-                _pdf_human_text(row.get("why_selected_human_zh"), row.get("why_selected_zh"), fallback="模型條件成立，細節請見個股頁。", limit=62),
-                _pdf_human_text(row.get("operation_reminder_zh"), row.get("risk_tags_zh"), row.get("next_confirmation_zh"), row.get("recommended_usage_zh"), fallback="依支撐、壓力與量價失敗條件管理。", limit=62),
-            ]
-        )
-    return rows
-
-
-def _model_signal_card_readable(
-    row: pd.Series,
-    section: str,
-    style_map: dict[str, ParagraphStyle],
-    tech_map: dict[str, pd.Series],
-    chart_map: dict[tuple[str, str], Path],
-    include_chart: bool,
-) -> KeepTogether:
-    stock_id = safe_str(row.get("stock_id"))
-    stock_name = safe_str(row.get("stock_name"))
-    model_name = _pdf_human_text(row.get("model_name_zh"), fallback="模型名稱未完成")
-    tech = tech_map.get(stock_id, pd.Series(dtype=object))
-    title = f"{stock_id} {stock_name} / {model_name}"
-    table_rows = [
-        [para(title, style_map["curated_cell"]), para(f"{_repeat_label(section)} / {_rank_for_section(row, section)} / 分數 {_model_score_text(row.get('model_score'))}", style_map["curated_cell"])],
-        [para("操作結論", style_map["label"]), para(_pdf_human_text(row.get("operation_reminder_zh"), row.get("recommended_usage_zh"), fallback="模型條件成立；後續依支撐、壓力、量價失敗與TDCC變化管理。"), style_map["curated_cell"])],
-        [para("目前位置", style_map["label"]), para(_pdf_human_text(tech.get("price_position_summary_zh"), fallback="技術位置摘要尚未完成，請搭配K線與支撐壓力檢查。"), style_map["curated_cell"])],
-        [para("技術狀態", style_map["label"]), para(_pdf_human_text(tech.get("technical_summary_zh"), fallback="技術指標摘要尚未完成，暫用K線圖判讀。"), style_map["curated_cell"])],
-        [para("支撐 / 壓力", style_map["label"]), para(_pdf_human_text(tech.get("support_resistance_summary_zh"), fallback="支撐壓力摘要尚未完成，請以23EMA、平台與近期高低點管理。"), style_map["curated_cell"])],
-        [para("入選優點", style_map["label"]), para(_pdf_human_text(row.get("why_selected_human_zh"), row.get("why_selected_zh"), fallback="模型條件成立。"), style_map["curated_cell"])],
-        [para("下一確認", style_map["label"]), para(_pdf_human_text(tech.get("buy_condition_text_zh"), row.get("operation_reminder_zh"), fallback="依模型入選條件與隔日開盤後量價確認管理。"), style_map["curated_cell"])],
-        [para("停利 / 退出", style_map["label"]), para(f"{_pdf_human_text(tech.get('take_profit_text_zh'), fallback='接近壓力或量價背離時分批停利。')} / {_pdf_human_text(tech.get('exit_condition_text_zh'), fallback='跌破關鍵支撐、23EMA或出現量價失敗時退出。')}", style_map["curated_cell"])],
-        [para("主要風險", style_map["label"]), para(_pdf_human_text(row.get("risk_tags_zh"), row.get("tdcc_risk_text_zh"), row.get("downgrade_flags_zh"), fallback="風險標籤尚未完成，仍需檢查TDCC、權證、量價與市場背景。"), style_map["curated_cell"])],
-        [para("TDCC / 權證 / 來源", style_map["label"]), para(f"{_pdf_human_text(row.get('tdcc_big_holder_summary_zh'), row.get('tdcc_status_zh'), fallback='TDCC摘要尚未完成')} / {_pdf_human_text(row.get('warrant_flow_signal_zh'), fallback='權證摘要尚未完成')} / {_pdf_human_text(row.get('source_hit_labels_zh'), fallback='來源標籤尚未完成')}", style_map["curated_cell"])],
-    ]
-    table = Table(table_rows, colWidths=[4.0 * cm, 12.8 * cm])
-    table.setStyle(
-        TableStyle(
-            [
-                ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#EAF2F8")),
-                ("GRID", (0, 0), (-1, -1), 0.25, colors.HexColor("#CFD8E3")),
-                ("VALIGN", (0, 0), (-1, -1), "TOP"),
-                ("LEFTPADDING", (0, 0), (-1, -1), 6),
-                ("RIGHTPADDING", (0, 0), (-1, -1), 6),
-                ("TOPPADDING", (0, 0), (-1, -1), 5),
-                ("BOTTOMPADDING", (0, 0), (-1, -1), 5),
-            ]
-        )
-    )
-    parts: list[Any] = [table]
-    if include_chart:
-        chart_row = row.copy()
-        chart_row["category"] = safe_str(row.get("original_category")) or safe_str(row.get("source_hit_labels"))
-        chart_path = chart_map.get((stock_id, "")) or redraw_pdf_kline_chart_for_row(chart_row)
-        if chart_path is not None and chart_path.exists():
-            parts.extend([Spacer(1, 0.12 * cm), PdfImage(str(chart_path), width=16.6 * cm, height=8.2 * cm)])
-    parts.append(Spacer(1, 0.22 * cm))
-    return KeepTogether(parts)
-
-
-def _append_theme_event_watch_section_readable(story: list[Any], style_map: dict[str, ParagraphStyle], compact: bool) -> None:
-    events = read_csv_safe(LATEST_DIR / "theme_event_watch_latest.csv", dtype=str, keep_default_na=False)
-    story.append(PageBreak())
-    story.append(para("近期事件預警 / 主題催化觀察", style_map["h1"]))
-    if events.empty:
-        story.append(para("目前沒有可用的事件預警資料。若有展覽、法說、重大公告或主題催化，應進入 theme_event_watch_latest.csv 後再呈現。", style_map["normal"]))
-        return
-    rows = [["事件", "日期", "族群", "交集數", "相關候選", "解讀"]]
-    limit = 8 if compact else 30
-    for _, row in events.head(limit).iterrows():
-        start_date = _pdf_human_text(row.get("event_start_date"), row.get("start_date"), fallback="")
-        end_date = _pdf_human_text(row.get("event_end_date"), row.get("end_date"), fallback="")
-        event_range = start_date if not end_date or end_date == start_date else f"{start_date}-{end_date}"
-        rows.append(
-            [
-                _pdf_human_text(row.get("event_name"), fallback="事件名稱未完成", limit=24),
-                clean_text(event_range, 18),
-                _pdf_human_text(row.get("theme_tag"), fallback="族群標籤未完成", limit=18),
-                _pdf_human_text(row.get("candidate_intersection_count"), fallback="0", limit=8),
-                _pdf_human_text(row.get("top_candidate_summary_zh"), row.get("candidate_intersection_stock_names"), fallback="-", limit=42),
-                _pdf_human_text(row.get("interpretation_zh"), row.get("theme_event_watch_status"), fallback="事件資料已建立，需觀察候選股與族群資金是否提前反應。", limit=58),
-            ]
-        )
-    story.append(make_table(rows, style_map, [3.1 * cm, 2.0 * cm, 2.2 * cm, 1.5 * cm, 4.2 * cm, 5.2 * cm]))
-
-
-def _append_group_rotation_section_readable(story: list[Any], style_map: dict[str, ParagraphStyle]) -> None:
-    rotation = read_csv_safe(LATEST_DIR / "daily_candidate_group_rotation_latest.csv", dtype=str, keep_default_na=False)
-    if rotation.empty:
-        return
-    if "theme_resolution_status" in rotation.columns:
-        rotation = rotation[rotation["theme_resolution_status"].astype(str).eq("resolved")].copy()
-    if rotation.empty:
-        return
-    story.append(PageBreak())
-    story.append(para("族群資金輪動觀察", style_map["h1"]))
-    story.append(para("這一段用來觀察同族群是否出現量能擴散，不是直接操作名單。", style_map["normal"]))
-    rows = [["族群", "股票數", "3倍量檔數", "擴散比例", "龍頭 / 老二 / 老三", "解讀"]]
-    for _, row in rotation.head(20).iterrows():
-        rows.append(
-            [
-                _pdf_human_text(row.get("theme"), fallback="族群名稱未完成", limit=18),
-                clean_text(row.get("stock_count", ""), 8),
-                clean_text(row.get("volume_expansion_3x_count", ""), 8),
-                clean_text(row.get("volume_expansion_ratio", ""), 8),
-                clean_text(" / ".join([safe_str(row.get("leader_1")), safe_str(row.get("leader_2")), safe_str(row.get("leader_3"))]).strip(" /"), 36),
-                _pdf_human_text(row.get("interpretation_zh"), row.get("interpretation"), fallback="資金擴散狀態待觀察。", limit=60),
-            ]
-        )
-    story.append(make_table(rows, style_map, [2.5 * cm, 1.6 * cm, 1.8 * cm, 1.8 * cm, 4.1 * cm, 6.0 * cm]))
-
 
 NO_CANDIDATE_TEXTS = {"", "-", "今日無候選", "無候選", "n/a", "N/A"}
 
@@ -3513,93 +3178,6 @@ def _summary_entries_for_prefix(row: pd.Series, prefix: str) -> list[dict[str, s
     if not entries and (stock_id or stock_name):
         entries = [{"stock": f"{stock_id} {stock_name}".strip(), "note": ""}]
     return [entry for entry in entries if entry.get("stock", "").strip() not in NO_CANDIDATE_TEXTS]
-
-
-def _fixed_model_summary_rows(summary: pd.DataFrame, report_line: str) -> list[list[Any]]:
-    rows = [["模型", "訊號類型", "排名", "股票", "分數", "狀態與操作提醒"]]
-    if summary.empty:
-        rows.append(["資料不足", "-", "-", "今日無候選", "-", "daily_candidate_model_summary_for_report_latest.csv 無資料。"])
-        return rows
-    part = summary[summary.get("report_line", "").astype(str).eq(report_line)].copy()
-    if part.empty:
-        rows.append(["資料不足", "-", "-", "今日無候選", "-", f"{report_line} 無模型摘要資料。"])
-        return rows
-    for _, row in part.iterrows():
-        model_name = _pdf_human_text(row.get("model_name_zh"), fallback="模型名稱尚未完成", limit=24)
-        operation = _pdf_human_text(row.get("operation_reminder_zh"), fallback="依模型條件與風險欄位觀察。", limit=58)
-        emitted = False
-        for prefix, section_label in [("new", "新進"), ("repeated", "累計")]:
-            for entry in _summary_entries_for_prefix(row, prefix):
-                note = entry.get("note", "").strip()
-                reminder = clean_text(" / ".join(x for x in [note, operation] if x), 72)
-                rows.append(
-                    [
-                        model_name,
-                        section_label,
-                        _summary_rank_text(row, prefix),
-                        clean_text(entry.get("stock", ""), 24),
-                        _summary_score_text(row, prefix),
-                        reminder,
-                    ]
-                )
-                emitted = True
-        if not emitted:
-            rows.append([model_name, "-", "-", "今日無候選", "-", operation])
-    return rows
-
-
-def build_model_line_pdf(report_line: str, full: bool, main_date: str, path: Path) -> None:
-    style_map = styles()
-    signals = load_model_report_signals()
-    tech_map = load_technical_snapshot()
-    chart_map = load_pdf_kline_chart_map()
-    part = signals[signals.get("report_line", "").astype(str).eq(report_line)].copy() if not signals.empty else signals
-    title_prefix = "主流股" if report_line == "mainstream" else "非主流股"
-    title_suffix = "完整候選清單" if full else "每日推薦精華"
-    doc = SimpleDocTemplate(
-        str(path),
-        pagesize=A4,
-        leftMargin=1.5 * cm,
-        rightMargin=1.5 * cm,
-        topMargin=1.2 * cm,
-        bottomMargin=1.2 * cm,
-    )
-    story: list[Any] = []
-    story.append(para(f"{main_date} {title_prefix}{title_suffix}", style_map["title"]))
-    story.append(para("資料來源：報告用模型訊號表；同一模型內分成新進榜與連續/累計進榜，並各自使用程式端排名。", style_map["subtitle"]))
-
-    story.append(para("各模型新進榜第一名摘要", style_map["h1"]))
-    story.append(make_table(_summary_rows_for_section(part, "new"), style_map, [2.8 * cm, 2.8 * cm, 1.4 * cm, 2.0 * cm, 5.2 * cm, 5.0 * cm]))
-    story.append(Spacer(1, 0.25 * cm))
-    story.append(para("各模型連續/累計進榜第一名摘要", style_map["h1"]))
-    story.append(make_table(_summary_rows_for_section(part, "repeated"), style_map, [2.8 * cm, 2.8 * cm, 1.4 * cm, 2.0 * cm, 5.2 * cm, 5.0 * cm]))
-    story.append(PageBreak())
-
-    if full:
-        story.append(para("完整模型名單", style_map["h1"]))
-        limit = None
-    else:
-        story.append(para("各模型代表股分析", style_map["h1"]))
-        limit = 5
-
-    for model_name in _model_names_in_report_order(part):
-        story.append(para(model_name, style_map["h2"]))
-        for section in ["new", "repeated"]:
-            group = _rows_for_model_section(part, model_name, section, limit)
-            if group.empty:
-                continue
-            story.append(para(_repeat_label(section), style_map["h2"]))
-            story.append(make_table(_detail_table_rows_for_section(group, section), style_map, [2.0 * cm, 2.6 * cm, 1.4 * cm, 6.0 * cm, 6.0 * cm]))
-            if not full:
-                story.append(Spacer(1, 0.18 * cm))
-                for _, row in group.iterrows():
-                    story.append(_model_signal_card_readable(row, section, style_map, tech_map, chart_map, include_chart=True))
-            story.append(Spacer(1, 0.25 * cm))
-
-    _append_theme_event_watch_section_readable(story, style_map, compact=not full)
-    _append_group_rotation_section_readable(story, style_map)
-    doc.build(story)
-
 
 # Final PDF-facing renderer override.
 # Keep this block immediately before copy_outputs(), so main() uses this clean
@@ -3713,8 +3291,43 @@ def _model_score_text(value: Any) -> str:
     except Exception:
         return clean_text(text, 10)
 
+# Report-specific formal stock-PDF renderers. These functions intentionally
+# duplicate the layout-level decisions for each PDF so a change to one report
+# does not silently change another report.
 
-def _model_names_in_report_order(df: pd.DataFrame) -> list[str]:
+def mainstream_highlight_styles() -> dict[str, ParagraphStyle]:
+    return styles()
+
+
+def mainstream_full_styles() -> dict[str, ParagraphStyle]:
+    return styles()
+
+
+def non_mainstream_highlight_styles() -> dict[str, ParagraphStyle]:
+    return styles()
+
+
+def non_mainstream_full_styles() -> dict[str, ParagraphStyle]:
+    return styles()
+
+
+def mainstream_highlight_table(rows: list[list[Any]], style_map: dict[str, ParagraphStyle], widths: list[float]) -> Table:
+    return make_table(rows, style_map, widths)
+
+
+def mainstream_full_table(rows: list[list[Any]], style_map: dict[str, ParagraphStyle], widths: list[float]) -> Table:
+    return make_table(rows, style_map, widths)
+
+
+def non_mainstream_highlight_table(rows: list[list[Any]], style_map: dict[str, ParagraphStyle], widths: list[float]) -> Table:
+    return make_table(rows, style_map, widths)
+
+
+def non_mainstream_full_table(rows: list[list[Any]], style_map: dict[str, ParagraphStyle], widths: list[float]) -> Table:
+    return make_table(rows, style_map, widths)
+
+
+def mainstream_highlight_model_names_in_report_order(df: pd.DataFrame) -> list[str]:
     if df.empty or "model_name_zh" not in df.columns:
         return []
     work = df.copy()
@@ -3732,10 +3345,64 @@ def _model_names_in_report_order(df: pd.DataFrame) -> list[str]:
     return names
 
 
-def _rows_for_model_section(df: pd.DataFrame, model_name: str, section: str, limit: int | None) -> pd.DataFrame:
+def mainstream_full_model_names_in_report_order(df: pd.DataFrame) -> list[str]:
+    if df.empty or "model_name_zh" not in df.columns:
+        return []
+    work = df.copy()
+    work["_rank"] = work.apply(lambda row: min(_rank_sort_number(row, "new"), _rank_sort_number(row, "repeated")), axis=1)
+    work["_score"] = work.apply(_score_sort_number, axis=1)
+    work = work.sort_values(["_rank", "_score"], ascending=[True, False])
+    names: list[str] = []
+    seen: set[str] = set()
+    for name in work["model_name_zh"].astype(str).tolist():
+        clean_name = _pdf_human_text(name, fallback="\u6a21\u578b\u540d\u7a31\u5c1a\u672a\u5b8c\u6210")
+        if clean_name in seen:
+            continue
+        seen.add(clean_name)
+        names.append(clean_name)
+    return names
+
+
+def non_mainstream_highlight_model_names_in_report_order(df: pd.DataFrame) -> list[str]:
+    if df.empty or "model_name_zh" not in df.columns:
+        return []
+    work = df.copy()
+    work["_rank"] = work.apply(lambda row: min(_rank_sort_number(row, "new"), _rank_sort_number(row, "repeated")), axis=1)
+    work["_score"] = work.apply(_score_sort_number, axis=1)
+    work = work.sort_values(["_rank", "_score"], ascending=[True, False])
+    names: list[str] = []
+    seen: set[str] = set()
+    for name in work["model_name_zh"].astype(str).tolist():
+        clean_name = _pdf_human_text(name, fallback="\u6a21\u578b\u540d\u7a31\u5c1a\u672a\u5b8c\u6210")
+        if clean_name in seen:
+            continue
+        seen.add(clean_name)
+        names.append(clean_name)
+    return names
+
+
+def non_mainstream_full_model_names_in_report_order(df: pd.DataFrame) -> list[str]:
+    if df.empty or "model_name_zh" not in df.columns:
+        return []
+    work = df.copy()
+    work["_rank"] = work.apply(lambda row: min(_rank_sort_number(row, "new"), _rank_sort_number(row, "repeated")), axis=1)
+    work["_score"] = work.apply(_score_sort_number, axis=1)
+    work = work.sort_values(["_rank", "_score"], ascending=[True, False])
+    names: list[str] = []
+    seen: set[str] = set()
+    for name in work["model_name_zh"].astype(str).tolist():
+        clean_name = _pdf_human_text(name, fallback="\u6a21\u578b\u540d\u7a31\u5c1a\u672a\u5b8c\u6210")
+        if clean_name in seen:
+            continue
+        seen.add(clean_name)
+        names.append(clean_name)
+    return names
+
+
+def mainstream_highlight_rows_for_model_section(df: pd.DataFrame, model_name: str, section: str, limit: int | None) -> pd.DataFrame:
     if df.empty:
         return df
-    work = df[df["model_name_zh"].astype(str).map(lambda x: _pdf_human_text(x, fallback="\u6a21\u578b\u540d\u7a31\u5c1a\u672a\u5b8c\u6210")) == model_name].copy()
+    work = df[df["model_name_zh"].astype(str).map(lambda value: _pdf_human_text(value, fallback="\u6a21\u578b\u540d\u7a31\u5c1a\u672a\u5b8c\u6210")) == model_name].copy()
     work = work[work.apply(_repeat_key, axis=1).eq("repeated" if section == "repeated" else "new")]
     if work.empty:
         return work
@@ -3747,32 +3414,188 @@ def _rows_for_model_section(df: pd.DataFrame, model_name: str, section: str, lim
     return work.drop(columns=["_rank", "_score"], errors="ignore")
 
 
-def _summary_rows_for_section(df: pd.DataFrame, section: str) -> list[list[Any]]:
-    rows = [["\u6a21\u578b", "\u7b2c\u4e00\u540d\u6a19\u7684", "\u5206\u6578", "\u6392\u540d", "\u5165\u9078\u539f\u56e0", "\u98a8\u96aa/\u64cd\u4f5c\u63d0\u9192"]]
+def mainstream_full_rows_for_model_section(df: pd.DataFrame, model_name: str, section: str, limit: int | None) -> pd.DataFrame:
     if df.empty:
-        rows.append(["\u8cc7\u6599\u4e0d\u8db3", "-", "-", "-", "\u5831\u544a\u7528\u6b04\u4f4d\u7121\u8cc7\u6599", "\u8cc7\u6599\u4e0d\u8db3 / \u50c5\u80fd\u89c0\u5bdf"])
+        return df
+    work = df[df["model_name_zh"].astype(str).map(lambda value: _pdf_human_text(value, fallback="\u6a21\u578b\u540d\u7a31\u5c1a\u672a\u5b8c\u6210")) == model_name].copy()
+    work = work[work.apply(_repeat_key, axis=1).eq("repeated" if section == "repeated" else "new")]
+    if work.empty:
+        return work
+    work["_rank"] = work.apply(lambda row: _rank_sort_number(row, section), axis=1)
+    work["_score"] = work.apply(_score_sort_number, axis=1)
+    work = work.sort_values(["_rank", "_score"], ascending=[True, False])
+    if limit is not None:
+        work = work.head(limit)
+    return work.drop(columns=["_rank", "_score"], errors="ignore")
+
+
+def non_mainstream_highlight_rows_for_model_section(df: pd.DataFrame, model_name: str, section: str, limit: int | None) -> pd.DataFrame:
+    if df.empty:
+        return df
+    work = df[df["model_name_zh"].astype(str).map(lambda value: _pdf_human_text(value, fallback="\u6a21\u578b\u540d\u7a31\u5c1a\u672a\u5b8c\u6210")) == model_name].copy()
+    work = work[work.apply(_repeat_key, axis=1).eq("repeated" if section == "repeated" else "new")]
+    if work.empty:
+        return work
+    work["_rank"] = work.apply(lambda row: _rank_sort_number(row, section), axis=1)
+    work["_score"] = work.apply(_score_sort_number, axis=1)
+    work = work.sort_values(["_rank", "_score"], ascending=[True, False])
+    if limit is not None:
+        work = work.head(limit)
+    return work.drop(columns=["_rank", "_score"], errors="ignore")
+
+
+def non_mainstream_full_rows_for_model_section(df: pd.DataFrame, model_name: str, section: str, limit: int | None) -> pd.DataFrame:
+    if df.empty:
+        return df
+    work = df[df["model_name_zh"].astype(str).map(lambda value: _pdf_human_text(value, fallback="\u6a21\u578b\u540d\u7a31\u5c1a\u672a\u5b8c\u6210")) == model_name].copy()
+    work = work[work.apply(_repeat_key, axis=1).eq("repeated" if section == "repeated" else "new")]
+    if work.empty:
+        return work
+    work["_rank"] = work.apply(lambda row: _rank_sort_number(row, section), axis=1)
+    work["_score"] = work.apply(_score_sort_number, axis=1)
+    work = work.sort_values(["_rank", "_score"], ascending=[True, False])
+    if limit is not None:
+        work = work.head(limit)
+    return work.drop(columns=["_rank", "_score"], errors="ignore")
+
+
+def mainstream_highlight_summary_rows(summary: pd.DataFrame) -> list[list[Any]]:
+    report_line = 'mainstream'
+    rows = [["模型", "訊號類型", "排名", "股票", "分數", "狀態與操作提醒"]]
+    if summary.empty:
+        rows.append(["資料不足", "-", "-", "今日無候選", "-", "daily_candidate_model_summary_for_report_latest.csv 無資料。"])
         return rows
-    for model_name in _model_names_in_report_order(df):
-        picked = _rows_for_model_section(df, model_name, section, 1)
-        if picked.empty:
-            continue
-        row = picked.iloc[0]
-        rows.append(
-            [
-                _pdf_human_text(model_name, fallback="\u6a21\u578b\u540d\u7a31\u5c1a\u672a\u5b8c\u6210", limit=16),
-                f"{safe_str(row.get('stock_id'))} {safe_str(row.get('stock_name'))}",
-                _model_score_text(row.get("model_score")),
-                _rank_for_section(row, section),
-                _pdf_human_text(row.get("why_selected_human_zh"), row.get("why_selected_zh"), fallback="\u7b26\u5408\u6a21\u578b\u4e3b\u689d\u4ef6\uff0c\u7d30\u9805\u8acb\u770b\u5f8c\u7e8c\u500b\u80a1\u9801\u3002", limit=48),
-                _pdf_human_text(row.get("operation_reminder_zh"), row.get("risk_tags_zh"), row.get("next_confirmation_zh"), row.get("recommended_usage_zh"), fallback="\u4f9d\u6a21\u578b\u689d\u4ef6\u7ba1\u7406\uff1b\u8dcc\u7834\u95dc\u9375\u652f\u6490\u6216\u91cf\u50f9\u5931\u6557\u9700\u964d\u4f4e\u90e8\u4f4d\u3002", limit=48),
-            ]
-        )
-    if len(rows) == 1:
-        rows.append(["\u672c\u6bb5\u7121\u6a19\u7684", "-", "-", "-", f"\u672c\u5831\u544a\u7dda\u6c92\u6709{_repeat_label(section)}\u8cc7\u6599", ""])
+    part = summary[summary.get("report_line", "").astype(str).eq(report_line)].copy()
+    if part.empty:
+        rows.append(["資料不足", "-", "-", "今日無候選", "-", f"{report_line} 無模型摘要資料。"])
+        return rows
+    for _, row in part.iterrows():
+        model_name = _pdf_human_text(row.get("model_name_zh"), fallback="模型名稱尚未完成", limit=24)
+        operation = _pdf_human_text(row.get("operation_reminder_zh"), fallback="依模型條件與風險欄位觀察。", limit=58)
+        emitted = False
+        for prefix, section_label in [("new", "新進"), ("repeated", "累計")]:
+            for entry in _summary_entries_for_prefix(row, prefix):
+                note = entry.get("note", "").strip()
+                reminder = clean_text(" / ".join(x for x in [note, operation] if x), 72)
+                rows.append(
+                    [
+                        model_name,
+                        section_label,
+                        _summary_rank_text(row, prefix),
+                        clean_text(entry.get("stock", ""), 24),
+                        _summary_score_text(row, prefix),
+                        reminder,
+                    ]
+                )
+                emitted = True
+        if not emitted:
+            rows.append([model_name, "-", "-", "今日無候選", "-", operation])
     return rows
 
 
-def _detail_table_rows_for_section(df: pd.DataFrame, section: str) -> list[list[Any]]:
+def mainstream_full_summary_rows(summary: pd.DataFrame) -> list[list[Any]]:
+    report_line = 'mainstream'
+    rows = [["模型", "訊號類型", "排名", "股票", "分數", "狀態與操作提醒"]]
+    if summary.empty:
+        rows.append(["資料不足", "-", "-", "今日無候選", "-", "daily_candidate_model_summary_for_report_latest.csv 無資料。"])
+        return rows
+    part = summary[summary.get("report_line", "").astype(str).eq(report_line)].copy()
+    if part.empty:
+        rows.append(["資料不足", "-", "-", "今日無候選", "-", f"{report_line} 無模型摘要資料。"])
+        return rows
+    for _, row in part.iterrows():
+        model_name = _pdf_human_text(row.get("model_name_zh"), fallback="模型名稱尚未完成", limit=24)
+        operation = _pdf_human_text(row.get("operation_reminder_zh"), fallback="依模型條件與風險欄位觀察。", limit=58)
+        emitted = False
+        for prefix, section_label in [("new", "新進"), ("repeated", "累計")]:
+            for entry in _summary_entries_for_prefix(row, prefix):
+                note = entry.get("note", "").strip()
+                reminder = clean_text(" / ".join(x for x in [note, operation] if x), 72)
+                rows.append(
+                    [
+                        model_name,
+                        section_label,
+                        _summary_rank_text(row, prefix),
+                        clean_text(entry.get("stock", ""), 24),
+                        _summary_score_text(row, prefix),
+                        reminder,
+                    ]
+                )
+                emitted = True
+        if not emitted:
+            rows.append([model_name, "-", "-", "今日無候選", "-", operation])
+    return rows
+
+
+def non_mainstream_highlight_summary_rows(summary: pd.DataFrame) -> list[list[Any]]:
+    report_line = 'non_mainstream'
+    rows = [["模型", "訊號類型", "排名", "股票", "分數", "狀態與操作提醒"]]
+    if summary.empty:
+        rows.append(["資料不足", "-", "-", "今日無候選", "-", "daily_candidate_model_summary_for_report_latest.csv 無資料。"])
+        return rows
+    part = summary[summary.get("report_line", "").astype(str).eq(report_line)].copy()
+    if part.empty:
+        rows.append(["資料不足", "-", "-", "今日無候選", "-", f"{report_line} 無模型摘要資料。"])
+        return rows
+    for _, row in part.iterrows():
+        model_name = _pdf_human_text(row.get("model_name_zh"), fallback="模型名稱尚未完成", limit=24)
+        operation = _pdf_human_text(row.get("operation_reminder_zh"), fallback="依模型條件與風險欄位觀察。", limit=58)
+        emitted = False
+        for prefix, section_label in [("new", "新進"), ("repeated", "累計")]:
+            for entry in _summary_entries_for_prefix(row, prefix):
+                note = entry.get("note", "").strip()
+                reminder = clean_text(" / ".join(x for x in [note, operation] if x), 72)
+                rows.append(
+                    [
+                        model_name,
+                        section_label,
+                        _summary_rank_text(row, prefix),
+                        clean_text(entry.get("stock", ""), 24),
+                        _summary_score_text(row, prefix),
+                        reminder,
+                    ]
+                )
+                emitted = True
+        if not emitted:
+            rows.append([model_name, "-", "-", "今日無候選", "-", operation])
+    return rows
+
+
+def non_mainstream_full_summary_rows(summary: pd.DataFrame) -> list[list[Any]]:
+    report_line = 'non_mainstream'
+    rows = [["模型", "訊號類型", "排名", "股票", "分數", "狀態與操作提醒"]]
+    if summary.empty:
+        rows.append(["資料不足", "-", "-", "今日無候選", "-", "daily_candidate_model_summary_for_report_latest.csv 無資料。"])
+        return rows
+    part = summary[summary.get("report_line", "").astype(str).eq(report_line)].copy()
+    if part.empty:
+        rows.append(["資料不足", "-", "-", "今日無候選", "-", f"{report_line} 無模型摘要資料。"])
+        return rows
+    for _, row in part.iterrows():
+        model_name = _pdf_human_text(row.get("model_name_zh"), fallback="模型名稱尚未完成", limit=24)
+        operation = _pdf_human_text(row.get("operation_reminder_zh"), fallback="依模型條件與風險欄位觀察。", limit=58)
+        emitted = False
+        for prefix, section_label in [("new", "新進"), ("repeated", "累計")]:
+            for entry in _summary_entries_for_prefix(row, prefix):
+                note = entry.get("note", "").strip()
+                reminder = clean_text(" / ".join(x for x in [note, operation] if x), 72)
+                rows.append(
+                    [
+                        model_name,
+                        section_label,
+                        _summary_rank_text(row, prefix),
+                        clean_text(entry.get("stock", ""), 24),
+                        _summary_score_text(row, prefix),
+                        reminder,
+                    ]
+                )
+                emitted = True
+        if not emitted:
+            rows.append([model_name, "-", "-", "今日無候選", "-", operation])
+    return rows
+
+
+def mainstream_highlight_detail_rows_for_section(df: pd.DataFrame, section: str) -> list[list[Any]]:
     rows = [["\u6392\u540d", "\u6a19\u7684", "\u5206\u6578", "\u5165\u9078\u539f\u56e0", "\u98a8\u96aa/\u64cd\u4f5c\u63d0\u9192"]]
     if df.empty:
         rows.append(["-", "-", "-", "\u672c\u6bb5\u7121\u6a19\u7684", ""])
@@ -3790,14 +3613,62 @@ def _detail_table_rows_for_section(df: pd.DataFrame, section: str) -> list[list[
     return rows
 
 
-def _model_signal_card_readable(
-    row: pd.Series,
-    section: str,
-    style_map: dict[str, ParagraphStyle],
-    tech_map: dict[str, pd.Series],
-    chart_map: dict[tuple[str, str], Path],
-    include_chart: bool,
-) -> KeepTogether:
+def mainstream_full_detail_rows_for_section(df: pd.DataFrame, section: str) -> list[list[Any]]:
+    rows = [["\u6392\u540d", "\u6a19\u7684", "\u5206\u6578", "\u5165\u9078\u539f\u56e0", "\u98a8\u96aa/\u64cd\u4f5c\u63d0\u9192"]]
+    if df.empty:
+        rows.append(["-", "-", "-", "\u672c\u6bb5\u7121\u6a19\u7684", ""])
+        return rows
+    for _, row in df.iterrows():
+        rows.append(
+            [
+                _rank_for_section(row, section),
+                f"{safe_str(row.get('stock_id'))} {safe_str(row.get('stock_name'))}",
+                _model_score_text(row.get("model_score")),
+                _pdf_human_text(row.get("why_selected_human_zh"), row.get("why_selected_zh"), fallback="\u7b26\u5408\u6a21\u578b\u4e3b\u689d\u4ef6\u3002", limit=62),
+                _pdf_human_text(row.get("operation_reminder_zh"), row.get("risk_tags_zh"), row.get("next_confirmation_zh"), row.get("recommended_usage_zh"), fallback="\u4f9d\u95dc\u9375\u652f\u6490\u8207\u91cf\u50f9\u8b8a\u5316\u7ba1\u7406\u3002", limit=62),
+            ]
+        )
+    return rows
+
+
+def non_mainstream_highlight_detail_rows_for_section(df: pd.DataFrame, section: str) -> list[list[Any]]:
+    rows = [["\u6392\u540d", "\u6a19\u7684", "\u5206\u6578", "\u5165\u9078\u539f\u56e0", "\u98a8\u96aa/\u64cd\u4f5c\u63d0\u9192"]]
+    if df.empty:
+        rows.append(["-", "-", "-", "\u672c\u6bb5\u7121\u6a19\u7684", ""])
+        return rows
+    for _, row in df.iterrows():
+        rows.append(
+            [
+                _rank_for_section(row, section),
+                f"{safe_str(row.get('stock_id'))} {safe_str(row.get('stock_name'))}",
+                _model_score_text(row.get("model_score")),
+                _pdf_human_text(row.get("why_selected_human_zh"), row.get("why_selected_zh"), fallback="\u7b26\u5408\u6a21\u578b\u4e3b\u689d\u4ef6\u3002", limit=62),
+                _pdf_human_text(row.get("operation_reminder_zh"), row.get("risk_tags_zh"), row.get("next_confirmation_zh"), row.get("recommended_usage_zh"), fallback="\u4f9d\u95dc\u9375\u652f\u6490\u8207\u91cf\u50f9\u8b8a\u5316\u7ba1\u7406\u3002", limit=62),
+            ]
+        )
+    return rows
+
+
+def non_mainstream_full_detail_rows_for_section(df: pd.DataFrame, section: str) -> list[list[Any]]:
+    rows = [["\u6392\u540d", "\u6a19\u7684", "\u5206\u6578", "\u5165\u9078\u539f\u56e0", "\u98a8\u96aa/\u64cd\u4f5c\u63d0\u9192"]]
+    if df.empty:
+        rows.append(["-", "-", "-", "\u672c\u6bb5\u7121\u6a19\u7684", ""])
+        return rows
+    for _, row in df.iterrows():
+        rows.append(
+            [
+                _rank_for_section(row, section),
+                f"{safe_str(row.get('stock_id'))} {safe_str(row.get('stock_name'))}",
+                _model_score_text(row.get("model_score")),
+                _pdf_human_text(row.get("why_selected_human_zh"), row.get("why_selected_zh"), fallback="\u7b26\u5408\u6a21\u578b\u4e3b\u689d\u4ef6\u3002", limit=62),
+                _pdf_human_text(row.get("operation_reminder_zh"), row.get("risk_tags_zh"), row.get("next_confirmation_zh"), row.get("recommended_usage_zh"), fallback="\u4f9d\u95dc\u9375\u652f\u6490\u8207\u91cf\u50f9\u8b8a\u5316\u7ba1\u7406\u3002", limit=62),
+            ]
+        )
+    return rows
+
+
+def mainstream_highlight_model_signal_card(row: pd.Series, section: str, style_map: dict[str, ParagraphStyle], tech_map: dict[str, pd.Series], chart_map: dict[tuple[str, str], Path]) -> KeepTogether:
+    include_chart = True
     stock_id = safe_str(row.get("stock_id"))
     stock_name = safe_str(row.get("stock_name"))
     model_name = _pdf_human_text(row.get("model_name_zh"), fallback="\u6a21\u578b\u540d\u7a31\u5c1a\u672a\u5b8c\u6210")
@@ -3849,7 +3720,61 @@ def _model_signal_card_readable(
     return KeepTogether(parts)
 
 
-def _append_theme_event_watch_section_readable(story: list[Any], style_map: dict[str, ParagraphStyle], compact: bool) -> None:
+def non_mainstream_highlight_model_signal_card(row: pd.Series, section: str, style_map: dict[str, ParagraphStyle], tech_map: dict[str, pd.Series], chart_map: dict[tuple[str, str], Path]) -> KeepTogether:
+    include_chart = True
+    stock_id = safe_str(row.get("stock_id"))
+    stock_name = safe_str(row.get("stock_name"))
+    model_name = _pdf_human_text(row.get("model_name_zh"), fallback="\u6a21\u578b\u540d\u7a31\u5c1a\u672a\u5b8c\u6210")
+    tech = tech_map.get(stock_id, pd.Series(dtype=object))
+    title = f"{stock_id} {stock_name} / {model_name}"
+    take_profit_text = _pdf_human_text(
+        tech.get("take_profit_text_zh"),
+        fallback="\u63a5\u8fd1\u58d3\u529b\u6216\u91cf\u50f9\u5931\u6557\u6642\u5206\u6279\u505c\u5229\u3002",
+    )
+    exit_text = _pdf_human_text(
+        tech.get("exit_condition_text_zh"),
+        fallback="\u8dcc\u7834\u8fd1\u671f\u652f\u6490\u621623EMA\u7121\u6cd5\u6536\u56de\u6642\u9000\u51fa\u3002",
+    )
+    tdcc_text = _pdf_human_text(
+        row.get("tdcc_big_holder_summary_zh"),
+        row.get("tdcc_status_zh"),
+        fallback="TDCC\u6458\u8981\u5c1a\u672a\u5b8c\u6210",
+    )
+    warrant_text = _pdf_human_text(
+        row.get("warrant_flow_signal_zh"),
+        fallback="\u6b0a\u8b49\u6458\u8981\u5c1a\u672a\u5b8c\u6210",
+    )
+    source_text = _pdf_human_text(
+        row.get("source_hit_labels_zh"),
+        fallback="\u4f86\u6e90\u6a19\u7c64\u5c1a\u672a\u5b8c\u6210",
+    )
+    table_rows = [
+        [para(title, style_map["curated_cell"]), para(f"{_repeat_label(section)} / {_rank_for_section(row, section)} / \u5206\u6578 {_model_score_text(row.get('model_score'))}", style_map["curated_cell"])],
+        [para("\u64cd\u4f5c\u7d50\u8ad6", style_map["label"]), para(_pdf_human_text(row.get("operation_reminder_zh"), row.get("recommended_usage_zh"), fallback="\u7b26\u5408\u6a21\u578b\u689d\u4ef6\uff0c\u4ee5\u95dc\u9375\u652f\u6490\u3001\u91cf\u50f9\u8207TDCC\u8b8a\u5316\u7ba1\u7406\u3002"), style_map["curated_cell"])],
+        [para("\u76ee\u524d\u4f4d\u7f6e", style_map["label"]), para(_pdf_human_text(tech.get("price_position_summary_zh"), fallback="\u4f4d\u7f6e\u6458\u8981\u6b04\u4f4d\u5c1a\u672a\u5b8c\u6210\uff0c\u8acb\u4ee5K\u7dda\u5716\u8207\u652f\u6490\u58d3\u529b\u5c0d\u7167\u3002"), style_map["curated_cell"])],
+        [para("\u6280\u8853\u72c0\u614b", style_map["label"]), para(_pdf_human_text(tech.get("technical_summary_zh"), fallback="\u6280\u8853\u6458\u8981\u6b04\u4f4d\u5c1a\u672a\u5b8c\u6210\uff0c\u66ab\u7528K\u7dda\u8207\u91cf\u50f9\u5224\u8b80\u3002"), style_map["curated_cell"])],
+        [para("\u652f\u6490/\u58d3\u529b", style_map["label"]), para(_pdf_human_text(tech.get("support_resistance_summary_zh"), fallback="\u652f\u6490\u58d3\u529b\u7531\u5716\u9762\u6a19\u793a\uff0c\u512a\u5148\u770b23EMA\u3001\u5e73\u53f0\u8207\u524d\u9ad8\u58d3\u529b\u3002"), style_map["curated_cell"])],
+        [para("\u5165\u9078\u539f\u56e0", style_map["label"]), para(_pdf_human_text(row.get("why_selected_human_zh"), row.get("why_selected_zh"), fallback="\u7b26\u5408\u6a21\u578b\u4e3b\u689d\u4ef6\u3002"), style_map["curated_cell"])],
+        [para("\u8cb7\u9032\u689d\u4ef6", style_map["label"]), para(_pdf_human_text(tech.get("buy_condition_text_zh"), row.get("operation_reminder_zh"), fallback="\u7b26\u5408\u6a21\u578b\u689d\u4ef6\u5f8c\uff0c\u4ee5\u4e0d\u8dcc\u7834\u95dc\u9375\u652f\u6490\u8207\u91cf\u50f9\u7e8c\u5f37\u7ba1\u7406\u3002"), style_map["curated_cell"])],
+        [para("\u505c\u5229/\u9000\u51fa", style_map["label"]), para(f"{take_profit_text} / {exit_text}", style_map["curated_cell"])],
+        [para("\u4e3b\u8981\u98a8\u96aa", style_map["label"]), para(_pdf_human_text(row.get("risk_tags_zh"), row.get("tdcc_risk_text_zh"), row.get("downgrade_flags_zh"), fallback="\u98a8\u96aa\u6a19\u7c64\u5c1a\u672a\u5b8c\u6210\uff0c\u4ee5\u91cf\u50f9\u3001TDCC\u8207\u652f\u6490\u5931\u5b88\u7ba1\u7406\u3002"), style_map["curated_cell"])],
+        [para("TDCC / \u6b0a\u8b49 / \u4f86\u6e90", style_map["label"]), para(f"{tdcc_text} / {warrant_text} / {source_text}", style_map["curated_cell"])],
+    ]
+    table = Table(table_rows, colWidths=[4.0 * cm, 12.8 * cm])
+    table.setStyle(TableStyle([("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#EAF2F8")), ("GRID", (0, 0), (-1, -1), 0.25, colors.HexColor("#CFD8E3")), ("VALIGN", (0, 0), (-1, -1), "TOP"), ("LEFTPADDING", (0, 0), (-1, -1), 6), ("RIGHTPADDING", (0, 0), (-1, -1), 6), ("TOPPADDING", (0, 0), (-1, -1), 5), ("BOTTOMPADDING", (0, 0), (-1, -1), 5)]))
+    parts: list[Any] = [table]
+    if include_chart:
+        chart_row = row.copy()
+        chart_row["category"] = safe_str(row.get("original_category")) or safe_str(row.get("source_hit_labels"))
+        chart_path = chart_map.get((stock_id, "")) or redraw_pdf_kline_chart_for_row(chart_row)
+        if chart_path is not None and chart_path.exists():
+            parts.extend([Spacer(1, 0.12 * cm), PdfImage(str(chart_path), width=16.6 * cm, height=8.2 * cm)])
+    parts.append(Spacer(1, 0.22 * cm))
+    return KeepTogether(parts)
+
+
+def append_mainstream_highlight_theme_event_watch_section(story: list[Any], style_map: dict[str, ParagraphStyle]) -> None:
+    compact = True
     events = read_csv_safe(LATEST_DIR / "theme_event_watch_latest.csv", dtype=str, keep_default_na=False)
     story.append(PageBreak())
     story.append(para("\u8fd1\u671f\u4e8b\u4ef6\u9810\u8b66 / \u4e3b\u984c\u50ac\u5316\u89c0\u5bdf", style_map["h1"]))
@@ -3873,7 +3798,82 @@ def _append_theme_event_watch_section_readable(story: list[Any], style_map: dict
     story.append(make_table(rows, style_map, [3.1 * cm, 2.0 * cm, 2.2 * cm, 1.5 * cm, 4.2 * cm, 5.2 * cm]))
 
 
-def _append_group_rotation_section_readable(story: list[Any], style_map: dict[str, ParagraphStyle]) -> None:
+def append_mainstream_full_theme_event_watch_section(story: list[Any], style_map: dict[str, ParagraphStyle]) -> None:
+    compact = False
+    events = read_csv_safe(LATEST_DIR / "theme_event_watch_latest.csv", dtype=str, keep_default_na=False)
+    story.append(PageBreak())
+    story.append(para("\u8fd1\u671f\u4e8b\u4ef6\u9810\u8b66 / \u4e3b\u984c\u50ac\u5316\u89c0\u5bdf", style_map["h1"]))
+    if events.empty:
+        story.append(para("\u76ee\u524d\u7121\u53ef\u986f\u793a\u7684\u4e8b\u4ef6\u9810\u8b66\u8cc7\u6599\uff1b\u82e5\u6709\u65b0\u4e8b\u4ef6\uff0c\u8acb\u88dc\u5165 theme_event_watch_latest.csv \u6216\u4e8b\u4ef6\u884c\u4e8b\u66c6\u3002", style_map["normal"]))
+        return
+    rows = [["\u4e8b\u4ef6", "\u65e5\u671f", "\u65cf\u7fa4", "\u4ea4\u96c6\u6578", "\u76f8\u95dc\u6a19\u7684", "\u89e3\u8b80"]]
+    limit = 8 if compact else 30
+    for _, row in events.head(limit).iterrows():
+        start_date = _pdf_human_text(row.get("event_start_date"), row.get("start_date"), fallback="")
+        end_date = _pdf_human_text(row.get("event_end_date"), row.get("end_date"), fallback="")
+        event_range = start_date if not end_date or end_date == start_date else f"{start_date}-{end_date}"
+        rows.append([
+            _pdf_human_text(row.get("event_name"), fallback="\u4e8b\u4ef6\u540d\u7a31\u5c1a\u672a\u5b8c\u6210", limit=24),
+            clean_text(event_range, 18),
+            _pdf_human_text(row.get("theme_tag"), fallback="\u65cf\u7fa4\u6a19\u7c64\u5c1a\u672a\u5b8c\u6210", limit=18),
+            _pdf_human_text(row.get("candidate_intersection_count"), fallback="0", limit=8),
+            _pdf_human_text(row.get("top_candidate_summary_zh"), row.get("candidate_intersection_stock_names"), fallback="-", limit=42),
+            _pdf_human_text(row.get("interpretation_zh"), row.get("theme_event_watch_status"), fallback="\u4e8b\u4ef6\u8cc7\u6599\u5df2\u5217\u5165\u89c0\u5bdf\uff0c\u9700\u5c0d\u7167\u65cf\u7fa4\u8cc7\u91d1\u662f\u5426\u64f4\u6563\u3002", limit=58),
+        ])
+    story.append(make_table(rows, style_map, [3.1 * cm, 2.0 * cm, 2.2 * cm, 1.5 * cm, 4.2 * cm, 5.2 * cm]))
+
+
+def append_non_mainstream_highlight_theme_event_watch_section(story: list[Any], style_map: dict[str, ParagraphStyle]) -> None:
+    compact = True
+    events = read_csv_safe(LATEST_DIR / "theme_event_watch_latest.csv", dtype=str, keep_default_na=False)
+    story.append(PageBreak())
+    story.append(para("\u8fd1\u671f\u4e8b\u4ef6\u9810\u8b66 / \u4e3b\u984c\u50ac\u5316\u89c0\u5bdf", style_map["h1"]))
+    if events.empty:
+        story.append(para("\u76ee\u524d\u7121\u53ef\u986f\u793a\u7684\u4e8b\u4ef6\u9810\u8b66\u8cc7\u6599\uff1b\u82e5\u6709\u65b0\u4e8b\u4ef6\uff0c\u8acb\u88dc\u5165 theme_event_watch_latest.csv \u6216\u4e8b\u4ef6\u884c\u4e8b\u66c6\u3002", style_map["normal"]))
+        return
+    rows = [["\u4e8b\u4ef6", "\u65e5\u671f", "\u65cf\u7fa4", "\u4ea4\u96c6\u6578", "\u76f8\u95dc\u6a19\u7684", "\u89e3\u8b80"]]
+    limit = 8 if compact else 30
+    for _, row in events.head(limit).iterrows():
+        start_date = _pdf_human_text(row.get("event_start_date"), row.get("start_date"), fallback="")
+        end_date = _pdf_human_text(row.get("event_end_date"), row.get("end_date"), fallback="")
+        event_range = start_date if not end_date or end_date == start_date else f"{start_date}-{end_date}"
+        rows.append([
+            _pdf_human_text(row.get("event_name"), fallback="\u4e8b\u4ef6\u540d\u7a31\u5c1a\u672a\u5b8c\u6210", limit=24),
+            clean_text(event_range, 18),
+            _pdf_human_text(row.get("theme_tag"), fallback="\u65cf\u7fa4\u6a19\u7c64\u5c1a\u672a\u5b8c\u6210", limit=18),
+            _pdf_human_text(row.get("candidate_intersection_count"), fallback="0", limit=8),
+            _pdf_human_text(row.get("top_candidate_summary_zh"), row.get("candidate_intersection_stock_names"), fallback="-", limit=42),
+            _pdf_human_text(row.get("interpretation_zh"), row.get("theme_event_watch_status"), fallback="\u4e8b\u4ef6\u8cc7\u6599\u5df2\u5217\u5165\u89c0\u5bdf\uff0c\u9700\u5c0d\u7167\u65cf\u7fa4\u8cc7\u91d1\u662f\u5426\u64f4\u6563\u3002", limit=58),
+        ])
+    story.append(make_table(rows, style_map, [3.1 * cm, 2.0 * cm, 2.2 * cm, 1.5 * cm, 4.2 * cm, 5.2 * cm]))
+
+
+def append_non_mainstream_full_theme_event_watch_section(story: list[Any], style_map: dict[str, ParagraphStyle]) -> None:
+    compact = False
+    events = read_csv_safe(LATEST_DIR / "theme_event_watch_latest.csv", dtype=str, keep_default_na=False)
+    story.append(PageBreak())
+    story.append(para("\u8fd1\u671f\u4e8b\u4ef6\u9810\u8b66 / \u4e3b\u984c\u50ac\u5316\u89c0\u5bdf", style_map["h1"]))
+    if events.empty:
+        story.append(para("\u76ee\u524d\u7121\u53ef\u986f\u793a\u7684\u4e8b\u4ef6\u9810\u8b66\u8cc7\u6599\uff1b\u82e5\u6709\u65b0\u4e8b\u4ef6\uff0c\u8acb\u88dc\u5165 theme_event_watch_latest.csv \u6216\u4e8b\u4ef6\u884c\u4e8b\u66c6\u3002", style_map["normal"]))
+        return
+    rows = [["\u4e8b\u4ef6", "\u65e5\u671f", "\u65cf\u7fa4", "\u4ea4\u96c6\u6578", "\u76f8\u95dc\u6a19\u7684", "\u89e3\u8b80"]]
+    limit = 8 if compact else 30
+    for _, row in events.head(limit).iterrows():
+        start_date = _pdf_human_text(row.get("event_start_date"), row.get("start_date"), fallback="")
+        end_date = _pdf_human_text(row.get("event_end_date"), row.get("end_date"), fallback="")
+        event_range = start_date if not end_date or end_date == start_date else f"{start_date}-{end_date}"
+        rows.append([
+            _pdf_human_text(row.get("event_name"), fallback="\u4e8b\u4ef6\u540d\u7a31\u5c1a\u672a\u5b8c\u6210", limit=24),
+            clean_text(event_range, 18),
+            _pdf_human_text(row.get("theme_tag"), fallback="\u65cf\u7fa4\u6a19\u7c64\u5c1a\u672a\u5b8c\u6210", limit=18),
+            _pdf_human_text(row.get("candidate_intersection_count"), fallback="0", limit=8),
+            _pdf_human_text(row.get("top_candidate_summary_zh"), row.get("candidate_intersection_stock_names"), fallback="-", limit=42),
+            _pdf_human_text(row.get("interpretation_zh"), row.get("theme_event_watch_status"), fallback="\u4e8b\u4ef6\u8cc7\u6599\u5df2\u5217\u5165\u89c0\u5bdf\uff0c\u9700\u5c0d\u7167\u65cf\u7fa4\u8cc7\u91d1\u662f\u5426\u64f4\u6563\u3002", limit=58),
+        ])
+    story.append(make_table(rows, style_map, [3.1 * cm, 2.0 * cm, 2.2 * cm, 1.5 * cm, 4.2 * cm, 5.2 * cm]))
+
+
+def append_mainstream_highlight_group_rotation_section(story: list[Any], style_map: dict[str, ParagraphStyle]) -> None:
     rotation = read_csv_safe(LATEST_DIR / "daily_candidate_group_rotation_latest.csv", dtype=str, keep_default_na=False)
     if rotation.empty:
         return
@@ -3897,44 +3897,84 @@ def _append_group_rotation_section_readable(story: list[Any], style_map: dict[st
     story.append(make_table(rows, style_map, [2.5 * cm, 1.6 * cm, 1.8 * cm, 1.8 * cm, 4.1 * cm, 6.0 * cm]))
 
 
-def build_model_line_pdf(report_line: str, full: bool, main_date: str, path: Path) -> None:
-    style_map = styles()
-    signals = load_model_report_signals()
-    model_summary = _load_model_summary_for_report()
-    tech_map = load_technical_snapshot()
-    chart_map = load_pdf_kline_chart_map()
-    part = signals[signals.get("report_line", "").astype(str).eq(report_line)].copy() if not signals.empty else signals
-    title_prefix = "\u4e3b\u6d41\u80a1" if report_line == "mainstream" else "\u975e\u4e3b\u6d41\u80a1"
-    title_suffix = "\u5b8c\u6574\u5019\u9078\u6e05\u55ae" if full else "\u6bcf\u65e5\u63a8\u85a6\u7cbe\u83ef"
-    doc = SimpleDocTemplate(str(path), pagesize=A4, leftMargin=1.5 * cm, rightMargin=1.5 * cm, topMargin=1.2 * cm, bottomMargin=1.2 * cm)
-    story: list[Any] = []
-    story.append(para(f"{main_date} {title_prefix}{title_suffix}", style_map["title"]))
-    story.append(para("資料來源：報告用模型訊號表；同一模型內分成新進榜與連續/累計進榜，並各自使用程式端排名。", style_map["subtitle"]))
-    story.append(para("各模型新進榜 / 連續榜固定摘要", style_map["h1"]))
-    story.append(make_table(_fixed_model_summary_rows(model_summary, report_line), style_map, [3.0 * cm, 2.0 * cm, 1.5 * cm, 3.1 * cm, 1.3 * cm, 6.8 * cm]))
+def append_mainstream_full_group_rotation_section(story: list[Any], style_map: dict[str, ParagraphStyle]) -> None:
+    rotation = read_csv_safe(LATEST_DIR / "daily_candidate_group_rotation_latest.csv", dtype=str, keep_default_na=False)
+    if rotation.empty:
+        return
+    if "theme_resolution_status" in rotation.columns:
+        rotation = rotation[rotation["theme_resolution_status"].astype(str).eq("resolved")].copy()
+    if rotation.empty:
+        return
     story.append(PageBreak())
-    limit = None if full else 5
-    story.append(para("\u5b8c\u6574\u6a21\u578b\u6e05\u55ae" if full else "\u5404\u6a21\u578b\u4ee3\u8868\u80a1\u5206\u6790", style_map["h1"]))
-    for model_name in _model_names_in_report_order(part):
-        story.append(para(model_name, style_map["h2"]))
-        for section in ["new", "repeated"]:
-            group = _rows_for_model_section(part, model_name, section, limit)
-            if group.empty:
-                continue
-            story.append(para(_repeat_label(section), style_map["h2"]))
-            story.append(make_table(_detail_table_rows_for_section(group, section), style_map, [2.0 * cm, 2.6 * cm, 1.4 * cm, 6.0 * cm, 6.0 * cm]))
-            if not full:
-                story.append(Spacer(1, 0.18 * cm))
-                for _, row in group.iterrows():
-                    story.append(_model_signal_card_readable(row, section, style_map, tech_map, chart_map, include_chart=True))
-            story.append(Spacer(1, 0.25 * cm))
-    _append_theme_event_watch_section_readable(story, style_map, compact=not full)
-    _append_group_rotation_section_readable(story, style_map)
-    doc.build(story)
+    story.append(para("\u65cf\u7fa4\u8cc7\u91d1\u8f2a\u52d5\u89c0\u5bdf", style_map["h1"]))
+    story.append(para("\u672c\u7bc0\u53ea\u5224\u8b80\u65cf\u7fa4\u51fa\u91cf\u64f4\u6563\uff0c\u4e0d\u76f4\u63a5\u7576\u500b\u80a1\u8cb7\u9032\u7406\u7531\u3002", style_map["normal"]))
+    rows = [["\u65cf\u7fa4", "\u6a94\u6578", "3\u500d\u91cf\u6a94\u6578", "\u64f4\u6563\u6bd4\u4f8b", "\u9f8d\u982d/\u8001\u4e8c/\u8001\u4e09", "\u89e3\u8b80"]]
+    for _, row in rotation.head(20).iterrows():
+        rows.append([
+            _pdf_human_text(row.get("theme_display_zh"), row.get("theme"), fallback="\u65cf\u7fa4\u5c1a\u672a\u5b8c\u6210", limit=18),
+            clean_text(row.get("stock_count", ""), 8),
+            clean_text(row.get("volume_expansion_3x_count", ""), 8),
+            clean_text(row.get("volume_expansion_ratio", ""), 8),
+            clean_text(" / ".join([safe_str(row.get("leader_1")), safe_str(row.get("leader_2")), safe_str(row.get("leader_3"))]).strip(" /"), 36),
+            _pdf_human_text(row.get("interpretation_zh"), row.get("interpretation"), fallback="\u8cc7\u91d1\u64f4\u6563\u72c0\u614b\u5c1a\u672a\u5b8c\u6210\u3002", limit=60),
+        ])
+    story.append(make_table(rows, style_map, [2.5 * cm, 1.6 * cm, 1.8 * cm, 1.8 * cm, 4.1 * cm, 6.0 * cm]))
+
+
+def append_non_mainstream_highlight_group_rotation_section(story: list[Any], style_map: dict[str, ParagraphStyle]) -> None:
+    rotation = read_csv_safe(LATEST_DIR / "daily_candidate_group_rotation_latest.csv", dtype=str, keep_default_na=False)
+    if rotation.empty:
+        return
+    if "theme_resolution_status" in rotation.columns:
+        rotation = rotation[rotation["theme_resolution_status"].astype(str).eq("resolved")].copy()
+    if rotation.empty:
+        return
+    story.append(PageBreak())
+    story.append(para("\u65cf\u7fa4\u8cc7\u91d1\u8f2a\u52d5\u89c0\u5bdf", style_map["h1"]))
+    story.append(para("\u672c\u7bc0\u53ea\u5224\u8b80\u65cf\u7fa4\u51fa\u91cf\u64f4\u6563\uff0c\u4e0d\u76f4\u63a5\u7576\u500b\u80a1\u8cb7\u9032\u7406\u7531\u3002", style_map["normal"]))
+    rows = [["\u65cf\u7fa4", "\u6a94\u6578", "3\u500d\u91cf\u6a94\u6578", "\u64f4\u6563\u6bd4\u4f8b", "\u9f8d\u982d/\u8001\u4e8c/\u8001\u4e09", "\u89e3\u8b80"]]
+    for _, row in rotation.head(20).iterrows():
+        rows.append([
+            _pdf_human_text(row.get("theme_display_zh"), row.get("theme"), fallback="\u65cf\u7fa4\u5c1a\u672a\u5b8c\u6210", limit=18),
+            clean_text(row.get("stock_count", ""), 8),
+            clean_text(row.get("volume_expansion_3x_count", ""), 8),
+            clean_text(row.get("volume_expansion_ratio", ""), 8),
+            clean_text(" / ".join([safe_str(row.get("leader_1")), safe_str(row.get("leader_2")), safe_str(row.get("leader_3"))]).strip(" /"), 36),
+            _pdf_human_text(row.get("interpretation_zh"), row.get("interpretation"), fallback="\u8cc7\u91d1\u64f4\u6563\u72c0\u614b\u5c1a\u672a\u5b8c\u6210\u3002", limit=60),
+        ])
+    story.append(make_table(rows, style_map, [2.5 * cm, 1.6 * cm, 1.8 * cm, 1.8 * cm, 4.1 * cm, 6.0 * cm]))
+
+
+def append_non_mainstream_full_group_rotation_section(story: list[Any], style_map: dict[str, ParagraphStyle]) -> None:
+    rotation = read_csv_safe(LATEST_DIR / "daily_candidate_group_rotation_latest.csv", dtype=str, keep_default_na=False)
+    if rotation.empty:
+        return
+    if "theme_resolution_status" in rotation.columns:
+        rotation = rotation[rotation["theme_resolution_status"].astype(str).eq("resolved")].copy()
+    if rotation.empty:
+        return
+    story.append(PageBreak())
+    story.append(para("\u65cf\u7fa4\u8cc7\u91d1\u8f2a\u52d5\u89c0\u5bdf", style_map["h1"]))
+    story.append(para("\u672c\u7bc0\u53ea\u5224\u8b80\u65cf\u7fa4\u51fa\u91cf\u64f4\u6563\uff0c\u4e0d\u76f4\u63a5\u7576\u500b\u80a1\u8cb7\u9032\u7406\u7531\u3002", style_map["normal"]))
+    rows = [["\u65cf\u7fa4", "\u6a94\u6578", "3\u500d\u91cf\u6a94\u6578", "\u64f4\u6563\u6bd4\u4f8b", "\u9f8d\u982d/\u8001\u4e8c/\u8001\u4e09", "\u89e3\u8b80"]]
+    for _, row in rotation.head(20).iterrows():
+        rows.append([
+            _pdf_human_text(row.get("theme_display_zh"), row.get("theme"), fallback="\u65cf\u7fa4\u5c1a\u672a\u5b8c\u6210", limit=18),
+            clean_text(row.get("stock_count", ""), 8),
+            clean_text(row.get("volume_expansion_3x_count", ""), 8),
+            clean_text(row.get("volume_expansion_ratio", ""), 8),
+            clean_text(" / ".join([safe_str(row.get("leader_1")), safe_str(row.get("leader_2")), safe_str(row.get("leader_3"))]).strip(" /"), 36),
+            _pdf_human_text(row.get("interpretation_zh"), row.get("interpretation"), fallback="\u8cc7\u91d1\u64f4\u6563\u72c0\u614b\u5c1a\u672a\u5b8c\u6210\u3002", limit=60),
+        ])
+    story.append(make_table(rows, style_map, [2.5 * cm, 1.6 * cm, 1.8 * cm, 1.8 * cm, 4.1 * cm, 6.0 * cm]))
+
+
+
+
 
 
 def build_mainstream_daily_recommendation_highlight_pdf(main_date: str, path: Path) -> None:
-    style_map = styles()
+    style_map = mainstream_highlight_styles()
     signals = load_model_report_signals()
     model_summary = _load_model_summary_for_report()
     tech_map = load_technical_snapshot()
@@ -3945,28 +3985,28 @@ def build_mainstream_daily_recommendation_highlight_pdf(main_date: str, path: Pa
     story.append(para(f"{main_date} \u4e3b\u6d41\u80a1\u6bcf\u65e5\u63a8\u85a6\u7cbe\u83ef", style_map["title"]))
     story.append(para("\u8cc7\u6599\u4f86\u6e90\uff1a\u5831\u544a\u7528\u6a21\u578b\u8a0a\u865f\u8868\uff1b\u540c\u4e00\u6a21\u578b\u5167\u5206\u6210\u65b0\u9032\u699c\u8207\u9023\u7e8c/\u7d2f\u8a08\u9032\u699c\uff0c\u4e26\u5404\u81ea\u4f7f\u7528\u7a0b\u5f0f\u7aef\u6392\u540d\u3002", style_map["subtitle"]))
     story.append(para("\u5404\u6a21\u578b\u65b0\u9032\u699c / \u9023\u7e8c\u699c\u56fa\u5b9a\u6458\u8981", style_map["h1"]))
-    story.append(make_table(_fixed_model_summary_rows(model_summary, "mainstream"), style_map, [3.0 * cm, 2.0 * cm, 1.5 * cm, 3.1 * cm, 1.3 * cm, 6.8 * cm]))
+    story.append(mainstream_highlight_table(mainstream_highlight_summary_rows(model_summary), style_map, [3.0 * cm, 2.0 * cm, 1.5 * cm, 3.1 * cm, 1.3 * cm, 6.8 * cm]))
     story.append(PageBreak())
     story.append(para("\u5404\u6a21\u578b\u4ee3\u8868\u80a1\u5206\u6790", style_map["h1"]))
-    for model_name in _model_names_in_report_order(mainstream_signals):
+    for model_name in mainstream_highlight_model_names_in_report_order(mainstream_signals):
         story.append(para(model_name, style_map["h2"]))
         for section in ["new", "repeated"]:
-            group = _rows_for_model_section(mainstream_signals, model_name, section, 5)
+            group = mainstream_highlight_rows_for_model_section(mainstream_signals, model_name, section, 5)
             if group.empty:
                 continue
             story.append(para(_repeat_label(section), style_map["h2"]))
-            story.append(make_table(_detail_table_rows_for_section(group, section), style_map, [2.0 * cm, 2.6 * cm, 1.4 * cm, 6.0 * cm, 6.0 * cm]))
+            story.append(mainstream_highlight_table(mainstream_highlight_detail_rows_for_section(group, section), style_map, [2.0 * cm, 2.6 * cm, 1.4 * cm, 6.0 * cm, 6.0 * cm]))
             story.append(Spacer(1, 0.18 * cm))
             for _, row in group.iterrows():
-                story.append(_model_signal_card_readable(row, section, style_map, tech_map, chart_map, include_chart=True))
+                story.append(mainstream_highlight_model_signal_card(row, section, style_map, tech_map, chart_map))
             story.append(Spacer(1, 0.25 * cm))
-    _append_theme_event_watch_section_readable(story, style_map, compact=True)
-    _append_group_rotation_section_readable(story, style_map)
+    append_mainstream_highlight_theme_event_watch_section(story, style_map)
+    append_mainstream_highlight_group_rotation_section(story, style_map)
     doc.build(story)
 
 
 def build_mainstream_full_candidate_list_pdf(main_date: str, path: Path) -> None:
-    style_map = styles()
+    style_map = mainstream_full_styles()
     signals = load_model_report_signals()
     model_summary = _load_model_summary_for_report()
     mainstream_signals = signals[signals.get("report_line", "").astype(str).eq("mainstream")].copy() if not signals.empty else signals
@@ -3975,25 +4015,25 @@ def build_mainstream_full_candidate_list_pdf(main_date: str, path: Path) -> None
     story.append(para(f"{main_date} \u4e3b\u6d41\u80a1\u5b8c\u6574\u5019\u9078\u6e05\u55ae", style_map["title"]))
     story.append(para("\u8cc7\u6599\u4f86\u6e90\uff1a\u5831\u544a\u7528\u6a21\u578b\u8a0a\u865f\u8868\uff1b\u540c\u4e00\u6a21\u578b\u5167\u5206\u6210\u65b0\u9032\u699c\u8207\u9023\u7e8c/\u7d2f\u8a08\u9032\u699c\uff0c\u4e26\u5404\u81ea\u4f7f\u7528\u7a0b\u5f0f\u7aef\u6392\u540d\u3002", style_map["subtitle"]))
     story.append(para("\u5404\u6a21\u578b\u65b0\u9032\u699c / \u9023\u7e8c\u699c\u56fa\u5b9a\u6458\u8981", style_map["h1"]))
-    story.append(make_table(_fixed_model_summary_rows(model_summary, "mainstream"), style_map, [3.0 * cm, 2.0 * cm, 1.5 * cm, 3.1 * cm, 1.3 * cm, 6.8 * cm]))
+    story.append(mainstream_full_table(mainstream_full_summary_rows(model_summary), style_map, [3.0 * cm, 2.0 * cm, 1.5 * cm, 3.1 * cm, 1.3 * cm, 6.8 * cm]))
     story.append(PageBreak())
     story.append(para("\u5b8c\u6574\u6a21\u578b\u6e05\u55ae", style_map["h1"]))
-    for model_name in _model_names_in_report_order(mainstream_signals):
+    for model_name in mainstream_full_model_names_in_report_order(mainstream_signals):
         story.append(para(model_name, style_map["h2"]))
         for section in ["new", "repeated"]:
-            group = _rows_for_model_section(mainstream_signals, model_name, section, None)
+            group = mainstream_full_rows_for_model_section(mainstream_signals, model_name, section, None)
             if group.empty:
                 continue
             story.append(para(_repeat_label(section), style_map["h2"]))
-            story.append(make_table(_detail_table_rows_for_section(group, section), style_map, [2.0 * cm, 2.6 * cm, 1.4 * cm, 6.0 * cm, 6.0 * cm]))
+            story.append(mainstream_full_table(mainstream_full_detail_rows_for_section(group, section), style_map, [2.0 * cm, 2.6 * cm, 1.4 * cm, 6.0 * cm, 6.0 * cm]))
             story.append(Spacer(1, 0.25 * cm))
-    _append_theme_event_watch_section_readable(story, style_map, compact=False)
-    _append_group_rotation_section_readable(story, style_map)
+    append_mainstream_full_theme_event_watch_section(story, style_map)
+    append_mainstream_full_group_rotation_section(story, style_map)
     doc.build(story)
 
 
 def build_non_mainstream_daily_recommendation_highlight_pdf(main_date: str, path: Path) -> None:
-    style_map = styles()
+    style_map = non_mainstream_highlight_styles()
     signals = load_model_report_signals()
     model_summary = _load_model_summary_for_report()
     tech_map = load_technical_snapshot()
@@ -4004,28 +4044,28 @@ def build_non_mainstream_daily_recommendation_highlight_pdf(main_date: str, path
     story.append(para(f"{main_date} \u975e\u4e3b\u6d41\u80a1\u6bcf\u65e5\u63a8\u85a6\u7cbe\u83ef", style_map["title"]))
     story.append(para("\u8cc7\u6599\u4f86\u6e90\uff1a\u5831\u544a\u7528\u6a21\u578b\u8a0a\u865f\u8868\uff1b\u540c\u4e00\u6a21\u578b\u5167\u5206\u6210\u65b0\u9032\u699c\u8207\u9023\u7e8c/\u7d2f\u8a08\u9032\u699c\uff0c\u4e26\u5404\u81ea\u4f7f\u7528\u7a0b\u5f0f\u7aef\u6392\u540d\u3002", style_map["subtitle"]))
     story.append(para("\u5404\u6a21\u578b\u65b0\u9032\u699c / \u9023\u7e8c\u699c\u56fa\u5b9a\u6458\u8981", style_map["h1"]))
-    story.append(make_table(_fixed_model_summary_rows(model_summary, "non_mainstream"), style_map, [3.0 * cm, 2.0 * cm, 1.5 * cm, 3.1 * cm, 1.3 * cm, 6.8 * cm]))
+    story.append(non_mainstream_highlight_table(non_mainstream_highlight_summary_rows(model_summary), style_map, [3.0 * cm, 2.0 * cm, 1.5 * cm, 3.1 * cm, 1.3 * cm, 6.8 * cm]))
     story.append(PageBreak())
     story.append(para("\u5404\u6a21\u578b\u4ee3\u8868\u80a1\u5206\u6790", style_map["h1"]))
-    for model_name in _model_names_in_report_order(non_mainstream_signals):
+    for model_name in non_mainstream_highlight_model_names_in_report_order(non_mainstream_signals):
         story.append(para(model_name, style_map["h2"]))
         for section in ["new", "repeated"]:
-            group = _rows_for_model_section(non_mainstream_signals, model_name, section, 5)
+            group = non_mainstream_highlight_rows_for_model_section(non_mainstream_signals, model_name, section, 5)
             if group.empty:
                 continue
             story.append(para(_repeat_label(section), style_map["h2"]))
-            story.append(make_table(_detail_table_rows_for_section(group, section), style_map, [2.0 * cm, 2.6 * cm, 1.4 * cm, 6.0 * cm, 6.0 * cm]))
+            story.append(non_mainstream_highlight_table(non_mainstream_highlight_detail_rows_for_section(group, section), style_map, [2.0 * cm, 2.6 * cm, 1.4 * cm, 6.0 * cm, 6.0 * cm]))
             story.append(Spacer(1, 0.18 * cm))
             for _, row in group.iterrows():
-                story.append(_model_signal_card_readable(row, section, style_map, tech_map, chart_map, include_chart=True))
+                story.append(non_mainstream_highlight_model_signal_card(row, section, style_map, tech_map, chart_map))
             story.append(Spacer(1, 0.25 * cm))
-    _append_theme_event_watch_section_readable(story, style_map, compact=True)
-    _append_group_rotation_section_readable(story, style_map)
+    append_non_mainstream_highlight_theme_event_watch_section(story, style_map)
+    append_non_mainstream_highlight_group_rotation_section(story, style_map)
     doc.build(story)
 
 
 def build_non_mainstream_full_candidate_list_pdf(main_date: str, path: Path) -> None:
-    style_map = styles()
+    style_map = non_mainstream_full_styles()
     signals = load_model_report_signals()
     model_summary = _load_model_summary_for_report()
     non_mainstream_signals = signals[signals.get("report_line", "").astype(str).eq("non_mainstream")].copy() if not signals.empty else signals
@@ -4034,20 +4074,20 @@ def build_non_mainstream_full_candidate_list_pdf(main_date: str, path: Path) -> 
     story.append(para(f"{main_date} \u975e\u4e3b\u6d41\u80a1\u5b8c\u6574\u5019\u9078\u6e05\u55ae", style_map["title"]))
     story.append(para("\u8cc7\u6599\u4f86\u6e90\uff1a\u5831\u544a\u7528\u6a21\u578b\u8a0a\u865f\u8868\uff1b\u540c\u4e00\u6a21\u578b\u5167\u5206\u6210\u65b0\u9032\u699c\u8207\u9023\u7e8c/\u7d2f\u8a08\u9032\u699c\uff0c\u4e26\u5404\u81ea\u4f7f\u7528\u7a0b\u5f0f\u7aef\u6392\u540d\u3002", style_map["subtitle"]))
     story.append(para("\u5404\u6a21\u578b\u65b0\u9032\u699c / \u9023\u7e8c\u699c\u56fa\u5b9a\u6458\u8981", style_map["h1"]))
-    story.append(make_table(_fixed_model_summary_rows(model_summary, "non_mainstream"), style_map, [3.0 * cm, 2.0 * cm, 1.5 * cm, 3.1 * cm, 1.3 * cm, 6.8 * cm]))
+    story.append(non_mainstream_full_table(non_mainstream_full_summary_rows(model_summary), style_map, [3.0 * cm, 2.0 * cm, 1.5 * cm, 3.1 * cm, 1.3 * cm, 6.8 * cm]))
     story.append(PageBreak())
     story.append(para("\u5b8c\u6574\u6a21\u578b\u6e05\u55ae", style_map["h1"]))
-    for model_name in _model_names_in_report_order(non_mainstream_signals):
+    for model_name in non_mainstream_full_model_names_in_report_order(non_mainstream_signals):
         story.append(para(model_name, style_map["h2"]))
         for section in ["new", "repeated"]:
-            group = _rows_for_model_section(non_mainstream_signals, model_name, section, None)
+            group = non_mainstream_full_rows_for_model_section(non_mainstream_signals, model_name, section, None)
             if group.empty:
                 continue
             story.append(para(_repeat_label(section), style_map["h2"]))
-            story.append(make_table(_detail_table_rows_for_section(group, section), style_map, [2.0 * cm, 2.6 * cm, 1.4 * cm, 6.0 * cm, 6.0 * cm]))
+            story.append(non_mainstream_full_table(non_mainstream_full_detail_rows_for_section(group, section), style_map, [2.0 * cm, 2.6 * cm, 1.4 * cm, 6.0 * cm, 6.0 * cm]))
             story.append(Spacer(1, 0.25 * cm))
-    _append_theme_event_watch_section_readable(story, style_map, compact=False)
-    _append_group_rotation_section_readable(story, style_map)
+    append_non_mainstream_full_theme_event_watch_section(story, style_map)
+    append_non_mainstream_full_group_rotation_section(story, style_map)
     doc.build(story)
 
 

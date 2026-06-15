@@ -11,7 +11,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 import generate_daily_market_pdf as pdf  # noqa: E402
 
 
-def test_fixed_model_summary_splits_multi_stock_cell_into_rows() -> None:
+def test_mainstream_highlight_summary_splits_multi_stock_cell_into_rows() -> None:
     summary = pd.DataFrame(
         [
             {
@@ -26,7 +26,7 @@ def test_fixed_model_summary_splits_multi_stock_cell_into_rows() -> None:
         ]
     )
 
-    rows = pdf._fixed_model_summary_rows(summary, "mainstream")
+    rows = pdf.mainstream_highlight_summary_rows(summary)
     stock_cells = [row[3] for row in rows[1:]]
 
     assert stock_cells == ["8021 尖點", "3022 威強電", "2478 大毅"]

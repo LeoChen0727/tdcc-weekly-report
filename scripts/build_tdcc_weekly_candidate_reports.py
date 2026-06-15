@@ -747,11 +747,61 @@ def sections_for_report(manifest: pd.DataFrame, report_kind: str) -> pd.DataFram
     )
 
 
+def tdcc_highlight_sections_for_pdf(manifest: pd.DataFrame) -> pd.DataFrame:
+    include_col = "include_in_highlight"
+    if include_col not in manifest.columns:
+        return pd.DataFrame(columns=SECTION_MANIFEST_COLUMNS)
+    out = manifest[
+        manifest["enabled"].map(lambda value: manifest_bool(value, True))
+        & manifest[include_col].map(lambda value: manifest_bool(value, True))
+    ].copy()
+    return out.sort_values(
+        by=["section_order", "section_id"],
+        key=lambda series: pd.to_numeric(series, errors="coerce").fillna(999999)
+        if series.name == "section_order"
+        else series,
+    )
+
+
+def tdcc_full_sections_for_pdf(manifest: pd.DataFrame) -> pd.DataFrame:
+    include_col = "include_in_full"
+    if include_col not in manifest.columns:
+        return pd.DataFrame(columns=SECTION_MANIFEST_COLUMNS)
+    out = manifest[
+        manifest["enabled"].map(lambda value: manifest_bool(value, True))
+        & manifest[include_col].map(lambda value: manifest_bool(value, True))
+    ].copy()
+    return out.sort_values(
+        by=["section_order", "section_id"],
+        key=lambda series: pd.to_numeric(series, errors="coerce").fillna(999999)
+        if series.name == "section_order"
+        else series,
+    )
+
+
 def section_limit(row: pd.Series, report_kind: str) -> int:
     return manifest_limit(
         row.get("highlight_limit" if report_kind == "highlight" else "full_limit"),
         TDCC_HIGHLIGHT_REPORT_SECTION_LIMIT if report_kind == "highlight" else TDCC_FULL_REPORT_SECTION_LIMIT,
     )
+
+
+def tdcc_highlight_pdf_columns_for_contract(table_contract: Any, fallback_group: pd.DataFrame | None = None) -> list[str]:
+    contract = safe_str(table_contract)
+    if contract == "model_cross":
+        return PDF_MODEL_CROSS_COLUMNS
+    if contract == "tdcc_ranking":
+        return PDF_RANKING_COLUMNS
+    return pdf_columns_for_section(fallback_group if fallback_group is not None else pd.DataFrame())
+
+
+def tdcc_full_pdf_columns_for_contract(table_contract: Any, fallback_group: pd.DataFrame | None = None) -> list[str]:
+    contract = safe_str(table_contract)
+    if contract == "model_cross":
+        return PDF_MODEL_CROSS_COLUMNS
+    if contract == "tdcc_ranking":
+        return PDF_RANKING_COLUMNS
+    return pdf_columns_for_section(fallback_group if fallback_group is not None else pd.DataFrame())
 
 
 def pdf_columns_for_contract(table_contract: Any, fallback_group: pd.DataFrame | None = None) -> list[str]:
@@ -761,6 +811,343 @@ def pdf_columns_for_contract(table_contract: Any, fallback_group: pd.DataFrame |
     if contract == "tdcc_ranking":
         return PDF_RANKING_COLUMNS
     return pdf_columns_for_section(fallback_group if fallback_group is not None else pd.DataFrame())
+
+def write_tdcc_weekly_highlight_pdf(df: pd.DataFrame, path: Path, title: str, manifest: pd.DataFrame, report_date: str) -> None:
+    report_kind = 'highlight'
+    try:
+        from reportlab.lib import colors
+        from reportlab.lib.pagesizes import A4, landscape
+        from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
+        from reportlab.lib.units import cm
+        from reportlab.pdfbase import pdfmetrics
+        from reportlab.pdfbase.cidfonts import UnicodeCIDFont
+        from reportlab.pdfbase.ttfonts import TTFont
+        from reportlab.platypus import PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
+    except Exception as exc:  # pragma: no cover - validated in CI
+        raise RuntimeError(f"reportlab unavailable; TDCC weekly PDF cannot be generated: {exc}") from exc
+
+    def register_report_font() -> str:
+        font_path = Path(r"C:\Windows\Fonts\kaiu.ttf")
+        if font_path.exists():
+            pdfmetrics.registerFont(TTFont("DFKai-SB", str(font_path)))
+            return "DFKai-SB"
+        pdfmetrics.registerFont(UnicodeCIDFont("STSong-Light"))
+        return "STSong-Light"
+
+    pdf_font = register_report_font()
+    styles = getSampleStyleSheet()
+    normal = ParagraphStyle(
+        "zh-normal-v2",
+        parent=styles["Normal"],
+        fontName=pdf_font,
+        fontSize=14,
+        leading=17,
+        wordWrap="CJK",
+    )
+    small = ParagraphStyle(
+        "zh-small-v2",
+        parent=normal,
+        fontSize=14,
+        leading=17,
+    )
+    title_style = ParagraphStyle(
+        "zh-title-v2",
+        parent=styles["Title"],
+        fontName=pdf_font,
+        fontSize=18,
+        leading=24,
+        alignment=1,
+    )
+    h2 = ParagraphStyle(
+        "zh-h2-v2",
+        parent=styles["Heading2"],
+        fontName=pdf_font,
+        fontSize=14,
+        leading=18,
+        spaceBefore=8,
+        spaceAfter=6,
+    )
+
+    def para(value: Any, max_chars: int, style: Any = normal) -> Any:
+        return Paragraph(wrap_text(clean_pdf_text(value), max_chars), style)
+
+    def table_style() -> Any:
+        return TableStyle(
+            [
+                ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#1f4e79")),
+                ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
+                ("GRID", (0, 0), (-1, -1), 0.25, colors.grey),
+                ("VALIGN", (0, 0), (-1, -1), "TOP"),
+                ("FONTNAME", (0, 0), (-1, -1), pdf_font),
+                ("FONTSIZE", (0, 0), (-1, -1), 14),
+                ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, colors.HexColor("#f3f6f8")]),
+            ]
+        )
+
+    def headers_for_columns(columns: list[str]) -> list[Any]:
+        return [Paragraph(PDF_HEADER_ZH.get(column, column), normal) for column in columns]
+
+    def widths_for_columns(columns: list[str]) -> list[Any]:
+        if columns == PDF_MODEL_CROSS_COLUMNS:
+            return [
+                0.7 * cm,
+                1.4 * cm,
+                1.55 * cm,
+                2.35 * cm,
+                1.9 * cm,
+                1.45 * cm,
+                2.55 * cm,
+                1.35 * cm,
+                1.4 * cm,
+                4.25 * cm,
+                3.55 * cm,
+                4.65 * cm,
+            ]
+        return [
+            0.8 * cm,
+            1.45 * cm,
+            1.65 * cm,
+            2.7 * cm,
+            2.1 * cm,
+            1.8 * cm,
+            5.35 * cm,
+            4.45 * cm,
+            6.35 * cm,
+        ]
+
+    def cell_para(row: pd.Series, column: str) -> Any:
+        text = pdf_display_cell(row, column)
+        if column in {"section_rank", "stock_id", "tdcc_model_rank_in_list", "tdcc_score", "model_score"}:
+            return text
+        max_chars = {
+            "section_rank": 4,
+            "tdcc_model_rank_in_list": 4,
+            "tdcc_score": 6,
+            "model_score": 6,
+            "stock_name": 8,
+            "tdcc_phase_group_zh": 10,
+            "risk_bucket": 10,
+            "model_name_zh": 10,
+            "why_selected_zh": 20,
+            "next_confirmation_zh": 18,
+            "operation_note_zh": 22,
+        }.get(column, 16)
+        return Paragraph(wrap_text(text, max_chars), small if column in {"why_selected_zh", "next_confirmation_zh", "operation_note_zh"} else normal)
+
+    doc = SimpleDocTemplate(
+        str(path),
+        pagesize=landscape(A4),
+        rightMargin=0.8 * cm,
+        leftMargin=0.8 * cm,
+        topMargin=0.8 * cm,
+        bottomMargin=0.8 * cm,
+    )
+    story: list[Any] = [
+        Paragraph(title, title_style),
+        Spacer(1, 0.2 * cm),
+        Paragraph(f"TDCC data date: {report_date}", normal),
+        Spacer(1, 0.2 * cm),
+        Paragraph("TDCC 週報以當週增幅、連續累積與每日候選模型交集呈現。TDCC 不作單獨買進理由。", normal),
+        Spacer(1, 0.3 * cm),
+    ]
+    if df.empty:
+        story.append(Paragraph("目前沒有可用資料。", normal))
+    else:
+        first = True
+        for _, section_row in tdcc_highlight_sections_for_pdf(manifest).iterrows():
+            section_id = safe_str(section_row.get("section_id"))
+            section = safe_str(section_row.get("section_title_zh")) or section_id
+            group = df[df["section_id"].map(safe_str) == section_id].copy()
+            if not first:
+                story.append(PageBreak())
+            first = False
+            story.append(Paragraph(safe_str(section), h2))
+            show = group
+
+            if show.empty:
+                story.append(Paragraph("沒有可用報告資料。", normal))
+                continue
+
+            columns = tdcc_highlight_pdf_columns_for_contract(section_row.get("table_contract"), show)
+            col_widths = widths_for_columns(columns)
+            table_data = [headers_for_columns(columns)]
+            for _, row in show.iterrows():
+                table_data.append([cell_para(row, column) for column in columns])
+
+            table = Table(table_data, colWidths=col_widths, repeatRows=1)
+            table.setStyle(table_style())
+            story.append(table)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    doc.build(story)
+
+def write_tdcc_weekly_full_pdf(df: pd.DataFrame, path: Path, title: str, manifest: pd.DataFrame, report_date: str) -> None:
+    report_kind = 'full'
+    try:
+        from reportlab.lib import colors
+        from reportlab.lib.pagesizes import A4, landscape
+        from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
+        from reportlab.lib.units import cm
+        from reportlab.pdfbase import pdfmetrics
+        from reportlab.pdfbase.cidfonts import UnicodeCIDFont
+        from reportlab.pdfbase.ttfonts import TTFont
+        from reportlab.platypus import PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
+    except Exception as exc:  # pragma: no cover - validated in CI
+        raise RuntimeError(f"reportlab unavailable; TDCC weekly PDF cannot be generated: {exc}") from exc
+
+    def register_report_font() -> str:
+        font_path = Path(r"C:\Windows\Fonts\kaiu.ttf")
+        if font_path.exists():
+            pdfmetrics.registerFont(TTFont("DFKai-SB", str(font_path)))
+            return "DFKai-SB"
+        pdfmetrics.registerFont(UnicodeCIDFont("STSong-Light"))
+        return "STSong-Light"
+
+    pdf_font = register_report_font()
+    styles = getSampleStyleSheet()
+    normal = ParagraphStyle(
+        "zh-normal-v2",
+        parent=styles["Normal"],
+        fontName=pdf_font,
+        fontSize=14,
+        leading=17,
+        wordWrap="CJK",
+    )
+    small = ParagraphStyle(
+        "zh-small-v2",
+        parent=normal,
+        fontSize=14,
+        leading=17,
+    )
+    title_style = ParagraphStyle(
+        "zh-title-v2",
+        parent=styles["Title"],
+        fontName=pdf_font,
+        fontSize=18,
+        leading=24,
+        alignment=1,
+    )
+    h2 = ParagraphStyle(
+        "zh-h2-v2",
+        parent=styles["Heading2"],
+        fontName=pdf_font,
+        fontSize=14,
+        leading=18,
+        spaceBefore=8,
+        spaceAfter=6,
+    )
+
+    def para(value: Any, max_chars: int, style: Any = normal) -> Any:
+        return Paragraph(wrap_text(clean_pdf_text(value), max_chars), style)
+
+    def table_style() -> Any:
+        return TableStyle(
+            [
+                ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#1f4e79")),
+                ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
+                ("GRID", (0, 0), (-1, -1), 0.25, colors.grey),
+                ("VALIGN", (0, 0), (-1, -1), "TOP"),
+                ("FONTNAME", (0, 0), (-1, -1), pdf_font),
+                ("FONTSIZE", (0, 0), (-1, -1), 14),
+                ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, colors.HexColor("#f3f6f8")]),
+            ]
+        )
+
+    def headers_for_columns(columns: list[str]) -> list[Any]:
+        return [Paragraph(PDF_HEADER_ZH.get(column, column), normal) for column in columns]
+
+    def widths_for_columns(columns: list[str]) -> list[Any]:
+        if columns == PDF_MODEL_CROSS_COLUMNS:
+            return [
+                0.7 * cm,
+                1.4 * cm,
+                1.55 * cm,
+                2.35 * cm,
+                1.9 * cm,
+                1.45 * cm,
+                2.55 * cm,
+                1.35 * cm,
+                1.4 * cm,
+                4.25 * cm,
+                3.55 * cm,
+                4.65 * cm,
+            ]
+        return [
+            0.8 * cm,
+            1.45 * cm,
+            1.65 * cm,
+            2.7 * cm,
+            2.1 * cm,
+            1.8 * cm,
+            5.35 * cm,
+            4.45 * cm,
+            6.35 * cm,
+        ]
+
+    def cell_para(row: pd.Series, column: str) -> Any:
+        text = pdf_display_cell(row, column)
+        if column in {"section_rank", "stock_id", "tdcc_model_rank_in_list", "tdcc_score", "model_score"}:
+            return text
+        max_chars = {
+            "section_rank": 4,
+            "tdcc_model_rank_in_list": 4,
+            "tdcc_score": 6,
+            "model_score": 6,
+            "stock_name": 8,
+            "tdcc_phase_group_zh": 10,
+            "risk_bucket": 10,
+            "model_name_zh": 10,
+            "why_selected_zh": 20,
+            "next_confirmation_zh": 18,
+            "operation_note_zh": 22,
+        }.get(column, 16)
+        return Paragraph(wrap_text(text, max_chars), small if column in {"why_selected_zh", "next_confirmation_zh", "operation_note_zh"} else normal)
+
+    doc = SimpleDocTemplate(
+        str(path),
+        pagesize=landscape(A4),
+        rightMargin=0.8 * cm,
+        leftMargin=0.8 * cm,
+        topMargin=0.8 * cm,
+        bottomMargin=0.8 * cm,
+    )
+    story: list[Any] = [
+        Paragraph(title, title_style),
+        Spacer(1, 0.2 * cm),
+        Paragraph(f"TDCC data date: {report_date}", normal),
+        Spacer(1, 0.2 * cm),
+        Paragraph("TDCC 週報以當週增幅、連續累積與每日候選模型交集呈現。TDCC 不作單獨買進理由。", normal),
+        Spacer(1, 0.3 * cm),
+    ]
+    if df.empty:
+        story.append(Paragraph("目前沒有可用資料。", normal))
+    else:
+        first = True
+        for _, section_row in tdcc_full_sections_for_pdf(manifest).iterrows():
+            section_id = safe_str(section_row.get("section_id"))
+            section = safe_str(section_row.get("section_title_zh")) or section_id
+            group = df[df["section_id"].map(safe_str) == section_id].copy()
+            if not first:
+                story.append(PageBreak())
+            first = False
+            story.append(Paragraph(safe_str(section), h2))
+            show = group
+
+            if show.empty:
+                story.append(Paragraph("沒有可用報告資料。", normal))
+                continue
+
+            columns = tdcc_full_pdf_columns_for_contract(section_row.get("table_contract"), show)
+            col_widths = widths_for_columns(columns)
+            table_data = [headers_for_columns(columns)]
+            for _, row in show.iterrows():
+                table_data.append([cell_para(row, column) for column in columns])
+
+            table = Table(table_data, colWidths=col_widths, repeatRows=1)
+            table.setStyle(table_style())
+            story.append(table)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    doc.build(story)
+
 
 
 def sync_bonus(effective_count: Any) -> float:
@@ -1287,278 +1674,6 @@ def wrap_text(text: Any, max_chars: int) -> str:
     parts.append(s)
     return "\n".join(parts)
 
-
-def write_pdf(df: pd.DataFrame, path: Path, title: str, max_rows_per_section: int | None = None) -> None:
-    try:
-        from reportlab.lib import colors
-        from reportlab.lib.pagesizes import A4, landscape
-        from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
-        from reportlab.lib.units import cm
-        from reportlab.pdfbase import pdfmetrics
-        from reportlab.pdfbase.cidfonts import UnicodeCIDFont
-        from reportlab.platypus import PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
-    except Exception as exc:  # pragma: no cover - validated in CI
-        raise RuntimeError(f"reportlab unavailable; TDCC weekly PDF cannot be generated: {exc}") from exc
-
-    pdfmetrics.registerFont(UnicodeCIDFont("STSong-Light"))
-    styles = getSampleStyleSheet()
-    normal = ParagraphStyle(
-        "zh-normal",
-        parent=styles["Normal"],
-        fontName="STSong-Light",
-        fontSize=8.5,
-        leading=11,
-        wordWrap="CJK",
-    )
-    title_style = ParagraphStyle(
-        "zh-title",
-        parent=styles["Title"],
-        fontName="STSong-Light",
-        fontSize=18,
-        leading=24,
-        alignment=1,
-    )
-    h2 = ParagraphStyle(
-        "zh-h2",
-        parent=styles["Heading2"],
-        fontName="STSong-Light",
-        fontSize=12,
-        leading=15,
-        spaceBefore=8,
-        spaceAfter=6,
-    )
-
-    doc = SimpleDocTemplate(
-        str(path),
-        pagesize=landscape(A4),
-        rightMargin=0.8 * cm,
-        leftMargin=0.8 * cm,
-        topMargin=0.8 * cm,
-        bottomMargin=0.8 * cm,
-    )
-    story: list[Any] = [
-        Paragraph(title, title_style),
-        Spacer(1, 0.2 * cm),
-        Paragraph("TDCC 週報以當週增幅、連續累積與每日候選模型交集呈現。TDCC 不作單獨買進理由。", normal),
-        Spacer(1, 0.3 * cm),
-    ]
-    if df.empty:
-        story.append(Paragraph("目前沒有可用資料。", normal))
-    else:
-        first = True
-        headers = ["序", "代號", "股票", "族群", "TDCC階段", "風險桶", "TDCC分數", "模型", "模型名次", "模型分數", "入選 / 用途", "操作提醒"]
-        col_widths = [0.8 * cm, 1.3 * cm, 1.6 * cm, 2.1 * cm, 3.0 * cm, 2.5 * cm, 1.4 * cm, 3.0 * cm, 1.2 * cm, 1.3 * cm, 5.0 * cm, 5.0 * cm]
-        for section, group in df.groupby("section_id", sort=False):
-            if not first:
-                story.append(PageBreak())
-            first = False
-            story.append(Paragraph(safe_str(section), h2))
-            show = group.head(max_rows_per_section) if max_rows_per_section else group
-            table_data = [[Paragraph(h, normal) for h in headers]]
-            for _, row in show.iterrows():
-                table_data.append(
-                    [
-                        Paragraph(safe_str(row.get("section_rank")), normal),
-                        Paragraph(safe_str(row.get("stock_id")), normal),
-                        Paragraph(safe_str(row.get("stock_name")), normal),
-                        Paragraph(wrap_text(row.get("theme"), 10), normal),
-                        Paragraph(wrap_text(row.get("tdcc_phase_group_zh"), 12), normal),
-                        Paragraph(wrap_text(row.get("risk_bucket_zh"), 12), normal),
-                        Paragraph(pct(row.get("tdcc_score"), 1), normal),
-                        Paragraph(wrap_text(row.get("model_name_zh"), 12), normal),
-                        Paragraph(safe_str(row.get("model_rank")), normal),
-                        Paragraph(pct(row.get("model_score"), 1), normal),
-                        Paragraph(wrap_text(row.get("why_selected_zh"), 26), normal),
-                        Paragraph(wrap_text(row.get("operation_note_zh"), 26), normal),
-                    ]
-                )
-            table = Table(table_data, colWidths=col_widths, repeatRows=1)
-            table.setStyle(
-                TableStyle(
-                    [
-                        ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#1f4e79")),
-                        ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
-                        ("GRID", (0, 0), (-1, -1), 0.25, colors.grey),
-                        ("VALIGN", (0, 0), (-1, -1), "TOP"),
-                        ("FONTNAME", (0, 0), (-1, -1), "STSong-Light"),
-                        ("FONTSIZE", (0, 0), (-1, -1), 8),
-                        ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, colors.HexColor("#f3f6f8")]),
-                    ]
-                )
-            )
-            story.append(table)
-    path.parent.mkdir(parents=True, exist_ok=True)
-    doc.build(story)
-
-
-def write_pdf_v2(df: pd.DataFrame, path: Path, title: str, manifest: pd.DataFrame, report_kind: str, report_date: str) -> None:
-    try:
-        from reportlab.lib import colors
-        from reportlab.lib.pagesizes import A4, landscape
-        from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
-        from reportlab.lib.units import cm
-        from reportlab.pdfbase import pdfmetrics
-        from reportlab.pdfbase.cidfonts import UnicodeCIDFont
-        from reportlab.pdfbase.ttfonts import TTFont
-        from reportlab.platypus import PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
-    except Exception as exc:  # pragma: no cover - validated in CI
-        raise RuntimeError(f"reportlab unavailable; TDCC weekly PDF cannot be generated: {exc}") from exc
-
-    def register_report_font() -> str:
-        font_path = Path(r"C:\Windows\Fonts\kaiu.ttf")
-        if font_path.exists():
-            pdfmetrics.registerFont(TTFont("DFKai-SB", str(font_path)))
-            return "DFKai-SB"
-        pdfmetrics.registerFont(UnicodeCIDFont("STSong-Light"))
-        return "STSong-Light"
-
-    pdf_font = register_report_font()
-    styles = getSampleStyleSheet()
-    normal = ParagraphStyle(
-        "zh-normal-v2",
-        parent=styles["Normal"],
-        fontName=pdf_font,
-        fontSize=14,
-        leading=17,
-        wordWrap="CJK",
-    )
-    small = ParagraphStyle(
-        "zh-small-v2",
-        parent=normal,
-        fontSize=14,
-        leading=17,
-    )
-    title_style = ParagraphStyle(
-        "zh-title-v2",
-        parent=styles["Title"],
-        fontName=pdf_font,
-        fontSize=18,
-        leading=24,
-        alignment=1,
-    )
-    h2 = ParagraphStyle(
-        "zh-h2-v2",
-        parent=styles["Heading2"],
-        fontName=pdf_font,
-        fontSize=14,
-        leading=18,
-        spaceBefore=8,
-        spaceAfter=6,
-    )
-
-    def para(value: Any, max_chars: int, style: Any = normal) -> Any:
-        return Paragraph(wrap_text(clean_pdf_text(value), max_chars), style)
-
-    def table_style() -> Any:
-        return TableStyle(
-            [
-                ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#1f4e79")),
-                ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
-                ("GRID", (0, 0), (-1, -1), 0.25, colors.grey),
-                ("VALIGN", (0, 0), (-1, -1), "TOP"),
-                ("FONTNAME", (0, 0), (-1, -1), pdf_font),
-                ("FONTSIZE", (0, 0), (-1, -1), 14),
-                ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, colors.HexColor("#f3f6f8")]),
-            ]
-        )
-
-    def headers_for_columns(columns: list[str]) -> list[Any]:
-        return [Paragraph(PDF_HEADER_ZH.get(column, column), normal) for column in columns]
-
-    def widths_for_columns(columns: list[str]) -> list[Any]:
-        if columns == PDF_MODEL_CROSS_COLUMNS:
-            return [
-                0.7 * cm,
-                1.4 * cm,
-                1.55 * cm,
-                2.35 * cm,
-                1.9 * cm,
-                1.45 * cm,
-                2.55 * cm,
-                1.35 * cm,
-                1.4 * cm,
-                4.25 * cm,
-                3.55 * cm,
-                4.65 * cm,
-            ]
-        return [
-            0.8 * cm,
-            1.45 * cm,
-            1.65 * cm,
-            2.7 * cm,
-            2.1 * cm,
-            1.8 * cm,
-            5.35 * cm,
-            4.45 * cm,
-            6.35 * cm,
-        ]
-
-    def cell_para(row: pd.Series, column: str) -> Any:
-        text = pdf_display_cell(row, column)
-        if column in {"section_rank", "stock_id", "tdcc_model_rank_in_list", "tdcc_score", "model_score"}:
-            return text
-        max_chars = {
-            "section_rank": 4,
-            "tdcc_model_rank_in_list": 4,
-            "tdcc_score": 6,
-            "model_score": 6,
-            "stock_name": 8,
-            "tdcc_phase_group_zh": 10,
-            "risk_bucket": 10,
-            "model_name_zh": 10,
-            "why_selected_zh": 20,
-            "next_confirmation_zh": 18,
-            "operation_note_zh": 22,
-        }.get(column, 16)
-        return Paragraph(wrap_text(text, max_chars), small if column in {"why_selected_zh", "next_confirmation_zh", "operation_note_zh"} else normal)
-
-    doc = SimpleDocTemplate(
-        str(path),
-        pagesize=landscape(A4),
-        rightMargin=0.8 * cm,
-        leftMargin=0.8 * cm,
-        topMargin=0.8 * cm,
-        bottomMargin=0.8 * cm,
-    )
-    story: list[Any] = [
-        Paragraph(title, title_style),
-        Spacer(1, 0.2 * cm),
-        Paragraph(f"TDCC data date: {report_date}", normal),
-        Spacer(1, 0.2 * cm),
-        Paragraph("TDCC 週報以當週增幅、連續累積與每日候選模型交集呈現。TDCC 不作單獨買進理由。", normal),
-        Spacer(1, 0.3 * cm),
-    ]
-    if df.empty:
-        story.append(Paragraph("目前沒有可用資料。", normal))
-    else:
-        first = True
-        for _, section_row in sections_for_report(manifest, report_kind).iterrows():
-            section_id = safe_str(section_row.get("section_id"))
-            section = safe_str(section_row.get("section_title_zh")) or section_id
-            group = df[df["section_id"].map(safe_str) == section_id].copy()
-            if not first:
-                story.append(PageBreak())
-            first = False
-            story.append(Paragraph(safe_str(section), h2))
-            show = group
-
-            if show.empty:
-                story.append(Paragraph("沒有可用報告資料。", normal))
-                continue
-
-            columns = pdf_columns_for_contract(section_row.get("table_contract"), show)
-            col_widths = widths_for_columns(columns)
-            table_data = [headers_for_columns(columns)]
-            for _, row in show.iterrows():
-                table_data.append([cell_para(row, column) for column in columns])
-
-            table = Table(table_data, colWidths=col_widths, repeatRows=1)
-            table.setStyle(table_style())
-            story.append(table)
-    path.parent.mkdir(parents=True, exist_ok=True)
-    doc.build(story)
-
-
 def upsert_readme_fields(fields: dict[str, str]) -> None:
     for path in README_PATHS:
         if not path.exists():
@@ -1747,8 +1862,8 @@ def main() -> int:
     write_report_md(highlight_for_render, HIGHLIGHT_MD, "TDCC 大戶籌碼週報精華版", render_manifest, "highlight", report_date)
     write_report_md(full_for_render, FULL_MD, "TDCC 大戶籌碼週報完整版", render_manifest, "full", report_date)
 
-    write_pdf_v2(highlight_for_render, HIGHLIGHT_PDF, "TDCC 大戶籌碼週報精華版", render_manifest, "highlight", report_date)
-    write_pdf_v2(full_for_render, FULL_PDF, "TDCC 大戶籌碼週報完整版", render_manifest, "full", report_date)
+    write_tdcc_weekly_highlight_pdf(highlight_for_render, HIGHLIGHT_PDF, "TDCC 大戶籌碼週報精華版", render_manifest, report_date)
+    write_tdcc_weekly_full_pdf(full_for_render, FULL_PDF, "TDCC 大戶籌碼週報完整版", render_manifest, report_date)
 
     fields = {
         "tdcc_weekly_report_section_manifest_csv_raw_url": raw_url(SECTION_MANIFEST_CSV),
