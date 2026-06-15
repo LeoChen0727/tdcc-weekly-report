@@ -13,6 +13,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from research_weekly_20pct_surge_volume import build_stock_day_frame  # noqa: E402
 from research_weekly_surge_technical_grid import add_technical_features  # noqa: E402
 from research_weekly_surge_theme_segments import attach_theme_labels  # noqa: E402
+from build_daily_candidate_model_layer import build_parameter_table, build_specs  # noqa: E402
 from tracking_utils import DOCS_LATEST_DIR, LATEST_DIR, markdown_table, now_text, write_csv  # noqa: E402
 
 
@@ -21,11 +22,15 @@ OUT_CSV = LATEST_DIR / "daily_model_parameter_research_latest.csv"
 OUT_MD = LATEST_DIR / "daily_model_parameter_research_latest.md"
 OUT_DETAIL_CSV = LATEST_DIR / "daily_model_parameter_research_horizon_detail_latest.csv"
 OUT_DETAIL_MD = LATEST_DIR / "daily_model_parameter_research_horizon_detail_latest.md"
+OUT_PARITY_CSV = LATEST_DIR / "daily_model_research_parity_latest.csv"
+OUT_PARITY_MD = LATEST_DIR / "daily_model_research_parity_latest.md"
 HISTORY_CSV = HISTORY_DIR / "daily_model_parameter_research.csv"
 DOCS_CSV = DOCS_LATEST_DIR / OUT_CSV.name
 DOCS_MD = DOCS_LATEST_DIR / OUT_MD.name
 DOCS_DETAIL_CSV = DOCS_LATEST_DIR / OUT_DETAIL_CSV.name
 DOCS_DETAIL_MD = DOCS_LATEST_DIR / OUT_DETAIL_MD.name
+DOCS_PARITY_CSV = DOCS_LATEST_DIR / OUT_PARITY_CSV.name
+DOCS_PARITY_MD = DOCS_LATEST_DIR / OUT_PARITY_MD.name
 
 HORIZONS = list(range(1, 11)) + [20]
 MIN_OK_SAMPLE = 100
@@ -41,6 +46,10 @@ class RuleSpec:
     pdf_visibility: str
     condition: Callable[[pd.DataFrame], pd.Series]
     notes: str
+    parameter_role: str = "parameter_variant"
+    production_parity_status: str = "variant_not_baseline"
+    parity_blocker: str = ""
+    variant_of: str = ""
 
 
 def pct(num: float) -> str:
@@ -215,8 +224,256 @@ def build_research_frame() -> pd.DataFrame:
     return df
 
 
+def support_retest_mask(d: pd.DataFrame, low_col: str = "range_low_20d_prev") -> pd.Series:
+    return (
+        (d[low_col] > 0)
+        & (d["close"] >= d[low_col] * 0.98)
+        & (d["close"] <= d[low_col] * 1.08)
+    )
+
+
+def current_volume_range_breakout_baseline(d: pd.DataFrame) -> pd.Series:
+    normal_volume = (
+        (d["volume_ratio_prev20"] >= 2.0)
+        & (d["range_breakout_20d_pct"] >= 2.0)
+        & (d["volume_ma20_lots"] >= 1000)
+        & d["bullish_attack_candle"]
+    )
+    return normal_volume | d["locked_limit_up_breakout"]
+
+
+def current_price_pullback_baseline_proxy(d: pd.DataFrame) -> pd.Series:
+    return (
+        (between(d["distance_ema23_pct"], -2.5, 5.0) | support_retest_mask(d))
+        & (d["ema23_slope_5d_pct"] > 0)
+    )
+
+
+def current_hot_theme_pullback_baseline_proxy(d: pd.DataFrame) -> pd.Series:
+    return (
+        d["strict_theme_status_group"].isin({"mainstream_supported", "mainstream_overheated"})
+        & (between(d["distance_ema23_pct"], -2.5, 5.0) | support_retest_mask(d))
+    )
+
+
+def active_price_attack_proxy(d: pd.DataFrame) -> pd.Series:
+    return (
+        current_volume_range_breakout_baseline(d)
+        | (d["volume_ratio_prev20"] >= 2.5)
+        | (d["return_5d_pct"] >= 8)
+        | (d["return_20d_pct"] >= 20)
+    ).fillna(False)
+
+
+def current_revenue_unreacted_baseline_proxy(d: pd.DataFrame) -> pd.Series:
+    # Historical revenue feature panels are not yet complete in this research
+    # frame, so this can only mirror the production price-range and not-started
+    # parts. The parity artifact must keep this row marked as proxy-only.
+    return (
+        (d["close"] >= d["range_low_23d_prev"] * 0.95)
+        & (d["close"] <= d["range_high_23d_prev"] * 1.05)
+        & (~active_price_attack_proxy(d))
+    )
+
+
+def current_w_bottom_baseline_proxy(d: pd.DataFrame) -> pd.Series:
+    return d["w_bottom_proxy"] & (d["range_breakout_20d_pct"] < 2.0)
+
+
+def current_near_high_baseline_proxy(d: pd.DataFrame) -> pd.Series:
+    return (
+        between(d["near_60d_high_pct"], -5.0, 0.0)
+        & (d["volume_ratio_prev20"] >= 1.2)
+        & (d["ema23_slope_5d_pct"] > 0)
+        & (d["range_breakout_20d_pct"] < 2.0)
+    )
+
+
+def current_platform_strengthening_baseline_proxy(d: pd.DataFrame) -> pd.Series:
+    return (
+        (d["range_width_20d_pct"] <= 18)
+        & between(d["distance_to_range_high_20d_pct"], -5.0, 1.5)
+        & (d["volume_ratio_prev20"] >= 1.2)
+        & d["solid_red_candle"]
+        & (d["range_breakout_20d_pct"] < 2.0)
+    )
+
+
+def current_pullback_short_reclaim_baseline_proxy(d: pd.DataFrame) -> pd.Series:
+    return (
+        (d["return_20d_pct"] >= 5)
+        & (between(d["distance_ema23_pct"], -1.0, 6.0) | (d["close_above_ma20"] & (d["ema23_slope_5d_pct"] > 0)))
+        & (d["ema23_slope_5d_pct"] > 0)
+    )
+
+
+def current_tdcc_stealth_baseline_proxy(d: pd.DataFrame) -> pd.Series:
+    return (
+        trueish(d["tdcc_history_available"])
+        & (
+            (d["tdcc_consecutive_up_weeks"] >= 1)
+            | trueish(d["all_thresholds_up"])
+            | trueish(d["high_thresholds_up"])
+        )
+        & (d["volume_ratio_prev20"] < 2.5)
+        & (d["return_5d_pct"] < 8)
+        & (d["return_20d_pct"] < 20)
+        & (d["close"] >= d["range_low_23d_prev"] * 0.90)
+        & (d["close"] <= d["range_high_23d_prev"] * 1.10)
+        & (~current_volume_range_breakout_baseline(d))
+    )
+
+
+def current_tdcc_short_term_continuation_baseline_proxy(d: pd.DataFrame) -> pd.Series:
+    return (
+        trueish(d["tdcc_history_available"])
+        & (
+            trueish(d["all_thresholds_up"])
+            | trueish(d["high_thresholds_up"])
+            | trueish(d["four_thresholds_sync_up"])
+        )
+        & between(d["return_5d_pct"], 10, 30)
+        & (trueish(d["macd_hist_gt0"]) | trueish(d["kd_bullish_not_overheated"]))
+    )
+
+
+def production_baseline_specs() -> list[RuleSpec]:
+    return [
+        RuleSpec(
+            "volume_range_breakout",
+            "放量攻擊模型",
+            "production_current",
+            "production baseline: normal prior-20d breakout OR locked-limit-up breakout bypass",
+            "pdf_core_model",
+            current_volume_range_breakout_baseline,
+            "Matches current production logic available in historical price fields, including locked-limit-up bypass without a volume-ratio gate.",
+            "production_baseline",
+            "production_parity",
+            "",
+            "production_current",
+        ),
+        RuleSpec(
+            "price_pullback_23ema",
+            "股價回檔模型",
+            "production_current_proxy",
+            "production baseline proxy: near 23EMA/support + EMA23 slope proxy up",
+            "pdf_core_model",
+            current_price_pullback_baseline_proxy,
+            "Production uses support/platform flags when available; research approximates support from historical 20d range low.",
+            "production_baseline",
+            "production_proxy",
+            "support/platform entry flags are not fully backfilled in the historical research frame",
+            "production_current",
+        ),
+        RuleSpec(
+            "hot_theme_pullback",
+            "熱門族群回檔模型",
+            "production_current_proxy",
+            "production baseline proxy: no-lookahead mainstream theme + pullback near 23EMA/support",
+            "pdf_core_model",
+            current_hot_theme_pullback_baseline_proxy,
+            "Production uses current model-layer hot theme labels; research uses strict historical no-lookahead theme state.",
+            "production_baseline",
+            "production_proxy",
+            "daily hot-theme labels are not fully backfilled as point-in-time model-layer fields",
+            "production_current",
+        ),
+        RuleSpec(
+            "revenue_unreacted_range",
+            "營收爆發但股價尚未反應模型",
+            "production_current_proxy",
+            "production baseline proxy: price still in 23d range and attack not started; revenue panel missing",
+            "pdf_core_model",
+            current_revenue_unreacted_baseline_proxy,
+            "Revenue YoY/cumulative YoY history is not complete in this research frame, so this row is not production-parity.",
+            "production_baseline",
+            "proxy_only",
+            "historical revenue panel is incomplete; strong_revenue gate cannot be replayed point-in-time",
+            "production_current",
+        ),
+        RuleSpec(
+            "w_bottom_right_side",
+            "W底右側模型",
+            "production_current_proxy",
+            "production baseline proxy: W-bottom geometry proxy and not already a breakout",
+            "pdf_core_model",
+            current_w_bottom_baseline_proxy,
+            "Production uses stricter two-trough geometry from price history; research keeps a lightweight W proxy until the detector is shared safely.",
+            "production_baseline",
+            "production_proxy",
+            "full production W-bottom detector is row/context based and not yet reused by the research grid",
+            "production_current",
+        ),
+        RuleSpec(
+            "near_high_neckline_challenge",
+            "接近前高 / 頸線挑戰模型",
+            "production_current_proxy",
+            "production baseline proxy: within 5% below 60d high + volume >= 1.2 + EMA23 up",
+            "pdf_core_model",
+            current_near_high_baseline_proxy,
+            "Research uses 60d-high distance as the neckline/prior-high proxy.",
+            "production_baseline",
+            "production_proxy",
+            "neckline-specific fields and already-confirmed-breakout flags are not fully backfilled",
+            "production_current",
+        ),
+        RuleSpec(
+            "platform_strengthening",
+            "平台整理轉強模型",
+            "production_current_proxy",
+            "production baseline proxy: 20d range width <= 18%, near upper edge, volume >= 1.2, solid red candle",
+            "pdf_core_model",
+            current_platform_strengthening_baseline_proxy,
+            "Research uses rolling range statistics instead of production platform flags.",
+            "production_baseline",
+            "production_proxy",
+            "platform_base_flag and platform width fields are not fully point-in-time backfilled",
+            "production_current",
+        ),
+        RuleSpec(
+            "pullback_short_reclaim",
+            "回檔後短線轉強模型",
+            "production_current_proxy",
+            "production baseline proxy: 20d return >= 5%, pullback/reclaim proxy, EMA23 up",
+            "pdf_core_model",
+            current_pullback_short_reclaim_baseline_proxy,
+            "Production uses pullback/right-side/reclaim flags; research approximates with EMA and MA20 reclaim context.",
+            "production_baseline",
+            "production_proxy",
+            "pullback_entry_zone/right_side/ma20_reclaim setup flags are not fully backfilled",
+            "production_current",
+        ),
+        RuleSpec(
+            "tdcc_stealth_accumulation",
+            "TDCC潛伏吸籌模型",
+            "production_current_proxy",
+            "production baseline proxy: TDCC positive, attack not started, low volume/return, still in range",
+            "pdf_core_model",
+            current_tdcc_stealth_baseline_proxy,
+            "Production uses TDCC phase when available; research uses weekly TDCC history and range constraints.",
+            "production_baseline",
+            "production_proxy",
+            "tdcc_price_phase is not fully available historically for every signal date",
+            "production_current",
+        ),
+        RuleSpec(
+            "tdcc_short_term_continuation_d5_d10",
+            "TDCC短線延續模型 D+5/D+10",
+            "production_current_proxy",
+            "production baseline proxy: TDCC sync/high thresholds + 5d momentum + MACD/KD",
+            "pdf_core_model",
+            current_tdcc_short_term_continuation_baseline_proxy,
+            "This mirrors the daily specialty short-term continuation surface enough to serve as baseline before deeper grid variants.",
+            "production_baseline",
+            "production_proxy",
+            "daily specialty packet fields are not a single core build_specs condition and must be replayed from historical TDCC/technical proxies",
+            "production_current",
+        ),
+    ]
+
+
 def rule_specs() -> list[RuleSpec]:
-    specs: list[RuleSpec] = []
+    specs: list[RuleSpec] = production_baseline_specs()
 
     for breakout_pct in [1.0, 2.0, 3.0]:
         for vol in [2.0, 3.0, 5.0]:
@@ -512,6 +769,10 @@ def summarize_rule(df: pd.DataFrame, spec: RuleSpec) -> tuple[dict[str, object],
         "model_name_zh": spec.model_name_zh,
         "parameter_set_id": spec.parameter_set_id,
         "parameter_summary": spec.parameter_summary,
+        "parameter_role": spec.parameter_role,
+        "production_parity_status": spec.production_parity_status,
+        "parity_blocker": spec.parity_blocker,
+        "variant_of": spec.variant_of,
         "pdf_visibility": spec.pdf_visibility,
         "entry_basis": "signal_date_next_open",
         "selected_stock_days": n,
@@ -530,6 +791,116 @@ def summarize_rule(df: pd.DataFrame, spec: RuleSpec) -> tuple[dict[str, object],
         summary[f"d{h}_avg_close_return_pct"] = row["avg_close_return_pct"] if row else ""
         summary[f"d{h}_avg_high_return_pct"] = row["avg_high_return_pct"] if row else ""
     return summary, detail_rows
+
+
+def current_production_core_models() -> pd.DataFrame:
+    current = build_parameter_table(build_specs()).copy()
+    current = current[current["pdf_visibility"].eq("pdf_core_model")].copy()
+    return current.drop_duplicates("model_id", keep="first").reset_index(drop=True)
+
+
+def build_model_parity(summary: pd.DataFrame) -> pd.DataFrame:
+    production = current_production_core_models()
+    baseline = summary[summary["parameter_role"].eq("production_baseline")].copy()
+    rows: list[dict[str, object]] = []
+    for _, prod in production.iterrows():
+        model_id = str(prod.get("model_id", ""))
+        base_rows = baseline[baseline["model_id"].eq(model_id)].copy()
+        variant_rows = summary[
+            summary["model_id"].eq(model_id) & ~summary["parameter_role"].eq("production_baseline")
+        ].copy()
+        if base_rows.empty:
+            status = "missing_production_baseline"
+            baseline_ids = ""
+            blockers = "research rule_specs() has no production_baseline row for this production core model"
+            selected_days = ""
+            unique_stocks = ""
+        else:
+            statuses = sorted(set(base_rows["production_parity_status"].astype(str)))
+            if statuses == ["production_parity"]:
+                status = "production_parity"
+            elif "proxy_only" in statuses:
+                status = "proxy_only"
+            else:
+                status = "production_proxy"
+            baseline_ids = ",".join(base_rows["parameter_set_id"].astype(str))
+            blockers = "; ".join(
+                sorted(
+                    {
+                        str(value).strip()
+                        for value in base_rows["parity_blocker"].fillna("")
+                        if str(value).strip()
+                    }
+                )
+            )
+            selected_days = int(pd.to_numeric(base_rows["selected_stock_days"], errors="coerce").fillna(0).sum())
+            unique_stocks = int(pd.to_numeric(base_rows["selected_unique_stocks"], errors="coerce").fillna(0).max())
+        rows.append(
+            {
+                "generated_at": now_text(),
+                "model_id": model_id,
+                "model_name_zh": prod.get("model_name_zh", ""),
+                "production_pdf_visibility": prod.get("pdf_visibility", ""),
+                "production_parameter_status": prod.get("parameter_status", ""),
+                "production_main_conditions": prod.get("main_conditions", ""),
+                "research_baseline_status": status,
+                "research_baseline_parameter_set_id": baseline_ids,
+                "research_variant_count": len(variant_rows),
+                "baseline_selected_stock_days": selected_days,
+                "baseline_selected_unique_stocks": unique_stocks,
+                "parity_blocker": blockers,
+                "completion_rule": (
+                    "usable_as_exact_baseline"
+                    if status == "production_parity"
+                    else "usable_for_relative_research_only_until_blocker_resolved"
+                ),
+            }
+        )
+    return pd.DataFrame(rows)
+
+
+def write_model_parity(parity: pd.DataFrame) -> None:
+    write_csv(parity, OUT_PARITY_CSV)
+    write_csv(parity, DOCS_PARITY_CSV)
+    counts = (
+        parity["research_baseline_status"].value_counts().reset_index()
+        if not parity.empty
+        else pd.DataFrame(columns=["research_baseline_status", "count"])
+    )
+    if not counts.empty:
+        counts.columns = ["research_baseline_status", "count"]
+    lines = [
+        "# Daily Model Research Baseline Parity",
+        "",
+        f"- generated_at: `{now_text()}`",
+        "- purpose: verify that every daily production core model has a research production-baseline row before parameter variants are compared",
+        "- production_parity: historical research fields can replay the production baseline directly",
+        "- production_proxy / proxy_only: baseline exists, but one or more production fields are not fully available point-in-time in the research frame",
+        "- rule: variants must compare against the production_baseline row of the same model_id; proxy rows cannot be promoted without resolving blockers",
+        "",
+        "## Status Summary",
+        "",
+        markdown_table(counts, counts.columns.tolist()) if not counts.empty else "No parity rows.",
+        "",
+        "## Model Parity Detail",
+        "",
+        markdown_table(
+            parity,
+            [
+                "model_id",
+                "research_baseline_status",
+                "research_baseline_parameter_set_id",
+                "research_variant_count",
+                "baseline_selected_stock_days",
+                "baseline_selected_unique_stocks",
+                "parity_blocker",
+                "completion_rule",
+            ],
+            limit=80,
+        ),
+    ]
+    OUT_PARITY_MD.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8", newline="\n")
+    DOCS_PARITY_MD.write_text(OUT_PARITY_MD.read_text(encoding="utf-8"), encoding="utf-8", newline="\n")
 
 
 def write_markdown(summary: pd.DataFrame, detail: pd.DataFrame, coverage: dict[str, object]) -> None:
@@ -563,6 +934,8 @@ def write_markdown(summary: pd.DataFrame, detail: pd.DataFrame, coverage: dict[s
             [
                 "model_id",
                 "parameter_set_id",
+                "parameter_role",
+                "production_parity_status",
                 "selected_stock_days",
                 "selected_unique_stocks",
                 "best_close_horizon_d1_d10",
@@ -581,6 +954,8 @@ def write_markdown(summary: pd.DataFrame, detail: pd.DataFrame, coverage: dict[s
             [
                 "model_id",
                 "parameter_set_id",
+                "parameter_role",
+                "production_parity_status",
                 "selected_stock_days",
                 "d1_close_win_rate_pct",
                 "d3_close_win_rate_pct",
@@ -660,6 +1035,7 @@ def main() -> int:
     summary_df = pd.DataFrame(summaries)
     detail_df = pd.DataFrame(details)
     coverage = coverage_stats()
+    parity_df = build_model_parity(summary_df)
 
     write_csv(summary_df, OUT_CSV)
     write_csv(detail_df, OUT_DETAIL_CSV)
@@ -669,9 +1045,11 @@ def main() -> int:
     write_csv(summary_df, DOCS_CSV)
     write_csv(detail_df, DOCS_DETAIL_CSV)
     write_markdown(summary_df, detail_df, coverage)
+    write_model_parity(parity_df)
 
     print(f"Saved {OUT_CSV} rows={len(summary_df)}")
     print(f"Saved {OUT_DETAIL_CSV} rows={len(detail_df)}")
+    print(f"Saved {OUT_PARITY_CSV} rows={len(parity_df)}")
     print(f"Saved {OUT_MD}")
     return 0
 
