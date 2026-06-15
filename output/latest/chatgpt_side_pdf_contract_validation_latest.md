@@ -1,14 +1,14 @@
 # ChatGPT-Side Daily PDF Contract Validation
 
-- generated_at: `2026-06-15 23:16:15 Asia/Taipei`
+- generated_at: `2026-06-16 00:05:03 Asia/Taipei`
 - status: `pass`
 - contract_count: `6`
 
 ## PDF Files
-- mainstream_highlight: `output/latest/mainstream_daily_recommendation_highlight_latest.pdf` / pages `56` / text_chars `28519` / title `主流股每日推薦精華`
-- mainstream_full: `output/latest/mainstream_full_candidate_list_latest.pdf` / pages `17` / text_chars `33099` / title `主流股完整候選清單`
-- non_mainstream_highlight: `output/latest/non_mainstream_daily_recommendation_highlight_latest.pdf` / pages `55` / text_chars `28155` / title `非主流股每日推薦精華`
-- non_mainstream_full: `output/latest/non_mainstream_full_candidate_list_latest.pdf` / pages `11` / text_chars `17478` / title `非主流股完整候選清單`
+- mainstream_highlight: `output/latest/mainstream_daily_recommendation_highlight_latest.pdf` / pages `58` / text_chars `28949` / title `主流股每日推薦精華`
+- mainstream_full: `output/latest/mainstream_full_candidate_list_latest.pdf` / pages `17` / text_chars `33571` / title `主流股完整候選清單`
+- non_mainstream_highlight: `output/latest/non_mainstream_daily_recommendation_highlight_latest.pdf` / pages `49` / text_chars `24312` / title `非主流股每日推薦精華`
+- non_mainstream_full: `output/latest/non_mainstream_full_candidate_list_latest.pdf` / pages `10` / text_chars `15791` / title `非主流股完整候選清單`
 - warrant_market: `output/latest/warrant_market_report_latest.pdf` / pages `4` / text_chars `6099` / title `權證市場輔助分析`
 - market_risk: `output/latest/market_risk_dashboard_latest.pdf` / pages `4` / text_chars `2212` / title `市場風險與大盤期權背景`
 
