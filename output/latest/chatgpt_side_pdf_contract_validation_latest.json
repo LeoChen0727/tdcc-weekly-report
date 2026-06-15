@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16 00:05:03 Asia/Taipei",
+  "generated_at": "2026-06-16 04:08:28 Asia/Taipei",
   "status": "pass",
   "contract_count": 6,
   "expected_contract_count": 6,
@@ -65,7 +65,7 @@
       "exists": true,
       "size_bytes": 566314,
       "pages": 4,
-      "text_chars": 2212,
+      "text_chars": 2210,
       "first_title": "市場風險與大盤期權背景",
       "report_family": "market_risk",
       "pdf_kind": "background"
