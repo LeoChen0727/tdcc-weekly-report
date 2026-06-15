@@ -233,3 +233,23 @@ def test_volume_breakout_uses_operation_section_not_general_model_table() -> Non
         checked = volume_branch if branch_end == -1 else volume_branch[:branch_end]
         assert "render_volume_range_breakout_operation_section" in checked
         assert "continue" in checked
+
+
+def test_standard_model_tables_are_split_into_new_and_repeated_sections() -> None:
+    text = _source()
+
+    for name in REPORT_SPECIFIC_TABLE_BUILDERS:
+        body = _function_text(text, name)
+        signature_block = "\n".join(body.splitlines()[:8])
+        assert "-> list" in signature_block
+        assert "新上榜" in body
+        assert "重複上榜" in body
+        assert '"#c00000"' in body
+        assert '"#1f4e79"' in body
+        assert "return build_table(" not in body
+
+    for name in STOCK_PDF_BUILDERS:
+        body = _function_text(text, name)
+        for table_builder in REPORT_SPECIFIC_TABLE_BUILDERS:
+            if f"{table_builder}(" in body:
+                assert f"story.extend({table_builder}(" in body

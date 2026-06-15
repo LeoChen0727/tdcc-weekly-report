@@ -64,6 +64,13 @@ REPORT_SPECIFIC_LAYOUT_COMPONENTS = [
     "build_non_mainstream_curated_operation_page",
 ]
 
+REPORT_SPECIFIC_MODEL_TABLE_BUILDERS = [
+    "build_mainstream_curated_model_table",
+    "build_mainstream_full_model_table",
+    "build_non_mainstream_curated_model_table",
+    "build_non_mainstream_full_model_table",
+]
+
 FORBIDDEN_SHARED_LAYOUT_ENTRIES = [
     "def build_curated_pdf_for_line(",
     "def build_full_candidate_pdf_for_line(",
@@ -166,6 +173,23 @@ def validate() -> list[str]:
     for name in REPORT_SPECIFIC_LAYOUT_COMPONENTS:
         if f"def {name}(" not in text:
             errors.append(f"missing report-specific layout component: {name}")
+
+    for name in REPORT_SPECIFIC_MODEL_TABLE_BUILDERS:
+        try:
+            body = function_text(text, name)
+        except ValueError:
+            continue
+        signature_block = "\n".join(body.splitlines()[:8])
+        if "-> list" not in signature_block:
+            errors.append(f"{name} must return split section flowables, not one shared table")
+        for marker in ["新上榜", "重複上榜"]:
+            if marker not in body:
+                errors.append(f"{name} missing split listing section marker: {marker}")
+        for color in ['"#c00000"', '"#1f4e79"']:
+            if color not in body:
+                errors.append(f"{name} missing distinct listing section color: {color}")
+        if "return build_table(" in body:
+            errors.append(f"{name} still returns a single model table")
 
     for forbidden in FORBIDDEN_SHARED_LAYOUT_ENTRIES:
         if forbidden in text:

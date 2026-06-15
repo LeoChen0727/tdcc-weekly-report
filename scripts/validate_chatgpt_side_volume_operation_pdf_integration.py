@@ -33,9 +33,6 @@ REQUIRED_VOLUME_OPERATION_TEXT = [
 
 MAINSTREAM_CURATED_FORBIDDEN_TEXT = [
     "主流股觀察清單",
-    "新上榜",
-    "重複上榜",
-    "可列買入排名",
 ]
 
 FORBIDDEN_RAW_TOKENS = [
@@ -109,7 +106,7 @@ def validate_output_dir(output_dir: Path) -> list[str]:
         compact = compact_text(all_text.get(mainstream_curated, ""))
         for forbidden in MAINSTREAM_CURATED_FORBIDDEN_TEXT:
             if forbidden in compact:
-                errors.append(f"{mainstream_curated.name}: mainstream curated PDF still contains front observation text {forbidden!r}")
+                errors.append(f"{mainstream_curated.name}: mainstream curated PDF still contains obsolete front observation section {forbidden!r}")
 
     return errors
 
