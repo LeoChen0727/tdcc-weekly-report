@@ -197,7 +197,7 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add output/ data/ config/stock_theme_map.csv docs/tdcc_signal_tracking.md docs/tdcc_pre_move_accumulation.md || true
-          git add docs/latest/tdcc_* || true
+          git add docs/latest/tdcc_* docs/latest/READ_ME_FIRST_DAILY_REPORT.txt || true
           git add scripts/tracking_utils.py scripts/build_tdcc_signal_structures.py scripts/build_tdcc_stock_history.py scripts/tdcc_stock_history_utils.py scripts/build_tdcc_pre_move_accumulation.py scripts/build_tdcc_chatgpt_tracking_outputs.py scripts/build_tdcc_weekly_candidate_reports.py scripts/validate_tdcc_weekly_candidate_reports.py scripts/validate_tdcc_chatgpt_tracking_outputs.py scripts/validate_pdf_facing_display_text.py scripts/backfill_tdcc_history.py || true
           git add scripts/build_tdcc_overheated_short_term_edge.py || true
           git status --short

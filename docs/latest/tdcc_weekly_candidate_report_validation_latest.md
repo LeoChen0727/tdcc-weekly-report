@@ -2,8 +2,18 @@
 
 - status: pass
 - signal_date: 20260612
+- date_source: report_ready_csv_signal_date
 - error_count: 0
 - warning_count: 0
+
+## Date Contract
+
+- date_source: `report_ready_csv_signal_date`
+- report_date: `20260612`
+- highlight_report_ready_signal_dates: `['20260612']`
+- full_report_ready_signal_dates: `['20260612']`
+- weekly_source_signal_dates: `['20260612']`
+- consecutive_source_signal_dates: `['20260612']`
 
 ## Manifest Sections
 

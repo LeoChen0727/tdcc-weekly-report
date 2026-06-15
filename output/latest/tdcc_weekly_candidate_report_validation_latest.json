@@ -1,6 +1,22 @@
 {
   "status": "pass",
   "signal_date": "20260612",
+  "date_contract": {
+    "date_source": "report_ready_csv_signal_date",
+    "report_date": "20260612",
+    "highlight_report_ready_signal_dates": [
+      "20260612"
+    ],
+    "full_report_ready_signal_dates": [
+      "20260612"
+    ],
+    "weekly_source_signal_dates": [
+      "20260612"
+    ],
+    "consecutive_source_signal_dates": [
+      "20260612"
+    ]
+  },
   "row_counts": {
     "weekly_increase": 416,
     "consecutive_accumulation": 26,
