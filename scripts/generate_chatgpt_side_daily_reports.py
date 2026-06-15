@@ -232,19 +232,21 @@ H1 = ParagraphStyle(
     "H1CJK",
     parent=styles["Heading1"],
     fontName=FONT_BOLD,
-    fontSize=15,
-    leading=19,
+    fontSize=18,
+    leading=22,
     spaceBefore=7,
     spaceAfter=4,
+    textColor=colors.HexColor("#c00000"),
 )
 H2 = ParagraphStyle(
     "H2CJK",
     parent=styles["Heading2"],
     fontName=FONT_BOLD,
-    fontSize=13,
-    leading=16.5,
+    fontSize=15,
+    leading=18.5,
     spaceBefore=5,
     spaceAfter=3,
+    textColor=colors.HexColor("#c00000"),
 )
 OP_LABEL = ParagraphStyle(
     "OperationLabelCJK",
@@ -294,6 +296,10 @@ def read_csv(path: Path | str, **kwargs) -> pd.DataFrame:
         if col in df.columns:
             df[col] = df[col].astype(str).str.replace(r"\.0$", "", regex=True)
     return df
+
+
+def read_latest_csv(filename: str, **kwargs) -> pd.DataFrame:
+    return read_csv(LATEST / filename, **kwargs)
 
 
 MAINSTREAM_CURATED_TITLE = "\u4e3b\u6d41\u80a1\u6bcf\u65e5\u63a8\u85a6\u7cbe\u83ef"
@@ -1544,25 +1550,26 @@ def plot_put_call_chart() -> Path | None:
 
 def load_inputs() -> dict[str, pd.DataFrame]:
     return {
-        "two_line": read_csv(remote_latest_url("daily_candidate_two_line_view_latest.csv")),
-        "all": read_csv(remote_latest_url("all_candidates_latest.csv")),
-        "model_registry": read_csv(remote_latest_url("daily_report_model_registry_latest.csv")),
-        "model_parameters": read_csv(remote_latest_url("daily_candidate_model_parameters_latest.csv")),
-        "model_signals": read_csv(remote_latest_url("daily_candidate_model_signals_for_report_latest.csv")),
-        "model_summary": read_csv(remote_latest_url("daily_candidate_model_summary_for_report_latest.csv")),
-        "volume_operation": read_csv(remote_latest_url("daily_volume_breakout_operation_section_latest.csv")),
-        "group_rotation": read_csv(remote_latest_url("daily_candidate_group_rotation_latest.csv")),
-        "themes": read_csv(remote_latest_url("daily_theme_leadership_latest.csv")),
-        "volume_layer": read_csv(remote_latest_url("volume_attack_theme_layer_latest.csv")),
-        "volume_stocks": read_csv(remote_latest_url("volume_attack_theme_stocks_latest.csv")),
-        "warrant": read_csv(remote_latest_url("warrant_flow_latest.csv")),
-        "warrant_stock": read_csv(remote_latest_url("warrant_flow_by_stock_latest.csv")),
-        "market_regime": read_csv(remote_latest_url("market_regime_latest.csv")),
-        "market_benchmark": read_csv(remote_latest_url("market_benchmark_latest.csv")),
-        "futures": read_csv(remote_latest_url("futures_options_indicators_latest.csv")),
-        "put_call": read_csv(remote_latest_url("futures_options_put_call_ratio_latest.csv")),
-        "tdcc_edge": read_csv(remote_latest_url("tdcc_overheated_short_term_edge_candidates_latest.csv")),
-        "weekly_surge": read_csv(remote_latest_url("weekly_surge_strict_parameter_candidates_latest.csv")),
+        "two_line": read_latest_csv("daily_candidate_two_line_view_latest.csv"),
+        "all": read_latest_csv("all_candidates_latest.csv"),
+        "model_registry": read_latest_csv("daily_report_model_registry_latest.csv"),
+        "model_parameters": read_latest_csv("daily_candidate_model_parameters_latest.csv"),
+        "model_signals": read_latest_csv("daily_candidate_model_signals_for_report_latest.csv"),
+        "model_summary": read_latest_csv("daily_candidate_model_summary_for_report_latest.csv"),
+        "volume_operation": read_latest_csv("daily_volume_breakout_operation_section_latest.csv"),
+        "stock_theme_taxonomy": read_latest_csv("stock_theme_taxonomy_latest.csv"),
+        "group_rotation": read_latest_csv("daily_candidate_group_rotation_latest.csv"),
+        "themes": read_latest_csv("daily_theme_leadership_latest.csv"),
+        "volume_layer": read_latest_csv("volume_attack_theme_layer_latest.csv"),
+        "volume_stocks": read_latest_csv("volume_attack_theme_stocks_latest.csv"),
+        "warrant": read_latest_csv("warrant_flow_latest.csv"),
+        "warrant_stock": read_latest_csv("warrant_flow_by_stock_latest.csv"),
+        "market_regime": read_latest_csv("market_regime_latest.csv"),
+        "market_benchmark": read_latest_csv("market_benchmark_latest.csv"),
+        "futures": read_latest_csv("futures_options_indicators_latest.csv"),
+        "put_call": read_latest_csv("futures_options_put_call_ratio_latest.csv"),
+        "tdcc_edge": read_latest_csv("tdcc_overheated_short_term_edge_candidates_latest.csv"),
+        "weekly_surge": read_latest_csv("weekly_surge_strict_parameter_candidates_latest.csv"),
     }
 
 
@@ -1833,6 +1840,66 @@ def volume_operation_frame(
     return frame.sort_values(["_display_order", "stock_id"]).drop(columns=["_display_order"], errors="ignore")
 
 
+def report_lines_for_stock_from_frame(frame: pd.DataFrame, stock_id: str) -> set[str]:
+    if frame.empty or "stock_id" not in frame.columns or not stock_id:
+        return set()
+    part = frame[frame["stock_id"].map(stock_id_text).eq(stock_id)].copy()
+    if part.empty:
+        return set()
+    lines: set[str] = set()
+    for col in ("report_line", "report_bucket"):
+        if col in part.columns:
+            lines.update(value for value in part[col].astype(str).tolist() if value in {"mainstream", "non_mainstream"})
+    for col in ("report_line_memberships", "taxonomy_report_line_memberships"):
+        if col in part.columns:
+            for value in part[col].astype(str).tolist():
+                for token in value.replace(";", "|").replace(",", "|").split("|"):
+                    token = token.strip()
+                    if token in {"mainstream", "non_mainstream"}:
+                        lines.add(token)
+    truth_cols = [
+        ("mainstream_report_eligible", "mainstream"),
+        ("taxonomy_mainstream_report_eligible", "mainstream"),
+        ("non_mainstream_report_eligible", "non_mainstream"),
+        ("taxonomy_non_mainstream_report_eligible", "non_mainstream"),
+    ]
+    for col, line in truth_cols:
+        if col in part.columns and part[col].map(is_true_text).any():
+            lines.add(line)
+    return lines
+
+
+def volume_operation_report_lines_for_stock(inputs: dict[str, pd.DataFrame], stock_id: str) -> set[str]:
+    lines: set[str] = set()
+    sources = [
+        inputs.get("model_signals", pd.DataFrame()),
+        inputs.get("two_line", pd.DataFrame()),
+        inputs.get("all", pd.DataFrame()),
+        inputs.get("stock_theme_taxonomy", pd.DataFrame()),
+    ]
+    for frame in sources:
+        lines.update(report_lines_for_stock_from_frame(frame.copy(), stock_id))
+    return lines
+
+
+def filter_volume_operation_rows_for_line(
+    rows: pd.DataFrame,
+    inputs: dict[str, pd.DataFrame],
+    line: str | None,
+) -> pd.DataFrame:
+    if rows.empty or not line:
+        return rows
+    if "report_line" in rows.columns:
+        return rows[rows["report_line"].astype(str).eq(line)].copy()
+    if "report_bucket" in rows.columns:
+        return rows[rows["report_bucket"].astype(str).eq(line)].copy()
+    row_type = rows.get("row_type", pd.Series(dtype=str)).astype(str)
+    stock_ids = rows["stock_id"].map(stock_id_text)
+    empty_state = row_type.eq("empty_state") & stock_ids.eq("")
+    mask = empty_state | stock_ids.map(lambda value: line in volume_operation_report_lines_for_stock(inputs, value))
+    return rows[mask].copy()
+
+
 def volume_operation_empty_text(rows: pd.DataFrame, fallback: str) -> str:
     if rows.empty:
         return fallback
@@ -1842,6 +1909,15 @@ def volume_operation_empty_text(rows: pd.DataFrame, fallback: str) -> str:
             if text:
                 return text
     return fallback
+
+
+def volume_operation_has_data_rows(*frames: pd.DataFrame) -> bool:
+    for frame in frames:
+        if frame.empty or "row_type" not in frame.columns:
+            continue
+        if frame["row_type"].astype(str).eq("data").any():
+            return True
+    return False
 
 
 def build_volume_confirmed_operation_table(rows: pd.DataFrame) -> Table:
@@ -1934,10 +2010,23 @@ def render_volume_range_breakout_operation_section(
     story: list,
     inputs: dict[str, pd.DataFrame],
     pdf_view: str,
+    line: str | None = None,
 ) -> None:
-    confirmed_all = volume_operation_frame(inputs, pdf_view, "confirmed_operation")
-    pending_all = volume_operation_frame(inputs, pdf_view, "pending_confirmation")
-    active_rows = volume_operation_frame(inputs, pdf_view, "active_operation")
+    confirmed_all = filter_volume_operation_rows_for_line(
+        volume_operation_frame(inputs, pdf_view, "confirmed_operation"),
+        inputs,
+        line,
+    )
+    pending_all = filter_volume_operation_rows_for_line(
+        volume_operation_frame(inputs, pdf_view, "pending_confirmation"),
+        inputs,
+        line,
+    )
+    active_rows = filter_volume_operation_rows_for_line(
+        volume_operation_frame(inputs, pdf_view, "active_operation"),
+        inputs,
+        line,
+    )
 
     confirmed = confirmed_all[
         confirmed_all.get("row_type", pd.Series(dtype=str)).astype(str).eq("data")
@@ -1960,6 +2049,17 @@ def render_volume_range_breakout_operation_section(
             BODY_SMALL,
         )
     )
+    if not volume_operation_has_data_rows(confirmed_all, pending_all, active_rows):
+        story.append(
+            para(
+                volume_operation_empty_text(
+                    pending_all if not pending_all.empty else active_rows if not active_rows.empty else confirmed_all,
+                    "今日沒有可顯示的放量攻擊操作列。",
+                ),
+                BODY_SMALL,
+            )
+        )
+        return
     story.append(Paragraph("已確認操作 / 可列買入排名", H2))
     story.append(build_volume_confirmed_operation_table(confirmed))
     story.append(Spacer(1, 5))
@@ -2023,24 +2123,37 @@ def build_mainstream_curated_model_table(
     two_map: dict[str, pd.Series],
     all_map: dict[str, pd.Series],
     limit: int = 6,
-) -> Table:
+) -> list:
     title = MAINSTREAM_LINE_LABEL
-    data = [["標的", "模型狀態", "模型排名 / 分數", "族群 / 資金", "大戶籌碼", "模型依據 / 風險"]]
-    if not rows:
-        data.append(["-", "-", title, "-", "-", "本模型今日無符合條件資料。"])
-    for row in rows[:limit]:
-        extra = all_map.get(clean(row.get("stock_id")), pd.Series(dtype=object))
-        data.append(
-            [
-                stock_label(row),
-                display_signal_tag(model_signal_tag(row, two_map)),
-                model_score_label(row),
-                f"{category_position_text(row, two_map)} / {zh_warrant(row.get('warrant_flow_signal'))}",
-                tdcc_direction(row, extra),
-                f"{model_source_text(row, 54)}；風險：{model_risk_text(row, 34)}",
-            ]
-        )
-    return build_table(data, [32 * mm, 22 * mm, 30 * mm, 54 * mm, 44 * mm, 86 * mm], 12.0)
+    selected_rows = rows[:limit]
+    story: list = []
+    for label, color in [("新上榜", "#c00000"), ("重複上榜", "#1f4e79")]:
+        data = [["標的", "模型狀態", "模型排名 / 分數", "族群 / 資金", "大戶籌碼", "模型依據 / 風險"]]
+        matched = False
+        for row in selected_rows:
+            stage = display_signal_tag(model_signal_tag(row, two_map))
+            row_label = listing_status_label(row, stage)
+            if label == "新上榜" and row_label != "新上榜":
+                continue
+            if label == "重複上榜" and row_label == "新上榜":
+                continue
+            matched = True
+            extra = all_map.get(clean(row.get("stock_id")), pd.Series(dtype=object))
+            data.append(
+                [
+                    stock_label(row),
+                    stage,
+                    model_score_label(row),
+                    f"{category_position_text(row, two_map)} / {zh_warrant(row.get('warrant_flow_signal'))}",
+                    tdcc_direction(row, extra),
+                    f"{model_source_text(row, 54)}；風險：{model_risk_text(row, 34)}",
+                ]
+            )
+        if not matched:
+            data.append(["-", "-", title, "-", "-", f"本模型今日無{label}資料。"])
+        story.append(Paragraph(f'<font color="{color}">{label}</font>', H2))
+        story.append(build_table(data, [32 * mm, 22 * mm, 30 * mm, 54 * mm, 44 * mm, 86 * mm], 12.0))
+    return story
 
 
 
@@ -2050,24 +2163,37 @@ def build_mainstream_full_model_table(
     two_map: dict[str, pd.Series],
     all_map: dict[str, pd.Series],
     limit: int = 6,
-) -> Table:
+) -> list:
     title = MAINSTREAM_LINE_LABEL
-    data = [["標的", "模型狀態", "模型排名 / 分數", "族群 / 資金", "大戶籌碼", "模型依據 / 風險"]]
-    if not rows:
-        data.append(["-", "-", title, "-", "-", "本模型今日無符合條件資料。"])
-    for row in rows[:limit]:
-        extra = all_map.get(clean(row.get("stock_id")), pd.Series(dtype=object))
-        data.append(
-            [
-                stock_label(row),
-                display_signal_tag(model_signal_tag(row, two_map)),
-                model_score_label(row),
-                f"{category_position_text(row, two_map)} / {zh_warrant(row.get('warrant_flow_signal'))}",
-                tdcc_direction(row, extra),
-                f"{model_source_text(row, 54)}；風險：{model_risk_text(row, 34)}",
-            ]
-        )
-    return build_table(data, [32 * mm, 22 * mm, 30 * mm, 54 * mm, 44 * mm, 86 * mm], 12.0)
+    selected_rows = rows[:limit]
+    story: list = []
+    for label, color in [("新上榜", "#c00000"), ("重複上榜", "#1f4e79")]:
+        data = [["標的", "模型狀態", "模型排名 / 分數", "族群 / 資金", "大戶籌碼", "模型依據 / 風險"]]
+        matched = False
+        for row in selected_rows:
+            stage = display_signal_tag(model_signal_tag(row, two_map))
+            row_label = listing_status_label(row, stage)
+            if label == "新上榜" and row_label != "新上榜":
+                continue
+            if label == "重複上榜" and row_label == "新上榜":
+                continue
+            matched = True
+            extra = all_map.get(clean(row.get("stock_id")), pd.Series(dtype=object))
+            data.append(
+                [
+                    stock_label(row),
+                    stage,
+                    model_score_label(row),
+                    f"{category_position_text(row, two_map)} / {zh_warrant(row.get('warrant_flow_signal'))}",
+                    tdcc_direction(row, extra),
+                    f"{model_source_text(row, 54)}；風險：{model_risk_text(row, 34)}",
+                ]
+            )
+        if not matched:
+            data.append(["-", "-", title, "-", "-", f"本模型今日無{label}資料。"])
+        story.append(Paragraph(f'<font color="{color}">{label}</font>', H2))
+        story.append(build_table(data, [32 * mm, 22 * mm, 30 * mm, 54 * mm, 44 * mm, 86 * mm], 12.0))
+    return story
 
 
 
@@ -2077,24 +2203,37 @@ def build_non_mainstream_curated_model_table(
     two_map: dict[str, pd.Series],
     all_map: dict[str, pd.Series],
     limit: int = 6,
-) -> Table:
+) -> list:
     title = NON_MAINSTREAM_LINE_LABEL
-    data = [["標的", "模型狀態", "模型排名 / 分數", "族群 / 資金", "大戶籌碼", "模型依據 / 風險"]]
-    if not rows:
-        data.append(["-", "-", title, "-", "-", "本模型今日無符合條件資料。"])
-    for row in rows[:limit]:
-        extra = all_map.get(clean(row.get("stock_id")), pd.Series(dtype=object))
-        data.append(
-            [
-                stock_label(row),
-                display_signal_tag(model_signal_tag(row, two_map)),
-                model_score_label(row),
-                f"{category_position_text(row, two_map)} / {zh_warrant(row.get('warrant_flow_signal'))}",
-                tdcc_direction(row, extra),
-                f"{model_source_text(row, 54)}；風險：{model_risk_text(row, 34)}",
-            ]
-        )
-    return build_table(data, [32 * mm, 22 * mm, 30 * mm, 54 * mm, 44 * mm, 86 * mm], 12.0)
+    selected_rows = rows[:limit]
+    story: list = []
+    for label, color in [("新上榜", "#c00000"), ("重複上榜", "#1f4e79")]:
+        data = [["標的", "模型狀態", "模型排名 / 分數", "族群 / 資金", "大戶籌碼", "模型依據 / 風險"]]
+        matched = False
+        for row in selected_rows:
+            stage = display_signal_tag(model_signal_tag(row, two_map))
+            row_label = listing_status_label(row, stage)
+            if label == "新上榜" and row_label != "新上榜":
+                continue
+            if label == "重複上榜" and row_label == "新上榜":
+                continue
+            matched = True
+            extra = all_map.get(clean(row.get("stock_id")), pd.Series(dtype=object))
+            data.append(
+                [
+                    stock_label(row),
+                    stage,
+                    model_score_label(row),
+                    f"{category_position_text(row, two_map)} / {zh_warrant(row.get('warrant_flow_signal'))}",
+                    tdcc_direction(row, extra),
+                    f"{model_source_text(row, 54)}；風險：{model_risk_text(row, 34)}",
+                ]
+            )
+        if not matched:
+            data.append(["-", "-", title, "-", "-", f"本模型今日無{label}資料。"])
+        story.append(Paragraph(f'<font color="{color}">{label}</font>', H2))
+        story.append(build_table(data, [32 * mm, 22 * mm, 30 * mm, 54 * mm, 44 * mm, 86 * mm], 12.0))
+    return story
 
 
 
@@ -2104,24 +2243,37 @@ def build_non_mainstream_full_model_table(
     two_map: dict[str, pd.Series],
     all_map: dict[str, pd.Series],
     limit: int = 6,
-) -> Table:
+) -> list:
     title = NON_MAINSTREAM_LINE_LABEL
-    data = [["標的", "模型狀態", "模型排名 / 分數", "族群 / 資金", "大戶籌碼", "模型依據 / 風險"]]
-    if not rows:
-        data.append(["-", "-", title, "-", "-", "本模型今日無符合條件資料。"])
-    for row in rows[:limit]:
-        extra = all_map.get(clean(row.get("stock_id")), pd.Series(dtype=object))
-        data.append(
-            [
-                stock_label(row),
-                display_signal_tag(model_signal_tag(row, two_map)),
-                model_score_label(row),
-                f"{category_position_text(row, two_map)} / {zh_warrant(row.get('warrant_flow_signal'))}",
-                tdcc_direction(row, extra),
-                f"{model_source_text(row, 54)}；風險：{model_risk_text(row, 34)}",
-            ]
-        )
-    return build_table(data, [32 * mm, 22 * mm, 30 * mm, 54 * mm, 44 * mm, 86 * mm], 12.0)
+    selected_rows = rows[:limit]
+    story: list = []
+    for label, color in [("新上榜", "#c00000"), ("重複上榜", "#1f4e79")]:
+        data = [["標的", "模型狀態", "模型排名 / 分數", "族群 / 資金", "大戶籌碼", "模型依據 / 風險"]]
+        matched = False
+        for row in selected_rows:
+            stage = display_signal_tag(model_signal_tag(row, two_map))
+            row_label = listing_status_label(row, stage)
+            if label == "新上榜" and row_label != "新上榜":
+                continue
+            if label == "重複上榜" and row_label == "新上榜":
+                continue
+            matched = True
+            extra = all_map.get(clean(row.get("stock_id")), pd.Series(dtype=object))
+            data.append(
+                [
+                    stock_label(row),
+                    stage,
+                    model_score_label(row),
+                    f"{category_position_text(row, two_map)} / {zh_warrant(row.get('warrant_flow_signal'))}",
+                    tdcc_direction(row, extra),
+                    f"{model_source_text(row, 54)}；風險：{model_risk_text(row, 34)}",
+                ]
+            )
+        if not matched:
+            data.append(["-", "-", title, "-", "-", f"本模型今日無{label}資料。"])
+        story.append(Paragraph(f'<font color="{color}">{label}</font>', H2))
+        story.append(build_table(data, [32 * mm, 22 * mm, 30 * mm, 54 * mm, 44 * mm, 86 * mm], 12.0))
+    return story
 
 
 
@@ -3038,9 +3190,9 @@ def build_mainstream_curated_pdf(
         if desc:
             story.append(para(desc, BODY_SMALL))
         if model_id == VOLUME_BREAKOUT_MODEL_ID:
-            render_volume_range_breakout_operation_section(story, inputs, "highlight")
+            render_volume_range_breakout_operation_section(story, inputs, "highlight", line)
             continue
-        story.append(build_mainstream_curated_model_table(ranked_rows, two_map, all_map, limit=limit))
+        story.extend(build_mainstream_curated_model_table(ranked_rows, two_map, all_map, limit=limit))
         reps = mainstream_curated_operation_representatives(ranked_rows)
         for row in reps:
             sid = clean(row.get("stock_id"))
@@ -3110,9 +3262,9 @@ def build_non_mainstream_curated_pdf(
         if desc:
             story.append(para(desc, BODY_SMALL))
         if model_id == VOLUME_BREAKOUT_MODEL_ID:
-            render_volume_range_breakout_operation_section(story, inputs, "highlight")
+            render_volume_range_breakout_operation_section(story, inputs, "highlight", line)
             continue
-        story.append(build_non_mainstream_curated_model_table(ranked_rows, two_map, all_map, limit=limit))
+        story.extend(build_non_mainstream_curated_model_table(ranked_rows, two_map, all_map, limit=limit))
         reps = non_mainstream_curated_operation_representatives(ranked_rows)
         for row in reps:
             sid = clean(row.get("stock_id"))
@@ -3200,9 +3352,9 @@ def build_mainstream_full_candidate_pdf(
             story.append(para("無符合條件資料。", BODY))
             continue
         if model_id == VOLUME_BREAKOUT_MODEL_ID:
-            render_volume_range_breakout_operation_section(story, inputs, "full")
+            render_volume_range_breakout_operation_section(story, inputs, "full", line)
             continue
-        story.append(build_mainstream_full_model_table(line_rows, two_map, all_map, limit=limit))
+        story.extend(build_mainstream_full_model_table(line_rows, two_map, all_map, limit=limit))
 
     story.append(PageBreak())
     story.append(Paragraph(f"{line_label}雙線與輪動摘要", H1))
@@ -3321,9 +3473,9 @@ def build_non_mainstream_full_candidate_pdf(
             story.append(para("無符合條件資料。", BODY))
             continue
         if model_id == VOLUME_BREAKOUT_MODEL_ID:
-            render_volume_range_breakout_operation_section(story, inputs, "full")
+            render_volume_range_breakout_operation_section(story, inputs, "full", line)
             continue
-        story.append(build_non_mainstream_full_model_table(line_rows, two_map, all_map, limit=limit))
+        story.extend(build_non_mainstream_full_model_table(line_rows, two_map, all_map, limit=limit))
 
     story.append(PageBreak())
     story.append(Paragraph(f"{line_label}雙線與輪動摘要", H1))

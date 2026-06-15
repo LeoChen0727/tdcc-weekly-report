@@ -96,17 +96,39 @@ def summarize_volume_daily_adapter(adapter: pd.DataFrame) -> dict[str, Any]:
     data_rows = int(row_type.eq("data").sum())
     sections = sorted(set(adapter.get("pdf_section", pd.Series(dtype=str)).astype(str)))
     source_statuses = sorted(set(adapter.get("adapter_source_status", pd.Series(dtype=str)).astype(str)))
-    base_ready = models == [VOLUME_MODEL_ID] and data_rows > 0 and (not source_statuses or source_statuses == ["ready"])
+    data_source_statuses = sorted(
+        set(adapter.loc[row_type.eq("data"), "adapter_source_status"].astype(str))
+        if "adapter_source_status" in adapter.columns
+        else set()
+    )
+    base_ready = models == [VOLUME_MODEL_ID] and data_rows > 0 and (
+        not data_source_statuses or data_source_statuses == ["ready"]
+    )
+    empty_sections_ready = (
+        models == [VOLUME_MODEL_ID]
+        and data_rows == 0
+        and set(sections) >= {"confirmed_operation", "pending_confirmation", "active_operation"}
+    )
+    stale_empty_ready = empty_sections_ready and source_statuses == ["stale_research_source"]
+    missing_empty_ready = empty_sections_ready and source_statuses == ["missing_or_empty_research_source"]
 
     approved_metadata_ready = False
-    if base_ready and {"approved_for_daily", "operation_directive_level"}.issubset(adapter.columns):
+    if (base_ready or stale_empty_ready or missing_empty_ready) and {
+        "approved_for_daily",
+        "operation_directive_level",
+    }.issubset(adapter.columns):
         approved_metadata_ready = (
             set(adapter["approved_for_daily"].astype(str)) == {"True"}
             and set(adapter["operation_directive_level"].astype(str)) == {"approved_daily_operation_guidance"}
         )
 
     if approved_metadata_ready:
-        status = "ready_approved_operation_guidance"
+        if stale_empty_ready:
+            status = "ready_empty_stale_research_source"
+        elif missing_empty_ready:
+            status = "ready_empty_no_operation_rows"
+        else:
+            status = "ready_approved_operation_guidance"
     elif base_ready:
         status = "ready_pending_approval_metadata"
     else:
@@ -176,6 +198,8 @@ def build_model_operation_readiness(
     adapter_ready = volume_adapter["daily_adapter_status"] in {
         "ready_pending_approval_metadata",
         "ready_approved_operation_guidance",
+        "ready_empty_stale_research_source",
+        "ready_empty_no_operation_rows",
     }
     volume_presentation_allowed = volume_registry["operation_module_status"] == "research_reference_ready" and adapter_ready
 
@@ -190,7 +214,11 @@ def build_model_operation_readiness(
             blocker = (
                 "daily adapter approval metadata pending"
                 if volume_adapter["daily_adapter_status"] == "ready_pending_approval_metadata"
-                else "PDF/packet renderer connected to daily adapter artifact"
+                else "每日 adapter 來源日期不符；PDF/packet 顯示明確空狀態操作區塊"
+                if volume_adapter["daily_adapter_status"] == "ready_empty_stale_research_source"
+                else "每日 adapter 目前無操作列；PDF/packet 顯示明確空狀態操作區塊"
+                if volume_adapter["daily_adapter_status"] == "ready_empty_no_operation_rows"
+                else "PDF/packet 已接每日 adapter 資料成品"
             )
             rows.append(
                 {
@@ -226,7 +254,7 @@ def build_model_operation_readiness(
                     "daily_adapter_sections": volume_adapter["daily_adapter_sections"],
                     "status_note_zh": (
                         "放量攻擊 v1 已由 approved_operation_patterns 批准為 daily 操作建議；"
-                        "confirmed rows 才能列買進排名，pending rows 只列待確認。PDF/packet 仍只能讀 adapter artifact。"
+                        "只有已確認列可列買進排名，待確認列只作觀察。PDF/packet 仍只能讀每日 adapter 資料成品。"
                     ),
                 }
             )
@@ -281,7 +309,7 @@ def write_markdown(df: pd.DataFrame) -> None:
         "- purpose: track model parity, operation-module readiness, daily adapter status, and promotion boundaries",
         "- rule: `approved_for_daily=True` requires an explicit approved operation artifact",
         "- rule: raw research evidence rows can remain research-only even after an operation module is approved",
-        "- rule: PDF/packet integration must render adapter artifacts and must not recalculate operation rules",
+        "- rule: PDF/packet integration 必須 render adapter artifact，不得重新計算操作規則",
         "",
     ]
 

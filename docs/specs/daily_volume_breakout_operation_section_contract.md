@@ -28,6 +28,9 @@ The PDF renderer must not read these research artifacts directly:
 - `pending_confirmation` rows must remain `buy_rank_eligible=False` even when `approved_for_daily=True`.
 - The adapter must copy approval metadata from `approved_operation_patterns_latest.csv`; the PDF renderer must not read that approval table directly.
 - `confirmed_operation` data rows must be positive evidence only. Weak-evidence confirmed rows from research previews must not be presented as daily buy guidance.
+- The adapter must carry `operation_asof_date` and `operation_source_date_status` on every row.
+- Data rows are valid only when `operation_asof_date` equals `daily_signal_date`, which is the daily report date. Stale operation research previews must become explicit empty-state rows instead of entering the daily PDF or packet.
+- Operation data rows must have a stock-level taxonomy/basic industry source before they can be routed to a PDF line. Valid report memberships are only `mainstream`, `non_mainstream`, or both. The PDF renderer must not invent a report line when taxonomy/source data is missing.
 
 ## Required Approval Fields
 
@@ -44,6 +47,8 @@ The CSV must include these approval fields on every row:
 - `buy_rank_eligible`
 - `buy_filter_id`
 - `approval_note_zh`
+- `operation_asof_date`
+- `operation_source_date_status`
 
 For the approved v1 daily adapter, these fields must show:
 

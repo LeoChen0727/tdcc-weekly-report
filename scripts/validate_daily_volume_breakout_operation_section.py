@@ -11,6 +11,8 @@ DOCS_LATEST_DIR = ROOT / "docs" / "latest"
 
 SECTION_CSV = LATEST_DIR / "daily_volume_breakout_operation_section_latest.csv"
 SECTION_MD = LATEST_DIR / "daily_volume_breakout_operation_section_latest.md"
+TAXONOMY_CSV = LATEST_DIR / "stock_theme_taxonomy_latest.csv"
+DAILY_SIGNALS_CSV = LATEST_DIR / "daily_candidate_model_signals_for_report_latest.csv"
 DOCS_SECTION_CSV = DOCS_LATEST_DIR / SECTION_CSV.name
 DOCS_SECTION_MD = DOCS_LATEST_DIR / SECTION_MD.name
 PDF_GENERATOR = ROOT / "scripts" / "generate_chatgpt_side_daily_reports.py"
@@ -21,7 +23,7 @@ MODEL_ID = "volume_range_breakout"
 PDF_VIEWS = {"highlight", "full"}
 PDF_SECTIONS = {"confirmed_operation", "pending_confirmation", "active_operation"}
 ROW_TYPES = {"data", "empty_state"}
-SOURCE_STATUSES = {"ready", "missing_or_empty_research_source"}
+SOURCE_STATUSES = {"ready", "missing_or_empty_research_source", "stale_research_source"}
 
 REQUIRED_COLUMNS = {
     "model_id",
@@ -29,6 +31,8 @@ REQUIRED_COLUMNS = {
     "pdf_section",
     "pdf_section_zh",
     "row_type",
+    "operation_asof_date",
+    "operation_source_date_status",
     "display_order",
     "stock_id",
     "stock_display",
@@ -93,6 +97,11 @@ FORBIDDEN_DISPLAY_TOKENS = [
     "pullback_5ma_confirmed",
     "pullback_10ma_confirmed",
     "next_day_continuation_confirmed",
+    "operation research source date",
+    "PDF renders an empty section",
+    "stale rows",
+    "must render only this model section",
+    "must not recalculate operation rules",
 ]
 
 
@@ -106,6 +115,31 @@ def read_csv(path: Path) -> pd.DataFrame:
         return pd.read_csv(path, dtype=str, keep_default_na=False)
     except Exception as exc:
         fail(f"{path} is not readable CSV: {exc}")
+
+
+def stock_id_text(value: object) -> str:
+    text = str(value).strip().replace(".0", "")
+    return text.zfill(4) if text.isdigit() else text
+
+
+def normalize_date_text(value: object) -> str:
+    text = str(value).strip().replace("-", "").replace("/", "")
+    return text if len(text) == 8 and text.isdigit() else ""
+
+
+def split_memberships(value: object) -> set[str]:
+    tokens = str(value).replace(";", "|").replace(",", "|").split("|")
+    return {token.strip() for token in tokens if token.strip()}
+
+
+def daily_volume_signal_ids(report_date: str) -> set[str]:
+    signals = read_csv(DAILY_SIGNALS_CSV)
+    if signals.empty or "model_id" not in signals.columns or "stock_id" not in signals.columns:
+        return set()
+    volume = signals[signals["model_id"].astype(str).str.strip().eq(MODEL_ID)].copy()
+    if report_date and "signal_date" in volume.columns:
+        volume = volume[volume["signal_date"].map(normalize_date_text).eq(report_date)].copy()
+    return {stock_id_text(value) for value in volume["stock_id"].tolist() if stock_id_text(value)}
 
 
 def validate_file_presence() -> None:
@@ -140,6 +174,9 @@ def validate_shape(section: pd.DataFrame) -> None:
     bad_status = sorted(set(section["adapter_source_status"].astype(str)) - SOURCE_STATUSES)
     if bad_status:
         fail(f"invalid adapter_source_status values: {bad_status}")
+    bad_date_status = sorted(set(section["operation_source_date_status"].astype(str)) - SOURCE_STATUSES)
+    if bad_date_status:
+        fail(f"invalid operation_source_date_status values: {bad_date_status}")
 
     if set(section["approved_for_daily"].astype(str)) != {"True"}:
         fail("daily volume breakout operation section must be approved_for_daily=True")
@@ -157,6 +194,103 @@ def validate_shape(section: pd.DataFrame) -> None:
     confirmed_data = section[
         section["pdf_section"].eq("confirmed_operation") & section["row_type"].eq("data")
     ].copy()
+    data_rows = section[section["row_type"].eq("data")].copy()
+    if not data_rows.empty:
+        bad_dates = data_rows[
+            data_rows["operation_asof_date"].astype(str).ne(data_rows["daily_signal_date"].astype(str))
+        ]
+        if not bad_dates.empty:
+            fail("operation data rows must have operation_asof_date equal to daily_signal_date")
+        bad_data_status = data_rows[data_rows["adapter_source_status"].astype(str).ne("ready")]
+        if not bad_data_status.empty:
+            fail("operation data rows are allowed only when adapter_source_status=ready")
+    pending_data = section[
+        section["pdf_section"].eq("pending_confirmation") & section["row_type"].eq("data")
+    ].copy()
+    report_dates = {
+        normalize_date_text(value)
+        for value in section["daily_signal_date"].astype(str).tolist()
+        if normalize_date_text(value)
+    }
+    daily_ids = set()
+    for report_date in report_dates:
+        daily_ids.update(daily_volume_signal_ids(report_date))
+    if not pending_data.empty:
+        bad_pending_source = pending_data[
+            pending_data["adapter_source"].astype(str).ne("daily_candidate_model_signals_for_report_latest.csv")
+        ]
+        if not bad_pending_source.empty:
+            fail("pending_confirmation data must come from daily model signals")
+        if pending_data["row_action_status"].astype(str).ne("pending_confirmation").any():
+            fail("pending_confirmation data rows must carry row_action_status=pending_confirmation")
+        if pending_data["buy_rank_eligible"].astype(str).ne("False").any():
+            fail("pending_confirmation data rows must keep buy_rank_eligible=False")
+    confirmed_ids = {
+        stock_id_text(value)
+        for value in confirmed_data["stock_id"].tolist()
+        if stock_id_text(value)
+    }
+    active_data = section[
+        section["pdf_section"].eq("active_operation") & section["row_type"].eq("data")
+    ].copy()
+    active_ids = {
+        stock_id_text(value)
+        for value in active_data["stock_id"].tolist()
+        if stock_id_text(value)
+    }
+    if daily_ids:
+        pending_ids = {
+            stock_id_text(value)
+            for value in pending_data["stock_id"].tolist()
+            if stock_id_text(value)
+        }
+        expected_pending_ids = daily_ids - confirmed_ids - active_ids
+        missing_pending_ids = sorted(expected_pending_ids - pending_ids)
+        if missing_pending_ids:
+            fail(f"current daily volume signals missing from pending_confirmation: {missing_pending_ids}")
+        extra_pending_ids = sorted(pending_ids - expected_pending_ids)
+        if extra_pending_ids:
+            fail(f"pending_confirmation rows are not current unconfirmed daily volume signals: {extra_pending_ids}")
+    stale_rows = section[section["adapter_source_status"].astype(str).eq("stale_research_source")]
+    if not stale_rows.empty:
+        bad_stale = stale_rows[
+            stale_rows["row_type"].astype(str).ne("empty_state")
+            | (
+                bool(daily_ids)
+                & stale_rows["pdf_section"].astype(str).eq("pending_confirmation")
+            )
+        ]
+        if not bad_stale.empty:
+            fail(
+                "stale operation research source may only create empty_state rows; "
+                "pending_confirmation data must come from daily model signals"
+            )
+    if not data_rows.empty:
+        taxonomy = read_csv(TAXONOMY_CSV)
+        if taxonomy.empty or "stock_id" not in taxonomy.columns:
+            fail("stock_theme_taxonomy_latest.csv is required to validate operation row report routing")
+        taxonomy_ids = {stock_id_text(value) for value in taxonomy["stock_id"].tolist() if stock_id_text(value)}
+        missing_taxonomy = sorted(
+            set(data_rows["stock_id"].map(stock_id_text).tolist()) - taxonomy_ids
+        )
+        if missing_taxonomy:
+            fail(f"operation data rows missing stock taxonomy/basic industry source: {missing_taxonomy}")
+        if "report_line_memberships" not in taxonomy.columns:
+            fail("stock taxonomy must include report_line_memberships")
+        taxonomy_membership = {
+            stock_id_text(row.get("stock_id")): split_memberships(row.get("report_line_memberships"))
+            for _, row in taxonomy.iterrows()
+        }
+        unrouted = sorted(
+            {
+                stock_id
+                for stock_id in data_rows["stock_id"].map(stock_id_text).tolist()
+                if not taxonomy_membership.get(stock_id)
+                or bool(taxonomy_membership.get(stock_id, set()) - {"mainstream", "non_mainstream"})
+            }
+        )
+        if unrouted:
+            fail(f"operation data rows have invalid stock taxonomy report routing: {unrouted}")
     if not confirmed_data.empty:
         bad_quality = sorted(set(confirmed_data["quality_status_zh"].astype(str)) - {"正向證據"})
         if bad_quality:
