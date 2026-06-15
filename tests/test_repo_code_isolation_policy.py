@@ -37,6 +37,15 @@ def test_research_pipeline_runs_model_parity_validator() -> None:
     assert "python scripts/validate_daily_model_research_parity.py" in workflow_text
 
 
+def test_research_pipeline_runs_model_operation_readiness_validator() -> None:
+    workflow_text = (ROOT / ".github" / "workflows" / "research_backtest_pipeline.yml").read_text(
+        encoding="utf-8"
+    )
+
+    assert "python scripts/build_model_operation_readiness.py" in workflow_text
+    assert "python scripts/validate_model_operation_readiness.py" in workflow_text
+
+
 def test_research_pipeline_does_not_stage_daily_route_files() -> None:
     workflow_text = (ROOT / ".github" / "workflows" / "research_backtest_pipeline.yml").read_text(
         encoding="utf-8"
