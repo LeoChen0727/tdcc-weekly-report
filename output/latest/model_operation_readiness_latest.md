@@ -1,6 +1,6 @@
 # Model Operation Readiness
 
-- generated_at: `2026-06-15 16:33:39 Asia/Taipei`
+- generated_at: `2026-06-15 17:33:20 Asia/Taipei`
 - purpose: track model parity, operation-module readiness, daily adapter status, and promotion boundaries
 - rule: `approved_for_daily=True` requires an explicit approved operation artifact
 - rule: raw research evidence rows can remain research-only even after an operation module is approved
@@ -18,7 +18,7 @@
 | daily_adapter_status | count |
 | --- | --- |
 | not_started | 9 |
-| ready_pending_approval_metadata | 1 |
+| ready_approved_operation_guidance | 1 |
 
 ## approved_for_daily
 
@@ -38,7 +38,7 @@
 
 | model_id | parity_status | operation_module_status | daily_adapter_status | approved_for_daily | approval_status | operation_module_id | approval_version | presentation_allowed | operation_directive_level | pdf_integration_status | packet_integration_status | blocker | status_note_zh |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| volume_range_breakout | production_parity | approved_operation_v1 | ready_pending_approval_metadata | True | approved_for_daily_v1 | volume_breakout_confirmed_operation_v1 | volume_breakout_operation_v1_20260615 | True | approved_daily_operation_guidance | pending_pdf_renderer | pending_packet_renderer | PDF/packet renderer pending; daily adapter approval metadata pending | 放量攻擊 v1 已由 approved_operation_patterns 批准為 daily 操作建議；confirmed rows 才能列買進排名，pending rows 只列待確認。PDF/packet 仍只能讀 adapter artifact。 |
+| volume_range_breakout | production_parity | approved_operation_v1 | ready_approved_operation_guidance | True | approved_for_daily_v1 | volume_breakout_confirmed_operation_v1 | volume_breakout_operation_v1_20260615 | True | approved_daily_operation_guidance | pending_pdf_renderer | pending_packet_renderer | PDF/packet renderer pending | 放量攻擊 v1 已由 approved_operation_patterns 批准為 daily 操作建議；confirmed rows 才能列買進排名，pending rows 只列待確認。PDF/packet 仍只能讀 adapter artifact。 |
 | hot_theme_pullback | production_proxy | baseline_only_no_validated_operation_module | not_started | False | not_started |  |  | False | no_operation_directive | not_started | not_started | daily hot-theme labels are not fully backfilled as point-in-time model-layer fields | 目前只完成 research baseline/parameter 對照；尚未有 validated operation module，不可產生買進、賣出、停損或排名操作建議。 |
 | near_high_neckline_challenge | production_proxy | baseline_only_no_validated_operation_module | not_started | False | not_started |  |  | False | no_operation_directive | not_started | not_started | neckline-specific fields and already-confirmed-breakout flags are not fully backfilled | 目前只完成 research baseline/parameter 對照；尚未有 validated operation module，不可產生買進、賣出、停損或排名操作建議。 |
 | platform_strengthening | production_proxy | baseline_only_no_validated_operation_module | not_started | False | not_started |  |  | False | no_operation_directive | not_started | not_started | platform_base_flag and platform width fields are not fully point-in-time backfilled | 目前只完成 research baseline/parameter 對照；尚未有 validated operation module，不可產生買進、賣出、停損或排名操作建議。 |
