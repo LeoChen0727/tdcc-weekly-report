@@ -191,6 +191,16 @@ def test_daily_workflow_uses_latest_only_volume_breakout_watch() -> None:
     assert text.count("python scripts/validate_daily_staged_paths.py") == 2
 
 
+def test_daily_workflow_publishes_as_published_model_snapshots() -> None:
+    text = (ROOT / ".github" / "workflows" / "daily_full_pipeline.yml").read_text(
+        encoding="utf-8"
+    )
+
+    assert "python scripts/update_daily_published_model_snapshots.py" in text
+    assert "python scripts/validate_daily_published_model_snapshots.py" in text
+    assert "git add output/history/daily_model_snapshots/ || true" in text
+
+
 def test_docs_daily_rules_match_authoritative_rules() -> None:
     authoritative = (ROOT / "rules" / "daily_stock_candidate_rules.md").read_text(
         encoding="utf-8"
