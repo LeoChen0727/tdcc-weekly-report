@@ -73,6 +73,11 @@ def sha256_file_lf_normalized(path: Path) -> str:
     return hashlib.sha256(data).hexdigest()
 
 
+def sha256_file_crlf_normalized(path: Path) -> str:
+    data = path.read_bytes().replace(b"\r\n", b"\n").replace(b"\n", b"\r\n")
+    return hashlib.sha256(data).hexdigest()
+
+
 def read_csv(path: Path) -> pd.DataFrame:
     if not path.exists():
         return pd.DataFrame()
@@ -136,8 +141,14 @@ def validate_snapshot_row(row: pd.Series, snapshot_root: Path = SNAPSHOT_DIR) ->
 
     observed_hash = sha256_file(snapshot_path)
     observed_lf_hash = sha256_file_lf_normalized(snapshot_path)
+    observed_crlf_hash = sha256_file_crlf_normalized(snapshot_path)
     expected_hash = safe_str(row.get("snapshot_sha256", ""))
-    if expected_hash and observed_hash != expected_hash and observed_lf_hash != expected_hash:
+    if (
+        expected_hash
+        and observed_hash != expected_hash
+        and observed_lf_hash != expected_hash
+        and observed_crlf_hash != expected_hash
+    ):
         errors.append(f"{snapshot_path.as_posix()}: snapshot_sha256 mismatch")
 
     try:
