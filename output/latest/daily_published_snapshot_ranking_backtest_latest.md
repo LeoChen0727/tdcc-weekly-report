@@ -1,6 +1,6 @@
 # Daily Published Snapshot Ranking Backtest
 
-generated_at: 2026-06-16 20:30:20 Asia/Taipei
+generated_at: 2026-06-16 20:37:44 Asia/Taipei
 snapshot_report_dates: 20260615, 20260616
 
 This research artifact uses date-stamped as-published snapshots only. It does not recalculate historical rankings with today's production model code and it does not mutate production parameters.
@@ -94,5 +94,6 @@ This research artifact uses date-stamped as-published snapshots only. It does no
 
 - Entry basis: next trading day open after the snapshot signal date or operation confirmation anchor.
 - D+1/D+3/D+5/D+10 returns use close prices; MFE/MAE use high/low versus entry open.
+- `model_signals_for_report` rows are ranking-evaluation samples, not trade-eligible operation rows.
 - `volume_breakout_operation_section` rows are evaluated separately by `confirmed_operation`, `pending_confirmation`, and `active_operation`.
 - The artifact is advisory-only and must not directly change daily production parameters.
