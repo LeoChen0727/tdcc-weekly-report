@@ -4,6 +4,7 @@ from pathlib import Path
 from datetime import datetime
 from zoneinfo import ZoneInfo
 import math
+import re
 
 import pandas as pd
 
@@ -42,6 +43,30 @@ def clean_display(value) -> str:
     if pd.isna(value):
         return ""
     return str(value).replace("|", "/").replace("\n", " ").strip()
+
+
+def normalize_date(value) -> str:
+    if pd.isna(value):
+        return ""
+    text = str(value).strip()
+    if text.endswith(".0"):
+        text = text[:-2]
+    digits = re.sub(r"[^0-9]", "", text)
+    if len(digits) >= 8:
+        return digits[:8]
+    return ""
+
+
+def require_data_date(*frames: pd.DataFrame) -> str:
+    dates: list[str] = []
+    for frame in frames:
+        if frame.empty or "date" not in frame.columns:
+            continue
+        series = frame["date"].map(normalize_date)
+        dates.extend(date for date in series if date)
+    if not dates:
+        raise RuntimeError("warrant flow history date must come from warrant data; no date values were available")
+    return max(dates)
 
 OUTPUT_COLUMNS = [
     "date",
@@ -728,7 +753,7 @@ def main() -> int:
         ascending=False,
     ).reset_index(drop=True)
 
-    date_str = str(out["date"].iloc[0]) if not out.empty else datetime.now(ZoneInfo("Asia/Taipei")).strftime("%Y%m%d")
+    date_str = require_data_date(out, raw)
 
     out.to_csv(OUTPUT_CSV, index=False, encoding="utf-8-sig")
     out.to_csv(HISTORY_DIR / f"warrant_flow_{date_str}.csv", index=False, encoding="utf-8-sig")
