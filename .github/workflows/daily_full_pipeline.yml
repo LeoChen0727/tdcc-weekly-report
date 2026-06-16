@@ -355,7 +355,18 @@ jobs:
           # Daily pipeline only stages daily report outputs and source data.
           # Heavy research/backtest outputs are maintained by research_backtest_pipeline.yml.
           git add data/daily_price/ data/stock_price_history/ || true
-          git add output/latest/ docs/latest/ || true
+          git add output/latest/ || true
+          git add docs/latest/READ_ME_FIRST_DAILY_REPORT*.txt || true
+          git add docs/latest/chatgpt_daily_report_packet_latest.txt docs/latest/CHATGPT_DAILY_REPORT_RULES.txt || true
+          git add docs/latest/pdf_kline_chart_status_latest.md docs/latest/daily_market_*_latest.pdf docs/latest/daily_market_report_validation_latest.md || true
+          git add docs/latest/mainstream_*_latest.pdf docs/latest/non_mainstream_*_latest.pdf docs/latest/warrant_market_report_latest.pdf || true
+          git add docs/latest/catalyst_*_latest.* docs/latest/upcoming_*_calendar_latest.* docs/latest/theme_event_watch_latest.* || true
+          git add docs/latest/calendar_data_source_status_latest.* docs/latest/event_calendar_validation_latest.* || true
+          git add docs/latest/daily_theme_status_history_latest.* docs/latest/daily_short_term_specialty_packet_latest.md || true
+          git add docs/latest/daily_candidate_*.csv docs/latest/daily_candidate_*.md docs/latest/daily_candidate_*.json || true
+          git add docs/latest/daily_report_model_registry_latest.* docs/latest/individual_stock_technical_snapshot_latest.* || true
+          git add docs/latest/non_revenue_momentum_watch_latest.* docs/latest/market_abnormal_status_latest.* docs/latest/market_sentiment_context_latest.* || true
+          git add docs/latest/fundamental_catalyst_layer_latest.md docs/latest/catalyst_data_source_status_latest.* || true
           git add data/institutional_investor_flow/ data/warrant_daily/ data/warrant_flow_by_stock/ data/futures_options/ || true
           git add data/theme_events/ data/company_calendar/ data/macro_events/ data/fundamental_catalysts/ data/event_catalysts/ || true
           git add data/market_index_history.csv data/market_index_ohlc_history.csv || true
@@ -415,7 +426,18 @@ jobs:
           git add output/latest/CHATGPT_DAILY_REPORT_RULES.txt || true
           git add output/latest/chatgpt_indicator_usage_guide_latest.md || true
           git add output/latest/CHATGPT_INDICATOR_USAGE_GUIDE.txt || true
-          git add docs/latest/ || true
+          git add docs/latest/READ_ME_FIRST_DAILY_REPORT*.txt || true
+          git add docs/latest/READ_ME_FIRST_DAILY_REPORT_INDEX.* || true
+          git add docs/latest/report_publish_check_latest.* || true
+          git add docs/latest/daily_data_layer_consistency_audit_latest.* || true
+          git add docs/latest/raw_data_fetch_status_latest.* || true
+          git add docs/latest/individual_stock_technical_snapshot_latest.* || true
+          git add docs/latest/pdf_kline_chart_status_latest.* || true
+          git add docs/latest/chatgpt_daily_report_packet_latest.txt || true
+          git add docs/latest/CHATGPT_DAILY_REPORT_PACKET.txt || true
+          git add docs/latest/CHATGPT_DAILY_REPORT_RULES.txt || true
+          git add docs/latest/chatgpt_indicator_usage_guide_latest.md || true
+          git add docs/latest/CHATGPT_INDICATOR_USAGE_GUIDE.txt || true
 
           python scripts/validate_daily_staged_paths.py
           python scripts/validate_no_conflict_markers.py

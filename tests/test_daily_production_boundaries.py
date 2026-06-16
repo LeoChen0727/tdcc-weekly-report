@@ -202,6 +202,8 @@ def test_daily_workflow_uses_latest_only_volume_breakout_watch() -> None:
     assert "python scripts/build_volume_breakout_watch.py --latest-only" in text
     assert "python scripts/build_volume_breakout_watch.py\n" not in text
     assert text.count("python scripts/validate_daily_staged_paths.py") == 2
+    assert "git add docs/latest/ || true" not in text
+    assert "git add output/latest/ docs/latest/ || true" not in text
 
 
 def test_daily_workflow_publishes_as_published_model_snapshots() -> None:
