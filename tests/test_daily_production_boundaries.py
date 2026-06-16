@@ -199,6 +199,11 @@ def test_daily_workflow_publishes_as_published_model_snapshots() -> None:
     assert "python scripts/update_daily_published_model_snapshots.py" in text
     assert "python scripts/validate_daily_published_model_snapshots.py" in text
     assert "git add output/history/daily_model_snapshots/ || true" in text
+    assert (
+        text.index("- name: Guard daily freshness before publishing")
+        < text.index("- name: Publish daily model snapshots")
+        < text.index("- name: Build daily market report artifacts")
+    )
 
 
 def test_docs_daily_rules_match_authoritative_rules() -> None:
