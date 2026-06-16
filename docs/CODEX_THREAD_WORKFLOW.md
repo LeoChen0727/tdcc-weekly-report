@@ -63,9 +63,12 @@ separate pull requests unless a single integration fix is clearly safer.
   global ranking unless a program-side contract explicitly does that.
 - Do not invent buy/sell decisions, mainstream/non-mainstream labels, ranking,
   risk vetoes, or model judgments in the PDF layer.
-- ChatGPT-side daily PDF rendering changes belong in the canonical repo script
-  `scripts/generate_chatgpt_side_daily_reports.py`. Do not leave durable fixes
-  only in a OneDrive/local helper copy.
+- Official ChatGPT-side daily PDF generation must start from
+  `scripts/run_chatgpt_daily_report_entrypoint.py`. That entrypoint gates on
+  `origin/main` and creates a temporary clean source worktree before rendering.
+- `scripts/generate_chatgpt_side_daily_reports.py` is the renderer, not the official entrypoint.
+  Do not call it directly for official output, and do not
+  leave durable fixes only in a OneDrive/local helper copy.
 - `report_ready=True` means repo artifacts are available. It does not mean a
   ChatGPT-side PDF task has already been completed.
 - Prefer raw GitHub or GitHub API data over Pages for daily freshness. Pages is

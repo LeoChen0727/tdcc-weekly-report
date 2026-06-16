@@ -3781,7 +3781,10 @@ def validate_outputs(paths: list[Path]) -> None:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Generate the six ChatGPT-side daily Taiwan stock PDF deliverables."
+        description=(
+            "Renderer for the six ChatGPT-side daily Taiwan stock PDF deliverables. "
+            "Official generation must be started by scripts/run_chatgpt_daily_report_entrypoint.py."
+        )
     )
     parser.add_argument(
         "--repo-root",
@@ -3795,19 +3798,21 @@ def parse_args() -> argparse.Namespace:
         default=OUT,
         help="Directory for generated ChatGPT-side PDFs.",
     )
-    parser.add_argument(
-        "--request-date",
-        default=None,
-        help=(
-            "Deprecated diagnostic label. Official report date is always resolved from "
-            "origin/main output/latest/data_freshness_latest.csv."
-        ),
-    )
     return parser.parse_args()
 
 
+def require_entrypoint_invocation() -> None:
+    if os.environ.get("CHATGPT_DAILY_REPORT_ENTRYPOINT") == "1":
+        return
+    raise RuntimeError(
+        "direct ChatGPT-side daily PDF generator invocation is blocked. "
+        "Use scripts/run_chatgpt_daily_report_entrypoint.py so origin/main source-state "
+        "preflight cannot be bypassed."
+    )
+
+
 def configure_paths(args: argparse.Namespace) -> None:
-    global REPO, LATEST, DATA, OUT, CHARTS, TDCC_WINDOW_DIRS, REQUEST_DATE
+    global REPO, LATEST, DATA, OUT, CHARTS, TDCC_WINDOW_DIRS
 
     REPO = args.repo_root.expanduser().resolve()
     LATEST = REPO / "output" / "latest"
@@ -3818,10 +3823,10 @@ def configure_paths(args: argparse.Namespace) -> None:
         LATEST / "individual_stock_tdcc_windows",
         REPO / "docs" / "latest" / "individual_stock_tdcc_windows",
     ]
-    REQUEST_DATE = str(args.request_date or "")
 
 
 def main() -> None:
+    require_entrypoint_invocation()
     args = parse_args()
     configure_paths(args)
     enforce_fresh_repo_data()
