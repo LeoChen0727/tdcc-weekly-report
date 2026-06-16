@@ -1,6 +1,6 @@
 # Daily Published Snapshot Ranking Backtest
 
-generated_at: 2026-06-16 19:54:10 Asia/Taipei
+generated_at: 2026-06-16 20:30:20 Asia/Taipei
 snapshot_report_dates: 20260615, 20260616
 
 This research artifact uses date-stamped as-published snapshots only. It does not recalculate historical rankings with today's production model code and it does not mutate production parameters.
@@ -78,8 +78,8 @@ This research artifact uses date-stamped as-published snapshots only. It does no
 | model_report_bucket | w_bottom_right_side/mainstream | w_bottom_right_side | 1 | 0 |  |  |  | 0 |  |  |  | small_or_early_snapshot_sample |
 | model_report_bucket | w_bottom_right_side/non_mainstream | w_bottom_right_side | 1 | 0 |  |  |  | 0 |  |  |  | small_or_early_snapshot_sample |
 | model_score_decile | hot_theme_pullback/score_70_80 | hot_theme_pullback | 11 | 5 | 0.00% | -2.11% | -1.15% | 0 |  |  |  | small_or_early_snapshot_sample |
-| model_score_decile | hot_theme_pullback/score_80_90 | hot_theme_pullback | 71 | 39 | 12.82% | -1.97% | -2.32% | 0 |  |  |  | small_or_early_snapshot_sample |
-| model_score_decile | hot_theme_pullback/score_90_100 | hot_theme_pullback | 7 | 2 | 0.00% | -2.86% | -2.86% | 0 |  |  |  | small_or_early_snapshot_sample |
+| model_score_decile | hot_theme_pullback/score_80_90 | hot_theme_pullback | 72 | 39 | 12.82% | -1.97% | -2.32% | 0 |  |  |  | small_or_early_snapshot_sample |
+| model_score_decile | hot_theme_pullback/score_90_100 | hot_theme_pullback | 6 | 2 | 0.00% | -2.86% | -2.86% | 0 |  |  |  | small_or_early_snapshot_sample |
 | model_score_decile | near_high_neckline_challenge/score_50_60 | near_high_neckline_challenge | 1 | 0 |  |  |  | 0 |  |  |  | small_or_early_snapshot_sample |
 | model_score_decile | near_high_neckline_challenge/score_60_70 | near_high_neckline_challenge | 5 | 2 | 50.00% | 0.41% | 0.41% | 0 |  |  |  | small_or_early_snapshot_sample |
 | model_score_decile | near_high_neckline_challenge/score_70_80 | near_high_neckline_challenge | 2 | 1 | 0.00% | -3.91% | -3.91% | 0 |  |  |  | small_or_early_snapshot_sample |
@@ -88,7 +88,7 @@ This research artifact uses date-stamped as-published snapshots only. It does no
 | model_score_decile | price_pullback_23ema/score_60_70 | price_pullback_23ema | 33 | 17 | 11.76% | -1.29% | -1.59% | 0 |  |  |  | small_or_early_snapshot_sample |
 | model_score_decile | price_pullback_23ema/score_70_80 | price_pullback_23ema | 198 | 109 | 20.18% | -1.59% | -1.44% | 0 |  |  |  | ok_first_pass |
 | model_score_decile | price_pullback_23ema/score_80_90 | price_pullback_23ema | 106 | 57 | 17.54% | -1.84% | -2.44% | 0 |  |  |  | small_or_early_snapshot_sample |
-| model_score_decile | pullback_short_reclaim/score_50_60 | pullback_short_reclaim | 171 | 84 | 16.67% | -2.01% | -2.12% | 0 |  |  |  | small_or_early_snapshot_sample |
+| model_score_decile | pullback_short_reclaim/score_50_60 | pullback_short_reclaim | 172 | 84 | 16.67% | -2.01% | -2.12% | 0 |  |  |  | small_or_early_snapshot_sample |
 
 ## Notes
 

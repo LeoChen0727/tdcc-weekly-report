@@ -1,6 +1,6 @@
 # 每日候選股訊號績效週報
 
-- generated_at: `2026-06-16 19:54:08 Asia/Taipei`
+- generated_at: `2026-06-16 20:30:18 Asia/Taipei`
 - latest_signal_date: `20260616`
 - signal_count: `3467`
 - period: latest 14 calendar days
@@ -36,10 +36,10 @@
 | warrant_status | signal_count | avg_return_d5 | avg_return_d10 | avg_relative_return_vs_benchmark_d10 | win_rate_d10 |
 | --- | --- | --- | --- | --- | --- |
 |  | 1605 | 0.10026905513481396 |  |  |  |
-| call_inflow | 248 | -3.0749190259252166 |  |  |  |
-| call_put_bullish | 63 | -3.3846394157081443 |  |  |  |
-| call_strong_inflow | 152 | 0.7923410122388657 |  |  |  |
-| mixed_flow | 13 |  |  |  |  |
+| call_inflow | 246 | -3.0749190259252166 |  |  |  |
+| call_put_bullish | 72 | -3.3846394157081443 |  |  |  |
+| call_strong_inflow | 140 | 0.7923410122388657 |  |  |  |
+| mixed_flow | 18 |  |  |  |  |
 | no_signal | 1354 | -2.1363555436646666 |  |  |  |
 | put_inflow | 32 | 10.975936325307035 |  |  |  |
 
