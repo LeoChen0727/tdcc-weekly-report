@@ -21,7 +21,7 @@ REQUIRED_COLUMNS = {
     "allowed_stage_patterns",
 }
 
-VALID_KINDS = {"python", "workflow"}
+VALID_KINDS = {"python", "test_python", "workflow", "executable_script"}
 VALID_STATUSES = {"active", "manual_diagnostic", "legacy_deprecated"}
 
 VALID_OWNERS = {
@@ -205,6 +205,56 @@ REQUIRED_WORKFLOW_COMMANDS = {
 }
 
 PYTHON_INVOKE_RE = re.compile(r"\bpython(?:3)?\s+([A-Za-z0-9_./\\-]+\.py)")
+SHELL_INVOKE_RE = re.compile(r"\b(?:bash|sh)\s+([A-Za-z0-9_./\\-]+\.sh)")
+
+EXECUTABLE_SCRIPT_SUFFIXES = {
+    ".bat",
+    ".cmd",
+    ".gs",
+    ".js",
+    ".mjs",
+    ".pl",
+    ".ps1",
+    ".rb",
+    ".sh",
+    ".ts",
+    ".tsx",
+}
+
+ACTIVE_GUIDANCE_ROOT_FILES = {
+    "AGENTS.md",
+    "README.md",
+}
+
+ACTIVE_GUIDANCE_PREFIXES = (
+    "docs/latest/",
+    "output/latest/",
+    "rules/",
+)
+
+ACTIVE_GUIDANCE_DOCS_ROOT_SUFFIXES = {
+    ".md",
+    ".txt",
+}
+
+FORBIDDEN_GUIDANCE_COMMANDS = {
+    r"\bpython(?:3)?\s+scripts/generate_chatgpt_side_daily_reports\.py\b": (
+        "active guidance must point users to scripts/run_chatgpt_daily_report_entrypoint.py, "
+        "not the renderer CLI"
+    ),
+    r"\bpython(?:3)?\s+generate_repo_chatgpt_side_reports\.py\b": (
+        "active guidance must not point users to the retired OneDrive/helper report generator"
+    ),
+    r"\bpython(?:3)?\s+scripts/generate_daily_market_pdf\.py\b": (
+        "active guidance must not point users to retired daily market PDF generator"
+    ),
+    r"\bpython(?:3)?\s+scripts/validate_daily_market_report\.py\b": (
+        "active guidance must not point users to retired daily market PDF validator"
+    ),
+    r"\bpython(?:3)?\s+build_daily_market_report_artifacts\.py\b": (
+        "active guidance must not present repo market artifacts as the formal daily PDF entrypoint"
+    ),
+}
 
 
 @dataclass(frozen=True)
@@ -246,6 +296,33 @@ def tracked_python_paths() -> set[str]:
     return tracked | working_tree
 
 
+def tracked_test_python_paths() -> set[str]:
+    tracked = {path for path in run_git_ls_files("*.py") if path.startswith("tests/")}
+    working_tree = {
+        path.relative_to(ROOT).as_posix()
+        for path in (ROOT / "tests").glob("**/*.py")
+        if "__pycache__" not in path.parts
+    }
+    return tracked | working_tree
+
+
+def tracked_executable_script_paths() -> set[str]:
+    tracked = {
+        path
+        for path in run_git_ls_files("*")
+        if Path(path).suffix in EXECUTABLE_SCRIPT_SUFFIXES
+    }
+    working_tree = {
+        path.relative_to(ROOT).as_posix()
+        for path in ROOT.glob("**/*")
+        if path.is_file()
+        and ".git" not in path.parts
+        and "__pycache__" not in path.parts
+        and path.suffix in EXECUTABLE_SCRIPT_SUFFIXES
+    }
+    return tracked | working_tree
+
+
 def tracked_workflow_paths() -> set[str]:
     tracked = {
         *run_git_ls_files(".github/workflows/*.yml"),
@@ -257,6 +334,23 @@ def tracked_workflow_paths() -> set[str]:
         for path in ROOT.glob(pattern)
     }
     return tracked | working_tree
+
+
+def tracked_guidance_text_paths() -> set[str]:
+    tracked: set[str] = set()
+    for path in run_git_ls_files("*"):
+        suffix = Path(path).suffix.lower()
+        if suffix not in {".md", ".txt"}:
+            continue
+        if path in ACTIVE_GUIDANCE_ROOT_FILES:
+            tracked.add(path)
+            continue
+        if path.startswith(ACTIVE_GUIDANCE_PREFIXES):
+            tracked.add(path)
+            continue
+        if path.startswith("docs/") and path.count("/") == 1 and suffix in ACTIVE_GUIDANCE_DOCS_ROOT_SUFFIXES:
+            tracked.add(path)
+    return tracked
 
 
 def split_semicolon(value: str) -> tuple[str, ...]:
@@ -312,22 +406,26 @@ def normalize_invoked_python_path(path: str) -> str:
     return normalized
 
 
-def workflow_python_invocations(workflow_path: str) -> set[str]:
+def workflow_invocations(workflow_path: str) -> set[str]:
     text = read_text(workflow_path)
-    return {normalize_invoked_python_path(match.group(1)) for match in PYTHON_INVOKE_RE.finditer(text)}
+    invoked = {normalize_invoked_python_path(match.group(1)) for match in PYTHON_INVOKE_RE.finditer(text)}
+    invoked.update(normalize_invoked_python_path(match.group(1)) for match in SHELL_INVOKE_RE.finditer(text))
+    return invoked
 
 
 def validate_inventory_coverage(
     rows_by_path: dict[str, InventoryRow],
     python_paths: set[str],
+    test_python_paths: set[str],
+    executable_script_paths: set[str],
     workflow_paths: set[str],
     errors: list[str],
 ) -> None:
-    expected = python_paths | workflow_paths
+    expected = python_paths | test_python_paths | executable_script_paths | workflow_paths
     actual = set(rows_by_path)
 
     for path in sorted(expected - actual):
-        errors.append(f"tracked root/scripts Python or workflow missing owner inventory: {path}")
+        errors.append(f"tracked executable/test/workflow path missing owner inventory: {path}")
     for path in sorted(actual - expected):
         errors.append(f"inventory lists untracked or out-of-scope path: {path}")
 
@@ -336,6 +434,10 @@ def validate_inventory_rows(rows_by_path: dict[str, InventoryRow], errors: list[
     for row in rows_by_path.values():
         if row.kind not in VALID_KINDS:
             errors.append(f"{row.path} has invalid inventory kind: {row.kind}")
+        if row.kind == "test_python" and not row.path.startswith("tests/"):
+            errors.append(f"{row.path} has test_python kind but is not under tests/")
+        if row.kind == "executable_script" and Path(row.path).suffix not in EXECUTABLE_SCRIPT_SUFFIXES:
+            errors.append(f"{row.path} has executable_script kind but unsupported suffix")
         if row.owner not in VALID_OWNERS:
             errors.append(f"{row.path} has invalid or empty owner: {row.owner}")
         if row.status not in VALID_STATUSES:
@@ -354,10 +456,15 @@ def validate_workflow_invocations(rows_by_path: dict[str, InventoryRow], workflo
         if workflow_row is None:
             continue
         allowed_owners = WORKFLOW_ALLOWED_OWNERS.get(workflow_path, set())
-        invoked_paths = workflow_python_invocations(workflow_path)
+        invoked_paths = workflow_invocations(workflow_path)
 
         for invoked_path in sorted(invoked_paths):
-            if not (invoked_path.startswith("scripts/") or "/" not in invoked_path):
+            if not (
+                invoked_path.startswith("scripts/")
+                or invoked_path.startswith("tests/")
+                or invoked_path.startswith("docs/")
+                or "/" not in invoked_path
+            ):
                 continue
             invoked_row = rows_by_path.get(invoked_path)
             if invoked_row is None:
@@ -406,19 +513,40 @@ def validate_allowed_stage_patterns(rows_by_path: dict[str, InventoryRow], error
                 errors.append(f"{row.path} inventory allowed_stage_patterns missing from workflow text: {pattern}")
 
 
+def validate_active_guidance_commands(errors: list[str]) -> None:
+    for rel_path in sorted(tracked_guidance_text_paths()):
+        path = ROOT / rel_path
+        if not path.exists():
+            continue
+        text = path.read_text(encoding="utf-8", errors="replace")
+        for pattern, message in FORBIDDEN_GUIDANCE_COMMANDS.items():
+            if re.search(pattern, text):
+                errors.append(f"{message}: {rel_path} matches {pattern}")
+
+
 def validate() -> list[str]:
     errors: list[str] = []
     rows_by_path = load_inventory(errors)
     python_paths = tracked_python_paths()
+    test_python_paths = tracked_test_python_paths()
+    executable_script_paths = tracked_executable_script_paths()
     workflow_paths = tracked_workflow_paths()
 
     if rows_by_path:
-        validate_inventory_coverage(rows_by_path, python_paths, workflow_paths, errors)
+        validate_inventory_coverage(
+            rows_by_path,
+            python_paths,
+            test_python_paths,
+            executable_script_paths,
+            workflow_paths,
+            errors,
+        )
         validate_inventory_rows(rows_by_path, errors)
         validate_workflow_invocations(rows_by_path, workflow_paths, errors)
         validate_allowed_stage_patterns(rows_by_path, errors)
 
     validate_workflow_snippets(errors)
+    validate_active_guidance_commands(errors)
     return errors
 
 
@@ -430,9 +558,13 @@ def main() -> int:
         return 1
 
     python_count = len(tracked_python_paths())
+    test_python_count = len(tracked_test_python_paths())
+    executable_script_count = len(tracked_executable_script_paths())
     workflow_count = len(tracked_workflow_paths())
     print("repo production inventory validation passed")
     print(f"validated_python_paths={python_count}")
+    print(f"validated_test_python_paths={test_python_count}")
+    print(f"validated_executable_scripts={executable_script_count}")
     print(f"validated_workflows={workflow_count}")
     print(f"inventory={INVENTORY.relative_to(ROOT).as_posix()}")
     return 0
