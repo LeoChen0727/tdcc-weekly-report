@@ -170,6 +170,8 @@ jobs:
           python scripts/update_daily_candidate_signal_performance.py
           python scripts/generate_daily_signal_performance_report.py
           python scripts/validate_daily_signal_performance.py
+          python scripts/build_daily_published_snapshot_ranking_backtest.py
+          python scripts/validate_daily_published_snapshot_ranking_backtest.py
 
       - name: Update catalyst performance tracking
         if: ${{ github.event.inputs.run_catalyst_performance == 'true' }}
@@ -216,11 +218,14 @@ jobs:
           git add output/latest/daily_model_research_parity_latest.csv output/latest/daily_model_research_parity_latest.md || true
           git add output/latest/model_operation_readiness_latest.csv output/latest/model_operation_readiness_latest.md || true
           git add output/latest/approved_operation_patterns_latest.csv output/latest/approved_operation_patterns_latest.md || true
+          git add output/latest/daily_published_snapshot_ranking_backtest_latest.csv output/latest/daily_published_snapshot_ranking_backtest_latest.md || true
+          git add output/history/research/daily_published_snapshot_ranking_events.csv || true
           git add docs/latest/daily_model_parameter_research_*.csv docs/latest/daily_model_parameter_research_*.md || true
           git add docs/latest/daily_model_parameter_recommendations_latest.csv docs/latest/daily_model_parameter_recommendations_latest.md || true
           git add docs/latest/daily_model_research_parity_latest.csv docs/latest/daily_model_research_parity_latest.md || true
           git add docs/latest/model_operation_readiness_latest.csv docs/latest/model_operation_readiness_latest.md || true
           git add docs/latest/approved_operation_patterns_latest.csv docs/latest/approved_operation_patterns_latest.md || true
+          git add docs/latest/daily_published_snapshot_ranking_backtest_latest.csv docs/latest/daily_published_snapshot_ranking_backtest_latest.md || true
           git add output/history/research/daily_model_parameter_research.csv || true
           git add output/history/volume_breakout/ || true
           git add output/latest/volume_breakout_*.csv output/latest/volume_breakout_*.md output/latest/volume_breakout_*.pdf || true
