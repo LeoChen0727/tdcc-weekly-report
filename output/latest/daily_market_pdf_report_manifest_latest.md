@@ -1,9 +1,9 @@
 # Daily Market Fixed PDF Manifest
 
-- generated_at: `2026-06-16 07:15:29 Asia/Taipei`
-- main_price_date: `20260615`
+- generated_at: `2026-06-16 18:26:29 Asia/Taipei`
+- main_price_date: `20260616`
 - report_ready: `True`
-- warrant_flow_date: `20260615`
+- warrant_flow_date: `20260616`
 - warrant_ready: `True`
 - daily_pdf_ready: `True`
 - daily_pdf_ready_note: core daily data, warrant layer, and PDF theme display are ready for daily PDF source use; group rotation themes resolved for PDF display
