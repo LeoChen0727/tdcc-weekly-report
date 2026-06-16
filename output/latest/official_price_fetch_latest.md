@@ -1,6 +1,6 @@
 # Official Daily Price Fetch Report
 
-- generated_at: `2026-06-17 05:38:13 Asia/Taipei`
+- generated_at: `2026-06-17 06:32:28 Asia/Taipei`
 - target_date: `20260617`
 - saved_price_date: `20260616`
 - is_target_date: `False`
@@ -32,7 +32,7 @@
 - GET https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260617&type=ALLBUT0999&response=json -> status=200, chars=25
 - TWSE_RWD_JSON_MI_INDEX: parsed TWSE rows=0
 - Trying TWSE batch source=TWSE_RWD_CSV_MI_INDEX date=20260617
-- GET https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260617&type=ALLBUT0999&response=csv failed: ReadTimeout: HTTPSConnectionPool(host='www.twse.com.tw', port=443): Read timed out. (read timeout=25)
+- GET https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260617&type=ALLBUT0999&response=csv -> status=200, chars=0
 - Trying TWSE batch source=TWSE_LEGACY_JSON_MI_INDEX date=20260617
 - GET https://www.twse.com.tw/exchangeReport/MI_INDEX?response=json&date=20260617&type=ALLBUT0999 -> status=200, chars=25
 - TWSE_LEGACY_JSON_MI_INDEX: parsed TWSE rows=0
@@ -47,7 +47,7 @@
 - GET https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/06/17&type=EW&response=csv -> status=200, chars=11371
 - TPEX_NEW_AFTERTRADING_CSV: parsed TPEx CSV rows=0
 - Trying TPEx batch source=TPEX_OLD_DAILY_JSON date=20260617
-- GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=json&d=115/06/17&s=0,asc,0 failed: ChunkedEncodingError: Response ended prematurely
+- GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=json&d=115/06/17&s=0,asc,0 -> status=520, chars=959
 - Trying TPEx batch source=TPEX_OLD_DAILY_CSV date=20260617
 - GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=csv&d=115/06/17&s=0,asc,0 -> status=200, chars=1414398
 - TPEX_OLD_DAILY_CSV: parsed TPEx CSV rows=5014
