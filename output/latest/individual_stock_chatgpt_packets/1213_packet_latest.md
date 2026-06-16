@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1213 大飲
 
 ## Metadata
-- generated_at: 2026-06-15 22:22:36 Asia/Taipei
+- generated_at: 2026-06-16 22:22:29 Asia/Taipei
 - stock_id: 1213
 - stock_name: 大飲
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260612
-- price_rows: 265
+- latest_price_date: 20260616
+- price_rows: 266
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260612
-- open: 8.31
-- high: 8.6
-- low: 8.31
-- close: 8.6
-- volume: 13174
-- ma5: 8.48
+- date: 20260616
+- open: 9.44
+- high: 9.44
+- low: 8.5
+- close: 8.5
+- volume: 8000
+- ma5: 8.46
 - ema23_primary: 8.55
-- distance_to_ema23_pct: 0.54
+- distance_to_ema23_pct: -0.58
 - ma20: 8.46
-- ma60: 9.07
-- ma120: 9.63
-- return_5d: 1.9
-- return_20d: -1.15
-- volume_ratio: 0.76
-- distance_to_ma20_pct_auxiliary: 1.59
-- distance_to_high_60_pct: -14
+- ma60: 9.05
+- ma120: 9.61
+- return_5d: -1.51
+- return_20d: -2.3
+- volume_ratio: 0.46
+- distance_to_ma20_pct_auxiliary: 0.53
+- distance_to_high_60_pct: -15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,8.96,8.96,8.69,8.7,8114,9.05,-3.84,9,9.52,0.29
 20260514,8.5,8.95,8.34,8.95,8658,9.04,-0.99,8.98,9.5,0.31
 20260515,8.99,8.99,8.5,8.9,9151,9.03,-1.42,8.96,9.48,0.34
 20260518,8.23,8.59,8.23,8.54,9102,8.99,-4.98,8.92,9.46,0.35
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,8.85,8.85,8.11,8.43,25139,8.57,-1.64,8.5,9.11,1.26
 20260611,8.39,8.4,8.3,8.32,7001,8.55,-2.69,8.47,9.09,0.39
 20260612,8.31,8.6,8.31,8.6,13174,8.55,0.54,8.46,9.07,0.76
+20260616,9.44,9.44,8.5,8.5,8000,8.55,-0.58,8.46,9.05,0.46
 ```
 
 ## Latest TDCC Snapshot

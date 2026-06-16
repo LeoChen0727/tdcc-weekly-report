@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00938 凱基優選30
 
 ## Metadata
-- generated_at: 2026-06-15 22:22:35 Asia/Taipei
+- generated_at: 2026-06-16 22:22:28 Asia/Taipei
 - stock_id: 00938
 - stock_name: 凱基優選30
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260615
-- price_rows: 14
+- latest_price_date: 20260616
+- price_rows: 15
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -112,23 +112,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 23.79
-- high: 23.92
-- low: 23.69
-- close: 23.8
-- volume: 3755911
-- ma5: 23.12
-- ema23_primary: 22.11
-- distance_to_ema23_pct: 7.64
-- ma20: 22.3
-- ma60: 22.3
-- ma120: 22.3
-- return_5d: 2.54
+- date: 20260616
+- open: 24.07
+- high: 24.23
+- low: 23.91
+- close: 24.2
+- volume: 1665187
+- ma5: 23.46
+- ema23_primary: 22.28
+- distance_to_ema23_pct: 8.59
+- ma20: 22.43
+- ma60: 22.43
+- ma120: 22.43
+- return_5d: 7.6
 - return_20d:
-- volume_ratio: 2.1
-- distance_to_ma20_pct_auxiliary: 6.71
-- distance_to_high_60_pct: -0.5
+- volume_ratio: 0.93
+- distance_to_ma20_pct_auxiliary: 7.89
+- distance_to_high_60_pct: -0.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -148,6 +148,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,22.9,23.1,22.74,22.97,2321387,21.84,5.16,22.1,22.1,1.54
 20260612,23.46,23.54,23.22,23.22,3167282,21.96,5.75,22.19,22.19,1.93
 20260615,23.79,23.92,23.69,23.8,3755911,22.11,7.64,22.3,22.3,2.1
+20260616,24.07,24.23,23.91,24.2,1665187,22.28,8.59,22.43,22.43,0.93
 ```
 
 ## Latest TDCC Snapshot

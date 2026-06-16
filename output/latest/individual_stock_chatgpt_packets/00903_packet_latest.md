@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00903 富邦元宇宙
 
 ## Metadata
-- generated_at: 2026-06-15 22:22:34 Asia/Taipei
+- generated_at: 2026-06-16 22:22:27 Asia/Taipei
 - stock_id: 00903
 - stock_name: 富邦元宇宙
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260615
-- price_rows: 14
+- latest_price_date: 20260616
+- price_rows: 15
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 21.44
-- high: 21.61
-- low: 21.44
-- close: 21.61
-- volume: 526848
-- ma5: 21.95
-- ema23_primary: 22.08
-- distance_to_ema23_pct: -2.12
-- ma20: 22.3
-- ma60: 22.3
-- ma120: 22.3
-- return_5d: -7.81
+- date: 20260616
+- open: 21.89
+- high: 21.97
+- low: 21.89
+- close: 21.96
+- volume: 269069
+- ma5: 21.7
+- ema23_primary: 22.07
+- distance_to_ema23_pct: -0.49
+- ma20: 22.28
+- ma60: 22.28
+- ma120: 22.28
+- return_5d: -5.55
 - return_20d:
-- volume_ratio: 1.1
-- distance_to_ma20_pct_auxiliary: -3.08
-- distance_to_high_60_pct: -7.85
+- volume_ratio: 0.58
+- distance_to_ma20_pct_auxiliary: -1.42
+- distance_to_high_60_pct: -6.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -149,6 +149,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,20.69,20.76,20.6,20.72,95738,22.19,-6.64,22.44,22.44,0.2
 20260612,21.25,21.36,21.25,21.32,332023,22.12,-3.62,22.35,22.35,0.7
 20260615,21.44,21.61,21.44,21.61,526848,22.08,-2.12,22.3,22.3,1.1
+20260616,21.89,21.97,21.89,21.96,269069,22.07,-0.49,22.28,22.28,0.58
 ```
 
 ## Latest TDCC Snapshot

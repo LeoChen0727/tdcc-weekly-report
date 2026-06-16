@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2884 玉山金
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:03 Asia/Taipei
+- generated_at: 2026-06-16 22:23:04 Asia/Taipei
 - stock_id: 2884
 - stock_name: 玉山金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 280
+- latest_price_date: 20260616
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 34.85
-- high: 34.85
-- low: 34.4
-- close: 34.65
-- volume: 41423794
-- ma5: 33.68
-- ema23_primary: 32.48
-- distance_to_ema23_pct: 6.68
-- ma20: 32.1
-- ma60: 32.19
-- ma120: 32.83
-- return_5d: 5
-- return_20d: 8.62
-- volume_ratio: 0.79
-- distance_to_ma20_pct_auxiliary: 7.95
-- distance_to_high_60_pct: -0.57
+- date: 20260616
+- open: 34.7
+- high: 35.35
+- low: 34.45
+- close: 35.2
+- volume: 59663562
+- ma5: 34.28
+- ema23_primary: 32.71
+- distance_to_ema23_pct: 7.62
+- ma20: 32.27
+- ma60: 32.24
+- ma120: 32.85
+- return_5d: 9.32
+- return_20d: 10.52
+- volume_ratio: 1.1
+- distance_to_ma20_pct_auxiliary: 9.1
+- distance_to_high_60_pct: -0.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,31.95,32.1,31.75,31.85,25650673,32.21,-1.11,32.3,32.8,0.68
 20260515,31.95,32.1,31.8,31.95,35569729,32.18,-0.73,32.25,32.77,0.93
 20260518,32.2,32.2,31.7,31.7,33257380,32.14,-1.38,32.2,32.73,0.86
 20260519,31.8,32.4,31.75,32,34018806,32.13,-0.41,32.15,32.7,0.88
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,33.65,33.85,33.05,33.85,45609225,32.1,5.46,31.83,32.14,0.88
 20260612,34.15,34.7,33.95,34.35,50080952,32.28,6.4,31.96,32.16,0.96
 20260615,34.85,34.85,34.4,34.65,41423794,32.48,6.68,32.1,32.19,0.79
+20260616,34.7,35.35,34.45,35.2,59663562,32.71,7.62,32.27,32.24,1.1
 ```
 
 ## Latest TDCC Snapshot
@@ -185,17 +185,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2884 | 玉山金 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: ex_dividend on 20260701; status=confirmed; proximity=within_30d |
+| 20260616 | 2884 | 玉山金 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_many_days | 1.事實發生日:115/06/15 2.捐贈原由:依據玉山銀行97.3.3第6屆第16次及104.1.30第9屆第6次董事會決議，捐贈予 玉山志工基金會，運用於玉山黃金種子計畫，協助偏遠地區學校建置「玉山圖書館」。 3.捐贈金額:新臺幣 5,768,188 元 4.受贈對象:財團法人玉山志工社會福利慈善事業基金會 5.與公司關係:關係人 6.表示反對或保留意見之獨立董事姓名及簡歷:無 7.前揭獨立董事表示反對或保留之意見:無 8.其他應敘明事項:無；calendar event: ex_dividend on 20260701; status=confirmed; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2884 | 玉山金 | 14 | 4 | 5 | 10 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260616 | 2884 | 玉山金 | 15 | 5 | 5 | 10 | 15 | continued_many_days | 連續 15 日上榜，需區分醞釀延續或訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2884 | 玉山金 | 15 | 0 | 339710.0 | 0.0 |  | no_signal |
+| 20260616 | 2884 | 玉山金 | 14 | 0 | 512370.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

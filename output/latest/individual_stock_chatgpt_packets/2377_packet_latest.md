@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2377 微星
 
 ## Metadata
-- generated_at: 2026-06-15 22:22:53 Asia/Taipei
+- generated_at: 2026-06-16 22:22:51 Asia/Taipei
 - stock_id: 2377
 - stock_name: 微星
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 141
+- date: 20260616
+- open: 142.5
 - high: 142.5
-- low: 136.5
-- close: 140
-- volume: 17346556
-- ma5: 140.1
-- ema23_primary: 127.49
-- distance_to_ema23_pct: 9.82
-- ma20: 128.57
-- ma60: 105.75
-- ma120: 101.02
-- return_5d: -4.44
-- return_20d: 21.21
-- volume_ratio: 0.38
-- distance_to_ma20_pct_auxiliary: 8.89
-- distance_to_high_60_pct: -8.2
+- low: 135.5
+- close: 136.5
+- volume: 17720653
+- ma5: 137.6
+- ema23_primary: 128.24
+- distance_to_ema23_pct: 6.44
+- ma20: 129.55
+- ma60: 106.45
+- ma120: 101.31
+- return_5d: -8.39
+- return_20d: 16.67
+- volume_ratio: 0.43
+- distance_to_ma20_pct_auxiliary: 5.36
+- distance_to_high_60_pct: -10.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,121,124,116.5,117,98929336,100.28,16.67,99.2,94.3,3.69
 20260515,115,117.5,110,112,44028653,101.26,10.61,100.27,94.67,1.53
 20260518,110.5,115,108,113,26747222,102.24,10.53,101.32,95.05,0.9
 20260519,113,115.5,111.5,111.5,23662169,103.01,8.24,102.31,95.43,0.77
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,130.5,134.5,129.5,133.5,14938728,125.42,6.44,125.78,104.26,0.29
 20260612,139.5,143.5,136.5,136.5,22801630,126.35,8.04,127.35,104.96,0.46
 20260615,141,142.5,136.5,140,17346556,127.49,9.82,128.57,105.75,0.38
+20260616,142.5,142.5,135.5,136.5,17720653,128.24,6.44,129.55,106.45,0.43
 ```
 
 ## Latest TDCC Snapshot
@@ -195,7 +195,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2377 | 微星 | 84 | 4 | 17785510.0 | 0.0 |  | call_inflow |
+| 20260616 | 2377 | 微星 | 87 | 4 | 16166480.0 | 742900.0 | 21.76 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

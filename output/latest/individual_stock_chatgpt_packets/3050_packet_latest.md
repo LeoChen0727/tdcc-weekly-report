@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3050 鈺德
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:07 Asia/Taipei
+- generated_at: 2026-06-16 22:23:09 Asia/Taipei
 - stock_id: 3050
 - stock_name: 鈺德
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 29
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 13.1
-- high: 13.4
-- low: 13.1
-- close: 13.3
-- volume: 1323953
-- ma5: 13.12
+- date: 20260616
+- open: 13.35
+- high: 13.35
+- low: 12.8
+- close: 12.8
+- volume: 1113221
+- ma5: 13.04
 - ema23_primary: 12.8
-- distance_to_ema23_pct: 3.9
-- ma20: 12.62
+- distance_to_ema23_pct: -0.01
+- ma20: 12.65
 - ma60: 12.88
 - ma120: 13.21
-- return_5d: -5.67
-- return_20d: 9.46
-- volume_ratio: 1
-- distance_to_ma20_pct_auxiliary: 5.39
-- distance_to_high_60_pct: -10.44
+- return_5d: -3.03
+- return_20d: 5.35
+- volume_ratio: 0.84
+- distance_to_ma20_pct_auxiliary: 1.17
+- distance_to_high_60_pct: -13.8
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,12.2,12.3,12,12.15,920516,12.56,-3.29,12.54,13.05,1.21
 20260515,12.15,12.2,11.75,11.85,729867,12.5,-5.23,12.47,13.01,0.96
 20260518,11.7,11.95,11.6,11.95,385902,12.46,-4.08,12.41,12.99,0.52
 20260519,11.85,12.05,11.75,11.85,536750,12.41,-4.49,12.34,12.97,0.73
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,12.7,12.9,12.4,12.7,1010206,12.74,-0.3,12.53,12.87,0.78
 20260612,12.8,13.05,12.8,12.95,957018,12.76,1.52,12.56,12.87,0.74
 20260615,13.1,13.4,13.1,13.3,1323953,12.8,3.9,12.62,12.88,1
+20260616,13.35,13.35,12.8,12.8,1113221,12.8,-0.01,12.65,12.88,0.84
 ```
 
 ## Latest TDCC Snapshot
@@ -191,12 +191,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 3050 | 鈺德 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260616 | 3050 | 鈺德 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 3050 | 鈺德 | 1 | 1 | 4 | 8 | 9 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 9 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260616 | 3050 | 鈺德 | 2 | 2 | 4 | 8 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

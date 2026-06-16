@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7769 鴻勁
 
 ## Metadata
-- generated_at: 2026-06-15 22:24:07 Asia/Taipei
+- generated_at: 2026-06-16 22:24:25 Asia/Taipei
 - stock_id: 7769
 - stock_name: 鴻勁
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 127
+- latest_price_date: 20260616
+- price_rows: 128
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 7425
-- high: 7575
-- low: 7195
-- close: 7205
-- volume: 459268
-- ma5: 7184
-- ema23_primary: 7025.53
-- distance_to_ema23_pct: 2.55
-- ma20: 7376.75
-- ma60: 5551
-- ma120: 4612.83
-- return_5d: -4.25
-- return_20d: -3.16
-- volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: -2.33
-- distance_to_high_60_pct: -14.88
+- date: 20260616
+- open: 7205
+- high: 7460
+- low: 7010
+- close: 7360
+- volume: 598980
+- ma5: 7221
+- ema23_primary: 7053.4
+- distance_to_ema23_pct: 4.35
+- ma20: 7366.75
+- ma60: 5605.75
+- ma120: 4649.46
+- return_5d: 2.58
+- return_20d: -2.65
+- volume_ratio: 0.77
+- distance_to_ma20_pct_auxiliary: -0.09
+- distance_to_high_60_pct: -13.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,7440,7995,7440,7560,675412,5571.28,35.7,5439.75,4549.25,0.46
 20260515,7615,7615,6895,6895,881504,5681.59,21.36,5569.75,4602.42,0.6
 20260518,6575,6975,6360,6655,768853,5762.71,15.48,5677.5,4651.83,0.55
 20260519,6555,6780,6510,6600,420449,5832.48,13.16,5785.25,4697.67,0.31
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,7000,7070,6620,7055,794945,6990.96,0.92,7371.5,5448.67,0.84
 20260612,7395,7545,7200,7210,618238,7009.22,2.86,7388.5,5496.75,0.71
 20260615,7425,7575,7195,7205,459268,7025.53,2.55,7376.75,5551,0.59
+20260616,7205,7460,7010,7360,598980,7053.4,4.35,7366.75,5605.75,0.77
 ```
 
 ## Latest TDCC Snapshot
@@ -196,7 +196,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 7769 | 鴻勁 | 24 | 0 | 1788790.0 | 0.0 |  | no_signal |
+| 20260616 | 7769 | 鴻勁 | 24 | 0 | 3046560.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

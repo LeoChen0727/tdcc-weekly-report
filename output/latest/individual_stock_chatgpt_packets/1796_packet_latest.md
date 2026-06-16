@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1796 金穎生技
 
 ## Metadata
-- generated_at: 2026-06-15 22:22:46 Asia/Taipei
+- generated_at: 2026-06-16 22:22:42 Asia/Taipei
 - stock_id: 1796
 - stock_name: 金穎生技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 279
+- latest_price_date: 20260616
+- price_rows: 280
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 34
-- high: 34.6
+- date: 20260616
+- open: 33.95
+- high: 34
 - low: 33.95
 - close: 33.95
 - volume: 34000
-- ma5: 35.18
-- ema23_primary: 36.19
-- distance_to_ema23_pct: -6.19
-- ma20: 36.03
-- ma60: 37.62
-- ma120: 41.39
+- ma5: 34.65
+- ema23_primary: 36
+- distance_to_ema23_pct: -5.71
+- ma20: 35.95
+- ma60: 37.53
+- ma120: 41.29
 - return_5d: -7.24
-- return_20d: -5.69
-- volume_ratio: 0.99
-- distance_to_ma20_pct_auxiliary: -5.77
+- return_20d: -4.63
+- volume_ratio: 0.97
+- distance_to_ma20_pct_auxiliary: -5.55
 - distance_to_high_60_pct: -23.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,36,36,35.6,35.6,19000,38.01,-6.34,38.37,39.53,0.88
 20260515,36.4,36.4,35.6,36,9000,37.84,-4.86,38.17,39.4,0.42
 20260518,36,36,35,35,16000,37.6,-6.93,37.94,39.24,0.73
 20260519,35,38.5,35,38.5,95000,37.68,2.18,37.84,39.15,3.88
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,34.35,34.35,34.35,34.35,34000,36.56,-6.04,36.25,37.77,1
 20260612,34.9,35.1,34.6,34.6,35000,36.39,-4.93,36.13,37.7,1.05
 20260615,34,34.6,33.95,33.95,34000,36.19,-6.19,36.03,37.62,0.99
+20260616,33.95,34,33.95,33.95,34000,36,-5.71,35.95,37.53,0.97
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1514 亞力
 
 ## Metadata
-- generated_at: 2026-06-15 22:22:41 Asia/Taipei
+- generated_at: 2026-06-16 22:22:36 Asia/Taipei
 - stock_id: 1514
 - stock_name: 亞力
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 121.5
-- high: 122.5
-- low: 120
-- close: 121
-- volume: 3092853
-- ma5: 123.5
-- ema23_primary: 122.14
-- distance_to_ema23_pct: -0.94
-- ma20: 122.1
-- ma60: 115.62
-- ma120: 114.36
-- return_5d: -11.03
-- return_20d: 0.41
-- volume_ratio: 0.42
-- distance_to_ma20_pct_auxiliary: -0.9
-- distance_to_high_60_pct: -16.84
+- date: 20260616
+- open: 122.5
+- high: 123
+- low: 118
+- close: 120
+- volume: 2636871
+- ma5: 122.7
+- ema23_primary: 121.96
+- distance_to_ema23_pct: -1.61
+- ma20: 122.28
+- ma60: 115.69
+- ma120: 114.55
+- return_5d: -3.23
+- return_20d: 3
+- volume_ratio: 0.37
+- distance_to_ma20_pct_auxiliary: -1.86
+- distance_to_high_60_pct: -17.53
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,122,122,116,116.5,4786298,116.3,0.17,116.1,114.71,0.91
 20260515,118,122,115.5,116.5,5143920,116.32,0.16,116.35,114.64,0.96
 20260518,115,116,112.5,115.5,3082857,116.25,-0.64,116.42,114.58,0.58
 20260519,115.5,117.5,113.5,113.5,2572488,116.02,-2.17,116.45,114.47,0.5
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,118,119.5,114,118,4230037,122.5,-3.67,122.28,115.42,0.57
 20260612,122,122.5,119.5,119.5,3875069,122.25,-2.25,122.08,115.53,0.52
 20260615,121.5,122.5,120,121,3092853,122.14,-0.94,122.1,115.62,0.42
+20260616,122.5,123,118,120,2636871,121.96,-1.61,122.28,115.69,0.37
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 1514 | 亞力 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260616 | 1514 | 亞力 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 1514 | 亞力 | 2 | 2 | 4 | 9 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260616 | 1514 | 亞力 | 3 | 3 | 4 | 9 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 1514 | 亞力 | 64 | 2 | 1392230.0 | 0.0 |  | no_signal |
+| 20260616 | 1514 | 亞力 | 64 | 2 | 1403630.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

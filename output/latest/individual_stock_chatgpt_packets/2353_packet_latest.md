@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2353 宏碁
 
 ## Metadata
-- generated_at: 2026-06-15 22:22:52 Asia/Taipei
+- generated_at: 2026-06-16 22:22:50 Asia/Taipei
 - stock_id: 2353
 - stock_name: 宏碁
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 37.75
-- high: 39.4
-- low: 37.2
-- close: 38.45
-- volume: 64793171
-- ma5: 38.6
-- ema23_primary: 34.54
-- distance_to_ema23_pct: 11.32
-- ma20: 33.84
-- ma60: 29.73
-- ma120: 28.13
-- return_5d: -11.41
-- return_20d: 35.87
-- volume_ratio: 0.78
-- distance_to_ma20_pct_auxiliary: 13.61
-- distance_to_high_60_pct: -13.01
+- date: 20260616
+- open: 39.25
+- high: 39.25
+- low: 37.85
+- close: 38.9
+- volume: 44320379
+- ma5: 37.87
+- ema23_primary: 34.9
+- distance_to_ema23_pct: 11.45
+- ma20: 34.39
+- ma60: 29.93
+- ma120: 28.23
+- return_5d: -8.58
+- return_20d: 38.93
+- volume_ratio: 0.53
+- distance_to_ma20_pct_auxiliary: 13.11
+- distance_to_high_60_pct: -11.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,28.5,28.7,27.8,28,21583677,27.88,0.41,28,27.44,0.81
 20260515,28,28.15,27.6,27.7,22918037,27.87,-0.61,27.97,27.45,0.89
 20260518,27.65,27.65,27.25,27.4,17393358,27.83,-1.55,27.9,27.46,0.71
 20260519,27.6,28.6,27.5,27.75,23290175,27.82,-0.26,27.86,27.49,0.96
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,35.8,36.95,35.1,36.9,52465082,33.96,8.67,32.92,29.4,0.66
 20260612,38,38.5,36.55,36.7,42293812,34.18,7.36,33.34,29.55,0.53
 20260615,37.75,39.4,37.2,38.45,64793171,34.54,11.32,33.84,29.73,0.78
+20260616,39.25,39.25,37.85,38.9,44320379,34.9,11.45,34.39,29.93,0.53
 ```
 
 ## Latest TDCC Snapshot
@@ -195,7 +195,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2353 | 宏碁 | 56 | 5 | 7780860.0 | 28390.0 | 274.07 | no_signal |
+| 20260616 | 2353 | 宏碁 | 61 | 5 | 7915290.0 | 7003600.0 | 1.13 | put_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

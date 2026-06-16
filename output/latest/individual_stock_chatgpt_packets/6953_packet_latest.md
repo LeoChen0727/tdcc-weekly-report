@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6953 家碩
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:56 Asia/Taipei
+- generated_at: 2026-06-16 22:24:12 Asia/Taipei
 - stock_id: 6953
 - stock_name: 家碩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 280
+- latest_price_date: 20260616
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
+- date: 20260616
 - open: 236.5
-- high: 243
-- low: 236.5
-- close: 236.5
-- volume: 240000
-- ma5: 233.8
-- ema23_primary: 246.14
-- distance_to_ema23_pct: -3.92
-- ma20: 247.03
-- ma60: 242.04
-- ma120: 234.1
-- return_5d: -3.86
-- return_20d: -8.69
-- volume_ratio: 1.3
-- distance_to_ma20_pct_auxiliary: -4.26
-- distance_to_high_60_pct: -20.9
+- high: 237.5
+- low: 228
+- close: 231
+- volume: 232000
+- ma5: 230.8
+- ema23_primary: 244.88
+- distance_to_ema23_pct: -5.67
+- ma20: 245.55
+- ma60: 242.22
+- ma120: 234.48
+- return_5d: -6.1
+- return_20d: -11.32
+- volume_ratio: 1.24
+- distance_to_ma20_pct_auxiliary: -5.93
+- distance_to_high_60_pct: -22.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,260.5,266,259,260.5,176000,260.47,0.01,266.32,235.12,0.46
 20260515,260,263,253,253.5,123000,259.89,-2.46,267.52,235.59,0.32
 20260518,250.5,251.5,239.5,250,138000,259.07,-3.5,268.02,236.03,0.37
 20260519,244.5,251.5,241,241,141000,257.56,-6.43,267.62,236.21,0.38
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,205,220,205,216.5,211000,248.29,-12.8,250.35,241.55,1.09
 20260612,227,236.5,224.5,233,232000,247.01,-5.67,248.15,241.78,1.2
 20260615,236.5,243,236.5,236.5,240000,246.14,-3.92,247.03,242.04,1.3
+20260616,236.5,237.5,228,231,232000,244.88,-5.67,245.55,242.22,1.24
 ```
 
 ## Latest TDCC Snapshot

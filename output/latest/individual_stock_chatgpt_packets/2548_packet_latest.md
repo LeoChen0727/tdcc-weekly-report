@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2548 華固
 
 ## Metadata
-- generated_at: 2026-06-15 22:22:59 Asia/Taipei
+- generated_at: 2026-06-16 22:22:58 Asia/Taipei
 - stock_id: 2548
 - stock_name: 華固
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 107
-- high: 107
+- date: 20260616
+- open: 104
+- high: 104.5
 - low: 102.5
-- close: 103
-- volume: 2583589
-- ma5: 104.2
-- ema23_primary: 114.55
-- distance_to_ema23_pct: -10.08
-- ma20: 116.4
-- ma60: 121.92
+- close: 104
+- volume: 1411289
+- ma5: 104.1
+- ema23_primary: 113.67
+- distance_to_ema23_pct: -8.51
+- ma20: 115.28
+- ma60: 121.68
 - ma120: 116.36
-- return_5d: 1.98
-- return_20d: -17.27
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: -11.51
-- distance_to_high_60_pct: -22.26
+- return_5d: -0.48
+- return_20d: -17.79
+- volume_ratio: 0.36
+- distance_to_ma20_pct_auxiliary: -9.78
+- distance_to_high_60_pct: -21.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,125,128,124.5,126.5,1423998,125.56,0.75,127.1,120.54,0.85
 20260515,126.5,127.5,126,126.5,1379798,125.64,0.69,127,120.87,0.83
 20260518,126.5,128,125.5,126,2746980,125.67,0.26,126.8,121.21,1.55
 20260519,125.5,126.5,124.5,124.5,1410055,125.57,-0.85,126.62,121.52,0.8
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,106.5,106.5,101.5,104,5880868,116.47,-10.71,118.35,122.32,1.53
 20260612,105.5,107,104.5,106,3332870,115.6,-8.3,117.47,122.14,0.86
 20260615,107,107,102.5,103,2583589,114.55,-10.08,116.4,121.92,0.65
+20260616,104,104.5,102.5,104,1411289,113.67,-8.51,115.28,121.68,0.36
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2548 | 華固 | revenue_pullback | 營收成長股價回檔 | 55.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260616 | 2548 | 華固 | revenue_pullback | 營收成長股價回檔 | 55.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2548 | 華固 | 14 | 5 | 5 | 10 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260616 | 2548 | 華固 | 15 | 6 | 5 | 10 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2548 | 華固 | 15 | 0 | 256800.0 | 0.0 |  | no_signal |
+| 20260616 | 2548 | 華固 | 15 | 0 | 149880.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

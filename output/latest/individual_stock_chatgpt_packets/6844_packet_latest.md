@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6844 諾貝兒
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:54 Asia/Taipei
+- generated_at: 2026-06-16 22:24:08 Asia/Taipei
 - stock_id: 6844
 - stock_name: 諾貝兒
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 275
+- latest_price_date: 20260616
+- price_rows: 276
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 65.1
-- high: 65.9
-- low: 65
+- date: 20260616
+- open: 66.1
+- high: 66.1
+- low: 65.2
 - close: 65.9
-- volume: 65000
-- ma5: 65.4
-- ema23_primary: 65.07
-- distance_to_ema23_pct: 1.27
-- ma20: 65.39
-- ma60: 64.25
-- ma120: 67.53
+- volume: 66000
+- ma5: 65.6
+- ema23_primary: 65.14
+- distance_to_ema23_pct: 1.17
+- ma20: 65.45
+- ma60: 64.27
+- ma120: 67.44
 - return_5d: 1.54
-- return_20d: 2.17
-- volume_ratio: 1.37
-- distance_to_ma20_pct_auxiliary: 0.78
+- return_20d: 2.01
+- volume_ratio: 1.36
+- distance_to_ma20_pct_auxiliary: 0.68
 - distance_to_high_60_pct: -1.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,64,64.6,63.5,64.6,40000,63.83,1.21,63.4,64.15,2.63
 20260515,64.2,65,64,65,27000,63.93,1.68,63.51,64.11,1.66
 20260518,64.9,65.3,64.3,65.3,13000,64.04,1.97,63.62,64.05,0.82
 20260519,64.5,65.3,64,65.3,21000,64.15,1.8,63.74,64,1.27
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,64.8,65.2,64.6,65.2,65000,64.86,0.52,65.22,64.21,1.54
 20260612,64.7,66.5,64.5,66.5,65000,65,2.31,65.32,64.23,1.46
 20260615,65.1,65.9,65,65.9,65000,65.07,1.27,65.39,64.25,1.37
+20260616,66.1,66.1,65.2,65.9,66000,65.14,1.17,65.45,64.27,1.36
 ```
 
 ## Latest TDCC Snapshot

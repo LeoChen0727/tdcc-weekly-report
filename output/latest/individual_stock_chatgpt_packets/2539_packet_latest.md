@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2539 櫻花建
 
 ## Metadata
-- generated_at: 2026-06-15 22:22:59 Asia/Taipei
+- generated_at: 2026-06-16 22:22:58 Asia/Taipei
 - stock_id: 2539
 - stock_name: 櫻花建
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 39.4
-- high: 39.4
-- low: 38.35
-- close: 39
-- volume: 1167175
-- ma5: 38.01
-- ema23_primary: 38.09
-- distance_to_ema23_pct: 2.39
-- ma20: 37.12
-- ma60: 42.52
-- ma120: 45.37
-- return_5d: 6.85
-- return_20d: -0.76
-- volume_ratio: 0.54
-- distance_to_ma20_pct_auxiliary: 5.06
-- distance_to_high_60_pct: -22.31
+- date: 20260616
+- open: 39.45
+- high: 39.7
+- low: 38.6
+- close: 38.9
+- volume: 1314583
+- ma5: 38.59
+- ema23_primary: 38.16
+- distance_to_ema23_pct: 1.95
+- ma20: 37.13
+- ma60: 42.35
+- ma120: 45.29
+- return_5d: 8.06
+- return_20d: 0.65
+- volume_ratio: 0.61
+- distance_to_ma20_pct_auxiliary: 4.76
+- distance_to_high_60_pct: -22.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,39.3,39.65,38.5,38.65,1539518,41.99,-7.94,41.88,46.19,1.06
 20260515,38.7,38.7,37.9,38.1,1851095,41.66,-8.55,41.43,46.03,1.24
 20260518,38,38.6,37.5,37.75,1168431,41.34,-8.67,40.98,45.86,0.78
 20260519,37.75,38.6,37.65,38.15,997347,41.07,-7.11,40.59,45.7,0.68
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,39.8,39.8,37.5,38.9,3602068,37.93,2.55,37.15,42.82,1.7
 20260612,39,39.45,38.35,38.8,2048744,38.01,2.09,37.13,42.66,0.95
 20260615,39.4,39.4,38.35,39,1167175,38.09,2.39,37.12,42.52,0.54
+20260616,39.45,39.7,38.6,38.9,1314583,38.16,1.95,37.13,42.35,0.61
 ```
 
 ## Latest TDCC Snapshot
@@ -186,13 +186,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2539 | 櫻花建 | revenue_pullback | 營收成長股價回檔 | 63.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | calendar event: shareholder_meeting on 20260616; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260615 | 2539 | 櫻花建 | revenue_breakout_low_response | 營收爆發低反應股 | 12.0 | 23.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | calendar event: shareholder_meeting on 20260616; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260616 | 2539 | 櫻花建 | revenue_pullback | 營收成長股價回檔 | 63.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  |  | stale_signal | calendar event: shareholder_meeting on 20260616; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260616 | 2539 | 櫻花建 | revenue_breakout_low_response | 營收爆發低反應股 | 12.0 | 23.0 | D_降級_TDCC轉弱 |  |  |  | stale_signal | calendar event: shareholder_meeting on 20260616; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2539 | 櫻花建 | 5 | 4 | 5 | 5 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260616 | 2539 | 櫻花建 | 6 | 5 | 5 | 6 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009810 玉山全球藍籌100
 
 ## Metadata
-- generated_at: 2026-06-15 22:22:36 Asia/Taipei
+- generated_at: 2026-06-16 22:22:28 Asia/Taipei
 - stock_id: 009810
 - stock_name: 玉山全球藍籌100
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260615
-- price_rows: 14
+- latest_price_date: 20260616
+- price_rows: 15
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 20.25
-- high: 20.48
-- low: 20.25
-- close: 20.48
-- volume: 247611
-- ma5: 20.51
-- ema23_primary: 20.72
-- distance_to_ema23_pct: -1.17
-- ma20: 20.73
-- ma60: 20.73
-- ma120: 20.73
-- return_5d: -2.62
+- date: 20260616
+- open: 20.47
+- high: 20.56
+- low: 20.47
+- close: 20.55
+- volume: 44064
+- ma5: 20.43
+- ema23_primary: 20.71
+- distance_to_ema23_pct: -0.76
+- ma20: 20.71
+- ma60: 20.71
+- ma120: 20.71
+- return_5d: -1.96
 - return_20d:
-- volume_ratio: 0.72
-- distance_to_ma20_pct_auxiliary: -1.18
-- distance_to_high_60_pct: -2.75
+- volume_ratio: 0.14
+- distance_to_ma20_pct_auxiliary: -0.79
+- distance_to_high_60_pct: -2.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -149,6 +149,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,20.1,20.12,20.02,20.11,334713,20.79,-3.26,20.79,20.79,0.96
 20260612,20.32,20.32,20.18,20.25,392318,20.74,-2.38,20.74,20.74,1.12
 20260615,20.25,20.48,20.25,20.48,247611,20.72,-1.17,20.73,20.73,0.72
+20260616,20.47,20.56,20.47,20.55,44064,20.71,-0.76,20.71,20.71,0.14
 ```
 
 ## Latest TDCC Snapshot

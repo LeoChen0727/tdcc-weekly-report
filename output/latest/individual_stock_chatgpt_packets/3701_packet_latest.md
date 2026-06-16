@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3701 大眾控
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:19 Asia/Taipei
+- generated_at: 2026-06-16 22:23:24 Asia/Taipei
 - stock_id: 3701
 - stock_name: 大眾控
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 49.1
-- high: 49.55
-- low: 48.75
-- close: 48.75
-- volume: 1087909
-- ma5: 51.39
-- ema23_primary: 55.42
-- distance_to_ema23_pct: -12.03
-- ma20: 54.51
-- ma60: 59.97
-- ma120: 55.63
-- return_5d: -16.38
-- return_20d: -17.37
-- volume_ratio: 0.5
-- distance_to_ma20_pct_auxiliary: -10.56
-- distance_to_high_60_pct: -38.91
+- date: 20260616
+- open: 49.85
+- high: 50.3
+- low: 47.85
+- close: 47.85
+- volume: 941404
+- ma5: 49.64
+- ema23_primary: 54.79
+- distance_to_ema23_pct: -12.66
+- ma20: 54.06
+- ma60: 59.69
+- ma120: 55.77
+- return_5d: -15.46
+- return_20d: -15.76
+- volume_ratio: 0.46
+- distance_to_ma20_pct_auxiliary: -11.49
+- distance_to_high_60_pct: -40.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,58.6,59.3,56.3,56.8,3724618,63.03,-9.88,65.59,60.77,0.4
 20260515,57.5,57.8,55.2,55.6,1935234,62.41,-10.91,65.2,60.8,0.22
 20260518,54.8,55.9,52.9,55.5,1747427,61.84,-10.24,64.69,60.91,0.21
 20260519,55.9,56.7,54.3,54.7,1527554,61.24,-10.68,64.06,60.99,0.2
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,48.1,49,45.75,47.7,2065098,56.76,-15.97,55.76,60.35,0.84
 20260612,49,49.5,47.9,47.9,1247115,56.02,-14.5,55.02,60.2,0.54
 20260615,49.1,49.55,48.75,48.75,1087909,55.42,-12.03,54.51,59.97,0.5
+20260616,49.85,50.3,47.85,47.85,941404,54.79,-12.66,54.06,59.69,0.46
 ```
 
 ## Latest TDCC Snapshot
@@ -195,7 +195,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 3701 | 大眾控 | 2 | 0 | 59500.0 | 0.0 |  | no_signal |
+| 20260616 | 3701 | 大眾控 | 2 | 0 | 82960.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2603 長榮
 
 ## Metadata
-- generated_at: 2026-06-15 22:22:59 Asia/Taipei
+- generated_at: 2026-06-16 22:22:59 Asia/Taipei
 - stock_id: 2603
 - stock_name: 長榮
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 230
-- high: 230.5
-- low: 223.5
-- close: 224.5
-- volume: 20566934
-- ma5: 228.3
-- ema23_primary: 218.96
-- distance_to_ema23_pct: 2.53
-- ma20: 217.22
-- ma60: 209.44
-- ma120: 200.73
-- return_5d: -5.27
-- return_20d: 6.9
-- volume_ratio: 0.74
-- distance_to_ma20_pct_auxiliary: 3.35
-- distance_to_high_60_pct: -7.42
+- date: 20260616
+- open: 223
+- high: 223
+- low: 219
+- close: 220.5
+- volume: 32459152
+- ma5: 226.2
+- ema23_primary: 219.09
+- distance_to_ema23_pct: 0.64
+- ma20: 217.68
+- ma60: 209.47
+- ma120: 201.07
+- return_5d: -4.55
+- return_20d: 4.26
+- volume_ratio: 1.13
+- distance_to_ma20_pct_auxiliary: 1.3
+- distance_to_high_60_pct: -9.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,209.5,213,207,211.5,9016120,207,2.17,205.3,203.9,0.84
 20260515,208,208.5,200.5,200.5,24800761,206.46,-2.89,205.25,204.12,2.2
 20260518,200,200.5,197,197.5,18153627,205.71,-3.99,205.22,204.29,1.59
 20260519,197.5,200,195.5,197,16654864,204.99,-3.9,205.22,204.47,1.44
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,223.5,227.5,222,226,22523796,217.59,3.86,215.8,208.88,0.85
 20260612,227,232,226.5,228,18918943,218.46,4.37,216.5,209.16,0.7
 20260615,230,230.5,223.5,224.5,20566934,218.96,2.53,217.22,209.44,0.74
+20260616,223,223,219,220.5,32459152,219.09,0.64,217.68,209.47,1.13
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2603 | 長榮 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_3d |
+| 20260616 | 2603 | 長榮 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  | no_signal | repeated_but_no_breakout | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2603 | 長榮 | 8 | 6 | 5 | 9 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260616 | 2603 | 長榮 | 9 | 7 | 5 | 9 | 14 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 14 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2603 | 長榮 | 124 | 3 | 10944190.0 | 0.0 |  | no_signal |
+| 20260616 | 2603 | 長榮 | 125 | 3 | 11743820.0 | 440.0 | 26690.5 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

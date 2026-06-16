@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2395 研華
 
 ## Metadata
-- generated_at: 2026-06-15 22:22:54 Asia/Taipei
+- generated_at: 2026-06-16 22:22:52 Asia/Taipei
 - stock_id: 2395
 - stock_name: 研華
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 486
-- high: 494
-- low: 480.5
-- close: 485
-- volume: 1974869
-- ma5: 486.6
-- ema23_primary: 474.39
-- distance_to_ema23_pct: 2.24
-- ma20: 486.1
-- ma60: 405.65
-- ma120: 352.24
-- return_5d: -5.46
-- return_20d: 4.41
-- volume_ratio: 0.42
-- distance_to_ma20_pct_auxiliary: -0.23
-- distance_to_high_60_pct: -8.49
+- date: 20260616
+- open: 493
+- high: 493
+- low: 475
+- close: 480
+- volume: 1707551
+- ma5: 479.6
+- ema23_primary: 474.86
+- distance_to_ema23_pct: 1.08
+- ma20: 486.85
+- ma60: 407.98
+- ma120: 353.85
+- return_5d: -6.8
+- return_20d: 3.23
+- volume_ratio: 0.38
+- distance_to_ma20_pct_auxiliary: -1.41
+- distance_to_high_60_pct: -9.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,461,471,456.5,465,4931462,406.99,14.25,400,354.68,1.01
 20260515,480.5,494.5,458.5,459.5,4933263,411.37,11.7,405.23,357.54,1
 20260518,451,462,439,457.5,4156066,415.21,10.18,409.8,360.38,0.86
 20260519,463,477,457.5,461.5,4170741,419.07,10.12,414.7,363.22,0.85
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,456,467,449,464,4185113,473.46,-2,486.15,401.14,0.82
 20260612,475,481,469.5,473,1178582,473.42,-0.09,485.07,403.27,0.24
 20260615,486,494,480.5,485,1974869,474.39,2.24,486.1,405.65,0.42
+20260616,493,493,475,480,1707551,474.86,1.08,486.85,407.98,0.38
 ```
 
 ## Latest TDCC Snapshot
@@ -186,18 +186,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2395 | 研華 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
-| 20260615 | 2395 | 研華 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260616 | 2395 | 研華 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260616 | 2395 | 研華 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2395 | 研華 | 5 | 4 | 5 | 8 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260616 | 2395 | 研華 | 6 | 5 | 5 | 9 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2395 | 研華 | 52 | 0 | 7967970.0 | 0.0 |  | no_signal |
+| 20260616 | 2395 | 研華 | 52 | 0 | 8412610.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

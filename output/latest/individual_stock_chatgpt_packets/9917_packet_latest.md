@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9917 中保科
 
 ## Metadata
-- generated_at: 2026-06-15 22:24:16 Asia/Taipei
+- generated_at: 2026-06-16 22:24:37 Asia/Taipei
 - stock_id: 9917
 - stock_name: 中保科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 122
-- high: 123
-- low: 118.5
-- close: 119
-- volume: 1822708
-- ma5: 118.4
-- ema23_primary: 115.34
-- distance_to_ema23_pct: 3.17
-- ma20: 114.5
-- ma60: 114.27
-- ma120: 110.73
-- return_5d: 3.48
-- return_20d: 5.31
-- volume_ratio: 2.74
-- distance_to_ma20_pct_auxiliary: 3.93
-- distance_to_high_60_pct: -3.25
+- date: 20260616
+- open: 119.5
+- high: 119.5
+- low: 118
+- close: 118
+- volume: 1294755
+- ma5: 119.1
+- ema23_primary: 115.57
+- distance_to_ema23_pct: 2.11
+- ma20: 114.75
+- ma60: 114.32
+- ma120: 110.82
+- return_5d: 3.06
+- return_20d: 4.42
+- volume_ratio: 1.82
+- distance_to_ma20_pct_auxiliary: 2.83
+- distance_to_high_60_pct: -4.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,114,114,112.5,113,401982,113.52,-0.45,113.97,111.76,0.9
 20260515,113,113,112,112,851623,113.39,-1.23,113.75,111.87,1.82
 20260518,112.5,112.5,111,111,624021,113.19,-1.94,113.47,111.97,1.3
 20260519,111.5,113.5,111,113,479834,113.17,-0.15,113.35,112.1,1.01
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,119,120,118.5,120,805056,114.38,4.92,113.72,114.01,1.55
 20260612,120.5,122,119,122,1892338,115.01,6.08,114.2,114.17,3.19
 20260615,122,123,118.5,119,1822708,115.34,3.17,114.5,114.27,2.74
+20260616,119.5,119.5,118,118,1294755,115.57,2.11,114.75,114.32,1.82
 ```
 
 ## Latest TDCC Snapshot
@@ -191,12 +191,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 9917 | 中保科 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: ex_dividend on 20260624; status=confirmed; proximity=within_14d |
+| 20260616 | 9917 | 中保科 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | 1.發生變動日期:115/06/15 2.法人名稱:財團法人宜蘭縣林孝信文化基金會 3.舊任者姓名:林孝信 4.舊任者簡歷:財團法人宜蘭縣林孝信文化基金會，法人董事代表人：林孝信 5.新任者姓名:林昭陽 6.新任者簡歷:威剛科技股份有限公司執行副總經理 7.異動原因:法人董事改派代表人 8.原任期（例xx/xx/xx至xx/xx/xx）:115/05/29-118/05/28 9.新任生效日期:115/06/15-118/05/28 10.其他應敘明事項:無；calendar event: ex_dividend on 20260624; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 9917 | 中保科 | 2 | 1 | 3 | 3 | 3 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260616 | 9917 | 中保科 | 3 | 2 | 3 | 4 | 4 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2360 致茂
 
 ## Metadata
-- generated_at: 2026-06-15 22:22:52 Asia/Taipei
+- generated_at: 2026-06-16 22:22:50 Asia/Taipei
 - stock_id: 2360
 - stock_name: 致茂
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 2400
-- high: 2400
-- low: 2250
-- close: 2265
-- volume: 1995600
-- ma5: 2347
-- ema23_primary: 2338.03
-- distance_to_ema23_pct: -3.12
-- ma20: 2365
-- ma60: 2047.08
-- ma120: 1528.83
-- return_5d: -11
-- return_20d: -5.82
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: -4.23
-- distance_to_high_60_pct: -18.96
+- date: 20260616
+- open: 2265
+- high: 2385
+- low: 2265
+- close: 2325
+- volume: 2495049
+- ma5: 2328
+- ema23_primary: 2336.95
+- distance_to_ema23_pct: -0.51
+- ma20: 2368.25
+- ma60: 2061.67
+- ma120: 1541.5
+- return_5d: -3.93
+- return_20d: 2.88
+- volume_ratio: 0.85
+- distance_to_ma20_pct_auxiliary: -1.83
+- distance_to_high_60_pct: -16.82
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,2410,2435,2255,2260,4876389,2124.61,6.37,2167.25,1700.18,1
 20260515,2345,2350,2210,2240,3109146,2134.22,4.96,2176.75,1721.28,0.66
 20260518,2125,2200,2125,2185,2303570,2138.46,2.18,2173.25,1741.58,0.51
 20260519,2130,2130,1975,2055,4295379,2131.5,-3.59,2173.5,1758.67,1
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,2200,2240,2065,2190,3133771,2349.19,-6.78,2379.25,2021.5,0.98
 20260612,2300,2320,2230,2295,1795530,2344.67,-2.12,2372,2034.83,0.59
 20260615,2400,2400,2250,2265,1995600,2338.03,-3.12,2365,2047.08,0.66
+20260616,2265,2385,2265,2325,2495049,2336.95,-0.51,2368.25,2061.67,0.85
 ```
 
 ## Latest TDCC Snapshot
@@ -186,18 +186,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2360 | 致茂 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_3d |
-| 20260615 | 2360 | 致茂 | revenue_pullback | 營收成長股價回檔 | 83.0 |  |  |  |  | no_signal | stale_signal | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260616 | 2360 | 致茂 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_3d |
+| 20260616 | 2360 | 致茂 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | no_signal | stale_signal | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2360 | 致茂 | 14 | 5 | 5 | 10 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260616 | 2360 | 致茂 | 15 | 6 | 5 | 10 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2360 | 致茂 | 54 | 5 | 1462860.0 | 400.0 | 3657.15 | no_signal |
+| 20260616 | 2360 | 致茂 | 54 | 5 | 1980100.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

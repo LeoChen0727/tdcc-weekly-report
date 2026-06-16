@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6805 富世達
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:53 Asia/Taipei
+- generated_at: 2026-06-16 22:24:07 Asia/Taipei
 - stock_id: 6805
 - stock_name: 富世達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 1880
-- high: 1880
-- low: 1735
-- close: 1735
-- volume: 2232001
-- ma5: 1890
-- ema23_primary: 1892.78
-- distance_to_ema23_pct: -8.34
-- ma20: 1857.75
-- ma60: 1889.75
-- ma120: 1707.79
-- return_5d: -16.79
-- return_20d: -5.19
-- volume_ratio: 1.01
-- distance_to_ma20_pct_auxiliary: -6.61
-- distance_to_high_60_pct: -23.74
+- date: 20260616
+- open: 1740
+- high: 1765
+- low: 1720
+- close: 1725
+- volume: 1041431
+- ma5: 1797
+- ema23_primary: 1878.8
+- distance_to_ema23_pct: -8.19
+- ma20: 1855
+- ma60: 1889.33
+- ma120: 1709.08
+- return_5d: -21.23
+- return_20d: -3.09
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: -7.01
+- distance_to_high_60_pct: -24.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,1875,1885,1780,1780,2191888,1919.43,-7.26,1956.5,1826.5,0.86
 20260515,1820,1840,1725,1735,1692195,1904.06,-8.88,1948.25,1829.58,0.67
 20260518,1700,1745,1645,1735,981759,1889.97,-8.2,1941.5,1832.75,0.4
 20260519,1735,1815,1695,1770,1131323,1879.97,-5.85,1935.25,1836.42,0.46
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,1700,1790,1690,1750,1000226,1914.59,-8.6,1863.75,1890.33,0.44
 20260612,1805,1855,1745,1825,1758662,1907.13,-4.31,1862.5,1890.08,0.8
 20260615,1880,1880,1735,1735,2232001,1892.78,-8.34,1857.75,1889.75,1.01
+20260616,1740,1765,1720,1725,1041431,1878.8,-8.19,1855,1889.33,0.49
 ```
 
 ## Latest TDCC Snapshot
@@ -191,17 +191,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 6805 | 富世達 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260616 | 6805 | 富世達 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 6805 | 富世達 | 5 | 5 | 5 | 9 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260616 | 6805 | 富世達 | 6 | 6 | 5 | 9 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 6805 | 富世達 | 146 | 4 | 15601810.0 | 0.0 |  | no_signal |
+| 20260616 | 6805 | 富世達 | 149 | 4 | 8958070.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

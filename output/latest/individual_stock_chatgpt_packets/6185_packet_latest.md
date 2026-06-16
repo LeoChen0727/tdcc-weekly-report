@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6185 幃翔
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:40 Asia/Taipei
+- generated_at: 2026-06-16 22:23:51 Asia/Taipei
 - stock_id: 6185
 - stock_name: 幃翔
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 14.05
+- date: 20260616
+- open: 14.25
 - high: 14.3
-- low: 14
+- low: 14.05
 - close: 14.1
 - volume: 14000
-- ma5: 14.25
+- ma5: 14.11
 - ema23_primary: 14.1
 - distance_to_ema23_pct: -0
-- ma20: 14.06
+- ma20: 14.07
 - ma60: 14.05
-- ma120: 14.54
+- ma120: 14.52
 - return_5d: -4.73
 - return_20d: 1.81
-- volume_ratio: 0.21
-- distance_to_ma20_pct_auxiliary: 0.28
+- volume_ratio: 0.23
+- distance_to_ma20_pct_auxiliary: 0.2
 - distance_to_high_60_pct: -4.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,13.9,13.95,13.85,13.85,126000,14,-1.09,14.04,14.18,0.5
 20260515,13.9,13.95,13.7,13.8,213000,13.99,-1.33,14.03,14.17,0.84
 20260518,13.7,13.9,13.7,13.9,234000,13.98,-0.56,14.03,14.16,0.89
 20260519,13.95,13.95,13.8,13.85,76000,13.97,-0.85,14.02,14.14,0.31
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,14.2,14.3,13.95,14,14000,14.11,-0.78,14.05,14.05,0.17
 20260612,14.2,14.3,13.95,14,14000,14.1,-0.71,14.05,14.05,0.19
 20260615,14.05,14.3,14,14.1,14000,14.1,-0,14.06,14.05,0.21
+20260616,14.25,14.3,14.05,14.1,14000,14.1,-0,14.07,14.05,0.23
 ```
 
 ## Latest TDCC Snapshot

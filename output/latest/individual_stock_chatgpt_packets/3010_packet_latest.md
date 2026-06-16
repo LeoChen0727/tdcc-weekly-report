@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3010 華立
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:05 Asia/Taipei
+- generated_at: 2026-06-16 22:23:06 Asia/Taipei
 - stock_id: 3010
 - stock_name: 華立
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
+- date: 20260616
 - open: 134
 - high: 135
-- low: 131.5
-- close: 132
-- volume: 1420206
-- ma5: 134.7
-- ema23_primary: 135.41
-- distance_to_ema23_pct: -2.51
-- ma20: 135.03
-- ma60: 132.53
-- ma120: 125.17
-- return_5d: -7.04
-- return_20d: 0
-- volume_ratio: 0.99
-- distance_to_ma20_pct_auxiliary: -2.24
-- distance_to_high_60_pct: -12.58
+- low: 128.5
+- close: 129.5
+- volume: 1960887
+- ma5: 132.4
+- ema23_primary: 134.91
+- distance_to_ema23_pct: -4.01
+- ma20: 135
+- ma60: 132.45
+- ma120: 125.31
+- return_5d: -8.16
+- return_20d: -0.38
+- volume_ratio: 1.36
+- distance_to_ma20_pct_auxiliary: -4.07
+- distance_to_high_60_pct: -14.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,133,134,130,130,1775974,133.3,-2.48,134.72,128.63,0.95
 20260515,131,132.5,127,128.5,1336117,132.9,-3.31,134.62,128.83,0.72
 20260518,126,126,122,125,1551142,132.24,-5.48,134.25,129,0.83
 20260519,125,128,122,123,1656740,131.47,-6.44,133.75,129.04,0.87
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,128,130,125,129.5,1082863,136.05,-4.82,135.47,132.47,0.65
 20260612,132,135,131.5,132,881331,135.71,-2.74,135.03,132.5,0.56
 20260615,134,135,131.5,132,1420206,135.41,-2.51,135.03,132.53,0.99
+20260616,134,135,128.5,129.5,1960887,134.91,-4.01,135,132.45,1.36
 ```
 
 ## Latest TDCC Snapshot
@@ -191,17 +191,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 3010 | 華立 | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  | no_signal | stale_signal | calendar event: ex_dividend on 20260623; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260616 | 3010 | 華立 | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/16 1.召開法人說明會之日期：115/06/16 2.召開法人說明會之時間：13 時 30 分  3.召開法人說明會之地點：臺北茹曦酒店-台北市敦化北路100號 4.法人說明會擇要訊息：本公司受邀參加群益證券所舉辦之「2026年第二季投資論壇」，就公司已公開之財務業務資訊做說明。 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: ex_dividend on 20260623; status=confirmed; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 3010 | 華立 | 1 | 1 | 2 | 7 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260616 | 3010 | 華立 | 2 | 2 | 3 | 7 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 3010 | 華立 | 16 | 0 | 1028740.0 | 0.0 |  | no_signal |
+| 20260616 | 3010 | 華立 | 16 | 0 | 828910.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

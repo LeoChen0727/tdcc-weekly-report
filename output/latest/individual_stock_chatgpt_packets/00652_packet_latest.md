@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00652 富邦印度
 
 ## Metadata
-- generated_at: 2026-06-15 22:22:33 Asia/Taipei
+- generated_at: 2026-06-16 22:22:25 Asia/Taipei
 - stock_id: 00652
 - stock_name: 富邦印度
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260615
-- price_rows: 14
+- latest_price_date: 20260616
+- price_rows: 15
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 32.11
-- high: 32.66
-- low: 32.11
-- close: 32.66
-- volume: 389777
-- ma5: 31.88
-- ema23_primary: 32.07
-- distance_to_ema23_pct: 1.85
-- ma20: 32.02
-- ma60: 32.02
-- ma120: 32.02
-- return_5d: 3.98
+- date: 20260616
+- open: 32.66
+- high: 32.89
+- low: 32.55
+- close: 32.7
+- volume: 264570
+- ma5: 32.07
+- ema23_primary: 32.12
+- distance_to_ema23_pct: 1.8
+- ma20: 32.07
+- ma60: 32.07
+- ma120: 32.07
+- return_5d: 3.12
 - return_20d:
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: 1.98
-- distance_to_high_60_pct: 0
+- volume_ratio: 0.62
+- distance_to_ma20_pct_auxiliary: 1.96
+- distance_to_high_60_pct: -0.58
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -149,6 +149,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,31.5,31.78,31.46,31.58,330507,32.04,-1.42,31.99,31.99,0.71
 20260612,31.55,31.89,31.55,31.78,230356,32.01,-0.73,31.98,31.98,0.52
 20260615,32.11,32.66,32.11,32.66,389777,32.07,1.85,32.02,32.02,0.88
+20260616,32.66,32.89,32.55,32.7,264570,32.12,1.8,32.07,32.07,0.62
 ```
 
 ## Latest TDCC Snapshot

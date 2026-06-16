@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6569 醫揚
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:48 Asia/Taipei
+- generated_at: 2026-06-16 22:24:00 Asia/Taipei
 - stock_id: 6569
 - stock_name: 醫揚
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 114
-- high: 115.5
-- low: 113
+- date: 20260616
+- open: 112.5
+- high: 116.5
+- low: 112.5
 - close: 114
 - volume: 114000
-- ma5: 111.2
-- ema23_primary: 103.75
-- distance_to_ema23_pct: 9.88
-- ma20: 101.77
-- ma60: 99.45
-- ma120: 102.4
+- ma5: 112.9
+- ema23_primary: 104.6
+- distance_to_ema23_pct: 8.98
+- ma20: 102.51
+- ma60: 99.74
+- ma120: 102.41
 - return_5d: 8.06
-- return_20d: 13.43
-- volume_ratio: 1.14
-- distance_to_ma20_pct_auxiliary: 12.02
-- distance_to_high_60_pct: -1.72
+- return_20d: 15.04
+- volume_ratio: 1.09
+- distance_to_ma20_pct_auxiliary: 11.21
+- distance_to_high_60_pct: -2.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,101.5,101.5,99,99.1,32000,100.02,-0.92,100.31,98.17,0.52
 20260515,99.1,100.5,97.5,99.1,57000,99.95,-0.85,100.23,98.06,0.91
 20260518,107,107,99.7,99.7,267000,99.93,-0.23,100.14,98,3.59
 20260519,99.9,101,96.6,97.3,135000,99.71,-2.41,100.01,97.92,1.77
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,116,116,110,112,112000,101.89,9.92,100.44,98.86,1.18
 20260612,114.5,114.5,112,113,113000,102.82,9.9,101.09,99.16,1.18
 20260615,114,115.5,113,114,114000,103.75,9.88,101.77,99.45,1.14
+20260616,112.5,116.5,112.5,114,114000,104.6,8.98,102.51,99.74,1.09
 ```
 
 ## Latest TDCC Snapshot

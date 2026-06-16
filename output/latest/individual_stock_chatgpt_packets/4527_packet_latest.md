@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4527 方土霖
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:23 Asia/Taipei
+- generated_at: 2026-06-16 22:23:29 Asia/Taipei
 - stock_id: 4527
 - stock_name: 方土霖
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 29
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 41.35
-- high: 41.35
+- date: 20260616
+- open: 40.95
+- high: 41.25
 - low: 40.85
 - close: 40.85
 - volume: 41000
-- ma5: 41.35
-- ema23_primary: 42.69
-- distance_to_ema23_pct: -4.31
-- ma20: 43.14
-- ma60: 42.94
-- ma120: 41.72
+- ma5: 41.18
+- ema23_primary: 42.54
+- distance_to_ema23_pct: -3.96
+- ma20: 43.01
+- ma60: 42.91
+- ma120: 41.73
 - return_5d: -2.04
 - return_20d: -6.09
-- volume_ratio: 1.19
-- distance_to_ma20_pct_auxiliary: -5.31
+- volume_ratio: 1.22
+- distance_to_ma20_pct_auxiliary: -5.02
 - distance_to_high_60_pct: -11.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,43.7,43.8,43.2,43.5,60000,42.96,1.25,42.98,42.35,1.73
 20260515,43.7,43.7,43.25,43.25,38000,42.99,0.61,42.98,42.38,1.06
 20260518,43.4,43.9,43.4,43.7,31000,43.05,1.52,43.01,42.42,0.86
 20260519,43.75,43.8,43.7,43.7,18000,43.1,1.39,43.01,42.47,0.5
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,41.1,41.65,40.75,40.9,41000,42.99,-4.87,43.38,42.96,1.23
 20260612,42.8,42.8,40.55,41.35,41000,42.86,-3.51,43.27,42.96,1.21
 20260615,41.35,41.35,40.85,40.85,41000,42.69,-4.31,43.14,42.94,1.19
+20260616,40.95,41.25,40.85,40.85,41000,42.54,-3.96,43.01,42.91,1.22
 ```
 
 ## Latest TDCC Snapshot

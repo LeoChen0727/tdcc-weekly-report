@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2852 第一保
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:03 Asia/Taipei
+- generated_at: 2026-06-16 22:23:03 Asia/Taipei
 - stock_id: 2852
 - stock_name: 第一保
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 27.95
-- high: 28.1
+- date: 20260616
+- open: 27.9
+- high: 28
 - low: 27.75
-- close: 27.8
-- volume: 1510612
-- ma5: 27.64
-- ema23_primary: 27.11
-- distance_to_ema23_pct: 2.55
-- ma20: 27.14
-- ma60: 26.4
+- close: 27.85
+- volume: 2294658
+- ma5: 27.75
+- ema23_primary: 27.17
+- distance_to_ema23_pct: 2.51
+- ma20: 27.2
+- ma60: 26.43
 - ma120: 26.97
-- return_5d: -0.36
-- return_20d: 5.7
-- volume_ratio: 2.28
-- distance_to_ma20_pct_auxiliary: 2.44
-- distance_to_high_60_pct: -1.07
+- return_5d: 2.01
+- return_20d: 5.09
+- volume_ratio: 3.17
+- distance_to_ma20_pct_auxiliary: 2.37
+- distance_to_high_60_pct: -0.89
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,26.5,27.2,26.5,26.5,1096242,26.17,1.26,26.16,26.37,3.22
 20260515,26.6,26.9,26.45,26.45,792447,26.19,0.98,26.16,26.35,2.16
 20260518,26.45,27.1,26.3,26.85,827952,26.25,2.29,26.2,26.34,2.11
 20260519,26.85,27.3,26.85,27,549657,26.31,2.62,26.24,26.34,1.36
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,27.65,27.7,27.4,27.55,531824,26.98,2.09,26.99,26.35,0.9
 20260612,27.65,28,27.65,27.7,793214,27.04,2.42,27.06,26.38,1.32
 20260615,27.95,28.1,27.75,27.8,1510612,27.11,2.55,27.14,26.4,2.28
+20260616,27.9,28,27.75,27.85,2294658,27.17,2.51,27.2,26.43,3.17
 ```
 
 ## Latest TDCC Snapshot
@@ -191,12 +191,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2852 | 第一保 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | first_seen | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_3d |
+| 20260616 | 2852 | 第一保 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2852 | 第一保 | 1 | 1 | 1 | 2 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260616 | 2852 | 第一保 | 2 | 2 | 2 | 3 | 3 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

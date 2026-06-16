@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2520 冠德
 
 ## Metadata
-- generated_at: 2026-06-15 22:22:58 Asia/Taipei
+- generated_at: 2026-06-16 22:22:57 Asia/Taipei
 - stock_id: 2520
 - stock_name: 冠德
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 35.5
-- high: 35.5
-- low: 34.35
-- close: 34.75
-- volume: 2975282
-- ma5: 33.29
-- ema23_primary: 31.59
-- distance_to_ema23_pct: 10.01
-- ma20: 31.27
-- ma60: 31.14
-- ma120: 31.9
-- return_5d: 9.97
-- return_20d: 13.38
-- volume_ratio: 1.19
-- distance_to_ma20_pct_auxiliary: 11.11
-- distance_to_high_60_pct: -4.01
+- date: 20260616
+- open: 35
+- high: 35.25
+- low: 34
+- close: 34.5
+- volume: 2206985
+- ma5: 33.95
+- ema23_primary: 31.83
+- distance_to_ema23_pct: 8.38
+- ma20: 31.44
+- ma60: 31.17
+- ma120: 31.92
+- return_5d: 10.58
+- return_20d: 10.75
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: 9.72
+- distance_to_high_60_pct: -4.7
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,30.75,31.5,30.75,31.15,1875048,30.48,2.18,30.35,31.34,1.13
 20260515,31.2,31.25,30.6,30.9,1188176,30.52,1.25,30.35,31.31,0.71
 20260518,30.85,31.1,30.45,30.9,1328221,30.55,1.14,30.34,31.28,0.8
 20260519,31.2,31.3,30.4,30.4,836190,30.54,-0.45,30.3,31.26,0.53
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,35.2,35.2,33.3,33.4,13487475,30.97,7.86,30.84,31.08,6.29
 20260612,33.7,36.2,33.7,35,6847819,31.3,11.82,31.07,31.11,2.81
 20260615,35.5,35.5,34.35,34.75,2975282,31.59,10.01,31.27,31.14,1.19
+20260616,35,35.25,34,34.5,2206985,31.83,8.38,31.44,31.17,0.88
 ```
 
 ## Latest TDCC Snapshot
@@ -195,7 +195,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2520 | 冠德 | 7 | 0 | 1045210.0 | 0.0 |  | no_signal |
+| 20260616 | 2520 | 冠德 | 7 | 0 | 246360.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

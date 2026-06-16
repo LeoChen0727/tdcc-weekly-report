@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1402 遠東新
 
 ## Metadata
-- generated_at: 2026-06-15 22:22:39 Asia/Taipei
+- generated_at: 2026-06-16 22:22:32 Asia/Taipei
 - stock_id: 1402
 - stock_name: 遠東新
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 29
 - tdcc_history_status: tdcc_history_ready
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 27.25
-- high: 27.6
-- low: 27
-- close: 27.55
-- volume: 17989540
-- ma5: 27.15
-- ema23_primary: 26.49
-- distance_to_ema23_pct: 4
-- ma20: 26.39
-- ma60: 26.35
+- date: 20260616
+- open: 27.6
+- high: 28.75
+- low: 27.5
+- close: 28.55
+- volume: 40154934
+- ma5: 27.61
+- ema23_primary: 26.66
+- distance_to_ema23_pct: 7.08
+- ma20: 26.48
+- ma60: 26.37
 - ma120: 27.29
-- return_5d: 0.92
-- return_20d: 2.99
-- volume_ratio: 0.25
-- distance_to_ma20_pct_auxiliary: 4.39
-- distance_to_high_60_pct: -1.96
+- return_5d: 8.76
+- return_20d: 6.73
+- volume_ratio: 0.55
+- distance_to_ma20_pct_auxiliary: 7.81
+- distance_to_high_60_pct: -0.7
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,26.5,26.9,26.35,26.75,26610388,26.32,1.63,26.14,27,1.96
 20260515,26.7,26.7,26,26.45,25008466,26.33,0.45,26.14,26.96,1.79
 20260518,26.25,26.4,25.95,25.95,19880751,26.3,-1.33,26.12,26.93,1.4
 20260519,26.1,26.8,26.1,26.25,22412426,26.3,-0.17,26.13,26.89,1.53
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,27.65,27.9,27.35,27.4,38339578,26.34,4.02,26.34,26.36,0.54
 20260612,27.7,27.7,26.7,27,30282505,26.4,2.29,26.35,26.35,0.42
 20260615,27.25,27.6,27,27.55,17989540,26.49,4,26.39,26.35,0.25
+20260616,27.6,28.75,27.5,28.55,40154934,26.66,7.08,26.48,26.37,0.55
 ```
 
 ## Latest TDCC Snapshot
@@ -191,17 +190,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 1402 | 遠東新 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260616 | 1402 | 遠東新 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | call_strong_inflow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 1402 | 遠東新 | 14 | 14 | 5 | 10 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260616 | 1402 | 遠東新 | 15 | 15 | 5 | 10 | 15 | continued_many_days | 連續 15 日上榜，需區分醞釀延續或訊號鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 1402 | 遠東新 | 7 | 0 | 1002600.0 | 0.0 |  | no_signal |
+| 20260616 | 1402 | 遠東新 | 7 | 0 | 3234840.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

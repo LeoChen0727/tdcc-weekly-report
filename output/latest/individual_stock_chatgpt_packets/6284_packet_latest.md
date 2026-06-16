@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6284 佳邦
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:44 Asia/Taipei
+- generated_at: 2026-06-16 22:23:55 Asia/Taipei
 - stock_id: 6284
 - stock_name: 佳邦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 101.5
-- high: 107
-- low: 101.5
-- close: 104
-- volume: 105000
-- ma5: 103.26
-- ema23_primary: 100.99
-- distance_to_ema23_pct: 2.98
-- ma20: 102.95
-- ma60: 89.1
-- ma120: 85.7
-- return_5d: -1.89
-- return_20d: 23.66
-- volume_ratio: 0.08
-- distance_to_ma20_pct_auxiliary: 1.01
-- distance_to_high_60_pct: -20.61
+- date: 20260616
+- open: 109
+- high: 109.5
+- low: 99.9
+- close: 100.5
+- volume: 104000
+- ma5: 102.16
+- ema23_primary: 100.95
+- distance_to_ema23_pct: -0.45
+- ma20: 103.69
+- ma60: 89.52
+- ma120: 85.88
+- return_5d: -5.19
+- return_20d: 17.27
+- volume_ratio: 0.09
+- distance_to_ma20_pct_auxiliary: -3.08
+- distance_to_high_60_pct: -23.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,85,87.9,84.2,85.7,3786000,81.82,4.75,81.89,81.74,2
 20260515,86.1,89.8,83.7,84.5,3918000,82.04,3,81.72,81.75,2.08
 20260518,84,86.2,83.3,85.1,1534000,82.29,3.41,81.53,81.79,0.88
 20260519,85.1,87.5,84.2,85.1,1710000,82.53,3.12,81.39,81.83,0.99
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,98.3,100.5,93.2,96.7,97000,100.91,-4.17,101.19,88.18,0.06
 20260612,100,103.5,97.5,98.6,100000,100.72,-2.1,101.96,88.6,0.07
 20260615,101.5,107,101.5,104,105000,100.99,2.98,102.95,89.1,0.08
+20260616,109,109.5,99.9,100.5,104000,100.95,-0.45,103.69,89.52,0.09
 ```
 
 ## Latest TDCC Snapshot

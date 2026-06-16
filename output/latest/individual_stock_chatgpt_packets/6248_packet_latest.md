@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6248 沛波
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:43 Asia/Taipei
+- generated_at: 2026-06-16 22:23:54 Asia/Taipei
 - stock_id: 6248
 - stock_name: 沛波
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 18.4
-- high: 18.4
+- date: 20260616
+- open: 18.2
+- high: 18.25
 - low: 18.15
 - close: 18.2
 - volume: 18000
-- ma5: 18.51
-- ema23_primary: 18.71
-- distance_to_ema23_pct: -2.72
-- ma20: 18.52
-- ma60: 19.44
+- ma5: 18.36
+- ema23_primary: 18.67
+- distance_to_ema23_pct: -2.5
+- ma20: 18.5
+- ma60: 19.41
 - ma120: 20.05
 - return_5d: -3.96
-- return_20d: -2.93
-- volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: -1.71
+- return_20d: -1.89
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: -1.62
 - distance_to_high_60_pct: -12.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,18.75,18.75,18.5,18.55,105000,19.52,-4.97,19.54,20.26,0.79
 20260515,18.55,18.65,18.4,18.55,79000,19.44,-4.58,19.47,20.21,0.62
 20260518,18.4,18.55,18.3,18.45,27000,19.36,-4.69,19.39,20.15,0.22
 20260519,18.45,18.45,18.2,18.3,34000,19.27,-5.03,19.3,20.09,0.3
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,18.35,18.35,18.1,18.2,18000,18.8,-3.19,18.58,19.51,0.44
 20260612,18.3,18.35,18.15,18.25,18000,18.75,-2.69,18.55,19.48,0.51
 20260615,18.4,18.4,18.15,18.2,18000,18.71,-2.72,18.52,19.44,0.59
+20260616,18.2,18.25,18.15,18.2,18000,18.67,-2.5,18.5,19.41,0.69
 ```
 
 ## Latest TDCC Snapshot

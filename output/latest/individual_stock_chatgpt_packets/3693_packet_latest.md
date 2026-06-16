@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3693 營邦
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:19 Asia/Taipei
+- generated_at: 2026-06-16 22:23:23 Asia/Taipei
 - stock_id: 3693
 - stock_name: 營邦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 513
-- high: 520
-- low: 507
-- close: 514
-- volume: 515000
-- ma5: 532.7
-- ema23_primary: 567.54
-- distance_to_ema23_pct: -9.43
-- ma20: 562.48
-- ma60: 575.77
-- ma120: 461.93
-- return_5d: -12.59
-- return_20d: -9.67
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: -8.62
-- distance_to_high_60_pct: -31.92
+- date: 20260616
+- open: 525
+- high: 529
+- low: 499
+- close: 499
+- volume: 506000
+- ma5: 514.9
+- ema23_primary: 561.83
+- distance_to_ema23_pct: -11.18
+- ma20: 559.73
+- ma60: 575.94
+- ma120: 463.63
+- return_5d: -15.14
+- return_20d: -9.93
+- volume_ratio: 0.78
+- distance_to_ma20_pct_auxiliary: -10.85
+- distance_to_high_60_pct: -33.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,571,572,545,554,1576000,606.04,-8.59,640.1,527.13,0.64
 20260515,567,567,544,546,1033000,601.04,-9.16,637.3,529.02,0.44
 20260518,540,564,527,554,1021000,597.12,-7.22,631.9,531.68,0.46
 20260519,558,564,530,533,972000,591.78,-9.93,622.15,534.3,0.45
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,490,510,475.5,491.5,494000,578.9,-15.1,569.83,573.47,0.61
 20260612,511,514,495.5,501,503000,572.41,-12.48,565.23,574.86,0.68
 20260615,513,520,507,514,515000,567.54,-9.43,562.48,575.77,0.73
+20260616,525,529,499,499,506000,561.83,-11.18,559.73,575.94,0.78
 ```
 
 ## Latest TDCC Snapshot

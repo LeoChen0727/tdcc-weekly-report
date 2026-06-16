@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6791 虎門科技
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:53 Asia/Taipei
+- generated_at: 2026-06-16 22:24:07 Asia/Taipei
 - stock_id: 6791
 - stock_name: 虎門科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 103
-- high: 104.5
+- date: 20260616
+- open: 106
+- high: 106
 - low: 102
-- close: 104.5
+- close: 102.5
 - volume: 103000
-- ma5: 108.5
-- ema23_primary: 113.6
-- distance_to_ema23_pct: -8.01
-- ma20: 113.67
-- ma60: 112.95
-- ma120: 109.11
-- return_5d: -12.92
-- return_20d: -8.33
-- volume_ratio: 1.2
-- distance_to_ma20_pct_auxiliary: -8.07
-- distance_to_high_60_pct: -27.93
+- ma5: 105
+- ema23_primary: 112.68
+- distance_to_ema23_pct: -9.03
+- ma20: 113
+- ma60: 112.98
+- ma120: 109.05
+- return_5d: -14.58
+- return_20d: -11.64
+- volume_ratio: 1.17
+- distance_to_ma20_pct_auxiliary: -9.29
+- distance_to_high_60_pct: -29.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,118,119.5,116,116,66000,118.76,-2.32,125,109.55,0.41
 20260515,116.5,119.5,112,117.5,81000,118.65,-0.97,124.28,109.74,0.52
 20260518,117.5,123,114,120,71000,118.76,1.04,123.53,110.02,0.7
 20260519,118,118.5,112.5,112.5,42000,118.24,-4.86,122.25,110.18,0.51
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,101.5,102.5,99.8,102.5,100000,115.51,-11.26,115.05,112.9,1.19
 20260612,103,104.5,102.5,102.5,103000,114.43,-10.42,114.15,112.91,1.22
 20260615,103,104.5,102,104.5,103000,113.6,-8.01,113.67,112.95,1.2
+20260616,106,106,102,102.5,103000,112.68,-9.03,113,112.98,1.17
 ```
 
 ## Latest TDCC Snapshot

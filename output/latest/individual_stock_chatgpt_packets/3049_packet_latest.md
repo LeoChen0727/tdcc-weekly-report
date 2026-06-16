@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3049 精金
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:07 Asia/Taipei
+- generated_at: 2026-06-16 22:23:08 Asia/Taipei
 - stock_id: 3049
 - stock_name: 精金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 14.2
-- high: 14.95
-- low: 14.05
-- close: 14.75
-- volume: 11365325
-- ma5: 14.5
-- ema23_primary: 13.49
-- distance_to_ema23_pct: 9.38
-- ma20: 13.15
-- ma60: 13.07
-- ma120: 10.99
-- return_5d: -6.65
-- return_20d: 15.23
-- volume_ratio: 0.78
-- distance_to_ma20_pct_auxiliary: 12.19
-- distance_to_high_60_pct: -18.06
+- date: 20260616
+- open: 14.95
+- high: 15.45
+- low: 14.15
+- close: 14.15
+- volume: 9977203
+- ma5: 14.45
+- ema23_primary: 13.54
+- distance_to_ema23_pct: 4.5
+- ma20: 13.22
+- ma60: 13.1
+- ma120: 11.05
+- return_5d: -1.74
+- return_20d: 11.86
+- volume_ratio: 0.67
+- distance_to_ma20_pct_auxiliary: 7.01
+- distance_to_high_60_pct: -21.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,13.05,13.05,12.65,12.65,4568469,12.82,-1.29,12.97,12.48,0.4
 20260515,12.8,12.9,12.1,12.2,6605740,12.76,-4.42,12.94,12.53,0.6
 20260518,12.2,12.3,11.8,12.05,6383656,12.7,-5.15,12.85,12.57,0.66
 20260519,12.15,12.35,11.85,11.9,4731071,12.64,-5.84,12.72,12.62,0.56
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,13.5,13.7,13.1,13.6,9276637,13.33,2.05,13.01,13.02,0.65
 20260612,14.5,14.5,13.85,13.85,8140202,13.37,3.58,13.05,13.03,0.57
 20260615,14.2,14.95,14.05,14.75,11365325,13.49,9.38,13.15,13.07,0.78
+20260616,14.95,15.45,14.15,14.15,9977203,13.54,4.5,13.22,13.1,0.67
 ```
 
 ## Latest TDCC Snapshot
@@ -195,7 +196,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 3049 | 精金 | 1 | 0 | 19570.0 | 0.0 |  | no_signal |
+| 20260616 | 3049 | 精金 | 1 | 0 | 44850.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

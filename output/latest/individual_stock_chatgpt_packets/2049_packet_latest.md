@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2049 上銀
 
 ## Metadata
-- generated_at: 2026-06-15 22:22:48 Asia/Taipei
+- generated_at: 2026-06-16 22:22:45 Asia/Taipei
 - stock_id: 2049
 - stock_name: 上銀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 334.5
-- high: 334.5
-- low: 327.5
-- close: 329.5
-- volume: 2599835
-- ma5: 336.1
-- ema23_primary: 352.76
-- distance_to_ema23_pct: -6.59
-- ma20: 371.12
-- ma60: 306.68
-- ma120: 263.05
-- return_5d: -10.7
-- return_20d: -9.6
-- volume_ratio: 0.35
-- distance_to_ma20_pct_auxiliary: -11.22
-- distance_to_high_60_pct: -22.65
+- date: 20260616
+- open: 333
+- high: 333
+- low: 320.5
+- close: 324.5
+- volume: 2138176
+- ma5: 328.2
+- ema23_primary: 350.41
+- distance_to_ema23_pct: -7.39
+- ma20: 368.62
+- ma60: 308.2
+- ma120: 264.12
+- return_5d: -10.85
+- return_20d: -13.35
+- volume_ratio: 0.3
+- distance_to_ma20_pct_auxiliary: -11.97
+- distance_to_high_60_pct: -23.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,369,384,364.5,374.5,9818187,313.98,19.28,316.98,263.41,1.02
 20260515,381.5,399,378,392.5,11850863,320.52,22.46,322.65,266.13,1.24
 20260518,392.5,392.5,375,378.5,8081469,325.35,16.34,327.02,268.78,0.86
 20260519,381,383.5,367,376,8261654,329.57,14.09,331.15,271.12,0.89
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,320,327,309.5,318.5,4483661,357.73,-10.97,375.07,303.83,0.54
 20260612,332,332,319.5,323.5,2718761,354.88,-8.84,372.88,305.16,0.35
 20260615,334.5,334.5,327.5,329.5,2599835,352.76,-6.59,371.12,306.68,0.35
+20260616,333,333,320.5,324.5,2138176,350.41,-7.39,368.62,308.2,0.3
 ```
 
 ## Latest TDCC Snapshot
@@ -191,17 +191,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2049 | 上銀 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260616 | 2049 | 上銀 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/15 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:現金股利新台幣707,584,480元，每股配發新台幣2.0元 4.除權（息）交易日:115/07/08 5.最後過戶日:115/07/09 6.停止過戶起始日期:115/07/10 7.停止過戶截止日期:115/07/14 8.除權（息）基準日:115/07/14 9.債券最後申請轉換日期:不適用 10.債券停止轉換起始日期:不適用 11.債券停止轉換截止日期:不適用 12.普通股現金股利發放日期:115/08/05 13.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2049 | 上銀 | 9 | 5 | 5 | 9 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260616 | 2049 | 上銀 | 10 | 6 | 5 | 10 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2049 | 上銀 | 117 | 6 | 4829890.0 | 7850.0 | 615.27 | no_signal |
+| 20260616 | 2049 | 上銀 | 118 | 6 | 5833110.0 | 86990.0 | 67.05 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

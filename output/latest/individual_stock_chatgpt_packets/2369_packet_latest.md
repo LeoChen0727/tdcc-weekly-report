@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2369 菱生
 
 ## Metadata
-- generated_at: 2026-06-15 22:22:53 Asia/Taipei
+- generated_at: 2026-06-16 22:22:51 Asia/Taipei
 - stock_id: 2369
 - stock_name: 菱生
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 34.2
-- high: 36
-- low: 33.65
-- close: 35.75
-- volume: 14312572
-- ma5: 34.47
-- ema23_primary: 34.3
-- distance_to_ema23_pct: 4.23
-- ma20: 34.26
-- ma60: 32.11
-- ma120: 28.94
-- return_5d: 0.7
-- return_20d: 17.41
-- volume_ratio: 0.58
-- distance_to_ma20_pct_auxiliary: 4.35
-- distance_to_high_60_pct: -14.88
+- date: 20260616
+- open: 36.2
+- high: 36.5
+- low: 34.65
+- close: 34.75
+- volume: 12175517
+- ma5: 34.09
+- ema23_primary: 34.34
+- distance_to_ema23_pct: 1.21
+- ma20: 34.48
+- ma60: 32.22
+- ma120: 29.04
+- return_5d: -5.18
+- return_20d: 14.88
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: 0.77
+- distance_to_high_60_pct: -17.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,30.95,31.4,29.85,30.25,9942030,30.87,-1.99,30.94,29.61,0.63
 20260515,30.5,30.55,29.35,29.7,7720999,30.77,-3.47,30.87,29.68,0.5
 20260518,29.4,29.6,28.25,29.45,5621016,30.66,-3.94,30.82,29.76,0.36
 20260519,29.45,29.55,28.3,28.5,7241474,30.48,-6.49,30.73,29.81,0.47
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,30.75,32.85,30.75,31.9,12081769,34.26,-6.88,33.9,31.87,0.49
 20260612,33,33.75,32.9,33.15,9919664,34.17,-2.97,33.99,31.98,0.41
 20260615,34.2,36,33.65,35.75,14312572,34.3,4.23,34.26,32.11,0.58
+20260616,36.2,36.5,34.65,34.75,12175517,34.34,1.21,34.48,32.22,0.49
 ```
 
 ## Latest TDCC Snapshot
@@ -186,18 +186,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2369 | 菱生 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
-| 20260615 | 2369 | 菱生 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260616 | 2369 | 菱生 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260616 | 2369 | 菱生 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2369 | 菱生 | 14 | 5 | 5 | 10 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260616 | 2369 | 菱生 | 15 | 6 | 5 | 10 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2369 | 菱生 | 48 | 0 | 6297920.0 | 0.0 |  | call_strong_inflow |
+| 20260616 | 2369 | 菱生 | 48 | 0 | 4411760.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

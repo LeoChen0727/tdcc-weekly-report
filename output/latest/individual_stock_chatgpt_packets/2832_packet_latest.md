@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2832 台產
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:02 Asia/Taipei
+- generated_at: 2026-06-16 22:23:03 Asia/Taipei
 - stock_id: 2832
 - stock_name: 台產
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 274
+- latest_price_date: 20260616
+- price_rows: 275
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 52
-- high: 54
-- low: 52
-- close: 53.3
-- volume: 1068188
-- ma5: 54.22
-- ema23_primary: 53.38
-- distance_to_ema23_pct: -0.14
-- ma20: 53.58
-- ma60: 50.89
-- ma120: 50.33
-- return_5d: -3.09
-- return_20d: -1.3
-- volume_ratio: 3.4
-- distance_to_ma20_pct_auxiliary: -0.51
-- distance_to_high_60_pct: -4.65
+- date: 20260616
+- open: 53.9
+- high: 54.8
+- low: 53.5
+- close: 54.5
+- volume: 500443
+- ma5: 54.38
+- ema23_primary: 53.47
+- distance_to_ema23_pct: 1.93
+- ma20: 53.6
+- ma60: 51
+- ma120: 50.36
+- return_5d: 1.49
+- return_20d: 1.11
+- volume_ratio: 1.59
+- distance_to_ma20_pct_auxiliary: 1.67
+- distance_to_high_60_pct: -2.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,54,55.1,53.8,53.9,495280,51.73,4.2,51.97,49.42,1.72
 20260515,54.7,54.7,52.6,52.8,353770,51.82,1.9,52.16,49.49,1.22
 20260518,52.9,53.7,52.7,53.5,192856,51.96,2.97,52.38,49.58,0.66
 20260519,53.5,53.8,52.9,52.9,207093,52.04,1.66,52.45,49.66,0.82
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,55,55.1,53.9,54.4,363582,53.24,2.17,53.55,50.69,1.49
 20260612,55,55.9,54.5,54.9,839942,53.38,2.84,53.61,50.8,3.04
 20260615,52,54,52,53.3,1068188,53.38,-0.14,53.58,50.89,3.4
+20260616,53.9,54.8,53.5,54.5,500443,53.47,1.93,53.6,51,1.59
 ```
 
 ## Latest TDCC Snapshot

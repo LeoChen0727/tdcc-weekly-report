@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5315 光聯
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:32 Asia/Taipei
+- generated_at: 2026-06-16 22:23:41 Asia/Taipei
 - stock_id: 5315
 - stock_name: 光聯
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 22.4
-- high: 23.25
-- low: 22.25
-- close: 23.15
+- date: 20260616
+- open: 23.35
+- high: 23.45
+- low: 22.8
+- close: 22.85
 - volume: 23000
-- ma5: 22.5
-- ema23_primary: 22.33
-- distance_to_ema23_pct: 3.66
-- ma20: 22.16
+- ma5: 22.55
+- ema23_primary: 22.38
+- distance_to_ema23_pct: 2.12
+- ma20: 22.2
 - ma60: 22.53
-- ma120: 23.36
-- return_5d: 2.43
-- return_20d: 4.99
-- volume_ratio: 0.2
-- distance_to_ma20_pct_auxiliary: 4.49
-- distance_to_high_60_pct: -1.91
+- ma120: 23.35
+- return_5d: 1.11
+- return_20d: 3.86
+- volume_ratio: 0.23
+- distance_to_ma20_pct_auxiliary: 2.94
+- distance_to_high_60_pct: -3.18
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,22.1,22.25,21.95,22,352000,22.47,-2.08,22.52,23.08,0.72
 20260515,22.1,22.15,21.75,21.8,529000,22.41,-2.73,22.47,23.02,1.1
 20260518,21.8,21.8,21.4,21.7,430000,22.35,-2.92,22.39,22.97,0.91
 20260519,21.75,21.9,21.5,21.55,348000,22.29,-3.3,22.31,22.91,0.75
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,22.1,22.15,21.8,22.05,22000,22.26,-0.96,22.1,22.55,0.14
 20260612,22.3,22.45,22.15,22.2,22000,22.26,-0.27,22.1,22.53,0.16
 20260615,22.4,23.25,22.25,23.15,23000,22.33,3.66,22.16,22.53,0.2
+20260616,23.35,23.45,22.8,22.85,23000,22.38,2.12,22.2,22.53,0.23
 ```
 
 ## Latest TDCC Snapshot

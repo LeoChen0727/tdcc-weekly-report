@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2610 華航
 
 ## Metadata
-- generated_at: 2026-06-15 22:22:59 Asia/Taipei
+- generated_at: 2026-06-16 22:22:59 Asia/Taipei
 - stock_id: 2610
 - stock_name: 華航
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 29
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 21.35
-- high: 21.7
+- date: 20260616
+- open: 21.5
+- high: 21.5
 - low: 20.95
-- close: 21.4
-- volume: 85921129
-- ma5: 20.14
-- ema23_primary: 19.3
-- distance_to_ema23_pct: 10.86
-- ma20: 19.13
-- ma60: 18.63
-- ma120: 19.65
-- return_5d: 7.27
-- return_20d: 14.13
-- volume_ratio: 1.49
-- distance_to_ma20_pct_auxiliary: 11.87
-- distance_to_high_60_pct: -1.38
+- close: 21.2
+- volume: 58891339
+- ma5: 20.48
+- ema23_primary: 19.46
+- distance_to_ema23_pct: 8.94
+- ma20: 19.26
+- ma60: 18.67
+- ma120: 19.67
+- return_5d: 8.72
+- return_20d: 14.29
+- volume_ratio: 1
+- distance_to_ma20_pct_auxiliary: 10.06
+- distance_to_high_60_pct: -2.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,18.9,19,18.55,18.55,32297196,18.43,0.68,18.26,19.02,1.18
 20260515,18.7,18.8,18.45,18.5,23304278,18.43,0.37,18.27,18.95,0.85
 20260518,18.35,18.5,18.2,18.35,17927258,18.42,-0.41,18.27,18.88,0.66
 20260519,18.35,18.6,18.3,18.4,19955063,18.42,-0.12,18.29,18.8,0.75
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,19.55,19.65,19.25,19.45,39002241,19,2.4,18.92,18.55,0.75
 20260612,19.85,20.7,19.8,20.4,79303652,19.11,6.74,19,18.58,1.47
 20260615,21.35,21.7,20.95,21.4,85921129,19.3,10.86,19.13,18.63,1.49
+20260616,21.5,21.5,20.95,21.2,58891339,19.46,8.94,19.26,18.67,1
 ```
 
 ## Latest TDCC Snapshot
@@ -190,17 +190,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2610 | 華航 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | call_strong_inflow | continued_many_days | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260616 | 2610 | 華航 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2610 | 華航 | 9 | 7 | 5 | 9 | 10 | continued_many_days | 連續 9 日上榜，需區分醞釀延續或訊號鈍化。 |
+| 20260616 | 2610 | 華航 | 10 | 8 | 5 | 10 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2610 | 華航 | 22 | 0 | 7222620.0 | 0.0 |  | call_strong_inflow |
+| 20260616 | 2610 | 華航 | 21 | 0 | 3854920.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

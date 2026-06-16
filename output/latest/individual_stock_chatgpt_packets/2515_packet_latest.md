@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2515 中工
 
 ## Metadata
-- generated_at: 2026-06-15 22:22:58 Asia/Taipei
+- generated_at: 2026-06-16 22:22:57 Asia/Taipei
 - stock_id: 2515
 - stock_name: 中工
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 12.95
+- date: 20260616
+- open: 13.05
 - high: 13.15
-- low: 12.9
+- low: 12.95
 - close: 13.1
-- volume: 9793112
-- ma5: 12.91
-- ema23_primary: 12.98
-- distance_to_ema23_pct: 0.89
-- ma20: 12.86
-- ma60: 13.31
+- volume: 7894025
+- ma5: 12.98
+- ema23_primary: 12.99
+- distance_to_ema23_pct: 0.81
+- ma20: 12.87
+- ma60: 13.28
 - ma120: 13.77
-- return_5d: -1.5
-- return_20d: -1.87
-- volume_ratio: 0.99
-- distance_to_ma20_pct_auxiliary: 1.87
-- distance_to_high_60_pct: -18.63
+- return_5d: 2.75
+- return_20d: 1.55
+- volume_ratio: 0.81
+- distance_to_ma20_pct_auxiliary: 1.79
+- distance_to_high_60_pct: -14.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,13.35,13.35,12.75,12.9,12011769,13.33,-3.25,13.31,14.37,1.63
 20260515,12.9,12.9,12.25,12.25,11213200,13.24,-7.5,13.24,14.34,1.54
 20260518,12.2,12.25,12.1,12.15,4897399,13.15,-7.62,13.15,14.31,0.75
 20260519,12.2,12.4,12.2,12.25,4902018,13.08,-6.32,13.08,14.26,0.82
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,13,13,12.5,12.7,9948411,12.99,-2.2,12.88,13.41,1.03
 20260612,12.85,13.1,12.85,12.85,8173608,12.97,-0.96,12.87,13.36,0.84
 20260615,12.95,13.15,12.9,13.1,9793112,12.98,0.89,12.86,13.31,0.99
+20260616,13.05,13.15,12.95,13.1,7894025,12.99,0.81,12.87,13.28,0.81
 ```
 
 ## Latest TDCC Snapshot
@@ -186,19 +186,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2515 | 中工 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
-| 20260615 | 2515 | 中工 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
-| 20260615 | 2515 | 中工 | revenue_breakout_low_response | 營收爆發低反應股 | 11.0 | 24.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260616 | 2515 | 中工 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260616 | 2515 | 中工 | revenue_pullback | 營收成長股價回檔 | 70.0 |  | C_僅觀察_營建認列型需基本面確認 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
+| 20260616 | 2515 | 中工 | revenue_breakout_low_response | 營收爆發低反應股 | 12.0 | 25.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認；營建/交屋認列型，單月營收不升級為類事欣科型 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2515 | 中工 | 14 | 5 | 5 | 10 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260616 | 2515 | 中工 | 15 | 6 | 5 | 10 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2515 | 中工 | 7 | 0 | 15310.0 | 0.0 |  | no_signal |
+| 20260616 | 2515 | 中工 | 7 | 0 | 17970.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

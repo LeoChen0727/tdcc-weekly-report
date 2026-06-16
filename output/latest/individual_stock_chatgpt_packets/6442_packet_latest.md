@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6442 光聖
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:45 Asia/Taipei
+- generated_at: 2026-06-16 22:23:57 Asia/Taipei
 - stock_id: 6442
 - stock_name: 光聖
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 1910
-- high: 1945
-- low: 1885
-- close: 1920
-- volume: 601183
-- ma5: 1906
-- ema23_primary: 1931.85
-- distance_to_ema23_pct: -0.61
-- ma20: 1902.25
-- ma60: 1988.83
-- ma120: 1766.25
-- return_5d: -7.02
-- return_20d: 6.37
-- volume_ratio: 0.19
-- distance_to_ma20_pct_auxiliary: 0.93
-- distance_to_high_60_pct: -21.95
+- date: 20260616
+- open: 1940
+- high: 1955
+- low: 1875
+- close: 1875
+- volume: 748583
+- ma5: 1905
+- ema23_primary: 1927.11
+- distance_to_ema23_pct: -2.7
+- ma20: 1903.25
+- ma60: 1991.17
+- ma120: 1771.88
+- return_5d: -0.27
+- return_20d: 1.08
+- volume_ratio: 0.25
+- distance_to_ma20_pct_auxiliary: -1.48
+- distance_to_high_60_pct: -23.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,1860,1875,1780,1855,2071352,1997.12,-7.12,2032.75,1998.92,0.77
 20260515,1890,1890,1700,1740,3264638,1975.7,-11.93,2016,1998.67,1.21
 20260518,1700,1840,1690,1815,2267870,1962.3,-7.51,1999,2000.67,0.88
 20260519,1830,1880,1720,1740,2580599,1943.78,-10.48,1967.5,1998.83,1.04
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,1960,1960,1705,1820,1547199,1940.01,-6.19,1899,1982.25,0.45
 20260612,1900,1900,1820,1855,860902,1932.93,-4.03,1896.5,1985,0.26
 20260615,1910,1945,1885,1920,601183,1931.85,-0.61,1902.25,1988.83,0.19
+20260616,1940,1955,1875,1875,748583,1927.11,-2.7,1903.25,1991.17,0.25
 ```
 
 ## Latest TDCC Snapshot
@@ -196,7 +196,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 6442 | 光聖 | 4 | 0 | 627400.0 | 0.0 |  | no_signal |
+| 20260616 | 6442 | 光聖 | 4 | 0 | 315800.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

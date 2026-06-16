@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6116 彩晶
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:37 Asia/Taipei
+- generated_at: 2026-06-16 22:23:47 Asia/Taipei
 - stock_id: 6116
 - stock_name: 彩晶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 16.2
-- high: 16.95
-- low: 16.2
-- close: 16.5
-- volume: 25407342
-- ma5: 17.08
-- ema23_primary: 14.84
-- distance_to_ema23_pct: 11.21
-- ma20: 14.75
-- ma60: 10.73
-- ma120: 9.7
-- return_5d: -27.31
-- return_20d: 46.67
-- volume_ratio: 0.19
-- distance_to_ma20_pct_auxiliary: 11.86
-- distance_to_high_60_pct: -27.31
+- date: 20260616
+- open: 17
+- high: 17
+- low: 16.5
+- close: 16.6
+- volume: 17784477
+- ma5: 16.27
+- ema23_primary: 14.98
+- distance_to_ema23_pct: 10.79
+- ma20: 15.06
+- ma60: 10.86
+- ma120: 9.77
+- return_5d: -19.61
+- return_20d: 59.62
+- volume_ratio: 0.14
+- distance_to_ma20_pct_auxiliary: 10.23
+- distance_to_high_60_pct: -26.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,11.25,11.3,10.3,10.4,191343134,9.19,13.11,9.04,8.75,2.86
 20260515,10.5,11.2,10.15,10.25,104759367,9.28,10.43,9.09,8.78,1.51
 20260518,10.25,10.4,9.7,10.35,57701291,9.37,10.45,9.16,8.81,0.82
 20260519,10.35,10.5,10.05,10.15,39198848,9.44,7.57,9.21,8.84,0.55
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,14.25,14.25,13.1,14.2,33646301,14.6,-2.76,14.24,10.5,0.2
 20260612,15.55,15.6,15.55,15.6,21523290,14.69,6.22,14.49,10.6,0.14
 20260615,16.2,16.95,16.2,16.5,25407342,14.84,11.21,14.75,10.73,0.19
+20260616,17,17,16.5,16.6,17784477,14.98,10.79,15.06,10.86,0.14
 ```
 
 ## Latest TDCC Snapshot
@@ -195,7 +195,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 6116 | 彩晶 | 34 | 1 | 1214290.0 | 1650.0 | 735.93 | no_signal |
+| 20260616 | 6116 | 彩晶 | 34 | 1 | 703600.0 | 170.0 | 4138.82 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7772 耀穎
 
 ## Metadata
-- generated_at: 2026-06-15 22:24:07 Asia/Taipei
+- generated_at: 2026-06-16 22:24:25 Asia/Taipei
 - stock_id: 7772
 - stock_name: 耀穎
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 160
+- latest_price_date: 20260616
+- price_rows: 161
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 142
-- high: 150
-- low: 140.5
-- close: 148
+- date: 20260616
+- open: 148
+- high: 149
+- low: 141.5
+- close: 141.5
 - volume: 144000
-- ma5: 154.1
-- ema23_primary: 154.15
-- distance_to_ema23_pct: -3.99
-- ma20: 154.78
-- ma60: 152.43
-- ma120: 150.22
-- return_5d: -3.58
-- return_20d: -10.03
-- volume_ratio: 0.63
-- distance_to_ma20_pct_auxiliary: -4.38
-- distance_to_high_60_pct: -29.19
+- ma5: 151.7
+- ema23_primary: 153.1
+- distance_to_ema23_pct: -7.58
+- ma20: 153.35
+- ma60: 152.32
+- ma120: 150.16
+- return_5d: -7.82
+- return_20d: -16.76
+- volume_ratio: 0.67
+- distance_to_ma20_pct_auxiliary: -7.73
+- distance_to_high_60_pct: -32.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,166.5,181,166.5,170,434000,158.31,7.38,155.62,150.54,1.13
 20260515,167,172.5,153,155,637000,158.03,-1.92,155.97,150.66,1.59
 20260518,153,153,139.5,144,505000,156.86,-8.2,155.78,150.59,1.22
 20260519,145.5,158,142,158,501000,156.96,0.66,156.28,150.76,1.18
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,142.5,143.5,134.5,143.5,140000,155.96,-7.99,157.3,152.55,0.52
 20260612,145.5,146.5,139,141,142000,154.71,-8.86,155.6,152.43,0.58
 20260615,142,150,140.5,148,144000,154.15,-3.99,154.78,152.43,0.63
+20260616,148,149,141.5,141.5,144000,153.1,-7.58,153.35,152.32,0.67
 ```
 
 ## Latest TDCC Snapshot

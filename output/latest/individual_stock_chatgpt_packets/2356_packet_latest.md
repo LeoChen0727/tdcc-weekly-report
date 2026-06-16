@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2356 英業達
 
 ## Metadata
-- generated_at: 2026-06-15 22:22:52 Asia/Taipei
+- generated_at: 2026-06-16 22:22:50 Asia/Taipei
 - stock_id: 2356
 - stock_name: 英業達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
+- date: 20260616
 - open: 68.2
-- high: 69.4
-- low: 66.8
-- close: 67.1
-- volume: 33928363
-- ma5: 71.22
-- ema23_primary: 64.65
-- distance_to_ema23_pct: 3.79
-- ma20: 64.87
-- ma60: 51.71
-- ma120: 47.87
-- return_5d: -21.43
-- return_20d: 27.08
-- volume_ratio: 0.28
-- distance_to_ma20_pct_auxiliary: 3.44
-- distance_to_high_60_pct: -24.27
+- high: 68.6
+- low: 66.2
+- close: 66.6
+- volume: 29287032
+- ma5: 68.42
+- ema23_primary: 64.81
+- distance_to_ema23_pct: 2.76
+- ma20: 65.54
+- ma60: 52.1
+- ma120: 48.03
+- return_5d: -17.37
+- return_20d: 25.19
+- volume_ratio: 0.25
+- distance_to_ma20_pct_auxiliary: 1.62
+- distance_to_high_60_pct: -24.83
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,53.5,53.9,51.6,53.2,80235506,47.87,11.14,47.96,44.75,2.1
 20260515,54.4,55.3,51.9,52.2,51211242,48.23,8.23,48.32,44.89,1.28
 20260518,52.5,52.5,50.1,51.9,28189067,48.54,6.93,48.62,45.02,0.71
 20260519,51.7,53.3,51.2,51.7,31964096,48.8,5.94,48.88,45.14,0.81
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,64.8,66.4,63.6,65.4,45773835,64.26,1.77,63.28,50.92,0.36
 20260612,68.5,69.2,66.1,66.2,41497286,64.43,2.75,64.16,51.31,0.33
 20260615,68.2,69.4,66.8,67.1,33928363,64.65,3.79,64.87,51.71,0.28
+20260616,68.2,68.6,66.2,66.6,29287032,64.81,2.76,65.54,52.1,0.25
 ```
 
 ## Latest TDCC Snapshot
@@ -186,18 +186,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2356 | 英業達 | pattern | 型態觀察 | 48.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
-| 20260615 | 2356 | 英業達 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260616 | 2356 | 英業達 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260616 | 2356 | 英業達 | revenue_pullback | 營收成長股價回檔 | 76.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2356 | 英業達 | 3 | 3 | 3 | 8 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260616 | 2356 | 英業達 | 4 | 4 | 4 | 8 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2356 | 英業達 | 101 | 6 | 8402510.0 | 27820.0 | 302.03 | call_inflow |
+| 20260616 | 2356 | 英業達 | 103 | 6 | 7282020.0 | 185770.0 | 39.2 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

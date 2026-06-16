@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6263 普萊德
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:43 Asia/Taipei
+- generated_at: 2026-06-16 22:23:54 Asia/Taipei
 - stock_id: 6263
 - stock_name: 普萊德
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 160
+- date: 20260616
+- open: 159
 - high: 163.5
-- low: 156.5
-- close: 157.5
-- volume: 160000
-- ma5: 163.8
-- ema23_primary: 167.7
-- distance_to_ema23_pct: -6.08
-- ma20: 174.57
-- ma60: 148.56
-- ma120: 137.61
-- return_5d: -12.74
-- return_20d: -16.45
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: -9.78
-- distance_to_high_60_pct: -19.23
+- low: 152.5
+- close: 160
+- volume: 158000
+- ma5: 159.7
+- ema23_primary: 167.06
+- distance_to_ema23_pct: -4.23
+- ma20: 173.47
+- ma60: 149.16
+- ma120: 137.85
+- return_5d: -11.36
+- return_20d: -12.09
+- volume_ratio: 0.87
+- distance_to_ma20_pct_auxiliary: -7.77
+- distance_to_high_60_pct: -17.95
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,188.5,188.5,180,182,1436000,150.21,21.16,148.6,132.04,2.55
 20260515,187,187,169,171,604000,151.94,12.54,150.57,132.84,1.02
 20260518,167,172,162.5,172,238000,153.62,11.97,152.6,133.69,0.4
 20260519,177.5,177.5,172.5,172.5,171000,155.19,11.15,154.22,134.57,0.29
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,161,161.5,156,156,158000,169.55,-7.99,177.43,147.4,0.32
 20260612,161.5,164.5,157,158.5,160000,168.63,-6.01,176.12,147.99,0.33
 20260615,160,163.5,156.5,157.5,160000,167.7,-6.08,174.57,148.56,0.65
+20260616,159,163.5,152.5,160,158000,167.06,-4.23,173.47,149.16,0.87
 ```
 
 ## Latest TDCC Snapshot

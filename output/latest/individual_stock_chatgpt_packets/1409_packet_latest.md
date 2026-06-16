@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1409 新纖
 
 ## Metadata
-- generated_at: 2026-06-15 22:22:39 Asia/Taipei
+- generated_at: 2026-06-16 22:22:32 Asia/Taipei
 - stock_id: 1409
 - stock_name: 新纖
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 29
 - tdcc_history_status: tdcc_history_ready
@@ -111,29 +111,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 26.4
-- high: 26.5
-- low: 25
-- close: 25.45
-- volume: 12568700
-- ma5: 25.86
-- ema23_primary: 22.13
-- distance_to_ema23_pct: 15.02
-- ma20: 21.41
-- ma60: 18.12
-- ma120: 16.64
-- return_5d: -16.01
-- return_20d: 50.59
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: 18.87
-- distance_to_high_60_pct: -16.01
+- date: 20260616
+- open: 25.8
+- high: 26.9
+- low: 25.75
+- close: 26.9
+- volume: 15358961
+- ma5: 25.73
+- ema23_primary: 22.52
+- distance_to_ema23_pct: 19.43
+- ma20: 21.89
+- ma60: 18.3
+- ma120: 16.74
+- return_5d: -2.36
+- return_20d: 55.94
+- volume_ratio: 0.79
+- distance_to_ma20_pct_auxiliary: 22.87
+- distance_to_high_60_pct: -11.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,16.9,17.4,16.9,17.25,12722018,16.77,2.89,16.89,16.11,1.17
 20260515,17.4,17.4,16.85,16.85,7263119,16.77,0.46,16.88,16.14,0.69
 20260518,16.8,16.85,16.65,16.7,5126432,16.77,-0.4,16.88,16.17,0.49
 20260519,16.7,16.95,16.65,16.7,4084933,16.76,-0.37,16.88,16.2,0.39
@@ -153,6 +152,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,25.45,25.45,23.25,24.65,12278746,21.49,14.7,20.55,17.81,0.65
 20260612,25.45,25.8,25.1,25.5,7784939,21.82,16.84,20.98,17.97,0.41
 20260615,26.4,26.5,25,25.45,12568700,22.13,15.02,21.41,18.12,0.65
+20260616,25.8,26.9,25.75,26.9,15358961,22.52,19.43,21.89,18.3,0.79
 ```
 
 ## Latest TDCC Snapshot
@@ -199,7 +199,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 1409 | 新纖 | 20 | 0 | 913130.0 | 0.0 |  | no_signal |
+| 20260616 | 1409 | 新纖 | 19 | 0 | 8235140.0 | 0.0 |  | call_strong_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

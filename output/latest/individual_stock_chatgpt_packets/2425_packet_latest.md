@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2425 承啟
 
 ## Metadata
-- generated_at: 2026-06-15 22:22:55 Asia/Taipei
+- generated_at: 2026-06-16 22:22:53 Asia/Taipei
 - stock_id: 2425
 - stock_name: 承啟
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 36.3
-- high: 38.7
-- low: 36.2
-- close: 38.35
-- volume: 3564003
-- ma5: 36.45
-- ema23_primary: 34.94
-- distance_to_ema23_pct: 9.77
-- ma20: 35.3
-- ma60: 31.64
-- ma120: 30.56
-- return_5d: 5.21
-- return_20d: 14.14
-- volume_ratio: 2.29
-- distance_to_ma20_pct_auxiliary: 8.62
-- distance_to_high_60_pct: -4.24
+- date: 20260616
+- open: 38.8
+- high: 42.15
+- low: 38
+- close: 39.5
+- volume: 8114548
+- ma5: 37.14
+- ema23_primary: 35.32
+- distance_to_ema23_pct: 11.84
+- ma20: 35.52
+- ma60: 31.78
+- ma120: 30.65
+- return_5d: 9.57
+- return_20d: 12.22
+- volume_ratio: 4.38
+- distance_to_ma20_pct_auxiliary: 11.21
+- distance_to_high_60_pct: -6.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,33.65,35.4,33.65,35.2,2092642,31.25,12.62,31.22,29.28,2.8
 20260515,35.4,35.95,34.3,34.6,1923583,31.53,9.72,31.39,29.38,2.36
 20260518,34.3,35.4,33.8,34.35,763815,31.77,8.13,31.6,29.48,0.92
 20260519,34.5,34.6,32.4,32.5,808578,31.83,2.11,31.73,29.56,0.95
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,34.9,36.45,34.9,36.45,1445426,34.51,5.63,34.97,31.43,1.3
 20260612,40.05,40.05,35.9,35.95,8040355,34.63,3.82,35.07,31.51,5.65
 20260615,36.3,38.7,36.2,38.35,3564003,34.94,9.77,35.3,31.64,2.29
+20260616,38.8,42.15,38,39.5,8114548,35.32,11.84,35.52,31.78,4.38
 ```
 
 ## Latest TDCC Snapshot
@@ -186,15 +186,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2425 | 承啟 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
-| 20260615 | 2425 | 承啟 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260615 | 2425 | 承啟 | revenue_breakout_low_response | 營收爆發低反應股 | 18.0 | 5.0 | A_優先追蹤 |  |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260615 | 2425 | 承啟 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260616 | 2425 | 承啟 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260616 | 2425 | 承啟 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260616 | 2425 | 承啟 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2425 | 承啟 | 3 | 3 | 3 | 6 | 6 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260616 | 2425 | 承啟 | 4 | 4 | 4 | 6 | 7 | repeated_but_no_breakout | 近 10 日上榜 6 次、近 20 日上榜 7 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6988 威力暘-創
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:57 Asia/Taipei
+- generated_at: 2026-06-16 22:24:12 Asia/Taipei
 - stock_id: 6988
 - stock_name: 威力暘-創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 269
+- latest_price_date: 20260616
+- price_rows: 270
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 13.9
-- high: 14.8
-- low: 13.9
-- close: 14.05
-- volume: 76022
-- ma5: 14.27
-- ema23_primary: 15.14
-- distance_to_ema23_pct: -7.22
-- ma20: 15.78
-- ma60: 14.87
-- ma120: 15.41
-- return_5d: -4.42
-- return_20d: -7.87
-- volume_ratio: 0.95
-- distance_to_ma20_pct_auxiliary: -10.94
-- distance_to_high_60_pct: -22.59
+- date: 20260616
+- open: 14.2
+- high: 14.2
+- low: 13.8
+- close: 13.9
+- volume: 47000
+- ma5: 14.01
+- ema23_primary: 15.04
+- distance_to_ema23_pct: -7.58
+- ma20: 15.69
+- ma60: 14.86
+- ma120: 15.4
+- return_5d: -8.55
+- return_20d: -10.61
+- volume_ratio: 0.6
+- distance_to_ma20_pct_auxiliary: -11.42
+- distance_to_high_60_pct: -23.42
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,15,16.1,15,15.55,89060,14.6,6.51,14.41,15.17,1.43
 20260515,16,17.1,15.5,17.1,135077,14.81,15.47,14.54,15.12,2
 20260518,16.3,18.15,16.3,17.2,114399,15.01,14.61,14.65,15.06,1.57
 20260519,17.25,17.5,16.7,16.85,100017,15.16,11.14,14.76,15.02,1.35
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,14.65,14.65,13.85,13.85,33799,15.37,-9.86,15.89,14.91,0.39
 20260612,13.85,14.4,13.85,13.9,38372,15.24,-8.81,15.84,14.9,0.46
 20260615,13.9,14.8,13.9,14.05,76022,15.14,-7.22,15.78,14.87,0.95
+20260616,14.2,14.2,13.8,13.9,47000,15.04,-7.58,15.69,14.86,0.6
 ```
 
 ## Latest TDCC Snapshot

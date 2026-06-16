@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3706 神達
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:19 Asia/Taipei
+- generated_at: 2026-06-16 22:23:24 Asia/Taipei
 - stock_id: 3706
 - stock_name: 神達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 86.6
-- high: 87.4
-- low: 85.3
-- close: 85.6
-- volume: 14738280
-- ma5: 89.04
-- ema23_primary: 87.53
-- distance_to_ema23_pct: -2.21
-- ma20: 86.97
-- ma60: 83.5
-- ma120: 83.23
-- return_5d: -14.4
-- return_20d: 4.26
-- volume_ratio: 0.47
-- distance_to_ma20_pct_auxiliary: -1.58
-- distance_to_high_60_pct: -17.29
+- date: 20260616
+- open: 86.3
+- high: 86.7
+- low: 84.2
+- close: 84.3
+- volume: 16734980
+- ma5: 86.86
+- ema23_primary: 87.26
+- distance_to_ema23_pct: -3.4
+- ma20: 87.12
+- ma60: 83.51
+- ma120: 83.15
+- return_5d: -11.45
+- return_20d: 3.82
+- volume_ratio: 0.53
+- distance_to_ma20_pct_auxiliary: -3.24
+- distance_to_high_60_pct: -18.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,82.4,82.5,81.2,81.2,12014167,83.27,-2.48,83.8,81.04,0.81
 20260515,81.8,82.5,79.5,79.9,14866755,82.98,-3.72,83.66,81.08,0.99
 20260518,79.3,80.3,77.8,80.1,8216802,82.74,-3.2,83.45,81.16,0.56
 20260519,80.1,81,79.6,80.7,8211781,82.57,-2.27,83.28,81.22,0.57
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,85.6,88,84.3,86.5,13982746,87.91,-1.6,86.81,83.41,0.44
 20260612,88.9,89.6,85.5,85.5,17563129,87.71,-2.52,86.8,83.45,0.54
 20260615,86.6,87.4,85.3,85.6,14738280,87.53,-2.21,86.97,83.5,0.47
+20260616,86.3,86.7,84.2,84.3,16734980,87.26,-3.4,87.12,83.51,0.53
 ```
 
 ## Latest TDCC Snapshot
@@ -186,18 +186,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 3706 | 神達 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
-| 20260615 | 3706 | 神達 | revenue_pullback | 營收成長股價回檔 | 62.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260616 | 3706 | 神達 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260616 | 3706 | 神達 | revenue_pullback | 營收成長股價回檔 | 76.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 3706 | 神達 | 14 | 5 | 5 | 10 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260616 | 3706 | 神達 | 15 | 6 | 5 | 10 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 3706 | 神達 | 108 | 2 | 7068590.0 | 0.0 |  | no_signal |
+| 20260616 | 3706 | 神達 | 105 | 2 | 5862130.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

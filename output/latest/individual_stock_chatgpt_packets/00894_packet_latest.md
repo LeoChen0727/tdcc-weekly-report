@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00894 中信小資高價30
 
 ## Metadata
-- generated_at: 2026-06-15 22:22:34 Asia/Taipei
+- generated_at: 2026-06-16 22:22:27 Asia/Taipei
 - stock_id: 00894
 - stock_name: 中信小資高價30
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260615
-- price_rows: 14
+- latest_price_date: 20260616
+- price_rows: 15
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 49.38
-- high: 49.51
-- low: 48.88
-- close: 49.11
-- volume: 1583929
-- ma5: 48.4
-- ema23_primary: 48.57
-- distance_to_ema23_pct: 1.12
-- ma20: 49.19
-- ma60: 49.19
-- ma120: 49.19
-- return_5d: -3.23
+- date: 20260616
+- open: 49.65
+- high: 49.7
+- low: 49.2
+- close: 49.43
+- volume: 1485839
+- ma5: 48.33
+- ema23_primary: 48.64
+- distance_to_ema23_pct: 1.63
+- ma20: 49.21
+- ma60: 49.21
+- ma120: 49.21
+- return_5d: -0.64
 - return_20d:
-- volume_ratio: 0.63
-- distance_to_ma20_pct_auxiliary: -0.17
-- distance_to_high_60_pct: -5.1
+- volume_ratio: 0.61
+- distance_to_ma20_pct_auxiliary: 0.45
+- distance_to_high_60_pct: -4.48
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -149,6 +149,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,46.78,47.38,45.03,46.53,2921828,48.6,-4.26,49.33,49.33,1.09
 20260612,48.86,48.86,47.4,47.61,1595656,48.52,-1.87,49.2,49.2,0.62
 20260615,49.38,49.51,48.88,49.11,1583929,48.57,1.12,49.19,49.19,0.63
+20260616,49.65,49.7,49.2,49.43,1485839,48.64,1.63,49.21,49.21,0.61
 ```
 
 ## Latest TDCC Snapshot

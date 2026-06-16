@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2449 京元電子
 
 ## Metadata
-- generated_at: 2026-06-15 22:22:56 Asia/Taipei
+- generated_at: 2026-06-16 22:22:54 Asia/Taipei
 - stock_id: 2449
 - stock_name: 京元電子
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -119,29 +119,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 292
-- high: 298
-- low: 280.5
-- close: 281
-- volume: 24332715
-- ma5: 290.2
-- ema23_primary: 301.58
-- distance_to_ema23_pct: -6.82
-- ma20: 302.82
-- ma60: 295.83
-- ma120: 283.25
-- return_5d: -12.87
-- return_20d: -7.87
-- volume_ratio: 0.55
-- distance_to_ma20_pct_auxiliary: -7.21
-- distance_to_high_60_pct: -22.91
+- date: 20260616
+- open: 284
+- high: 284
+- low: 277.5
+- close: 278
+- volume: 15208454
+- ma5: 284.5
+- ema23_primary: 299.62
+- distance_to_ema23_pct: -7.21
+- ma20: 301.93
+- ma60: 295.67
+- ma120: 283.66
+- return_5d: -9.3
+- return_20d: -6.08
+- volume_ratio: 0.35
+- distance_to_ma20_pct_auxiliary: -7.92
+- distance_to_high_60_pct: -23.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,309,309,295.5,296,39127707,301.21,-1.73,299.05,294.92,1
 20260515,299.5,306.5,295.5,299.5,36263194,301.07,-0.52,299.85,295.23,0.91
 20260518,298,299.5,286,295,28058967,300.56,-1.85,300.85,295.43,0.71
 20260519,297,302,289,289,25944056,299.6,-3.54,301.75,295.38,0.65
@@ -161,6 +160,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,269.5,275.5,263.5,272,20303142,305.4,-10.94,304.98,296.38,0.44
 20260612,285,287,280.5,282,16442069,303.45,-7.07,304.02,296.07,0.36
 20260615,292,298,280.5,281,24332715,301.58,-6.82,302.82,295.83,0.55
+20260616,284,284,277.5,278,15208454,299.62,-7.21,301.93,295.67,0.35
 ```
 
 ## Latest TDCC Snapshot
@@ -192,17 +192,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2449 | 京元電子 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260616 | 2449 | 京元電子 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2449 | 京元電子 | 14 | 5 | 5 | 10 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260616 | 2449 | 京元電子 | 15 | 6 | 5 | 10 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2449 | 京元電子 | 254 | 8 | 14577230.0 | 123170.0 | 118.35 | no_signal |
+| 20260616 | 2449 | 京元電子 | 255 | 8 | 12136730.0 | 91710.0 | 132.34 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

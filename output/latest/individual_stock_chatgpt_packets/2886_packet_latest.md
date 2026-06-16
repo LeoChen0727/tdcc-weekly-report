@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2886 兆豐金
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:03 Asia/Taipei
+- generated_at: 2026-06-16 22:23:04 Asia/Taipei
 - stock_id: 2886
 - stock_name: 兆豐金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 44.95
-- high: 44.95
-- low: 43.4
-- close: 44
-- volume: 30155084
-- ma5: 42.89
-- ema23_primary: 41.15
-- distance_to_ema23_pct: 6.93
-- ma20: 40.84
-- ma60: 39.86
-- ma120: 39.97
-- return_5d: 5.64
-- return_20d: 11.25
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: 7.75
-- distance_to_high_60_pct: -2.11
+- date: 20260616
+- open: 43.85
+- high: 44.85
+- low: 43.5
+- close: 44.5
+- volume: 21732920
+- ma5: 43.45
+- ema23_primary: 41.43
+- distance_to_ema23_pct: 7.41
+- ma20: 41.09
+- ma60: 39.95
+- ma120: 40
+- return_5d: 6.71
+- return_20d: 13.23
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: 8.29
+- distance_to_high_60_pct: -1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,39.25,39.65,39.25,39.3,14378145,39.54,-0.6,39.62,39.49,0.59
 20260515,39.6,40,39.35,39.4,14581775,39.52,-0.31,39.59,39.48,0.61
 20260518,39.8,39.85,39.4,39.55,28226050,39.53,0.06,39.59,39.48,1.16
 20260519,39.65,41.4,39.65,40.65,58969091,39.62,2.6,39.63,39.49,2.27
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,43.55,43.6,42.65,43.4,30307283,40.66,6.73,40.4,39.69,0.75
 20260612,43.45,43.95,43.1,43.4,36267595,40.89,6.14,40.61,39.77,0.89
 20260615,44.95,44.95,43.4,44,30155084,41.15,6.93,40.84,39.86,0.73
+20260616,43.85,44.85,43.5,44.5,21732920,41.43,7.41,41.09,39.95,0.52
 ```
 
 ## Latest TDCC Snapshot
@@ -185,17 +185,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2886 | 兆豐金 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | continued_many_days | calendar event: shareholder_meeting on 20260618; status=confirmed; proximity=within_3d |
+| 20260616 | 2886 | 兆豐金 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: shareholder_meeting on 20260618; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2886 | 兆豐金 | 14 | 5 | 5 | 10 | 14 | continued_many_days | 連續 14 日上榜，需區分醞釀延續或訊號鈍化。 |
+| 20260616 | 2886 | 兆豐金 | 15 | 6 | 5 | 10 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2886 | 兆豐金 | 3 | 0 | 1004050.0 | 0.0 |  | no_signal |
+| 20260616 | 2886 | 兆豐金 | 4 | 0 | 516290.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

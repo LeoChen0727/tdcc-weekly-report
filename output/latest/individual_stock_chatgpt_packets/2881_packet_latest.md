@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2881 富邦金
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:03 Asia/Taipei
+- generated_at: 2026-06-16 22:23:03 Asia/Taipei
 - stock_id: 2881
 - stock_name: 富邦金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 126
-- high: 128
-- low: 124.5
-- close: 127.5
-- volume: 25895319
-- ma5: 121.3
-- ema23_primary: 108.6
-- distance_to_ema23_pct: 17.41
-- ma20: 107.24
-- ma60: 95.26
-- ma120: 94.65
-- return_5d: 12.83
-- return_20d: 34.64
-- volume_ratio: 0.4
-- distance_to_ma20_pct_auxiliary: 18.89
-- distance_to_high_60_pct: -1.16
+- date: 20260616
+- open: 128.5
+- high: 132.5
+- low: 127.5
+- close: 132
+- volume: 40287477
+- ma5: 125
+- ema23_primary: 110.55
+- distance_to_ema23_pct: 19.41
+- ma20: 109.11
+- ma60: 95.98
+- ma120: 94.96
+- return_5d: 16.3
+- return_20d: 39.53
+- volume_ratio: 0.61
+- distance_to_ma20_pct_auxiliary: 20.98
+- distance_to_high_60_pct: -0.38
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,93.9,96,93.9,94.6,20009347,91.61,3.27,90.94,90.15,0.72
 20260515,96.5,98.6,95,96.1,100424729,91.98,4.48,91.34,90.19,3.15
 20260518,96.3,96.6,94.5,95.2,25769182,92.25,3.2,91.7,90.24,0.81
 20260519,95.7,98.1,95.5,97.2,36306020,92.66,4.9,92.2,90.3,1.11
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,125,127.5,121.5,125.5,62123741,105.5,18.95,104.19,94.06,0.96
 20260612,127,129,120.5,122,42713760,106.88,14.15,105.6,94.6,0.66
 20260615,126,128,124.5,127.5,25895319,108.6,17.41,107.24,95.26,0.4
+20260616,128.5,132.5,127.5,132,40287477,110.55,19.41,109.11,95.98,0.61
 ```
 
 ## Latest TDCC Snapshot
@@ -185,17 +185,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2881 | 富邦金 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: ex_dividend on 20260701; status=confirmed; proximity=within_30d |
+| 20260616 | 2881 | 富邦金 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | call_inflow | continued_overheated | 符合條款第四條第XX款：12 事實發生日：115/06/16 1.召開法人說明會之日期：115/06/16 ~ 115/06/18 2.召開法人說明會之時間：09 時 00 分  3.召開法人說明會之地點：電話會議 4.法人說明會擇要訊息：討論富邦金控財務及業務相關資訊 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: ex_dividend on 20260701; status=confirmed; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2881 | 富邦金 | 1 | 1 | 4 | 9 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260616 | 2881 | 富邦金 | 2 | 2 | 4 | 9 | 14 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2881 | 富邦金 | 31 | 0 | 5058300.0 | 0.0 |  | no_signal |
+| 20260616 | 2881 | 富邦金 | 31 | 0 | 8739670.0 | 0.0 |  | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

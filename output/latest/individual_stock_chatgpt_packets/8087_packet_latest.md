@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8087 麗升能源
 
 ## Metadata
-- generated_at: 2026-06-15 22:24:10 Asia/Taipei
+- generated_at: 2026-06-16 22:24:29 Asia/Taipei
 - stock_id: 8087
 - stock_name: 麗升能源
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 35.35
-- high: 35.35
-- low: 34.2
-- close: 34.5
-- volume: 35000
-- ma5: 34.5
-- ema23_primary: 33.92
-- distance_to_ema23_pct: 1.72
-- ma20: 33.91
-- ma60: 33.99
+- date: 20260616
+- open: 34.3
+- high: 34.3
+- low: 33.4
+- close: 33.8
+- volume: 34000
+- ma5: 34.37
+- ema23_primary: 33.91
+- distance_to_ema23_pct: -0.32
+- ma20: 33.83
+- ma60: 34.01
 - ma120: 32.97
-- return_5d: 0.15
-- return_20d: 4.55
-- volume_ratio: 0.58
-- distance_to_ma20_pct_auxiliary: 1.75
-- distance_to_high_60_pct: -12.88
+- return_5d: -1.89
+- return_20d: -4.38
+- volume_ratio: 0.82
+- distance_to_ma20_pct_auxiliary: -0.08
+- distance_to_high_60_pct: -14.65
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,33,36.3,33,35.35,417000,33.82,4.53,33.93,33.65,5.27
 20260515,34.3,35.5,34.1,34.1,99000,33.84,0.77,33.84,33.73,1.2
 20260518,37,37,34,34.25,122000,33.88,1.11,33.77,33.84,1.39
 20260519,35.7,35.7,34.2,34.3,77000,33.91,1.15,33.76,33.96,0.85
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,37.45,37.45,34.1,34.1,34000,33.87,0.69,33.8,33.94,0.51
 20260612,33.8,34.25,33,33.85,34000,33.87,-0.04,33.83,33.96,0.55
 20260615,35.35,35.35,34.2,34.5,35000,33.92,1.72,33.91,33.99,0.58
+20260616,34.3,34.3,33.4,33.8,34000,33.91,-0.32,33.83,34.01,0.82
 ```
 
 ## Latest TDCC Snapshot

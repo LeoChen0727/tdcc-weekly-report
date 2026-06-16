@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00717 富邦美國特別股
 
 ## Metadata
-- generated_at: 2026-06-15 22:22:34 Asia/Taipei
+- generated_at: 2026-06-16 22:22:26 Asia/Taipei
 - stock_id: 00717
 - stock_name: 富邦美國特別股
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260615
-- price_rows: 14
+- latest_price_date: 20260616
+- price_rows: 15
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 14.94
-- high: 15.04
-- low: 14.94
-- close: 15.04
-- volume: 654280
-- ma5: 15.03
+- date: 20260616
+- open: 15.08
+- high: 15.1
+- low: 15.06
+- close: 15.1
+- volume: 257160
+- ma5: 15.01
 - ema23_primary: 15.01
-- distance_to_ema23_pct: 0.23
-- ma20: 15.03
-- ma60: 15.03
-- ma120: 15.03
-- return_5d: -0.79
+- distance_to_ema23_pct: 0.58
+- ma20: 15.04
+- ma60: 15.04
+- ma120: 15.04
+- return_5d: -0.72
 - return_20d:
-- volume_ratio: 2.16
-- distance_to_ma20_pct_auxiliary: 0.06
-- distance_to_high_60_pct: -1.12
+- volume_ratio: 0.86
+- distance_to_ma20_pct_auxiliary: 0.43
+- distance_to_high_60_pct: -0.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -149,6 +149,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,14.86,14.91,14.86,14.91,224965,15.01,-0.65,15.04,15.04,0.76
 20260612,14.91,15,14.91,14.94,48848,15,-0.41,15.03,15.03,0.18
 20260615,14.94,15.04,14.94,15.04,654280,15.01,0.23,15.03,15.03,2.16
+20260616,15.08,15.1,15.06,15.1,257160,15.01,0.58,15.04,15.04,0.86
 ```
 
 ## Latest TDCC Snapshot

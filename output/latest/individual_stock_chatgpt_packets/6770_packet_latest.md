@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6770 力積電
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:52 Asia/Taipei
+- generated_at: 2026-06-16 22:24:06 Asia/Taipei
 - stock_id: 6770
 - stock_name: 力積電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 69.6
-- high: 73.9
-- low: 69.6
-- close: 73.3
-- volume: 87139878
-- ma5: 73.08
+- date: 20260616
+- open: 75
+- high: 77.6
+- low: 71
+- close: 71
+- volume: 291491338
+- ma5: 70.1
 - ema23_primary: 71.07
-- distance_to_ema23_pct: 3.13
-- ma20: 71.58
-- ma60: 62.99
-- ma120: 58.58
-- return_5d: -13.36
-- return_20d: 21.16
-- volume_ratio: 0.33
-- distance_to_ma20_pct_auxiliary: 2.4
-- distance_to_high_60_pct: -22.43
+- distance_to_ema23_pct: -0.1
+- ma20: 72.03
+- ma60: 63.09
+- ma120: 58.88
+- return_5d: -17.35
+- return_20d: 14.15
+- volume_ratio: 1.09
+- distance_to_ma20_pct_auxiliary: -1.42
+- distance_to_high_60_pct: -24.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,61.8,63.4,60.8,62.2,196451270,58.24,6.79,56.45,61.17,1.2
 20260515,63,67,62.3,62.8,356822147,58.62,7.13,56.88,61.17,2.01
 20260518,62,63.1,59.2,62,127532182,58.9,5.26,57.35,61.14,0.71
 20260519,61.5,62.3,58.1,58.5,143820864,58.87,-0.63,57.71,61.05,0.79
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,62.6,65.1,62.1,64.4,70706900,71.21,-9.56,70.69,62.77,0.26
 20260612,68,68,67,67.2,65105100,70.87,-5.18,70.94,62.84,0.25
 20260615,69.6,73.9,69.6,73.3,87139878,71.07,3.13,71.58,62.99,0.33
+20260616,75,77.6,71,71,291491338,71.07,-0.1,72.03,63.09,1.09
 ```
 
 ## Latest TDCC Snapshot
@@ -186,18 +186,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 6770 | 力積電 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
-| 20260615 | 6770 | 力積電 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260616 | 6770 | 力積電 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | mixed_flow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260616 | 6770 | 力積電 | revenue_pullback | 營收成長股價回檔 | 83.0 |  |  |  |  | mixed_flow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 6770 | 力積電 | 4 | 4 | 4 | 9 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260616 | 6770 | 力積電 | 5 | 5 | 5 | 9 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 6770 | 力積電 | 191 | 36 | 13893740.0 | 199390.0 | 69.68 | no_signal |
+| 20260616 | 6770 | 力積電 | 189 | 35 | 37506560.0 | 1151000.0 | 32.59 | mixed_flow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

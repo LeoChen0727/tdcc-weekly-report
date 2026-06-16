@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2428 興勤
 
 ## Metadata
-- generated_at: 2026-06-15 22:22:55 Asia/Taipei
+- generated_at: 2026-06-16 22:22:53 Asia/Taipei
 - stock_id: 2428
 - stock_name: 興勤
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 296.5
-- high: 319
-- low: 296.5
-- close: 310
-- volume: 3352084
-- ma5: 288.3
-- ema23_primary: 255.88
-- distance_to_ema23_pct: 21.15
-- ma20: 258.02
-- ma60: 200.65
-- ma120: 187.53
-- return_5d: 14.39
-- return_20d: 52.71
-- volume_ratio: 1.11
-- distance_to_ma20_pct_auxiliary: 20.14
-- distance_to_high_60_pct: -3.58
+- date: 20260616
+- open: 310
+- high: 312.5
+- low: 279
+- close: 280
+- volume: 3478986
+- ma5: 289
+- ema23_primary: 257.89
+- distance_to_ema23_pct: 8.57
+- ma20: 261.43
+- ma60: 202.65
+- ma120: 188.33
+- return_5d: 1.27
+- return_20d: 32.08
+- volume_ratio: 1.15
+- distance_to_ma20_pct_auxiliary: 7.11
+- distance_to_high_60_pct: -12.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,210.5,219,208,212,3239778,185.23,14.45,185.43,172.82,2.22
 20260515,214,220.5,204.5,206,2840724,186.96,10.19,186.57,173.44,1.84
 20260518,203,213,201.5,211.5,1439103,189,11.9,188.03,174.18,0.93
 20260519,211.5,219,211,214,1772680,191.09,11.99,189.55,174.94,1.11
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,279.5,291.5,272,281,3459999,247.32,13.62,248.2,195.93,1.18
 20260612,294.5,302,286.5,291,2672919,250.96,15.95,252.68,198.15,0.91
 20260615,296.5,319,296.5,310,3352084,255.88,21.15,258.02,200.65,1.11
+20260616,310,312.5,279,280,3478986,257.89,8.57,261.43,202.65,1.15
 ```
 
 ## Latest TDCC Snapshot
@@ -185,17 +185,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2428 | 興勤 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | call_inflow | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260616 | 2428 | 興勤 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260616 | 2428 | 興勤 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2428 | 興勤 | 1 | 1 | 1 | 4 | 5 | repeated_but_no_breakout | 近 10 日上榜 4 次、近 20 日上榜 5 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260616 | 2428 | 興勤 | 2 | 2 | 2 | 4 | 6 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2428 | 興勤 | 24 | 0 | 8309890.0 | 0.0 |  | call_inflow |
+| 20260616 | 2428 | 興勤 | 25 | 0 | 6648030.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

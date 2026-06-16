@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5351 鈺創
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:32 Asia/Taipei
+- generated_at: 2026-06-16 22:23:41 Asia/Taipei
 - stock_id: 5351
 - stock_name: 鈺創
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 91.4
-- high: 93.5
-- low: 89
+- date: 20260616
+- open: 92
+- high: 95.3
+- low: 90.6
 - close: 90.6
-- volume: 91000
-- ma5: 87.98
-- ema23_primary: 84.05
-- distance_to_ema23_pct: 7.79
-- ma20: 84.97
-- ma60: 76.38
-- ma120: 65.29
+- volume: 93000
+- ma5: 88.08
+- ema23_primary: 84.6
+- distance_to_ema23_pct: 7.1
+- ma20: 84.93
+- ma60: 76.72
+- ma120: 65.72
 - return_5d: 0.55
-- return_20d: 4.14
+- return_20d: -0.98
 - volume_ratio: 0.01
-- distance_to_ma20_pct_auxiliary: 6.62
+- distance_to_ma20_pct_auxiliary: 6.68
 - distance_to_high_60_pct: -5.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,90,94,87,91.5,69650000,75.17,21.73,73.11,67.52,2.33
 20260515,89.7,90,85.5,87.5,39596000,76.2,14.84,74.16,68.05,1.26
 20260518,85,87.2,82.1,85.3,19177000,76.95,10.85,75.05,68.59,0.6
 20260519,84,84,76.8,76.8,34454000,76.94,-0.18,75.58,68.92,1.05
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,87.5,88.5,81.8,84.3,85000,82.98,1.59,84.55,75.5,0.01
 20260612,87.9,91,87.7,88.7,89000,83.46,6.28,84.8,75.93,0.01
 20260615,91.4,93.5,89,90.6,91000,84.05,7.79,84.97,76.38,0.01
+20260616,92,95.3,90.6,90.6,93000,84.6,7.1,84.93,76.72,0.01
 ```
 
 ## Latest TDCC Snapshot

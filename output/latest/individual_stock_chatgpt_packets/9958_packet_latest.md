@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9958 世紀鋼
 
 ## Metadata
-- generated_at: 2026-06-15 22:24:18 Asia/Taipei
+- generated_at: 2026-06-16 22:24:39 Asia/Taipei
 - stock_id: 9958
 - stock_name: 世紀鋼
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 114
+- date: 20260616
+- open: 110
 - high: 114
-- low: 110
-- close: 110
-- volume: 2218975
-- ma5: 111.5
-- ema23_primary: 107.02
-- distance_to_ema23_pct: 2.79
-- ma20: 105.97
-- ma60: 108.94
-- ma120: 121.96
-- return_5d: 2.8
-- return_20d: 5.26
-- volume_ratio: 0.64
-- distance_to_ma20_pct_auxiliary: 3.8
-- distance_to_high_60_pct: -16.35
+- low: 109
+- close: 113.5
+- volume: 3036252
+- ma5: 113.7
+- ema23_primary: 107.56
+- distance_to_ema23_pct: 5.52
+- ma20: 106.15
+- ma60: 108.67
+- ma120: 121.74
+- return_5d: 10.73
+- return_20d: 3.18
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: 6.92
+- distance_to_high_60_pct: -13.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,104.5,111,102.5,110,3630885,106.15,3.62,104.45,115.5,2.26
 20260515,114.5,114.5,104,104.5,4328593,106.02,-1.43,104.35,115.1,2.46
 20260518,104.5,107,102.5,105.5,1665995,105.97,-0.45,104.33,114.77,0.94
 20260519,106,112,103.5,104,2638314,105.81,-1.71,104.1,114.43,1.49
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,111.5,114.5,108.5,111.5,3247768,106.22,4.97,105.3,109.5,0.95
 20260612,112.5,114.5,111.5,112.5,1728181,106.75,5.39,105.7,109.23,0.5
 20260615,114,114,110,110,2218975,107.02,2.79,105.97,108.94,0.64
+20260616,110,114,109,113.5,3036252,107.56,5.52,106.15,108.67,0.88
 ```
 
 ## Latest TDCC Snapshot
@@ -186,18 +185,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 9958 | 世紀鋼 | pattern | 型態觀察 | 51.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
-| 20260615 | 9958 | 世紀鋼 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260616 | 9958 | 世紀鋼 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260616 | 9958 | 世紀鋼 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 9958 | 世紀鋼 | 14 | 3 | 5 | 10 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260616 | 9958 | 世紀鋼 | 15 | 4 | 5 | 10 | 15 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 15 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 9958 | 世紀鋼 | 35 | 0 | 3246900.0 | 0.0 |  | no_signal |
+| 20260616 | 9958 | 世紀鋼 | 34 | 0 | 3319510.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4581 光隆精密-KY
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:25 Asia/Taipei
+- generated_at: 2026-06-16 22:23:32 Asia/Taipei
 - stock_id: 4581
 - stock_name: 光隆精密-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 277
+- latest_price_date: 20260616
+- price_rows: 278
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 49.6
-- high: 49.8
-- low: 49.6
+- date: 20260616
+- open: 50
+- high: 50
+- low: 49.8
 - close: 49.8
-- volume: 10002
-- ma5: 49.8
+- volume: 11001
+- ma5: 49.78
 - ema23_primary: 49.81
-- distance_to_ema23_pct: -0.03
-- ma20: 49.71
+- distance_to_ema23_pct: -0.02
+- ma20: 49.7
 - ma60: 49.79
-- ma120: 50.55
-- return_5d: 0
-- return_20d: 0
-- volume_ratio: 0.58
-- distance_to_ma20_pct_auxiliary: 0.18
+- ma120: 50.53
+- return_5d: -0.2
+- return_20d: -0.4
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: 0.2
 - distance_to_high_60_pct: -5.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,49.35,50,49.35,50,3101,50.12,-0.24,50.27,50.03,0.14
 20260514,50,50.2,49.4,49.4,17040,50.06,-1.32,50.23,50,0.79
 20260515,50,50,49.7,49.95,20000,50.05,-0.2,50.21,49.98,0.91
 20260518,49.3,49.35,49.25,49.25,10050,49.99,-1.47,50.12,49.96,0.48
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,49.5,49.85,49.5,49.85,12003,49.83,0.04,49.78,49.8,0.59
 20260612,49.8,49.85,49.5,49.65,22034,49.81,-0.33,49.71,49.79,1.08
 20260615,49.6,49.8,49.6,49.8,10002,49.81,-0.03,49.71,49.79,0.58
+20260616,50,50,49.8,49.8,11001,49.81,-0.02,49.7,49.79,0.63
 ```
 
 ## Latest TDCC Snapshot

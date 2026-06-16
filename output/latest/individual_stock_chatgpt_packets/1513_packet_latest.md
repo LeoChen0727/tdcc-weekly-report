@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1513 中興電
 
 ## Metadata
-- generated_at: 2026-06-15 22:22:41 Asia/Taipei
+- generated_at: 2026-06-16 22:22:36 Asia/Taipei
 - stock_id: 1513
 - stock_name: 中興電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 170
+- date: 20260616
+- open: 171.5
 - high: 171.5
-- low: 169.5
-- close: 170
-- volume: 6263080
-- ma5: 167.9
-- ema23_primary: 163.6
-- distance_to_ema23_pct: 3.91
-- ma20: 162.38
-- ma60: 156.15
-- ma120: 157.57
-- return_5d: -7.86
-- return_20d: 9.32
-- volume_ratio: 0.43
-- distance_to_ma20_pct_auxiliary: 4.7
-- distance_to_high_60_pct: -9.33
+- low: 168
+- close: 168.5
+- volume: 3931089
+- ma5: 168
+- ema23_primary: 164.01
+- distance_to_ema23_pct: 2.74
+- ma20: 163.15
+- ma60: 156.32
+- ma120: 157.74
+- return_5d: 0.3
+- return_20d: 10.13
+- volume_ratio: 0.27
+- distance_to_ma20_pct_auxiliary: 3.28
+- distance_to_high_60_pct: -10.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,156.5,157,153,153,4842134,153.97,-0.63,153.65,155.93,0.73
 20260515,154,155.5,150,150,6052430,153.64,-2.37,153.4,155.68,0.91
 20260518,149,149,146.5,148.5,3926981,153.21,-3.07,153.18,155.52,0.6
 20260519,149,152,149,150,4396655,152.94,-1.92,153,155.3,0.68
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,164,167,160.5,164,6775296,162.66,0.82,161.15,155.79,0.47
 20260612,169.5,170,167,167,6604951,163.02,2.44,161.65,155.95,0.46
 20260615,170,171.5,169.5,170,6263080,163.6,3.91,162.38,156.15,0.43
+20260616,171.5,171.5,168,168.5,3931089,164.01,2.74,163.15,156.32,0.27
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 1513 | 中興電 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260616 | 1513 | 中興電 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 1513 | 中興電 | 14 | 4 | 5 | 10 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260616 | 1513 | 中興電 | 15 | 5 | 5 | 10 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 1513 | 中興電 | 96 | 2 | 8906420.0 | 0.0 |  | no_signal |
+| 20260616 | 1513 | 中興電 | 95 | 2 | 5332390.0 | 31020.0 | 171.9 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

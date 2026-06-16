@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2801 彰銀
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:02 Asia/Taipei
+- generated_at: 2026-06-16 22:23:02 Asia/Taipei
 - stock_id: 2801
 - stock_name: 彰銀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 22.95
-- high: 23.05
-- low: 22.5
-- close: 22.65
-- volume: 31499249
-- ma5: 21.93
-- ema23_primary: 21.06
-- distance_to_ema23_pct: 7.54
-- ma20: 20.75
-- ma60: 20.85
-- ma120: 20.74
-- return_5d: 7.35
-- return_20d: 10.49
-- volume_ratio: 1.04
-- distance_to_ma20_pct_auxiliary: 9.18
-- distance_to_high_60_pct: -1.74
+- date: 20260616
+- open: 22.75
+- high: 22.9
+- low: 22.6
+- close: 22.8
+- volume: 21365037
+- ma5: 22.37
+- ema23_primary: 21.21
+- distance_to_ema23_pct: 7.51
+- ma20: 20.86
+- ma60: 20.89
+- ma120: 20.76
+- return_5d: 10.68
+- return_20d: 11.76
+- volume_ratio: 0.71
+- distance_to_ma20_pct_auxiliary: 9.27
+- distance_to_high_60_pct: -1.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,20.5,20.6,20.4,20.4,25145424,20.89,-2.36,21.05,20.89,1.34
 20260515,20.45,20.55,20.25,20.25,32153792,20.84,-2.83,21,20.88,1.66
 20260518,20.25,20.3,20.15,20.2,16583977,20.79,-2.82,20.93,20.88,0.86
 20260519,20.3,20.65,20.2,20.5,20855453,20.76,-1.26,20.87,20.88,1.07
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,22.3,22.4,21.95,22.35,42757660,20.77,7.63,20.54,20.79,1.44
 20260612,22.5,22.95,22.45,22.6,39882208,20.92,8.04,20.64,20.82,1.33
 20260615,22.95,23.05,22.5,22.65,31499249,21.06,7.54,20.75,20.85,1.04
+20260616,22.75,22.9,22.6,22.8,21365037,21.21,7.51,20.86,20.89,0.71
 ```
 
 ## Latest TDCC Snapshot
@@ -185,12 +185,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2801 | 彰銀 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | calendar event: shareholder_meeting on 20260618; status=confirmed; proximity=within_3d |
+| 20260616 | 2801 | 彰銀 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | calendar event: shareholder_meeting on 20260618; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2801 | 彰銀 | 1 | 1 | 4 | 6 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260616 | 2801 | 彰銀 | 2 | 2 | 4 | 7 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

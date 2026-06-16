@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5876 上海商銀
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:36 Asia/Taipei
+- generated_at: 2026-06-16 22:23:46 Asia/Taipei
 - stock_id: 5876
 - stock_name: 上海商銀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 29
 - tdcc_history_status: tdcc_history_ready
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 43
-- high: 43.5
-- low: 42.6
-- close: 42.9
-- volume: 13110369
-- ma5: 41.83
-- ema23_primary: 40.57
-- distance_to_ema23_pct: 5.74
-- ma20: 40.44
-- ma60: 39.75
-- ma120: 39.83
-- return_5d: 5.15
-- return_20d: 6.45
-- volume_ratio: 0.98
-- distance_to_ma20_pct_auxiliary: 6.08
-- distance_to_high_60_pct: -1.38
+- date: 20260616
+- open: 43.3
+- high: 43.3
+- low: 42.5
+- close: 42.6
+- volume: 13335576
+- ma5: 42.15
+- ema23_primary: 40.74
+- distance_to_ema23_pct: 4.56
+- ma20: 40.56
+- ma60: 39.8
+- ma120: 39.86
+- return_5d: 3.9
+- return_20d: 5.71
+- volume_ratio: 0.97
+- distance_to_ma20_pct_auxiliary: 5.04
+- distance_to_high_60_pct: -2.07
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,40.05,40.5,40.05,40.3,7744189,39.47,2.12,39.44,39.48,0.82
 20260515,40.3,40.6,40.1,40.1,9773529,39.52,1.47,39.46,39.48,1.02
 20260518,40.1,40.4,39.8,39.8,8184011,39.54,0.65,39.46,39.48,0.84
 20260519,40.15,41,39.95,40.55,16463326,39.63,2.33,39.49,39.48,1.63
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,42,42,41.45,42,13647899,40.17,4.57,40.19,39.63,1
 20260612,42.3,42.75,42.15,42.5,8383490,40.36,5.3,40.31,39.69,0.63
 20260615,43,43.5,42.6,42.9,13110369,40.57,5.74,40.44,39.75,0.98
+20260616,43.3,43.3,42.5,42.6,13335576,40.74,4.56,40.56,39.8,0.97
 ```
 
 ## Latest TDCC Snapshot
@@ -190,12 +191,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 5876 | 上海商銀 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_many_days | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260616 | 5876 | 上海商銀 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 5876 | 上海商銀 | 6 | 6 | 5 | 7 | 8 | continued_many_days | 連續 6 日上榜，需區分醞釀延續或訊號鈍化。 |
+| 20260616 | 5876 | 上海商銀 | 7 | 7 | 5 | 8 | 9 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 9 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00702 國泰標普低波高息
 
 ## Metadata
-- generated_at: 2026-06-15 22:22:34 Asia/Taipei
+- generated_at: 2026-06-16 22:22:26 Asia/Taipei
 - stock_id: 00702
 - stock_name: 國泰標普低波高息
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260615
-- price_rows: 14
+- latest_price_date: 20260616
+- price_rows: 15
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
+- date: 20260616
 - open: 24.6
-- high: 24.7
-- low: 24.6
-- close: 24.7
-- volume: 7246
-- ma5: 24.2
-- ema23_primary: 24.06
-- distance_to_ema23_pct: 2.64
-- ma20: 24.03
-- ma60: 24.03
-- ma120: 24.03
-- return_5d: 4.35
+- high: 24.6
+- low: 24.5
+- close: 24.53
+- volume: 120048
+- ma5: 24.37
+- ema23_primary: 24.1
+- distance_to_ema23_pct: 1.77
+- ma20: 24.07
+- ma60: 24.07
+- ma120: 24.07
+- return_5d: 3.68
 - return_20d:
-- volume_ratio: 0.06
-- distance_to_ma20_pct_auxiliary: 2.78
-- distance_to_high_60_pct: 0
+- volume_ratio: 0.96
+- distance_to_ma20_pct_auxiliary: 1.93
+- distance_to_high_60_pct: -0.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -149,6 +149,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,24.2,24.4,24.2,24.4,304672,23.96,1.83,23.94,23.94,2.38
 20260612,24.43,24.6,24.43,24.51,201006,24.01,2.1,23.98,23.98,1.5
 20260615,24.6,24.7,24.6,24.7,7246,24.06,2.64,24.03,24.03,0.06
+20260616,24.6,24.6,24.5,24.53,120048,24.1,1.77,24.07,24.07,0.96
 ```
 
 ## Latest TDCC Snapshot

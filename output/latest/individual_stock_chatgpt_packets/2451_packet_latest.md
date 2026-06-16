@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2451 創見
 
 ## Metadata
-- generated_at: 2026-06-15 22:22:56 Asia/Taipei
+- generated_at: 2026-06-16 22:22:54 Asia/Taipei
 - stock_id: 2451
 - stock_name: 創見
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 310.5
-- high: 316
-- low: 309
-- close: 310
-- volume: 3908901
-- ma5: 318.5
-- ema23_primary: 318.87
-- distance_to_ema23_pct: -2.78
-- ma20: 326.75
-- ma60: 286.26
-- ma120: 251.2
-- return_5d: -13.41
-- return_20d: -5.2
-- volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: -5.13
-- distance_to_high_60_pct: -18.21
+- date: 20260616
+- open: 318
+- high: 320
+- low: 310.5
+- close: 312.5
+- volume: 4016154
+- ma5: 308.3
+- ema23_primary: 318.34
+- distance_to_ema23_pct: -1.83
+- ma20: 325.15
+- ma60: 287.14
+- ma120: 252.3
+- return_5d: -14.03
+- return_20d: -9.29
+- volume_ratio: 0.53
+- distance_to_ma20_pct_auxiliary: -3.89
+- distance_to_high_60_pct: -17.55
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,335.5,351.5,333.5,344.5,10911951,288.97,19.22,282.93,252.09,0.88
 20260515,347,347.5,330,336,7599013,292.89,14.72,287.38,254.04,0.61
 20260518,328,331.5,320,328.5,5276757,295.86,11.03,291.48,255.83,0.42
 20260519,325,325,305,306.5,7174232,296.75,3.29,294.27,257.22,0.57
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,290,297.5,280.5,292,8516217,320.96,-9.02,329.88,283.69,0.97
 20260612,308,311,303,305.5,5021635,319.67,-4.43,327.6,285.02,0.61
 20260615,310.5,316,309,310,3908901,318.87,-2.78,326.75,286.26,0.49
+20260616,318,320,310.5,312.5,4016154,318.34,-1.83,325.15,287.14,0.53
 ```
 
 ## Latest TDCC Snapshot
@@ -186,18 +186,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2451 | 創見 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | put_inflow | stale_signal | calendar event: ex_dividend on 20260625; status=confirmed; proximity=within_14d |
-| 20260615 | 2451 | 創見 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | put_inflow | stale_signal | calendar event: ex_dividend on 20260625; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260616 | 2451 | 創見 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: ex_dividend on 20260625; status=confirmed; proximity=within_14d |
+| 20260616 | 2451 | 創見 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | no_signal | stale_signal | calendar event: ex_dividend on 20260625; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2451 | 創見 | 14 | 5 | 5 | 10 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260616 | 2451 | 創見 | 15 | 6 | 5 | 10 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2451 | 創見 | 118 | 6 | 8311260.0 | 1852960.0 | 4.49 | put_inflow |
+| 20260616 | 2451 | 創見 | 118 | 6 | 10917090.0 | 157500.0 | 69.31 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

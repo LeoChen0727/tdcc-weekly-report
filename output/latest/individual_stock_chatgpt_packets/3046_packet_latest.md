@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3046 建碁
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:07 Asia/Taipei
+- generated_at: 2026-06-16 22:23:08 Asia/Taipei
 - stock_id: 3046
 - stock_name: 建碁
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 57
+- date: 20260616
+- open: 57.8
 - high: 58
-- low: 57
-- close: 57.6
-- volume: 240232
-- ma5: 58.44
-- ema23_primary: 55.81
-- distance_to_ema23_pct: 3.2
-- ma20: 55.76
-- ma60: 50.83
-- ma120: 51.04
-- return_5d: -7.69
-- return_20d: 11.84
-- volume_ratio: 0.23
-- distance_to_ma20_pct_auxiliary: 3.31
-- distance_to_high_60_pct: -10
+- low: 56.6
+- close: 57
+- volume: 299792
+- ma5: 57.42
+- ema23_primary: 55.91
+- distance_to_ema23_pct: 1.94
+- ma20: 56.04
+- ma60: 50.99
+- ma120: 51.1
+- return_5d: -8.21
+- return_20d: 11.11
+- volume_ratio: 0.29
+- distance_to_ma20_pct_auxiliary: 1.71
+- distance_to_high_60_pct: -10.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,52.4,52.7,51.2,51.3,226323,49.57,3.5,49.38,48.39,0.88
 20260515,52,52.4,50.6,50.6,294119,49.65,1.91,49.46,48.35,1.14
 20260518,50.6,51,50,51,231648,49.76,2.48,49.56,48.35,0.88
 20260519,51.4,51.8,50.1,50.4,209014,49.82,1.17,49.64,48.36,0.78
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,55,56.9,54.4,55.6,458272,55.57,0.06,55.22,50.51,0.44
 20260612,57.1,57.4,56.6,56.6,310930,55.65,1.7,55.45,50.66,0.3
 20260615,57,58,57,57.6,240232,55.81,3.2,55.76,50.83,0.23
+20260616,57.8,58,56.6,57,299792,55.91,1.94,56.04,50.99,0.29
 ```
 
 ## Latest TDCC Snapshot

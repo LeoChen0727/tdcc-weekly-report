@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4722 國精化
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:26 Asia/Taipei
+- generated_at: 2026-06-16 22:23:33 Asia/Taipei
 - stock_id: 4722
 - stock_name: 國精化
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 237.5
-- high: 249
-- low: 236.5
-- close: 240.5
-- volume: 2474075
-- ma5: 245.8
-- ema23_primary: 250.31
-- distance_to_ema23_pct: -3.92
-- ma20: 263.27
-- ma60: 212.22
-- ma120: 192.15
-- return_5d: -13.49
-- return_20d: -3.02
-- volume_ratio: 0.92
-- distance_to_ma20_pct_auxiliary: -8.65
-- distance_to_high_60_pct: -18.47
+- date: 20260616
+- open: 247
+- high: 251
+- low: 237.5
+- close: 240
+- volume: 2930711
+- ma5: 238
+- ema23_primary: 249.45
+- distance_to_ema23_pct: -3.79
+- ma20: 262.38
+- ma60: 212.97
+- ma120: 192.85
+- return_5d: -13.98
+- return_20d: -6.98
+- volume_ratio: 1.12
+- distance_to_ma20_pct_auxiliary: -8.53
+- distance_to_high_60_pct: -18.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,255,265,248,258,4616442,207.96,24.06,203.38,185.72,1.02
 20260515,260,273,258.5,264.5,6201588,212.67,24.37,207.75,187.54,1.3
 20260518,261,270,241,255.5,5761837,216.24,18.15,211.53,189.12,1.16
 20260519,253.5,262,240,244.5,4076008,218.6,11.85,213.85,190.45,0.82
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,217,217,198.5,206,2970030,253.45,-18.72,265.25,210.48,0.88
 20260612,217,226.5,210.5,226.5,1708412,251.2,-9.83,263.65,211.31,0.55
 20260615,237.5,249,236.5,240.5,2474075,250.31,-3.92,263.27,212.22,0.92
+20260616,247,251,237.5,240,2930711,249.45,-3.79,262.38,212.97,1.12
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 4722 | 國精化 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | call_put_bullish | first_seen | calendar event: ex_dividend on 20260630; status=confirmed; proximity=within_30d |
+| 20260616 | 4722 | 國精化 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | call_inflow | continued_2_3d | calendar event: ex_dividend on 20260630; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 4722 | 國精化 | 1 | 1 | 1 | 1 | 2 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260616 | 4722 | 國精化 | 2 | 2 | 2 | 2 | 3 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 4722 | 國精化 | 53 | 2 | 10262460.0 | 280010.0 | 36.65 | call_put_bullish |
+| 20260616 | 4722 | 國精化 | 53 | 2 | 6176800.0 | 191020.0 | 32.34 | call_inflow |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

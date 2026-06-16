@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2383 台光電
 
 ## Metadata
-- generated_at: 2026-06-15 22:22:53 Asia/Taipei
+- generated_at: 2026-06-16 22:22:51 Asia/Taipei
 - stock_id: 2383
 - stock_name: 台光電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 5000
-- high: 5080
-- low: 4935
-- close: 5030
-- volume: 2220308
-- ma5: 4940
-- ema23_primary: 4842.55
-- distance_to_ema23_pct: 3.87
-- ma20: 4922
-- ma60: 4096
-- ma120: 2973.46
-- return_5d: 4.14
-- return_20d: 2.03
-- volume_ratio: 0.86
-- distance_to_ma20_pct_auxiliary: 2.19
-- distance_to_high_60_pct: -10.74
+- date: 20260616
+- open: 5120
+- high: 5220
+- low: 5065
+- close: 5120
+- volume: 2171931
+- ma5: 4992
+- ema23_primary: 4865.67
+- distance_to_ema23_pct: 5.23
+- ma20: 4932
+- ma60: 4138.25
+- ma120: 3003.75
+- return_5d: 5.35
+- return_20d: 4.07
+- volume_ratio: 0.84
+- distance_to_ma20_pct_auxiliary: 3.81
+- distance_to_high_60_pct: -9.14
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,5095,5215,4920,4920,2342222,4369.23,12.61,4495.5,3262.67,0.72
 20260515,4960,5020,4615,4615,2616036,4389.71,5.13,4534.5,3307.08,0.81
 20260518,4415,4575,4300,4545,3423889,4402.65,3.23,4571.75,3350.75,1.05
 20260519,4515,4675,4430,4535,1920778,4413.68,2.75,4606,3391.67,0.6
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,4995,5130,4800,5095,2793147,4825.11,5.59,4920.5,4020.08,1.12
 20260612,5500,5500,4750,4830,4224358,4825.51,0.09,4917,4057.25,1.64
 20260615,5000,5080,4935,5030,2220308,4842.55,3.87,4922,4096,0.86
+20260616,5120,5220,5065,5120,2171931,4865.67,5.23,4932,4138.25,0.84
 ```
 
 ## Latest TDCC Snapshot
@@ -186,18 +186,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2383 | 台光電 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
-| 20260615 | 2383 | 台光電 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260616 | 2383 | 台光電 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260616 | 2383 | 台光電 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2383 | 台光電 | 14 | 5 | 5 | 10 | 14 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 14 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260616 | 2383 | 台光電 | 15 | 6 | 5 | 10 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2383 | 台光電 | 116 | 15 | 3779630.0 | 34150.0 | 110.68 | no_signal |
+| 20260616 | 2383 | 台光電 | 116 | 15 | 5001990.0 | 38150.0 | 131.11 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

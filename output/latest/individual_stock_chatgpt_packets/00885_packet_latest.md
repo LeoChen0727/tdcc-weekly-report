@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00885 富邦越南
 
 ## Metadata
-- generated_at: 2026-06-15 22:22:34 Asia/Taipei
+- generated_at: 2026-06-16 22:22:27 Asia/Taipei
 - stock_id: 00885
 - stock_name: 富邦越南
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260615
-- price_rows: 14
+- latest_price_date: 20260616
+- price_rows: 15
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 18.48
-- high: 18.48
-- low: 18.15
-- close: 18.27
-- volume: 3889047
-- ma5: 18.41
-- ema23_primary: 18.67
-- distance_to_ema23_pct: -2.17
-- ma20: 18.64
-- ma60: 18.64
-- ma120: 18.64
-- return_5d: -0.16
+- date: 20260616
+- open: 18.32
+- high: 18.42
+- low: 18.32
+- close: 18.36
+- volume: 2591429
+- ma5: 18.37
+- ema23_primary: 18.65
+- distance_to_ema23_pct: -1.55
+- ma20: 18.62
+- ma60: 18.62
+- ma120: 18.62
+- return_5d: -0.97
 - return_20d:
-- volume_ratio: 1.05
-- distance_to_ma20_pct_auxiliary: -1.96
-- distance_to_high_60_pct: -5.24
+- volume_ratio: 0.71
+- distance_to_ma20_pct_auxiliary: -1.38
+- distance_to_high_60_pct: -4.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -149,6 +149,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,18.28,18.34,18.21,18.28,2190680,18.75,-2.49,18.69,18.69,0.58
 20260612,18.4,18.45,18.3,18.31,2304792,18.71,-2.14,18.66,18.66,0.62
 20260615,18.48,18.48,18.15,18.27,3889047,18.67,-2.17,18.64,18.64,1.05
+20260616,18.32,18.42,18.32,18.36,2591429,18.65,-1.55,18.62,18.62,0.71
 ```
 
 ## Latest TDCC Snapshot

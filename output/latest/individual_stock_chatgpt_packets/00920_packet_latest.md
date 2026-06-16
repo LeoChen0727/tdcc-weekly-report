@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00920 富邦ESG綠色電力
 
 ## Metadata
-- generated_at: 2026-06-15 22:22:35 Asia/Taipei
+- generated_at: 2026-06-16 22:22:27 Asia/Taipei
 - stock_id: 00920
 - stock_name: 富邦ESG綠色電力
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260615
-- price_rows: 14
+- latest_price_date: 20260616
+- price_rows: 15
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 26.03
-- high: 26.45
-- low: 26.03
-- close: 26.42
-- volume: 319440
-- ma5: 26.2
-- ema23_primary: 26.7
-- distance_to_ema23_pct: -1.04
-- ma20: 26.9
-- ma60: 26.9
-- ma120: 26.9
-- return_5d: -4.14
+- date: 20260616
+- open: 26.43
+- high: 26.43
+- low: 26.37
+- close: 26.37
+- volume: 168365
+- ma5: 26.1
+- ema23_primary: 26.67
+- distance_to_ema23_pct: -1.12
+- ma20: 26.86
+- ma60: 26.86
+- ma120: 26.86
+- return_5d: -1.93
 - return_20d:
-- volume_ratio: 0.61
-- distance_to_ma20_pct_auxiliary: -1.78
-- distance_to_high_60_pct: -5.34
+- volume_ratio: 0.34
+- distance_to_ma20_pct_auxiliary: -1.84
+- distance_to_high_60_pct: -5.52
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -149,6 +149,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,25.05,25.09,24.76,25.05,341610,26.81,-6.56,27.03,27.03,0.6
 20260612,25.62,25.8,25.62,25.76,162456,26.72,-3.6,26.94,26.94,0.3
 20260615,26.03,26.45,26.03,26.42,319440,26.7,-1.04,26.9,26.9,0.61
+20260616,26.43,26.43,26.37,26.37,168365,26.67,-1.12,26.86,26.86,0.34
 ```
 
 ## Latest TDCC Snapshot

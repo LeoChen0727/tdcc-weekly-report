@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3673 TPK-KY
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:18 Asia/Taipei
+- generated_at: 2026-06-16 22:23:23 Asia/Taipei
 - stock_id: 3673
 - stock_name: TPK-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 82
-- high: 83.5
-- low: 78.8
-- close: 79.5
-- volume: 12910194
-- ma5: 83.2
-- ema23_primary: 78.69
-- distance_to_ema23_pct: 1.02
-- ma20: 80.47
-- ma60: 63.44
-- ma120: 52.23
-- return_5d: -15.43
-- return_20d: 19.37
-- volume_ratio: 0.34
-- distance_to_ma20_pct_auxiliary: -1.21
-- distance_to_high_60_pct: -19.62
+- date: 20260616
+- open: 80.5
+- high: 81.5
+- low: 78.5
+- close: 78.8
+- volume: 13953797
+- ma5: 80.56
+- ema23_primary: 78.7
+- distance_to_ema23_pct: 0.12
+- ma20: 81.2
+- ma60: 64.11
+- ma120: 52.52
+- return_5d: -14.35
+- return_20d: 22.55
+- volume_ratio: 0.39
+- distance_to_ma20_pct_auxiliary: -2.96
+- distance_to_high_60_pct: -20.32
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,69,69.1,64.2,64.3,47856504,59.96,7.24,63.12,50.26,2.54
 20260515,64.1,65.3,62,64.7,20845321,60.35,7.2,62.94,50.7,1.19
 20260518,64.7,70.9,63.7,68.6,34041705,61.04,12.38,62.76,51.22,1.99
 20260519,67.8,75.4,67.5,75.4,31020207,62.24,21.15,62.97,51.83,1.81
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,80.6,82.3,78.4,78.7,16843506,78.51,0.24,78.87,62.09,0.44
 20260612,81.6,83.4,79.5,79.8,11378485,78.62,1.5,79.83,62.76,0.3
 20260615,82,83.5,78.8,79.5,12910194,78.69,1.02,80.47,63.44,0.34
+20260616,80.5,81.5,78.5,78.8,13953797,78.7,0.12,81.2,64.11,0.39
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 3673 | TPK-KY | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | call_strong_inflow | stale_signal | calendar event: shareholder_meeting on 20260626; status=confirmed; proximity=within_14d |
+| 20260616 | 3673 | TPK-KY | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: shareholder_meeting on 20260626; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 3673 | TPK-KY | 2 | 2 | 2 | 6 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260616 | 3673 | TPK-KY | 3 | 3 | 3 | 6 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 3673 | TPK-KY | 58 | 0 | 9038450.0 | 0.0 |  | call_strong_inflow |
+| 20260616 | 3673 | TPK-KY | 58 | 0 | 11266080.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

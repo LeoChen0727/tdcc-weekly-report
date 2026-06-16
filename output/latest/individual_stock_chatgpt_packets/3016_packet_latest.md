@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3016 嘉晶
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:05 Asia/Taipei
+- generated_at: 2026-06-16 22:23:06 Asia/Taipei
 - stock_id: 3016
 - stock_name: 嘉晶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 122
-- high: 125
-- low: 118.5
-- close: 125
-- volume: 10244720
-- ma5: 113.9
-- ema23_primary: 114.11
-- distance_to_ema23_pct: 9.54
-- ma20: 118.8
-- ma60: 88.59
-- ma120: 73.15
-- return_5d: 8.23
-- return_20d: 3.31
-- volume_ratio: 1.34
-- distance_to_ma20_pct_auxiliary: 5.22
-- distance_to_high_60_pct: -15.25
+- date: 20260616
+- open: 125.5
+- high: 134.5
+- low: 119
+- close: 119.5
+- volume: 29035493
+- ma5: 114.1
+- ema23_primary: 114.56
+- distance_to_ema23_pct: 4.31
+- ma20: 118.62
+- ma60: 89.54
+- ma120: 73.72
+- return_5d: 0.84
+- return_20d: -2.85
+- volume_ratio: 3.21
+- distance_to_ma20_pct_auxiliary: 0.74
+- distance_to_high_60_pct: -18.98
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,124.5,125,120,123,1173736,94.95,29.54,91.95,69.36,0.18
 20260515,128,128,111,111,1762451,96.29,15.28,94.38,70.26,0.27
 20260518,107,111,104,111,1370972,97.52,13.83,96.77,71.18,0.21
 20260519,111.5,111.5,102.5,102.5,1159279,97.93,4.66,98.6,71.93,0.19
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,101,106,98.3,104,5035912,113.04,-8,118.97,86.6,0.71
 20260612,114,114,110.5,114,4297699,113.12,0.78,118.6,87.5,0.59
 20260615,122,125,118.5,125,10244720,114.11,9.54,118.8,88.59,1.34
+20260616,125.5,134.5,119,119.5,29035493,114.56,4.31,118.62,89.54,3.21
 ```
 
 ## Latest TDCC Snapshot
@@ -185,18 +186,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 3016 | 嘉晶 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | repeated_but_no_breakout | calendar event: ex_dividend on 20260629; status=confirmed; proximity=within_14d |
-| 20260615 | 3016 | 嘉晶 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | call_inflow | repeated_but_no_breakout | calendar event: ex_dividend on 20260629; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260616 | 3016 | 嘉晶 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | repeated_but_no_breakout | calendar event: ex_dividend on 20260629; status=confirmed; proximity=within_14d |
+| 20260616 | 3016 | 嘉晶 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: ex_dividend on 20260629; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 3016 | 嘉晶 | 12 | 5 | 5 | 10 | 12 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 12 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260616 | 3016 | 嘉晶 | 13 | 6 | 5 | 10 | 13 | repeated_but_no_breakout | 近 10 日上榜 10 次、近 20 日上榜 13 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 3016 | 嘉晶 | 42 | 3 | 6445420.0 | 91270.0 | 70.62 | call_inflow |
+| 20260616 | 3016 | 嘉晶 | 42 | 3 | 7238300.0 | 113460.0 | 63.8 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

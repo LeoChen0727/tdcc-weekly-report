@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5386 青雲
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:33 Asia/Taipei
+- generated_at: 2026-06-16 22:23:41 Asia/Taipei
 - stock_id: 5386
 - stock_name: 青雲
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 499.5
-- high: 508
-- low: 490.5
-- close: 494.5
-- volume: 499000
-- ma5: 504.2
-- ema23_primary: 496.73
-- distance_to_ema23_pct: -0.45
-- ma20: 508.15
-- ma60: 412.72
-- ma120: 269.17
-- return_5d: -9.6
-- return_20d: 19.16
-- volume_ratio: 1.16
-- distance_to_ma20_pct_auxiliary: -2.69
-- distance_to_high_60_pct: -21.26
+- date: 20260616
+- open: 501
+- high: 505
+- low: 487.5
+- close: 499
+- volume: 496000
+- ma5: 494.6
+- ema23_primary: 496.92
+- distance_to_ema23_pct: 0.42
+- ma20: 511.57
+- ma60: 415.28
+- ma120: 272.68
+- return_5d: -8.78
+- return_20d: 15.91
+- volume_ratio: 1.14
+- distance_to_ma20_pct_auxiliary: -2.46
+- distance_to_high_60_pct: -20.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,420,431,420,430.5,418000,400,7.63,400.3,318.86,0.15
 20260515,446.5,446.5,415,415,408000,401.25,3.43,403.3,323.92,0.16
 20260518,401,449.5,401,445,349000,404.89,9.91,407.95,329.29,0.14
 20260519,436,445,419,420,265000,406.15,3.41,412.32,334.05,0.11
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,480.5,504,466.5,483,486000,497.97,-3.01,502.3,406.41,1.12
 20260612,510,516,483,485.5,501000,496.93,-2.3,504.18,409.71,1.16
 20260615,499.5,508,490.5,494.5,499000,496.73,-0.45,508.15,412.72,1.16
+20260616,501,505,487.5,499,496000,496.92,0.42,511.57,415.28,1.14
 ```
 
 ## Latest TDCC Snapshot

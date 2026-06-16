@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2924 宏太-KY
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:04 Asia/Taipei
+- generated_at: 2026-06-16 22:23:05 Asia/Taipei
 - stock_id: 2924
 - stock_name: 宏太-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 224
+- latest_price_date: 20260616
+- price_rows: 225
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 16.75
+- date: 20260616
+- open: 17.35
 - high: 17.35
-- low: 16.75
+- low: 17.35
 - close: 17.35
 - volume: 17000
-- ma5: 17.53
-- ema23_primary: 17.11
-- distance_to_ema23_pct: 1.43
-- ma20: 16.34
-- ma60: 18.29
-- ma120: 18.41
+- ma5: 17.86
+- ema23_primary: 17.13
+- distance_to_ema23_pct: 1.31
+- ma20: 16.36
+- ma60: 18.26
+- ma120: 18.42
 - return_5d: 10.51
-- return_20d: 0.58
-- volume_ratio: 1.49
-- distance_to_ma20_pct_auxiliary: 6.18
+- return_20d: 2.06
+- volume_ratio: 1.39
+- distance_to_ma20_pct_auxiliary: 6.07
 - distance_to_high_60_pct: -22.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260513,17,17,17,17,1000,19.34,-12.1,19.24,19.59,0.27
 20260514,16.7,16.7,16.7,16.7,3000,19.12,-12.66,19.07,19.5,0.8
 20260518,16.55,16.7,16.5,16.5,8000,18.9,-12.71,18.89,19.41,1.98
 20260519,16,16,16,16,2000,18.66,-14.26,18.69,19.31,0.56
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,17.35,17.9,17.35,17.7,18000,17,4.09,16.52,18.35,1.84
 20260612,16.65,17.95,16.65,17.95,17000,17.08,5.07,16.34,18.33,1.6
 20260615,16.75,17.35,16.75,17.35,17000,17.11,1.43,16.34,18.29,1.49
+20260616,17.35,17.35,17.35,17.35,17000,17.13,1.31,16.36,18.26,1.39
 ```
 
 ## Latest TDCC Snapshot

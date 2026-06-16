@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6414 樺漢
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:44 Asia/Taipei
+- generated_at: 2026-06-16 22:23:56 Asia/Taipei
 - stock_id: 6414
 - stock_name: 樺漢
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 382.5
-- high: 389
-- low: 378.5
-- close: 381.5
-- volume: 2657589
-- ma5: 383.8
-- ema23_primary: 361.8
-- distance_to_ema23_pct: 5.44
-- ma20: 360.38
-- ma60: 320.56
-- ma120: 303.62
-- return_5d: -0.91
-- return_20d: 9.78
-- volume_ratio: 1.22
-- distance_to_ma20_pct_auxiliary: 5.86
-- distance_to_high_60_pct: -6.72
+- date: 20260616
+- open: 368.5
+- high: 376
+- low: 360
+- close: 367
+- volume: 2815669
+- ma5: 380.6
+- ema23_primary: 362.24
+- distance_to_ema23_pct: 1.31
+- ma20: 360.98
+- ma60: 322.1
+- ma120: 304.26
+- return_5d: -4.18
+- return_20d: 3.38
+- volume_ratio: 1.26
+- distance_to_ma20_pct_auxiliary: 1.67
+- distance_to_high_60_pct: -10.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,350.5,357.5,350.5,355,1458131,328.22,8.16,329.93,293.98,0.78
 20260515,345,345,319.5,319.5,4739462,327.5,-2.44,330.9,294.6,2.33
 20260518,318,321,310.5,321,2509786,326.95,-1.82,331.75,295.27,1.21
 20260519,321,338.5,320.5,328,3084352,327.04,0.29,332.65,296.01,1.47
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,391,400.5,385,395,2039301,358.6,10.15,358,317.11,0.97
 20260612,409,409,375.5,375.5,2474722,360.01,4.3,358.68,318.8,1.16
 20260615,382.5,389,378.5,381.5,2657589,361.8,5.44,360.38,320.56,1.22
+20260616,368.5,376,360,367,2815669,362.24,1.31,360.98,322.1,1.26
 ```
 
 ## Latest TDCC Snapshot
@@ -185,18 +186,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 6414 | 樺漢 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | continued_2_3d | calendar event: ex_dividend on 20260616; status=confirmed; proximity=within_3d |
-| 20260615 | 6414 | 樺漢 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | continued_2_3d | calendar event: ex_dividend on 20260616; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260616 | 6414 | 樺漢 | pattern | 型態觀察 | 51.0 |  |  | early_entry_watch |  | no_signal | continued_2_3d | calendar event: ex_dividend on 20260616; status=confirmed; proximity=within_3d |
+| 20260616 | 6414 | 樺漢 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | continued_2_3d | calendar event: ex_dividend on 20260616; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 6414 | 樺漢 | 2 | 2 | 4 | 9 | 13 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260616 | 6414 | 樺漢 | 3 | 3 | 4 | 9 | 14 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 6414 | 樺漢 | 31 | 0 | 4092470.0 | 0.0 |  | no_signal |
+| 20260616 | 6414 | 樺漢 | 32 | 0 | 2951250.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

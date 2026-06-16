@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6753 龍德造船
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:52 Asia/Taipei
+- generated_at: 2026-06-16 22:24:06 Asia/Taipei
 - stock_id: 6753
 - stock_name: 龍德造船
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
+- date: 20260616
 - open: 122
 - high: 122
-- low: 119.5
-- close: 121.5
-- volume: 314552
-- ma5: 121.9
-- ema23_primary: 126.46
-- distance_to_ema23_pct: -3.92
-- ma20: 125.08
-- ma60: 131.33
-- ma120: 135.11
-- return_5d: -3.19
-- return_20d: -6.54
-- volume_ratio: 0.32
-- distance_to_ma20_pct_auxiliary: -2.86
-- distance_to_high_60_pct: -19.54
+- low: 118.5
+- close: 119
+- volume: 498562
+- ma5: 120.6
+- ema23_primary: 125.83
+- distance_to_ema23_pct: -5.43
+- ma20: 124.62
+- ma60: 131.05
+- ma120: 135.08
+- return_5d: -5.18
+- return_20d: -7.03
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: -4.51
+- distance_to_high_60_pct: -21.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,130,131,128,128,999033,136.21,-6.03,138.88,136.57,0.62
 20260515,130,132.5,128.5,129,864435,135.61,-4.87,138.28,136.45,0.57
 20260518,127,129.5,126,126,1136908,134.81,-6.53,137.65,136.28,0.76
 20260519,127,127,124,124,755390,133.91,-7.4,136.65,136.03,0.54
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,120,123,118,119.5,494980,127.53,-6.3,126.15,131.8,0.46
 20260612,122.5,122.5,120,120,271346,126.91,-5.44,125.5,131.57,0.26
 20260615,122,122,119.5,121.5,314552,126.46,-3.92,125.08,131.33,0.32
+20260616,122,122,118.5,119,498562,125.83,-5.43,124.62,131.05,0.51
 ```
 
 ## Latest TDCC Snapshot
@@ -196,7 +196,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 6753 | 龍德造船 | 63 | 3 | 268630.0 | 0.0 |  | no_signal |
+| 20260616 | 6753 | 龍德造船 | 63 | 3 | 101260.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

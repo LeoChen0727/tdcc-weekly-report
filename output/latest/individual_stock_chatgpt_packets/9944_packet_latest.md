@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9944 新麗
 
 ## Metadata
-- generated_at: 2026-06-15 22:24:17 Asia/Taipei
+- generated_at: 2026-06-16 22:24:39 Asia/Taipei
 - stock_id: 9944
 - stock_name: 新麗
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 17.15
-- high: 17.55
-- low: 17.15
-- close: 17.4
-- volume: 70361
-- ma5: 17.16
-- ema23_primary: 16.98
-- distance_to_ema23_pct: 2.48
-- ma20: 17.02
-- ma60: 16.66
+- date: 20260616
+- open: 17.4
+- high: 17.8
+- low: 17.35
+- close: 17.6
+- volume: 109326
+- ma5: 17.31
+- ema23_primary: 17.03
+- distance_to_ema23_pct: 3.34
+- ma20: 17.05
+- ma60: 16.68
 - ma120: 16.74
-- return_5d: 2.96
-- return_20d: 2.05
-- volume_ratio: 0.57
-- distance_to_ma20_pct_auxiliary: 2.22
-- distance_to_high_60_pct: -0.85
+- return_5d: 4.45
+- return_20d: 2.92
+- volume_ratio: 0.9
+- distance_to_ma20_pct_auxiliary: 3.24
+- distance_to_high_60_pct: -1.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,17.2,17.2,17,17.1,180716,16.64,2.75,16.61,16.55,2.05
 20260515,17.15,17.15,16.95,17,228768,16.67,1.96,16.62,16.55,2.36
 20260518,17,17.05,16.95,17,177824,16.7,1.8,16.64,16.56,1.72
 20260519,17.1,17.25,16.9,16.9,180112,16.72,1.1,16.65,16.56,1.64
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,17.15,17.2,17,17.2,30939,16.9,1.78,16.99,16.63,0.22
 20260612,17.2,17.4,17.15,17.4,32517,16.94,2.71,17,16.65,0.25
 20260615,17.15,17.55,17.15,17.4,70361,16.98,2.48,17.02,16.66,0.57
+20260616,17.4,17.8,17.35,17.6,109326,17.03,3.34,17.05,16.68,0.9
 ```
 
 ## Latest TDCC Snapshot

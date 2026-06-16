@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2838 聯邦銀
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:02 Asia/Taipei
+- generated_at: 2026-06-16 22:23:03 Asia/Taipei
 - stock_id: 2838
 - stock_name: 聯邦銀
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 22
-- high: 22.1
-- low: 21.75
-- close: 21.9
-- volume: 3872062
-- ma5: 21.49
-- ema23_primary: 20.82
-- distance_to_ema23_pct: 5.21
-- ma20: 20.62
-- ma60: 20.55
-- ma120: 19.9
-- return_5d: 3.79
-- return_20d: 7.35
-- volume_ratio: 2.01
-- distance_to_ma20_pct_auxiliary: 6.22
-- distance_to_high_60_pct: -0.91
+- date: 20260616
+- open: 21.9
+- high: 22.3
+- low: 21.8
+- close: 22.05
+- volume: 2315772
+- ma5: 21.78
+- ema23_primary: 20.92
+- distance_to_ema23_pct: 5.41
+- ma20: 20.71
+- ma60: 20.58
+- ma120: 19.93
+- return_5d: 7.04
+- return_20d: 9.43
+- volume_ratio: 1.2
+- distance_to_ma20_pct_auxiliary: 6.46
+- distance_to_high_60_pct: -1.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,20.3,20.45,20.15,20.15,2328531,20.44,-1.42,20.44,20.25,1.34
 20260515,20.2,20.25,20.1,20.1,1400106,20.41,-1.53,20.38,20.28,0.81
 20260518,20.25,20.3,20,20.25,1483784,20.4,-0.72,20.35,20.3,0.86
 20260519,20.2,20.4,20.15,20.4,1593418,20.4,0.01,20.33,20.32,0.91
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,21.75,21.85,21.3,21.65,2036323,20.62,4.98,20.48,20.49,1.13
 20260612,21.7,22,21.6,21.75,1666969,20.72,4.99,20.54,20.52,0.92
 20260615,22,22.1,21.75,21.9,3872062,20.82,5.21,20.62,20.55,2.01
+20260616,21.9,22.3,21.8,22.05,2315772,20.92,5.41,20.71,20.58,1.2
 ```
 
 ## Latest TDCC Snapshot
@@ -191,13 +191,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2838 | 聯邦銀 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
-| 20260615 | 2838 | 聯邦銀 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260616 | 2838 | 聯邦銀 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260616 | 2838 | 聯邦銀 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2838 | 聯邦銀 | 14 | 5 | 5 | 10 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260616 | 2838 | 聯邦銀 | 15 | 6 | 5 | 10 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

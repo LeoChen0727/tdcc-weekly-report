@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7077 家登凱基5A購01
 
 ## Metadata
-- generated_at: 2026-06-15 22:24:00 Asia/Taipei
+- generated_at: 2026-06-16 22:24:16 Asia/Taipei
 - stock_id: 7077
 - stock_name: 家登凱基5A購01
 - packet_status: standard_180d_window_packet

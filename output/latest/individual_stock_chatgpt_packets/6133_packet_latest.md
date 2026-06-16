@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6133 金橋
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:38 Asia/Taipei
+- generated_at: 2026-06-16 22:23:48 Asia/Taipei
 - stock_id: 6133
 - stock_name: 金橋
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 24.5
+- date: 20260616
+- open: 24.3
 - high: 24.55
-- low: 23.9
-- close: 24
-- volume: 1283704
+- low: 23.15
+- close: 23.5
+- volume: 1505260
 - ma5: 23.64
-- ema23_primary: 23.28
-- distance_to_ema23_pct: 3.09
-- ma20: 23.23
-- ma60: 23
-- ma120: 22.89
-- return_5d: -0.62
-- return_20d: 10.85
-- volume_ratio: 0.48
-- distance_to_ma20_pct_auxiliary: 3.29
-- distance_to_high_60_pct: -13.36
+- ema23_primary: 23.3
+- distance_to_ema23_pct: 0.87
+- ma20: 23.33
+- ma60: 22.99
+- ma120: 22.93
+- return_5d: 0
+- return_20d: 9.05
+- volume_ratio: 0.56
+- distance_to_ma20_pct_auxiliary: 0.72
+- distance_to_high_60_pct: -15.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,21.7,22.1,21.3,21.55,860119,22.34,-3.54,22.29,23.3,0.78
 20260515,21.55,21.95,21,21,1226781,22.23,-5.53,22.19,23.25,1.13
 20260518,20.95,20.95,20.35,20.55,818633,22.09,-6.97,22.07,23.22,0.76
 20260519,20.6,22.6,20.6,22.6,3080822,22.13,2.12,22.04,23.21,2.62
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,22.6,23.1,22.25,22.75,767965,23.16,-1.78,23.03,23,0.3
 20260612,23.35,24.85,23.15,23.8,2136809,23.21,2.52,23.12,23,0.81
 20260615,24.5,24.55,23.9,24,1283704,23.28,3.09,23.23,23,0.48
+20260616,24.3,24.55,23.15,23.5,1505260,23.3,0.87,23.33,22.99,0.56
 ```
 
 ## Latest TDCC Snapshot
@@ -186,12 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 6133 | 金橋 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: shareholder_meeting on 20260626; status=confirmed; proximity=within_14d |
+| 20260616 | 6133 | 金橋 | pattern | 型態觀察 | 43.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: shareholder_meeting on 20260626; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 6133 | 金橋 | 2 | 2 | 3 | 7 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260616 | 6133 | 金橋 | 3 | 3 | 3 | 7 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

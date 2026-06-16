@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6291 沛亨
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:44 Asia/Taipei
+- generated_at: 2026-06-16 22:23:56 Asia/Taipei
 - stock_id: 6291
 - stock_name: 沛亨
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 537
-- high: 587
-- low: 531
-- close: 556
+- date: 20260616
+- open: 565
+- high: 585
+- low: 543
+- close: 544
 - volume: 563000
-- ma5: 561.6
-- ema23_primary: 550.21
-- distance_to_ema23_pct: 1.05
-- ma20: 561.17
-- ma60: 458.33
-- ma120: 338.75
-- return_5d: -9.59
-- return_20d: 13.59
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: -0.92
-- distance_to_high_60_pct: -22.56
+- ma5: 547.4
+- ema23_primary: 549.69
+- distance_to_ema23_pct: -1.03
+- ma20: 562.92
+- ma60: 461.73
+- ma120: 341.78
+- return_5d: -11.54
+- return_20d: 6.88
+- volume_ratio: 0.73
+- distance_to_ma20_pct_auxiliary: -3.36
+- distance_to_high_60_pct: -24.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,495,517,488,509,2154000,447.02,13.86,454.82,365.88,1.01
 20260515,505,509,458.5,462.5,2335000,448.31,3.16,457.23,369.77,1.07
 20260518,453.5,494,453.5,494,1885000,452.12,9.26,460.85,374.46,0.87
 20260519,482,487,466.5,472,1115000,453.78,4.02,463.52,378.51,0.52
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,487,505,457,495,481000,550.92,-10.15,556.95,451.15,0.45
 20260612,517,544,517,536,533000,549.68,-2.49,557.85,454.74,0.54
 20260615,537,587,531,556,563000,550.21,1.05,561.17,458.33,0.66
+20260616,565,585,543,544,563000,549.69,-1.03,562.92,461.73,0.73
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5880 合庫金
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:36 Asia/Taipei
+- generated_at: 2026-06-16 22:23:46 Asia/Taipei
 - stock_id: 5880
 - stock_name: 合庫金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -59,14 +59,14 @@
 - action_rating_display_zh: 已持有續抱
 - model_category_display_zh: 型態觀察
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「初步突破」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足、TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊
+- final_decision_zh: 型態觀察 目前屬於「初步突破」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -74,7 +74,7 @@
 - action_rating: hold_only
 - action_rating_label_zh: 已持有續抱
 - confidence_level: medium
-- thesis_state: unclear
+- thesis_state: breakout_initial
 - entry_style: no_entry_now
 - position_sizing: observe_only
 
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 24.3
-- high: 24.35
-- low: 24
-- close: 24.15
-- volume: 21471650
-- ma5: 23.71
-- ema23_primary: 23.23
-- distance_to_ema23_pct: 3.98
-- ma20: 23.04
-- ma60: 23.21
-- ma120: 23.59
-- return_5d: 3.21
-- return_20d: 5.69
-- volume_ratio: 0.89
-- distance_to_ma20_pct_auxiliary: 4.84
-- distance_to_high_60_pct: -0.82
+- date: 20260616
+- open: 24.25
+- high: 24.7
+- low: 24.1
+- close: 24.6
+- volume: 41356167
+- ma5: 24.02
+- ema23_primary: 23.34
+- distance_to_ema23_pct: 5.4
+- ma20: 23.13
+- ma60: 23.24
+- ma120: 23.6
+- return_5d: 6.72
+- return_20d: 8.13
+- volume_ratio: 1.64
+- distance_to_ma20_pct_auxiliary: 6.37
+- distance_to_high_60_pct: -0.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,22.8,22.95,22.75,22.75,17895045,23.12,-1.59,23.14,23.4,1.05
 20260515,22.8,22.95,22.75,22.85,18639638,23.09,-1.06,23.08,23.38,1.07
 20260518,22.8,22.8,22.7,22.7,14200917,23.06,-1.57,23.02,23.37,0.81
 20260519,22.7,23,22.65,22.8,20666593,23.04,-1.04,22.98,23.35,1.16
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,23.9,23.9,23.6,23.85,23269984,23.06,3.43,22.91,23.18,0.98
 20260612,24.25,24.25,23.9,24.05,26503384,23.14,3.92,22.97,23.2,1.11
 20260615,24.3,24.35,24,24.15,21471650,23.23,3.98,23.04,23.21,0.89
+20260616,24.25,24.7,24.1,24.6,41356167,23.34,5.4,23.13,23.24,1.64
 ```
 
 ## Latest TDCC Snapshot
@@ -186,13 +185,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 5880 | 合庫金 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | calendar event: shareholder_meeting on 20260618; status=confirmed; proximity=within_3d |
-| 20260615 | 5880 | 合庫金 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | stale_signal | calendar event: shareholder_meeting on 20260618; status=confirmed; proximity=within_3d |
+| 20260616 | 5880 | 合庫金 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_many_days | 1.股東常會日期:115/06/15 2.重要決議事項一、盈餘分配或盈虧撥補:通過114年度決算盈餘分配承認案 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:通過114年度營運報告及財務報表承認案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項: 承認事項:追認經董事會通過新任董事案 討論事項: 1.通過法定檢查人EY會計師事務所續約案 2.解除董事暨法定檢查人114年職務責任討論案 7.其他應敘明事項:無；calendar event: shareholder_meeting on 20260618; status=confirmed; proximity=within_3d |
+| 20260616 | 5880 | 合庫金 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  |  | continued_many_days | 1.股東常會日期:115/06/15 2.重要決議事項一、盈餘分配或盈虧撥補:通過114年度決算盈餘分配承認案 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:通過114年度營運報告及財務報表承認案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項: 承認事項:追認經董事會通過新任董事案 討論事項: 1.通過法定檢查人EY會計師事務所續約案 2.解除董事暨法定檢查人114年職務責任討論案 7.其他應敘明事項:無；calendar event: shareholder_meeting on 20260618; status=confirmed; proximity=within_3d |
+| 20260616 | 5880 | 合庫金 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | continued_many_days | 1.股東常會日期:115/06/15 2.重要決議事項一、盈餘分配或盈虧撥補:通過114年度決算盈餘分配承認案 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表:通過114年度營運報告及財務報表承認案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項: 承認事項:追認經董事會通過新任董事案 討論事項: 1.通過法定檢查人EY會計師事務所續約案 2.解除董事暨法定檢查人114年職務責任討論案 7.其他應敘明事項:無；calendar event: shareholder_meeting on 20260618; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 5880 | 合庫金 | 14 | 4 | 5 | 10 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260616 | 5880 | 合庫金 | 15 | 5 | 5 | 10 | 15 | continued_many_days | 連續 15 日上榜，需區分醞釀延續或訊號鈍化。 |
 
 ## Warrant Context
 | status |

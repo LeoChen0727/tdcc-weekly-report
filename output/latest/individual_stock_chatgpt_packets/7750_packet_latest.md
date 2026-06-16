@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7750 新代
 
 ## Metadata
-- generated_at: 2026-06-15 22:24:06 Asia/Taipei
+- generated_at: 2026-06-16 22:24:24 Asia/Taipei
 - stock_id: 7750
 - stock_name: 新代
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 172
+- latest_price_date: 20260616
+- price_rows: 173
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 2280
-- high: 2315
-- low: 2170
-- close: 2170
-- volume: 389917
-- ma5: 2190
-- ema23_primary: 2312.85
-- distance_to_ema23_pct: -6.18
-- ma20: 2380.75
-- ma60: 2032
-- ma120: 1514.38
-- return_5d: -5.45
-- return_20d: -21.52
-- volume_ratio: 0.58
-- distance_to_ma20_pct_auxiliary: -8.85
-- distance_to_high_60_pct: -29.32
+- date: 20260616
+- open: 2185
+- high: 2280
+- low: 2160
+- close: 2275
+- volume: 224653
+- ma5: 2205
+- ema23_primary: 2309.69
+- distance_to_ema23_pct: -1.5
+- ma20: 2357.25
+- ma60: 2047.58
+- ma120: 1526.88
+- return_5d: 3.41
+- return_20d: -17.12
+- volume_ratio: 0.35
+- distance_to_ma20_pct_auxiliary: -3.49
+- distance_to_high_60_pct: -25.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,2850,2920,2705,2745,685267,2346.18,17,2386.75,1678.5,0.97
 20260515,2745,2775,2480,2555,892363,2363.58,8.1,2431,1703.25,1.21
 20260518,2520,2605,2495,2540,705863,2378.28,6.8,2467.5,1727.25,0.95
 20260519,2520,2530,2290,2350,1118573,2375.92,-1.09,2489.25,1747.42,1.46
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,2135,2140,1980,2090,394248,2334.54,-10.47,2452.5,2003.08,0.56
 20260612,2150,2270,2110,2230,468251,2325.83,-4.12,2410.5,2017.83,0.66
 20260615,2280,2315,2170,2170,389917,2312.85,-6.18,2380.75,2032,0.58
+20260616,2185,2280,2160,2275,224653,2309.69,-1.5,2357.25,2047.58,0.35
 ```
 
 ## Latest TDCC Snapshot
@@ -195,7 +196,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 7750 | 新代 | 24 | 0 | 2340650.0 | 0.0 |  | no_signal |
+| 20260616 | 7750 | 新代 | 24 | 0 | 1753030.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

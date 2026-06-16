@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6282 康舒
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:44 Asia/Taipei
+- generated_at: 2026-06-16 22:23:55 Asia/Taipei
 - stock_id: 6282
 - stock_name: 康舒
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 59.5
-- high: 60.4
-- low: 58.3
-- close: 58.3
-- volume: 26262054
-- ma5: 60.08
-- ema23_primary: 57.76
-- distance_to_ema23_pct: 0.94
-- ma20: 57.98
-- ma60: 51.75
-- ma120: 49.71
-- return_5d: -9.47
-- return_20d: 12.77
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: 0.56
-- distance_to_high_60_pct: -15.26
+- date: 20260616
+- open: 59.2
+- high: 59.9
+- low: 57.7
+- close: 57.7
+- volume: 20098862
+- ma5: 59.02
+- ema23_primary: 57.75
+- distance_to_ema23_pct: -0.09
+- ma20: 58.34
+- ma60: 51.95
+- ma120: 49.87
+- return_5d: -8.41
+- return_20d: 14.48
+- volume_ratio: 0.35
+- distance_to_ma20_pct_auxiliary: -1.1
+- distance_to_high_60_pct: -16.13
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,51.7,52.2,50,50.4,27197753,50.05,0.69,50.02,48.45,0.75
 20260515,50.8,52,49.25,49.6,20294720,50.02,-0.83,49.99,48.47,0.57
 20260518,49,51.6,47.65,50.8,19528839,50.08,1.44,49.99,48.53,0.56
 20260519,51.1,52.2,50,50.8,26817259,50.14,1.31,50.04,48.57,0.8
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,58.9,59.5,55.2,57.2,49159979,57.67,-0.81,57.54,51.34,0.78
 20260612,59.7,60.9,58,58.1,32042904,57.71,0.68,57.65,51.54,0.53
 20260615,59.5,60.4,58.3,58.3,26262054,57.76,0.94,57.98,51.75,0.45
+20260616,59.2,59.9,57.7,57.7,20098862,57.75,-0.09,58.34,51.95,0.35
 ```
 
 ## Latest TDCC Snapshot
@@ -186,18 +186,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 6282 | 康舒 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
-| 20260615 | 6282 | 康舒 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260616 | 6282 | 康舒 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260616 | 6282 | 康舒 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 6282 | 康舒 | 14 | 3 | 5 | 10 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260616 | 6282 | 康舒 | 15 | 4 | 5 | 10 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 6282 | 康舒 | 164 | 5 | 20158820.0 | 18880.0 | 1067.73 | no_signal |
+| 20260616 | 6282 | 康舒 | 168 | 5 | 8996290.0 | 9600.0 | 937.11 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

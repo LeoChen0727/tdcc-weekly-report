@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4523 永彰
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:23 Asia/Taipei
+- generated_at: 2026-06-16 22:23:29 Asia/Taipei
 - stock_id: 4523
 - stock_name: 永彰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 29.2
-- high: 29.85
-- low: 29.15
+- date: 20260616
+- open: 29.35
+- high: 29.75
+- low: 29.1
 - close: 29.25
 - volume: 29000
-- ma5: 29.6
-- ema23_primary: 29.53
-- distance_to_ema23_pct: -0.94
-- ma20: 29.08
-- ma60: 29.95
+- ma5: 29.42
+- ema23_primary: 29.51
+- distance_to_ema23_pct: -0.87
+- ma20: 29.09
+- ma60: 29.93
 - ma120: 30.25
 - return_5d: -2.99
-- return_20d: -0.68
-- volume_ratio: 0.4
-- distance_to_ma20_pct_auxiliary: 0.59
+- return_20d: 0.86
+- volume_ratio: 0.46
+- distance_to_ma20_pct_auxiliary: 0.55
 - distance_to_high_60_pct: -7.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,29.45,29.6,28.85,29,216000,30.36,-4.48,30.47,31.03,0.93
 20260515,29,29,28.05,28.1,241000,30.17,-6.87,30.36,31.01,1.02
 20260518,28.05,28.5,27.55,28.15,171000,30,-6.18,30.26,31,0.73
 20260519,28.6,28.9,27.9,28,171000,29.84,-6.15,30.12,30.99,0.74
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,29,30,28.55,29.1,29000,29.57,-1.58,29.11,29.99,0.32
 20260612,29.6,29.6,29.15,29.4,29000,29.55,-0.52,29.09,29.96,0.36
 20260615,29.2,29.85,29.15,29.25,29000,29.53,-0.94,29.08,29.95,0.4
+20260616,29.35,29.75,29.1,29.25,29000,29.51,-0.87,29.09,29.93,0.46
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6574 霈方
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:48 Asia/Taipei
+- generated_at: 2026-06-16 22:24:00 Asia/Taipei
 - stock_id: 6574
 - stock_name: 霈方
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 264
+- latest_price_date: 20260616
+- price_rows: 265
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 116
-- high: 116
-- low: 111.5
-- close: 112
-- volume: 113000
-- ma5: 114.5
-- ema23_primary: 113.67
-- distance_to_ema23_pct: -1.47
-- ma20: 114.85
-- ma60: 111.04
-- ma120: 91.2
-- return_5d: 0.45
-- return_20d: -13.51
-- volume_ratio: 1.04
-- distance_to_ma20_pct_auxiliary: -2.48
-- distance_to_high_60_pct: -23.55
+- date: 20260616
+- open: 112
+- high: 112
+- low: 106.5
+- close: 107.5
+- volume: 108000
+- ma5: 113.7
+- ema23_primary: 113.16
+- distance_to_ema23_pct: -5
+- ma20: 114.03
+- ma60: 111.18
+- ma120: 91.53
+- return_5d: -3.59
+- return_20d: -13.31
+- volume_ratio: 1.12
+- distance_to_ma20_pct_auxiliary: -5.72
+- distance_to_high_60_pct: -26.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,126.5,130.5,124,124,341000,110.16,12.57,107.61,99.45,3.3
 20260515,124.5,124.5,112.5,112.5,191000,110.35,1.95,108.08,100.08,1.72
 20260518,114,114,109,109,51000,110.24,-1.13,108.21,100.63,0.47
 20260519,109.5,109.5,106,107,49000,109.97,-2.7,108.56,101.15,0.45
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,126.5,126.5,118.5,119.5,121000,113.54,5.25,115.78,110.08,1.01
 20260612,121.5,121.5,114.5,117,117000,113.82,2.79,115.72,110.67,0.98
 20260615,116,116,111.5,112,113000,113.67,-1.47,114.85,111.04,1.04
+20260616,112,112,106.5,107.5,108000,113.16,-5,114.03,111.18,1.12
 ```
 
 ## Latest TDCC Snapshot

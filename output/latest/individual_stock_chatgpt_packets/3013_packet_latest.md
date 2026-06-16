@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3013 晟銘電
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:05 Asia/Taipei
+- generated_at: 2026-06-16 22:23:06 Asia/Taipei
 - stock_id: 3013
 - stock_name: 晟銘電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 110
-- high: 114.5
-- low: 107.5
-- close: 112
-- volume: 3507106
-- ma5: 116.2
-- ema23_primary: 115.33
-- distance_to_ema23_pct: -2.89
-- ma20: 114.73
-- ma60: 108.06
-- ma120: 113.33
-- return_5d: -16.1
-- return_20d: 4.67
-- volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: -2.38
-- distance_to_high_60_pct: -17.65
+- date: 20260616
+- open: 113
+- high: 113.5
+- low: 110.5
+- close: 110.5
+- volume: 1886272
+- ma5: 111.6
+- ema23_primary: 114.93
+- distance_to_ema23_pct: -3.85
+- ma20: 114.98
+- ma60: 108.27
+- ma120: 113.08
+- return_5d: -17.23
+- return_20d: 4.74
+- volume_ratio: 0.24
+- distance_to_ma20_pct_auxiliary: -3.9
+- distance_to_high_60_pct: -18.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,108,109.5,105,105.5,2247693,107.53,-1.89,109.53,104.55,0.43
 20260515,107,107.5,103,103,2271561,107.16,-3.88,109.42,104.42,0.44
 20260518,101.5,102,98.2,101,2414444,106.64,-5.29,108.92,104.32,0.51
 20260519,101,102.5,99.6,99.7,1494977,106.06,-6,108.31,104.14,0.32
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,107.5,108.5,102,106,3396718,116.37,-8.91,114.61,107.61,0.42
 20260612,110,110.5,107,107.5,1522354,115.64,-7.04,114.48,107.87,0.19
 20260615,110,114.5,107.5,112,3507106,115.33,-2.89,114.73,108.06,0.44
+20260616,113,113.5,110.5,110.5,1886272,114.93,-3.85,114.98,108.27,0.24
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 3013 | 晟銘電 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | call_strong_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260616 | 3013 | 晟銘電 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會、股東會決議或公司決定日期:115/06/15 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額:普通股現金股利新台幣82,055,572元。 4.除權（息）交易日:115/07/14 5.最後過戶日:115/07/15 6.停止過戶起始日期:115/07/16 7.停止過戶截止日期:115/07/20 8.除權（息）基準日:115/07/20 9.債券最後申請轉換日期:115/06/23 10.債券停止轉換起始日期:115/06/25 11.債券停止轉換截止日期:115/07/20 12.普通股現金股利發放日期:115/08/07 13.其他應敘明事項:嗣後因法令變更或主管機關調整，或公司債轉換股份， 或本公司買回公司股份等因素致影響流通在外股份數量致需調整分配比率時， 授權董事長調整配息比率等相關事宜。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 3013 | 晟銘電 | 1 | 1 | 2 | 7 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260616 | 3013 | 晟銘電 | 2 | 2 | 3 | 7 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 3013 | 晟銘電 | 76 | 0 | 4418900.0 | 0.0 |  | call_strong_inflow |
+| 20260616 | 3013 | 晟銘電 | 75 | 0 | 2635930.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6028 公勝保經
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:37 Asia/Taipei
+- generated_at: 2026-06-16 22:23:47 Asia/Taipei
 - stock_id: 6028
 - stock_name: 公勝保經
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 186
+- latest_price_date: 20260616
+- price_rows: 187
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 79.2
-- high: 79.4
+- date: 20260616
+- open: 79.1
+- high: 79.1
 - low: 79
 - close: 79.1
 - volume: 79000
-- ma5: 79.14
-- ema23_primary: 79.56
-- distance_to_ema23_pct: -0.57
-- ma20: 79.64
+- ma5: 79.16
+- ema23_primary: 79.52
+- distance_to_ema23_pct: -0.53
+- ma20: 79.48
 - ma60: 80.81
 - ma120: 79.95
 - return_5d: 0.13
-- return_20d: -2.35
-- volume_ratio: 1.46
-- distance_to_ma20_pct_auxiliary: -0.67
+- return_20d: -3.77
+- volume_ratio: 1.43
+- distance_to_ma20_pct_auxiliary: -0.48
 - distance_to_high_60_pct: -14.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,81.3,82.7,81.3,82.2,55000,80.64,1.93,79.93,80.68,1.61
 20260515,82.2,82.2,80.7,80.8,21000,80.65,0.18,79.9,80.71,0.63
 20260518,80,81,80,80.8,11000,80.67,0.17,79.92,80.74,0.35
 20260519,80.1,80.6,80,80,17000,80.61,-0.76,79.97,80.75,0.61
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,78.8,78.8,78.6,78.6,79000,79.63,-1.3,79.84,80.81,1.58
 20260612,79,79.6,79,79.2,79000,79.6,-0.5,79.73,80.81,1.5
 20260615,79.2,79.4,79,79.1,79000,79.56,-0.57,79.64,80.81,1.46
+20260616,79.1,79.1,79,79.1,79000,79.52,-0.53,79.48,80.81,1.43
 ```
 
 ## Latest TDCC Snapshot

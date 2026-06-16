@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3025 星通
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:06 Asia/Taipei
+- generated_at: 2026-06-16 22:23:07 Asia/Taipei
 - stock_id: 3025
 - stock_name: 星通
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 72
-- high: 74.3
-- low: 71.4
-- close: 74.2
-- volume: 1369013
-- ma5: 71.54
-- ema23_primary: 69.68
-- distance_to_ema23_pct: 6.49
-- ma20: 69.69
-- ma60: 64.47
-- ma120: 64.42
-- return_5d: 1.5
-- return_20d: 20.06
-- volume_ratio: 0.91
-- distance_to_ma20_pct_auxiliary: 6.46
-- distance_to_high_60_pct: -12.71
+- date: 20260616
+- open: 74.8
+- high: 74.9
+- low: 70
+- close: 70.2
+- volume: 1302714
+- ma5: 71.16
+- ema23_primary: 69.72
+- distance_to_ema23_pct: 0.69
+- ma20: 70.17
+- ma60: 64.64
+- ma120: 64.55
+- return_5d: -2.64
+- return_20d: 15.46
+- volume_ratio: 0.84
+- distance_to_ma20_pct_auxiliary: 0.05
+- distance_to_high_60_pct: -17.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,63.2,63.2,60.8,60.8,545627,62.16,-2.19,62.38,60.65,0.76
 20260515,61.9,61.9,60.3,60.3,499515,62.01,-2.75,62.23,60.53,0.7
 20260518,58.7,60.2,58.5,60,341758,61.84,-2.97,62.01,60.51,0.5
 20260519,60,60.6,58,58.5,519452,61.56,-4.97,61.71,60.54,0.78
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,70.7,70.8,68,69.7,711386,69.1,0.87,68.67,64.11,0.48
 20260612,71.7,72.2,70.6,71.1,577092,69.27,2.65,69.08,64.27,0.39
 20260615,72,74.3,71.4,74.2,1369013,69.68,6.49,69.69,64.47,0.91
+20260616,74.8,74.9,70,70.2,1302714,69.72,0.69,70.17,64.64,0.84
 ```
 
 ## Latest TDCC Snapshot
@@ -185,13 +186,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 3025 | 星通 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: shareholder_meeting on 20260626; status=confirmed; proximity=within_14d |
-| 20260615 | 3025 | 星通 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | calendar event: shareholder_meeting on 20260626; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260616 | 3025 | 星通 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: shareholder_meeting on 20260626; status=confirmed; proximity=within_14d |
+| 20260616 | 3025 | 星通 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  |  | stale_signal | calendar event: shareholder_meeting on 20260626; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260616 | 3025 | 星通 | revenue_breakout_low_response | 營收爆發低反應股 | 21.0 | 3.0 | A_優先追蹤 |  |  |  | stale_signal | calendar event: shareholder_meeting on 20260626; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 3025 | 星通 | 1 | 1 | 1 | 4 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260616 | 3025 | 星通 | 2 | 2 | 2 | 4 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

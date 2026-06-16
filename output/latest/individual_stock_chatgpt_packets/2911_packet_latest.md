@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2911 麗嬰房
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:04 Asia/Taipei
+- generated_at: 2026-06-16 22:23:05 Asia/Taipei
 - stock_id: 2911
 - stock_name: 麗嬰房
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 278
+- latest_price_date: 20260616
+- price_rows: 279
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 8.77
-- high: 8.77
-- low: 8.07
-- close: 8.12
-- volume: 668859
-- ma5: 8.31
-- ema23_primary: 7.62
-- distance_to_ema23_pct: 6.59
-- ma20: 7.88
-- ma60: 6.04
-- ma120: 5.51
-- return_5d: -5.14
-- return_20d: 62.73
-- volume_ratio: 0.78
-- distance_to_ma20_pct_auxiliary: 3.01
-- distance_to_high_60_pct: -22.67
+- date: 20260616
+- open: 8.2
+- high: 8.2
+- low: 7.93
+- close: 7.95
+- volume: 429857
+- ma5: 8.3
+- ema23_primary: 7.65
+- distance_to_ema23_pct: 3.98
+- ma20: 8.03
+- ma60: 6.08
+- ma120: 5.54
+- return_5d: -0.62
+- return_20d: 58.05
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: -0.98
+- distance_to_high_60_pct: -24.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,5,5.09,4.99,5.03,185971,5.09,-1.09,5.1,5.11,0.81
 20260515,5.53,5.53,5.53,5.53,269618,5.12,7.95,5.13,5.12,1.17
 20260518,5.94,6.08,5.68,5.95,498357,5.19,14.61,5.18,5.13,1.98
 20260519,6.54,6.54,6.54,6.54,309907,5.3,23.3,5.26,5.16,1.19
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,8.11,8.8,8.11,8.22,1417002,7.49,9.68,7.55,5.94,1.83
 20260612,8.92,8.92,8.27,8.43,987019,7.57,11.33,7.73,5.99,1.2
 20260615,8.77,8.77,8.07,8.12,668859,7.62,6.59,7.88,6.04,0.78
+20260616,8.2,8.2,7.93,7.95,429857,7.65,3.98,8.03,6.08,0.5
 ```
 
 ## Latest TDCC Snapshot

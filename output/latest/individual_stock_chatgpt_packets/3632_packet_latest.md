@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3632 研勤
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:18 Asia/Taipei
+- generated_at: 2026-06-16 22:23:22 Asia/Taipei
 - stock_id: 3632
 - stock_name: 研勤
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 275
+- latest_price_date: 20260616
+- price_rows: 276
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
+- date: 20260616
 - open: 8.3
 - high: 8.3
 - low: 8.3
 - close: 8.3
 - volume: 8000
-- ma5: 8.24
+- ma5: 8.26
 - ema23_primary: 8.29
-- distance_to_ema23_pct: 0.16
+- distance_to_ema23_pct: 0.14
 - ma20: 8.1
-- ma60: 8.78
-- ma120: 9.13
+- ma60: 8.75
+- ma120: 9.12
 - return_5d: 1.47
-- return_20d: -0.12
+- return_20d: -0.24
 - volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: 2.42
+- distance_to_ma20_pct_auxiliary: 2.43
 - distance_to_high_60_pct: -16.16
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,8.3,8.47,8.3,8.32,6000,8.76,-4.97,8.74,9.26,0.17
 20260515,8.23,8.23,8.22,8.22,21000,8.71,-5.63,8.7,9.24,0.61
 20260518,8.1,8.34,8.1,8.13,16000,8.66,-6.15,8.65,9.22,0.47
 20260519,8.13,8.13,7.54,7.62,55000,8.58,-11.14,8.59,9.2,1.68
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,8.12,8.12,8.12,8.12,8000,8.28,-1.99,8.11,8.83,0.63
 20260612,8.9,8.9,8.3,8.3,8000,8.29,0.17,8.1,8.81,0.66
 20260615,8.3,8.3,8.3,8.3,8000,8.29,0.16,8.1,8.78,0.66
+20260616,8.3,8.3,8.3,8.3,8000,8.29,0.14,8.1,8.75,0.66
 ```
 
 ## Latest TDCC Snapshot

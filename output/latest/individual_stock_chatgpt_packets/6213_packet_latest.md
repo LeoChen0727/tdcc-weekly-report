@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6213 聯茂
 
 ## Metadata
-- generated_at: 2026-06-15 22:23:41 Asia/Taipei
+- generated_at: 2026-06-16 22:23:52 Asia/Taipei
 - stock_id: 6213
 - stock_name: 聯茂
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 259.5
-- high: 269
-- low: 259
-- close: 263.5
-- volume: 7633970
-- ma5: 258.3
-- ema23_primary: 262.31
-- distance_to_ema23_pct: 0.45
-- ma20: 261.43
-- ma60: 234.57
-- ma120: 176.38
-- return_5d: -2.41
-- return_20d: -3.66
-- volume_ratio: 0.48
-- distance_to_ma20_pct_auxiliary: 0.79
-- distance_to_high_60_pct: -18.17
+- date: 20260616
+- open: 267
+- high: 270.5
+- low: 255
+- close: 258
+- volume: 7694528
+- ma5: 255.3
+- ema23_primary: 261.95
+- distance_to_ema23_pct: -1.51
+- ma20: 260.93
+- ma60: 236.53
+- ma120: 177.6
+- return_5d: -5.49
+- return_20d: -3.73
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: -1.12
+- distance_to_high_60_pct: -19.88
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,282,285,265,268,15104841,261.22,2.6,277.68,192.22,0.72
 20260515,270,270,251,253,12970364,260.54,-2.89,277.73,194.5,0.67
 20260518,243,247,238,245,9088747,259.24,-5.49,276.45,196.67,0.55
 20260519,243.5,252.5,238.5,240.5,8631504,257.68,-6.67,274.38,198.71,0.61
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,252.5,260,236.5,248,10874563,263.08,-5.73,263.57,230.47,0.63
 20260612,260,263.5,249.5,252.5,9064998,262.2,-3.7,261.93,232.47,0.56
 20260615,259.5,269,259,263.5,7633970,262.31,0.45,261.43,234.57,0.48
+20260616,267,270.5,255,258,7694528,261.95,-1.51,260.93,236.53,0.5
 ```
 
 ## Latest TDCC Snapshot
@@ -186,18 +186,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 6213 | 聯茂 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
-| 20260615 | 6213 | 聯茂 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_put_bullish | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260616 | 6213 | 聯茂 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會或股東會決議日期:115/06/15 2.原發放股利種類及金額:  現金股利:NT$ 1,090,401,654元，每股配發現金股利NT$ 3.0元。 3.變更後發放股利種類及金額:  現金股利:NT$ 1,090,401,654元，每股配發現金股利NT$ 2.99892738元。 4.變更原因:本公司因員工認股權執行，致本公司流通在外股份總數有所變動，故發放  比率隨之調整。 5.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260616 | 6213 | 聯茂 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | 1.董事會或股東會決議日期:115/06/15 2.原發放股利種類及金額:  現金股利:NT$ 1,090,401,654元，每股配發現金股利NT$ 3.0元。 3.變更後發放股利種類及金額:  現金股利:NT$ 1,090,401,654元，每股配發現金股利NT$ 2.99892738元。 4.變更原因:本公司因員工認股權執行，致本公司流通在外股份總數有所變動，故發放  比率隨之調整。 5.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 6213 | 聯茂 | 9 | 6 | 5 | 9 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260616 | 6213 | 聯茂 | 10 | 7 | 5 | 10 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 6213 | 聯茂 | 99 | 4 | 12821170.0 | 103570.0 | 123.79 | call_put_bullish |
+| 20260616 | 6213 | 聯茂 | 106 | 4 | 9906810.0 | 69720.0 | 142.09 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

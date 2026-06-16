@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00935 野村臺灣新科技50
 
 ## Metadata
-- generated_at: 2026-06-15 22:22:35 Asia/Taipei
+- generated_at: 2026-06-16 22:22:28 Asia/Taipei
 - stock_id: 00935
 - stock_name: 野村臺灣新科技50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260615
-- price_rows: 14
+- latest_price_date: 20260616
+- price_rows: 15
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 60.65
-- high: 61.2
-- low: 60.5
-- close: 60.85
-- volume: 15352553
-- ma5: 59.7
-- ema23_primary: 59.17
-- distance_to_ema23_pct: 2.84
-- ma20: 60.36
-- ma60: 60.36
-- ma120: 60.36
-- return_5d: -2.87
+- date: 20260616
+- open: 61.45
+- high: 61.7
+- low: 61
+- close: 61.35
+- volume: 11876358
+- ma5: 59.57
+- ema23_primary: 59.35
+- distance_to_ema23_pct: 3.37
+- ma20: 60.42
+- ma60: 60.42
+- ma120: 60.42
+- return_5d: -1.05
 - return_20d:
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: 0.82
-- distance_to_high_60_pct: -4.02
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: 1.53
+- distance_to_high_60_pct: -3.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -149,6 +149,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,56.65,57.7,54.85,56.9,22854367,59.03,-3.61,60.44,60.44,0.91
 20260612,59.45,59.7,58.4,58.85,15003627,59.01,-0.28,60.32,60.32,0.62
 20260615,60.65,61.2,60.5,60.85,15352553,59.17,2.84,60.36,60.36,0.65
+20260616,61.45,61.7,61,61.35,11876358,59.35,3.37,60.42,60.42,0.52
 ```
 
 ## Latest TDCC Snapshot

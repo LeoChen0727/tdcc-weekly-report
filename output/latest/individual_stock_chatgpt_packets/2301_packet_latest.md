@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2301 光寶科
 
 ## Metadata
-- generated_at: 2026-06-15 22:22:50 Asia/Taipei
+- generated_at: 2026-06-16 22:22:48 Asia/Taipei
 - stock_id: 2301
 - stock_name: 光寶科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 281
+- latest_price_date: 20260616
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 225
-- high: 226
-- low: 207
-- close: 207.5
-- volume: 46021209
-- ma5: 218.1
-- ema23_primary: 216.05
-- distance_to_ema23_pct: -3.96
-- ma20: 221.07
-- ma60: 185.68
-- ma120: 175.4
-- return_5d: -17
-- return_20d: -1.89
-- volume_ratio: 1.18
-- distance_to_ma20_pct_auxiliary: -6.14
-- distance_to_high_60_pct: -20.8
+- date: 20260616
+- open: 210
+- high: 211.5
+- low: 207.5
+- close: 208
+- volume: 17759204
+- ma5: 214.2
+- ema23_primary: 215.38
+- distance_to_ema23_pct: -3.43
+- ma20: 221.12
+- ma60: 186.39
+- ma120: 175.8
+- return_5d: -8.57
+- return_20d: 0.48
+- volume_ratio: 0.47
+- distance_to_ma20_pct_auxiliary: -5.94
+- distance_to_high_60_pct: -20.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,209,211,203,207,42081593,186.16,11.19,183.2,168.81,0.95
 20260515,213,218.5,203.5,204.5,41395447,187.69,8.96,185.38,169.46,0.91
 20260518,202,211,196,207.5,26981092,189.34,9.59,187.65,170.18,0.59
 20260519,210,213,203,206.5,22831415,190.77,8.24,189.72,170.72,0.5
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,210.5,214,201,208.5,24496116,216.81,-3.83,222.15,184.04,0.57
 20260612,219.5,221,214.5,217,17186180,216.83,0.08,221.28,185,0.44
 20260615,225,226,207,207.5,46021209,216.05,-3.96,221.07,185.68,1.18
+20260616,210,211.5,207.5,208,17759204,215.38,-3.43,221.12,186.39,0.47
 ```
 
 ## Latest TDCC Snapshot
@@ -191,17 +191,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2301 | 光寶科 | revenue_pullback | 營收成長股價回檔 | 68.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260616 | 2301 | 光寶科 | revenue_pullback | 營收成長股價回檔 | 68.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2301 | 光寶科 | 4 | 4 | 4 | 9 | 13 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 13 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260616 | 2301 | 光寶科 | 5 | 5 | 5 | 9 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260615 | 2301 | 光寶科 | 229 | 3 | 25002840.0 | 711220.0 | 35.15 | no_signal |
+| 20260616 | 2301 | 光寶科 | 231 | 4 | 14501920.0 | 263090.0 | 55.12 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.
