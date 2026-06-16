@@ -10,6 +10,11 @@ Authoritative manifest:
 Validator:
 
 - `python scripts/validate_repo_production_inventory.py`
+- `python scripts/validate_repo_semantic_integrity.py`
+
+Report artifact lineage manifest:
+
+- `config/report_artifact_lineage.csv`
 
 ## Inventory Contract
 
@@ -84,6 +89,26 @@ The validator enforces these repository-wide rules:
   PDF entrypoints. The formal daily PDF entrypoint is
   `scripts/run_chatgpt_daily_report_entrypoint.py`; the renderer path and repo
   market artifact builder path may be mentioned only as non-entrypoint files.
+
+The semantic integrity validator additionally enforces:
+
+- AST import/dependency boundaries between daily production, research/backtest,
+  TDCC weekly, individual stock, PDF/report, and infrastructure lanes.
+- Production report date-source rules: formal report dates must come from
+  freshness/source gates, not wall-clock `YYYYMMDD` fallbacks.
+- Production data-source rules: daily production cannot read research/history
+  artifacts unless a specific adapter allowlist exists.
+- Report artifact lineage: publishable packets, reports, PDFs, and daily adapter
+  artifacts must have a producer, source artifact list, validator, publisher,
+  owner, and public surface.
+- Daily model parity: every production core model must have an explicit
+  research/backtest baseline status of `production_parity`,
+  `production_proxy`, or `proxy_only`; proxy rows must state blockers.
+- Orphan audit: active scripts without workflow/import/guidance references must
+  be marked deprecated/manual or wired explicitly.
+- Semantic assertions for stock taxonomy, daily volume operation rows, forbidden
+  decision-layer report tokens, raw operation slug leakage, and shared model
+  score profiles.
 
 ## Workflow Gate
 
