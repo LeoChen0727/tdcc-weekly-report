@@ -50,6 +50,8 @@ FORBIDDEN_DAILY_STAGE_PATTERNS = {
     "TDCC weekly latest outputs": r"git add\s+output/latest/tdcc_",
     "code files during output commit": r"git add\s+scripts/",
     "workflow files during output commit": r"git add\s+\.github/workflows/",
+    "all docs/latest outputs": r"git add\s+docs/latest/\s*\|\|\s*true",
+    "all output/latest and docs/latest outputs": r"git add\s+output/latest/\s+docs/latest/\s*\|\|\s*true",
 }
 
 
