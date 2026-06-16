@@ -37,8 +37,8 @@
 | 2889 | 國票金 | pullback_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2889_國票金_pullback_rebound_126d.png` | `data/daily_price` |
 | 2547 | 日勝生 | pullback_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2547_日勝生_pullback_rebound_126d.png` | `data/daily_price` |
 | 3003 | 健和興 | pullback_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/3003_健和興_pullback_rebound_126d.png` | `data/daily_price` |
-| 1402 | 遠東新 | pattern | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/1402_遠東新_pattern_126d.png` | `data/daily_price` |
 | 2338 | 光罩 | pattern | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2338_光罩_pattern_126d.png` | `data/daily_price` |
-| 6202 | 盛群 | pattern | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/6202_盛群_pattern_126d.png` | `data/daily_price` |
-| 6449 | 鈺邦 | pattern | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/6449_鈺邦_pattern_126d.png` | `data/daily_price` |
 | 8046 | 南電 | pattern | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/8046_南電_pattern_126d.png` | `data/daily_price` |
+| 8110 | 華東 | pattern | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/8110_華東_pattern_126d.png` | `data/daily_price` |
+| 1402 | 遠東新 | pattern | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/1402_遠東新_pattern_126d.png` | `data/daily_price` |
+| 6202 | 盛群 | pattern | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/6202_盛群_pattern_126d.png` | `data/daily_price` |
