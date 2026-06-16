@@ -319,7 +319,8 @@ def build_model_signal_events(manifest: pd.DataFrame, price_dir: Path = STOCK_PR
                 "row_action_status": "",
                 "buy_rank_eligible": "",
                 "anchor_date": anchor_date,
-                "trade_eligible": "True",
+                "ranking_evaluation_eligible": "True",
+                "trade_eligible": "False",
                 "research_note": "as_published_model_ranking_truth",
             }
             event.update(forward_metrics(price_cache[stock_id], anchor_date))
@@ -378,6 +379,7 @@ def build_volume_operation_events(manifest: pd.DataFrame, price_dir: Path = STOC
                 "row_action_status": safe_str(row.get("row_action_status", "")),
                 "buy_rank_eligible": normalize_bool_text(row.get("buy_rank_eligible", "")),
                 "anchor_date": anchor_date,
+                "ranking_evaluation_eligible": "False",
                 "trade_eligible": "True" if trade_eligible else "False",
                 "research_note": "as_published_volume_operation_state",
             }
@@ -525,6 +527,7 @@ def write_markdown(summary: pd.DataFrame, events: pd.DataFrame, path: Path, gene
         "",
         "- Entry basis: next trading day open after the snapshot signal date or operation confirmation anchor.",
         "- D+1/D+3/D+5/D+10 returns use close prices; MFE/MAE use high/low versus entry open.",
+        "- `model_signals_for_report` rows are ranking-evaluation samples, not trade-eligible operation rows.",
         "- `volume_breakout_operation_section` rows are evaluated separately by `confirmed_operation`, `pending_confirmation`, and `active_operation`.",
         "- The artifact is advisory-only and must not directly change daily production parameters.",
     ]

@@ -178,11 +178,14 @@ def test_published_snapshot_ranking_backtest_uses_date_stamped_snapshots(tmp_pat
     assert set(model_events["mainstream_segment"]) == {"mainstream", "non_mainstream"}
     assert set(model_events["score_decile"]) == {"score_90_100", "score_70_80"}
     assert set(model_events["rank_bucket"]) == {"rank_001_005", "rank_011_020"}
+    assert set(model_events["ranking_evaluation_eligible"]) == {"True"}
+    assert set(model_events["trade_eligible"]) == {"False"}
 
     operation_events = events[events["source_artifact"].eq("volume_breakout_operation_section")]
     assert len(operation_events) == 2
     pending = operation_events[operation_events["operation_section"].eq("pending_confirmation")]
     confirmed = operation_events[operation_events["operation_section"].eq("confirmed_operation")]
+    assert set(operation_events["ranking_evaluation_eligible"]) == {"False"}
     assert set(pending["trade_eligible"]) == {"False"}
     assert set(confirmed["trade_eligible"]) == {"True"}
 

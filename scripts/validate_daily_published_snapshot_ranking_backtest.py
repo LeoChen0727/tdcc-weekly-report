@@ -59,6 +59,7 @@ EVENT_REQUIRED_COLUMNS = {
     "return_d10_close_pct",
     "mfe_d10_pct",
     "mae_d10_pct",
+    "ranking_evaluation_eligible",
     "trade_eligible",
     "research_note",
 }
@@ -142,6 +143,19 @@ def validate_events() -> list[str]:
     bad_dates = events[~events["snapshot_report_date"].astype(str).str.fullmatch(r"20\d{6}")]
     if not bad_dates.empty:
         errors.append("events contain invalid snapshot_report_date values")
+
+    model_events = events[events["source_artifact"].astype(str).eq("model_signals_for_report")]
+    if model_events.empty:
+        errors.append("events must contain model_signals_for_report rows")
+    else:
+        bad_model_trade = model_events[model_events["trade_eligible"].astype(str).eq("True")]
+        if not bad_model_trade.empty:
+            errors.append("model_signals_for_report rows must not be trade_eligible=True")
+        bad_model_ranking = model_events[
+            ~model_events["ranking_evaluation_eligible"].astype(str).eq("True")
+        ]
+        if not bad_model_ranking.empty:
+            errors.append("model_signals_for_report rows must be ranking_evaluation_eligible=True")
 
     operation = events[events["source_artifact"].astype(str).eq("volume_breakout_operation_section")]
     if operation.empty:
