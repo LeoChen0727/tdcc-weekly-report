@@ -28,11 +28,15 @@ Freshness gate:
 - Check actual_stock_price_history_date, stock_monitor_price_date,
   all_candidates_date, official_price_fetch_date, warrant_flow_date, and notes.
 - Do not use stale output/latest as current data.
-- Before generating ChatGPT-side daily PDFs from a local checkout, run
-  scripts/validate_daily_report_source_preflight.py or perform the equivalent
-  check. Dirty/stale local checkouts are not official PDF sources; use a clean
-  clone/worktree/archive instead. README commit_sha is an artifact source hint
-  and does not need to equal checkout HEAD.
+- For ChatGPT-side daily PDF generation, do not manually read OneDrive,
+  Pages, raw README, or local output/latest to decide the date. Run the only
+  official entrypoint:
+  python scripts/run_chatgpt_daily_report_entrypoint.py
+- To check readiness without rendering, run:
+  python scripts/run_chatgpt_daily_report_entrypoint.py --source-gate-only
+- Directly running scripts/generate_chatgpt_side_daily_reports.py is blocked;
+  it is the renderer, not the official entrypoint. README commit_sha is an
+  artifact source hint and does not need to equal checkout HEAD.
 
 Hard boundaries:
 - daily_full_pipeline must not run nonessential research/backtest work.
@@ -42,9 +46,10 @@ Hard boundaries:
   into one ranking unless the program-side contract says so.
 - Do not invent PDF-layer buy/sell, mainstream/non-mainstream, risk veto,
   ranking, or model judgment.
-- ChatGPT-side PDF rendering changes belong in the canonical repo script
-  scripts/generate_chatgpt_side_daily_reports.py. Do not leave durable fixes only
-  in a OneDrive/local helper copy.
+- ChatGPT-side PDF source-state handling belongs in
+  scripts/run_chatgpt_daily_report_entrypoint.py. Rendering changes belong in
+  scripts/generate_chatgpt_side_daily_reports.py. Do not leave durable fixes
+  only in a OneDrive/local helper copy.
 
 Task:
 <describe the daily production issue or deliverable>

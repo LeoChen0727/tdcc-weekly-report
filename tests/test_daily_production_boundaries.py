@@ -55,9 +55,18 @@ def test_apps_script_daily_trigger_skips_weekends_and_disables_raw_health_check(
 
 
 def test_canonical_chatgpt_side_generator_is_tracked_and_not_legacy_six_category() -> None:
+    entrypoint = ROOT / "scripts" / "run_chatgpt_daily_report_entrypoint.py"
+    entrypoint_text = entrypoint.read_text(encoding="utf-8", errors="replace")
     path = ROOT / "scripts" / "generate_chatgpt_side_daily_reports.py"
     text = path.read_text(encoding="utf-8", errors="replace")
 
+    assert entrypoint.exists()
+    assert "resolve_daily_report_source_state" in entrypoint_text
+    assert '"worktree", "add", "--detach"' in entrypoint_text
+    assert "CHATGPT_DAILY_REPORT_ENTRYPOINT" in entrypoint_text
+    assert "PYTHONIOENCODING" in entrypoint_text
+    assert "reconfigure(encoding=\"utf-8\", errors=\"replace\")" in entrypoint_text
+    assert "source-gate-only" in entrypoint_text
     assert path.exists()
     assert "CATEGORY_SPECS" not in text
     assert 'REPO = ROOT / "tdcc-weekly-report-git"' not in text
@@ -77,6 +86,10 @@ def test_canonical_chatgpt_side_generator_is_tracked_and_not_legacy_six_category
     assert "tail(180)" not in text
     assert "180日K線" not in text
     assert "resolve_daily_report_source_state" in text
+    assert "require_entrypoint_invocation" in text
+    assert "run_chatgpt_daily_report_entrypoint.py" in text
+    assert "--request-date" not in text
+    assert "args.request_date" not in text
     assert "fetch_remote_readme_values" not in text
     assert "REMOTE_README_URLS" not in text
     assert 'REQUEST_DATE = datetime.now().strftime("%Y%m%d")' not in text
@@ -235,7 +248,9 @@ def test_docs_master_rules_match_authoritative_rules() -> None:
 def test_thread_workflow_points_to_canonical_pdf_generator() -> None:
     text = (ROOT / "docs" / "CODEX_THREAD_WORKFLOW.md").read_text(encoding="utf-8")
 
+    assert "scripts/run_chatgpt_daily_report_entrypoint.py" in text
     assert "scripts/generate_chatgpt_side_daily_reports.py" in text
+    assert "renderer, not the official entrypoint" in text
     assert "generate_repo_chatgpt_side_reports.py" not in text
 
 

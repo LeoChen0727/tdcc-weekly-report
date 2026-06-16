@@ -40,15 +40,22 @@ For remote reads, raw GitHub URLs and GitHub API contents are authoritative. Git
 
 ## Daily Report Source Preflight
 
-Before generating ChatGPT-side daily PDFs from a local checkout, run `scripts/validate_daily_report_source_preflight.py` or perform the equivalent checks:
+The only official command for generating the six ChatGPT-side daily PDFs is:
+
+`python scripts/run_chatgpt_daily_report_entrypoint.py`
+
+Do not call `scripts/generate_chatgpt_side_daily_reports.py` directly for official output. That file is a renderer, not the official entrypoint, and its CLI is blocked unless the entrypoint invokes it. Do not replace this entrypoint with manual reads of OneDrive, Pages, raw URLs, README text, or local `output/latest`.
+
+The entrypoint must perform these checks before rendering:
 
 - `main_price_date`, `actual_stock_price_history_date`, `stock_monitor_price_date`, `all_candidates_date`, `official_price_fetch_date`, `warrant_flow_date`, and raw source dates must match the target report date.
 - `report_ready`, `warrant_ready`, and `daily_pdf_ready` must all be `True`.
-- `output/latest/READ_ME_FIRST_DAILY_REPORT.txt` and `output/latest/data_freshness_latest.csv` must agree on date and readiness fields.
-- A dirty local checkout is not an official PDF source. Use a clean clone, worktree, or trusted GitHub archive for report generation if the main checkout has uncommitted changes.
+- `origin/main:output/latest/READ_ME_FIRST_DAILY_REPORT.txt` and `origin/main:output/latest/data_freshness_latest.csv` must agree on date and readiness fields.
+- The entrypoint must create and verify a temporary clean source worktree from `origin/main` before rendering.
+- A dirty local code checkout is not an official PDF generator source. Use `--allow-dirty-code` only for diagnostics, never for formal delivery.
 - `commit_sha` in README is an artifact source hint. It is allowed to differ from checkout `HEAD` because daily workflows can commit artifacts before publishing README metadata. Do not block a report solely because README `commit_sha` differs from `HEAD`.
-- Do not use local `output/latest` as current data unless this preflight passes.
-- The canonical source for ChatGPT-side six-PDF rendering is `scripts/generate_chatgpt_side_daily_reports.py`. A OneDrive or ad-hoc helper copy may be used only as an execution copy; durable rendering fixes must be committed through the repo workflow.
+- Do not use local `output/latest` as current data unless the entrypoint's clean temporary source worktree has passed the origin/main source gate.
+- The canonical renderer implementation is `scripts/generate_chatgpt_side_daily_reports.py`, but it is not the official entrypoint. A OneDrive or ad-hoc helper copy may be used only as a non-durable reference; durable rendering fixes must be committed through the repo workflow.
 
 ## Daily Versus Research Pipeline
 

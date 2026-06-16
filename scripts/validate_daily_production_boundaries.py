@@ -7,6 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DAILY_WORKFLOW = ROOT / ".github" / "workflows" / "daily_full_pipeline.yml"
+CANONICAL_CHATGPT_PDF_ENTRYPOINT = ROOT / "scripts" / "run_chatgpt_daily_report_entrypoint.py"
 CANONICAL_CHATGPT_PDF_GENERATOR = ROOT / "scripts" / "generate_chatgpt_side_daily_reports.py"
 DAILY_REPORT_SOURCE_RESOLVER = ROOT / "scripts" / "resolve_daily_report_source_state.py"
 STAGED_PATH_VALIDATOR = ROOT / "scripts" / "validate_daily_staged_paths.py"
@@ -97,6 +98,22 @@ def main() -> int:
     if not STAGED_PATH_VALIDATOR.exists():
         errors.append(f"missing daily staged path validator: {STAGED_PATH_VALIDATOR}")
 
+    if not CANONICAL_CHATGPT_PDF_ENTRYPOINT.exists():
+        errors.append(f"missing canonical ChatGPT-side PDF entrypoint: {CANONICAL_CHATGPT_PDF_ENTRYPOINT}")
+    else:
+        entrypoint_text = read_text(CANONICAL_CHATGPT_PDF_ENTRYPOINT)
+        required_entrypoint_literals = {
+            "resolve_daily_report_source_state": "official PDF entrypoint must use the origin/main resolver",
+            '"worktree", "add", "--detach"': "official PDF entrypoint must use a clean temporary source worktree",
+            "CHATGPT_DAILY_REPORT_ENTRYPOINT": "official PDF entrypoint must be the only allowed renderer caller",
+            "PYTHONIOENCODING": "official PDF entrypoint must force UTF-8 subprocess output",
+            'reconfigure(encoding="utf-8", errors="replace")': "official PDF entrypoint must force UTF-8 terminal output",
+            "source-gate-only": "official PDF entrypoint must expose a source-gate-only diagnostic mode",
+        }
+        for literal, message in required_entrypoint_literals.items():
+            if literal not in entrypoint_text:
+                errors.append(f"{message}: missing {literal!r}")
+
     if not CANONICAL_CHATGPT_PDF_GENERATOR.exists():
         errors.append(f"missing canonical ChatGPT-side PDF generator: {CANONICAL_CHATGPT_PDF_GENERATOR}")
     else:
@@ -115,6 +132,12 @@ def main() -> int:
                 errors.append(f"{message}: found {literal!r}")
         if "resolve_daily_report_source_state" not in generator_text:
             errors.append("ChatGPT-side daily PDF generator must use the origin/main daily report source resolver")
+        if "require_entrypoint_invocation" not in generator_text:
+            errors.append("ChatGPT-side daily PDF generator CLI must be blocked unless called by the official entrypoint")
+        if "run_chatgpt_daily_report_entrypoint.py" not in generator_text:
+            errors.append("blocked generator CLI must tell users to use the official entrypoint")
+        if "--request-date" in generator_text or "args.request_date" in generator_text:
+            errors.append("ChatGPT-side daily PDF generator must not accept manual request-date overrides")
         if "fetch_remote_readme_values" in generator_text:
             errors.append("ChatGPT-side daily PDF generator must not resolve freshness from raw/Pages README fallback")
         if "REMOTE_README_URLS" in generator_text:
@@ -139,6 +162,10 @@ def main() -> int:
                 errors.append(f"{message}: missing {literal!r}")
 
     thread_workflow_text = read_text(THREAD_WORKFLOW_DOC)
+    if "scripts/run_chatgpt_daily_report_entrypoint.py" not in thread_workflow_text:
+        errors.append("thread workflow doc must point official daily PDF generation to the entrypoint")
+    if "renderer, not the official entrypoint" not in thread_workflow_text:
+        errors.append("thread workflow doc must distinguish the PDF renderer from the official entrypoint")
     if "generate_repo_chatgpt_side_reports.py" in thread_workflow_text:
         errors.append("thread workflow doc must point to canonical repo PDF generator, not the old OneDrive helper")
 

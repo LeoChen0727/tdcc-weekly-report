@@ -34,6 +34,22 @@ production validation must run `scripts/validate_repo_code_isolation_policy.py`
 and `scripts/validate_chatgpt_side_pdf_layout_independence.py`; weakening these
 guards requires changing the validator and tests in the same reviewed PR.
 
+## Official Daily PDF Entrypoint
+
+Official ChatGPT-side daily PDF generation must start from:
+
+`python scripts/run_chatgpt_daily_report_entrypoint.py`
+
+This entrypoint gates on `origin/main`, verifies readiness through
+`output/latest/data_freshness_latest.csv` and
+`output/latest/READ_ME_FIRST_DAILY_REPORT.txt`, creates a temporary clean source
+worktree, and then invokes the renderer. Do not manually decide the report date
+from OneDrive/helper copies, Pages, raw README text, or local `output/latest`.
+
+`scripts/generate_chatgpt_side_daily_reports.py` is the renderer, not the
+official entrypoint. Its CLI is blocked unless the official entrypoint invokes
+it.
+
 ## Repository PDF Contract And Independence Rules
 
 This thread is governed by the repository PDF independence rule and the Daily
