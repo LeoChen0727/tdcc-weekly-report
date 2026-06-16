@@ -2,9 +2,7 @@ from __future__ import annotations
 
 import ast
 import csv
-import importlib.util
 import re
-import sys
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -16,6 +14,7 @@ DAILY_WORKFLOW = ROOT / ".github" / "workflows" / "daily_full_pipeline.yml"
 DAILY_BOUNDARY_VALIDATOR = ROOT / "scripts" / "validate_daily_production_boundaries.py"
 TAXONOMY_CSV = ROOT / "output" / "latest" / "stock_theme_taxonomy_latest.csv"
 MODEL_PARITY_CSV = ROOT / "output" / "latest" / "daily_model_research_parity_latest.csv"
+MODEL_PARAMETERS_CSV = ROOT / "output" / "latest" / "daily_candidate_model_parameters_latest.csv"
 OPERATION_SECTION_CSV = ROOT / "output" / "latest" / "daily_volume_breakout_operation_section_latest.csv"
 
 REPORT_SURFACES = {
@@ -370,16 +369,6 @@ def validate_date_sources(inventory: dict[str, InventoryRow]) -> list[str]:
     return errors
 
 
-def load_module_validator(path: str, name: str):
-    spec = importlib.util.spec_from_file_location(name, ROOT / path)
-    if spec is None or spec.loader is None:
-        raise RuntimeError(f"cannot load validator: {path}")
-    module = importlib.util.module_from_spec(spec)
-    sys.modules[spec.name] = module
-    spec.loader.exec_module(module)
-    return module
-
-
 def validate_lineage(inventory: dict[str, InventoryRow]) -> list[str]:
     errors: list[str] = []
     if not LINEAGE_CSV.exists():
@@ -425,22 +414,32 @@ def validate_lineage(inventory: dict[str, InventoryRow]) -> list[str]:
 
 def validate_model_parity() -> list[str]:
     errors: list[str] = []
-    try:
-        parity = load_module_validator("scripts/validate_daily_model_research_parity.py", "validate_daily_model_research_parity")
-        errors.extend(parity.validate_rule_specs())
-        errors.extend(parity.validate_output_file())
-    except Exception as exc:
-        errors.append(f"model parity validation could not run: {exc}")
     rows = load_csv_rows(MODEL_PARITY_CSV)
-    if rows:
-        statuses = {row.get("research_baseline_status", "") for row in rows}
-        unsupported = sorted(statuses - EXPECTED_PARITY_STATUSES)
-        if unsupported:
-            errors.append(f"model parity output has unsupported statuses: {unsupported}")
-        for row in rows:
-            status = row.get("research_baseline_status", "")
-            if status in {"production_proxy", "proxy_only"} and not row.get("parity_blocker", "").strip():
-                errors.append(f"model parity proxy row missing blocker: {row.get('model_id', '')}")
+    parameters = load_csv_rows(MODEL_PARAMETERS_CSV)
+    if not rows:
+        return [f"missing or empty model parity CSV: {rel(MODEL_PARITY_CSV)}"]
+    if not parameters:
+        return [f"missing or empty daily model parameter CSV: {rel(MODEL_PARAMETERS_CSV)}"]
+
+    parity_by_model = {row.get("model_id", "").strip(): row for row in rows if row.get("model_id", "").strip()}
+    production_models = {
+        row.get("model_id", "").strip()
+        for row in parameters
+        if row.get("model_id", "").strip()
+        and row.get("pdf_visibility", "").strip() in {"pdf_core_model", "pdf_watch_model", "pdf_support_model"}
+    }
+    missing = sorted(production_models - set(parity_by_model))
+    if missing:
+        errors.append(f"daily production models missing research parity rows: {missing}")
+
+    statuses = {row.get("research_baseline_status", "") for row in rows}
+    unsupported = sorted(statuses - EXPECTED_PARITY_STATUSES)
+    if unsupported:
+        errors.append(f"model parity output has unsupported statuses: {unsupported}")
+    for row in rows:
+        status = row.get("research_baseline_status", "")
+        if status in {"production_proxy", "proxy_only"} and not row.get("parity_blocker", "").strip():
+            errors.append(f"model parity proxy row missing blocker: {row.get('model_id', '')}")
     return errors
 
 
@@ -472,23 +471,21 @@ def validate_orphan_code(inventory: dict[str, InventoryRow]) -> list[str]:
 
 def validate_taxonomy_semantics() -> list[str]:
     errors: list[str] = []
-    try:
-        taxonomy = load_module_validator("scripts/validate_stock_theme_taxonomy.py", "validate_stock_theme_taxonomy")
-        taxonomy_code = taxonomy.main()
-        if taxonomy_code != 0:
-            errors.append("stock theme taxonomy validator returned non-zero")
-    except Exception as exc:
-        errors.append(f"stock theme taxonomy validation could not run: {exc}")
-
     rows = load_csv_rows(TAXONOMY_CSV)
     if not rows:
         return errors + [f"missing or empty taxonomy CSV: {rel(TAXONOMY_CSV)}"]
+    required = {"stock_id", "mainstream_report_eligible", "non_mainstream_report_eligible", "basic_theme", "industry"}
+    missing = required - set(rows[0])
+    if missing:
+        return errors + [f"taxonomy CSV missing columns: {sorted(missing)}"]
     for row in rows:
         stock_id = row.get("stock_id", "")
         mainstream = row.get("mainstream_report_eligible", "")
         non_mainstream = row.get("non_mainstream_report_eligible", "")
         basic_theme = row.get("basic_theme", "").strip()
         industry = row.get("industry", "").strip()
+        if mainstream not in {"True", "False"} or non_mainstream not in {"True", "False"}:
+            errors.append(f"stock has invalid mainstream/non-mainstream flags: {stock_id}")
         if mainstream != "True" and non_mainstream != "True":
             errors.append(f"stock has no mainstream/non-mainstream report membership: {stock_id}")
         if not basic_theme and not industry:
@@ -498,21 +495,17 @@ def validate_taxonomy_semantics() -> list[str]:
 
 def validate_operation_semantics() -> list[str]:
     errors: list[str] = []
-    try:
-        operation = load_module_validator(
-            "scripts/validate_daily_volume_breakout_operation_section.py",
-            "validate_daily_volume_breakout_operation_section",
-        )
-        code = operation.main()
-        if code != 0:
-            errors.append("daily volume breakout operation section validator returned non-zero")
-    except SystemExit as exc:
-        if int(exc.code or 0) != 0:
-            errors.append(f"daily volume breakout operation section validator failed with code {exc.code}")
-    except Exception as exc:
-        errors.append(f"daily volume breakout operation section validation could not run: {exc}")
-
     rows = load_csv_rows(OPERATION_SECTION_CSV)
+    if not rows:
+        return [f"missing or empty operation section CSV: {rel(OPERATION_SECTION_CSV)}"]
+    required = {"pdf_section", "row_type", "row_action_status", "buy_rank_eligible", "stock_id"}
+    missing = required - set(rows[0])
+    if missing:
+        return [f"operation section CSV missing columns: {sorted(missing)}"]
+    sections = {row.get("pdf_section", "") for row in rows}
+    for required_section in {"confirmed_operation", "pending_confirmation", "active_operation"}:
+        if required_section not in sections:
+            errors.append(f"operation section CSV missing section: {required_section}")
     for row in rows:
         section = row.get("pdf_section", "")
         status = row.get("row_action_status", "")
@@ -556,24 +549,31 @@ def validate_report_semantics() -> list[str]:
 
 def validate_model_parameter_independence() -> list[str]:
     errors: list[str] = []
-    try:
-        layer = load_module_validator("scripts/build_daily_candidate_model_layer.py", "build_daily_candidate_model_layer")
-        table = layer.build_parameter_table(layer.build_specs())
-    except Exception as exc:
-        return [f"daily model parameter table could not be loaded: {exc}"]
+    table = load_csv_rows(MODEL_PARAMETERS_CSV)
+    if not table:
+        return [f"missing or empty daily model parameter CSV: {rel(MODEL_PARAMETERS_CSV)}"]
     required_cols = {"model_id", "score_profile_id", "score_profile_scope"}
-    if not required_cols.issubset(set(table.columns)):
-        return [f"daily model parameter table missing columns: {sorted(required_cols - set(table.columns))}"]
-    pairs = table[["model_id", "score_profile_id", "score_profile_scope"]].fillna("").astype(str)
-    duplicate_pairs = pairs[["model_id", "score_profile_id"]][pairs[["model_id", "score_profile_id"]].duplicated()]
-    if not duplicate_pairs.empty:
-        errors.append("daily model parameter table has duplicated model_id/score_profile_id pairs")
-    shared_parameter_ids = pairs.groupby("score_profile_id")["model_id"].nunique()
-    shared_allowed = set(pairs.loc[pairs["score_profile_scope"].eq("shared_allowed"), "score_profile_id"])
+    if not required_cols.issubset(set(table[0])):
+        return [f"daily model parameter table missing columns: {sorted(required_cols - set(table[0]))}"]
+
+    seen_pairs: set[tuple[str, str]] = set()
+    profile_models: dict[str, set[str]] = {}
+    shared_allowed: set[str] = set()
+    for row in table:
+        model_id = row.get("model_id", "").strip()
+        profile_id = row.get("score_profile_id", "").strip()
+        scope = row.get("score_profile_scope", "").strip()
+        pair = (model_id, profile_id)
+        if pair in seen_pairs:
+            errors.append(f"daily model parameter table has duplicated model/profile pair: {model_id}/{profile_id}")
+        seen_pairs.add(pair)
+        profile_models.setdefault(profile_id, set()).add(model_id)
+        if scope == "shared_allowed":
+            shared_allowed.add(profile_id)
     shared = sorted(
-        idx
-        for idx, count in shared_parameter_ids.items()
-        if count > 1 and idx not in shared_allowed and idx not in {"default", "", "nan"}
+        profile_id
+        for profile_id, model_ids in profile_models.items()
+        if len(model_ids) > 1 and profile_id not in shared_allowed and profile_id not in {"default", "", "nan"}
     )
     if shared:
         errors.append(f"score_profile_id shared across multiple models without allowlist: {shared}")
