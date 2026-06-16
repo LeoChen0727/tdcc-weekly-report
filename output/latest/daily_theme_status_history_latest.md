@@ -1,6 +1,6 @@
 # Daily Theme Status History
 
-- generated_at: `2026-06-16 21:57:47 Asia/Taipei`
+- generated_at: `2026-06-16 23:15:07 Asia/Taipei`
 - latest_signal_date: `20260616`
 - latest_rows: `333`
 - history_rows: `4492`
@@ -10,18 +10,18 @@
 ## Theme Status Group Counts
 | theme_status_group | count |
 | --- | --- |
-| mainstream_overheated | 231 |
-| mainstream_supported | 99 |
-| non_mainstream | 3 |
+| mainstream_overheated | 234 |
+| mainstream_supported | 97 |
+| non_mainstream | 2 |
 
 ## Theme Final Status Counts
 | theme_final_status | count |
 | --- | --- |
-| mainstream_overheated | 231 |
-| mainstream_follow_through | 91 |
+| mainstream_overheated | 234 |
+| mainstream_follow_through | 89 |
 | emerging_theme | 5 |
 | mainstream_leader | 3 |
-| single_name_signal | 3 |
+| single_name_signal | 2 |
 
 ## Volume Attack Theme Status Counts
 | theme_volume_attack_status | count |
@@ -34,6 +34,7 @@
 ## Latest Stock-Level Rows
 | signal_date | stock_id | stock_name | theme_name | theme_final_status | theme_status_group | theme_volume_attack_status | candidate_source_type | presentation_priority | volume_breakout_type | selection_status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260616 | 1316 | 上曜 | 建材營造 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate | C_僅觀察_營建認列型需基本面確認 |  |  |
 | 20260616 | 1503 | 士電 | 電機機械 | mainstream_overheated | mainstream_overheated |  | risk_downgraded_candidate |  |  |  |
 | 20260616 | 1504 | 東元 | 電機機械 | mainstream_overheated | mainstream_overheated |  | risk_downgraded_candidate |  |  |  |
 | 20260616 | 1513 | 中興電 | 電機機械 | mainstream_overheated | mainstream_overheated |  | risk_downgraded_candidate |  |  |  |
@@ -71,7 +72,6 @@
 | 20260616 | 2357 | 華碩 | 電腦及週邊設備業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
 | 20260616 | 2359 | 所羅門 | 其他電子業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
 | 20260616 | 2360 | 致茂 | 其他電子業 | mainstream_overheated | mainstream_overheated |  | risk_downgraded_candidate |  |  |  |
-| 20260616 | 2363 | 矽統 | 半導體業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate | D_降級_TDCC轉弱 |  |  |
+| 20260616 | 2363 | 矽統 | 半導體業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
 | 20260616 | 2365 | 昆盈 | 電腦及週邊設備業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
-| 20260616 | 2368 | 金像電 | 電子零組件業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
 
