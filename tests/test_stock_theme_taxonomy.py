@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import unittest
+from pathlib import Path
+from tempfile import TemporaryDirectory
 
 import pandas as pd
 
@@ -142,11 +144,49 @@ class StockThemeTaxonomyTests(unittest.TestCase):
         self.assertEqual(taxonomy.display_theme("91"), "DR / 外國上市")
         self.assertEqual(taxonomy.display_theme("ETF_or_index_product"), "指數 / ETF / ETN商品")
         self.assertEqual(taxonomy.provisional_industry_rule("91")[0], "DR / 外國上市")
+        self.assertTrue(taxonomy.is_generic_industry("普通股"))
+        self.assertTrue(taxonomy.is_generic_industry("普通股_待補官方產業"))
         self.assertTrue(taxonomy.is_generic_industry("其他業"))
+        self.assertEqual(
+            taxonomy.missing_industry_fallback("1438", "三地開發"),
+            ("建材營造", "建材營造", "non_mainstream_theme", "non_mainstream"),
+        )
         self.assertEqual(
             taxonomy.missing_industry_fallback("6585", "鼎基")[0],
             "TPU材料 / 工業複合材料",
         )
+
+    def test_generic_official_industry_preserves_snapshot(self) -> None:
+        with TemporaryDirectory() as tmp:
+            snapshot_path = Path(tmp) / "company_industry_snapshot_latest.csv"
+            pd.DataFrame(
+                [
+                    {
+                        "stock_id": "1438",
+                        "stock_name": "三地開發",
+                        "industry": "建材營造",
+                        "market": "TWSE",
+                        "industry_source": "official_twse",
+                    }
+                ]
+            ).to_csv(snapshot_path, index=False, encoding="utf-8-sig")
+            official = pd.DataFrame(
+                [
+                    {
+                        "stock_id": "1438",
+                        "stock_name": "三地開發",
+                        "industry": "普通股",
+                        "market": "TWSE",
+                        "industry_source": "official_twse",
+                    }
+                ]
+            )
+
+            preserved = taxonomy.preserve_snapshot_industries(official, snapshot_path)
+
+        row = preserved.iloc[0]
+        self.assertEqual(row["industry"], "建材營造")
+        self.assertEqual(row["industry_source"], "snapshot_preserved_after_generic_official")
 
 
 if __name__ == "__main__":

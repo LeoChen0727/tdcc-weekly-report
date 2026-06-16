@@ -747,6 +747,7 @@ MISSING_INDUSTRY_FALLBACKS: dict[str, tuple[str, str, str, str]] = {
     # Keep them explicit so the daily reports do not leak an unclassified bucket.
     "0200": ("\u6307\u6578/ETF/ETN\u5546\u54c1", "\u6307\u6578/ETF/ETN\u5546\u54c1", "non_mainstream_theme", "non_mainstream"),
     "1342": ("TPU材料 / 工業複合材料", "TPU材料 / 工業複合材料", "non_mainstream_theme", "non_mainstream"),
+    "1438": ("建材營造", "建材營造", "non_mainstream_theme", "non_mainstream"),
     "2348": ("房地產代銷 / 建設服務", "房地產代銷 / 建設服務", "non_mainstream_theme", "non_mainstream"),
     "2809": ("\u91d1\u878d\u4fdd\u96aa\u696d", "\u91d1\u878d\u4fdd\u96aa\u696d", "non_mainstream_theme", "non_mainstream"),
     "2888": ("\u91d1\u878d\u4fdd\u96aa\u696d", "\u91d1\u878d\u4fdd\u96aa\u696d", "non_mainstream_theme", "non_mainstream"),
@@ -765,8 +766,19 @@ MISSING_INDUSTRY_FALLBACKS: dict[str, tuple[str, str, str, str]] = {
 }
 
 
+GENERIC_INDUSTRY_VALUES = {
+    "普通股",
+    "普通股_待補官方產業",
+    "其他",
+    "其他業",
+    "other",
+    "unknown",
+    "unclassified",
+}
+
+
 def is_generic_industry(value: Any) -> bool:
-    return compact_text(value) in {"其他", "其他業", "other", "unknown", "unclassified"}
+    return compact_text(value) in GENERIC_INDUSTRY_VALUES
 
 
 def missing_industry_fallback(stock_id: str, stock_name: str) -> tuple[str, str, str, str] | None:
@@ -956,6 +968,34 @@ def fetch_json_records(url: str) -> list[dict[str, Any]]:
     return records if isinstance(records, list) else []
 
 
+def preserve_snapshot_industries(out: pd.DataFrame, snapshot_path: Path = COMPANY_INDUSTRY_SNAPSHOT) -> pd.DataFrame:
+    if not snapshot_path.exists():
+        return out
+    snapshot = read_csv(snapshot_path, dtype=str, keep_default_na=False)
+    if snapshot.empty or not {"stock_id", "industry"}.issubset(snapshot.columns):
+        return out
+    snapshot_by_id: dict[str, dict[str, str]] = {}
+    for _, snapshot_row in snapshot.iterrows():
+        code = normalize_code(snapshot_row.get("stock_id", ""))
+        industry = compact_text(snapshot_row.get("industry", ""))
+        if code and industry and not is_generic_industry(industry):
+            snapshot_by_id[code] = {
+                "stock_name": compact_text(snapshot_row.get("stock_name", "")),
+                "industry": industry,
+                "market": compact_text(snapshot_row.get("market", "")),
+            }
+    for idx, row in out.iterrows():
+        code = normalize_code(row.get("stock_id", ""))
+        industry = compact_text(row.get("industry", ""))
+        snapshot_row = snapshot_by_id.get(code)
+        if snapshot_row and (not industry or is_generic_industry(industry)):
+            out.at[idx, "industry"] = snapshot_row["industry"]
+            out.at[idx, "stock_name"] = compact_text(row.get("stock_name", "")) or snapshot_row["stock_name"]
+            out.at[idx, "market"] = compact_text(row.get("market", "")) or snapshot_row["market"]
+            out.at[idx, "industry_source"] = "snapshot_preserved_after_generic_official"
+    return out
+
+
 def load_official_company_industry() -> pd.DataFrame:
     """Load official TWSE/TPEx industry metadata.
 
@@ -1012,6 +1052,7 @@ def load_official_company_industry() -> pd.DataFrame:
     if out.empty:
         return pd.DataFrame(columns=["stock_id", "stock_name", "industry", "market", "industry_source"])
     out = out.drop_duplicates("stock_id", keep="first").sort_values("stock_id").reset_index(drop=True)
+    out = preserve_snapshot_industries(out)
     write_csv(out, COMPANY_INDUSTRY_SNAPSHOT)
     DOCS_LATEST_DIR.mkdir(parents=True, exist_ok=True)
     write_csv(out, DOCS_COMPANY_INDUSTRY_SNAPSHOT)
