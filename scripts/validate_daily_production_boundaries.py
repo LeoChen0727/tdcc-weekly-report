@@ -9,6 +9,10 @@ ROOT = Path(__file__).resolve().parents[1]
 DAILY_WORKFLOW = ROOT / ".github" / "workflows" / "daily_full_pipeline.yml"
 CANONICAL_CHATGPT_PDF_ENTRYPOINT = ROOT / "scripts" / "run_chatgpt_daily_report_entrypoint.py"
 CANONICAL_CHATGPT_PDF_GENERATOR = ROOT / "scripts" / "generate_chatgpt_side_daily_reports.py"
+FIXED_DAILY_MARKET_PDF_GENERATOR = ROOT / "scripts" / "generate_daily_market_pdf.py"
+DAILY_MARKET_ARTIFACT_BUILDER = ROOT / "build_daily_market_report_artifacts.py"
+THEME_EVENT_WATCH_BUILDER = ROOT / "scripts" / "build_theme_event_watch.py"
+WARRANT_FLOW_BUILDER = ROOT / "build_warrant_flow_latest.py"
 DAILY_REPORT_SOURCE_RESOLVER = ROOT / "scripts" / "resolve_daily_report_source_state.py"
 STAGED_PATH_VALIDATOR = ROOT / "scripts" / "validate_daily_staged_paths.py"
 THREAD_WORKFLOW_DOC = ROOT / "docs" / "CODEX_THREAD_WORKFLOW.md"
@@ -55,6 +59,52 @@ FORBIDDEN_DAILY_STAGE_PATTERNS = {
 }
 
 
+FORMAL_REPORT_DATE_HARD_GATE_FILES = {
+    FIXED_DAILY_MARKET_PDF_GENERATOR: [
+        "require_daily_report_ready_main_price_date",
+        "load_ready_freshness",
+    ],
+    DAILY_MARKET_ARTIFACT_BUILDER: [
+        "require_daily_report_ready_main_price_date",
+    ],
+    THEME_EVENT_WATCH_BUILDER: [
+        "require_daily_report_ready_main_price_date",
+    ],
+}
+
+FORBIDDEN_FORMAL_REPORT_DATE_FALLBACKS = {
+    FIXED_DAILY_MARKET_PDF_GENERATOR: {
+        'safe_str(df["date"].max())': "fixed daily PDF generator must not fall back to candidate table dates",
+        'now_taipei().strftime("%Y%m%d")': "fixed daily PDF generator must not fall back to wall-clock dates",
+    },
+    DAILY_MARKET_ARTIFACT_BUILDER: {
+        'dates = candidates["date"].map(normalize_date)': "daily market artifact date must not fall back to all_candidates_latest.csv",
+        "all_candidates_latest.csv date 最大值": "daily market artifact date must not fall back to all_candidates_latest.csv",
+        'datetime.now(ZoneInfo("Asia/Taipei")).strftime("%Y%m%d")': "daily market artifact date must not fall back to wall-clock dates",
+    },
+    THEME_EVENT_WATCH_BUILDER: {
+        'return datetime.now().strftime("%Y%m%d")': "theme event watch signal_date must not fall back to wall-clock dates",
+        "or datetime.now()": "theme event watch base day must not fall back to wall-clock dates",
+    },
+    WARRANT_FLOW_BUILDER: {
+        'datetime.now(ZoneInfo("Asia/Taipei")).strftime("%Y%m%d")': "warrant flow history date must come from warrant data, not wall-clock dates",
+    },
+}
+
+DAILY_REPORT_SURFACES = [
+    CANONICAL_CHATGPT_PDF_GENERATOR,
+    FIXED_DAILY_MARKET_PDF_GENERATOR,
+    DAILY_MARKET_ARTIFACT_BUILDER,
+    ROOT / "build_chatgpt_daily_report_packet.py",
+    ROOT / "build_chatgpt_daily_report_rules.py",
+]
+
+FORBIDDEN_DAILY_REPORT_DEPENDENCIES = {
+    "action_decision_utils": "daily report surfaces must not import or call the old action/decision helper",
+    "compute_action_decision": "daily report surfaces must not compute second-layer action decisions",
+}
+
+
 def read_text(path: Path) -> str:
     if not path.exists():
         raise FileNotFoundError(path)
@@ -79,6 +129,34 @@ def main() -> int:
     daily_text = read_text(DAILY_WORKFLOW)
 
     errors.extend(run_code_isolation_policy_validation())
+
+    for path, required_literals in FORMAL_REPORT_DATE_HARD_GATE_FILES.items():
+        if not path.exists():
+            errors.append(f"missing formal report date hard-gate file: {path.relative_to(ROOT).as_posix()}")
+            continue
+        text = read_text(path)
+        for literal in required_literals:
+            if literal not in text:
+                errors.append(
+                    f"{path.relative_to(ROOT).as_posix()} must use the formal daily freshness hard gate: missing {literal!r}"
+                )
+
+    for path, forbidden_literals in FORBIDDEN_FORMAL_REPORT_DATE_FALLBACKS.items():
+        if not path.exists():
+            continue
+        text = read_text(path)
+        for literal, message in forbidden_literals.items():
+            if literal in text:
+                errors.append(f"{message}: {path.relative_to(ROOT).as_posix()} contains {literal!r}")
+
+    for path in DAILY_REPORT_SURFACES:
+        if not path.exists():
+            errors.append(f"missing daily report surface: {path.relative_to(ROOT).as_posix()}")
+            continue
+        text = read_text(path)
+        for literal, message in FORBIDDEN_DAILY_REPORT_DEPENDENCIES.items():
+            if literal in text:
+                errors.append(f"{message}: {path.relative_to(ROOT).as_posix()} contains {literal!r}")
 
     for label, pattern in FORBIDDEN_DAILY_SCRIPT_PATTERNS.items():
         if re.search(pattern, daily_text):

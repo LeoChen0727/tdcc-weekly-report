@@ -12,6 +12,8 @@ import shutil
 
 import pandas as pd
 
+from tracking_utils import require_daily_report_ready_main_price_date
+
 from reportlab.lib import colors
 from reportlab.lib.enums import TA_CENTER, TA_LEFT
 from reportlab.lib.pagesizes import A4, landscape
@@ -484,6 +486,15 @@ def load_freshness() -> dict[str, Any]:
     except Exception:
         return {}
     return {}
+
+
+def load_ready_freshness() -> tuple[dict[str, Any], str]:
+    main_date = require_daily_report_ready_main_price_date()
+    freshness = load_freshness()
+    if not freshness:
+        raise RuntimeError(f"{DATA_FRESHNESS_CSV.as_posix()} is required for fixed daily market PDF reports")
+    freshness["main_price_date"] = main_date
+    return freshness, main_date
 
 
 def load_candidates() -> pd.DataFrame:
@@ -4226,11 +4237,8 @@ def write_manifest(main_date: str, freshness: dict[str, Any], history_paths: dic
 
 def main() -> int:
     LATEST_DIR.mkdir(parents=True, exist_ok=True)
-    freshness = load_freshness()
+    freshness, main_date = load_ready_freshness()
     df = load_candidates()
-    main_date = safe_str(freshness.get("main_price_date")) or safe_str(df["date"].max())
-    if not main_date:
-        main_date = now_taipei().strftime("%Y%m%d")
 
     build_curated_pdf(df, freshness, main_date, CURATED_PDF)
     build_full_table_pdf(df, freshness, main_date, FULL_TABLE_PDF)

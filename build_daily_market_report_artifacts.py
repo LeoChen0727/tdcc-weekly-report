@@ -17,6 +17,8 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 
+from scripts.tracking_utils import require_daily_report_ready_main_price_date
+
 from reportlab.lib import colors
 from reportlab.lib.enums import TA_LEFT, TA_CENTER
 from reportlab.lib.pagesizes import A4, landscape
@@ -214,39 +216,19 @@ def get_main_price_date() -> tuple[str, bool, dict]:
         "report_ready_note": "",
     }
 
+    main_date = require_daily_report_ready_main_price_date()
     freshness = read_csv(DATA_FRESHNESS_CSV)
+    if freshness.empty:
+        raise RuntimeError(f"{DATA_FRESHNESS_CSV.as_posix()} is required for daily market report artifacts")
 
-    if not freshness.empty:
-        row = freshness.iloc[0].to_dict()
+    row = freshness.iloc[0].to_dict()
+    for key in meta:
+        if key in row:
+            meta[key] = row[key]
 
-        for key in meta:
-            if key in row:
-                meta[key] = row[key]
-
-        main_date = normalize_date(meta.get("main_price_date", ""))
-        report_ready = safe_str(meta.get("report_ready", "")).lower() in ["true", "1", "yes"]
-
-        meta["main_price_date"] = main_date
-        meta["report_ready"] = report_ready
-
-        return main_date, report_ready, meta
-
-    candidates = read_csv(ALL_CANDIDATES_CSV)
-
-    if not candidates.empty and "date" in candidates.columns:
-        dates = candidates["date"].map(normalize_date)
-        dates = dates[dates.astype(str).str.len() == 8]
-
-        if not dates.empty:
-            main_date = str(dates.max())
-            meta["main_price_date"] = main_date
-            meta["all_candidates_date"] = main_date
-            meta["report_ready"] = True
-            meta["report_ready_note"] = "data_freshness_latest.csv 不存在，改用 all_candidates_latest.csv date 最大值"
-            return main_date, True, meta
-
-    meta["report_ready_note"] = "無法判斷主資料日期"
-    return "", False, meta
+    meta["main_price_date"] = main_date
+    meta["report_ready"] = True
+    return main_date, True, meta
 
 
 def load_candidates() -> pd.DataFrame:
@@ -2174,9 +2156,6 @@ def main() -> int:
     HISTORY_REPORT_DIR.mkdir(parents=True, exist_ok=True)
 
     main_date, report_ready, meta = get_main_price_date()
-
-    if not main_date:
-        main_date = datetime.now(ZoneInfo("Asia/Taipei")).strftime("%Y%m%d")
 
     candidates = load_candidates()
     chart_manifest = load_chart_manifest()

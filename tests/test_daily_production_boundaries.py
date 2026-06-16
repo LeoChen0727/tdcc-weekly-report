@@ -194,6 +194,58 @@ def test_daily_production_sources_do_not_build_or_depend_on_decision_layer() -> 
             assert field not in text, f"{path.as_posix()} still references {field}"
 
 
+def test_formal_daily_report_dates_use_freshness_hard_gate_without_fallbacks() -> None:
+    tracking_text = (ROOT / "scripts" / "tracking_utils.py").read_text(encoding="utf-8")
+    start = tracking_text.index("def require_daily_report_ready_main_price_date(")
+    end = tracking_text.index("\n\ndef load_price_history(", start)
+    hard_gate_body = tracking_text[start:end]
+
+    for field in ["main_price_date", "report_ready", "warrant_ready", "daily_pdf_ready"]:
+        assert field in hard_gate_body
+    assert "latest_stock_price_history_date" not in hard_gate_body
+    assert "latest_price_date" not in hard_gate_body
+
+    files = {
+        ROOT / "scripts" / "generate_daily_market_pdf.py": [
+            "require_daily_report_ready_main_price_date",
+            "load_ready_freshness",
+        ],
+        ROOT / "build_daily_market_report_artifacts.py": [
+            "require_daily_report_ready_main_price_date",
+        ],
+        ROOT / "scripts" / "build_theme_event_watch.py": [
+            "require_daily_report_ready_main_price_date",
+        ],
+    }
+    for path, required in files.items():
+        text = path.read_text(encoding="utf-8")
+        for literal in required:
+            assert literal in text, f"{path.as_posix()} missing {literal}"
+
+    forbidden = {
+        ROOT / "scripts" / "generate_daily_market_pdf.py": [
+            'safe_str(df["date"].max())',
+            'now_taipei().strftime("%Y%m%d")',
+        ],
+        ROOT / "build_daily_market_report_artifacts.py": [
+            'dates = candidates["date"].map(normalize_date)',
+            "all_candidates_latest.csv date 最大值",
+            'datetime.now(ZoneInfo("Asia/Taipei")).strftime("%Y%m%d")',
+        ],
+        ROOT / "scripts" / "build_theme_event_watch.py": [
+            'return datetime.now().strftime("%Y%m%d")',
+            "or datetime.now()",
+        ],
+        ROOT / "build_warrant_flow_latest.py": [
+            'datetime.now(ZoneInfo("Asia/Taipei")).strftime("%Y%m%d")',
+        ],
+    }
+    for path, literals in forbidden.items():
+        text = path.read_text(encoding="utf-8")
+        for literal in literals:
+            assert literal not in text, f"{path.as_posix()} still has date fallback {literal}"
+
+
 def test_daily_workflow_uses_latest_only_volume_breakout_watch() -> None:
     text = (ROOT / ".github" / "workflows" / "daily_full_pipeline.yml").read_text(
         encoding="utf-8"

@@ -300,6 +300,25 @@ def main_price_date_from_freshness() -> str:
     return latest_price_date()
 
 
+def require_daily_report_ready_main_price_date() -> str:
+    freshness_path = LATEST_DIR / "data_freshness_latest.csv"
+    freshness = read_csv(freshness_path, dtype=str, keep_default_na=False)
+    if freshness.empty:
+        raise RuntimeError(f"{freshness_path.as_posix()} is required for formal daily report generation")
+
+    row = freshness.iloc[0]
+    main_date = normalize_date(row.get("main_price_date", ""))
+    if not main_date:
+        raise RuntimeError("data_freshness_latest.csv must contain main_price_date for formal daily report generation")
+
+    for col in ["report_ready", "warrant_ready", "daily_pdf_ready"]:
+        value = safe_str(row.get(col, "")).lower()
+        if value not in {"true", "1", "yes", "y"}:
+            raise RuntimeError(f"{col} must be True before formal daily report generation; observed={row.get(col, '')!r}")
+
+    return main_date
+
+
 def load_price_history(stock_id: Any) -> pd.DataFrame:
     stock_id = normalize_code(stock_id)
     if not stock_id:
