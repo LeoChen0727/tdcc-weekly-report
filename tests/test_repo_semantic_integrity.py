@@ -1,0 +1,51 @@
+from __future__ import annotations
+
+import csv
+from pathlib import Path
+
+from scripts import validate_repo_semantic_integrity as validator
+
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def test_repo_semantic_integrity_validator_passes() -> None:
+    assert validator.main() == 0
+
+
+def test_semantic_integrity_gate_is_hooked_into_daily_pipeline() -> None:
+    workflow = (ROOT / ".github" / "workflows" / "daily_full_pipeline.yml").read_text(
+        encoding="utf-8"
+    )
+    boundary = (ROOT / "scripts" / "validate_daily_production_boundaries.py").read_text(
+        encoding="utf-8"
+    )
+
+    assert "python scripts/validate_repo_semantic_integrity.py" in workflow
+    assert "validate_repo_semantic_integrity.py" in boundary
+
+
+def test_report_artifact_lineage_manifest_has_required_artifacts() -> None:
+    lineage = ROOT / "config" / "report_artifact_lineage.csv"
+    with lineage.open("r", encoding="utf-8-sig", newline="") as fh:
+        rows = {row["artifact_path"]: row for row in csv.DictReader(fh)}
+
+    for artifact in {
+        "output/latest/READ_ME_FIRST_DAILY_REPORT.txt",
+        "output/latest/chatgpt_daily_report_packet_latest.txt",
+        "output/latest/daily_volume_breakout_operation_section_latest.csv",
+        "output/latest/daily_candidate_model_signals_for_report_latest.csv",
+        "output/latest/stock_theme_taxonomy_latest.csv",
+    }:
+        assert artifact in rows
+        assert rows[artifact]["producer"]
+        assert rows[artifact]["source_artifacts"]
+        assert rows[artifact]["validator"]
+
+
+def test_chip_flow_orphan_is_marked_deprecated() -> None:
+    inventory = ROOT / "config" / "repo_production_inventory.csv"
+    with inventory.open("r", encoding="utf-8-sig", newline="") as fh:
+        rows = {row["path"]: row for row in csv.DictReader(fh)}
+
+    assert rows["scripts/build_chip_flow_positive_streak.py"]["status"] == "legacy_deprecated"

@@ -22,6 +22,7 @@ RULES_MASTER = ROOT / "rules" / "master_priority_rules.md"
 DOCS_RULES_MASTER = ROOT / "docs" / "rules" / "master_priority_rules.md"
 CODE_ISOLATION_POLICY_VALIDATOR = ROOT / "scripts" / "validate_repo_code_isolation_policy.py"
 REPO_PRODUCTION_INVENTORY_VALIDATOR = ROOT / "scripts" / "validate_repo_production_inventory.py"
+REPO_SEMANTIC_INTEGRITY_VALIDATOR = ROOT / "scripts" / "validate_repo_semantic_integrity.py"
 
 
 FORBIDDEN_DAILY_SCRIPT_PATTERNS = {
@@ -133,12 +134,27 @@ def run_repo_production_inventory_validation() -> list[str]:
     return list(module.validate())
 
 
+def run_repo_semantic_integrity_validation() -> list[str]:
+    spec = importlib.util.spec_from_file_location(
+        "validate_repo_semantic_integrity",
+        REPO_SEMANTIC_INTEGRITY_VALIDATOR,
+    )
+    if spec is None or spec.loader is None:
+        return [f"cannot load repo semantic integrity validator: {REPO_SEMANTIC_INTEGRITY_VALIDATOR}"]
+
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[spec.name] = module
+    spec.loader.exec_module(module)
+    return list(module.validate())
+
+
 def main() -> int:
     errors: list[str] = []
     daily_text = read_text(DAILY_WORKFLOW)
 
     errors.extend(run_code_isolation_policy_validation())
     errors.extend(run_repo_production_inventory_validation())
+    errors.extend(run_repo_semantic_integrity_validation())
 
     for path, required_literals in FORMAL_REPORT_DATE_HARD_GATE_FILES.items():
         if not path.exists():
