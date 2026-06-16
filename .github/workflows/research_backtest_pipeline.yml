@@ -81,6 +81,7 @@ jobs:
       - name: Validate Apps Script workflow triggers
         run: |
           python scripts/validate_apps_script_workflow_triggers.py
+          python scripts/validate_repo_production_inventory.py
           python scripts/validate_research_production_boundaries.py
 
       - name: Install dependencies
