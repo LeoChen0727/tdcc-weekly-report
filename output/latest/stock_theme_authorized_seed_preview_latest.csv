@@ -85,7 +85,6 @@ stock_id,stock_name,industry,primary_theme,secondary_themes,structural_theme_buc
 2327,國巨,電子零組件業,被動元件,,passive_component_theme,core_mainstream,core_mainstream,core_mainstream,False,,mainstream,True,False,False,mainstream_section,authorized_seed,被動元件,user_authorized_seed_20260530
 2375,凱美,電子零組件業,被動元件,電容,passive_component_theme,core_mainstream,theme_unknown,core_mainstream,False,,mainstream,True,False,False,mainstream_section,authorized_seed,被動元件;電容;被動元件,user_authorized_seed_20260530
 2428,興勤,電子零組件業,被動元件,,passive_component_theme,core_mainstream,core_mainstream,core_mainstream,False,,mainstream,True,False,False,mainstream_section,authorized_seed,被動元件,user_authorized_seed_20260530
-2456,奇力新,,被動元件,,passive_component_theme,core_mainstream,theme_unknown,core_mainstream,False,,mainstream,True,False,False,mainstream_section,authorized_seed,被動元件,user_authorized_seed_20260530
 2472,立隆電,電子零組件業,被動元件,,passive_component_theme,core_mainstream,core_mainstream,core_mainstream,False,,mainstream,True,False,False,mainstream_section,authorized_seed,被動元件,user_authorized_seed_20260530
 2478,大毅,電子零組件業,被動元件,,passive_component_theme,core_mainstream,core_mainstream,core_mainstream,False,,mainstream,True,False,False,mainstream_section,authorized_seed,被動元件,user_authorized_seed_20260530
 2484,希華,電子零組件業,被動元件,,passive_component_theme,core_mainstream,core_mainstream,core_mainstream,False,,mainstream,True,False,False,mainstream_section,authorized_seed,被動元件,user_authorized_seed_20260530

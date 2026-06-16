@@ -1,7 +1,7 @@
 # Stock Theme Authorized Seed Preview
 
-- generated_at: 2026-06-17 03:14:14 Asia/Taipei
-- rows: 135
+- generated_at: 2026-06-17 03:51:25 Asia/Taipei
+- rows: 134
 - purpose: user-authorized market theme seed integrated with existing manual/default taxonomy.
 
 |   stock_id | stock_name   | primary_theme   | secondary_themes   | structural_theme_bucket                | industry_mainstream_label   | theme_mainstream_label   | effective_mainstream_label   | report_line_memberships   | mainstream_report_eligible   | non_mainstream_report_eligible   | dual_report_membership_flag   | taxonomy_source   |
@@ -92,7 +92,6 @@
 |       2327 | 國巨           | 被動元件            |                    | passive_component_theme                | core_mainstream             | core_mainstream          | core_mainstream              | mainstream                | True                         | False                            | False                         | authorized_seed   |
 |       2375 | 凱美           | 被動元件            | 電容                 | passive_component_theme                | theme_unknown               | core_mainstream          | core_mainstream              | mainstream                | True                         | False                            | False                         | authorized_seed   |
 |       2428 | 興勤           | 被動元件            |                    | passive_component_theme                | core_mainstream             | core_mainstream          | core_mainstream              | mainstream                | True                         | False                            | False                         | authorized_seed   |
-|       2456 | 奇力新          | 被動元件            |                    | passive_component_theme                | theme_unknown               | core_mainstream          | core_mainstream              | mainstream                | True                         | False                            | False                         | authorized_seed   |
 |       2472 | 立隆電          | 被動元件            |                    | passive_component_theme                | core_mainstream             | core_mainstream          | core_mainstream              | mainstream                | True                         | False                            | False                         | authorized_seed   |
 |       2478 | 大毅           | 被動元件            |                    | passive_component_theme                | core_mainstream             | core_mainstream          | core_mainstream              | mainstream                | True                         | False                            | False                         | authorized_seed   |
 |       2484 | 希華           | 被動元件            |                    | passive_component_theme                | core_mainstream             | core_mainstream          | core_mainstream              | mainstream                | True                         | False                            | False                         | authorized_seed   |

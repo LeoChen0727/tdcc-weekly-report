@@ -1,18 +1,18 @@
 # Stock Theme Taxonomy
 
-- generated_at: 2026-06-17 03:14:14 Asia/Taipei
-- total_rows: 2378
-- mainstream_count: 1072
-- non_mainstream_count: 900
-- effective_mainstream_count: 1072
-- effective_non_mainstream_count: 1306
+- generated_at: 2026-06-17 03:51:25 Asia/Taipei
+- total_rows: 2370
+- mainstream_count: 1068
+- non_mainstream_count: 896
+- effective_mainstream_count: 1068
+- effective_non_mainstream_count: 1302
 - mainstream_conflict_count: 9
 - dual_report_membership_count: 9
-- mainstream_report_eligible_count: 1072
-- non_mainstream_report_eligible_count: 1315
+- mainstream_report_eligible_count: 1068
+- non_mainstream_report_eligible_count: 1311
 - unknown_count: 406
 - manual_override_count: 5
-- authorized_seed_count: 130
+- authorized_seed_count: 129
 
 ## Authorized Seed Preview
 |   stock_id | stock_name   | industry   | primary_theme   | secondary_themes   | structural_theme_bucket                | taxonomy_source   |
@@ -61,7 +61,6 @@
 |       2428 | 興勤           | 電子零組件業     | 被動元件            |                    | passive_component_theme                | authorized_seed   |
 |       2451 | 創見           | 半導體業       | 記憶體儲存           |                    | memory_hbm_theme                       | authorized_seed   |
 |       2455 | 全新           | 通信網路業      | 低軌衛星            | CPO光通訊             | low_earth_orbit_satellite_theme        | authorized_seed   |
-|       2456 | 奇力新          |            | 被動元件            |                    | passive_component_theme                | authorized_seed   |
 |       2464 | 盟立           | 其他電子業      | 機器人自動化          |                    | robotics_automation_theme              | authorized_seed   |
 |       2467 | 志聖           | 電子零組件業     | 半導體設備_CoWoS     |                    | semiconductor_equipment_material_theme | authorized_seed   |
 |       2472 | 立隆電          | 電子零組件業     | 被動元件            |                    | passive_component_theme                | authorized_seed   |
@@ -137,6 +136,7 @@
 |       6640 | 均華           | 半導體業       | 半導體設備_CoWoS     |                    | semiconductor_equipment_material_theme | authorized_seed   |
 |       6669 | 緯穎           | 電腦及週邊設備業   | AI伺服器           |                    | ai_server_ipc_theme                    | authorized_seed   |
 |       6715 | 嘉基           | 電子零組件業     | 低軌衛星            |                    | low_earth_orbit_satellite_theme        | authorized_seed   |
+|       6805 | 富世達          | 電子零組件業     | 散熱液冷            | 機器人自動化             | thermal_solution_theme                 | authorized_seed   |
 
 ## Mainstream Sample
 |   stock_id | stock_name   | industry   | primary_theme   | secondary_themes   | industry_mainstream_label   | theme_mainstream_label   | effective_mainstream_label   |
