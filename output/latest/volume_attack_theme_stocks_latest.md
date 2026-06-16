@@ -1,6 +1,6 @@
 # Volume Attack Theme Stocks
 
-- generated_at: `2026-06-16 21:34:32 Asia/Taipei`
+- generated_at: `2026-06-16 21:56:40 Asia/Taipei`
 - signal_date: `20260616`
 - rule: Every volume attack stock row carries explicit mainstream/non-mainstream status.
 
@@ -9,7 +9,7 @@
 |       4976 | 佳凌           | 光電業          | mainstream_overheated     | core_mainstream_theme     | core_mainstream_overheated | overheated_volume_theme      | bottom_volume_attack   | A_bottom_volume_attack     | selected           | individual_quality_candidate |         3.5666 |               |                       | 以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。 |
 |       4551 | 智伸科          | 汽車工業         | mainstream_overheated     | non_mainstream_theme      | non_mainstream_overheated  | overheated_volume_theme      | bottom_volume_attack   | A_bottom_volume_attack     | selected           | individual_quality_candidate |         1.8985 |               | no_signal             | 以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。 |
 |       2305 | 全友           | 電腦及週邊設備業     | mainstream_overheated     | core_mainstream_theme     | core_mainstream_overheated | overheated_volume_theme      | bottom_volume_attack   | A_bottom_volume_attack     | selected           | individual_quality_candidate |         0.2447 |               |                       | 以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。 |
-|       5227 | 立凱-KY        | 普通股_待補官方產業   | single_name_signal        | needs_manual_review       | theme_unknown              | single_stock_volume_attack   | bottom_volume_attack   | A_bottom_volume_attack     | selected           | individual_quality_candidate |         0.2139 |               |                       | 以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。 |
+|       5227 | 立凱-KY        | 電子零組件業_待細分   | single_name_signal        | market_theme              | core_mainstream            | single_stock_volume_attack   | bottom_volume_attack   | A_bottom_volume_attack     | selected           | individual_quality_candidate |         0.2139 |               |                       | 以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。 |
 |       6668 | 中揚光          | 光電業          | mainstream_overheated     | core_mainstream_theme     | core_mainstream_overheated | overheated_volume_theme      | bottom_volume_attack   | A_bottom_volume_attack     | selected           | individual_quality_candidate |         4.3915 |               |                       | 以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。 |
 |       7610 | 聯友金屬-創       | 綠能環保         | mainstream_follow_through | non_mainstream_theme      | non_mainstream_flow_active | non_mainstream_volume_watch  | bottom_volume_attack   | A_bottom_volume_attack     | selected           | individual_quality_candidate |         0.3509 |               |                       | 以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。 |
 |       1905 | 華紙           | 造紙工業         | mainstream_follow_through | non_mainstream_theme      | non_mainstream_flow_active | non_mainstream_volume_watch  | bottom_volume_attack   | A_bottom_volume_attack     | selected           | individual_quality_candidate |         2.8097 |               | no_signal             | 以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準、量價失敗或TDCC轉弱，則標記風險升高。 |
