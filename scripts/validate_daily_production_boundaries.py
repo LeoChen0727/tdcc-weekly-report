@@ -9,7 +9,6 @@ ROOT = Path(__file__).resolve().parents[1]
 DAILY_WORKFLOW = ROOT / ".github" / "workflows" / "daily_full_pipeline.yml"
 CANONICAL_CHATGPT_PDF_ENTRYPOINT = ROOT / "scripts" / "run_chatgpt_daily_report_entrypoint.py"
 CANONICAL_CHATGPT_PDF_GENERATOR = ROOT / "scripts" / "generate_chatgpt_side_daily_reports.py"
-FIXED_DAILY_MARKET_PDF_GENERATOR = ROOT / "scripts" / "generate_daily_market_pdf.py"
 DAILY_MARKET_ARTIFACT_BUILDER = ROOT / "build_daily_market_report_artifacts.py"
 THEME_EVENT_WATCH_BUILDER = ROOT / "scripts" / "build_theme_event_watch.py"
 WARRANT_FLOW_BUILDER = ROOT / "build_warrant_flow_latest.py"
@@ -24,6 +23,8 @@ CODE_ISOLATION_POLICY_VALIDATOR = ROOT / "scripts" / "validate_repo_code_isolati
 
 
 FORBIDDEN_DAILY_SCRIPT_PATTERNS = {
+    "retired fixed daily market PDF generator": r"scripts/generate_daily_market_pdf\.py",
+    "retired fixed daily market PDF validator": r"scripts/validate_daily_market_report\.py",
     "market timing backtest": r"scripts/build_market_timing_technical_backtest\.py",
     "weekly surge research": r"scripts/research_weekly_",
     "explosive-volume research": r"scripts/research_explosive_volume_up\.py",
@@ -60,10 +61,6 @@ FORBIDDEN_DAILY_STAGE_PATTERNS = {
 
 
 FORMAL_REPORT_DATE_HARD_GATE_FILES = {
-    FIXED_DAILY_MARKET_PDF_GENERATOR: [
-        "require_daily_report_ready_main_price_date",
-        "load_ready_freshness",
-    ],
     DAILY_MARKET_ARTIFACT_BUILDER: [
         "require_daily_report_ready_main_price_date",
     ],
@@ -73,10 +70,6 @@ FORMAL_REPORT_DATE_HARD_GATE_FILES = {
 }
 
 FORBIDDEN_FORMAL_REPORT_DATE_FALLBACKS = {
-    FIXED_DAILY_MARKET_PDF_GENERATOR: {
-        'safe_str(df["date"].max())': "fixed daily PDF generator must not fall back to candidate table dates",
-        'now_taipei().strftime("%Y%m%d")': "fixed daily PDF generator must not fall back to wall-clock dates",
-    },
     DAILY_MARKET_ARTIFACT_BUILDER: {
         'dates = candidates["date"].map(normalize_date)': "daily market artifact date must not fall back to all_candidates_latest.csv",
         "all_candidates_latest.csv date 最大值": "daily market artifact date must not fall back to all_candidates_latest.csv",
@@ -93,7 +86,6 @@ FORBIDDEN_FORMAL_REPORT_DATE_FALLBACKS = {
 
 DAILY_REPORT_SURFACES = [
     CANONICAL_CHATGPT_PDF_GENERATOR,
-    FIXED_DAILY_MARKET_PDF_GENERATOR,
     DAILY_MARKET_ARTIFACT_BUILDER,
     ROOT / "build_chatgpt_daily_report_packet.py",
     ROOT / "build_chatgpt_daily_report_rules.py",

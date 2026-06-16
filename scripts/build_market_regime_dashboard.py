@@ -823,15 +823,12 @@ def main() -> int:
     md = build_markdown(index_rows, indicators, regime_df.iloc[0], source_status, index_history_for_context, chart_paths)
     REPORT_MD.write_text(md, encoding="utf-8")
     build_pdf(md, REPORT_PDF, chart_paths)
-    DOCS_LATEST_DIR.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(REPORT_PDF, DOCS_REPORT_PDF)
-
     manifest = {
         "generated_at": now_text(),
         "market_regime_csv": MARKET_REGIME_CSV.as_posix(),
         "report_md": REPORT_MD.as_posix(),
         "report_pdf": REPORT_PDF.as_posix(),
-        "docs_report_pdf": DOCS_REPORT_PDF.as_posix(),
+        "docs_report_pdf": "",
         "chart_lookback": "six_months",
         "chart_paths": [path.as_posix() for path in chart_paths],
         "source_status": safe_str(indicators.get("source_status", "missing")),

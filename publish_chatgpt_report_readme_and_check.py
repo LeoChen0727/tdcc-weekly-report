@@ -28,14 +28,6 @@ PACKET_MANIFEST_JSON = LATEST_DIR / "chatgpt_daily_report_packet_manifest.json"
 PDF_KLINE_STATUS_MD = LATEST_DIR / "pdf_kline_chart_status_latest.md"
 PDF_KLINE_STATUS_JSON = LATEST_DIR / "pdf_kline_chart_status_latest.json"
 DOCS_PDF_KLINE_STATUS_MD = DOCS_LATEST_DIR / "pdf_kline_chart_status_latest.md"
-FIXED_PDF_MANIFEST_JSON = LATEST_DIR / "daily_market_pdf_report_manifest_latest.json"
-FIXED_PDF_VALIDATION_MD = LATEST_DIR / "daily_market_report_validation_latest.md"
-FIXED_PDF_VALIDATION_JSON = LATEST_DIR / "daily_market_report_validation_latest.json"
-CURATED_REPORT_PDF = LATEST_DIR / "daily_market_curated_report_latest.pdf"
-FULL_TABLE_REPORT_PDF = LATEST_DIR / "daily_market_full_table_report_latest.pdf"
-DOCS_CURATED_REPORT_PDF = DOCS_LATEST_DIR / "daily_market_curated_report_latest.pdf"
-DOCS_FULL_TABLE_REPORT_PDF = DOCS_LATEST_DIR / "daily_market_full_table_report_latest.pdf"
-DOCS_FIXED_PDF_VALIDATION_MD = DOCS_LATEST_DIR / "daily_market_report_validation_latest.md"
 
 README_TXT = LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT.txt"
 DOCS_README_TXT = DOCS_LATEST_DIR / "READ_ME_FIRST_DAILY_REPORT.txt"
@@ -111,13 +103,11 @@ EVENT_CALENDAR_VALIDATION_MD = LATEST_DIR / "event_calendar_validation_latest.md
 CATALYST_NEEDS_REVIEW_CSV = LATEST_DIR / "catalyst_needs_review_latest.csv"
 CATALYST_NEEDS_REVIEW_MD = LATEST_DIR / "catalyst_needs_review_latest.md"
 WARRANT_MARKET_MD = LATEST_DIR / "warrant_market_report_latest.md"
-WARRANT_MARKET_PDF = LATEST_DIR / "warrant_market_report_latest.pdf"
 WARRANT_FLOW_BY_STOCK_CSV = LATEST_DIR / "warrant_flow_by_stock_latest.csv"
 WARRANT_SECTOR_HEAT_CSV = LATEST_DIR / "warrant_sector_heat_latest.csv"
 WARRANT_SIGNAL_PERFORMANCE_MD = LATEST_DIR / "warrant_signal_performance_latest.md"
 MARKET_REGIME_CSV = LATEST_DIR / "market_regime_latest.csv"
 MARKET_RISK_DASHBOARD_MD = LATEST_DIR / "market_risk_dashboard_latest.md"
-MARKET_RISK_DASHBOARD_PDF = LATEST_DIR / "market_risk_dashboard_latest.pdf"
 MARKET_INDEX_HISTORY_CSV = Path("data/market_index_history.csv")
 MARKET_INDEX_OHLC_HISTORY_CSV = Path("data/market_index_ohlc_history.csv")
 FUTURES_OPTIONS_INDICATORS_CSV = LATEST_DIR / "futures_options_indicators_latest.csv"
@@ -546,12 +536,6 @@ def build_readme(
     packet_github_api_url: str,
     summary_latest_raw_url: str,
     full_latest_raw_url: str,
-    daily_market_curated_pdf_pages_url: str,
-    daily_market_curated_pdf_raw_url: str,
-    daily_market_full_table_pdf_pages_url: str,
-    daily_market_full_table_pdf_raw_url: str,
-    fixed_pdf_validation_status: str,
-    fixed_pdf_validation_raw_url: str,
     pdf_kline_status_pages_url: str,
     pdf_kline_status_raw_url: str,
     pdf_kline_policy: str,
@@ -586,15 +570,11 @@ def build_readme(
     candidate_repeat_appearance_raw_url: str,
     candidate_repeat_appearance_md_raw_url: str,
     warrant_market_report_md_raw_url: str,
-    warrant_market_report_pdf_pages_url: str,
-    warrant_market_report_pdf_raw_url: str,
     warrant_flow_by_stock_raw_url: str,
     warrant_sector_heat_raw_url: str,
     warrant_signal_performance_raw_url: str,
     market_regime_raw_url: str,
     market_risk_dashboard_md_raw_url: str,
-    market_risk_dashboard_pdf_pages_url: str,
-    market_risk_dashboard_pdf_raw_url: str,
     futures_options_indicators_raw_url: str,
     futures_options_source_status_raw_url: str,
     market_sentiment_context_raw_url: str,
@@ -659,10 +639,10 @@ def build_readme(
         "astrology_debug_status_rule=do_not_show_raw_fetch_pages_cache_or_api_status_unless_user_asks_for_diagnostics",
         "chatgpt_delivery_contract=repo_artifacts_are_sources_not_final_chatgpt_deliverables",
         "repo_pdf_artifact_role=source_validation_shareable_reference_only",
-        "report_ready_meaning=repo_data_packet_and_repo_artifacts_available_not_chatgpt_task_done",
-        "fixed_pdf_validation_meaning=repo_pipeline_pdf_validation_only_not_chatgpt_deliverable_pdf",
-        "chatgpt_status_only_request=report_repo_status_and_links_only",
-        "chatgpt_daily_task_request=must_read_repo_structured_data_and_produce_new_chatgpt_side_deliverables",
+        "report_ready_meaning=repo_data_packet_available_not_chatgpt_task_done",
+        "official_chatgpt_side_pdf_entrypoint=python scripts/run_chatgpt_daily_report_entrypoint.py",
+        "chatgpt_status_only_request=report_repo_status_and_packet_rule_links_only_do_not_present_repo_pdf_artifacts_as_final_reports",
+        "chatgpt_daily_task_request=must_run_official_chatgpt_side_pdf_entrypoint",
         "daily_full_market_default_chatgpt_deliverables=主流每日推薦精華 PDF|主流完整候選清單 PDF|非主流每日推薦精華 PDF|非主流完整候選清單 PDF|權證市場輔助分析 PDF|市場風險與大盤期權背景 PDF",
         "repo_artifacts_do_not_satisfy_chatgpt_pdf_delivery=True",
         "do_not_paste_full_text_instead_of_required_pdf=True",
@@ -673,12 +653,6 @@ def build_readme(
         f"packet_github_api_url={packet_github_api_url}",
         f"summary_latest_raw_url={summary_latest_raw_url}",
         f"full_latest_raw_url={full_latest_raw_url}",
-        f"daily_market_curated_pdf_pages_url={daily_market_curated_pdf_pages_url}",
-        f"daily_market_curated_pdf_raw_url={daily_market_curated_pdf_raw_url}",
-        f"daily_market_full_table_pdf_pages_url={daily_market_full_table_pdf_pages_url}",
-        f"daily_market_full_table_pdf_raw_url={daily_market_full_table_pdf_raw_url}",
-        f"fixed_pdf_validation_status={fixed_pdf_validation_status}",
-        f"fixed_pdf_validation_raw_url={fixed_pdf_validation_raw_url}",
         f"pdf_kline_status_pages_url={pdf_kline_status_pages_url}",
         f"pdf_kline_status_raw_url={pdf_kline_status_raw_url}",
         f"summary_pdf_kline_policy={pdf_kline_policy}",
@@ -903,8 +877,6 @@ def build_readme(
         "individual_stock_raw_cache_rule=if raw/pages returns cache_miss, internal_error, stale date, or Total lines 1 for a known multi-line CSV, use the GitHub API contents URL and base64-decode content; do not replace repo price/TDCC raw data with external websites.",
         "individual_stock_github_api_decode_required=True",
         f"warrant_market_report_md_raw_url={warrant_market_report_md_raw_url}",
-        f"warrant_market_report_pdf_pages_url={warrant_market_report_pdf_pages_url}",
-        f"warrant_market_report_pdf_raw_url={warrant_market_report_pdf_raw_url}",
         f"warrant_flow_by_stock_raw_url={warrant_flow_by_stock_raw_url}",
         f"warrant_sector_heat_raw_url={warrant_sector_heat_raw_url}",
         f"warrant_signal_performance_raw_url={warrant_signal_performance_raw_url}",
@@ -912,8 +884,6 @@ def build_readme(
         f"market_index_history_raw_url={raw_url('main', MARKET_INDEX_HISTORY_CSV)}",
         f"market_index_ohlc_history_raw_url={raw_url('main', MARKET_INDEX_OHLC_HISTORY_CSV)}",
         f"market_risk_dashboard_md_raw_url={market_risk_dashboard_md_raw_url}",
-        f"market_risk_dashboard_pdf_pages_url={market_risk_dashboard_pdf_pages_url}",
-        f"market_risk_dashboard_pdf_raw_url={market_risk_dashboard_pdf_raw_url}",
         f"futures_options_indicators_raw_url={futures_options_indicators_raw_url}",
         f"futures_options_source_status_raw_url={futures_options_source_status_raw_url}",
         f"market_sentiment_context_raw_url={market_sentiment_context_raw_url}",
@@ -976,7 +946,7 @@ def build_readme(
         "1a. For daily stock/PDF tasks, prefer raw/GitHub API README entries. Read readme_date_stamped_raw_url, then readme_date_stamped_github_api_url, then readme_index_github_api_url, then readme_latest_raw_url. Use Pages only as an auxiliary fallback when its main_price_date matches raw/API.",
         "1b. If the date-stamped GitHub API URL is used, decode the JSON content field from base64 before parsing key=value lines.",
         "1c. Repo pipeline PDFs / Markdown / packets are source artifacts, not the final ChatGPT deliverable when the user asks to do today's report.",
-        "1d. report_ready=True and fixed_pdf_validation_status=pass mean repo artifacts are available/validated; they do not mean ChatGPT has delivered the requested PDFs.",
+        "1d. report_ready=True means the repo data packet is available; it does not mean ChatGPT has delivered the requested PDFs.",
         "2. Read rules_master_priority_raw_url before any generated task rules; use rules_master_priority_pages_url only if raw/API is unavailable and the date/context is not stale.",
         "2a. Read rules_daily_stock_candidate_raw_url for the daily full-market candidate task; Pages rules are auxiliary only.",
         "2b. Read rules_market_opening_prep_raw_url plus rules_futures_options_vix_raw_url for market opening prep, futures/options, VIX, Put/Call, and retail MTX sentiment tasks.",
@@ -992,7 +962,7 @@ def build_readme(
         "9. If only PDF data is used, start the response with: 本次僅使用 PDF 報告資料，未讀取原始 CSV / packet / source tables，因此只能做摘要型分析。",
         "10. If the user asks 做今天報告 / 六份 PDF / 重新分析 / 執行今天任務, produce new ChatGPT-side deliverable PDFs after reading repo data; do not stop at repo PDF links.",
         "10a. Default daily full-market ChatGPT deliverables are: 主流每日推薦精華 PDF, 主流完整候選清單 PDF, 非主流每日推薦精華 PDF, 非主流完整候選清單 PDF, 權證市場輔助分析 PDF, 市場風險與大盤期權背景 PDF.",
-        "10b. For status-only requests, cite daily_market_curated_pdf_pages_url and daily_market_full_table_pdf_pages_url as repo artifacts.",
+        "10b. For status-only requests, cite packet/rule/data readiness links only; do not cite repo artifact PDFs as the requested reports.",
         "11. For pending catalyst/data-source items, read catalyst_needs_review_* and do not use rows with model_effect_allowed=False or pdf_effect_allowed=False as recommendation reasons.",
         "12. For the summary PDF K-line charts, use summary_pdf_kline_policy/status/counts above. Do not downgrade the PDF to chart_path/image-download-failed if local_price_redraw_count is greater than 0.",
         "13. If all URLs fail, say tool reading failed. Do not say GitHub data is not updated.",
@@ -1012,12 +982,6 @@ def build_publish_check_md(
     checks: list[dict[str, Any]],
     rules_pages_url: str,
     rules_raw_url: str,
-    daily_market_curated_pdf_pages_url: str,
-    daily_market_curated_pdf_raw_url: str,
-    daily_market_full_table_pdf_pages_url: str,
-    daily_market_full_table_pdf_raw_url: str,
-    fixed_pdf_validation_status: str,
-    fixed_pdf_validation_raw_url: str,
     pdf_kline_status_pages_url: str,
     pdf_kline_status_raw_url: str,
     pdf_kline_policy: str,
@@ -1036,12 +1000,6 @@ def build_publish_check_md(
     lines.append(f"- preferred_chatgpt_url: `{preferred_chatgpt_url}`")
     lines.append(f"- rules_pages_url: `{rules_pages_url}`")
     lines.append(f"- rules_raw_url: `{rules_raw_url}`")
-    lines.append(f"- daily_market_curated_pdf_pages_url: `{daily_market_curated_pdf_pages_url}`")
-    lines.append(f"- daily_market_curated_pdf_raw_url: `{daily_market_curated_pdf_raw_url}`")
-    lines.append(f"- daily_market_full_table_pdf_pages_url: `{daily_market_full_table_pdf_pages_url}`")
-    lines.append(f"- daily_market_full_table_pdf_raw_url: `{daily_market_full_table_pdf_raw_url}`")
-    lines.append(f"- fixed_pdf_validation_status: `{fixed_pdf_validation_status}`")
-    lines.append(f"- fixed_pdf_validation_raw_url: `{fixed_pdf_validation_raw_url}`")
     lines.append(f"- pdf_kline_status_pages_url: `{pdf_kline_status_pages_url}`")
     lines.append(f"- pdf_kline_status_raw_url: `{pdf_kline_status_raw_url}`")
     lines.append(f"- summary_pdf_kline_policy: `{pdf_kline_policy}`")
@@ -1304,18 +1262,6 @@ def sync_docs_files() -> None:
             encoding="utf-8",
         )
 
-    if CURATED_REPORT_PDF.exists():
-        DOCS_CURATED_REPORT_PDF.write_bytes(CURATED_REPORT_PDF.read_bytes())
-
-    if FULL_TABLE_REPORT_PDF.exists():
-        DOCS_FULL_TABLE_REPORT_PDF.write_bytes(FULL_TABLE_REPORT_PDF.read_bytes())
-
-    if FIXED_PDF_VALIDATION_MD.exists():
-        DOCS_FIXED_PDF_VALIDATION_MD.write_text(
-            FIXED_PDF_VALIDATION_MD.read_text(encoding="utf-8", errors="replace"),
-            encoding="utf-8",
-        )
-
     if DAILY_SIGNAL_WEEKLY_PDF.exists():
         DOCS_DAILY_SIGNAL_WEEKLY_PDF.write_bytes(DAILY_SIGNAL_WEEKLY_PDF.read_bytes())
 
@@ -1340,12 +1286,9 @@ def main() -> int:
 
     freshness = extract_data_freshness()
     packet_manifest = read_json(PACKET_MANIFEST_JSON)
-    fixed_pdf_manifest = read_json(FIXED_PDF_MANIFEST_JSON)
-    fixed_pdf_validation = read_json(FIXED_PDF_VALIDATION_JSON)
 
     manifest_main_price_date = (
-        normalize_date(fixed_pdf_manifest.get("main_price_date", ""))
-        or normalize_date(packet_manifest.get("main_price_date", ""))
+        normalize_date(packet_manifest.get("main_price_date", ""))
     )
     freshness_main_price_date = freshness.get("main_price_date", "")
     freshness_matches_manifest = (
@@ -1356,8 +1299,7 @@ def main() -> int:
 
     main_price_date = manifest_main_price_date or freshness_main_price_date
     report_ready = (
-        str(fixed_pdf_manifest.get("report_ready", "")).strip()
-        or str(packet_manifest.get("report_ready", "")).strip()
+        str(packet_manifest.get("report_ready", "")).strip()
         or (freshness.get("report_ready") if freshness_matches_manifest else "")
     )
 
@@ -1388,14 +1330,6 @@ def main() -> int:
     packet_github_api_url = github_api_url(LATEST_PACKET, ref="main")
     summary_latest_raw_url = raw_url("main", LATEST_SUMMARY_MD)
     full_latest_raw_url = raw_url("main", LATEST_FULL_MD)
-    curated_pdf_info = fixed_pdf_manifest.get("curated_pdf", {})
-    full_table_pdf_info = fixed_pdf_manifest.get("full_table_pdf", {})
-    daily_market_curated_pdf_pages_url = curated_pdf_info.get("pages_url") or pages_url("latest/daily_market_curated_report_latest.pdf")
-    daily_market_curated_pdf_raw_url = curated_pdf_info.get("raw_url") or raw_url("main", CURATED_REPORT_PDF)
-    daily_market_full_table_pdf_pages_url = full_table_pdf_info.get("pages_url") or pages_url("latest/daily_market_full_table_report_latest.pdf")
-    daily_market_full_table_pdf_raw_url = full_table_pdf_info.get("raw_url") or raw_url("main", FULL_TABLE_REPORT_PDF)
-    fixed_pdf_validation_status = fixed_pdf_validation.get("status", "")
-    fixed_pdf_validation_raw_url = raw_url("main", FIXED_PDF_VALIDATION_MD)
     pdf_kline_status_pages_url = pages_url("latest/pdf_kline_chart_status_latest.md")
     pdf_kline_status_raw_url = raw_url("main", PDF_KLINE_STATUS_MD)
     pdf_kline_status_json = read_json(PDF_KLINE_STATUS_JSON).get("summary", {})
@@ -1441,15 +1375,11 @@ def main() -> int:
     candidate_repeat_appearance_raw_url = raw_url("main", CANDIDATE_REPEAT_APPEARANCE_CSV)
     candidate_repeat_appearance_md_raw_url = raw_url("main", CANDIDATE_REPEAT_APPEARANCE_MD)
     warrant_market_report_md_raw_url = raw_url("main", WARRANT_MARKET_MD)
-    warrant_market_report_pdf_pages_url = pages_url("latest/warrant_market_report_latest.pdf")
-    warrant_market_report_pdf_raw_url = raw_url("main", WARRANT_MARKET_PDF)
     warrant_flow_by_stock_raw_url = raw_url("main", WARRANT_FLOW_BY_STOCK_CSV)
     warrant_sector_heat_raw_url = raw_url("main", WARRANT_SECTOR_HEAT_CSV)
     warrant_signal_performance_raw_url = raw_url("main", WARRANT_SIGNAL_PERFORMANCE_MD)
     market_regime_raw_url = raw_url("main", MARKET_REGIME_CSV)
     market_risk_dashboard_md_raw_url = raw_url("main", MARKET_RISK_DASHBOARD_MD)
-    market_risk_dashboard_pdf_pages_url = pages_url("latest/market_risk_dashboard_latest.pdf")
-    market_risk_dashboard_pdf_raw_url = raw_url("main", MARKET_RISK_DASHBOARD_PDF)
     futures_options_indicators_raw_url = raw_url("main", FUTURES_OPTIONS_INDICATORS_CSV)
     futures_options_source_status_raw_url = raw_url("main", FUTURES_OPTIONS_SOURCE_STATUS_MD)
     market_sentiment_context_raw_url = raw_url("main", MARKET_SENTIMENT_CONTEXT_CSV)
@@ -1493,12 +1423,6 @@ def main() -> int:
         packet_github_api_url=packet_github_api_url,
         summary_latest_raw_url=summary_latest_raw_url,
         full_latest_raw_url=full_latest_raw_url,
-        daily_market_curated_pdf_pages_url=daily_market_curated_pdf_pages_url,
-        daily_market_curated_pdf_raw_url=daily_market_curated_pdf_raw_url,
-        daily_market_full_table_pdf_pages_url=daily_market_full_table_pdf_pages_url,
-        daily_market_full_table_pdf_raw_url=daily_market_full_table_pdf_raw_url,
-        fixed_pdf_validation_status=fixed_pdf_validation_status,
-        fixed_pdf_validation_raw_url=fixed_pdf_validation_raw_url,
         pdf_kline_status_pages_url=pdf_kline_status_pages_url,
         pdf_kline_status_raw_url=pdf_kline_status_raw_url,
         pdf_kline_policy=pdf_kline_policy,
@@ -1533,15 +1457,11 @@ def main() -> int:
         candidate_repeat_appearance_raw_url=candidate_repeat_appearance_raw_url,
         candidate_repeat_appearance_md_raw_url=candidate_repeat_appearance_md_raw_url,
         warrant_market_report_md_raw_url=warrant_market_report_md_raw_url,
-        warrant_market_report_pdf_pages_url=warrant_market_report_pdf_pages_url,
-        warrant_market_report_pdf_raw_url=warrant_market_report_pdf_raw_url,
         warrant_flow_by_stock_raw_url=warrant_flow_by_stock_raw_url,
         warrant_sector_heat_raw_url=warrant_sector_heat_raw_url,
         warrant_signal_performance_raw_url=warrant_signal_performance_raw_url,
         market_regime_raw_url=market_regime_raw_url,
         market_risk_dashboard_md_raw_url=market_risk_dashboard_md_raw_url,
-        market_risk_dashboard_pdf_pages_url=market_risk_dashboard_pdf_pages_url,
-        market_risk_dashboard_pdf_raw_url=market_risk_dashboard_pdf_raw_url,
         futures_options_indicators_raw_url=futures_options_indicators_raw_url,
         futures_options_source_status_raw_url=futures_options_source_status_raw_url,
         market_sentiment_context_raw_url=market_sentiment_context_raw_url,
@@ -1604,12 +1524,6 @@ def main() -> int:
         checks=checks,
         rules_pages_url=rules_pages_url,
         rules_raw_url=rules_raw_url,
-        daily_market_curated_pdf_pages_url=daily_market_curated_pdf_pages_url,
-        daily_market_curated_pdf_raw_url=daily_market_curated_pdf_raw_url,
-        daily_market_full_table_pdf_pages_url=daily_market_full_table_pdf_pages_url,
-        daily_market_full_table_pdf_raw_url=daily_market_full_table_pdf_raw_url,
-        fixed_pdf_validation_status=fixed_pdf_validation_status,
-        fixed_pdf_validation_raw_url=fixed_pdf_validation_raw_url,
         pdf_kline_status_pages_url=pdf_kline_status_pages_url,
         pdf_kline_status_raw_url=pdf_kline_status_raw_url,
         pdf_kline_policy=pdf_kline_policy,
@@ -1668,12 +1582,6 @@ def main() -> int:
         "packet_github_api_url": packet_github_api_url,
         "summary_latest_raw_url": summary_latest_raw_url,
         "full_latest_raw_url": full_latest_raw_url,
-        "daily_market_curated_pdf_pages_url": daily_market_curated_pdf_pages_url,
-        "daily_market_curated_pdf_raw_url": daily_market_curated_pdf_raw_url,
-        "daily_market_full_table_pdf_pages_url": daily_market_full_table_pdf_pages_url,
-        "daily_market_full_table_pdf_raw_url": daily_market_full_table_pdf_raw_url,
-        "fixed_pdf_validation_status": fixed_pdf_validation_status,
-        "fixed_pdf_validation_raw_url": fixed_pdf_validation_raw_url,
         "pdf_kline_status_pages_url": pdf_kline_status_pages_url,
         "pdf_kline_status_raw_url": pdf_kline_status_raw_url,
         "summary_pdf_kline_policy": pdf_kline_policy,
@@ -1895,8 +1803,6 @@ def main() -> int:
         "individual_stock_raw_cache_rule": "if raw/pages returns cache_miss, internal_error, stale date, or Total lines 1 for a known multi-line CSV, use the GitHub API contents URL and base64-decode content; do not replace repo price/TDCC raw data with external websites.",
         "individual_stock_github_api_decode_required": True,
         "warrant_market_report_md_raw_url": warrant_market_report_md_raw_url,
-        "warrant_market_report_pdf_pages_url": warrant_market_report_pdf_pages_url,
-        "warrant_market_report_pdf_raw_url": warrant_market_report_pdf_raw_url,
         "warrant_flow_by_stock_raw_url": warrant_flow_by_stock_raw_url,
         "warrant_sector_heat_raw_url": warrant_sector_heat_raw_url,
         "warrant_signal_performance_raw_url": warrant_signal_performance_raw_url,
@@ -1904,8 +1810,6 @@ def main() -> int:
         "market_index_history_raw_url": raw_url("main", MARKET_INDEX_HISTORY_CSV),
         "market_index_ohlc_history_raw_url": raw_url("main", MARKET_INDEX_OHLC_HISTORY_CSV),
         "market_risk_dashboard_md_raw_url": market_risk_dashboard_md_raw_url,
-        "market_risk_dashboard_pdf_pages_url": market_risk_dashboard_pdf_pages_url,
-        "market_risk_dashboard_pdf_raw_url": market_risk_dashboard_pdf_raw_url,
         "futures_options_indicators_raw_url": futures_options_indicators_raw_url,
         "futures_options_source_status_raw_url": futures_options_source_status_raw_url,
         "market_sentiment_context_raw_url": market_sentiment_context_raw_url,

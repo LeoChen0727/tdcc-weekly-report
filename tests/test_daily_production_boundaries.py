@@ -132,8 +132,6 @@ def test_observation_list_is_row_per_stock_not_joined_cell() -> None:
 def test_daily_pdf_packet_and_rules_do_not_depend_on_decision_layer() -> None:
     paths = [
         ROOT / "scripts" / "generate_chatgpt_side_daily_reports.py",
-        ROOT / "scripts" / "generate_daily_market_pdf.py",
-        ROOT / "scripts" / "validate_daily_market_report.py",
         ROOT / "build_chatgpt_daily_report_packet.py",
         ROOT / "build_daily_market_report_artifacts.py",
         ROOT / "build_chatgpt_daily_report_rules.py",
@@ -206,10 +204,6 @@ def test_formal_daily_report_dates_use_freshness_hard_gate_without_fallbacks() -
     assert "latest_price_date" not in hard_gate_body
 
     files = {
-        ROOT / "scripts" / "generate_daily_market_pdf.py": [
-            "require_daily_report_ready_main_price_date",
-            "load_ready_freshness",
-        ],
         ROOT / "build_daily_market_report_artifacts.py": [
             "require_daily_report_ready_main_price_date",
         ],
@@ -223,10 +217,6 @@ def test_formal_daily_report_dates_use_freshness_hard_gate_without_fallbacks() -
             assert literal in text, f"{path.as_posix()} missing {literal}"
 
     forbidden = {
-        ROOT / "scripts" / "generate_daily_market_pdf.py": [
-            'safe_str(df["date"].max())',
-            'now_taipei().strftime("%Y%m%d")',
-        ],
         ROOT / "build_daily_market_report_artifacts.py": [
             'dates = candidates["date"].map(normalize_date)',
             "all_candidates_latest.csv date 最大值",
