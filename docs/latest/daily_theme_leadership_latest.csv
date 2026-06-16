@@ -3,7 +3,7 @@ theme_name,theme_candidate_count,theme_priority_high_count,theme_priority_confir
 玻璃陶瓷,2,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0.65,0.0,1810,和成,True,8,13.4,12.0,emerging_theme,emerging_theme,non_mainstream_theme,non_mainstream_flow_active
 資訊服務業,2,0,0,0,0,0,0,2,0,0,2,0,0,0,0,0.77,0.0,6214,精誠,True,8,12.4,0.0,emerging_theme,emerging_theme,non_mainstream_theme,non_mainstream_flow_active
 電子通路業,18,0,0,1,1,1,5,15,2,3,10,5,4,0,2,0.96,0.0,6189,豐藝,True,100,100.0,80.0,mainstream_follow_through,mainstream_follow_through,non_mainstream_theme,non_mainstream_flow_active
-通信網路業,20,0,0,0,0,1,3,15,3,3,13,4,5,0,4,0.87,0.0,2455,全新,True,100,100.0,88.0,mainstream_follow_through,mainstream_follow_through,core_mainstream_theme,core_mainstream_supported
+通信網路業,20,0,0,0,0,1,3,15,3,3,13,4,3,0,4,0.87,0.0,2455,全新,True,100,100.0,88.0,mainstream_follow_through,mainstream_follow_through,core_mainstream_theme,core_mainstream_supported
 航運業,13,0,0,0,0,0,6,10,0,4,7,2,0,0,0,0.98,0.0,2646,星宇航空,True,82,100.0,24.0,mainstream_follow_through,mainstream_follow_through,non_mainstream_theme,non_mainstream_flow_active
 neutral,9,0,0,0,0,0,3,9,9,4,1,4,0,0,0,0.81,0.0,1808,潤隆,True,51,64.0,48.0,mainstream_follow_through,mainstream_follow_through,non_mainstream_theme,non_mainstream_flow_active
 鋼鐵工業,7,0,0,0,0,0,4,5,0,3,3,1,0,0,0,1.02,0.0,2211,長榮鋼,True,48,62.6,12.0,mainstream_follow_through,mainstream_follow_through,non_mainstream_theme,non_mainstream_flow_active
@@ -20,10 +20,10 @@ TWSE,3,0,0,1,1,1,2,0,0,0,0,1,0,0,0,1.04,0.0,0055,元大MSCI金融,True,40,22.3,1
 電器電纜,4,0,0,0,0,0,0,2,0,0,2,2,0,0,0,0.36,0.0,1609,大亞,False,16,16.8,24.0,mainstream_follow_through,mainstream_follow_through,non_mainstream_theme,non_mainstream_flow_active
 運動休閒,3,0,0,0,0,2,2,1,0,0,2,1,0,0,0,1.86,0.0,6670,復盛應用,True,38,35.8,12.0,mainstream_leader,mainstream_leader,non_mainstream_theme,non_mainstream_flow_active
 光電業,33,0,0,7,7,10,9,18,3,4,15,14,5,0,7,1.33,0.0,4976,佳凌,True,100,100.0,100.0,mainstream_overheated,mainstream_overheated,core_mainstream_theme,core_mainstream_overheated
-半導體業,75,0,0,3,3,9,16,56,3,9,32,34,26,0,25,0.94,0.0,2342,茂矽,True,100,100.0,100.0,mainstream_overheated,mainstream_overheated,core_mainstream_theme,core_mainstream_overheated
+半導體業,75,0,0,3,3,9,16,56,3,9,32,34,24,0,25,0.94,0.0,2342,茂矽,True,100,100.0,100.0,mainstream_overheated,mainstream_overheated,core_mainstream_theme,core_mainstream_overheated
 建材營造,24,0,0,2,2,4,12,22,0,2,9,13,0,0,1,1.29,0.0,9946,三發地產,True,100,100.0,100.0,mainstream_overheated,mainstream_overheated,non_mainstream_theme,non_mainstream_overheated
 金融保險業,40,0,0,2,2,4,34,37,0,6,13,21,2,0,4,1.37,0.0,2867,三商壽,True,100,100.0,100.0,mainstream_overheated,mainstream_overheated,non_mainstream_theme,non_mainstream_overheated
-電子零組件業,65,0,0,6,6,16,20,49,2,6,32,27,15,0,31,1.41,0.0,3044,健鼎,True,100,100.0,100.0,mainstream_overheated,mainstream_overheated,core_mainstream_theme,core_mainstream_overheated
+電子零組件業,65,0,0,6,6,16,20,49,2,6,32,27,14,0,31,1.41,0.0,3044,健鼎,True,100,100.0,100.0,mainstream_overheated,mainstream_overheated,core_mainstream_theme,core_mainstream_overheated
 電腦及週邊設備業,37,0,0,1,1,3,8,35,1,11,15,11,0,0,8,0.99,0.0,2305,全友,True,100,100.0,100.0,mainstream_overheated,mainstream_overheated,core_mainstream_theme,core_mainstream_overheated
 其他電子業,18,0,0,0,0,2,0,15,1,5,5,8,3,0,7,1.03,0.0,6691,洋基工程,True,88,100.0,100.0,mainstream_overheated,mainstream_overheated,non_mainstream_theme,non_mainstream_overheated
 電機機械,13,0,0,1,1,1,2,9,0,1,4,8,2,0,1,0.64,0.0,8996,高力,True,80,78.0,100.0,mainstream_overheated,mainstream_overheated,non_mainstream_theme,non_mainstream_overheated
