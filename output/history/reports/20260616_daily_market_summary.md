@@ -1,7 +1,7 @@
 # 每日全市場候選股監測報告 - 精華版
 
 - 主資料日期：`20260616`
-- 產生時間：`2026-06-16 18:24:28 Asia/Taipei`
+- 產生時間：`2026-06-16 19:42:29 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
 - 判斷說明：core daily data dates match main_price_date
 - 權證資料日期：`20260616`
@@ -102,10 +102,10 @@
 - 優先級：
 - 連續上榜：連續 15 日；近5日 5；近10日 10；多分類 true_breakout
 - TDCC：大戶溫和增加
-- 權證：call_strong_inflow / 2.0
+- 權證：call_put_bullish / 3.0
 - 財報 / 事件催化：score 0 / theme 100.0/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window;電子零組件業 / monthly_revenue_calendar;calendar_month...
-- 摘要：突破 / 量能1.69x / 大戶溫和增加 / call_strong_inflow / 2.0
-- 完整原因：近幾週其中一項大戶級距增加；call_strong_inflow；認購權證成交金額明顯升溫；嚴格突破；量比1.69x；月營收YoY 46.6%；累計YoY 28.7%；TDCC近幾週大戶溫和增加
+- 摘要：突破 / 量能1.69x / 大戶溫和增加 / call_put_bullish / 3.0
+- 完整原因：近幾週其中一項大戶級距增加；call_put_bullish；認購成交金額明顯大於認售，且認購資金明顯升溫；嚴格突破；量比1.69x；月營收YoY 46.6%；累計YoY 28.7%；TDCC近幾週大戶溫和增加
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
 
 ## 區間內轉強 / 挑戰前高觀察
@@ -358,6 +358,42 @@
 
 ## 型態觀察
 
+### 2338 光罩
+- 族群：半導體業
+- 分數 / 排名：54.0 / 
+- 優先級：
+- 連續上榜：訊號鈍化；近5日 4；近10日 9；多分類 pattern
+- TDCC：大戶轉弱
+- 權證：call_put_bullish / 3.0
+- 財報 / 事件催化：score 0 / theme 100.0/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window;半導體業 / monthly_revenue_calendar;calendar_monthly...
+- 摘要：pattern_watch / 大戶轉弱 / call_put_bullish / 3.0
+- 完整原因：近幾週400張與1000張同步減少；call_put_bullish；認購成交金額明顯大於認售，且認購資金明顯升溫；量比1.77x；月營收YoY -7.5%；累計YoY -6.1%；TDCC近幾週大戶籌碼轉弱
+- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
+
+### 8046 南電
+- 族群：電子零組件業
+- 分數 / 排名：54.0 / 
+- 優先級：
+- 連續上榜：訊號鈍化；近5日 5；近10日 10；多分類 pattern|revenue_pullback
+- TDCC：大戶轉弱
+- 權證：call_put_bullish / 3.0
+- 財報 / 事件催化：score 0 / theme 100.0/5 / dividend_calendar;calendar_ex_dividend;電子零組件業 / dividend_calendar;calendar_ex_dividend / calendar ex_dividend 2026...
+- 摘要：pattern_watch / 大戶轉弱 / call_put_bullish / 3.0
+- 完整原因：近幾週400張與1000張同步減少；call_put_bullish；認購成交金額明顯大於認售，且認購資金明顯升溫；量比0.93x；月營收YoY 35.8%；累計YoY 34.5%；TDCC近幾週大戶籌碼轉弱
+- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
+
+### 8110 華東
+- 族群：半導體業
+- 分數 / 排名：54.0 / 
+- 優先級：
+- 連續上榜：訊號鈍化；近5日 5；近10日 8；多分類 pattern
+- TDCC：大戶轉弱
+- 權證：call_put_bullish / 3.0
+- 財報 / 事件催化：score 0 / theme 100.0/5 / shareholder_meeting_calendar;calendar_shareholder_meeting;半導體業 / shareholder_meeting_calendar;calendar_shareholder...
+- 摘要：pattern_watch / 大戶轉弱 / call_put_bullish / 3.0
+- 完整原因：近幾週400張與1000張同步減少；call_put_bullish；認購成交金額明顯大於認售，且認購資金明顯升溫；量比0.78x；月營收YoY 20.0%；累計YoY 12.7%；TDCC近幾週大戶籌碼轉弱
+- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
+
 ### 1402 遠東新
 - 族群：紡織纖維
 - 分數 / 排名：54.0 / 
@@ -370,18 +406,6 @@
 - 完整原因：近幾週400張與1000張合計增加；call_strong_inflow；認購權證成交金額明顯升溫；量比0.39x；月營收YoY 19.4%；累計YoY 4.0%；TDCC近幾週大戶溫和增加
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
 
-### 2338 光罩
-- 族群：半導體業
-- 分數 / 排名：54.0 / 
-- 優先級：
-- 連續上榜：訊號鈍化；近5日 4；近10日 9；多分類 pattern
-- TDCC：大戶轉弱
-- 權證：call_strong_inflow / 2.0
-- 財報 / 事件催化：score 0 / theme 100.0/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window;半導體業 / monthly_revenue_calendar;calendar_monthly...
-- 摘要：pattern_watch / 大戶轉弱 / call_strong_inflow / 2.0
-- 完整原因：近幾週400張與1000張同步減少；call_strong_inflow；認購權證成交金額明顯升溫；量比1.77x；月營收YoY -7.5%；累計YoY -6.1%；TDCC近幾週大戶籌碼轉弱
-- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
-
 ### 6202 盛群
 - 族群：半導體業
 - 分數 / 排名：54.0 / 
@@ -392,28 +416,4 @@
 - 財報 / 事件催化：score 0 / theme 100.0/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window;半導體業 / monthly_revenue_calendar;calendar_monthly...
 - 摘要：pattern_watch / 大戶溫和增加 / call_strong_inflow / 2.0
 - 完整原因：近幾週400張與1000張合計增加；call_strong_inflow；認購權證成交金額明顯升溫；量比1.8x；月營收YoY 6.6%；累計YoY 7.7%；TDCC近幾週大戶溫和增加
-- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
-
-### 6449 鈺邦
-- 族群：電子零組件業
-- 分數 / 排名：54.0 / 
-- 優先級：
-- 連續上榜：首次上榜；近5日 2；近10日 2；多分類 pattern
-- TDCC：大戶溫和增加
-- 權證：call_strong_inflow / 2.0
-- 財報 / 事件催化：score 0 / theme 100.0/5 / dividend_calendar;calendar_ex_dividend;電子零組件業 / dividend_calendar;calendar_ex_dividend / calendar ex_dividend 2026...
-- 摘要：pattern_watch / 大戶溫和增加 / call_strong_inflow / 2.0
-- 完整原因：近幾週其中一項大戶級距增加；call_strong_inflow；認購權證成交金額明顯升溫；量比5.79x；月營收YoY 12.3%；累計YoY 22.1%；TDCC近幾週大戶溫和增加
-- 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
-
-### 8046 南電
-- 族群：電子零組件業
-- 分數 / 排名：54.0 / 
-- 優先級：
-- 連續上榜：訊號鈍化；近5日 5；近10日 10；多分類 pattern|revenue_pullback
-- TDCC：大戶轉弱
-- 權證：call_strong_inflow / 2.0
-- 財報 / 事件催化：score 0 / theme 100.0/5 / dividend_calendar;calendar_ex_dividend;電子零組件業 / dividend_calendar;calendar_ex_dividend / calendar ex_dividend 2026...
-- 摘要：pattern_watch / 大戶轉弱 / call_strong_inflow / 2.0
-- 完整原因：近幾週400張與1000張同步減少；call_strong_inflow；認購權證成交金額明顯升溫；量比0.93x；月營收YoY 35.8%；累計YoY 34.5%；TDCC近幾週大戶籌碼轉弱
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
