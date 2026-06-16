@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16 07:15:39 Asia/Taipei",
+  "generated_at": "2026-06-16 08:06:24 Asia/Taipei",
   "status": "pass",
   "schema_only": false,
   "issues": [],
@@ -62,7 +62,7 @@
       "path": "output/latest/catalyst_needs_review_latest.csv",
       "exists": true,
       "rows": 2,
-      "size_bytes": 1600
+      "size_bytes": 1601
     },
     "needs_review_md": {
       "path": "output/latest/catalyst_needs_review_latest.md",
