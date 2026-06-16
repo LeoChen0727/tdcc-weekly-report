@@ -37,6 +37,7 @@ REQUIRED_COLUMNS = {
 
 VALID_MAINSTREAM = {"core_mainstream", "non_mainstream", "theme_unknown", ""}
 VALID_MAINSTREAM_MEMBERSHIP = {"主流", "非主流", "都有"}
+UNRESOLVED_THEME_VALUES = {"", "未分類", "普通股_待補官方產業"}
 
 
 def main() -> int:
@@ -48,7 +49,10 @@ def main() -> int:
         raise RuntimeError(f"Missing taxonomy columns: {sorted(missing)}")
     duplicate_count = int(df["stock_id"].duplicated().sum())
     invalid_mainstream = sorted(set(df["theme_mainstream_label"]) - VALID_MAINSTREAM)
-    blank_basic_theme = int(df["basic_theme"].astype(str).str.strip().eq("").sum())
+    basic_theme = df["basic_theme"].astype(str).str.strip()
+    primary_theme = df["primary_theme"].astype(str).str.strip()
+    unresolved_basic_theme = int(basic_theme.isin(UNRESOLVED_THEME_VALUES).sum())
+    unresolved_primary_theme = int(primary_theme.isin(UNRESOLVED_THEME_VALUES).sum())
     invalid_mainstream_membership = sorted(
         value
         for value in set(df["mainstream_membership"].astype(str).str.strip())
@@ -58,12 +62,14 @@ def main() -> int:
         "rows": len(df),
         "duplicate_stock_ids": duplicate_count,
         "invalid_mainstream_labels": invalid_mainstream,
-        "blank_basic_theme": blank_basic_theme,
+        "unresolved_basic_theme": unresolved_basic_theme,
+        "unresolved_primary_theme": unresolved_primary_theme,
         "invalid_mainstream_membership": invalid_mainstream_membership,
         "validation_passed": (
             duplicate_count == 0
             and not invalid_mainstream
-            and blank_basic_theme == 0
+            and unresolved_basic_theme == 0
+            and unresolved_primary_theme == 0
             and not invalid_mainstream_membership
         ),
     }
