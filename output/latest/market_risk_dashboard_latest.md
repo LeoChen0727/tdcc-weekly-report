@@ -1,6 +1,6 @@
 # 市場風險與大盤期權背景
 
-- generated_at: `2026-06-16 23:15:50 Asia/Taipei`
+- generated_at: `2026-06-17 02:53:33 Asia/Taipei`
 - data_date: `20260616`
 - market_regime: `strong_bull`
 - risk_level: `high_risk`
@@ -41,14 +41,14 @@
 
 ## 近期總經事件日曆
 
-- 20260609 US_trade: U.S. International Trade in Goods and Services, Annual Update (days=-7, importance=medium)
-- 20260609 US_trade: U.S. International Trade in Goods and Services, April 2026 (days=-7, importance=medium)
-- 20260610 US_CPI: CPI release schedule: May 2026 (days=-6, importance=high)
-- 20260617 FOMC: FOMC decision (June 16-17, 2026) (days=1, importance=high)
-- 20260625 US_PCE_personal_income: GDP (Third Estimate), Industries, Corporate Profits, State GDP, and State Personal Income, 1st Quarter 2026 (days=9, importance=high)
-- 20260625 US_PCE_personal_income: Personal Income and Outlays, May 2026 (days=9, importance=high)
-- 20260702 US_employment_situation: Employment Situation release schedule: June 2026 (days=16, importance=high)
-- 20260707 US_trade: U.S. International Trade in Goods and Services, May 2026 (days=21, importance=medium)
+- 20260610 US_CPI: CPI release schedule: May 2026 (days=-7, importance=high)
+- 20260617 FOMC: FOMC decision (June 16-17, 2026) (days=0, importance=high)
+- 20260625 US_PCE_personal_income: GDP (Third Estimate), Industries, Corporate Profits, State GDP, and State Personal Income, 1st Quarter 2026 (days=8, importance=high)
+- 20260625 US_PCE_personal_income: Personal Income and Outlays, May 2026 (days=8, importance=high)
+- 20260702 US_employment_situation: Employment Situation release schedule: June 2026 (days=15, importance=high)
+- 20260707 US_trade: U.S. International Trade in Goods and Services, May 2026 (days=20, importance=medium)
+- 20260714 US_CPI: CPI release schedule: June 2026 (days=27, importance=high)
+- 20260729 FOMC: FOMC decision (July 28-29, 2026) (days=42, importance=high)
 
 ## 半年技術圖表
 

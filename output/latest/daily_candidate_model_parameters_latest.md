@@ -1,6 +1,6 @@
 # Daily Candidate Model Parameters
 
-- generated_at: `2026-06-16 23:14:07 Asia/Taipei`
+- generated_at: `2026-06-17 02:51:39 Asia/Taipei`
 
 - This is the readable parameter source for daily candidate models.
 - Main conditions select candidates into a model. Add-score items rank candidates inside that model.

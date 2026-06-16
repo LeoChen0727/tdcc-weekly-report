@@ -1,43 +1,55 @@
 # Official Daily Price Fetch Report
 
-- generated_at: `2026-06-16 23:07:31 Asia/Taipei`
-- target_date: `20260616`
+- generated_at: `2026-06-17 02:45:16 Asia/Taipei`
+- target_date: `20260617`
 - saved_price_date: `20260616`
-- is_target_date: `True`
-- result: `success_target_full_market`
-- reason: 成功取得目標日 TWSE + TPEx 官方日線資料。
-- twse_rows: `1238`
-- tpex_rows: `5014`
-- total_rows: `6252`
-- full_market_ok: `True`
+- is_target_date: `False`
+- result: `failed_no_target_data`
+- reason: 目標日官方來源與 fallback 都沒有取得任何可用日線資料；latest 保留上一個有效交易日。
+- twse_rows: `1236`
+- tpex_rows: `0`
+- total_rows: `1236`
+- full_market_ok: `False`
+- data_quality_note: partial_market_stale_rejected: TPEx matched previous trading day file daily_price_20260616.csv
+- stale_markets: `TPEx`
+- stale_market_rows: `5014`
 
 ## Output Paths
 
-- dated_csv: `data/daily_price/20260616.csv`
-- dated_alt_csv: `data/daily_price/daily_price_20260616.csv`
+- previous_valid_csv: `data/daily_price/daily_price_20260616.csv`
 - latest_csv: `output/latest/official_daily_price_latest.csv`
 
 ## Fetch Attempts
 
-- 20260616: TWSE=1238 / TPEx=5014 / Total=6252 / full_market_ok=True
+- 20260617: TWSE=1236 / TPEx=0 / Total=1236 / full_market_ok=False
 
 ## Fetch Logs
 
-- Start official daily price fetch target_date=20260616 max_seconds=480
-- ===== Fetch price for date 20260616 =====
+- Start official daily price fetch target_date=20260617 max_seconds=480
+- ===== Fetch price for date 20260617 =====
 - Loaded universe rows=6252
-- Trying TWSE batch source=TWSE_RWD_JSON_MI_INDEX date=20260616
-- GET https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260616&type=ALLBUT0999&response=json -> status=200, chars=231504
-- TWSE_RWD_JSON_MI_INDEX: parsed TWSE rows=1238
-- TWSE batch selected source=TWSE_RWD_JSON_MI_INDEX, rows=1238
-- Trying TPEx batch source=TPEX_NEW_AFTERTRADING_JSON date=20260616
-- GET https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/06/16&type=EW&response=json -> status=200, chars=11371
+- Trying TWSE batch source=TWSE_RWD_JSON_MI_INDEX date=20260617
+- GET https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260617&type=ALLBUT0999&response=json -> status=200, chars=25
+- TWSE_RWD_JSON_MI_INDEX: parsed TWSE rows=0
+- Trying TWSE batch source=TWSE_RWD_CSV_MI_INDEX date=20260617
+- GET https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260617&type=ALLBUT0999&response=csv -> status=200, chars=0
+- Trying TWSE batch source=TWSE_LEGACY_JSON_MI_INDEX date=20260617
+- GET https://www.twse.com.tw/exchangeReport/MI_INDEX?response=json&date=20260617&type=ALLBUT0999 -> status=200, chars=25
+- TWSE_LEGACY_JSON_MI_INDEX: parsed TWSE rows=0
+- Trying TWSE batch source=TWSE_OPENAPI_STOCK_DAY_ALL date=20260617
+- GET https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL -> status=200, chars=308129
+- TWSE_OPENAPI_STOCK_DAY_ALL: parsed TWSE OpenAPI rows=1236
+- TWSE batch selected source=TWSE_OPENAPI_STOCK_DAY_ALL, rows=1236
+- Trying TPEx batch source=TPEX_NEW_AFTERTRADING_JSON date=20260617
+- GET https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/06/17&type=EW&response=json -> status=200, chars=11371
 - TPEX_NEW_AFTERTRADING_JSON: JSON parse failed
-- Trying TPEx batch source=TPEX_NEW_AFTERTRADING_CSV date=20260616
-- GET https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/06/16&type=EW&response=csv -> status=200, chars=11371
+- Trying TPEx batch source=TPEX_NEW_AFTERTRADING_CSV date=20260617
+- GET https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/06/17&type=EW&response=csv -> status=200, chars=11371
 - TPEX_NEW_AFTERTRADING_CSV: parsed TPEx CSV rows=0
-- Trying TPEx batch source=TPEX_OLD_DAILY_JSON date=20260616
-- GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=json&d=115/06/16&s=0,asc,0 -> status=200, chars=1425064
+- Trying TPEx batch source=TPEX_OLD_DAILY_JSON date=20260617
+- GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=json&d=115/06/17&s=0,asc,0 -> status=200, chars=1425064
 - TPEX_OLD_DAILY_JSON: parsed TPEx JSON rows=5014
 - TPEx batch selected source=TPEX_OLD_DAILY_JSON, rows=5014
-- date=20260616 twse_rows=1238 tpex_rows=5014 total_rows=6252 full_market_ok=True
+- date=20260617 twse_rows=1236 tpex_rows=5014 total_rows=6250 full_market_ok=True
+- Reject stale TPEx target-date rows: 100.0% match previous file daily_price_20260616.csv
+- Published previous valid daily price file as latest: data/daily_price/daily_price_20260616.csv
