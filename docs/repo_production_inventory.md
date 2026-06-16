@@ -13,13 +13,15 @@ Validator:
 
 ## Inventory Contract
 
-Every tracked root-level `*.py`, every tracked `scripts/**/*.py`, and every
-tracked `.github/workflows/*.yml` or `.yaml` file must have one manifest row.
+Every tracked root-level `*.py`, every tracked `scripts/**/*.py`, every tracked
+`tests/**/*.py`, every tracked non-Python executable script such as `.sh` or
+Apps Script `.gs`, and every tracked `.github/workflows/*.yml` or `.yaml` file
+must have one manifest row.
 
 Required fields:
 
 - `path`: repository-relative path.
-- `kind`: `python` or `workflow`.
+- `kind`: `python`, `test_python`, `executable_script`, or `workflow`.
 - `owner`: business or infrastructure lane owner.
 - `status`: `active`, `manual_diagnostic`, or `legacy_deprecated`.
 - `purpose`: human-readable purpose.
@@ -28,7 +30,21 @@ Required fields:
 - `allowed_stage_patterns`: explicit stage patterns expected inside workflow
   files when a workflow commits generated outputs.
 
-Any new script or workflow without an inventory row fails validation.
+Any new script, test, executable helper, or workflow without an inventory row
+fails validation.
+
+The validator also scans active guidance text so docs and generated latest
+artifacts cannot point users to retired executable entrypoints. The active
+guidance scan includes:
+
+- `AGENTS.md`
+- `README.md`
+- `rules/**/*.md`
+- root-level `docs/*.md` and `docs/*.txt`
+- `docs/latest/**/*.md` and `docs/latest/**/*.txt`
+- `output/latest/**/*.md` and `output/latest/**/*.txt`
+
+Historical folders are intentionally not treated as live entrypoint guidance.
 
 ## Lane Owners
 
@@ -64,6 +80,10 @@ The validator enforces these repository-wide rules:
 - Warrant workflows must not stage source files or workflow files as part of a
   data refresh.
 - Deprecated scripts cannot be invoked by workflows.
+- Active guidance must not instruct users to run retired or renderer-only daily
+  PDF entrypoints. The formal daily PDF entrypoint is
+  `scripts/run_chatgpt_daily_report_entrypoint.py`; the renderer path and repo
+  market artifact builder path may be mentioned only as non-entrypoint files.
 
 ## Workflow Gate
 

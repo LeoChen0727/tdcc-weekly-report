@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+import csv
 
 from scripts import validate_repo_production_inventory as inventory
 
@@ -19,6 +20,18 @@ def test_inventory_manifest_exists_and_is_authoritative() -> None:
     assert manifest.exists()
     assert docs.exists()
     assert "config/repo_production_inventory.csv" in docs.read_text(encoding="utf-8")
+    assert "tests/**/*.py" in docs.read_text(encoding="utf-8")
+    assert "executable_script" in docs.read_text(encoding="utf-8")
+
+
+def test_inventory_covers_tests_and_non_python_executables() -> None:
+    manifest = ROOT / "config" / "repo_production_inventory.csv"
+    with manifest.open("r", encoding="utf-8-sig", newline="") as fh:
+        rows = {row["path"]: row for row in csv.DictReader(fh)}
+
+    assert rows["tests/conftest.py"]["kind"] == "test_python"
+    assert rows["scripts/ci_push_with_retry.sh"]["kind"] == "executable_script"
+    assert rows["docs/apps_script_workflow_trigger.gs"]["kind"] == "executable_script"
 
 
 def test_all_lane_workflows_run_repo_inventory_gate() -> None:
