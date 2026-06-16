@@ -1,6 +1,6 @@
 # Daily Published Snapshot Ranking Backtest
 
-generated_at: 2026-06-16 19:37:09 Asia/Taipei
+generated_at: 2026-06-16 19:54:10 Asia/Taipei
 snapshot_report_dates: 20260615, 20260616
 
 This research artifact uses date-stamped as-published snapshots only. It does not recalculate historical rankings with today's production model code and it does not mutate production parameters.
