@@ -45,6 +45,7 @@ jobs:
           python scripts/validate_apps_script_workflow_triggers.py
           python scripts/validate_repo_code_isolation_policy.py
           python scripts/validate_chatgpt_side_pdf_layout_independence.py
+          python scripts/validate_pdf_production_inventory.py
           python scripts/validate_daily_production_boundaries.py
 
       - name: Install dependencies
@@ -250,6 +251,7 @@ jobs:
       - name: Validate official daily PDF contract
         run: |
           python scripts/validate_chatgpt_side_pdf_contract.py
+          python scripts/validate_pdf_production_inventory.py
 
       - name: Build ChatGPT indicator usage guide
         run: |
@@ -387,6 +389,7 @@ jobs:
         run: |
           python publish_chatgpt_report_readme_and_check.py
           python scripts/audit_daily_data_layer_consistency.py --include-readme
+          python scripts/validate_pdf_production_inventory.py
 
       - name: Commit readme and publish check
         run: |

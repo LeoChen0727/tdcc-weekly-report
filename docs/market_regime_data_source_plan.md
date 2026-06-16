@@ -85,7 +85,10 @@ Stored in:
 - `output/latest/market_regime_latest.csv`
 - `output/latest/market_risk_dashboard_latest.md`
 - `output/latest/market_risk_dashboard_latest.pdf`
-- `docs/latest/market_risk_dashboard_latest.pdf`
+
+The PDF is an internal source/reference artifact. Daily production must not
+publish `market_risk_dashboard_latest.pdf` under `docs/latest` as a daily
+recommendation PDF.
 
 ## Interpretation Rules
 

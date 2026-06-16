@@ -24,7 +24,6 @@ from reportlab.pdfbase.cidfonts import UnicodeCIDFont
 from reportlab.platypus import Image, PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
 
 from tracking_utils import (
-    DOCS_LATEST_DIR,
     LATEST_DIR,
     classify_market_regime,
     fmt_pct,
@@ -47,7 +46,6 @@ TAIWAN_VIX_HISTORY = Path("data/futures_options/taiwan_vix_history.csv")
 MARKET_REGIME_CSV = LATEST_DIR / "market_regime_latest.csv"
 REPORT_MD = LATEST_DIR / "market_risk_dashboard_latest.md"
 REPORT_PDF = LATEST_DIR / "market_risk_dashboard_latest.pdf"
-DOCS_REPORT_PDF = DOCS_LATEST_DIR / REPORT_PDF.name
 MANIFEST_JSON = LATEST_DIR / "market_risk_dashboard_manifest_latest.json"
 CHART_DIR = LATEST_DIR / "charts/market_regime"
 MARKET_INDEX_CHART = CHART_DIR / "market_index_technical_6m.png"

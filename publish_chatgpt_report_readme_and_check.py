@@ -1278,6 +1278,15 @@ def sync_docs_files() -> None:
             dst.write_text(src.read_text(encoding="utf-8", errors="replace"), encoding="utf-8")
 
 
+def remove_stale_date_stamped_readmes(directory: Path, keep_path: Path) -> None:
+    date_readme_re = re.compile(r"READ_ME_FIRST_DAILY_REPORT_\d{8}\.txt$")
+    for path in directory.glob("READ_ME_FIRST_DAILY_REPORT_*.txt"):
+        if path.name == keep_path.name:
+            continue
+        if date_readme_re.fullmatch(path.name):
+            path.unlink()
+
+
 def main() -> int:
     LATEST_DIR.mkdir(parents=True, exist_ok=True)
     DOCS_LATEST_DIR.mkdir(parents=True, exist_ok=True)
@@ -1511,6 +1520,8 @@ def main() -> int:
     )
     HISTORY_REPORT_DIR.mkdir(parents=True, exist_ok=True)
     DOCS_HISTORY_REPORT_DIR.mkdir(parents=True, exist_ok=True)
+    remove_stale_date_stamped_readmes(LATEST_DIR, readme_date_stamped)
+    remove_stale_date_stamped_readmes(DOCS_LATEST_DIR, docs_readme_date_stamped)
     readme_date_stamped.write_text(readme, encoding="utf-8")
     docs_readme_date_stamped.write_text(readme, encoding="utf-8")
     history_readme.write_text(readme, encoding="utf-8")

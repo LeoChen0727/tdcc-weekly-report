@@ -19,12 +19,6 @@ PDF_FACING_FILES = [
 ]
 
 PDF_FACING_PDFS = [
-    Path("output/latest/mainstream_daily_recommendation_highlight_latest.pdf"),
-    Path("output/latest/mainstream_full_candidate_list_latest.pdf"),
-    Path("output/latest/non_mainstream_daily_recommendation_highlight_latest.pdf"),
-    Path("output/latest/non_mainstream_full_candidate_list_latest.pdf"),
-    Path("output/latest/warrant_market_report_latest.pdf"),
-    Path("output/latest/market_risk_dashboard_latest.pdf"),
     Path("output/latest/tdcc_weekly_candidate_highlight_latest.pdf"),
     Path("output/latest/tdcc_weekly_candidate_full_latest.pdf"),
 ]
