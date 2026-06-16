@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import re
 import importlib.util
+import sys
 from pathlib import Path
 
 
@@ -20,6 +21,7 @@ DOCS_RULES_DAILY = ROOT / "docs" / "rules" / "daily_stock_candidate_rules.md"
 RULES_MASTER = ROOT / "rules" / "master_priority_rules.md"
 DOCS_RULES_MASTER = ROOT / "docs" / "rules" / "master_priority_rules.md"
 CODE_ISOLATION_POLICY_VALIDATOR = ROOT / "scripts" / "validate_repo_code_isolation_policy.py"
+REPO_PRODUCTION_INVENTORY_VALIDATOR = ROOT / "scripts" / "validate_repo_production_inventory.py"
 
 
 FORBIDDEN_DAILY_SCRIPT_PATTERNS = {
@@ -112,6 +114,21 @@ def run_code_isolation_policy_validation() -> list[str]:
         return [f"cannot load repo code-isolation policy validator: {CODE_ISOLATION_POLICY_VALIDATOR}"]
 
     module = importlib.util.module_from_spec(spec)
+    sys.modules[spec.name] = module
+    spec.loader.exec_module(module)
+    return list(module.validate())
+
+
+def run_repo_production_inventory_validation() -> list[str]:
+    spec = importlib.util.spec_from_file_location(
+        "validate_repo_production_inventory",
+        REPO_PRODUCTION_INVENTORY_VALIDATOR,
+    )
+    if spec is None or spec.loader is None:
+        return [f"cannot load repo production inventory validator: {REPO_PRODUCTION_INVENTORY_VALIDATOR}"]
+
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[spec.name] = module
     spec.loader.exec_module(module)
     return list(module.validate())
 
@@ -121,6 +138,7 @@ def main() -> int:
     daily_text = read_text(DAILY_WORKFLOW)
 
     errors.extend(run_code_isolation_policy_validation())
+    errors.extend(run_repo_production_inventory_validation())
 
     for path, required_literals in FORMAL_REPORT_DATE_HARD_GATE_FILES.items():
         if not path.exists():
