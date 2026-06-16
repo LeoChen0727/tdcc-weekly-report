@@ -782,6 +782,44 @@ def is_generic_industry(value: Any) -> bool:
     return compact_text(value) in GENERIC_INDUSTRY_VALUES
 
 
+def is_special_non_common_security(stock_id: Any, stock_name: Any = "") -> bool:
+    code = normalize_code(stock_id)
+    name = compact_text(stock_name)
+    if not code:
+        return False
+    return (
+        code.startswith("00")
+        or code.startswith("02")
+        or code.startswith("7")
+        or code.startswith("91")
+        or any(token in name for token in ["購", "售", "牛", "熊", "ETF", "ETN"])
+    )
+
+
+def active_company_stock_ids() -> set[str]:
+    snapshot = read_csv(COMPANY_INDUSTRY_SNAPSHOT, dtype=str, keep_default_na=False)
+    if snapshot.empty or "stock_id" not in snapshot.columns:
+        return set()
+    return {normalize_code(value) for value in snapshot["stock_id"] if normalize_code(value)}
+
+
+def filter_inactive_common_stock_rows(df: pd.DataFrame, active_ids: set[str]) -> pd.DataFrame:
+    if df.empty or "stock_id" not in df.columns or not active_ids:
+        return df.copy()
+    out = df.copy()
+    names = out["stock_name"] if "stock_name" in out.columns else pd.Series([""] * len(out), index=out.index)
+    stock_ids = out["stock_id"].map(normalize_code)
+    keep = [
+        bool(code)
+        and (
+            code in active_ids
+            or is_special_non_common_security(code, names.iloc[pos] if pos < len(names) else "")
+        )
+        for pos, code in enumerate(stock_ids)
+    ]
+    return out.loc[keep].copy()
+
+
 def missing_industry_fallback(stock_id: str, stock_name: str) -> tuple[str, str, str, str] | None:
     code = normalize_code(stock_id)
     name = compact_text(stock_name)
@@ -1177,9 +1215,12 @@ def load_manual() -> pd.DataFrame:
 
 def build_taxonomy() -> pd.DataFrame:
     universe = load_universe()
+    active_ids = active_company_stock_ids()
+    universe = filter_inactive_common_stock_rows(universe, active_ids)
     default_map = load_default_map()
-    authorized = load_authorized_seed()
-    manual = load_manual()
+    authorized = filter_inactive_common_stock_rows(load_authorized_seed(), active_ids)
+    manual = filter_inactive_common_stock_rows(load_manual(), active_ids)
+    default_map = filter_inactive_common_stock_rows(default_map, active_ids)
 
     seed_sources = []
     for source_df in [default_map, authorized, manual]:

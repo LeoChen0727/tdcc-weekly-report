@@ -40,6 +40,7 @@ class StockThemeTaxonomyTests(unittest.TestCase):
 
     def test_authorized_seed_contains_user_theme_stocks(self) -> None:
         seed = taxonomy.load_authorized_seed()
+        self.assertFalse(seed["stock_id"].eq("2456").any())
         huatung = seed[seed["stock_id"].eq("2313")].iloc[0]
         qiqi = seed[seed["stock_id"].eq("6285")].iloc[0]
         hiwin = seed[seed["stock_id"].eq("2049")].iloc[0]
@@ -191,6 +192,22 @@ class StockThemeTaxonomyTests(unittest.TestCase):
         row = preserved.iloc[0]
         self.assertEqual(row["industry"], "建材營造")
         self.assertEqual(row["industry_source"], "snapshot_preserved_after_generic_official")
+
+    def test_inactive_common_stocks_do_not_expand_taxonomy_universe(self) -> None:
+        source = pd.DataFrame(
+            [
+                {"stock_id": "2327", "stock_name": "國巨"},
+                {"stock_id": "2456", "stock_name": "奇力新"},
+                {"stock_id": "0050", "stock_name": "元大台灣50"},
+                {"stock_id": "0200", "stock_name": "兆豐半導體氣候N"},
+                {"stock_id": "700001", "stock_name": "測試購01"},
+            ]
+        )
+
+        filtered = taxonomy.filter_inactive_common_stock_rows(source, {"2327"})
+
+        self.assertEqual(set(filtered["stock_id"]), {"2327", "0050", "0200", "700001"})
+        self.assertNotIn("2456", set(filtered["stock_id"]))
 
 
 if __name__ == "__main__":
