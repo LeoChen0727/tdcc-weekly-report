@@ -175,6 +175,8 @@ jobs:
           python scripts/build_daily_report_model_summary.py
           python scripts/build_daily_volume_breakout_operation_section.py
           python scripts/validate_daily_volume_breakout_operation_section.py
+          python scripts/update_daily_published_model_snapshots.py
+          python scripts/validate_daily_published_model_snapshots.py
 
       - name: Build theme event watch
         run: |
@@ -357,6 +359,7 @@ jobs:
           git add output/history/reports/ output/history/warrant_daily/ output/history/warrant_flow/ || true
           git add output/history/daily_signals/daily_candidate_signal_log.csv || true
           git add output/history/daily_signals/daily_theme_status_history.csv || true
+          git add output/history/daily_model_snapshots/ || true
           git add output/history/daily_candidates/daily_theme_status_history.csv || true
           git add output/history/market_risk/ || true
 
