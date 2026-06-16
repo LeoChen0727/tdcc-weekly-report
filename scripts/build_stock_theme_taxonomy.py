@@ -752,6 +752,7 @@ MISSING_INDUSTRY_FALLBACKS: dict[str, tuple[str, str, str, str]] = {
     "2809": ("\u91d1\u878d\u4fdd\u96aa\u696d", "\u91d1\u878d\u4fdd\u96aa\u696d", "non_mainstream_theme", "non_mainstream"),
     "2888": ("\u91d1\u878d\u4fdd\u96aa\u696d", "\u91d1\u878d\u4fdd\u96aa\u696d", "non_mainstream_theme", "non_mainstream"),
     "3454": ("\u5149\u96fb\u696d", "\u5b89\u63a7/\u667a\u6167\u5f71\u50cf", "non_mainstream_theme", "non_mainstream"),
+    "3426": ("電機機械", "電機機械", "robotics_precision_motion_theme", "core_mainstream"),
     "4987": ("\u96fb\u8166\u53ca\u9031\u908a\u8a2d\u5099\u696d", "\u96fb\u8166\u53ca\u9031\u908a\u8a2d\u5099\u696d", "non_mainstream_theme", "non_mainstream"),
     "5871": ("租賃金融 / 企業融資", "租賃金融 / 企業融資", "non_mainstream_theme", "non_mainstream"),
     "6288": ("\u6c7d\u8eca\u5de5\u696d", "\u6c7d\u8eca\u96f6\u7d44\u4ef6", "non_mainstream_theme", "non_mainstream"),

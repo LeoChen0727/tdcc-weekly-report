@@ -90,6 +90,7 @@ REQUIRED_TAXONOMY_COLUMNS = {
 }
 
 THIRD_BUCKET_VALUES = {"", "theme_unknown", "unclassified", "unknown", "other"}
+UNRESOLVED_THEME_VALUES = {"", "未分類", "普通股_待補官方產業"}
 
 # Representative semantic checks. These are not exhaustive taxonomy assertions;
 # they are cheap tripwires for the categories that previously broke reports.
@@ -536,8 +537,8 @@ def audit(include_readme: bool = False) -> dict[str, object]:
                 errors.append(f"taxonomy contains duplicate stock_id rows: {duplicate_stock_ids}")
         basic_series = taxonomy.get("basic_theme", pd.Series(dtype=str)).astype(str).str.strip()
         primary_series = taxonomy.get("primary_theme", pd.Series(dtype=str)).astype(str).str.strip()
-        unresolved_basic = int(basic_series.isin(["", "未分類"]).sum())
-        unresolved_primary = int(primary_series.isin(["", "未分類"]).sum())
+        unresolved_basic = int(basic_series.isin(UNRESOLVED_THEME_VALUES).sum())
+        unresolved_primary = int(primary_series.isin(UNRESOLVED_THEME_VALUES).sum())
         details["taxonomy_unresolved_basic_theme_rows"] = unresolved_basic
         details["taxonomy_unresolved_primary_theme_rows"] = unresolved_primary
         if unresolved_basic:

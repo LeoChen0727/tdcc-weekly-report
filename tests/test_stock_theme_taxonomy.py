@@ -152,6 +152,10 @@ class StockThemeTaxonomyTests(unittest.TestCase):
             ("建材營造", "建材營造", "non_mainstream_theme", "non_mainstream"),
         )
         self.assertEqual(
+            taxonomy.missing_industry_fallback("3426", "台興"),
+            ("電機機械", "電機機械", "robotics_precision_motion_theme", "core_mainstream"),
+        )
+        self.assertEqual(
             taxonomy.missing_industry_fallback("6585", "鼎基")[0],
             "TPU材料 / 工業複合材料",
         )
