@@ -22,8 +22,6 @@ DATA_FRESHNESS_MD = LATEST_DIR / "data_freshness_latest.md"
 REPORT_MANIFEST_JSON = LATEST_DIR / "report_manifest_latest.json"
 PDF_KLINE_STATUS_JSON = LATEST_DIR / "pdf_kline_chart_status_latest.json"
 PDF_KLINE_STATUS_MD = LATEST_DIR / "pdf_kline_chart_status_latest.md"
-FIXED_PDF_MANIFEST_JSON = LATEST_DIR / "daily_market_pdf_report_manifest_latest.json"
-FIXED_PDF_VALIDATION_JSON = LATEST_DIR / "daily_market_report_validation_latest.json"
 DAILY_SIGNAL_LOG = Path("output/history/daily_signals/daily_candidate_signal_log.csv")
 DAILY_CANDIDATE_SIGNAL_LOG = Path("output/history/daily_candidates/daily_candidate_signal_log.csv")
 DAILY_SIGNAL_PERFORMANCE = Path("output/history/daily_signals/daily_candidate_signal_performance.csv")
@@ -71,13 +69,11 @@ EVENT_CALENDAR_VALIDATION = LATEST_DIR / "event_calendar_validation_latest.md"
 CATALYST_NEEDS_REVIEW_CSV = LATEST_DIR / "catalyst_needs_review_latest.csv"
 CATALYST_NEEDS_REVIEW_MD = LATEST_DIR / "catalyst_needs_review_latest.md"
 WARRANT_MARKET_MD = LATEST_DIR / "warrant_market_report_latest.md"
-WARRANT_MARKET_PDF = LATEST_DIR / "warrant_market_report_latest.pdf"
 WARRANT_FLOW_BY_STOCK_CSV = LATEST_DIR / "warrant_flow_by_stock_latest.csv"
 WARRANT_SECTOR_HEAT_CSV = LATEST_DIR / "warrant_sector_heat_latest.csv"
 WARRANT_SIGNAL_PERFORMANCE_MD = LATEST_DIR / "warrant_signal_performance_latest.md"
 MARKET_REGIME_CSV = LATEST_DIR / "market_regime_latest.csv"
 MARKET_RISK_DASHBOARD_MD = LATEST_DIR / "market_risk_dashboard_latest.md"
-MARKET_RISK_DASHBOARD_PDF = LATEST_DIR / "market_risk_dashboard_latest.pdf"
 FUTURES_OPTIONS_INDICATORS_CSV = LATEST_DIR / "futures_options_indicators_latest.csv"
 FUTURES_OPTIONS_SOURCE_STATUS_MD = LATEST_DIR / "futures_options_source_status_latest.md"
 MARKET_SENTIMENT_CONTEXT_CSV = LATEST_DIR / "market_sentiment_context_latest.csv"
@@ -108,9 +104,6 @@ SUMMARY_LATEST_MD = LATEST_DIR / "daily_market_summary_latest.md"
 FULL_LATEST_MD = LATEST_DIR / "daily_market_full_latest.md"
 SUMMARY_LATEST_PDF = LATEST_DIR / "daily_market_summary_latest.pdf"
 FULL_LATEST_PDF = LATEST_DIR / "daily_market_full_latest.pdf"
-CURATED_REPORT_PDF = LATEST_DIR / "daily_market_curated_report_latest.pdf"
-FULL_TABLE_REPORT_PDF = LATEST_DIR / "daily_market_full_table_report_latest.pdf"
-
 SUMMARY_CN_MD = LATEST_DIR / "每日全市場候選股監測報告_精華版.md"
 FULL_CN_MD = LATEST_DIR / "完整候選股清單_完整版.md"
 SUMMARY_CN_PDF = LATEST_DIR / "每日全市場候選股監測報告_精華版.pdf"
@@ -600,11 +593,6 @@ def build_packet_text(main_date: str, report_ready: str, paths: dict[str, Path],
     freshness = meta.get("freshness", {})
     report_manifest = read_json(REPORT_MANIFEST_JSON)
     kline_status = read_json(PDF_KLINE_STATUS_JSON).get("summary", {})
-    fixed_pdf_manifest = read_json(FIXED_PDF_MANIFEST_JSON)
-    fixed_pdf_validation = read_json(FIXED_PDF_VALIDATION_JSON)
-    curated_pdf = fixed_pdf_manifest.get("curated_pdf", {})
-    full_table_pdf = fixed_pdf_manifest.get("full_table_pdf", {})
-
     history_packet_path = HISTORY_REPORT_DIR / f"{main_date}_CHATGPT_DAILY_REPORT_PACKET.txt"
 
     lines: list[str] = []
@@ -626,10 +614,10 @@ def build_packet_text(main_date: str, report_ready: str, paths: dict[str, Path],
     lines.append("")
     lines.append("CHATGPT_DELIVERY_CONTRACT")
     lines.append("repo_artifacts_are_sources_not_final_deliverables: True")
-    lines.append("report_ready_meaning: repo data packet and repo artifacts are available; this does not mean ChatGPT has produced the user's requested report.")
-    lines.append("fixed_pdf_validation_meaning: repo pipeline PDF artifact validation only; this is not a newly generated ChatGPT deliverable PDF.")
-    lines.append("if_user_asks_status_only: report repo artifact status and links only.")
-    lines.append("if_user_asks_do_today_report_or_six_pdfs: read repo structured data and produce new ChatGPT-side PDFs; do not stop at repo PDFs.")
+    lines.append("report_ready_meaning: repo data packet is available; this does not mean ChatGPT has produced the user's requested report.")
+    lines.append("official_chatgpt_side_pdf_entrypoint: python scripts/run_chatgpt_daily_report_entrypoint.py")
+    lines.append("if_user_asks_status_only: report source data readiness and packet/rule links only; do not present repo artifact PDFs as final reports.")
+    lines.append("if_user_asks_do_today_report_or_six_pdfs: run the official ChatGPT-side PDF entrypoint; do not stop at repo artifacts.")
     lines.append("default_daily_full_market_chatgpt_deliverables: 主流每日推薦精華 PDF|主流完整候選清單 PDF|非主流每日推薦精華 PDF|非主流完整候選清單 PDF|權證市場輔助分析 PDF|市場風險與大盤期權背景 PDF")
     lines.append("do_not_replace_required_chatgpt_pdfs_with_repo_artifacts: True")
     lines.append("do_not_paste_full_text_instead_of_pdf_unless_user_requests_text_only: True")
@@ -651,25 +639,6 @@ def build_packet_text(main_date: str, report_ready: str, paths: dict[str, Path],
     lines.append("summary_pdf_chart_path_and_chart_url_are_fallback_only: True")
     lines.append("do_not_label_summary_pdf_as_chart_path_version_or_image_download_failed: True")
     lines.append("note: The summary PDF K-line charts are generated by the pipeline from local/repo daily price data first. Candidate chart_path/chart_url values are fallback references only.")
-    lines.append("")
-    lines.append("CURATED PDF REPORT")
-    lines.append(f"pages_url: {curated_pdf.get('pages_url') or pages_url(Path('docs/latest/daily_market_curated_report_latest.pdf'))}")
-    lines.append(f"raw_url: {curated_pdf.get('raw_url') or raw_url(CURATED_REPORT_PDF)}")
-    lines.append(f"file_path: {curated_pdf.get('file_path') or CURATED_REPORT_PDF.as_posix()}")
-    lines.append(f"generated_at: {fixed_pdf_manifest.get('generated_at', '')}")
-    lines.append(f"status: {curated_pdf.get('status') or ('generated' if CURATED_REPORT_PDF.exists() else 'missing')}")
-    lines.append("")
-    lines.append("FULL TABLE PDF REPORT")
-    lines.append(f"pages_url: {full_table_pdf.get('pages_url') or pages_url(Path('docs/latest/daily_market_full_table_report_latest.pdf'))}")
-    lines.append(f"raw_url: {full_table_pdf.get('raw_url') or raw_url(FULL_TABLE_REPORT_PDF)}")
-    lines.append(f"file_path: {full_table_pdf.get('file_path') or FULL_TABLE_REPORT_PDF.as_posix()}")
-    lines.append(f"generated_at: {fixed_pdf_manifest.get('generated_at', '')}")
-    lines.append(f"status: {full_table_pdf.get('status') or ('generated' if FULL_TABLE_REPORT_PDF.exists() else 'missing')}")
-    lines.append("")
-    lines.append("FIXED PDF VALIDATION")
-    lines.append(f"status: {fixed_pdf_validation.get('status', '')}")
-    lines.append(f"validation_json_path: {FIXED_PDF_VALIDATION_JSON.as_posix()}")
-    lines.append(f"validation_md_path: output/latest/daily_market_report_validation_latest.md")
     lines.append("")
     lines.append("DATA SOURCE PRIORITY")
     lines.append("priority_1: Use original structured data first: CSV files, packet fields, source logs, signal logs, warrant tables, market tables, and validated raw URLs.")
@@ -832,8 +801,6 @@ def build_packet_text(main_date: str, report_ready: str, paths: dict[str, Path],
     lines.append("")
     lines.append("WARRANT MARKET ANALYSIS")
     lines.append(f"market_report_md_raw_url: {raw_url(WARRANT_MARKET_MD)}")
-    lines.append(f"market_report_pdf_pages_url: {pages_url(Path('docs/latest/warrant_market_report_latest.pdf'))}")
-    lines.append(f"market_report_pdf_raw_url: {raw_url(WARRANT_MARKET_PDF)}")
     lines.append(f"flow_by_stock_csv_raw_url: {raw_url(WARRANT_FLOW_BY_STOCK_CSV)}")
     lines.append(f"sector_heat_csv_raw_url: {raw_url(WARRANT_SECTOR_HEAT_CSV)}")
     lines.append(f"signal_performance_md_raw_url: {raw_url(WARRANT_SIGNAL_PERFORMANCE_MD)}")
@@ -843,8 +810,6 @@ def build_packet_text(main_date: str, report_ready: str, paths: dict[str, Path],
     lines.append("MARKET REGIME / FUTURES OPTIONS DASHBOARD")
     lines.append(f"market_regime_csv_raw_url: {raw_url(MARKET_REGIME_CSV)}")
     lines.append(f"market_risk_dashboard_md_raw_url: {raw_url(MARKET_RISK_DASHBOARD_MD)}")
-    lines.append(f"market_risk_dashboard_pdf_pages_url: {pages_url(Path('docs/latest/market_risk_dashboard_latest.pdf'))}")
-    lines.append(f"market_risk_dashboard_pdf_raw_url: {raw_url(MARKET_RISK_DASHBOARD_PDF)}")
     lines.append(f"futures_options_indicators_raw_url: {raw_url(FUTURES_OPTIONS_INDICATORS_CSV)}")
     lines.append(f"futures_options_source_status_raw_url: {raw_url(FUTURES_OPTIONS_SOURCE_STATUS_MD)}")
     lines.append(f"market_sentiment_context_raw_url: {raw_url(MARKET_SENTIMENT_CONTEXT_CSV)}")
@@ -915,10 +880,6 @@ def write_packet_manifest(main_date: str, report_ready: str, paths: dict[str, Pa
     freshness = meta.get("freshness", {})
     report_manifest = read_json(REPORT_MANIFEST_JSON)
     kline_status = read_json(PDF_KLINE_STATUS_JSON).get("summary", {})
-    fixed_pdf_manifest = read_json(FIXED_PDF_MANIFEST_JSON)
-    fixed_pdf_validation = read_json(FIXED_PDF_VALIDATION_JSON)
-    curated_pdf = fixed_pdf_manifest.get("curated_pdf", {})
-    full_table_pdf = fixed_pdf_manifest.get("full_table_pdf", {})
 
     manifest = {
         "generated_at": now_text(),
@@ -931,7 +892,7 @@ def write_packet_manifest(main_date: str, report_ready: str, paths: dict[str, Pa
         "daily_pdf_ready_note": freshness.get("daily_pdf_ready_note", ""),
         "repo_artifacts_are_sources_not_final_chatgpt_deliverables": True,
         "report_ready_is_not_chatgpt_pdf_done": True,
-        "fixed_pdf_validation_is_repo_artifact_validation_only": True,
+        "official_chatgpt_side_pdf_entrypoint": "python scripts/run_chatgpt_daily_report_entrypoint.py",
         "daily_full_market_default_chatgpt_deliverables": [
             "主流每日推薦精華 PDF",
             "主流完整候選清單 PDF",
@@ -947,13 +908,6 @@ def write_packet_manifest(main_date: str, report_ready: str, paths: dict[str, Pa
         "summary_pdf_kline_chart_path_fallback_count": kline_status.get("chart_path_fallback_count", report_manifest.get("summary_pdf_kline_chart_path_fallback_count", 0)),
         "summary_pdf_kline_missing_count": kline_status.get("missing_count", report_manifest.get("summary_pdf_kline_missing_count", 0)),
         "summary_pdf_kline_status_md_path": PDF_KLINE_STATUS_MD.as_posix(),
-        "daily_market_curated_pdf_pages_url": curated_pdf.get("pages_url") or pages_url(Path("docs/latest/daily_market_curated_report_latest.pdf")),
-        "daily_market_curated_pdf_raw_url": curated_pdf.get("raw_url") or raw_url(CURATED_REPORT_PDF),
-        "daily_market_curated_pdf_path": curated_pdf.get("file_path") or CURATED_REPORT_PDF.as_posix(),
-        "daily_market_full_table_pdf_pages_url": full_table_pdf.get("pages_url") or pages_url(Path("docs/latest/daily_market_full_table_report_latest.pdf")),
-        "daily_market_full_table_pdf_raw_url": full_table_pdf.get("raw_url") or raw_url(FULL_TABLE_REPORT_PDF),
-        "daily_market_full_table_pdf_path": full_table_pdf.get("file_path") or FULL_TABLE_REPORT_PDF.as_posix(),
-        "fixed_pdf_validation_status": fixed_pdf_validation.get("status", ""),
         "fundamental_catalyst_layer_md_raw_url": raw_url(FUNDAMENTAL_CATALYST_MD),
         "fundamental_catalyst_layer_path": FUNDAMENTAL_CATALYST_MD.as_posix(),
         "fundamental_catalyst_layer_status": "generated" if FUNDAMENTAL_CATALYST_MD.exists() else "missing",

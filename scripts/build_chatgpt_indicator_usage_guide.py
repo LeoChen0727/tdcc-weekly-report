@@ -186,7 +186,7 @@ def build_guide() -> str:
     lines.append("")
     lines.append("- Repo pipeline PDFs / Markdown / packets are source artifacts, validation artifacts, or shareable reference outputs.")
     lines.append("- `report_ready=True` means repo data and artifacts are available; it does not mean ChatGPT has completed the requested report.")
-    lines.append("- `fixed_pdf_validation_status=pass` means repo PDF artifacts passed validation; it is not the same as a newly generated ChatGPT deliverable PDF.")
+    lines.append("- Repo artifact PDF links are not ChatGPT-side deliverable PDFs. Do not present repo artifact PDFs as completed daily recommendation reports.")
     lines.append("- If the user asks only for pipeline/repo status, report artifact status and links.")
     lines.append("- If the user asks to do today's report, produce six ChatGPT-side PDFs after reading repo structured data: 主流每日推薦精華 PDF, 主流完整候選清單 PDF, 非主流每日推薦精華 PDF, 非主流完整候選清單 PDF, 權證市場輔助分析 PDF, 市場風險與大盤期權背景 PDF.")
     lines.append("- Do not replace required ChatGPT-generated PDFs with repo PDF links, and do not paste a full chat report instead of required PDFs unless the user explicitly asks for text-only output.")

@@ -247,14 +247,6 @@ jobs:
         run: |
           python ensure_report_aliases.py
 
-      - name: Generate fixed daily market PDF reports
-        run: |
-          python scripts/generate_daily_market_pdf.py
-
-      - name: Validate fixed daily market PDF reports
-        run: |
-          python scripts/validate_daily_market_report.py
-
       - name: Validate official daily PDF contract
         run: |
           python scripts/validate_chatgpt_side_pdf_contract.py
@@ -283,14 +275,6 @@ jobs:
           cp output/latest/chatgpt_daily_report_packet_latest.txt docs/latest/chatgpt_daily_report_packet_latest.txt
           cp output/latest/CHATGPT_DAILY_REPORT_RULES.txt docs/latest/CHATGPT_DAILY_REPORT_RULES.txt
           cp output/latest/pdf_kline_chart_status_latest.md docs/latest/pdf_kline_chart_status_latest.md || true
-          cp output/latest/daily_market_curated_report_latest.pdf docs/latest/daily_market_curated_report_latest.pdf || true
-          cp output/latest/daily_market_full_table_report_latest.pdf docs/latest/daily_market_full_table_report_latest.pdf || true
-          cp output/latest/mainstream_daily_recommendation_highlight_latest.pdf docs/latest/mainstream_daily_recommendation_highlight_latest.pdf || true
-          cp output/latest/mainstream_full_candidate_list_latest.pdf docs/latest/mainstream_full_candidate_list_latest.pdf || true
-          cp output/latest/non_mainstream_daily_recommendation_highlight_latest.pdf docs/latest/non_mainstream_daily_recommendation_highlight_latest.pdf || true
-          cp output/latest/non_mainstream_full_candidate_list_latest.pdf docs/latest/non_mainstream_full_candidate_list_latest.pdf || true
-          cp output/latest/daily_market_report_validation_latest.md docs/latest/daily_market_report_validation_latest.md || true
-          cp output/latest/warrant_market_report_latest.pdf docs/latest/warrant_market_report_latest.pdf || true
           cp output/latest/catalyst_summary_latest.md docs/latest/catalyst_summary_latest.md || true
           cp output/latest/catalyst_layer_validation_latest.md docs/latest/catalyst_layer_validation_latest.md || true
           cp output/latest/upcoming_catalyst_calendar_latest.md docs/latest/upcoming_catalyst_calendar_latest.md || true
@@ -358,8 +342,7 @@ jobs:
           git add output/latest/ || true
           git add docs/latest/READ_ME_FIRST_DAILY_REPORT*.txt || true
           git add docs/latest/chatgpt_daily_report_packet_latest.txt docs/latest/CHATGPT_DAILY_REPORT_RULES.txt || true
-          git add docs/latest/pdf_kline_chart_status_latest.md docs/latest/daily_market_*_latest.pdf docs/latest/daily_market_report_validation_latest.md || true
-          git add docs/latest/mainstream_*_latest.pdf docs/latest/non_mainstream_*_latest.pdf docs/latest/warrant_market_report_latest.pdf || true
+          git add docs/latest/pdf_kline_chart_status_latest.md || true
           git add docs/latest/catalyst_*_latest.* docs/latest/upcoming_*_calendar_latest.* docs/latest/theme_event_watch_latest.* || true
           git add docs/latest/calendar_data_source_status_latest.* docs/latest/event_calendar_validation_latest.* || true
           git add docs/latest/daily_theme_status_history_latest.* docs/latest/daily_short_term_specialty_packet_latest.md || true

@@ -9,12 +9,6 @@ number of already-generated PDF artifacts in `output/` or `docs/`.
 
 Current PDF template entrypoints are:
 
-- Daily market curated: `scripts/generate_daily_market_pdf.py::build_curated_pdf`
-- Daily market full table: `scripts/generate_daily_market_pdf.py::build_full_table_pdf`
-- Mainstream highlight: `scripts/generate_daily_market_pdf.py::build_mainstream_daily_recommendation_highlight_pdf`
-- Mainstream full: `scripts/generate_daily_market_pdf.py::build_mainstream_full_candidate_list_pdf`
-- Non-mainstream highlight: `scripts/generate_daily_market_pdf.py::build_non_mainstream_daily_recommendation_highlight_pdf`
-- Non-mainstream full: `scripts/generate_daily_market_pdf.py::build_non_mainstream_full_candidate_list_pdf`
 - Warrant market: `scripts/build_warrant_market_report.py::write_pdf`
 - Market risk/background: `scripts/build_market_regime_dashboard.py::build_pdf`
 - TDCC weekly highlight: `scripts/build_tdcc_weekly_candidate_reports.py::write_tdcc_weekly_highlight_pdf`
@@ -29,15 +23,25 @@ Current PDF template entrypoints are:
 - ChatGPT-side warrant auxiliary: `scripts/generate_chatgpt_side_daily_reports.py::build_warrant_market_auxiliary_pdf`
 - ChatGPT-side market risk/background: `scripts/generate_chatgpt_side_daily_reports.py::build_market_risk_background_pdf`
 
-The six high-risk formal daily output PDFs that still need strict content
-contract checks are:
+## Retired Fixed Daily Market PDF Path
 
+The old fixed daily market PDF generator path has been retired from formal
+delivery and public `docs/latest` publishing. It must not be restored as the
+ChatGPT-side daily recommendation PDF source.
+
+Retired outputs:
+
+- `output/latest/daily_market_curated_report_latest.pdf`
+- `output/latest/daily_market_full_table_report_latest.pdf`
 - `output/latest/mainstream_daily_recommendation_highlight_latest.pdf`
 - `output/latest/mainstream_full_candidate_list_latest.pdf`
 - `output/latest/non_mainstream_daily_recommendation_highlight_latest.pdf`
 - `output/latest/non_mainstream_full_candidate_list_latest.pdf`
-- `output/latest/warrant_market_report_latest.pdf`
-- `output/latest/market_risk_dashboard_latest.pdf`
+
+Formal daily recommendation PDFs must be generated through:
+
+- `scripts/run_chatgpt_daily_report_entrypoint.py`
+- `scripts/generate_chatgpt_side_daily_reports.py`
 
 ## Shared Paths That Must Not Own Report Layout
 

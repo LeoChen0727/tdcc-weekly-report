@@ -15,7 +15,6 @@ REQUIRED_FILES = [
     Path("output/latest/market_regime_latest.csv"),
     Path("output/latest/market_risk_dashboard_latest.md"),
     Path("output/latest/market_risk_dashboard_latest.pdf"),
-    Path("docs/latest/market_risk_dashboard_latest.pdf"),
     Path("output/latest/charts/market_regime/market_index_technical_6m.png"),
     Path("output/latest/charts/market_regime/risk_indicators_6m.png"),
     Path("output/latest/charts/market_regime/foreign_futures_net_oi_6m.png"),

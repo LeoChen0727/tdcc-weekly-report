@@ -1,6 +1,6 @@
 CHATGPT DAILY MARKET REPORT RULES
 
-generated_at=2026-06-16 23:17:19 Asia/Taipei
+generated_at=2026-06-17 01:51:21 Asia/Taipei
 rules_version=2026-05-28-daily-candidate-pdf-contract-v2
 
 PURPOSE
@@ -26,8 +26,8 @@ SCOPE RULES
 DELIVERY CONTRACT: REPO ARTIFACTS VS CHATGPT DELIVERABLES
 - Repo pipeline PDFs / Markdown / packets are source artifacts, validation artifacts, or shareable reference outputs.
 - Repo artifact existence does not mean ChatGPT has completed the user's requested final report.
-- report_ready=True means the repo data packet and repo artifacts are available for reading. It does not satisfy a user request such as "做今天報告", "產出六份 PDF", "重新分析", or "執行今天任務".
-- fixed_pdf_validation_status=pass or a repo PDF URL means the pipeline produced/validated a repo artifact. It is not the same as a newly generated ChatGPT deliverable PDF.
+- report_ready=True means the repo data packet is available for reading. It does not satisfy a user request such as "做今天報告", "產出六份 PDF", "重新分析", or "執行今天任務".
+- Repo artifact PDF links are not ChatGPT-side deliverable PDFs. Do not present repo artifact PDFs as completed daily recommendation reports.
 - If the user asks only "pipeline 成功了嗎", "repo 狀態", "PDF artifact 是否存在", or "給我 GitHub 連結", then report repo status and links only.
 - If the user asks to do the daily task/report, produce the ChatGPT-side deliverable after reading repo structured data. Do not stop after saying the repo already has PDFs.
 - For daily full-market report delivery, the default final deliverable is six ChatGPT-generated PDFs unless the user explicitly requests text-only or status-only:
