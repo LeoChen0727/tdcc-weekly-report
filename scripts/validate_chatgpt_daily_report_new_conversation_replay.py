@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -16,7 +17,6 @@ from scripts.resolve_daily_report_source_state import (  # noqa: E402
 )
 
 
-ENTRYPOINT = REPO_ROOT / "scripts" / "run_chatgpt_daily_report_entrypoint.py"
 DEFAULT_OUTPUT_DIR = REPO_ROOT / "chatgpt_side_outputs_new_conversation_replay"
 STALE_RESIDUE_NAME = "20260612_requested_repo20260612_stale_residue_current_rules.pdf"
 EXPECTED_TITLES = (
@@ -58,6 +58,28 @@ def require_success(proc: subprocess.CompletedProcess[str], action: str) -> str:
         detail = (proc.stderr or proc.stdout or f"{action} failed").strip()
         raise ReplayValidationError(f"{action} failed: {detail}")
     return proc.stdout
+
+
+def add_clean_entrypoint_worktree(repo_root: Path, source_ref: str, temp_root: Path) -> Path:
+    source_root = temp_root / "new_conversation_clean_source"
+    proc = run_command(
+        ["git", "worktree", "add", "--detach", str(source_root), source_ref],
+        cwd=repo_root,
+    )
+    require_success(proc, f"git worktree add --detach {source_root} {source_ref}")
+    return source_root
+
+
+def remove_clean_entrypoint_worktree(repo_root: Path, source_root: Path) -> None:
+    if not source_root.exists():
+        return
+    proc = run_command(["git", "worktree", "remove", "--force", str(source_root)], cwd=repo_root)
+    if proc.returncode != 0:
+        print(
+            "WARNING: failed to remove replay source worktree: "
+            f"{(proc.stderr or proc.stdout).strip()}",
+            file=sys.stderr,
+        )
 
 
 def pdf_paths_from_stdout(stdout: str) -> list[Path]:
@@ -166,11 +188,11 @@ def validate_pdf_files_open(paths: list[Path]) -> list[str]:
 
 def run_replay(repo_root: Path, source_ref: str, output_dir: Path) -> tuple[str, dict, list[Path], Path]:
     try:
-        state = resolve_daily_report_source_state(
+        current_source_state = resolve_daily_report_source_state(
             repo_root=repo_root,
             source_ref=source_ref,
             fetch=True,
-            require_git_clean=True,
+            require_git_clean=False,
             allow_dirty=False,
             require_local_match=False,
         )
@@ -178,23 +200,42 @@ def run_replay(repo_root: Path, source_ref: str, output_dir: Path) -> tuple[str,
         raise ReplayValidationError("\n".join(exc.errors)) from exc
 
     stale_path = create_stale_residue(output_dir)
-    proc = run_command(
-        [
-            sys.executable,
-            str(ENTRYPOINT),
-            "--repo-root",
-            str(repo_root),
-            "--source-ref",
-            source_ref,
-            "--output-dir",
-            str(output_dir),
-        ],
-        cwd=repo_root,
-    )
-    stdout = require_success(proc, "official ChatGPT-side daily PDF replay")
-    if proc.stderr.strip():
-        print(proc.stderr.strip(), file=sys.stderr)
-    return stdout, state, pdf_paths_from_stdout(stdout), stale_path
+    with tempfile.TemporaryDirectory(prefix="tdcc_new_conversation_replay_") as temp_name:
+        source_root = add_clean_entrypoint_worktree(repo_root, source_ref, Path(temp_name))
+        try:
+            state = resolve_daily_report_source_state(
+                repo_root=source_root,
+                source_ref=source_ref,
+                fetch=False,
+                require_git_clean=True,
+                allow_dirty=False,
+                require_local_match=True,
+            )
+            if state["source_commit_sha"] != current_source_state["source_commit_sha"]:
+                raise ReplayValidationError(
+                    "clean replay source changed unexpectedly: "
+                    f"current={current_source_state['source_commit_sha']} clean={state['source_commit_sha']}"
+                )
+            entrypoint = source_root / "scripts" / "run_chatgpt_daily_report_entrypoint.py"
+            proc = run_command(
+                [
+                    sys.executable,
+                    str(entrypoint),
+                    "--repo-root",
+                    str(source_root),
+                    "--source-ref",
+                    source_ref,
+                    "--output-dir",
+                    str(output_dir),
+                ],
+                cwd=source_root,
+            )
+            stdout = require_success(proc, "official ChatGPT-side daily PDF replay")
+            if proc.stderr.strip():
+                print(proc.stderr.strip(), file=sys.stderr)
+            return stdout, state, pdf_paths_from_stdout(stdout), stale_path
+        finally:
+            remove_clean_entrypoint_worktree(repo_root, source_root)
 
 
 def validate_replay(repo_root: Path, source_ref: str, output_dir: Path) -> tuple[dict, list[Path], Path]:
