@@ -153,6 +153,10 @@ def require_nonempty_csv(path: Path, required_columns: set[str]) -> pd.DataFrame
 
 
 def eligible_formal_triggers(formal_summary: pd.DataFrame) -> set[str]:
+    if "metric_sample_scope" not in formal_summary.columns:
+        fail("formal operation summary must expose metric_sample_scope")
+    if set(formal_summary["metric_sample_scope"].astype(str)) != {"mature_selected_operation_only"}:
+        fail("formal operation summary must be mature_selected_operation_only")
     out = formal_summary.copy()
     for col in ["sample_size", "win_rate", "median_return", "ranking_research_score"]:
         out[f"_{col}"] = pd.to_numeric(out[col], errors="coerce")
@@ -448,6 +452,7 @@ def main() -> int:
             "median_return",
             "ranking_research_score",
             "out_of_sample_pass",
+            "metric_sample_scope",
         },
     )
     section = read_csv(SECTION_CSV)

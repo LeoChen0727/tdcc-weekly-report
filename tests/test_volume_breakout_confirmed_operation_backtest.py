@@ -13,14 +13,18 @@ if str(SCRIPTS) not in sys.path:
 
 from build_volume_breakout_confirmed_operation_backtest import (  # noqa: E402
     EVENT_COLUMNS,
+    METRIC_SAMPLE_SCOPE,
     TRIGGER_MAP,
     add_operation_selection_columns,
     attach_tdcc_asof,
     find_confirmation,
     formal_operation_events,
+    lifecycle_state_for_signal,
+    selected_confirmation_for_signal,
     simulate_confirmed_trade,
     summarize,
 )
+import build_daily_volume_breakout_operation_section as daily_builder  # noqa: E402
 
 
 def price_frame(stop_on_entry_day: bool = False) -> pd.DataFrame:
@@ -137,6 +141,51 @@ def test_signal_low_stop_is_explicit_exit_rule() -> None:
     assert trade["exit_price"] == 9.5
 
 
+def test_backtest_and_daily_selected_trigger_priority_match_same_day_tie() -> None:
+    price = pd.DataFrame(
+        [
+            {"date": "20260101", "open": 10, "high": 11, "low": 9, "close": 10, "ma5": 10, "ma10": 10},
+            {"date": "20260102", "open": 10.3, "high": 10.8, "low": 10.0, "close": 10.6, "ma5": 10.2, "ma10": 10.3},
+        ]
+    )
+
+    backtest_selected = selected_confirmation_for_signal(price, 0, 1)
+    daily_selected = daily_builder.selected_confirmation(price, 0, 1)
+
+    assert backtest_selected["trigger_id"] == "pullback_5ma_confirmed"
+    assert daily_selected["trigger_id"] == backtest_selected["trigger_id"]
+    assert daily_selected["confirmation_date"] == backtest_selected["confirmation_date"]
+    assert daily_selected["matched_trigger_ids"] == backtest_selected["matched_trigger_ids"]
+
+
+def test_backtest_and_daily_selected_trigger_priority_match_earliest_date_first() -> None:
+    price = pd.DataFrame(
+        [
+            {"date": "20260101", "open": 10, "high": 11, "low": 9, "close": 10, "ma5": 10, "ma10": 10},
+            {"date": "20260102", "open": 10.3, "high": 10.8, "low": 10.1, "close": 10.6, "ma5": 9.9, "ma10": 10.3},
+            {"date": "20260103", "open": 10.5, "high": 10.9, "low": 10.0, "close": 10.7, "ma5": 10.2, "ma10": 10.4},
+        ]
+    )
+
+    backtest_selected = selected_confirmation_for_signal(price, 0, 2)
+    daily_selected = daily_builder.selected_confirmation(price, 0, 2)
+
+    assert backtest_selected["trigger_id"] == "pullback_10ma_confirmed"
+    assert daily_selected["trigger_id"] == backtest_selected["trigger_id"]
+    assert daily_selected["confirmation_date"] == backtest_selected["confirmation_date"]
+    assert daily_selected["matched_trigger_ids"] == backtest_selected["matched_trigger_ids"]
+
+
+def test_backtest_lifecycle_marks_mature_samples_separately_from_active_state() -> None:
+    price = price_frame()
+
+    lifecycle = lifecycle_state_for_signal(price, 0, len(price) - 1)
+
+    assert lifecycle["operation_lifecycle_state"] == "expired"
+    assert lifecycle["sample_maturity_status"] == "mature"
+    assert lifecycle["mature_sample_eligible"] is True
+
+
 def test_tdcc_asof_uses_confirmation_date_not_future_weekly_signal() -> None:
     events = pd.DataFrame([minimal_event()])
     tdcc = pd.DataFrame(
@@ -182,6 +231,7 @@ def test_summary_keeps_research_only_and_operation_rules() -> None:
     assert not summary.empty
     assert set(summary["approved_for_daily"].astype(str).str.lower()) == {"false"}
     assert set(summary["entry_rule_id"]) == {"confirmation_next_open"}
+    assert set(summary["metric_sample_scope"]) == {METRIC_SAMPLE_SCOPE}
     assert "operation_trigger" in set(summary["confluence_scope"])
 
 
