@@ -193,6 +193,51 @@ class StockThemeTaxonomyTests(unittest.TestCase):
         self.assertEqual(row["industry"], "建材營造")
         self.assertEqual(row["industry_source"], "snapshot_preserved_after_generic_official")
 
+    def test_partial_official_fetch_keeps_failed_market_snapshot_rows(self) -> None:
+        with TemporaryDirectory() as tmp:
+            snapshot_path = Path(tmp) / "company_industry_snapshot_latest.csv"
+            pd.DataFrame(
+                [
+                    {
+                        "stock_id": "1438",
+                        "stock_name": "三地開發",
+                        "industry": "建材營造",
+                        "market": "TWSE",
+                        "industry_source": "official_twse",
+                    },
+                    {
+                        "stock_id": "3426",
+                        "stock_name": "台興",
+                        "industry": "電機機械",
+                        "market": "TPEX",
+                        "industry_source": "official_tpex",
+                    },
+                ]
+            ).to_csv(snapshot_path, index=False, encoding="utf-8-sig")
+            live_partial = pd.DataFrame(
+                [
+                    {
+                        "stock_id": "3426",
+                        "stock_name": "台興",
+                        "industry": "電機機械",
+                        "market": "TPEX",
+                        "industry_source": "official_tpex",
+                    }
+                ]
+            )
+
+            merged = taxonomy.merge_snapshot_rows_for_failed_official_sources(
+                live_partial,
+                {"TWSE"},
+                snapshot_path,
+            )
+
+        rows = {row["stock_id"]: row for _, row in merged.iterrows()}
+        self.assertEqual(set(rows), {"1438", "3426"})
+        self.assertEqual(rows["1438"]["industry"], "建材營造")
+        self.assertIn("snapshot_fallback_after_partial_official_fetch", rows["1438"]["industry_source"])
+        self.assertEqual(rows["3426"]["industry_source"], "official_tpex")
+
     def test_inactive_common_stocks_do_not_expand_taxonomy_universe(self) -> None:
         source = pd.DataFrame(
             [

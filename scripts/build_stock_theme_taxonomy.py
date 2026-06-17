@@ -1035,6 +1035,55 @@ def preserve_snapshot_industries(out: pd.DataFrame, snapshot_path: Path = COMPAN
     return out
 
 
+def merge_snapshot_rows_for_failed_official_sources(
+    out: pd.DataFrame,
+    failed_markets: set[str],
+    snapshot_path: Path = COMPANY_INDUSTRY_SNAPSHOT,
+) -> pd.DataFrame:
+    """Preserve cached official rows when only part of the live source fails.
+
+    TWSE and TPEx are fetched from separate endpoints.  A partial live fetch
+    must not overwrite the company-industry snapshot with only the successful
+    market, because that would make ordinary active stocks lose their basic
+    industry classification for the rest of the daily pipeline.
+    """
+
+    failed = {compact_text(market).upper() for market in failed_markets if compact_text(market)}
+    if out.empty or not failed or not snapshot_path.exists():
+        return out
+
+    snapshot = read_csv(snapshot_path, dtype=str, keep_default_na=False)
+    required = {"stock_id", "industry", "market"}
+    if snapshot.empty or not required.issubset(snapshot.columns):
+        return out
+
+    merged = out.copy()
+    for col in ["stock_id", "stock_name", "industry", "market", "industry_source"]:
+        if col not in merged.columns:
+            merged[col] = ""
+        if col not in snapshot.columns:
+            snapshot[col] = ""
+
+    fresh_ids = {normalize_code(value) for value in merged["stock_id"] if normalize_code(value)}
+    snapshot_codes = snapshot["stock_id"].map(normalize_code)
+    snapshot_markets = snapshot["market"].map(lambda value: compact_text(value).upper())
+    missing_failed_market = snapshot_codes.ne("") & ~snapshot_codes.isin(fresh_ids) & snapshot_markets.isin(failed)
+    fallback = snapshot.loc[missing_failed_market, ["stock_id", "stock_name", "industry", "market", "industry_source"]].copy()
+    if fallback.empty:
+        return merged
+
+    fallback["industry_source"] = fallback["industry_source"].map(
+        lambda value: (
+            f"snapshot_fallback_after_partial_official_fetch:{compact_text(value)}"
+            if compact_text(value)
+            else "snapshot_fallback_after_partial_official_fetch"
+        )
+    )
+    combined = pd.concat([merged, fallback], ignore_index=True)
+    combined["stock_id"] = combined["stock_id"].map(normalize_code)
+    return combined.drop_duplicates("stock_id", keep="first").sort_values("stock_id").reset_index(drop=True)
+
+
 def load_official_company_industry() -> pd.DataFrame:
     """Load official TWSE/TPEx industry metadata.
 
@@ -1043,6 +1092,7 @@ def load_official_company_industry() -> pd.DataFrame:
     into unclassified buckets.
     """
     rows: list[dict[str, str]] = []
+    failed_markets: set[str] = set()
     sources = [
         (
             "TWSE",
@@ -1068,6 +1118,7 @@ def load_official_company_industry() -> pd.DataFrame:
             records = fetch_json_records(url)
         except Exception as exc:
             print(f"WARNING: failed to fetch official company industry {market}: {exc}")
+            failed_markets.add(market)
             continue
         for item in records:
             code = normalize_code(item.get(fields["code"], ""))
@@ -1092,6 +1143,7 @@ def load_official_company_industry() -> pd.DataFrame:
         return pd.DataFrame(columns=["stock_id", "stock_name", "industry", "market", "industry_source"])
     out = out.drop_duplicates("stock_id", keep="first").sort_values("stock_id").reset_index(drop=True)
     out = preserve_snapshot_industries(out)
+    out = merge_snapshot_rows_for_failed_official_sources(out, failed_markets)
     write_csv(out, COMPANY_INDUSTRY_SNAPSHOT)
     DOCS_LATEST_DIR.mkdir(parents=True, exist_ok=True)
     write_csv(out, DOCS_COMPANY_INDUSTRY_SNAPSHOT)
