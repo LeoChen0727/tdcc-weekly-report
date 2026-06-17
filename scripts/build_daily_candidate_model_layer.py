@@ -3193,10 +3193,17 @@ ROTATION_COLUMNS = [
 
 
 ROTATION_THEME_DISPLAY_ZH = {
+    "ASIC": "特殊應用 IC / ASIC",
+    "DRAM IC": "記憶體 IC / DRAM",
+    "DRAM/Flash": "記憶體 / DRAM 與 Flash",
     "91": "DR / 外國上市",
     "DR_or_foreign_listing": "DR / 外國上市",
     "ETF_or_index_product": "指數 / ETF / ETN商品",
     "etf_or_index_product": "指數 / ETF / ETN商品",
+    "MLCC": "被動元件 / MLCC",
+    "MOSFET": "功率半導體 / MOSFET",
+    "PCB": "印刷電路板 / PCB",
+    "optoelectronics": "光電",
     "指數/ETF/ETN商品": "指數 / ETF / ETN商品",
 }
 
@@ -3270,6 +3277,8 @@ def build_rotation(candidates: pd.DataFrame, signal_date: str) -> pd.DataFrame:
         seen: set[str] = set()
         for value in values:
             resolved = resolve_rotation_theme(value)
+            if resolved["theme_resolution_status"] != "resolved":
+                continue
             theme = resolved["theme"]
             if not theme or theme in seen:
                 continue
