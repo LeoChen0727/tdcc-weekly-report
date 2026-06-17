@@ -87,6 +87,12 @@ The CSV always includes these `pdf_section` values for both `pdf_view=highlight`
 
 Every view must include all three sections. A section may use `row_type=empty_state` only when that section has no data rows.
 
+PDF display limits:
+
+- `pdf_view=highlight` must render at most 10 `confirmed_operation` data rows, at most 5 `pending_confirmation` data rows, and at most 5 `active_operation` data rows after mainstream / non-mainstream report-line filtering.
+- `pdf_view=full` must not apply these highlight limits; it should render all valid operation rows for the selected report line.
+- These limits are presentation limits only. They must not change row lifecycle state, `buy_rank_eligible`, trigger evidence, model scores, model ranks, or the underlying adapter rows.
+
 Lifecycle meaning:
 
 - First daily model hit enters `pending_confirmation`.

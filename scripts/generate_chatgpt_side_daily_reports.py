@@ -66,6 +66,11 @@ REMOTE_README: dict[str, str] = {}
 REMOTE_LATEST_BASE = "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest"
 REMOTE_DATA_BASE = "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/data"
 VOLUME_BREAKOUT_MODEL_ID = "volume_range_breakout"
+VOLUME_OPERATION_HIGHLIGHT_LIMITS = {
+    "confirmed_operation": 10,
+    "pending_confirmation": 5,
+    "active_operation": 5,
+}
 
 REQUEST_DATE = ""
 OUTPUT_SUFFIX = "_current_rules"
@@ -1925,6 +1930,25 @@ def volume_operation_has_data_rows(*frames: pd.DataFrame) -> bool:
     return False
 
 
+def limit_volume_operation_rows_for_pdf_view(
+    rows: pd.DataFrame,
+    pdf_view: str,
+    pdf_section: str,
+) -> pd.DataFrame:
+    if rows.empty or pdf_view != "highlight":
+        return rows
+    limit = VOLUME_OPERATION_HIGHLIGHT_LIMITS.get(pdf_section)
+    if limit is None:
+        return rows
+    if "row_type" not in rows.columns:
+        return rows.head(limit).copy()
+    row_type = rows["row_type"].astype(str)
+    data_rows = rows[row_type.eq("data")].head(limit).copy()
+    if not data_rows.empty:
+        return data_rows
+    return rows.copy()
+
+
 def build_volume_confirmed_operation_table(rows: pd.DataFrame) -> Table:
     data = [[
         "排名",
@@ -2038,12 +2062,15 @@ def render_volume_range_breakout_operation_section(
         & confirmed_all.get("row_action_status", pd.Series(dtype=str)).astype(str).eq("confirmed_buy_candidate")
         & confirmed_all.get("buy_rank_eligible", pd.Series(dtype=str)).map(is_true_text)
     ].copy() if not confirmed_all.empty else pd.DataFrame()
+    confirmed = limit_volume_operation_rows_for_pdf_view(confirmed, pdf_view, "confirmed_operation")
 
     pending = pending_all[
         pending_all.get("row_type", pd.Series(dtype=str)).astype(str).eq("data")
         & pending_all.get("row_action_status", pd.Series(dtype=str)).astype(str).eq("pending_confirmation")
         & ~pending_all.get("buy_rank_eligible", pd.Series(dtype=str)).map(is_true_text)
     ].copy() if not pending_all.empty else pd.DataFrame()
+    pending = limit_volume_operation_rows_for_pdf_view(pending, pdf_view, "pending_confirmation")
+    active_rows = limit_volume_operation_rows_for_pdf_view(active_rows, pdf_view, "active_operation")
 
     story.append(Spacer(1, 6))
     if not volume_operation_has_data_rows(confirmed_all, pending_all, active_rows):

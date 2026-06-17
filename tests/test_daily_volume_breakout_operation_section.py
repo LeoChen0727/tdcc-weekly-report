@@ -381,6 +381,92 @@ def test_daily_packet_builder_uses_daily_adapter_not_research_operation_artifact
     assert "approved_operation_patterns_latest.csv" not in source
 
 
+def operation_rows_for_limit_test(
+    pdf_section: str,
+    count: int,
+    pdf_view: str = "highlight",
+    stock_start: int = 5000,
+) -> pd.DataFrame:
+    rows = []
+    for index in range(count):
+        rows.append(
+            {
+                "model_id": "volume_range_breakout",
+                "pdf_view": pdf_view,
+                "pdf_section": pdf_section,
+                "row_type": "data",
+                "display_order": str(index + 1),
+                "stock_id": str(stock_start + index),
+                "stock_display": f"{stock_start + index} Test",
+                "row_action_status": (
+                    "confirmed_buy_candidate"
+                    if pdf_section == "confirmed_operation"
+                    else "pending_confirmation"
+                    if pdf_section == "pending_confirmation"
+                    else "active_operation"
+                ),
+                "buy_rank_eligible": "True" if pdf_section == "confirmed_operation" else "False",
+            }
+        )
+    return pd.DataFrame(rows)
+
+
+def test_pdf_operation_highlight_limits_are_section_specific() -> None:
+    confirmed = operation_rows_for_limit_test("confirmed_operation", 12)
+    pending = operation_rows_for_limit_test("pending_confirmation", 8)
+    active = operation_rows_for_limit_test("active_operation", 7)
+
+    assert len(pdf_generator.limit_volume_operation_rows_for_pdf_view(confirmed, "highlight", "confirmed_operation")) == 10
+    assert len(pdf_generator.limit_volume_operation_rows_for_pdf_view(pending, "highlight", "pending_confirmation")) == 5
+    assert len(pdf_generator.limit_volume_operation_rows_for_pdf_view(active, "highlight", "active_operation")) == 5
+
+    assert len(pdf_generator.limit_volume_operation_rows_for_pdf_view(confirmed, "full", "confirmed_operation")) == 12
+    assert len(pdf_generator.limit_volume_operation_rows_for_pdf_view(pending, "full", "pending_confirmation")) == 8
+    assert len(pdf_generator.limit_volume_operation_rows_for_pdf_view(active, "full", "active_operation")) == 7
+
+
+def test_pdf_operation_highlight_limits_apply_after_report_line_filter() -> None:
+    rows = operation_rows_for_limit_test("pending_confirmation", 8)
+    taxonomy = []
+    for index, stock_id in enumerate(rows["stock_id"].astype(str).tolist()):
+        taxonomy.append(
+            {
+                "stock_id": stock_id,
+                "report_line_memberships": "mainstream" if index < 6 else "non_mainstream",
+                "mainstream_report_eligible": "True" if index < 6 else "False",
+                "non_mainstream_report_eligible": "False" if index < 6 else "True",
+            }
+        )
+    inputs = {
+        "volume_operation": rows,
+        "stock_theme_taxonomy": pd.DataFrame(taxonomy),
+    }
+
+    mainstream = pdf_generator.filter_volume_operation_rows_for_line(
+        pdf_generator.volume_operation_frame(inputs, "highlight", "pending_confirmation"),
+        inputs,
+        "mainstream",
+    )
+    mainstream = pdf_generator.limit_volume_operation_rows_for_pdf_view(
+        mainstream,
+        "highlight",
+        "pending_confirmation",
+    )
+    non_mainstream = pdf_generator.filter_volume_operation_rows_for_line(
+        pdf_generator.volume_operation_frame(inputs, "highlight", "pending_confirmation"),
+        inputs,
+        "non_mainstream",
+    )
+    non_mainstream = pdf_generator.limit_volume_operation_rows_for_pdf_view(
+        non_mainstream,
+        "highlight",
+        "pending_confirmation",
+    )
+
+    assert len(mainstream) == 5
+    assert len(non_mainstream) == 2
+
+
 def test_pdf_operation_renderer_uses_row_level_buy_eligibility(monkeypatch) -> None:
     captured_tables: list[list[list[str]]] = []
 
