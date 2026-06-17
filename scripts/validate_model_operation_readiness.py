@@ -104,7 +104,6 @@ def validate_readiness_csv() -> list[str]:
         if str(row.get("daily_adapter_status", "")) not in {
             "ready_pending_approval_metadata",
             "ready_approved_operation_guidance",
-            "ready_empty_stale_research_source",
             "ready_empty_no_operation_rows",
         }:
             errors.append(
@@ -162,10 +161,25 @@ def validate_daily_adapter_boundary() -> list[str]:
     models = sorted(set(adapter["model_id"].astype(str)))
     if models != [VOLUME_MODEL_ID]:
         errors.append(f"daily volume breakout adapter must contain only {VOLUME_MODEL_ID}, got {models}")
-    if "adapter_note_zh" in adapter.columns:
-        joined = " ".join(adapter["adapter_note_zh"].astype(str).head(10).tolist())
-        if "不重新計算" not in joined:
-            errors.append("daily adapter note must state in Chinese that PDF renderers do not recalculate operation rules")
+    required_sections = {"confirmed_operation", "pending_confirmation", "active_operation"}
+    if "pdf_section" not in adapter.columns:
+        errors.append("daily volume breakout adapter missing pdf_section")
+    else:
+        sections = set(adapter["pdf_section"].astype(str))
+        missing_sections = sorted(required_sections - sections)
+        if missing_sections:
+            errors.append(f"daily volume breakout adapter missing sections: {missing_sections}")
+    if {"buy_rank_eligible", "pdf_section", "row_type", "row_action_status"}.issubset(adapter.columns):
+        buy_rows = adapter[adapter["buy_rank_eligible"].astype(str).eq("True")]
+        bad_buy = buy_rows[
+            ~(
+                buy_rows["pdf_section"].astype(str).eq("confirmed_operation")
+                & buy_rows["row_type"].astype(str).eq("data")
+                & buy_rows["row_action_status"].astype(str).eq("confirmed_buy_candidate")
+            )
+        ]
+        if not bad_buy.empty:
+            errors.append("buy_rank_eligible=True must be limited to confirmed operation data rows")
     return errors
 
 

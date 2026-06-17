@@ -107,7 +107,7 @@ ALLOWED_PRODUCTION_OUTPUT_LATEST_READS = {
     "scripts/build_daily_volume_breakout_operation_section.py": {
         "output/latest/daily_candidate_model_signals_for_report_latest.csv",
         "output/latest/approved_operation_patterns_latest.csv",
-        "output/latest/volume_breakout_confirmed_operation_rank_latest.csv",
+        "output/latest/volume_breakout_formal_operation_backtest_latest.csv",
     },
     "scripts/build_daily_candidate_model_layer.py": {
         "output/latest/daily_model_parameter_recommendations_latest.csv",

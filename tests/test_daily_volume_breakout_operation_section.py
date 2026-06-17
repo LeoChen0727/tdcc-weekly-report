@@ -30,164 +30,161 @@ def approval_stub() -> dict[str, str]:
     }
 
 
-def test_daily_volume_breakout_operation_section_adds_active_empty_rows() -> None:
-    source = pd.DataFrame(
+def volume_signal(stock_id: str = "1234", signal_date: str = "20260616", rank: str = "1") -> dict[str, str]:
+    return {
+        "model_id": "volume_range_breakout",
+        "signal_date": signal_date,
+        "stock_id": stock_id,
+        "stock_name": "測試股",
+        "display_rank": rank,
+        "model_score": "70",
+        "same_model_repeat_status_zh": "新進榜",
+        "next_confirmation_zh": "等待隔日續強 / 回測 5MA / 回測 10MA",
+        "risk_tags_zh": "依模型風險欄位管理",
+    }
+
+
+def formal_summary(trigger_id: str = "next_day_continuation_confirmed") -> pd.DataFrame:
+    return pd.DataFrame(
         [
             {
                 "model_id": "volume_range_breakout",
-                "pdf_view": "highlight",
-                "pdf_section": "confirmed_operation",
-                "operation_asof_date": "20260612",
-                "display_order": "1",
-                "stock_id": "1234",
-                "stock_name": "TEST",
-                "stock_display": "1234 TEST",
-                "operation_status_zh": "已確認操作",
-                "quality_status_zh": "正向證據",
-                "trigger_zh": "隔日續強確認",
-                "entry_basis_zh": "確認後下一交易日開盤",
-                "stop_basis_zh": "跌破 6/12 最低價 10.00",
-                "exit_rule_zh": "先跌破停損基準出場，否則進場後第 10 個交易日收盤出場",
-                "sample_size": "20",
-                "win_rate_zh": "55.00%",
-                "median_return_zh": "+2.00%",
+                "trigger_id": trigger_id,
+                "sample_size": "30",
+                "win_rate": "60",
+                "avg_return": "3.5",
+                "median_return": "2.5",
+                "ranking_research_score": "18",
+                "out_of_sample_pass": "True",
+                "confidence_status": "中",
             }
         ]
     )
 
-    out = builder.normalize_source_rows(
-        source,
-        "ready",
-        "20260612",
-        3,
-        approval_stub(),
-        "2026-06-15 12:00:00 Asia/Taipei",
-    )
 
-    assert set(out["model_id"]) == {"volume_range_breakout"}
-    assert set(out["pdf_view"]) == {"highlight", "full"}
-    assert set(out["pdf_section"]) == {"confirmed_operation", "pending_confirmation", "active_operation"}
-    assert set(out["approved_for_daily"]) == {"True"}
-    assert set(out["operation_module_approved_for_daily"]) == {"True"}
-    assert set(out["approval_status"]) == {"approved_for_daily_v1"}
-    assert set(out["operation_directive_level"]) == {"approved_daily_operation_guidance"}
-    confirmed = out[out["pdf_section"].eq("confirmed_operation") & out["row_type"].eq("data")]
-    assert confirmed["row_action_status"].tolist() == ["confirmed_buy_candidate"]
-    assert confirmed["buy_rank_eligible"].tolist() == ["True"]
-    active = out[out["pdf_section"].eq("active_operation")]
-    assert len(active) == 2
-    assert set(active["row_type"]) == {"empty_state"}
-    assert active["stock_display"].eq("目前無資料").all()
-    assert active["buy_rank_eligible"].eq("False").all()
-    assert active["row_action_status"].eq("empty_state").all()
+def patch_lifecycle_sources(monkeypatch, tmp_path: Path, stock_id: str, price_rows: list[dict[str, str]]) -> Path:
+    snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
+    price_dir = tmp_path / "data" / "stock_price_history"
+    snapshot_dir.mkdir(parents=True)
+    price_dir.mkdir(parents=True)
+    pd.DataFrame(price_rows).to_csv(price_dir / f"{stock_id}.csv", index=False)
+    monkeypatch.setattr(builder, "MODEL_SNAPSHOT_DIR", snapshot_dir)
+    monkeypatch.setattr(builder, "STOCK_PRICE_HISTORY_DIR", price_dir)
+    return snapshot_dir
 
 
-def test_pending_confirmation_rows_are_not_buy_rank_eligible() -> None:
-    source = pd.DataFrame(
-        [
-            {
-                "model_id": "volume_range_breakout",
-                "pdf_view": "highlight",
-                "pdf_section": "pending_confirmation",
-                "operation_asof_date": "20260612",
-                "display_order": "1",
-                "stock_id": "1234",
-                "stock_name": "TEST",
-                "stock_display": "1234 TEST",
-                "operation_status_zh": "待確認",
-                "entry_basis_zh": "尚未確認，不列進場價",
-                "stop_basis_zh": "跌破 6/12 最低價 10.00",
-                "exit_rule_zh": "尚未成立；確認後才啟動進場與出場規則",
-            }
-        ]
-    )
-    signals = pd.DataFrame(
-        [
-            {
-                "model_id": "volume_range_breakout",
-                "signal_date": "20260612",
-                "stock_id": "5678",
-                "stock_name": "SIGNAL",
-                "display_rank": "1",
-                "same_model_repeat_status_zh": "新進榜",
-            }
-        ]
-    )
-
-    out = builder.normalize_source_rows(
-        source,
-        "ready",
-        "20260612",
-        1,
-        approval_stub(),
-        "2026-06-15 12:00:00 Asia/Taipei",
+def build_rows_for_test(signals: pd.DataFrame, report_date: str, summary: pd.DataFrame) -> pd.DataFrame:
+    rows = builder.build_lifecycle_rows(
         signals,
+        report_date,
+        int(signals["stock_id"].nunique()) if not signals.empty else 0,
+        approval_stub(),
+        "2026-06-17 12:00:00 Asia/Taipei",
+        summary,
     )
+    return pd.DataFrame(rows, columns=builder.OUTPUT_COLUMNS)
+
+
+def test_lifecycle_keeps_unconfirmed_signal_pending(monkeypatch, tmp_path) -> None:
+    snapshot_dir = patch_lifecycle_sources(
+        monkeypatch,
+        tmp_path,
+        "1234",
+        [
+            {"date": "20260616", "open": "10", "high": "11", "low": "9", "close": "10", "volume": "1000"},
+            {"date": "20260617", "open": "10.2", "high": "10.7", "low": "10.4", "close": "10.5", "volume": "900"},
+        ],
+    )
+    pd.DataFrame([volume_signal("1234", "20260616")]).to_csv(
+        snapshot_dir / "daily_candidate_model_signals_for_report_20260616.csv",
+        index=False,
+    )
+
+    out = build_rows_for_test(pd.DataFrame(), "20260617", formal_summary())
 
     pending = out[out["pdf_section"].eq("pending_confirmation") & out["row_type"].eq("data")]
-    assert pending["stock_id"].tolist() == ["5678", "5678"]
-    assert set(pending["approved_for_daily"]) == {"True"}
-    assert set(pending["operation_module_approved_for_daily"]) == {"True"}
-    assert set(pending["adapter_source"]) == {"daily_candidate_model_signals_for_report_latest.csv"}
+    assert pending["stock_id"].tolist() == ["1234", "1234"]
+    assert set(pending["pending_age_zh"]) == {"D+1 待確認"}
     assert set(pending["row_action_status"]) == {"pending_confirmation"}
     assert set(pending["buy_rank_eligible"]) == {"False"}
+    assert pending["selected_trigger_id"].eq("").all()
 
 
-def test_confirmed_operation_stock_is_not_duplicated_as_pending() -> None:
-    source = pd.DataFrame(
+def test_lifecycle_confirms_signal_on_report_date(monkeypatch, tmp_path) -> None:
+    snapshot_dir = patch_lifecycle_sources(
+        monkeypatch,
+        tmp_path,
+        "1234",
         [
-            {
-                "model_id": "volume_range_breakout",
-                "pdf_view": "highlight",
-                "pdf_section": "confirmed_operation",
-                "operation_asof_date": "20260612",
-                "display_order": "1",
-                "stock_id": "1234",
-                "stock_name": "CONFIRMED",
-                "stock_display": "1234 CONFIRMED",
-                "sample_size": "20",
-                "win_rate_zh": "55.0",
-                "median_return_zh": "2.0",
-                "research_score": "10",
-            }
-        ]
+            {"date": "20260616", "open": "10", "high": "11", "low": "9", "close": "10", "volume": "1000"},
+            {"date": "20260617", "open": "10.6", "high": "12", "low": "10.3", "close": "11.5", "volume": "1200"},
+        ],
     )
-    signals = pd.DataFrame(
-        [
-            {
-                "model_id": "volume_range_breakout",
-                "signal_date": "20260612",
-                "stock_id": "1234",
-                "stock_name": "CONFIRMED",
-                "display_rank": "1",
-                "same_model_repeat_status_zh": "重複進榜",
-            },
-            {
-                "model_id": "volume_range_breakout",
-                "signal_date": "20260612",
-                "stock_id": "5678",
-                "stock_name": "PENDING",
-                "display_rank": "2",
-                "same_model_repeat_status_zh": "新進榜",
-            },
-        ]
+    pd.DataFrame([volume_signal("1234", "20260616")]).to_csv(
+        snapshot_dir / "daily_candidate_model_signals_for_report_20260616.csv",
+        index=False,
     )
 
-    out = builder.normalize_source_rows(
-        source,
-        "ready",
-        "20260612",
-        2,
-        approval_stub(),
-        "2026-06-15 12:00:00 Asia/Taipei",
-        signals,
-    )
+    out = build_rows_for_test(pd.DataFrame(), "20260617", formal_summary())
 
     confirmed = out[out["pdf_section"].eq("confirmed_operation") & out["row_type"].eq("data")]
     pending = out[out["pdf_section"].eq("pending_confirmation") & out["row_type"].eq("data")]
-    assert confirmed["stock_id"].tolist() == ["1234"]
-    assert confirmed["row_action_status"].tolist() == ["confirmed_buy_candidate"]
-    assert pending["stock_id"].tolist() == ["5678", "5678"]
+    assert confirmed["stock_id"].tolist() == ["1234", "1234"]
+    assert set(confirmed["row_action_status"]) == {"confirmed_buy_candidate"}
+    assert set(confirmed["buy_rank_eligible"]) == {"True"}
+    assert set(confirmed["selected_trigger_id"]) == {"next_day_continuation_confirmed"}
+    assert set(confirmed["confirmation_date"]) == {"20260617"}
+    assert pending.empty
+
+
+def test_lifecycle_moves_prior_confirmed_signal_to_active(monkeypatch, tmp_path) -> None:
+    snapshot_dir = patch_lifecycle_sources(
+        monkeypatch,
+        tmp_path,
+        "1234",
+        [
+            {"date": "20260615", "open": "10", "high": "11", "low": "9", "close": "10", "volume": "1000"},
+            {"date": "20260616", "open": "10.5", "high": "12", "low": "10.2", "close": "11.5", "volume": "1200"},
+            {"date": "20260617", "open": "11.7", "high": "12.5", "low": "11.2", "close": "12", "volume": "1100"},
+        ],
+    )
+    pd.DataFrame([volume_signal("1234", "20260615")]).to_csv(
+        snapshot_dir / "daily_candidate_model_signals_for_report_20260615.csv",
+        index=False,
+    )
+
+    out = build_rows_for_test(pd.DataFrame(), "20260617", formal_summary())
+
+    active = out[out["pdf_section"].eq("active_operation") & out["row_type"].eq("data")]
+    confirmed = out[out["pdf_section"].eq("confirmed_operation") & out["row_type"].eq("data")]
+    assert active["stock_id"].tolist() == ["1234", "1234"]
+    assert confirmed.empty
+    assert set(active["row_action_status"]) == {"active_operation"}
+    assert set(active["buy_rank_eligible"]) == {"False"}
+    assert set(active["selected_trigger_id"]) == {"next_day_continuation_confirmed"}
+    assert set(active["confirmation_date"]) == {"20260616"}
+
+
+def test_lifecycle_does_not_promote_confirmed_signal_without_positive_evidence(monkeypatch, tmp_path) -> None:
+    snapshot_dir = patch_lifecycle_sources(
+        monkeypatch,
+        tmp_path,
+        "1234",
+        [
+            {"date": "20260616", "open": "10", "high": "11", "low": "9", "close": "10", "volume": "1000"},
+            {"date": "20260617", "open": "10.6", "high": "12", "low": "10.3", "close": "11.5", "volume": "1200"},
+        ],
+    )
+    pd.DataFrame([volume_signal("1234", "20260616")]).to_csv(
+        snapshot_dir / "daily_candidate_model_signals_for_report_20260616.csv",
+        index=False,
+    )
+
+    weak_summary = formal_summary()
+    weak_summary["median_return"] = "-1"
+    out = build_rows_for_test(pd.DataFrame(), "20260617", weak_summary)
+
+    assert out.empty
 
 
 def test_daily_signal_context_uses_report_date_as_authority() -> None:
@@ -216,142 +213,6 @@ def test_daily_signal_context_does_not_promote_stale_model_signal_date() -> None
 
     assert signal_date == "20260615"
     assert count == 0
-
-
-def test_daily_volume_breakout_operation_section_ignores_other_models() -> None:
-    source = pd.DataFrame(
-        [
-            {
-                "model_id": "price_pullback_23ema",
-                "pdf_view": "highlight",
-                "pdf_section": "confirmed_operation",
-                "operation_asof_date": "20260612",
-                "display_order": "1",
-                "stock_id": "9999",
-            }
-        ]
-    )
-
-    out = builder.normalize_source_rows(
-        source,
-        "ready",
-        "20260612",
-        0,
-        approval_stub(),
-        "2026-06-15 12:00:00 Asia/Taipei",
-    )
-
-    assert set(out["model_id"]) == {"volume_range_breakout"}
-    assert set(out["row_type"]) == {"empty_state"}
-    assert len(out) == 6
-
-
-def test_confirmed_operation_keeps_positive_evidence_only() -> None:
-    source = pd.DataFrame(
-        [
-            {
-                "model_id": "volume_range_breakout",
-                "pdf_view": "full",
-                "pdf_section": "confirmed_operation",
-                "operation_asof_date": "20260612",
-                "display_order": "1",
-                "stock_id": "1111",
-                "quality_status_zh": "正向證據",
-                "sample_size": "12",
-                "win_rate_zh": "66.67%",
-                "median_return_zh": "+21.09%",
-                "research_score": "31.8",
-            },
-            {
-                "model_id": "volume_range_breakout",
-                "pdf_view": "full",
-                "pdf_section": "confirmed_operation",
-                "operation_asof_date": "20260612",
-                "display_order": "2",
-                "stock_id": "2222",
-                "quality_status_zh": "證據偏弱",
-                "sample_size": "20",
-                "win_rate_zh": "55.00%",
-                "median_return_zh": "+2.00%",
-                "research_score": "9.9",
-            },
-        ]
-    )
-
-    out = builder.normalize_source_rows(
-        source,
-        "ready",
-        "20260612",
-        2,
-        approval_stub(),
-        "2026-06-15 12:00:00 Asia/Taipei",
-    )
-
-    confirmed = out[
-        out["pdf_section"].eq("confirmed_operation") & out["row_type"].eq("data")
-    ].copy()
-    assert confirmed["stock_id"].tolist() == ["1111"]
-    assert confirmed["quality_status_zh"].tolist() == ["正向證據"]
-    assert confirmed["row_action_status"].tolist() == ["confirmed_buy_candidate"]
-    assert confirmed["buy_rank_eligible"].tolist() == ["True"]
-
-
-def test_stale_operation_source_uses_today_model_signals_as_pending_only() -> None:
-    source = pd.DataFrame(
-        [
-            {
-                "model_id": "volume_range_breakout",
-                "pdf_view": "highlight",
-                "pdf_section": "pending_confirmation",
-                "operation_asof_date": "20260612",
-                "display_order": "1",
-                "stock_id": "1438",
-                "stock_name": "三地開發",
-                "stock_display": "1438 三地開發",
-                "operation_status_zh": "待確認",
-                "entry_basis_zh": "尚未確認，不列進場價",
-                "stop_basis_zh": "跌破 6/11 最低價 22.90",
-                "exit_rule_zh": "尚未成立；確認後才啟動進場與出場規則",
-            }
-        ]
-    )
-    signals = pd.DataFrame(
-        [
-            {
-                "model_id": "volume_range_breakout",
-                "signal_date": "20260615",
-                "stock_id": "2484",
-                "stock_name": "希華",
-                "display_rank": "1",
-                "model_score": "70.7",
-                "same_model_repeat_status_zh": "新進榜",
-                "next_confirmation_zh": "等待隔日續強確認。",
-                "risk_tags_zh": "連續過熱",
-            }
-        ]
-    )
-
-    out = builder.normalize_source_rows(
-        source,
-        "ready",
-        "20260615",
-        19,
-        approval_stub(),
-        "2026-06-16 12:00:00 Asia/Taipei",
-        signals,
-    )
-
-    confirmed = out[out["pdf_section"].eq("confirmed_operation")]
-    pending = out[out["pdf_section"].eq("pending_confirmation") & out["row_type"].eq("data")]
-    assert set(confirmed["row_type"]) == {"empty_state"}
-    assert set(confirmed["adapter_source_status"]) == {"stale_research_source"}
-    assert pending["stock_id"].tolist() == ["2484", "2484"]
-    assert set(pending["adapter_source_status"]) == {"ready"}
-    assert set(pending["row_action_status"]) == {"pending_confirmation"}
-    assert set(pending["buy_rank_eligible"]) == {"False"}
-    assert pending["entry_price_status_zh"].eq("尚未確認，不列進場價").all()
-    assert not out["adapter_note_zh"].str.contains("operation research source date").any()
-    assert not out["adapter_note_zh"].str.contains("stale rows").any()
 
 
 def test_pdf_volume_operation_uses_taxonomy_for_report_line_fallback() -> None:

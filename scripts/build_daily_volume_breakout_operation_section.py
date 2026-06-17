@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from datetime import datetime
+import math
 from pathlib import Path
 from typing import Any
 from zoneinfo import ZoneInfo
@@ -12,20 +13,23 @@ ROOT = Path(__file__).resolve().parents[1]
 LATEST_DIR = ROOT / "output" / "latest"
 DOCS_LATEST_DIR = ROOT / "docs" / "latest"
 
-SOURCE_PREVIEW_CSV = LATEST_DIR / "volume_breakout_operation_pdf_preview_latest.csv"
 DAILY_SIGNALS_CSV = LATEST_DIR / "daily_candidate_model_signals_for_report_latest.csv"
 APPROVAL_CSV = LATEST_DIR / "approved_operation_patterns_latest.csv"
+FORMAL_SUMMARY_CSV = LATEST_DIR / "volume_breakout_formal_operation_backtest_latest.csv"
 DATA_FRESHNESS_CSV = LATEST_DIR / "data_freshness_latest.csv"
+MODEL_SNAPSHOT_DIR = ROOT / "output" / "history" / "daily_model_snapshots"
+STOCK_PRICE_HISTORY_DIR = ROOT / "data" / "stock_price_history"
 
 OUT_CSV = LATEST_DIR / "daily_volume_breakout_operation_section_latest.csv"
 OUT_MD = LATEST_DIR / "daily_volume_breakout_operation_section_latest.md"
 
 MODEL_ID = "volume_range_breakout"
-ADAPTER_SOURCE = "volume_breakout_operation_pdf_preview_latest.csv"
-DAILY_SIGNAL_SOURCE = "daily_candidate_model_signals_for_report_latest.csv"
+LIFECYCLE_ADAPTER_SOURCE = "daily_published_model_snapshots+stock_price_history"
 APPROVAL_SOURCE = "approved_operation_patterns_latest.csv"
 PDF_VIEWS = ("highlight", "full")
 PDF_SECTIONS = ("confirmed_operation", "pending_confirmation", "active_operation")
+MAX_CONFIRM_DAYS = 10
+MAX_HOLD_DAYS = 10
 
 SECTION_ZH = {
     "confirmed_operation": "已確認操作",
@@ -36,8 +40,34 @@ SECTION_ZH = {
 SECTION_EMPTY_NOTE_ZH = {
     "confirmed_operation": "目前沒有符合研究證據門檻的已確認操作列。",
     "pending_confirmation": "目前沒有待確認的放量攻擊訊號。",
-    "active_operation": "目前 research artifact 尚未提供操作中追蹤列；正式 PDF 可保留空表格。",
+    "active_operation": "目前沒有操作中追蹤列。",
 }
+
+TRIGGERS = [
+    {
+        "trigger_id": "next_day_continuation_confirmed",
+        "trigger_zh": "隔日續強確認",
+        "confirmation_rule_zh": "訊號後第1個交易日收盤價高於訊號收盤，且收盤不低於訊號高點；確認前不得跌破訊號低點。",
+        "max_confirm_days": 1,
+        "ma_col": "",
+    },
+    {
+        "trigger_id": "pullback_5ma_confirmed",
+        "trigger_zh": "回測5MA確認",
+        "confirmation_rule_zh": "訊號後10個交易日內首次回測5MA且收盤站回5MA；確認前不得跌破訊號低點。",
+        "max_confirm_days": MAX_CONFIRM_DAYS,
+        "ma_col": "ma5",
+    },
+    {
+        "trigger_id": "pullback_10ma_confirmed",
+        "trigger_zh": "回測10MA確認",
+        "confirmation_rule_zh": "訊號後10個交易日內首次回測10MA且收盤站回10MA；確認前不得跌破訊號低點。",
+        "max_confirm_days": MAX_CONFIRM_DAYS,
+        "ma_col": "ma10",
+    },
+]
+TRIGGER_PRIORITY = {item["trigger_id"]: index + 1 for index, item in enumerate(TRIGGERS)}
+TRIGGER_ZH = {item["trigger_id"]: item["trigger_zh"] for item in TRIGGERS}
 
 OUTPUT_COLUMNS = [
     "model_id",
@@ -53,6 +83,10 @@ OUTPUT_COLUMNS = [
     "stock_display",
     "operation_status_zh",
     "quality_status_zh",
+    "matched_trigger_ids",
+    "selected_trigger_id",
+    "selected_confirmation_date",
+    "selected_trigger_priority",
     "trigger_zh",
     "entry_basis_zh",
     "entry_price_status_zh",
@@ -195,17 +229,6 @@ def approval_context(approval: pd.DataFrame) -> dict[str, str]:
     }
 
 
-def approved_confirmed_source_row(row: pd.Series) -> bool:
-    quality = safe_str(row.get("quality_status_zh"))
-    if quality:
-        return quality == "正向證據"
-    sample = number_text(row.get("sample_size"))
-    win = number_text(row.get("win_rate_zh"))
-    median = number_text(row.get("median_return_zh"))
-    score = number_text(row.get("research_score"))
-    return sample >= 10 and win >= 50 and median > 0 and score > 0
-
-
 def daily_signal_context(signals: pd.DataFrame, report_date: str = "") -> tuple[str, int]:
     report_date = normalize_date_text(report_date)
     if signals.empty or "model_id" not in signals.columns:
@@ -264,73 +287,520 @@ def signal_pending_group(row: pd.Series) -> str:
     )
 
 
-def pending_rows_from_daily_signals(
+def load_price_history(stock_id: str) -> pd.DataFrame:
+    path = STOCK_PRICE_HISTORY_DIR / f"{stock_id_key(stock_id)}.csv"
+    if not path.exists():
+        return pd.DataFrame()
+    price = read_csv(path)
+    if price.empty or not {"date", "open", "high", "low", "close"}.issubset(price.columns):
+        return pd.DataFrame()
+    out = price.copy()
+    out["date"] = out["date"].map(normalize_date_text)
+    out = out[out["date"].astype(str).str.len().eq(8)].copy()
+    for col in ["open", "high", "low", "close", "volume"]:
+        if col in out.columns:
+            out[col] = pd.to_numeric(out[col], errors="coerce")
+    out = out.dropna(subset=["open", "high", "low", "close"]).sort_values("date").reset_index(drop=True)
+    if "ma5" not in out.columns:
+        out["ma5"] = out["close"].rolling(5, min_periods=1).mean()
+    else:
+        out["ma5"] = pd.to_numeric(out["ma5"], errors="coerce")
+    if "ma10" not in out.columns:
+        out["ma10"] = out["close"].rolling(10, min_periods=1).mean()
+    else:
+        out["ma10"] = pd.to_numeric(out["ma10"], errors="coerce")
+    return out
+
+
+def price_at(row: pd.Series, col: str) -> float:
+    value = row.get(col)
+    try:
+        num = float(value)
+    except Exception:
+        return math.nan
+    return num if num > 0 else math.nan
+
+
+def signal_low_broken(price: pd.DataFrame, signal_idx: int, through_idx: int, signal_low: float) -> bool:
+    if math.isnan(signal_low):
+        return True
+    if through_idx <= signal_idx:
+        return False
+    lows = pd.to_numeric(price.iloc[signal_idx + 1 : through_idx + 1]["low"], errors="coerce")
+    return bool(lows.lt(signal_low).fillna(False).any())
+
+
+def find_confirmation(price: pd.DataFrame, signal_idx: int, spec: dict[str, Any]) -> dict[str, Any] | None:
+    signal = price.iloc[signal_idx]
+    signal_close = price_at(signal, "close")
+    signal_high = price_at(signal, "high")
+    signal_low = price_at(signal, "low")
+    if any(math.isnan(value) for value in [signal_close, signal_high, signal_low]):
+        return None
+
+    trigger_id = safe_str(spec.get("trigger_id"))
+    if trigger_id == "next_day_continuation_confirmed":
+        confirm_idx = signal_idx + 1
+        if confirm_idx >= len(price) or signal_low_broken(price, signal_idx, confirm_idx, signal_low):
+            return None
+        row = price.iloc[confirm_idx]
+        close = price_at(row, "close")
+        if not math.isnan(close) and close > signal_close and close >= signal_high:
+            return {"confirmation_idx": confirm_idx}
+        return None
+
+    ma_col = safe_str(spec.get("ma_col"))
+    if ma_col:
+        end_idx = min(len(price) - 1, signal_idx + int(spec.get("max_confirm_days", MAX_CONFIRM_DAYS)))
+        for confirm_idx in range(signal_idx + 1, end_idx + 1):
+            if signal_low_broken(price, signal_idx, confirm_idx, signal_low):
+                return None
+            row = price.iloc[confirm_idx]
+            ma = price_at(row, ma_col)
+            low = price_at(row, "low")
+            close = price_at(row, "close")
+            if any(math.isnan(value) for value in [ma, low, close]):
+                continue
+            if low <= ma and close >= ma:
+                return {"confirmation_idx": confirm_idx}
+    return None
+
+
+def selected_confirmation(price: pd.DataFrame, signal_idx: int, report_idx: int) -> dict[str, Any] | None:
+    matches: list[dict[str, Any]] = []
+    for spec in TRIGGERS:
+        found = find_confirmation(price, signal_idx, spec)
+        if found is None:
+            continue
+        confirmation_idx = int(found["confirmation_idx"])
+        if confirmation_idx > report_idx:
+            continue
+        trigger_id = safe_str(spec.get("trigger_id"))
+        matches.append(
+            {
+                "trigger_id": trigger_id,
+                "trigger_zh": safe_str(spec.get("trigger_zh")),
+                "confirmation_idx": confirmation_idx,
+                "confirmation_date": normalize_date_text(price.iloc[confirmation_idx].get("date")),
+                "trigger_priority": TRIGGER_PRIORITY.get(trigger_id, 999),
+            }
+        )
+    if not matches:
+        return None
+    matches = sorted(matches, key=lambda row: (row["confirmation_idx"], row["trigger_priority"], row["trigger_id"]))
+    selected = dict(matches[0])
+    selected["matched_trigger_ids"] = "|".join(dict.fromkeys(row["trigger_id"] for row in matches))
+    return selected
+
+
+def stop_hit_index(price: pd.DataFrame, entry_idx: int, through_idx: int, signal_low: float) -> int | None:
+    if math.isnan(signal_low):
+        return None
+    for idx in range(entry_idx, min(through_idx, len(price) - 1) + 1):
+        low = price_at(price.iloc[idx], "low")
+        if not math.isnan(low) and low <= signal_low:
+            return idx
+    return None
+
+
+def signal_snapshot_paths(report_date: str) -> list[Path]:
+    report_date = normalize_date_text(report_date)
+    paths = sorted(MODEL_SNAPSHOT_DIR.glob("daily_candidate_model_signals_for_report_*.csv"))
+    out: list[Path] = []
+    for path in paths:
+        date = normalize_date_text(path.stem.rsplit("_", 1)[-1])
+        if date and (not report_date or date <= report_date):
+            out.append(path)
+    return out
+
+
+def load_volume_signal_history(current_signals: pd.DataFrame, report_date: str) -> pd.DataFrame:
+    frames: list[pd.DataFrame] = []
+    for path in signal_snapshot_paths(report_date):
+        frame = read_csv(path)
+        if frame.empty or "model_id" not in frame.columns:
+            continue
+        frame = frame[frame["model_id"].astype(str).str.strip().eq(MODEL_ID)].copy()
+        if frame.empty:
+            continue
+        frame["snapshot_report_date"] = normalize_date_text(path.stem.rsplit("_", 1)[-1])
+        frames.append(frame)
+
+    current = daily_volume_signal_rows(current_signals, report_date)
+    if not current.empty:
+        current = current.copy()
+        current["snapshot_report_date"] = normalize_date_text(report_date)
+        frames.append(current)
+
+    if not frames:
+        return pd.DataFrame()
+    out = pd.concat(frames, ignore_index=True, sort=False)
+    if "signal_date" not in out.columns:
+        out["signal_date"] = out["snapshot_report_date"]
+    out["signal_date"] = out["signal_date"].map(normalize_date_text)
+    out["stock_id"] = out.get("stock_id", pd.Series(dtype=str)).map(stock_id_key)
+    out = out[(out["signal_date"] != "") & (out["stock_id"] != "")].copy()
+    out = out.drop_duplicates(["signal_date", "stock_id", "model_id"], keep="last")
+    if "display_rank" in out.columns:
+        out["_display_order_num"] = pd.to_numeric(out["display_rank"], errors="coerce")
+    elif "model_rank" in out.columns:
+        out["_display_order_num"] = pd.to_numeric(out["model_rank"], errors="coerce")
+    else:
+        out["_display_order_num"] = range(1, len(out) + 1)
+    out["_display_order_num"] = out["_display_order_num"].fillna(999999)
+    return out.sort_values(["signal_date", "_display_order_num", "stock_id"]).drop(
+        columns=["_display_order_num"],
+        errors="ignore",
+    )
+
+
+def format_md_date(date: str) -> str:
+    date = normalize_date_text(date)
+    if not date:
+        return ""
+    return f"{int(date[4:6])}/{int(date[6:8])}"
+
+
+def format_price(value: float) -> str:
+    if math.isnan(value):
+        return ""
+    return f"{value:.2f}".rstrip("0").rstrip(".")
+
+
+def evidence_rows_for_trigger(summary: pd.DataFrame, trigger_id: str) -> pd.DataFrame:
+    if summary.empty or "trigger_id" not in summary.columns:
+        return pd.DataFrame()
+    out = summary[summary["trigger_id"].astype(str).eq(trigger_id)].copy()
+    if out.empty:
+        return out
+    for col in ["sample_size", "win_rate", "median_return", "avg_return", "ranking_research_score"]:
+        if col in out.columns:
+            out[f"_{col}"] = pd.to_numeric(out[col], errors="coerce")
+    oos = out.get("out_of_sample_pass", pd.Series(dtype=str)).astype(str).str.lower().isin({"true", "1", "1.0"})
+    eligible = out[
+        out.get("_sample_size", pd.Series(dtype=float)).ge(10)
+        & out.get("_win_rate", pd.Series(dtype=float)).ge(50)
+        & out.get("_median_return", pd.Series(dtype=float)).gt(0)
+        & out.get("_ranking_research_score", pd.Series(dtype=float)).gt(0)
+        & oos
+    ].copy()
+    if eligible.empty:
+        return pd.DataFrame()
+    return eligible.sort_values(["_ranking_research_score", "_sample_size"], ascending=[False, False])
+
+
+def best_evidence_for_trigger(summary: pd.DataFrame, trigger_id: str) -> pd.Series | None:
+    rows = evidence_rows_for_trigger(summary, trigger_id)
+    if rows.empty:
+        return None
+    return rows.iloc[0]
+
+
+def pct_display(value: Any) -> str:
+    num = number_text(value)
+    if math.isnan(num):
+        return ""
+    return f"{num:.2f}%"
+
+
+def lifecycle_base_record(
+    signal: pd.Series,
+    approval: dict[str, str],
+    generated_at: str,
+    report_date: str,
+    daily_volume_count: int,
+    pdf_section: str,
+    display_order: str,
+) -> dict[str, Any]:
+    stock_id = stock_id_key(signal.get("stock_id"))
+    stock_name = safe_str(signal.get("stock_name"))
+    record = {col: "" for col in OUTPUT_COLUMNS}
+    record.update(
+        {
+            "model_id": MODEL_ID,
+            "pdf_section": pdf_section,
+            "pdf_section_zh": SECTION_ZH[pdf_section],
+            "row_type": "data",
+            "operation_asof_date": report_date,
+            "operation_source_date_status": "ready",
+            "display_order": display_order,
+            "stock_id": stock_id,
+            "stock_name": stock_name,
+            "stock_display": f"{stock_id} {stock_name}".strip(),
+            "signal_date": normalize_date_text(signal.get("signal_date")),
+            "same_stock_pending_count": "1",
+            "tdcc_status_zh": safe_str(signal.get("tdcc_status_zh")),
+            "research_score": safe_str(signal.get("model_score")),
+            "pdf_note_zh": safe_str(signal.get("risk_tags_zh") or signal.get("score_components_zh")),
+            "daily_signal_date": report_date,
+            "daily_volume_model_signal_count": daily_volume_count,
+            "adapter_source": LIFECYCLE_ADAPTER_SOURCE,
+            "adapter_source_status": "ready",
+            "adapter_note_zh": "由已發布模型快照與價格資料重建 D0-D10 操作狀態。",
+            "generated_at": generated_at,
+        }
+    )
+    for col in APPROVAL_FIELDS:
+        record[col] = approval[col]
+    return record
+
+
+def confirmed_record(
+    signal: pd.Series,
+    selected: dict[str, Any],
+    evidence: pd.Series,
+    price: pd.DataFrame,
+    signal_idx: int,
+    approval: dict[str, str],
+    generated_at: str,
+    report_date: str,
+    daily_volume_count: int,
+    display_order: str,
+) -> dict[str, Any]:
+    signal_row = price.iloc[signal_idx]
+    signal_low = price_at(signal_row, "low")
+    signal_date = normalize_date_text(signal_row.get("date"))
+    record = lifecycle_base_record(
+        signal,
+        approval,
+        generated_at,
+        report_date,
+        daily_volume_count,
+        "confirmed_operation",
+        display_order,
+    )
+    record.update(
+        {
+            "operation_status_zh": "已確認操作",
+            "quality_status_zh": "正向證據",
+            "matched_trigger_ids": safe_str(selected.get("matched_trigger_ids")),
+            "selected_trigger_id": safe_str(selected.get("trigger_id")),
+            "selected_confirmation_date": safe_str(selected.get("confirmation_date")),
+            "selected_trigger_priority": safe_str(selected.get("trigger_priority")),
+            "trigger_zh": safe_str(selected.get("trigger_zh")),
+            "entry_basis_zh": "確認日收盤後列入，下一個交易日開盤價進場。",
+            "entry_price_status_zh": "下一個交易日開盤價尚未產生。",
+            "stop_basis_zh": f"跌破 {format_md_date(signal_date)} 最低價 {format_price(signal_low)}",
+            "exit_rule_zh": "先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。",
+            "confirmation_date": safe_str(selected.get("confirmation_date")),
+            "sample_size": safe_str(evidence.get("sample_size")),
+            "win_rate_zh": pct_display(evidence.get("win_rate")),
+            "avg_return_zh": pct_display(evidence.get("avg_return")),
+            "median_return_zh": pct_display(evidence.get("median_return")),
+            "confidence_zh": safe_str(evidence.get("confidence_status")),
+            "row_action_status": "confirmed_buy_candidate",
+            "buy_rank_eligible": "True",
+        }
+    )
+    return record
+
+
+def active_record(
+    signal: pd.Series,
+    selected: dict[str, Any],
+    evidence: pd.Series,
+    price: pd.DataFrame,
+    signal_idx: int,
+    entry_idx: int,
+    approval: dict[str, str],
+    generated_at: str,
+    report_date: str,
+    daily_volume_count: int,
+    display_order: str,
+) -> dict[str, Any]:
+    signal_row = price.iloc[signal_idx]
+    entry = price.iloc[entry_idx]
+    signal_low = price_at(signal_row, "low")
+    signal_date = normalize_date_text(signal_row.get("date"))
+    record = lifecycle_base_record(
+        signal,
+        approval,
+        generated_at,
+        report_date,
+        daily_volume_count,
+        "active_operation",
+        display_order,
+    )
+    record.update(
+        {
+            "operation_status_zh": "操作中",
+            "quality_status_zh": "已進場追蹤",
+            "matched_trigger_ids": safe_str(selected.get("matched_trigger_ids")),
+            "selected_trigger_id": safe_str(selected.get("trigger_id")),
+            "selected_confirmation_date": safe_str(selected.get("confirmation_date")),
+            "selected_trigger_priority": safe_str(selected.get("trigger_priority")),
+            "trigger_zh": safe_str(selected.get("trigger_zh")),
+            "entry_basis_zh": "確認日收盤後列入，下一個交易日開盤價進場。",
+            "entry_price_status_zh": (
+                f"已進場追蹤；進場日 {format_md_date(normalize_date_text(entry.get('date')))} "
+                f"開盤價 {format_price(price_at(entry, 'open'))}"
+            ),
+            "stop_basis_zh": f"跌破 {format_md_date(signal_date)} 最低價 {format_price(signal_low)}",
+            "exit_rule_zh": "先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。",
+            "confirmation_date": safe_str(selected.get("confirmation_date")),
+            "sample_size": safe_str(evidence.get("sample_size")),
+            "win_rate_zh": pct_display(evidence.get("win_rate")),
+            "avg_return_zh": pct_display(evidence.get("avg_return")),
+            "median_return_zh": pct_display(evidence.get("median_return")),
+            "confidence_zh": safe_str(evidence.get("confidence_status")),
+            "row_action_status": "active_operation",
+            "buy_rank_eligible": "False",
+        }
+    )
+    return record
+
+
+def pending_record(
+    signal: pd.Series,
+    signal_age: int,
+    approval: dict[str, str],
+    generated_at: str,
+    report_date: str,
+    daily_volume_count: int,
+    display_order: str,
+) -> dict[str, Any]:
+    record = lifecycle_base_record(
+        signal,
+        approval,
+        generated_at,
+        report_date,
+        daily_volume_count,
+        "pending_confirmation",
+        display_order,
+    )
+    age_text = "今日訊號" if signal_age <= 0 else f"D+{signal_age} 待確認"
+    record.update(
+        {
+            "operation_status_zh": "待確認",
+            "quality_status_zh": "模型已命中，尚未確認",
+            "entry_basis_zh": "尚未確認，不列進場價",
+            "entry_price_status_zh": "尚未確認，不列進場價",
+            "stop_basis_zh": "尚未確認，不列停損價",
+            "exit_rule_zh": "待確認後才顯示操作規則",
+            "pending_age_zh": age_text,
+            "pending_group_zh": signal_pending_group(signal),
+            "pending_confirmation_zh": (
+                "模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。"
+            ),
+            "sample_size": safe_str(signal.get("recommended_sample_size")),
+            "win_rate_zh": safe_str(signal.get("best_close_win_rate_pct")),
+            "avg_return_zh": safe_str(signal.get("best_avg_close_return_pct")),
+            "confidence_zh": safe_str(signal.get("recommended_sample_status")),
+            "row_action_status": "pending_confirmation",
+            "buy_rank_eligible": "False",
+        }
+    )
+    return record
+
+
+def lifecycle_state_for_signal(
+    signal: pd.Series,
+    report_date: str,
+    formal_summary: pd.DataFrame,
+    approval: dict[str, str],
+    generated_at: str,
+    daily_volume_count: int,
+) -> tuple[int, dict[str, Any] | None]:
+    stock_id = stock_id_key(signal.get("stock_id"))
+    signal_date = normalize_date_text(signal.get("signal_date"))
+    if not stock_id or not signal_date:
+        return 99, None
+    price = load_price_history(stock_id)
+    if price.empty:
+        return 99, None
+    signal_positions = price.index[price["date"].astype(str).eq(signal_date)].tolist()
+    report_positions = price.index[price["date"].astype(str).eq(report_date)].tolist()
+    if not signal_positions or not report_positions:
+        return 99, None
+    signal_idx = int(signal_positions[-1])
+    report_idx = int(report_positions[-1])
+    if signal_idx > report_idx:
+        return 99, None
+    signal_age = report_idx - signal_idx
+    display_order = safe_str(signal.get("display_rank") or signal.get("model_rank") or "999999")
+    signal_low = price_at(price.iloc[signal_idx], "low")
+
+    selected = selected_confirmation(price, signal_idx, report_idx)
+    if selected is not None:
+        evidence = best_evidence_for_trigger(formal_summary, safe_str(selected.get("trigger_id")))
+        if evidence is None:
+            return 80, None
+        confirmation_idx = int(selected["confirmation_idx"])
+        entry_idx = confirmation_idx + 1
+        if confirmation_idx == report_idx:
+            return 0, confirmed_record(
+                signal,
+                selected,
+                evidence,
+                price,
+                signal_idx,
+                approval,
+                generated_at,
+                report_date,
+                daily_volume_count,
+                display_order,
+            )
+        if entry_idx < len(price) and report_idx >= entry_idx:
+            planned_exit_idx = entry_idx + MAX_HOLD_DAYS - 1
+            stopped_idx = stop_hit_index(price, entry_idx, report_idx, signal_low)
+            if stopped_idx is None and report_idx <= planned_exit_idx:
+                return 1, active_record(
+                    signal,
+                    selected,
+                    evidence,
+                    price,
+                    signal_idx,
+                    entry_idx,
+                    approval,
+                    generated_at,
+                    report_date,
+                    daily_volume_count,
+                    display_order,
+                )
+        return 90, None
+
+    if signal_age <= MAX_CONFIRM_DAYS and not signal_low_broken(price, signal_idx, report_idx, signal_low):
+        return 2, pending_record(signal, signal_age, approval, generated_at, report_date, daily_volume_count, display_order)
+    return 90, None
+
+
+def build_lifecycle_rows(
     signals: pd.DataFrame,
-    daily_signal_date: str,
+    report_date: str,
     daily_volume_count: int,
     approval: dict[str, str],
     generated_at: str,
-    exclude_stock_ids: set[str] | None = None,
+    formal_summary: pd.DataFrame,
 ) -> list[dict[str, Any]]:
-    volume = daily_volume_signal_rows(signals, daily_signal_date)
+    history = load_volume_signal_history(signals, report_date)
+    if history.empty:
+        return []
+
+    best_by_stock: dict[str, tuple[int, dict[str, Any]]] = {}
+    for _, signal in history.iterrows():
+        priority, record = lifecycle_state_for_signal(
+            signal,
+            report_date,
+            formal_summary,
+            approval,
+            generated_at,
+            daily_volume_count,
+        )
+        if record is None:
+            continue
+        stock_id = stock_id_key(record.get("stock_id"))
+        previous = best_by_stock.get(stock_id)
+        if previous is None or priority < previous[0]:
+            best_by_stock[stock_id] = (priority, record)
+
+    base_rows = [item[1] for item in sorted(best_by_stock.values(), key=lambda item: (item[0], number_text(item[1].get("display_order")), item[1].get("stock_id", "")))]
     rows: list[dict[str, Any]] = []
-    if volume.empty:
-        return rows
-    excluded = {stock_id_key(value) for value in (exclude_stock_ids or set()) if stock_id_key(value)}
     for pdf_view in PDF_VIEWS:
-        for idx, (_, signal) in enumerate(volume.iterrows(), start=1):
-            stock_id = safe_str(signal.get("stock_id"))
-            if stock_id_key(stock_id) in excluded:
-                continue
-            stock_name = safe_str(signal.get("stock_name"))
-            display_order = safe_str(signal.get("display_rank") or signal.get("model_rank") or idx)
-            record = {col: "" for col in OUTPUT_COLUMNS}
-            record.update(
-                {
-                    "model_id": MODEL_ID,
-                    "pdf_view": pdf_view,
-                    "pdf_section": "pending_confirmation",
-                    "pdf_section_zh": SECTION_ZH["pending_confirmation"],
-                    "row_type": "data",
-                    "operation_asof_date": daily_signal_date,
-                    "operation_source_date_status": "ready",
-                    "display_order": display_order,
-                    "stock_id": stock_id,
-                    "stock_name": stock_name,
-                    "stock_display": f"{stock_id} {stock_name}".strip(),
-                    "operation_status_zh": "待確認",
-                    "quality_status_zh": "今日模型命中，尚未確認",
-                    "trigger_zh": "",
-                    "entry_basis_zh": "尚未確認，不列進場價",
-                    "entry_price_status_zh": "尚未確認，不列進場價",
-                    "stop_basis_zh": "尚未確認，不列停損價",
-                    "exit_rule_zh": "待確認後才顯示操作規則",
-                    "signal_date": daily_signal_date,
-                    "confirmation_date": "",
-                    "pending_age_zh": "今日訊號",
-                    "pending_group_zh": signal_pending_group(signal),
-                    "pending_confirmation_zh": signal_pending_text(signal),
-                    "same_stock_pending_count": "1",
-                    "tdcc_status_zh": safe_str(signal.get("tdcc_status_zh")),
-                    "sample_size": safe_str(signal.get("recommended_sample_size")),
-                    "win_rate_zh": safe_str(signal.get("best_close_win_rate_pct")),
-                    "avg_return_zh": safe_str(signal.get("best_avg_close_return_pct")),
-                    "median_return_zh": "",
-                    "confidence_zh": safe_str(signal.get("recommended_sample_status")),
-                    "research_score": safe_str(signal.get("model_score")),
-                    "pdf_note_zh": safe_str(signal.get("risk_tags_zh") or signal.get("score_components_zh")),
-                    "daily_signal_date": daily_signal_date,
-                    "daily_volume_model_signal_count": daily_volume_count,
-                    "adapter_source": DAILY_SIGNAL_SOURCE,
-                    "adapter_source_status": "ready",
-                    "row_action_status": "pending_confirmation",
-                    "buy_rank_eligible": "False",
-                    "adapter_note_zh": "今日放量攻擊模型命中，列入待確認；不列進場價，不列買入排名，不重新計算操作規則。",
-                    "generated_at": generated_at,
-                }
-            )
-            for col in APPROVAL_FIELDS:
-                record[col] = approval[col]
+        for idx, row in enumerate(base_rows, start=1):
+            record = dict(row)
+            record["pdf_view"] = pdf_view
+            if not safe_str(record.get("display_order")) or safe_str(record.get("display_order")) == "999999":
+                record["display_order"] = str(idx)
             rows.append(record)
     return rows
 
@@ -346,10 +816,7 @@ def empty_row(
     operation_asof_date: str = "",
 ) -> dict[str, Any]:
     section_zh = SECTION_ZH[pdf_section]
-    if source_status == "stale_research_source":
-        adapter_note = f"{section_zh}：來源日期不符，今日不顯示舊操作列；不重新計算操作規則。"
-    else:
-        adapter_note = SECTION_EMPTY_NOTE_ZH[pdf_section]
+    adapter_note = SECTION_EMPTY_NOTE_ZH[pdf_section]
     return {
         "model_id": MODEL_ID,
         "pdf_view": pdf_view,
@@ -364,6 +831,10 @@ def empty_row(
         "stock_display": "目前無資料",
         "operation_status_zh": section_zh,
         "quality_status_zh": "目前無資料",
+        "matched_trigger_ids": "",
+        "selected_trigger_id": "",
+        "selected_confirmation_date": "",
+        "selected_trigger_priority": "",
         "trigger_zh": "",
         "entry_basis_zh": "",
         "entry_price_status_zh": "",
@@ -385,7 +856,7 @@ def empty_row(
         "pdf_note_zh": "",
         "daily_signal_date": daily_signal_date,
         "daily_volume_model_signal_count": daily_volume_count,
-        "adapter_source": ADAPTER_SOURCE,
+        "adapter_source": LIFECYCLE_ADAPTER_SOURCE,
         "adapter_source_status": source_status,
         **approval,
         "row_action_status": "empty_state",
@@ -393,143 +864,6 @@ def empty_row(
         "adapter_note_zh": adapter_note,
         "generated_at": generated_at,
     }
-
-
-def operation_asof_dates(source: pd.DataFrame) -> list[str]:
-    if source.empty or "operation_asof_date" not in source.columns:
-        return []
-    return sorted(
-        {normalize_date_text(value) for value in source["operation_asof_date"].tolist() if normalize_date_text(value)}
-    )
-
-
-def source_date_status(source: pd.DataFrame, daily_signal_date: str, source_status: str) -> tuple[str, str]:
-    if source.empty or source_status != "ready":
-        return source_status, ""
-    dates = operation_asof_dates(source)
-    daily_date = normalize_date_text(daily_signal_date)
-    if len(dates) == 1 and dates[0] == daily_date:
-        return "ready", dates[0]
-    return "stale_research_source", "|".join(dates) if dates else "missing"
-
-
-def normalize_source_rows(
-    source: pd.DataFrame,
-    source_status: str,
-    daily_signal_date: str,
-    daily_volume_count: int,
-    approval: dict[str, str],
-    generated_at: str,
-    signals: pd.DataFrame | None = None,
-) -> pd.DataFrame:
-    rows: list[dict[str, Any]] = []
-    allowed = source.copy()
-    effective_source_status, operation_asof_date = source_date_status(allowed, daily_signal_date, source_status)
-    if effective_source_status == "stale_research_source":
-        allowed = allowed.iloc[0:0].copy()
-    if not allowed.empty:
-        if "model_id" in allowed.columns:
-            allowed = allowed[allowed["model_id"].astype(str).str.strip().eq(MODEL_ID)].copy()
-        else:
-            allowed = allowed.iloc[0:0].copy()
-        if "pdf_section" in allowed.columns:
-            allowed = allowed[allowed["pdf_section"].astype(str).str.strip().eq("confirmed_operation")].copy()
-        else:
-            allowed = allowed.iloc[0:0].copy()
-        if "pdf_view" in allowed.columns:
-            allowed = allowed[allowed["pdf_view"].astype(str).str.strip().isin(PDF_VIEWS)].copy()
-        else:
-            allowed = allowed.iloc[0:0].copy()
-        if not allowed.empty:
-            confirmed = allowed["pdf_section"].astype(str).str.strip().eq("confirmed_operation")
-            approved_confirmed = allowed.apply(approved_confirmed_source_row, axis=1)
-            allowed = allowed[(~confirmed) | approved_confirmed].copy()
-
-    for _, row in allowed.iterrows():
-        record = {col: safe_str(row.get(col)) for col in OUTPUT_COLUMNS}
-        section = safe_str(row.get("pdf_section"))
-        record["model_id"] = MODEL_ID
-        record["pdf_view"] = safe_str(row.get("pdf_view"))
-        record["pdf_section"] = section
-        record["pdf_section_zh"] = SECTION_ZH.get(section, section)
-        record["row_type"] = "data"
-        record["operation_asof_date"] = normalize_date_text(row.get("operation_asof_date"))
-        record["operation_source_date_status"] = effective_source_status
-        record["daily_signal_date"] = daily_signal_date
-        record["daily_volume_model_signal_count"] = daily_volume_count
-        record["adapter_source"] = ADAPTER_SOURCE
-        record["adapter_source_status"] = effective_source_status
-        for col in APPROVAL_FIELDS:
-            record[col] = approval[col]
-        is_confirmed_buy = (
-            section == "confirmed_operation"
-            and approval["approved_for_daily"] == "True"
-            and approval["operation_directive_level"] == "approved_daily_operation_guidance"
-            and approved_confirmed_source_row(row)
-        )
-        if section == "confirmed_operation":
-            record["row_action_status"] = "confirmed_buy_candidate" if is_confirmed_buy else "confirmed_not_buy_rank_eligible"
-        elif section == "pending_confirmation":
-            record["row_action_status"] = "pending_confirmation"
-        else:
-            record["row_action_status"] = "display_only"
-        record["buy_rank_eligible"] = "True" if is_confirmed_buy else "False"
-        record["adapter_note_zh"] = (
-            "PDF 僅呈現 daily adapter 欄位，不重新計算進場、停損、出場或排名。"
-            if approval["approved_for_daily"] == "True"
-            else "PDF 僅呈現 research adapter 欄位，不重新計算進場、停損、出場或排名。"
-        )
-        record["generated_at"] = generated_at
-        rows.append(record)
-
-    confirmed_stock_ids = {
-        stock_id_key(row.get("stock_id"))
-        for row in rows
-        if safe_str(row.get("pdf_section")) == "confirmed_operation"
-        and safe_str(row.get("row_type")) == "data"
-        and stock_id_key(row.get("stock_id"))
-    }
-    rows.extend(
-        pending_rows_from_daily_signals(
-            signals if signals is not None else pd.DataFrame(),
-            daily_signal_date,
-            daily_volume_count,
-            approval,
-            generated_at,
-            confirmed_stock_ids,
-        )
-    )
-
-    existing = {
-        (safe_str(row.get("pdf_view")), safe_str(row.get("pdf_section")))
-        for row in rows
-        if safe_str(row.get("row_type")) == "data"
-    }
-    for pdf_view in PDF_VIEWS:
-        for pdf_section in PDF_SECTIONS:
-            if (pdf_view, pdf_section) not in existing:
-                rows.append(
-                    empty_row(
-                        pdf_view,
-                        pdf_section,
-                        effective_source_status,
-                        daily_signal_date,
-                        daily_volume_count,
-                        approval,
-                        generated_at,
-                        operation_asof_date,
-                    )
-                )
-
-    out = pd.DataFrame(rows, columns=OUTPUT_COLUMNS)
-    out["_view_order"] = out["pdf_view"].map({"highlight": 0, "full": 1}).fillna(9)
-    out["_section_order"] = out["pdf_section"].map(
-        {"confirmed_operation": 0, "pending_confirmation": 1, "active_operation": 2}
-    ).fillna(9)
-    out["_row_type_order"] = out["row_type"].map({"data": 0, "empty_state": 1}).fillna(9)
-    out["_display_order_num"] = pd.to_numeric(out["display_order"], errors="coerce").fillna(999999)
-    out = out.sort_values(["_view_order", "_section_order", "_row_type_order", "_display_order_num", "stock_id"])
-    return out.drop(columns=["_view_order", "_section_order", "_row_type_order", "_display_order_num"]).reset_index(drop=True)
 
 
 def write_outputs(df: pd.DataFrame, source_rows: int, source_status: str) -> None:
@@ -542,7 +876,7 @@ def write_outputs(df: pd.DataFrame, source_rows: int, source_status: str) -> Non
         "",
         f"- generated_at: `{safe_str(df['generated_at'].iloc[0]) if not df.empty else now_text()}`",
         f"- model_id: `{MODEL_ID}`",
-        f"- source: `{ADAPTER_SOURCE}`",
+        f"- source: `{LIFECYCLE_ADAPTER_SOURCE}`",
         f"- approval_source: `{safe_str(df['approval_source'].iloc[0]) if not df.empty else APPROVAL_SOURCE}`",
         f"- approved_for_daily: `{safe_str(df['approved_for_daily'].iloc[0]) if not df.empty else 'False'}`",
         f"- approval_version: `{safe_str(df['approval_version'].iloc[0]) if not df.empty else ''}`",
@@ -589,28 +923,56 @@ def write_outputs(df: pd.DataFrame, source_rows: int, source_status: str) -> Non
 
 
 def build() -> pd.DataFrame:
-    source = read_csv(SOURCE_PREVIEW_CSV)
     signals = read_csv(DAILY_SIGNALS_CSV)
     approval = read_csv(APPROVAL_CSV)
-    source_status = "ready" if not source.empty else "missing_or_empty_research_source"
+    formal_summary = read_csv(FORMAL_SUMMARY_CSV)
     report_date = main_price_date()
     daily_signal_date, daily_volume_count = daily_signal_context(signals, report_date)
-    return normalize_source_rows(
-        source,
-        source_status,
+    generated_at = now_text()
+    approval_info = approval_context(approval)
+    rows = build_lifecycle_rows(
+        signals,
         daily_signal_date,
         daily_volume_count,
-        approval_context(approval),
-        now_text(),
-        signals,
+        approval_info,
+        generated_at,
+        formal_summary,
     )
+    existing = {
+        (safe_str(row.get("pdf_view")), safe_str(row.get("pdf_section")))
+        for row in rows
+        if safe_str(row.get("row_type")) == "data"
+    }
+    for pdf_view in PDF_VIEWS:
+        for pdf_section in PDF_SECTIONS:
+            if (pdf_view, pdf_section) not in existing:
+                rows.append(
+                    empty_row(
+                        pdf_view,
+                        pdf_section,
+                        "ready",
+                        daily_signal_date,
+                        daily_volume_count,
+                        approval_info,
+                        generated_at,
+                        daily_signal_date,
+                    )
+                )
+    out = pd.DataFrame(rows, columns=OUTPUT_COLUMNS)
+    out["_view_order"] = out["pdf_view"].map({"highlight": 0, "full": 1}).fillna(9)
+    out["_section_order"] = out["pdf_section"].map(
+        {"confirmed_operation": 0, "pending_confirmation": 1, "active_operation": 2}
+    ).fillna(9)
+    out["_row_type_order"] = out["row_type"].map({"data": 0, "empty_state": 1}).fillna(9)
+    out["_display_order_num"] = pd.to_numeric(out["display_order"], errors="coerce").fillna(999999)
+    out = out.sort_values(["_view_order", "_section_order", "_row_type_order", "_display_order_num", "stock_id"])
+    return out.drop(columns=["_view_order", "_section_order", "_row_type_order", "_display_order_num"]).reset_index(drop=True)
 
 
 def main() -> int:
-    source = read_csv(SOURCE_PREVIEW_CSV)
-    source_status = "ready" if not source.empty else "missing_or_empty_research_source"
     out = build()
-    write_outputs(out, len(source), source_status)
+    source_rows = int(out[out["row_type"].astype(str).eq("data")]["stock_id"].astype(str).replace("", pd.NA).dropna().nunique())
+    write_outputs(out, source_rows, "ready")
     print(f"Saved: {OUT_CSV} rows={len(out)}")
     print(f"Saved: {OUT_MD}")
     return 0

@@ -12,7 +12,7 @@ DOCS_LATEST_DIR = ROOT / "docs" / "latest"
 SECTION_CSV = LATEST_DIR / "daily_volume_breakout_operation_section_latest.csv"
 SECTION_MD = LATEST_DIR / "daily_volume_breakout_operation_section_latest.md"
 TAXONOMY_CSV = LATEST_DIR / "stock_theme_taxonomy_latest.csv"
-DAILY_SIGNALS_CSV = LATEST_DIR / "daily_candidate_model_signals_for_report_latest.csv"
+FORMAL_SUMMARY_CSV = LATEST_DIR / "volume_breakout_formal_operation_backtest_latest.csv"
 DOCS_SECTION_CSV = DOCS_LATEST_DIR / SECTION_CSV.name
 DOCS_SECTION_MD = DOCS_LATEST_DIR / SECTION_MD.name
 PDF_GENERATOR = ROOT / "scripts" / "generate_chatgpt_side_daily_reports.py"
@@ -20,10 +20,11 @@ PACKET_BUILDER = ROOT / "build_chatgpt_daily_report_packet.py"
 CONTRACT_MD = ROOT / "docs" / "specs" / "daily_volume_breakout_operation_section_contract.md"
 
 MODEL_ID = "volume_range_breakout"
+LIFECYCLE_ADAPTER_SOURCE = "daily_published_model_snapshots+stock_price_history"
 PDF_VIEWS = {"highlight", "full"}
 PDF_SECTIONS = {"confirmed_operation", "pending_confirmation", "active_operation"}
 ROW_TYPES = {"data", "empty_state"}
-SOURCE_STATUSES = {"ready", "missing_or_empty_research_source", "stale_research_source"}
+SOURCE_STATUSES = {"ready"}
 
 REQUIRED_COLUMNS = {
     "model_id",
@@ -40,6 +41,12 @@ REQUIRED_COLUMNS = {
     "entry_basis_zh",
     "stop_basis_zh",
     "exit_rule_zh",
+    "matched_trigger_ids",
+    "selected_trigger_id",
+    "selected_confirmation_date",
+    "selected_trigger_priority",
+    "signal_date",
+    "confirmation_date",
     "sample_size",
     "win_rate_zh",
     "median_return_zh",
@@ -100,6 +107,7 @@ FORBIDDEN_DISPLAY_TOKENS = [
     "operation research source date",
     "PDF renders an empty section",
     "stale rows",
+    "PDF 不重新計算",
     "must render only this model section",
     "must not recalculate operation rules",
 ]
@@ -132,23 +140,40 @@ def split_memberships(value: object) -> set[str]:
     return {token.strip() for token in tokens if token.strip()}
 
 
-def daily_volume_signal_ids(report_date: str) -> set[str]:
-    signals = read_csv(DAILY_SIGNALS_CSV)
-    if signals.empty or "model_id" not in signals.columns or "stock_id" not in signals.columns:
-        return set()
-    volume = signals[signals["model_id"].astype(str).str.strip().eq(MODEL_ID)].copy()
-    if report_date and "signal_date" in volume.columns:
-        volume = volume[volume["signal_date"].map(normalize_date_text).eq(report_date)].copy()
-    return {stock_id_text(value) for value in volume["stock_id"].tolist() if stock_id_text(value)}
+def require_nonempty_csv(path: Path, required_columns: set[str]) -> pd.DataFrame:
+    if not path.exists():
+        fail(f"missing required source artifact: {path.relative_to(ROOT).as_posix()}")
+    df = read_csv(path)
+    if df.empty:
+        fail(f"required source artifact is empty: {path.relative_to(ROOT).as_posix()}")
+    missing = sorted(required_columns - set(df.columns))
+    if missing:
+        fail(f"{path.relative_to(ROOT).as_posix()} missing columns: {missing}")
+    return df
+
+
+def eligible_formal_triggers(formal_summary: pd.DataFrame) -> set[str]:
+    out = formal_summary.copy()
+    for col in ["sample_size", "win_rate", "median_return", "ranking_research_score"]:
+        out[f"_{col}"] = pd.to_numeric(out[col], errors="coerce")
+    oos = out["out_of_sample_pass"].astype(str).str.lower().isin({"true", "1", "1.0"})
+    eligible = out[
+        out["_sample_size"].ge(10)
+        & out["_win_rate"].ge(50)
+        & out["_median_return"].gt(0)
+        & out["_ranking_research_score"].gt(0)
+        & oos
+    ].copy()
+    return {str(value).strip() for value in eligible["trigger_id"].tolist() if str(value).strip()}
 
 
 def validate_file_presence() -> None:
-    for path in [SECTION_CSV, SECTION_MD, DOCS_SECTION_CSV, DOCS_SECTION_MD, CONTRACT_MD]:
+    for path in [SECTION_CSV, SECTION_MD, DOCS_SECTION_CSV, DOCS_SECTION_MD, CONTRACT_MD, FORMAL_SUMMARY_CSV]:
         if not path.exists():
             fail(f"missing required file: {path.relative_to(ROOT).as_posix()}")
 
 
-def validate_shape(section: pd.DataFrame) -> None:
+def validate_shape(section: pd.DataFrame, formal_summary: pd.DataFrame) -> None:
     if section.empty:
         fail(f"{SECTION_CSV.relative_to(ROOT).as_posix()} has no rows")
     missing = sorted(REQUIRED_COLUMNS - set(section.columns))
@@ -190,6 +215,11 @@ def validate_shape(section: pd.DataFrame) -> None:
         fail("daily volume breakout operation section must carry operation_module_id")
     if section["approval_version"].astype(str).str.strip().eq("").any():
         fail("daily volume breakout operation section must carry approval_version")
+    if set(section["adapter_source"].astype(str)) != {LIFECYCLE_ADAPTER_SOURCE}:
+        fail("daily volume breakout operation section must use the lifecycle adapter source only")
+    eligible_triggers = eligible_formal_triggers(formal_summary)
+    if not eligible_triggers:
+        fail("formal operation summary has no trigger passing the daily operation evidence gate")
 
     confirmed_data = section[
         section["pdf_section"].eq("confirmed_operation") & section["row_type"].eq("data")
@@ -204,27 +234,25 @@ def validate_shape(section: pd.DataFrame) -> None:
         bad_data_status = data_rows[data_rows["adapter_source_status"].astype(str).ne("ready")]
         if not bad_data_status.empty:
             fail("operation data rows are allowed only when adapter_source_status=ready")
+        duplicate_rows = data_rows[
+            data_rows.duplicated(["pdf_view", "pdf_section", "stock_id"], keep=False)
+        ]
+        if not duplicate_rows.empty:
+            fail("operation data rows must be unique by pdf_view/pdf_section/stock_id")
     pending_data = section[
         section["pdf_section"].eq("pending_confirmation") & section["row_type"].eq("data")
     ].copy()
-    report_dates = {
-        normalize_date_text(value)
-        for value in section["daily_signal_date"].astype(str).tolist()
-        if normalize_date_text(value)
-    }
-    daily_ids = set()
-    for report_date in report_dates:
-        daily_ids.update(daily_volume_signal_ids(report_date))
     if not pending_data.empty:
-        bad_pending_source = pending_data[
-            pending_data["adapter_source"].astype(str).ne("daily_candidate_model_signals_for_report_latest.csv")
-        ]
-        if not bad_pending_source.empty:
-            fail("pending_confirmation data must come from daily model signals")
         if pending_data["row_action_status"].astype(str).ne("pending_confirmation").any():
             fail("pending_confirmation data rows must carry row_action_status=pending_confirmation")
         if pending_data["buy_rank_eligible"].astype(str).ne("False").any():
             fail("pending_confirmation data rows must keep buy_rank_eligible=False")
+        if pending_data["selected_trigger_id"].astype(str).str.strip().ne("").any():
+            fail("pending_confirmation data rows must not carry a selected trigger")
+        if pending_data["confirmation_date"].astype(str).str.strip().ne("").any():
+            fail("pending_confirmation data rows must not carry a confirmation date")
+        if not pending_data["entry_price_status_zh"].astype(str).str.contains("尚未確認").all():
+            fail("pending_confirmation data rows must clearly state that entry price is not available")
     confirmed_ids = {
         stock_id_text(value)
         for value in confirmed_data["stock_id"].tolist()
@@ -238,33 +266,6 @@ def validate_shape(section: pd.DataFrame) -> None:
         for value in active_data["stock_id"].tolist()
         if stock_id_text(value)
     }
-    if daily_ids:
-        pending_ids = {
-            stock_id_text(value)
-            for value in pending_data["stock_id"].tolist()
-            if stock_id_text(value)
-        }
-        expected_pending_ids = daily_ids - confirmed_ids - active_ids
-        missing_pending_ids = sorted(expected_pending_ids - pending_ids)
-        if missing_pending_ids:
-            fail(f"current daily volume signals missing from pending_confirmation: {missing_pending_ids}")
-        extra_pending_ids = sorted(pending_ids - expected_pending_ids)
-        if extra_pending_ids:
-            fail(f"pending_confirmation rows are not current unconfirmed daily volume signals: {extra_pending_ids}")
-    stale_rows = section[section["adapter_source_status"].astype(str).eq("stale_research_source")]
-    if not stale_rows.empty:
-        bad_stale = stale_rows[
-            stale_rows["row_type"].astype(str).ne("empty_state")
-            | (
-                bool(daily_ids)
-                & stale_rows["pdf_section"].astype(str).eq("pending_confirmation")
-            )
-        ]
-        if not bad_stale.empty:
-            fail(
-                "stale operation research source may only create empty_state rows; "
-                "pending_confirmation data must come from daily model signals"
-            )
     if not data_rows.empty:
         taxonomy = read_csv(TAXONOMY_CSV)
         if taxonomy.empty or "stock_id" not in taxonomy.columns:
@@ -299,6 +300,22 @@ def validate_shape(section: pd.DataFrame) -> None:
             fail("confirmed operation data rows must carry row_action_status=confirmed_buy_candidate")
         if set(confirmed_data["buy_rank_eligible"].astype(str)) != {"True"}:
             fail("confirmed operation data rows must be buy_rank_eligible=True")
+        missing_selected = confirmed_data[
+            confirmed_data["selected_trigger_id"].astype(str).str.strip().eq("")
+            | confirmed_data["selected_confirmation_date"].astype(str).str.strip().eq("")
+        ]
+        if not missing_selected.empty:
+            fail("confirmed operation data rows must carry selected trigger metadata")
+        bad_selected_trigger = sorted(set(confirmed_data["selected_trigger_id"].astype(str)) - eligible_triggers)
+        if bad_selected_trigger:
+            fail(f"confirmed operation rows use trigger without eligible formal evidence: {bad_selected_trigger}")
+        bad_confirm_date = confirmed_data[
+            confirmed_data["confirmation_date"].map(normalize_date_text).ne(
+                confirmed_data["daily_signal_date"].map(normalize_date_text)
+            )
+        ]
+        if not bad_confirm_date.empty:
+            fail("confirmed operation rows must be confirmed on the report date")
 
     buy_eligible = section[section["buy_rank_eligible"].astype(str).eq("True")]
     bad_buy = buy_eligible[
@@ -328,14 +345,33 @@ def validate_shape(section: pd.DataFrame) -> None:
     active = section[section["pdf_section"].eq("active_operation")]
     if active.empty:
         fail("active_operation section is required even when empty")
-    if set(active["row_type"].astype(str)) != {"empty_state"}:
-        fail("active_operation must remain an explicit empty table until a holding-tracker source exists")
     if active["buy_rank_eligible"].astype(str).ne("False").any():
-        fail("active_operation empty rows must not be buy_rank_eligible")
-    if set(active["row_action_status"].astype(str)) != {"empty_state"}:
+        fail("active_operation rows must not be buy_rank_eligible")
+    active_data = active[active["row_type"].astype(str).eq("data")].copy()
+    if not active_data.empty:
+        if set(active_data["row_action_status"].astype(str)) != {"active_operation"}:
+            fail("active_operation data rows must carry row_action_status=active_operation")
+        missing_active_selected = active_data[
+            active_data["selected_trigger_id"].astype(str).str.strip().eq("")
+            | active_data["selected_confirmation_date"].astype(str).str.strip().eq("")
+        ]
+        if not missing_active_selected.empty:
+            fail("active_operation data rows must carry selected trigger metadata")
+        bad_active_trigger = sorted(set(active_data["selected_trigger_id"].astype(str)) - eligible_triggers)
+        if bad_active_trigger:
+            fail(f"active_operation rows use trigger without eligible formal evidence: {bad_active_trigger}")
+        bad_active_dates = active_data[
+            active_data["selected_confirmation_date"].map(normalize_date_text).gt(
+                active_data["daily_signal_date"].map(normalize_date_text)
+            )
+        ]
+        if not bad_active_dates.empty:
+            fail("active_operation confirmation date cannot be after the report date")
+    active_empty = active[active["row_type"].astype(str).eq("empty_state")]
+    if not active_empty.empty and active_empty["row_action_status"].astype(str).ne("empty_state").any():
         fail("active_operation empty rows must carry row_action_status=empty_state")
-    if not active["adapter_note_zh"].astype(str).str.contains("操作中").any():
-        fail("active_operation empty row must explain operation-in-progress status")
+    if not active["adapter_note_zh"].astype(str).str.contains("操作中|D0-D10|追蹤", regex=True).any():
+        fail("active_operation rows must explain operation-in-progress status")
 
 
 def validate_display_text(section: pd.DataFrame) -> None:
@@ -347,7 +383,7 @@ def validate_display_text(section: pd.DataFrame) -> None:
             fail(f"forbidden raw display token leaked: {token}")
     if "median" in display_text.lower():
         fail("display text must use Chinese wording for median return, not raw 'median'")
-    if "目前無資料" not in display_text:
+    if section["row_type"].astype(str).eq("empty_state").any() and "目前無資料" not in display_text:
         fail("empty-state display text must be present for PDF empty tables")
 
 
@@ -393,8 +429,20 @@ def validate_packet_builder_boundary() -> None:
 
 def main() -> int:
     validate_file_presence()
+    formal_summary = require_nonempty_csv(
+        FORMAL_SUMMARY_CSV,
+        {
+            "model_id",
+            "trigger_id",
+            "sample_size",
+            "win_rate",
+            "median_return",
+            "ranking_research_score",
+            "out_of_sample_pass",
+        },
+    )
     section = read_csv(SECTION_CSV)
-    validate_shape(section)
+    validate_shape(section, formal_summary)
     validate_display_text(section)
     validate_pdf_generator_boundary()
     validate_packet_builder_boundary()
