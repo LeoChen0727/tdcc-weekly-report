@@ -957,6 +957,16 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         self.assertIn("放量攻擊", report_ready["model_name_zh"].iloc[0])
 
 
+    def test_rotation_theme_resolver_maps_known_raw_market_terms(self) -> None:
+        for raw in ["ASIC", "DRAM IC", "DRAM/Flash", "MLCC", "MOSFET", "PCB", "optoelectronics"]:
+            resolved = model_layer.resolve_rotation_theme(raw)
+            self.assertEqual(resolved["theme_resolution_status"], "resolved")
+            self.assertTrue(model_layer.has_cjk_text(resolved["theme_display_zh"]))
+
+        unresolved = model_layer.resolve_rotation_theme("其他")
+        self.assertEqual(unresolved["theme_resolution_status"], "unresolved")
+
+
     def test_group_rotation_outputs_pdf_safe_theme_display(self) -> None:
         taxonomy = pd.DataFrame(
             [
