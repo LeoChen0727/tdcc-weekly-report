@@ -221,6 +221,9 @@ jobs:
           git add output/latest/approved_operation_patterns_latest.csv output/latest/approved_operation_patterns_latest.md || true
           git add output/latest/daily_published_snapshot_ranking_backtest_latest.csv output/latest/daily_published_snapshot_ranking_backtest_latest.md || true
           git add output/history/research/daily_published_snapshot_ranking_events.csv || true
+          git add output/latest/volume_breakout_formal_operation_backtest_latest.csv output/latest/volume_breakout_formal_operation_backtest_latest.md || true
+          git add output/history/research/volume_breakout_confirmed_operation_backtest.csv output/history/research/volume_breakout_confirmed_operation_events.csv || true
+          git add output/history/research/volume_breakout_formal_operation_events.csv || true
           git add docs/latest/daily_model_parameter_research_*.csv docs/latest/daily_model_parameter_research_*.md || true
           git add docs/latest/daily_model_parameter_recommendations_latest.csv docs/latest/daily_model_parameter_recommendations_latest.md || true
           git add docs/latest/daily_model_research_parity_latest.csv docs/latest/daily_model_research_parity_latest.md || true

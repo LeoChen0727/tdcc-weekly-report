@@ -21,7 +21,7 @@ STOP_LOSS_RULE_ID = "signal_low_stop"
 EXIT_RULE_ID = "signal_low_stop_or_fixed_10d_close"
 BUY_FILTER_ID = "positive_evidence_oos_rank_v1"
 
-CONFIRMED_SUMMARY_CSV = LATEST_DIR / "volume_breakout_confirmed_operation_backtest_latest.csv"
+CONFIRMED_SUMMARY_CSV = LATEST_DIR / "volume_breakout_formal_operation_backtest_latest.csv"
 CONFIRMED_RANK_CSV = LATEST_DIR / "volume_breakout_confirmed_operation_rank_latest.csv"
 OUT_CSV = LATEST_DIR / "approved_operation_patterns_latest.csv"
 OUT_MD = LATEST_DIR / "approved_operation_patterns_latest.md"

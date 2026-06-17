@@ -13,6 +13,9 @@ LATEST_SUMMARY_CSV = LATEST_DIR / "volume_breakout_confirmed_operation_backtest_
 LATEST_SUMMARY_MD = LATEST_DIR / "volume_breakout_confirmed_operation_backtest_latest.md"
 HISTORY_SUMMARY_CSV = RESEARCH_HISTORY_DIR / "volume_breakout_confirmed_operation_backtest.csv"
 HISTORY_EVENTS_CSV = RESEARCH_HISTORY_DIR / "volume_breakout_confirmed_operation_events.csv"
+LATEST_FORMAL_SUMMARY_CSV = LATEST_DIR / "volume_breakout_formal_operation_backtest_latest.csv"
+LATEST_FORMAL_SUMMARY_MD = LATEST_DIR / "volume_breakout_formal_operation_backtest_latest.md"
+HISTORY_FORMAL_EVENTS_CSV = RESEARCH_HISTORY_DIR / "volume_breakout_formal_operation_events.csv"
 LATEST_RANK_CSV = LATEST_DIR / "volume_breakout_confirmed_operation_rank_latest.csv"
 LATEST_RANK_MD = LATEST_DIR / "volume_breakout_confirmed_operation_rank_latest.md"
 LATEST_PENDING_CSV = LATEST_DIR / "volume_breakout_pending_operation_queue_latest.csv"
@@ -52,6 +55,12 @@ REQUIRED_EVENT_COLUMNS = {
     "tdcc_signal_age_days",
     "stock_id",
     "trigger_id",
+    "matched_trigger_ids",
+    "selected_trigger_id",
+    "selected_confirmation_date",
+    "selected_trigger_priority",
+    "selected_for_formal_operation",
+    "operation_selection_status",
     "entry_rule_id",
     "entry_date",
     "entry_price",
@@ -82,6 +91,11 @@ REQUIRED_RANK_COLUMNS = {
     "confirmation_date",
     "stock_id",
     "trigger_id",
+    "matched_trigger_ids",
+    "selected_trigger_id",
+    "selected_confirmation_date",
+    "selected_trigger_priority",
+    "operation_selection_status",
     "entry_rule_id",
     "entry_price_status",
     "stop_loss_rule_id",
@@ -165,8 +179,11 @@ def main() -> int:
     for path in [
         LATEST_SUMMARY_CSV,
         LATEST_SUMMARY_MD,
+        LATEST_FORMAL_SUMMARY_CSV,
+        LATEST_FORMAL_SUMMARY_MD,
         HISTORY_SUMMARY_CSV,
         HISTORY_EVENTS_CSV,
+        HISTORY_FORMAL_EVENTS_CSV,
         LATEST_RANK_CSV,
         LATEST_RANK_MD,
         LATEST_PENDING_CSV,
@@ -177,6 +194,8 @@ def main() -> int:
     summary = read_csv(LATEST_SUMMARY_CSV)
     history = read_csv(HISTORY_SUMMARY_CSV)
     events = read_csv(HISTORY_EVENTS_CSV)
+    formal_summary = read_csv(LATEST_FORMAL_SUMMARY_CSV)
+    formal_events = read_csv(HISTORY_FORMAL_EVENTS_CSV)
     rank = read_csv(LATEST_RANK_CSV)
     pending = read_csv(LATEST_PENDING_CSV)
     if summary.empty:
@@ -185,6 +204,10 @@ def main() -> int:
         fail(f"{HISTORY_SUMMARY_CSV} has no rows")
     if events.empty:
         fail(f"{HISTORY_EVENTS_CSV} has no rows")
+    if formal_summary.empty:
+        fail(f"{LATEST_FORMAL_SUMMARY_CSV} has no rows")
+    if formal_events.empty:
+        fail(f"{HISTORY_FORMAL_EVENTS_CSV} has no rows")
 
     missing_summary = sorted(REQUIRED_SUMMARY_COLUMNS - set(summary.columns))
     if missing_summary:
@@ -192,6 +215,12 @@ def main() -> int:
     missing_events = sorted(REQUIRED_EVENT_COLUMNS - set(events.columns))
     if missing_events:
         fail(f"{HISTORY_EVENTS_CSV} missing columns: {missing_events}")
+    missing_formal_summary = sorted(REQUIRED_SUMMARY_COLUMNS - set(formal_summary.columns))
+    if missing_formal_summary:
+        fail(f"{LATEST_FORMAL_SUMMARY_CSV} missing columns: {missing_formal_summary}")
+    missing_formal_events = sorted(REQUIRED_EVENT_COLUMNS - set(formal_events.columns))
+    if missing_formal_events:
+        fail(f"{HISTORY_FORMAL_EVENTS_CSV} missing columns: {missing_formal_events}")
     missing_rank = sorted(REQUIRED_RANK_COLUMNS - set(rank.columns))
     if missing_rank:
         fail(f"{LATEST_RANK_CSV} missing columns: {missing_rank}")
@@ -200,7 +229,14 @@ def main() -> int:
         fail(f"{LATEST_PENDING_CSV} missing columns: {missing_pending}")
 
     forbidden = sorted(
-        (set(summary.columns) | set(events.columns) | set(rank.columns) | set(pending.columns))
+        (
+            set(summary.columns)
+            | set(events.columns)
+            | set(formal_summary.columns)
+            | set(formal_events.columns)
+            | set(rank.columns)
+            | set(pending.columns)
+        )
         & FORBIDDEN_PRODUCTION_FIELDS
     )
     if forbidden:
@@ -210,12 +246,27 @@ def main() -> int:
         fail("summary model_id must be volume_range_breakout")
     if set(events["model_id"].astype(str)) != {"volume_range_breakout"}:
         fail("event model_id must be volume_range_breakout")
+    if set(formal_summary["model_id"].astype(str)) != {"volume_range_breakout"}:
+        fail("formal summary model_id must be volume_range_breakout")
+    if set(formal_events["model_id"].astype(str)) != {"volume_range_breakout"}:
+        fail("formal event model_id must be volume_range_breakout")
     if set(summary["overlay_model_id"].astype(str)) != {"tdcc_weekly_ranking_formula"}:
         fail("summary overlay_model_id must be tdcc_weekly_ranking_formula")
     if set(events["overlay_model_id"].astype(str)) != {"tdcc_weekly_ranking_formula"}:
         fail("event overlay_model_id must be tdcc_weekly_ranking_formula")
+    if set(formal_summary["overlay_model_id"].astype(str)) != {"tdcc_weekly_ranking_formula"}:
+        fail("formal summary overlay_model_id must be tdcc_weekly_ranking_formula")
+    if set(formal_events["overlay_model_id"].astype(str)) != {"tdcc_weekly_ranking_formula"}:
+        fail("formal event overlay_model_id must be tdcc_weekly_ranking_formula")
 
-    for label, df in [("summary", summary), ("events", events), ("rank", rank), ("pending", pending)]:
+    for label, df in [
+        ("summary", summary),
+        ("events", events),
+        ("formal_summary", formal_summary),
+        ("formal_events", formal_events),
+        ("rank", rank),
+        ("pending", pending),
+    ]:
         if "approved_for_daily" in df.columns and not false_only(df["approved_for_daily"]):
             fail(f"{label} approved_for_daily must remain false")
 
@@ -225,6 +276,9 @@ def main() -> int:
     bad_event_lists = sorted(set(events["tdcc_list_type"].astype(str)) - VALID_TDCC_LIST_TYPES)
     if bad_event_lists:
         fail(f"unexpected event tdcc_list_type values: {bad_event_lists}")
+    bad_formal_lists = sorted(set(formal_events["tdcc_list_type"].astype(str)) - VALID_TDCC_LIST_TYPES)
+    if bad_formal_lists:
+        fail(f"unexpected formal event tdcc_list_type values: {bad_formal_lists}")
 
     missing_triggers = sorted(EXPECTED_TRIGGERS - set(summary["trigger_id"].astype(str)))
     if missing_triggers:
@@ -232,6 +286,9 @@ def main() -> int:
     bad_triggers = sorted(set(events["trigger_id"].astype(str)) - EXPECTED_TRIGGERS)
     if bad_triggers:
         fail(f"unexpected event trigger_id values: {bad_triggers}")
+    bad_formal_triggers = sorted(set(formal_events["trigger_id"].astype(str)) - EXPECTED_TRIGGERS)
+    if bad_formal_triggers:
+        fail(f"unexpected formal event trigger_id values: {bad_formal_triggers}")
     missing_scopes = sorted(EXPECTED_SCOPES - set(summary["confluence_scope"].astype(str)))
     if missing_scopes:
         fail(f"summary missing confluence scopes: {missing_scopes}")
@@ -240,8 +297,24 @@ def main() -> int:
         fail("summary entry_rule_id must be confirmation_next_open")
     if set(events["entry_rule_id"].astype(str)) != {"confirmation_next_open"}:
         fail("events entry_rule_id must be confirmation_next_open")
+    if set(formal_events["entry_rule_id"].astype(str)) != {"confirmation_next_open"}:
+        fail("formal events entry_rule_id must be confirmation_next_open")
     if set(events["entry_price_source"].astype(str)) != {"confirmation_next_open"}:
         fail("events entry_price_source must be confirmation_next_open")
+    if set(formal_events["entry_price_source"].astype(str)) != {"confirmation_next_open"}:
+        fail("formal events entry_price_source must be confirmation_next_open")
+
+    if set(formal_events["selected_for_formal_operation"].astype(str)) != {"True"}:
+        fail("formal operation events must contain only selected_for_formal_operation=True rows")
+    formal_group = formal_events.groupby(["signal_date", "stock_id"], dropna=False)
+    multi_trigger = formal_group["trigger_id"].nunique()
+    if (multi_trigger > 1).any():
+        bad = multi_trigger[multi_trigger > 1].head(20).to_dict()
+        fail(f"formal operation events must use one selected trigger per signal: {bad}")
+    multi_confirmation = formal_group["confirmation_date"].nunique()
+    if (multi_confirmation > 1).any():
+        bad = multi_confirmation[multi_confirmation > 1].head(20).to_dict()
+        fail(f"formal operation events must use one selected confirmation date per signal: {bad}")
 
     signal_dates = date_series(events["signal_date"])
     confirmation_dates = date_series(events["confirmation_date"])
@@ -259,6 +332,9 @@ def main() -> int:
     ages = pd.to_numeric(events["confirmation_age_trading_days"], errors="coerce")
     if ages.isna().any() or (ages < 1).any() or (ages > 10).any():
         fail("confirmation_age_trading_days must be between 1 and 10")
+    formal_ages = pd.to_numeric(formal_events["confirmation_age_trading_days"], errors="coerce")
+    if formal_ages.isna().any() or (formal_ages < 1).any() or (formal_ages > 10).any():
+        fail("formal confirmation_age_trading_days must be between 1 and 10")
 
     tdcc_events = events[events["tdcc_list_type"].astype(str) != "no_tdcc"].copy()
     if not tdcc_events.empty:
@@ -276,6 +352,9 @@ def main() -> int:
     sample_size = pd.to_numeric(summary["sample_size"], errors="coerce")
     if sample_size.isna().any() or (sample_size <= 0).any():
         fail("summary sample_size must be positive")
+    formal_sample_size = pd.to_numeric(formal_summary["sample_size"], errors="coerce")
+    if formal_sample_size.isna().any() or (formal_sample_size <= 0).any():
+        fail("formal summary sample_size must be positive")
     bad_confidence = sorted(set(summary["confidence_status"].astype(str)) - {"low", "medium", "high"})
     if bad_confidence:
         fail(f"unexpected confidence_status values: {bad_confidence}")
@@ -283,12 +362,17 @@ def main() -> int:
     if not rank.empty:
         if set(rank["entry_price_status"].astype(str)) != {"next_open_pending"}:
             fail("rank entry_price_status must be next_open_pending")
-        if rank.duplicated(["confirmation_date", "stock_id", "trigger_id"]).any():
-            fail("rank output must not duplicate stock/trigger confirmation rows")
+        if rank.duplicated(["confirmation_date", "stock_id"]).any():
+            fail("rank output must not duplicate stock confirmation rows")
+        if "selected_trigger_id" in rank.columns:
+            bad_selected = rank[rank["selected_trigger_id"].astype(str).ne(rank["trigger_id"].astype(str))]
+            if not bad_selected.empty:
+                fail("rank trigger_id must match selected_trigger_id")
 
     print(
         "volume breakout confirmed operation validation passed "
         f"summary_rows={len(summary)} event_rows={len(events)} "
+        f"formal_summary_rows={len(formal_summary)} formal_event_rows={len(formal_events)} "
         f"rank_rows={len(rank)} pending_rows={len(pending)}"
     )
     return 0

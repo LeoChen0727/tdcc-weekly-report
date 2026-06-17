@@ -108,12 +108,11 @@ def summarize_volume_daily_adapter(adapter: pd.DataFrame) -> dict[str, Any]:
         models == [VOLUME_MODEL_ID]
         and data_rows == 0
         and set(sections) >= {"confirmed_operation", "pending_confirmation", "active_operation"}
+        and source_statuses == ["ready"]
     )
-    stale_empty_ready = empty_sections_ready and source_statuses == ["stale_research_source"]
-    missing_empty_ready = empty_sections_ready and source_statuses == ["missing_or_empty_research_source"]
 
     approved_metadata_ready = False
-    if (base_ready or stale_empty_ready or missing_empty_ready) and {
+    if (base_ready or empty_sections_ready) and {
         "approved_for_daily",
         "operation_directive_level",
     }.issubset(adapter.columns):
@@ -123,9 +122,7 @@ def summarize_volume_daily_adapter(adapter: pd.DataFrame) -> dict[str, Any]:
         )
 
     if approved_metadata_ready:
-        if stale_empty_ready:
-            status = "ready_empty_stale_research_source"
-        elif missing_empty_ready:
+        if empty_sections_ready:
             status = "ready_empty_no_operation_rows"
         else:
             status = "ready_approved_operation_guidance"
@@ -198,7 +195,6 @@ def build_model_operation_readiness(
     adapter_ready = volume_adapter["daily_adapter_status"] in {
         "ready_pending_approval_metadata",
         "ready_approved_operation_guidance",
-        "ready_empty_stale_research_source",
         "ready_empty_no_operation_rows",
     }
     volume_presentation_allowed = volume_registry["operation_module_status"] == "research_reference_ready" and adapter_ready
@@ -214,8 +210,6 @@ def build_model_operation_readiness(
             blocker = (
                 "daily adapter approval metadata pending"
                 if volume_adapter["daily_adapter_status"] == "ready_pending_approval_metadata"
-                else "每日 adapter 來源日期不符；PDF/packet 顯示明確空狀態操作區塊"
-                if volume_adapter["daily_adapter_status"] == "ready_empty_stale_research_source"
                 else "每日 adapter 目前無操作列；PDF/packet 顯示明確空狀態操作區塊"
                 if volume_adapter["daily_adapter_status"] == "ready_empty_no_operation_rows"
                 else "PDF/packet 已接每日 adapter 資料成品"

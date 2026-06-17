@@ -14,8 +14,10 @@ if str(SCRIPTS) not in sys.path:
 from build_volume_breakout_confirmed_operation_backtest import (  # noqa: E402
     EVENT_COLUMNS,
     TRIGGER_MAP,
+    add_operation_selection_columns,
     attach_tdcc_asof,
     find_confirmation,
+    formal_operation_events,
     simulate_confirmed_trade,
     summarize,
 )
@@ -181,3 +183,61 @@ def test_summary_keeps_research_only_and_operation_rules() -> None:
     assert set(summary["approved_for_daily"].astype(str).str.lower()) == {"false"}
     assert set(summary["entry_rule_id"]) == {"confirmation_next_open"}
     assert "operation_trigger" in set(summary["confluence_scope"])
+
+
+def test_formal_operation_selects_earliest_confirmation_then_priority() -> None:
+    events = pd.DataFrame(
+        [
+            minimal_event(
+                signal_date="20260601",
+                confirmation_date="20260603",
+                confirmation_age_trading_days="2",
+                trigger_id="pullback_5ma_confirmed",
+            ),
+            minimal_event(
+                signal_date="20260601",
+                confirmation_date="20260602",
+                confirmation_age_trading_days="1",
+                trigger_id="next_day_continuation_confirmed",
+            ),
+            minimal_event(
+                signal_date="20260601",
+                confirmation_date="20260603",
+                confirmation_age_trading_days="2",
+                trigger_id="pullback_10ma_confirmed",
+            ),
+        ]
+    )
+
+    selected = formal_operation_events(add_operation_selection_columns(events))
+
+    assert selected["trigger_id"].tolist() == ["next_day_continuation_confirmed"]
+    assert selected.iloc[0]["matched_trigger_ids"] == (
+        "next_day_continuation_confirmed|pullback_5ma_confirmed|pullback_10ma_confirmed"
+    )
+    assert selected.iloc[0]["selected_trigger_id"] == "next_day_continuation_confirmed"
+    assert selected.iloc[0]["operation_selection_status"] == "selected_formal_operation"
+
+
+def test_formal_operation_uses_priority_when_confirmation_date_ties() -> None:
+    events = pd.DataFrame(
+        [
+            minimal_event(
+                signal_date="20260601",
+                confirmation_date="20260603",
+                confirmation_age_trading_days="2",
+                trigger_id="pullback_10ma_confirmed",
+            ),
+            minimal_event(
+                signal_date="20260601",
+                confirmation_date="20260603",
+                confirmation_age_trading_days="2",
+                trigger_id="pullback_5ma_confirmed",
+            ),
+        ]
+    )
+
+    selected = formal_operation_events(add_operation_selection_columns(events))
+
+    assert selected["trigger_id"].tolist() == ["pullback_5ma_confirmed"]
+    assert selected.iloc[0]["selected_trigger_priority"] == "2"

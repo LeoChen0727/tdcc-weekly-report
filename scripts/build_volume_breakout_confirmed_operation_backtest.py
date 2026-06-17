@@ -34,6 +34,9 @@ LATEST_SUMMARY_CSV = LATEST_DIR / "volume_breakout_confirmed_operation_backtest_
 LATEST_SUMMARY_MD = LATEST_DIR / "volume_breakout_confirmed_operation_backtest_latest.md"
 HISTORY_SUMMARY_CSV = RESEARCH_HISTORY_DIR / "volume_breakout_confirmed_operation_backtest.csv"
 HISTORY_EVENTS_CSV = RESEARCH_HISTORY_DIR / "volume_breakout_confirmed_operation_events.csv"
+LATEST_FORMAL_SUMMARY_CSV = LATEST_DIR / "volume_breakout_formal_operation_backtest_latest.csv"
+LATEST_FORMAL_SUMMARY_MD = LATEST_DIR / "volume_breakout_formal_operation_backtest_latest.md"
+HISTORY_FORMAL_EVENTS_CSV = RESEARCH_HISTORY_DIR / "volume_breakout_formal_operation_events.csv"
 LATEST_RANK_CSV = LATEST_DIR / "volume_breakout_confirmed_operation_rank_latest.csv"
 LATEST_RANK_MD = LATEST_DIR / "volume_breakout_confirmed_operation_rank_latest.md"
 LATEST_PENDING_CSV = LATEST_DIR / "volume_breakout_pending_operation_queue_latest.csv"
@@ -112,6 +115,15 @@ TRIGGERS = [
     ),
 ]
 TRIGGER_MAP = {item.trigger_id: item for item in TRIGGERS}
+TRIGGER_PRIORITY = {item.trigger_id: index + 1 for index, item in enumerate(TRIGGERS)}
+SELECTION_COLUMNS = [
+    "matched_trigger_ids",
+    "selected_trigger_id",
+    "selected_confirmation_date",
+    "selected_trigger_priority",
+    "selected_for_formal_operation",
+    "operation_selection_status",
+]
 
 SUMMARY_COLUMNS = [
     "model_id",
@@ -180,6 +192,12 @@ EVENT_COLUMNS = [
     "trigger_id",
     "trigger_name_zh",
     "confirmation_rule_zh",
+    "matched_trigger_ids",
+    "selected_trigger_id",
+    "selected_confirmation_date",
+    "selected_trigger_priority",
+    "selected_for_formal_operation",
+    "operation_selection_status",
     "entry_rule_id",
     "entry_date",
     "entry_price",
@@ -257,6 +275,11 @@ RANK_COLUMNS = [
     "trigger_id",
     "trigger_name_zh",
     "confirmation_rule_zh",
+    "matched_trigger_ids",
+    "selected_trigger_id",
+    "selected_confirmation_date",
+    "selected_trigger_priority",
+    "operation_selection_status",
     "entry_rule_id",
     "entry_rule_zh",
     "planned_entry_timing_zh",
@@ -583,6 +606,7 @@ def build_base_events() -> pd.DataFrame:
     events = pd.DataFrame(rows)
     split_date = out_of_sample_start_date(events, "confirmation_date")
     events["out_of_sample"] = events["confirmation_date"].map(lambda value: bool(split_date and safe_str(value) >= split_date))
+    events = add_operation_selection_columns(events)
     events = attach_tdcc_asof(events, read_tdcc_events(), "confirmation_date")
     return ensure_columns(events, EVENT_COLUMNS).sort_values(
         ["confirmation_date", "stock_id", "trigger_id", "tdcc_list_type"]
@@ -700,6 +724,77 @@ def ensure_columns(df: pd.DataFrame, columns: list[str]) -> pd.DataFrame:
         if col not in out.columns:
             out[col] = ""
     return out[columns]
+
+
+def trigger_priority(trigger_id: Any) -> int:
+    return TRIGGER_PRIORITY.get(safe_str(trigger_id), 999)
+
+
+def add_operation_selection_columns(events: pd.DataFrame) -> pd.DataFrame:
+    """Mark the single formal operation row for each signal while preserving research matches."""
+    out = events.copy()
+    for col in SELECTION_COLUMNS:
+        if col not in out.columns:
+            out[col] = ""
+    if out.empty:
+        return out
+
+    out["_selection_confirmation_dt"] = pd.to_datetime(
+        out.get("confirmation_date", pd.Series(dtype=str)).map(normalize_date),
+        format="%Y%m%d",
+        errors="coerce",
+    )
+    out["_selection_age"] = pd.to_numeric(out.get("confirmation_age_trading_days"), errors="coerce").fillna(999)
+    out["_selection_priority"] = out.get("trigger_id", pd.Series(dtype=str)).map(trigger_priority)
+    out["_original_order"] = range(len(out))
+
+    group_cols = ["signal_date", "stock_id"]
+    for col in group_cols:
+        if col not in out.columns:
+            out[col] = ""
+
+    sort_cols = [
+        "_selection_confirmation_dt",
+        "_selection_age",
+        "_selection_priority",
+        "trigger_id",
+        "_original_order",
+    ]
+    for _, part in out.groupby(group_cols, dropna=False, sort=False):
+        ordered = part.sort_values(sort_cols, ascending=[True, True, True, True, True])
+        if ordered.empty:
+            continue
+        trigger_ids: list[str] = []
+        for trigger_id in ordered["trigger_id"].map(safe_str).tolist():
+            if trigger_id and trigger_id not in trigger_ids:
+                trigger_ids.append(trigger_id)
+        selected_idx = ordered.index[0]
+        selected = out.loc[selected_idx]
+        matched_text = "|".join(trigger_ids)
+        out.loc[part.index, "matched_trigger_ids"] = matched_text
+        out.loc[part.index, "selected_trigger_id"] = safe_str(selected.get("trigger_id"))
+        out.loc[part.index, "selected_confirmation_date"] = normalize_date(selected.get("confirmation_date"))
+        out.loc[part.index, "selected_trigger_priority"] = str(trigger_priority(selected.get("trigger_id")))
+        out.loc[part.index, "selected_for_formal_operation"] = "False"
+        out.loc[part.index, "operation_selection_status"] = "research_duplicate_trigger_not_selected"
+        out.loc[selected_idx, "selected_for_formal_operation"] = "True"
+        out.loc[selected_idx, "operation_selection_status"] = "selected_formal_operation"
+
+    return out.drop(
+        columns=[
+            "_selection_confirmation_dt",
+            "_selection_age",
+            "_selection_priority",
+            "_original_order",
+        ],
+        errors="ignore",
+    )
+
+
+def formal_operation_events(events: pd.DataFrame) -> pd.DataFrame:
+    if events.empty or "selected_for_formal_operation" not in events.columns:
+        return pd.DataFrame(columns=EVENT_COLUMNS)
+    return events[events["selected_for_formal_operation"].astype(str).eq("True")].copy()
 
 
 def profit_factor(returns: pd.Series) -> float | str:
@@ -1000,7 +1095,8 @@ def build_latest_confirmation_frames() -> tuple[pd.DataFrame, pd.DataFrame]:
         for rank_part, pending_part in executor.map(lambda p: process_latest_path(p, latest_date, market_regimes), paths):
             rank_rows.extend(rank_part)
             pending_rows.extend(pending_part)
-    rank_base = pd.DataFrame(rank_rows)
+    rank_base = add_operation_selection_columns(pd.DataFrame(rank_rows))
+    rank_base = formal_operation_events(rank_base)
     if not rank_base.empty:
         rank_base = attach_tdcc_asof(rank_base, read_tdcc_events(), "confirmation_date")
     pending = ensure_columns(pd.DataFrame(pending_rows), PENDING_COLUMNS)
@@ -1087,6 +1183,11 @@ def build_rank_output(rank_base: pd.DataFrame, summary: pd.DataFrame) -> pd.Data
                 "trigger_id": safe_str(row.get("trigger_id")),
                 "trigger_name_zh": safe_str(row.get("trigger_name_zh")),
                 "confirmation_rule_zh": safe_str(row.get("confirmation_rule_zh")),
+                "matched_trigger_ids": safe_str(row.get("matched_trigger_ids")),
+                "selected_trigger_id": safe_str(row.get("selected_trigger_id")),
+                "selected_confirmation_date": safe_str(row.get("selected_confirmation_date")),
+                "selected_trigger_priority": safe_str(row.get("selected_trigger_priority")),
+                "operation_selection_status": safe_str(row.get("operation_selection_status")),
                 "entry_rule_id": ENTRY_RULE_ID,
                 "entry_rule_zh": "確認日收盤後列入；下一個交易日開盤價進場。",
                 "planned_entry_timing_zh": "下一個交易日開盤",
@@ -1126,7 +1227,7 @@ def build_rank_output(rank_base: pd.DataFrame, summary: pd.DataFrame) -> pd.Data
     out["_score"] = pd.to_numeric(out["ranking_research_score"], errors="coerce").fillna(-999)
     out["_tdcc_rank"] = pd.to_numeric(out["tdcc_rank"], errors="coerce").fillna(999999)
     out = out.sort_values(["_score", "_tdcc_rank", "stock_id"], ascending=[False, True, True])
-    out = out.drop_duplicates(["confirmation_date", "stock_id", "trigger_id"], keep="first").reset_index(drop=True)
+    out = out.drop_duplicates(["confirmation_date", "stock_id"], keep="first").reset_index(drop=True)
     out["operation_rank"] = range(1, len(out) + 1)
     return out.drop(columns=["_score", "_tdcc_rank"])[RANK_COLUMNS]
 
@@ -1273,22 +1374,67 @@ def write_rank_markdown(rank: pd.DataFrame, pending: pd.DataFrame) -> None:
     LATEST_PENDING_MD.write_text("\n".join(pending_lines) + "\n", encoding="utf-8", newline="\n")
 
 
+def write_formal_summary_markdown(summary: pd.DataFrame, events: pd.DataFrame) -> None:
+    lines = [
+        "# Volume Breakout Formal Operation Backtest",
+        "",
+        f"- generated_at: `{now_text()}`",
+        f"- model_id: `{MODEL_ID}`",
+        "- purpose: one signal produces one formal operation event.",
+        "- trigger_selection_rule: earliest confirmation date wins; if multiple triggers confirm on the same date, use trigger priority order.",
+        "- trigger_priority: `next_day_continuation_confirmed`, `pullback_5ma_confirmed`, `pullback_10ma_confirmed`.",
+        "- research note: multi-trigger events remain in `volume_breakout_confirmed_operation_events.csv`; this formal artifact is the production-operation statistics source.",
+        f"- formal_event_rows: `{len(events)}`",
+        "",
+    ]
+    if not summary.empty:
+        lines.extend(
+            markdown_table(
+                summary,
+                [
+                    "tdcc_list_type",
+                    "rank_bucket",
+                    "trigger_id",
+                    "confluence_scope",
+                    "confluence_id",
+                    "sample_size",
+                    "win_rate",
+                    "median_return",
+                    "out_of_sample_pass",
+                    "confidence_status",
+                    "ranking_research_score",
+                ],
+                80,
+            )
+        )
+    else:
+        lines.append("_No formal summary rows._")
+    LATEST_FORMAL_SUMMARY_MD.write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
+
+
 def main() -> int:
     events = build_base_events()
     summary = summarize(events)
+    formal_events = formal_operation_events(events)
+    formal_summary = summarize(formal_events)
     rank_base, pending = build_latest_confirmation_frames()
-    rank = build_rank_output(rank_base, summary)
+    rank = build_rank_output(rank_base, formal_summary if not formal_summary.empty else summary)
 
     write_csv(events, HISTORY_EVENTS_CSV)
+    write_csv(formal_events, HISTORY_FORMAL_EVENTS_CSV)
     write_csv(summary, HISTORY_SUMMARY_CSV)
     write_csv(summary, LATEST_SUMMARY_CSV)
+    write_csv(formal_summary, LATEST_FORMAL_SUMMARY_CSV)
     write_csv(rank, LATEST_RANK_CSV)
     write_csv(pending, LATEST_PENDING_CSV)
     write_summary_markdown(summary, events)
+    write_formal_summary_markdown(formal_summary, formal_events)
     write_rank_markdown(rank, pending)
 
     print(f"Saved: {LATEST_SUMMARY_CSV} rows={len(summary)}")
     print(f"Saved: {HISTORY_EVENTS_CSV} rows={len(events)}")
+    print(f"Saved: {LATEST_FORMAL_SUMMARY_CSV} rows={len(formal_summary)}")
+    print(f"Saved: {HISTORY_FORMAL_EVENTS_CSV} rows={len(formal_events)}")
     print(f"Saved: {LATEST_RANK_CSV} rows={len(rank)}")
     print(f"Saved: {LATEST_PENDING_CSV} rows={len(pending)}")
     return 0
