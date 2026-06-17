@@ -2,8 +2,8 @@
 
 - status: `generated`
 - policy: `local_price_redraw_first`
-- total_charts: `25`
-- local_price_redraw_count: `25`
+- total_charts: `30`
+- local_price_redraw_count: `30`
 - chart_path_fallback_count: `0`
 - missing_count: `0`
 - pdf_kline_output_dir: `output/latest/charts/pdf_kline`
@@ -22,6 +22,11 @@
 | 3026 | 禾伸堂 | range_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/3026_禾伸堂_range_rebound_126d.png` | `data/daily_price` |
 | 3090 | 日電貿 | range_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/3090_日電貿_range_rebound_126d.png` | `data/daily_price` |
 | 8131 | 福懋科 | range_rebound | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/8131_福懋科_range_rebound_126d.png` | `data/daily_price` |
+| 1808 | 潤隆 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/1808_潤隆_revenue_breakout_low_response_126d.png` | `data/daily_price` |
+| 2347 | 聯強 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2347_聯強_revenue_breakout_low_response_126d.png` | `data/daily_price` |
+| 4934 | 太極 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/4934_太極_revenue_breakout_low_response_126d.png` | `data/daily_price` |
+| 2542 | 興富發 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2542_興富發_revenue_breakout_low_response_126d.png` | `data/daily_price` |
+| 5522 | 遠雄 | revenue_breakout_low_response | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/5522_遠雄_revenue_breakout_low_response_126d.png` | `data/daily_price` |
 | 2363 | 矽統 | revenue_pullback | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2363_矽統_revenue_pullback_126d.png` | `data/daily_price` |
 | 1597 | 直得 | revenue_pullback | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/1597_直得_revenue_pullback_126d.png` | `data/daily_price` |
 | 2388 | 威盛 | revenue_pullback | redrawn_from_local_price_data | `output/latest/charts/pdf_kline/2388_威盛_revenue_pullback_126d.png` | `data/daily_price` |

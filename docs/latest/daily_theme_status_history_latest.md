@@ -1,6 +1,6 @@
 # Daily Theme Status History
 
-- generated_at: `2026-06-17 06:44:14 Asia/Taipei`
+- generated_at: `2026-06-17 14:29:44 Asia/Taipei`
 - latest_signal_date: `20260616`
 - latest_rows: `333`
 - history_rows: `4492`
@@ -11,17 +11,17 @@
 | theme_status_group | count |
 | --- | --- |
 | mainstream_overheated | 175 |
-| mainstream_supported | 156 |
-| non_mainstream | 2 |
+| mainstream_supported | 155 |
+| non_mainstream | 3 |
 
 ## Theme Final Status Counts
 | theme_final_status | count |
 | --- | --- |
 | mainstream_overheated | 175 |
-| mainstream_follow_through | 148 |
+| mainstream_follow_through | 147 |
 | emerging_theme | 5 |
 | mainstream_leader | 3 |
-| single_name_signal | 2 |
+| single_name_signal | 3 |
 
 ## Volume Attack Theme Status Counts
 | theme_volume_attack_status | count |
@@ -59,18 +59,18 @@
 | 20260616 | 2342 | 茂矽 | 半導體業 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
 | 20260616 | 2351 | 順德 | 半導體業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
 | 20260616 | 2355 | 敬鵬 | 電子零組件業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
-| 20260616 | 2363 | 矽統 | 半導體業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
+| 20260616 | 2363 | 矽統 | 半導體業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate | D_降級_TDCC轉弱 |  |  |
 | 20260616 | 2368 | 金像電 | 電子零組件業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
 | 20260616 | 2369 | 菱生 | 半導體業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
 | 20260616 | 2374 | 佳能 | 光電業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
 | 20260616 | 2375 | 凱美 | 電子零組件業 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
 | 20260616 | 2379 | 瑞昱 | 半導體業 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
 | 20260616 | 2383 | 台光電 | 電子零組件業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
-| 20260616 | 2388 | 威盛 | 半導體業 | mainstream_overheated | mainstream_overheated |  | risk_downgraded_candidate |  |  |  |
+| 20260616 | 2388 | 威盛 | 半導體業 | mainstream_overheated | mainstream_overheated |  | risk_downgraded_candidate | D_降級_TDCC轉弱 |  |  |
 | 20260616 | 2392 | 正崴 | 電子零組件業 | mainstream_overheated | mainstream_overheated |  | risk_downgraded_candidate |  |  |  |
 | 20260616 | 2401 | 凌陽 | 半導體業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
 | 20260616 | 2402 | 毅嘉 | 電子零組件業 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
-| 20260616 | 2406 | 國碩 | 光電業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
+| 20260616 | 2406 | 國碩 | 光電業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate | A_優先追蹤 |  |  |
 | 20260616 | 2408 | 南亞科 | 半導體業 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
 | 20260616 | 2409 | 友達 | 光電業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
 | 20260616 | 2428 | 興勤 | 電子零組件業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
