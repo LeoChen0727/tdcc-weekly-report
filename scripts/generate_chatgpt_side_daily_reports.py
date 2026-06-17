@@ -1859,10 +1859,17 @@ def report_lines_for_stock_from_frame(frame: pd.DataFrame, stock_id: str) -> set
     lines: set[str] = set()
     for col in ("report_line", "report_bucket"):
         if col in part.columns:
-            lines.update(value for value in part[col].astype(str).tolist() if value in {"mainstream", "non_mainstream"})
+            lines.update(
+                value
+                for value in (clean(raw) for raw in part[col].tolist())
+                if value in {"mainstream", "non_mainstream"}
+            )
     for col in ("report_line_memberships", "taxonomy_report_line_memberships"):
         if col in part.columns:
-            for value in part[col].astype(str).tolist():
+            for raw_value in part[col].tolist():
+                value = clean(raw_value)
+                if not value:
+                    continue
                 for token in value.replace(";", "|").replace(",", "|").split("|"):
                     token = token.strip()
                     if token in {"mainstream", "non_mainstream"}:

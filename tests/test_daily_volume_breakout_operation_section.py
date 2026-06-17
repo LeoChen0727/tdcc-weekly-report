@@ -289,6 +289,57 @@ def test_pdf_volume_operation_does_not_guess_missing_taxonomy() -> None:
     assert non_mainstream.empty
 
 
+def test_pdf_volume_operation_ignores_non_string_membership_values() -> None:
+    rows = pd.DataFrame(
+        [
+            {
+                "model_id": "volume_range_breakout",
+                "pdf_view": "highlight",
+                "pdf_section": "pending_confirmation",
+                "row_type": "data",
+                "display_order": "1",
+                "stock_id": "6209",
+                "stock_display": "6209 今國光",
+                "row_action_status": "pending_confirmation",
+                "buy_rank_eligible": "False",
+            },
+            {
+                "model_id": "volume_range_breakout",
+                "pdf_view": "highlight",
+                "pdf_section": "pending_confirmation",
+                "row_type": "data",
+                "display_order": "2",
+                "stock_id": "6668",
+                "stock_display": "6668 中揚光",
+                "row_action_status": "pending_confirmation",
+                "buy_rank_eligible": "False",
+            },
+        ]
+    )
+    inputs = {
+        "stock_theme_taxonomy": pd.DataFrame(
+            [
+                {
+                    "stock_id": "6209",
+                    "report_line_memberships": float("nan"),
+                    "taxonomy_report_line_memberships": 3.14,
+                },
+                {
+                    "stock_id": "6668",
+                    "report_line_memberships": "mainstream|non_mainstream",
+                    "taxonomy_report_line_memberships": float("nan"),
+                },
+            ]
+        )
+    }
+
+    mainstream = pdf_generator.filter_volume_operation_rows_for_line(rows, inputs, "mainstream")
+    non_mainstream = pdf_generator.filter_volume_operation_rows_for_line(rows, inputs, "non_mainstream")
+
+    assert set(mainstream["stock_id"].astype(str)) == {"6668"}
+    assert set(non_mainstream["stock_id"].astype(str)) == {"6668"}
+
+
 def test_daily_pipeline_runs_volume_breakout_operation_adapter() -> None:
     workflow = (ROOT / ".github" / "workflows" / "daily_full_pipeline.yml").read_text(encoding="utf-8")
 
