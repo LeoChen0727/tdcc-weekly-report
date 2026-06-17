@@ -108,6 +108,47 @@ def test_resolver_reads_origin_main_without_wall_clock_date(tmp_path: Path) -> N
     assert state["allow_report_generation"] is True
 
 
+def test_resolver_allows_ignored_chatgpt_side_output_residue(tmp_path: Path) -> None:
+    repo = init_repo(tmp_path)
+    (repo / ".gitignore").write_text("chatgpt_side_outputs*/\n", encoding="utf-8")
+    write_sources(repo, date="20260615")
+    head = commit_all(repo, "ready sources")
+    point_origin_main(repo, head)
+    output_dir = repo / "chatgpt_side_outputs_official"
+    output_dir.mkdir()
+    (output_dir / "old.pdf").write_text("not a real pdf", encoding="utf-8")
+
+    state = resolve_daily_report_source_state(
+        repo,
+        fetch=False,
+        require_git_clean=True,
+        require_local_match=True,
+    )
+
+    assert state["main_price_date"] == "20260615"
+    assert state["daily_pdf_ready"] is True
+
+
+def test_resolver_still_rejects_non_output_dirty_files(tmp_path: Path) -> None:
+    repo = init_repo(tmp_path)
+    (repo / ".gitignore").write_text("chatgpt_side_outputs*/\n", encoding="utf-8")
+    write_sources(repo, date="20260615")
+    head = commit_all(repo, "ready sources")
+    point_origin_main(repo, head)
+    (repo / "unexpected.txt").write_text("dirty", encoding="utf-8")
+
+    with pytest.raises(DailyReportSourceError) as excinfo:
+        resolve_daily_report_source_state(
+            repo,
+            fetch=False,
+            require_git_clean=True,
+            require_local_match=True,
+        )
+
+    assert any("local checkout is dirty" in error for error in excinfo.value.errors)
+    assert any("unexpected.txt" in error for error in excinfo.value.errors)
+
+
 def test_resolver_rejects_not_ready_origin_main(tmp_path: Path) -> None:
     repo = init_repo(tmp_path)
     write_sources(repo, daily_pdf_ready="False")
