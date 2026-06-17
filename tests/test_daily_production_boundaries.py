@@ -103,6 +103,9 @@ def test_canonical_chatgpt_side_generator_is_tracked_and_not_legacy_six_category
     assert "READ_ME_FIRST_DAILY_REPORT.txt" in resolver_text
     assert "OneDrive" in resolver_text
 
+    gitignore = (ROOT / ".gitignore").read_text(encoding="utf-8", errors="replace")
+    assert "chatgpt_side_outputs*/" in gitignore
+
 
 def test_observation_list_is_row_per_stock_not_joined_cell() -> None:
     path = ROOT / "scripts" / "generate_chatgpt_side_daily_reports.py"
