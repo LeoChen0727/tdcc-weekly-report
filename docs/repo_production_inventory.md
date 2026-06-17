@@ -11,6 +11,7 @@ Validator:
 
 - `python scripts/validate_repo_production_inventory.py`
 - `python scripts/validate_repo_semantic_integrity.py`
+- `python scripts/validate_repo_advanced_integrity.py`
 
 Report artifact lineage manifest:
 
@@ -109,6 +110,30 @@ The semantic integrity validator additionally enforces:
 - Semantic assertions for stock taxonomy, daily volume operation rows, forbidden
   decision-layer report tokens, raw operation slug leakage, and shared model
   score profiles.
+
+The advanced integrity validator adds the next layer of executable contracts:
+
+- Runtime file lineage contract:
+  `config/runtime_file_lineage_contract.csv` defines expected read/write
+  surfaces for formal producers, and `scripts/trace_runtime_file_lineage.py`
+  can trace a Python entrypoint under monkeypatched file APIs.
+- PDF golden regression contract:
+  `config/pdf_golden_regression_contract.csv` defines the six formal
+  ChatGPT-side PDFs, their builder functions, required sections, forbidden raw
+  tokens, page bounds, and output route.
+- Historical replay semantic contract:
+  `config/historical_replay_semantic_contract.csv` validates recent model
+  snapshot history for required columns, date consistency, report-line
+  membership, model IDs, and absence of decision-layer columns.
+- Machine-readable model condition spec:
+  `config/daily_model_condition_spec.csv` maps production model IDs to
+  condition functions, score functions, score profiles, and research parity
+  statuses. The validator compares this file against the production AST and
+  latest parity output.
+- External source contract:
+  `config/external_data_source_contract.csv` binds external data surfaces to
+  freshness/readiness columns or JSON status paths, plus producer and validator
+  ownership.
 
 ## Workflow Gate
 
