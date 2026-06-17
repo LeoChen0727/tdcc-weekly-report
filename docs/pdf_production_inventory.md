@@ -27,14 +27,11 @@ Scope: repository-owned PDF producers, validators, and publishers. This file is 
 
 ## Retired Daily PDF Paths
 
-These paths are retired and must not be regenerated, linked from packet/README, staged for public Pages, or restored as formal daily recommendation PDFs:
-
-- `daily_market_curated_report_latest.pdf`
-- `daily_market_full_table_report_latest.pdf`
-- `mainstream_daily_recommendation_highlight_latest.pdf`
-- `mainstream_full_candidate_list_latest.pdf`
-- `non_mainstream_daily_recommendation_highlight_latest.pdf`
-- `non_mainstream_full_candidate_list_latest.pdf`
+The old root-level daily recommendation PDF aliases are retired and must not be
+regenerated, linked from packet/README, staged for public Pages, or restored as
+formal daily recommendation PDFs. Active guidance must describe them by category
+instead of publishing their exact filenames, so new report conversations cannot
+copy a retired path as the current deliverable.
 
 ## Repo Artifact Daily PDFs
 

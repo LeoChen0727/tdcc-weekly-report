@@ -6,10 +6,12 @@ workflow boundaries are validated by code, not by memory or convention.
 Authoritative manifest:
 
 - `config/repo_production_inventory.csv`
+- `config/repo_file_lifecycle_inventory.csv`
 
 Validator:
 
 - `python scripts/validate_repo_production_inventory.py`
+- `python scripts/validate_repo_file_lifecycle_inventory.py`
 - `python scripts/validate_repo_semantic_integrity.py`
 - `python scripts/validate_repo_advanced_integrity.py`
 
@@ -51,6 +53,35 @@ guidance scan includes:
 - `output/latest/**/*.md` and `output/latest/**/*.txt`
 
 Historical folders are intentionally not treated as live entrypoint guidance.
+
+## Lifecycle Contract
+
+`config/repo_file_lifecycle_inventory.csv` is the deletion-readiness manifest.
+It extends the owner inventory with executable evidence:
+
+- workflow callers;
+- AST import callers;
+- tests that reference a script;
+- active guidance documents that mention a path;
+- report artifacts written by a producer;
+- source artifacts read by a producer;
+- keep reason;
+- delete reason;
+- removal risk.
+
+Lifecycle status values:
+
+- `active`: still part of a formal lane or validator surface.
+- `manual_diagnostic`: manually invoked diagnostic surface, not production.
+- `generated_artifact`: generated active guidance checked for stale commands.
+- `historical_artifact`: historical record, not active guidance.
+- `deprecated`: retained temporarily with no production workflow caller.
+- `delete_candidate`: verified no workflow/import/docs runtime reference and
+  ready for scoped removal review.
+
+Any `delete_candidate` or `deprecated` file that is invoked by workflow or AST
+import fails validation. Active guidance also fails if it names retired formal
+daily PDF artifact paths.
 
 ## Lane Owners
 

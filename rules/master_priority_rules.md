@@ -27,6 +27,9 @@ For every repo-related task:
 
 Do not use old-date data as a new-date report. If `main_price_date` differs from the requested date, state the available repo date clearly.
 
+Formal ChatGPT-side daily PDF generation must use the canonical entrypoint:
+`python scripts/run_chatgpt_daily_report_entrypoint.py`.
+
 ## Repo Change Completion Gate
 
 For daily production scope code, rule, workflow, Apps Script trigger, or generated contract changes, a pull-request branch with passing PR checks is not a completion point.
