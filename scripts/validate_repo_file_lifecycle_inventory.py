@@ -53,6 +53,7 @@ VALID_REMOVAL_RISK = {"none", "low", "medium", "high"}
 NON_PYTHON_EXECUTABLE_SUFFIXES = {".bat", ".cmd", ".gs", ".js", ".mjs", ".pl", ".ps1", ".rb", ".sh", ".ts", ".tsx"}
 PYTHON_INVOKE_RE = re.compile(r"\bpython(?:3)?\s+([A-Za-z0-9_./\\-]+\.py)")
 SHELL_INVOKE_RE = re.compile(r"\b(?:bash|sh)\s+([A-Za-z0-9_./\\-]+\.(?:sh|cmd|bat|ps1))")
+DATE_STAMPED_DAILY_README_RE = re.compile(r"(?:^|/)READ_ME_FIRST_DAILY_REPORT_\d{8}\.txt$")
 
 ACTIVE_GUIDANCE_ROOT_FILES = {"AGENTS.md", "README.md"}
 ACTIVE_GUIDANCE_PREFIXES = (
@@ -272,6 +273,8 @@ def tracked_guidance_paths() -> set[str]:
             continue
         if path.startswith(GENERATED_GUIDANCE_PREFIXES):
             filename = Path(path).name
+            if DATE_STAMPED_DAILY_README_RE.search(path):
+                continue
             if filename.startswith(("READ_ME_FIRST_DAILY_REPORT", "CHATGPT_DAILY_REPORT", "chatgpt_daily_report_packet", "report_publish_check", "report_manifest")):
                 paths.add(path)
             continue
@@ -409,6 +412,24 @@ def validate_coverage(lifecycle: dict[str, LifecycleRow], production: dict[str, 
 def validate_rows(lifecycle: dict[str, LifecycleRow], production: dict[str, ProductionRow]) -> list[str]:
     errors: list[str] = []
     for row in lifecycle.values():
+        if DATE_STAMPED_DAILY_README_RE.search(row.path):
+            errors.append(
+                f"{row.path} must not be listed in lifecycle inventory; "
+                "date-stamped daily README aliases are volatile and validated by PDF inventory"
+            )
+        for column in [
+            "called_by_workflow",
+            "imported_by",
+            "tested_by",
+            "documented_by",
+            "writes_artifact",
+            "reads_artifact",
+        ]:
+            for ref in getattr(row, column):
+                if DATE_STAMPED_DAILY_README_RE.search(ref):
+                    errors.append(
+                        f"{row.path} lifecycle {column} must not reference date-stamped daily README alias: {ref}"
+                    )
         if row.type not in VALID_TYPES:
             errors.append(f"{row.path} has invalid lifecycle type: {row.type}")
         if row.status not in VALID_STATUSES:
