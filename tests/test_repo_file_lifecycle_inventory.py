@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import csv
+import re
 from pathlib import Path
 
 from scripts import validate_repo_file_lifecycle_inventory as validator
@@ -38,6 +39,32 @@ def test_lifecycle_inventory_has_no_pending_delete_or_deprecated_rows() -> None:
         ]
 
     assert pending == []
+
+
+def test_lifecycle_inventory_does_not_track_date_stamped_daily_readme_aliases() -> None:
+    lifecycle_path = ROOT / "config" / "repo_file_lifecycle_inventory.csv"
+    date_readme = re.compile(r"(?:^|/)READ_ME_FIRST_DAILY_REPORT_\d{8}\.txt$")
+    reference_columns = [
+        "called_by_workflow",
+        "imported_by",
+        "tested_by",
+        "documented_by",
+        "writes_artifact",
+        "reads_artifact",
+    ]
+
+    with lifecycle_path.open("r", encoding="utf-8-sig", newline="") as fh:
+        rows = list(csv.DictReader(fh))
+
+    assert [row["path"] for row in rows if date_readme.search(row["path"])] == []
+    offenders: list[tuple[str, str, str]] = []
+    for row in rows:
+        for column in reference_columns:
+            for ref in row[column].split(";"):
+                if date_readme.search(ref):
+                    offenders.append((row["path"], column, ref))
+
+    assert offenders == []
 
 
 def test_active_guidance_does_not_point_to_retired_daily_pdf_artifacts() -> None:
