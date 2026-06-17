@@ -11,6 +11,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 
 import build_daily_volume_breakout_operation_section as builder  # noqa: E402
 import generate_chatgpt_side_daily_reports as pdf_generator  # noqa: E402
+import validate_chatgpt_side_volume_operation_pdf_integration as pdf_integration_validator  # noqa: E402
 
 
 def approval_stub() -> dict[str, str]:
@@ -448,6 +449,64 @@ def test_daily_pdf_generator_does_not_read_research_operation_artifacts_directly
     assert "approved_operation_patterns_latest.csv" not in source
 
 
+def test_daily_pdf_generator_omits_obsolete_volume_breakout_explanatory_text() -> None:
+    generator = ROOT / "scripts" / "generate_chatgpt_side_daily_reports.py"
+    source = generator.read_text(encoding="utf-8", errors="replace")
+
+    for token in [
+        "放量攻擊模型操作參考",
+        "以下僅呈現 daily adapter 已核准欄位",
+        "PDF 不重新計算進場",
+        "待確認列只作觀察",
+    ]:
+        assert token not in source
+    assert source.count("if desc and model_id != VOLUME_BREAKOUT_MODEL_ID") == 2
+
+    forbidden_text = "".join(pdf_integration_validator.FORBIDDEN_VOLUME_EXPLANATORY_TEXT)
+    for token in [
+        "不含今日的前20日最高價",
+        "一般放量突破需收盤價",
+        "鎖量漲停突破不要求量比",
+        "放量攻擊模型操作參考",
+        "PDF不重新計算進場",
+    ]:
+        assert token in forbidden_text
+
+
+def test_pdf_chart_renderer_prefers_local_source_worktree_price_window(monkeypatch, tmp_path) -> None:
+    calls: list[str] = []
+
+    def fake_read_csv(path, **kwargs):
+        calls.append(str(path))
+        if str(path).startswith("https://"):
+            raise AssertionError("raw GitHub price URL should not be used when local source data exists")
+        return pd.DataFrame(
+            [
+                {"date": "2026-06-15", "open": "10", "high": "11", "low": "9", "close": "10.5", "volume": "1000"},
+                {"date": "2026-06-16", "open": "10.5", "high": "12", "low": "10", "close": "11.5", "volume": "2000"},
+                {"date": "2026-06-17", "open": "11.5", "high": "13", "low": "11", "close": "12.5", "volume": "3000"},
+            ]
+        )
+
+    monkeypatch.setattr(pdf_generator, "read_csv", fake_read_csv)
+    monkeypatch.setattr(pdf_generator, "LATEST", tmp_path / "output" / "latest")
+    monkeypatch.setattr(pdf_generator, "CHARTS", tmp_path / "charts")
+    monkeypatch.setitem(
+        pdf_generator.REMOTE_README,
+        "individual_stock_price_raw_url_template",
+        "https://example.invalid/{stock_id}_price_window_180_latest.csv",
+    )
+    pdf_generator.CHARTS.mkdir(parents=True, exist_ok=True)
+
+    chart = pdf_generator.plot_stock_chart("2330", "台積電", pd.Series(dtype=object))
+
+    assert chart is not None
+    assert chart.exists()
+    assert calls == [
+        str(tmp_path / "output" / "latest" / "individual_stock_price_windows" / "2330_price_window_180_latest.csv")
+    ]
+
+
 def test_daily_packet_builder_uses_daily_adapter_not_research_operation_artifacts() -> None:
     packet_builder = ROOT / "build_chatgpt_daily_report_packet.py"
     source = packet_builder.read_text(encoding="utf-8", errors="replace")
@@ -536,6 +595,19 @@ def test_pdf_operation_renderer_uses_row_level_buy_eligibility(monkeypatch) -> N
         "highlight",
     )
 
+    story_text = "\n".join(
+        flowable.getPlainText()
+        for flowable in story
+        if hasattr(flowable, "getPlainText")
+    )
+    for token in [
+        "放量攻擊模型操作參考",
+        "以下僅呈現 daily adapter 已核准欄位",
+        "PDF 不重新計算進場",
+        "待確認列只作觀察",
+    ]:
+        assert token not in story_text
+
     assert len(captured_tables) == 3
     confirmed, pending, active = captured_tables
     assert confirmed[0] == [
@@ -616,4 +688,9 @@ def test_pdf_operation_renderer_collapses_empty_state_rows(monkeypatch) -> None:
     pdf_generator.render_volume_range_breakout_operation_section(story, {"volume_operation": rows}, "highlight")
 
     assert captured_tables == []
-    assert len(story) >= 3
+    story_text = "\n".join(
+        flowable.getPlainText()
+        for flowable in story
+        if hasattr(flowable, "getPlainText")
+    )
+    assert "今日沒有可顯示的放量攻擊操作列。" in story_text
