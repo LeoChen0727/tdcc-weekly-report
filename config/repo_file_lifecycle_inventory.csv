@@ -59,7 +59,7 @@ docs/thread_templates/research_backtest.md,guidance_doc,repo_infrastructure,acti
 docs/thread_templates/tdcc_weekly.md,guidance_doc,repo_infrastructure,active,,,,docs/CODEX_THREAD_WORKFLOW.md,,,active project guidance checked for executable command references,,none
 docs/warrant_market_tracking.md,guidance_doc,repo_infrastructure,active,,,,,,,active project guidance checked for executable command references,,none
 ensure_daily_report_readme.py,python,repo_infrastructure,active,,,,,,,repository infrastructure script: ensure_daily_report_readme,,high
-ensure_report_aliases.py,python,repo_infrastructure,active,.github/workflows/daily_full_pipeline.yml,,,,,,repository infrastructure script: ensure_report_aliases,,high
+ensure_report_aliases.py,python,repo_infrastructure,active,.github/workflows/daily_full_pipeline.yml,tests/test_pdf_production_inventory.py,tests/test_pdf_production_inventory.py,,,,repository infrastructure script: ensure_report_aliases,,high
 fetch_official_daily_price.py,python,official_price_data,active,.github/workflows/daily_full_pipeline.yml;.github/workflows/official_price_fetch.yml,tests/test_fetch_official_daily_price_quality.py,tests/test_fetch_official_daily_price_quality.py;tests/test_repo_production_inventory.py,,,,official price data script: fetch_official_daily_price,,high
 generate_candidate_charts.py,python,diagnostics,manual_diagnostic,,,,,,,diagnostic utility: generate_candidate_charts,,low
 merge_warrant_flow_into_candidates.py,python,warrant,active,.github/workflows/daily_full_pipeline.yml;.github/workflows/warrant_flow.yml,,,,,,warrant data/report script: merge_warrant_flow_into_candidates,,high
