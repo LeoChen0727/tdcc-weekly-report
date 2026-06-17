@@ -8,9 +8,9 @@
     "selection_audit": {
       "main_price_date": "20260617",
       "effective_candidate_signal_date": "20260617",
-      "all_candidates_rows": 476,
-      "raw_model_signal_rows": 444,
-      "report_model_signal_rows": 444,
+      "all_candidates_rows": 319,
+      "raw_model_signal_rows": 312,
+      "report_model_signal_rows": 312,
       "volume_watch_rows": 14,
       "tdcc_short_edge_rows": 25,
       "volume_watch_fresh": true,
