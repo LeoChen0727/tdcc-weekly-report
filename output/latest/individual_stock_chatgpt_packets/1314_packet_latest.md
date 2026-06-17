@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1314 中石化
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:31 Asia/Taipei
+- generated_at: 2026-06-17 22:22:51 Asia/Taipei
 - stock_id: 1314
 - stock_name: 中石化
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 281
+- latest_price_date: 20260617
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 7.83
-- high: 7.89
-- low: 7.67
-- close: 7.68
-- volume: 18604420
-- ma5: 7.84
-- ema23_primary: 7.48
-- distance_to_ema23_pct: 2.71
-- ma20: 7.32
-- ma60: 7.64
+- date: 20260617
+- open: 7.7
+- high: 7.83
+- low: 7.6
+- close: 7.62
+- volume: 21622514
+- ma5: 7.74
+- ema23_primary: 7.49
+- distance_to_ema23_pct: 1.75
+- ma20: 7.36
+- ma60: 7.62
 - ma120: 7.87
-- return_5d: 1.99
-- return_20d: 11.14
-- volume_ratio: 0.55
-- distance_to_ma20_pct_auxiliary: 4.96
-- distance_to_high_60_pct: -15.23
+- return_5d: -5.81
+- return_20d: 13.39
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: 3.5
+- distance_to_high_60_pct: -15.61
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,6.91,6.93,6.71,6.72,25849958,7.36,-8.74,7.33,7.97,1.42
 20260518,6.73,6.93,6.69,6.87,18404819,7.32,-6.18,7.29,7.96,1.03
 20260519,7.03,7.15,6.93,6.94,20071715,7.29,-4.81,7.25,7.94,1.13
 20260520,6.96,7.03,6.94,7.02,10255639,7.27,-3.41,7.21,7.92,0.58
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,7.88,7.98,7.8,7.84,22177338,7.43,5.58,7.24,7.68,0.64
 20260615,7.89,7.92,7.81,7.82,14520313,7.46,4.84,7.28,7.66,0.42
 20260616,7.83,7.89,7.67,7.68,18604420,7.48,2.71,7.32,7.64,0.55
+20260617,7.7,7.83,7.6,7.62,21622514,7.49,1.75,7.36,7.62,0.65
 ```
 
 ## Latest TDCC Snapshot
@@ -186,12 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 1314 | 中石化 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:資訊安全長 2.發生變動日期:115/06/15 3.舊任者姓名、級職及簡歷:李喬賓/本公司環境保護及污染防制處協理 4.新任者姓名、級職及簡歷:陳台彰/本公司策略規劃處協理 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:辭職 6.異動原因:辭職 7.生效日期:115/07/01 8.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260617 | 1314 | 中石化 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.人員變動別（請輸入發言人、代理發言人、重要營運主管(如:執行長、營運長、 行銷長及策略長等)、財務主管、會計主管、公司治理主管、資訊安全長、研發主管、 內部稽核主管或訴訟及非訟代理人）:資訊安全長 2.發生變動日期:115/06/15 3.舊任者姓名、級職及簡歷:李喬賓/本公司環境保護及污染防制處協理 4.新任者姓名、級職及簡歷:陳台彰/本公司策略規劃處協理 5.異動情形（請輸入「辭職」、「職務調整」、「資遣」、「退休」、「死亡」、「新 任」或「解任」）:辭職 6.異動原因:辭職 7.生效日期:115/07/01 8.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 1314 | 中石化 | 1 | 1 | 1 | 3 | 3 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260617 | 1314 | 中石化 | 2 | 2 | 2 | 4 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

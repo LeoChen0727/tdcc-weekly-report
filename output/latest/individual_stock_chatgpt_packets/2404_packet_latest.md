@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2404 漢唐
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:52 Asia/Taipei
+- generated_at: 2026-06-17 22:23:15 Asia/Taipei
 - stock_id: 2404
 - stock_name: 漢唐
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 1380
-- high: 1380
-- low: 1245
-- close: 1245
-- volume: 6617233
-- ma5: 1267
-- ema23_primary: 1163.44
-- distance_to_ema23_pct: 7.01
-- ma20: 1167
-- ma60: 1018.98
-- ma120: 1002.2
-- return_5d: 8.26
-- return_20d: 18.57
-- volume_ratio: 1.28
-- distance_to_ma20_pct_auxiliary: 6.68
-- distance_to_high_60_pct: -12.94
+- date: 20260617
+- open: 1225
+- high: 1295
+- low: 1225
+- close: 1280
+- volume: 4750890
+- ma5: 1282
+- ema23_primary: 1173.15
+- distance_to_ema23_pct: 9.11
+- ma20: 1181
+- ma60: 1024.83
+- ma120: 1005.95
+- return_5d: 6.22
+- return_20d: 28
+- volume_ratio: 0.93
+- distance_to_ma20_pct_auxiliary: 8.38
+- distance_to_high_60_pct: -10.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,1065,1080,995,1000,6200944,985.71,1.45,995.25,967.78,1.19
 20260518,990,1035,982,1005,3966345,987.31,1.79,994.25,969.42,0.82
 20260519,1000,1040,995,1030,4467827,990.87,3.95,994.5,971.62,0.95
 20260520,1030,1070,1015,1025,5761085,993.71,3.15,995.75,973.57,1.24
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,1280,1310,1265,1310,6101859,1135.66,15.35,1139.5,1008.13,1.15
 20260615,1380,1430,1360,1380,5578755,1156.02,19.37,1157.25,1014.3,1.08
 20260616,1380,1380,1245,1245,6617233,1163.44,7.01,1167,1018.98,1.28
+20260617,1225,1295,1225,1280,4750890,1173.15,9.11,1181,1024.83,0.93
 ```
 
 ## Latest TDCC Snapshot
@@ -185,18 +185,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2404 | 漢唐 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
-| 20260616 | 2404 | 漢唐 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260617 | 2404 | 漢唐 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260617 | 2404 | 漢唐 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2404 | 漢唐 | 1 | 1 | 4 | 9 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260617 | 2404 | 漢唐 | 2 | 2 | 4 | 9 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2404 | 漢唐 | 238 | 10 | 42008330.0 | 199920.0 | 210.13 | no_signal |
+| 20260617 | 2404 | 漢唐 | 0 | 10 | 0.0 | 550990.0 | 0.0 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

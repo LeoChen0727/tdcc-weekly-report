@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6855 數泓科
 
 ## Metadata
-- generated_at: 2026-06-16 22:24:08 Asia/Taipei
+- generated_at: 2026-06-17 22:24:46 Asia/Taipei
 - stock_id: 6855
 - stock_name: 數泓科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 257
+- latest_price_date: 20260617
+- price_rows: 258
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 125
-- high: 125
-- low: 120
+- date: 20260617
+- open: 122
+- high: 122
+- low: 122
 - close: 122
 - volume: 122000
-- ma5: 125.8
-- ema23_primary: 117.23
-- distance_to_ema23_pct: 4.07
-- ma20: 114.97
-- ma60: 110.53
-- ma120: 112.09
-- return_5d: -8.27
+- ma5: 124.2
+- ema23_primary: 117.63
+- distance_to_ema23_pct: 3.72
+- ma20: 115.83
+- ma60: 110.77
+- ma120: 112.15
+- return_5d: -6.15
 - return_20d: 16.19
-- volume_ratio: 1.54
-- distance_to_ma20_pct_auxiliary: 6.11
+- volume_ratio: 1.44
+- distance_to_ma20_pct_auxiliary: 5.33
 - distance_to_high_60_pct: -10.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,105,105.5,105,105,6000,106.39,-1.31,105.85,111.47,0.39
 20260518,104,104,104,104,1000,106.19,-2.06,105.72,111.19,0.08
 20260519,103,103,102.5,102.5,6000,105.88,-3.2,105.33,110.92,0.55
 20260520,102.5,102.5,101,101,15000,105.48,-4.24,104.92,110.62,1.42
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,127,127,125.5,126.5,126000,116.14,8.92,113.17,110.33,1.86
 20260615,126.5,126.5,124,124,124000,116.8,6.17,114.12,110.42,1.69
 20260616,125,125,120,122,122000,117.23,4.07,114.97,110.53,1.54
+20260617,122,122,122,122,122000,117.63,3.72,115.83,110.77,1.44
 ```
 
 ## Latest TDCC Snapshot

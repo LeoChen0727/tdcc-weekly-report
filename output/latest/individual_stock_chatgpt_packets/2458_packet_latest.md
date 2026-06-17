@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2458 義隆
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:55 Asia/Taipei
+- generated_at: 2026-06-17 22:23:18 Asia/Taipei
 - stock_id: 2458
 - stock_name: 義隆
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 152.5
-- high: 156
-- low: 151
-- close: 153
-- volume: 3035515
-- ma5: 151
-- ema23_primary: 154.24
-- distance_to_ema23_pct: -0.8
-- ma20: 157.35
-- ma60: 143.06
-- ma120: 132.92
-- return_5d: -8.66
-- return_20d: 2.34
-- volume_ratio: 0.84
-- distance_to_ma20_pct_auxiliary: -2.76
-- distance_to_high_60_pct: -10
+- date: 20260617
+- open: 150.5
+- high: 158
+- low: 148.5
+- close: 156.5
+- volume: 3853182
+- ma5: 150.6
+- ema23_primary: 154.43
+- distance_to_ema23_pct: 1.34
+- ma20: 158.05
+- ma60: 143.32
+- ma120: 133.16
+- return_5d: -1.26
+- return_20d: 9.82
+- volume_ratio: 1.06
+- distance_to_ma20_pct_auxiliary: -0.98
+- distance_to_high_60_pct: -7.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,150.5,150.5,141,142.5,3922993,140.53,1.4,140.55,133.41,0.96
 20260518,140,145,138,145,2087946,140.91,2.91,140.9,133.88,0.52
 20260519,145.5,153,145,147,6138861,141.41,3.95,141.5,134.36,1.46
 20260520,146,154.5,145.5,153,5029399,142.38,7.46,142.3,134.9,1.18
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,150,151.5,146,146.5,1893242,154.66,-5.28,156.75,142.72,0.5
 20260615,149.5,155,147.5,151,2870446,154.35,-2.17,157.18,142.86,0.78
 20260616,152.5,156,151,153,3035515,154.24,-0.8,157.35,143.06,0.84
+20260617,150.5,158,148.5,156.5,3853182,154.43,1.34,158.05,143.32,1.06
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2458 | 義隆 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260617 | 2458 | 義隆 | pattern | 型態觀察 | 54.0 |  |  | pullback_right_side |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2458 | 義隆 | 3 | 3 | 4 | 6 | 7 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260617 | 2458 | 義隆 | 4 | 4 | 4 | 7 | 8 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 8 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2458 | 義隆 | 30 | 0 | 2748610.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3499 環天科
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:18 Asia/Taipei
+- generated_at: 2026-06-17 22:23:45 Asia/Taipei
 - stock_id: 3499
 - stock_name: 環天科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,21 +113,21 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 14.6
-- high: 14.6
-- low: 14.35
+- date: 20260617
+- open: 14.2
+- high: 14.55
+- low: 14.2
 - close: 14.5
 - volume: 14000
-- ma5: 14.67
-- ema23_primary: 14.97
-- distance_to_ema23_pct: -3.15
+- ma5: 14.56
+- ema23_primary: 14.93
+- distance_to_ema23_pct: -2.89
 - ma20: 14.78
-- ma60: 16.25
+- ma60: 16.2
 - ma120: 16.85
-- return_5d: -5.84
-- return_20d: -0.68
-- volume_ratio: 0.59
+- return_5d: -3.65
+- return_20d: 0
+- volume_ratio: 0.7
 - distance_to_ma20_pct_auxiliary: -1.91
 - distance_to_high_60_pct: -26.02
 
@@ -135,7 +135,6 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,14.65,14.7,14.25,14.5,89000,15.77,-8.03,15.67,17.04,0.53
 20260518,14.5,14.85,14.05,14.85,40000,15.69,-5.35,15.58,16.99,0.26
 20260519,15,15,14.55,14.75,34000,15.61,-5.52,15.5,16.95,0.25
 20260520,14.75,14.75,14.45,14.7,35000,15.54,-5.38,15.38,16.9,0.28
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,14.75,14.75,14.55,14.6,15000,15.05,-3,14.79,16.34,0.45
 20260615,14.65,14.85,14.55,14.6,15000,15.01,-2.76,14.79,16.3,0.51
 20260616,14.6,14.6,14.35,14.5,14000,14.97,-3.15,14.78,16.25,0.59
+20260617,14.2,14.55,14.2,14.5,14000,14.93,-2.89,14.78,16.2,0.7
 ```
 
 ## Latest TDCC Snapshot

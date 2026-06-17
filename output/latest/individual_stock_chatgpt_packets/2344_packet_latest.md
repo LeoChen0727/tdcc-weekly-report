@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2344 華邦電
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:49 Asia/Taipei
+- generated_at: 2026-06-17 22:23:11 Asia/Taipei
 - stock_id: 2344
 - stock_name: 華邦電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 198.5
-- high: 201
-- low: 191.5
-- close: 197
-- volume: 355003301
-- ma5: 175.3
-- ema23_primary: 153.28
-- distance_to_ema23_pct: 28.52
-- ma20: 152.47
-- ma60: 117.56
-- ma120: 108.72
-- return_5d: 6.78
-- return_20d: 47.01
-- volume_ratio: 1.3
-- distance_to_ma20_pct_auxiliary: 29.2
-- distance_to_high_60_pct: -1.99
+- date: 20260617
+- open: 195
+- high: 199
+- low: 186.5
+- close: 199
+- volume: 225916174
+- ma5: 182.7
+- ema23_primary: 157.09
+- distance_to_ema23_pct: 26.68
+- ma20: 155.95
+- ma60: 118.82
+- ma120: 109.78
+- return_5d: 22.84
+- return_20d: 53.67
+- volume_ratio: 0.85
+- distance_to_ma20_pct_auxiliary: 27.61
+- distance_to_high_60_pct: -0.99
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,132.5,136.5,127.5,129.5,348302189,107.55,20.4,102.56,104.01,1.69
 20260518,126,134,119,130.5,192808793,109.47,19.21,104.7,104.55,0.92
 20260519,125,127,117.5,117.5,184930796,110.14,6.69,106.29,104.72,0.88
 20260520,117.5,119,112,115.5,150894253,110.58,4.45,107.51,104.92,0.72
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,169.5,172,166,172,213495727,145.69,18.05,145.97,114.89,0.79
 20260615,179.5,189,175,189,229481900,149.3,26.59,149.32,116.23,0.83
 20260616,198.5,201,191.5,197,355003301,153.28,28.52,152.47,117.56,1.3
+20260617,195,199,186.5,199,225916174,157.09,26.68,155.95,118.82,0.85
 ```
 
 ## Latest TDCC Snapshot
@@ -195,7 +195,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2344 | 華邦電 | 223 | 24 | 117462760.0 | 1019570.0 | 115.21 | call_inflow |
+| 20260617 | 2344 | 華邦電 | 0 | 24 | 0.0 | 803960.0 | 0.0 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

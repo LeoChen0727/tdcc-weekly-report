@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4995 晶達
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:37 Asia/Taipei
+- generated_at: 2026-06-17 22:24:07 Asia/Taipei
 - stock_id: 4995
 - stock_name: 晶達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 45.95
-- high: 45.95
+- date: 20260617
+- open: 45
+- high: 45.9
 - low: 45
 - close: 45
 - volume: 45000
-- ma5: 45.52
-- ema23_primary: 45.45
-- distance_to_ema23_pct: -0.99
-- ma20: 45.94
-- ma60: 43.48
-- ma120: 42.2
-- return_5d: -3.74
-- return_20d: 0.33
-- volume_ratio: 1.07
-- distance_to_ma20_pct_auxiliary: -2.05
+- ma5: 45.29
+- ema23_primary: 45.41
+- distance_to_ema23_pct: -0.91
+- ma20: 45.98
+- ma60: 43.55
+- ma120: 42.23
+- return_5d: -2.49
+- return_20d: 1.58
+- volume_ratio: 1.12
+- distance_to_ma20_pct_auxiliary: -2.12
 - distance_to_high_60_pct: -11.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,45.45,45.45,44.1,44.3,77000,43.43,2,43.52,41.84,1.2
 20260518,45.3,45.3,44,44.45,37000,43.52,2.15,43.61,41.91,0.6
 20260519,45.4,45.95,44.65,44.65,51000,43.61,2.38,43.7,41.99,0.81
 20260520,45.85,45.85,45,45.2,27000,43.74,3.33,43.76,42.08,0.45
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,45.5,45.8,45.5,45.75,46000,45.45,0.66,45.84,43.31,1.14
 20260615,46,46.25,45.9,45.95,46000,45.49,1.01,45.93,43.4,1.14
 20260616,45.95,45.95,45,45,45000,45.45,-0.99,45.94,43.48,1.07
+20260617,45,45.9,45,45,45000,45.41,-0.91,45.98,43.55,1.12
 ```
 
 ## Latest TDCC Snapshot

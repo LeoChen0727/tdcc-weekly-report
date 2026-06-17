@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2454 聯發科
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:54 Asia/Taipei
+- generated_at: 2026-06-17 22:23:17 Asia/Taipei
 - stock_id: 2454
 - stock_name: 聯發科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 4550
-- high: 4565
-- low: 4415
-- close: 4560
-- volume: 11309893
-- ma5: 4319
-- ema23_primary: 4008.94
-- distance_to_ema23_pct: 13.75
-- ma20: 4103.5
-- ma60: 2836.42
-- ma120: 2221.08
-- return_5d: 0.77
-- return_20d: 33.92
-- volume_ratio: 0.85
-- distance_to_ma20_pct_auxiliary: 11.12
-- distance_to_high_60_pct: -8.25
+- date: 20260617
+- open: 4495
+- high: 4535
+- low: 4380
+- close: 4460
+- volume: 9197868
+- ma5: 4351
+- ema23_primary: 4046.53
+- distance_to_ema23_pct: 10.22
+- ma20: 4163.5
+- ma60: 2881.92
+- ma120: 2246.42
+- return_5d: 3.72
+- return_20d: 36.81
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: 7.12
+- distance_to_high_60_pct: -10.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,3425,3555,3200,3260,7341025,2869.77,13.6,2867,2089.58,0.46
 20260518,3240,3550,3150,3400,7040537,2913.96,16.68,2940.75,2117.75,0.45
 20260519,3475,3495,3100,3155,10055471,2934.05,7.53,3003.5,2139.83,0.65
 20260520,3195,3350,3155,3230,9296108,2958.71,9.17,3060.5,2162.92,0.62
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,4410,4415,4165,4180,8765007,3912.37,6.84,3997,2743.08,0.68
 20260615,4355,4545,4350,4470,12014769,3958.84,12.91,4045.75,2788.92,0.92
 20260616,4550,4565,4415,4560,11309893,4008.94,13.75,4103.5,2836.42,0.85
+20260617,4495,4535,4380,4460,9197868,4046.53,10.22,4163.5,2881.92,0.69
 ```
 
 ## Latest TDCC Snapshot
@@ -195,7 +195,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2454 | 聯發科 | 441 | 40 | 53280520.0 | 413430.0 | 128.87 | no_signal |
+| 20260617 | 2454 | 聯發科 | 0 | 40 | 0.0 | 238640.0 | 0.0 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1795 美時
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:42 Asia/Taipei
+- generated_at: 2026-06-17 22:23:03 Asia/Taipei
 - stock_id: 1795
 - stock_name: 美時
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 196
-- high: 196
-- low: 191
-- close: 191
-- volume: 1996999
-- ma5: 195.1
-- ema23_primary: 199.73
-- distance_to_ema23_pct: -4.37
-- ma20: 194.5
-- ma60: 212.47
-- ma120: 254.31
-- return_5d: -2.55
-- return_20d: -3.78
-- volume_ratio: 0.93
-- distance_to_ma20_pct_auxiliary: -1.8
-- distance_to_high_60_pct: -23.9
+- date: 20260617
+- open: 189.5
+- high: 195
+- low: 188.5
+- close: 193.5
+- volume: 1402915
+- ma5: 194.1
+- ema23_primary: 199.21
+- distance_to_ema23_pct: -2.87
+- ma20: 194.53
+- ma60: 211.71
+- ma120: 253.5
+- return_5d: -2.52
+- return_20d: 0.26
+- volume_ratio: 0.69
+- distance_to_ma20_pct_auxiliary: -0.53
+- distance_to_high_60_pct: -22.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,198.5,200,192.5,193,3964004,220.37,-12.42,221.7,238.72,1.12
 20260518,190,191,187,188,2666657,217.67,-13.63,219.38,236.32,0.75
 20260519,189.5,195.5,188,189,2854592,215.28,-12.21,217.53,233.91,0.82
 20260520,191,193,188.5,192.5,1749274,213.38,-9.79,215.8,231.71,0.51
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,197,200,195,196.5,1669722,200.98,-2.23,195.38,213.86,0.68
 20260615,198,203,195.5,195.5,1620889,200.52,-2.5,194.88,213.17,0.69
 20260616,196,196,191,191,1996999,199.73,-4.37,194.5,212.47,0.93
+20260617,189.5,195,188.5,193.5,1402915,199.21,-2.87,194.53,211.71,0.69
 ```
 
 ## Latest TDCC Snapshot
@@ -191,17 +191,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 1795 | 美時 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | calendar event: shareholder_meeting on 20260616; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260617 | 1795 | 美時 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | 1.股東常會日期:115/06/16 2.重要決議事項一、盈餘分配或盈虧撥補: 通過本公司114年度盈餘分派案。 3.重要決議事項二、章程修訂: 通過本公司「公司章程」修訂案。 4.重要決議事項三、營業報告書及財務報表: 通過本公司114年度營業報告書及財務報表案。 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項: (1)通過本公司盈餘轉增資發行新股案。 (2)通過本公司「資金貸與及背書保證處理程序」修訂案。 (3)通過本公司「取得或處分資產處理程序」修訂案。 (4)通過解除本公司董事競業禁止之限制案。 (5)通過擬以低於實際買回股份之平均價格轉讓予員工案。 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 1795 | 美時 | 4 | 4 | 4 | 4 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260617 | 1795 | 美時 | 5 | 5 | 5 | 5 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 1795 | 美時 | 126 | 3 | 4270330.0 | 0.0 |  | no_signal |
+| 20260617 | 1795 | 美時 | 0 | 3 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

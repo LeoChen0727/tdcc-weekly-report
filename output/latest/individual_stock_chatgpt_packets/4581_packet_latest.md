@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4581 光隆精密-KY
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:32 Asia/Taipei
+- generated_at: 2026-06-17 22:24:01 Asia/Taipei
 - stock_id: 4581
 - stock_name: 光隆精密-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 278
+- latest_price_date: 20260617
+- price_rows: 279
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 50
-- high: 50
+- date: 20260617
+- open: 49.8
+- high: 49.9
 - low: 49.8
-- close: 49.8
-- volume: 11001
-- ma5: 49.78
-- ema23_primary: 49.81
-- distance_to_ema23_pct: -0.02
-- ma20: 49.7
-- ma60: 49.79
-- ma120: 50.53
-- return_5d: -0.2
-- return_20d: -0.4
-- volume_ratio: 0.63
-- distance_to_ma20_pct_auxiliary: 0.2
-- distance_to_high_60_pct: -5.68
+- close: 49.9
+- volume: 7078
+- ma5: 49.8
+- ema23_primary: 49.82
+- distance_to_ema23_pct: 0.16
+- ma20: 49.73
+- ma60: 49.8
+- ma120: 50.5
+- return_5d: 0.2
+- return_20d: 1.01
+- volume_ratio: 0.41
+- distance_to_ma20_pct_auxiliary: 0.35
+- distance_to_high_60_pct: -5.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,50,50.2,49.4,49.4,17040,50.06,-1.32,50.23,50,0.79
 20260515,50,50,49.7,49.95,20000,50.05,-0.2,50.21,49.98,0.91
 20260518,49.3,49.35,49.25,49.25,10050,49.99,-1.47,50.12,49.96,0.48
 20260519,49.15,49.25,49.15,49.2,5000,49.92,-1.44,50.04,49.94,0.24
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,49.8,49.85,49.5,49.65,22034,49.81,-0.33,49.71,49.79,1.08
 20260615,49.6,49.8,49.6,49.8,10002,49.81,-0.03,49.71,49.79,0.58
 20260616,50,50,49.8,49.8,11001,49.81,-0.02,49.7,49.79,0.63
+20260617,49.8,49.9,49.8,49.9,7078,49.82,0.16,49.73,49.8,0.41
 ```
 
 ## Latest TDCC Snapshot

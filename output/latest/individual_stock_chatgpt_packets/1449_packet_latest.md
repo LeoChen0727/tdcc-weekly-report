@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1449 佳和
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:34 Asia/Taipei
+- generated_at: 2026-06-17 22:22:54 Asia/Taipei
 - stock_id: 1449
 - stock_name: 佳和
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 14.1
-- high: 14.1
+- date: 20260617
+- open: 13.75
+- high: 14.2
 - low: 13.75
-- close: 13.85
-- volume: 1510562
-- ma5: 14.04
-- ema23_primary: 13.44
-- distance_to_ema23_pct: 3.06
-- ma20: 13.1
-- ma60: 13.26
-- ma120: 12.23
-- return_5d: 0.36
-- return_20d: 7.36
-- volume_ratio: 0.84
-- distance_to_ma20_pct_auxiliary: 5.77
-- distance_to_high_60_pct: -18.77
+- close: 14.15
+- volume: 1140336
+- ma5: 14.16
+- ema23_primary: 13.5
+- distance_to_ema23_pct: 4.83
+- ma20: 13.18
+- ma60: 13.31
+- ma120: 12.26
+- return_5d: 4.43
+- return_20d: 14.11
+- volume_ratio: 0.64
+- distance_to_ma20_pct_auxiliary: 7.34
+- distance_to_high_60_pct: -17.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,13,13,12.3,12.4,1710847,13.35,-7.09,13.59,12.5,0.84
 20260518,12.4,12.45,12.2,12.4,586037,13.27,-6.54,13.49,12.52,0.3
 20260519,12.8,12.8,12.2,12.35,853098,13.19,-6.38,13.36,12.54,0.47
 20260520,12.5,12.5,12.2,12.25,527944,13.11,-6.58,13.22,12.57,0.31
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,14.7,15,14,14.35,2787244,13.33,7.66,13.01,13.15,1.56
 20260615,14.35,14.45,14.1,14.2,1705951,13.4,5.96,13.05,13.21,0.95
 20260616,14.1,14.1,13.75,13.85,1510562,13.44,3.06,13.1,13.26,0.84
+20260617,13.75,14.2,13.75,14.15,1140336,13.5,4.83,13.18,13.31,0.64
 ```
 
 ## Latest TDCC Snapshot
@@ -186,13 +186,13 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 1449 | 佳和 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | calendar event: shareholder_meeting on 20260624; status=confirmed; proximity=within_14d |
-| 20260616 | 1449 | 佳和 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: shareholder_meeting on 20260624; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260617 | 1449 | 佳和 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | stale_signal | calendar event: shareholder_meeting on 20260624; status=confirmed; proximity=within_7d |
+| 20260617 | 1449 | 佳和 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | calendar event: shareholder_meeting on 20260624; status=confirmed; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 1449 | 佳和 | 4 | 4 | 4 | 8 | 10 | repeated_but_no_breakout | 近 10 日上榜 8 次、近 20 日上榜 10 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260617 | 1449 | 佳和 | 5 | 5 | 5 | 9 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

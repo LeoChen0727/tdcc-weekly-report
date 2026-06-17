@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00929 復華台灣科技優息
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:27 Asia/Taipei
+- generated_at: 2026-06-17 22:22:46 Asia/Taipei
 - stock_id: 00929
 - stock_name: 復華台灣科技優息
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260616
-- price_rows: 15
+- latest_price_date: 20260617
+- price_rows: 16
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 30.77
-- high: 30.9
-- low: 30.5
-- close: 30.63
-- volume: 28918209
-- ma5: 29.81
-- ema23_primary: 29.2
-- distance_to_ema23_pct: 4.89
-- ma20: 29.83
-- ma60: 29.83
-- ma120: 29.83
-- return_5d: -1
+- date: 20260617
+- open: 30.13
+- high: 30.63
+- low: 30.11
+- close: 30.57
+- volume: 22855336
+- ma5: 29.94
+- ema23_primary: 29.32
+- distance_to_ema23_pct: 4.28
+- ma20: 29.88
+- ma60: 29.88
+- ma120: 29.88
+- return_5d: 2.1
 - return_20d:
-- volume_ratio: 0.63
-- distance_to_ma20_pct_auxiliary: 2.67
-- distance_to_high_60_pct: -2.73
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: 2.31
+- distance_to_high_60_pct: -2.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -150,6 +150,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,29.95,29.95,29.45,29.51,35538901,28.94,1.96,29.72,29.72,0.74
 20260615,30.4,30.64,30.2,30.49,32229202,29.07,4.88,29.78,29.78,0.69
 20260616,30.77,30.9,30.5,30.63,28918209,29.2,4.89,29.83,29.83,0.63
+20260617,30.13,30.63,30.11,30.57,22855336,29.32,4.28,29.88,29.88,0.52
 ```
 
 ## Latest TDCC Snapshot

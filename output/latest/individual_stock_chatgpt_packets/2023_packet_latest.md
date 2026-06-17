@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2023 燁輝
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:44 Asia/Taipei
+- generated_at: 2026-06-17 22:23:05 Asia/Taipei
 - stock_id: 2023
 - stock_name: 燁輝
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 14
-- high: 14.05
+- date: 20260617
+- open: 13.8
+- high: 14.1
 - low: 13.8
-- close: 13.9
-- volume: 1937398
-- ma5: 13.87
-- ema23_primary: 13.85
-- distance_to_ema23_pct: 0.34
+- close: 14
+- volume: 1577942
+- ma5: 13.88
+- ema23_primary: 13.87
+- distance_to_ema23_pct: 0.97
 - ma20: 13.78
-- ma60: 14.05
+- ma60: 14.04
 - ma120: 14.44
-- return_5d: 1.46
-- return_20d: -0.36
-- volume_ratio: 0.75
-- distance_to_ma20_pct_auxiliary: 0.91
-- distance_to_high_60_pct: -6.4
+- return_5d: 0.36
+- return_20d: 0.72
+- volume_ratio: 0.66
+- distance_to_ma20_pct_auxiliary: 1.6
+- distance_to_high_60_pct: -5.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,13.95,13.95,13.65,13.9,4829769,14.06,-1.12,14.01,14.35,1.93
 20260518,13.9,13.9,13.6,13.75,2549523,14.03,-2.01,14,14.33,0.99
 20260519,13.65,13.8,13.6,13.6,2027823,14,-2.83,13.98,14.31,0.78
 20260520,13.65,13.65,13.35,13.65,3017403,13.97,-2.27,13.96,14.29,1.12
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,13.85,13.85,13.7,13.85,1473537,13.84,0.04,13.78,14.07,0.56
 20260615,13.95,14,13.8,13.9,1518467,13.85,0.37,13.78,14.06,0.59
 20260616,14,14.05,13.8,13.9,1937398,13.85,0.34,13.78,14.05,0.75
+20260617,13.8,14.1,13.8,14,1577942,13.87,0.97,13.78,14.04,0.66
 ```
 
 ## Latest TDCC Snapshot
@@ -186,12 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2023 | 燁輝 | pattern | 型態觀察 | 51.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260617 | 2023 | 燁輝 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2023 | 燁輝 | 3 | 3 | 4 | 7 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260617 | 2023 | 燁輝 | 4 | 4 | 4 | 8 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

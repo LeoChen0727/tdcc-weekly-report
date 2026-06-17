@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2892 第一金
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:04 Asia/Taipei
+- generated_at: 2026-06-17 22:23:28 Asia/Taipei
 - stock_id: 2892
 - stock_name: 第一金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 31.3
-- high: 31.8
-- low: 31.25
-- close: 31.8
-- volume: 50858769
-- ma5: 30.81
-- ema23_primary: 29.19
-- distance_to_ema23_pct: 8.93
-- ma20: 28.74
-- ma60: 28.72
-- ma120: 29
-- return_5d: 12.97
-- return_20d: 7.8
-- volume_ratio: 0.82
-- distance_to_ma20_pct_auxiliary: 10.66
-- distance_to_high_60_pct: 0
+- date: 20260617
+- open: 31.8
+- high: 32.75
+- low: 31.7
+- close: 32.5
+- volume: 65779573
+- ma5: 31.45
+- ema23_primary: 29.47
+- distance_to_ema23_pct: 10.28
+- ma20: 28.9
+- ma60: 28.78
+- ma120: 29.04
+- return_5d: 10.92
+- return_20d: 10.92
+- volume_ratio: 1.03
+- distance_to_ma20_pct_auxiliary: 12.47
+- distance_to_high_60_pct: -0.76
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,29.55,29.8,29.3,29.3,23894669,28.97,1.14,28.85,28.91,0.74
 20260518,29.3,29.35,28.7,28.75,28921423,28.95,-0.69,28.85,28.9,0.87
 20260519,28.75,29.45,28.7,29,28479556,28.95,0.16,28.85,28.9,0.85
 20260520,28.1,28.4,27.55,27.75,175496650,28.85,-3.83,28.8,28.88,4.22
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,30.7,31.35,30.65,31,48818443,28.74,7.85,28.53,28.63,0.81
 20260615,31.35,31.65,31.05,31.3,39236972,28.96,8.09,28.62,28.67,0.65
 20260616,31.3,31.8,31.25,31.8,50858769,29.19,8.93,28.74,28.72,0.82
+20260617,31.8,32.75,31.7,32.5,65779573,29.47,10.28,28.9,28.78,1.03
 ```
 
 ## Latest TDCC Snapshot
@@ -185,17 +185,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2892 | 第一金 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | continued_many_days | calendar event: shareholder_meeting on 20260618; status=confirmed; proximity=within_3d |
+| 20260617 | 2892 | 第一金 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_many_days | calendar event: shareholder_meeting on 20260618; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2892 | 第一金 | 15 | 5 | 5 | 10 | 15 | continued_many_days | 連續 15 日上榜，需區分醞釀延續或訊號鈍化。 |
+| 20260617 | 2892 | 第一金 | 16 | 6 | 5 | 10 | 16 | continued_many_days | 連續 16 日上榜，需區分醞釀延續或訊號鈍化。 |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2892 | 第一金 | 6 | 0 | 398070.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

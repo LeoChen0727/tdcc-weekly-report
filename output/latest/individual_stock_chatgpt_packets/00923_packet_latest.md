@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00923 群益台ESG低碳50
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:27 Asia/Taipei
+- generated_at: 2026-06-17 22:22:46 Asia/Taipei
 - stock_id: 00923
 - stock_name: 群益台ESG低碳50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260616
-- price_rows: 15
+- latest_price_date: 20260617
+- price_rows: 16
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 42.73
-- high: 42.77
-- low: 42.39
-- close: 42.66
-- volume: 4682113
-- ma5: 41.67
-- ema23_primary: 41.02
-- distance_to_ema23_pct: 3.99
-- ma20: 41.64
-- ma60: 41.64
-- ma120: 41.64
-- return_5d: -0.09
+- date: 20260617
+- open: 42.34
+- high: 42.7
+- low: 42.21
+- close: 42.67
+- volume: 5980757
+- ma5: 41.8
+- ema23_primary: 41.16
+- distance_to_ema23_pct: 3.67
+- ma20: 41.7
+- ma60: 41.7
+- ma120: 41.7
+- return_5d: 1.57
 - return_20d:
-- volume_ratio: 0.7
-- distance_to_ma20_pct_auxiliary: 2.45
-- distance_to_high_60_pct: -2.25
+- volume_ratio: 0.91
+- distance_to_ma20_pct_auxiliary: 2.32
+- distance_to_high_60_pct: -2.22
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -150,6 +150,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,41.82,41.82,41.01,41.05,4446933,40.74,0.77,41.5,41.5,0.66
 20260615,42.36,42.48,42.08,42.39,7224075,40.88,3.7,41.57,41.57,1.06
 20260616,42.73,42.77,42.39,42.66,4682113,41.02,3.99,41.64,41.64,0.7
+20260617,42.34,42.7,42.21,42.67,5980757,41.16,3.67,41.7,41.7,0.91
 ```
 
 ## Latest TDCC Snapshot

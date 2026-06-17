@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2374 佳能
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:51 Asia/Taipei
+- generated_at: 2026-06-17 22:23:13 Asia/Taipei
 - stock_id: 2374
 - stock_name: 佳能
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -119,29 +119,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 75.6
-- high: 75.8
-- low: 74.2
-- close: 74.5
-- volume: 3802929
-- ma5: 74.64
-- ema23_primary: 78.45
-- distance_to_ema23_pct: -5.03
-- ma20: 80.02
-- ma60: 75.56
-- ma120: 77.23
-- return_5d: -9.7
-- return_20d: -7.22
-- volume_ratio: 0.31
-- distance_to_ma20_pct_auxiliary: -6.89
-- distance_to_high_60_pct: -13.77
+- date: 20260617
+- open: 74.5
+- high: 77
+- low: 74.1
+- close: 76.3
+- volume: 6884150
+- ma5: 73.96
+- ema23_primary: 78.27
+- distance_to_ema23_pct: -2.52
+- ma20: 79.72
+- ma60: 75.64
+- ma120: 77.19
+- return_5d: -4.27
+- return_20d: -7.18
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: -4.29
+- distance_to_high_60_pct: -11.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,81.7,85.5,81.2,82.2,33320185,77.28,6.37,77.05,74.08,2.65
 20260518,81.5,83,77.2,82.4,17734326,77.71,6.04,77.55,74.16,1.33
 20260519,82.4,82.5,78.8,79.9,12494207,77.89,2.58,77.93,74.19,0.91
 20260520,80.1,80.3,78.5,78.8,5540053,77.97,1.07,78.12,74.2,0.4
@@ -161,6 +160,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,73.9,74.1,72,72.1,3532094,79.14,-8.89,80.54,75.44,0.27
 20260615,73.8,76.5,73,75.2,6051215,78.81,-4.58,80.31,75.52,0.48
 20260616,75.6,75.8,74.2,74.5,3802929,78.45,-5.03,80.02,75.56,0.31
+20260617,74.5,77,74.1,76.3,6884150,78.27,-2.52,79.72,75.64,0.63
 ```
 
 ## Latest TDCC Snapshot
@@ -192,17 +192,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2374 | 佳能 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | stale_signal | calendar event: shareholder_meeting on 20260625; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260617 | 2374 | 佳能 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | stale_signal | calendar event: shareholder_meeting on 20260625; status=confirmed; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2374 | 佳能 | 15 | 6 | 5 | 10 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260617 | 2374 | 佳能 | 16 | 7 | 5 | 10 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2374 | 佳能 | 81 | 1 | 8044600.0 | 2000.0 | 4022.3 | no_signal |
+| 20260617 | 2374 | 佳能 | 0 | 1 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

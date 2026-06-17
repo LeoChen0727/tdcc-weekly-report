@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6936 永鴻生技
 
 ## Metadata
-- generated_at: 2026-06-16 22:24:11 Asia/Taipei
+- generated_at: 2026-06-17 22:24:49 Asia/Taipei
 - stock_id: 6936
 - stock_name: 永鴻生技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 268
+- latest_price_date: 20260617
+- price_rows: 269
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 33.2
-- high: 33.8
-- low: 33.2
+- date: 20260617
+- open: 33.3
+- high: 33.6
+- low: 33.3
 - close: 33.6
-- volume: 24709
-- ma5: 33.73
-- ema23_primary: 33.67
-- distance_to_ema23_pct: -0.2
-- ma20: 33.43
-- ma60: 34.2
-- ma120: 34.94
-- return_5d: -0.3
-- return_20d: 0.3
-- volume_ratio: 0.46
-- distance_to_ma20_pct_auxiliary: 0.52
+- volume: 8935
+- ma5: 33.54
+- ema23_primary: 33.66
+- distance_to_ema23_pct: -0.18
+- ma20: 33.44
+- ma60: 34.19
+- ma120: 34.93
+- return_5d: -2.75
+- return_20d: 0.9
+- volume_ratio: 0.18
+- distance_to_ma20_pct_auxiliary: 0.47
 - distance_to_high_60_pct: -6.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,33.5,33.95,33.1,33.3,85454,34.33,-3.01,34.47,34.82,1.53
 20260518,33.5,33.5,33.2,33.2,28211,34.24,-3.03,34.34,34.77,0.52
 20260519,33.45,33.6,33.25,33.25,33152,34.16,-2.65,34.24,34.72,0.62
 20260520,33.3,33.4,33.25,33.4,27860,34.09,-2.03,34.16,34.68,0.52
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,33.6,33.6,33.2,33.55,37265,33.67,-0.34,33.42,34.21,0.63
 20260615,33.95,34.05,33.75,33.75,15153,33.67,0.23,33.42,34.21,0.27
 20260616,33.2,33.8,33.2,33.6,24709,33.67,-0.2,33.43,34.2,0.46
+20260617,33.3,33.6,33.3,33.6,8935,33.66,-0.18,33.44,34.19,0.18
 ```
 
 ## Latest TDCC Snapshot

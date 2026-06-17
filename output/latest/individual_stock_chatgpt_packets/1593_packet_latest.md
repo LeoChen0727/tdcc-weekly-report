@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1593 祺驊
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:38 Asia/Taipei
+- generated_at: 2026-06-17 22:22:58 Asia/Taipei
 - stock_id: 1593
 - stock_name: 祺驊
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 31.75
-- high: 32.3
-- low: 31.75
-- close: 32.25
-- volume: 32000
-- ma5: 31.89
-- ema23_primary: 31.65
-- distance_to_ema23_pct: 1.88
-- ma20: 31.45
-- ma60: 32.46
-- ma120: 31.5
-- return_5d: 2.38
-- return_20d: 3.7
-- volume_ratio: 1.09
-- distance_to_ma20_pct_auxiliary: 2.56
-- distance_to_high_60_pct: -7.99
+- date: 20260617
+- open: 30.05
+- high: 30.35
+- low: 30.05
+- close: 30.25
+- volume: 30000
+- ma5: 31.53
+- ema23_primary: 31.54
+- distance_to_ema23_pct: -4.08
+- ma20: 31.4
+- ma60: 32.4
+- ma120: 31.52
+- return_5d: -5.62
+- return_20d: -3.04
+- volume_ratio: 1.01
+- distance_to_ma20_pct_auxiliary: -3.65
+- distance_to_high_60_pct: -13.69
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,30.95,32,30.95,31.2,25000,32.05,-2.64,32.01,32.73,0.68
 20260518,31.25,31.85,31.25,31.85,45000,32.03,-0.56,31.93,32.77,1.17
 20260519,31.7,32,31.05,31.2,55000,31.96,-2.38,31.84,32.81,1.37
 20260520,31.05,31.45,31,31.35,24000,31.91,-1.76,31.75,32.84,0.61
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,31.7,31.7,31.55,31.7,32000,31.59,0.36,31.38,32.51,1.08
 20260615,31.7,31.85,31.7,31.75,32000,31.6,0.48,31.39,32.47,1.09
 20260616,31.75,32.3,31.75,32.25,32000,31.65,1.88,31.45,32.46,1.09
+20260617,30.05,30.35,30.05,30.25,30000,31.54,-4.08,31.4,32.4,1.01
 ```
 
 ## Latest TDCC Snapshot

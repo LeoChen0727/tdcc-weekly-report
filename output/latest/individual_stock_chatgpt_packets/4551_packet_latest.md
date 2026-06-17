@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4551 智伸科
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:30 Asia/Taipei
+- generated_at: 2026-06-17 22:23:59 Asia/Taipei
 - stock_id: 4551
 - stock_name: 智伸科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -114,29 +114,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 183
-- high: 183.5
-- low: 182
-- close: 183.5
-- volume: 2379377
-- ma5: 156.5
-- ema23_primary: 152.68
-- distance_to_ema23_pct: 20.19
-- ma20: 153.62
-- ma60: 141.53
-- ma120: 130.26
-- return_5d: 20.33
-- return_20d: 18.01
+- date: 20260617
+- open: 200
+- high: 201.5
+- low: 193
+- close: 201.5
+- volume: 2542965
+- ma5: 168.5
+- ema23_primary: 156.74
+- distance_to_ema23_pct: 28.55
+- ma20: 156.15
+- ma60: 142.85
+- ma120: 130.98
+- return_5d: 42.4
+- return_20d: 33.44
 - volume_ratio: 1.9
-- distance_to_ma20_pct_auxiliary: 19.45
+- distance_to_ma20_pct_auxiliary: 29.04
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,158,158,149.5,151,784361,141,7.09,140.18,131.3,1
 20260518,151,152.5,144,145.5,989733,141.38,2.91,140.35,131.79,1.24
 20260519,145.5,152,145.5,146,753242,141.76,2.99,140.65,132.18,0.92
 20260520,146,150.5,144.5,148.5,714092,142.33,4.34,141.05,132.6,0.86
@@ -156,6 +155,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,142,152,142,152,1741843,148.32,2.48,151.53,139.66,1.57
 20260615,167,167,161.5,167,3128196,149.87,11.43,152.22,140.42,2.59
 20260616,183,183.5,182,183.5,2379377,152.68,20.19,153.62,141.53,1.9
+20260617,200,201.5,193,201.5,2542965,156.74,28.55,156.15,142.85,1.9
 ```
 
 ## Latest TDCC Snapshot
@@ -187,17 +187,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 4551 | 智伸科 | true_breakout | 嚴格突破 | 97.0 |  |  | breakout_confirmed |  | no_signal | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260617 | 4551 | 智伸科 | true_breakout | 嚴格突破 | 97.0 |  |  | breakout_confirmed |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 4551 | 智伸科 | 3 | 2 | 3 | 5 | 5 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260617 | 4551 | 智伸科 | 4 | 3 | 4 | 5 | 6 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 4551 | 智伸科 | 22 | 0 | 800990.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

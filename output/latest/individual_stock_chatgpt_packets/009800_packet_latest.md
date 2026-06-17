@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009800 中信NASDAQ
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:28 Asia/Taipei
+- generated_at: 2026-06-17 22:22:47 Asia/Taipei
 - stock_id: 009800
 - stock_name: 中信NASDAQ
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260616
-- price_rows: 15
+- latest_price_date: 20260617
+- price_rows: 16
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 13.33
-- high: 13.38
-- low: 13.33
-- close: 13.37
-- volume: 1725813
-- ma5: 13.09
-- ema23_primary: 13.08
-- distance_to_ema23_pct: 2.22
+- date: 20260617
+- open: 13.19
+- high: 13.23
+- low: 13.19
+- close: 13.22
+- volume: 1004268
+- ma5: 13.1
+- ema23_primary: 13.09
+- distance_to_ema23_pct: 0.98
 - ma20: 13.13
 - ma60: 13.13
 - ma120: 13.13
-- return_5d: 0.68
+- return_5d: 0.38
 - return_20d:
-- volume_ratio: 0.7
-- distance_to_ma20_pct_auxiliary: 1.84
-- distance_to_high_60_pct: -0.15
+- volume_ratio: 0.42
+- distance_to_ma20_pct_auxiliary: 0.66
+- distance_to_high_60_pct: -1.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -150,6 +150,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,12.99,13,12.94,12.98,2188662,13.04,-0.43,13.1,13.1,0.86
 20260615,13.2,13.24,13.17,13.24,1900960,13.05,1.43,13.11,13.11,0.76
 20260616,13.33,13.38,13.33,13.37,1725813,13.08,2.22,13.13,13.13,0.7
+20260617,13.19,13.23,13.19,13.22,1004268,13.09,0.98,13.13,13.13,0.42
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2536 宏普
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:58 Asia/Taipei
+- generated_at: 2026-06-17 22:23:21 Asia/Taipei
 - stock_id: 2536
 - stock_name: 宏普
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 21.7
-- high: 21.75
-- low: 21.35
+- date: 20260617
+- open: 21.4
+- high: 21.5
+- low: 21.2
 - close: 21.4
-- volume: 478923
-- ma5: 21.46
-- ema23_primary: 20.63
-- distance_to_ema23_pct: 3.74
-- ma20: 20.21
-- ma60: 21.31
-- ma120: 22.8
-- return_5d: 8.91
-- return_20d: 6.47
-- volume_ratio: 0.87
-- distance_to_ma20_pct_auxiliary: 5.88
+- volume: 672295
+- ma5: 21.62
+- ema23_primary: 20.69
+- distance_to_ema23_pct: 3.42
+- ma20: 20.28
+- ma60: 21.28
+- ma120: 22.75
+- return_5d: 3.88
+- return_20d: 6.73
+- volume_ratio: 1.2
+- distance_to_ma20_pct_auxiliary: 5.52
 - distance_to_high_60_pct: -7.36
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,20,20.15,20,20.05,477063,21.15,-5.21,21.23,22.18,1.21
 20260518,20.05,20.3,20.05,20.1,200600,21.06,-4.58,21.11,22.14,0.51
 20260519,20.15,20.3,20.15,20.15,136111,20.99,-4,21.02,22.1,0.35
 20260520,20.15,20.15,19.9,20.05,414184,20.91,-4.11,20.91,22.06,1.05
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,21.9,22.15,21.6,21.95,1470877,20.45,7.31,20.08,21.34,2.75
 20260615,22.1,22.1,21.55,21.7,796531,20.56,5.55,20.15,21.33,1.43
 20260616,21.7,21.75,21.35,21.4,478923,20.63,3.74,20.21,21.31,0.87
+20260617,21.4,21.5,21.2,21.4,672295,20.69,3.42,20.28,21.28,1.2
 ```
 
 ## Latest TDCC Snapshot

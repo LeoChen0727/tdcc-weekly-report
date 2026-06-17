@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00735 國泰臺韓科技
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:26 Asia/Taipei
+- generated_at: 2026-06-17 22:22:45 Asia/Taipei
 - stock_id: 00735
 - stock_name: 國泰臺韓科技
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260616
-- price_rows: 15
+- latest_price_date: 20260617
+- price_rows: 16
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 114.5
-- high: 114.5
-- low: 112.75
-- close: 113.85
-- volume: 2805475
-- ma5: 110.34
-- ema23_primary: 108.86
-- distance_to_ema23_pct: 4.58
-- ma20: 111.08
-- ma60: 111.08
-- ma120: 111.08
-- return_5d: -2.23
+- date: 20260617
+- open: 112.8
+- high: 115.05
+- low: 112.6
+- close: 115.05
+- volume: 3012631
+- ma5: 111.25
+- ema23_primary: 109.38
+- distance_to_ema23_pct: 5.18
+- ma20: 111.33
+- ma60: 111.33
+- ma120: 111.33
+- return_5d: 4.12
 - return_20d:
-- volume_ratio: 0.61
-- distance_to_ma20_pct_auxiliary: 2.49
-- distance_to_high_60_pct: -5.83
+- volume_ratio: 0.67
+- distance_to_ma20_pct_auxiliary: 3.34
+- distance_to_high_60_pct: -4.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -150,6 +150,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,111.85,112.45,109.3,109.8,4890963,107.99,1.67,110.72,110.72,1.01
 20260615,113.85,114.1,112.3,113,2860289,108.41,4.23,110.89,110.89,0.61
 20260616,114.5,114.5,112.75,113.85,2805475,108.86,4.58,111.08,111.08,0.61
+20260617,112.8,115.05,112.6,115.05,3012631,109.38,5.18,111.33,111.33,0.67
 ```
 
 ## Latest TDCC Snapshot

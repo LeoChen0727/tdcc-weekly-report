@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3591 艾笛森
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:21 Asia/Taipei
+- generated_at: 2026-06-17 22:23:48 Asia/Taipei
 - stock_id: 3591
 - stock_name: 艾笛森
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 23.55
-- high: 23.7
-- low: 22.65
-- close: 22.65
-- volume: 463342
-- ma5: 23.04
-- ema23_primary: 24.27
-- distance_to_ema23_pct: -6.67
-- ma20: 24.92
-- ma60: 23.43
-- ma120: 21.18
-- return_5d: -9.04
-- return_20d: -4.43
-- volume_ratio: 0.22
-- distance_to_ma20_pct_auxiliary: -9.11
-- distance_to_high_60_pct: -24.25
+- date: 20260617
+- open: 22.65
+- high: 23.3
+- low: 22.5
+- close: 23.15
+- volume: 382673
+- ma5: 22.82
+- ema23_primary: 24.17
+- distance_to_ema23_pct: -4.24
+- ma20: 24.89
+- ma60: 23.48
+- ma120: 21.23
+- return_5d: -4.54
+- return_20d: -2.94
+- volume_ratio: 0.19
+- distance_to_ma20_pct_auxiliary: -6.97
+- distance_to_high_60_pct: -22.58
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,24.15,24.45,23.35,23.85,1368625,23.48,1.56,24.04,21.42,0.32
 20260518,23.95,24.9,23.35,24.6,1497982,23.58,4.34,24.04,21.51,0.36
 20260519,24.6,26.2,24.4,25.75,5056022,23.76,8.38,23.96,21.62,1.22
 20260520,26,26.35,25.35,25.9,3779343,23.94,8.2,23.99,21.74,1.25
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,22.95,23.35,22.75,22.75,489569,24.52,-7.22,25,23.34,0.22
 20260615,23.15,23.55,23.1,23.25,422550,24.42,-4.77,24.97,23.39,0.2
 20260616,23.55,23.7,22.65,22.65,463342,24.27,-6.67,24.92,23.43,0.22
+20260617,22.65,23.3,22.5,23.15,382673,24.17,-4.24,24.89,23.48,0.19
 ```
 
 ## Latest TDCC Snapshot

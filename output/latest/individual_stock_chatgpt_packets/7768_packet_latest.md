@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7768 頌勝科技
 
 ## Metadata
-- generated_at: 2026-06-16 22:24:25 Asia/Taipei
+- generated_at: 2026-06-17 22:25:05 Asia/Taipei
 - stock_id: 7768
 - stock_name: 頌勝科技
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260616
-- price_rows: 26
+- latest_price_date: 20260617
+- price_rows: 27
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 382
-- high: 382
-- low: 369
+- date: 20260617
+- open: 370
+- high: 370
+- low: 362
 - close: 370
-- volume: 226939
-- ma5: 381.7
-- ema23_primary: 386.15
-- distance_to_ema23_pct: -4.18
-- ma20: 385.48
-- ma60: 378.85
-- ma120: 378.85
-- return_5d: -13.55
-- return_20d: -1.2
-- volume_ratio: 0.58
-- distance_to_ma20_pct_auxiliary: -4.01
+- volume: 135292
+- ma5: 374.4
+- ema23_primary: 384.8
+- distance_to_ema23_pct: -3.85
+- ma20: 385.98
+- ma60: 378.52
+- ma120: 378.52
+- return_5d: -8.98
+- return_20d: 2.78
+- volume_ratio: 0.36
+- distance_to_ma20_pct_auxiliary: -4.14
 - distance_to_high_60_pct: -16.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,374.5,374.5,360,360,401999,371.92,-3.2,357.21,357.21,0.5
 20260518,351.5,355,345,350,162500,370.09,-5.43,356.31,356.31,0.22
 20260519,354.5,368.5,351.5,363.5,321980,369.54,-1.63,357.11,357.11,0.47
 20260520,365,375,364,369,198162,369.49,-0.13,358.3,358.3,0.31
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,380,384,378,378,113900,388.27,-2.64,383.75,379.15,0.27
 20260615,385,388,380.5,380.5,165093,387.62,-1.84,385.7,379.2,0.4
 20260616,382,382,369,370,226939,386.15,-4.18,385.48,378.85,0.58
+20260617,370,370,362,370,135292,384.8,-3.85,385.98,378.52,0.36
 ```
 
 ## Latest TDCC Snapshot

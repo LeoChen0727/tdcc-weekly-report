@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2886 兆豐金
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:04 Asia/Taipei
+- generated_at: 2026-06-17 22:23:28 Asia/Taipei
 - stock_id: 2886
 - stock_name: 兆豐金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 43.85
-- high: 44.85
-- low: 43.5
-- close: 44.5
-- volume: 21732920
-- ma5: 43.45
-- ema23_primary: 41.43
-- distance_to_ema23_pct: 7.41
-- ma20: 41.09
-- ma60: 39.95
-- ma120: 40
-- return_5d: 6.71
-- return_20d: 13.23
-- volume_ratio: 0.52
-- distance_to_ma20_pct_auxiliary: 8.29
-- distance_to_high_60_pct: -1
+- date: 20260617
+- open: 44.2
+- high: 45.45
+- low: 44.2
+- close: 45.1
+- volume: 31768965
+- ma5: 44.08
+- ema23_primary: 41.73
+- distance_to_ema23_pct: 8.06
+- ma20: 41.38
+- ma60: 40.04
+- ma120: 40.04
+- return_5d: 7.51
+- return_20d: 14.47
+- volume_ratio: 0.74
+- distance_to_ma20_pct_auxiliary: 8.99
+- distance_to_high_60_pct: -0.77
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,39.6,40,39.35,39.4,14581775,39.52,-0.31,39.59,39.48,0.61
 20260518,39.8,39.85,39.4,39.55,28226050,39.53,0.06,39.59,39.48,1.16
 20260519,39.65,41.4,39.65,40.65,58969091,39.62,2.6,39.63,39.49,2.27
 20260520,41,41,40.1,40.3,37143602,39.68,1.57,39.68,39.5,1.42
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,43.45,43.95,43.1,43.4,36267595,40.89,6.14,40.61,39.77,0.89
 20260615,44.95,44.95,43.4,44,30155084,41.15,6.93,40.84,39.86,0.73
 20260616,43.85,44.85,43.5,44.5,21732920,41.43,7.41,41.09,39.95,0.52
+20260617,44.2,45.45,44.2,45.1,31768965,41.73,8.06,41.38,40.04,0.74
 ```
 
 ## Latest TDCC Snapshot
@@ -185,17 +185,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2886 | 兆豐金 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: shareholder_meeting on 20260618; status=confirmed; proximity=within_3d |
+| 20260617 | 2886 | 兆豐金 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | continued_many_days | 1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，如股息率等）: Schuldschein Loans授信資產之轉讓。 2.事實發生日:115/6/16~115/6/16 3.董事會通過日期: 民國115年6月12日 4.其他核決日期: 不適用 5.交易單位數量、每單位價格及交易總金額: 不適用。 不適用。 歐元20,540,000元。 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之 關係人者，得免揭露其姓名）: Barclays Bank Ireland PLC 非關係人。 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移 轉之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次 移轉日期及移轉金額: 不適用。 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係人之取 得及處分日期、價格及交易當時與公司之關係: 不適用。 9.本次係處分債權之相關事項（含處分之債權附隨擔保品種類、處分債權 如有屬對關係人債權者尚需公告關係人名稱及本次處分該關係人之債權 帳面金額: 不適用。 10.處分利益（或損失）（取得有價證券者不適用）（遞延者應列表說明 認列情形）: 處分損失歐元1,960,000元。 11.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 依債權買賣相關合約辦理。 12.本次交易之決定方式、價格決定之參考依據及決策單位: 本行內部授權層級核准，相關條件依合約及一般市場慣例為之。 13.取得或處分有價證券標的公司每股淨值: 不適用 14.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 不適用。 15.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列 之有價證券投資（含本次交易）占公司最近期財務報表中總資產及歸屬 於母公司業主之權益之比例暨最近期財務報表中營運資金數額: 不適用。 16.經紀人及經紀費用: 不適用。 17.取得或處分之具體目的或用途: 原債權之出售。 18.本次交易表示異議董事之意見: 不適用。 19.本次交易為關係人交易:否 20.監察人承認或審計委員會同意日期: 不適用。 21.本次交易會計師出具非合理性意見:不適用 22.會計師事務所名稱: 不適用。 23.會計師姓名: 不適用。 24.會計師開業證書字號: 不適用。 25.是否涉及營運模式變更:否 26.營運模式變更說明: 不適用。 27.過去一年及預計未來一年內與交易相對人交易情形: 無。 28.資金來源: 不適用。 29.前已就同一件事件發布重大訊息日期: 不適用 30.其他敘明事項: 無。；calendar event: shareholder_meeting on 20260618; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2886 | 兆豐金 | 15 | 6 | 5 | 10 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260617 | 2886 | 兆豐金 | 16 | 7 | 5 | 10 | 16 | continued_many_days | 連續 16 日上榜，需區分醞釀延續或訊號鈍化。 |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2886 | 兆豐金 | 4 | 0 | 516290.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

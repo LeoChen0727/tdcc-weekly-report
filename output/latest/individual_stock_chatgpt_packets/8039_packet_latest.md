@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8039 台虹
 
 ## Metadata
-- generated_at: 2026-06-16 22:24:27 Asia/Taipei
+- generated_at: 2026-06-17 22:25:07 Asia/Taipei
 - stock_id: 8039
 - stock_name: 台虹
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 150
-- high: 151
-- low: 141
-- close: 141.5
-- volume: 7347964
-- ma5: 143
-- ema23_primary: 144.79
-- distance_to_ema23_pct: -2.27
-- ma20: 146.38
-- ma60: 135.59
-- ma120: 114.44
-- return_5d: -3.74
-- return_20d: -5.35
-- volume_ratio: 0.4
-- distance_to_ma20_pct_auxiliary: -3.33
-- distance_to_high_60_pct: -17.01
+- date: 20260617
+- open: 141.5
+- high: 150
+- low: 139
+- close: 146
+- volume: 8123638
+- ma5: 144.1
+- ema23_primary: 144.89
+- distance_to_ema23_pct: 0.77
+- ma20: 146.47
+- ma60: 136.07
+- ma120: 114.87
+- return_5d: 3.91
+- return_20d: 1.39
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: -0.32
+- distance_to_high_60_pct: -14.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,151.5,162.5,141.5,144,43279260,136.79,5.27,140.55,121.08,2.58
 20260518,140.5,144.5,138,140.5,12030255,137.1,2.48,140.4,122.03,0.77
 20260519,140.5,142,130.5,133.5,13373703,136.8,-2.41,139.93,122.84,0.88
 20260520,133.5,134,125.5,126.5,9143802,135.94,-6.95,138.93,123.57,0.63
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,141,149.5,141,149.5,17954505,144.87,3.2,146.3,134.95,0.92
 20260615,153,153.5,147.5,147.5,11405166,145.09,1.66,146.78,135.28,0.58
 20260616,150,151,141,141.5,7347964,144.79,-2.27,146.38,135.59,0.4
+20260617,141.5,150,139,146,8123638,144.89,0.77,146.47,136.07,0.49
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 8039 | 台虹 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: ex_dividend on 20260630; status=confirmed; proximity=within_14d |
+| 20260617 | 8039 | 台虹 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: ex_dividend on 20260630; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 8039 | 台虹 | 3 | 3 | 4 | 8 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260617 | 8039 | 台虹 | 4 | 4 | 4 | 8 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 8039 | 台虹 | 123 | 6 | 5149940.0 | 14700.0 | 350.34 | no_signal |
+| 20260617 | 8039 | 台虹 | 0 | 6 | 0.0 | 20200.0 | 0.0 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

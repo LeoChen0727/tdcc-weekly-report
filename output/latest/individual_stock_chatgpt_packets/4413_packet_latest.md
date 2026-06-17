@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4413 飛寶企業
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:28 Asia/Taipei
+- generated_at: 2026-06-17 22:23:57 Asia/Taipei
 - stock_id: 4413
 - stock_name: 飛寶企業
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 266
+- latest_price_date: 20260617
+- price_rows: 267
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
+- date: 20260617
 - open: 16.6
-- high: 16.65
+- high: 16.6
 - low: 16.6
 - close: 16.6
 - volume: 17000
-- ma5: 16.59
-- ema23_primary: 17.23
-- distance_to_ema23_pct: -3.67
-- ma20: 17.26
-- ma60: 17.9
-- ma120: 17.94
-- return_5d: 0
+- ma5: 16.56
+- ema23_primary: 17.18
+- distance_to_ema23_pct: -3.38
+- ma20: 17.16
+- ma60: 17.87
+- ma120: 17.92
+- return_5d: -0.9
 - return_20d: -10.75
-- volume_ratio: 1.23
-- distance_to_ma20_pct_auxiliary: -3.84
+- volume_ratio: 1.2
+- distance_to_ma20_pct_auxiliary: -3.28
 - distance_to_high_60_pct: -17.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260511,18.8,19.1,18.6,18.6,10000,18.53,0.38,18.54,18.16,0.51
 20260512,18.7,19.05,18.7,18.7,17000,18.54,0.84,18.61,18.17,0.86
 20260514,18.1,18.2,18.1,18.1,4000,18.51,-2.2,18.63,18.17,0.2
 20260515,18.15,18.4,18.1,18.4,4000,18.5,-0.53,18.64,18.17,0.2
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,16.45,16.85,16.45,16.8,17000,17.35,-3.16,17.46,17.93,1.31
 20260615,16.9,16.9,16.65,16.65,17000,17.29,-3.71,17.36,17.91,1.26
 20260616,16.6,16.65,16.6,16.6,17000,17.23,-3.67,17.26,17.9,1.23
+20260617,16.6,16.6,16.6,16.6,17000,17.18,-3.38,17.16,17.87,1.2
 ```
 
 ## Latest TDCC Snapshot

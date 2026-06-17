@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9960 邁達康
 
 ## Metadata
-- generated_at: 2026-06-16 22:24:39 Asia/Taipei
+- generated_at: 2026-06-17 22:25:22 Asia/Taipei
 - stock_id: 9960
 - stock_name: 邁達康
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 274
+- latest_price_date: 20260617
+- price_rows: 275
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 32.05
-- high: 32.05
-- low: 32
+- date: 20260617
+- open: 32
+- high: 32
+- low: 31.95
 - close: 32
 - volume: 32000
 - ma5: 31.95
-- ema23_primary: 31.51
-- distance_to_ema23_pct: 1.57
-- ma20: 31.5
-- ma60: 29
-- ma120: 25.6
-- return_5d: -0.93
-- return_20d: -9.09
-- volume_ratio: 0.7
-- distance_to_ma20_pct_auxiliary: 1.6
+- ema23_primary: 31.55
+- distance_to_ema23_pct: 1.43
+- ma20: 31.36
+- ma60: 29.15
+- ma120: 25.69
+- return_5d: 0
+- return_20d: -7.78
+- volume_ratio: 0.83
+- distance_to_ma20_pct_auxiliary: 2.04
 - distance_to_high_60_pct: -11.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,35.1,35.3,34.6,34.7,171000,31.68,9.53,31.77,26.29,0.42
 20260518,33.6,34,33,33.55,117000,31.84,5.38,32.12,26.46,0.29
 20260519,33.55,33.55,31.3,31.4,75000,31.8,-1.26,32.32,26.6,0.19
 20260520,30.4,31.85,29.65,31.25,136000,31.75,-1.59,32.5,26.73,0.34
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,31.5,32,31.5,32,32000,31.39,1.94,31.8,28.69,0.57
 20260615,32,32.5,32,32.25,32000,31.46,2.51,31.66,28.86,0.64
 20260616,32.05,32.05,32,32,32000,31.51,1.57,31.5,29,0.7
+20260617,32,32,31.95,32,32000,31.55,1.43,31.36,29.15,0.83
 ```
 
 ## Latest TDCC Snapshot

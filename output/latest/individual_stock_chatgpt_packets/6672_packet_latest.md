@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6672 騰輝電子-KY
 
 ## Metadata
-- generated_at: 2026-06-16 22:24:04 Asia/Taipei
+- generated_at: 2026-06-17 22:24:40 Asia/Taipei
 - stock_id: 6672
 - stock_name: 騰輝電子-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 237
-- high: 237.5
-- low: 220.5
-- close: 222
-- volume: 5826183
-- ma5: 222.2
-- ema23_primary: 210.2
-- distance_to_ema23_pct: 5.61
-- ma20: 207.05
-- ma60: 180.36
-- ma120: 137.58
-- return_5d: 3.02
-- return_20d: 13.85
-- volume_ratio: 1.07
-- distance_to_ma20_pct_auxiliary: 7.22
-- distance_to_high_60_pct: -8.26
+- date: 20260617
+- open: 221
+- high: 229
+- low: 221
+- close: 226.5
+- volume: 2599479
+- ma5: 223.7
+- ema23_primary: 211.56
+- distance_to_ema23_pct: 7.06
+- ma20: 209.3
+- ma60: 182.43
+- ma120: 138.73
+- return_5d: 3.42
+- return_20d: 24.79
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: 8.22
+- distance_to_high_60_pct: -6.41
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,197,198,177,181.5,7355748,191.87,-5.41,204.1,145.18,0.82
 20260518,177,183,174,180.5,2402089,190.92,-5.46,204.32,146.52,0.27
 20260519,179,184.5,176.5,179,2398037,189.93,-5.76,203.93,147.87,0.29
 20260520,179,181.5,176,176.5,1485391,188.81,-6.52,203.38,149.21,0.19
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,219,228,218.5,221,3491154,206.73,6.9,203.82,176.03,0.67
 20260615,229,242,225,235.5,6884755,209.13,12.61,205.7,178.33,1.27
 20260616,237,237.5,220.5,222,5826183,210.2,5.61,207.05,180.36,1.07
+20260617,221,229,221,226.5,2599479,211.56,7.06,209.3,182.43,0.5
 ```
 
 ## Latest TDCC Snapshot
@@ -185,18 +185,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 6672 | 騰輝電子-KY | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
-| 20260616 | 6672 | 騰輝電子-KY | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260617 | 6672 | 騰輝電子-KY | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 6672 | 騰輝電子-KY | 4 | 1 | 4 | 7 | 11 | repeated_but_no_breakout | 近 10 日上榜 7 次、近 20 日上榜 11 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260617 | 6672 | 騰輝電子-KY | 5 | 2 | 5 | 7 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 6672 | 騰輝電子-KY | 13 | 0 | 9704330.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00714 群益道瓊美國地產
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:26 Asia/Taipei
+- generated_at: 2026-06-17 22:22:44 Asia/Taipei
 - stock_id: 00714
 - stock_name: 群益道瓊美國地產
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260616
-- price_rows: 15
+- latest_price_date: 20260617
+- price_rows: 16
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 21.75
-- high: 21.82
-- low: 21.72
-- close: 21.79
-- volume: 427619
-- ma5: 21.81
-- ema23_primary: 21.58
-- distance_to_ema23_pct: 0.96
-- ma20: 21.54
-- ma60: 21.54
-- ma120: 21.54
-- return_5d: 3.22
+- date: 20260617
+- open: 21.92
+- high: 21.94
+- low: 21.91
+- close: 21.93
+- volume: 55075
+- ma5: 21.91
+- ema23_primary: 21.61
+- distance_to_ema23_pct: 1.48
+- ma20: 21.56
+- ma60: 21.56
+- ma120: 21.56
+- return_5d: 2.29
 - return_20d:
-- volume_ratio: 1.96
-- distance_to_ma20_pct_auxiliary: 1.18
-- distance_to_high_60_pct: -1.18
+- volume_ratio: 0.27
+- distance_to_ma20_pct_auxiliary: 1.71
+- distance_to_high_60_pct: -0.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -150,6 +150,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,21.71,21.87,21.71,21.84,114107,21.52,1.49,21.48,21.48,0.56
 20260615,21.88,22.05,21.88,22.04,172912,21.56,2.21,21.52,21.52,0.85
 20260616,21.75,21.82,21.72,21.79,427619,21.58,0.96,21.54,21.54,1.96
+20260617,21.92,21.94,21.91,21.93,55075,21.61,1.48,21.56,21.56,0.27
 ```
 
 ## Latest TDCC Snapshot

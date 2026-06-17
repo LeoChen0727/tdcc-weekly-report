@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00875 國泰網路資安
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:26 Asia/Taipei
+- generated_at: 2026-06-17 22:22:45 Asia/Taipei
 - stock_id: 00875
 - stock_name: 國泰網路資安
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260616
-- price_rows: 15
+- latest_price_date: 20260617
+- price_rows: 16
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 47.66
-- high: 47.66
-- low: 47.2
-- close: 47.38
-- volume: 29458
-- ma5: 47.71
-- ema23_primary: 47.42
-- distance_to_ema23_pct: -0.08
-- ma20: 48.05
-- ma60: 48.05
-- ma120: 48.05
-- return_5d: -8
+- date: 20260617
+- open: 46.97
+- high: 47.06
+- low: 46.95
+- close: 47.06
+- volume: 82540
+- ma5: 47.2
+- ema23_primary: 47.39
+- distance_to_ema23_pct: -0.69
+- ma20: 47.99
+- ma60: 47.99
+- ma120: 47.99
+- return_5d: -5.16
 - return_20d:
-- volume_ratio: 0.11
-- distance_to_ma20_pct_auxiliary: -1.4
-- distance_to_high_60_pct: -8.44
+- volume_ratio: 0.33
+- distance_to_ma20_pct_auxiliary: -1.94
+- distance_to_high_60_pct: -9.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -150,6 +150,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,47.05,47.25,47.05,47.22,125509,47.4,-0.38,48.13,48.13,0.48
 20260615,47.65,47.72,47.6,47.66,428716,47.42,0.5,48.1,48.1,1.56
 20260616,47.66,47.66,47.2,47.38,29458,47.42,-0.08,48.05,48.05,0.11
+20260617,46.97,47.06,46.95,47.06,82540,47.39,-0.69,47.99,47.99,0.33
 ```
 
 ## Latest TDCC Snapshot

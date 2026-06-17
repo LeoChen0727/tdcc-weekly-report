@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4198 欣大健康
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:28 Asia/Taipei
+- generated_at: 2026-06-17 22:23:56 Asia/Taipei
 - stock_id: 4198
 - stock_name: 欣大健康
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 271
+- latest_price_date: 20260617
+- price_rows: 272
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 39.2
+- date: 20260617
+- open: 37.5
 - high: 39.2
-- low: 39.2
-- close: 39.2
-- volume: 39000
-- ma5: 37.59
+- low: 37.5
+- close: 38.2
+- volume: 38000
+- ma5: 37.68
 - ema23_primary: 38.24
-- distance_to_ema23_pct: 2.51
-- ma20: 38.28
+- distance_to_ema23_pct: -0.09
+- ma20: 38.34
 - ma60: 38.54
 - ma120: 36.87
-- return_5d: 1.42
-- return_20d: 3.43
-- volume_ratio: 1.47
-- distance_to_ma20_pct_auxiliary: 2.4
-- distance_to_high_60_pct: -6
+- return_5d: 1.19
+- return_20d: 2.83
+- volume_ratio: 1.34
+- distance_to_ma20_pct_auxiliary: -0.35
+- distance_to_high_60_pct: -8.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,37,37.15,37,37.15,4000,38.43,-3.32,38.61,38.17,0.62
 20260518,35.05,39.3,35.05,39.3,22000,38.5,2.08,38.59,38.3,3.03
 20260519,37.3,38,37.3,37.3,6000,38.4,-2.86,38.44,38.39,0.86
 20260520,38.2,38.2,38.2,38.2,1000,38.38,-0.48,38.35,38.48,0.15
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,36.1,37,36,37,36000,38.2,-3.13,38.21,38.56,1.56
 20260615,36.95,37.65,36.95,37.65,37000,38.15,-1.31,38.22,38.55,1.49
 20260616,39.2,39.2,39.2,39.2,39000,38.24,2.51,38.28,38.54,1.47
+20260617,37.5,39.2,37.5,38.2,38000,38.24,-0.09,38.34,38.54,1.34
 ```
 
 ## Latest TDCC Snapshot

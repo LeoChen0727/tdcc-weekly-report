@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5520 力泰
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:44 Asia/Taipei
+- generated_at: 2026-06-17 22:24:15 Asia/Taipei
 - stock_id: 5520
 - stock_name: 力泰
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 273
+- latest_price_date: 20260617
+- price_rows: 274
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
+- date: 20260617
 - open: 82.3
 - high: 82.3
 - low: 82.3
 - close: 82.3
 - volume: 82000
-- ma5: 82.08
-- ema23_primary: 81.92
-- distance_to_ema23_pct: 0.47
-- ma20: 81.78
-- ma60: 83.75
-- ma120: 86.74
+- ma5: 82.26
+- ema23_primary: 81.95
+- distance_to_ema23_pct: 0.43
+- ma20: 81.83
+- ma60: 83.66
+- ma120: 86.66
 - return_5d: 1.11
-- return_20d: 4.18
-- volume_ratio: 1.63
-- distance_to_ma20_pct_auxiliary: 0.64
+- return_20d: 1.35
+- volume_ratio: 1.51
+- distance_to_ma20_pct_auxiliary: 0.57
 - distance_to_high_60_pct: -10.45
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260508,81.9,81.9,81.2,81.2,5000,81.97,-0.94,80.97,85.83,0.79
 20260511,81.5,81.5,81.1,81.1,5000,81.9,-0.98,80.89,85.7,0.79
 20260512,81.2,81.2,80.2,80.2,5000,81.76,-1.91,80.81,85.55,0.82
 20260514,81,81,81,81,1000,81.7,-0.85,80.75,85.42,0.16
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,82.4,82.5,82,82,82000,81.85,0.18,81.58,83.96,1.93
 20260615,82.1,82.2,82.1,82.2,82000,81.88,0.39,81.61,83.85,1.77
 20260616,82.3,82.3,82.3,82.3,82000,81.92,0.47,81.78,83.75,1.63
+20260617,82.3,82.3,82.3,82.3,82000,81.95,0.43,81.83,83.66,1.51
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1476 儒鴻
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:35 Asia/Taipei
+- generated_at: 2026-06-17 22:22:55 Asia/Taipei
 - stock_id: 1476
 - stock_name: 儒鴻
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 341
-- high: 349.5
-- low: 335.5
-- close: 343.5
-- volume: 3659738
-- ma5: 346.2
-- ema23_primary: 343.9
-- distance_to_ema23_pct: -0.11
-- ma20: 341.73
-- ma60: 341.77
-- ma120: 370.89
-- return_5d: -2.28
-- return_20d: 0.59
-- volume_ratio: 1.82
-- distance_to_ma20_pct_auxiliary: 0.52
-- distance_to_high_60_pct: -12.37
+- date: 20260617
+- open: 328
+- high: 334
+- low: 321
+- close: 323.5
+- volume: 3483602
+- ma5: 339.8
+- ema23_primary: 342.2
+- distance_to_ema23_pct: -5.46
+- ma20: 340.93
+- ma60: 340.98
+- ma120: 370.26
+- return_5d: -9
+- return_20d: -4.71
+- volume_ratio: 1.64
+- distance_to_ma20_pct_auxiliary: -5.11
+- distance_to_high_60_pct: -17.47
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,341.5,347.5,335.5,339.5,1130802,341.48,-0.58,339.9,361.24,0.94
 20260518,336,342,326.5,328,1150305,340.36,-3.63,338.82,359.76,0.95
 20260519,325,327,319,320,1679544,338.66,-5.51,337.12,358.02,1.37
 20260520,325,335,324.5,330.5,3409958,337.98,-2.21,336.4,356.38,2.64
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,354,355.5,343.5,344.5,1118128,343.97,0.15,341.9,342.68,0.63
 20260615,352,352,342,343.5,2555067,343.93,-0.13,341.62,342.21,1.37
 20260616,341,349.5,335.5,343.5,3659738,343.9,-0.11,341.73,341.77,1.82
+20260617,328,334,321,323.5,3483602,342.2,-5.46,340.93,340.98,1.64
 ```
 
 ## Latest TDCC Snapshot
@@ -194,9 +193,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 1476 | 儒鴻 | 18 | 0 | 1802690.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

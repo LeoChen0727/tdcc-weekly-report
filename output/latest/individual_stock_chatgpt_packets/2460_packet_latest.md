@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2460 建通
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:55 Asia/Taipei
+- generated_at: 2026-06-17 22:23:18 Asia/Taipei
 - stock_id: 2460
 - stock_name: 建通
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 營收成長股價回檔
+- model_category_display_zh: 回檔後短線轉強
 - score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- action_summary_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足、TDCC 轉弱警訊
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 營收成長股價回檔 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊
+- final_decision_zh: 回檔後短線轉強 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、TDCC 轉弱警訊
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 37.9
-- high: 37.9
-- low: 34.75
-- close: 34.85
-- volume: 3594446
-- ma5: 32.79
-- ema23_primary: 33.17
-- distance_to_ema23_pct: 5.05
-- ma20: 32.73
-- ma60: 31.92
-- ma120: 27.41
-- return_5d: -2.38
-- return_20d: 3.72
-- volume_ratio: 3.2
-- distance_to_ma20_pct_auxiliary: 6.49
-- distance_to_high_60_pct: -15.41
+- date: 20260617
+- open: 34.15
+- high: 36.75
+- low: 33.5
+- close: 35.5
+- volume: 2352121
+- ma5: 33.46
+- ema23_primary: 33.37
+- distance_to_ema23_pct: 6.39
+- ma20: 32.9
+- ma60: 32.08
+- ma120: 27.54
+- return_5d: 10.42
+- return_20d: 10.94
+- volume_ratio: 1.99
+- distance_to_ma20_pct_auxiliary: 7.89
+- distance_to_high_60_pct: -13.84
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,33,33.55,31.8,32,1172003,33.56,-4.65,35.57,29.6,0.44
 20260518,31.8,32.4,30.6,32.2,449432,33.45,-3.73,35.34,29.79,0.18
 20260519,32.3,32.6,31.2,31.2,460081,33.26,-6.19,35.15,29.93,0.19
 20260520,31.2,31.7,30.7,31,478670,33.07,-6.26,34.77,30.03,0.22
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,31.8,32.15,31.1,31.55,387760,32.87,-4.01,32.69,31.56,0.35
 20260615,32.5,34.7,31.8,34.7,1860079,33.02,5.08,32.66,31.74,1.75
 20260616,37.9,37.9,34.75,34.85,3594446,33.17,5.05,32.73,31.92,3.2
+20260617,34.15,36.75,33.5,35.5,2352121,33.37,6.39,32.9,32.08,1.99
 ```
 
 ## Latest TDCC Snapshot
@@ -186,12 +186,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2460 | 建通 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | stale_signal | calendar event: shareholder_meeting on 20260623; status=confirmed; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260617 | 2460 | 建通 | pullback_rebound | 回檔後短線轉強 | 63.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/06/16 2.公司名稱:建通精密工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:經濟日報C03版 6.報導內容:「建通表示，...第2季毛利率有機會守穩雙位數，全年可望擺脫  連四年虧損...」 7.發生緣由:澄清媒體報導 8.因應措施:公布澄清訊息於公開資訊觀測站 9.其他應敘明事項:有關媒體報導之相關財務數字，係媒體自行預估，本公司 並未對外發佈財務預測，請投資人以本公司公告於公開資訊觀測站之資料為準。；calendar event: shareholder_meeting on 20260623; status=confirmed; proximity=within_7d |
+| 20260617 | 2460 | 建通 | revenue_pullback | 營收成長股價回檔 | 63.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/06/16 2.公司名稱:建通精密工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:經濟日報C03版 6.報導內容:「建通表示，...第2季毛利率有機會守穩雙位數，全年可望擺脫  連四年虧損...」 7.發生緣由:澄清媒體報導 8.因應措施:公布澄清訊息於公開資訊觀測站 9.其他應敘明事項:有關媒體報導之相關財務數字，係媒體自行預估，本公司 並未對外發佈財務預測，請投資人以本公司公告於公開資訊觀測站之資料為準。；calendar event: shareholder_meeting on 20260623; status=confirmed; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260617 | 2460 | 建通 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | early_entry_watch |  |  | stale_signal | 1.事實發生日:115/06/16 2.公司名稱:建通精密工業股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.傳播媒體名稱:經濟日報C03版 6.報導內容:「建通表示，...第2季毛利率有機會守穩雙位數，全年可望擺脫  連四年虧損...」 7.發生緣由:澄清媒體報導 8.因應措施:公布澄清訊息於公開資訊觀測站 9.其他應敘明事項:有關媒體報導之相關財務數字，係媒體自行預估，本公司 並未對外發佈財務預測，請投資人以本公司公告於公開資訊觀測站之資料為準。；calendar event: shareholder_meeting on 20260623; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2460 | 建通 | 2 | 2 | 2 | 3 | 3 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260617 | 2460 | 建通 | 3 | 3 | 3 | 4 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

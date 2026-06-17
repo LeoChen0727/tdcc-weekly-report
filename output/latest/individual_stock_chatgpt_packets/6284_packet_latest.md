@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6284 佳邦
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:55 Asia/Taipei
+- generated_at: 2026-06-17 22:24:30 Asia/Taipei
 - stock_id: 6284
 - stock_name: 佳邦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 109
-- high: 109.5
-- low: 99.9
-- close: 100.5
-- volume: 104000
-- ma5: 102.16
-- ema23_primary: 100.95
-- distance_to_ema23_pct: -0.45
-- ma20: 103.69
-- ma60: 89.52
-- ma120: 85.88
-- return_5d: -5.19
-- return_20d: 17.27
-- volume_ratio: 0.09
-- distance_to_ma20_pct_auxiliary: -3.08
-- distance_to_high_60_pct: -23.28
+- date: 20260617
+- open: 100
+- high: 110
+- low: 99.1
+- close: 107.5
+- volume: 106000
+- ma5: 101.46
+- ema23_primary: 101.5
+- distance_to_ema23_pct: 5.91
+- ma20: 104.84
+- ma60: 89.98
+- ma120: 86.13
+- return_5d: -3.15
+- return_20d: 27.22
+- volume_ratio: 0.1
+- distance_to_ma20_pct_auxiliary: 2.53
+- distance_to_high_60_pct: -17.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,86.1,89.8,83.7,84.5,3918000,82.04,3,81.72,81.75,2.08
 20260518,84,86.2,83.3,85.1,1534000,82.29,3.41,81.53,81.79,0.88
 20260519,85.1,87.5,84.2,85.1,1710000,82.53,3.12,81.39,81.83,0.99
 20260520,86,91.6,86,88,7921000,82.98,6.04,81.42,81.93,3.89
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,100,103.5,97.5,98.6,100000,100.72,-2.1,101.96,88.6,0.07
 20260615,101.5,107,101.5,104,105000,100.99,2.98,102.95,89.1,0.08
 20260616,109,109.5,99.9,100.5,104000,100.95,-0.45,103.69,89.52,0.09
+20260617,100,110,99.1,107.5,106000,101.5,5.91,104.84,89.98,0.1
 ```
 
 ## Latest TDCC Snapshot

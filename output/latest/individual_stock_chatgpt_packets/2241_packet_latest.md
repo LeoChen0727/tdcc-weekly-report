@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2241 艾姆勒
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:47 Asia/Taipei
+- generated_at: 2026-06-17 22:23:09 Asia/Taipei
 - stock_id: 2241
 - stock_name: 艾姆勒
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 44.25
-- high: 45.05
+- date: 20260617
+- open: 43.55
+- high: 47.5
 - low: 43.1
-- close: 43.3
-- volume: 2920808
-- ma5: 41.28
-- ema23_primary: 36.49
-- distance_to_ema23_pct: 18.68
-- ma20: 36.56
-- ma60: 32.24
-- ma120: 32.87
-- return_5d: 33.85
-- return_20d: 31.81
-- volume_ratio: 0.78
-- distance_to_ma20_pct_auxiliary: 18.44
-- distance_to_high_60_pct: -5.46
+- close: 46.05
+- volume: 5044811
+- ma5: 43.41
+- ema23_primary: 37.28
+- distance_to_ema23_pct: 23.52
+- ma20: 37.15
+- ma60: 32.52
+- ma120: 32.93
+- return_5d: 30.08
+- return_20d: 34.26
+- volume_ratio: 1.32
+- distance_to_ma20_pct_auxiliary: 23.97
+- distance_to_high_60_pct: -3.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,32.55,36.1,32.4,34.3,3588698,31.22,9.86,31.24,29.95,2.12
 20260518,33.6,34.1,32.6,33.45,1131763,31.41,6.51,31.49,30.01,0.65
 20260519,33.15,34.7,32.7,33.35,944873,31.57,5.64,31.68,30.07,0.54
 20260520,33.45,34.05,32.85,33.55,628118,31.73,5.72,31.91,30.13,0.36
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,40.1,43.7,39.55,43.1,5049843,35.08,22.87,35.48,31.75,1.41
 20260615,44.3,45.8,42.85,44.55,5892785,35.87,24.21,36.04,32.01,1.61
 20260616,44.25,45.05,43.1,43.3,2920808,36.49,18.68,36.56,32.24,0.78
+20260617,43.55,47.5,43.1,46.05,5044811,37.28,23.52,37.15,32.52,1.32
 ```
 
 ## Latest TDCC Snapshot

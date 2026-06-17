@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2388 威盛
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:51 Asia/Taipei
+- generated_at: 2026-06-17 22:23:14 Asia/Taipei
 - stock_id: 2388
 - stock_name: 威盛
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -119,29 +119,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 71.8
-- high: 72
-- low: 68.4
-- close: 68.4
-- volume: 3472005
-- ma5: 67.92
-- ema23_primary: 73.01
-- distance_to_ema23_pct: -6.32
-- ma20: 75.46
-- ma60: 67.84
-- ma120: 60.28
-- return_5d: -9.28
-- return_20d: -9.76
-- volume_ratio: 0.24
-- distance_to_ma20_pct_auxiliary: -9.36
-- distance_to_high_60_pct: -25.08
+- date: 20260617
+- open: 68.3
+- high: 75.2
+- low: 67.7
+- close: 75.2
+- volume: 9326444
+- ma5: 69.18
+- ema23_primary: 73.19
+- distance_to_ema23_pct: 2.74
+- ma20: 75.45
+- ma60: 68.25
+- ma120: 60.38
+- return_5d: 9.14
+- return_20d: -0.27
+- volume_ratio: 0.68
+- distance_to_ma20_pct_auxiliary: -0.33
+- distance_to_high_60_pct: -17.63
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,76,80.7,74.5,75.4,21208864,71.91,4.85,75.25,59.3,1
 20260518,75.5,76.4,72,75.8,8494151,72.24,4.93,75.78,59.72,0.41
 20260519,75.8,76.7,73.3,74.3,6992031,72.41,2.61,76.19,60.11,0.35
 20260520,75.2,81.7,74.5,81.7,25435748,73.18,11.64,76.63,60.62,1.23
@@ -161,6 +160,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,67.9,68.7,66.1,66.1,3794837,73.7,-10.31,76.05,67.16,0.26
 20260615,68,71.7,67.2,70.5,5949714,73.43,-3.99,75.83,67.53,0.41
 20260616,71.8,72,68.4,68.4,3472005,73.01,-6.32,75.46,67.84,0.24
+20260617,68.3,75.2,67.7,75.2,9326444,73.19,2.74,75.45,68.25,0.68
 ```
 
 ## Latest TDCC Snapshot
@@ -192,18 +192,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2388 | 威盛 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | no_signal | stale_signal | calendar event: ex_dividend on 20260622; status=confirmed; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260616 | 2388 | 威盛 | revenue_breakout_low_response | 營收爆發低反應股 | 13.0 | 20.0 | D_降級_TDCC轉弱 |  |  | no_signal | stale_signal | calendar event: ex_dividend on 20260622; status=confirmed; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260617 | 2388 | 威盛 | revenue_pullback | 營收成長股價回檔 | 82.0 |  |  |  |  | no_signal | stale_signal | calendar event: ex_dividend on 20260622; status=confirmed; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2388 | 威盛 | 6 | 6 | 5 | 9 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260617 | 2388 | 威盛 | 7 | 7 | 5 | 9 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2388 | 威盛 | 64 | 5 | 5775240.0 | 167720.0 | 34.43 | no_signal |
+| 20260617 | 2388 | 威盛 | 0 | 5 | 0.0 | 458160.0 | 0.0 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3152 璟德
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:11 Asia/Taipei
+- generated_at: 2026-06-17 22:23:37 Asia/Taipei
 - stock_id: 3152
 - stock_name: 璟德
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 222
-- high: 231.5
-- low: 212
-- close: 214.5
-- volume: 219000
-- ma5: 207.6
-- ema23_primary: 191
-- distance_to_ema23_pct: 12.3
-- ma20: 189.68
-- ma60: 169.11
-- ma120: 158.65
-- return_5d: 16.89
-- return_20d: 23.63
-- volume_ratio: 0.41
-- distance_to_ma20_pct_auxiliary: 13.09
-- distance_to_high_60_pct: -9.11
+- date: 20260617
+- open: 212
+- high: 216.5
+- low: 199.5
+- close: 200.5
+- volume: 206000
+- ma5: 211.9
+- ema23_primary: 191.79
+- distance_to_ema23_pct: 4.54
+- ma20: 191.4
+- ma60: 170.08
+- ma120: 159.39
+- return_5d: 12.01
+- return_20d: 20.78
+- volume_ratio: 0.61
+- distance_to_ma20_pct_auxiliary: 4.75
+- distance_to_high_60_pct: -15.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,175,185,165,166,4116000,167.56,-0.93,170.18,154.86,2.12
 20260518,165,173,161.5,171.5,1188000,167.89,2.15,170.35,155.3,0.61
 20260519,172,175,162.5,163.5,1194000,167.52,-2.4,169.65,155.59,0.62
 20260520,166,169.5,163.5,164,647000,167.23,-1.93,169.43,155.97,0.35
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,210,221,208,221,219000,185.8,18.94,184.9,166.49,0.32
 20260615,233,236,218,222.5,227000,188.86,17.81,187.62,167.88,0.34
 20260616,222,231.5,212,214.5,219000,191,12.3,189.68,169.11,0.41
+20260617,212,216.5,199.5,200.5,206000,191.79,4.54,191.4,170.08,0.61
 ```
 
 ## Latest TDCC Snapshot

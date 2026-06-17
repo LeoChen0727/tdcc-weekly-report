@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7280 雙鴻凱基59售12
 
 ## Metadata
-- generated_at: 2026-06-16 22:24:18 Asia/Taipei
+- generated_at: 2026-06-17 22:24:57 Asia/Taipei
 - stock_id: 7280
 - stock_name: 雙鴻凱基59售12
 - packet_status: standard_180d_window_packet

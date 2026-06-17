@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2009 第一銅
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:43 Asia/Taipei
+- generated_at: 2026-06-17 22:23:04 Asia/Taipei
 - stock_id: 2009
 - stock_name: 第一銅
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 41.7
-- high: 41.7
-- low: 40.05
+- date: 20260617
+- open: 40
+- high: 40.55
+- low: 39.7
 - close: 40.05
-- volume: 1842155
-- ma5: 40.49
-- ema23_primary: 40.21
-- distance_to_ema23_pct: -0.41
-- ma20: 39.93
-- ma60: 39.97
-- ma120: 43.3
-- return_5d: -2.55
-- return_20d: -1.35
-- volume_ratio: 0.56
-- distance_to_ma20_pct_auxiliary: 0.29
+- volume: 1259868
+- ma5: 40.1
+- ema23_primary: 40.2
+- distance_to_ema23_pct: -0.38
+- ma20: 39.99
+- ma60: 39.92
+- ma120: 43.26
+- return_5d: -4.64
+- return_20d: 3.09
+- volume_ratio: 0.4
+- distance_to_ma20_pct_auxiliary: 0.14
 - distance_to_high_60_pct: -11.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,40.95,40.95,38.8,38.85,3314316,39.56,-1.79,38.99,41.24,1.4
 20260518,38.4,38.4,37.7,38.15,1452594,39.44,-3.28,38.87,41.17,0.62
 20260519,37.95,38.35,37.55,37.55,2041802,39.28,-4.42,38.77,41.07,0.88
 20260520,37.7,38.2,37.7,38,1043728,39.18,-3.01,38.67,40.98,0.45
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,39.6,40.65,39.55,40,2495142,40.12,-0.3,39.95,40.02,0.71
 20260615,41,41.75,40.65,41.45,2789280,40.23,3.03,39.96,40,0.84
 20260616,41.7,41.7,40.05,40.05,1842155,40.21,-0.41,39.93,39.97,0.56
+20260617,40,40.55,39.7,40.05,1259868,40.2,-0.38,39.99,39.92,0.4
 ```
 
 ## Latest TDCC Snapshot
@@ -194,9 +194,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2009 | 第一銅 | 34 | 0 | 930450.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

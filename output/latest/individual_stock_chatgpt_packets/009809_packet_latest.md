@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009809 富邦淨零ESG50
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:28 Asia/Taipei
+- generated_at: 2026-06-17 22:22:47 Asia/Taipei
 - stock_id: 009809
 - stock_name: 富邦淨零ESG50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260616
-- price_rows: 15
+- latest_price_date: 20260617
+- price_rows: 16
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 17.49
-- high: 17.49
-- low: 17.25
-- close: 17.4
-- volume: 164351
-- ma5: 17.13
-- ema23_primary: 16.69
-- distance_to_ema23_pct: 4.25
-- ma20: 16.96
-- ma60: 16.96
-- ma120: 16.96
-- return_5d: -0.29
+- date: 20260617
+- open: 17.27
+- high: 17.38
+- low: 17.2
+- close: 17.38
+- volume: 226086
+- ma5: 17.17
+- ema23_primary: 16.75
+- distance_to_ema23_pct: 3.77
+- ma20: 16.99
+- ma60: 16.99
+- ma120: 16.99
+- return_5d: 1.16
 - return_20d:
-- volume_ratio: 0.17
-- distance_to_ma20_pct_auxiliary: 2.59
-- distance_to_high_60_pct: -1.97
+- volume_ratio: 0.25
+- distance_to_ma20_pct_auxiliary: 2.32
+- distance_to_high_60_pct: -2.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -150,6 +150,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,17.04,17.16,17.03,17.13,1005914,16.55,3.47,16.89,16.89,0.95
 20260615,17.37,17.48,17.37,17.41,201161,16.63,4.71,16.93,16.93,0.2
 20260616,17.49,17.49,17.25,17.4,164351,16.69,4.25,16.96,16.96,0.17
+20260617,17.27,17.38,17.2,17.38,226086,16.75,3.77,16.99,16.99,0.25
 ```
 
 ## Latest TDCC Snapshot

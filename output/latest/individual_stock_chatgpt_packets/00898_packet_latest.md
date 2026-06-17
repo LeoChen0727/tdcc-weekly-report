@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00898 國泰基因免疫革命
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:27 Asia/Taipei
+- generated_at: 2026-06-17 22:22:45 Asia/Taipei
 - stock_id: 00898
 - stock_name: 國泰基因免疫革命
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260616
-- price_rows: 15
+- latest_price_date: 20260617
+- price_rows: 16
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 8.43
-- high: 8.47
-- low: 8.43
-- close: 8.44
-- volume: 1130928
+- date: 20260617
+- open: 8.44
+- high: 8.44
+- low: 8.39
+- close: 8.39
+- volume: 299086
 - ma5: 8.37
-- ema23_primary: 8.2
-- distance_to_ema23_pct: 2.88
-- ma20: 8.23
-- ma60: 8.23
-- ma120: 8.23
-- return_5d: 3.3
+- ema23_primary: 8.22
+- distance_to_ema23_pct: 2.07
+- ma20: 8.24
+- ma60: 8.24
+- ma120: 8.24
+- return_5d: -0.24
 - return_20d:
-- volume_ratio: 1.39
-- distance_to_ma20_pct_auxiliary: 2.54
-- distance_to_high_60_pct: -0.35
+- volume_ratio: 0.38
+- distance_to_ma20_pct_auxiliary: 1.8
+- distance_to_high_60_pct: -0.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -150,6 +150,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,8.3,8.38,8.3,8.37,1130944,8.16,2.57,8.2,8.2,1.4
 20260615,8.37,8.44,8.37,8.43,583956,8.18,3.02,8.22,8.22,0.74
 20260616,8.43,8.47,8.43,8.44,1130928,8.2,2.88,8.23,8.23,1.39
+20260617,8.44,8.44,8.39,8.39,299086,8.22,2.07,8.24,8.24,0.38
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2889 國票金
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:04 Asia/Taipei
+- generated_at: 2026-06-17 22:23:28 Asia/Taipei
 - stock_id: 2889
 - stock_name: 國票金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 15.05
-- high: 15.2
-- low: 15
-- close: 15.1
-- volume: 9157478
-- ma5: 15.03
-- ema23_primary: 14.86
-- distance_to_ema23_pct: 1.65
-- ma20: 14.77
-- ma60: 15.09
-- ma120: 15.8
-- return_5d: 2.37
-- return_20d: 3.42
-- volume_ratio: 2.04
-- distance_to_ma20_pct_auxiliary: 2.23
-- distance_to_high_60_pct: -13.22
+- date: 20260617
+- open: 15.1
+- high: 15.4
+- low: 15.05
+- close: 15.2
+- volume: 12557868
+- ma5: 15.06
+- ema23_primary: 14.88
+- distance_to_ema23_pct: 2.12
+- ma20: 14.8
+- ma60: 15.07
+- ma120: 15.79
+- return_5d: 1
+- return_20d: 4.47
+- volume_ratio: 2.53
+- distance_to_ma20_pct_auxiliary: 2.69
+- distance_to_high_60_pct: -12.64
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,14.45,14.6,14.45,14.55,3304085,14.84,-1.98,14.73,15.66,0.93
 20260518,14.6,14.65,14.45,14.55,1906371,14.82,-1.81,14.7,15.63,0.55
 20260519,14.6,14.7,14.5,14.65,2358691,14.8,-1.05,14.66,15.59,0.67
 20260520,14.65,14.7,14.5,14.7,2141443,14.8,-0.65,14.64,15.55,0.63
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,15,15.15,14.9,15,8138925,14.81,1.26,14.72,15.14,2.08
 20260615,15.1,15.2,14.95,15.05,8033924,14.83,1.46,14.74,15.12,1.91
 20260616,15.05,15.2,15,15.1,9157478,14.86,1.65,14.77,15.09,2.04
+20260617,15.1,15.4,15.05,15.2,12557868,14.88,2.12,14.8,15.07,2.53
 ```
 
 ## Latest TDCC Snapshot
@@ -191,14 +191,14 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2889 | 國票金 | pullback_rebound | 回檔後短線轉強 | 70.0 |  |  |  |  |  | stale_signal | 1.董事會決議日期或發生變動日期:115/06/15 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:董事長 魏啟林 4.舊任者簡歷:國票金融控股股份有限公司 董事長 5.新任者姓名:NA 6.新任者簡歷:NA 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:退休 8.異動原因:申請退休 9.新任生效日期:NA 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 預定第17屆董事會第37次會議改選董事長；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
-| 20260616 | 2889 | 國票金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 1.董事會決議日期或發生變動日期:115/06/15 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:董事長 魏啟林 4.舊任者簡歷:國票金融控股股份有限公司 董事長 5.新任者姓名:NA 6.新任者簡歷:NA 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:退休 8.異動原因:申請退休 9.新任生效日期:NA 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 預定第17屆董事會第37次會議改選董事長；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
-| 20260616 | 2889 | 國票金 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 1.董事會決議日期或發生變動日期:115/06/15 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:董事長 魏啟林 4.舊任者簡歷:國票金融控股股份有限公司 董事長 5.新任者姓名:NA 6.新任者簡歷:NA 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:退休 8.異動原因:申請退休 9.新任生效日期:NA 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 預定第17屆董事會第37次會議改選董事長；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260617 | 2889 | 國票金 | pullback_rebound | 回檔後短線轉強 | 70.0 |  |  |  |  |  | stale_signal | 1.董事會決議日期或發生變動日期:115/06/15 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:董事長 魏啟林 4.舊任者簡歷:國票金融控股股份有限公司 董事長 5.新任者姓名:NA 6.新任者簡歷:NA 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:退休 8.異動原因:申請退休 9.新任生效日期:NA 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 預定第17屆董事會第37次會議改選董事長；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260617 | 2889 | 國票金 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 1.董事會決議日期或發生變動日期:115/06/15 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:董事長 魏啟林 4.舊任者簡歷:國票金融控股股份有限公司 董事長 5.新任者姓名:NA 6.新任者簡歷:NA 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:退休 8.異動原因:申請退休 9.新任生效日期:NA 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 預定第17屆董事會第37次會議改選董事長；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260617 | 2889 | 國票金 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | stale_signal | 1.董事會決議日期或發生變動日期:115/06/15 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:董事長 魏啟林 4.舊任者簡歷:國票金融控股股份有限公司 董事長 5.新任者姓名:NA 6.新任者簡歷:NA 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:退休 8.異動原因:申請退休 9.新任生效日期:NA 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項): 預定第17屆董事會第37次會議改選董事長；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2889 | 國票金 | 15 | 6 | 5 | 10 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260617 | 2889 | 國票金 | 16 | 7 | 5 | 10 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

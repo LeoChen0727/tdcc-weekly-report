@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00668 國泰美國道瓊
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:26 Asia/Taipei
+- generated_at: 2026-06-17 22:22:44 Asia/Taipei
 - stock_id: 00668
 - stock_name: 國泰美國道瓊
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260616
-- price_rows: 15
+- latest_price_date: 20260617
+- price_rows: 16
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,22 +113,22 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 59.5
-- high: 59.6
-- low: 59.5
-- close: 59.55
-- volume: 11527
-- ma5: 59.09
-- ema23_primary: 58.51
-- distance_to_ema23_pct: 1.78
-- ma20: 58.54
-- ma60: 58.54
-- ma120: 58.54
-- return_5d: 1.97
+- date: 20260617
+- open: 59.9
+- high: 60.1
+- low: 59.9
+- close: 60.05
+- volume: 82597
+- ma5: 59.23
+- ema23_primary: 58.64
+- distance_to_ema23_pct: 2.41
+- ma20: 58.63
+- ma60: 58.63
+- ma120: 58.63
+- return_5d: 1.18
 - return_20d:
-- volume_ratio: 0.14
-- distance_to_ma20_pct_auxiliary: 1.73
+- volume_ratio: 0.99
+- distance_to_ma20_pct_auxiliary: 2.42
 - distance_to_high_60_pct: -0.08
 
 ## Recent Price Preview
@@ -150,6 +150,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,58.75,58.95,58.7,58.95,352728,58.31,1.09,58.38,58.38,3.77
 20260615,59.35,59.5,59.35,59.5,27194,58.41,1.86,58.46,58.46,0.31
 20260616,59.5,59.6,59.5,59.55,11527,58.51,1.78,58.54,58.54,0.14
+20260617,59.9,60.1,59.9,60.05,82597,58.64,2.41,58.63,58.63,0.99
 ```
 
 ## Latest TDCC Snapshot

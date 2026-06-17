@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3017 奇鋐
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:06 Asia/Taipei
+- generated_at: 2026-06-17 22:23:31 Asia/Taipei
 - stock_id: 3017
 - stock_name: 奇鋐
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -119,29 +119,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 2455
-- high: 2470
-- low: 2370
-- close: 2370
-- volume: 3025487
-- ma5: 2424
-- ema23_primary: 2541
-- distance_to_ema23_pct: -6.73
-- ma20: 2552
-- ma60: 2431.17
-- ma120: 1977
-- return_5d: -12.22
-- return_20d: -7.24
-- volume_ratio: 0.63
-- distance_to_ma20_pct_auxiliary: -7.13
-- distance_to_high_60_pct: -21.26
+- date: 20260617
+- open: 2365
+- high: 2440
+- low: 2330
+- close: 2365
+- volume: 3829529
+- ma5: 2377
+- ema23_primary: 2526.33
+- distance_to_ema23_pct: -6.39
+- ma20: 2547.5
+- ma60: 2438.83
+- ma120: 1984.96
+- return_5d: -9.04
+- return_20d: -3.67
+- volume_ratio: 0.82
+- distance_to_ma20_pct_auxiliary: -7.16
+- distance_to_high_60_pct: -21.43
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,2690,2735,2445,2455,6646560,2514.11,-2.35,2630.75,2166.33,1.1
 20260518,2350,2435,2300,2410,4751185,2505.43,-3.81,2631.25,2179.92,0.78
 20260519,2455,2470,2370,2390,3542685,2495.81,-4.24,2626.25,2193.08,0.58
 20260520,2425,2435,2325,2340,3568975,2482.83,-5.75,2615,2205.08,0.59
@@ -161,6 +160,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,2465,2480,2380,2405,2490291,2569.86,-6.42,2570,2413.08,0.48
 20260615,2475,2475,2410,2410,2107865,2556.54,-5.73,2561.25,2422.17,0.42
 20260616,2455,2470,2370,2370,3025487,2541,-6.73,2552,2431.17,0.63
+20260617,2365,2440,2330,2365,3829529,2526.33,-6.39,2547.5,2438.83,0.82
 ```
 
 ## Latest TDCC Snapshot
@@ -192,17 +192,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 3017 | 奇鋐 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/16 1.召開法人說明會之日期：115/06/16 2.召開法人說明會之時間：13 時 30 分  3.召開法人說明會之地點：台北茹曦酒店2F（台北市松山區敦化北路100號) 4.法人說明會擇要訊息：本公司受邀參加群益2Q26投資論壇，說明2026年第一季營運結果與未來展望 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260617 | 3017 | 奇鋐 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | no_signal | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/16 1.召開法人說明會之日期：115/06/16 2.召開法人說明會之時間：13 時 30 分  3.召開法人說明會之地點：台北茹曦酒店2F（台北市松山區敦化北路100號) 4.法人說明會擇要訊息：本公司受邀參加群益2Q26投資論壇，說明2026年第一季營運結果與未來展望 5.其他應敘明事項：無 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 3017 | 奇鋐 | 15 | 6 | 5 | 10 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260617 | 3017 | 奇鋐 | 16 | 7 | 5 | 10 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 3017 | 奇鋐 | 392 | 34 | 19035920.0 | 902240.0 | 21.1 | no_signal |
+| 20260617 | 3017 | 奇鋐 | 0 | 34 | 0.0 | 802770.0 | 0.0 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

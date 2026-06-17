@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 5388 中磊
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:42 Asia/Taipei
+- generated_at: 2026-06-17 22:24:12 Asia/Taipei
 - stock_id: 5388
 - stock_name: 中磊
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 86.5
-- high: 86.9
-- low: 84.2
-- close: 84.2
-- volume: 2477218
-- ma5: 86.34
-- ema23_primary: 85.64
-- distance_to_ema23_pct: -1.69
-- ma20: 85.54
-- ma60: 81.96
-- ma120: 81.51
-- return_5d: -9.75
-- return_20d: 8.37
-- volume_ratio: 0.43
-- distance_to_ma20_pct_auxiliary: -1.57
-- distance_to_high_60_pct: -10.9
+- date: 20260617
+- open: 84
+- high: 85.3
+- low: 83.6
+- close: 85.3
+- volume: 2199574
+- ma5: 85.48
+- ema23_primary: 85.61
+- distance_to_ema23_pct: -0.37
+- ma20: 85.92
+- ma60: 82.05
+- ma120: 81.53
+- return_5d: -4.8
+- return_20d: 9.92
+- volume_ratio: 0.4
+- distance_to_ma20_pct_auxiliary: -0.73
+- distance_to_high_60_pct: -9.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,78.7,79.4,77.5,77.6,4791548,80.63,-3.76,80.63,80.23,0.76
 20260518,77.6,78.9,77,77.6,3355987,80.38,-3.45,80.4,80.15,0.54
 20260519,78.4,81.5,78.2,79.5,8706611,80.3,-1,80.21,80.1,1.33
 20260520,80.1,82.6,78.8,81.8,7213178,80.43,1.71,80.12,80.09,1.07
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,88.6,89.3,85.3,85.3,3598847,85.71,-0.48,84.86,81.73,0.52
 20260615,87,87,84.8,86.5,2382296,85.77,0.85,85.22,81.87,0.39
 20260616,86.5,86.9,84.2,84.2,2477218,85.64,-1.69,85.54,81.96,0.43
+20260617,84,85.3,83.6,85.3,2199574,85.61,-0.37,85.92,82.05,0.4
 ```
 
 ## Latest TDCC Snapshot
@@ -191,18 +191,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 5388 | 中磊 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260616 | 5388 | 中磊 | revenue_breakout_low_response | 營收爆發低反應股 | 17.0 | 8.0 | A_優先追蹤 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260617 | 5388 | 中磊 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260617 | 5388 | 中磊 | revenue_breakout_low_response | 營收爆發低反應股 | 18.0 | 6.0 | A_優先追蹤 |  |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 5388 | 中磊 | 15 | 6 | 5 | 10 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260617 | 5388 | 中磊 | 16 | 7 | 5 | 10 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 5388 | 中磊 | 26 | 0 | 1291330.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

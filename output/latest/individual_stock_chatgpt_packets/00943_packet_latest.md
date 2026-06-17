@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00943 兆豐電子高息等權
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:28 Asia/Taipei
+- generated_at: 2026-06-17 22:22:46 Asia/Taipei
 - stock_id: 00943
 - stock_name: 兆豐電子高息等權
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260616
-- price_rows: 15
+- latest_price_date: 20260617
+- price_rows: 16
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 22.2
-- high: 22.2
-- low: 21.67
-- close: 21.68
-- volume: 175008
-- ma5: 21.73
-- ema23_primary: 21.7
-- distance_to_ema23_pct: -0.1
+- date: 20260617
+- open: 21.68
+- high: 21.95
+- low: 21.55
+- close: 21.95
+- volume: 99641
+- ma5: 21.7
+- ema23_primary: 21.72
+- distance_to_ema23_pct: 1.05
 - ma20: 21.94
 - ma60: 21.94
 - ma120: 21.94
-- return_5d: -3.86
+- return_5d: -0.63
 - return_20d:
-- volume_ratio: 0.76
-- distance_to_ma20_pct_auxiliary: -1.19
-- distance_to_high_60_pct: -5.33
+- volume_ratio: 0.45
+- distance_to_ma20_pct_auxiliary: 0.04
+- distance_to_high_60_pct: -4.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -150,6 +150,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,21.81,21.86,21.58,21.58,103823,21.65,-0.32,21.93,21.93,0.46
 20260615,21.99,22.3,21.9,22.3,365867,21.7,2.75,21.96,21.96,1.55
 20260616,22.2,22.2,21.67,21.68,175008,21.7,-0.1,21.94,21.94,0.76
+20260617,21.68,21.95,21.55,21.95,99641,21.72,1.05,21.94,21.94,0.45
 ```
 
 ## Latest TDCC Snapshot

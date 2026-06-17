@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1417 嘉裕
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:33 Asia/Taipei
+- generated_at: 2026-06-17 22:22:52 Asia/Taipei
 - stock_id: 1417
 - stock_name: 嘉裕
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 8.58
+- date: 20260617
+- open: 8.59
 - high: 8.59
-- low: 8.51
+- low: 8.5
 - close: 8.54
-- volume: 156359
+- volume: 224983
 - ma5: 8.52
-- ema23_primary: 8.43
-- distance_to_ema23_pct: 1.31
-- ma20: 8.3
-- ma60: 8.73
+- ema23_primary: 8.44
+- distance_to_ema23_pct: 1.2
+- ma20: 8.31
+- ma60: 8.72
 - ma120: 8.77
-- return_5d: 3.39
-- return_20d: 2.89
-- volume_ratio: 0.75
-- distance_to_ma20_pct_auxiliary: 2.95
+- return_5d: 0
+- return_20d: 3.39
+- volume_ratio: 1.08
+- distance_to_ma20_pct_auxiliary: 2.77
 - distance_to_high_60_pct: -9.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,8.3,8.35,8.22,8.26,243374,8.73,-5.4,8.78,8.86,1.73
 20260518,8.28,8.28,8.18,8.27,76375,8.69,-4.87,8.74,8.85,0.57
 20260519,8.29,8.29,8.16,8.27,106919,8.66,-4.48,8.71,8.84,0.8
 20260520,8.22,8.22,8.15,8.2,100780,8.62,-4.87,8.67,8.83,0.76
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,8.4,8.53,8.4,8.49,243159,8.4,1.02,8.27,8.73,1.25
 20260615,8.58,8.64,8.56,8.59,390179,8.42,2.02,8.28,8.73,1.89
 20260616,8.58,8.59,8.51,8.54,156359,8.43,1.31,8.3,8.73,0.75
+20260617,8.59,8.59,8.5,8.54,224983,8.44,1.2,8.31,8.72,1.08
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6945 圓祥生技
 
 ## Metadata
-- generated_at: 2026-06-16 22:24:11 Asia/Taipei
+- generated_at: 2026-06-17 22:24:49 Asia/Taipei
 - stock_id: 6945
 - stock_name: 圓祥生技
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260616
-- price_rows: 5
+- latest_price_date: 20260617
+- price_rows: 6
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 104
-- high: 106
-- low: 100
-- close: 100.5
-- volume: 102000
-- ma5: 101.58
-- ema23_primary: 103.76
-- distance_to_ema23_pct: -3.14
-- ma20: 101.58
-- ma60: 101.58
-- ma120: 101.58
-- return_5d:
+- date: 20260617
+- open: 101
+- high: 101
+- low: 98.1
+- close: 98.5
+- volume: 99000
+- ma5: 100.28
+- ema23_primary: 103.32
+- distance_to_ema23_pct: -4.66
+- ma20: 101.07
+- ma60: 101.07
+- ma120: 101.07
+- return_5d: -6.19
 - return_20d:
-- volume_ratio: 1.01
-- distance_to_ma20_pct_auxiliary: -1.06
-- distance_to_high_60_pct: -6.07
+- volume_ratio: 0.98
+- distance_to_ma20_pct_auxiliary: -2.54
+- distance_to_high_60_pct: -7.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -140,6 +140,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,101,101.5,97.8,99.9,100000,,,,,
 20260615,100,102.5,99.2,102.5,100000,,,,,
 20260616,104,106,100,100.5,102000,103.76,-3.14,101.58,101.58,1.01
+20260617,101,101,98.1,98.5,99000,103.32,-4.66,101.07,101.07,0.98
 ```
 
 ## Latest TDCC Snapshot

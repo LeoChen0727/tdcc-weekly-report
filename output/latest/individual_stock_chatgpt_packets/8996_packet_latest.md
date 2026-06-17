@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8996 高力
 
 ## Metadata
-- generated_at: 2026-06-16 22:24:36 Asia/Taipei
+- generated_at: 2026-06-17 22:25:19 Asia/Taipei
 - stock_id: 8996
 - stock_name: 高力
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 1310
-- high: 1380
-- low: 1265
-- close: 1380
-- volume: 3490273
-- ma5: 1209
-- ema23_primary: 1136.21
-- distance_to_ema23_pct: 21.46
-- ma20: 1120.95
-- ma60: 1062.97
-- ma120: 884.1
-- return_5d: 31.43
-- return_20d: 29.58
-- volume_ratio: 1.16
-- distance_to_ma20_pct_auxiliary: 23.11
+- date: 20260617
+- open: 1400
+- high: 1515
+- low: 1395
+- close: 1515
+- volume: 4404786
+- ma5: 1287
+- ema23_primary: 1167.78
+- distance_to_ema23_pct: 29.73
+- ma20: 1144.7
+- ma60: 1072.92
+- ma120: 892.46
+- return_5d: 34.67
+- return_20d: 45.67
+- volume_ratio: 1.41
+- distance_to_ma20_pct_auxiliary: 32.35
 - distance_to_high_60_pct: 0
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,1070,1100,1030,1040,2136575,1081.11,-3.8,1136.5,976.32,0.83
 20260518,1030,1060,980,1045,2982420,1078.1,-3.07,1127.75,980.35,1.13
 20260519,1025,1065,1025,1040,1401290,1074.93,-3.25,1119.75,982.97,0.54
 20260520,1050,1095,990,994,3534418,1068.18,-6.94,1108.7,984.02,1.29
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,1215,1225,1135,1145,3113938,1101.24,3.97,1093.7,1049.45,1.04
 20260615,1195,1255,1190,1255,1450761,1114.05,12.65,1105.2,1055.38,0.49
 20260616,1310,1380,1265,1380,3490273,1136.21,21.46,1120.95,1062.97,1.16
+20260617,1400,1515,1395,1515,4404786,1167.78,29.73,1144.7,1072.92,1.41
 ```
 
 ## Latest TDCC Snapshot
@@ -185,12 +185,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 8996 | 高力 | true_breakout | 嚴格突破 | 64.0 |  |  | platform_right_side |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260617 | 8996 | 高力 | true_breakout | 嚴格突破 | 64.0 |  |  | platform_right_side |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 8996 | 高力 | 15 | 1 | 5 | 10 | 15 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260617 | 8996 | 高力 | 16 | 2 | 5 | 10 | 16 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

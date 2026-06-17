@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6589 台康生技
 
 ## Metadata
-- generated_at: 2026-06-16 22:24:01 Asia/Taipei
+- generated_at: 2026-06-17 22:24:37 Asia/Taipei
 - stock_id: 6589
 - stock_name: 台康生技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 211
+- latest_price_date: 20260617
+- price_rows: 212
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 單一個股分析
-- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 型態觀察
+- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 單一個股分析 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
+- final_decision_zh: 型態觀察 目前屬於「訊號不明」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 45.25
-- high: 45.25
-- low: 44.35
-- close: 45
-- volume: 660927
-- ma5: 44.64
-- ema23_primary: 44.42
-- distance_to_ema23_pct: 1.32
-- ma20: 43.59
-- ma60: 48.53
-- ma120: 55.65
-- return_5d: 2.16
-- return_20d: 10.97
-- volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: 3.23
-- distance_to_high_60_pct: -26.23
+- date: 20260617
+- open: 46
+- high: 46.2
+- low: 44.9
+- close: 45.45
+- volume: 1249091
+- ma5: 44.86
+- ema23_primary: 44.5
+- distance_to_ema23_pct: 2.13
+- ma20: 43.63
+- ma60: 48.33
+- ma120: 55.4
+- return_5d: 2.48
+- return_20d: 1.91
+- volume_ratio: 0.81
+- distance_to_ma20_pct_auxiliary: 4.16
+- distance_to_high_60_pct: -25.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,42.85,44.6,42.85,44.6,831358,46.8,-4.71,45.97,53.64,0.7
 20260518,45.6,46.3,43.95,44.4,3737755,46.6,-4.73,45.66,53.37,2.8
 20260519,44.05,44.45,42.9,43.9,1257005,46.38,-5.34,45.4,53.1,0.96
 20260520,43.9,44.6,43.35,43.6,701456,46.15,-5.52,45.16,52.81,0.56
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,44.5,45.35,44.2,44.85,954825,44.29,1.26,43.18,48.92,0.59
 20260615,45.45,45.45,44.45,45.15,655541,44.36,1.77,43.37,48.73,0.42
 20260616,45.25,45.25,44.35,45,660927,44.42,1.32,43.59,48.53,0.44
+20260617,46,46.2,44.9,45.45,1249091,44.5,2.13,43.63,48.33,0.81
 ```
 
 ## Latest TDCC Snapshot
@@ -184,14 +184,15 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| status |
-| --- |
-| no rows |
+| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260617 | 6589 | 台康生技 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | stale_signal | 1.事實發生日:115/06/16 2.公司名稱:台康生技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:   (1)衛生福利部中央健康保險署於今日公告，      自115年7月1日起，進一步擴增益康平EIRGASUN 420 mg用於      HER2陽性早期乳癌(Early Breast Cancer, EBC)相關健保給付範圍，      以進一步與國際治療指引接軌，      此藥品已於115年6月1日起納入全民健康保險給付。   (2)本次健保給付範圍擴增，有助提升藥品臨床可近性，      預期對本公司營運具正面影響。   (3)根據「財團法人醫藥品查驗中心醫療科技評估報告」推估，      未來五年每年可望嘉惠約1,566至1,755位早期乳癌病患。 6.因應措施:發布重大訊息。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):   無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260617 | 6589 | 台康生技 | revenue_pullback | 營收成長股價回檔 | 70.0 |  |  |  |  |  | stale_signal | 1.事實發生日:115/06/16 2.公司名稱:台康生技股份有限公司 3.與公司關係(請輸入本公司或子公司):本公司 4.相互持股比例:不適用 5.發生緣由:   (1)衛生福利部中央健康保險署於今日公告，      自115年7月1日起，進一步擴增益康平EIRGASUN 420 mg用於      HER2陽性早期乳癌(Early Breast Cancer, EBC)相關健保給付範圍，      以進一步與國際治療指引接軌，      此藥品已於115年6月1日起納入全民健康保險給付。   (2)本次健保給付範圍擴增，有助提升藥品臨床可近性，      預期對本公司營運具正面影響。   (3)根據「財團法人醫藥品查驗中心醫療科技評估報告」推估，      未來五年每年可望嘉惠約1,566至1,755位早期乳癌病患。 6.因應措施:發布重大訊息。 7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時   符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):   無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
-| status |
-| --- |
-| no rows |
+| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20260617 | 6589 | 台康生技 | 1 | 1 | 2 | 3 | 3 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

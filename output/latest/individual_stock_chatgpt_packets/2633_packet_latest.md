@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2633 台灣高鐵
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:00 Asia/Taipei
+- generated_at: 2026-06-17 22:23:23 Asia/Taipei
 - stock_id: 2633
 - stock_name: 台灣高鐵
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 25.65
-- high: 26.25
-- low: 25.55
+- date: 20260617
+- open: 26.15
+- high: 26.6
+- low: 26
 - close: 26.15
-- volume: 17820495
-- ma5: 25.6
-- ema23_primary: 25.66
-- distance_to_ema23_pct: 1.93
-- ma20: 25.48
+- volume: 16103853
+- ma5: 25.73
+- ema23_primary: 25.7
+- distance_to_ema23_pct: 1.76
+- ma20: 25.5
 - ma60: 26.16
-- ma120: 26.72
-- return_5d: 3.36
-- return_20d: 0.97
-- volume_ratio: 0.81
-- distance_to_ma20_pct_auxiliary: 2.64
+- ma120: 26.71
+- return_5d: 2.55
+- return_20d: 1.75
+- volume_ratio: 0.72
+- distance_to_ma20_pct_auxiliary: 2.55
 - distance_to_high_60_pct: -3.15
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,25.7,25.85,25.65,25.7,11159917,26.42,-2.72,26.46,26.56,1.84
 20260518,25.65,25.7,25.55,25.6,6138784,26.35,-2.85,26.39,26.54,1
 20260519,25.7,26.1,25.55,25.95,8651823,26.32,-1.4,26.35,26.52,1.36
 20260520,25.95,26.05,25.85,25.85,4181220,26.28,-1.63,26.31,26.49,0.68
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,25.4,25.6,25.35,25.45,4363760,25.62,-0.65,25.5,26.17,0.2
 20260615,25.7,25.7,25.5,25.55,5520875,25.61,-0.24,25.46,26.16,0.25
 20260616,25.65,26.25,25.55,26.15,17820495,25.66,1.93,25.48,26.16,0.81
+20260617,26.15,26.6,26,26.15,16103853,25.7,1.76,25.5,26.16,0.72
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2633 | 台灣高鐵 | pattern | 型態觀察 | 54.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260617 | 2633 | 台灣高鐵 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2633 | 台灣高鐵 | 3 | 3 | 3 | 4 | 4 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260617 | 2633 | 台灣高鐵 | 4 | 4 | 4 | 5 | 5 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2633 | 台灣高鐵 | 2 | 0 | 184680.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

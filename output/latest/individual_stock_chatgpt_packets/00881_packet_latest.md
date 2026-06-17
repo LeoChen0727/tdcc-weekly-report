@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00881 國泰台灣科技龍頭
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:26 Asia/Taipei
+- generated_at: 2026-06-17 22:22:45 Asia/Taipei
 - stock_id: 00881
 - stock_name: 國泰台灣科技龍頭
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260616
-- price_rows: 15
+- latest_price_date: 20260617
+- price_rows: 16
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 54.85
-- high: 55.05
-- low: 54.55
-- close: 54.85
-- volume: 9123351
-- ma5: 53.67
-- ema23_primary: 53.34
-- distance_to_ema23_pct: 2.82
-- ma20: 54.09
-- ma60: 54.09
-- ma120: 54.09
-- return_5d: -0.81
+- date: 20260617
+- open: 54.4
+- high: 54.95
+- low: 54.15
+- close: 54.95
+- volume: 6351984
+- ma5: 53.84
+- ema23_primary: 53.48
+- distance_to_ema23_pct: 2.75
+- ma20: 54.14
+- ma60: 54.14
+- ma120: 54.14
+- return_5d: 1.57
 - return_20d:
-- volume_ratio: 0.69
-- distance_to_ma20_pct_auxiliary: 1.41
-- distance_to_high_60_pct: -2.92
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: 1.49
+- distance_to_high_60_pct: -2.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -150,6 +150,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,53.8,53.95,52.8,53,9814258,53.09,-0.16,54,54,0.7
 20260615,54.6,54.85,54.15,54.55,7099051,53.21,2.52,54.04,54.04,0.52
 20260616,54.85,55.05,54.55,54.85,9123351,53.34,2.82,54.09,54.09,0.69
+20260617,54.4,54.95,54.15,54.95,6351984,53.48,2.75,54.14,54.14,0.5
 ```
 
 ## Latest TDCC Snapshot

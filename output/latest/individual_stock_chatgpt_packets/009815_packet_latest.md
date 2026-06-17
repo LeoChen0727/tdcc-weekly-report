@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009815 大華美國MAG7+
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:28 Asia/Taipei
+- generated_at: 2026-06-17 22:22:47 Asia/Taipei
 - stock_id: 009815
 - stock_name: 大華美國MAG7+
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260616
-- price_rows: 15
+- latest_price_date: 20260617
+- price_rows: 16
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 11.35
-- high: 11.38
-- low: 11.33
-- close: 11.36
+- date: 20260617
+- open: 11.24
+- high: 11.26
+- low: 11.2
+- close: 11.26
 - volume: 11000
-- ma5: 11.21
-- ema23_primary: 11.38
-- distance_to_ema23_pct: -0.17
-- ma20: 11.42
-- ma60: 11.42
-- ma120: 11.42
-- return_5d: -3.24
+- ma5: 11.17
+- ema23_primary: 11.37
+- distance_to_ema23_pct: -0.96
+- ma20: 11.41
+- ma60: 11.41
+- ma120: 11.41
+- return_5d: -2
 - return_20d:
-- volume_ratio: 1.13
-- distance_to_ma20_pct_auxiliary: -0.54
-- distance_to_high_60_pct: -3.48
+- volume_ratio: 1.12
+- distance_to_ma20_pct_auxiliary: -1.33
+- distance_to_high_60_pct: -4.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -150,6 +150,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,11.14,11.14,11.06,11.09,11000,11.4,-2.69,11.44,11.44,1.15
 20260615,11.19,11.22,11.18,11.22,11000,11.38,-1.42,11.43,11.43,1.14
 20260616,11.35,11.38,11.33,11.36,11000,11.38,-0.17,11.42,11.42,1.13
+20260617,11.24,11.26,11.2,11.26,11000,11.37,-0.96,11.41,11.41,1.12
 ```
 
 ## Latest TDCC Snapshot

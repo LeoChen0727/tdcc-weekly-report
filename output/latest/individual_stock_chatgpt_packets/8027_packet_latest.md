@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8027 鈦昇
 
 ## Metadata
-- generated_at: 2026-06-16 22:24:26 Asia/Taipei
+- generated_at: 2026-06-17 22:25:07 Asia/Taipei
 - stock_id: 8027
 - stock_name: 鈦昇
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,21 +113,21 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
+- date: 20260617
 - open: 242
-- high: 250
-- low: 230
+- high: 257.5
+- low: 235.5
 - close: 247
-- volume: 241000
-- ma5: 248.6
-- ema23_primary: 246.02
-- distance_to_ema23_pct: 0.4
+- volume: 248000
+- ma5: 239.4
+- ema23_primary: 246.1
+- distance_to_ema23_pct: 0.36
 - ma20: 257.82
-- ma60: 192.38
-- ma120: 148.82
-- return_5d: -15.12
-- return_20d: -6.44
-- volume_ratio: 0.11
+- ma60: 194.71
+- ma120: 150.05
+- return_5d: -15.7
+- return_20d: 0
+- volume_ratio: 0.12
 - distance_to_ma20_pct_auxiliary: -4.2
 - distance_to_high_60_pct: -16.84
 
@@ -135,7 +135,6 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,268,278.5,242.5,247,5603000,195.89,26.09,190.97,141.35,0.48
 20260518,241,271.5,231.5,271.5,5662000,202.19,34.28,197.12,144.17,0.5
 20260519,271.5,290,257,266,4457000,207.51,28.19,202.95,147.03,0.4
 20260520,260,276.5,239.5,240,14405000,210.21,14.17,207.47,149.49,1.25
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,240,242.5,231,232.5,236000,246.56,-5.7,259.23,187.93,0.09
 20260615,235,248,235,239,242000,245.93,-2.82,258.68,190.09,0.1
 20260616,242,250,230,247,241000,246.02,0.4,257.82,192.38,0.11
+20260617,242,257.5,235.5,247,248000,246.1,0.36,257.82,194.71,0.12
 ```
 
 ## Latest TDCC Snapshot

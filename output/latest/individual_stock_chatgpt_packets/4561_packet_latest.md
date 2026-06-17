@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4561 健椿
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:31 Asia/Taipei
+- generated_at: 2026-06-17 22:24:00 Asia/Taipei
 - stock_id: 4561
 - stock_name: 健椿
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 43.05
-- high: 43.05
-- low: 42
-- close: 42
-- volume: 43000
-- ma5: 43.25
-- ema23_primary: 46.57
-- distance_to_ema23_pct: -9.81
-- ma20: 48.62
-- ma60: 40.79
-- ma120: 39.06
-- return_5d: -17.65
-- return_20d: -13.31
-- volume_ratio: 0.39
-- distance_to_ma20_pct_auxiliary: -13.61
-- distance_to_high_60_pct: -29.77
+- date: 20260617
+- open: 42
+- high: 42.2
+- low: 41.4
+- close: 41.85
+- volume: 42000
+- ma5: 42.08
+- ema23_primary: 46.18
+- distance_to_ema23_pct: -9.37
+- ma20: 48.3
+- ma60: 40.93
+- ma120: 39.13
+- return_5d: -12.26
+- return_20d: -12.99
+- volume_ratio: 0.44
+- distance_to_ma20_pct_auxiliary: -13.36
+- distance_to_high_60_pct: -30.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,49.2,49.4,47.6,48.1,359000,42.39,13.48,41.22,37.34,0.34
 20260518,48.1,49.85,48,49.85,474000,43.01,15.91,41.88,37.51,0.45
 20260519,49.3,49.85,48,48,269000,43.43,10.54,42.52,37.62,0.25
 20260520,48.5,48.8,47.45,47.7,156000,43.78,8.95,43.15,37.74,0.15
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,41.95,43,41.9,42.05,42000,47.32,-11.14,49.15,40.5,0.28
 20260615,42.5,43.8,42.45,43.25,43000,46.98,-7.95,48.94,40.66,0.34
 20260616,43.05,43.05,42,42,43000,46.57,-9.81,48.62,40.79,0.39
+20260617,42,42.2,41.4,41.85,42000,46.18,-9.37,48.3,40.93,0.44
 ```
 
 ## Latest TDCC Snapshot

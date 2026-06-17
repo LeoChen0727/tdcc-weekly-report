@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1110 東泥
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:29 Asia/Taipei
+- generated_at: 2026-06-17 22:22:48 Asia/Taipei
 - stock_id: 1110
 - stock_name: 東泥
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 15.9
-- high: 15.95
-- low: 15.75
+- date: 20260617
+- open: 15.75
+- high: 15.8
+- low: 15.55
 - close: 15.75
-- volume: 166980
-- ma5: 15.68
-- ema23_primary: 15
-- distance_to_ema23_pct: 5.02
-- ma20: 14.68
+- volume: 408321
+- ma5: 15.63
+- ema23_primary: 15.06
+- distance_to_ema23_pct: 4.58
+- ma20: 14.76
 - ma60: 15.01
-- ma120: 15.66
-- return_5d: 8.62
-- return_20d: 9.38
-- volume_ratio: 0.53
-- distance_to_ma20_pct_auxiliary: 7.31
+- ma120: 15.65
+- return_5d: -1.56
+- return_20d: 10.92
+- volume_ratio: 1.25
+- distance_to_ma20_pct_auxiliary: 6.74
 - distance_to_high_60_pct: -3.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,14.4,14.5,14.15,14.2,128463,15.01,-5.39,15.06,15.46,0.68
 20260518,14.2,14.35,14,14.2,312483,14.94,-4.96,14.98,15.43,1.6
 20260519,14.2,14.2,14,14.2,91195,14.88,-4.57,14.92,15.39,0.47
 20260520,14.1,14.1,13.9,13.9,126193,14.8,-6.07,14.83,15.35,0.65
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,15.4,15.65,15.4,15.45,121867,14.85,4.04,14.54,15.01,0.39
 20260615,15.6,16.4,15.5,15.8,453411,14.93,5.84,14.61,15.01,1.43
 20260616,15.9,15.95,15.75,15.75,166980,15,5.02,14.68,15.01,0.53
+20260617,15.75,15.8,15.55,15.75,408321,15.06,4.58,14.76,15.01,1.25
 ```
 
 ## Latest TDCC Snapshot

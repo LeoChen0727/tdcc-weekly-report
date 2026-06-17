@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4541 晟田
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:30 Asia/Taipei
+- generated_at: 2026-06-17 22:23:59 Asia/Taipei
 - stock_id: 4541
 - stock_name: 晟田
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 49.65
-- high: 49.95
-- low: 47.7
-- close: 48
-- volume: 49000
-- ma5: 47.75
-- ema23_primary: 46.36
-- distance_to_ema23_pct: 3.54
-- ma20: 45.56
-- ma60: 45.24
-- ma120: 44.45
-- return_5d: 1.48
-- return_20d: 8.72
-- volume_ratio: 0.22
-- distance_to_ma20_pct_auxiliary: 5.36
-- distance_to_high_60_pct: -7.34
+- date: 20260617
+- open: 47.85
+- high: 51.3
+- low: 47.8
+- close: 51
+- volume: 50000
+- ma5: 48.5
+- ema23_primary: 46.74
+- distance_to_ema23_pct: 9.1
+- ma20: 45.91
+- ma60: 45.4
+- ma120: 44.53
+- return_5d: 7.94
+- return_20d: 15.65
+- volume_ratio: 0.36
+- distance_to_ma20_pct_auxiliary: 11.1
+- distance_to_high_60_pct: -1.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,45.55,46.55,44.05,44.1,1799000,46.17,-4.49,47.32,44.5,1.21
 20260518,44,44.35,43.35,44.05,582000,45.99,-4.23,47.11,44.54,0.4
 20260519,44.6,44.6,43.5,43.5,446000,45.79,-4.99,46.81,44.55,0.34
 20260520,43.7,44.3,43.15,43.15,615000,45.57,-5.3,46.54,44.55,0.49
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,47.1,48.1,47.05,47.55,48000,45.95,3.47,45.11,44.98,0.15
 20260615,48.1,49.25,47.75,49,49000,46.21,6.04,45.37,45.13,0.19
 20260616,49.65,49.95,47.7,48,49000,46.36,3.54,45.56,45.24,0.22
+20260617,47.85,51.3,47.8,51,50000,46.74,9.1,45.91,45.4,0.36
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2891 中信金
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:04 Asia/Taipei
+- generated_at: 2026-06-17 22:23:28 Asia/Taipei
 - stock_id: 2891
 - stock_name: 中信金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 70.4
-- high: 71.7
-- low: 69.6
-- close: 70.8
-- volume: 40981294
-- ma5: 68.52
-- ema23_primary: 62.43
-- distance_to_ema23_pct: 13.4
-- ma20: 61.76
-- ma60: 56.24
-- ma120: 53.38
-- return_5d: 10.45
-- return_20d: 29.2
-- volume_ratio: 0.65
-- distance_to_ma20_pct_auxiliary: 14.64
-- distance_to_high_60_pct: -2.48
+- date: 20260617
+- open: 70.7
+- high: 72.7
+- low: 69.9
+- close: 71
+- volume: 36670620
+- ma5: 69.4
+- ema23_primary: 63.15
+- distance_to_ema23_pct: 12.44
+- ma20: 62.57
+- ma60: 56.54
+- ma120: 53.6
+- return_5d: 6.61
+- return_20d: 29.56
+- volume_ratio: 0.58
+- distance_to_ma20_pct_auxiliary: 13.47
+- distance_to_high_60_pct: -2.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,55.1,55.6,54.7,54.8,36032190,54.04,1.4,53.84,53.12,0.7
 20260518,55,55.4,54.4,54.8,30347395,54.1,1.29,53.92,53.17,0.59
 20260519,55.3,56.6,54.9,55.4,60742665,54.21,2.19,54.03,53.23,1.17
 20260520,56.4,58,55.6,57.8,114703217,54.51,6.03,54.27,53.33,2.08
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,67.8,69.2,66.9,67.6,83389953,60.91,10.99,60.2,55.61,1.31
 20260615,71.7,72.6,69,70.1,42928285,61.67,13.67,60.96,55.92,0.68
 20260616,70.4,71.7,69.6,70.8,40981294,62.43,13.4,61.76,56.24,0.65
+20260617,70.7,72.7,69.9,71,36670620,63.15,12.44,62.57,56.54,0.58
 ```
 
 ## Latest TDCC Snapshot
@@ -185,17 +185,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2891 | 中信金 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | 1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，如股息率等）: 金融機構債權(放款) 2.事實發生日:115/6/15~115/6/15 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:信審會 民國115年03月13日 5.交易單位數量、每單位價格及交易總金額: 不適用 不適用 USD 14,290,000 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之 關係人者，得免揭露其姓名）: 1.KfW IPEX-Bank GmbH 2.Hua Nan Commercial Bank, Ltd., Offshore Banking Branch 3.Arab Bank for Investment and Foreign Trade 4.Bank of China (Hong Kong) Limited 5.Bank of China (Malaysia) Berhad 6.BDO Unibank, Inc. (Singapore Branch) 7.China Construction Bank Corporation, Labuan Branch 8.Doha Bank Q.P.S.C. 9.Far Eastern International Bank, Ltd. 10.Land Bank of Taiwan, Singapore Branch 11.Mega International Commercial Bank Co., Ltd., Offshore Banking Branch 12.Taiwan Cooperative Bank, Offshore Banking Branch 13.Union Bank of Taiwan Co., Ltd. 14.First Commercial Bank, Offshore Banking Branch 15.Taiwan Shin Kong Commercial Bank Co., Ltd 16.Chang Hwa Commercial Bank, Ltd. Offshore Banking Branch 17.E.SUN Commercial Bank, Ltd. 18.Sunny Bank, Ltd. 19.Taichung Commercial Bank Co., Limited Labuan Branch 20.The Export-Import Bank of the Republic of China 非關係人。 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移 轉之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次 移轉日期及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係人之取 得及處分日期、價格及交易當時與公司之關係: 不適用 9.本次係處分債權之相關事項（含處分之債權附隨擔保品種類、處分債權 如有屬對關係人債權者尚需公告關係人名稱及本次處分該關係人之債權 帳面金額: 不適用 10.處分利益（或損失）（取得有價證券者不適用）（遞延者應列表說明 認列情形）: 無。 11.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 付款條件: 依合約辦理。 重要約定事項: 依合約辦理。 12.本次交易之決定方式、價格決定之參考依據及決策單位: 為本行內部最終審核單位核定，相關條件依合約及一般市場慣例為之。 13.取得或處分有價證券標的公司每股淨值: 不適用 14.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 不適用 15.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列 之有價證券投資（含本次交易）占公司最近期財務報表中總資產及歸屬 於母公司業主之權益之比例暨最近期財務報表中營運資金數額: 不適用 16.經紀人及經紀費用: 不適用 17.取得或處分之具體目的或用途: 活絡債權資產組合。 18.本次交易表示異議董事之意見: 不適用 19.本次交易為關係人交易:否 20.監察人承認或審計委員會同意日期: 不適用 21.本次交易會計師出具非合理性意見:不適用 22.會計師事務所名稱: 不適用 23.會計師姓名: 不適用 24.會計師開業證書字號: 不適用 25.是否涉及營運模式變更:否 26.營運模式變更說明: 不適用 27.過去一年及預計未來一年內與交易相對人交易情形: 例行性業務 28.資金來源: 不適用 29.前已就同一件事件發布重大訊息日期: 不適用 30.其他敘明事項: 本交易係依115/06/14之匯率計算(USD 1=NTD 31.6480)。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260617 | 2891 | 中信金 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | stale_signal | 1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，如股息率等）: 金融機構債權(放款) 2.事實發生日:114/6/17~115/6/16 3.董事會通過日期: 不適用 4.其他核決日期: 核決層級:美國子行法金業務主管核決 民國115年06月16日 5.交易單位數量、每單位價格及交易總金額: 交易單位數量:不適用 每單位價格:不適用 交易總金額:USD11,785,714 6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之 關係人者，得免揭露其姓名）: JPMorgan Chase Bank, N.A 7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移 轉之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次 移轉日期及移轉金額: 不適用 8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係人之取 得及處分日期、價格及交易當時與公司之關係: 不適用 9.本次係處分債權之相關事項（含處分之債權附隨擔保品種類、處分債權 如有屬對關係人債權者尚需公告關係人名稱及本次處分該關係人之債權 帳面金額: 不適用 10.處分利益（或損失）（取得有價證券者不適用）（遞延者應列表說明 認列情形）: 無 11.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定 事項: 付款條件:不適用。 重要約定事項:不適用。 12.本次交易之決定方式、價格決定之參考依據及決策單位: 為本行內部最終審核單位核定，相關條件依合約及一般市場慣例為之。 13.取得或處分有價證券標的公司每股淨值: 不適用 14.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股 比例及權利受限情形（如質押情形）: 不適用 15.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列 之有價證券投資（含本次交易）占公司最近期財務報表中總資產及歸屬 於母公司業主之權益之比例暨最近期財務報表中營運資金數額: 不適用 16.經紀人及經紀費用: 無 17.取得或處分之具體目的或用途: 債權資產組合優化。 18.本次交易表示異議董事之意見: 無 19.本次交易為關係人交易:否 20.監察人承認或審計委員會同意日期: 不適用 21.本次交易會計師出具非合理性意見:不適用 22.會計師事務所名稱: 不適用 23.會計師姓名: 不適用 24.會計師開業證書字號: 不適用 25.是否涉及營運模式變更:否 26.營運模式變更說明: 不適用 27.過去一年及預計未來一年內與交易相對人交易情形: 不適用 28.資金來源: 不適用 29.前已就同一件事件發布重大訊息日期: 不適用 30.其他敘明事項: 本交易係依2026/6/16之匯率計算(USD 1 = NTD 31.562)。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2891 | 中信金 | 1 | 1 | 3 | 7 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260617 | 2891 | 中信金 | 2 | 2 | 3 | 7 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2891 | 中信金 | 26 | 0 | 3587260.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

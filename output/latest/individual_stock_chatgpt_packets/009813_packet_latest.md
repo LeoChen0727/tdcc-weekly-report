@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009813 貝萊德標普卓越50
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:28 Asia/Taipei
+- generated_at: 2026-06-17 22:22:47 Asia/Taipei
 - stock_id: 009813
 - stock_name: 貝萊德標普卓越50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260616
-- price_rows: 15
+- latest_price_date: 20260617
+- price_rows: 16
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 11.11
-- high: 11.19
-- low: 11.11
-- close: 11.15
-- volume: 3084066
-- ma5: 11.1
-- ema23_primary: 11.28
-- distance_to_ema23_pct: -1.16
-- ma20: 11.29
-- ma60: 11.29
-- ma120: 11.29
-- return_5d: -2.62
+- date: 20260617
+- open: 11.14
+- high: 11.14
+- low: 11.1
+- close: 11.13
+- volume: 1148912
+- ma5: 11.07
+- ema23_primary: 11.27
+- distance_to_ema23_pct: -1.23
+- ma20: 11.28
+- ma60: 11.28
+- ma120: 11.28
+- return_5d: -1.59
 - return_20d:
-- volume_ratio: 0.88
-- distance_to_ma20_pct_auxiliary: -1.24
-- distance_to_high_60_pct: -2.79
+- volume_ratio: 0.34
+- distance_to_ma20_pct_auxiliary: -1.33
+- distance_to_high_60_pct: -2.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -150,6 +150,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,10.96,11.01,10.96,11,2669466,11.31,-2.75,11.32,11.32,0.73
 20260615,11.02,11.1,11.02,11.1,2092451,11.29,-1.71,11.3,11.3,0.59
 20260616,11.11,11.19,11.11,11.15,3084066,11.28,-1.16,11.29,11.29,0.88
+20260617,11.14,11.14,11.1,11.13,1148912,11.27,-1.23,11.28,11.28,0.34
 ```
 
 ## Latest TDCC Snapshot

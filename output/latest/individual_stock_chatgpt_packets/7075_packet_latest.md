@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7075 蜜望實統一74購02
 
 ## Metadata
-- generated_at: 2026-06-16 22:24:16 Asia/Taipei
+- generated_at: 2026-06-17 22:24:54 Asia/Taipei
 - stock_id: 7075
 - stock_name: 蜜望實統一74購02
 - packet_status: standard_180d_window_packet

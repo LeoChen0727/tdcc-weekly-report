@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00878 國泰永續高股息
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:26 Asia/Taipei
+- generated_at: 2026-06-17 22:22:45 Asia/Taipei
 - stock_id: 00878
 - stock_name: 國泰永續高股息
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260616
-- price_rows: 15
+- latest_price_date: 20260617
+- price_rows: 16
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,23 +112,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 32.78
-- high: 32.98
-- low: 32.65
-- close: 32.91
-- volume: 50358469
-- ma5: 32.3
-- ema23_primary: 30.83
-- distance_to_ema23_pct: 6.76
-- ma20: 31.36
-- ma60: 31.36
-- ma120: 31.36
-- return_5d: 1.29
+- date: 20260617
+- open: 32.67
+- high: 33.27
+- low: 32.64
+- close: 33.27
+- volume: 44252730
+- ma5: 32.49
+- ema23_primary: 31.03
+- distance_to_ema23_pct: 7.22
+- ma20: 31.48
+- ma60: 31.48
+- ma120: 31.48
+- return_5d: 2.94
 - return_20d:
-- volume_ratio: 0.55
-- distance_to_ma20_pct_auxiliary: 4.93
-- distance_to_high_60_pct: -1.47
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: 5.68
+- distance_to_high_60_pct: -0.39
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -150,6 +149,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,32.42,32.46,32.05,32.05,52341624,30.46,5.22,31.15,31.15,0.54
 20260615,32.76,33.01,32.56,32.61,51793757,30.64,6.44,31.25,31.25,0.55
 20260616,32.78,32.98,32.65,32.91,50358469,30.83,6.76,31.36,31.36,0.55
+20260617,32.67,33.27,32.64,33.27,44252730,31.03,7.22,31.48,31.48,0.5
 ```
 
 ## Latest TDCC Snapshot

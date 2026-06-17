@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00947 台新臺灣IC設計
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:28 Asia/Taipei
+- generated_at: 2026-06-17 22:22:46 Asia/Taipei
 - stock_id: 00947
 - stock_name: 台新臺灣IC設計
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260616
-- price_rows: 15
+- latest_price_date: 20260617
+- price_rows: 16
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 39.52
-- high: 39.71
-- low: 38.88
-- close: 39.52
-- volume: 8308804
-- ma5: 37.67
-- ema23_primary: 37.93
-- distance_to_ema23_pct: 4.19
-- ma20: 38.45
-- ma60: 38.45
-- ma120: 38.45
-- return_5d: -2.92
+- date: 20260617
+- open: 38.99
+- high: 39.7
+- low: 38.85
+- close: 39.7
+- volume: 6999604
+- ma5: 38.06
+- ema23_primary: 38.08
+- distance_to_ema23_pct: 4.26
+- ma20: 38.53
+- ma60: 38.53
+- ma120: 38.53
+- return_5d: 5.11
 - return_20d:
-- volume_ratio: 0.82
-- distance_to_ma20_pct_auxiliary: 2.79
-- distance_to_high_60_pct: -4.29
+- volume_ratio: 0.71
+- distance_to_ma20_pct_auxiliary: 3.04
+- distance_to_high_60_pct: -3.85
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -150,6 +150,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,36.87,37.3,36.6,37.06,7708772,37.71,-1.71,38.35,38.35,0.74
 20260615,38.29,38.78,38.15,38.66,8381997,37.79,2.31,38.37,38.37,0.82
 20260616,39.52,39.71,38.88,39.52,8308804,37.93,4.19,38.45,38.45,0.82
+20260617,38.99,39.7,38.85,39.7,6999604,38.08,4.26,38.53,38.53,0.71
 ```
 
 ## Latest TDCC Snapshot

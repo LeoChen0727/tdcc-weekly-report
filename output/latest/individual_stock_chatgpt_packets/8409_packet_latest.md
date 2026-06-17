@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8409 商之器
 
 ## Metadata
-- generated_at: 2026-06-16 22:24:32 Asia/Taipei
+- generated_at: 2026-06-17 22:25:14 Asia/Taipei
 - stock_id: 8409
 - stock_name: 商之器
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 279
+- latest_price_date: 20260617
+- price_rows: 280
 - latest_tdcc_date: 20260612
 - tdcc_rows: 29
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 19
-- high: 19.1
-- low: 19
+- date: 20260617
+- open: 19.15
+- high: 19.15
+- low: 19.1
 - close: 19.1
 - volume: 19000
-- ma5: 19.13
-- ema23_primary: 19.29
-- distance_to_ema23_pct: -1
+- ma5: 19.08
+- ema23_primary: 19.28
+- distance_to_ema23_pct: -0.92
 - ma20: 19.19
-- ma60: 19.94
-- ma120: 20.53
-- return_5d: -0.52
-- return_20d: -0.52
-- volume_ratio: 1.24
-- distance_to_ma20_pct_auxiliary: -0.47
+- ma60: 19.92
+- ma120: 20.52
+- return_5d: -1.29
+- return_20d: -0.26
+- volume_ratio: 1.21
+- distance_to_ma20_pct_auxiliary: -0.46
 - distance_to_high_60_pct: -9.26
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,19.2,19.2,19,19.15,13000,19.84,-3.49,19.87,20.38,0.56
 20260518,19.15,19.15,19.1,19.1,5000,19.78,-3.44,19.79,20.35,0.23
 20260519,19.15,19.15,19.1,19.1,7000,19.72,-3.16,19.71,20.33,0.35
 20260520,19,19,18.95,18.95,6000,19.66,-3.61,19.63,20.31,0.31
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,19.05,19.1,19.05,19.1,19000,19.33,-1.19,19.2,19.98,1.26
 20260615,19.05,19.1,19,19.1,19000,19.31,-1.09,19.2,19.96,1.21
 20260616,19,19.1,19,19.1,19000,19.29,-1,19.19,19.94,1.24
+20260617,19.15,19.15,19.1,19.1,19000,19.28,-0.92,19.19,19.92,1.21
 ```
 
 ## Latest TDCC Snapshot

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2880 華南金
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:03 Asia/Taipei
+- generated_at: 2026-06-17 22:23:28 Asia/Taipei
 - stock_id: 2880
 - stock_name: 華南金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 36.7
-- high: 37.6
-- low: 36.55
-- close: 37.45
-- volume: 27840857
-- ma5: 36.12
-- ema23_primary: 33.92
-- distance_to_ema23_pct: 10.41
-- ma20: 33.06
-- ma60: 33.58
-- ma120: 33.38
-- return_5d: 9.99
-- return_20d: 14.88
-- volume_ratio: 0.48
-- distance_to_ma20_pct_auxiliary: 13.28
-- distance_to_high_60_pct: -0.4
+- date: 20260617
+- open: 36.95
+- high: 38.6
+- low: 36.95
+- close: 38.1
+- volume: 32919856
+- ma5: 36.78
+- ema23_primary: 34.27
+- distance_to_ema23_pct: 11.18
+- ma20: 33.34
+- ma60: 33.66
+- ma120: 33.44
+- return_5d: 9.48
+- return_20d: 17.59
+- volume_ratio: 0.55
+- distance_to_ma20_pct_auxiliary: 14.26
+- distance_to_high_60_pct: -1.3
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,32.9,33.15,32.4,32.4,13394492,33.4,-3.01,33.68,34.25,0.65
 20260518,32.65,32.65,31.85,31.85,21630660,33.27,-4.28,33.47,34.22,1.03
 20260519,32.1,33.15,32,32.2,26823110,33.18,-2.97,33.28,34.19,1.27
 20260520,32.2,32.6,31.95,32.05,31589810,33.09,-3.14,33.12,34.15,1.45
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,35.9,37,35.75,36,38300652,33.32,8.05,32.62,33.47,0.67
 20260615,37.5,37.5,36.1,36.7,18966806,33.6,9.23,32.82,33.52,0.33
 20260616,36.7,37.6,36.55,37.45,27840857,33.92,10.41,33.06,33.58,0.48
+20260617,36.95,38.6,36.95,38.1,32919856,34.27,11.18,33.34,33.66,0.55
 ```
 
 ## Latest TDCC Snapshot
@@ -185,17 +185,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2880 | 華南金 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | calendar event: shareholder_meeting on 20260618; status=confirmed; proximity=within_3d |
+| 20260617 | 2880 | 華南金 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | stale_signal | calendar event: shareholder_meeting on 20260618; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2880 | 華南金 | 15 | 1 | 5 | 10 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260617 | 2880 | 華南金 | 16 | 2 | 5 | 10 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2880 | 華南金 | 3 | 0 | 194690.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

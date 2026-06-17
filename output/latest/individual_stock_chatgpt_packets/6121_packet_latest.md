@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6121 新普
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:48 Asia/Taipei
+- generated_at: 2026-06-17 22:24:20 Asia/Taipei
 - stock_id: 6121
 - stock_name: 新普
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 421
-- high: 426
-- low: 417
-- close: 421
-- volume: 422000
-- ma5: 415.8
-- ema23_primary: 396.13
-- distance_to_ema23_pct: 6.28
-- ma20: 394.75
-- ma60: 369.62
-- ma120: 359.7
-- return_5d: 3.19
-- return_20d: 13.02
-- volume_ratio: 1.03
-- distance_to_ma20_pct_auxiliary: 6.65
-- distance_to_high_60_pct: -1.17
+- date: 20260617
+- open: 419
+- high: 419
+- low: 405
+- close: 407.5
+- volume: 409000
+- ma5: 412.8
+- ema23_primary: 397.07
+- distance_to_ema23_pct: 2.63
+- ma20: 396.73
+- ma60: 370.5
+- ma120: 360.07
+- return_5d: -3.55
+- return_20d: 10.73
+- volume_ratio: 1.06
+- distance_to_ma20_pct_auxiliary: 2.72
+- distance_to_high_60_pct: -4.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,372.5,377,363.5,368,876000,366.85,0.31,368.07,349.67,0.99
 20260518,362.5,368,360.5,365,426000,366.69,-0.46,368.9,350.09,0.48
 20260519,366,378.5,365,374.5,767000,367.34,1.95,369.82,350.79,0.87
 20260520,375,378,372.5,376,405000,368.07,2.16,370.62,351.57,0.47
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,419,419.5,411,411.5,415000,392.12,4.94,390.68,367.38,0.94
 20260615,421.5,422,413,413,416000,393.86,4.86,392.32,368.4,0.96
 20260616,421,426,417,421,422000,396.13,6.28,394.75,369.62,1.03
+20260617,419,419,405,407.5,409000,397.07,2.63,396.73,370.5,1.06
 ```
 
 ## Latest TDCC Snapshot

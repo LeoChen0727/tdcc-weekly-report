@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2754 亞洲藏壽司
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:02 Asia/Taipei
+- generated_at: 2026-06-17 22:23:26 Asia/Taipei
 - stock_id: 2754
 - stock_name: 亞洲藏壽司
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 67.5
-- high: 67.5
+- date: 20260617
+- open: 67.1
+- high: 67.3
 - low: 67.1
 - close: 67.3
 - volume: 67000
-- ma5: 67.8
-- ema23_primary: 68.95
-- distance_to_ema23_pct: -2.39
-- ma20: 69.66
-- ma60: 69.5
-- ma120: 74.86
+- ma5: 67.54
+- ema23_primary: 68.81
+- distance_to_ema23_pct: -2.2
+- ma20: 69.55
+- ma60: 69.4
+- ma120: 74.72
 - return_5d: -1.9
 - return_20d: -3.17
-- volume_ratio: 0.52
-- distance_to_ma20_pct_auxiliary: -3.39
+- volume_ratio: 0.51
+- distance_to_ma20_pct_auxiliary: -3.24
 - distance_to_high_60_pct: -16.71
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,71.2,71.4,69.3,69.5,23000,69.32,0.26,68.64,71.38,0.57
 20260518,68.5,70.2,68,70.1,6000,69.39,1.03,68.67,71.25,0.15
 20260519,72.5,72.5,70,70,61000,69.44,0.81,68.69,71.13,1.48
 20260520,71.6,77,71.6,77,912000,70.07,9.9,69.12,71.12,10.72
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,67.3,68.8,67.3,67.8,68000,69.23,-2.06,69.9,69.75,0.52
 20260615,68,68.9,67.7,67.7,68000,69.1,-2.03,69.77,69.61,0.53
 20260616,67.5,67.5,67.1,67.3,67000,68.95,-2.39,69.66,69.5,0.52
+20260617,67.1,67.3,67.1,67.3,67000,68.81,-2.2,69.55,69.4,0.51
 ```
 
 ## Latest TDCC Snapshot

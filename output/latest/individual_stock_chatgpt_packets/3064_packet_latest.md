@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3064 泰偉
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:09 Asia/Taipei
+- generated_at: 2026-06-17 22:23:34 Asia/Taipei
 - stock_id: 3064
 - stock_name: 泰偉
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 253
+- latest_price_date: 20260617
+- price_rows: 254
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 18
+- date: 20260617
+- open: 19.2
 - high: 19.2
-- low: 18
+- low: 19.2
 - close: 19.2
-- volume: 18000
+- volume: 19000
 - ma5: 18.72
-- ema23_primary: 19.87
-- distance_to_ema23_pct: -3.36
-- ma20: 19.23
-- ma60: 26.61
+- ema23_primary: 19.81
+- distance_to_ema23_pct: -3.08
+- ma20: 19.16
+- ma60: 26.13
 - ma120: 36.81
-- return_5d: 1.05
-- return_20d: -8.57
-- volume_ratio: 1.67
-- distance_to_ma20_pct_auxiliary: -0.18
+- return_5d: 0
+- return_20d: -7.47
+- volume_ratio: 1.64
+- distance_to_ma20_pct_auxiliary: 0.22
 - distance_to_high_60_pct: -59.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260430,19.9,20.75,19.9,20.75,3000,23.9,-13.16,22.28,35.45,0.28
 20260504,20.65,20.65,19,19.15,5000,23.5,-18.51,21.9,35.02,0.51
 20260505,19.45,20,19.45,20,3000,23.21,-13.82,21.57,34.59,0.3
 20260506,21,21,21,21,1000,23.02,-8.79,21.23,34.16,0.12
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260605,18.6,20,17,18.6,18000,20.1,-7.47,19.47,27.6,1.98
 20260611,17.1,18,17.05,18,17000,19.93,-9.67,19.32,27.09,1.72
 20260616,18,19.2,18,19.2,18000,19.87,-3.36,19.23,26.61,1.67
+20260617,19.2,19.2,19.2,19.2,19000,19.81,-3.08,19.16,26.13,1.64
 ```
 
 ## Latest TDCC Snapshot

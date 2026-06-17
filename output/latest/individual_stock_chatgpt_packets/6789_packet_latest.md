@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6789 采鈺
 
 ## Metadata
-- generated_at: 2026-06-16 22:24:07 Asia/Taipei
+- generated_at: 2026-06-17 22:24:44 Asia/Taipei
 - stock_id: 6789
 - stock_name: 采鈺
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 498.5
-- high: 512
-- low: 486.5
-- close: 488
-- volume: 2719215
-- ma5: 485.2
-- ema23_primary: 517.4
-- distance_to_ema23_pct: -5.68
-- ma20: 526.5
-- ma60: 471.45
-- ma120: 381.72
-- return_5d: -6.51
-- return_20d: -14.83
-- volume_ratio: 0.63
-- distance_to_ma20_pct_auxiliary: -7.31
-- distance_to_high_60_pct: -23.99
+- date: 20260617
+- open: 483.5
+- high: 495.5
+- low: 480.5
+- close: 494
+- volume: 1203785
+- ma5: 481.4
+- ema23_primary: 515.45
+- distance_to_ema23_pct: -4.16
+- ma20: 521.85
+- ma60: 474.02
+- ma120: 383.6
+- return_5d: -3.7
+- return_20d: -15.84
+- volume_ratio: 0.32
+- distance_to_ma20_pct_auxiliary: -5.34
+- distance_to_high_60_pct: -23.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,598,615,580,587,11973280,533.07,10.12,556.17,409.18,1.04
 20260518,578,580,538,549,8881972,534.4,2.73,562.12,413.71,0.78
 20260519,540,541,510,519,7210854,533.11,-2.65,564.42,417.6,0.62
 20260520,523,525,506,519,3974079,531.94,-2.43,565.17,421.24,0.35
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,475,490.5,470,481.5,2703732,522.94,-7.93,535.48,466.57,0.57
 20260615,495,497.5,484,488.5,1652980,520.07,-6.07,530.75,468.96,0.37
 20260616,498.5,512,486.5,488,2719215,517.4,-5.68,526.5,471.45,0.63
+20260617,483.5,495.5,480.5,494,1203785,515.45,-4.16,521.85,474.02,0.32
 ```
 
 ## Latest TDCC Snapshot
@@ -185,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 6789 | 采鈺 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | call_inflow | stale_signal | calendar event: ex_dividend on 20260626; status=confirmed; proximity=within_14d |
+| 20260617 | 6789 | 采鈺 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: ex_dividend on 20260626; status=confirmed; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 6789 | 采鈺 | 3 | 3 | 3 | 5 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260617 | 6789 | 采鈺 | 4 | 4 | 4 | 6 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 6789 | 采鈺 | 86 | 0 | 9984100.0 | 0.0 |  | call_inflow |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

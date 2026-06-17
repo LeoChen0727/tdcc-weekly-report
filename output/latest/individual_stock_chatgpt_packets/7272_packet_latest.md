@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7272 擎亞國票59售01
 
 ## Metadata
-- generated_at: 2026-06-16 22:24:18 Asia/Taipei
+- generated_at: 2026-06-17 22:24:57 Asia/Taipei
 - stock_id: 7272
 - stock_name: 擎亞國票59售01
 - packet_status: standard_180d_window_packet

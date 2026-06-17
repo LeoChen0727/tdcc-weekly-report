@@ -1,7 +1,7 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7383 雙鴻元大58購01
 
 ## Metadata
-- generated_at: 2026-06-16 22:24:22 Asia/Taipei
+- generated_at: 2026-06-17 22:25:01 Asia/Taipei
 - stock_id: 7383
 - stock_name: 雙鴻元大58購01
 - packet_status: standard_180d_window_packet

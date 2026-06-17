@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00910 第一金太空衛星
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:27 Asia/Taipei
+- generated_at: 2026-06-17 22:22:46 Asia/Taipei
 - stock_id: 00910
 - stock_name: 第一金太空衛星
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260616
-- price_rows: 15
+- latest_price_date: 20260617
+- price_rows: 16
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -112,23 +112,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 70
-- high: 70
-- low: 68.1
-- close: 68.4
-- volume: 5353500
-- ma5: 71.63
-- ema23_primary: 77.59
-- distance_to_ema23_pct: -11.84
-- ma20: 79.4
-- ma60: 79.4
-- ma120: 79.4
-- return_5d: -14.34
+- date: 20260617
+- open: 66.3
+- high: 67.15
+- low: 66.05
+- close: 67.15
+- volume: 4373397
+- ma5: 69.75
+- ema23_primary: 76.72
+- distance_to_ema23_pct: -12.47
+- ma20: 78.63
+- ma60: 78.63
+- ma120: 78.63
+- return_5d: -12.28
 - return_20d:
-- volume_ratio: 0.75
-- distance_to_ma20_pct_auxiliary: -13.85
-- distance_to_high_60_pct: -22.32
+- volume_ratio: 0.63
+- distance_to_ma20_pct_auxiliary: -14.6
+- distance_to_high_60_pct: -23.74
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -149,6 +149,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,73.5,75.35,73.1,75.25,15208407,79.15,-4.92,80.93,80.93,2.15
 20260615,70,70.45,69.25,70.45,9203121,78.42,-10.17,80.19,80.19,1.27
 20260616,70,70,68.1,68.4,5353500,77.59,-11.84,79.4,79.4,0.75
+20260617,66.3,67.15,66.05,67.15,4373397,76.72,-12.47,78.63,78.63,0.63
 ```
 
 ## Latest TDCC Snapshot

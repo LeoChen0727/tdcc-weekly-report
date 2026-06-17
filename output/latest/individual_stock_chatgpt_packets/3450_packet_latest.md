@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3450 聯鈞
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:17 Asia/Taipei
+- generated_at: 2026-06-17 22:23:44 Asia/Taipei
 - stock_id: 3450
 - stock_name: 聯鈞
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 518
-- high: 542
-- low: 498
-- close: 499.5
-- volume: 11639076
-- ma5: 484.2
-- ema23_primary: 470.05
-- distance_to_ema23_pct: 6.27
-- ma20: 480.93
-- ma60: 374.32
-- ma120: 319.03
-- return_5d: -8.85
-- return_20d: 18.36
-- volume_ratio: 1.09
-- distance_to_ma20_pct_auxiliary: 3.86
-- distance_to_high_60_pct: -17.03
+- date: 20260617
+- open: 503
+- high: 525
+- low: 492
+- close: 514
+- volume: 8825688
+- ma5: 486.8
+- ema23_primary: 473.71
+- distance_to_ema23_pct: 8.5
+- ma20: 486.85
+- ma60: 378.22
+- ma120: 321.01
+- return_5d: 2.59
+- return_20d: 29.96
+- volume_ratio: 0.81
+- distance_to_ma20_pct_auxiliary: 5.58
+- distance_to_high_60_pct: -14.62
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,430,430,392,395.5,4681703,366.05,8.05,367,307.93,0.22
 20260518,393,415,380.5,410,4301777,369.71,10.9,369.2,310.74,0.21
 20260519,404.5,415,391,392.5,2127433,371.61,5.62,369.68,313.21,0.12
 20260520,395,415,395,413.5,2160292,375.1,10.24,371.35,315.97,0.13
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,480,482,461,461,5563388,463.77,-0.6,473.75,367.05,0.53
 20260615,489,507,489,507,5477784,467.37,8.48,477.05,370.82,0.53
 20260616,518,542,498,499.5,11639076,470.05,6.27,480.93,374.32,1.09
+20260617,503,525,492,514,8825688,473.71,8.5,486.85,378.22,0.81
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +185,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 3450 | 聯鈞 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | repeated_but_no_breakout | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_3d |
+| 20260617 | 3450 | 聯鈞 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | continued_2_3d | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 3450 | 聯鈞 | 1 | 1 | 3 | 5 | 5 | repeated_but_no_breakout | 近 10 日上榜 5 次、近 20 日上榜 5 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260617 | 3450 | 聯鈞 | 2 | 2 | 3 | 6 | 6 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 3450 | 聯鈞 | 159 | 8 | 16213520.0 | 64800.0 | 250.21 | call_inflow |
+| 20260617 | 3450 | 聯鈞 | 0 | 8 | 0.0 | 15620.0 | 0.0 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

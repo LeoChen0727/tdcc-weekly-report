@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4916 事欣科
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:35 Asia/Taipei
+- generated_at: 2026-06-17 22:24:05 Asia/Taipei
 - stock_id: 4916
 - stock_name: 事欣科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 9
 - tdcc_history_status: tdcc_history_ready
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 101
-- high: 101.5
-- low: 97.6
-- close: 99
-- volume: 7504184
-- ma5: 108.1
-- ema23_primary: 98.58
-- distance_to_ema23_pct: 0.42
-- ma20: 101.97
-- ma60: 75.28
-- ma120: 67.84
-- return_5d: -13.16
-- return_20d: 47.98
-- volume_ratio: 0.53
-- distance_to_ma20_pct_auxiliary: -2.91
-- distance_to_high_60_pct: -20.48
+- date: 20260617
+- open: 99.7
+- high: 102.5
+- low: 97.2
+- close: 98.7
+- volume: 7385383
+- ma5: 103.84
+- ema23_primary: 98.59
+- distance_to_ema23_pct: 0.11
+- ma20: 103.52
+- ma60: 75.88
+- ma120: 68.24
+- return_5d: -17.75
+- return_20d: 45.79
+- volume_ratio: 0.54
+- distance_to_ma20_pct_auxiliary: -4.65
+- distance_to_high_60_pct: -20.72
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,68.5,72.3,67.2,67.7,14924154,64.22,5.41,65.27,61.74,1.75
 20260518,73.8,74.4,73.5,74.4,8465884,65.07,14.34,65.6,61.98,1.08
 20260519,81.8,81.8,81.8,81.8,3578609,66.47,23.07,66.27,62.32,0.5
 20260520,83.1,89.9,80.2,89.9,36726561,68.42,31.4,67.4,62.76,4.35
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,118.5,120.5,106.5,107.5,14018208,98.46,9.18,98.64,73.98,1.03
 20260615,107.5,108,99.2,99.5,15514853,98.54,0.97,100.36,74.62,1.1
 20260616,101,101.5,97.6,99,7504184,98.58,0.42,101.97,75.28,0.53
+20260617,99.7,102.5,97.2,98.7,7385383,98.59,0.11,103.52,75.88,0.54
 ```
 
 ## Latest TDCC Snapshot
@@ -187,18 +187,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 4916 | 事欣科 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
-| 20260616 | 4916 | 事欣科 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260617 | 4916 | 事欣科 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260617 | 4916 | 事欣科 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 4916 | 事欣科 | 4 | 4 | 4 | 5 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260617 | 4916 | 事欣科 | 5 | 5 | 5 | 6 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 4916 | 事欣科 | 28 | 1 | 499250.0 | 0.0 |  | no_signal |
+| 20260617 | 4916 | 事欣科 | 0 | 1 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

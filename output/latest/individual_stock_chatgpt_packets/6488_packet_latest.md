@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6488 環球晶
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:58 Asia/Taipei
+- generated_at: 2026-06-17 22:24:33 Asia/Taipei
 - stock_id: 6488
 - stock_name: 環球晶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 983
-- high: 1045
-- low: 981
-- close: 1045
-- volume: 1037000
-- ma5: 891.2
-- ema23_primary: 843.57
-- distance_to_ema23_pct: 23.88
-- ma20: 845.05
-- ma60: 649.84
-- ma120: 547.64
-- return_5d: 10
-- return_20d: 32.61
-- volume_ratio: 0.66
-- distance_to_ma20_pct_auxiliary: 23.66
-- distance_to_high_60_pct: 0
+- date: 20260617
+- open: 1035
+- high: 1145
+- low: 1025
+- close: 1100
+- volume: 1099000
+- ma5: 949
+- ema23_primary: 864.94
+- distance_to_ema23_pct: 27.18
+- ma20: 864.55
+- ma60: 660.67
+- ma120: 553.6
+- return_5d: 35.63
+- return_20d: 54.93
+- volume_ratio: 0.76
+- distance_to_ma20_pct_auxiliary: 27.23
+- distance_to_high_60_pct: -3.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,797,797,710,710,3474000,658.79,7.77,658.95,522.72,0.33
 20260518,661,710,661,698,4141000,662.05,5.43,668.6,526.58,0.4
 20260519,680,686,641,665,4225000,662.3,0.41,674.3,529.7,0.41
 20260520,684,686,630,638,4433000,660.27,-3.37,676.35,532.14,0.45
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,850,864,850,864,862000,813.92,6.15,822.2,631.14,0.48
 20260615,950,950,918,950,950000,825.26,15.12,832.2,639.77,0.58
 20260616,983,1045,981,1045,1037000,843.57,23.88,845.05,649.84,0.66
+20260617,1035,1145,1025,1100,1099000,864.94,27.18,864.55,660.67,0.76
 ```
 
 ## Latest TDCC Snapshot

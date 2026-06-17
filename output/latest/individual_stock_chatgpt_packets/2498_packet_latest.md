@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2498 宏達電
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:57 Asia/Taipei
+- generated_at: 2026-06-17 22:23:20 Asia/Taipei
 - stock_id: 2498
 - stock_name: 宏達電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 46.5
-- high: 46.5
-- low: 44.1
-- close: 44.1
-- volume: 6326401
-- ma5: 44.23
-- ema23_primary: 44.79
-- distance_to_ema23_pct: -1.53
-- ma20: 45.67
-- ma60: 42.3
-- ma120: 44.36
-- return_5d: -11.8
-- return_20d: 0
-- volume_ratio: 0.29
-- distance_to_ma20_pct_auxiliary: -3.44
-- distance_to_high_60_pct: -15.84
+- date: 20260617
+- open: 44
+- high: 47.8
+- low: 44
+- close: 47.5
+- volume: 9206317
+- ma5: 44.55
+- ema23_primary: 45.01
+- distance_to_ema23_pct: 5.53
+- ma20: 45.78
+- ma60: 42.39
+- ma120: 44.33
+- return_5d: 3.49
+- return_20d: 4.86
+- volume_ratio: 0.49
+- distance_to_ma20_pct_auxiliary: 3.76
+- distance_to_high_60_pct: -9.35
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,46.35,46.9,44.75,45.3,71302266,41.17,10.02,40.86,41.59,6.16
 20260518,45.6,46.95,44.1,44.2,43881556,41.43,6.7,41.01,41.57,3.24
 20260519,44.05,46.3,43.75,45.65,26249966,41.78,9.27,41.27,41.59,1.8
 20260520,45.85,47.7,45.3,45.45,30019647,42.08,8,41.48,41.6,1.91
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,42.9,43.7,42.75,43.25,5457397,44.75,-3.36,45.38,42.21,0.24
 20260615,44.8,46,44.2,45.9,8425537,44.85,2.34,45.67,42.28,0.37
 20260616,46.5,46.5,44.1,44.1,6326401,44.79,-1.53,45.67,42.3,0.29
+20260617,44,47.8,44,47.5,9206317,45.01,5.53,45.78,42.39,0.49
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2498 | 宏達電 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件， 如股息率等）: Strategic Investors Fund XII Cayman L.P. 2.事實發生日:115/06/15 3.交易單位數量、每單位價格及交易總金額: 交易單位數量：不適用 每單位價格：不適用 交易總金額：美金1,000,000元 4.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司 之關係人者，得免揭露其姓名）: Strategic Investors Fund XII Cayman L.P.; 非關係人 5.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及 前次移轉之所有人、前次移轉之所有人與公司及交易相對人間相互之 關係、前次移轉日期及移轉金額: 不適用 6.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告 關係人之取得及處分日期、價格及交易當時與公司之關係: 不適用 7.本次係處分債權之相關事項（含處分之債權附隨擔保品種類、處分 債權如有屬對關係人債權者尚需公告關係人名稱及本次處分該關係人 之債權帳面金額: 不適用 8.處分利益（或損失）（取得有價證券者不適用）（遞延者應列表 說明認列情形）: 不適用 9.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要 約定事項: 依合約規定 10.本次交易之決定方式、價格決定之參考依據及決策單位: 依合約規定；依本公司「取得或處分資產處理程序」規範之核決權限辦理 11.取得或處分有價證券標的公司每股淨值:不適用 12.有價證券標的公司私募參考價格與每股交易金額差距達20%以上:不適用 13.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、 持股比例及權利受限情形（如質押情形）: 累積持有之數量： 不適用 累積持有之金額：美金1,000,000元 持股比例：不適用 權利受限情形：無 14.迄目前為止，私募有價證券投資（含本次交易）占公司最近期財 務報表中總資產及歸屬於母公司業主之權益之比例暨最近期財務報表中營運資金數額: 佔總資產比例：4.81% 佔歸屬於母公司業主之權益比例：6.74% 營運資金數額：新台幣 -7,051,317仟元 15.經理人及經紀費用: 無 16.取得或處分之具體目的或用途: 資金運用 17.本次交易表示異議董事之意見: 無 18.本次交易為關係人交易: 否 19.董事會通過日期: 不適用 20.監察人承認或審計委員會同意日期: 不適用 21.本次交易會計師出具非合理性意見:不適用 22.會計師事務所名稱: 不適用 23.會計師姓名: 不適用 24.會計師開業證書字號: 不適用 25.其他敘明事項: 無；calendar event: ex_dividend on 20260622; status=confirmed; proximity=within_7d |
+| 20260617 | 2498 | 宏達電 | pattern | 型態觀察 | 46.0 |  |  | base_building |  | no_signal | stale_signal | 1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件， 如股息率等）: Strategic Investors Fund XII Cayman L.P. 2.事實發生日:115/06/15 3.交易單位數量、每單位價格及交易總金額: 交易單位數量：不適用 每單位價格：不適用 交易總金額：美金1,000,000元 4.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司 之關係人者，得免揭露其姓名）: Strategic Investors Fund XII Cayman L.P.; 非關係人 5.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及 前次移轉之所有人、前次移轉之所有人與公司及交易相對人間相互之 關係、前次移轉日期及移轉金額: 不適用 6.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告 關係人之取得及處分日期、價格及交易當時與公司之關係: 不適用 7.本次係處分債權之相關事項（含處分之債權附隨擔保品種類、處分 債權如有屬對關係人債權者尚需公告關係人名稱及本次處分該關係人 之債權帳面金額: 不適用 8.處分利益（或損失）（取得有價證券者不適用）（遞延者應列表 說明認列情形）: 不適用 9.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要 約定事項: 依合約規定 10.本次交易之決定方式、價格決定之參考依據及決策單位: 依合約規定；依本公司「取得或處分資產處理程序」規範之核決權限辦理 11.取得或處分有價證券標的公司每股淨值:不適用 12.有價證券標的公司私募參考價格與每股交易金額差距達20%以上:不適用 13.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、 持股比例及權利受限情形（如質押情形）: 累積持有之數量： 不適用 累積持有之金額：美金1,000,000元 持股比例：不適用 權利受限情形：無 14.迄目前為止，私募有價證券投資（含本次交易）占公司最近期財 務報表中總資產及歸屬於母公司業主之權益之比例暨最近期財務報表中營運資金數額: 佔總資產比例：4.81% 佔歸屬於母公司業主之權益比例：6.74% 營運資金數額：新台幣 -7,051,317仟元 15.經理人及經紀費用: 無 16.取得或處分之具體目的或用途: 資金運用 17.本次交易表示異議董事之意見: 無 18.本次交易為關係人交易: 否 19.董事會通過日期: 不適用 20.監察人承認或審計委員會同意日期: 不適用 21.本次交易會計師出具非合理性意見:不適用 22.會計師事務所名稱: 不適用 23.會計師姓名: 不適用 24.會計師開業證書字號: 不適用 25.其他敘明事項: 無；calendar event: ex_dividend on 20260622; status=confirmed; proximity=within_7d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2498 | 宏達電 | 2 | 2 | 3 | 7 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260617 | 2498 | 宏達電 | 3 | 3 | 3 | 7 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2498 | 宏達電 | 81 | 8 | 3568180.0 | 19400.0 | 183.93 | no_signal |
+| 20260617 | 2498 | 宏達電 | 0 | 7 | 0.0 | 1720.0 | 0.0 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

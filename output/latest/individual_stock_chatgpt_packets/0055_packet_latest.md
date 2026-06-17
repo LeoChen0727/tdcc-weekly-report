@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 0055 元大MSCI金融
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:25 Asia/Taipei
+- generated_at: 2026-06-17 22:22:43 Asia/Taipei
 - stock_id: 0055
 - stock_name: 元大MSCI金融
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 146
+- latest_price_date: 20260617
+- price_rows: 147
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -74,7 +74,7 @@
 - action_rating: starter_position
 - action_rating_label_zh: 可小量試單
 - confidence_level: medium
-- thesis_state: breakout_confirmed
+- thesis_state: breakout_initial
 - entry_style: breakout_follow
 - position_sizing: starter_1_3
 
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 41.04
-- high: 42.09
-- low: 41.04
-- close: 41.98
-- volume: 1575247
-- ma5: 40.3
-- ema23_primary: 36.82
-- distance_to_ema23_pct: 14
-- ma20: 36.26
-- ma60: 34.13
-- ma120: 33.2
-- return_5d: 14.73
-- return_20d: 24.72
-- volume_ratio: 2.01
-- distance_to_ma20_pct_auxiliary: 15.78
-- distance_to_high_60_pct: -0.26
+- date: 20260617
+- open: 42.14
+- high: 43.35
+- low: 41.75
+- close: 42.66
+- volume: 1851533
+- ma5: 41
+- ema23_primary: 37.31
+- distance_to_ema23_pct: 14.34
+- ma20: 36.71
+- ma60: 34.29
+- ma120: 33.31
+- return_5d: 8.99
+- return_20d: 26.74
+- volume_ratio: 2.15
+- distance_to_ma20_pct_auxiliary: 16.21
+- distance_to_high_60_pct: -1.59
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,33.8,34.13,33.6,33.66,308761,33.48,0.54,33.53,33.08,0.94
 20260518,33.64,33.74,33.49,33.49,219954,33.48,0.03,33.53,33.1,0.69
 20260519,33.65,34.3,33.64,33.91,304237,33.52,1.18,33.55,33.12,0.97
 20260520,33.91,34.1,33.86,33.97,239401,33.55,1.24,33.58,33.13,0.76
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,40.03,40.57,39.69,39.72,1278437,35.93,10.54,35.48,33.83,1.89
 20260615,40.63,41.15,40.6,41,969126,36.35,12.78,35.84,33.97,1.36
 20260616,41.04,42.09,41.04,41.98,1575247,36.82,14,36.26,34.13,2.01
+20260617,42.14,43.35,41.75,42.66,1851533,37.31,14.34,36.71,34.29,2.15
 ```
 
 ## Latest TDCC Snapshot
@@ -185,12 +185,12 @@ no_rows,True
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 0055 | 元大MSCI金融 | true_breakout | 嚴格突破 | 111.0 |  |  | breakout_confirmed |  |  | first_seen | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260617 | 0055 | 元大MSCI金融 | true_breakout | 嚴格突破 | 99.0 |  |  | platform_breakout |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 0055 | 元大MSCI金融 | 1 | 1 | 3 | 5 | 5 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| 20260617 | 0055 | 元大MSCI金融 | 2 | 2 | 4 | 6 | 6 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

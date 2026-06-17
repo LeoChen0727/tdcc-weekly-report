@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4729 熒茂
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:33 Asia/Taipei
+- generated_at: 2026-06-17 22:24:02 Asia/Taipei
 - stock_id: 4729
 - stock_name: 熒茂
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 22.9
-- high: 23.15
-- low: 21.9
-- close: 21.9
-- volume: 22000
-- ma5: 22.44
-- ema23_primary: 23.31
-- distance_to_ema23_pct: -6.05
-- ma20: 24.14
-- ma60: 21.44
-- ma120: 21.95
-- return_5d: -19.49
-- return_20d: 7.09
+- date: 20260617
+- open: 22
+- high: 23.2
+- low: 21.85
+- close: 22.8
+- volume: 23000
+- ma5: 22.14
+- ema23_primary: 23.27
+- distance_to_ema23_pct: -2.01
+- ma20: 24.24
+- ma60: 21.48
+- ma120: 21.96
+- return_5d: -6.17
+- return_20d: 9.88
 - volume_ratio: 0.03
-- distance_to_ma20_pct_auxiliary: -9.26
-- distance_to_high_60_pct: -21.79
+- distance_to_ma20_pct_auxiliary: -5.93
+- distance_to_high_60_pct: -18.57
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,20.45,21.2,20.45,20.75,304000,20.21,2.67,20.15,20.51,0.75
 20260518,20.95,22.8,20.65,22.8,1878000,20.43,11.62,20.27,20.54,3.86
 20260519,23.45,25.05,23.3,25.05,7107000,20.81,20.37,20.5,20.61,8.53
 20260520,24.8,25.15,23.35,23.6,4932000,21.04,12.15,20.66,20.65,4.6
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,21.45,22.4,21.45,22.1,22000,23.5,-5.95,23.93,21.38,0.03
 20260615,22.25,23.15,22.25,22.8,23000,23.44,-2.73,24.06,21.42,0.03
 20260616,22.9,23.15,21.9,21.9,22000,23.31,-6.05,24.14,21.44,0.03
+20260617,22,23.2,21.85,22.8,23000,23.27,-2.01,24.24,21.48,0.03
 ```
 
 ## Latest TDCC Snapshot

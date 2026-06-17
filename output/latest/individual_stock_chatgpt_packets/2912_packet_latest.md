@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2912 統一超
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:05 Asia/Taipei
+- generated_at: 2026-06-17 22:23:29 Asia/Taipei
 - stock_id: 2912
 - stock_name: 統一超
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 230
-- high: 230.5
-- low: 227.5
-- close: 228
-- volume: 2416937
-- ma5: 229.4
-- ema23_primary: 225.89
-- distance_to_ema23_pct: 0.93
-- ma20: 223.62
-- ma60: 225.33
+- date: 20260617
+- open: 228.5
+- high: 230
+- low: 227
+- close: 229
+- volume: 2555634
+- ma5: 228.8
+- ema23_primary: 226.15
+- distance_to_ema23_pct: 1.26
+- ma20: 223.7
+- ma60: 225.48
 - ma120: 222.77
-- return_5d: -2.15
+- return_5d: -1.29
 - return_20d: 0.66
-- volume_ratio: 0.29
-- distance_to_ma20_pct_auxiliary: 1.96
-- distance_to_high_60_pct: -7.69
+- volume_ratio: 0.31
+- distance_to_ma20_pct_auxiliary: 2.37
+- distance_to_high_60_pct: -7.29
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,227,229,227,227.5,1764455,227.35,0.06,229.07,224.42,0.71
 20260518,228,228,225,225.5,1780910,227.2,-0.75,228.47,224.44,0.74
 20260519,225.5,229.5,225,227.5,2897346,227.22,0.12,227.95,224.56,1.22
 20260520,228.5,229.5,221.5,222,5331799,226.79,-2.11,227.22,224.55,2.15
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,229,230.5,227,230,1663715,225.49,2,223.43,225.04,0.2
 20260615,232,232,228,228,3577237,225.7,1.02,223.55,225.2,0.43
 20260616,230,230.5,227.5,228,2416937,225.89,0.93,223.62,225.33,0.29
+20260617,228.5,230,227,229,2555634,226.15,1.26,223.7,225.48,0.31
 ```
 
 ## Latest TDCC Snapshot
@@ -186,12 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2912 | 統一超 | pattern | 型態觀察 | 51.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260617 | 2912 | 統一超 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2912 | 統一超 | 8 | 7 | 5 | 8 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260617 | 2912 | 統一超 | 9 | 8 | 5 | 9 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

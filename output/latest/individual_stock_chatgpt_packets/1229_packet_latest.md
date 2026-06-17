@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1229 聯華
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:30 Asia/Taipei
+- generated_at: 2026-06-17 22:22:49 Asia/Taipei
 - stock_id: 1229
 - stock_name: 聯華
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 42.05
-- high: 42.05
-- low: 41.7
-- close: 41.9
-- volume: 1847767
-- ma5: 41.72
-- ema23_primary: 41.28
-- distance_to_ema23_pct: 1.5
-- ma20: 40.49
-- ma60: 42.38
-- ma120: 44.21
-- return_5d: -3.01
-- return_20d: 4.88
-- volume_ratio: 0.37
-- distance_to_ma20_pct_auxiliary: 3.49
-- distance_to_high_60_pct: -9.01
+- date: 20260617
+- open: 41.8
+- high: 42.2
+- low: 41.45
+- close: 41.95
+- volume: 1456446
+- ma5: 41.71
+- ema23_primary: 41.34
+- distance_to_ema23_pct: 1.48
+- ma20: 40.61
+- ma60: 42.34
+- ma120: 44.16
+- return_5d: -0.12
+- return_20d: 6.34
+- volume_ratio: 0.3
+- distance_to_ma20_pct_auxiliary: 3.29
+- distance_to_high_60_pct: -8.9
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,39.95,40,39.3,39.45,5492819,41.85,-5.73,41.84,43.61,1.5
 20260518,39.3,39.3,38.75,38.8,4305252,41.59,-6.71,41.56,43.51,1.15
 20260519,38.8,39.4,38.55,38.65,3206788,41.35,-6.52,41.31,43.41,0.87
 20260520,38.65,38.65,38.25,38.3,3565313,41.09,-6.8,41.04,43.29,0.96
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,41.8,42.2,41.6,41.65,1813300,41.18,1.15,40.32,42.45,0.35
 20260615,41.65,42.35,41.65,41.75,2219296,41.23,1.27,40.39,42.42,0.43
 20260616,42.05,42.05,41.7,41.9,1847767,41.28,1.5,40.49,42.38,0.37
+20260617,41.8,42.2,41.45,41.95,1456446,41.34,1.48,40.61,42.34,0.3
 ```
 
 ## Latest TDCC Snapshot
@@ -186,12 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 1229 | 聯華 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260617 | 1229 | 聯華 | pattern | 型態觀察 | 51.0 |  |  | base_building |  |  | stale_signal | 1.股東常會日期:115/06/16 2.重要決議事項一、盈餘分配或盈虧撥補: 承認114年度盈餘分派案 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表: 承認114年度營業報告書及財務報表案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項:無 7.其他應敘明事項: 無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 1229 | 聯華 | 3 | 3 | 4 | 6 | 6 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260617 | 1229 | 聯華 | 4 | 4 | 4 | 7 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

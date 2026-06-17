@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00712 復華富時不動產
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:26 Asia/Taipei
+- generated_at: 2026-06-17 22:22:44 Asia/Taipei
 - stock_id: 00712
 - stock_name: 復華富時不動產
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260616
-- price_rows: 15
+- latest_price_date: 20260617
+- price_rows: 16
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 8.86
-- high: 8.86
-- low: 8.83
-- close: 8.84
-- volume: 51928298
-- ma5: 8.8
-- ema23_primary: 8.78
-- distance_to_ema23_pct: 0.68
-- ma20: 8.78
-- ma60: 8.78
-- ma120: 8.78
-- return_5d: 0.91
+- date: 20260617
+- open: 8.68
+- high: 8.7
+- low: 8.65
+- close: 8.69
+- volume: 34660183
+- ma5: 8.79
+- ema23_primary: 8.77
+- distance_to_ema23_pct: -0.94
+- ma20: 8.77
+- ma60: 8.77
+- ma120: 8.77
+- return_5d: -0.23
 - return_20d:
-- volume_ratio: 1.45
-- distance_to_ma20_pct_auxiliary: 0.73
-- distance_to_high_60_pct: -0.23
+- volume_ratio: 0.97
+- distance_to_ma20_pct_auxiliary: -0.92
+- distance_to_high_60_pct: -1.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -150,6 +150,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,8.81,8.81,8.76,8.8,28815166,8.77,0.38,8.76,8.76,0.84
 20260615,8.83,8.86,8.81,8.86,36745569,8.77,0.97,8.77,8.77,1.06
 20260616,8.86,8.86,8.83,8.84,51928298,8.78,0.68,8.78,8.78,1.45
+20260617,8.68,8.7,8.65,8.69,34660183,8.77,-0.94,8.77,8.77,0.97
 ```
 
 ## Latest TDCC Snapshot

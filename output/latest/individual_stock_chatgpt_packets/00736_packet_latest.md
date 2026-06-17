@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00736 國泰新興市場
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:26 Asia/Taipei
+- generated_at: 2026-06-17 22:22:45 Asia/Taipei
 - stock_id: 00736
 - stock_name: 國泰新興市場
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260616
-- price_rows: 15
+- latest_price_date: 20260617
+- price_rows: 16
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 31.14
-- high: 31.24
-- low: 31.1
-- close: 31.24
-- volume: 111063
-- ma5: 30.54
-- ema23_primary: 30.58
-- distance_to_ema23_pct: 2.15
-- ma20: 30.7
-- ma60: 30.7
-- ma120: 30.7
-- return_5d: 1.07
+- date: 20260617
+- open: 31.27
+- high: 31.34
+- low: 31.2
+- close: 31.27
+- volume: 117404
+- ma5: 30.67
+- ema23_primary: 30.64
+- distance_to_ema23_pct: 2.06
+- ma20: 30.73
+- ma60: 30.73
+- ma120: 30.73
+- return_5d: 2.12
 - return_20d:
-- volume_ratio: 0.9
-- distance_to_ma20_pct_auxiliary: 1.77
-- distance_to_high_60_pct: -0.83
+- volume_ratio: 0.96
+- distance_to_ma20_pct_auxiliary: 1.74
+- distance_to_high_60_pct: -0.73
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -150,6 +150,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,29.97,30.46,29.97,30.32,140140,30.48,-0.52,30.63,30.63,1.14
 20260615,30.85,31,30.81,31,128074,30.52,1.57,30.66,30.66,1.04
 20260616,31.14,31.24,31.1,31.24,111063,30.58,2.15,30.7,30.7,0.9
+20260617,31.27,31.34,31.2,31.27,117404,30.64,2.06,30.73,30.73,0.96
 ```
 
 ## Latest TDCC Snapshot

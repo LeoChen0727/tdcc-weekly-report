@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4188 安克
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:27 Asia/Taipei
+- generated_at: 2026-06-17 22:23:56 Asia/Taipei
 - stock_id: 4188
 - stock_name: 安克
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 10.5
-- high: 10.5
-- low: 10.2
-- close: 10.4
+- date: 20260617
+- open: 10.25
+- high: 10.45
+- low: 10.25
+- close: 10.45
 - volume: 10000
-- ma5: 10.59
-- ema23_primary: 11.07
-- distance_to_ema23_pct: -6.05
-- ma20: 11.04
-- ma60: 11.82
-- ma120: 13.05
-- return_5d: -3.7
-- return_20d: -9.57
-- volume_ratio: 0.64
-- distance_to_ma20_pct_auxiliary: -5.78
-- distance_to_high_60_pct: -20.31
+- ma5: 10.5
+- ema23_primary: 11.02
+- distance_to_ema23_pct: -5.16
+- ma20: 10.98
+- ma60: 11.78
+- ma120: 13.01
+- return_5d: -4.13
+- return_20d: -9.52
+- volume_ratio: 0.65
+- distance_to_ma20_pct_auxiliary: -4.85
+- distance_to_high_60_pct: -19.92
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,11.5,11.55,11.45,11.55,14000,11.91,-3.05,11.9,12.61,0.37
 20260518,11.3,11.5,11.3,11.5,12000,11.88,-3.19,11.87,12.57,0.32
 20260519,11.35,11.55,11.25,11.25,29000,11.83,-4.88,11.83,12.53,0.79
 20260520,11.25,11.4,11.15,11.15,50000,11.77,-5.27,11.79,12.49,1.31
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,10.7,10.7,10.35,10.55,10000,11.19,-5.71,11.14,11.91,0.56
 20260615,10.5,10.6,10.35,10.5,10000,11.13,-5.67,11.09,11.86,0.59
 20260616,10.5,10.5,10.2,10.4,10000,11.07,-6.05,11.04,11.82,0.64
+20260617,10.25,10.45,10.25,10.45,10000,11.02,-5.16,10.98,11.78,0.65
 ```
 
 ## Latest TDCC Snapshot

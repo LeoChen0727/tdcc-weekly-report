@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3665 貿聯-KY
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:23 Asia/Taipei
+- generated_at: 2026-06-17 22:23:50 Asia/Taipei
 - stock_id: 3665
 - stock_name: 貿聯-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 2265
-- high: 2275
-- low: 2110
-- close: 2120
-- volume: 3023358
-- ma5: 2211
-- ema23_primary: 2247.2
-- distance_to_ema23_pct: -5.66
-- ma20: 2164.5
-- ma60: 2249.08
-- ma120: 1854.5
-- return_5d: -3.42
-- return_20d: -5.78
-- volume_ratio: 0.9
-- distance_to_ma20_pct_auxiliary: -2.06
-- distance_to_high_60_pct: -29.57
+- date: 20260617
+- open: 2145
+- high: 2150
+- low: 2060
+- close: 2090
+- volume: 3227891
+- ma5: 2189
+- ema23_primary: 2234.1
+- distance_to_ema23_pct: -6.45
+- ma20: 2164.25
+- ma60: 2254.92
+- ma120: 1859.67
+- return_5d: -5
+- return_20d: -0.24
+- volume_ratio: 1.07
+- distance_to_ma20_pct_auxiliary: -3.43
+- distance_to_high_60_pct: -30.56
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,2335,2335,2060,2095,10273858,2502.36,-16.28,2637.5,2038.58,2.9
 20260518,2070,2085,1990,2025,5228017,2462.58,-17.77,2620.5,2050.92,1.42
 20260519,2060,2065,1940,1990,3675024,2423.2,-17.88,2597,2063.17,0.98
 20260520,1970,2000,1860,1965,2215075,2385.02,-17.61,2574,2072.92,0.6
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,2300,2350,2235,2310,4177566,2258.2,2.29,2182.75,2229.92,1.24
 20260615,2420,2425,2250,2265,3103163,2258.77,0.28,2171,2241.17,0.89
 20260616,2265,2275,2110,2120,3023358,2247.2,-5.66,2164.5,2249.08,0.9
+20260617,2145,2150,2060,2090,3227891,2234.1,-6.45,2164.25,2254.92,1.07
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 3665 | 貿聯-KY | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260617 | 3665 | 貿聯-KY | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 3665 | 貿聯-KY | 5 | 4 | 5 | 6 | 7 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260617 | 3665 | 貿聯-KY | 6 | 5 | 5 | 7 | 8 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 3665 | 貿聯-KY | 223 | 12 | 27154530.0 | 200230.0 | 135.62 | no_signal |
+| 20260617 | 3665 | 貿聯-KY | 0 | 12 | 0.0 | 216830.0 | 0.0 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6641 基士德-KY
 
 ## Metadata
-- generated_at: 2026-06-16 22:24:02 Asia/Taipei
+- generated_at: 2026-06-17 22:24:38 Asia/Taipei
 - stock_id: 6641
 - stock_name: 基士德-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,21 +113,21 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 18.7
-- high: 18.7
-- low: 18.35
+- date: 20260617
+- open: 18.55
+- high: 18.55
+- low: 18.4
 - close: 18.4
-- volume: 27488
-- ma5: 18.41
+- volume: 15000
+- ma5: 18.34
 - ema23_primary: 18.42
-- distance_to_ema23_pct: -0.12
+- distance_to_ema23_pct: -0.11
 - ma20: 18.36
-- ma60: 18.52
+- ma60: 18.5
 - ma120: 19.75
-- return_5d: 0.55
-- return_20d: 0.27
-- volume_ratio: 0.8
+- return_5d: -1.87
+- return_20d: 0
+- volume_ratio: 0.43
 - distance_to_ma20_pct_auxiliary: 0.25
 - distance_to_high_60_pct: -10.02
 
@@ -135,7 +135,6 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,18.65,18.65,18.4,18.4,9281,18.66,-1.38,18.59,19.2,0.09
 20260518,18.3,18.3,18.25,18.25,5510,18.62,-2.01,18.58,19.16,0.05
 20260519,18.6,18.65,18.4,18.45,14000,18.61,-0.86,18.59,19.11,0.14
 20260520,18.45,18.45,18.25,18.25,17319,18.58,-1.77,18.59,19.07,0.17
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,18.4,18.6,18.25,18.35,28000,18.42,-0.39,18.36,18.54,0.79
 20260615,18.2,18.5,18.2,18.45,42150,18.42,0.14,18.35,18.53,1.2
 20260616,18.7,18.7,18.35,18.4,27488,18.42,-0.12,18.36,18.52,0.8
+20260617,18.55,18.55,18.4,18.4,15000,18.42,-0.11,18.36,18.5,0.43
 ```
 
 ## Latest TDCC Snapshot

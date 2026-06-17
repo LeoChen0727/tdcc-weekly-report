@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6831 邁科
 
 ## Metadata
-- generated_at: 2026-06-16 22:24:08 Asia/Taipei
+- generated_at: 2026-06-17 22:24:45 Asia/Taipei
 - stock_id: 6831
 - stock_name: 邁科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 130
+- latest_price_date: 20260617
+- price_rows: 131
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 749
-- high: 752
-- low: 705
-- close: 705
-- volume: 672191
-- ma5: 727.4
-- ema23_primary: 702.93
-- distance_to_ema23_pct: 0.29
-- ma20: 746.9
-- ma60: 554.88
-- ma120: 411.4
-- return_5d: 2.77
-- return_20d: -2.35
-- volume_ratio: 0.52
-- distance_to_ma20_pct_auxiliary: -5.61
-- distance_to_high_60_pct: -17.06
+- date: 20260617
+- open: 716
+- high: 743
+- low: 704
+- close: 740
+- volume: 716917
+- ma5: 727.6
+- ema23_primary: 706.02
+- distance_to_ema23_pct: 4.81
+- ma20: 747.65
+- ma60: 561.91
+- ma120: 415.55
+- return_5d: 0.14
+- return_20d: 2.07
+- volume_ratio: 0.55
+- distance_to_ma20_pct_auxiliary: -1.02
+- distance_to_high_60_pct: -12.94
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,745,745,700,725,793822,548.09,32.28,547.38,410.85,0.38
 20260518,692,732,654,732,751486,563.42,29.92,560.23,418.69,0.37
 20260519,728,737,709,733,574003,577.55,26.91,572.17,426.55,0.29
 20260520,726,728,700,720,659967,589.42,22.15,582.38,434.07,0.35
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,748,755,721,727,702280,698.71,4.05,744.8,541.32,0.45
 20260615,746,765,718,747,1073212,702.74,6.3,747.75,548.46,0.74
 20260616,749,752,705,705,672191,702.93,0.29,746.9,554.88,0.52
+20260617,716,743,704,740,716917,706.02,4.81,747.65,561.91,0.55
 ```
 
 ## Latest TDCC Snapshot
@@ -194,9 +194,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 6831 | 邁科 | 19 | 0 | 700900.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

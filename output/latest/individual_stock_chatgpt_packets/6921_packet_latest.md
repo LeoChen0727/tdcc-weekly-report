@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6921 嘉雨思-創
 
 ## Metadata
-- generated_at: 2026-06-16 22:24:11 Asia/Taipei
+- generated_at: 2026-06-17 22:24:48 Asia/Taipei
 - stock_id: 6921
 - stock_name: 嘉雨思-創
 - packet_status: standard_rawdata_packet
-- latest_price_date: 20260616
-- price_rows: 110
+- latest_price_date: 20260617
+- price_rows: 111
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 69.4
+- date: 20260617
+- open: 70
 - high: 70
-- low: 69.2
+- low: 69.1
 - close: 70
-- volume: 11634
-- ma5: 70.1
-- ema23_primary: 75.43
-- distance_to_ema23_pct: -7.2
-- ma20: 74.49
+- volume: 18000
+- ma5: 69.56
+- ema23_primary: 74.98
+- distance_to_ema23_pct: -6.64
+- ma20: 74.19
 - ma60: 78.74
-- ma120: 76.03
-- return_5d: -4.63
-- return_20d: -11.62
-- volume_ratio: 0.28
-- distance_to_ma20_pct_auxiliary: -6.03
+- ma120: 75.98
+- return_5d: -3.71
+- return_20d: -7.89
+- volume_ratio: 0.47
+- distance_to_ma20_pct_auxiliary: -5.65
 - distance_to_high_60_pct: -33.01
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,79.8,79.8,75.9,76,68870,84.99,-10.58,90.33,79.83,0.64
 20260518,74.7,77.5,74.7,77,55335,84.32,-8.69,89.86,79.7,0.53
 20260519,77.6,78.3,75.6,75.9,35518,83.62,-9.24,88.92,79.61,0.37
 20260520,75.9,75.9,75.9,75.9,2651,82.98,-8.53,87.52,79.58,0.03
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,70,70,69.3,69.7,11700,76.6,-9.01,75.58,78.81,0.26
 20260615,71,71.7,68.5,68.5,35000,75.93,-9.78,74.95,78.74,0.8
 20260616,69.4,70,69.2,70,11634,75.43,-7.2,74.49,78.74,0.28
+20260617,70,70,69.1,70,18000,74.98,-6.64,74.19,78.74,0.47
 ```
 
 ## Latest TDCC Snapshot

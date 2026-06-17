@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2883 凱基金
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:04 Asia/Taipei
+- generated_at: 2026-06-17 22:23:28 Asia/Taipei
 - stock_id: 2883
 - stock_name: 凱基金
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -57,16 +57,16 @@
 ## ACTION_DISPLAY
 - pdf_visible: true
 - action_rating_display_zh: 已持有續抱
-- model_category_display_zh: 型態觀察
-- score_interpretation_zh: 模型分數偏低，僅適合作為低部位觀察。 目前以既有部位管理與條件追蹤為主。
-- action_summary_zh: 型態觀察 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
+- model_category_display_zh: 單一個股分析
+- score_interpretation_zh: 目前缺少完整分數資料，需以價格、TDCC 與風險條件輔助判斷。 目前以既有部位管理與條件追蹤為主。
+- action_summary_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。
 - entry_strategy_zh: 已持有以續抱管理為主；新買需等待重新出現進場條件。
 - position_sizing_zh: 僅觀察；部位大小需依支撐距離、波動與模型確認度控制。
 - add_position_strategy_zh: 接近前高或壓力區可分批停利、量價失敗或爆量不漲時降低部位、跌破 23EMA 且 1 至 3 日內無法收回時退出、跌破近期低點時退出、營收或財報明顯轉弱時降低部位、TDCC 與價格同步轉弱時退出
 - take_profit_strategy_zh: 接近前高或壓力區可分批停利；若爆量不漲、長上影或量價背離，需降低部位。
 - risk_control_zh: TDCC 歷史不足、股價乖離過大
 - post_entry_watch_zh: 下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱
-- final_decision_zh: 型態觀察 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
+- final_decision_zh: 單一個股分析 目前屬於「高位整理」，以既有部位管理與條件追蹤為主。 進場策略：已持有以續抱管理為主；新買需等待重新出現進場條件。 追蹤項目：下一次月營收、下一次 TDCC 更新、23EMA 是否守住或快速站回、量價是否延續確認、前高突破品質、族群與 benchmark 強弱、事件催化是否延續、權證是否過熱 風控：TDCC 歷史不足、股價乖離過大
 
 ## ACTION_DECISION
 - pdf_visible: false
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 29
-- high: 30.2
-- low: 28.75
-- close: 29.7
-- volume: 127013439
-- ma5: 28.26
-- ema23_primary: 24.46
-- distance_to_ema23_pct: 21.4
-- ma20: 23.81
-- ma60: 21.86
-- ma120: 20.14
-- return_5d: 26.92
-- return_20d: 34.39
-- volume_ratio: 1.15
-- distance_to_ma20_pct_auxiliary: 24.75
-- distance_to_high_60_pct: -1.66
+- date: 20260617
+- open: 30.2
+- high: 31.15
+- low: 29.4
+- close: 30.2
+- volume: 144059581
+- ma5: 28.78
+- ema23_primary: 24.94
+- distance_to_ema23_pct: 21.08
+- ma20: 24.23
+- ma60: 22.02
+- ma120: 20.25
+- return_5d: 9.42
+- return_20d: 38.22
+- volume_ratio: 1.25
+- distance_to_ma20_pct_auxiliary: 24.66
+- distance_to_high_60_pct: -3.05
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,22.25,22.65,21.75,21.85,56055465,21.53,1.49,21.49,20.67,1.06
 20260518,21.7,21.75,21.3,21.35,65259089,21.51,-0.76,21.51,20.72,1.2
 20260519,21.4,22.1,21.3,21.65,76513659,21.52,0.58,21.55,20.77,1.34
 20260520,21.75,21.85,21.5,21.6,52721982,21.53,0.32,21.6,20.81,0.9
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,28.75,29.4,27.45,27.45,98648048,23.55,16.56,23.09,21.56,0.94
 20260615,28.3,28.8,28.05,28.8,81804855,23.99,20.06,23.43,21.71,0.76
 20260616,29,30.2,28.75,29.7,127013439,24.46,21.4,23.81,21.86,1.15
+20260617,30.2,31.15,29.4,30.2,144059581,24.94,21.08,24.23,22.02,1.25
 ```
 
 ## Latest TDCC Snapshot
@@ -183,19 +183,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ```
 
 ## Candidate Context
-| date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2883 | 凱基金 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  | no_signal | first_seen | 1.發生變動日期:115/06/15 2.選任或變動人員別（請輸入法人董事、法人監察人、獨立董事、自然人董事   或自然人監察人）:自然人董事/自然人Commissioner 3.舊任者職稱及姓名:  (1) Low Chung Kiat / PT KGI Sekuritas Indonesia 董事  (2) Robby Winindo / PT KGI Sekuritas Indonesia 董事  (3) 丁紹曾/ PT KGI Sekuritas Indonesia President Commissioner  (4) 王昭麟/ PT KGI Sekuritas Indonesia Commissioner  (5) Hery Adriawan Zainal / PT KGI Sekuritas Indonesia Independent      Commissioner 4.舊任者簡歷:  (1) Low Chung Kiat / PT KGI Sekuritas Indonesia 董事  (2) Robby Winindo / PT KGI Sekuritas Indonesia 董事  (3) 丁紹曾/ PT KGI Sekuritas Indonesia President Commissioner  (4) 王昭麟/ PT KGI Sekuritas Indonesia Commissioner  (5) Hery Adriawan Zainal / PT KGI Sekuritas Indonesia Independent      Commissioner 5.新任者職稱及姓名:  (1) Robby Winindo / PT KGI Sekuritas Indonesia President Director (董事長)  (2) Low Chung Kiat / PT KGI Sekuritas Indonesia 董事  (3) 丁紹曾/ PT KGI Sekuritas Indonesia President Commissioner  (4) Hery Adriawan Zainal / PT KGI Sekuritas Indonesia Independent      Commissioner 6.新任者簡歷:  (1) Robby Winindo / PT KGI Sekuritas Indonesia President Director (董事長)  (2) Low Chung Kiat / PT KGI Sekuritas Indonesia 董事  (3) 丁紹曾/ PT KGI Sekuritas Indonesia President Commissioner  (4) Hery Adriawan Zainal / PT KGI Sekuritas Indonesia Independent      Commissioner 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「逝世」或「新任」）: 任期屆滿 8.異動原因:任期屆滿 9.新任者選任時持股數:不適用 10.原任期（例xx/xx/xx ~ xx/xx/xx）:112/03/26~115/06/30 11.新任生效日期:115/06/15 12.同任期董事變動比率:1/3 13.同任期獨立董事變動比率:不適用 14.同任期監察人變動比率:1/3 15.屬三分之一以上董事發生變動（請輸入是或否）:是 16.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):   無；calendar event: ex_dividend on 20260630; status=confirmed; proximity=within_14d |
+| status |
+| --- |
+| no rows |
 
 ## Repeat Appearance Context
-| signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2883 | 凱基金 | 1 | 1 | 2 | 7 | 12 | first_seen | 首次上榜或資料有限，需後續確認。 |
+| status |
+| --- |
+| no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2883 | 凱基金 | 20 | 0 | 14329680.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

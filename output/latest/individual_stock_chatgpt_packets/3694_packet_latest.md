@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3694 海華
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:24 Asia/Taipei
+- generated_at: 2026-06-17 22:23:51 Asia/Taipei
 - stock_id: 3694
 - stock_name: 海華
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 62.6
-- high: 62.6
-- low: 60.6
-- close: 61.8
-- volume: 928321
-- ma5: 61.96
-- ema23_primary: 64.52
-- distance_to_ema23_pct: -4.21
-- ma20: 66.47
-- ma60: 61.09
-- ma120: 60.46
-- return_5d: -10.56
-- return_20d: 6.37
-- volume_ratio: 0.22
-- distance_to_ma20_pct_auxiliary: -7.03
-- distance_to_high_60_pct: -15.23
+- date: 20260617
+- open: 61
+- high: 62.5
+- low: 61
+- close: 61.9
+- volume: 727695
+- ma5: 60.94
+- ema23_primary: 64.3
+- distance_to_ema23_pct: -3.73
+- ma20: 66.62
+- ma60: 61.15
+- ma120: 60.44
+- return_5d: -7.61
+- return_20d: 4.92
+- volume_ratio: 0.18
+- distance_to_ma20_pct_auxiliary: -7.08
+- distance_to_high_60_pct: -15.09
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,59,61.8,57.5,59,3302672,59.08,-0.13,60.06,58.34,2.32
 20260518,59,61.1,58.8,60.3,2931396,59.18,1.89,60.02,58.38,1.93
 20260519,60.3,65.3,60,64.8,7109313,59.65,8.64,60.18,58.5,3.97
 20260520,67,71.2,66.6,71.2,12437256,60.61,17.47,60.62,58.72,5.33
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,60.4,61,59.9,60,921027,65.03,-7.74,65.98,60.89,0.22
 20260615,61.4,62.1,60.6,61.8,820976,64.76,-4.58,66.29,60.98,0.2
 20260616,62.6,62.6,60.6,61.8,928321,64.52,-4.21,66.47,61.09,0.22
+20260617,61,62.5,61,61.9,727695,64.3,-3.73,66.62,61.15,0.18
 ```
 
 ## Latest TDCC Snapshot
@@ -194,9 +194,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 3694 | 海華 | 8 | 0 | 338100.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6462 神盾
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:57 Asia/Taipei
+- generated_at: 2026-06-17 22:24:32 Asia/Taipei
 - stock_id: 6462
 - stock_name: 神盾
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 115
-- high: 115
-- low: 111
-- close: 111
+- date: 20260617
+- open: 110.5
+- high: 113
+- low: 110
+- close: 112.5
 - volume: 112000
-- ma5: 112.1
-- ema23_primary: 122.79
-- distance_to_ema23_pct: -9.6
-- ma20: 127.83
-- ma60: 118.88
-- ma120: 117.47
-- return_5d: -9.02
-- return_20d: -15.59
-- volume_ratio: 0.1
-- distance_to_ma20_pct_auxiliary: -13.16
-- distance_to_high_60_pct: -30.84
+- ma5: 111.4
+- ema23_primary: 121.93
+- distance_to_ema23_pct: -7.74
+- ma20: 126.75
+- ma60: 119.08
+- ma120: 117.31
+- return_5d: -3.02
+- return_20d: -16.04
+- volume_ratio: 0.12
+- distance_to_ma20_pct_auxiliary: -11.24
+- distance_to_high_60_pct: -29.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,131.5,140,128.5,134,5306000,124.15,7.93,127,113.11,1.52
 20260518,133,138.5,128.5,137.5,2978000,125.27,9.77,127.75,113.61,0.92
 20260519,137,143.5,130.5,131,6088000,125.74,4.18,128.35,113.85,1.81
 20260520,131.5,140.5,130.5,134.5,3577000,126.47,6.35,128.55,114.21,1.1
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,113.5,113.5,110,110.5,112000,124.85,-11.5,129.72,118.53,0.08
 20260615,112,115,112,113,114000,123.86,-8.77,128.85,118.73,0.09
 20260616,115,115,111,111,112000,122.79,-9.6,127.83,118.88,0.1
+20260617,110.5,113,110,112.5,112000,121.93,-7.74,126.75,119.08,0.12
 ```
 
 ## Latest TDCC Snapshot

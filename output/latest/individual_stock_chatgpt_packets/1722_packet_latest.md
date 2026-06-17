@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1722 台肥
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:40 Asia/Taipei
+- generated_at: 2026-06-17 22:23:01 Asia/Taipei
 - stock_id: 1722
 - stock_name: 台肥
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 48.9
-- high: 49.25
-- low: 48.4
-- close: 48.65
-- volume: 2420223
-- ma5: 48.36
-- ema23_primary: 47.18
-- distance_to_ema23_pct: 3.11
-- ma20: 46.79
-- ma60: 46.42
-- ma120: 46.66
-- return_5d: 3.4
-- return_20d: 3.51
-- volume_ratio: 0.7
-- distance_to_ma20_pct_auxiliary: 3.98
-- distance_to_high_60_pct: -6.44
+- date: 20260617
+- open: 48.4
+- high: 49.35
+- low: 48.3
+- close: 48.85
+- volume: 1796703
+- ma5: 48.48
+- ema23_primary: 47.32
+- distance_to_ema23_pct: 3.23
+- ma20: 46.94
+- ma60: 46.45
+- ma120: 46.67
+- return_5d: 1.24
+- return_20d: 6.78
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: 4.06
+- distance_to_high_60_pct: -6.06
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,47,47.05,45.65,45.75,7484934,46.53,-1.69,46.34,46.43,1.11
 20260518,45.2,45.7,45.15,45.45,2663260,46.44,-2.14,46.34,46.42,0.4
 20260519,45.9,46.1,45.6,45.6,2306199,46.37,-1.67,46.35,46.42,0.34
 20260520,46,46.1,45.35,45.75,2332473,46.32,-1.23,46.38,46.41,0.35
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,47.75,48.8,47.6,48.4,4287427,46.88,3.23,46.6,46.39,1.25
 20260615,49.3,49.4,48.7,48.85,4738434,47.05,3.83,46.7,46.41,1.35
 20260616,48.9,49.25,48.4,48.65,2420223,47.18,3.11,46.79,46.42,0.7
+20260617,48.4,49.35,48.3,48.85,1796703,47.32,3.23,46.94,46.45,0.57
 ```
 
 ## Latest TDCC Snapshot
@@ -186,12 +186,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 1722 | 台肥 | pattern | 型態觀察 | 51.0 |  |  | base_building |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260617 | 1722 | 台肥 | pattern | 型態觀察 | 54.0 |  |  | base_building |  |  | stale_signal | 符合條款第四條第XX款：12 事實發生日：115/06/17 1.召開法人說明會之日期：115/06/17 2.召開法人說明會之時間：15 時 00 分  3.召開法人說明會之地點：線上會議 4.法人說明會擇要訊息：本公司受凱基證券邀請參加線上法人說明會，說明公司簡介、營運狀況及未來方向。 5.其他應敘明事項：相關資訊請參考公開資訊觀測站公司治理專區及本公司網站。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 1722 | 台肥 | 1 | 1 | 3 | 8 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260617 | 1722 | 台肥 | 2 | 2 | 4 | 8 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

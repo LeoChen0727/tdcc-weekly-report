@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2365 昆盈
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:50 Asia/Taipei
+- generated_at: 2026-06-17 22:23:13 Asia/Taipei
 - stock_id: 2365
 - stock_name: 昆盈
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 34.1
-- high: 34.2
-- low: 33.05
-- close: 33.1
-- volume: 1638773
-- ma5: 33.97
-- ema23_primary: 35.79
-- distance_to_ema23_pct: -7.52
-- ma20: 36.45
-- ma60: 34.97
-- ma120: 35.5
-- return_5d: -10.66
-- return_20d: -6.23
-- volume_ratio: 0.26
-- distance_to_ma20_pct_auxiliary: -9.19
-- distance_to_high_60_pct: -18.37
+- date: 20260617
+- open: 33.1
+- high: 33.65
+- low: 32.8
+- close: 33.65
+- volume: 1016877
+- ma5: 33.5
+- ema23_primary: 35.61
+- distance_to_ema23_pct: -5.51
+- ma20: 36.3
+- ma60: 34.94
+- ma120: 35.47
+- return_5d: -6.53
+- return_20d: -8.19
+- volume_ratio: 0.18
+- distance_to_ma20_pct_auxiliary: -7.3
+- distance_to_high_60_pct: -17.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,35.3,37.75,35.3,36.65,12153138,35.47,3.33,35.81,34.54,1.19
 20260518,36.7,37.15,35.15,36.35,6803779,35.54,2.27,35.88,34.54,0.68
 20260519,36.6,37.15,34.9,35.85,11845019,35.57,0.79,35.92,34.55,1.18
 20260520,35.7,36.2,35.05,35.15,2592574,35.53,-1.08,35.88,34.56,0.27
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,33.95,34.4,33.5,33.55,1080115,36.23,-7.4,36.6,35.03,0.16
 20260615,34.1,34.45,33.85,33.9,1071193,36.04,-5.93,36.56,35.02,0.17
 20260616,34.1,34.2,33.05,33.1,1638773,35.79,-7.52,36.45,34.97,0.26
+20260617,33.1,33.65,32.8,33.65,1016877,35.61,-5.51,36.3,34.94,0.18
 ```
 
 ## Latest TDCC Snapshot
@@ -191,17 +191,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2365 | 昆盈 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260617 | 2365 | 昆盈 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  |  | stale_signal | 1.董事會決議日期或發生變動日期:115/06/16 2.人員別（請輸入董事長或總經理）:董事長 3.舊任者姓名:卓世坤，所代表法人：昆盈企業(股)公司 4.舊任者簡歷:昆盈公司董事長 5.新任者姓名:卓世坤，所代表法人：昆盈企業(股)公司 6.新任者簡歷:昆盈公司董事長 7.異動情形（請輸入「辭職」、「解任」、「任期屆滿」、「職務調整」、「資遣」、 「退休」、「逝世」或「新任」）:任期屆滿 8.異動原因:任期屆滿全面改選 9.新任生效日期:115/06/16 10.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時    符合證券交易法施行細則第7條第6款所定對股東權益或證券價格有重大影響之事項):無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2365 | 昆盈 | 4 | 4 | 4 | 8 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260617 | 2365 | 昆盈 | 5 | 5 | 5 | 8 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2365 | 昆盈 | 9 | 0 | 176790.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

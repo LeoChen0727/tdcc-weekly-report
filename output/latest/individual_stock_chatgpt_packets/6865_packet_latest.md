@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6865 偉康科技
 
 ## Metadata
-- generated_at: 2026-06-16 22:24:09 Asia/Taipei
+- generated_at: 2026-06-17 22:24:46 Asia/Taipei
 - stock_id: 6865
 - stock_name: 偉康科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 280
+- latest_price_date: 20260617
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 25.6
-- high: 28.2
-- low: 25.6
-- close: 26.6
-- volume: 27000
-- ma5: 26.91
-- ema23_primary: 28.6
-- distance_to_ema23_pct: -6.98
-- ma20: 27.38
-- ma60: 33.18
-- ma120: 38.49
-- return_5d: -4.66
-- return_20d: -15.56
-- volume_ratio: 0.9
-- distance_to_ma20_pct_auxiliary: -2.85
-- distance_to_high_60_pct: -39.75
+- date: 20260617
+- open: 26.1
+- high: 26.5
+- low: 25.75
+- close: 25.75
+- volume: 26000
+- ma5: 26.27
+- ema23_primary: 28.36
+- distance_to_ema23_pct: -9.2
+- ma20: 27.18
+- ma60: 33.03
+- ma120: 38.34
+- return_5d: -11.05
+- return_20d: -13.74
+- volume_ratio: 0.94
+- distance_to_ma20_pct_auxiliary: -5.24
+- distance_to_high_60_pct: -41.68
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,31.45,31.5,29.7,29.85,74000,35.09,-14.94,35.35,36.47,2.86
 20260518,29.6,29.85,27.5,28.2,74000,34.52,-18.31,34.95,36.19,2.56
 20260519,29.9,29.9,27.75,27.8,35000,33.96,-18.14,34.52,35.95,1.18
 20260520,27.85,27.85,27.8,27.8,8000,33.45,-16.88,34.08,35.68,0.28
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,26.85,26.85,25.8,26,26000,29.06,-10.54,28.06,33.48,0.72
 20260615,26,26,25.65,25.65,26000,28.78,-10.87,27.62,33.33,0.75
 20260616,25.6,28.2,25.6,26.6,27000,28.6,-6.98,27.38,33.18,0.9
+20260617,26.1,26.5,25.75,25.75,26000,28.36,-9.2,27.18,33.03,0.94
 ```
 
 ## Latest TDCC Snapshot

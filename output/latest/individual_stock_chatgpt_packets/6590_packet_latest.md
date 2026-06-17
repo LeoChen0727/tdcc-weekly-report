@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6590 普鴻
 
 ## Metadata
-- generated_at: 2026-06-16 22:24:01 Asia/Taipei
+- generated_at: 2026-06-17 22:24:37 Asia/Taipei
 - stock_id: 6590
 - stock_name: 普鴻
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260615
-- price_rows: 279
+- latest_price_date: 20260617
+- price_rows: 280
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260615
-- open: 67.8
-- high: 67.8
+- date: 20260617
+- open: 66.5
+- high: 66.6
 - low: 66.5
 - close: 66.6
 - volume: 67000
-- ma5: 66.3
-- ema23_primary: 66.86
-- distance_to_ema23_pct: -0.39
-- ma20: 66.33
-- ma60: 69.39
-- ma120: 71.53
+- ma5: 66.48
+- ema23_primary: 66.84
+- distance_to_ema23_pct: -0.36
+- ma20: 66.28
+- ma60: 69.28
+- ma120: 71.45
 - return_5d: 1.37
-- return_20d: -2.92
-- volume_ratio: 1.55
-- distance_to_ma20_pct_auxiliary: 0.41
+- return_20d: -1.33
+- volume_ratio: 1.47
+- distance_to_ma20_pct_auxiliary: 0.48
 - distance_to_high_60_pct: -11.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260514,66.3,68.6,66,67.5,19000,69.79,-3.28,69.7,71.06,1.64
 20260515,67.2,67.2,67,67.2,6000,69.57,-3.41,69.56,70.98,0.54
 20260518,67.2,67.4,67.2,67.2,3000,69.37,-3.13,69.43,70.88,0.27
 20260519,67.2,67.3,66.5,66.8,20000,69.16,-3.41,69.28,70.8,1.71
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260611,66,66.2,66,66.2,66000,66.92,-1.08,66.53,69.61,1.77
 20260612,66,66.5,66,66.5,66000,66.89,-0.58,66.43,69.48,1.64
 20260615,67.8,67.8,66.5,66.6,67000,66.86,-0.39,66.33,69.39,1.55
+20260617,66.5,66.6,66.5,66.6,67000,66.84,-0.36,66.28,69.28,1.47
 ```
 
 ## Latest TDCC Snapshot

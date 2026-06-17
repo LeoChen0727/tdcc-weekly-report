@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6834 天二科技
 
 ## Metadata
-- generated_at: 2026-06-16 22:24:08 Asia/Taipei
+- generated_at: 2026-06-17 22:24:45 Asia/Taipei
 - stock_id: 6834
 - stock_name: 天二科技
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 89
-- high: 92.5
-- low: 83.3
-- close: 84
-- volume: 12563056
-- ma5: 81.1
-- ema23_primary: 69.75
-- distance_to_ema23_pct: 20.44
-- ma20: 72.22
-- ma60: 48.23
-- ma120: 39.25
-- return_5d: 15.07
-- return_20d: 74.09
-- volume_ratio: 2.32
-- distance_to_ma20_pct_auxiliary: 16.3
-- distance_to_high_60_pct: -9.19
+- date: 20260617
+- open: 90
+- high: 92.4
+- low: 89.7
+- close: 92.4
+- volume: 5073648
+- ma5: 85.58
+- ema23_primary: 71.63
+- distance_to_ema23_pct: 28.99
+- ma20: 74.33
+- ma60: 49.2
+- ma120: 39.79
+- return_5d: 32
+- return_20d: 84.06
+- volume_ratio: 0.99
+- distance_to_ma20_pct_auxiliary: 24.3
+- distance_to_high_60_pct: -0.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,48.2,53,47.45,50.2,10730193,41,22.43,40.58,34.39,4.42
 20260518,50.5,53.4,48.2,52.7,5107412,41.98,25.54,41.35,34.78,1.93
 20260519,52.7,57.9,51.2,55.1,9805955,43.07,27.93,42.2,35.2,3.17
 20260520,56.4,60.6,56,60.6,6293048,44.53,36.08,43.37,35.69,1.86
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,82,84.1,79.5,84.1,12970294,66.41,26.64,68.09,46.3,2.9
 20260615,89.1,92.5,86.1,90.9,13199001,68.45,32.8,70.44,47.34,2.61
 20260616,89,92.5,83.3,84,12563056,69.75,20.44,72.22,48.23,2.32
+20260617,90,92.4,89.7,92.4,5073648,71.63,28.99,74.33,49.2,0.99
 ```
 
 ## Latest TDCC Snapshot
@@ -185,13 +185,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 6834 | 天二科技 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
-| 20260616 | 6834 | 天二科技 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | continued_overheated | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260617 | 6834 | 天二科技 | pattern | 型態觀察 | 49.0 |  |  | platform_right_side |  |  | continued_overheated | 1.事實發生日:115/06/16 2.發生緣由:依臺灣證券交易所股份有限公司通知辦理。 3.財務業務資訊:  期間              (月)       (月)       (季)        (季)   (最近四季累計) ==============  =========== ========= ============ ========= ==============  科目             最近一月   與去年     最近一季    與去年    114年第2季至                   115年5月   同期增減   115年第1季  同期增減   115年第1季                  合併自結數    (%)      合併核閱數     (%)     合併查核數 ==============  =========== ========= ============ ========= ==============  營業收入(百萬)　　    190　　58.67　　　    420 　　19.69　　　　  1,500  營業淨利(百萬)        28   698.40           36     57.12            58  營業外收入及支出      22   159.20           12    -13.60            10 (百萬)  稅前淨利(百萬)　　     50　 248.92　　　     48　   29.92　　　　     68  歸屬母公司業主淨利　   45　 269.90　　　     40　   33.38　　　　     54  (百萬)  每股盈餘(元)　　　   0.51　 270.00 　　    0.45　   32.35　　　　   0.61 4.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第4條所列重大訊息之情事（如「有」，請說明）:無。 5.有無「臺灣證券交易所股份有限公司對有價證券上市公司重大訊息之查證暨公開處理   程序」第11條所列重大訊息說明記者會之情事:無。 6.完整財務資訊請至公開資訊觀測站查閱，路徑如下： (1)近期營業收入及損益資訊：基本資料>精華版 (2)歷史每月營業收入：營運概況>每月營收>採用IFRSs後之月營業收入資訊 (3)歷史損益(會計師查核/核閱數)：財務報表>採IFRSs後>合併/個別報表>綜合損益表 (4)歷史損益(自願性公告自結數)：營運概況>自結損益公告:無。 7.其他應敘明事項:無。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 6834 | 天二科技 | 4 | 1 | 4 | 4 | 8 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
+| 20260617 | 6834 | 天二科技 | 5 | 2 | 5 | 5 | 9 | continued_overheated | 連續上榜但短線過熱，需避免追高並等待量價重新確認。 |
 
 ## Warrant Context
 | status |

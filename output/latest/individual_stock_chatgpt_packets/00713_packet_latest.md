@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00713 元大台灣高息低波
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:26 Asia/Taipei
+- generated_at: 2026-06-17 22:22:44 Asia/Taipei
 - stock_id: 00713
 - stock_name: 元大台灣高息低波
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260616
-- price_rows: 15
+- latest_price_date: 20260617
+- price_rows: 16
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,22 +113,22 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 60.65
-- high: 60.8
-- low: 60.55
-- close: 60.75
-- volume: 5491979
-- ma5: 59.99
-- ema23_primary: 57.91
-- distance_to_ema23_pct: 4.9
-- ma20: 58.11
-- ma60: 58.11
-- ma120: 58.11
-- return_5d: 3.14
+- date: 20260617
+- open: 60.55
+- high: 61.1
+- low: 60.5
+- close: 61.05
+- volume: 7059742
+- ma5: 60.27
+- ema23_primary: 58.18
+- distance_to_ema23_pct: 4.94
+- ma20: 58.29
+- ma60: 58.29
+- ma120: 58.29
+- return_5d: 2.35
 - return_20d:
-- volume_ratio: 0.4
-- distance_to_ma20_pct_auxiliary: 4.55
+- volume_ratio: 0.52
+- distance_to_ma20_pct_auxiliary: 4.73
 - distance_to_high_60_pct: -0.08
 
 ## Recent Price Preview
@@ -150,6 +150,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,59.9,60.5,59.8,59.8,8481943,57.39,4.19,57.72,57.72,0.56
 20260615,60.6,60.75,60.2,60.55,7421325,57.66,5.02,57.92,57.92,0.51
 20260616,60.65,60.8,60.55,60.75,5491979,57.91,4.9,58.11,58.11,0.4
+20260617,60.55,61.1,60.5,61.05,7059742,58.18,4.94,58.29,58.29,0.52
 ```
 
 ## Latest TDCC Snapshot

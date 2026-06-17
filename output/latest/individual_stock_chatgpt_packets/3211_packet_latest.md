@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3211 順達
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:12 Asia/Taipei
+- generated_at: 2026-06-17 22:23:38 Asia/Taipei
 - stock_id: 3211
 - stock_name: 順達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 434
-- high: 453
-- low: 432.5
-- close: 437.5
-- volume: 443000
-- ma5: 421.1
-- ema23_primary: 415.54
-- distance_to_ema23_pct: 5.28
-- ma20: 415.18
-- ma60: 378.6
-- ma120: 342.23
-- return_5d: -5.71
-- return_20d: 16.51
-- volume_ratio: 0.27
-- distance_to_ma20_pct_auxiliary: 5.38
-- distance_to_high_60_pct: -11.17
+- date: 20260617
+- open: 435.5
+- high: 442.5
+- low: 425
+- close: 428
+- volume: 431000
+- ma5: 422.1
+- ema23_primary: 416.58
+- distance_to_ema23_pct: 2.74
+- ma20: 418.6
+- ma60: 380.62
+- ma120: 343.65
+- return_5d: 1.18
+- return_20d: 19.05
+- volume_ratio: 0.37
+- distance_to_ma20_pct_auxiliary: 2.25
+- distance_to_high_60_pct: -13.1
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,377,387.5,357,359.5,9744000,372.69,-3.54,378.68,341.03,0.8
 20260518,357.5,368,343,367.5,4407000,372.26,-1.28,379.1,342.32,0.36
 20260519,370,370,352.5,359,3905000,371.16,-3.28,378.6,343.51,0.33
 20260520,359,360,347,347,4748000,369.14,-6,376.98,344.62,0.41
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,417.5,422,408,418,416000,412.18,1.41,410.15,374.37,0.16
 20260615,429,440,422,428.5,432000,413.54,3.62,412.07,376.38,0.21
 20260616,434,453,432.5,437.5,443000,415.54,5.28,415.18,378.6,0.27
+20260617,435.5,442.5,425,428,431000,416.58,2.74,418.6,380.62,0.37
 ```
 
 ## Latest TDCC Snapshot

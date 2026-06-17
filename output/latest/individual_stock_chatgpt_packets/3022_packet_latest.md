@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3022 威強電
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:07 Asia/Taipei
+- generated_at: 2026-06-17 22:23:32 Asia/Taipei
 - stock_id: 3022
 - stock_name: 威強電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 85.8
-- high: 86
-- low: 82.6
-- close: 82.6
-- volume: 1737164
-- ma5: 83.72
-- ema23_primary: 76.65
-- distance_to_ema23_pct: 7.76
-- ma20: 75.47
-- ma60: 69.91
-- ma120: 66.97
-- return_5d: 6.31
-- return_20d: 21.11
-- volume_ratio: 1.21
-- distance_to_ma20_pct_auxiliary: 9.44
-- distance_to_high_60_pct: -7.19
+- date: 20260617
+- open: 82.1
+- high: 84.6
+- low: 81.2
+- close: 83.7
+- volume: 1233591
+- ma5: 84.98
+- ema23_primary: 77.24
+- distance_to_ema23_pct: 8.37
+- ma20: 76.3
+- ma60: 70.27
+- ma120: 67.12
+- return_5d: 8.14
+- return_20d: 24.37
+- volume_ratio: 0.85
+- distance_to_ma20_pct_auxiliary: 9.71
+- distance_to_high_60_pct: -5.96
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,68.8,69.5,66.7,67.3,807405,69.11,-2.62,70.33,64.93,0.67
 20260518,67.3,68.2,66.1,67.6,597277,68.99,-2.01,70.25,65.01,0.5
 20260519,67.3,68.4,67.3,67.7,421662,68.88,-1.71,70.11,65.13,0.37
 20260520,67.9,68.6,67.5,68.1,462047,68.81,-1.04,69.97,65.26,0.41
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,87.5,89,85.2,87.1,3502551,75.27,15.71,73.87,69.14,2.67
 20260615,87.7,87.9,85,85.3,2610385,76.11,12.07,74.75,69.55,1.89
 20260616,85.8,86,82.6,82.6,1737164,76.65,7.76,75.47,69.91,1.21
+20260617,82.1,84.6,81.2,83.7,1233591,77.24,8.37,76.3,70.27,0.85
 ```
 
 ## Latest TDCC Snapshot
@@ -185,17 +185,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 3022 | 威強電 | pattern | 型態觀察 | 54.0 |  |  | platform_right_side |  | no_signal | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260617 | 3022 | 威強電 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | repeated_but_no_breakout | 符合條款第四條第XX款：12 事實發生日：115/06/25 1.召開法人說明會之日期：115/06/25 2.召開法人說明會之時間：14 時 30 分  3.召開法人說明會之地點：元大金控大樓6樓(台北市敦化南路一段66號) 4.法人說明會擇要訊息：本公司受邀參加元大證券舉辦之法人說明會，會中將說明本公司115年第一季營運成果及未來展望。 5.其他應敘明事項：本次法人說明會參加人員以元大證券邀約對象為主。 完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 3022 | 威強電 | 5 | 1 | 5 | 9 | 14 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 14 次，但尚未有效突破，需等待攻擊確認。 |
+| 20260617 | 3022 | 威強電 | 6 | 2 | 5 | 9 | 15 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 15 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 3022 | 威強電 | 12 | 0 | 1310890.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

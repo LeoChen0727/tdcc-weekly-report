@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2905 三商
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:04 Asia/Taipei
+- generated_at: 2026-06-17 22:23:29 Asia/Taipei
 - stock_id: 2905
 - stock_name: 三商
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 281
+- latest_price_date: 20260617
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 15.4
+- date: 20260617
+- open: 15.2
 - high: 15.6
-- low: 15.25
-- close: 15.3
-- volume: 1415348
-- ma5: 14.82
-- ema23_primary: 14.14
-- distance_to_ema23_pct: 8.24
-- ma20: 13.9
-- ma60: 14.06
-- ma120: 14.94
-- return_5d: 9.29
-- return_20d: 14.61
-- volume_ratio: 1.64
-- distance_to_ma20_pct_auxiliary: 10.09
-- distance_to_high_60_pct: -1.92
+- low: 15.2
+- close: 15.4
+- volume: 1103454
+- ma5: 15.06
+- ema23_primary: 14.24
+- distance_to_ema23_pct: 8.14
+- ma20: 14.02
+- ma60: 14.07
+- ma120: 14.93
+- return_5d: 8.45
+- return_20d: 18.01
+- volume_ratio: 1.25
+- distance_to_ma20_pct_auxiliary: 9.88
+- distance_to_high_60_pct: -1.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,13.35,13.4,13.05,13.05,708775,13.75,-5.11,13.73,14.61,1.02
 20260518,13.35,13.35,13.15,13.25,754265,13.71,-3.36,13.67,14.58,1.12
 20260519,13.35,13.45,13.25,13.3,400521,13.68,-2.76,13.62,14.54,0.6
 20260520,13.25,13.4,13.2,13.35,490341,13.65,-2.2,13.55,14.51,0.78
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,14.7,15.25,14.7,14.9,1876495,13.9,7.16,13.7,14.05,2.51
 20260615,15.15,15.4,15,15.4,1872327,14.03,9.77,13.8,14.05,2.3
 20260616,15.4,15.6,15.25,15.3,1415348,14.14,8.24,13.9,14.06,1.64
+20260617,15.2,15.6,15.2,15.4,1103454,14.24,8.14,14.02,14.07,1.25
 ```
 
 ## Latest TDCC Snapshot
@@ -191,12 +191,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2905 | 三商 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: shareholder_meeting on 20260618; status=confirmed; proximity=within_3d |
+| 20260617 | 2905 | 三商 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | repeated_but_no_breakout | calendar event: shareholder_meeting on 20260618; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2905 | 三商 | 3 | 1 | 3 | 5 | 5 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260617 | 2905 | 三商 | 4 | 2 | 4 | 6 | 6 | repeated_but_no_breakout | 近 10 日上榜 6 次、近 20 日上榜 6 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
 | status |

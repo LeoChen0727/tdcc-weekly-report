@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1503 士電
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:35 Asia/Taipei
+- generated_at: 2026-06-17 22:22:55 Asia/Taipei
 - stock_id: 1503
 - stock_name: 士電
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 225
-- high: 227.5
-- low: 222
-- close: 224.5
-- volume: 3161148
-- ma5: 225.3
-- ema23_primary: 214.14
-- distance_to_ema23_pct: 4.84
-- ma20: 211.07
-- ma60: 199.6
-- ma120: 198.7
-- return_5d: 1.13
-- return_20d: 13.96
-- volume_ratio: 0.42
-- distance_to_ma20_pct_auxiliary: 6.36
-- distance_to_high_60_pct: -16.7
+- date: 20260617
+- open: 236
+- high: 240
+- low: 229
+- close: 236.5
+- volume: 11949499
+- ma5: 224.3
+- ema23_primary: 216.01
+- distance_to_ema23_pct: 9.49
+- ma20: 213.4
+- ma60: 200.12
+- ma120: 199.26
+- return_5d: -2.07
+- return_20d: 24.47
+- volume_ratio: 1.5
+- distance_to_ma20_pct_auxiliary: 10.82
+- distance_to_high_60_pct: -12.24
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,198,200.5,189.5,190,3043753,196.55,-3.33,196.38,199.51,1.17
 20260518,187.5,188,182.5,186,2339081,195.67,-4.94,195.8,199.26,0.9
 20260519,186,188,183.5,183.5,2071187,194.66,-5.73,195.25,198.87,0.8
 20260520,184,184,181,181,1629734,193.52,-6.47,194.4,198.44,0.63
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,223,223.5,217.5,220,3354505,212.08,3.73,208.5,198.82,0.45
 20260615,226.5,227,223,225.5,2835548,213.2,5.77,209.7,199.19,0.38
 20260616,225,227.5,222,224.5,3161148,214.14,4.84,211.07,199.6,0.42
+20260617,236,240,229,236.5,11949499,216.01,9.49,213.4,200.12,1.5
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +185,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 1503 | 士電 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: shareholder_meeting on 20260617; status=confirmed; proximity=within_3d |
+| 20260617 | 1503 | 士電 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | no_signal | stale_signal | calendar event: shareholder_meeting on 20260617; status=confirmed; proximity=within_3d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 1503 | 士電 | 1 | 1 | 3 | 6 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260617 | 1503 | 士電 | 2 | 2 | 3 | 6 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 1503 | 士電 | 91 | 3 | 8335710.0 | 77100.0 | 108.12 | no_signal |
+| 20260617 | 1503 | 士電 | 0 | 3 | 0.0 | 31790.0 | 0.0 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

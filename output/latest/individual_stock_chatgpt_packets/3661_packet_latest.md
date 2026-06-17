@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3661 世芯-KY
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:22 Asia/Taipei
+- generated_at: 2026-06-17 22:23:50 Asia/Taipei
 - stock_id: 3661
 - stock_name: 世芯-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 4335
-- high: 4335
-- low: 4225
-- close: 4315
-- volume: 1281011
-- ma5: 4203
-- ema23_primary: 4411.59
-- distance_to_ema23_pct: -2.19
-- ma20: 4519.75
-- ma60: 3946.58
-- ma120: 3643.04
-- return_5d: -5.68
-- return_20d: -10.66
-- volume_ratio: 0.68
-- distance_to_ma20_pct_auxiliary: -4.53
-- distance_to_high_60_pct: -23.49
+- date: 20260617
+- open: 4265
+- high: 4385
+- low: 4195
+- close: 4320
+- volume: 1603605
+- ma5: 4210
+- ema23_primary: 4403.96
+- distance_to_ema23_pct: -1.91
+- ma20: 4505.5
+- ma60: 3965.42
+- ma120: 3651.88
+- return_5d: 0.82
+- return_20d: -6.19
+- volume_ratio: 0.88
+- distance_to_ma20_pct_auxiliary: -4.12
+- distance_to_high_60_pct: -23.4
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,4990,5010,4595,4605,2725430,4301.12,7.07,4361.75,3556,0.91
 20260518,4450,4600,4340,4590,1956487,4325.19,6.12,4415.5,3580.58,0.67
 20260519,4420,4615,4410,4430,1403403,4333.93,2.22,4455.75,3599.67,0.49
 20260520,4515,4670,4455,4600,2202342,4356.1,5.6,4486.5,3621.33,0.81
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,4295,4295,4105,4105,1326879,4435.86,-7.46,4572,3909.08,0.63
 20260615,4280,4380,4240,4250,1292083,4420.37,-3.85,4545.5,3926.75,0.65
 20260616,4335,4335,4225,4315,1281011,4411.59,-2.19,4519.75,3946.58,0.68
+20260617,4265,4385,4195,4320,1603605,4403.96,-1.91,4505.5,3965.42,0.88
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 3661 | 世芯-KY | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260617 | 3661 | 世芯-KY | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 3661 | 世芯-KY | 3 | 3 | 3 | 7 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260617 | 3661 | 世芯-KY | 4 | 4 | 4 | 7 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 3661 | 世芯-KY | 382 | 18 | 41041810.0 | 829000.0 | 49.51 | no_signal |
+| 20260617 | 3661 | 世芯-KY | 0 | 18 | 0.0 | 560180.0 | 0.0 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2392 正崴
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:52 Asia/Taipei
+- generated_at: 2026-06-17 22:23:14 Asia/Taipei
 - stock_id: 2392
 - stock_name: 正崴
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 280
+- latest_price_date: 20260617
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 40.75
-- high: 42.5
-- low: 40.25
-- close: 40.3
-- volume: 2902223
-- ma5: 39.77
-- ema23_primary: 39.14
-- distance_to_ema23_pct: 2.97
-- ma20: 38.62
-- ma60: 37.31
-- ma120: 37.84
-- return_5d: -3.47
-- return_20d: 17.15
-- volume_ratio: 0.72
-- distance_to_ma20_pct_auxiliary: 4.36
-- distance_to_high_60_pct: -8.93
+- date: 20260617
+- open: 40.55
+- high: 41
+- low: 39.65
+- close: 40.05
+- volume: 1581611
+- ma5: 39.64
+- ema23_primary: 39.21
+- distance_to_ema23_pct: 2.13
+- ma20: 38.93
+- ma60: 37.35
+- ma120: 37.85
+- return_5d: -1.6
+- return_20d: 18.49
+- volume_ratio: 0.48
+- distance_to_ma20_pct_auxiliary: 2.88
+- distance_to_high_60_pct: -9.49
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,32.3,34.2,32.3,33.8,15310011,37.12,-8.95,37.69,37.03,4.39
 20260518,34,34.2,32.95,33.5,3981398,36.82,-9.02,37.52,36.93,1.12
 20260519,33.55,35.45,33.35,34.3,3057555,36.61,-6.32,37.41,36.86,0.84
 20260520,34.4,35.9,34.05,35.6,2519276,36.53,-2.54,37.17,36.8,0.73
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,39.1,40.3,38.9,39.35,2722493,38.92,1.1,38.22,37.16,0.69
 20260615,39.8,40.4,39.15,40.25,1734321,39.03,3.12,38.32,37.24,0.44
 20260616,40.75,42.5,40.25,40.3,2902223,39.14,2.97,38.62,37.31,0.72
+20260617,40.55,41,39.65,40.05,1581611,39.21,2.13,38.93,37.35,0.48
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2392 | 正崴 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260617 | 2392 | 正崴 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2392 | 正崴 | 3 | 3 | 3 | 7 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260617 | 2392 | 正崴 | 4 | 4 | 4 | 7 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2392 | 正崴 | 12 | 0 | 979350.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

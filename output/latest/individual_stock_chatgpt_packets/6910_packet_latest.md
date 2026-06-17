@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6910 德鴻
 
 ## Metadata
-- generated_at: 2026-06-16 22:24:10 Asia/Taipei
+- generated_at: 2026-06-17 22:24:48 Asia/Taipei
 - stock_id: 6910
 - stock_name: 德鴻
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 254
+- latest_price_date: 20260617
+- price_rows: 255
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 28.2
-- high: 28.2
+- date: 20260617
+- open: 28
+- high: 28
 - low: 28
 - close: 28
 - volume: 28000
-- ma5: 28.83
-- ema23_primary: 28.5
-- distance_to_ema23_pct: -1.75
-- ma20: 28.09
-- ma60: 29.05
+- ma5: 28.43
+- ema23_primary: 28.46
+- distance_to_ema23_pct: -1.6
+- ma20: 28.15
+- ma60: 28.97
 - ma120: 31.93
-- return_5d: -3.45
-- return_20d: 3.13
-- volume_ratio: 1.06
-- distance_to_ma20_pct_auxiliary: -0.32
+- return_5d: -6.67
+- return_20d: 4.67
+- volume_ratio: 1.07
+- distance_to_ma20_pct_auxiliary: -0.54
 - distance_to_high_60_pct: -16.17
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,27.15,27.15,26.75,26.75,33000,28.85,-7.27,28.98,30.5,0.46
 20260518,26.5,26.55,26.3,26.5,33000,28.65,-7.51,28.83,30.35,0.47
 20260519,26.5,26.5,26.4,26.4,22000,28.46,-7.25,28.68,30.22,0.32
 20260520,27.5,27.5,26.45,26.9,25000,28.33,-5.06,28.52,30.1,0.38
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,29.05,29.05,28.5,28.55,29000,28.53,0.07,28,29.19,0.99
 20260615,28.8,28.95,28.65,28.7,29000,28.54,0.55,28.05,29.13,0.98
 20260616,28.2,28.2,28,28,28000,28.5,-1.75,28.09,29.05,1.06
+20260617,28,28,28,28,28000,28.46,-1.6,28.15,28.97,1.07
 ```
 
 ## Latest TDCC Snapshot

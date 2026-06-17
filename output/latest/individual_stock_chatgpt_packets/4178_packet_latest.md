@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4178 永笙-KY
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:27 Asia/Taipei
+- generated_at: 2026-06-17 22:23:56 Asia/Taipei
 - stock_id: 4178
 - stock_name: 永笙-KY
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260616
-- price_rows: 30
+- latest_price_date: 20260617
+- price_rows: 31
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
+- date: 20260617
 - open: 17.5
-- high: 17.7
-- low: 17.25
+- high: 17.6
+- low: 17.45
 - close: 17.5
-- volume: 351562
-- ma5: 17.92
-- ema23_primary: 18.51
-- distance_to_ema23_pct: -5.43
-- ma20: 18.6
-- ma60: 18.75
-- ma120: 18.75
-- return_5d: -5.91
+- volume: 133204
+- ma5: 17.65
+- ema23_primary: 18.42
+- distance_to_ema23_pct: -5
+- ma20: 18.53
+- ma60: 18.71
+- ma120: 18.71
+- return_5d: -7.16
 - return_20d: -7.89
-- volume_ratio: 0.75
-- distance_to_ma20_pct_auxiliary: -5.93
+- volume_ratio: 0.29
+- distance_to_ma20_pct_auxiliary: -5.55
 - distance_to_high_60_pct: -9.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,19,19,18.8,19,429546,19.05,-0.29,19.03,19.03,0.27
 20260518,18.8,19,18.8,18.95,383470,19.05,-0.5,19.02,19.02,0.25
 20260519,19,19,18.85,19,490811,19.04,-0.22,19.02,19.02,0.34
 20260520,18.95,19.05,18.9,19,387286,19.04,-0.2,19.02,19.02,0.28
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,17.95,18.1,17.75,17.8,213444,18.7,-4.8,18.75,18.84,0.44
 20260615,17.95,18,17.5,17.5,353244,18.6,-5.9,18.68,18.79,0.74
 20260616,17.5,17.7,17.25,17.5,351562,18.51,-5.43,18.6,18.75,0.75
+20260617,17.5,17.6,17.45,17.5,133204,18.42,-5,18.53,18.71,0.29
 ```
 
 ## Latest TDCC Snapshot

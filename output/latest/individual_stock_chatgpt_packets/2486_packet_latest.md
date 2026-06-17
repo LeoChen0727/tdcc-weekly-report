@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2486 一詮
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:56 Asia/Taipei
+- generated_at: 2026-06-17 22:23:19 Asia/Taipei
 - stock_id: 2486
 - stock_name: 一詮
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 252
-- high: 257
-- low: 244
-- close: 245.5
-- volume: 4721008
-- ma5: 254
-- ema23_primary: 257.62
-- distance_to_ema23_pct: -4.71
-- ma20: 263.55
-- ma60: 223.16
-- ma120: 168.23
-- return_5d: -3.16
-- return_20d: -5.21
-- volume_ratio: 0.59
-- distance_to_ma20_pct_auxiliary: -6.85
-- distance_to_high_60_pct: -22.8
+- date: 20260617
+- open: 241.5
+- high: 251.5
+- low: 238
+- close: 251.5
+- volume: 4632802
+- ma5: 248.4
+- ema23_primary: 257.11
+- distance_to_ema23_pct: -2.18
+- ma20: 263.68
+- ma60: 224.64
+- ma120: 169.56
+- return_5d: -10.02
+- return_20d: 1
+- volume_ratio: 0.57
+- distance_to_ma20_pct_auxiliary: -4.62
+- distance_to_high_60_pct: -20.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,260,260,248.5,249,2235455,242.44,2.71,249.93,183.68,0.28
 20260518,239,253,234,253,1967746,243.32,3.98,253.32,185.63,0.25
 20260519,250,259,250,251.5,1063909,244,3.07,256,187.46,0.14
 20260520,255,259,255,258,1759690,245.17,5.23,258.68,189.32,0.23
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,255,259,249,251.5,6520383,259.65,-3.14,264.55,219.93,0.84
 20260615,257.5,266.5,248,248.5,6627839,258.72,-3.95,264.23,221.53,0.84
 20260616,252,257,244,245.5,4721008,257.62,-4.71,263.55,223.16,0.59
+20260617,241.5,251.5,238,251.5,4632802,257.11,-2.18,263.68,224.64,0.57
 ```
 
 ## Latest TDCC Snapshot
@@ -186,18 +186,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2486 | 一詮 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
-| 20260616 | 2486 | 一詮 | revenue_pullback | 營收成長股價回檔 | 69.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260617 | 2486 | 一詮 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260617 | 2486 | 一詮 | revenue_pullback | 營收成長股價回檔 | 60.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2486 | 一詮 | 12 | 3 | 5 | 10 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260617 | 2486 | 一詮 | 13 | 4 | 5 | 10 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2486 | 一詮 | 40 | 3 | 1273420.0 | 70.0 | 18191.71 | no_signal |
+| 20260617 | 2486 | 一詮 | 0 | 3 | 0.0 | 70.0 | 0.0 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

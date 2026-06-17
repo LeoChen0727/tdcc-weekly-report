@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00728 第一金工業30
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:26 Asia/Taipei
+- generated_at: 2026-06-17 22:22:45 Asia/Taipei
 - stock_id: 00728
 - stock_name: 第一金工業30
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260616
-- price_rows: 15
+- latest_price_date: 20260617
+- price_rows: 16
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,22 +113,22 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 64
-- high: 64.1
-- low: 63.55
+- date: 20260617
+- open: 63.65
+- high: 63.75
+- low: 62.9
 - close: 63.65
-- volume: 183993
-- ma5: 62.2
-- ema23_primary: 61.63
-- distance_to_ema23_pct: 3.27
-- ma20: 62.44
-- ma60: 62.44
-- ma120: 62.44
-- return_5d: 0.16
+- volume: 94803
+- ma5: 62.45
+- ema23_primary: 61.8
+- distance_to_ema23_pct: 2.99
+- ma20: 62.52
+- ma60: 62.52
+- ma120: 62.52
+- return_5d: 2
 - return_20d:
-- volume_ratio: 0.94
-- distance_to_ma20_pct_auxiliary: 1.94
+- volume_ratio: 0.5
+- distance_to_ma20_pct_auxiliary: 1.81
 - distance_to_high_60_pct: -2.38
 
 ## Recent Price Preview
@@ -150,6 +150,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,61.9,62.25,61.5,61.65,126840,61.26,0.64,62.26,62.26,0.63
 20260615,62,63.95,62,63.6,121634,61.45,3.5,62.35,62.35,0.62
 20260616,64,64.1,63.55,63.65,183993,61.63,3.27,62.44,62.44,0.94
+20260617,63.65,63.75,62.9,63.65,94803,61.8,2.99,62.52,62.52,0.5
 ```
 
 ## Latest TDCC Snapshot

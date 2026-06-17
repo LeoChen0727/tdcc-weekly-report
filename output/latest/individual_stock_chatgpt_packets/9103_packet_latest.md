@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 9103 美德醫療-DR
 
 ## Metadata
-- generated_at: 2026-06-16 22:24:36 Asia/Taipei
+- generated_at: 2026-06-17 22:25:19 Asia/Taipei
 - stock_id: 9103
 - stock_name: 美德醫療-DR
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 5.48
-- high: 5.49
-- low: 5.22
-- close: 5.26
-- volume: 1725841
-- ma5: 5.59
+- date: 20260617
+- open: 5.26
+- high: 5.35
+- low: 5.15
+- close: 5.33
+- volume: 2271047
+- ma5: 5.48
 - ema23_primary: 5.28
-- distance_to_ema23_pct: -0.3
-- ma20: 5.28
+- distance_to_ema23_pct: 0.94
+- ma20: 5.31
 - ma60: 5.05
-- ma120: 5.01
-- return_5d: 0.19
-- return_20d: 10.04
-- volume_ratio: 0.6
-- distance_to_ma20_pct_auxiliary: -0.39
-- distance_to_high_60_pct: -19.94
+- ma120: 5.02
+- return_5d: -8.89
+- return_20d: 12.45
+- volume_ratio: 0.76
+- distance_to_ma20_pct_auxiliary: 0.38
+- distance_to_high_60_pct: -18.87
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,4.84,4.84,4.72,4.74,590220,4.83,-1.84,4.77,5.04,0.54
 20260518,4.82,5.14,4.82,4.93,2488248,4.84,1.92,4.77,5.02,2.1
 20260519,5,5.07,4.91,5.01,1226479,4.85,3.26,4.77,5.02,1.02
 20260520,5.08,5.12,4.92,4.97,1364720,4.86,2.23,4.78,5.02,1.11
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,5.86,5.86,5.6,5.62,1812615,5.26,6.83,5.23,5.04,0.64
 20260615,5.67,5.67,5.46,5.46,2359685,5.28,3.46,5.26,5.05,0.82
 20260616,5.48,5.49,5.22,5.26,1725841,5.28,-0.3,5.28,5.05,0.6
+20260617,5.26,5.35,5.15,5.33,2271047,5.28,0.94,5.31,5.05,0.76
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 9103 | 美德醫療-DR | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260617 | 9103 | 美德醫療-DR | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 9103 | 美德醫療-DR | 2 | 2 | 3 | 8 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260617 | 9103 | 美德醫療-DR | 3 | 3 | 3 | 8 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 9103 | 美德醫療-DR | 2 | 0 | 24840.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

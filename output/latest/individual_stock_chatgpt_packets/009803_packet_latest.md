@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 009803 玉山市值動能50
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:28 Asia/Taipei
+- generated_at: 2026-06-17 22:22:47 Asia/Taipei
 - stock_id: 009803
 - stock_name: 玉山市值動能50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260616
-- price_rows: 15
+- latest_price_date: 20260617
+- price_rows: 16
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 21.65
-- high: 21.65
-- low: 21.46
-- close: 21.55
-- volume: 3584809
-- ma5: 21.53
-- ema23_primary: 21.36
-- distance_to_ema23_pct: 0.88
+- date: 20260617
+- open: 21.42
+- high: 21.69
+- low: 21.34
+- close: 21.69
+- volume: 2859296
+- ma5: 21.48
+- ema23_primary: 21.39
+- distance_to_ema23_pct: 1.4
 - ma20: 21.66
 - ma60: 21.66
 - ma120: 21.66
-- return_5d: -2.53
+- return_5d: -1.09
 - return_20d:
-- volume_ratio: 0.87
-- distance_to_ma20_pct_auxiliary: -0.5
-- distance_to_high_60_pct: -4.98
+- volume_ratio: 0.71
+- distance_to_ma20_pct_auxiliary: 0.13
+- distance_to_high_60_pct: -4.37
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -150,6 +150,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,21.95,21.97,21.48,21.59,7278718,21.32,1.25,21.67,21.67,1.78
 20260615,21.62,21.75,21.5,21.58,5049084,21.35,1.1,21.67,21.67,1.22
 20260616,21.65,21.65,21.46,21.55,3584809,21.36,0.88,21.66,21.66,0.87
+20260617,21.42,21.69,21.34,21.69,2859296,21.39,1.4,21.66,21.66,0.71
 ```
 
 ## Latest TDCC Snapshot

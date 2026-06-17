@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4569 六方科-KY
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:31 Asia/Taipei
+- generated_at: 2026-06-17 22:24:00 Asia/Taipei
 - stock_id: 4569
 - stock_name: 六方科-KY
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 183
-- high: 184
-- low: 173
-- close: 174
-- volume: 119180
-- ma5: 170.5
-- ema23_primary: 174.96
-- distance_to_ema23_pct: -0.55
-- ma20: 177.12
-- ma60: 169.27
-- ma120: 159.46
-- return_5d: 2.05
-- return_20d: -10.31
-- volume_ratio: 0.5
-- distance_to_ma20_pct_auxiliary: -1.76
-- distance_to_high_60_pct: -18.12
+- date: 20260617
+- open: 175
+- high: 189.5
+- low: 174
+- close: 182.5
+- volume: 286077
+- ma5: 173.1
+- ema23_primary: 175.59
+- distance_to_ema23_pct: 3.94
+- ma20: 176.55
+- ma60: 169.98
+- ma120: 159.76
+- return_5d: 7.67
+- return_20d: -5.93
+- volume_ratio: 1.79
+- distance_to_ma20_pct_auxiliary: 3.37
+- distance_to_high_60_pct: -14.12
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,203,212.5,189.5,194,1848459,177.33,9.4,183.5,161.14,6.38
 20260518,192,192,183.5,186,213935,178.05,4.47,183.07,161.86,0.73
 20260519,184,185,171,171,325199,177.46,-3.64,181.38,162.33,1.08
 20260520,170,174,168.5,172,99674,177.01,-2.83,180.18,162.81,0.33
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,170,174,166.5,167.5,109458,174.82,-4.19,178.43,168.07,0.34
 20260615,172.5,177.5,171.5,177.5,70757,175.05,1.4,178.12,168.68,0.23
 20260616,183,184,173,174,119180,174.96,-0.55,177.12,169.27,0.5
+20260617,175,189.5,174,182.5,286077,175.59,3.94,176.55,169.98,1.79
 ```
 
 ## Latest TDCC Snapshot

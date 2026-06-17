@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3305 昇貿
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:14 Asia/Taipei
+- generated_at: 2026-06-17 22:23:40 Asia/Taipei
 - stock_id: 3305
 - stock_name: 昇貿
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 145
-- high: 146.5
-- low: 140
-- close: 140.5
-- volume: 2987359
-- ma5: 145
-- ema23_primary: 144.44
-- distance_to_ema23_pct: -2.73
-- ma20: 150.18
-- ma60: 124.37
-- ma120: 117.42
-- return_5d: -10.79
-- return_20d: 11.51
-- volume_ratio: 0.24
-- distance_to_ma20_pct_auxiliary: -6.44
-- distance_to_high_60_pct: -17.11
+- date: 20260617
+- open: 140
+- high: 143
+- low: 138
+- close: 142.5
+- volume: 1762137
+- ma5: 142.3
+- ema23_primary: 144.28
+- distance_to_ema23_pct: -1.24
+- ma20: 150.38
+- ma60: 124.94
+- ma120: 117.79
+- return_5d: -8.65
+- return_20d: 2.89
+- volume_ratio: 0.15
+- distance_to_ma20_pct_auxiliary: -5.24
+- distance_to_high_60_pct: -15.93
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,128,138.5,127,138.5,21193309,117.63,17.75,115.95,110.92,2.77
 20260518,140,140,127,137,27488332,119.24,14.89,116.78,111.49,3.11
 20260519,140,150,135.5,138,34056285,120.8,14.23,117.75,111.94,3.33
 20260520,136.5,141,133,135,13097232,121.99,10.67,118.62,112.33,1.22
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,145.5,149,143,144.5,6238423,144.88,-0.26,148.78,123.03,0.43
 20260615,147,148,143,144,3612818,144.8,-0.55,149.45,123.73,0.27
 20260616,145,146.5,140,140.5,2987359,144.44,-2.73,150.18,124.37,0.24
+20260617,140,143,138,142.5,1762137,144.28,-1.24,150.38,124.94,0.15
 ```
 
 ## Latest TDCC Snapshot
@@ -186,19 +186,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 3305 | 昇貿 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
-| 20260616 | 3305 | 昇貿 | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
-| 20260616 | 3305 | 昇貿 | revenue_breakout_low_response | 營收爆發低反應股 | 18.0 | 6.0 | A_優先追蹤 |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260617 | 3305 | 昇貿 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260617 | 3305 | 昇貿 | revenue_pullback | 營收成長股價回檔 | 83.0 |  |  |  |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 3305 | 昇貿 | 7 | 6 | 5 | 7 | 9 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260617 | 3305 | 昇貿 | 8 | 7 | 5 | 8 | 10 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 3305 | 昇貿 | 98 | 2 | 11898080.0 | 11400.0 | 1043.69 | no_signal |
+| 20260617 | 3305 | 昇貿 | 0 | 2 | 0.0 | 4560.0 | 0.0 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

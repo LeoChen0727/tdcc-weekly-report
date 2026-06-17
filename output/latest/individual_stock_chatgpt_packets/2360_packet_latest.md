@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2360 致茂
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:50 Asia/Taipei
+- generated_at: 2026-06-17 22:23:12 Asia/Taipei
 - stock_id: 2360
 - stock_name: 致茂
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 2265
-- high: 2385
-- low: 2265
-- close: 2325
-- volume: 2495049
-- ma5: 2328
-- ema23_primary: 2336.95
-- distance_to_ema23_pct: -0.51
-- ma20: 2368.25
-- ma60: 2061.67
-- ma120: 1541.5
-- return_5d: -3.93
-- return_20d: 2.88
-- volume_ratio: 0.85
-- distance_to_ma20_pct_auxiliary: -1.83
-- distance_to_high_60_pct: -16.82
+- date: 20260617
+- open: 2225
+- high: 2255
+- low: 2165
+- close: 2230
+- volume: 2743677
+- ma5: 2261
+- ema23_primary: 2328.04
+- distance_to_ema23_pct: -4.21
+- ma20: 2367.75
+- ma60: 2074.33
+- ma120: 1553.35
+- return_5d: -13.06
+- return_20d: -0.45
+- volume_ratio: 0.95
+- distance_to_ma20_pct_auxiliary: -5.82
+- distance_to_high_60_pct: -20.21
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,2345,2350,2210,2240,3109146,2134.22,4.96,2176.75,1721.28,0.66
 20260518,2125,2200,2125,2185,2303570,2138.46,2.18,2173.25,1741.58,0.51
 20260519,2130,2130,1975,2055,4295379,2131.5,-3.59,2173.5,1758.67,1
 20260520,2090,2095,2020,2065,1914996,2125.96,-2.87,2175.5,1775.75,0.47
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,2300,2320,2230,2295,1795530,2344.67,-2.12,2372,2034.83,0.59
 20260615,2400,2400,2250,2265,1995600,2338.03,-3.12,2365,2047.08,0.66
 20260616,2265,2385,2265,2325,2495049,2336.95,-0.51,2368.25,2061.67,0.85
+20260617,2225,2255,2165,2230,2743677,2328.04,-4.21,2367.75,2074.33,0.95
 ```
 
 ## Latest TDCC Snapshot
@@ -186,18 +186,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2360 | 致茂 | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_3d |
-| 20260616 | 2360 | 致茂 | revenue_pullback | 營收成長股價回檔 | 84.0 |  |  |  |  | no_signal | stale_signal | calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260617 | 2360 | 致茂 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | 1.董事會決議日期:115/06/16 2.發放股利種類及金額:現金股利港幣51,924,638.77元 3.其他應敘明事項:NEWORLD ELECTRONICS LIMITED為本公司100%持有之子公司。；calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_3d |
+| 20260617 | 2360 | 致茂 | revenue_pullback | 營收成長股價回檔 | 90.0 |  |  |  |  | no_signal | stale_signal | 1.董事會決議日期:115/06/16 2.發放股利種類及金額:現金股利港幣51,924,638.77元 3.其他應敘明事項:NEWORLD ELECTRONICS LIMITED為本公司100%持有之子公司。；calendar event: ex_dividend on 20260617; status=confirmed; proximity=within_3d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2360 | 致茂 | 15 | 6 | 5 | 10 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260617 | 2360 | 致茂 | 16 | 7 | 5 | 10 | 16 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2360 | 致茂 | 54 | 5 | 1980100.0 | 0.0 |  | no_signal |
+| 20260617 | 2360 | 致茂 | 0 | 5 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

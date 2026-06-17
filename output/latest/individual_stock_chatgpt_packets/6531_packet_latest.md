@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6531 愛普*
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:59 Asia/Taipei
+- generated_at: 2026-06-17 22:24:35 Asia/Taipei
 - stock_id: 6531
 - stock_name: 愛普*
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_volume_price_failure
 - acceptable_risk_reward
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 945
-- high: 974
-- low: 920
-- close: 924
-- volume: 3865709
-- ma5: 937.4
-- ema23_primary: 982.83
-- distance_to_ema23_pct: -5.99
-- ma20: 1030.7
-- ma60: 798.32
-- ma120: 617.62
-- return_5d: -14.05
-- return_20d: -12
-- volume_ratio: 0.49
-- distance_to_ma20_pct_auxiliary: -10.35
-- distance_to_high_60_pct: -29.2
+- date: 20260617
+- open: 924
+- high: 953
+- low: 921
+- close: 933
+- volume: 2679540
+- ma5: 922
+- ema23_primary: 978.68
+- distance_to_ema23_pct: -4.67
+- ma20: 1023.35
+- ma60: 804.2
+- ma120: 621.99
+- return_5d: -7.62
+- return_20d: -13.61
+- volume_ratio: 0.35
+- distance_to_ma20_pct_auxiliary: -8.83
+- distance_to_high_60_pct: -28.51
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,1080,1145,1045,1080,9491595,856.87,26.04,871.75,610.17,1.3
 20260518,1030,1150,995,1135,7996123,880.05,28.97,896.3,622.3,1.09
 20260519,1095,1100,1025,1025,5976731,892.13,14.89,913.45,632.62,0.86
 20260520,1000,1025,953,973,7417516,898.87,8.25,926.1,642.01,1.08
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,940,974,920,932,4366481,993.38,-6.18,1042.45,785.05,0.5
 20260615,954,969,931,931,2772853,988.18,-5.79,1037,791.72,0.34
 20260616,945,974,920,924,3865709,982.83,-5.99,1030.7,798.32,0.49
+20260617,924,953,921,933,2679540,978.68,-4.67,1023.35,804.2,0.35
 ```
 
 ## Latest TDCC Snapshot
@@ -185,18 +186,18 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 6531 | 愛普* | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: ex_dividend on 20260622; status=confirmed; proximity=within_7d |
-| 20260616 | 6531 | 愛普* | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | calendar event: ex_dividend on 20260622; status=confirmed; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260617 | 6531 | 愛普* | pattern | 型態觀察 | 45.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: ex_dividend on 20260622; status=confirmed; proximity=within_7d |
+| 20260617 | 6531 | 愛普* | revenue_pullback | 營收成長股價回檔 | 75.0 |  |  |  |  | no_signal | stale_signal | calendar event: ex_dividend on 20260622; status=confirmed; proximity=within_7d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 6531 | 愛普* | 6 | 6 | 5 | 9 | 14 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260617 | 6531 | 愛普* | 7 | 7 | 5 | 9 | 15 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 6531 | 愛普* | 93 | 3 | 1329220.0 | 0.0 |  | no_signal |
+| 20260617 | 6531 | 愛普* | 0 | 3 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

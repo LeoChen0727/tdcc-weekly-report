@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00737 國泰AI機器人
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:26 Asia/Taipei
+- generated_at: 2026-06-17 22:22:45 Asia/Taipei
 - stock_id: 00737
 - stock_name: 國泰AI機器人
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260616
-- price_rows: 15
+- latest_price_date: 20260617
+- price_rows: 16
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 38.66
-- high: 38.86
-- low: 38.66
-- close: 38.79
-- volume: 91973
-- ma5: 38.64
-- ema23_primary: 38.92
-- distance_to_ema23_pct: -0.33
-- ma20: 39.3
-- ma60: 39.3
-- ma120: 39.3
-- return_5d: -5.74
+- date: 20260617
+- open: 38.68
+- high: 38.68
+- low: 38.33
+- close: 38.53
+- volume: 100507
+- ma5: 38.31
+- ema23_primary: 38.89
+- distance_to_ema23_pct: -0.92
+- ma20: 39.25
+- ma60: 39.25
+- ma120: 39.25
+- return_5d: -4.18
 - return_20d:
-- volume_ratio: 0.39
-- distance_to_ma20_pct_auxiliary: -1.29
-- distance_to_high_60_pct: -6.28
+- volume_ratio: 0.45
+- distance_to_ma20_pct_auxiliary: -1.83
+- distance_to_high_60_pct: -6.91
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -150,6 +150,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,38.4,38.4,37.97,38.12,134349,38.96,-2.15,39.39,39.39,0.54
 20260615,38.4,38.65,38.4,38.65,157878,38.93,-0.72,39.33,39.33,0.65
 20260616,38.66,38.86,38.66,38.79,91973,38.92,-0.33,39.3,39.3,0.39
+20260617,38.68,38.68,38.33,38.53,100507,38.89,-0.92,39.25,39.25,0.45
 ```
 
 ## Latest TDCC Snapshot

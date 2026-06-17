@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2364 倫飛
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:50 Asia/Taipei
+- generated_at: 2026-06-17 22:23:13 Asia/Taipei
 - stock_id: 2364
 - stock_name: 倫飛
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 68.9
-- high: 68.9
+- date: 20260617
+- open: 67
+- high: 67.9
 - low: 67
 - close: 67.6
-- volume: 271206
-- ma5: 69.86
-- ema23_primary: 69
-- distance_to_ema23_pct: -2.02
-- ma20: 69.16
-- ma60: 65.71
+- volume: 171277
+- ma5: 68.16
+- ema23_primary: 68.88
+- distance_to_ema23_pct: -1.86
+- ma20: 69.19
+- ma60: 65.76
 - ma120: 65.3
-- return_5d: -4.65
-- return_20d: -2.03
-- volume_ratio: 0.68
-- distance_to_ma20_pct_auxiliary: -2.26
+- return_5d: -11.17
+- return_20d: 1.05
+- volume_ratio: 0.44
+- distance_to_ma20_pct_auxiliary: -2.31
 - distance_to_high_60_pct: -16.34
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,69.4,71,66.8,66.9,342663,65.83,1.63,65.55,63.55,1.02
 20260518,66.9,67.3,65.5,66.3,173225,65.87,0.66,65.61,63.61,0.52
 20260519,66.6,67.3,65.1,65.6,193407,65.84,-0.37,65.71,63.68,0.58
 20260520,65.8,66.2,65.6,66,103921,65.86,0.22,65.84,63.75,0.31
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,68.9,69.9,68.7,69,310306,69.17,-0.25,69.36,65.56,0.73
 20260615,69.8,69.8,68.5,68.6,244137,69.12,-0.76,69.23,65.66,0.6
 20260616,68.9,68.9,67,67.6,271206,69,-2.02,69.16,65.71,0.68
+20260617,67,67.9,67,67.6,171277,68.88,-1.86,69.19,65.76,0.44
 ```
 
 ## Latest TDCC Snapshot

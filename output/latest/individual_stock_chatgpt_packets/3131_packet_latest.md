@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3131 弘塑
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:11 Asia/Taipei
+- generated_at: 2026-06-17 22:23:36 Asia/Taipei
 - stock_id: 3131
 - stock_name: 弘塑
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,6 +88,7 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
+- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -112,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 3295
-- high: 3320
-- low: 3230
-- close: 3315
-- volume: 3285000
-- ma5: 3189
-- ema23_primary: 3137.13
-- distance_to_ema23_pct: 5.67
-- ma20: 3089.25
-- ma60: 3001.75
-- ma120: 2339.67
-- return_5d: 3.59
-- return_20d: 12.95
-- volume_ratio: 1.48
-- distance_to_ma20_pct_auxiliary: 7.31
-- distance_to_high_60_pct: -14.23
+- date: 20260617
+- open: 3300
+- high: 3330
+- low: 3170
+- close: 3245
+- volume: 3231000
+- ma5: 3208
+- ema23_primary: 3146.12
+- distance_to_ema23_pct: 3.14
+- ma20: 3108
+- ma60: 3020.33
+- ma120: 2354.25
+- return_5d: 3.02
+- return_20d: 13.07
+- volume_ratio: 1.37
+- distance_to_ma20_pct_auxiliary: 4.41
+- distance_to_high_60_pct: -16.04
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,3060,3060,2870,2870,431000,2997.11,-4.24,3064.25,2575.58,0.49
 20260518,2810,2845,2665,2775,280000,2978.61,-6.84,3040.25,2596.08,0.33
 20260519,2730,2775,2565,2580,566000,2945.39,-12.41,3008.75,2612.92,0.67
 20260520,2570,2640,2550,2580,368000,2914.94,-11.49,2973.75,2630.25,0.45
@@ -154,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,3220,3310,3150,3230,3229000,3112.41,3.78,3060.75,2961.67,1.67
 20260615,3300,3385,3215,3215,3300000,3120.96,3.01,3070.25,2982.5,1.59
 20260616,3295,3320,3230,3315,3285000,3137.13,5.67,3089.25,3001.75,1.48
+20260617,3300,3330,3170,3245,3231000,3146.12,3.14,3108,3020.33,1.37
 ```
 
 ## Latest TDCC Snapshot

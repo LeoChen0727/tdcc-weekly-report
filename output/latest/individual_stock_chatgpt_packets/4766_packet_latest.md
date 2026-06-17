@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4766 南寶
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:34 Asia/Taipei
+- generated_at: 2026-06-17 22:24:03 Asia/Taipei
 - stock_id: 4766
 - stock_name: 南寶
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 371
-- high: 371
-- low: 363.5
-- close: 365.5
-- volume: 367552
-- ma5: 367
-- ema23_primary: 366.99
-- distance_to_ema23_pct: -0.41
-- ma20: 367.95
-- ma60: 353.68
-- ma120: 336.05
-- return_5d: -1.88
-- return_20d: -6.28
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: -0.67
-- distance_to_high_60_pct: -8.17
+- date: 20260617
+- open: 364
+- high: 370
+- low: 362.5
+- close: 368
+- volume: 314621
+- ma5: 367.3
+- ema23_primary: 367.08
+- distance_to_ema23_pct: 0.25
+- ma20: 367.88
+- ma60: 354.4
+- ma120: 336.44
+- return_5d: 0.41
+- return_20d: -0.41
+- volume_ratio: 0.41
+- distance_to_ma20_pct_auxiliary: 0.03
+- distance_to_high_60_pct: -7.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,388.5,388.5,368.5,369.5,1396843,362.95,1.8,363.12,338.11,0.93
 20260518,364,368.5,360.5,365.5,837337,363.16,0.64,364.02,339.07,0.55
 20260519,364.5,368,358,360,629019,362.9,-0.8,364.48,339.87,0.42
 20260520,360,363,354.5,356,587866,362.32,-1.75,364.73,340.55,0.4
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,368,376,368,369.5,611050,366.96,0.69,370.02,352.02,0.61
 20260615,374.5,374.5,369,369,329129,367.13,0.51,369.18,352.96,0.34
 20260616,371,371,363.5,365.5,367552,366.99,-0.41,367.95,353.68,0.45
+20260617,364,370,362.5,368,314621,367.08,0.25,367.88,354.4,0.41
 ```
 
 ## Latest TDCC Snapshot
@@ -194,9 +194,9 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 4766 | 南寶 | 31 | 0 | 394990.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

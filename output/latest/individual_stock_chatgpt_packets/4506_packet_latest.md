@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4506 崇友
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:29 Asia/Taipei
+- generated_at: 2026-06-17 22:23:58 Asia/Taipei
 - stock_id: 4506
 - stock_name: 崇友
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 117
+- date: 20260617
+- open: 118
 - high: 118
 - low: 117
 - close: 118
 - volume: 118000
-- ma5: 117.8
+- ma5: 117.9
 - ema23_primary: 117.92
-- distance_to_ema23_pct: 0.07
-- ma20: 117.95
+- distance_to_ema23_pct: 0.06
+- ma20: 117.92
 - ma60: 118.18
-- ma120: 117.52
+- ma120: 117.47
 - return_5d: 0.43
 - return_20d: -0.42
-- volume_ratio: 1.33
-- distance_to_ma20_pct_auxiliary: 0.04
+- volume_ratio: 1.29
+- distance_to_ma20_pct_auxiliary: 0.06
 - distance_to_high_60_pct: -3.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,118.5,119.5,118.5,118.5,63000,118.4,0.08,118.53,117.59,0.93
 20260518,118,119,118,118.5,30000,118.41,0.08,118.42,117.7,0.44
 20260519,118,119,118,119,39000,118.46,0.46,118.38,117.77,0.58
 20260520,119,120,118.5,118.5,59000,118.46,0.03,118.3,117.82,0.85
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,118,118.5,117.5,118,118000,117.9,0.08,118.05,118.19,1.43
 20260615,118,118,117,118,118000,117.91,0.08,117.97,118.17,1.39
 20260616,117,118,117,118,118000,117.92,0.07,117.95,118.18,1.33
+20260617,118,118,117,118,118000,117.92,0.06,117.92,118.18,1.29
 ```
 
 ## Latest TDCC Snapshot

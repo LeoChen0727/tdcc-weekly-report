@@ -1,9 +1,9 @@
-# INDIVIDUAL STOCK CHATGPT PACKET - 0066 國泰臺灣加權反1
+# INDIVIDUAL STOCK CHATGPT PACKET - 0066 國泰臺灣加權正2
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:25 Asia/Taipei
+- generated_at: 2026-06-17 22:22:44 Asia/Taipei
 - stock_id: 0066
-- stock_name: 國泰臺灣加權反1
+- stock_name: 國泰臺灣加權正2
 - packet_status: insufficient_price_data
 - latest_price_date: 
 - price_rows: 0
@@ -170,7 +170,7 @@ no_rows,True
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 0066 | 國泰臺灣加權反1 | 108 | 21 | 5134940.0 | 147710.0 | 34.76 | no_signal |
+| 20260617 | 0066 | 國泰臺灣加權正2 | 0 | 21 | 0.0 | 381040.0 | 0.0 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

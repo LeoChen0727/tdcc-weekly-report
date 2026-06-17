@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 3205 佰研
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:12 Asia/Taipei
+- generated_at: 2026-06-17 22:23:38 Asia/Taipei
 - stock_id: 3205
 - stock_name: 佰研
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 53.7
-- high: 54.5
-- low: 52.7
+- date: 20260617
+- open: 53
+- high: 54
+- low: 52.6
 - close: 52.8
 - volume: 53000
-- ma5: 54.38
-- ema23_primary: 54.1
-- distance_to_ema23_pct: -2.4
-- ma20: 53.62
-- ma60: 55.8
-- ma120: 53.11
-- return_5d: 2.13
+- ma5: 53.52
+- ema23_primary: 53.99
+- distance_to_ema23_pct: -2.2
+- ma20: 53.6
+- ma60: 55.83
+- ma120: 53.14
+- return_5d: -7.53
 - return_20d: -0.56
-- volume_ratio: 0.84
-- distance_to_ma20_pct_auxiliary: -1.52
+- volume_ratio: 0.91
+- distance_to_ma20_pct_auxiliary: -1.49
 - distance_to_high_60_pct: -21.19
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,53,54.6,52.8,53.1,154000,56.15,-5.42,56.92,54.89,0.49
 20260518,53.5,54,52.8,53.6,126000,55.93,-4.17,56.49,55,0.41
 20260519,53.7,55,53.4,53.6,80000,55.74,-3.84,56.22,55.09,0.28
 20260520,53.2,54,53.2,53.9,61000,55.59,-3.03,55.95,55.19,0.22
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,54.8,54.8,53.8,54.2,54000,54.26,-0.11,53.62,55.71,0.69
 20260615,54.2,54.7,52.8,53.7,54000,54.22,-0.95,53.63,55.76,0.79
 20260616,53.7,54.5,52.7,52.8,53000,54.1,-2.4,53.62,55.8,0.84
+20260617,53,54,52.6,52.8,53000,53.99,-2.2,53.6,55.83,0.91
 ```
 
 ## Latest TDCC Snapshot

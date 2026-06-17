@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00897 富邦基因免疫生技
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:27 Asia/Taipei
+- generated_at: 2026-06-17 22:22:45 Asia/Taipei
 - stock_id: 00897
 - stock_name: 富邦基因免疫生技
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260616
-- price_rows: 15
+- latest_price_date: 20260617
+- price_rows: 16
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 9.95
-- high: 9.95
+- date: 20260617
+- open: 9.89
+- high: 9.91
 - low: 9.89
-- close: 9.89
-- volume: 291302
-- ma5: 9.8
-- ema23_primary: 9.77
-- distance_to_ema23_pct: 1.27
-- ma20: 9.76
-- ma60: 9.76
-- ma120: 9.76
-- return_5d: 2.28
+- close: 9.91
+- volume: 312728
+- ma5: 9.82
+- ema23_primary: 9.78
+- distance_to_ema23_pct: 1.35
+- ma20: 9.77
+- ma60: 9.77
+- ma120: 9.77
+- return_5d: 0.92
 - return_20d:
-- volume_ratio: 0.38
-- distance_to_ma20_pct_auxiliary: 1.3
-- distance_to_high_60_pct: -0.7
+- volume_ratio: 0.42
+- distance_to_ma20_pct_auxiliary: 1.41
+- distance_to_high_60_pct: -0.5
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -150,6 +150,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,9.66,9.78,9.66,9.77,316464,9.74,0.34,9.74,9.74,0.4
 20260615,9.92,9.96,9.92,9.95,930433,9.75,2,9.75,9.75,1.15
 20260616,9.95,9.95,9.89,9.89,291302,9.77,1.27,9.76,9.76,0.38
+20260617,9.89,9.91,9.89,9.91,312728,9.78,1.35,9.77,9.77,0.42
 ```
 
 ## Latest TDCC Snapshot

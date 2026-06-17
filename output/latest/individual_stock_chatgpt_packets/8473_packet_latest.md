@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 8473 山林水
 
 ## Metadata
-- generated_at: 2026-06-16 22:24:34 Asia/Taipei
+- generated_at: 2026-06-17 22:25:16 Asia/Taipei
 - stock_id: 8473
 - stock_name: 山林水
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -112,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 52.1
-- high: 52.1
-- low: 49.45
-- close: 49.5
-- volume: 1810417
-- ma5: 51.84
-- ema23_primary: 46.84
-- distance_to_ema23_pct: 5.69
-- ma20: 46.51
-- ma60: 40.26
-- ma120: 38.8
-- return_5d: -11.61
-- return_20d: 44.1
-- volume_ratio: 0.45
-- distance_to_ma20_pct_auxiliary: 6.42
-- distance_to_high_60_pct: -13.16
+- date: 20260617
+- open: 49.2
+- high: 50.9
+- low: 49.1
+- close: 50.3
+- volume: 1144889
+- ma5: 51.02
+- ema23_primary: 47.13
+- distance_to_ema23_pct: 6.74
+- ma20: 47.29
+- ma60: 40.43
+- ma120: 38.92
+- return_5d: -7.54
+- return_20d: 44.54
+- volume_ratio: 0.28
+- distance_to_ma20_pct_auxiliary: 6.37
+- distance_to_high_60_pct: -11.75
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,35.2,35.6,34.6,34.8,595711,35.64,-2.35,35.7,37.13,1.08
 20260518,34.8,36.15,34.8,35.85,822372,35.65,0.55,35.62,37.12,1.43
 20260519,35.9,36.65,35.9,36.15,587770,35.7,1.27,35.57,37.1,1
 20260520,37.75,39.75,37.6,39.75,3585529,36.03,10.31,35.68,37.15,4.78
@@ -154,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,53.5,53.5,51.5,51.8,2479757,46.15,12.25,44.86,39.85,0.64
 20260615,51.9,53,50.9,51.5,2365342,46.59,10.53,45.76,40.08,0.59
 20260616,52.1,52.1,49.45,49.5,1810417,46.84,5.69,46.51,40.26,0.45
+20260617,49.2,50.9,49.1,50.3,1144889,47.13,6.74,47.29,40.43,0.28
 ```
 
 ## Latest TDCC Snapshot
@@ -185,12 +185,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 8473 | 山林水 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  |  | stale_signal | 1.股東常會日期:115/06/15 2.重要決議事項一、盈餘分配或盈虧撥補: 承認114年度盈餘分派案 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表: 承認114年度營業報告書及財務報表案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項: 通過114年度盈餘轉增資發行新股案 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260617 | 8473 | 山林水 | pattern | 型態觀察 | 46.0 |  |  | base_building |  |  | stale_signal | 1.股東常會日期:115/06/15 2.重要決議事項一、盈餘分配或盈虧撥補: 承認114年度盈餘分派案 3.重要決議事項二、章程修訂:無 4.重要決議事項三、營業報告書及財務報表: 承認114年度營業報告書及財務報表案 5.重要決議事項四、董監事選舉:無 6.重要決議事項五、其他事項: 通過114年度盈餘轉增資發行新股案 7.其他應敘明事項:無；calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 8473 | 山林水 | 1 | 1 | 1 | 6 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260617 | 8473 | 山林水 | 2 | 2 | 2 | 6 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | status |

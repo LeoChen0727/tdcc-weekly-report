@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4764 雙鍵
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:34 Asia/Taipei
+- generated_at: 2026-06-17 22:24:03 Asia/Taipei
 - stock_id: 4764
 - stock_name: 雙鍵
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 279
+- latest_price_date: 20260617
+- price_rows: 280
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 284
-- high: 305.5
-- low: 279.5
-- close: 305.5
-- volume: 3020032
-- ma5: 277.2
-- ema23_primary: 292.14
-- distance_to_ema23_pct: 4.57
-- ma20: 305
-- ma60: 238.59
-- ma120: 179.31
-- return_5d: 1.16
-- return_20d: -1.45
-- volume_ratio: 1.13
-- distance_to_ma20_pct_auxiliary: 0.16
-- distance_to_high_60_pct: -16.64
+- date: 20260617
+- open: 296
+- high: 322.5
+- low: 292.5
+- close: 316
+- volume: 4128370
+- ma5: 284
+- ema23_primary: 294.13
+- distance_to_ema23_pct: 7.44
+- ma20: 306.23
+- ma60: 241.31
+- ma120: 181.26
+- return_5d: 12.06
+- return_20d: 8.4
+- volume_ratio: 1.44
+- distance_to_ma20_pct_auxiliary: 3.19
+- distance_to_high_60_pct: -13.78
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,314,314,285,291.5,444109,265.87,9.64,271.95,182.94,0.48
 20260518,285,300,275,300,579073,268.71,11.64,276.32,186.22,0.66
 20260519,300,306,291,304.5,372770,271.7,12.07,279.88,189.58,0.44
 20260520,315,334.5,315,330,824876,276.56,19.33,284.15,193.4,0.97
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,283,283,261.5,263,1683514,292.1,-9.96,307.07,234.22,0.67
 20260615,271.5,284.5,267.5,278,1712253,290.92,-4.44,305.23,236.15,0.67
 20260616,284,305.5,279.5,305.5,3020032,292.14,4.57,305,238.59,1.13
+20260617,296,322.5,292.5,316,4128370,294.13,7.44,306.23,241.31,1.44
 ```
 
 ## Latest TDCC Snapshot
@@ -186,18 +186,19 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 4764 | 雙鍵 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
-| 20260616 | 4764 | 雙鍵 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  | call_inflow | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
+| 20260617 | 4764 | 雙鍵 | pattern | 型態觀察 | 54.0 |  |  | early_entry_watch |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260617 | 4764 | 雙鍵 | pullback_rebound | 回檔後短線轉強 | 55.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
+| 20260617 | 4764 | 雙鍵 | revenue_pullback | 營收成長股價回檔 | 55.0 |  |  |  |  |  | repeated_but_no_breakout | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d；營收轉強但 EPS / 毛利率尚未有結構化資料確認 |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 4764 | 雙鍵 | 6 | 6 | 5 | 9 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260617 | 4764 | 雙鍵 | 7 | 7 | 5 | 9 | 14 | repeated_but_no_breakout | 近 10 日上榜 9 次、近 20 日上榜 14 次，但尚未有效突破，需等待攻擊確認。 |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 4764 | 雙鍵 | 28 | 0 | 1282340.0 | 0.0 |  | call_inflow |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

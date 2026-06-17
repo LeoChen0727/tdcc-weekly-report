@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2352 佳世達
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:50 Asia/Taipei
+- generated_at: 2026-06-17 22:23:12 Asia/Taipei
 - stock_id: 2352
 - stock_name: 佳世達
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 276
+- latest_price_date: 20260617
+- price_rows: 277
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 31.65
-- high: 31.65
-- low: 30.2
-- close: 30.2
-- volume: 6928027
-- ma5: 30.73
-- ema23_primary: 29.06
-- distance_to_ema23_pct: 3.92
-- ma20: 29.01
-- ma60: 26.01
-- ma120: 25.52
-- return_5d: -4.13
-- return_20d: 17.97
-- volume_ratio: 0.51
-- distance_to_ma20_pct_auxiliary: 4.11
-- distance_to_high_60_pct: -12.84
+- date: 20260617
+- open: 30.2
+- high: 30.8
+- low: 30
+- close: 30.8
+- volume: 5207881
+- ma5: 30.67
+- ema23_primary: 29.21
+- distance_to_ema23_pct: 5.46
+- ma20: 29.29
+- ma60: 26.11
+- ma120: 25.55
+- return_5d: -0.96
+- return_20d: 22.22
+- volume_ratio: 0.39
+- distance_to_ma20_pct_auxiliary: 5.16
+- distance_to_high_60_pct: -11.11
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,25.8,26.25,25.15,25.2,5297872,25.05,0.61,25.15,24.56,0.89
 20260518,25.4,25.4,24.85,25.1,3373080,25.05,0.2,25.12,24.56,0.58
 20260519,25,25.4,24.9,25.05,4426633,25.05,-0,25.09,24.56,0.77
 20260520,25.1,26.2,25.1,26.05,8673044,25.13,3.64,25.11,24.57,1.44
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,30.9,31.3,30.7,31,8443093,28.75,7.84,28.52,25.79,0.63
 20260615,31.45,31.7,31.05,31.3,8721153,28.96,8.09,28.78,25.91,0.65
 20260616,31.65,31.65,30.2,30.2,6928027,29.06,3.92,29.01,26.01,0.51
+20260617,30.2,30.8,30,30.8,5207881,29.21,5.46,29.29,26.11,0.39
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +185,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2352 | 佳世達 | pattern | 型態觀察 | 53.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260617 | 2352 | 佳世達 | pattern | 型態觀察 | 54.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2352 | 佳世達 | 1 | 1 | 1 | 6 | 11 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260617 | 2352 | 佳世達 | 2 | 2 | 2 | 6 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2352 | 佳世達 | 20 | 2 | 1297990.0 | 354150.0 | 3.67 | no_signal |
+| 20260617 | 2352 | 佳世達 | 0 | 2 | 0.0 | 0.0 |  | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

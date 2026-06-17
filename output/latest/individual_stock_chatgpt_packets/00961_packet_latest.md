@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00961 FT臺灣永續高息
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:28 Asia/Taipei
+- generated_at: 2026-06-17 22:22:47 Asia/Taipei
 - stock_id: 00961
 - stock_name: FT臺灣永續高息
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260616
-- price_rows: 15
+- latest_price_date: 20260617
+- price_rows: 16
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 12.72
-- high: 12.79
-- low: 12.71
-- close: 12.76
-- volume: 7272826
-- ma5: 12.9
-- ema23_primary: 12.43
-- distance_to_ema23_pct: 2.65
-- ma20: 12.6
-- ma60: 12.6
-- ma120: 12.6
-- return_5d: -4.56
+- date: 20260617
+- open: 12.7
+- high: 12.84
+- low: 12.69
+- close: 12.82
+- volume: 3863867
+- ma5: 12.84
+- ema23_primary: 12.46
+- distance_to_ema23_pct: 2.86
+- ma20: 12.62
+- ma60: 12.62
+- ma120: 12.62
+- return_5d: -2.21
 - return_20d:
-- volume_ratio: 0.81
-- distance_to_ma20_pct_auxiliary: 1.23
-- distance_to_high_60_pct: -6.11
+- volume_ratio: 0.44
+- distance_to_ma20_pct_auxiliary: 1.6
+- distance_to_high_60_pct: -5.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -150,6 +150,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,13.03,13.08,12.86,12.86,9950792,12.35,4.12,12.57,12.57,1.13
 20260615,13.1,13.1,12.92,12.94,13770385,12.4,4.35,12.59,12.59,1.5
 20260616,12.72,12.79,12.71,12.76,7272826,12.43,2.65,12.6,12.6,0.81
+20260617,12.7,12.84,12.69,12.82,3863867,12.46,2.86,12.62,12.62,0.44
 ```
 
 ## Latest TDCC Snapshot

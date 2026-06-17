@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 2527 宏璟
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:57 Asia/Taipei
+- generated_at: 2026-06-17 22:23:21 Asia/Taipei
 - stock_id: 2527
 - stock_name: 宏璟
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -118,29 +118,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 40.3
-- high: 40.75
-- low: 39.5
-- close: 39.95
-- volume: 5496568
-- ma5: 37.31
-- ema23_primary: 36.03
-- distance_to_ema23_pct: 10.89
-- ma20: 35.69
-- ma60: 33.91
-- ma120: 31.72
-- return_5d: 9.15
-- return_20d: 19.79
-- volume_ratio: 6.83
-- distance_to_ma20_pct_auxiliary: 11.95
-- distance_to_high_60_pct: -1.96
+- date: 20260617
+- open: 39.35
+- high: 39.35
+- low: 38.25
+- close: 38.9
+- volume: 1569832
+- ma5: 37.82
+- ema23_primary: 36.27
+- distance_to_ema23_pct: 7.26
+- ma20: 35.97
+- ma60: 34.05
+- ma120: 31.8
+- return_5d: 7.02
+- return_20d: 16.82
+- volume_ratio: 1.82
+- distance_to_ma20_pct_auxiliary: 8.16
+- distance_to_high_60_pct: -4.54
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,33.55,34.05,33.3,33.3,406434,33.94,-1.88,34.53,32.1,0.62
 20260518,33.3,33.7,32.7,33.65,324658,33.91,-0.78,34.38,32.19,0.58
 20260519,33.3,33.7,33.1,33.25,119408,33.86,-1.8,34.23,32.26,0.22
 20260520,33.05,33.2,32.7,33,231368,33.79,-2.33,34.07,32.31,0.45
@@ -160,6 +159,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,35,37,35,36.5,701326,35.35,3.24,35.1,33.56,1.53
 20260615,36.55,39.85,36,39.15,2294490,35.67,9.75,35.35,33.73,4.15
 20260616,40.3,40.75,39.5,39.95,5496568,36.03,10.89,35.69,33.91,6.83
+20260617,39.35,39.35,38.25,38.9,1569832,36.27,7.26,35.97,34.05,1.82
 ```
 
 ## Latest TDCC Snapshot
@@ -191,12 +191,12 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2527 | 宏璟 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260617 | 2527 | 宏璟 | range_rebound | 區間內轉強 / 挑戰前高觀察 | 69.0 |  |  | neckline_challenge |  |  | continued_2_3d | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 2527 | 宏璟 | 2 | 2 | 2 | 2 | 2 | continued_2_3d | 連續 2 日上榜，訊號延續，但仍需量價與籌碼確認。 |
+| 20260617 | 2527 | 宏璟 | 3 | 3 | 3 | 3 | 3 | continued_2_3d | 連續 3 日上榜，訊號延續，但仍需量價與籌碼確認。 |
 
 ## Warrant Context
 | status |

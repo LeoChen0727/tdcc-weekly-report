@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 006206 元大上證50
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:25 Asia/Taipei
+- generated_at: 2026-06-17 22:22:44 Asia/Taipei
 - stock_id: 006206
 - stock_name: 元大上證50
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260616
-- price_rows: 15
+- latest_price_date: 20260617
+- price_rows: 16
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 37.24
-- high: 37.4
-- low: 37.03
-- close: 37.04
-- volume: 60081
-- ma5: 36.74
-- ema23_primary: 36.67
-- distance_to_ema23_pct: 1
-- ma20: 36.67
-- ma60: 36.67
-- ma120: 36.67
-- return_5d: 0.46
+- date: 20260617
+- open: 37.04
+- high: 37.07
+- low: 36.83
+- close: 37
+- volume: 144265
+- ma5: 36.87
+- ema23_primary: 36.7
+- distance_to_ema23_pct: 0.82
+- ma20: 36.69
+- ma60: 36.69
+- ma120: 36.69
+- return_5d: 1.79
 - return_20d:
-- volume_ratio: 0.44
-- distance_to_ma20_pct_auxiliary: 1.02
-- distance_to_high_60_pct: -1.17
+- volume_ratio: 1.05
+- distance_to_ma20_pct_auxiliary: 0.86
+- distance_to_high_60_pct: -1.28
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -150,6 +150,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,36.21,36.95,36.05,36.92,188582,36.59,0.91,36.6,36.6,1.27
 20260615,36.92,37.48,36.92,37.18,47902,36.64,1.48,36.64,36.64,0.34
 20260616,37.24,37.4,37.03,37.04,60081,36.67,1,36.67,36.67,0.44
+20260617,37.04,37.07,36.83,37,144265,36.7,0.82,36.69,36.69,1.05
 ```
 
 ## Latest TDCC Snapshot
@@ -183,9 +184,9 @@ no_rows,True
 | no rows |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 6206 | 飛捷 | 15 | 0 | 1308720.0 | 0.0 |  | call_inflow |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

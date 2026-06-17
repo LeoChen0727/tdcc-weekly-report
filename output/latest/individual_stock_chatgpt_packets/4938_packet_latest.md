@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4938 和碩
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:35 Asia/Taipei
+- generated_at: 2026-06-17 22:24:05 Asia/Taipei
 - stock_id: 4938
 - stock_name: 和碩
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 84.5
-- high: 84.8
-- low: 82.3
+- date: 20260617
+- open: 82.9
+- high: 83.2
+- low: 81
 - close: 83
-- volume: 24517805
-- ma5: 90.38
-- ema23_primary: 87.15
-- distance_to_ema23_pct: -4.76
-- ma20: 86.03
-- ma60: 82.31
-- ma120: 76.34
-- return_5d: -15.13
-- return_20d: 7.79
-- volume_ratio: 0.86
-- distance_to_ma20_pct_auxiliary: -3.53
+- volume: 20911923
+- ma5: 87.6
+- ema23_primary: 86.8
+- distance_to_ema23_pct: -4.38
+- ma20: 86.36
+- ma60: 82.39
+- ma120: 76.45
+- return_5d: -14.34
+- return_20d: 8.5
+- volume_ratio: 0.73
+- distance_to_ma20_pct_auxiliary: -3.89
 - distance_to_high_60_pct: -19.02
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,77.2,78.5,76.4,76.5,15549468,80.96,-5.5,82.39,77.61,1.09
 20260518,77,77.5,75.8,76.5,10111329,80.58,-5.07,82.06,77.71,0.75
 20260519,77.2,78,76.8,76.9,8017022,80.28,-4.21,81.77,77.83,0.61
 20260520,76.9,77.7,76.6,77.2,10080428,80.02,-3.52,81.43,77.93,0.78
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,96,97,93.1,93.1,23486337,87.89,5.92,85.65,82.08,0.89
 20260615,87,90,83.4,83.5,67091323,87.53,-4.6,85.73,82.2,2.31
 20260616,84.5,84.8,82.3,83,24517805,87.15,-4.76,86.03,82.31,0.86
+20260617,82.9,83.2,81,83,20911923,86.8,-4.38,86.36,82.39,0.73
 ```
 
 ## Latest TDCC Snapshot
@@ -186,17 +186,17 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Candidate Context
 | date | stock_id | stock_name | category | category_cn | score | rank | revaluation_priority | pattern_stage | tdcc_judgement | warrant_flow_signal | repeat_appear_label | catalyst_summary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 4938 | 和碩 | pattern | 型態觀察 | 35.0 |  |  | pullback_entry_zone |  | no_signal | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_30d |
+| 20260617 | 4938 | 和碩 | pattern | 型態觀察 | 40.0 |  |  | pullback_entry_zone |  |  | stale_signal | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proximity=within_14d |
 
 ## Repeat Appearance Context
 | signal_date | stock_id | stock_name | consecutive_appear_days_any_category | consecutive_appear_days_same_category | appear_count_5d | appear_count_10d | appear_count_20d | repeat_appear_label | repeat_appear_note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 4938 | 和碩 | 1 | 1 | 2 | 7 | 12 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
+| 20260617 | 4938 | 和碩 | 2 | 2 | 3 | 7 | 13 | stale_signal | 反覆上榜但尚未突破，且量價、TDCC 或 benchmark 未同步轉強，需確認是否鈍化。 |
 
 ## Warrant Context
-| date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 4938 | 和碩 | 23 | 0 | 3854920.0 | 0.0 |  | no_signal |
+| status |
+| --- |
+| no rows |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

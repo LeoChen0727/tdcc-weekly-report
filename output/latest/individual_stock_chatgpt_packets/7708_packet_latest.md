@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 7708 全家餐飲
 
 ## Metadata
-- generated_at: 2026-06-16 22:24:23 Asia/Taipei
+- generated_at: 2026-06-17 22:25:03 Asia/Taipei
 - stock_id: 7708
 - stock_name: 全家餐飲
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 281
+- latest_price_date: 20260617
+- price_rows: 282
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,21 +113,21 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 93.9
+- date: 20260617
+- open: 94
 - high: 94
 - low: 93.9
 - close: 94
 - volume: 94000
-- ma5: 93.46
-- ema23_primary: 92.61
-- distance_to_ema23_pct: 1.5
+- ma5: 93.8
+- ema23_primary: 92.73
+- distance_to_ema23_pct: 1.37
 - ma20: 92.5
-- ma60: 92.3
-- ma120: 93.41
+- ma60: 92.31
+- ma120: 93.38
 - return_5d: 1.84
-- return_20d: -0.42
-- volume_ratio: 1.51
+- return_20d: 0.11
+- volume_ratio: 1.42
 - distance_to_ma20_pct_auxiliary: 1.62
 - distance_to_high_60_pct: -0.95
 
@@ -135,7 +135,6 @@
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,93.8,94.2,93.8,93.9,11000,92.16,1.89,91.97,92.31,0.78
 20260518,92.6,92.6,92,92,13000,92.15,-0.16,91.95,92.29,0.91
 20260519,91.8,92,91.8,92,6000,92.13,-0.15,91.94,92.26,0.43
 20260520,92,92,92,92,2000,92.12,-0.13,91.93,92.23,0.15
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,93.4,94.1,93.4,94,94000,92.37,1.77,92.39,92.24,1.73
 20260615,93.9,93.9,93.5,93.8,94000,92.49,1.42,92.52,92.27,1.6
 20260616,93.9,94,93.9,94,94000,92.61,1.5,92.5,92.3,1.51
+20260617,94,94,93.9,94,94000,92.73,1.37,92.5,92.31,1.42
 ```
 
 ## Latest TDCC Snapshot

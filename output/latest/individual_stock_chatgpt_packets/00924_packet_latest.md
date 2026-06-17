@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 00924 復華S&P500成長
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:27 Asia/Taipei
+- generated_at: 2026-06-17 22:22:46 Asia/Taipei
 - stock_id: 00924
 - stock_name: 復華S&P500成長
 - packet_status: partial_rawdata_packet
-- latest_price_date: 20260616
-- price_rows: 15
+- latest_price_date: 20260617
+- price_rows: 16
 - latest_tdcc_date: 
 - tdcc_rows: 0
 - tdcc_history_status: tdcc_missing
@@ -113,23 +113,23 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 32.58
-- high: 32.63
-- low: 32.57
-- close: 32.61
-- volume: 1896306
-- ma5: 32.15
+- date: 20260617
+- open: 32.44
+- high: 32.46
+- low: 32.34
+- close: 32.43
+- volume: 1675691
+- ma5: 32.11
 - ema23_primary: 32.41
-- distance_to_ema23_pct: 0.62
+- distance_to_ema23_pct: 0.06
 - ma20: 32.48
 - ma60: 32.48
 - ma120: 32.48
-- return_5d: -1.39
+- return_5d: -0.52
 - return_20d:
-- volume_ratio: 0.71
-- distance_to_ma20_pct_auxiliary: 0.4
-- distance_to_high_60_pct: -1.54
+- volume_ratio: 0.64
+- distance_to_ma20_pct_auxiliary: -0.15
+- distance_to_high_60_pct: -2.08
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
@@ -150,6 +150,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,31.79,31.89,31.74,31.84,1231631,32.4,-1.73,32.49,32.49,0.44
 20260615,32.23,32.29,32.22,32.28,1895427,32.39,-0.34,32.47,32.47,0.7
 20260616,32.58,32.63,32.57,32.61,1896306,32.41,0.62,32.48,32.48,0.71
+20260617,32.44,32.46,32.34,32.43,1675691,32.41,0.06,32.48,32.48,0.64
 ```
 
 ## Latest TDCC Snapshot

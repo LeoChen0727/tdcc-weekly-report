@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6191 精成科
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:51 Asia/Taipei
+- generated_at: 2026-06-17 22:24:25 Asia/Taipei
 - stock_id: 6191
 - stock_name: 精成科
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 104.5
-- high: 105.5
-- low: 100
-- close: 100.5
-- volume: 19613977
-- ma5: 97.96
-- ema23_primary: 97.56
-- distance_to_ema23_pct: 3.02
-- ma20: 96.36
-- ma60: 97.95
-- ma120: 104.12
-- return_5d: 3.61
-- return_20d: 8.65
-- volume_ratio: 2.26
-- distance_to_ma20_pct_auxiliary: 4.29
-- distance_to_high_60_pct: -13.36
+- date: 20260617
+- open: 100
+- high: 101
+- low: 99
+- close: 100
+- volume: 4602149
+- ma5: 97.86
+- ema23_primary: 97.76
+- distance_to_ema23_pct: 2.29
+- ma20: 96.83
+- ma60: 97.93
+- ma120: 103.96
+- return_5d: -0.5
+- return_20d: 10.13
+- volume_ratio: 0.54
+- distance_to_ma20_pct_auxiliary: 3.28
+- distance_to_high_60_pct: -13.79
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,93.8,94.3,89.9,90.8,7258878,98.34,-7.67,101.74,99.62,0.65
 20260518,90.2,91.5,89.3,90.4,4317357,97.68,-7.45,101.03,99.4,0.39
 20260519,91.6,94.6,90.9,92.8,8098855,97.27,-4.6,99.95,99.2,0.82
 20260520,93,94.5,91.9,94.2,4627171,97.02,-2.9,98.98,99.02,0.52
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,93.8,95.2,93.7,93.8,3113897,96.77,-3.07,95.44,97.87,0.43
 20260615,96,103,94.4,103,21334896,97.29,5.87,95.97,97.93,2.69
 20260616,104.5,105.5,100,100.5,19613977,97.56,3.02,96.36,97.95,2.26
+20260617,100,101,99,100,4602149,97.76,2.29,96.83,97.93,0.54
 ```
 
 ## Latest TDCC Snapshot
@@ -196,7 +196,7 @@ as_of_date,over_400_ratio,over_400_change_1w,over_800_ratio,over_800_change_1w,o
 ## Warrant Context
 | date | stock_id | stock_name | call_warrant_count | put_warrant_count | call_turnover | put_turnover | call_put_turnover_ratio | warrant_flow_signal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 6191 | 精成科 | 59 | 3 | 8666440.0 | 22950.0 | 377.62 | call_inflow |
+| 20260617 | 6191 | 精成科 | 0 | 3 | 0.0 | 7990.0 | 0.0 | no_signal |
 
 ## Interpretation Guardrails
 - ACTION_DISPLAY is the PDF-visible report language contract.

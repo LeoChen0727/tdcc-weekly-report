@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6470 宇智
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:58 Asia/Taipei
+- generated_at: 2026-06-17 22:24:32 Asia/Taipei
 - stock_id: 6470
 - stock_name: 宇智
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 49
-- high: 49
-- low: 48.5
-- close: 48.95
+- date: 20260617
+- open: 48.5
+- high: 49.65
+- low: 48.45
+- close: 49.6
 - volume: 49000
-- ma5: 49
-- ema23_primary: 48.52
-- distance_to_ema23_pct: 0.88
-- ma20: 48.38
-- ma60: 48.08
-- ma120: 48.07
-- return_5d: -2.1
-- return_20d: 5.27
-- volume_ratio: 1.03
-- distance_to_ma20_pct_auxiliary: 1.17
-- distance_to_high_60_pct: -5.68
+- ma5: 48.84
+- ema23_primary: 48.61
+- distance_to_ema23_pct: 2.04
+- ma20: 48.55
+- ma60: 48.05
+- ma120: 48.12
+- return_5d: -1.59
+- return_20d: 6.9
+- volume_ratio: 1.05
+- distance_to_ma20_pct_auxiliary: 2.17
+- distance_to_high_60_pct: -3.31
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,46.2,46.9,46.2,46.4,72000,47.49,-2.29,47.47,49.61,1
 20260518,46.4,47.35,46.2,47.35,43000,47.47,-0.26,47.45,49.51,0.6
 20260519,47.4,47.4,46.7,47,19000,47.43,-0.92,47.41,49.4,0.28
 20260520,47.45,47.5,46.7,47.4,32000,47.43,-0.07,47.36,49.3,0.48
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,49,49,48.05,48.35,48000,48.43,-0.17,48.16,48.19,1.02
 20260615,48.35,49.45,48,49,49000,48.48,1.07,48.26,48.13,1.05
 20260616,49,49,48.5,48.95,49000,48.52,0.88,48.38,48.08,1.03
+20260617,48.5,49.65,48.45,49.6,49000,48.61,2.04,48.55,48.05,1.05
 ```
 
 ## Latest TDCC Snapshot

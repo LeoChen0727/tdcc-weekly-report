@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6291 沛亨
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:56 Asia/Taipei
+- generated_at: 2026-06-17 22:24:30 Asia/Taipei
 - stock_id: 6291
 - stock_name: 沛亨
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 565
-- high: 585
-- low: 543
-- close: 544
-- volume: 563000
-- ma5: 547.4
-- ema23_primary: 549.69
-- distance_to_ema23_pct: -1.03
-- ma20: 562.92
-- ma60: 461.73
-- ma120: 341.78
-- return_5d: -11.54
-- return_20d: 6.88
-- volume_ratio: 0.73
-- distance_to_ma20_pct_auxiliary: -3.36
-- distance_to_high_60_pct: -24.23
+- date: 20260617
+- open: 544
+- high: 545
+- low: 512
+- close: 515
+- volume: 525000
+- ma5: 529.2
+- ema23_primary: 546.8
+- distance_to_ema23_pct: -5.82
+- ma20: 565.55
+- ma60: 464.93
+- ma120: 344.61
+- return_5d: -15.02
+- return_20d: 11.35
+- volume_ratio: 0.77
+- distance_to_ma20_pct_auxiliary: -8.94
+- distance_to_high_60_pct: -28.27
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,505,509,458.5,462.5,2335000,448.31,3.16,457.23,369.77,1.07
 20260518,453.5,494,453.5,494,1885000,452.12,9.26,460.85,374.46,0.87
 20260519,482,487,466.5,472,1115000,453.78,4.02,463.52,378.51,0.52
 20260520,472,480,460,463,997000,454.54,1.86,463.68,382.03,0.48
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,517,544,517,536,533000,549.68,-2.49,557.85,454.74,0.54
 20260615,537,587,531,556,563000,550.21,1.05,561.17,458.33,0.66
 20260616,565,585,543,544,563000,549.69,-1.03,562.92,461.73,0.73
+20260617,544,545,512,515,525000,546.8,-5.82,565.55,464.93,0.77
 ```
 
 ## Latest TDCC Snapshot

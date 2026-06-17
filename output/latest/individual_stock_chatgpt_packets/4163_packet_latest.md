@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 4163 鐿鈦
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:27 Asia/Taipei
+- generated_at: 2026-06-17 22:23:55 Asia/Taipei
 - stock_id: 4163
 - stock_name: 鐿鈦
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 280
+- latest_price_date: 20260617
+- price_rows: 281
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 117.5
-- high: 117.5
+- date: 20260617
+- open: 113.5
+- high: 116
 - low: 113.5
 - close: 115
 - volume: 115000
-- ma5: 115.7
-- ema23_primary: 115.52
-- distance_to_ema23_pct: -0.45
-- ma20: 117.62
-- ma60: 108.38
-- ma120: 102.4
-- return_5d: -15.44
-- return_20d: 6.98
-- volume_ratio: 0.74
-- distance_to_ma20_pct_auxiliary: -2.23
+- ma5: 113.9
+- ema23_primary: 115.47
+- distance_to_ema23_pct: -0.41
+- ma20: 117.47
+- ma60: 108.53
+- ma120: 102.58
+- return_5d: -7.26
+- return_20d: -2.54
+- volume_ratio: 0.81
+- distance_to_ma20_pct_auxiliary: -2.11
 - distance_to_high_60_pct: -21.23
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,114,118,113.5,118,381000,102.71,14.89,102.39,104.38,7.95
 20260518,120,125,117.5,124,701000,104.48,18.68,103.19,104.74,8.69
 20260519,118,122,112.5,112.5,312000,105.15,6.99,103.39,104.91,3.31
 20260520,113,113,108.5,112.5,84000,105.76,6.37,103.59,105.06,0.86
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,112.5,113,110,112,112000,115.48,-3.01,116.32,108.06,0.73
 20260615,114.5,117.5,113.5,116.5,116000,115.56,0.81,117.25,108.22,0.73
 20260616,117.5,117.5,113.5,115,115000,115.52,-0.45,117.62,108.38,0.74
+20260617,113.5,116,113.5,115,115000,115.47,-0.41,117.47,108.53,0.81
 ```
 
 ## Latest TDCC Snapshot

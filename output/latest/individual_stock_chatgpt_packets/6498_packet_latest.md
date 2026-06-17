@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 6498 久禾光
 
 ## Metadata
-- generated_at: 2026-06-16 22:23:58 Asia/Taipei
+- generated_at: 2026-06-17 22:24:33 Asia/Taipei
 - stock_id: 6498
 - stock_name: 久禾光
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 7
 - tdcc_history_status: insufficient_tdcc_history
@@ -88,7 +88,6 @@
 
 ### entry_prerequisites
 - price_structure_not_broken
-- near_23ema_or_support
 - revenue_not_deteriorating
 - no_major_tdcc_warning
 - no_major_volume_price_failure
@@ -113,29 +112,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 102
-- high: 109.5
-- low: 101
-- close: 104.5
-- volume: 105000
-- ma5: 100.82
-- ema23_primary: 101.67
-- distance_to_ema23_pct: 2.79
-- ma20: 103.95
-- ma60: 96.06
-- ma120: 92.47
-- return_5d: 0.48
-- return_20d: -7.11
-- volume_ratio: 0.42
-- distance_to_ma20_pct_auxiliary: 0.52
-- distance_to_high_60_pct: -9.52
+- date: 20260617
+- open: 105
+- high: 114.5
+- low: 105
+- close: 110.5
+- volume: 111000
+- ma5: 102.62
+- ema23_primary: 102.4
+- distance_to_ema23_pct: 7.91
+- ma20: 104.23
+- ma60: 96.37
+- ma120: 92.63
+- return_5d: 8.87
+- return_20d: 5.24
+- volume_ratio: 0.61
+- distance_to_ma20_pct_auxiliary: 6.02
+- distance_to_high_60_pct: -4.33
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,111.5,114,103.5,105,1414000,95.83,9.56,94.86,90.85,4.58
 20260518,105,112,104.5,108,613000,96.85,11.51,95.59,91.24,1.82
 20260519,108,115.5,106,106,886000,97.61,8.59,96.12,91.5,2.34
 20260520,107,107,105,105,264000,98.23,6.9,96.66,91.8,0.68
@@ -155,6 +153,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,99.2,100,98.3,98.3,99000,101.4,-3.06,104.41,95.64,0.27
 20260615,99.3,106,99.3,101.5,103000,101.41,0.09,104.36,95.84,0.31
 20260616,102,109.5,101,104.5,105000,101.67,2.79,103.95,96.06,0.42
+20260617,105,114.5,105,110.5,111000,102.4,7.91,104.23,96.37,0.61
 ```
 
 ## Latest TDCC Snapshot

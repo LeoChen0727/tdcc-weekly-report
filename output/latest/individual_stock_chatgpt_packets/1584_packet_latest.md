@@ -1,12 +1,12 @@
 # INDIVIDUAL STOCK CHATGPT PACKET - 1584 精剛
 
 ## Metadata
-- generated_at: 2026-06-16 22:22:38 Asia/Taipei
+- generated_at: 2026-06-17 22:22:58 Asia/Taipei
 - stock_id: 1584
 - stock_name: 精剛
 - packet_status: standard_180d_window_packet
-- latest_price_date: 20260616
-- price_rows: 282
+- latest_price_date: 20260617
+- price_rows: 283
 - latest_tdcc_date: 20260612
 - tdcc_rows: 29
 - tdcc_history_status: tdcc_history_ready
@@ -113,29 +113,28 @@
 - Treat post-entry watch display text as management items, not as buy-before blockers.
 
 ## Latest Price Snapshot
-- date: 20260616
-- open: 19.8
+- date: 20260617
+- open: 19.65
 - high: 19.8
-- low: 19.5
+- low: 19.45
 - close: 19.65
 - volume: 20000
-- ma5: 19.71
-- ema23_primary: 19.95
-- distance_to_ema23_pct: -1.48
+- ma5: 19.64
+- ema23_primary: 19.92
+- distance_to_ema23_pct: -1.36
 - ma20: 19.82
-- ma60: 20.68
-- ma120: 21.98
-- return_5d: -4.15
+- ma60: 20.63
+- ma120: 21.97
+- return_5d: -1.75
 - return_20d: -0.51
-- volume_ratio: 0.12
-- distance_to_ma20_pct_auxiliary: -0.86
+- volume_ratio: 0.16
+- distance_to_ma20_pct_auxiliary: -0.83
 - distance_to_high_60_pct: -15.67
 
 ## Recent Price Preview
 This is a short preview only. For K-line/chart work read price_window_180_txt_* above.
 ```csv
 date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_ratio
-20260515,19.75,19.95,19.45,19.75,775000,20.42,-3.26,20.27,21.8,0.9
 20260518,19.65,19.75,19.2,19.75,376000,20.36,-2.99,20.2,21.74,0.44
 20260519,19.85,19.95,19.35,19.7,736000,20.3,-2.98,20.09,21.67,0.91
 20260520,19.6,19.7,19.45,19.65,596000,20.25,-2.96,19.99,21.61,0.74
@@ -155,6 +154,7 @@ date,open,high,low,close,volume,ema23,distance_to_ema23_pct,ma20,ma60,volume_rat
 20260612,19.55,19.85,19.55,19.65,20000,19.99,-1.71,19.84,20.78,0.08
 20260615,19.8,19.9,19.7,19.75,20000,19.97,-1.11,19.82,20.73,0.1
 20260616,19.8,19.8,19.5,19.65,20000,19.95,-1.48,19.82,20.68,0.12
+20260617,19.65,19.8,19.45,19.65,20000,19.92,-1.36,19.82,20.63,0.16
 ```
 
 ## Latest TDCC Snapshot
