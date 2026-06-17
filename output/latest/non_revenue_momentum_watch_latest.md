@@ -1,7 +1,7 @@
 # Non-Revenue Momentum Watch
 
 ## Metadata
-- generated_at: `2026-06-17 17:39:43 UTC`
+- generated_at: `2026-06-17 19:04:01 UTC`
 - main_price_date: `20260617`
 - section_type: `specialty_section_not_core_category`
 - model_effect_allowed: `False`
@@ -18,8 +18,8 @@
 ## Type Counts
 | non_revenue_momentum_type | count |
 | --- | --- |
-| C_hot_money_watch | 15 |
-| D_overheated_or_failed_risk | 12 |
+| D_overheated_or_failed_risk | 18 |
+| C_hot_money_watch | 17 |
 | A_fund_flow_confirmed_revenue_unconfirmed | 3 |
 
 ## Current Watch List
@@ -28,30 +28,38 @@
 | A_fund_flow_confirmed_revenue_unconfirmed | 6142 | 友勁 | 通信網路業 |  | 69.0 | revenue_negative | mainstream_leader | core_mainstream_theme | core_mainstream_supported |  |  | 2.59 |  |  | 量價或族群資金已確認，但營收/EPS/毛利仍需補確認 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若放量突破後隔日仍守住突破區，才可維持短線高優先觀察。 |
 | A_fund_flow_confirmed_revenue_unconfirmed | 3047 | 訊舟 | 通信網路業 |  | 69.0 | revenue_negative | mainstream_leader | core_mainstream_theme | core_mainstream_supported |  |  | 2.19 |  |  | 量價或族群資金已確認，但營收/EPS/毛利仍需補確認 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若放量突破後隔日仍守住突破區，才可維持短線高優先觀察。 |
 | A_fund_flow_confirmed_revenue_unconfirmed | 2444 | 兆勁 | 通信網路業 |  | 69.0 | revenue_negative | mainstream_leader | core_mainstream_theme | core_mainstream_supported |  |  | 1.61 |  |  | 量價或族群資金已確認，但營收/EPS/毛利仍需補確認 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若放量突破後隔日仍守住突破區，才可維持短線高優先觀察。 |
-| C_hot_money_watch | 2348 | 海悅 | 其他 |  | 69.0 | revenue_negative | mainstream_follow_through | non_mainstream_theme | non_mainstream_flow_active |  |  | 1.91 |  |  | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
+| C_hot_money_watch | 2348 | 海悅 | 其他 |  | 69.0 | revenue_negative | mainstream_follow_through | non_mainstream_theme | non_mainstream_flow_active |  |  | 1.91 |  | no_signal | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
 | C_hot_money_watch | 9907 | 統一實 | 其他 |  | 69.0 | revenue_negative | mainstream_follow_through | non_mainstream_theme | non_mainstream_flow_active |  |  | 1.91 |  |  | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
 | C_hot_money_watch | 2501 | 國建 | 建材營造 |  | 69.0 | revenue_negative | mainstream_follow_through | non_mainstream_theme | non_mainstream_flow_active |  |  | 1.72 |  |  | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
 | C_hot_money_watch | 2527 | 宏璟 | 建材營造 |  | 69.0 | revenue_negative | mainstream_follow_through | non_mainstream_theme | non_mainstream_flow_active |  |  | 1.72 |  |  | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
 | C_hot_money_watch | 1789 | 神隆 | 生技醫療業 |  | 69.0 | revenue_negative | mainstream_follow_through | non_mainstream_theme | non_mainstream_flow_active |  |  | 1.63 |  |  | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
+| C_hot_money_watch | 9904 | 寶成 | 運動休閒 |  | 69.0 | revenue_negative | mainstream_leader | non_mainstream_theme | non_mainstream_flow_active |  |  | 1.16 |  | call_inflow | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
+| C_hot_money_watch | 6472 | 保瑞 | 生技醫療業 |  | 55.0 | revenue_negative | mainstream_follow_through | non_mainstream_theme | non_mainstream_flow_active |  |  | 1.35 |  | call_strong_inflow | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
 | C_hot_money_watch | 2913 | 農林 | 貿易百貨 |  | 54.0 | revenue_negative | mainstream_follow_through | non_mainstream_theme | non_mainstream_flow_active |  |  | 2.2 |  |  | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
-| C_hot_money_watch | 6189 | 豐藝 | 電子通路業 |  | 54.0 | revenue_negative | mainstream_follow_through | non_mainstream_theme | non_mainstream_flow_active |  |  | 1.5 |  |  | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
-| C_hot_money_watch | 2331 | 精英 | 電腦及週邊設備業 |  | 54.0 | revenue_negative | mainstream_follow_through | core_mainstream_theme | core_mainstream_supported |  |  | 0.58 |  |  | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
+| C_hot_money_watch | 6189 | 豐藝 | 電子通路業 |  | 54.0 | revenue_negative | mainstream_follow_through | non_mainstream_theme | non_mainstream_flow_active |  |  | 1.5 |  | no_signal | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
+| C_hot_money_watch | 2331 | 精英 | 電腦及週邊設備業 |  | 54.0 | revenue_negative | mainstream_follow_through | core_mainstream_theme | core_mainstream_supported |  |  | 0.58 |  | no_signal | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
 | C_hot_money_watch | 2352 | 佳世達 | 電腦及週邊設備業 |  | 54.0 | revenue_negative | mainstream_follow_through | core_mainstream_theme | core_mainstream_supported |  |  | 0.28 |  | no_signal | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
 | C_hot_money_watch | 2377 | 微星 | 電腦及週邊設備業 |  | 54.0 | revenue_negative | mainstream_follow_through | core_mainstream_theme | core_mainstream_supported |  |  | 0.23 |  | put_inflow | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
-| C_hot_money_watch | 2498 | 宏達電 | 通信網路業 |  | 46.0 | revenue_negative | mainstream_leader | core_mainstream_theme | core_mainstream_supported |  |  | 0.63 |  | no_signal | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
-| C_hot_money_watch | 4906 | 正文 | 通信網路業 |  | 45.0 | revenue_negative | mainstream_leader | core_mainstream_theme | core_mainstream_supported |  |  | 0.18 |  |  | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
-| C_hot_money_watch | 4938 | 和碩 | 電腦及週邊設備業 |  | 40.0 | revenue_negative | mainstream_follow_through | core_mainstream_theme | core_mainstream_supported |  |  | 0.67 |  |  | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
-| C_hot_money_watch | 3380 | 明泰 | 通信網路業 |  | 35.0 | revenue_negative | mainstream_leader | core_mainstream_theme | core_mainstream_supported |  |  | 0.44 |  |  | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
-| C_hot_money_watch | 2419 | 仲琦 | 通信網路業 |  | 35.0 | revenue_negative | mainstream_leader | core_mainstream_theme | core_mainstream_supported |  |  | 0.39 |  |  | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
+| C_hot_money_watch | 2498 | 宏達電 | 通信網路業 |  | 46.0 | revenue_negative | mainstream_leader | core_mainstream_theme | core_mainstream_supported |  |  | 0.63 |  | call_inflow | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
+| C_hot_money_watch | 4906 | 正文 | 通信網路業 |  | 45.0 | revenue_negative | mainstream_leader | core_mainstream_theme | core_mainstream_supported |  |  | 0.18 |  | no_signal | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
+| C_hot_money_watch | 4938 | 和碩 | 電腦及週邊設備業 |  | 40.0 | revenue_negative | mainstream_follow_through | core_mainstream_theme | core_mainstream_supported |  |  | 0.67 |  | no_signal | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
+| C_hot_money_watch | 3380 | 明泰 | 通信網路業 |  | 35.0 | revenue_negative | mainstream_leader | core_mainstream_theme | core_mainstream_supported |  |  | 0.44 |  | no_signal | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
+| C_hot_money_watch | 2419 | 仲琦 | 通信網路業 |  | 35.0 | revenue_negative | mainstream_leader | core_mainstream_theme | core_mainstream_supported |  |  | 0.39 |  | no_signal | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
 | D_overheated_or_failed_risk | 6742 | 澤米 | 光電業 |  | 114.0 | revenue_negative | mainstream_overheated | core_mainstream_theme | core_mainstream_overheated | failed_volume_theme | bottom_volume_attack | 2.3 |  |  | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
 | D_overheated_or_failed_risk | 4976 | 佳凌 | 光電業 |  | 109.0 | revenue_negative | mainstream_overheated | core_mainstream_theme | core_mainstream_overheated | failed_volume_theme | bottom_volume_attack | 8.71 |  |  | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
 | D_overheated_or_failed_risk | 2342 | 茂矽 | 半導體業 |  | 94.0 | revenue_negative | mainstream_overheated | core_mainstream_theme | core_mainstream_overheated | overheated_volume_theme | bottom_volume_attack | 4.43 |  |  | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
-| D_overheated_or_failed_risk | 1905 | 華紙 | 造紙工業 |  | 69.0 | revenue_negative | mainstream_overheated | non_mainstream_theme | non_mainstream_overheated | overheated_volume_theme | bottom_volume_attack | 4.22 |  |  | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
+| D_overheated_or_failed_risk | 1905 | 華紙 | 造紙工業 |  | 69.0 | revenue_negative | mainstream_overheated | non_mainstream_theme | non_mainstream_overheated | overheated_volume_theme | bottom_volume_attack | 4.22 |  | call_inflow | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
 | D_overheated_or_failed_risk | 3092 | 鴻碩 | 電子零組件業 |  | 69.0 | revenue_negative | mainstream_overheated | core_mainstream_theme | core_mainstream_overheated |  |  | 3.3 |  |  | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
 | D_overheated_or_failed_risk | 2431 | 聯昌 | 電子零組件業 |  | 69.0 | revenue_negative | mainstream_overheated | core_mainstream_theme | core_mainstream_overheated |  |  | 2.21 |  |  | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
 | D_overheated_or_failed_risk | 1515 | 力山 | 電機機械 |  | 69.0 | revenue_negative | mainstream_overheated | non_mainstream_theme | non_mainstream_overheated |  |  | 2.2 |  |  | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
-| D_overheated_or_failed_risk | 6269 | 台郡 | 電子零組件業 |  | 69.0 | revenue_negative | mainstream_overheated | core_mainstream_theme | core_mainstream_overheated |  |  | 2.2 |  |  | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
+| D_overheated_or_failed_risk | 6269 | 台郡 | 電子零組件業 |  | 69.0 | revenue_negative | mainstream_overheated | core_mainstream_theme | core_mainstream_overheated |  |  | 2.2 |  | call_inflow | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
 | D_overheated_or_failed_risk | 6153 | 嘉聯益 | 電子零組件業 |  | 69.0 | revenue_negative | mainstream_overheated | core_mainstream_theme | core_mainstream_overheated |  |  | 2.03 |  |  | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
-| D_overheated_or_failed_risk | 6715 | 嘉基 | 電子零組件業 |  | 69.0 | revenue_negative | mainstream_overheated | core_mainstream_theme | core_mainstream_overheated |  |  | 1.83 |  |  | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
+| D_overheated_or_failed_risk | 6715 | 嘉基 | 電子零組件業 |  | 69.0 | revenue_negative | mainstream_overheated | core_mainstream_theme | core_mainstream_overheated |  |  | 1.83 |  | no_signal | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
 | D_overheated_or_failed_risk | 6164 | 華興 | 光電業 |  | 69.0 | revenue_negative | mainstream_overheated | core_mainstream_theme | core_mainstream_overheated |  |  | 1.53 |  |  | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
+| D_overheated_or_failed_risk | 4722 | 國精化 | 化學工業 |  | 69.0 | revenue_negative | mainstream_overheated | non_mainstream_theme | non_mainstream_overheated |  |  | 1.43 |  | call_inflow | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
+| D_overheated_or_failed_risk | 8081 | 致新 | 半導體業 |  | 69.0 | revenue_negative | mainstream_overheated | core_mainstream_theme | core_mainstream_overheated |  |  | 1.18 |  | call_inflow | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
 | D_overheated_or_failed_risk | 1471 | 首利 | 電子零組件業 |  | 54.0 | revenue_negative | mainstream_overheated | core_mainstream_theme | core_mainstream_overheated |  |  | 2.1 |  |  | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
+| D_overheated_or_failed_risk | 3673 | TPK-KY | 光電業 |  | 54.0 | revenue_negative | mainstream_overheated | core_mainstream_theme | core_mainstream_overheated |  |  | 0.89 |  | call_strong_inflow | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
+| D_overheated_or_failed_risk | 6456 | GIS-KY | 光電業 |  | 53.0 | revenue_negative | mainstream_overheated | core_mainstream_theme | core_mainstream_overheated |  |  | 0.47 |  | call_strong_inflow | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
+| D_overheated_or_failed_risk | 1319 | 東陽 | 汽車工業 |  | 46.0 | revenue_negative | mainstream_overheated | non_mainstream_theme | non_mainstream_overheated |  |  | 0.52 |  | call_strong_inflow | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
+| D_overheated_or_failed_risk | 5269 | 祥碩 | 半導體業 |  | 45.0 | revenue_negative | mainstream_overheated | core_mainstream_theme | core_mainstream_overheated |  |  | 0.66 |  | call_strong_inflow | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
