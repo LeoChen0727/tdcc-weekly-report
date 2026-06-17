@@ -1,6 +1,6 @@
 # Upcoming Macro Event Calendar
 
-- generated_at: `2026-06-18 03:02:28 Asia/Taipei`
+- generated_at: `2026-06-18 04:38:07 Asia/Taipei`
 - rows: `18`
 - note: Macro events are market-risk reminders for the market dashboard. They are not individual stock catalysts by themselves.
 

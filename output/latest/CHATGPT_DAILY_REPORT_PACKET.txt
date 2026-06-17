@@ -1,6 +1,6 @@
 CHATGPT DAILY REPORT PACKET
 
-generated_at: 2026-06-18 03:07:17 Asia/Taipei
+generated_at: 2026-06-18 04:42:55 Asia/Taipei
 repo: LeoChen0727/tdcc-weekly-report
 main_price_date: 20260617
 report_ready: True
@@ -70,7 +70,7 @@ EMBEDDED DAILY SHORT-TERM SPECIALTY PACKET
 # DAILY SHORT-TERM SPECIALTY PACKET
 
 ## Metadata
-- generated_at: `2026-06-17 19:06:23 UTC`
+- generated_at: `2026-06-17 20:41:57 UTC`
 - main_price_date: `20260617`
 - purpose: Force daily reports to include short-term research-stat support sections without removing active D+5/D+10 core model rows.
 - market_abnormal_status_path: `output/latest/market_abnormal_status_latest.csv`
@@ -457,7 +457,7 @@ performance_csv_path: output/history/daily_signals/daily_candidate_signal_perfor
 summary_latest_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_signal_performance_summary_latest.md
 weekly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_weekly_latest.pdf
 monthly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_monthly_latest.pdf
-last_updated_at: 2026-06-18 03:07:17 Asia/Taipei
+last_updated_at: 2026-06-18 04:42:55 Asia/Taipei
 status: generated
 
 CANDIDATE REPEAT APPEARANCE
@@ -514,75 +514,51 @@ pdf_integration_status: pdf_integrated_daily_adapter
 packet_integration_status: packet_integrated_daily_adapter
 operation_directive_level: approved_daily_operation_guidance
 highlight_confirmed_operation:
-- rank=1 | stock=4551 智伸科 | trigger=隔日續強確認 | entry=確認日收盤後列入，下一個交易日開盤價進場。 | entry_price_status=下一個交易日開盤價尚未產生。 | stop=跌破 6/16 最低價 182 | exit=先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。 | sample_size=10 | win_rate=70.00% | avg_return=22.68% | median_return=21.09% | confidence=low
-- rank=1 | stock=4976 佳凌 | trigger=隔日續強確認 | entry=確認日收盤後列入，下一個交易日開盤價進場。 | entry_price_status=下一個交易日開盤價尚未產生。 | stop=跌破 6/16 最低價 34.5 | exit=先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。 | sample_size=10 | win_rate=70.00% | avg_return=22.68% | median_return=21.09% | confidence=low
-- rank=2 | stock=1905 華紙 | trigger=隔日續強確認 | entry=確認日收盤後列入，下一個交易日開盤價進場。 | entry_price_status=下一個交易日開盤價尚未產生。 | stop=跌破 6/16 最低價 12.75 | exit=先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。 | sample_size=10 | win_rate=70.00% | avg_return=22.68% | median_return=21.09% | confidence=low
-- rank=2 | stock=6209 今國光 | trigger=隔日續強確認 | entry=確認日收盤後列入，下一個交易日開盤價進場。 | entry_price_status=下一個交易日開盤價尚未產生。 | stop=跌破 6/16 最低價 86.4 | exit=先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。 | sample_size=10 | win_rate=70.00% | avg_return=22.68% | median_return=21.09% | confidence=low
-- rank=3 | stock=2851 中再保 | trigger=隔日續強確認 | entry=確認日收盤後列入，下一個交易日開盤價進場。 | entry_price_status=下一個交易日開盤價尚未產生。 | stop=跌破 6/16 最低價 38.5 | exit=先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。 | sample_size=10 | win_rate=70.00% | avg_return=22.68% | median_return=21.09% | confidence=low
-- rank=3 | stock=6668 中揚光 | trigger=隔日續強確認 | entry=確認日收盤後列入，下一個交易日開盤價進場。 | entry_price_status=下一個交易日開盤價尚未產生。 | stop=跌破 6/16 最低價 39.5 | exit=先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。 | sample_size=10 | win_rate=70.00% | avg_return=22.68% | median_return=21.09% | confidence=low
-- rank=4 | stock=6904 伯鑫 | trigger=隔日續強確認 | entry=確認日收盤後列入，下一個交易日開盤價進場。 | entry_price_status=下一個交易日開盤價尚未產生。 | stop=跌破 6/15 最低價 120 | exit=先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。 | sample_size=10 | win_rate=70.00% | avg_return=22.68% | median_return=21.09% | confidence=low
-- rank=5 | stock=7610 聯友金屬-創 | trigger=隔日續強確認 | entry=確認日收盤後列入，下一個交易日開盤價進場。 | entry_price_status=下一個交易日開盤價尚未產生。 | stop=跌破 6/16 最低價 1915 | exit=先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。 | sample_size=10 | win_rate=70.00% | avg_return=22.68% | median_return=21.09% | confidence=low
-- rank=6 | stock=5227 立凱-KY | trigger=隔日續強確認 | entry=確認日收盤後列入，下一個交易日開盤價進場。 | entry_price_status=下一個交易日開盤價尚未產生。 | stop=跌破 6/16 最低價 37.3 | exit=先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。 | sample_size=10 | win_rate=70.00% | avg_return=22.68% | median_return=21.09% | confidence=low
-- rank=14 | stock=7828 創新服務 | trigger=回測5MA確認 | entry=確認日收盤後列入，下一個交易日開盤價進場。 | entry_price_status=下一個交易日開盤價尚未產生。 | stop=跌破 6/15 最低價 1885 | exit=先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。 | sample_size=16 | win_rate=56.25% | avg_return=11.16% | median_return=5.49% | confidence=low
+- none
 highlight_pending_confirmation:
+- stock=1905 華紙 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=4976 佳凌 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
 - stock=6645 金萬林-創 | pending_age=D+2 待確認 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
 - stock=2484 希華 | pending_age=D+2 待確認 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
-- stock=5471 松翰 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
-- stock=9928 中視 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
 - stock=2618 長榮航 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=5471 松翰 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=6668 中揚光 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=9928 中視 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
 - stock=2302 麗正 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
 - stock=2910 統領 | pending_age=D+1 待確認 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
 - stock=2332 友訊 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
 - stock=3019 亞光 | pending_age=D+1 待確認 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
 - stock=2342 茂矽 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
 - stock=6742 澤米 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=3008 大立光 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
 - stock=3041 揚智 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
 - stock=3060 銘異 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
 - stock=3094 聯傑 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
-- stock=3008 大立光 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
 highlight_active_operation:
-- status=操作中 | stock=2537 聯上發 | note=由已發布模型快照與價格資料重建 D0-D10 操作狀態。
-- status=操作中 | stock=1714 和桐 | note=由已發布模型快照與價格資料重建 D0-D10 操作狀態。
-- status=操作中 | stock=2305 全友 | note=由已發布模型快照與價格資料重建 D0-D10 操作狀態。
-- status=操作中 | stock=7631 聚賢研發-創 | note=由已發布模型快照與價格資料重建 D0-D10 操作狀態。
-- status=操作中 | stock=6613 朋億* | note=由已發布模型快照與價格資料重建 D0-D10 操作狀態。
-- status=操作中 | stock=2493 揚博 | note=由已發布模型快照與價格資料重建 D0-D10 操作狀態。
-- status=操作中 | stock=5468 凱鈺 | note=由已發布模型快照與價格資料重建 D0-D10 操作狀態。
+- status=操作中 | stock=目前無資料 | note=目前沒有操作中追蹤列。
 full_confirmed_operation:
-- rank=1 | stock=4551 智伸科 | trigger=隔日續強確認 | entry=確認日收盤後列入，下一個交易日開盤價進場。 | entry_price_status=下一個交易日開盤價尚未產生。 | stop=跌破 6/16 最低價 182 | exit=先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。 | sample_size=10 | win_rate=70.00% | avg_return=22.68% | median_return=21.09% | confidence=low
-- rank=1 | stock=4976 佳凌 | trigger=隔日續強確認 | entry=確認日收盤後列入，下一個交易日開盤價進場。 | entry_price_status=下一個交易日開盤價尚未產生。 | stop=跌破 6/16 最低價 34.5 | exit=先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。 | sample_size=10 | win_rate=70.00% | avg_return=22.68% | median_return=21.09% | confidence=low
-- rank=2 | stock=1905 華紙 | trigger=隔日續強確認 | entry=確認日收盤後列入，下一個交易日開盤價進場。 | entry_price_status=下一個交易日開盤價尚未產生。 | stop=跌破 6/16 最低價 12.75 | exit=先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。 | sample_size=10 | win_rate=70.00% | avg_return=22.68% | median_return=21.09% | confidence=low
-- rank=2 | stock=6209 今國光 | trigger=隔日續強確認 | entry=確認日收盤後列入，下一個交易日開盤價進場。 | entry_price_status=下一個交易日開盤價尚未產生。 | stop=跌破 6/16 最低價 86.4 | exit=先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。 | sample_size=10 | win_rate=70.00% | avg_return=22.68% | median_return=21.09% | confidence=low
-- rank=3 | stock=2851 中再保 | trigger=隔日續強確認 | entry=確認日收盤後列入，下一個交易日開盤價進場。 | entry_price_status=下一個交易日開盤價尚未產生。 | stop=跌破 6/16 最低價 38.5 | exit=先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。 | sample_size=10 | win_rate=70.00% | avg_return=22.68% | median_return=21.09% | confidence=low
-- rank=3 | stock=6668 中揚光 | trigger=隔日續強確認 | entry=確認日收盤後列入，下一個交易日開盤價進場。 | entry_price_status=下一個交易日開盤價尚未產生。 | stop=跌破 6/16 最低價 39.5 | exit=先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。 | sample_size=10 | win_rate=70.00% | avg_return=22.68% | median_return=21.09% | confidence=low
-- rank=4 | stock=6904 伯鑫 | trigger=隔日續強確認 | entry=確認日收盤後列入，下一個交易日開盤價進場。 | entry_price_status=下一個交易日開盤價尚未產生。 | stop=跌破 6/15 最低價 120 | exit=先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。 | sample_size=10 | win_rate=70.00% | avg_return=22.68% | median_return=21.09% | confidence=low
-- rank=5 | stock=7610 聯友金屬-創 | trigger=隔日續強確認 | entry=確認日收盤後列入，下一個交易日開盤價進場。 | entry_price_status=下一個交易日開盤價尚未產生。 | stop=跌破 6/16 最低價 1915 | exit=先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。 | sample_size=10 | win_rate=70.00% | avg_return=22.68% | median_return=21.09% | confidence=low
-- rank=6 | stock=5227 立凱-KY | trigger=隔日續強確認 | entry=確認日收盤後列入，下一個交易日開盤價進場。 | entry_price_status=下一個交易日開盤價尚未產生。 | stop=跌破 6/16 最低價 37.3 | exit=先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。 | sample_size=10 | win_rate=70.00% | avg_return=22.68% | median_return=21.09% | confidence=low
-- rank=14 | stock=7828 創新服務 | trigger=回測5MA確認 | entry=確認日收盤後列入，下一個交易日開盤價進場。 | entry_price_status=下一個交易日開盤價尚未產生。 | stop=跌破 6/15 最低價 1885 | exit=先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。 | sample_size=16 | win_rate=56.25% | avg_return=11.16% | median_return=5.49% | confidence=low
+- none
 full_pending_confirmation:
+- stock=1905 華紙 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=4976 佳凌 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
 - stock=6645 金萬林-創 | pending_age=D+2 待確認 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
 - stock=2484 希華 | pending_age=D+2 待確認 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
-- stock=5471 松翰 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
-- stock=9928 中視 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
 - stock=2618 長榮航 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=5471 松翰 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=6668 中揚光 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=9928 中視 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
 - stock=2302 麗正 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
 - stock=2910 統領 | pending_age=D+1 待確認 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
 - stock=2332 友訊 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
 - stock=3019 亞光 | pending_age=D+1 待確認 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
 - stock=2342 茂矽 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
 - stock=6742 澤米 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=3008 大立光 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
 - stock=3041 揚智 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
 - stock=3060 銘異 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
 - stock=3094 聯傑 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
-- stock=3008 大立光 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
 full_active_operation:
-- status=操作中 | stock=2537 聯上發 | note=由已發布模型快照與價格資料重建 D0-D10 操作狀態。
-- status=操作中 | stock=1714 和桐 | note=由已發布模型快照與價格資料重建 D0-D10 操作狀態。
-- status=操作中 | stock=2305 全友 | note=由已發布模型快照與價格資料重建 D0-D10 操作狀態。
-- status=操作中 | stock=7631 聚賢研發-創 | note=由已發布模型快照與價格資料重建 D0-D10 操作狀態。
-- status=操作中 | stock=6613 朋億* | note=由已發布模型快照與價格資料重建 D0-D10 操作狀態。
-- status=操作中 | stock=2493 揚博 | note=由已發布模型快照與價格資料重建 D0-D10 操作狀態。
-- status=操作中 | stock=5468 凱鈺 | note=由已發布模型快照與價格資料重建 D0-D10 操作狀態。
+- status=操作中 | stock=目前無資料 | note=目前沒有操作中追蹤列。
 
 NON-REVENUE MOMENTUM WATCH
 non_revenue_momentum_watch_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/non_revenue_momentum_watch_latest.md
@@ -647,7 +623,7 @@ EMBEDDED SUMMARY REPORT
 # 每日全市場候選股監測報告 - 精華版
 
 - 主資料日期：`20260617`
-- 產生時間：`2026-06-18 03:06:47 Asia/Taipei`
+- 產生時間：`2026-06-18 04:42:25 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
 - 判斷說明：core daily data dates match main_price_date
 - 權證資料日期：`20260617`
@@ -1072,7 +1048,7 @@ EMBEDDED FULL REPORT
 # 完整候選股清單 - 完整版
 
 - 主資料日期：`20260617`
-- 產生時間：`2026-06-18 03:06:48 Asia/Taipei`
+- 產生時間：`2026-06-18 04:42:25 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
 - 權證資料日期：`20260617`
 
