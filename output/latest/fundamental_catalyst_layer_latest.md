@@ -1,6 +1,6 @@
 # 財報 / 事件催化層
 
-- generated_at: `2026-06-17 16:44:29 Asia/Taipei`
+- generated_at: `2026-06-17 18:05:40 Asia/Taipei`
 - candidate_rows: `476`
 - financial_source: `data/fundamental_catalysts/quarterly_catalyst.csv`
 - event_source: `data/event_catalysts/event_catalyst_log.csv`
@@ -61,7 +61,7 @@
 | 20260617 | 2395 | 研華 | 營收成長股價回檔 | 1 | 28 | revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar... | 28 | revenue_good_eps_unconfirmed;low_reaction_after_catalyst |  | monthly_revenue_calendar;calendar_monthly_revenue_expected_window | 20260701 | monthly_revenue_expected_window | 14 |  | mild_accumulation | True | False | needs_eps_confirmation | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proxi... |
 | 20260617 | 6415 | 矽力*-KY | 營收成長股價回檔 | 1 | 28 | revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar... | 28 | revenue_good_eps_unconfirmed;low_reaction_after_catalyst |  | monthly_revenue_calendar;calendar_monthly_revenue_expected_window | 20260701 | monthly_revenue_expected_window | 14 |  | mild_accumulation | True | False | needs_eps_confirmation | calendar event: monthly_revenue_expected_window on 20260701; status=expected_window; proxi... |
 | 20260617 | 6196 | 帆宣 | 營收成長股價回檔 | 2 | 28 | revenue_good_eps_unconfirmed;low_reaction_after_catalyst;material_information;其他電子業;divide... | 28 | revenue_good_eps_unconfirmed;low_reaction_after_catalyst | material_information;其他電子業 | dividend_calendar;calendar_ex_dividend | 20260624 | ex_dividend | 7 |  | mild_accumulation | True | False | needs_eps_confirmation | 1.董事會決議日期:115/06/16 2.發放股利種類及金額:現金股利美金11,420,000元 3.其他應敘明事項:無；calendar event: ex_dividend ... |
-| 20260617 | 6285 | 啟碁 | 營收成長股價回檔 | 2 | 28 | revenue_good_eps_unconfirmed;low_reaction_after_catalyst;shareholder_meeting;通信網路業;dividen... | 28 | revenue_good_eps_unconfirmed;low_reaction_after_catalyst | shareholder_meeting;通信網路業 | dividend_calendar;calendar_ex_dividend | 20260701 | ex_dividend | 14 |  | strong_accumulation | True | False | needs_eps_confirmation | 1.董事會、股東會決議或公司決定日期:115/06/15 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: (1)原發放股利種類及金額... |
+| 20260617 | 6285 | 啟碁 | 營收成長股價回檔 | 2 | 28 | revenue_good_eps_unconfirmed;low_reaction_after_catalyst;shareholder_meeting;networking_th... | 28 | revenue_good_eps_unconfirmed;low_reaction_after_catalyst | shareholder_meeting;networking_theme;network equipment;communications | dividend_calendar;calendar_ex_dividend | 20260701 | ex_dividend | 14 |  | strong_accumulation | True | False | needs_eps_confirmation | 1.董事會、股東會決議或公司決定日期:115/06/15 2.除權、息類別（請填入「除權」、「除息」或「除權息」）:除息 3.普通股發放股利種類及金額: (1)原發放股利種類及金額... |
 
 ## 利多已反應 / 過熱需降級
 
