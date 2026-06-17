@@ -45,18 +45,34 @@ def volume_signal(stock_id: str = "1234", signal_date: str = "20260616", rank: s
     }
 
 
-def formal_summary(trigger_id: str = "next_day_continuation_confirmed") -> pd.DataFrame:
+def formal_summary(
+    trigger_id: str = "next_day_continuation_confirmed",
+    tdcc_list_type: str = "no_tdcc",
+    rank_bucket: str = "all",
+    confluence_scope: str = "operation_trigger",
+    confluence_id: str = "all_confirmed_volume_breakout",
+    sample_size: str = "30",
+    win_rate: str = "60",
+    avg_return: str = "3.5",
+    median_return: str = "2.5",
+    score: str = "18",
+    oos: str = "True",
+) -> pd.DataFrame:
     return pd.DataFrame(
         [
             {
                 "model_id": "volume_range_breakout",
+                "tdcc_list_type": tdcc_list_type,
+                "rank_bucket": rank_bucket,
                 "trigger_id": trigger_id,
-                "sample_size": "30",
-                "win_rate": "60",
-                "avg_return": "3.5",
-                "median_return": "2.5",
-                "ranking_research_score": "18",
-                "out_of_sample_pass": "True",
+                "confluence_scope": confluence_scope,
+                "confluence_id": confluence_id,
+                "sample_size": sample_size,
+                "win_rate": win_rate,
+                "avg_return": avg_return,
+                "median_return": median_return,
+                "ranking_research_score": score,
+                "out_of_sample_pass": oos,
                 "confidence_status": "中",
             }
         ]
@@ -75,7 +91,7 @@ def patch_lifecycle_sources(monkeypatch, tmp_path: Path, stock_id: str, price_ro
 
 
 def build_rows_for_test(signals: pd.DataFrame, report_date: str, summary: pd.DataFrame) -> pd.DataFrame:
-    rows = builder.build_lifecycle_rows(
+    rows, _audit = builder.build_lifecycle_rows(
         signals,
         report_date,
         int(signals["stock_id"].nunique()) if not signals.empty else 0,
@@ -224,6 +240,87 @@ def test_lifecycle_does_not_promote_confirmed_signal_without_positive_evidence(m
     out = build_rows_for_test(pd.DataFrame(), "20260617", weak_summary)
 
     assert out.empty
+
+
+def test_lifecycle_does_not_apply_tdcc_top10_evidence_to_no_tdcc_stock(monkeypatch, tmp_path) -> None:
+    snapshot_dir = patch_lifecycle_sources(
+        monkeypatch,
+        tmp_path,
+        "1234",
+        [
+            {"date": "20260616", "open": "10", "high": "11", "low": "9", "close": "10", "volume": "1000"},
+            {"date": "20260617", "open": "10.6", "high": "12", "low": "10.3", "close": "11.5", "volume": "1200"},
+        ],
+    )
+    pd.DataFrame([volume_signal("1234", "20260616")]).to_csv(
+        snapshot_dir / "daily_candidate_model_signals_for_report_20260616.csv",
+        index=False,
+    )
+    tdcc_top10_only = formal_summary(
+        tdcc_list_type="weekly_increase",
+        rank_bucket="top_10",
+        sample_size="10",
+        win_rate="70",
+        avg_return="22.68",
+        median_return="21.09",
+        score="32.78",
+        oos="True",
+    )
+
+    out = build_rows_for_test(pd.DataFrame(), "20260617", tdcc_top10_only)
+
+    assert out.empty
+
+
+def test_lifecycle_uses_exact_no_tdcc_row_level_evidence(monkeypatch, tmp_path) -> None:
+    snapshot_dir = patch_lifecycle_sources(
+        monkeypatch,
+        tmp_path,
+        "1234",
+        [
+            {"date": "20260616", "open": "10", "high": "11", "low": "9", "close": "10", "volume": "1000"},
+            {"date": "20260617", "open": "10.6", "high": "12", "low": "10.3", "close": "11.5", "volume": "1200"},
+        ],
+    )
+    pd.DataFrame([volume_signal("1234", "20260616")]).to_csv(
+        snapshot_dir / "daily_candidate_model_signals_for_report_20260616.csv",
+        index=False,
+    )
+    summary = pd.concat(
+        [
+            formal_summary(
+                tdcc_list_type="weekly_increase",
+                rank_bucket="top_10",
+                sample_size="10",
+                win_rate="70",
+                avg_return="22.68",
+                median_return="21.09",
+                score="32.78",
+                oos="True",
+            ),
+            formal_summary(
+                tdcc_list_type="no_tdcc",
+                rank_bucket="all",
+                sample_size="22",
+                win_rate="55",
+                avg_return="4.2",
+                median_return="1.8",
+                score="9.5",
+                oos="True",
+            ),
+        ],
+        ignore_index=True,
+    )
+
+    out = build_rows_for_test(pd.DataFrame(), "20260617", summary)
+
+    confirmed = out[out["pdf_section"].eq("confirmed_operation") & out["row_type"].eq("data")]
+    assert confirmed["stock_id"].tolist() == ["1234", "1234"]
+    assert set(confirmed["sample_size"]) == {"22"}
+    assert set(confirmed["win_rate_zh"]) == {"55.00%"}
+    assert set(confirmed["median_return_zh"]) == {"1.80%"}
+    assert set(confirmed["evidence_tdcc_list_type"]) == {"no_tdcc"}
+    assert set(confirmed["evidence_rank_bucket"]) == {"all"}
 
 
 def test_daily_signal_context_uses_report_date_as_authority() -> None:
