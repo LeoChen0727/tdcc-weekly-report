@@ -439,6 +439,21 @@ def validate_rows(lifecycle: dict[str, LifecycleRow], production: dict[str, Prod
     return errors
 
 
+def validate_no_pending_deletions(lifecycle: dict[str, LifecycleRow]) -> list[str]:
+    errors: list[str] = []
+    pending = sorted(
+        row.path
+        for row in lifecycle.values()
+        if row.status in {"deprecated", "delete_candidate"}
+    )
+    if pending:
+        errors.append(
+            "main lifecycle inventory must not retain deprecated/delete_candidate files; "
+            f"remove them or reclassify with evidence: {pending}"
+        )
+    return errors
+
+
 def validate_reference_columns(lifecycle: dict[str, LifecycleRow]) -> list[str]:
     errors: list[str] = []
     paths = set(lifecycle)
@@ -496,6 +511,7 @@ def validate() -> list[str]:
         return errors
     errors.extend(validate_coverage(lifecycle, production))
     errors.extend(validate_rows(lifecycle, production))
+    errors.extend(validate_no_pending_deletions(lifecycle))
     errors.extend(validate_reference_columns(lifecycle))
     errors.extend(validate_guidance_text(lifecycle))
     return errors
