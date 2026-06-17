@@ -48,6 +48,16 @@ FORBIDDEN_DECISION_LAYER_TEXT = [
     "建議買進",
 ]
 
+FORBIDDEN_VOLUME_EXPLANATORY_TEXT = [
+    "不含今日的前20日最高價",
+    "一般放量突破需收盤價",
+    "鎖量漲停突破不要求量比",
+    "放量攻擊模型操作參考",
+    "以下僅呈現dailyadapter已核准欄位",
+    "PDF不重新計算進場",
+    "待確認列只作觀察",
+]
+
 
 def extract_text(path: Path) -> str:
     reader = PdfReader(str(path))
@@ -84,6 +94,9 @@ def validate_output_dir(output_dir: Path) -> list[str]:
         for token in FORBIDDEN_DECISION_LAYER_TEXT:
             if token in compact:
                 errors.append(f"{pdf.name}: decision-layer buy text leaked into PDF text: {token}")
+        for token in FORBIDDEN_VOLUME_EXPLANATORY_TEXT:
+            if token in compact:
+                errors.append(f"{pdf.name}: obsolete volume breakout explanatory text leaked into PDF text: {token}")
 
     for title_part in CANDIDATE_PDF_TITLE_PARTS:
         pdf = find_pdf(output_dir, title_part)

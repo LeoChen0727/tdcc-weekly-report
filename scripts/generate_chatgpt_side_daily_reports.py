@@ -1317,11 +1317,13 @@ def plot_stock_chart(
     candidate_row: pd.Series | None = None,
 ) -> Path | None:
     remote_template = REMOTE_README.get("individual_stock_price_raw_url_template")
-    source: Path | str
-    source = remote_template.replace("{stock_id}", stock_id) if remote_template else (
-        LATEST / "individual_stock_price_windows" / f"{stock_id}_price_window_180_latest.csv"
-    )
-    df = read_csv(source)
+    local_source = LATEST / "individual_stock_price_windows" / f"{stock_id}_price_window_180_latest.csv"
+    df = read_csv(local_source)
+    if df.empty and remote_template:
+        try:
+            df = read_csv(remote_template.replace("{stock_id}", stock_id))
+        except Exception:
+            df = pd.DataFrame()
     if df.empty or "date" not in df.columns or "close" not in df.columns:
         return None
     df = df.copy()
@@ -2044,14 +2046,6 @@ def render_volume_range_breakout_operation_section(
     ].copy() if not pending_all.empty else pd.DataFrame()
 
     story.append(Spacer(1, 6))
-    story.append(Paragraph("放量攻擊模型操作參考", H2))
-    story.append(
-        para(
-            "以下僅呈現 daily adapter 已核准欄位；PDF 不重新計算進場、停損、出場或排名。"
-            "待確認列只作觀察，不列進場價，也不放入已確認操作表。",
-            BODY_SMALL,
-        )
-    )
     if not volume_operation_has_data_rows(confirmed_all, pending_all, active_rows):
         story.append(
             para(
@@ -3206,7 +3200,7 @@ def build_mainstream_curated_pdf(
         story.append(Paragraph(model_name, H1))
         started_model_sections = True
         desc = clean(spec.get("model_description_zh"))
-        if desc:
+        if desc and model_id != VOLUME_BREAKOUT_MODEL_ID:
             story.append(para(desc, BODY_SMALL))
         if model_id == VOLUME_BREAKOUT_MODEL_ID:
             render_volume_range_breakout_operation_section(story, inputs, "highlight", line)
@@ -3257,7 +3251,7 @@ def build_non_mainstream_curated_pdf(
         story.append(Paragraph(model_name, H1))
         started_model_sections = True
         desc = clean(spec.get("model_description_zh"))
-        if desc:
+        if desc and model_id != VOLUME_BREAKOUT_MODEL_ID:
             story.append(para(desc, BODY_SMALL))
         if model_id == VOLUME_BREAKOUT_MODEL_ID:
             render_volume_range_breakout_operation_section(story, inputs, "highlight", line)
