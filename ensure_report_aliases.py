@@ -10,6 +10,7 @@ from zoneinfo import ZoneInfo
 
 
 LATEST_DIR = Path("output/latest")
+DOCS_LATEST_DIR = Path("docs/latest")
 HISTORY_REPORT_DIR = Path("output/history/reports")
 
 CHINESE_SUMMARY_MD = LATEST_DIR / "每日全市場候選股監測報告_精華版.md"
@@ -111,7 +112,23 @@ def detect_main_date() -> str:
         if matches:
             return max(matches)
 
-    return datetime.now(ZoneInfo("Asia/Taipei")).strftime("%Y%m%d")
+    return ""
+
+
+DATE_STAMPED_README_RE = re.compile(r"READ_ME_FIRST_DAILY_REPORT_\d{8}\.txt$")
+
+
+def remove_stale_date_stamped_readmes(directory: Path, keep_date: str) -> None:
+    if not directory.exists():
+        return
+
+    keep_name = f"READ_ME_FIRST_DAILY_REPORT_{keep_date}.txt"
+    for path in directory.glob("READ_ME_FIRST_DAILY_REPORT_*.txt"):
+        if path.name == keep_name:
+            continue
+        if DATE_STAMPED_README_RE.fullmatch(path.name):
+            path.unlink()
+            print(f"[OK] removed stale date-stamped daily README: {path}")
 
 
 def copy_if_exists(src: Path, dst: Path) -> bool:
@@ -197,10 +214,18 @@ def append_alias_to_manifest(main_date: str) -> None:
 
 def main() -> int:
     LATEST_DIR.mkdir(parents=True, exist_ok=True)
+    DOCS_LATEST_DIR.mkdir(parents=True, exist_ok=True)
     HISTORY_REPORT_DIR.mkdir(parents=True, exist_ok=True)
 
     main_date = detect_main_date()
+    if not main_date:
+        raise RuntimeError(
+            "main_date is required from freshness, manifest, or candidate artifacts; "
+            "wall-clock date fallback is forbidden"
+        )
     print(f"[INFO] main_date={main_date}")
+    remove_stale_date_stamped_readmes(LATEST_DIR, main_date)
+    remove_stale_date_stamped_readmes(DOCS_LATEST_DIR, main_date)
 
     ok = True
 
