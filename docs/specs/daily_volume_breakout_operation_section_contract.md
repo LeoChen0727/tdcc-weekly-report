@@ -12,6 +12,7 @@ The PDF renderer must not read these research artifacts directly:
 - `output/latest/volume_breakout_operation_pdf_preview_latest.csv`
 - `output/latest/volume_breakout_confirmed_operation_rank_latest.csv`
 - `output/latest/volume_breakout_pending_operation_queue_latest.csv`
+- `output/latest/volume_breakout_formal_operation_lifecycle_latest.csv`
 - `output/latest/historical_pattern_operation_registry_latest.csv`
 - `output/latest/approved_operation_patterns_latest.csv`
 
@@ -23,12 +24,17 @@ The adapter may read only these operation sources:
 - `output/latest/volume_breakout_formal_operation_backtest_latest.csv`
 - `output/latest/approved_operation_patterns_latest.csv`
 
+Research/backtest may also emit `output/latest/volume_breakout_formal_operation_lifecycle_latest.csv`
+to audit `pending_confirmation`, `confirmed_operation`, `active_operation`, and `expired`
+states. That lifecycle artifact is not a PDF or daily adapter source.
+
 ## Scope
 
 - `model_id` is always `volume_range_breakout`.
 - The artifact is a production operation adapter, not a PDF calculation layer and not a research/backtest runner.
 - It must not run backtests inside `daily_full_pipeline.yml`.
 - `output/latest/volume_breakout_formal_operation_backtest_latest.csv` is the only formal operation evidence source for daily confirmed/active guidance.
+- Its win rate, average return, and median return must be computed only from `metric_sample_scope=mature_selected_operation_only` rows.
 - Missing or empty formal operation evidence must fail validation; the PDF must not fabricate buy/stop/exit rows.
 - Other stock models must not reuse this operation section, ranking, entry rule, stop rule, or exit rule.
 - `approved_for_daily=True` means this adapter is allowed to present `volume_range_breakout` v1 operation guidance. It does not approve any other model.

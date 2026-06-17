@@ -16,6 +16,8 @@ HISTORY_EVENTS_CSV = RESEARCH_HISTORY_DIR / "volume_breakout_confirmed_operation
 LATEST_FORMAL_SUMMARY_CSV = LATEST_DIR / "volume_breakout_formal_operation_backtest_latest.csv"
 LATEST_FORMAL_SUMMARY_MD = LATEST_DIR / "volume_breakout_formal_operation_backtest_latest.md"
 HISTORY_FORMAL_EVENTS_CSV = RESEARCH_HISTORY_DIR / "volume_breakout_formal_operation_events.csv"
+LATEST_FORMAL_LIFECYCLE_CSV = LATEST_DIR / "volume_breakout_formal_operation_lifecycle_latest.csv"
+HISTORY_FORMAL_LIFECYCLE_CSV = RESEARCH_HISTORY_DIR / "volume_breakout_formal_operation_lifecycle_events.csv"
 LATEST_RANK_CSV = LATEST_DIR / "volume_breakout_confirmed_operation_rank_latest.csv"
 LATEST_RANK_MD = LATEST_DIR / "volume_breakout_confirmed_operation_rank_latest.md"
 LATEST_PENDING_CSV = LATEST_DIR / "volume_breakout_pending_operation_queue_latest.csv"
@@ -33,6 +35,7 @@ REQUIRED_SUMMARY_COLUMNS = {
     "entry_rule_id",
     "stop_loss_rule_id",
     "exit_rule_id",
+    "metric_sample_scope",
     "sample_size",
     "win_rate",
     "avg_return",
@@ -61,6 +64,10 @@ REQUIRED_EVENT_COLUMNS = {
     "selected_trigger_priority",
     "selected_for_formal_operation",
     "operation_selection_status",
+    "operation_lifecycle_definition_id",
+    "operation_lifecycle_state",
+    "sample_maturity_status",
+    "mature_sample_eligible",
     "entry_rule_id",
     "entry_date",
     "entry_price",
@@ -79,6 +86,38 @@ REQUIRED_EVENT_COLUMNS = {
     "tdcc_list_type",
     "tdcc_rank",
     "tdcc_ranking_score",
+    "approved_for_daily",
+}
+
+REQUIRED_LIFECYCLE_COLUMNS = {
+    "model_id",
+    "overlay_model_id",
+    "research_id",
+    "operation_lifecycle_definition_id",
+    "latest_price_date",
+    "signal_date",
+    "stock_id",
+    "operation_lifecycle_state",
+    "sample_maturity_status",
+    "mature_sample_eligible",
+    "matched_trigger_ids",
+    "selected_trigger_id",
+    "selected_confirmation_date",
+    "selected_trigger_priority",
+    "confirmation_date",
+    "confirmation_age_trading_days",
+    "entry_date",
+    "planned_exit_date",
+    "exit_date",
+    "exit_reason",
+    "terminal_reason",
+    "stop_loss_rule_id",
+    "stop_loss_level",
+    "exit_rule_id",
+    "return_pct",
+    "classification_id",
+    "attack_method",
+    "price_position_type",
     "approved_for_daily",
 }
 
@@ -133,6 +172,16 @@ EXPECTED_SCOPES = {
     "operation_attack_position",
 }
 
+EXPECTED_LIFECYCLE_STATES = {
+    "pending_confirmation",
+    "confirmed_operation",
+    "active_operation",
+    "expired",
+}
+
+LIFECYCLE_DEFINITION_ID = "daily_volume_breakout_operation_lifecycle_v1"
+METRIC_SAMPLE_SCOPE = "mature_selected_operation_only"
+
 VALID_TDCC_LIST_TYPES = {"no_tdcc", "weekly_increase", "consecutive_accumulation"}
 
 FORBIDDEN_PRODUCTION_FIELDS = {
@@ -184,6 +233,8 @@ def main() -> int:
         HISTORY_SUMMARY_CSV,
         HISTORY_EVENTS_CSV,
         HISTORY_FORMAL_EVENTS_CSV,
+        LATEST_FORMAL_LIFECYCLE_CSV,
+        HISTORY_FORMAL_LIFECYCLE_CSV,
         LATEST_RANK_CSV,
         LATEST_RANK_MD,
         LATEST_PENDING_CSV,
@@ -196,6 +247,8 @@ def main() -> int:
     events = read_csv(HISTORY_EVENTS_CSV)
     formal_summary = read_csv(LATEST_FORMAL_SUMMARY_CSV)
     formal_events = read_csv(HISTORY_FORMAL_EVENTS_CSV)
+    formal_lifecycle = read_csv(LATEST_FORMAL_LIFECYCLE_CSV)
+    lifecycle_history = read_csv(HISTORY_FORMAL_LIFECYCLE_CSV)
     rank = read_csv(LATEST_RANK_CSV)
     pending = read_csv(LATEST_PENDING_CSV)
     if summary.empty:
@@ -208,6 +261,10 @@ def main() -> int:
         fail(f"{LATEST_FORMAL_SUMMARY_CSV} has no rows")
     if formal_events.empty:
         fail(f"{HISTORY_FORMAL_EVENTS_CSV} has no rows")
+    if formal_lifecycle.empty:
+        fail(f"{LATEST_FORMAL_LIFECYCLE_CSV} has no rows")
+    if lifecycle_history.empty:
+        fail(f"{HISTORY_FORMAL_LIFECYCLE_CSV} has no rows")
 
     missing_summary = sorted(REQUIRED_SUMMARY_COLUMNS - set(summary.columns))
     if missing_summary:
@@ -221,6 +278,12 @@ def main() -> int:
     missing_formal_events = sorted(REQUIRED_EVENT_COLUMNS - set(formal_events.columns))
     if missing_formal_events:
         fail(f"{HISTORY_FORMAL_EVENTS_CSV} missing columns: {missing_formal_events}")
+    missing_lifecycle = sorted(REQUIRED_LIFECYCLE_COLUMNS - set(formal_lifecycle.columns))
+    if missing_lifecycle:
+        fail(f"{LATEST_FORMAL_LIFECYCLE_CSV} missing columns: {missing_lifecycle}")
+    missing_lifecycle_history = sorted(REQUIRED_LIFECYCLE_COLUMNS - set(lifecycle_history.columns))
+    if missing_lifecycle_history:
+        fail(f"{HISTORY_FORMAL_LIFECYCLE_CSV} missing columns: {missing_lifecycle_history}")
     missing_rank = sorted(REQUIRED_RANK_COLUMNS - set(rank.columns))
     if missing_rank:
         fail(f"{LATEST_RANK_CSV} missing columns: {missing_rank}")
@@ -234,6 +297,7 @@ def main() -> int:
             | set(events.columns)
             | set(formal_summary.columns)
             | set(formal_events.columns)
+            | set(formal_lifecycle.columns)
             | set(rank.columns)
             | set(pending.columns)
         )
@@ -250,6 +314,8 @@ def main() -> int:
         fail("formal summary model_id must be volume_range_breakout")
     if set(formal_events["model_id"].astype(str)) != {"volume_range_breakout"}:
         fail("formal event model_id must be volume_range_breakout")
+    if set(formal_lifecycle["model_id"].astype(str)) != {"volume_range_breakout"}:
+        fail("formal lifecycle model_id must be volume_range_breakout")
     if set(summary["overlay_model_id"].astype(str)) != {"tdcc_weekly_ranking_formula"}:
         fail("summary overlay_model_id must be tdcc_weekly_ranking_formula")
     if set(events["overlay_model_id"].astype(str)) != {"tdcc_weekly_ranking_formula"}:
@@ -258,12 +324,15 @@ def main() -> int:
         fail("formal summary overlay_model_id must be tdcc_weekly_ranking_formula")
     if set(formal_events["overlay_model_id"].astype(str)) != {"tdcc_weekly_ranking_formula"}:
         fail("formal event overlay_model_id must be tdcc_weekly_ranking_formula")
+    if set(formal_lifecycle["overlay_model_id"].astype(str)) != {"tdcc_weekly_ranking_formula"}:
+        fail("formal lifecycle overlay_model_id must be tdcc_weekly_ranking_formula")
 
     for label, df in [
         ("summary", summary),
         ("events", events),
         ("formal_summary", formal_summary),
         ("formal_events", formal_events),
+        ("formal_lifecycle", formal_lifecycle),
         ("rank", rank),
         ("pending", pending),
     ]:
@@ -304,8 +373,19 @@ def main() -> int:
     if set(formal_events["entry_price_source"].astype(str)) != {"confirmation_next_open"}:
         fail("formal events entry_price_source must be confirmation_next_open")
 
+    if set(formal_summary["metric_sample_scope"].astype(str)) != {METRIC_SAMPLE_SCOPE}:
+        fail(f"formal summary metric_sample_scope must be {METRIC_SAMPLE_SCOPE}")
     if set(formal_events["selected_for_formal_operation"].astype(str)) != {"True"}:
         fail("formal operation events must contain only selected_for_formal_operation=True rows")
+    if set(formal_events["operation_lifecycle_definition_id"].astype(str)) != {LIFECYCLE_DEFINITION_ID}:
+        fail(f"formal events must use lifecycle definition {LIFECYCLE_DEFINITION_ID}")
+    if set(formal_events["sample_maturity_status"].astype(str)) != {"mature"}:
+        fail("formal operation events must contain only mature samples")
+    if set(formal_events["mature_sample_eligible"].astype(str).str.lower()) != {"true"}:
+        fail("formal operation events must be mature_sample_eligible=True")
+    bad_formal_lifecycle_states = sorted(set(formal_events["operation_lifecycle_state"].astype(str)) - EXPECTED_LIFECYCLE_STATES)
+    if bad_formal_lifecycle_states:
+        fail(f"formal operation events have unexpected lifecycle states: {bad_formal_lifecycle_states}")
     formal_group = formal_events.groupby(["signal_date", "stock_id"], dropna=False)
     multi_trigger = formal_group["trigger_id"].nunique()
     if (multi_trigger > 1).any():
@@ -315,6 +395,87 @@ def main() -> int:
     if (multi_confirmation > 1).any():
         bad = multi_confirmation[multi_confirmation > 1].head(20).to_dict()
         fail(f"formal operation events must use one selected confirmation date per signal: {bad}")
+
+    for (signal_date, stock_id), part in events.groupby(["signal_date", "stock_id"], dropna=False):
+        unique = part.drop_duplicates(["confirmation_date", "trigger_id"]).copy()
+        unique["_confirmation_dt"] = date_series(unique["confirmation_date"])
+        unique["_trigger_priority"] = unique["trigger_id"].astype(str).map(
+            {
+                "next_day_continuation_confirmed": 1,
+                "pullback_5ma_confirmed": 2,
+                "pullback_10ma_confirmed": 3,
+            }
+        ).fillna(999)
+        expected = unique.sort_values(["_confirmation_dt", "_trigger_priority", "trigger_id"]).iloc[0]
+        selected_ids = set(part["selected_trigger_id"].astype(str))
+        if selected_ids != {str(expected["trigger_id"])}:
+            fail(
+                "selected_trigger_id must use earliest confirmation date then trigger priority "
+                f"for signal={signal_date} stock={stock_id}"
+            )
+        selected_dates = set(part["selected_confirmation_date"].astype(str))
+        if selected_dates != {str(expected["confirmation_date"])}:
+            fail(
+                "selected_confirmation_date must use earliest confirmation date "
+                f"for signal={signal_date} stock={stock_id}"
+            )
+
+    lifecycle_states = set(formal_lifecycle["operation_lifecycle_state"].astype(str))
+    bad_lifecycle_states = sorted(lifecycle_states - EXPECTED_LIFECYCLE_STATES)
+    if bad_lifecycle_states:
+        fail(f"unexpected formal lifecycle states: {bad_lifecycle_states}")
+    missing_lifecycle_states = sorted(EXPECTED_LIFECYCLE_STATES - lifecycle_states)
+    if missing_lifecycle_states:
+        fail(f"formal lifecycle artifact must separate all states; missing: {missing_lifecycle_states}")
+    if set(formal_lifecycle["operation_lifecycle_definition_id"].astype(str)) != {LIFECYCLE_DEFINITION_ID}:
+        fail(f"formal lifecycle must use lifecycle definition {LIFECYCLE_DEFINITION_ID}")
+    if formal_lifecycle.duplicated(["signal_date", "stock_id"]).any():
+        fail("formal lifecycle must contain one terminal lifecycle row per signal/stock")
+    mature_lifecycle = formal_lifecycle[formal_lifecycle["mature_sample_eligible"].astype(str).str.lower().eq("true")]
+    if mature_lifecycle.empty:
+        fail("formal lifecycle has no mature_sample_eligible rows")
+    formal_keys = set(zip(formal_events["signal_date"].astype(str), formal_events["stock_id"].astype(str)))
+    lifecycle_mature_keys = set(zip(mature_lifecycle["signal_date"].astype(str), mature_lifecycle["stock_id"].astype(str)))
+    missing_mature_lifecycle = sorted(formal_keys - lifecycle_mature_keys)[:20]
+    if missing_mature_lifecycle:
+        fail(f"formal events missing matching mature lifecycle rows: {missing_mature_lifecycle}")
+    lifecycle_state_lookup = {
+        (str(row["signal_date"]), str(row["stock_id"])): str(row["operation_lifecycle_state"])
+        for _, row in formal_lifecycle.iterrows()
+    }
+    for _, row in formal_events.iterrows():
+        key = (str(row["signal_date"]), str(row["stock_id"]))
+        if str(row["operation_lifecycle_state"]) != lifecycle_state_lookup.get(key):
+            fail(f"formal event lifecycle state must match lifecycle artifact for signal={key[0]} stock={key[1]}")
+
+    trigger_scope = formal_summary[
+        formal_summary["confluence_scope"].astype(str).eq("operation_trigger")
+        & formal_summary["confluence_id"].astype(str).eq("all_confirmed_volume_breakout")
+    ].copy()
+    for _, row in trigger_scope.iterrows():
+        tdcc_list_type = str(row["tdcc_list_type"])
+        rank_bucket = str(row["rank_bucket"])
+        trigger_id = str(row["trigger_id"])
+        part = formal_events[
+            formal_events["tdcc_list_type"].astype(str).eq(tdcc_list_type)
+            & formal_events["trigger_id"].astype(str).eq(trigger_id)
+        ].copy()
+        if tdcc_list_type != "no_tdcc":
+            rank_values = pd.to_numeric(part["tdcc_rank"], errors="coerce")
+            if rank_bucket == "top_10":
+                part = part[rank_values <= 10]
+            elif rank_bucket == "top_20":
+                part = part[rank_values <= 20]
+            elif rank_bucket == "top_50":
+                part = part[rank_values <= 50]
+        expected_sample = int(pd.to_numeric(part["return_pct"], errors="coerce").dropna().shape[0])
+        actual_sample = int(pd.to_numeric(pd.Series([row["sample_size"]]), errors="coerce").fillna(-1).iloc[0])
+        if actual_sample != expected_sample:
+            fail(
+                "formal summary sample_size must be recomputable from mature formal events "
+                f"tdcc={tdcc_list_type} bucket={rank_bucket} trigger={trigger_id} "
+                f"actual={actual_sample} expected={expected_sample}"
+            )
 
     signal_dates = date_series(events["signal_date"])
     confirmation_dates = date_series(events["confirmation_date"])
@@ -373,7 +534,7 @@ def main() -> int:
         "volume breakout confirmed operation validation passed "
         f"summary_rows={len(summary)} event_rows={len(events)} "
         f"formal_summary_rows={len(formal_summary)} formal_event_rows={len(formal_events)} "
-        f"rank_rows={len(rank)} pending_rows={len(pending)}"
+        f"formal_lifecycle_rows={len(formal_lifecycle)} rank_rows={len(rank)} pending_rows={len(pending)}"
     )
     return 0
 

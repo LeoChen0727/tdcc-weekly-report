@@ -37,6 +37,8 @@ HISTORY_EVENTS_CSV = RESEARCH_HISTORY_DIR / "volume_breakout_confirmed_operation
 LATEST_FORMAL_SUMMARY_CSV = LATEST_DIR / "volume_breakout_formal_operation_backtest_latest.csv"
 LATEST_FORMAL_SUMMARY_MD = LATEST_DIR / "volume_breakout_formal_operation_backtest_latest.md"
 HISTORY_FORMAL_EVENTS_CSV = RESEARCH_HISTORY_DIR / "volume_breakout_formal_operation_events.csv"
+LATEST_FORMAL_LIFECYCLE_CSV = LATEST_DIR / "volume_breakout_formal_operation_lifecycle_latest.csv"
+HISTORY_FORMAL_LIFECYCLE_CSV = RESEARCH_HISTORY_DIR / "volume_breakout_formal_operation_lifecycle_events.csv"
 LATEST_RANK_CSV = LATEST_DIR / "volume_breakout_confirmed_operation_rank_latest.csv"
 LATEST_RANK_MD = LATEST_DIR / "volume_breakout_confirmed_operation_rank_latest.md"
 LATEST_PENDING_CSV = LATEST_DIR / "volume_breakout_pending_operation_queue_latest.csv"
@@ -53,6 +55,8 @@ OUT_OF_SAMPLE_FRACTION = 0.7
 ENTRY_RULE_ID = "confirmation_next_open"
 STOP_RULE_ID = "signal_low_stop"
 EXIT_RULE_ID = "signal_low_stop_or_fixed_10d_close"
+LIFECYCLE_DEFINITION_ID = "daily_volume_breakout_operation_lifecycle_v1"
+METRIC_SAMPLE_SCOPE = "mature_selected_operation_only"
 
 FORBIDDEN_PRODUCTION_FIELDS = {
     "trade_decision",
@@ -145,6 +149,7 @@ SUMMARY_COLUMNS = [
     "stop_loss_rule_zh",
     "exit_rule_id",
     "exit_rule_zh",
+    "metric_sample_scope",
     "sample_size",
     "unique_signal_events",
     "unique_confirmation_events",
@@ -198,6 +203,10 @@ EVENT_COLUMNS = [
     "selected_trigger_priority",
     "selected_for_formal_operation",
     "operation_selection_status",
+    "operation_lifecycle_definition_id",
+    "operation_lifecycle_state",
+    "sample_maturity_status",
+    "mature_sample_eligible",
     "entry_rule_id",
     "entry_date",
     "entry_price",
@@ -257,6 +266,66 @@ EVENT_COLUMNS = [
     "tdcc_1w_change_1000",
     "theme",
     "theme_mainstream_status",
+    "approved_for_daily",
+]
+
+LIFECYCLE_COLUMNS = [
+    "model_id",
+    "overlay_model_id",
+    "research_id",
+    "operation_lifecycle_definition_id",
+    "latest_price_date",
+    "signal_date",
+    "stock_id",
+    "stock_name",
+    "market",
+    "market_regime",
+    "operation_lifecycle_state",
+    "operation_lifecycle_state_zh",
+    "sample_maturity_status",
+    "mature_sample_eligible",
+    "matched_trigger_ids",
+    "selected_trigger_id",
+    "selected_confirmation_date",
+    "selected_trigger_priority",
+    "confirmation_date",
+    "confirmation_age_trading_days",
+    "entry_date",
+    "planned_exit_date",
+    "exit_date",
+    "exit_reason",
+    "terminal_reason",
+    "stop_loss_rule_id",
+    "stop_loss_level",
+    "exit_rule_id",
+    "return_pct",
+    "mfe_pct",
+    "mae_pct",
+    "classification_id",
+    "classification_name_zh",
+    "attack_method",
+    "attack_method_name_zh",
+    "price_position_type",
+    "price_position_name_zh",
+    "follow_through_type",
+    "follow_through_name_zh",
+    "risk_type",
+    "risk_name_zh",
+    "candle_quality",
+    "candle_quality_name_zh",
+    "consolidation_type",
+    "consolidation_name_zh",
+    "volume_ratio",
+    "signal_return_1d_pct",
+    "signal_open",
+    "signal_high",
+    "signal_low",
+    "signal_close",
+    "range_width_20_pct",
+    "range_width_40_pct",
+    "range_width_60_pct",
+    "low_position_60_pct",
+    "limit_up_like",
     "approved_for_daily",
 ]
 
@@ -428,6 +497,41 @@ def find_confirmation(price: pd.DataFrame, signal_idx: int, spec: TriggerSpec) -
     return None
 
 
+def confirmation_matches(price: pd.DataFrame, signal_idx: int, through_idx: int | None = None) -> list[dict[str, Any]]:
+    matches: list[dict[str, Any]] = []
+    for spec in TRIGGERS:
+        found = find_confirmation(price, signal_idx, spec)
+        if found is None:
+            continue
+        confirmation_idx = int(found["confirmation_idx"])
+        if through_idx is not None and confirmation_idx > through_idx:
+            continue
+        matches.append(
+            {
+                "trigger_id": spec.trigger_id,
+                "trigger_name_zh": spec.trigger_name_zh,
+                "confirmation_rule_zh": spec.confirmation_rule_zh,
+                "confirmation_idx": confirmation_idx,
+                "confirmation_date": normalize_date(price.iloc[confirmation_idx].get("date")),
+                "trigger_priority": trigger_priority(spec.trigger_id),
+            }
+        )
+    return sorted(matches, key=lambda row: (row["confirmation_idx"], row["trigger_priority"], row["trigger_id"]))
+
+
+def selected_confirmation_for_signal(
+    price: pd.DataFrame,
+    signal_idx: int,
+    through_idx: int | None = None,
+) -> dict[str, Any] | None:
+    matches = confirmation_matches(price, signal_idx, through_idx)
+    if not matches:
+        return None
+    selected = dict(matches[0])
+    selected["matched_trigger_ids"] = "|".join(dict.fromkeys(row["trigger_id"] for row in matches))
+    return selected
+
+
 def simulate_confirmed_trade(price: pd.DataFrame, signal_idx: int, confirmation_idx: int) -> dict[str, Any] | None:
     entry_idx = confirmation_idx + 1
     planned_exit_idx = entry_idx + MAX_HOLD_DAYS - 1
@@ -478,6 +582,89 @@ def simulate_confirmed_trade(price: pd.DataFrame, signal_idx: int, confirmation_
         "mfe_pct": round(mfe_pct, 4) if not math.isnan(mfe_pct) else "",
         "mae_pct": round(mae_pct, 4) if not math.isnan(mae_pct) else "",
     }
+
+
+def stop_hit_index(price: pd.DataFrame, entry_idx: int, through_idx: int, signal_low: float) -> int | None:
+    if math.isnan(signal_low):
+        return None
+    for idx in range(entry_idx, min(through_idx, len(price) - 1) + 1):
+        low = safe_price(price.iloc[idx].get("low"))
+        if not math.isnan(low) and low <= signal_low:
+            return idx
+    return None
+
+
+def lifecycle_state_for_signal(price: pd.DataFrame, signal_idx: int, asof_idx: int) -> dict[str, Any]:
+    latest_idx = min(max(asof_idx, signal_idx), len(price) - 1)
+    signal = price.iloc[signal_idx]
+    signal_low = safe_price(signal.get("low"))
+    selected = selected_confirmation_for_signal(price, signal_idx, latest_idx)
+    state = "expired"
+    state_zh = "已失效"
+    terminal_reason = ""
+    maturity_status = "not_mature"
+    mature_eligible = False
+    trade: dict[str, Any] | None = None
+    entry_idx: int | None = None
+    planned_exit_idx: int | None = None
+
+    if selected is not None:
+        confirmation_idx = int(selected["confirmation_idx"])
+        entry_idx = confirmation_idx + 1
+        planned_exit_idx = entry_idx + MAX_HOLD_DAYS - 1
+        trade = simulate_confirmed_trade(price, signal_idx, confirmation_idx)
+        if trade is not None:
+            mature_eligible = True
+            maturity_status = "mature"
+        elif latest_idx < entry_idx:
+            maturity_status = "confirmed_not_entered"
+        else:
+            maturity_status = "immature_active"
+
+        if confirmation_idx == latest_idx:
+            state = "confirmed_operation"
+            state_zh = "已確認操作"
+            terminal_reason = "confirmation_on_asof_date"
+        elif entry_idx < len(price) and latest_idx >= entry_idx:
+            stopped_idx = stop_hit_index(price, entry_idx, latest_idx, signal_low)
+            if stopped_idx is None and planned_exit_idx is not None and latest_idx <= planned_exit_idx:
+                state = "active_operation"
+                state_zh = "操作中"
+                terminal_reason = "within_d0_d10_hold_window"
+            else:
+                state = "expired"
+                state_zh = "已失效"
+                terminal_reason = "stop_or_fixed_hold_window_finished"
+        else:
+            state = "confirmed_operation"
+            state_zh = "已確認操作"
+            terminal_reason = "confirmed_waiting_next_open"
+    else:
+        signal_age = latest_idx - signal_idx
+        broken = signal_low_broken(price, signal_idx, latest_idx, signal_low)
+        if signal_age <= MAX_CONFIRM_DAYS and not broken:
+            state = "pending_confirmation"
+            state_zh = "待確認"
+            terminal_reason = "within_confirmation_window"
+            maturity_status = "pending_confirmation"
+        else:
+            state = "expired"
+            state_zh = "已失效"
+            terminal_reason = "signal_low_broken_before_confirmation" if broken else "confirmation_window_expired"
+            maturity_status = "expired_unconfirmed"
+
+    out: dict[str, Any] = {
+        "operation_lifecycle_state": state,
+        "operation_lifecycle_state_zh": state_zh,
+        "sample_maturity_status": maturity_status,
+        "mature_sample_eligible": mature_eligible,
+        "terminal_reason": terminal_reason,
+        "selected": selected,
+        "trade": trade,
+        "entry_idx": entry_idx,
+        "planned_exit_idx": planned_exit_idx,
+    }
+    return out
 
 
 def future_context(price: pd.DataFrame, signal_idx: int) -> dict[str, Any]:
@@ -556,6 +743,89 @@ def event_payload(price: pd.DataFrame, signal_idx: int, confirmation_idx: int, m
     return {**base, **class_context}
 
 
+def signal_lifecycle_payload(price: pd.DataFrame, signal_idx: int, asof_idx: int, market_regimes: dict[str, str]) -> dict[str, Any]:
+    signal = price.iloc[signal_idx]
+    asof = price.iloc[asof_idx]
+    signal_date = normalize_date(signal.get("date"))
+    base = {
+        "model_id": MODEL_ID,
+        "overlay_model_id": OVERLAY_MODEL_ID,
+        "research_id": RESEARCH_ID,
+        "operation_lifecycle_definition_id": LIFECYCLE_DEFINITION_ID,
+        "latest_price_date": normalize_date(asof.get("date")),
+        "signal_date": signal_date,
+        "stock_id": normalize_stock_id(signal.get("stock_id")),
+        "stock_name": safe_str(signal.get("stock_name")),
+        "market": safe_str(signal.get("market")),
+        "market_regime": market_regimes.get(signal_date, "unknown"),
+        "volume_ratio": pct_round(signal.get("volume_ratio")),
+        "signal_return_1d_pct": pct_round(signal.get("signal_return_1d_pct")),
+        "previous_20d_high": pct_round(signal.get("previous_20d_high_calc")),
+        "range_width_20_pct": pct_round(signal.get("range_width_20_pct")),
+        "range_width_40_pct": pct_round(signal.get("range_width_40_pct")),
+        "range_width_60_pct": pct_round(signal.get("range_width_60_pct")),
+        "low_position_60_pct": pct_round(signal.get("low_position_60_pct")),
+        "limit_up_like": boolish(signal.get("limit_up_like")),
+        "signal_open": pct_round(signal.get("open")),
+        "signal_high": pct_round(signal.get("high")),
+        "signal_low": pct_round(signal.get("low")),
+        "signal_close": pct_round(signal.get("close")),
+    }
+    class_context = {**base, **future_context(price, signal_idx)}
+    class_context["previous_20d_high"] = base["previous_20d_high"]
+    class_context.update(classify_event(pd.Series(class_context)))
+    return {**base, **class_context}
+
+
+def lifecycle_event_payload(price: pd.DataFrame, signal_idx: int, asof_idx: int, market_regimes: dict[str, str]) -> dict[str, Any]:
+    payload = signal_lifecycle_payload(price, signal_idx, asof_idx, market_regimes)
+    lifecycle = lifecycle_state_for_signal(price, signal_idx, asof_idx)
+    selected = lifecycle.get("selected") or {}
+    trade = lifecycle.get("trade") or {}
+    signal_low = safe_price(price.iloc[signal_idx].get("low"))
+    entry_idx = lifecycle.get("entry_idx")
+    planned_exit_idx = lifecycle.get("planned_exit_idx")
+    confirmation_idx = selected.get("confirmation_idx")
+
+    payload.update(
+        {
+            "operation_lifecycle_state": lifecycle["operation_lifecycle_state"],
+            "operation_lifecycle_state_zh": lifecycle["operation_lifecycle_state_zh"],
+            "sample_maturity_status": lifecycle["sample_maturity_status"],
+            "mature_sample_eligible": lifecycle["mature_sample_eligible"],
+            "matched_trigger_ids": safe_str(selected.get("matched_trigger_ids")),
+            "selected_trigger_id": safe_str(selected.get("trigger_id")),
+            "selected_confirmation_date": safe_str(selected.get("confirmation_date")),
+            "selected_trigger_priority": safe_str(selected.get("trigger_priority")),
+            "confirmation_date": safe_str(selected.get("confirmation_date")),
+            "confirmation_age_trading_days": (
+                int(confirmation_idx) - signal_idx if confirmation_idx is not None else ""
+            ),
+            "entry_date": (
+                normalize_date(price.iloc[int(entry_idx)].get("date"))
+                if isinstance(entry_idx, int) and entry_idx < len(price)
+                else ""
+            ),
+            "planned_exit_date": (
+                normalize_date(price.iloc[int(planned_exit_idx)].get("date"))
+                if isinstance(planned_exit_idx, int) and planned_exit_idx < len(price)
+                else ""
+            ),
+            "exit_date": safe_str(trade.get("exit_date")),
+            "exit_reason": safe_str(trade.get("exit_reason")),
+            "terminal_reason": safe_str(lifecycle.get("terminal_reason")),
+            "stop_loss_rule_id": STOP_RULE_ID,
+            "stop_loss_level": round(signal_low, 4) if not math.isnan(signal_low) else "",
+            "exit_rule_id": EXIT_RULE_ID,
+            "return_pct": safe_str(trade.get("return_pct")),
+            "mfe_pct": safe_str(trade.get("mfe_pct")),
+            "mae_pct": safe_str(trade.get("mae_pct")),
+            "approved_for_daily": False,
+        }
+    )
+    return payload
+
+
 def process_price_history_path(path: Path, market_regimes: dict[str, str]) -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
     raw = load_price_csv(path)
@@ -586,10 +856,36 @@ def process_price_history_path(path: Path, market_regimes: dict[str, str]) -> li
                     "trigger_name_zh": spec.trigger_name_zh,
                     "confirmation_rule_zh": spec.confirmation_rule_zh,
                     "approved_for_daily": False,
+                    "operation_lifecycle_definition_id": LIFECYCLE_DEFINITION_ID,
+                    "operation_lifecycle_state": "expired",
+                    "sample_maturity_status": "mature",
+                    "mature_sample_eligible": True,
                     **trade,
                 }
             )
             rows.append(payload)
+    return rows
+
+
+def process_lifecycle_path(path: Path, market_regimes: dict[str, str]) -> list[dict[str, Any]]:
+    rows: list[dict[str, Any]] = []
+    raw = load_price_csv(path)
+    if raw.empty or len(raw) < 90:
+        return rows
+    if not {"date", "stock_id", "stock_name", "open", "high", "low", "close", "volume"}.issubset(raw.columns):
+        return rows
+    first_id = normalize_code(raw.iloc[0].get("stock_id"))
+    if not is_equity_stock_id(first_id):
+        return rows
+    price = add_research_features(raw)
+    if price.empty:
+        return rows
+    asof_idx = len(price) - 1
+    model_mask = formal_model_hit_mask(price)
+    for signal_idx in [int(idx) for idx in model_mask[model_mask].index]:
+        if signal_idx > asof_idx:
+            continue
+        rows.append(lifecycle_event_payload(price, signal_idx, asof_idx, market_regimes))
     return rows
 
 
@@ -611,6 +907,39 @@ def build_base_events() -> pd.DataFrame:
     return ensure_columns(events, EVENT_COLUMNS).sort_values(
         ["confirmation_date", "stock_id", "trigger_id", "tdcc_list_type"]
     ).reset_index(drop=True)
+
+
+def build_lifecycle_events() -> pd.DataFrame:
+    market_regimes = load_market_regime_map()
+    paths = sorted(PRICE_HISTORY_DIR.glob("*.csv"))
+    worker_count = min(12, max(2, os.cpu_count() or 4))
+    rows: list[dict[str, Any]] = []
+    with ThreadPoolExecutor(max_workers=worker_count) as executor:
+        for part in executor.map(lambda p: process_lifecycle_path(p, market_regimes), paths):
+            rows.extend(part)
+    if not rows:
+        return pd.DataFrame(columns=LIFECYCLE_COLUMNS)
+    out = ensure_columns(pd.DataFrame(rows), LIFECYCLE_COLUMNS)
+    return out.sort_values(["signal_date", "stock_id"]).reset_index(drop=True)
+
+
+def apply_lifecycle_state_columns(events: pd.DataFrame, lifecycle: pd.DataFrame) -> pd.DataFrame:
+    if events.empty or lifecycle.empty:
+        return events
+    keys = ["signal_date", "stock_id"]
+    state_cols = [
+        "operation_lifecycle_definition_id",
+        "operation_lifecycle_state",
+        "sample_maturity_status",
+        "mature_sample_eligible",
+    ]
+    lookup = lifecycle[keys + state_cols].drop_duplicates(keys).copy()
+    out = events.drop(columns=state_cols, errors="ignore").merge(lookup, on=keys, how="left")
+    out["operation_lifecycle_definition_id"] = out["operation_lifecycle_definition_id"].fillna(LIFECYCLE_DEFINITION_ID)
+    out["operation_lifecycle_state"] = out["operation_lifecycle_state"].fillna("expired")
+    out["sample_maturity_status"] = out["sample_maturity_status"].fillna("mature")
+    out["mature_sample_eligible"] = out["mature_sample_eligible"].fillna(True)
+    return out
 
 
 def out_of_sample_start_date(df: pd.DataFrame, date_col: str) -> str:
@@ -889,6 +1218,7 @@ def metric_row(
         "stop_loss_rule_zh": "持有期間觸及訊號K低點先停損。",
         "exit_rule_id": EXIT_RULE_ID,
         "exit_rule_zh": f"先碰訊號K低點停損，否則持有{MAX_HOLD_DAYS}個交易日收盤出場。",
+        "metric_sample_scope": METRIC_SAMPLE_SCOPE,
         "sample_size": sample_size,
         "unique_signal_events": int(part[["signal_date", "stock_id"]].drop_duplicates().shape[0]),
         "unique_confirmation_events": int(part[["confirmation_date", "stock_id", "trigger_id"]].drop_duplicates().shape[0]),
@@ -1374,17 +1704,38 @@ def write_rank_markdown(rank: pd.DataFrame, pending: pd.DataFrame) -> None:
     LATEST_PENDING_MD.write_text("\n".join(pending_lines) + "\n", encoding="utf-8", newline="\n")
 
 
-def write_formal_summary_markdown(summary: pd.DataFrame, events: pd.DataFrame) -> None:
+def write_formal_summary_markdown(summary: pd.DataFrame, events: pd.DataFrame, lifecycle: pd.DataFrame) -> None:
+    state_counts = (
+        lifecycle.groupby(["operation_lifecycle_state", "sample_maturity_status"], dropna=False)
+        .agg(signal_events=("stock_id", "size"), mature_samples=("mature_sample_eligible", lambda s: int(pd.Series(s).map(boolish).sum())))
+        .reset_index()
+    ) if not lifecycle.empty else pd.DataFrame()
     lines = [
         "# Volume Breakout Formal Operation Backtest",
         "",
         f"- generated_at: `{now_text()}`",
         f"- model_id: `{MODEL_ID}`",
         "- purpose: one signal produces one formal operation event.",
+        f"- lifecycle_definition: `{LIFECYCLE_DEFINITION_ID}`",
+        f"- metric_sample_scope: `{METRIC_SAMPLE_SCOPE}`",
         "- trigger_selection_rule: earliest confirmation date wins; if multiple triggers confirm on the same date, use trigger priority order.",
         "- trigger_priority: `next_day_continuation_confirmed`, `pullback_5ma_confirmed`, `pullback_10ma_confirmed`.",
         "- research note: multi-trigger events remain in `volume_breakout_confirmed_operation_events.csv`; this formal artifact is the production-operation statistics source.",
         f"- formal_event_rows: `{len(events)}`",
+        f"- lifecycle_event_rows: `{len(lifecycle)}`",
+        "",
+        "## Lifecycle State Counts",
+        "",
+        *markdown_table(
+            state_counts,
+            [
+                "operation_lifecycle_state",
+                "sample_maturity_status",
+                "signal_events",
+                "mature_samples",
+            ],
+            20,
+        ),
         "",
     ]
     if not summary.empty:
@@ -1397,6 +1748,7 @@ def write_formal_summary_markdown(summary: pd.DataFrame, events: pd.DataFrame) -
                     "trigger_id",
                     "confluence_scope",
                     "confluence_id",
+                    "metric_sample_scope",
                     "sample_size",
                     "win_rate",
                     "median_return",
@@ -1413,7 +1765,8 @@ def write_formal_summary_markdown(summary: pd.DataFrame, events: pd.DataFrame) -
 
 
 def main() -> int:
-    events = build_base_events()
+    formal_lifecycle = build_lifecycle_events()
+    events = apply_lifecycle_state_columns(build_base_events(), formal_lifecycle)
     summary = summarize(events)
     formal_events = formal_operation_events(events)
     formal_summary = summarize(formal_events)
@@ -1422,19 +1775,22 @@ def main() -> int:
 
     write_csv(events, HISTORY_EVENTS_CSV)
     write_csv(formal_events, HISTORY_FORMAL_EVENTS_CSV)
+    write_csv(formal_lifecycle, HISTORY_FORMAL_LIFECYCLE_CSV)
+    write_csv(formal_lifecycle, LATEST_FORMAL_LIFECYCLE_CSV)
     write_csv(summary, HISTORY_SUMMARY_CSV)
     write_csv(summary, LATEST_SUMMARY_CSV)
     write_csv(formal_summary, LATEST_FORMAL_SUMMARY_CSV)
     write_csv(rank, LATEST_RANK_CSV)
     write_csv(pending, LATEST_PENDING_CSV)
     write_summary_markdown(summary, events)
-    write_formal_summary_markdown(formal_summary, formal_events)
+    write_formal_summary_markdown(formal_summary, formal_events, formal_lifecycle)
     write_rank_markdown(rank, pending)
 
     print(f"Saved: {LATEST_SUMMARY_CSV} rows={len(summary)}")
     print(f"Saved: {HISTORY_EVENTS_CSV} rows={len(events)}")
     print(f"Saved: {LATEST_FORMAL_SUMMARY_CSV} rows={len(formal_summary)}")
     print(f"Saved: {HISTORY_FORMAL_EVENTS_CSV} rows={len(formal_events)}")
+    print(f"Saved: {LATEST_FORMAL_LIFECYCLE_CSV} rows={len(formal_lifecycle)}")
     print(f"Saved: {LATEST_RANK_CSV} rows={len(rank)}")
     print(f"Saved: {LATEST_PENDING_CSV} rows={len(pending)}")
     return 0

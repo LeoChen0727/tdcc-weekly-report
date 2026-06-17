@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 import build_daily_volume_breakout_operation_section as builder  # noqa: E402
+import build_volume_breakout_confirmed_operation_backtest as operation_backtest  # noqa: E402
 import generate_chatgpt_side_daily_reports as pdf_generator  # noqa: E402
 import validate_chatgpt_side_volume_operation_pdf_integration as pdf_integration_validator  # noqa: E402
 
@@ -85,6 +86,20 @@ def build_rows_for_test(signals: pd.DataFrame, report_date: str, summary: pd.Dat
     return pd.DataFrame(rows, columns=builder.OUTPUT_COLUMNS)
 
 
+def backtest_lifecycle_state(stock_id: str, signal_date: str, report_date: str) -> str:
+    price = builder.load_price_history(stock_id)
+    signal_positions = price.index[price["date"].astype(str).eq(signal_date)].tolist()
+    report_positions = price.index[price["date"].astype(str).eq(report_date)].tolist()
+    assert signal_positions
+    assert report_positions
+    lifecycle = operation_backtest.lifecycle_state_for_signal(
+        price,
+        int(signal_positions[-1]),
+        int(report_positions[-1]),
+    )
+    return str(lifecycle["operation_lifecycle_state"])
+
+
 def test_lifecycle_keeps_unconfirmed_signal_pending(monkeypatch, tmp_path) -> None:
     snapshot_dir = patch_lifecycle_sources(
         monkeypatch,
@@ -108,6 +123,7 @@ def test_lifecycle_keeps_unconfirmed_signal_pending(monkeypatch, tmp_path) -> No
     assert set(pending["row_action_status"]) == {"pending_confirmation"}
     assert set(pending["buy_rank_eligible"]) == {"False"}
     assert pending["selected_trigger_id"].eq("").all()
+    assert backtest_lifecycle_state("1234", "20260616", "20260617") == "pending_confirmation"
 
 
 def test_lifecycle_confirms_signal_on_report_date(monkeypatch, tmp_path) -> None:
@@ -135,6 +151,7 @@ def test_lifecycle_confirms_signal_on_report_date(monkeypatch, tmp_path) -> None
     assert set(confirmed["selected_trigger_id"]) == {"next_day_continuation_confirmed"}
     assert set(confirmed["confirmation_date"]) == {"20260617"}
     assert pending.empty
+    assert backtest_lifecycle_state("1234", "20260616", "20260617") == "confirmed_operation"
 
 
 def test_lifecycle_moves_prior_confirmed_signal_to_active(monkeypatch, tmp_path) -> None:
@@ -163,6 +180,28 @@ def test_lifecycle_moves_prior_confirmed_signal_to_active(monkeypatch, tmp_path)
     assert set(active["buy_rank_eligible"]) == {"False"}
     assert set(active["selected_trigger_id"]) == {"next_day_continuation_confirmed"}
     assert set(active["confirmation_date"]) == {"20260616"}
+    assert backtest_lifecycle_state("1234", "20260615", "20260617") == "active_operation"
+
+
+def test_lifecycle_expired_signal_matches_backtest_terminal_state(monkeypatch, tmp_path) -> None:
+    snapshot_dir = patch_lifecycle_sources(
+        monkeypatch,
+        tmp_path,
+        "1234",
+        [
+            {"date": "20260616", "open": "10", "high": "11", "low": "9", "close": "10", "volume": "1000"},
+            {"date": "20260617", "open": "9.5", "high": "9.8", "low": "8.8", "close": "9.2", "volume": "1200"},
+        ],
+    )
+    pd.DataFrame([volume_signal("1234", "20260616")]).to_csv(
+        snapshot_dir / "daily_candidate_model_signals_for_report_20260616.csv",
+        index=False,
+    )
+
+    out = build_rows_for_test(pd.DataFrame(), "20260617", formal_summary())
+
+    assert out.empty
+    assert backtest_lifecycle_state("1234", "20260616", "20260617") == "expired"
 
 
 def test_lifecycle_does_not_promote_confirmed_signal_without_positive_evidence(monkeypatch, tmp_path) -> None:
