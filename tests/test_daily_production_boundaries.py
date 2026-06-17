@@ -208,7 +208,7 @@ def test_formal_daily_report_dates_use_freshness_hard_gate_without_fallbacks() -
             "require_daily_report_ready_main_price_date",
         ],
         ROOT / "scripts" / "build_theme_event_watch.py": [
-            "require_daily_report_ready_main_price_date",
+            "main_price_date_from_freshness",
         ],
     }
     for path, required in files.items():

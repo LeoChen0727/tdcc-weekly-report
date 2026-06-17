@@ -70,7 +70,7 @@ FORMAL_REPORT_DATE_HARD_GATE_FILES = {
         "require_daily_report_ready_main_price_date",
     ],
     THEME_EVENT_WATCH_BUILDER: [
-        "require_daily_report_ready_main_price_date",
+        "main_price_date_from_freshness",
     ],
 }
 

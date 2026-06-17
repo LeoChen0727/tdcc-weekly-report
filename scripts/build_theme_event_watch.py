@@ -8,10 +8,10 @@ import pandas as pd
 
 from tracking_utils import (
     LATEST_DIR,
+    main_price_date_from_freshness,
     normalize_code,
     normalize_date,
     read_csv,
-    require_daily_report_ready_main_price_date,
     safe_str,
     write_csv,
 )
@@ -114,7 +114,7 @@ def parse_day(value: Any) -> datetime | None:
 
 
 def latest_signal_date() -> str:
-    return require_daily_report_ready_main_price_date()
+    return main_price_date_from_freshness()
 
 
 def event_phase(days_to_event: int) -> str:
@@ -254,7 +254,7 @@ def main() -> int:
     signal_date = latest_signal_date()
     base_day = parse_day(signal_date)
     if base_day is None:
-        raise RuntimeError(f"invalid formal daily report signal_date: {signal_date!r}")
+        raise RuntimeError(f"invalid theme event watch signal_date: {signal_date!r}")
 
     events = read_csv(THEME_EVENT_CALENDAR, dtype=str)
     taxonomy = read_csv(STOCK_THEME_TAXONOMY, dtype=str)
