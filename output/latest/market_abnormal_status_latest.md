@@ -1,6 +1,6 @@
 # Market Abnormal Status Latest
 
-- generated_at: `2026-06-17 14:20:59 Asia/Taipei`
+- generated_at: `2026-06-17 16:43:17 Asia/Taipei`
 - source: TWSE / TPEx official OpenAPI
 - usage: execution-risk flag for daily candidate, short-term research, and backtest segmentation.
 - limitation: historical backtests can only use this flag after daily snapshots accumulate or a verified historical source is backfilled.

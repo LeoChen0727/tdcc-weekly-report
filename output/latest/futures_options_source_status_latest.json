@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17 14:30:14 Asia/Taipei",
+  "generated_at": "2026-06-17 16:47:13 Asia/Taipei",
   "sources": {
     "institutional_fo": {
       "status": "ok",
@@ -27,8 +27,8 @@
     },
     "taiwan_vix": {
       "status": "ok",
-      "rows": 74,
-      "latest_date": "20260616",
+      "rows": 75,
+      "latest_date": "20260617",
       "message": ""
     }
   },

@@ -1,78 +1,79 @@
 # Daily Theme Status History
 
-- generated_at: `2026-06-17 14:29:44 Asia/Taipei`
-- latest_signal_date: `20260616`
-- latest_rows: `333`
-- history_rows: `4492`
+- generated_at: `2026-06-17 16:46:45 Asia/Taipei`
+- latest_signal_date: `20260617`
+- latest_rows: `359`
+- history_rows: `4851`
 - purpose: Persist stock-level mainstream/non-mainstream and volume-attack labels by signal date for no-lookahead backtests.
 - caveat: Historical rows begin when this tracker starts unless older snapshots are backfilled from archived artifacts.
 
 ## Theme Status Group Counts
 | theme_status_group | count |
 | --- | --- |
-| mainstream_overheated | 175 |
-| mainstream_supported | 155 |
-| non_mainstream | 3 |
+| mainstream_overheated | 217 |
+| mainstream_supported | 138 |
+| non_mainstream | 4 |
 
 ## Theme Final Status Counts
 | theme_final_status | count |
 | --- | --- |
-| mainstream_overheated | 175 |
-| mainstream_follow_through | 147 |
+| mainstream_overheated | 217 |
+| mainstream_follow_through | 100 |
+| mainstream_leader | 33 |
 | emerging_theme | 5 |
-| mainstream_leader | 3 |
-| single_name_signal | 3 |
+| single_name_signal | 4 |
 
 ## Volume Attack Theme Status Counts
 | theme_volume_attack_status | count |
 | --- | --- |
-| blank | 322 |
+| blank | 345 |
 | overheated_volume_theme | 6 |
-| non_mainstream_volume_watch | 3 |
-| watch_volume_theme | 1 |
+| failed_volume_theme | 4 |
+| watch_volume_theme | 2 |
+| non_mainstream_volume_watch | 1 |
 | single_stock_volume_attack | 1 |
 
 ## Latest Stock-Level Rows
 | signal_date | stock_id | stock_name | theme_name | theme_final_status | theme_status_group | theme_volume_attack_status | candidate_source_type | presentation_priority | volume_breakout_type | selection_status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 20260616 | 1503 | 士電 | 電機機械 | mainstream_overheated | mainstream_overheated |  | risk_downgraded_candidate |  |  |  |
-| 20260616 | 1504 | 東元 | 電機機械 | mainstream_overheated | mainstream_overheated |  | risk_downgraded_candidate |  |  |  |
-| 20260616 | 1513 | 中興電 | 電機機械 | mainstream_overheated | mainstream_overheated |  | risk_downgraded_candidate |  |  |  |
-| 20260616 | 1514 | 亞力 | 電機機械 | mainstream_overheated | mainstream_overheated |  | risk_downgraded_candidate |  |  |  |
-| 20260616 | 1532 | 勤美 | 電機機械 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
-| 20260616 | 1560 | 中砂 | 電機機械 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
-| 20260616 | 1597 | 直得 | 電機機械 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
-| 20260616 | 2049 | 上銀 | 電機機械 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
-| 20260616 | 2201 | 裕隆 | 汽車工業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
-| 20260616 | 2233 | 宇隆 | 汽車工業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
-| 20260616 | 2243 | 宏旭-KY | 汽車工業 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
-| 20260616 | 2258 | 鴻華先進-創 | 汽車工業 | mainstream_overheated | mainstream_overheated |  | risk_downgraded_candidate |  |  |  |
-| 20260616 | 2302 | 麗正 | 半導體業 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
-| 20260616 | 2308 | 台達電 | 電子零組件業 | mainstream_overheated | mainstream_overheated |  | risk_downgraded_candidate |  |  |  |
-| 20260616 | 2316 | 楠梓電 | 電子零組件業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
-| 20260616 | 2323 | 中環 | 光電業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
-| 20260616 | 2327 | 國巨* | 電子零組件業 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
-| 20260616 | 2330 | 台積電 | 半導體業 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
-| 20260616 | 2337 | 旺宏 | 半導體業 | mainstream_overheated | mainstream_overheated |  | risk_downgraded_candidate |  |  |  |
-| 20260616 | 2338 | 光罩 | 半導體業 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
-| 20260616 | 2340 | 台亞 | 半導體業 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
-| 20260616 | 2342 | 茂矽 | 半導體業 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
-| 20260616 | 2351 | 順德 | 半導體業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
-| 20260616 | 2355 | 敬鵬 | 電子零組件業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
-| 20260616 | 2363 | 矽統 | 半導體業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate | D_降級_TDCC轉弱 |  |  |
-| 20260616 | 2368 | 金像電 | 電子零組件業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
-| 20260616 | 2369 | 菱生 | 半導體業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
-| 20260616 | 2374 | 佳能 | 光電業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
-| 20260616 | 2375 | 凱美 | 電子零組件業 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
-| 20260616 | 2379 | 瑞昱 | 半導體業 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
-| 20260616 | 2383 | 台光電 | 電子零組件業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
-| 20260616 | 2388 | 威盛 | 半導體業 | mainstream_overheated | mainstream_overheated |  | risk_downgraded_candidate | D_降級_TDCC轉弱 |  |  |
-| 20260616 | 2392 | 正崴 | 電子零組件業 | mainstream_overheated | mainstream_overheated |  | risk_downgraded_candidate |  |  |  |
-| 20260616 | 2401 | 凌陽 | 半導體業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
-| 20260616 | 2402 | 毅嘉 | 電子零組件業 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
-| 20260616 | 2406 | 國碩 | 光電業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate | A_優先追蹤 |  |  |
-| 20260616 | 2408 | 南亞科 | 半導體業 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
-| 20260616 | 2409 | 友達 | 光電業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
-| 20260616 | 2428 | 興勤 | 電子零組件業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
-| 20260616 | 2436 | 偉詮電 | 半導體業 | mainstream_overheated | mainstream_overheated |  | risk_downgraded_candidate |  |  |  |
+| 20260617 | 0050 | 元大台灣50 | TWSE | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
+| 20260617 | 0052 | 富邦科技 | TWSE | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
+| 20260617 | 0055 | 元大MSCI金融 | TWSE | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
+| 20260617 | 0056 | 元大高股息 | TWSE | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
+| 20260617 | 1301 | 台塑 | 塑膠工業 | mainstream_overheated | mainstream_overheated |  | risk_downgraded_candidate |  |  |  |
+| 20260617 | 1303 | 南亞 | 塑膠工業 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
+| 20260617 | 1310 | 台苯 | 塑膠工業 | mainstream_overheated | mainstream_overheated |  | risk_downgraded_candidate |  |  |  |
+| 20260617 | 1313 | 聯成 | 塑膠工業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
+| 20260617 | 1314 | 中石化 | 塑膠工業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
+| 20260617 | 1319 | 東陽 | 汽車工業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
+| 20260617 | 1326 | 台化 | 塑膠工業 | mainstream_overheated | mainstream_overheated |  | risk_downgraded_candidate |  |  |  |
+| 20260617 | 1471 | 首利 | 電子零組件業 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
+| 20260617 | 1503 | 士電 | 電機機械 | mainstream_overheated | mainstream_overheated |  | risk_downgraded_candidate |  |  |  |
+| 20260617 | 1513 | 中興電 | 電機機械 | mainstream_overheated | mainstream_overheated |  | risk_downgraded_candidate |  |  |  |
+| 20260617 | 1514 | 亞力 | 電機機械 | mainstream_overheated | mainstream_overheated |  | risk_downgraded_candidate |  |  |  |
+| 20260617 | 1515 | 力山 | 電機機械 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
+| 20260617 | 1519 | 華城 | 電機機械 | mainstream_overheated | mainstream_overheated |  | risk_downgraded_candidate |  |  |  |
+| 20260617 | 1597 | 直得 | 電機機械 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
+| 20260617 | 1710 | 東聯 | 化學工業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
+| 20260617 | 1711 | 永光 | 化學工業 | mainstream_overheated | mainstream_overheated |  | risk_downgraded_candidate |  |  |  |
+| 20260617 | 1714 | 和桐 | 化學工業 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
+| 20260617 | 1717 | 長興 | 化學工業 | mainstream_overheated | mainstream_overheated |  | risk_downgraded_candidate |  |  |  |
+| 20260617 | 1722 | 台肥 | 化學工業 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
+| 20260617 | 1727 | 中華化 | 化學工業 | mainstream_overheated | mainstream_overheated |  | risk_downgraded_candidate |  |  |  |
+| 20260617 | 1905 | 華紙 | 造紙工業 | mainstream_overheated | mainstream_overheated | overheated_volume_theme | individual_quality_candidate |  | bottom_volume_attack | selected |
+| 20260617 | 1907 | 永豐餘 | 造紙工業 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
+| 20260617 | 2049 | 上銀 | 電機機械 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
+| 20260617 | 2201 | 裕隆 | 汽車工業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
+| 20260617 | 2243 | 宏旭-KY | 汽車工業 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
+| 20260617 | 2302 | 麗正 | 半導體業 | mainstream_overheated | mainstream_overheated | overheated_volume_theme | individual_quality_candidate |  | bottom_volume_attack | selected |
+| 20260617 | 2308 | 台達電 | 電子零組件業 | mainstream_overheated | mainstream_overheated |  | risk_downgraded_candidate |  |  |  |
+| 20260617 | 2312 | 金寶 | 其他電子業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
+| 20260617 | 2313 | 華通 | 電子零組件業 | mainstream_overheated | mainstream_overheated |  | risk_downgraded_candidate |  |  |  |
+| 20260617 | 2316 | 楠梓電 | 電子零組件業 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
+| 20260617 | 2317 | 鴻海 | 其他電子業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
+| 20260617 | 2323 | 中環 | 光電業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
+| 20260617 | 2327 | 國巨* | 電子零組件業 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
+| 20260617 | 2328 | 廣宇 | 電子零組件業 | mainstream_overheated | mainstream_overheated |  | latent_watch_candidate |  |  |  |
+| 20260617 | 2329 | 華泰 | 半導體業 | mainstream_overheated | mainstream_overheated |  | risk_downgraded_candidate |  |  |  |
+| 20260617 | 2330 | 台積電 | 半導體業 | mainstream_overheated | mainstream_overheated |  | individual_quality_candidate |  |  |  |
 
