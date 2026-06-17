@@ -44,6 +44,7 @@ jobs:
         run: |
           python scripts/validate_apps_script_workflow_triggers.py
           python scripts/validate_repo_production_inventory.py
+          python scripts/validate_repo_file_lifecycle_inventory.py
           python scripts/validate_repo_semantic_integrity.py
           python scripts/validate_repo_advanced_integrity.py
           python scripts/validate_repo_code_isolation_policy.py

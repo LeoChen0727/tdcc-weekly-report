@@ -31,12 +31,8 @@ ChatGPT-side daily recommendation PDF source.
 
 Retired outputs:
 
-- `output/latest/daily_market_curated_report_latest.pdf`
-- `output/latest/daily_market_full_table_report_latest.pdf`
-- `output/latest/mainstream_daily_recommendation_highlight_latest.pdf`
-- `output/latest/mainstream_full_candidate_list_latest.pdf`
-- `output/latest/non_mainstream_daily_recommendation_highlight_latest.pdf`
-- `output/latest/non_mainstream_full_candidate_list_latest.pdf`
+- old `output/latest/daily_market_*` fixed daily market PDF aliases
+- old root-level mainstream / non-mainstream daily recommendation PDF aliases
 
 Formal daily recommendation PDFs must be generated through:
 
