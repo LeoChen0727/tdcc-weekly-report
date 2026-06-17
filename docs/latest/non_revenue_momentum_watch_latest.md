@@ -1,7 +1,7 @@
 # Non-Revenue Momentum Watch
 
 ## Metadata
-- generated_at: `2026-06-17 16:58:38 UTC`
+- generated_at: `2026-06-17 17:39:43 UTC`
 - main_price_date: `20260617`
 - section_type: `specialty_section_not_core_category`
 - model_effect_allowed: `False`
@@ -37,7 +37,7 @@
 | C_hot_money_watch | 6189 | 豐藝 | 電子通路業 |  | 54.0 | revenue_negative | mainstream_follow_through | non_mainstream_theme | non_mainstream_flow_active |  |  | 1.5 |  |  | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
 | C_hot_money_watch | 2331 | 精英 | 電腦及週邊設備業 |  | 54.0 | revenue_negative | mainstream_follow_through | core_mainstream_theme | core_mainstream_supported |  |  | 0.58 |  |  | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
 | C_hot_money_watch | 2352 | 佳世達 | 電腦及週邊設備業 |  | 54.0 | revenue_negative | mainstream_follow_through | core_mainstream_theme | core_mainstream_supported |  |  | 0.28 |  | no_signal | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
-| C_hot_money_watch | 2377 | 微星 | 電腦及週邊設備業 |  | 54.0 | revenue_negative | mainstream_follow_through | core_mainstream_theme | core_mainstream_supported |  |  | 0.23 |  | no_signal | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
+| C_hot_money_watch | 2377 | 微星 | 電腦及週邊設備業 |  | 54.0 | revenue_negative | mainstream_follow_through | core_mainstream_theme | core_mainstream_supported |  |  | 0.23 |  | put_inflow | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
 | C_hot_money_watch | 2498 | 宏達電 | 通信網路業 |  | 46.0 | revenue_negative | mainstream_leader | core_mainstream_theme | core_mainstream_supported |  |  | 0.63 |  | no_signal | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
 | C_hot_money_watch | 4906 | 正文 | 通信網路業 |  | 45.0 | revenue_negative | mainstream_leader | core_mainstream_theme | core_mainstream_supported |  |  | 0.18 |  |  | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |
 | C_hot_money_watch | 4938 | 和碩 | 電腦及週邊設備業 |  | 40.0 | revenue_negative | mainstream_follow_through | core_mainstream_theme | core_mainstream_supported |  |  | 0.67 |  |  | 價格或題材有資金推動，但基本面確認不足，避免當主攻理由 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。 |

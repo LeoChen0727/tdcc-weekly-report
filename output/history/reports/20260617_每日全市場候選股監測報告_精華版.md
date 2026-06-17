@@ -1,7 +1,7 @@
 # 每日全市場候選股監測報告 - 精華版
 
 - 主資料日期：`20260617`
-- 產生時間：`2026-06-18 01:01:10 Asia/Taipei`
+- 產生時間：`2026-06-18 01:42:37 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
 - 判斷說明：core daily data dates match main_price_date
 - 權證資料日期：`20260617`
@@ -267,7 +267,7 @@
 - 權證：
 - 財報 / 事件催化：score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;monthly_revenue_calendar;calendar_monthly_revenue_expect...
 - 摘要：TDCC增加 / 大戶溫和增加
-- 完整原因：近幾週400張與1000張合計增加；no_signal；今日無可用權證成交金額；量比0.15x；月營收YoY 88.8%；累計YoY 107.9%；TDCC近幾週大戶溫和增加
+- 完整原因：近幾週400張與1000張合計增加；no_signal；權證金流未見明顯高於近期平均的變化；量比0.15x；月營收YoY 88.8%；累計YoY 107.9%；TDCC近幾週大戶溫和增加
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
 
 ### 3006 晶豪科
@@ -305,7 +305,7 @@
 - 權證：
 - 財報 / 事件催化：score 0 / theme 100.0/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window;航運業 / monthly_revenue_calendar;calendar_monthly_...
 - 摘要：回檔轉強 / pullback_rebound / 大戶同步增加
-- 完整原因：近幾週400張與1000張同步累積；no_signal；今日無可用權證成交金額；量比1.39x；月營收YoY 41.8%；累計YoY 24.3%；TDCC近幾週400張與1000張同步累積
+- 完整原因：近幾週400張與1000張同步累積；no_signal；權證金流未見明顯高於近期平均的變化；量比1.39x；月營收YoY 41.8%；累計YoY 24.3%；TDCC近幾週400張與1000張同步累積
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
 
 ### 3016 嘉晶
