@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18 00:36:59 Asia/Taipei",
+  "generated_at": "2026-06-18 01:01:41 Asia/Taipei",
   "status": "pass",
   "schema_only": false,
   "data_table_rows": {
@@ -8,7 +8,7 @@
     "quarterly_catalyst": 501,
     "event_catalyst_log": 226
   },
-  "all_candidates_rows": 319,
+  "all_candidates_rows": 478,
   "catalyst_performance_rows": 640,
   "catalyst_summary_rows": 10,
   "catalyst_needs_review_rows": 2,
