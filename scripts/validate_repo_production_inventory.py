@@ -286,6 +286,7 @@ def tracked_python_paths() -> set[str]:
         path
         for path in run_git_ls_files("*.py")
         if path.startswith("scripts/") or "/" not in path
+        if (ROOT / path).exists()
     }
     working_tree = {
         path.relative_to(ROOT).as_posix()
@@ -297,7 +298,7 @@ def tracked_python_paths() -> set[str]:
 
 
 def tracked_test_python_paths() -> set[str]:
-    tracked = {path for path in run_git_ls_files("*.py") if path.startswith("tests/")}
+    tracked = {path for path in run_git_ls_files("*.py") if path.startswith("tests/") if (ROOT / path).exists()}
     working_tree = {
         path.relative_to(ROOT).as_posix()
         for path in (ROOT / "tests").glob("**/*.py")
@@ -311,6 +312,7 @@ def tracked_executable_script_paths() -> set[str]:
         path
         for path in run_git_ls_files("*")
         if Path(path).suffix in EXECUTABLE_SCRIPT_SUFFIXES
+        if (ROOT / path).exists()
     }
     working_tree = {
         path.relative_to(ROOT).as_posix()
@@ -328,6 +330,7 @@ def tracked_workflow_paths() -> set[str]:
         *run_git_ls_files(".github/workflows/*.yml"),
         *run_git_ls_files(".github/workflows/*.yaml"),
     }
+    tracked = {path for path in tracked if (ROOT / path).exists()}
     working_tree = {
         path.relative_to(ROOT).as_posix()
         for pattern in (".github/workflows/*.yml", ".github/workflows/*.yaml")
@@ -339,6 +342,8 @@ def tracked_workflow_paths() -> set[str]:
 def tracked_guidance_text_paths() -> set[str]:
     tracked: set[str] = set()
     for path in run_git_ls_files("*"):
+        if not (ROOT / path).exists():
+            continue
         suffix = Path(path).suffix.lower()
         if suffix not in {".md", ".txt"}:
             continue

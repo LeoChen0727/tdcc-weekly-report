@@ -143,7 +143,6 @@ def build_guide() -> str:
     performance = read_csv(LATEST_DIR / "daily_signal_performance_summary_latest.csv")
     individual_index = read_csv(LATEST_DIR / "individual_stock_available_raw_data_index_slim.csv")
     catalyst_needs_review = read_csv(LATEST_DIR / "catalyst_needs_review_latest.csv")
-    chip = read_csv(LATEST_DIR / "chip_flow_positive_streak_latest.csv")
     volume_breakout = read_csv(LATEST_DIR / "volume_breakout_watch_latest.csv")
     volume_attack_theme = read_csv(LATEST_DIR / "volume_attack_theme_layer_latest.csv")
     volume_attack_stocks = read_csv(LATEST_DIR / "volume_attack_theme_stocks_latest.csv")
@@ -451,13 +450,6 @@ def build_guide() -> str:
             f"needs_review_rows={len(catalyst_needs_review)}",
             "Currently source-limited; do not upgrade without confirmed source rows.",
         ],
-        [
-            "Chip-flow positive streak",
-            "output/latest/chip_flow_positive_streak_latest.csv",
-            "positive_streak_days and category if source data exists",
-            f"rows={len(chip)}",
-            "If empty/unavailable, do not mention as active signal.",
-        ],
     ]
     lines.extend(md_table(["layer", "file", "classification fields", "current buckets", "ChatGPT use"], coverage_rows))
     lines.append("")
@@ -547,7 +539,6 @@ def build_guide() -> str:
         ["market_timing_backtest_chatgpt_packet_latest.md", file_status(LATEST_DIR / "market_timing_backtest_chatgpt_packet_latest.md"), "-"],
         ["surge_model_chatgpt_packet_latest.md", file_status(LATEST_DIR / "surge_model_chatgpt_packet_latest.md"), "-"],
         ["warrant_flow_by_stock_latest.csv", file_status(LATEST_DIR / "warrant_flow_by_stock_latest.csv"), str(len(warrant))],
-        ["chip_flow_positive_streak_latest.csv", file_status(LATEST_DIR / "chip_flow_positive_streak_latest.csv"), str(len(chip))],
         ["catalyst_needs_review_latest.csv", file_status(LATEST_DIR / "catalyst_needs_review_latest.csv"), str(len(catalyst_needs_review))],
     ]
     lines.extend(md_table(["file", "status", "rows"], quality_rows))

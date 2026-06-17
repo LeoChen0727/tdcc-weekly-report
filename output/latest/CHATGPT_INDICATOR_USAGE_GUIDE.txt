@@ -1,6 +1,6 @@
 # ChatGPT Indicator Usage Guide
 
-- generated_at: `2026-06-17 06:31:33 UTC`
+- generated_at: `2026-06-17 15:05:21 台北標準時間`
 - main_price_date: `20260616`
 - purpose: Use program-side classifications first. ChatGPT should explain and synthesize, not re-rank from memory.
 - rule: If memory, PDF, or ad-hoc interpretation conflicts with program-side fields, use the structured program-side fields.
@@ -64,7 +64,6 @@
 | Next-open +10pct strict parameter current candidates | output/latest/weekly_surge_strict_parameter_candidates_latest.csv | research_priority, stock_id, matched_rules, best_d5_touch_rate_pct, best_d10_touch_rate_pct, best_d10_rule, research_caveat | B_strict_research_confirm=43; A_strict_research_watch=23; D_background_only=13; C_strict_short_term_watch=11 / rows=90 | Current strict research watchlist using no latest-theme label. Keep as a standalone D+5/D+10 research table, not core ranking. |
 | Individual stock raw availability | output/latest/individual_stock_available_raw_data_index_slim.csv | data_quality_status, report_status, price/TDCC row counts | partial=2288; ok=83; insufficient_data=24 | Check before single-stock analysis. |
 | Catalyst layer | output/latest/fundamental_catalyst_layer_latest.md | catalyst_quality, catalyst_tags, price_reaction_level, needs_eps_confirmation | needs_review_rows=2 | Currently source-limited; do not upgrade without confirmed source rows. |
-| Chip-flow positive streak | output/latest/chip_flow_positive_streak_latest.csv | positive_streak_days and category if source data exists | rows=0 | If empty/unavailable, do not mention as active signal. |
 
 ## Task-Specific Rules
 
@@ -145,7 +144,6 @@
 | market_timing_backtest_chatgpt_packet_latest.md | missing | - |
 | surge_model_chatgpt_packet_latest.md | ready | - |
 | warrant_flow_by_stock_latest.csv | ready | 451 |
-| chip_flow_positive_streak_latest.csv | exists_but_unreadable_or_empty | 0 |
 | catalyst_needs_review_latest.csv | ready | 2 |
 
 ## Copy-Paste Summary For ChatGPT

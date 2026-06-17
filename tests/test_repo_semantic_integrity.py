@@ -43,9 +43,9 @@ def test_report_artifact_lineage_manifest_has_required_artifacts() -> None:
         assert rows[artifact]["validator"]
 
 
-def test_chip_flow_orphan_is_marked_deprecated() -> None:
+def test_chip_flow_orphan_builder_was_removed() -> None:
     inventory = ROOT / "config" / "repo_production_inventory.csv"
     with inventory.open("r", encoding="utf-8-sig", newline="") as fh:
         rows = {row["path"]: row for row in csv.DictReader(fh)}
 
-    assert rows["scripts/build_chip_flow_positive_streak.py"]["status"] == "legacy_deprecated"
+    assert "scripts/build_chip_flow_positive_streak.py" not in rows

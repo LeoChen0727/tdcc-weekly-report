@@ -76,6 +76,7 @@ FORBIDDEN_ACTIVE_GUIDANCE_PATTERNS = {
     r"\bpython(?:3)?\s+scripts/validate_daily_market_report\.py\b": "retired daily market PDF validator",
     r"daily_market_curated_report_latest\.pdf": "retired daily market curated PDF artifact",
     r"daily_market_full_table_report_latest\.pdf": "retired daily market full-table PDF artifact",
+    r"chip_flow_positive_streak": "removed chip-flow positive-streak surface",
 }
 
 CANONICAL_DAILY_REPORT_ENTRYPOINT = "scripts/run_chatgpt_daily_report_entrypoint.py"
@@ -202,6 +203,7 @@ def tracked_python_paths() -> set[str]:
         path
         for path in git_ls_files("*.py")
         if path.startswith("scripts/") or "/" not in path
+        if (ROOT / path).exists()
     }
     working_tree = {
         rel(path)
@@ -213,7 +215,7 @@ def tracked_python_paths() -> set[str]:
 
 
 def tracked_test_python_paths() -> set[str]:
-    tracked = {path for path in git_ls_files("*.py") if path.startswith("tests/")}
+    tracked = {path for path in git_ls_files("*.py") if path.startswith("tests/") if (ROOT / path).exists()}
     working_tree = {
         rel(path)
         for path in (ROOT / "tests").glob("**/*.py")
@@ -223,7 +225,11 @@ def tracked_test_python_paths() -> set[str]:
 
 
 def tracked_workflow_paths() -> set[str]:
-    tracked = git_ls_files(".github/workflows/*.yml") | git_ls_files(".github/workflows/*.yaml")
+    tracked = {
+        path
+        for path in (git_ls_files(".github/workflows/*.yml") | git_ls_files(".github/workflows/*.yaml"))
+        if (ROOT / path).exists()
+    }
     working_tree = {
         rel(path)
         for pattern in (".github/workflows/*.yml", ".github/workflows/*.yaml")
@@ -233,7 +239,12 @@ def tracked_workflow_paths() -> set[str]:
 
 
 def tracked_executable_paths() -> set[str]:
-    tracked = {path for path in git_ls_files("*") if Path(path).suffix in NON_PYTHON_EXECUTABLE_SUFFIXES}
+    tracked = {
+        path
+        for path in git_ls_files("*")
+        if Path(path).suffix in NON_PYTHON_EXECUTABLE_SUFFIXES
+        if (ROOT / path).exists()
+    }
     working_tree = {
         rel(path)
         for path in ROOT.glob("**/*")
@@ -248,6 +259,8 @@ def tracked_executable_paths() -> set[str]:
 def tracked_guidance_paths() -> set[str]:
     paths: set[str] = set()
     for path in git_ls_files("*"):
+        if not (ROOT / path).exists():
+            continue
         suffix = Path(path).suffix.lower()
         if suffix not in {".md", ".txt"}:
             continue
