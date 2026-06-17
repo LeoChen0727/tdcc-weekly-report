@@ -395,6 +395,15 @@ def validate_pdf_generator_boundary() -> None:
         fail("PDF generator must read the daily volume breakout operation adapter artifact")
     if "render_volume_range_breakout_operation_section" not in source:
         fail("PDF generator must expose an independent volume breakout operation renderer")
+    for token in [
+        "VOLUME_OPERATION_HIGHLIGHT_LIMITS",
+        '"confirmed_operation": 10',
+        '"pending_confirmation": 5',
+        '"active_operation": 5',
+        "limit_volume_operation_rows_for_pdf_view",
+    ]:
+        if token not in source:
+            fail(f"PDF generator must enforce volume operation highlight display limit: {token}")
     forbidden = [
         "volume_breakout_operation_pdf_preview_latest.csv",
         "volume_breakout_confirmed_operation_rank_latest.csv",
