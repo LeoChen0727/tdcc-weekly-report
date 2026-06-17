@@ -436,6 +436,11 @@ jobs:
 
           bash scripts/ci_push_with_retry.sh "$TARGET_BRANCH" 5
 
+      - name: Replay ChatGPT-side daily PDF new conversation
+        run: |
+          python scripts/validate_chatgpt_daily_report_new_conversation_replay.py \
+            --output-dir chatgpt_side_outputs_new_conversation_replay
+
       - name: Dispatch and wait for GitHub Pages deploy
         if: ${{ github.ref == 'refs/heads/main' }}
         timeout-minutes: 10
