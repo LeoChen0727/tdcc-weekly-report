@@ -1,6 +1,6 @@
 CHATGPT DAILY REPORT PACKET
 
-generated_at: 2026-06-17 20:03:01 Asia/Taipei
+generated_at: 2026-06-17 22:30:05 Asia/Taipei
 repo: LeoChen0727/tdcc-weekly-report
 main_price_date: 20260617
 report_ready: True
@@ -70,7 +70,7 @@ EMBEDDED DAILY SHORT-TERM SPECIALTY PACKET
 # DAILY SHORT-TERM SPECIALTY PACKET
 
 ## Metadata
-- generated_at: `2026-06-17 12:02:13 UTC`
+- generated_at: `2026-06-17 14:29:12 UTC`
 - main_price_date: `20260617`
 - purpose: Force daily reports to include short-term research-stat support sections without removing active D+5/D+10 core model rows.
 - market_abnormal_status_path: `output/latest/market_abnormal_status_latest.csv`
@@ -166,18 +166,18 @@ EMBEDDED DAILY SHORT-TERM SPECIALTY PACKET
 ### D+5 Parameter Table
 | rule_name | target_window | selected_stock_days | win_rate_next_open_to_close_pct | avg_next_open_to_close_return_pct | median_next_open_to_close_return_pct | avg_loss_next_open_to_close_return_pct | worst_loss_next_open_to_close_return_pct | hit_rate_pct | median_next_open_to_high_return_pct | median_next_open_to_low_return_pct | worst_next_open_to_low_return_pct |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| vol5_avg_ge_1_5 + tdcc_all_up + macd_hist_pos + kd_bullish_not_overheated + return_10d_20_50 | D+5 | 88 | 63.01 | 6.47 | 4.45 | -5.3 | -14.84 | 47.73 | 9.43 | -5.51 | -25.23 |
 | vol5_avg_ge_1_5 + tdcc_all_up + kd_bullish_not_overheated + return_10d_20_50 | D+5 | 88 | 63.01 | 6.47 | 4.45 | -5.3 | -14.84 | 47.73 | 9.43 | -5.51 | -25.23 |
+| vol5_avg_ge_1_5 + tdcc_all_up + macd_hist_pos + kd_bullish_not_overheated + return_10d_20_50 | D+5 | 88 | 63.01 | 6.47 | 4.45 | -5.3 | -14.84 | 47.73 | 9.43 | -5.51 | -25.23 |
 | day_vol_ge_2 + tdcc_all_up + rsi_50_75 + return_10d_20_50 | D+5 | 74 | 54.84 | 3.06 | 1.35 | -7.46 | -19.31 | 47.3 | 9.29 | -6.21 | -22.19 |
 | day_vol_ge_2 + tdcc_high_up + rsi_50_75 + return_10d_20_50 | D+5 | 92 | 54.55 | 2.64 | 1.54 | -7.46 | -19.31 | 46.74 | 9.01 | -6.41 | -22.19 |
-| vol5_avg_ge_1_5 + tdcc_high_up + kd_bullish_not_overheated + return_10d_20_50 | D+5 | 110 | 62.77 | 5.55 | 4.35 | -5.68 | -14.84 | 46.36 | 9.1 | -5.73 | -25.23 |
 | vol5_avg_ge_1_5 + tdcc_high_up + macd_hist_pos + kd_bullish_not_overheated + return_10d_20_50 | D+5 | 110 | 62.77 | 5.55 | 4.35 | -5.68 | -14.84 | 46.36 | 9.1 | -5.73 | -25.23 |
+| vol5_avg_ge_1_5 + tdcc_high_up + kd_bullish_not_overheated + return_10d_20_50 | D+5 | 110 | 62.77 | 5.55 | 4.35 | -5.68 | -14.84 | 46.36 | 9.1 | -5.73 | -25.23 |
 | vol5_avg_ge_1_5 + tdcc_all_up + rsi_50_75 + return_10d_20_50 | D+5 | 129 | 63.81 | 6.14 | 3.08 | -6.3 | -17.33 | 44.96 | 9.44 | -5.3 | -19.33 |
 | vol5_avg_ge_2 + tdcc_all_up + rsi_50_75 + return_10d_20_50 | D+5 | 69 | 63.33 | 5.0 | 2.5 | -6.06 | -14.67 | 44.93 | 8.54 | -5.83 | -14.83 |
 | vol5_avg_ge_1_5 + market_strong_bull + tdcc_high_up + bb_width_not_extreme + return_10d_20_50 | D+5 | 65 | 54.39 | 3.6 | 2.45 | -7.74 | -17.33 | 44.62 | 8.54 | -7.11 | -19.33 |
 | vol5_avg_ge_1_5 + market_bull + tdcc_all_up + kd_bullish_not_overheated + return_10d_20_50 | D+5 | 72 | 61.4 | 5.64 | 3.08 | -5.44 | -14.84 | 44.44 | 8.59 | -5.51 | -25.23 |
 | day_vol_ge_2 + market_bull + tdcc_high_up + rsi_50_75 + return_10d_20_50 | D+5 | 84 | 52.17 | 2.5 | 1.54 | -7.64 | -19.31 | 44.05 | 8.28 | -6.41 | -22.19 |
-| day_vol_ge_2 + market_bull + tdcc_high_up + kd_bullish_not_overheated + return_10d_20_50 | D+5 | 66 | 56.36 | 2.84 | 1.92 | -6.39 | -16.35 | 43.94 | 8.29 | -6.98 | -25.23 |
+| vol5_avg_ge_1_5 + market_bull + tdcc_high_up + bb_width_not_extreme + return_10d_20_50 | D+5 | 66 | 53.45 | 3.38 | 2.0 | -7.81 | -17.33 | 43.94 | 8.36 | -7.22 | -19.33 |
 
 ### D+10 Parameter Table
 | rule_name | target_window | selected_stock_days | win_rate_next_open_to_close_pct | avg_next_open_to_close_return_pct | median_next_open_to_close_return_pct | avg_loss_next_open_to_close_return_pct | worst_loss_next_open_to_close_return_pct | hit_rate_pct | median_next_open_to_high_return_pct | median_next_open_to_low_return_pct | worst_next_open_to_low_return_pct |
@@ -191,9 +191,9 @@ EMBEDDED DAILY SHORT-TERM SPECIALTY PACKET
 | vol5_avg_ge_2 + market_strong_bull + tdcc_all_up + kd_bullish_not_overheated + return_10d_20_50 | D+10 | 34 | 81.82 | 13.42 | 13.75 | -6.8 | -13.1 | 67.65 | 16.92 | -5.73 | -15.01 |
 | vol5_avg_ge_2 + market_bull + tdcc_all_up + kd_bullish_not_overheated + return_10d_20_50 | D+10 | 37 | 81.82 | 13.42 | 13.75 | -6.8 | -13.1 | 67.57 | 16.96 | -5.41 | -15.01 |
 | vol5_avg_ge_1_5 + tdcc_high_up + bb_width_not_extreme + return_10d_20_50 | D+10 | 72 | 82.35 | 18.68 | 13.66 | -5.74 | -8.22 | 65.28 | 17.3 | -8.04 | -19.33 |
-| vol5_avg_ge_1_5 + tdcc_all_up + kd_bullish_not_overheated + return_10d_20_50 | D+10 | 88 | 74.42 | 15.44 | 10.98 | -6.03 | -16.74 | 64.77 | 16.92 | -6.19 | -25.23 |
 | vol5_avg_ge_1_5 + tdcc_all_up + macd_hist_pos + kd_bullish_not_overheated + return_10d_20_50 | D+10 | 88 | 74.42 | 15.44 | 10.98 | -6.03 | -16.74 | 64.77 | 16.92 | -6.19 | -25.23 |
-| vol5_avg_ge_1_5 + market_strong_bull + tdcc_high_up + kd_bullish_not_overheated + return_10d_20_50 | D+10 | 84 | 80.0 | 16.48 | 11.91 | -5.13 | -16.74 | 64.29 | 14.95 | -6.61 | -25.23 |
+| vol5_avg_ge_1_5 + tdcc_all_up + kd_bullish_not_overheated + return_10d_20_50 | D+10 | 88 | 74.42 | 15.44 | 10.98 | -6.03 | -16.74 | 64.77 | 16.92 | -6.19 | -25.23 |
+| vol5_avg_ge_2 + market_strong_bull + tdcc_high_up + kd_bullish_not_overheated + return_10d_20_50 | D+10 | 42 | 81.48 | 13.92 | 13.3 | -5.48 | -13.1 | 64.29 | 16.92 | -6.42 | -15.01 |
 
 ### Current Strict Research Candidates
 | research_priority | stock_id | stock_name | matched_rules | best_d5_hit_rate_pct | best_d10_hit_rate_pct | best_d10_rule | market_abnormal_status | market_abnormal_risk_level | execution_risk_note | research_caveat |
@@ -299,74 +299,74 @@ EMBEDDED DAILY SHORT-TERM SPECIALTY PACKET
 ### D+5 Explosive Volume By Price Position
 | signal_quality_bucket | price_position_bucket | market_theme_group | theme_group_source | theme_structural_status | 結構族群 | theme_mainstream_label | theme_status_group | horizon | volume_ratio_threshold | min_signal_return_pct | mature_count | close_win_rate_pct |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 日內區間資料不足 | 低位爆量反轉 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 2 | 7 | 1 | 100.0 |
-| 日內區間資料不足 | 低位爆量反轉 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 2 | 5 | 1 | 100.0 |
-| 日內區間資料不足 | 低位爆量反轉 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 2 | 3 | 1 | 100.0 |
-| 日內區間資料不足 | 低位爆量反轉 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 2 | 0 | 1 | 100.0 |
-| 紅K小上影 | 低位爆量反轉 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 5 | 3 | 1 | 100.0 |
-| 紅K小上影 | 低位爆量反轉 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 5 | 0 | 1 | 100.0 |
-| 紅K小上影 | 低位爆量反轉 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 2 | 5 | 1 | 100.0 |
-| 日內區間資料不足 | 高位延伸或追價 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 4 | 0 | 1 | 100.0 |
-| 日內區間資料不足 | 高位延伸或追價 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 4 | 3 | 1 | 100.0 |
-| 日內區間資料不足 | 高位延伸或追價 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 4 | 5 | 1 | 100.0 |
-| 日內區間資料不足 | 高位延伸或追價 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 4 | 7 | 1 | 100.0 |
-| 紅K小上影 | 高位延伸或追價 | ai_server_theme | 結構族群 | 核心主流題材 | ai_server_theme | 主流成長題材 | 族群脈絡不足 | D+5 | 3 | 3 | 1 | 100.0 |
-| 紅K小上影 | 高位延伸或追價 | ai_server_theme | 結構族群 | 核心主流題材 | ai_server_theme | 主流成長題材 | 族群脈絡不足 | D+5 | 2 | 0 | 1 | 100.0 |
-| 紅K小上影 | 高位延伸或追價 | ai_server_theme | 結構族群 | 核心主流題材 | ai_server_theme | 主流成長題材 | 族群脈絡不足 | D+5 | 2 | 3 | 1 | 100.0 |
-| 紅K小上影 | 高位延伸或追價 | glass_fiber_ccl_theme | 結構族群 | 核心主流題材 | glass_fiber_ccl_theme | 主流成長題材 | 族群脈絡不足 | D+5 | 4 | 0 | 1 | 100.0 |
-| 紅K小上影 | 高位延伸或追價 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 3 | 3 | 3 | 100.0 |
-| 紅K小上影 | 高位延伸或追價 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 3 | 5 | 3 | 100.0 |
-| 紅K小上影 | 高位延伸或追價 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 2 | 3 | 3 | 100.0 |
-| 紅K小上影 | 高位延伸或追價 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 2 | 5 | 3 | 100.0 |
-| 紅K小上影 | 高位延伸或追價 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 5 | 0 | 1 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 8 | 7 | 3 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 8 | 5 | 3 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 8 | 3 | 3 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 8 | 0 | 3 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 10 | 7 | 2 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 10 | 5 | 2 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 10 | 3 | 2 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 10 | 0 | 2 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 6 | 7 | 1 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 6 | 5 | 1 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 6 | 3 | 1 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 6 | 0 | 1 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 8 | 7 | 1 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 8 | 5 | 1 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 8 | 3 | 1 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 8 | 0 | 1 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 10 | 7 | 1 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 10 | 5 | 1 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 消費電子族群 | 結構族群 | 核心主流題材 | 消費電子族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 10 | 3 | 1 | 100.0 |
+| 日內區間資料不足 | 高位延伸或追價 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+5 | 8 | 7 | 1 | 100.0 |
 
 ### D+10 Explosive Volume By Price Position
 | signal_quality_bucket | price_position_bucket | market_theme_group | theme_group_source | theme_structural_status | 結構族群 | theme_mainstream_label | theme_status_group | horizon | volume_ratio_threshold | min_signal_return_pct | mature_count | close_win_rate_pct |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 日內區間資料不足 | 低位爆量反轉 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 2 | 7 | 1 | 100.0 |
-| 日內區間資料不足 | 低位爆量反轉 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 2 | 5 | 1 | 100.0 |
-| 日內區間資料不足 | 低位爆量反轉 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 2 | 3 | 1 | 100.0 |
 | 日內區間資料不足 | 低位爆量反轉 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 2 | 0 | 1 | 100.0 |
-| 強紅K收近高 | 近高放量攻擊 | low_earth_orbit_satellite_theme | 結構族群 | 核心主流題材 | low_earth_orbit_satellite_theme | 主流成長題材 | 族群脈絡不足 | D+10 | 8 | 5 | 1 | 100.0 |
-| 強紅K收近高 | 近高放量攻擊 | low_earth_orbit_satellite_theme | 結構族群 | 核心主流題材 | low_earth_orbit_satellite_theme | 主流成長題材 | 族群脈絡不足 | D+10 | 8 | 3 | 1 | 100.0 |
-| 強紅K收近高 | 近高放量攻擊 | low_earth_orbit_satellite_theme | 結構族群 | 核心主流題材 | low_earth_orbit_satellite_theme | 主流成長題材 | 族群脈絡不足 | D+10 | 8 | 0 | 1 | 100.0 |
-| 強紅K收近高 | 近高放量攻擊 | low_earth_orbit_satellite_theme | 結構族群 | 核心主流題材 | low_earth_orbit_satellite_theme | 主流成長題材 | 族群脈絡不足 | D+10 | 10 | 7 | 1 | 100.0 |
-| 強紅K收近高 | 近高放量攻擊 | low_earth_orbit_satellite_theme | 結構族群 | 核心主流題材 | low_earth_orbit_satellite_theme | 主流成長題材 | 族群脈絡不足 | D+10 | 10 | 5 | 1 | 100.0 |
-| 強紅K收近高 | 近高放量攻擊 | low_earth_orbit_satellite_theme | 結構族群 | 核心主流題材 | low_earth_orbit_satellite_theme | 主流成長題材 | 族群脈絡不足 | D+10 | 10 | 3 | 1 | 100.0 |
-| red_candle_but_not_strong_close | 近高放量攻擊 | glass_fiber_ccl_theme | 結構族群 | 核心主流題材 | glass_fiber_ccl_theme | 主流成長題材 | 族群脈絡不足 | D+10 | 5 | 3 | 1 | 100.0 |
-| red_candle_but_not_strong_close | 近高放量攻擊 | low_earth_orbit_satellite_theme | 結構族群 | 核心主流題材 | low_earth_orbit_satellite_theme | 主流成長題材 | 族群脈絡不足 | D+10 | 10 | 0 | 1 | 100.0 |
-| red_candle_but_not_strong_close | 近高放量攻擊 | low_earth_orbit_satellite_theme | 結構族群 | 核心主流題材 | low_earth_orbit_satellite_theme | 主流成長題材 | 族群脈絡不足 | D+10 | 10 | 3 | 1 | 100.0 |
-| red_candle_but_not_strong_close | 近高放量攻擊 | low_earth_orbit_satellite_theme | 結構族群 | 核心主流題材 | low_earth_orbit_satellite_theme | 主流成長題材 | 族群脈絡不足 | D+10 | 8 | 0 | 1 | 100.0 |
-| red_candle_but_not_strong_close | 近高放量攻擊 | low_earth_orbit_satellite_theme | 結構族群 | 核心主流題材 | low_earth_orbit_satellite_theme | 主流成長題材 | 族群脈絡不足 | D+10 | 8 | 3 | 1 | 100.0 |
-| red_candle_but_not_strong_close | 近高放量攻擊 | low_earth_orbit_satellite_theme | 結構族群 | 核心主流題材 | low_earth_orbit_satellite_theme | 主流成長題材 | 族群脈絡不足 | D+10 | 6 | 0 | 1 | 100.0 |
-| red_candle_but_not_strong_close | 近高放量攻擊 | low_earth_orbit_satellite_theme | 結構族群 | 核心主流題材 | low_earth_orbit_satellite_theme | 主流成長題材 | 族群脈絡不足 | D+10 | 4 | 0 | 4 | 100.0 |
-| red_candle_but_not_strong_close | 近高放量攻擊 | low_earth_orbit_satellite_theme | 結構族群 | 核心主流題材 | low_earth_orbit_satellite_theme | 主流成長題材 | 族群脈絡不足 | D+10 | 5 | 0 | 2 | 100.0 |
-| red_candle_but_not_strong_close | 近高放量攻擊 | low_earth_orbit_satellite_theme | 結構族群 | 核心主流題材 | low_earth_orbit_satellite_theme | 主流成長題材 | 族群脈絡不足 | D+10 | 6 | 3 | 1 | 100.0 |
-| red_candle_but_not_strong_close | 近高放量攻擊 | low_earth_orbit_satellite_theme | 結構族群 | 核心主流題材 | low_earth_orbit_satellite_theme | 主流成長題材 | 族群脈絡不足 | D+10 | 5 | 5 | 1 | 100.0 |
+| 日內區間資料不足 | 低位爆量反轉 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 2 | 3 | 1 | 100.0 |
+| 日內區間資料不足 | 低位爆量反轉 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 2 | 5 | 1 | 100.0 |
+| 日內區間資料不足 | 低位爆量反轉 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 2 | 7 | 1 | 100.0 |
+| 紅K小上影 | 高位延伸或追價 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 2 | 0 | 3 | 100.0 |
+| 紅K小上影 | 高位延伸或追價 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 4 | 0 | 2 | 100.0 |
+| 紅K小上影 | 高位延伸或追價 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 4 | 3 | 2 | 100.0 |
+| 紅K小上影 | 低位爆量反轉 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 5 | 0 | 1 | 100.0 |
+| 紅K小上影 | 低位爆量反轉 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 5 | 3 | 1 | 100.0 |
+| 紅K小上影 | 低位爆量反轉 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 5 | 5 | 1 | 100.0 |
+| 紅K小上影 | 高位延伸或追價 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 4 | 5 | 2 | 100.0 |
+| 紅K小上影 | 高位延伸或追價 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 3 | 0 | 2 | 100.0 |
+| 紅K小上影 | 高位延伸或追價 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 3 | 3 | 2 | 100.0 |
+| 紅K小上影 | 高位延伸或追價 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 3 | 5 | 2 | 100.0 |
+| 紅K小上影 | 高位延伸或追價 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 2 | 3 | 2 | 100.0 |
+| 紅K小上影 | 高位延伸或追價 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 2 | 5 | 2 | 100.0 |
+| 紅K小上影 | 高位延伸或追價 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 3 | 0 | 2 | 100.0 |
+| 紅K小上影 | 高位延伸或追價 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 3 | 3 | 2 | 100.0 |
+| 紅K小上影 | 高位延伸或追價 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 3 | 5 | 2 | 100.0 |
+| 紅K小上影 | 高位延伸或追價 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+10 | 2 | 3 | 2 | 100.0 |
 
 ### D+20 Explosive Volume By Price Position
 | signal_quality_bucket | price_position_bucket | market_theme_group | theme_group_source | theme_structural_status | 結構族群 | theme_mainstream_label | theme_status_group | horizon | volume_ratio_threshold | min_signal_return_pct | mature_count | close_win_rate_pct |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 強紅K收近高 | 近高放量攻擊 | pcb_ccl_theme | 結構族群 | 核心主流題材 | pcb_ccl_theme | 主流成長題材 | 族群脈絡不足 | D+20 | 10 | 0 | 1 | 100.0 |
 | 強紅K收近高 | 近高放量攻擊 | pcb_ccl_theme | 結構族群 | 核心主流題材 | pcb_ccl_theme | 主流成長題材 | 族群脈絡不足 | D+20 | 10 | 7 | 1 | 100.0 |
-| 強紅K收近高 | 近高放量攻擊 | pcb_ccl_theme | 結構族群 | 核心主流題材 | pcb_ccl_theme | 主流成長題材 | 族群脈絡不足 | D+20 | 10 | 5 | 1 | 100.0 |
-| 強紅K收近高 | 近高放量攻擊 | pcb_ccl_theme | 結構族群 | 核心主流題材 | pcb_ccl_theme | 主流成長題材 | 族群脈絡不足 | D+20 | 10 | 3 | 1 | 100.0 |
-| 紅K小上影 | 近高放量攻擊 | low_earth_orbit_satellite_theme | 結構族群 | 核心主流題材 | low_earth_orbit_satellite_theme | 主流成長題材 | 族群脈絡不足 | D+20 | 2 | 5 | 1 | 100.0 |
-| 紅K小上影 | 近高放量攻擊 | low_earth_orbit_satellite_theme | 結構族群 | 核心主流題材 | low_earth_orbit_satellite_theme | 主流成長題材 | 族群脈絡不足 | D+20 | 3 | 7 | 1 | 100.0 |
-| 紅K小上影 | 中位放量攻擊 | network_communication_theme | 結構族群 | 核心主流題材 | network_communication_theme | 主流成長題材 | 族群脈絡不足 | D+20 | 2 | 3 | 1 | 100.0 |
-| 紅K小上影 | 中位放量攻擊 | network_communication_theme | 結構族群 | 核心主流題材 | network_communication_theme | 主流成長題材 | 族群脈絡不足 | D+20 | 2 | 5 | 1 | 100.0 |
-| 紅K小上影 | 中位放量攻擊 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 8 | 0 | 1 | 100.0 |
-| 紅K小上影 | 中位放量攻擊 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 8 | 3 | 1 | 100.0 |
-| 紅K小上影 | 中位放量攻擊 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 8 | 5 | 1 | 100.0 |
-| 紅K小上影 | 中位放量攻擊 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 6 | 0 | 1 | 100.0 |
-| 紅K小上影 | 中位放量攻擊 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 6 | 3 | 1 | 100.0 |
-| 紅K小上影 | 中位放量攻擊 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 6 | 5 | 1 | 100.0 |
-| 紅K小上影 | 中位放量攻擊 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 5 | 0 | 1 | 100.0 |
-| 紅K小上影 | 中位放量攻擊 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 5 | 3 | 1 | 100.0 |
-| 紅K小上影 | 中位放量攻擊 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 5 | 5 | 1 | 100.0 |
-| 紅K小上影 | 中位放量攻擊 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 4 | 0 | 1 | 100.0 |
-| 紅K小上影 | 中位放量攻擊 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 4 | 3 | 1 | 100.0 |
-| 紅K小上影 | 中位放量攻擊 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 4 | 5 | 1 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 8 | 3 | 4 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 8 | 0 | 4 | 100.0 |
+| 紅K小上影 | 長底低位爆量反轉 | 族群脈絡不足 | unavailable | 族群脈絡不足 | 族群脈絡不足 | 族群脈絡不足 | 族群脈絡不足 | D+20 | 3 | 7 | 3 | 100.0 |
+| 紅K小上影 | 位階歷史不足 | 半導體設備族群 | 結構族群 | 核心主流題材 | 半導體設備族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 2 | 5 | 1 | 100.0 |
+| 強紅K收近高 | 近高放量攻擊 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 6 | 7 | 4 | 100.0 |
+| 紅K小上影 | 長底低位爆量反轉 | 族群脈絡不足 | unavailable | 族群脈絡不足 | 族群脈絡不足 | 族群脈絡不足 | 族群脈絡不足 | D+20 | 4 | 7 | 1 | 100.0 |
+| 紅K小上影 | 長底低位爆量反轉 | 族群脈絡不足 | unavailable | 族群脈絡不足 | 族群脈絡不足 | 族群脈絡不足 | 族群脈絡不足 | D+20 | 5 | 7 | 1 | 100.0 |
+| 強紅K收近高 | 中位放量攻擊 | 半導體設備族群 | 結構族群 | 核心主流題材 | 半導體設備族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 2 | 7 | 1 | 100.0 |
+| 強紅K收近高 | 低中位站回放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 4 | 7 | 1 | 100.0 |
+| 強紅K收近高 | 低中位站回放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 5 | 7 | 1 | 100.0 |
+| 強紅K收近高 | 低中位站回放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 6 | 7 | 1 | 100.0 |
+| 強紅K收近高 | 低中位站回放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 6 | 5 | 1 | 100.0 |
+| 強紅K收近高 | 低中位站回放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 6 | 3 | 1 | 100.0 |
+| 強紅K收近高 | 低中位站回放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 6 | 0 | 1 | 100.0 |
+| 強紅K收近高 | 低中位站回放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 8 | 7 | 1 | 100.0 |
+| 強紅K收近高 | 低中位站回放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 8 | 5 | 1 | 100.0 |
+| 強紅K收近高 | 低中位站回放量攻擊 | 半導體族群 | 結構族群 | 核心主流題材 | 半導體族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 8 | 3 | 1 | 100.0 |
+| 強紅K收近高 | 低中位站回放量攻擊 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 2 | 7 | 3 | 100.0 |
+| 強紅K收近高 | 低中位站回放量攻擊 | 被動元件族群 | 結構族群 | 核心主流題材 | 被動元件族群 | 主流成長題材 | 族群脈絡不足 | D+20 | 2 | 5 | 4 | 100.0 |
 
 ### Latest Explosive Volume Events
 | date | stock_id | stock_name | industry | market | close | volume_ratio_vs_prev20 | signal_return_1d_pct | signal_quality_bucket | price_position_bucket | market_theme_group | theme_group_source | theme_structural_status | 結構族群 | theme_mainstream_label | next_open_to_d10_max_high_return_pct | next_open_to_d20_max_high_return_pct |
@@ -457,7 +457,7 @@ performance_csv_path: output/history/daily_signals/daily_candidate_signal_perfor
 summary_latest_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/daily_signal_performance_summary_latest.md
 weekly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_weekly_latest.pdf
 monthly_report_pdf_pages_url: https://LeoChen0727.github.io/tdcc-weekly-report/latest/daily_signal_performance_monthly_latest.pdf
-last_updated_at: 2026-06-17 20:03:01 Asia/Taipei
+last_updated_at: 2026-06-17 22:30:05 Asia/Taipei
 status: generated
 
 CANDIDATE REPEAT APPEARANCE
@@ -514,43 +514,75 @@ pdf_integration_status: pdf_integrated_daily_adapter
 packet_integration_status: packet_integrated_daily_adapter
 operation_directive_level: approved_daily_operation_guidance
 highlight_confirmed_operation:
-- none
+- rank=1 | stock=4551 智伸科 | trigger=隔日續強確認 | entry=確認日收盤後列入，下一個交易日開盤價進場。 | entry_price_status=下一個交易日開盤價尚未產生。 | stop=跌破 6/16 最低價 182 | exit=先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。 | sample_size=10 | win_rate=70.00% | avg_return=22.68% | median_return=21.09% | confidence=low
+- rank=1 | stock=4976 佳凌 | trigger=隔日續強確認 | entry=確認日收盤後列入，下一個交易日開盤價進場。 | entry_price_status=下一個交易日開盤價尚未產生。 | stop=跌破 6/16 最低價 34.5 | exit=先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。 | sample_size=10 | win_rate=70.00% | avg_return=22.68% | median_return=21.09% | confidence=low
+- rank=2 | stock=1905 華紙 | trigger=隔日續強確認 | entry=確認日收盤後列入，下一個交易日開盤價進場。 | entry_price_status=下一個交易日開盤價尚未產生。 | stop=跌破 6/16 最低價 12.75 | exit=先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。 | sample_size=10 | win_rate=70.00% | avg_return=22.68% | median_return=21.09% | confidence=low
+- rank=2 | stock=6209 今國光 | trigger=隔日續強確認 | entry=確認日收盤後列入，下一個交易日開盤價進場。 | entry_price_status=下一個交易日開盤價尚未產生。 | stop=跌破 6/16 最低價 86.4 | exit=先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。 | sample_size=10 | win_rate=70.00% | avg_return=22.68% | median_return=21.09% | confidence=low
+- rank=3 | stock=2851 中再保 | trigger=隔日續強確認 | entry=確認日收盤後列入，下一個交易日開盤價進場。 | entry_price_status=下一個交易日開盤價尚未產生。 | stop=跌破 6/16 最低價 38.5 | exit=先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。 | sample_size=10 | win_rate=70.00% | avg_return=22.68% | median_return=21.09% | confidence=low
+- rank=3 | stock=6668 中揚光 | trigger=隔日續強確認 | entry=確認日收盤後列入，下一個交易日開盤價進場。 | entry_price_status=下一個交易日開盤價尚未產生。 | stop=跌破 6/16 最低價 39.5 | exit=先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。 | sample_size=10 | win_rate=70.00% | avg_return=22.68% | median_return=21.09% | confidence=low
+- rank=4 | stock=6904 伯鑫 | trigger=隔日續強確認 | entry=確認日收盤後列入，下一個交易日開盤價進場。 | entry_price_status=下一個交易日開盤價尚未產生。 | stop=跌破 6/15 最低價 120 | exit=先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。 | sample_size=10 | win_rate=70.00% | avg_return=22.68% | median_return=21.09% | confidence=low
+- rank=5 | stock=7610 聯友金屬-創 | trigger=隔日續強確認 | entry=確認日收盤後列入，下一個交易日開盤價進場。 | entry_price_status=下一個交易日開盤價尚未產生。 | stop=跌破 6/16 最低價 1915 | exit=先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。 | sample_size=10 | win_rate=70.00% | avg_return=22.68% | median_return=21.09% | confidence=low
+- rank=6 | stock=5227 立凱-KY | trigger=隔日續強確認 | entry=確認日收盤後列入，下一個交易日開盤價進場。 | entry_price_status=下一個交易日開盤價尚未產生。 | stop=跌破 6/16 最低價 37.3 | exit=先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。 | sample_size=10 | win_rate=70.00% | avg_return=22.68% | median_return=21.09% | confidence=low
+- rank=14 | stock=7828 創新服務 | trigger=回測5MA確認 | entry=確認日收盤後列入，下一個交易日開盤價進場。 | entry_price_status=下一個交易日開盤價尚未產生。 | stop=跌破 6/15 最低價 1885 | exit=先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。 | sample_size=16 | win_rate=56.25% | avg_return=11.16% | median_return=5.49% | confidence=low
 highlight_pending_confirmation:
-- stock=1905 華紙 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
-- stock=4976 佳凌 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
-- stock=2618 長榮航 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
-- stock=5471 松翰 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
-- stock=6668 中揚光 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
-- stock=9928 中視 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
-- stock=2302 麗正 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
-- stock=2332 友訊 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
-- stock=2342 茂矽 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
-- stock=6742 澤米 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
-- stock=3008 大立光 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
-- stock=3041 揚智 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
-- stock=3060 銘異 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
-- stock=3094 聯傑 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=6645 金萬林-創 | pending_age=D+2 待確認 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=2484 希華 | pending_age=D+2 待確認 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=5471 松翰 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=9928 中視 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=2618 長榮航 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=2302 麗正 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=2910 統領 | pending_age=D+1 待確認 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=2332 友訊 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=3019 亞光 | pending_age=D+1 待確認 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=2342 茂矽 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=6742 澤米 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=3041 揚智 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=3060 銘異 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=3094 聯傑 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=3008 大立光 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
 highlight_active_operation:
-- status=操作中 | stock=目前無資料 | note=操作中：來源日期不符，今日不顯示舊操作列；不重新計算操作規則。
+- status=操作中 | stock=2537 聯上發 | note=由已發布模型快照與價格資料重建 D0-D10 操作狀態。
+- status=操作中 | stock=1714 和桐 | note=由已發布模型快照與價格資料重建 D0-D10 操作狀態。
+- status=操作中 | stock=2305 全友 | note=由已發布模型快照與價格資料重建 D0-D10 操作狀態。
+- status=操作中 | stock=7631 聚賢研發-創 | note=由已發布模型快照與價格資料重建 D0-D10 操作狀態。
+- status=操作中 | stock=6613 朋億* | note=由已發布模型快照與價格資料重建 D0-D10 操作狀態。
+- status=操作中 | stock=2493 揚博 | note=由已發布模型快照與價格資料重建 D0-D10 操作狀態。
+- status=操作中 | stock=5468 凱鈺 | note=由已發布模型快照與價格資料重建 D0-D10 操作狀態。
 full_confirmed_operation:
-- none
+- rank=1 | stock=4551 智伸科 | trigger=隔日續強確認 | entry=確認日收盤後列入，下一個交易日開盤價進場。 | entry_price_status=下一個交易日開盤價尚未產生。 | stop=跌破 6/16 最低價 182 | exit=先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。 | sample_size=10 | win_rate=70.00% | avg_return=22.68% | median_return=21.09% | confidence=low
+- rank=1 | stock=4976 佳凌 | trigger=隔日續強確認 | entry=確認日收盤後列入，下一個交易日開盤價進場。 | entry_price_status=下一個交易日開盤價尚未產生。 | stop=跌破 6/16 最低價 34.5 | exit=先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。 | sample_size=10 | win_rate=70.00% | avg_return=22.68% | median_return=21.09% | confidence=low
+- rank=2 | stock=1905 華紙 | trigger=隔日續強確認 | entry=確認日收盤後列入，下一個交易日開盤價進場。 | entry_price_status=下一個交易日開盤價尚未產生。 | stop=跌破 6/16 最低價 12.75 | exit=先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。 | sample_size=10 | win_rate=70.00% | avg_return=22.68% | median_return=21.09% | confidence=low
+- rank=2 | stock=6209 今國光 | trigger=隔日續強確認 | entry=確認日收盤後列入，下一個交易日開盤價進場。 | entry_price_status=下一個交易日開盤價尚未產生。 | stop=跌破 6/16 最低價 86.4 | exit=先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。 | sample_size=10 | win_rate=70.00% | avg_return=22.68% | median_return=21.09% | confidence=low
+- rank=3 | stock=2851 中再保 | trigger=隔日續強確認 | entry=確認日收盤後列入，下一個交易日開盤價進場。 | entry_price_status=下一個交易日開盤價尚未產生。 | stop=跌破 6/16 最低價 38.5 | exit=先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。 | sample_size=10 | win_rate=70.00% | avg_return=22.68% | median_return=21.09% | confidence=low
+- rank=3 | stock=6668 中揚光 | trigger=隔日續強確認 | entry=確認日收盤後列入，下一個交易日開盤價進場。 | entry_price_status=下一個交易日開盤價尚未產生。 | stop=跌破 6/16 最低價 39.5 | exit=先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。 | sample_size=10 | win_rate=70.00% | avg_return=22.68% | median_return=21.09% | confidence=low
+- rank=4 | stock=6904 伯鑫 | trigger=隔日續強確認 | entry=確認日收盤後列入，下一個交易日開盤價進場。 | entry_price_status=下一個交易日開盤價尚未產生。 | stop=跌破 6/15 最低價 120 | exit=先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。 | sample_size=10 | win_rate=70.00% | avg_return=22.68% | median_return=21.09% | confidence=low
+- rank=5 | stock=7610 聯友金屬-創 | trigger=隔日續強確認 | entry=確認日收盤後列入，下一個交易日開盤價進場。 | entry_price_status=下一個交易日開盤價尚未產生。 | stop=跌破 6/16 最低價 1915 | exit=先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。 | sample_size=10 | win_rate=70.00% | avg_return=22.68% | median_return=21.09% | confidence=low
+- rank=6 | stock=5227 立凱-KY | trigger=隔日續強確認 | entry=確認日收盤後列入，下一個交易日開盤價進場。 | entry_price_status=下一個交易日開盤價尚未產生。 | stop=跌破 6/16 最低價 37.3 | exit=先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。 | sample_size=10 | win_rate=70.00% | avg_return=22.68% | median_return=21.09% | confidence=low
+- rank=14 | stock=7828 創新服務 | trigger=回測5MA確認 | entry=確認日收盤後列入，下一個交易日開盤價進場。 | entry_price_status=下一個交易日開盤價尚未產生。 | stop=跌破 6/15 最低價 1885 | exit=先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。 | sample_size=16 | win_rate=56.25% | avg_return=11.16% | median_return=5.49% | confidence=low
 full_pending_confirmation:
-- stock=1905 華紙 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
-- stock=4976 佳凌 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
-- stock=2618 長榮航 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
-- stock=5471 松翰 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
-- stock=6668 中揚光 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
-- stock=9928 中視 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
-- stock=2302 麗正 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
-- stock=2332 友訊 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
-- stock=2342 茂矽 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
-- stock=6742 澤米 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
-- stock=3008 大立光 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
-- stock=3041 揚智 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
-- stock=3060 銘異 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
-- stock=3094 聯傑 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=以訊號日隔天開盤作為研究觀察基準；若跌回前20日高點突破基準 / 量價失敗或TDCC轉弱，則標記風險升高。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=6645 金萬林-創 | pending_age=D+2 待確認 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=2484 希華 | pending_age=D+2 待確認 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=5471 松翰 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=9928 中視 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=2618 長榮航 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=2302 麗正 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=2910 統領 | pending_age=D+1 待確認 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=2332 友訊 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=3019 亞光 | pending_age=D+1 待確認 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=2342 茂矽 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=6742 澤米 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=3041 揚智 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=3060 銘異 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=3094 聯傑 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
+- stock=3008 大立光 | pending_age=今日訊號 | pending_group=新進榜 | pending_confirmation=模型已命中但尚未確認，不能列買入排名；若確認前跌破訊號日最低價或超過 10 個交易日，則不列操作。 | entry_price_status=尚未確認，不列進場價 | stop=尚未確認，不列停損價
 full_active_operation:
-- status=操作中 | stock=目前無資料 | note=操作中：來源日期不符，今日不顯示舊操作列；不重新計算操作規則。
+- status=操作中 | stock=2537 聯上發 | note=由已發布模型快照與價格資料重建 D0-D10 操作狀態。
+- status=操作中 | stock=1714 和桐 | note=由已發布模型快照與價格資料重建 D0-D10 操作狀態。
+- status=操作中 | stock=2305 全友 | note=由已發布模型快照與價格資料重建 D0-D10 操作狀態。
+- status=操作中 | stock=7631 聚賢研發-創 | note=由已發布模型快照與價格資料重建 D0-D10 操作狀態。
+- status=操作中 | stock=6613 朋億* | note=由已發布模型快照與價格資料重建 D0-D10 操作狀態。
+- status=操作中 | stock=2493 揚博 | note=由已發布模型快照與價格資料重建 D0-D10 操作狀態。
+- status=操作中 | stock=5468 凱鈺 | note=由已發布模型快照與價格資料重建 D0-D10 操作狀態。
 
 NON-REVENUE MOMENTUM WATCH
 non_revenue_momentum_watch_md_raw_url: https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/main/output/latest/non_revenue_momentum_watch_latest.md
@@ -615,7 +647,7 @@ EMBEDDED SUMMARY REPORT
 # 每日全市場候選股監測報告 - 精華版
 
 - 主資料日期：`20260617`
-- 產生時間：`2026-06-17 20:02:35 Asia/Taipei`
+- 產生時間：`2026-06-17 22:29:35 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
 - 判斷說明：core daily data dates match main_price_date
 - 權證資料日期：`20260617`
@@ -646,17 +678,17 @@ EMBEDDED SUMMARY REPORT
 | 股票 | 原始分類 | 催化標籤 / 反應程度 | TDCC |
 |---|---|---|---|
 | 2368 金像電 | 營收成長股價回檔 | score 40 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;capacity_expansion;電... | 大戶溫和增加 |
-| 8163 達方 | 型態觀察 | score 34 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;電腦及週邊設備業;dividend_calendar;calendar_ex_... | 大戶溫和增加 |
 | 2886 兆豐金 | 型態觀察 | score 34 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;金融保險業;shareholder_meeting_calendar;cale... | 大戶溫和增加 |
+| 8163 達方 | 型態觀察 | score 34 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;電腦及週邊設備業;dividend_calendar;calendar_ex_... | 大戶溫和增加 |
 | 2891 中信金 | 型態觀察 | score 34 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;金融保險業;monthly_revenue_calendar;calendar... | 大戶溫和增加 |
 | 2368 金像電 | 型態觀察 | score 30 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;capacity_expansion;電子零組件業;dividend_calendar;calen... | 大戶溫和增加 |
-| 8070 長華* | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;dividend_calendar;calendar_ex_divide... | 大戶同步增加 |
-| 3028 增你強 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;dividend_calendar;calendar_ex_divide... | 大戶溫和增加 |
-| 2467 志聖 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;dividend_calendar;calendar_ex_divide... | 大戶溫和增加 |
 | 2353 宏碁 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;dividend_calendar;calendar_ex_divide... | 大戶同步增加 |
+| 8070 長華* | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;dividend_calendar;calendar_ex_divide... | 大戶同步增加 |
+| 2467 志聖 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;dividend_calendar;calendar_ex_divide... | 大戶溫和增加 |
+| 3028 增你強 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;dividend_calendar;calendar_ex_divide... | 大戶溫和增加 |
+| 1449 佳和 | 營收成長股價回檔 | score 28 / theme 49.9/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;shareholder_meeting_calendar;calendar... | 大戶溫和增加 |
 | 6196 帆宣 | 營收成長股價回檔 | score 28 / theme 79.6/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;material_information;其他電子業;dividend_c... | 大戶溫和增加 |
 | 3135 凌航 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;shareholder_meeting_calendar;calenda... | 大戶溫和增加 |
-| 1449 佳和 | 營收成長股價回檔 | score 28 / theme 49.9/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;shareholder_meeting_calendar;calendar... | 大戶溫和增加 |
 
 ## 精華候選股
 
@@ -1040,7 +1072,7 @@ EMBEDDED FULL REPORT
 # 完整候選股清單 - 完整版
 
 - 主資料日期：`20260617`
-- 產生時間：`2026-06-17 20:02:35 Asia/Taipei`
+- 產生時間：`2026-06-17 22:29:35 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
 - 權證資料日期：`20260617`
 

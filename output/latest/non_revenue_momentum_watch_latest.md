@@ -1,7 +1,7 @@
 # Non-Revenue Momentum Watch
 
 ## Metadata
-- generated_at: `2026-06-17 12:00:25 UTC`
+- generated_at: `2026-06-17 14:27:13 UTC`
 - main_price_date: `20260617`
 - section_type: `specialty_section_not_core_category`
 - model_effect_allowed: `False`
@@ -46,7 +46,7 @@
 | D_overheated_or_failed_risk | 6742 | 澤米 | 光電業 |  | 114.0 | revenue_negative | mainstream_overheated | core_mainstream_theme | core_mainstream_overheated | failed_volume_theme | bottom_volume_attack | 2.3 |  |  | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
 | D_overheated_or_failed_risk | 4976 | 佳凌 | 光電業 |  | 109.0 | revenue_negative | mainstream_overheated | core_mainstream_theme | core_mainstream_overheated | failed_volume_theme | bottom_volume_attack | 8.71 |  |  | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
 | D_overheated_or_failed_risk | 2342 | 茂矽 | 半導體業 |  | 94.0 | revenue_negative | mainstream_overheated | core_mainstream_theme | core_mainstream_overheated | overheated_volume_theme | bottom_volume_attack | 4.43 |  |  | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
-| D_overheated_or_failed_risk | 1905 | 華紙 | 造紙工業 |  | 69.0 | revenue_negative | mainstream_overheated | non_mainstream_theme | non_mainstream_overheated | overheated_volume_theme | bottom_volume_attack | 4.22 |  | call_inflow | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
+| D_overheated_or_failed_risk | 1905 | 華紙 | 造紙工業 |  | 69.0 | revenue_negative | mainstream_overheated | non_mainstream_theme | non_mainstream_overheated | overheated_volume_theme | bottom_volume_attack | 4.22 |  |  | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
 | D_overheated_or_failed_risk | 3092 | 鴻碩 | 電子零組件業 |  | 69.0 | revenue_negative | mainstream_overheated | core_mainstream_theme | core_mainstream_overheated |  |  | 3.3 |  |  | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
 | D_overheated_or_failed_risk | 2431 | 聯昌 | 電子零組件業 |  | 69.0 | revenue_negative | mainstream_overheated | core_mainstream_theme | core_mainstream_overheated |  |  | 2.21 |  |  | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
 | D_overheated_or_failed_risk | 1515 | 力山 | 電機機械 |  | 69.0 | revenue_negative | mainstream_overheated | non_mainstream_theme | non_mainstream_overheated |  |  | 2.2 |  |  | 題材或量價強，但風險/過熱/失敗突破警示存在，只能列風險觀察 | 等待 EPS/毛利/正式催化或下一期營收確認；若量價失敗則降級。; 若出現長上影、跌回突破區或 TDCC 轉弱，排除主攻。 |
