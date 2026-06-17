@@ -7,6 +7,13 @@ The PDF renderer must read:
 - `output/latest/daily_volume_breakout_operation_section_latest.csv`
 - `output/latest/daily_volume_breakout_operation_section_latest.md`
 
+The adapter also emits an audit-only artifact:
+
+- `output/latest/daily_volume_breakout_operation_evidence_audit_latest.csv`
+- `output/latest/daily_volume_breakout_operation_evidence_audit_latest.md`
+
+This audit explains why confirmed/active candidates were included or excluded. It is not a PDF source.
+
 The PDF renderer must not read these research artifacts directly:
 
 - `output/latest/volume_breakout_operation_pdf_preview_latest.csv`
@@ -15,6 +22,10 @@ The PDF renderer must not read these research artifacts directly:
 - `output/latest/volume_breakout_formal_operation_lifecycle_latest.csv`
 - `output/latest/historical_pattern_operation_registry_latest.csv`
 - `output/latest/approved_operation_patterns_latest.csv`
+- `output/latest/daily_volume_breakout_operation_evidence_audit_latest.csv`
+- `output/latest/volume_breakout_buy_signal_grid_latest.csv`
+- `output/latest/volume_breakout_buy_signal_best_candidates_latest.csv`
+- `output/latest/volume_breakout_buy_signal_evidence_registry_latest.csv`
 
 The adapter may read only these operation sources:
 
@@ -43,6 +54,8 @@ states. That lifecycle artifact is not a PDF or daily adapter source.
 - `pending_confirmation` rows must remain `buy_rank_eligible=False` even when `approved_for_daily=True`.
 - The adapter must copy approval metadata from `approved_operation_patterns_latest.csv`; the PDF renderer must not read that approval table directly.
 - `confirmed_operation` data rows must be positive evidence only. Weak-evidence confirmations must not be presented as daily buy guidance.
+- `confirmed_operation` and `active_operation` data rows must use row-level evidence attribution. The adapter must match the selected trigger plus that stock's TDCC list type, rank bucket, and best available confluence row before copying sample size, win rate, average return, or median return.
+- If no positive row-level evidence exists for a confirmed/active candidate, the adapter must exclude that candidate from the daily section and write an audit row with `included_in_daily_adapter=False`.
 - The adapter must carry `operation_asof_date` and `operation_source_date_status` on every row.
 - Data rows are valid only when `operation_asof_date` equals `daily_signal_date`, which is the daily report date from `main_price_date`.
 - Operation data rows must have a stock-level taxonomy/basic industry source before they can be routed to a PDF line. Valid report memberships are only `mainstream`, `non_mainstream`, or both. The PDF renderer must not invent a report line when taxonomy/source data is missing.

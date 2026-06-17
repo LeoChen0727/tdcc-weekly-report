@@ -11,10 +11,14 @@ DOCS_LATEST_DIR = ROOT / "docs" / "latest"
 
 SECTION_CSV = LATEST_DIR / "daily_volume_breakout_operation_section_latest.csv"
 SECTION_MD = LATEST_DIR / "daily_volume_breakout_operation_section_latest.md"
+EVIDENCE_AUDIT_CSV = LATEST_DIR / "daily_volume_breakout_operation_evidence_audit_latest.csv"
+EVIDENCE_AUDIT_MD = LATEST_DIR / "daily_volume_breakout_operation_evidence_audit_latest.md"
 TAXONOMY_CSV = LATEST_DIR / "stock_theme_taxonomy_latest.csv"
 FORMAL_SUMMARY_CSV = LATEST_DIR / "volume_breakout_formal_operation_backtest_latest.csv"
 DOCS_SECTION_CSV = DOCS_LATEST_DIR / SECTION_CSV.name
 DOCS_SECTION_MD = DOCS_LATEST_DIR / SECTION_MD.name
+DOCS_EVIDENCE_AUDIT_CSV = DOCS_LATEST_DIR / EVIDENCE_AUDIT_CSV.name
+DOCS_EVIDENCE_AUDIT_MD = DOCS_LATEST_DIR / EVIDENCE_AUDIT_MD.name
 PDF_GENERATOR = ROOT / "scripts" / "generate_chatgpt_side_daily_reports.py"
 PACKET_BUILDER = ROOT / "build_chatgpt_daily_report_packet.py"
 CONTRACT_MD = ROOT / "docs" / "specs" / "daily_volume_breakout_operation_section_contract.md"
@@ -50,6 +54,13 @@ REQUIRED_COLUMNS = {
     "sample_size",
     "win_rate_zh",
     "median_return_zh",
+    "evidence_match_status",
+    "evidence_tdcc_list_type",
+    "evidence_rank_bucket",
+    "evidence_confluence_scope",
+    "evidence_confluence_id",
+    "evidence_key",
+    "evidence_out_of_sample_pass",
     "daily_signal_date",
     "daily_volume_model_signal_count",
     "adapter_source",
@@ -66,6 +77,33 @@ REQUIRED_COLUMNS = {
     "buy_filter_id",
     "approval_note_zh",
     "adapter_note_zh",
+    "generated_at",
+}
+
+REQUIRED_AUDIT_COLUMNS = {
+    "model_id",
+    "operation_asof_date",
+    "stock_id",
+    "signal_date",
+    "selected_trigger_id",
+    "selected_confirmation_date",
+    "operation_lifecycle_state",
+    "audit_status",
+    "included_in_daily_adapter",
+    "tdcc_list_type",
+    "rank_bucket",
+    "classification_id",
+    "attack_method",
+    "price_position_type",
+    "evidence_confluence_scope",
+    "evidence_confluence_id",
+    "evidence_sample_size",
+    "evidence_win_rate",
+    "evidence_avg_return",
+    "evidence_median_return",
+    "evidence_out_of_sample_pass",
+    "ranking_research_score",
+    "reason",
     "generated_at",
 }
 
@@ -135,6 +173,13 @@ def normalize_date_text(value: object) -> str:
     return text if len(text) == 8 and text.isdigit() else ""
 
 
+def pct_display(value: object) -> str:
+    num = pd.to_numeric(pd.Series([str(value).replace("%", "").replace("+", "").replace(",", "")]), errors="coerce").iloc[0]
+    if pd.isna(num):
+        return ""
+    return f"{float(num):.2f}%"
+
+
 def split_memberships(value: object) -> set[str]:
     tokens = str(value).replace(";", "|").replace(",", "|").split("|")
     return {token.strip() for token in tokens if token.strip()}
@@ -171,13 +216,115 @@ def eligible_formal_triggers(formal_summary: pd.DataFrame) -> set[str]:
     return {str(value).strip() for value in eligible["trigger_id"].tolist() if str(value).strip()}
 
 
+def formal_evidence_row(formal_summary: pd.DataFrame, row: pd.Series) -> pd.Series | None:
+    part = formal_summary[
+        formal_summary["tdcc_list_type"].astype(str).eq(str(row.get("evidence_tdcc_list_type", "")).strip())
+        & formal_summary["rank_bucket"].astype(str).eq(str(row.get("evidence_rank_bucket", "")).strip())
+        & formal_summary["trigger_id"].astype(str).eq(str(row.get("selected_trigger_id", "")).strip())
+        & formal_summary["confluence_scope"].astype(str).eq(str(row.get("evidence_confluence_scope", "")).strip())
+        & formal_summary["confluence_id"].astype(str).eq(str(row.get("evidence_confluence_id", "")).strip())
+    ].copy()
+    if part.empty:
+        return None
+    return part.iloc[0]
+
+
+def validate_row_level_evidence(section: pd.DataFrame, formal_summary: pd.DataFrame, audit: pd.DataFrame) -> None:
+    target = section[
+        section["row_type"].astype(str).eq("data")
+        & section["pdf_section"].astype(str).isin({"confirmed_operation", "active_operation"})
+    ].copy()
+    if target.empty:
+        return
+
+    for _, row in target.iterrows():
+        if str(row.get("evidence_match_status", "")).strip() != "positive_row_evidence":
+            fail("confirmed/active rows must carry positive_row_evidence")
+        evidence = formal_evidence_row(formal_summary, row)
+        if evidence is None:
+            fail(
+                "daily adapter row references evidence not found in formal summary: "
+                f"stock_id={row.get('stock_id')} key={row.get('evidence_key')}"
+            )
+        checks = {
+            "sample_size": str(evidence.get("sample_size", "")).strip(),
+            "win_rate_zh": pct_display(evidence.get("win_rate", "")),
+            "avg_return_zh": pct_display(evidence.get("avg_return", "")),
+            "median_return_zh": pct_display(evidence.get("median_return", "")),
+            "evidence_out_of_sample_pass": str(evidence.get("out_of_sample_pass", "")).strip(),
+        }
+        for col, expected in checks.items():
+            observed = str(row.get(col, "")).strip()
+            if observed != expected:
+                fail(
+                    "daily adapter row evidence metric mismatch: "
+                    f"stock_id={row.get('stock_id')} col={col} observed={observed} expected={expected}"
+                )
+        gate = (
+            pd.to_numeric(pd.Series([evidence.get("sample_size", "")]), errors="coerce").iloc[0] >= 10
+            and pd.to_numeric(pd.Series([evidence.get("win_rate", "")]), errors="coerce").iloc[0] >= 50
+            and pd.to_numeric(pd.Series([evidence.get("median_return", "")]), errors="coerce").iloc[0] > 0
+            and pd.to_numeric(pd.Series([evidence.get("ranking_research_score", "")]), errors="coerce").iloc[0] > 0
+            and str(evidence.get("out_of_sample_pass", "")).lower() in {"true", "1", "1.0"}
+        )
+        if not gate:
+            fail(f"daily adapter row uses evidence that does not pass daily gate: stock_id={row.get('stock_id')}")
+
+    if audit.empty:
+        fail("evidence audit must not be empty when confirmed/active rows exist")
+    missing = sorted(REQUIRED_AUDIT_COLUMNS - set(audit.columns))
+    if missing:
+        fail(f"evidence audit missing columns: {missing}")
+    included = audit[audit["included_in_daily_adapter"].astype(str).eq("True")].copy()
+    if included.empty:
+        fail("evidence audit must include positive rows used by the daily adapter")
+    target_keys = {
+        (
+            stock_id_text(row.get("stock_id")),
+            normalize_date_text(row.get("signal_date")),
+            str(row.get("selected_trigger_id", "")).strip(),
+            str(row.get("evidence_tdcc_list_type", "")).strip(),
+            str(row.get("evidence_rank_bucket", "")).strip(),
+            str(row.get("evidence_confluence_scope", "")).strip(),
+            str(row.get("evidence_confluence_id", "")).strip(),
+        )
+        for _, row in target.iterrows()
+    }
+    audit_keys = {
+        (
+            stock_id_text(row.get("stock_id")),
+            normalize_date_text(row.get("signal_date")),
+            str(row.get("selected_trigger_id", "")).strip(),
+            str(row.get("tdcc_list_type", "")).strip(),
+            str(row.get("rank_bucket", "")).strip(),
+            str(row.get("evidence_confluence_scope", "")).strip(),
+            str(row.get("evidence_confluence_id", "")).strip(),
+        )
+        for _, row in included.iterrows()
+    }
+    missing_audit = sorted(target_keys - audit_keys)
+    if missing_audit:
+        fail(f"daily adapter rows missing matching positive evidence audit rows: {missing_audit}")
+
+
 def validate_file_presence() -> None:
-    for path in [SECTION_CSV, SECTION_MD, DOCS_SECTION_CSV, DOCS_SECTION_MD, CONTRACT_MD, FORMAL_SUMMARY_CSV]:
+    for path in [
+        SECTION_CSV,
+        SECTION_MD,
+        EVIDENCE_AUDIT_CSV,
+        EVIDENCE_AUDIT_MD,
+        DOCS_SECTION_CSV,
+        DOCS_SECTION_MD,
+        DOCS_EVIDENCE_AUDIT_CSV,
+        DOCS_EVIDENCE_AUDIT_MD,
+        CONTRACT_MD,
+        FORMAL_SUMMARY_CSV,
+    ]:
         if not path.exists():
             fail(f"missing required file: {path.relative_to(ROOT).as_posix()}")
 
 
-def validate_shape(section: pd.DataFrame, formal_summary: pd.DataFrame) -> None:
+def validate_shape(section: pd.DataFrame, formal_summary: pd.DataFrame, audit: pd.DataFrame) -> None:
     if section.empty:
         fail(f"{SECTION_CSV.relative_to(ROOT).as_posix()} has no rows")
     missing = sorted(REQUIRED_COLUMNS - set(section.columns))
@@ -378,6 +525,9 @@ def validate_shape(section: pd.DataFrame, formal_summary: pd.DataFrame) -> None:
         fail("active_operation rows must explain operation-in-progress status")
 
 
+    validate_row_level_evidence(section, formal_summary, audit)
+
+
 def validate_display_text(section: pd.DataFrame) -> None:
     display_text = "\n".join(
         section[col].astype(str).str.cat(sep="\n") for col in DISPLAY_COLUMNS if col in section.columns
@@ -446,7 +596,11 @@ def main() -> int:
         FORMAL_SUMMARY_CSV,
         {
             "model_id",
+            "tdcc_list_type",
+            "rank_bucket",
             "trigger_id",
+            "confluence_scope",
+            "confluence_id",
             "sample_size",
             "win_rate",
             "median_return",
@@ -456,7 +610,8 @@ def main() -> int:
         },
     )
     section = read_csv(SECTION_CSV)
-    validate_shape(section, formal_summary)
+    audit = read_csv(EVIDENCE_AUDIT_CSV)
+    validate_shape(section, formal_summary, audit)
     validate_display_text(section)
     validate_pdf_generator_boundary()
     validate_packet_builder_boundary()

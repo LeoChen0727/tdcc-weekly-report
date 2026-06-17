@@ -3,10 +3,22 @@ from __future__ import annotations
 from datetime import datetime
 import math
 from pathlib import Path
+import sys
 from typing import Any
 from zoneinfo import ZoneInfo
 
 import pandas as pd
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+from volume_breakout_operation_utils import (  # noqa: E402
+    add_research_features,
+    attach_tdcc_asof,
+    event_payload as operation_event_payload,
+    best_evidence as best_row_evidence,
+    load_market_regime_map,
+    read_tdcc_events,
+)
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -22,6 +34,8 @@ STOCK_PRICE_HISTORY_DIR = ROOT / "data" / "stock_price_history"
 
 OUT_CSV = LATEST_DIR / "daily_volume_breakout_operation_section_latest.csv"
 OUT_MD = LATEST_DIR / "daily_volume_breakout_operation_section_latest.md"
+EVIDENCE_AUDIT_CSV = LATEST_DIR / "daily_volume_breakout_operation_evidence_audit_latest.csv"
+EVIDENCE_AUDIT_MD = LATEST_DIR / "daily_volume_breakout_operation_evidence_audit_latest.md"
 
 MODEL_ID = "volume_range_breakout"
 LIFECYCLE_ADAPTER_SOURCE = "daily_published_model_snapshots+stock_price_history"
@@ -104,6 +118,13 @@ OUTPUT_COLUMNS = [
     "avg_return_zh",
     "median_return_zh",
     "confidence_zh",
+    "evidence_match_status",
+    "evidence_tdcc_list_type",
+    "evidence_rank_bucket",
+    "evidence_confluence_scope",
+    "evidence_confluence_id",
+    "evidence_key",
+    "evidence_out_of_sample_pass",
     "research_score",
     "pdf_note_zh",
     "daily_signal_date",
@@ -125,6 +146,36 @@ OUTPUT_COLUMNS = [
     "generated_at",
 ]
 
+EVIDENCE_AUDIT_COLUMNS = [
+    "model_id",
+    "operation_asof_date",
+    "stock_id",
+    "stock_name",
+    "signal_date",
+    "selected_trigger_id",
+    "selected_confirmation_date",
+    "operation_lifecycle_state",
+    "audit_status",
+    "included_in_daily_adapter",
+    "tdcc_list_type",
+    "tdcc_rank",
+    "rank_bucket",
+    "classification_id",
+    "attack_method",
+    "price_position_type",
+    "risk_type",
+    "evidence_confluence_scope",
+    "evidence_confluence_id",
+    "evidence_sample_size",
+    "evidence_win_rate",
+    "evidence_avg_return",
+    "evidence_median_return",
+    "evidence_out_of_sample_pass",
+    "ranking_research_score",
+    "reason",
+    "generated_at",
+]
+
 APPROVAL_FIELDS = [
     "approval_source",
     "approved_for_daily",
@@ -136,6 +187,9 @@ APPROVAL_FIELDS = [
     "buy_filter_id",
     "approval_note_zh",
 ]
+
+_MARKET_REGIME_MAP: dict[str, str] | None = None
+_TDCC_EVENTS: pd.DataFrame | None = None
 
 
 def now_text() -> str:
@@ -176,6 +230,10 @@ def number_text(value: Any) -> float:
         return float("nan")
 
 
+def true_text(value: Any) -> bool:
+    return safe_str(value).lower() in {"true", "1", "1.0", "yes", "y", "t"}
+
+
 def normalize_date_text(value: Any) -> str:
     text = safe_str(value).replace("-", "").replace("/", "")
     return text if len(text) == 8 and text.isdigit() else ""
@@ -184,6 +242,20 @@ def normalize_date_text(value: Any) -> str:
 def stock_id_key(value: Any) -> str:
     text = safe_str(value).replace(".0", "")
     return text.zfill(4) if text.isdigit() else text
+
+
+def market_regime_map() -> dict[str, str]:
+    global _MARKET_REGIME_MAP
+    if _MARKET_REGIME_MAP is None:
+        _MARKET_REGIME_MAP = load_market_regime_map()
+    return _MARKET_REGIME_MAP
+
+
+def tdcc_events() -> pd.DataFrame:
+    global _TDCC_EVENTS
+    if _TDCC_EVENTS is None:
+        _TDCC_EVENTS = read_tdcc_events()
+    return _TDCC_EVENTS.copy()
 
 
 def main_price_date() -> str:
@@ -309,6 +381,10 @@ def load_price_history(stock_id: str) -> pd.DataFrame:
         out["ma10"] = out["close"].rolling(10, min_periods=1).mean()
     else:
         out["ma10"] = pd.to_numeric(out["ma10"], errors="coerce")
+    try:
+        out = add_research_features(out)
+    except Exception as exc:
+        print(f"WARNING: failed to add volume breakout research features for {stock_id}: {exc}")
     return out
 
 
@@ -503,6 +579,159 @@ def pct_display(value: Any) -> str:
     return f"{num:.2f}%"
 
 
+def rank_bucket_for_context(row: pd.Series) -> str:
+    list_type = safe_str(row.get("tdcc_list_type"))
+    if list_type == "no_tdcc":
+        return "all"
+    rank = number_text(row.get("tdcc_rank"))
+    if math.isnan(rank):
+        return ""
+    if rank <= 10:
+        return "top_10"
+    if rank <= 20:
+        return "top_20"
+    if rank <= 50:
+        return "top_50"
+    return ""
+
+
+def evidence_passes_daily_gate(evidence: pd.Series | None) -> bool:
+    if evidence is None:
+        return False
+    return (
+        number_text(evidence.get("sample_size")) >= 10
+        and number_text(evidence.get("win_rate")) >= 50
+        and number_text(evidence.get("median_return")) > 0
+        and number_text(evidence.get("ranking_research_score")) > 0
+        and true_text(evidence.get("out_of_sample_pass"))
+    )
+
+
+def evidence_key(evidence: pd.Series | None) -> str:
+    if evidence is None:
+        return ""
+    return "|".join(
+        [
+            safe_str(evidence.get("tdcc_list_type")),
+            safe_str(evidence.get("rank_bucket")),
+            safe_str(evidence.get("trigger_id")),
+            safe_str(evidence.get("confluence_scope")),
+            safe_str(evidence.get("confluence_id")),
+        ]
+    )
+
+
+def operation_context_rows(price: pd.DataFrame, signal_idx: int, selected: dict[str, Any]) -> pd.DataFrame:
+    confirmation_idx = int(selected["confirmation_idx"])
+    payload = operation_event_payload(price, signal_idx, confirmation_idx, market_regime_map())
+    payload.update(
+        {
+            "trigger_id": safe_str(selected.get("trigger_id")),
+            "trigger_name_zh": safe_str(selected.get("trigger_zh")),
+            "matched_trigger_ids": safe_str(selected.get("matched_trigger_ids")),
+            "selected_trigger_id": safe_str(selected.get("trigger_id")),
+            "selected_confirmation_date": safe_str(selected.get("confirmation_date")),
+            "selected_trigger_priority": safe_str(selected.get("trigger_priority")),
+        }
+    )
+    return attach_tdcc_asof(pd.DataFrame([payload]), tdcc_events(), "confirmation_date")
+
+
+def select_positive_row_evidence(
+    price: pd.DataFrame,
+    signal_idx: int,
+    selected: dict[str, Any],
+    formal_summary: pd.DataFrame,
+) -> tuple[pd.Series | None, pd.Series | None, list[dict[str, Any]]]:
+    contexts = operation_context_rows(price, signal_idx, selected)
+    audit_rows: list[dict[str, Any]] = []
+    candidates: list[tuple[float, float, pd.Series, pd.Series]] = []
+    if contexts.empty:
+        return None, None, audit_rows
+
+    for _, context in contexts.iterrows():
+        evidence = best_row_evidence(context, formal_summary)
+        audit = evidence_audit_payload(context, evidence, "candidate_evaluated", False, "")
+        audit_rows.append(audit)
+        if not evidence_passes_daily_gate(evidence):
+            continue
+        assert evidence is not None
+        score = number_text(evidence.get("ranking_research_score"))
+        sample = number_text(evidence.get("sample_size"))
+        candidates.append((score, sample, context, evidence))
+
+    if not candidates:
+        return None, contexts.iloc[0], audit_rows
+    candidates.sort(key=lambda item: (item[0], item[1]), reverse=True)
+    context = candidates[0][2]
+    evidence = candidates[0][3]
+    audit_rows.append(evidence_audit_payload(context, evidence, "positive_row_evidence", True, "selected"))
+    return evidence, context, audit_rows
+
+
+def evidence_audit_payload(
+    context: pd.Series,
+    evidence: pd.Series | None,
+    audit_status: str,
+    included: bool,
+    reason: str,
+) -> dict[str, Any]:
+    bucket = rank_bucket_for_context(context)
+    return {
+        "model_id": MODEL_ID,
+        "operation_asof_date": "",
+        "stock_id": stock_id_key(context.get("stock_id")),
+        "stock_name": safe_str(context.get("stock_name")),
+        "signal_date": normalize_date_text(context.get("signal_date")),
+        "selected_trigger_id": safe_str(context.get("selected_trigger_id") or context.get("trigger_id")),
+        "selected_confirmation_date": normalize_date_text(context.get("selected_confirmation_date") or context.get("confirmation_date")),
+        "operation_lifecycle_state": "",
+        "audit_status": audit_status,
+        "included_in_daily_adapter": "True" if included else "False",
+        "tdcc_list_type": safe_str(context.get("tdcc_list_type")),
+        "tdcc_rank": safe_str(context.get("tdcc_rank")),
+        "rank_bucket": bucket,
+        "classification_id": safe_str(context.get("classification_id")),
+        "attack_method": safe_str(context.get("attack_method")),
+        "price_position_type": safe_str(context.get("price_position_type")),
+        "risk_type": safe_str(context.get("risk_type")),
+        "evidence_confluence_scope": "" if evidence is None else safe_str(evidence.get("confluence_scope")),
+        "evidence_confluence_id": "" if evidence is None else safe_str(evidence.get("confluence_id")),
+        "evidence_sample_size": "" if evidence is None else safe_str(evidence.get("sample_size")),
+        "evidence_win_rate": "" if evidence is None else safe_str(evidence.get("win_rate")),
+        "evidence_avg_return": "" if evidence is None else safe_str(evidence.get("avg_return")),
+        "evidence_median_return": "" if evidence is None else safe_str(evidence.get("median_return")),
+        "evidence_out_of_sample_pass": "" if evidence is None else safe_str(evidence.get("out_of_sample_pass")),
+        "ranking_research_score": "" if evidence is None else safe_str(evidence.get("ranking_research_score")),
+        "reason": reason,
+        "generated_at": "",
+    }
+
+
+def apply_evidence_fields(record: dict[str, Any], evidence: pd.Series, context: pd.Series) -> None:
+    record.update(
+        {
+            "evidence_match_status": "positive_row_evidence",
+            "evidence_tdcc_list_type": safe_str(evidence.get("tdcc_list_type")),
+            "evidence_rank_bucket": safe_str(evidence.get("rank_bucket")),
+            "evidence_confluence_scope": safe_str(evidence.get("confluence_scope")),
+            "evidence_confluence_id": safe_str(evidence.get("confluence_id")),
+            "evidence_key": evidence_key(evidence),
+            "evidence_out_of_sample_pass": safe_str(evidence.get("out_of_sample_pass")),
+            "sample_size": safe_str(evidence.get("sample_size")),
+            "win_rate_zh": pct_display(evidence.get("win_rate")),
+            "avg_return_zh": pct_display(evidence.get("avg_return")),
+            "median_return_zh": pct_display(evidence.get("median_return")),
+            "confidence_zh": safe_str(evidence.get("confidence_status")),
+            "tdcc_status_zh": (
+                f"{safe_str(context.get('tdcc_list_type'))} rank {safe_str(context.get('tdcc_rank'))}".strip()
+                if safe_str(context.get("tdcc_list_type")) != "no_tdcc"
+                else "no_tdcc"
+            ),
+        }
+    )
+
+
 def lifecycle_base_record(
     signal: pd.Series,
     approval: dict[str, str],
@@ -549,6 +778,7 @@ def confirmed_record(
     signal: pd.Series,
     selected: dict[str, Any],
     evidence: pd.Series,
+    context: pd.Series,
     price: pd.DataFrame,
     signal_idx: int,
     approval: dict[str, str],
@@ -583,15 +813,11 @@ def confirmed_record(
             "stop_basis_zh": f"跌破 {format_md_date(signal_date)} 最低價 {format_price(signal_low)}",
             "exit_rule_zh": "先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。",
             "confirmation_date": safe_str(selected.get("confirmation_date")),
-            "sample_size": safe_str(evidence.get("sample_size")),
-            "win_rate_zh": pct_display(evidence.get("win_rate")),
-            "avg_return_zh": pct_display(evidence.get("avg_return")),
-            "median_return_zh": pct_display(evidence.get("median_return")),
-            "confidence_zh": safe_str(evidence.get("confidence_status")),
             "row_action_status": "confirmed_buy_candidate",
             "buy_rank_eligible": "True",
         }
     )
+    apply_evidence_fields(record, evidence, context)
     return record
 
 
@@ -599,6 +825,7 @@ def active_record(
     signal: pd.Series,
     selected: dict[str, Any],
     evidence: pd.Series,
+    context: pd.Series,
     price: pd.DataFrame,
     signal_idx: int,
     entry_idx: int,
@@ -638,15 +865,11 @@ def active_record(
             "stop_basis_zh": f"跌破 {format_md_date(signal_date)} 最低價 {format_price(signal_low)}",
             "exit_rule_zh": "先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。",
             "confirmation_date": safe_str(selected.get("confirmation_date")),
-            "sample_size": safe_str(evidence.get("sample_size")),
-            "win_rate_zh": pct_display(evidence.get("win_rate")),
-            "avg_return_zh": pct_display(evidence.get("avg_return")),
-            "median_return_zh": pct_display(evidence.get("median_return")),
-            "confidence_zh": safe_str(evidence.get("confidence_status")),
             "row_action_status": "active_operation",
             "buy_rank_eligible": "False",
         }
     )
+    apply_evidence_fields(record, evidence, context)
     return record
 
 
@@ -700,38 +923,52 @@ def lifecycle_state_for_signal(
     approval: dict[str, str],
     generated_at: str,
     daily_volume_count: int,
-) -> tuple[int, dict[str, Any] | None]:
+) -> tuple[int, dict[str, Any] | None, list[dict[str, Any]]]:
+    audit_rows: list[dict[str, Any]] = []
     stock_id = stock_id_key(signal.get("stock_id"))
     signal_date = normalize_date_text(signal.get("signal_date"))
     if not stock_id or not signal_date:
-        return 99, None
+        return 99, None, audit_rows
     price = load_price_history(stock_id)
     if price.empty:
-        return 99, None
+        return 99, None, audit_rows
     signal_positions = price.index[price["date"].astype(str).eq(signal_date)].tolist()
     report_positions = price.index[price["date"].astype(str).eq(report_date)].tolist()
     if not signal_positions or not report_positions:
-        return 99, None
+        return 99, None, audit_rows
     signal_idx = int(signal_positions[-1])
     report_idx = int(report_positions[-1])
     if signal_idx > report_idx:
-        return 99, None
+        return 99, None, audit_rows
     signal_age = report_idx - signal_idx
     display_order = safe_str(signal.get("display_rank") or signal.get("model_rank") or "999999")
     signal_low = price_at(price.iloc[signal_idx], "low")
 
     selected = selected_confirmation(price, signal_idx, report_idx)
     if selected is not None:
-        evidence = best_evidence_for_trigger(formal_summary, safe_str(selected.get("trigger_id")))
-        if evidence is None:
-            return 80, None
+        evidence, context, evidence_audit = select_positive_row_evidence(
+            price,
+            signal_idx,
+            selected,
+            formal_summary,
+        )
+        audit_rows.extend(evidence_audit)
+        if evidence is None or context is None:
+            for audit in audit_rows:
+                audit["operation_asof_date"] = report_date
+                audit["operation_lifecycle_state"] = "confirmed_or_active_excluded"
+                audit["generated_at"] = generated_at
+                if not audit["reason"]:
+                    audit["reason"] = "no_positive_row_level_evidence"
+            return 80, None, audit_rows
         confirmation_idx = int(selected["confirmation_idx"])
         entry_idx = confirmation_idx + 1
         if confirmation_idx == report_idx:
-            return 0, confirmed_record(
+            record = confirmed_record(
                 signal,
                 selected,
                 evidence,
+                context,
                 price,
                 signal_idx,
                 approval,
@@ -740,14 +977,20 @@ def lifecycle_state_for_signal(
                 daily_volume_count,
                 display_order,
             )
+            for audit in audit_rows:
+                audit["operation_asof_date"] = report_date
+                audit["operation_lifecycle_state"] = "confirmed_operation"
+                audit["generated_at"] = generated_at
+            return 0, record, audit_rows
         if entry_idx < len(price) and report_idx >= entry_idx:
             planned_exit_idx = entry_idx + MAX_HOLD_DAYS - 1
             stopped_idx = stop_hit_index(price, entry_idx, report_idx, signal_low)
             if stopped_idx is None and report_idx <= planned_exit_idx:
-                return 1, active_record(
+                record = active_record(
                     signal,
                     selected,
                     evidence,
+                    context,
                     price,
                     signal_idx,
                     entry_idx,
@@ -757,11 +1000,20 @@ def lifecycle_state_for_signal(
                     daily_volume_count,
                     display_order,
                 )
-        return 90, None
+                for audit in audit_rows:
+                    audit["operation_asof_date"] = report_date
+                    audit["operation_lifecycle_state"] = "active_operation"
+                    audit["generated_at"] = generated_at
+                return 1, record, audit_rows
+        for audit in audit_rows:
+            audit["operation_asof_date"] = report_date
+            audit["operation_lifecycle_state"] = "expired"
+            audit["generated_at"] = generated_at
+        return 90, None, audit_rows
 
     if signal_age <= MAX_CONFIRM_DAYS and not signal_low_broken(price, signal_idx, report_idx, signal_low):
-        return 2, pending_record(signal, signal_age, approval, generated_at, report_date, daily_volume_count, display_order)
-    return 90, None
+        return 2, pending_record(signal, signal_age, approval, generated_at, report_date, daily_volume_count, display_order), audit_rows
+    return 90, None, audit_rows
 
 
 def build_lifecycle_rows(
@@ -771,14 +1023,15 @@ def build_lifecycle_rows(
     approval: dict[str, str],
     generated_at: str,
     formal_summary: pd.DataFrame,
-) -> list[dict[str, Any]]:
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     history = load_volume_signal_history(signals, report_date)
     if history.empty:
-        return []
+        return [], []
 
     best_by_stock: dict[str, tuple[int, dict[str, Any]]] = {}
+    audit_rows: list[dict[str, Any]] = []
     for _, signal in history.iterrows():
-        priority, record = lifecycle_state_for_signal(
+        priority, record, signal_audit = lifecycle_state_for_signal(
             signal,
             report_date,
             formal_summary,
@@ -786,6 +1039,7 @@ def build_lifecycle_rows(
             generated_at,
             daily_volume_count,
         )
+        audit_rows.extend(signal_audit)
         if record is None:
             continue
         stock_id = stock_id_key(record.get("stock_id"))
@@ -802,7 +1056,7 @@ def build_lifecycle_rows(
             if not safe_str(record.get("display_order")) or safe_str(record.get("display_order")) == "999999":
                 record["display_order"] = str(idx)
             rows.append(record)
-    return rows
+    return rows, audit_rows
 
 
 def empty_row(
@@ -922,7 +1176,64 @@ def write_outputs(df: pd.DataFrame, source_rows: int, source_status: str) -> Non
     (DOCS_LATEST_DIR / OUT_MD.name).write_bytes(OUT_MD.read_bytes())
 
 
-def build() -> pd.DataFrame:
+def write_evidence_audit(audit: pd.DataFrame) -> None:
+    audit = audit.copy()
+    if audit.empty:
+        audit = pd.DataFrame(columns=EVIDENCE_AUDIT_COLUMNS)
+    else:
+        for col in EVIDENCE_AUDIT_COLUMNS:
+            if col not in audit.columns:
+                audit[col] = ""
+        audit = audit[EVIDENCE_AUDIT_COLUMNS]
+    EVIDENCE_AUDIT_CSV.parent.mkdir(parents=True, exist_ok=True)
+    audit.to_csv(EVIDENCE_AUDIT_CSV, index=False, encoding="utf-8-sig", lineterminator="\n")
+
+    lines = [
+        "# Daily Volume Breakout Operation Evidence Audit",
+        "",
+        f"- generated_at: `{safe_str(audit['generated_at'].iloc[0]) if not audit.empty else now_text()}`",
+        f"- model_id: `{MODEL_ID}`",
+        "- purpose: row-level audit proving daily adapter evidence is attributed to each stock's own TDCC/trigger/pattern context.",
+        "- rule: confirmed/active daily rows must use `positive_row_evidence`; preview, pending queue, and global best evidence are not valid sources.",
+        "",
+    ]
+    if audit.empty:
+        lines.append("_No evaluated confirmed or active operation rows._")
+    else:
+        display_cols = [
+            "stock_id",
+            "stock_name",
+            "signal_date",
+            "selected_trigger_id",
+            "operation_lifecycle_state",
+            "audit_status",
+            "included_in_daily_adapter",
+            "tdcc_list_type",
+            "rank_bucket",
+            "classification_id",
+            "attack_method",
+            "price_position_type",
+            "evidence_confluence_scope",
+            "evidence_confluence_id",
+            "evidence_sample_size",
+            "evidence_win_rate",
+            "evidence_median_return",
+            "evidence_out_of_sample_pass",
+            "ranking_research_score",
+            "reason",
+        ]
+        try:
+            lines.append(audit[display_cols].to_markdown(index=False))
+        except Exception:
+            lines.append(audit[display_cols].to_string(index=False))
+    EVIDENCE_AUDIT_MD.write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
+
+    DOCS_LATEST_DIR.mkdir(parents=True, exist_ok=True)
+    (DOCS_LATEST_DIR / EVIDENCE_AUDIT_CSV.name).write_bytes(EVIDENCE_AUDIT_CSV.read_bytes())
+    (DOCS_LATEST_DIR / EVIDENCE_AUDIT_MD.name).write_bytes(EVIDENCE_AUDIT_MD.read_bytes())
+
+
+def build() -> tuple[pd.DataFrame, pd.DataFrame]:
     signals = read_csv(DAILY_SIGNALS_CSV)
     approval = read_csv(APPROVAL_CSV)
     formal_summary = read_csv(FORMAL_SUMMARY_CSV)
@@ -930,7 +1241,7 @@ def build() -> pd.DataFrame:
     daily_signal_date, daily_volume_count = daily_signal_context(signals, report_date)
     generated_at = now_text()
     approval_info = approval_context(approval)
-    rows = build_lifecycle_rows(
+    rows, audit_rows = build_lifecycle_rows(
         signals,
         daily_signal_date,
         daily_volume_count,
@@ -966,15 +1277,20 @@ def build() -> pd.DataFrame:
     out["_row_type_order"] = out["row_type"].map({"data": 0, "empty_state": 1}).fillna(9)
     out["_display_order_num"] = pd.to_numeric(out["display_order"], errors="coerce").fillna(999999)
     out = out.sort_values(["_view_order", "_section_order", "_row_type_order", "_display_order_num", "stock_id"])
-    return out.drop(columns=["_view_order", "_section_order", "_row_type_order", "_display_order_num"]).reset_index(drop=True)
+    section = out.drop(columns=["_view_order", "_section_order", "_row_type_order", "_display_order_num"]).reset_index(drop=True)
+    audit = pd.DataFrame(audit_rows, columns=EVIDENCE_AUDIT_COLUMNS)
+    return section, audit
 
 
 def main() -> int:
-    out = build()
+    out, audit = build()
     source_rows = int(out[out["row_type"].astype(str).eq("data")]["stock_id"].astype(str).replace("", pd.NA).dropna().nunique())
     write_outputs(out, source_rows, "ready")
+    write_evidence_audit(audit)
     print(f"Saved: {OUT_CSV} rows={len(out)}")
     print(f"Saved: {OUT_MD}")
+    print(f"Saved: {EVIDENCE_AUDIT_CSV} rows={len(audit)}")
+    print(f"Saved: {EVIDENCE_AUDIT_MD}")
     return 0
 
 
