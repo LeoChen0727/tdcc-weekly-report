@@ -27,6 +27,19 @@ def test_lifecycle_inventory_covers_existing_production_inventory() -> None:
     assert "scripts/build_chip_flow_positive_streak.py" not in lifecycle
 
 
+def test_lifecycle_inventory_has_no_pending_delete_or_deprecated_rows() -> None:
+    lifecycle_path = ROOT / "config" / "repo_file_lifecycle_inventory.csv"
+
+    with lifecycle_path.open("r", encoding="utf-8-sig", newline="") as fh:
+        pending = [
+            row["path"]
+            for row in csv.DictReader(fh)
+            if row["status"] in {"deprecated", "delete_candidate"}
+        ]
+
+    assert pending == []
+
+
 def test_active_guidance_does_not_point_to_retired_daily_pdf_artifacts() -> None:
     for path, row in validator.load_lifecycle_inventory([]).items():
         if row.type not in {"guidance_doc", "generated_guidance"} or row.status == "historical_artifact":
