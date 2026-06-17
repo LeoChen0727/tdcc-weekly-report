@@ -24,7 +24,7 @@ def test_lifecycle_inventory_covers_existing_production_inventory() -> None:
 
     assert set(production) <= set(lifecycle)
     assert lifecycle["scripts/validate_repo_file_lifecycle_inventory.py"]["status"] == "active"
-    assert lifecycle["scripts/build_chip_flow_positive_streak.py"]["status"] == "delete_candidate"
+    assert "scripts/build_chip_flow_positive_streak.py" not in lifecycle
 
 
 def test_active_guidance_does_not_point_to_retired_daily_pdf_artifacts() -> None:
