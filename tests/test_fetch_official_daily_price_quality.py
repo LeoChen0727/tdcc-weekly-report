@@ -54,3 +54,102 @@ def test_latest_existing_daily_file_prefers_canonical_daily_price_name(tmp_path,
 
     assert selected is not None
     assert selected.name == "daily_price_20260604.csv"
+
+
+def test_tpex_json_rejects_response_date_that_does_not_match_target():
+    text = (
+        '{"date":"20260618","tables":[{"data":[["006201","ETF","50.25","","49.25",'
+        '"50.25","48.96","50","2512"]]}]}'
+    )
+    log: list[str] = []
+
+    df = fetcher.parse_tpex_json(text, "20260608", "TPEX_TEST", log)
+
+    assert df.empty
+    assert any("rejected response dates ['20260618']" in item for item in log)
+
+
+def test_tpex_csv_rejects_response_date_that_does_not_match_target():
+    text = '資料日期:115/06/18\n006201,ETF,50.25,,49.25,50.25,48.96,50,2512\n'
+    log: list[str] = []
+
+    df = fetcher.parse_tpex_csv(text, "20260608", "TPEX_TEST", log)
+
+    assert df.empty
+    assert any("rejected response date 20260618" in item for item in log)
+
+
+def test_tpex_json_accepts_nested_table_response_date_that_matches_target():
+    text = (
+        '{"tables":[{"date":"115/06/09","data":[["006201","ETF","26.36","-0.09",'
+        '"26.33","26.38","26.31","63,012,000","1,660,553,000"]]}]}'
+    )
+    log: list[str] = []
+
+    df = fetcher.parse_tpex_json(text, "20260609", "TPEX_TEST", log)
+
+    assert len(df) == 1
+    row = df.iloc[0]
+    assert row["stock_id"] == "006201"
+    assert row["date"] == "20260609"
+    assert float(row["volume"]) == 63012000.0
+
+
+def test_tpex_fetch_skips_latest_only_openapi_for_historical_target(monkeypatch):
+    monkeypatch.setattr(fetcher, "now_taipei", lambda: fetcher.datetime(2026, 6, 18, tzinfo=fetcher.TAIPEI))
+
+    requested: list[str] = []
+
+    def fake_request_text(url: str, log: list[str], referer: str = "https://www.twse.com.tw/") -> str:
+        requested.append(url)
+        if "openapi" in url:
+            return '{"data":[["006201","ETF","50.25","","49.25","50.25","48.96","50","2512"]]}'
+        return ""
+
+    monkeypatch.setattr(fetcher, "request_text", fake_request_text)
+
+    log: list[str] = []
+    df = fetcher.fetch_tpex_batch("20260608", log)
+
+    assert df.empty
+    assert not any("openapi" in url for url in requested)
+    assert any("latest-only" in item for item in log)
+
+
+def test_apply_canonical_stock_names_overrides_corrupted_endpoint_name(tmp_path, monkeypatch):
+    snapshot = tmp_path / "company_industry_snapshot_latest.csv"
+    pd.DataFrame(
+        [
+            {
+                "stock_id": "2243",
+                "stock_name": "宏旭-KY",
+                "industry": "汽車工業",
+                "market": "TWSE",
+            }
+        ]
+    ).to_csv(snapshot, index=False, encoding="utf-8-sig")
+    monkeypatch.setattr(fetcher, "CANONICAL_STOCK_NAME_SOURCES", [snapshot])
+
+    source = pd.DataFrame(
+        [
+            {
+                "date": "20260610",
+                "stock_id": "2243",
+                "stock_name": "ЇЛІА-KY",
+                "market": "TWSE",
+                "open": 28.0,
+                "high": 31.2,
+                "low": 28.0,
+                "close": 30.8,
+                "volume": 2128874,
+                "trading_value": 64777690,
+                "source": "TWSE_RWD_JSON_MI_INDEX",
+            }
+        ]
+    )
+    log: list[str] = []
+
+    out = fetcher.apply_canonical_stock_names(source, log)
+
+    assert out.iloc[0]["stock_name"] == "宏旭-KY"
+    assert any("Applied canonical stock names" in item for item in log)

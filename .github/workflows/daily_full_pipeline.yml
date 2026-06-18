@@ -76,6 +76,10 @@ jobs:
         run: |
           python scripts/build_stock_price_history.py --incremental-latest
 
+      - name: Validate daily price history continuity
+        run: |
+          python scripts/validate_daily_price_history_continuity.py
+
       - name: Run daily stock monitor
         run: |
           python stock_daily_monitor.py
