@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18 18:24:33 Asia/Taipei",
+  "generated_at": "2026-06-18 19:44:51 Asia/Taipei",
   "external_fetch_status": "partial_ok",
   "note": "Official monthly revenue and material-information sources are used when reachable. No unverified news, MOPS pages, or social rumor data is fabricated.",
   "files": {
@@ -37,11 +37,12 @@
     },
     "TPEX monthly revenue OpenAPI": {
       "url": "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O",
-      "status": "failed",
-      "rows": 0,
-      "error": "Response ended prematurely",
-      "matched_tracked_rows": 0,
-      "stored_rows": 0,
+      "status": "ok",
+      "rows": 890,
+      "error": "",
+      "http_status": 200,
+      "matched_tracked_rows": 12,
+      "stored_rows": 12,
       "note": "Official monthly revenue rows are stored as fundamental source rows with EPS/margin fields blank. They can flag revenue_good_eps_unconfirmed only; they are not EPS confirmation."
     },
     "TWSE material information OpenAPI": {

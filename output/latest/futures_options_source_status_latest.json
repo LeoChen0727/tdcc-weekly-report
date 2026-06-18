@@ -1,28 +1,28 @@
 {
-  "generated_at": "2026-06-18 18:27:44 Asia/Taipei",
+  "generated_at": "2026-06-18 19:48:21 Asia/Taipei",
   "sources": {
     "institutional_fo": {
       "status": "ok",
       "rows": 3,
-      "latest_date": "20260617",
+      "latest_date": "20260618",
       "message": ""
     },
     "futures_contracts": {
       "status": "ok",
       "rows": 66,
-      "latest_date": "20260617",
+      "latest_date": "20260618",
       "message": ""
     },
     "options_call_put": {
       "status": "ok",
       "rows": 30,
-      "latest_date": "20260617",
+      "latest_date": "20260618",
       "message": ""
     },
     "put_call_ratio": {
       "status": "ok",
       "rows": 23,
-      "latest_date": "20260617",
+      "latest_date": "20260618",
       "message": ""
     },
     "taiwan_vix": {

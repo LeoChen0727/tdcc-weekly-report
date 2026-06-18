@@ -1,6 +1,6 @@
 # Official Daily Price Fetch Report
 
-- generated_at: `2026-06-18 18:19:52 Asia/Taipei`
+- generated_at: `2026-06-18 19:34:38 Asia/Taipei`
 - target_date: `20260618`
 - saved_price_date: `20260618`
 - is_target_date: `True`
@@ -31,13 +31,15 @@
 - TWSE_RWD_JSON_MI_INDEX: parsed TWSE rows=1237
 - TWSE batch selected source=TWSE_RWD_JSON_MI_INDEX, rows=1237
 - Trying TPEx batch source=TPEX_NEW_AFTERTRADING_JSON date=20260618
-- GET https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/06/18&type=EW&response=json -> status=200, chars=9954
+- GET https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/06/18&type=EW&response=json -> status=200, chars=11371
 - TPEX_NEW_AFTERTRADING_JSON: JSON parse failed
 - Trying TPEx batch source=TPEX_NEW_AFTERTRADING_CSV date=20260618
 - GET https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/06/18&type=EW&response=csv -> status=200, chars=11371
 - TPEX_NEW_AFTERTRADING_CSV: parsed TPEx CSV rows=0
 - Trying TPEx batch source=TPEX_OLD_DAILY_JSON date=20260618
-- GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=json&d=115/06/18&s=0,asc,0 -> status=200, chars=1419313
-- TPEX_OLD_DAILY_JSON: parsed TPEx JSON rows=5314
-- TPEx batch selected source=TPEX_OLD_DAILY_JSON, rows=5314
+- GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=json&d=115/06/18&s=0,asc,0 failed: ChunkedEncodingError: Response ended prematurely
+- Trying TPEx batch source=TPEX_OLD_DAILY_CSV date=20260618
+- GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=csv&d=115/06/18&s=0,asc,0 -> status=200, chars=1408708
+- TPEX_OLD_DAILY_CSV: parsed TPEx CSV rows=5314
+- TPEx batch selected source=TPEX_OLD_DAILY_CSV, rows=5314
 - date=20260618 twse_rows=1237 tpex_rows=5314 total_rows=6551 full_market_ok=True
