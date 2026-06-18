@@ -39,6 +39,12 @@ FORBIDDEN_RAW_TOKENS = [
     "buy_rank_eligible",
     "row_action_status",
     "confirmed_buy_candidate",
+    "pullback_5ma_confirmed",
+    "next_day_break_signal_high_confirmed",
+    "next_day_continuation_confirmed",
+    "pullback_10ma_confirmed",
+    "confirmation_next_open",
+    "signal_low_stop_or_fixed_10d_close",
 ]
 
 FORBIDDEN_DECISION_LAYER_TEXT = [

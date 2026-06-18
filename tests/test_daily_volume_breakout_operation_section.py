@@ -673,11 +673,30 @@ def test_pdf_operation_renderer_uses_row_level_buy_eligibility(monkeypatch) -> N
                 "display_order": "1",
                 "stock_id": "1111",
                 "stock_display": "1111 測試A",
-                "trigger_zh": "隔日續強確認",
-                "entry_basis_zh": "確認後下一交易日開盤",
-                "entry_price_status_zh": "進場價待下一交易日開盤",
-                "stop_basis_zh": "跌破 6/11 最低價 10.00",
-                "exit_rule_zh": "第 10 個交易日收盤出場",
+                "trigger_zh": "舊確認方式不可出現",
+                "entry_basis_zh": "舊買入方式不可出現",
+                "entry_price_status_zh": "舊進場價狀態不可出現",
+                "stop_basis_zh": "舊停損基準不可出現",
+                "exit_rule_zh": "舊出場規則不可出現",
+                "selected_trigger_id": "next_day_break_signal_high_confirmed",
+                "selected_confirmation_date": "20260612",
+                "confirmation_date": "20260612",
+                "entry_rule_id": "confirmation_next_open",
+                "entry_price_basis": "next_open_after_confirmation",
+                "entry_date": "",
+                "entry_price": "",
+                "stop_loss_rule_id": "signal_low_stop",
+                "stop_loss_price": "10.00",
+                "stop_loss_label_zh": "6/11最低點",
+                "exit_rule_id": "signal_low_stop_or_fixed_10d_close",
+                "planned_holding_days": "10",
+                "operation_age_days": "1",
+                "operation_score": "12.3",
+                "tdcc_score": "1.0",
+                "pattern_score": "2.0",
+                "risk_penalty": "0",
+                "final_rank_score": "88.8",
+                "rank_reason_zh": "正式分數理由",
                 "sample_size": "12",
                 "win_rate_zh": "66.67%",
                 "avg_return_zh": "+21.67%",
@@ -699,8 +718,12 @@ def test_pdf_operation_renderer_uses_row_level_buy_eligibility(monkeypatch) -> N
                 "pending_age_zh": "D+1，剩 9 個交易日",
                 "pending_group_zh": "D+0-D+1 等隔日續強",
                 "pending_confirmation_zh": "等待隔日續強 / 回測 5MA / 回測 10MA",
-                "entry_basis_zh": "尚未確認，不列進場價",
-                "stop_basis_zh": "跌破 6/11 最低價 20.00",
+                "entry_basis_zh": "舊待確認進場欄位不可出現",
+                "entry_price_status_zh": "舊待確認進場狀態不可出現",
+                "stop_basis_zh": "舊待確認停損欄位不可出現",
+                "operation_score": "4.0",
+                "final_rank_score": "77.6",
+                "rank_reason_zh": "待確認分數理由",
                 "operation_status_zh": "待確認",
                 "row_action_status": "pending_confirmation",
                 "buy_rank_eligible": "False",
@@ -748,28 +771,41 @@ def test_pdf_operation_renderer_uses_row_level_buy_eligibility(monkeypatch) -> N
         "排名",
         "股票",
         "確認方式",
+        "確認日",
         "買入方式",
-        "進場價狀態",
-        "停損價",
+        "停損基準",
         "出場規則",
+        "操作 / 最終分數",
         "樣本數",
         "勝率",
-        "平均報酬",
         "中位數報酬",
-        "信心",
+        "排名原因",
     ]
     assert confirmed[1][1] == "1111 測試A"
+    assert confirmed[1][2] == "隔日突破訊號高點"
+    assert confirmed[1][3] == "2026/6/12"
+    assert confirmed[1][4] == "確認後下一交易日開盤，尚未產生"
+    assert confirmed[1][5] == "6/11最低點 10.00"
+    assert confirmed[1][6] == "跌破停損基準，否則最多第 10 個交易日收盤"
+    assert confirmed[1][7] == "操作 12.30 / 最終 88.80"
+    assert confirmed[1][11] == "正式分數理由"
     assert "2222 測試B" not in " ".join(str(cell) for row in confirmed for cell in row)
-    assert pending[0] == ["股票", "等待天數", "等待分組", "待確認條件", "進場價狀態", "停損基準", "狀態"]
+    assert pending[0] == ["股票", "等待天數", "等待分組", "待確認條件", "模型分數 / 排名原因", "進場 / 停損狀態", "狀態"]
     assert pending[1][0] == "2222 測試B"
-    assert pending[1][4] == "尚未確認，不列進場價"
-    assert active[0] == ["狀態", "股票 / 說明", "備註"]
-    assert active[1][0] == "操作中"
+    assert pending[1][4] == "操作 4.00 / 最終 77.60 / 待確認分數理由"
+    assert pending[1][5] == "尚未確認，不列進場價 / 尚未確認，不列停損價"
+    assert active[0] == ["股票", "確認方式", "進場日 / 價", "停損基準", "持有天數", "出場規則", "操作 / 最終分數", "備註"]
+    assert active[1][0] == "目前無資料"
 
     visible = "\n".join(str(cell) for table in captured_tables for row in table for cell in row)
     assert "buy_rank_eligible" not in visible
     assert "row_action_status" not in visible
     assert "confirmed_buy_candidate" not in visible
+    assert "舊確認方式不可出現" not in visible
+    assert "舊買入方式不可出現" not in visible
+    assert "舊進場價狀態不可出現" not in visible
+    assert "舊停損基準不可出現" not in visible
+    assert "舊出場規則不可出現" not in visible
 
 
 def test_pdf_operation_renderer_collapses_empty_state_rows(monkeypatch) -> None:

@@ -89,6 +89,8 @@ The CSV must include these approval fields on every row:
 - `rank_reason_zh`
 - `entry_rule_id`
 - `entry_price_basis`
+- `entry_date`
+- `entry_price`
 - `stop_loss_rule_id`
 - `stop_loss_price`
 - `stop_loss_label_zh`
@@ -115,6 +117,7 @@ Operation field meaning:
 - `final_rank_score` is the daily production ranking score for `volume_range_breakout`; PDF must render it and must not recalculate it.
 - `operation_score`, `tdcc_score`, `pattern_score`, and `risk_penalty` are score components copied from the daily model layer for auditability.
 - `entry_rule_id=confirmation_next_open` means a confirmed row uses the next trading day's open after the selected confirmation date.
+- `entry_date` and `entry_price` are structured entry fields. They stay blank on `confirmed_operation` until the next trading day's open exists, are required on `active_operation` data rows, and must remain blank on `pending_confirmation`.
 - `stop_loss_rule_id=signal_low_stop` means the stop basis is the signal-date low, displayed as `{M/D}最低點`.
 - `exit_rule_id=signal_low_stop_or_fixed_10d_close` means exit at the stop first, otherwise fixed 10 trading-day close.
 - `pending_confirmation` rows must not show an entry price; they may carry rule IDs only to describe the eventual rule after confirmation.
