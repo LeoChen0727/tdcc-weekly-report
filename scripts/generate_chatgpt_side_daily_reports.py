@@ -149,7 +149,8 @@ def fetch_text_no_cache(url: str) -> str:
 def enforce_fresh_repo_data() -> None:
     global DATA_DATE, DATA_DATE_SLASH, REQUEST_DATE, REQUEST_DATE_SLASH, REMOTE_README
 
-    source_state = resolve_daily_report_source_state(REPO)
+    source_ref = os.environ.get("CHATGPT_DAILY_SOURCE_REF", "origin/main")
+    source_state = resolve_daily_report_source_state(REPO, source_ref=source_ref)
     remote = source_state["readme_fields"]
     remote_date = source_state["main_price_date"]
 
