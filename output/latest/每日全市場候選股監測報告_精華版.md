@@ -1,7 +1,7 @@
 # 每日全市場候選股監測報告 - 精華版
 
 - 主資料日期：`20260618`
-- 產生時間：`2026-06-19 05:10:23 Asia/Taipei`
+- 產生時間：`2026-06-19 05:41:35 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
 - 判斷說明：core daily data dates match main_price_date
 - 權證資料日期：`20260618`
@@ -31,18 +31,18 @@
 
 | 股票 | 原始分類 | 催化標籤 / 反應程度 | TDCC |
 |---|---|---|---|
-| 8210 勤誠 | 營收成長股價回檔 | score 44 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;new_order;電腦及週邊設備業;d... | 大戶溫和增加 |
+| 1449 佳和 | 營收成長股價回檔 | score 44 / theme 38.5/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;new_order;紡織纖維;shareh... | 大戶溫和增加 |
 | 2301 光寶科 | 營收成長股價回檔 | score 44 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;new_order;電腦及週邊設備業;m... | 大戶同步增加 |
 | 2368 金像電 | 營收成長股價回檔 | score 40 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;capacity_expansion;電... | 大戶溫和增加 |
-| 2498 宏達電 | 型態觀察 | score 34 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;通信網路業;dividend_calendar;calendar_ex_div... | 大戶同步增加 |
-| 8210 勤誠 | 型態觀察 | score 34 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;電腦及週邊設備業;dividend_calendar;calendar_ex_... | 大戶溫和增加 |
-| 2601 益航 | 型態觀察 | score 34 / theme 76.2/5 / event_confirmed;low_reaction_after_catalyst;new_order;航運業;monthly_revenue_calendar;calendar_mo... | 大戶溫和增加 |
+| 1449 佳和 | 型態觀察 | score 34 / theme 38.5/5 / event_confirmed;low_reaction_after_catalyst;new_order;紡織纖維;shareholder_meeting_calendar;calend... | 大戶溫和增加 |
+| 2206 三陽工業 | 型態觀察 | score 34 / theme 99.6/5 / event_confirmed;low_reaction_after_catalyst;new_order;汽車工業;shareholder_meeting_calendar;calend... | 大戶溫和增加 |
+| 1314 中石化 | 型態觀察 | score 34 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;塑膠工業;monthly_revenue_calendar;calendar_... | 大戶溫和增加 |
 | 2891 中信金 | 型態觀察 | score 34 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;金融保險業;monthly_revenue_calendar;calendar... | 大戶溫和增加 |
-| 2891 中信金 | 營收成長股價回檔 | score 34 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;金融保險業;monthly_revenue_calendar;calendar... | 大戶溫和增加 |
 | 3303 岱稜 | 型態觀察 | score 34 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;其他電子業;monthly_revenue_calendar;calendar... | 大戶溫和增加 |
 | 2633 台灣高鐵 | 型態觀察 | score 34 / theme 76.2/5 / event_confirmed;low_reaction_after_catalyst;new_order;航運業;monthly_revenue_calendar;calendar_mo... | 大戶溫和增加 |
+| 2891 中信金 | 營收成長股價回檔 | score 34 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;金融保險業;monthly_revenue_calendar;calendar... | 大戶溫和增加 |
 | 2368 金像電 | 型態觀察 | score 30 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;capacity_expansion;電子零組件業;dividend_calendar;calen... | 大戶溫和增加 |
-| 2374 佳能 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;shareholder_meeting_calendar;calenda... | 大戶溫和增加 |
+| 8210 勤誠 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;material_information;電腦及週邊設備業;divide... | 大戶溫和增加 |
 
 ## 精華候選股
 
@@ -141,7 +141,7 @@
 - 連續上榜：訊號鈍化；近5日 5；近10日 9；多分類 range_rebound
 - TDCC：大戶轉弱
 - 權證：call_strong_inflow / 2.0
-- 財報 / 事件催化：score 0 / theme 100.0/5 / dividend_calendar;calendar_ex_dividend;半導體業 / dividend_calendar;calendar_ex_dividend / calendar ex_dividend 202606...
+- 財報 / 事件催化：score 0 / theme 100.0/5 / shareholder_meeting;半導體業;dividend_calendar;calendar_ex_dividend / shareholder_meeting;半導體業 / dividend_calendar;cal...
 - 摘要：區間轉強 / 距前高-10.84% / 大戶轉弱 / call_strong_inflow / 2.0
 - 完整原因：近幾週400張與1000張同步減少；call_strong_inflow；認購權證成交金額明顯升溫；區間內轉強；量比2.96x；月營收YoY 88.1%；累計YoY 34.3%；TDCC近幾週大戶籌碼轉弱
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
@@ -365,7 +365,7 @@
 - 連續上榜：訊號鈍化；近5日 4；近10日 7；多分類 pattern
 - TDCC：大戶轉弱
 - 權證：call_strong_inflow / 2.0
-- 財報 / 事件催化：score 0 / theme 100.0/5 / shareholder_meeting;電機機械;monthly_revenue_calendar;calendar_monthly_revenue_expected_window / shareholder_meeting;電...
+- 財報 / 事件催化：score 1 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;電機機械;monthly_revenue_calendar;calendar_monthly_revenue_expec...
 - 摘要：pattern_watch / 大戶轉弱 / call_strong_inflow / 2.0
 - 完整原因：近幾週400張與1000張同步減少；call_strong_inflow；認購權證成交金額明顯升溫；量比0.88x；月營收YoY 8.4%；累計YoY 14.9%；TDCC近幾週大戶籌碼轉弱
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
@@ -389,7 +389,7 @@
 - 連續上榜：反覆上榜未突破；近5日 5；近10日 9；多分類 pattern
 - TDCC：大戶溫和增加
 - 權證：call_strong_inflow / 2.0
-- 財報 / 事件催化：score 0 / theme 55.9/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window;電器電纜 / monthly_revenue_calendar;calendar_monthly_...
+- 財報 / 事件催化：score 0 / theme 55.9/5 / material_information;電器電纜;monthly_revenue_calendar;calendar_monthly_revenue_expected_window / material_information;...
 - 摘要：pattern_watch / 大戶溫和增加 / call_strong_inflow / 2.0
 - 完整原因：近幾週400張與1000張合計增加；call_strong_inflow；認購權證成交金額明顯升溫；量比0.84x；月營收YoY 11.1%；累計YoY -5.4%；TDCC近幾週大戶溫和增加
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
@@ -401,7 +401,7 @@
 - 連續上榜：訊號鈍化；近5日 5；近10日 9；多分類 pattern
 - TDCC：大戶轉弱
 - 權證：call_strong_inflow / 2.0
-- 財報 / 事件催化：score 0 / theme 100.0/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window;半導體業 / monthly_revenue_calendar;calendar_monthly...
+- 財報 / 事件催化：score 0 / theme 100.0/5 / shareholder_meeting;半導體業;monthly_revenue_calendar;calendar_monthly_revenue_expected_window / shareholder_meeting;半...
 - 摘要：pattern_watch / 大戶轉弱 / call_strong_inflow / 2.0
 - 完整原因：近幾週400張與1000張同步減少；call_strong_inflow；認購權證成交金額明顯升溫；量比0.76x；月營收YoY -7.5%；累計YoY -6.1%；TDCC近幾週大戶籌碼轉弱
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）

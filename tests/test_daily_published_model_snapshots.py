@@ -19,6 +19,11 @@ def write_csv(path: Path, rows: list[dict[str, str]]) -> None:
     pd.DataFrame(rows).to_csv(path, index=False, encoding="utf-8", lineterminator="\n")
 
 
+def rewrite_with_crlf(path: Path) -> None:
+    text = path.read_text(encoding="utf-8").replace("\r\n", "\n").replace("\r", "\n")
+    path.write_bytes(text.replace("\n", "\r\n").encode("utf-8"))
+
+
 def write_minimal_latest_artifacts(latest_dir: Path, report_date: str = "20260615") -> None:
     write_csv(
         latest_dir / "data_freshness_latest.csv",
@@ -132,6 +137,33 @@ def test_daily_published_model_snapshot_builder_and_validator_use_report_date(
     }
     assert set(manifest_rows["snapshot_report_date"]) == {"20260615"}
     assert (snapshot_dir / "daily_candidate_model_signals_for_report_20260615.csv").exists()
+    assert validate_snapshots.validate_current_report_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+    ) == []
+
+
+def test_daily_published_model_snapshot_hashes_tolerate_windows_crlf_checkout(
+    tmp_path: Path,
+) -> None:
+    latest_dir = tmp_path / "output" / "latest"
+    snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
+    manifest_path = snapshot_dir / "daily_published_model_snapshot_manifest.csv"
+    write_minimal_latest_artifacts(latest_dir, report_date="20260615")
+
+    update_snapshots.build_daily_published_model_snapshots(
+        latest_dir=latest_dir,
+        snapshot_dir=snapshot_dir,
+        manifest_path=manifest_path,
+        generated_at="2026-06-16 08:00:00 Asia/Taipei",
+        commit_sha="test-sha",
+    )
+    manifest = pd.read_csv(manifest_path, dtype=str)
+    for _, row in manifest.iterrows():
+        rewrite_with_crlf(Path(row["source_path"]))
+        rewrite_with_crlf(Path(row["snapshot_path"]))
+
     assert validate_snapshots.validate_current_report_snapshots(
         latest_dir=latest_dir,
         snapshot_dir=snapshot_dir,
