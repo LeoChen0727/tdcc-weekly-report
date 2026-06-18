@@ -1,14 +1,14 @@
 # Official Daily Price Fetch Report
 
-- generated_at: `2026-06-18 19:34:38 Asia/Taipei`
+- generated_at: `2026-06-18 20:49:43 Asia/Taipei`
 - target_date: `20260618`
 - saved_price_date: `20260618`
 - is_target_date: `True`
 - result: `success_target_full_market`
 - reason: 成功取得目標日 TWSE + TPEx 官方日線資料。
 - twse_rows: `1237`
-- tpex_rows: `5314`
-- total_rows: `6551`
+- tpex_rows: `895`
+- total_rows: `2132`
 - full_market_ok: `True`
 
 ## Output Paths
@@ -19,7 +19,7 @@
 
 ## Fetch Attempts
 
-- 20260618: TWSE=1237 / TPEx=5314 / Total=6551 / full_market_ok=True
+- 20260618: TWSE=1237 / TPEx=895 / Total=2132 / full_market_ok=True
 
 ## Fetch Logs
 
@@ -34,12 +34,10 @@
 - GET https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/06/18&type=EW&response=json -> status=200, chars=11371
 - TPEX_NEW_AFTERTRADING_JSON: JSON parse failed
 - Trying TPEx batch source=TPEX_NEW_AFTERTRADING_CSV date=20260618
-- GET https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/06/18&type=EW&response=csv -> status=200, chars=11371
-- TPEX_NEW_AFTERTRADING_CSV: parsed TPEx CSV rows=0
-- Trying TPEx batch source=TPEX_OLD_DAILY_JSON date=20260618
-- GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=json&d=115/06/18&s=0,asc,0 failed: ChunkedEncodingError: Response ended prematurely
-- Trying TPEx batch source=TPEX_OLD_DAILY_CSV date=20260618
-- GET https://www.tpex.org.tw/web/stock/aftertrading/daily_close_quotes/stk_quote_result.php?l=zh-tw&o=csv&d=115/06/18&s=0,asc,0 -> status=200, chars=1408708
-- TPEX_OLD_DAILY_CSV: parsed TPEx CSV rows=5314
-- TPEx batch selected source=TPEX_OLD_DAILY_CSV, rows=5314
-- date=20260618 twse_rows=1237 tpex_rows=5314 total_rows=6551 full_market_ok=True
+- GET https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/06/18&type=EW&response=csv -> status=520, chars=959
+- Trying TPEx batch source=TPEX_OTC_QUOTES_NO1430_JSON date=20260618
+- GET https://www.tpex.org.tw/web/stock/aftertrading/otc_quotes_no1430/stk_wn1430_result.php?l=zh-tw&o=json&d=115/06/18&se=EW -> status=200, chars=141305
+- TPEX_OTC_QUOTES_NO1430_JSON: parsed TPEx JSON rows=895
+- TPEx batch selected source=TPEX_OTC_QUOTES_NO1430_JSON, rows=895
+- Applied canonical stock names from metadata snapshot changed_rows=13
+- date=20260618 twse_rows=1237 tpex_rows=895 total_rows=2132 full_market_ok=True

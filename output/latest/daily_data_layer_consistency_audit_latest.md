@@ -4,10 +4,10 @@
 - main_price_date: `20260618`
 - readme_main_price_date: `20260618`
 - readme_index_main_price_date: `20260618`
-- model_signal_rows: `441`
-- volume_watch_rows: `14`
+- model_signal_rows: `574`
+- volume_watch_rows: `22`
 - volume_theme_other_rows: `0`
-- group_rotation_rows: `7`
+- group_rotation_rows: `10`
 - taxonomy_rows: `2372`
 - taxonomy_template_csv_rows: `2372`
 - taxonomy_template_xlsx_rows: `2372`
@@ -31,7 +31,7 @@
   "readme_report_ready": "True",
   "readme_index_main_price_date": "20260618",
   "readme_index_report_ready": "True",
-  "preferred_chatgpt_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/ec813afd0736cf7b19eb1159ae530e83fa7b4e5f/output/history/reports/20260618_CHATGPT_DAILY_REPORT_PACKET.txt",
+  "preferred_chatgpt_url": "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-report/3c88ff6cffd84c8632f4fda3cb354c6e7fc7a5a4/output/history/reports/20260618_CHATGPT_DAILY_REPORT_PACKET.txt",
   "readme_cache_bypass_order": [
     "readme_date_stamped_raw_url",
     "readme_date_stamped_github_api_url",
@@ -72,11 +72,11 @@
   "individual_stock_read_protocol_present": true,
   "individual_stock_protocol_pages_first_count": 0,
   "effective_model_signal_date": "20260618",
-  "model_signal_rows": 441,
-  "raw_model_signal_rows": 441,
-  "volume_watch_rows": 14,
-  "volume_theme_stock_rows": 14,
-  "group_rotation_rows": 7,
+  "model_signal_rows": 574,
+  "raw_model_signal_rows": 574,
+  "volume_watch_rows": 22,
+  "volume_theme_stock_rows": 22,
+  "group_rotation_rows": 10,
   "taxonomy_rows": 2372,
   "taxonomy_template_csv_rows": 2372,
   "taxonomy_template_xlsx_rows": 2372,
@@ -105,7 +105,7 @@
   ],
   "volume_theme_other_rows": 0,
   "group_rotation_invalid_models": [],
-  "group_rotation_slow_rows": 7,
+  "group_rotation_slow_rows": 10,
   "group_rotation_launch_rows": 0,
   "missing_required_taxonomy_columns": [],
   "taxonomy_duplicate_stock_id_rows": 0,

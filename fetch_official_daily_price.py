@@ -32,6 +32,12 @@ DEBUG_MD = OUTPUT_DEBUG / "official_price_fetch_debug_latest.md"
 
 ALL_CANDIDATES_CSV = OUTPUT_LATEST / "all_candidates_latest.csv"
 CURRENT_HOLDINGS_JSON = CONFIG_DIR / "current_holdings.json"
+CANONICAL_STOCK_NAME_SOURCES = [
+    OUTPUT_LATEST / "company_industry_snapshot_latest.csv",
+    Path("docs/latest/company_industry_snapshot_latest.csv"),
+    OUTPUT_LATEST / "stock_theme_taxonomy_latest.csv",
+    Path("docs/latest/stock_theme_taxonomy_latest.csv"),
+]
 
 REQUEST_TIMEOUT = int(os.environ.get("OFFICIAL_PRICE_REQUEST_TIMEOUT", "25"))
 INDIVIDUAL_REQUEST_TIMEOUT = int(os.environ.get("OFFICIAL_PRICE_INDIVIDUAL_REQUEST_TIMEOUT", "8"))
@@ -111,6 +117,38 @@ def roc_date_from_yyyymmdd(date_text: str) -> str:
 
 def slash_date_from_yyyymmdd(date_text: str) -> str:
     return f"{date_text[:4]}/{date_text[4:6]}/{date_text[6:8]}"
+
+
+def extract_response_date(text: str) -> str:
+    for pattern in [
+        r'"date"\s*:\s*"([^"]+)"',
+        r"(?:資料日期|Date)\s*[:：]\s*([0-9]{3,4}/[0-9]{1,2}/[0-9]{1,2}|[0-9]{8})",
+    ]:
+        match = re.search(pattern, text)
+        if match:
+            return normalize_date_text(match.group(1))
+    return ""
+
+
+def collect_json_response_dates(node: Any) -> set[str]:
+    dates: set[str] = set()
+    if isinstance(node, dict):
+        for key, value in node.items():
+            if str(key).lower() == "date":
+                parsed = normalize_date_text(value)
+                if parsed:
+                    dates.add(parsed)
+            if isinstance(value, (list, dict)):
+                dates.update(collect_json_response_dates(value))
+    elif isinstance(node, list):
+        for value in node:
+            if isinstance(value, (list, dict)):
+                dates.update(collect_json_response_dates(value))
+    return dates
+
+
+def response_date_matches_target(response_date: str, target_date: str) -> bool:
+    return bool(response_date) and response_date == target_date
 
 
 def safe_str(value: Any) -> str:
@@ -275,6 +313,43 @@ def dataframe_from_rows(rows: list[dict[str, Any]]) -> pd.DataFrame:
     df = df.sort_values(["market", "stock_id"]).reset_index(drop=True)
 
     return df
+
+
+def load_canonical_stock_names() -> dict[str, str]:
+    names: dict[str, str] = {}
+    for path in CANONICAL_STOCK_NAME_SOURCES:
+        if not path.exists():
+            continue
+        try:
+            df = pd.read_csv(path, dtype=str, keep_default_na=False).fillna("")
+        except Exception:
+            continue
+        if not {"stock_id", "stock_name"}.issubset(df.columns):
+            continue
+        for _, row in df.iterrows():
+            stock_id = normalize_stock_id(row.get("stock_id", ""))
+            stock_name = safe_str(row.get("stock_name", ""))
+            if stock_id and stock_name and stock_id not in names:
+                names[stock_id] = stock_name
+    return names
+
+
+def apply_canonical_stock_names(df: pd.DataFrame, log: list[str] | None = None) -> pd.DataFrame:
+    if df.empty or not {"stock_id", "stock_name"}.issubset(df.columns):
+        return df
+    names = load_canonical_stock_names()
+    if not names:
+        return df
+
+    out = df.copy()
+    canonical = out["stock_id"].map(lambda value: names.get(normalize_stock_id(value), ""))
+    current = out["stock_name"].map(safe_str)
+    mask = canonical.map(bool)
+    changed = int((mask & current.ne(canonical)).sum())
+    out.loc[mask, "stock_name"] = canonical[mask]
+    if log is not None and changed:
+        log.append(f"Applied canonical stock names from metadata snapshot changed_rows={changed}")
+    return out
 
 
 def parse_twse_mi_index_list_row(item: list[Any], date_text: str, source: str) -> dict[str, Any] | None:
@@ -677,6 +752,20 @@ def parse_tpex_json(text: str, date_text: str, source: str, log: list[str]) -> p
         log.append(f"{source}: JSON parse failed")
         return pd.DataFrame(columns=FINAL_COLUMNS)
 
+    response_dates = collect_json_response_dates(obj)
+    if response_dates and date_text not in response_dates:
+        log.append(
+            f"{source}: rejected response dates {sorted(response_dates)}; target date is {date_text}"
+        )
+        return pd.DataFrame(columns=FINAL_COLUMNS)
+    if response_dates and date_text in response_dates and len(response_dates) > 1:
+        unexpected = sorted(date for date in response_dates if date != date_text)
+        if unexpected:
+            log.append(
+                f"{source}: rejected mixed response dates {sorted(response_dates)}; target date is {date_text}"
+            )
+            return pd.DataFrame(columns=FINAL_COLUMNS)
+
     rows: list[dict[str, Any]] = []
 
     def walk(node: Any) -> None:
@@ -710,6 +799,11 @@ def parse_tpex_json(text: str, date_text: str, source: str, log: list[str]) -> p
 
 
 def parse_tpex_csv(text: str, date_text: str, source: str, log: list[str]) -> pd.DataFrame:
+    response_date = extract_response_date(text)
+    if response_date and not response_date_matches_target(response_date, date_text):
+        log.append(f"{source}: rejected response date {response_date}; target date is {date_text}")
+        return pd.DataFrame(columns=FINAL_COLUMNS)
+
     rows = []
 
     reader = csv.reader(io.StringIO(text.lstrip("\ufeff")))
@@ -733,6 +827,7 @@ def parse_tpex_csv(text: str, date_text: str, source: str, log: list[str]) -> pd
 def fetch_tpex_batch(date_text: str, log: list[str]) -> pd.DataFrame:
     roc_date = roc_date_from_yyyymmdd(date_text)
     slash_date = slash_date_from_yyyymmdd(date_text)
+    current_date = ymd(now_taipei())
 
     urls = [
         (
@@ -743,6 +838,16 @@ def fetch_tpex_batch(date_text: str, log: list[str]) -> pd.DataFrame:
         (
             "TPEX_NEW_AFTERTRADING_CSV",
             f"https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date={slash_date}&type=EW&response=csv",
+            "csv",
+        ),
+        (
+            "TPEX_OTC_QUOTES_NO1430_JSON",
+            f"https://www.tpex.org.tw/web/stock/aftertrading/otc_quotes_no1430/stk_wn1430_result.php?l=zh-tw&o=json&d={roc_date}&se=EW",
+            "json",
+        ),
+        (
+            "TPEX_OTC_QUOTES_NO1430_CSV",
+            f"https://www.tpex.org.tw/web/stock/aftertrading/otc_quotes_no1430/stk_wn1430_result.php?l=zh-tw&o=csv&d={roc_date}&se=EW",
             "csv",
         ),
         (
@@ -765,6 +870,11 @@ def fetch_tpex_batch(date_text: str, log: list[str]) -> pd.DataFrame:
     best = pd.DataFrame(columns=FINAL_COLUMNS)
 
     for source, url, kind in urls:
+        if source.startswith("TPEX_OPENAPI_") and date_text != current_date:
+            log.append(
+                f"Skip TPEx latest-only source={source} for historical target date {date_text}"
+            )
+            continue
         log.append(f"Trying TPEx batch source={source} date={date_text}")
         text = request_text(url, log, referer="https://www.tpex.org.tw/")
 
@@ -1127,7 +1237,7 @@ def fetch_price_for_date(
     else:
         tpex = fetch_tpex_batch(date_text, log)
 
-    combined = combine_market_data(twse, tpex)
+    combined = apply_canonical_stock_names(combine_market_data(twse, tpex), log)
 
     status = {
         "date": date_text,
