@@ -159,8 +159,9 @@ REQUIRED_PENDING_COLUMNS = {
 }
 
 EXPECTED_TRIGGERS = {
-    "next_day_continuation_confirmed",
     "pullback_5ma_confirmed",
+    "next_day_break_signal_high_confirmed",
+    "next_day_continuation_confirmed",
     "pullback_10ma_confirmed",
 }
 
@@ -401,9 +402,10 @@ def main() -> int:
         unique["_confirmation_dt"] = date_series(unique["confirmation_date"])
         unique["_trigger_priority"] = unique["trigger_id"].astype(str).map(
             {
-                "next_day_continuation_confirmed": 1,
-                "pullback_5ma_confirmed": 2,
-                "pullback_10ma_confirmed": 3,
+                "pullback_5ma_confirmed": 1,
+                "next_day_break_signal_high_confirmed": 2,
+                "next_day_continuation_confirmed": 3,
+                "pullback_10ma_confirmed": 4,
             }
         ).fillna(999)
         expected = unique.sort_values(["_confirmation_dt", "_trigger_priority", "trigger_id"]).iloc[0]

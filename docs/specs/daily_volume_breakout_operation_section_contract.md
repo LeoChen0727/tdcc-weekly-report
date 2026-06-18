@@ -81,6 +81,20 @@ The CSV must include these approval fields on every row:
 - `selected_trigger_id`
 - `selected_confirmation_date`
 - `selected_trigger_priority`
+- `operation_score`
+- `tdcc_score`
+- `pattern_score`
+- `risk_penalty`
+- `final_rank_score`
+- `rank_reason_zh`
+- `entry_rule_id`
+- `entry_price_basis`
+- `stop_loss_rule_id`
+- `stop_loss_price`
+- `stop_loss_label_zh`
+- `exit_rule_id`
+- `planned_holding_days`
+- `operation_age_days`
 
 For the approved v1 daily adapter, these fields must show:
 
@@ -95,6 +109,15 @@ Row-level meaning:
 - `pending_confirmation` + `row_type=data` + `row_action_status=pending_confirmation` + `buy_rank_eligible=False`: display only as pending confirmation; no entry price and no buy ranking.
 - `active_operation` + `row_type=data` + `row_action_status=active_operation` + `buy_rank_eligible=False`: already entered tracking from an earlier confirmed row; it is not a new buy ranking row.
 - `empty_state` rows must use `row_action_status=empty_state` and `buy_rank_eligible=False`.
+
+Operation field meaning:
+
+- `final_rank_score` is the daily production ranking score for `volume_range_breakout`; PDF must render it and must not recalculate it.
+- `operation_score`, `tdcc_score`, `pattern_score`, and `risk_penalty` are score components copied from the daily model layer for auditability.
+- `entry_rule_id=confirmation_next_open` means a confirmed row uses the next trading day's open after the selected confirmation date.
+- `stop_loss_rule_id=signal_low_stop` means the stop basis is the signal-date low, displayed as `{M/D}最低點`.
+- `exit_rule_id=signal_low_stop_or_fixed_10d_close` means exit at the stop first, otherwise fixed 10 trading-day close.
+- `pending_confirmation` rows must not show an entry price; they may carry rule IDs only to describe the eventual rule after confirmation.
 
 ## Sections
 

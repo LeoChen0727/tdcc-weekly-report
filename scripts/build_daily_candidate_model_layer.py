@@ -1226,6 +1226,94 @@ def score_volume_breakout(row: pd.Series) -> tuple[float, list[str], list[str]]:
     return score, comps, risks
 
 
+def volume_breakout_operation_score_fields(
+    row: pd.Series,
+    base_score: float,
+    risks: list[str],
+) -> dict[str, Any]:
+    tdcc_score = 0.0
+    pattern_score = 0.0
+    operation_score = 0.0
+    risk_penalty = 0.0
+    reasons: list[str] = []
+
+    tdcc_rank = num(row, "tdcc_rank", "weekly_increase_rank", "ranking_rank")
+    tdcc_ranking_score = num(row, "tdcc_ranking_score", "weekly_ranking_score")
+    if tdcc_positive(row):
+        tdcc_score += 4.0
+        reasons.append("TDCC正向 +4")
+    if not math.isnan(tdcc_rank):
+        if tdcc_rank <= 10:
+            tdcc_score += 8.0
+            reasons.append("TDCC排名前10 +8")
+        elif tdcc_rank <= 20:
+            tdcc_score += 5.0
+            reasons.append("TDCC排名前20 +5")
+        elif tdcc_rank <= 50:
+            tdcc_score += 2.0
+            reasons.append("TDCC排名前50 +2")
+    if not math.isnan(tdcc_ranking_score) and tdcc_ranking_score > 0:
+        add = min(6.0, tdcc_ranking_score / 20.0)
+        tdcc_score += add
+        reasons.append(f"TDCC排名分數 +{add:.1f}")
+
+    low_pos = num(row, "low_position_60_pct", "position_in_60d_range_pct")
+    if not math.isnan(low_pos):
+        if low_pos <= 60:
+            pattern_score += 6.0
+            reasons.append("低位階<=60 +6")
+        elif low_pos >= 80:
+            risk_penalty += 8.0
+            reasons.append("高位階>=80 -8")
+    if bottom_volume_attack_locked_limit_up(row):
+        pattern_score += 10.0
+        operation_score += 6.0
+        reasons.append("鎖量漲停突破 +16")
+        vol_ratio = num(row, "volume_ratio")
+        if not math.isnan(vol_ratio) and vol_ratio < 2.0:
+            operation_score += 4.0
+            reasons.append("鎖量且量比低於2.0 +4")
+
+    breakout_pct = bottom_volume_attack_breakout_pct(row)
+    if not math.isnan(breakout_pct) and breakout_pct >= 2.0:
+        add = min(5.0, (breakout_pct - 2.0) * 0.8)
+        pattern_score += add
+        reasons.append(f"突破品質 +{add:.1f}")
+
+    close_pos = close_position_in_day_range(row)
+    if not math.isnan(close_pos) and close_pos >= 0.90:
+        operation_score += 4.0
+        reasons.append("收近高點 +4")
+
+    upper_shadow = upper_shadow_pct_of_close(row)
+    if not math.isnan(upper_shadow) and upper_shadow > 3.0:
+        penalty = min(8.0, (upper_shadow - 3.0) * 1.5)
+        risk_penalty += penalty
+        reasons.append(f"上影線風險 -{penalty:.1f}")
+
+    priority = text(row, "volume_breakout_priority")
+    if priority.startswith("B_"):
+        risk_penalty += 3.0
+        reasons.append("B級優先序風險 -3")
+    if any("false_breakout" in safe_str(item) for item in risks):
+        risk_penalty += 4.0
+        reasons.append("假突破風險 -4")
+    if tdcc_distribution(row):
+        risk_penalty += 6.0
+        reasons.append("TDCC分散警示 -6")
+
+    final_rank_score = clamp(base_score + operation_score + tdcc_score + pattern_score - risk_penalty)
+    return {
+        "base_model_score": round(clamp(base_score), 1),
+        "operation_score": round(operation_score, 1),
+        "tdcc_score": round(tdcc_score, 1),
+        "pattern_score": round(pattern_score, 1),
+        "risk_penalty": round(risk_penalty, 1),
+        "final_rank_score": round(final_rank_score, 1),
+        "rank_reason_zh": " | ".join(reasons),
+    }
+
+
 def score_pullback(row: pd.Series) -> tuple[float, list[str], list[str]]:
     score, comps, risks = score_from_profile(row, MODEL_SCORE_PROFILES["price_pullback_23ema"])
     if near_ema23_or_platform(row):
@@ -2226,6 +2314,13 @@ def snapshot_model_signals(signals: pd.DataFrame) -> pd.DataFrame:
         "model_id",
         "model_name_zh",
         "model_group",
+        "base_model_score",
+        "operation_score",
+        "tdcc_score",
+        "pattern_score",
+        "risk_penalty",
+        "final_rank_score",
+        "rank_reason_zh",
         "model_score",
         "model_rank",
         "effective_primary_theme",
@@ -2525,6 +2620,10 @@ def append_volume_breakout_signals(signals: pd.DataFrame, candidates: pd.DataFra
             comps.append(f"breakout_pct={breakout_pct:.2f}%")
         if notes:
             comps.append(notes)
+        score_fields = volume_breakout_operation_score_fields(pd.Series(score_source), score, risks)
+        final_score = score_fields["final_rank_score"]
+        if score_fields["rank_reason_zh"]:
+            comps.append(f"operation_rank:{score_fields['rank_reason_zh']}")
         rows.append(
             {
                 "signal_date": signal_date or text(row, "signal_date", "date"),
@@ -2547,7 +2646,14 @@ def append_volume_breakout_signals(signals: pd.DataFrame, candidates: pd.DataFra
                 "model_group": "pdf_core_model",
                 "main_condition_met": "True",
                 "entry_basis": "signal_date_next_open",
-                "model_score": round(clamp(score), 1),
+                "base_model_score": score_fields["base_model_score"],
+                "operation_score": score_fields["operation_score"],
+                "tdcc_score": score_fields["tdcc_score"],
+                "pattern_score": score_fields["pattern_score"],
+                "risk_penalty": score_fields["risk_penalty"],
+                "final_rank_score": final_score,
+                "rank_reason_zh": score_fields["rank_reason_zh"],
+                "model_score": final_score,
                 "score_components": " | ".join([c for c in comps if c]),
                 "risk_penalty_tags": " | ".join(dict.fromkeys(risks)),
                 "original_category": category(source),
