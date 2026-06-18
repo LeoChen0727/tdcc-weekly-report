@@ -1,7 +1,7 @@
 # 每日全市場候選股監測報告 - 精華版
 
 - 主資料日期：`20260618`
-- 產生時間：`2026-06-19 03:38:10 Asia/Taipei`
+- 產生時間：`2026-06-19 04:02:45 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
 - 判斷說明：core daily data dates match main_price_date
 - 權證資料日期：`20260618`
@@ -36,11 +36,11 @@
 | 2368 金像電 | 營收成長股價回檔 | score 40 / theme 100.0/5 / revenue_good_eps_unconfirmed;event_confirmed;low_reaction_after_catalyst;capacity_expansion;電... | 大戶溫和增加 |
 | 2498 宏達電 | 型態觀察 | score 34 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;通信網路業;dividend_calendar;calendar_ex_div... | 大戶同步增加 |
 | 8210 勤誠 | 型態觀察 | score 34 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;電腦及週邊設備業;dividend_calendar;calendar_ex_... | 大戶溫和增加 |
-| 2633 台灣高鐵 | 型態觀察 | score 34 / theme 76.2/5 / event_confirmed;low_reaction_after_catalyst;new_order;航運業;monthly_revenue_calendar;calendar_mo... | 大戶溫和增加 |
 | 2601 益航 | 型態觀察 | score 34 / theme 76.2/5 / event_confirmed;low_reaction_after_catalyst;new_order;航運業;monthly_revenue_calendar;calendar_mo... | 大戶溫和增加 |
 | 2891 中信金 | 型態觀察 | score 34 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;金融保險業;monthly_revenue_calendar;calendar... | 大戶溫和增加 |
 | 2891 中信金 | 營收成長股價回檔 | score 34 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;金融保險業;monthly_revenue_calendar;calendar... | 大戶溫和增加 |
 | 3303 岱稜 | 型態觀察 | score 34 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;其他電子業;monthly_revenue_calendar;calendar... | 大戶溫和增加 |
+| 2633 台灣高鐵 | 型態觀察 | score 34 / theme 76.2/5 / event_confirmed;low_reaction_after_catalyst;new_order;航運業;monthly_revenue_calendar;calendar_mo... | 大戶溫和增加 |
 | 2368 金像電 | 型態觀察 | score 30 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;capacity_expansion;電子零組件業;dividend_calendar;calen... | 大戶溫和增加 |
 | 2374 佳能 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;shareholder_meeting_calendar;calenda... | 大戶溫和增加 |
 

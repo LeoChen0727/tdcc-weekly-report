@@ -1,6 +1,6 @@
 # Daily Candidate Model Signals
 
-- generated_at: `2026-06-19 03:36:04 Asia/Taipei`
+- generated_at: `2026-06-19 03:59:15 Asia/Taipei`
 
 - One stock can appear in multiple models.
 - `model_rank` ranks within model and report bucket.

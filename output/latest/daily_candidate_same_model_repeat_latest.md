@@ -1,6 +1,6 @@
 # Daily Candidate Same Model Repeat Table
 
-- generated_at: `2026-06-19 03:36:04 Asia/Taipei`
+- generated_at: `2026-06-19 03:59:15 Asia/Taipei`
 
 - Same-stock same-model repeat appearances are persistence information, not score penalties.
 - Main curated tables can prefer new model signals; use this table to rank repeated same-model signals separately.
