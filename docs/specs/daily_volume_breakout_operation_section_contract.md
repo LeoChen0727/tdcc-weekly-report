@@ -30,6 +30,7 @@ The PDF renderer must not read these research artifacts directly:
 The adapter may read only these operation sources:
 
 - `output/latest/daily_candidate_model_signals_for_report_latest.csv`
+- `output/history/daily_candidate_models/daily_candidate_model_signal_log.csv`
 - `output/history/daily_model_snapshots/daily_candidate_model_signals_for_report_*.csv`
 - `data/stock_price_history/{stock_id}.csv`
 - `output/latest/volume_breakout_formal_operation_backtest_latest.csv`

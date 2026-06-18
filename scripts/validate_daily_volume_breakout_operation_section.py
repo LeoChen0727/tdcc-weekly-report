@@ -14,6 +14,8 @@ SECTION_MD = LATEST_DIR / "daily_volume_breakout_operation_section_latest.md"
 EVIDENCE_AUDIT_CSV = LATEST_DIR / "daily_volume_breakout_operation_evidence_audit_latest.csv"
 EVIDENCE_AUDIT_MD = LATEST_DIR / "daily_volume_breakout_operation_evidence_audit_latest.md"
 TAXONOMY_CSV = LATEST_DIR / "stock_theme_taxonomy_latest.csv"
+DATA_FRESHNESS_CSV = LATEST_DIR / "data_freshness_latest.csv"
+DAILY_SIGNALS_CSV = LATEST_DIR / "daily_candidate_model_signals_for_report_latest.csv"
 FORMAL_SUMMARY_CSV = LATEST_DIR / "volume_breakout_formal_operation_backtest_latest.csv"
 MODEL_SIGNAL_LOG_CSV = ROOT / "output" / "history" / "daily_candidate_models" / "daily_candidate_model_signal_log.csv"
 DAILY_THEME_STATUS_HISTORY_CSVS = [
@@ -29,7 +31,7 @@ PACKET_BUILDER = ROOT / "build_chatgpt_daily_report_packet.py"
 CONTRACT_MD = ROOT / "docs" / "specs" / "daily_volume_breakout_operation_section_contract.md"
 
 MODEL_ID = "volume_range_breakout"
-LIFECYCLE_ADAPTER_SOURCE = "daily_published_model_snapshots+selected_volume_breakout_history+stock_price_history"
+LIFECYCLE_ADAPTER_SOURCE = "daily_candidate_model_signal_log+daily_published_model_snapshots+stock_price_history"
 PDF_VIEWS = {"highlight", "full"}
 PDF_SECTIONS = {
     "confirmed_operation",
@@ -197,7 +199,10 @@ def stock_id_text(value: object) -> str:
 
 
 def normalize_date_text(value: object) -> str:
-    text = str(value).strip().replace("-", "").replace("/", "")
+    text = str(value).strip()
+    if text.endswith(".0"):
+        text = text[:-2]
+    text = text.replace("-", "").replace("/", "")
     return text if len(text) == 8 and text.isdigit() else ""
 
 
@@ -258,15 +263,75 @@ def selected_volume_breakout_history(report_date: str) -> pd.DataFrame:
     return selected.drop_duplicates(["signal_date", "stock_id"], keep="last")
 
 
-def validate_selected_volume_breakout_model_lineage(section: pd.DataFrame) -> None:
-    report_dates = sorted(
+def report_date_from_section(section: pd.DataFrame) -> str:
+    dates = sorted(
         {
             normalize_date_text(value)
             for value in section.get("daily_signal_date", pd.Series(dtype=str)).tolist()
             if normalize_date_text(value)
         }
     )
-    report_date = report_dates[-1] if report_dates else ""
+    if len(dates) != 1:
+        fail(f"operation section must carry exactly one daily_signal_date, observed={dates}")
+    return dates[0]
+
+
+def validate_latest_signal_log_sync(section: pd.DataFrame) -> None:
+    report_date = report_date_from_section(section)
+    freshness = require_nonempty_csv(DATA_FRESHNESS_CSV, {"main_price_date", "report_ready", "warrant_ready", "daily_pdf_ready"})
+    main_date = normalize_date_text(freshness.iloc[0].get("main_price_date"))
+    if main_date != report_date:
+        fail(f"operation daily_signal_date must match data freshness main_price_date: section={report_date} freshness={main_date}")
+
+    latest = require_nonempty_csv(DAILY_SIGNALS_CSV, {"signal_date", "report_bucket", "stock_id", "model_id"})
+    latest_dates = {
+        normalize_date_text(value)
+        for value in latest["signal_date"].tolist()
+        if normalize_date_text(value)
+    }
+    if latest_dates != {report_date}:
+        fail(f"latest daily model signals must contain exactly main_price_date={report_date}, observed={sorted(latest_dates)}")
+
+    latest_volume = latest[latest["model_id"].astype(str).str.strip().eq(MODEL_ID)].copy()
+    if latest_volume.empty:
+        return
+    if not MODEL_SIGNAL_LOG_CSV.exists():
+        fail(f"missing formal model signal log: {MODEL_SIGNAL_LOG_CSV.relative_to(ROOT).as_posix()}")
+    log = read_csv(MODEL_SIGNAL_LOG_CSV)
+    missing_cols = sorted({"signal_date", "report_bucket", "stock_id", "model_id"} - set(log.columns))
+    if missing_cols:
+        fail(f"formal model signal log missing columns: {missing_cols}")
+    log_volume = log[
+        log["model_id"].astype(str).str.strip().eq(MODEL_ID)
+        & log["signal_date"].map(normalize_date_text).eq(report_date)
+    ].copy()
+
+    def keyset(frame: pd.DataFrame) -> set[tuple[str, str, str, str]]:
+        return {
+            (
+                normalize_date_text(row.get("signal_date")),
+                str(row.get("report_bucket", "")).strip(),
+                stock_id_text(row.get("stock_id")),
+                str(row.get("model_id", "")).strip(),
+            )
+            for _, row in frame.iterrows()
+        }
+
+    latest_keys = keyset(latest_volume)
+    log_keys = keyset(log_volume)
+    missing = sorted(latest_keys - log_keys)
+    extra = sorted(log_keys - latest_keys)
+    if missing or extra:
+        details: list[str] = []
+        if missing:
+            details.append("missing_from_signal_log=" + ", ".join(f"{date}/{bucket}/{stock}" for date, bucket, stock, _ in missing[:20]))
+        if extra:
+            details.append("extra_in_signal_log=" + ", ".join(f"{date}/{bucket}/{stock}" for date, bucket, stock, _ in extra[:20]))
+        fail("latest volume_range_breakout signals and daily model signal log are out of sync: " + " | ".join(details))
+
+
+def validate_selected_volume_breakout_model_lineage(section: pd.DataFrame) -> None:
+    report_date = report_date_from_section(section)
     selected = selected_volume_breakout_history(report_date)
     if selected.empty:
         return
@@ -793,6 +858,7 @@ def main() -> int:
     section = read_csv(SECTION_CSV)
     audit = read_csv(EVIDENCE_AUDIT_CSV)
     validate_shape(section, formal_summary, audit)
+    validate_latest_signal_log_sync(section)
     validate_selected_volume_breakout_model_lineage(section)
     validate_display_text(section)
     validate_pdf_generator_boundary()
