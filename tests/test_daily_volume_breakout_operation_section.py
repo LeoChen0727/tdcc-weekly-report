@@ -97,7 +97,16 @@ def patch_lifecycle_sources(monkeypatch, tmp_path: Path, stock_id: str, price_ro
 
 
 def build_rows_for_test(signals: pd.DataFrame, report_date: str, summary: pd.DataFrame) -> pd.DataFrame:
-    rows, _audit = builder.build_lifecycle_rows(
+    rows, _audit = build_rows_and_audit_for_test(signals, report_date, summary)
+    return rows
+
+
+def build_rows_and_audit_for_test(
+    signals: pd.DataFrame,
+    report_date: str,
+    summary: pd.DataFrame,
+) -> tuple[pd.DataFrame, pd.DataFrame]:
+    rows, audit = builder.build_lifecycle_rows(
         signals,
         report_date,
         int(signals["stock_id"].nunique()) if not signals.empty else 0,
@@ -105,7 +114,10 @@ def build_rows_for_test(signals: pd.DataFrame, report_date: str, summary: pd.Dat
         "2026-06-17 12:00:00 Asia/Taipei",
         summary,
     )
-    return pd.DataFrame(rows, columns=builder.OUTPUT_COLUMNS)
+    return (
+        pd.DataFrame(rows, columns=builder.OUTPUT_COLUMNS),
+        pd.DataFrame(audit, columns=builder.EVIDENCE_AUDIT_COLUMNS),
+    )
 
 
 def backtest_lifecycle_state(stock_id: str, signal_date: str, report_date: str) -> str:
@@ -264,7 +276,7 @@ def test_active_operation_wins_over_new_confirmed_signal_for_same_stock(monkeypa
         ]
     ).to_csv(builder.MODEL_SIGNAL_LOG_CSV, index=False)
 
-    out = build_rows_for_test(pd.DataFrame(), "20260617", formal_summary())
+    out, audit = build_rows_and_audit_for_test(pd.DataFrame(), "20260617", formal_summary())
 
     active = out[out["pdf_section"].eq("active_operation") & out["row_type"].eq("data")]
     confirmed = out[out["pdf_section"].eq("confirmed_operation") & out["row_type"].eq("data")]
@@ -272,7 +284,19 @@ def test_active_operation_wins_over_new_confirmed_signal_for_same_stock(monkeypa
     assert confirmed.empty
     assert set(active["signal_date"]) == {"20260615"}
     assert set(active["confirmation_date"]) == {"20260616"}
+    assert set(active["operation_status"]) == {"active_operation"}
     assert set(active["row_action_status"]) == {"active_operation"}
+    included = audit[audit["included_in_daily_adapter"].eq("True")]
+    assert included[["stock_id", "signal_date"]].drop_duplicates().to_dict("records") == [
+        {"stock_id": "1234", "signal_date": "20260615"}
+    ]
+    suppressed = audit[
+        audit["audit_status"].eq("positive_row_evidence")
+        & audit["stock_id"].eq("1234")
+        & audit["signal_date"].eq("20260616")
+    ]
+    assert not suppressed.empty
+    assert set(suppressed["included_in_daily_adapter"]) == {"False"}
 
 
 def test_lifecycle_expired_signal_matches_backtest_terminal_state(monkeypatch, tmp_path) -> None:

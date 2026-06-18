@@ -105,6 +105,7 @@ OUTPUT_COLUMNS = [
     "stock_id",
     "stock_name",
     "stock_display",
+    "operation_status",
     "operation_status_zh",
     "quality_status_zh",
     "matched_trigger_ids",
@@ -687,11 +688,19 @@ def evidence_key(evidence: pd.Series | None) -> str:
     )
 
 
-def operation_context_rows(price: pd.DataFrame, signal_idx: int, selected: dict[str, Any]) -> pd.DataFrame:
+def operation_context_rows(
+    price: pd.DataFrame,
+    signal_idx: int,
+    selected: dict[str, Any],
+    signal: pd.Series | None = None,
+) -> pd.DataFrame:
     confirmation_idx = int(selected["confirmation_idx"])
     payload = operation_event_payload(price, signal_idx, confirmation_idx, market_regime_map())
+    source_signal = signal if signal is not None else pd.Series(dtype=object)
     payload.update(
         {
+            "stock_id": stock_id_key(source_signal.get("stock_id")) or stock_id_key(payload.get("stock_id")),
+            "stock_name": safe_str(source_signal.get("stock_name")) or safe_str(payload.get("stock_name")),
             "trigger_id": safe_str(selected.get("trigger_id")),
             "trigger_name_zh": safe_str(selected.get("trigger_zh")),
             "matched_trigger_ids": safe_str(selected.get("matched_trigger_ids")),
@@ -708,8 +717,9 @@ def select_row_evidence(
     signal_idx: int,
     selected: dict[str, Any],
     formal_summary: pd.DataFrame,
+    signal: pd.Series | None = None,
 ) -> tuple[pd.Series | None, pd.Series | None, bool, list[dict[str, Any]]]:
-    contexts = operation_context_rows(price, signal_idx, selected)
+    contexts = operation_context_rows(price, signal_idx, selected, signal)
     audit_rows: list[dict[str, Any]] = []
     candidates: list[tuple[float, float, pd.Series, pd.Series]] = []
     evaluated: list[tuple[float, float, pd.Series, pd.Series]] = []
@@ -840,6 +850,7 @@ def lifecycle_base_record(
             "stock_id": stock_id,
             "stock_name": stock_name,
             "stock_display": f"{stock_id} {stock_name}".strip(),
+            "operation_status": pdf_section,
             "signal_date": normalize_date_text(signal.get("signal_date")),
             "same_stock_pending_count": "1",
             "tdcc_status_zh": safe_str(signal.get("tdcc_status_zh")),
@@ -1132,6 +1143,7 @@ def lifecycle_state_for_signal(
             signal_idx,
             selected,
             formal_summary,
+            signal,
         )
         audit_rows.extend(evidence_audit)
         confirmation_idx = int(selected["confirmation_idx"])
@@ -1213,6 +1225,7 @@ def lifecycle_state_for_signal(
         for audit in audit_rows:
             audit["operation_asof_date"] = report_date
             audit["operation_lifecycle_state"] = "expired"
+            audit["included_in_daily_adapter"] = "False"
             audit["generated_at"] = generated_at
         return 90, None, audit_rows
 
@@ -1253,6 +1266,37 @@ def build_lifecycle_rows(
             best_by_stock[stock_id] = (priority, record)
 
     base_rows = [item[1] for item in sorted(best_by_stock.values(), key=lambda item: (item[0], number_text(item[1].get("display_order")), item[1].get("stock_id", "")))]
+    selected_evidence_keys = {
+        (
+            stock_id_key(row.get("stock_id")),
+            normalize_date_text(row.get("signal_date")),
+            safe_str(row.get("selected_trigger_id")),
+            safe_str(row.get("evidence_tdcc_list_type")),
+            safe_str(row.get("evidence_rank_bucket")),
+            safe_str(row.get("evidence_confluence_scope")),
+            safe_str(row.get("evidence_confluence_id")),
+        )
+        for row in base_rows
+        if safe_str(row.get("pdf_section")) in {"confirmed_operation", "active_operation"}
+        and safe_str(row.get("evidence_match_status")) == "positive_row_evidence"
+    }
+    for audit in audit_rows:
+        audit_key = (
+            stock_id_key(audit.get("stock_id")),
+            normalize_date_text(audit.get("signal_date")),
+            safe_str(audit.get("selected_trigger_id")),
+            safe_str(audit.get("tdcc_list_type")),
+            safe_str(audit.get("rank_bucket")),
+            safe_str(audit.get("evidence_confluence_scope")),
+            safe_str(audit.get("evidence_confluence_id")),
+        )
+        audit["included_in_daily_adapter"] = (
+            "True"
+            if safe_str(audit.get("audit_status")) == "positive_row_evidence"
+            and safe_str(audit.get("operation_lifecycle_state")) in {"confirmed_operation", "active_operation"}
+            and audit_key in selected_evidence_keys
+            else "False"
+        )
     rows: list[dict[str, Any]] = []
     for pdf_view in PDF_VIEWS:
         for idx, row in enumerate(base_rows, start=1):
@@ -1290,6 +1334,7 @@ def empty_row(
         "stock_id": "",
         "stock_name": "",
         "stock_display": "目前無資料",
+        "operation_status": pdf_section,
         "operation_status_zh": section_zh,
         "quality_status_zh": "目前無資料",
         "matched_trigger_ids": "",

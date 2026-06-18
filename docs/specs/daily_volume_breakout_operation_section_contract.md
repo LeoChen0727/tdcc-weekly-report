@@ -77,6 +77,7 @@ The CSV must include these approval fields on every row:
 - `buy_rank_eligible`
 - `buy_filter_id`
 - `approval_note_zh`
+- `operation_status`
 - `operation_asof_date`
 - `operation_source_date_status`
 - `matched_trigger_ids`
@@ -109,6 +110,7 @@ For the approved v1 daily adapter, these fields must show:
 
 Row-level meaning:
 
+- `operation_status` is the machine-readable lifecycle section. It must mirror `pdf_section` exactly so downstream renderers and audits do not infer lifecycle state from Chinese display text.
 - `confirmed_operation` + `row_type=data` + `row_action_status=confirmed_buy_candidate` + `buy_rank_eligible=True`: eligible for the daily buy ranking table.
 - `confirmed_unranked_operation` + `row_type=data` + `row_action_status=confirmed_not_buy_ranked` + `buy_rank_eligible=False`: confirmed by lifecycle, but not eligible for the daily buy ranking table.
 - `pending_confirmation` + `row_type=data` + `row_action_status=pending_confirmation` + `buy_rank_eligible=False`: display only as pending confirmation; no entry price and no buy ranking.
