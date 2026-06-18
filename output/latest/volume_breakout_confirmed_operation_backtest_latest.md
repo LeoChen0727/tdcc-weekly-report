@@ -1,6 +1,6 @@
 # Volume Breakout Confirmed Operation Backtest
 
-- generated_at: `2026-06-18 11:38:53 Asia/Taipei`
+- generated_at: `2026-06-18 14:57:55 Asia/Taipei`
 - model_id: `volume_range_breakout`
 - entry_rule: `confirmation_next_open`
 - stop_exit_rule: `signal_low_stop_or_fixed_10d_close`

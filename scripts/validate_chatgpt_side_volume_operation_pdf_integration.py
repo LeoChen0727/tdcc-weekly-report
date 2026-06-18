@@ -19,13 +19,17 @@ FULL_CANDIDATE_PDF_TITLE_PARTS = [
 
 CANDIDATE_PDF_TITLE_PARTS = CURATED_CANDIDATE_PDF_TITLE_PARTS + FULL_CANDIDATE_PDF_TITLE_PARTS
 
-MAINSTREAM_CURATED_REQUIRED_TEXT = [
-    "放量攻擊模型",
-]
-
-REQUIRED_VOLUME_OPERATION_TEXT = [
+CURATED_REQUIRED_VOLUME_OPERATION_TEXT = [
     "放量攻擊模型",
     "已確認操作",
+    "操作中",
+    "中位數報酬",
+]
+
+FULL_REQUIRED_VOLUME_OPERATION_TEXT = [
+    "放量攻擊模型",
+    "已確認操作",
+    "已確認但未通過買入排名門檻",
     "待確認",
     "操作中",
     "中位數報酬",
@@ -112,9 +116,9 @@ def validate_output_dir(output_dir: Path) -> list[str]:
         text = all_text.get(pdf, "")
         compact = compact_text(text)
         required_text = (
-            MAINSTREAM_CURATED_REQUIRED_TEXT
-            if title_part == "主流股每日推薦精華"
-            else REQUIRED_VOLUME_OPERATION_TEXT
+            CURATED_REQUIRED_VOLUME_OPERATION_TEXT
+            if title_part in CURATED_CANDIDATE_PDF_TITLE_PARTS
+            else FULL_REQUIRED_VOLUME_OPERATION_TEXT
         )
         for required in required_text:
             if required not in compact:

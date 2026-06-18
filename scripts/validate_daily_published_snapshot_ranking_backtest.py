@@ -116,7 +116,12 @@ def validate_summary() -> list[str]:
         errors.append("summary must include volume_operation_section rows")
     else:
         joined_values = "\n".join(volume_sections["segment_value"].astype(str).tolist())
-        for section in ["confirmed_operation", "pending_confirmation", "active_operation"]:
+        for section in [
+            "confirmed_operation",
+            "confirmed_unranked_operation",
+            "pending_confirmation",
+            "active_operation",
+        ]:
             if section not in joined_values:
                 errors.append(f"summary must evaluate volume operation section separately: missing {section}")
     return errors

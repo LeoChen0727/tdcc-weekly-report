@@ -54,8 +54,9 @@ states. That lifecycle artifact is not a PDF or daily adapter source.
 - `pending_confirmation` rows must remain `buy_rank_eligible=False` even when `approved_for_daily=True`.
 - The adapter must copy approval metadata from `approved_operation_patterns_latest.csv`; the PDF renderer must not read that approval table directly.
 - `confirmed_operation` data rows must be positive evidence only. Weak-evidence confirmations must not be presented as daily buy guidance.
-- `confirmed_operation` and `active_operation` data rows must use row-level evidence attribution. The adapter must match the selected trigger plus that stock's TDCC list type, rank bucket, and best available confluence row before copying sample size, win rate, average return, or median return.
-- If no positive row-level evidence exists for a confirmed/active candidate, the adapter must exclude that candidate from the daily section and write an audit row with `included_in_daily_adapter=False`.
+- `confirmed_unranked_operation` data rows are lifecycle-confirmed rows that did not pass the buy-ranking evidence gate. They must remain `buy_rank_eligible=False`, must not carry entry price, stop price, or exit guidance, and must be rendered only in full PDFs.
+- `confirmed_operation`, `confirmed_unranked_operation`, and `active_operation` data rows must use row-level evidence attribution when matching evidence exists. The adapter must match the selected trigger plus that stock's TDCC list type, rank bucket, and best available confluence row before copying sample size, win rate, average return, or median return.
+- If no positive row-level evidence exists for a confirmation on the report date, the adapter must keep the lifecycle-confirmed row in `confirmed_unranked_operation` instead of dropping it from the full report. It must not enter `active_operation`.
 - The adapter must carry `operation_asof_date` and `operation_source_date_status` on every row.
 - Data rows are valid only when `operation_asof_date` equals `daily_signal_date`, which is the daily report date from `main_price_date`.
 - Operation data rows must have a stock-level taxonomy/basic industry source before they can be routed to a PDF line. Valid report memberships are only `mainstream`, `non_mainstream`, or both. The PDF renderer must not invent a report line when taxonomy/source data is missing.
@@ -108,6 +109,7 @@ For the approved v1 daily adapter, these fields must show:
 Row-level meaning:
 
 - `confirmed_operation` + `row_type=data` + `row_action_status=confirmed_buy_candidate` + `buy_rank_eligible=True`: eligible for the daily buy ranking table.
+- `confirmed_unranked_operation` + `row_type=data` + `row_action_status=confirmed_not_buy_ranked` + `buy_rank_eligible=False`: confirmed by lifecycle, but not eligible for the daily buy ranking table.
 - `pending_confirmation` + `row_type=data` + `row_action_status=pending_confirmation` + `buy_rank_eligible=False`: display only as pending confirmation; no entry price and no buy ranking.
 - `active_operation` + `row_type=data` + `row_action_status=active_operation` + `buy_rank_eligible=False`: already entered tracking from an earlier confirmed row; it is not a new buy ranking row.
 - `empty_state` rows must use `row_action_status=empty_state` and `buy_rank_eligible=False`.
@@ -117,7 +119,7 @@ Operation field meaning:
 - `final_rank_score` is the daily production ranking score for `volume_range_breakout`; PDF must render it and must not recalculate it.
 - `operation_score`, `tdcc_score`, `pattern_score`, and `risk_penalty` are score components copied from the daily model layer for auditability.
 - `entry_rule_id=confirmation_next_open` means a confirmed row uses the next trading day's open after the selected confirmation date.
-- `entry_date` and `entry_price` are structured entry fields. They stay blank on `confirmed_operation` until the next trading day's open exists, are required on `active_operation` data rows, and must remain blank on `pending_confirmation`.
+- `entry_date` and `entry_price` are structured entry fields. They stay blank on `confirmed_operation` until the next trading day's open exists, are required on `active_operation` data rows, and must remain blank on `confirmed_unranked_operation` and `pending_confirmation`.
 - `stop_loss_rule_id=signal_low_stop` means the stop basis is the signal-date low, displayed as `{M/D}最低點`.
 - `exit_rule_id=signal_low_stop_or_fixed_10d_close` means exit at the stop first, otherwise fixed 10 trading-day close.
 - `pending_confirmation` rows must not show an entry price; they may carry rule IDs only to describe the eventual rule after confirmation.
@@ -127,23 +129,26 @@ Operation field meaning:
 The CSV always includes these `pdf_section` values for both `pdf_view=highlight` and `pdf_view=full`:
 
 - `confirmed_operation`: confirmed operation rows.
+- `confirmed_unranked_operation`: lifecycle-confirmed rows that did not pass the buy-ranking evidence gate; full PDF only.
 - `pending_confirmation`: pending signal rows.
 - `active_operation`: operation-in-progress rows.
 
-Every view must include all three sections. A section may use `row_type=empty_state` only when that section has no data rows.
+`pdf_view=highlight` must include only `confirmed_operation` and `active_operation`.
+It must not emit `pending_confirmation` or `confirmed_unranked_operation` rows, not even empty-state rows.
+`pdf_view=full` may include all four sections. A section may use `row_type=empty_state` only when that section has no data rows.
 
 PDF display limits:
 
-- `pdf_view=highlight` must render at most 10 `confirmed_operation` data rows, at most 5 `pending_confirmation` data rows, and at most 5 `active_operation` data rows after mainstream / non-mainstream report-line filtering.
+- `pdf_view=highlight` must render at most 10 `confirmed_operation` data rows and at most 5 `active_operation` data rows after mainstream / non-mainstream report-line filtering. It must not render `pending_confirmation` or `confirmed_unranked_operation`.
 - `pdf_view=full` must not apply these highlight limits; it should render all valid operation rows for the selected report line.
-- These limits are presentation limits only. They must not change row lifecycle state, `buy_rank_eligible`, trigger evidence, model scores, model ranks, or the underlying adapter rows.
+- These limits are presentation limits only. They must not change row lifecycle state, `buy_rank_eligible`, trigger evidence, model scores, or model ranks. The adapter encodes which sections are visible in each `pdf_view`.
 
 Lifecycle meaning:
 
 - First daily model hit enters `pending_confirmation`.
-- If a later trading day meets one confirmation trigger before invalidation, it enters `confirmed_operation` only on that confirmation report date.
+- If a later trading day meets one confirmation trigger before invalidation, it enters `confirmed_operation` only on that confirmation report date when row-level evidence passes the buy-ranking gate; otherwise it enters `confirmed_unranked_operation` on that confirmation report date.
 - After the entry day starts, it enters `active_operation` until stop or the 10th trading-day holding limit.
-- If a signal breaks its stop basis before confirmation, exceeds the confirmation window, lacks positive formal evidence, hits stop after entry, or exceeds the holding window, it must drop from the operation section.
+- If a signal breaks its stop basis before confirmation, exceeds the confirmation window, hits stop after entry, or exceeds the holding window, it must drop from the operation section. A row that confirms without buy-ranking evidence must not be tracked as active.
 
 ## PDF Rule
 

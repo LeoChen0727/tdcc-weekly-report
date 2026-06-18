@@ -1,6 +1,6 @@
 # Volume Breakout Confirmed Operation Rank
 
-- generated_at: `2026-06-18 11:38:53 Asia/Taipei`
+- generated_at: `2026-06-18 14:57:55 Asia/Taipei`
 - latest_price_date: `20260617`
 - rank_rule: only confirmation rows with `confirmation_date == latest_price_date` appear here.
 - entry_rule: confirmation after close, next trading day open.

@@ -36,6 +36,7 @@ APPROVAL_CSV = LATEST_DIR / "approved_operation_patterns_latest.csv"
 FORMAL_SUMMARY_CSV = LATEST_DIR / "volume_breakout_formal_operation_backtest_latest.csv"
 DATA_FRESHNESS_CSV = LATEST_DIR / "data_freshness_latest.csv"
 MODEL_SNAPSHOT_DIR = ROOT / "output" / "history" / "daily_model_snapshots"
+MODEL_SIGNAL_LOG_CSV = ROOT / "output" / "history" / "daily_candidate_models" / "daily_candidate_model_signal_log.csv"
 STOCK_PRICE_HISTORY_DIR = ROOT / "data" / "stock_price_history"
 
 OUT_CSV = LATEST_DIR / "daily_volume_breakout_operation_section_latest.csv"
@@ -47,21 +48,36 @@ MODEL_ID = "volume_range_breakout"
 LIFECYCLE_ADAPTER_SOURCE = "daily_published_model_snapshots+stock_price_history"
 APPROVAL_SOURCE = "approved_operation_patterns_latest.csv"
 PDF_VIEWS = ("highlight", "full")
-PDF_SECTIONS = ("confirmed_operation", "pending_confirmation", "active_operation")
+PDF_SECTIONS = (
+    "confirmed_operation",
+    "confirmed_unranked_operation",
+    "pending_confirmation",
+    "active_operation",
+)
+HIGHLIGHT_HIDDEN_SECTIONS = {
+    "confirmed_unranked_operation",
+    "pending_confirmation",
+}
 MAX_CONFIRM_DAYS = 10
 MAX_HOLD_DAYS = 10
 
 SECTION_ZH = {
     "confirmed_operation": "已確認操作",
+    "confirmed_unranked_operation": "已確認但未通過買入排名門檻",
     "pending_confirmation": "待確認",
     "active_operation": "操作中",
 }
 
 SECTION_EMPTY_NOTE_ZH = {
     "confirmed_operation": "目前沒有符合研究證據門檻的已確認操作列。",
+    "confirmed_unranked_operation": "目前沒有已確認但未通過買入排名門檻的股票。",
     "pending_confirmation": "目前沒有待確認的放量攻擊訊號。",
     "active_operation": "目前沒有操作中追蹤列。",
 }
+
+
+def section_allowed_for_pdf_view(pdf_view: str, pdf_section: str) -> bool:
+    return not (pdf_view == "highlight" and pdf_section in HIGHLIGHT_HIDDEN_SECTIONS)
 
 # Keep daily adapter trigger order in parity with the formal research backtest.
 TRIGGERS = [
@@ -504,6 +520,16 @@ def signal_snapshot_paths(report_date: str) -> list[Path]:
 
 def load_volume_signal_history(current_signals: pd.DataFrame, report_date: str) -> pd.DataFrame:
     frames: list[pd.DataFrame] = []
+    signal_log = read_csv(MODEL_SIGNAL_LOG_CSV)
+    if not signal_log.empty and {"model_id", "signal_date"}.issubset(signal_log.columns):
+        signal_log = signal_log[
+            signal_log["model_id"].astype(str).str.strip().eq(MODEL_ID)
+            & signal_log["signal_date"].map(normalize_date_text).le(report_date)
+        ].copy()
+        if not signal_log.empty:
+            signal_log["snapshot_report_date"] = signal_log["signal_date"].map(normalize_date_text)
+            frames.append(signal_log)
+
     for path in signal_snapshot_paths(report_date):
         frame = read_csv(path)
         if frame.empty or "model_id" not in frame.columns:
@@ -649,22 +675,27 @@ def operation_context_rows(price: pd.DataFrame, signal_idx: int, selected: dict[
     return attach_tdcc_asof(pd.DataFrame([payload]), tdcc_events(), "confirmation_date")
 
 
-def select_positive_row_evidence(
+def select_row_evidence(
     price: pd.DataFrame,
     signal_idx: int,
     selected: dict[str, Any],
     formal_summary: pd.DataFrame,
-) -> tuple[pd.Series | None, pd.Series | None, list[dict[str, Any]]]:
+) -> tuple[pd.Series | None, pd.Series | None, bool, list[dict[str, Any]]]:
     contexts = operation_context_rows(price, signal_idx, selected)
     audit_rows: list[dict[str, Any]] = []
     candidates: list[tuple[float, float, pd.Series, pd.Series]] = []
+    evaluated: list[tuple[float, float, pd.Series, pd.Series]] = []
     if contexts.empty:
-        return None, None, audit_rows
+        return None, None, False, audit_rows
 
     for _, context in contexts.iterrows():
         evidence = best_row_evidence(context, formal_summary)
         audit = evidence_audit_payload(context, evidence, "candidate_evaluated", False, "")
         audit_rows.append(audit)
+        if evidence is not None:
+            score = number_text(evidence.get("ranking_research_score"))
+            sample = number_text(evidence.get("sample_size"))
+            evaluated.append((score, sample, context, evidence))
         if not evidence_passes_daily_gate(evidence):
             continue
         assert evidence is not None
@@ -673,12 +704,15 @@ def select_positive_row_evidence(
         candidates.append((score, sample, context, evidence))
 
     if not candidates:
-        return None, contexts.iloc[0], audit_rows
+        if evaluated:
+            evaluated.sort(key=lambda item: (item[0], item[1]), reverse=True)
+            return evaluated[0][3], evaluated[0][2], False, audit_rows
+        return None, contexts.iloc[0], False, audit_rows
     candidates.sort(key=lambda item: (item[0], item[1]), reverse=True)
     context = candidates[0][2]
     evidence = candidates[0][3]
     audit_rows.append(evidence_audit_payload(context, evidence, "positive_row_evidence", True, "selected"))
-    return evidence, context, audit_rows
+    return evidence, context, True, audit_rows
 
 
 def evidence_audit_payload(
@@ -688,7 +722,7 @@ def evidence_audit_payload(
     included: bool,
     reason: str,
 ) -> dict[str, Any]:
-    bucket = rank_bucket_for_context(context)
+    bucket = safe_str(evidence.get("rank_bucket")) if evidence is not None else rank_bucket_for_context(context)
     return {
         "model_id": MODEL_ID,
         "operation_asof_date": "",
@@ -720,10 +754,15 @@ def evidence_audit_payload(
     }
 
 
-def apply_evidence_fields(record: dict[str, Any], evidence: pd.Series, context: pd.Series) -> None:
+def apply_evidence_fields(
+    record: dict[str, Any],
+    evidence: pd.Series,
+    context: pd.Series,
+    match_status: str = "positive_row_evidence",
+) -> None:
     record.update(
         {
-            "evidence_match_status": "positive_row_evidence",
+            "evidence_match_status": match_status,
             "evidence_tdcc_list_type": safe_str(evidence.get("tdcc_list_type")),
             "evidence_rank_bucket": safe_str(evidence.get("rank_bucket")),
             "evidence_confluence_scope": safe_str(evidence.get("confluence_scope")),
@@ -847,6 +886,70 @@ def confirmed_record(
         }
     )
     apply_evidence_fields(record, evidence, context)
+    return record
+
+
+def confirmed_unranked_record(
+    signal: pd.Series,
+    selected: dict[str, Any],
+    evidence: pd.Series | None,
+    context: pd.Series | None,
+    price: pd.DataFrame,
+    signal_idx: int,
+    report_idx: int,
+    approval: dict[str, str],
+    generated_at: str,
+    report_date: str,
+    daily_volume_count: int,
+    display_order: str,
+) -> dict[str, Any]:
+    signal_row = price.iloc[signal_idx]
+    signal_low = price_at(signal_row, "low")
+    signal_date = normalize_date_text(signal_row.get("date"))
+    record = lifecycle_base_record(
+        signal,
+        approval,
+        generated_at,
+        report_date,
+        daily_volume_count,
+        "confirmed_unranked_operation",
+        display_order,
+    )
+    record.update(
+        {
+            "operation_status_zh": "已確認但未通過買入排名門檻",
+            "quality_status_zh": "未通過買入排名門檻",
+            "matched_trigger_ids": safe_str(selected.get("matched_trigger_ids")),
+            "selected_trigger_id": safe_str(selected.get("trigger_id")),
+            "selected_confirmation_date": safe_str(selected.get("confirmation_date")),
+            "selected_trigger_priority": safe_str(selected.get("trigger_priority")),
+            "trigger_zh": safe_str(selected.get("trigger_zh")),
+            "entry_basis_zh": "已確認但未通過買入排名門檻，不列進場價。",
+            "entry_price_status_zh": "未通過買入排名門檻，不列進場價。",
+            "stop_basis_zh": "未列買入排名，不列停損價。",
+            "exit_rule_zh": "未列買入排名，不列出場規則。",
+            "entry_rule_id": "",
+            "entry_price_basis": "",
+            "entry_date": "",
+            "entry_price": "",
+            "stop_loss_rule_id": "",
+            "stop_loss_price": "",
+            "stop_loss_label_zh": "",
+            "exit_rule_id": "",
+            "planned_holding_days": "",
+            "operation_age_days": str(report_idx - signal_idx),
+            "confirmation_date": safe_str(selected.get("confirmation_date")),
+            "row_action_status": "confirmed_not_buy_ranked",
+            "buy_rank_eligible": "False",
+            "rank_reason_zh": (
+                "已確認，但該股所屬 TDCC/型態/確認方式的正式歷史證據未通過買入排名門檻。"
+            ),
+        }
+    )
+    if evidence is not None and context is not None:
+        apply_evidence_fields(record, evidence, context, "row_level_evidence_not_buy_ranked")
+    else:
+        record["evidence_match_status"] = "no_matching_row_level_evidence"
     return record
 
 
@@ -996,43 +1099,65 @@ def lifecycle_state_for_signal(
 
     selected = selected_confirmation(price, signal_idx, report_idx)
     if selected is not None:
-        evidence, context, evidence_audit = select_positive_row_evidence(
+        evidence, context, is_buy_rank_eligible, evidence_audit = select_row_evidence(
             price,
             signal_idx,
             selected,
             formal_summary,
         )
         audit_rows.extend(evidence_audit)
-        if evidence is None or context is None:
-            for audit in audit_rows:
-                audit["operation_asof_date"] = report_date
-                audit["operation_lifecycle_state"] = "confirmed_or_active_excluded"
-                audit["generated_at"] = generated_at
-                if not audit["reason"]:
-                    audit["reason"] = "no_positive_row_level_evidence"
-            return 80, None, audit_rows
         confirmation_idx = int(selected["confirmation_idx"])
         entry_idx = confirmation_idx + 1
         if confirmation_idx == report_idx:
-            record = confirmed_record(
-                signal,
-                selected,
-                evidence,
-                context,
-                price,
-                signal_idx,
-                report_idx,
-                approval,
-                generated_at,
-                report_date,
-                daily_volume_count,
-                display_order,
-            )
+            if is_buy_rank_eligible and evidence is not None and context is not None:
+                record = confirmed_record(
+                    signal,
+                    selected,
+                    evidence,
+                    context,
+                    price,
+                    signal_idx,
+                    report_idx,
+                    approval,
+                    generated_at,
+                    report_date,
+                    daily_volume_count,
+                    display_order,
+                )
+                lifecycle_state = "confirmed_operation"
+                priority = 0
+            else:
+                record = confirmed_unranked_record(
+                    signal,
+                    selected,
+                    evidence,
+                    context,
+                    price,
+                    signal_idx,
+                    report_idx,
+                    approval,
+                    generated_at,
+                    report_date,
+                    daily_volume_count,
+                    display_order,
+                )
+                lifecycle_state = "confirmed_unranked_operation"
+                priority = 1
             for audit in audit_rows:
                 audit["operation_asof_date"] = report_date
-                audit["operation_lifecycle_state"] = "confirmed_operation"
+                audit["operation_lifecycle_state"] = lifecycle_state
                 audit["generated_at"] = generated_at
-            return 0, record, audit_rows
+                if not audit["reason"] and not is_buy_rank_eligible:
+                    audit["reason"] = "confirmed_but_not_buy_ranked"
+            return priority, record, audit_rows
+        if not is_buy_rank_eligible or evidence is None or context is None:
+            for audit in audit_rows:
+                audit["operation_asof_date"] = report_date
+                audit["operation_lifecycle_state"] = "confirmed_unranked_expired"
+                audit["generated_at"] = generated_at
+                if not audit["reason"]:
+                    audit["reason"] = "confirmed_without_buy_rank_eligibility_not_tracked_active"
+            return 90, None, audit_rows
         if entry_idx < len(price) and report_idx >= entry_idx:
             planned_exit_idx = entry_idx + MAX_HOLD_DAYS - 1
             stopped_idx = stop_hit_index(price, entry_idx, report_idx, signal_low)
@@ -1103,6 +1228,8 @@ def build_lifecycle_rows(
     rows: list[dict[str, Any]] = []
     for pdf_view in PDF_VIEWS:
         for idx, row in enumerate(base_rows, start=1):
+            if not section_allowed_for_pdf_view(pdf_view, safe_str(row.get("pdf_section"))):
+                continue
             record = dict(row)
             record["pdf_view"] = pdf_view
             if not safe_str(record.get("display_order")) or safe_str(record.get("display_order")) == "999999":
@@ -1189,7 +1316,7 @@ def write_outputs(df: pd.DataFrame, source_rows: int, source_status: str) -> Non
         f"- source_status: `{source_status}`",
         f"- source_rows: `{source_rows}`",
         "- purpose: production presentation adapter only; PDF/packet 必須讀取本 artifact，且不得重新計算進場、停損、出場或排名。",
-        "- sections: confirmed_operation, pending_confirmation, active_operation.",
+        "- sections: confirmed_operation, confirmed_unranked_operation, pending_confirmation, active_operation.",
         "",
     ]
     for pdf_view in PDF_VIEWS:
@@ -1246,7 +1373,7 @@ def write_evidence_audit(audit: pd.DataFrame) -> None:
         f"- generated_at: `{safe_str(audit['generated_at'].iloc[0]) if not audit.empty else now_text()}`",
         f"- model_id: `{MODEL_ID}`",
         "- purpose: row-level audit proving daily adapter evidence is attributed to each stock's own TDCC/trigger/pattern context.",
-        "- rule: confirmed/active daily rows must use `positive_row_evidence`; preview, pending queue, and global best evidence are not valid sources.",
+        "- rule: buy-ranked confirmed/active daily rows must use `positive_row_evidence`; confirmed rows without buy-ranking evidence are tracked separately as `confirmed_unranked_operation`.",
         "",
     ]
     if audit.empty:
@@ -1308,6 +1435,8 @@ def build() -> tuple[pd.DataFrame, pd.DataFrame]:
     }
     for pdf_view in PDF_VIEWS:
         for pdf_section in PDF_SECTIONS:
+            if not section_allowed_for_pdf_view(pdf_view, pdf_section):
+                continue
             if (pdf_view, pdf_section) not in existing:
                 rows.append(
                     empty_row(
@@ -1324,7 +1453,12 @@ def build() -> tuple[pd.DataFrame, pd.DataFrame]:
     out = pd.DataFrame(rows, columns=OUTPUT_COLUMNS)
     out["_view_order"] = out["pdf_view"].map({"highlight": 0, "full": 1}).fillna(9)
     out["_section_order"] = out["pdf_section"].map(
-        {"confirmed_operation": 0, "pending_confirmation": 1, "active_operation": 2}
+        {
+            "confirmed_operation": 0,
+            "confirmed_unranked_operation": 1,
+            "pending_confirmation": 2,
+            "active_operation": 3,
+        }
     ).fillna(9)
     out["_row_type_order"] = out["row_type"].map({"data": 0, "empty_state": 1}).fillna(9)
     out["_display_order_num"] = pd.to_numeric(out["display_order"], errors="coerce").fillna(999999)

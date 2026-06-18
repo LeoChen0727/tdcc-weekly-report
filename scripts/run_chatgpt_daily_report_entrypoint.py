@@ -99,11 +99,12 @@ def remove_source_worktree(repo_root: Path, source_root: Path) -> None:
         )
 
 
-def run_generator(source_root: Path, output_dir: Path) -> list[Path]:
+def run_generator(source_root: Path, output_dir: Path, source_ref: str) -> list[Path]:
     env = os.environ.copy()
     env["CHATGPT_DAILY_REPORT_ENTRYPOINT"] = "1"
     env["CHATGPT_DAILY_REPO_ROOT"] = str(source_root)
     env["CHATGPT_DAILY_OUTPUT_DIR"] = str(output_dir)
+    env["CHATGPT_DAILY_SOURCE_REF"] = source_ref
     env["PYTHONIOENCODING"] = "utf-8"
     proc = run_command(
         [
@@ -202,7 +203,7 @@ def main() -> int:
                 if args.source_gate_only:
                     return 0
                 output_dir.mkdir(parents=True, exist_ok=True)
-                paths = run_generator(source_root, output_dir)
+                paths = run_generator(source_root, output_dir, args.source_ref)
                 print("official ChatGPT-side daily PDF generation completed")
                 for path in paths:
                     print(path)

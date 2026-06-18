@@ -161,7 +161,12 @@ def validate_daily_adapter_boundary() -> list[str]:
     models = sorted(set(adapter["model_id"].astype(str)))
     if models != [VOLUME_MODEL_ID]:
         errors.append(f"daily volume breakout adapter must contain only {VOLUME_MODEL_ID}, got {models}")
-    required_sections = {"confirmed_operation", "pending_confirmation", "active_operation"}
+    required_sections = {
+        "confirmed_operation",
+        "confirmed_unranked_operation",
+        "pending_confirmation",
+        "active_operation",
+    }
     if "pdf_section" not in adapter.columns:
         errors.append("daily volume breakout adapter missing pdf_section")
     else:

@@ -64,6 +64,7 @@ def test_canonical_chatgpt_side_generator_is_tracked_and_not_legacy_six_category
     assert "resolve_daily_report_source_state" in entrypoint_text
     assert '"worktree", "add", "--detach"' in entrypoint_text
     assert "CHATGPT_DAILY_REPORT_ENTRYPOINT" in entrypoint_text
+    assert "CHATGPT_DAILY_SOURCE_REF" in entrypoint_text
     assert "PYTHONIOENCODING" in entrypoint_text
     assert "reconfigure(encoding=\"utf-8\", errors=\"replace\")" in entrypoint_text
     assert "source-gate-only" in entrypoint_text
@@ -71,6 +72,7 @@ def test_canonical_chatgpt_side_generator_is_tracked_and_not_legacy_six_category
     assert "CATEGORY_SPECS" not in text
     assert 'REPO = ROOT / "tdcc-weekly-report-git"' not in text
     assert "daily_report_model_registry_latest.csv" in text
+    assert "CHATGPT_DAILY_SOURCE_REF" in text
     assert "daily_candidate_model_signals_for_report_latest.csv" in text
     assert "model_score" in text
     assert "risk_tags" in text
