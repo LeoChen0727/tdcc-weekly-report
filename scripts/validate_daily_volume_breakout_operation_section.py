@@ -39,6 +39,12 @@ PDF_SECTIONS = {
     "pending_confirmation",
     "active_operation",
 }
+EXPECTED_OPERATION_STATUS = {
+    "confirmed_operation": "confirmed_operation",
+    "confirmed_unranked_operation": "confirmed_unranked_operation",
+    "pending_confirmation": "pending_confirmation",
+    "active_operation": "active_operation",
+}
 HIGHLIGHT_HIDDEN_SECTIONS = {"confirmed_unranked_operation", "pending_confirmation"}
 ROW_TYPES = {"data", "empty_state"}
 SOURCE_STATUSES = {"ready"}
@@ -55,6 +61,7 @@ REQUIRED_COLUMNS = {
     "display_order",
     "stock_id",
     "stock_display",
+    "operation_status",
     "operation_status_zh",
     "entry_basis_zh",
     "stop_basis_zh",
@@ -329,6 +336,31 @@ def validate_latest_signal_log_sync(section: pd.DataFrame) -> None:
             details.append("extra_in_signal_log=" + ", ".join(f"{date}/{bucket}/{stock}" for date, bucket, stock, _ in extra[:20]))
         fail("latest volume_range_breakout signals and daily model signal log are out of sync: " + " | ".join(details))
 
+    latest_stocks = {
+        stock_id_text(value)
+        for value in latest_volume["stock_id"].tolist()
+        if stock_id_text(value)
+    }
+    data_stocks = {
+        stock_id_text(value)
+        for value in section.loc[section["row_type"].astype(str).eq("data"), "stock_id"].tolist()
+        if stock_id_text(value)
+    }
+    missing_stocks = sorted(latest_stocks - data_stocks)
+    if missing_stocks:
+        fail(f"latest volume_range_breakout stocks missing from operation section: {missing_stocks}")
+
+    observed_counts = {
+        str(value).strip()
+        for value in section["daily_volume_model_signal_count"].tolist()
+        if str(value).strip()
+    }
+    if observed_counts != {str(len(latest_stocks))}:
+        fail(
+            "daily_volume_model_signal_count must match latest volume_range_breakout stock count: "
+            f"observed={sorted(observed_counts)} expected={len(latest_stocks)}"
+        )
+
 
 def validate_selected_volume_breakout_model_lineage(section: pd.DataFrame) -> None:
     report_date = report_date_from_section(section)
@@ -408,7 +440,10 @@ def validate_row_level_evidence(section: pd.DataFrame, formal_summary: pd.DataFr
         section["row_type"].astype(str).eq("data")
         & section["pdf_section"].astype(str).isin({"confirmed_operation", "active_operation"})
     ].copy()
+    included = audit[audit["included_in_daily_adapter"].astype(str).eq("True")].copy()
     if target.empty:
+        if not included.empty:
+            fail("evidence audit must not mark included rows when confirmed/active adapter rows are empty")
         return
 
     for _, row in target.iterrows():
@@ -442,7 +477,6 @@ def validate_row_level_evidence(section: pd.DataFrame, formal_summary: pd.DataFr
     missing = sorted(REQUIRED_AUDIT_COLUMNS - set(audit.columns))
     if missing:
         fail(f"evidence audit missing columns: {missing}")
-    included = audit[audit["included_in_daily_adapter"].astype(str).eq("True")].copy()
     if included.empty:
         fail("evidence audit must include positive rows used by the daily adapter")
     target_keys = {
@@ -472,6 +506,9 @@ def validate_row_level_evidence(section: pd.DataFrame, formal_summary: pd.DataFr
     missing_audit = sorted(target_keys - audit_keys)
     if missing_audit:
         fail(f"daily adapter rows missing matching positive evidence audit rows: {missing_audit}")
+    extra_included = sorted(audit_keys - target_keys)
+    if extra_included:
+        fail(f"evidence audit marks non-rendered rows as included_in_daily_adapter=True: {extra_included[:20]}")
 
 
 def validate_file_presence() -> None:
@@ -509,6 +546,15 @@ def validate_shape(section: pd.DataFrame, formal_summary: pd.DataFrame, audit: p
     bad_sections = sorted(set(section["pdf_section"].astype(str)) - PDF_SECTIONS)
     if bad_sections:
         fail(f"invalid pdf_section values: {bad_sections}")
+    bad_operation_status = section[
+        section.apply(
+            lambda row: str(row.get("operation_status", "")).strip()
+            != EXPECTED_OPERATION_STATUS.get(str(row.get("pdf_section", "")).strip(), ""),
+            axis=1,
+        )
+    ]
+    if not bad_operation_status.empty:
+        fail("operation_status must be a machine-readable mirror of pdf_section")
     hidden_highlight = section[
         section["pdf_view"].astype(str).eq("highlight")
         & section["pdf_section"].astype(str).isin(HIGHLIGHT_HIDDEN_SECTIONS)
@@ -555,6 +601,11 @@ def validate_shape(section: pd.DataFrame, formal_summary: pd.DataFrame, audit: p
         ]
         if not bad_dates.empty:
             fail("operation data rows must have operation_asof_date equal to daily_signal_date")
+        duplicated_stock_rows = data_rows[
+            data_rows.duplicated(["pdf_view", "stock_id"], keep=False)
+        ]
+        if not duplicated_stock_rows.empty:
+            fail("operation section must keep only one lifecycle row per stock in each pdf_view")
         bad_data_status = data_rows[data_rows["adapter_source_status"].astype(str).ne("ready")]
         if not bad_data_status.empty:
             fail("operation data rows are allowed only when adapter_source_status=ready")
