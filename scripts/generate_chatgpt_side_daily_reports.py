@@ -68,7 +68,6 @@ REMOTE_DATA_BASE = "https://raw.githubusercontent.com/LeoChen0727/tdcc-weekly-re
 VOLUME_BREAKOUT_MODEL_ID = "volume_range_breakout"
 VOLUME_OPERATION_HIGHLIGHT_LIMITS = {
     "confirmed_operation": 10,
-    "pending_confirmation": 5,
     "active_operation": 5,
 }
 VOLUME_TRIGGER_LABELS = {
@@ -1945,15 +1944,6 @@ def volume_operation_empty_text(rows: pd.DataFrame, fallback: str) -> str:
     return fallback
 
 
-def volume_operation_has_data_rows(*frames: pd.DataFrame) -> bool:
-    for frame in frames:
-        if frame.empty or "row_type" not in frame.columns:
-            continue
-        if frame["row_type"].astype(str).eq("data").any():
-            return True
-    return False
-
-
 def limit_volume_operation_rows_for_pdf_view(
     rows: pd.DataFrame,
     pdf_view: str,
@@ -2088,6 +2078,45 @@ def build_volume_confirmed_operation_table(rows: pd.DataFrame) -> Table:
     )
 
 
+def build_volume_unranked_operation_table(rows: pd.DataFrame) -> Table:
+    data = [[
+        "股票",
+        "確認方式",
+        "確認日",
+        "未列排名原因",
+        "樣本數",
+        "勝率",
+        "中位數報酬",
+        "證據狀態",
+    ]]
+    if rows.empty:
+        data.append(["-", "-", "-", "目前沒有已確認但未通過買入排名門檻的股票。", "-", "-", "-", "-"])
+    for _, row in rows.iterrows():
+        evidence_status = clean(row.get("evidence_match_status"), "-")
+        if evidence_status == "row_level_evidence_not_buy_ranked":
+            evidence_status = "歷史證據未過門檻"
+        elif evidence_status == "no_matching_row_level_evidence":
+            evidence_status = "沒有可匹配的歷史證據"
+        data.append(
+            [
+                clean(row.get("stock_display"), "-"),
+                volume_operation_trigger_label(row),
+                volume_operation_date_label(first_text(row.get("confirmation_date"), row.get("selected_confirmation_date"))),
+                clean(row.get("rank_reason_zh"), "-"),
+                clean(row.get("sample_size"), "-"),
+                clean(row.get("win_rate_zh"), "-"),
+                clean(row.get("median_return_zh"), "-"),
+                evidence_status,
+            ]
+        )
+    return build_table(
+        data,
+        [28 * mm, 32 * mm, 18 * mm, 78 * mm, 14 * mm, 16 * mm, 20 * mm, 42 * mm],
+        12.0,
+        header_bg=colors.HexColor("#8064a2"),
+    )
+
+
 def build_volume_pending_operation_table(rows: pd.DataFrame) -> Table:
     data = [["股票", "等待天數", "等待分組", "待確認條件", "模型分數 / 排名原因", "進場 / 停損狀態", "狀態"]]
     if rows.empty:
@@ -2157,6 +2186,11 @@ def render_volume_range_breakout_operation_section(
         inputs,
         line,
     )
+    unranked_all = filter_volume_operation_rows_for_line(
+        volume_operation_frame(inputs, pdf_view, "confirmed_unranked_operation"),
+        inputs,
+        line,
+    )
     pending_all = filter_volume_operation_rows_for_line(
         volume_operation_frame(inputs, pdf_view, "pending_confirmation"),
         inputs,
@@ -2175,12 +2209,20 @@ def render_volume_range_breakout_operation_section(
     ].copy() if not confirmed_all.empty else pd.DataFrame()
     confirmed = limit_volume_operation_rows_for_pdf_view(confirmed, pdf_view, "confirmed_operation")
 
-    pending = pending_all[
-        pending_all.get("row_type", pd.Series(dtype=str)).astype(str).eq("data")
-        & pending_all.get("row_action_status", pd.Series(dtype=str)).astype(str).eq("pending_confirmation")
-        & ~pending_all.get("buy_rank_eligible", pd.Series(dtype=str)).map(is_true_text)
-    ].copy() if not pending_all.empty else pd.DataFrame()
-    pending = limit_volume_operation_rows_for_pdf_view(pending, pdf_view, "pending_confirmation")
+    unranked = unranked_all[
+        unranked_all.get("row_type", pd.Series(dtype=str)).astype(str).eq("data")
+        & unranked_all.get("row_action_status", pd.Series(dtype=str)).astype(str).eq("confirmed_not_buy_ranked")
+        & ~unranked_all.get("buy_rank_eligible", pd.Series(dtype=str)).map(is_true_text)
+    ].copy() if not unranked_all.empty and pdf_view == "full" else pd.DataFrame()
+
+    if pdf_view == "full":
+        pending = pending_all[
+            pending_all.get("row_type", pd.Series(dtype=str)).astype(str).eq("data")
+            & pending_all.get("row_action_status", pd.Series(dtype=str)).astype(str).eq("pending_confirmation")
+            & ~pending_all.get("buy_rank_eligible", pd.Series(dtype=str)).map(is_true_text)
+        ].copy() if not pending_all.empty else pd.DataFrame()
+    else:
+        pending = pd.DataFrame()
     active_rows = active_all[
         active_all.get("row_type", pd.Series(dtype=str)).astype(str).eq("data")
         & active_all.get("row_action_status", pd.Series(dtype=str)).astype(str).eq("active_operation")
@@ -2189,25 +2231,20 @@ def render_volume_range_breakout_operation_section(
     active_rows = limit_volume_operation_rows_for_pdf_view(active_rows, pdf_view, "active_operation")
 
     story.append(Spacer(1, 6))
-    if not volume_operation_has_data_rows(confirmed_all, pending_all, active_all):
-        story.append(
-            para(
-                volume_operation_empty_text(
-                    pending_all if not pending_all.empty else active_all if not active_all.empty else confirmed_all,
-                    "今日沒有可顯示的放量攻擊操作列。",
-                ),
-                BODY_SMALL,
-            )
-        )
-        return
     story.append(Paragraph("已確認操作 / 可列買入排名", H2))
     story.append(build_volume_confirmed_operation_table(confirmed))
     story.append(Spacer(1, 5))
-    story.append(Paragraph("待確認", H2))
-    if pending.empty:
-        story.append(para(volume_operation_empty_text(pending_all, "目前無待確認列。"), BODY_SMALL))
-    story.append(build_volume_pending_operation_table(pending))
-    story.append(Spacer(1, 5))
+    if pdf_view == "full":
+        story.append(Paragraph("已確認但未通過買入排名門檻", H2))
+        if unranked.empty:
+            story.append(para(volume_operation_empty_text(unranked_all, "目前沒有已確認但未通過買入排名門檻的股票。"), BODY_SMALL))
+        story.append(build_volume_unranked_operation_table(unranked))
+        story.append(Spacer(1, 5))
+        story.append(Paragraph("待確認", H2))
+        if pending.empty:
+            story.append(para(volume_operation_empty_text(pending_all, "目前無待確認列。"), BODY_SMALL))
+        story.append(build_volume_pending_operation_table(pending))
+        story.append(Spacer(1, 5))
     story.append(Paragraph("操作中", H2))
     if active_rows.empty:
         story.append(para("目前無操作中追蹤列。", BODY_SMALL))

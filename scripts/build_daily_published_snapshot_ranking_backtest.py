@@ -459,7 +459,12 @@ def build_summary(events: pd.DataFrame, generated_at: str | None = None) -> pd.D
             for value in volume_rows["segment_value"].astype(str).tolist()
             if safe_str(value)
         }
-    for section in ["confirmed_operation", "pending_confirmation", "active_operation"]:
+    for section in [
+        "confirmed_operation",
+        "confirmed_unranked_operation",
+        "pending_confirmation",
+        "active_operation",
+    ]:
         if section in existing_volume_sections:
             continue
         row: dict[str, Any] = {
@@ -528,7 +533,7 @@ def write_markdown(summary: pd.DataFrame, events: pd.DataFrame, path: Path, gene
         "- Entry basis: next trading day open after the snapshot signal date or operation confirmation anchor.",
         "- D+1/D+3/D+5/D+10 returns use close prices; MFE/MAE use high/low versus entry open.",
         "- `model_signals_for_report` rows are ranking-evaluation samples, not trade-eligible operation rows.",
-        "- `volume_breakout_operation_section` rows are evaluated separately by `confirmed_operation`, `pending_confirmation`, and `active_operation`.",
+        "- `volume_breakout_operation_section` rows are evaluated separately by `confirmed_operation`, `confirmed_unranked_operation`, `pending_confirmation`, and `active_operation`.",
         "- The artifact is advisory-only and must not directly change daily production parameters.",
     ]
     path.parent.mkdir(parents=True, exist_ok=True)

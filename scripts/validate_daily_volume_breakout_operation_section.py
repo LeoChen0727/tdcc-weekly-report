@@ -26,7 +26,13 @@ CONTRACT_MD = ROOT / "docs" / "specs" / "daily_volume_breakout_operation_section
 MODEL_ID = "volume_range_breakout"
 LIFECYCLE_ADAPTER_SOURCE = "daily_published_model_snapshots+stock_price_history"
 PDF_VIEWS = {"highlight", "full"}
-PDF_SECTIONS = {"confirmed_operation", "pending_confirmation", "active_operation"}
+PDF_SECTIONS = {
+    "confirmed_operation",
+    "confirmed_unranked_operation",
+    "pending_confirmation",
+    "active_operation",
+}
+HIGHLIGHT_HIDDEN_SECTIONS = {"confirmed_unranked_operation", "pending_confirmation"}
 ROW_TYPES = {"data", "empty_state"}
 SOURCE_STATUSES = {"ready"}
 
@@ -245,6 +251,16 @@ def formal_evidence_row(formal_summary: pd.DataFrame, row: pd.Series) -> pd.Seri
     return part.iloc[0]
 
 
+def evidence_passes_buy_gate(evidence: pd.Series) -> bool:
+    return (
+        pd.to_numeric(pd.Series([evidence.get("sample_size", "")]), errors="coerce").iloc[0] >= 10
+        and pd.to_numeric(pd.Series([evidence.get("win_rate", "")]), errors="coerce").iloc[0] >= 50
+        and pd.to_numeric(pd.Series([evidence.get("median_return", "")]), errors="coerce").iloc[0] > 0
+        and pd.to_numeric(pd.Series([evidence.get("ranking_research_score", "")]), errors="coerce").iloc[0] > 0
+        and str(evidence.get("out_of_sample_pass", "")).lower() in {"true", "1", "1.0"}
+    )
+
+
 def validate_row_level_evidence(section: pd.DataFrame, formal_summary: pd.DataFrame, audit: pd.DataFrame) -> None:
     target = section[
         section["row_type"].astype(str).eq("data")
@@ -276,14 +292,7 @@ def validate_row_level_evidence(section: pd.DataFrame, formal_summary: pd.DataFr
                     "daily adapter row evidence metric mismatch: "
                     f"stock_id={row.get('stock_id')} col={col} observed={observed} expected={expected}"
                 )
-        gate = (
-            pd.to_numeric(pd.Series([evidence.get("sample_size", "")]), errors="coerce").iloc[0] >= 10
-            and pd.to_numeric(pd.Series([evidence.get("win_rate", "")]), errors="coerce").iloc[0] >= 50
-            and pd.to_numeric(pd.Series([evidence.get("median_return", "")]), errors="coerce").iloc[0] > 0
-            and pd.to_numeric(pd.Series([evidence.get("ranking_research_score", "")]), errors="coerce").iloc[0] > 0
-            and str(evidence.get("out_of_sample_pass", "")).lower() in {"true", "1", "1.0"}
-        )
-        if not gate:
+        if not evidence_passes_buy_gate(evidence):
             fail(f"daily adapter row uses evidence that does not pass daily gate: stock_id={row.get('stock_id')}")
 
     if audit.empty:
@@ -358,6 +367,12 @@ def validate_shape(section: pd.DataFrame, formal_summary: pd.DataFrame, audit: p
     bad_sections = sorted(set(section["pdf_section"].astype(str)) - PDF_SECTIONS)
     if bad_sections:
         fail(f"invalid pdf_section values: {bad_sections}")
+    hidden_highlight = section[
+        section["pdf_view"].astype(str).eq("highlight")
+        & section["pdf_section"].astype(str).isin(HIGHLIGHT_HIDDEN_SECTIONS)
+    ]
+    if not hidden_highlight.empty:
+        fail("highlight PDF adapter rows must not include pending or unranked confirmation sections")
 
     bad_row_types = sorted(set(section["row_type"].astype(str)) - ROW_TYPES)
     if bad_row_types:
@@ -488,6 +503,59 @@ def validate_shape(section: pd.DataFrame, formal_summary: pd.DataFrame, audit: p
         if not bad_confirm_date.empty:
             fail("confirmed operation rows must be confirmed on the report date")
 
+    unranked_data = section[
+        section["pdf_section"].eq("confirmed_unranked_operation") & section["row_type"].eq("data")
+    ].copy()
+    if not unranked_data.empty:
+        if set(unranked_data["row_action_status"].astype(str)) != {"confirmed_not_buy_ranked"}:
+            fail("confirmed_unranked_operation rows must carry row_action_status=confirmed_not_buy_ranked")
+        if set(unranked_data["buy_rank_eligible"].astype(str)) != {"False"}:
+            fail("confirmed_unranked_operation rows must keep buy_rank_eligible=False")
+        missing_selected = unranked_data[
+            unranked_data["selected_trigger_id"].astype(str).str.strip().eq("")
+            | unranked_data["selected_confirmation_date"].astype(str).str.strip().eq("")
+        ]
+        if not missing_selected.empty:
+            fail("confirmed_unranked_operation rows must carry selected trigger metadata")
+        bad_confirm_date = unranked_data[
+            unranked_data["confirmation_date"].map(normalize_date_text).ne(
+                unranked_data["daily_signal_date"].map(normalize_date_text)
+            )
+        ]
+        if not bad_confirm_date.empty:
+            fail("confirmed_unranked_operation rows must be confirmed on the report date")
+        blocked_operation_fields = [
+            "entry_rule_id",
+            "entry_price_basis",
+            "entry_date",
+            "entry_price",
+            "stop_loss_rule_id",
+            "stop_loss_price",
+            "exit_rule_id",
+        ]
+        for col in blocked_operation_fields:
+            if unranked_data[col].astype(str).str.strip().ne("").any():
+                fail(f"confirmed_unranked_operation rows must not carry operation field: {col}")
+        if unranked_data["evidence_match_status"].astype(str).str.strip().eq("positive_row_evidence").any():
+            fail("confirmed_unranked_operation rows must not carry positive_row_evidence")
+        for _, row in unranked_data.iterrows():
+            match_status = str(row.get("evidence_match_status", "")).strip()
+            if match_status == "no_matching_row_level_evidence":
+                continue
+            if match_status != "row_level_evidence_not_buy_ranked":
+                fail(f"invalid confirmed_unranked_operation evidence status: {match_status}")
+            evidence = formal_evidence_row(formal_summary, row)
+            if evidence is None:
+                fail(
+                    "confirmed_unranked_operation row references evidence not found in formal summary: "
+                    f"stock_id={row.get('stock_id')} key={row.get('evidence_key')}"
+                )
+            if evidence_passes_buy_gate(evidence):
+                fail(
+                    "confirmed_unranked_operation row references buy-eligible evidence: "
+                    f"stock_id={row.get('stock_id')} key={row.get('evidence_key')}"
+                )
+
     buy_eligible = section[section["buy_rank_eligible"].astype(str).eq("True")]
     bad_buy = buy_eligible[
         ~(
@@ -509,6 +577,8 @@ def validate_shape(section: pd.DataFrame, formal_summary: pd.DataFrame, audit: p
 
     for view in PDF_VIEWS:
         for section_id in PDF_SECTIONS:
+            if view == "highlight" and section_id in HIGHLIGHT_HIDDEN_SECTIONS:
+                continue
             part = section[section["pdf_view"].eq(view) & section["pdf_section"].eq(section_id)]
             if part.empty:
                 fail(f"missing {view}/{section_id} section row")
@@ -578,8 +648,10 @@ def validate_pdf_generator_boundary() -> None:
     for token in [
         "VOLUME_OPERATION_HIGHLIGHT_LIMITS",
         '"confirmed_operation": 10',
-        '"pending_confirmation": 5',
         '"active_operation": 5',
+        "confirmed_unranked_operation",
+        "confirmed_not_buy_ranked",
+        "build_volume_unranked_operation_table",
         "limit_volume_operation_rows_for_pdf_view",
         "VOLUME_TRIGGER_LABELS",
         "entry_date",

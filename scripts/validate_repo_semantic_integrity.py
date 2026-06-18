@@ -503,16 +503,35 @@ def validate_operation_semantics() -> list[str]:
     if missing:
         return [f"operation section CSV missing columns: {sorted(missing)}"]
     sections = {row.get("pdf_section", "") for row in rows}
-    for required_section in {"confirmed_operation", "pending_confirmation", "active_operation"}:
+    for required_section in {
+        "confirmed_operation",
+        "confirmed_unranked_operation",
+        "pending_confirmation",
+        "active_operation",
+    }:
         if required_section not in sections:
             errors.append(f"operation section CSV missing section: {required_section}")
     for row in rows:
+        if row.get("pdf_view", "") == "highlight" and row.get("pdf_section", "") in {
+            "confirmed_unranked_operation",
+            "pending_confirmation",
+        }:
+            errors.append(
+                "highlight operation section must not include pending or unranked rows: "
+                f"{row.get('stock_id', '')}"
+            )
         section = row.get("pdf_section", "")
         status = row.get("row_action_status", "")
         eligible = row.get("buy_rank_eligible", "")
         if section == "confirmed_operation" and row.get("row_type") == "data":
             if status != "confirmed_buy_candidate" or eligible != "True":
                 errors.append(f"confirmed operation row is not buy-rank eligible: {row.get('stock_id', '')}")
+        if section == "confirmed_unranked_operation" and row.get("row_type") == "data":
+            if status != "confirmed_not_buy_ranked" or eligible != "False":
+                errors.append(
+                    "confirmed unranked operation row is mixed with buy-rank semantics: "
+                    f"{row.get('stock_id', '')}"
+                )
         if section == "pending_confirmation" and row.get("row_type") == "data":
             if status != "pending_confirmation" or eligible != "False":
                 errors.append(f"pending operation row is mixed with buy-rank semantics: {row.get('stock_id', '')}")

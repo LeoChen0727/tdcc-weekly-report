@@ -81,11 +81,15 @@ def formal_summary(
 
 def patch_lifecycle_sources(monkeypatch, tmp_path: Path, stock_id: str, price_rows: list[dict[str, str]]) -> Path:
     snapshot_dir = tmp_path / "output" / "history" / "daily_model_snapshots"
+    signal_log = tmp_path / "output" / "history" / "daily_candidate_models" / "daily_candidate_model_signal_log.csv"
     price_dir = tmp_path / "data" / "stock_price_history"
     snapshot_dir.mkdir(parents=True)
+    signal_log.parent.mkdir(parents=True)
     price_dir.mkdir(parents=True)
+    pd.DataFrame(columns=["signal_date", "model_id", "stock_id", "stock_name"]).to_csv(signal_log, index=False)
     pd.DataFrame(price_rows).to_csv(price_dir / f"{stock_id}.csv", index=False)
     monkeypatch.setattr(builder, "MODEL_SNAPSHOT_DIR", snapshot_dir)
+    monkeypatch.setattr(builder, "MODEL_SIGNAL_LOG_CSV", signal_log)
     monkeypatch.setattr(builder, "STOCK_PRICE_HISTORY_DIR", price_dir)
     return snapshot_dir
 
@@ -134,7 +138,8 @@ def test_lifecycle_keeps_unconfirmed_signal_pending(monkeypatch, tmp_path) -> No
     out = build_rows_for_test(pd.DataFrame(), "20260617", formal_summary())
 
     pending = out[out["pdf_section"].eq("pending_confirmation") & out["row_type"].eq("data")]
-    assert pending["stock_id"].tolist() == ["1234", "1234"]
+    assert pending["stock_id"].tolist() == ["1234"]
+    assert pending["pdf_view"].tolist() == ["full"]
     assert set(pending["pending_age_zh"]) == {"D+1 待確認"}
     assert set(pending["row_action_status"]) == {"pending_confirmation"}
     assert set(pending["buy_rank_eligible"]) == {"False"}
@@ -168,6 +173,30 @@ def test_lifecycle_confirms_signal_on_report_date(monkeypatch, tmp_path) -> None
     assert set(confirmed["confirmation_date"]) == {"20260617"}
     assert pending.empty
     assert backtest_lifecycle_state("1234", "20260616", "20260617") == "confirmed_operation"
+
+
+def test_lifecycle_reads_published_signal_log_when_snapshot_is_missing(monkeypatch, tmp_path) -> None:
+    snapshot_dir = patch_lifecycle_sources(
+        monkeypatch,
+        tmp_path,
+        "1234",
+        [
+            {"date": "20260616", "open": "10", "high": "11", "low": "9", "close": "10", "volume": "1000"},
+            {"date": "20260617", "open": "10.6", "high": "12", "low": "10.9", "close": "11.5", "volume": "1200"},
+        ],
+    )
+    assert not (snapshot_dir / "daily_candidate_model_signals_for_report_20260616.csv").exists()
+    pd.DataFrame([volume_signal("1234", "20260616")]).to_csv(
+        builder.MODEL_SIGNAL_LOG_CSV,
+        index=False,
+    )
+
+    out = build_rows_for_test(pd.DataFrame(), "20260617", formal_summary())
+
+    confirmed = out[out["pdf_section"].eq("confirmed_operation") & out["row_type"].eq("data")]
+    assert confirmed["stock_id"].tolist() == ["1234", "1234"]
+    assert set(confirmed["row_action_status"]) == {"confirmed_buy_candidate"}
+    assert set(confirmed["buy_rank_eligible"]) == {"True"}
 
 
 def test_lifecycle_moves_prior_confirmed_signal_to_active(monkeypatch, tmp_path) -> None:
@@ -239,7 +268,16 @@ def test_lifecycle_does_not_promote_confirmed_signal_without_positive_evidence(m
     weak_summary["median_return"] = "-1"
     out = build_rows_for_test(pd.DataFrame(), "20260617", weak_summary)
 
-    assert out.empty
+    confirmed = out[out["pdf_section"].eq("confirmed_operation") & out["row_type"].eq("data")]
+    unranked = out[out["pdf_section"].eq("confirmed_unranked_operation") & out["row_type"].eq("data")]
+    assert confirmed.empty
+    assert unranked["stock_id"].tolist() == ["1234"]
+    assert unranked["pdf_view"].tolist() == ["full"]
+    assert set(unranked["row_action_status"]) == {"confirmed_not_buy_ranked"}
+    assert set(unranked["buy_rank_eligible"]) == {"False"}
+    assert set(unranked["entry_price"]) == {""}
+    assert set(unranked["stop_loss_price"]) == {""}
+    assert set(unranked["evidence_match_status"]) == {"row_level_evidence_not_buy_ranked"}
 
 
 def test_lifecycle_does_not_apply_tdcc_top10_evidence_to_no_tdcc_stock(monkeypatch, tmp_path) -> None:
@@ -269,7 +307,14 @@ def test_lifecycle_does_not_apply_tdcc_top10_evidence_to_no_tdcc_stock(monkeypat
 
     out = build_rows_for_test(pd.DataFrame(), "20260617", tdcc_top10_only)
 
-    assert out.empty
+    confirmed = out[out["pdf_section"].eq("confirmed_operation") & out["row_type"].eq("data")]
+    unranked = out[out["pdf_section"].eq("confirmed_unranked_operation") & out["row_type"].eq("data")]
+    assert confirmed.empty
+    assert unranked["stock_id"].tolist() == ["1234"]
+    assert unranked["pdf_view"].tolist() == ["full"]
+    assert set(unranked["row_action_status"]) == {"confirmed_not_buy_ranked"}
+    assert set(unranked["buy_rank_eligible"]) == {"False"}
+    assert set(unranked["evidence_match_status"]) == {"no_matching_row_level_evidence"}
 
 
 def test_lifecycle_uses_exact_no_tdcc_row_level_evidence(monkeypatch, tmp_path) -> None:
@@ -604,7 +649,7 @@ def test_pdf_operation_highlight_limits_are_section_specific() -> None:
     active = operation_rows_for_limit_test("active_operation", 7)
 
     assert len(pdf_generator.limit_volume_operation_rows_for_pdf_view(confirmed, "highlight", "confirmed_operation")) == 10
-    assert len(pdf_generator.limit_volume_operation_rows_for_pdf_view(pending, "highlight", "pending_confirmation")) == 5
+    assert len(pdf_generator.limit_volume_operation_rows_for_pdf_view(pending, "highlight", "pending_confirmation")) == 8
     assert len(pdf_generator.limit_volume_operation_rows_for_pdf_view(active, "highlight", "active_operation")) == 5
 
     assert len(pdf_generator.limit_volume_operation_rows_for_pdf_view(confirmed, "full", "confirmed_operation")) == 12
@@ -613,7 +658,7 @@ def test_pdf_operation_highlight_limits_are_section_specific() -> None:
 
 
 def test_pdf_operation_highlight_limits_apply_after_report_line_filter() -> None:
-    rows = operation_rows_for_limit_test("pending_confirmation", 8)
+    rows = operation_rows_for_limit_test("active_operation", 8)
     taxonomy = []
     for index, stock_id in enumerate(rows["stock_id"].astype(str).tolist()):
         taxonomy.append(
@@ -630,24 +675,24 @@ def test_pdf_operation_highlight_limits_apply_after_report_line_filter() -> None
     }
 
     mainstream = pdf_generator.filter_volume_operation_rows_for_line(
-        pdf_generator.volume_operation_frame(inputs, "highlight", "pending_confirmation"),
+        pdf_generator.volume_operation_frame(inputs, "highlight", "active_operation"),
         inputs,
         "mainstream",
     )
     mainstream = pdf_generator.limit_volume_operation_rows_for_pdf_view(
         mainstream,
         "highlight",
-        "pending_confirmation",
+        "active_operation",
     )
     non_mainstream = pdf_generator.filter_volume_operation_rows_for_line(
-        pdf_generator.volume_operation_frame(inputs, "highlight", "pending_confirmation"),
+        pdf_generator.volume_operation_frame(inputs, "highlight", "active_operation"),
         inputs,
         "non_mainstream",
     )
     non_mainstream = pdf_generator.limit_volume_operation_rows_for_pdf_view(
         non_mainstream,
         "highlight",
-        "pending_confirmation",
+        "active_operation",
     )
 
     assert len(mainstream) == 5
@@ -765,8 +810,8 @@ def test_pdf_operation_renderer_uses_row_level_buy_eligibility(monkeypatch) -> N
     ]:
         assert token not in story_text
 
-    assert len(captured_tables) == 3
-    confirmed, pending, active = captured_tables
+    assert len(captured_tables) == 2
+    confirmed, active = captured_tables
     assert confirmed[0] == [
         "排名",
         "股票",
@@ -790,14 +835,12 @@ def test_pdf_operation_renderer_uses_row_level_buy_eligibility(monkeypatch) -> N
     assert confirmed[1][7] == "操作 12.30 / 最終 88.80"
     assert confirmed[1][11] == "正式分數理由"
     assert "2222 測試B" not in " ".join(str(cell) for row in confirmed for cell in row)
-    assert pending[0] == ["股票", "等待天數", "等待分組", "待確認條件", "模型分數 / 排名原因", "進場 / 停損狀態", "狀態"]
-    assert pending[1][0] == "2222 測試B"
-    assert pending[1][4] == "操作 4.00 / 最終 77.60 / 待確認分數理由"
-    assert pending[1][5] == "尚未確認，不列進場價 / 尚未確認，不列停損價"
     assert active[0] == ["股票", "確認方式", "進場日 / 價", "停損基準", "持有天數", "出場規則", "操作 / 最終分數", "備註"]
     assert active[1][0] == "目前無資料"
 
     visible = "\n".join(str(cell) for table in captured_tables for row in table for cell in row)
+    assert "2222 測試B" not in visible
+    assert "待確認分數理由" not in visible
     assert "buy_rank_eligible" not in visible
     assert "row_action_status" not in visible
     assert "confirmed_buy_candidate" not in visible
@@ -808,7 +851,87 @@ def test_pdf_operation_renderer_uses_row_level_buy_eligibility(monkeypatch) -> N
     assert "舊出場規則不可出現" not in visible
 
 
-def test_pdf_operation_renderer_collapses_empty_state_rows(monkeypatch) -> None:
+def test_pdf_operation_renderer_full_shows_confirmed_unranked(monkeypatch) -> None:
+    captured_tables: list[list[list[str]]] = []
+
+    def capture_table(rows, widths, font_size=7.2, header_bg=None):
+        captured_tables.append(rows)
+        return rows
+
+    monkeypatch.setattr(pdf_generator, "build_table", capture_table)
+    rows = pd.DataFrame(
+        [
+            {
+                "model_id": "volume_range_breakout",
+                "pdf_view": "full",
+                "pdf_section": "confirmed_operation",
+                "row_type": "empty_state",
+                "stock_id": "",
+                "stock_display": "目前無資料",
+                "row_action_status": "empty_state",
+                "buy_rank_eligible": "False",
+            },
+            {
+                "model_id": "volume_range_breakout",
+                "pdf_view": "full",
+                "pdf_section": "confirmed_unranked_operation",
+                "row_type": "data",
+                "display_order": "1",
+                "stock_id": "3333",
+                "stock_display": "3333 測試C",
+                "selected_trigger_id": "next_day_break_signal_high_confirmed",
+                "selected_confirmation_date": "20260612",
+                "confirmation_date": "20260612",
+                "rank_reason_zh": "已確認但證據未過門檻",
+                "sample_size": "2098",
+                "win_rate_zh": "38.13%",
+                "median_return_zh": "-3.28%",
+                "evidence_match_status": "row_level_evidence_not_buy_ranked",
+                "row_action_status": "confirmed_not_buy_ranked",
+                "buy_rank_eligible": "False",
+            },
+            {
+                "model_id": "volume_range_breakout",
+                "pdf_view": "full",
+                "pdf_section": "pending_confirmation",
+                "row_type": "empty_state",
+                "stock_id": "",
+                "stock_display": "目前無資料",
+                "row_action_status": "empty_state",
+                "buy_rank_eligible": "False",
+            },
+            {
+                "model_id": "volume_range_breakout",
+                "pdf_view": "full",
+                "pdf_section": "active_operation",
+                "row_type": "empty_state",
+                "stock_id": "",
+                "stock_display": "目前無資料",
+                "row_action_status": "empty_state",
+                "buy_rank_eligible": "False",
+            },
+        ]
+    )
+
+    story: list = []
+    pdf_generator.render_volume_range_breakout_operation_section(
+        story,
+        {"volume_operation": rows},
+        "full",
+    )
+
+    assert len(captured_tables) == 4
+    _, unranked, _, _ = captured_tables
+    assert unranked[0] == ["股票", "確認方式", "確認日", "未列排名原因", "樣本數", "勝率", "中位數報酬", "證據狀態"]
+    assert unranked[1][0] == "3333 測試C"
+    assert unranked[1][3] == "已確認但證據未過門檻"
+    assert unranked[1][7] == "歷史證據未過門檻"
+    visible = "\n".join(str(cell) for table in captured_tables for row in table for cell in row)
+    assert "confirmed_not_buy_ranked" not in visible
+    assert "row_level_evidence_not_buy_ranked" not in visible
+
+
+def test_pdf_operation_renderer_keeps_highlight_empty_tables(monkeypatch) -> None:
     captured_tables: list[list[list[str]]] = []
 
     def capture_table(rows, widths, font_size=7.2, header_bg=None):
@@ -857,10 +980,14 @@ def test_pdf_operation_renderer_collapses_empty_state_rows(monkeypatch) -> None:
     story: list = []
     pdf_generator.render_volume_range_breakout_operation_section(story, {"volume_operation": rows}, "highlight")
 
-    assert captured_tables == []
+    assert len(captured_tables) == 2
+    assert captured_tables[0][0][:2] == ["排名", "股票"]
     story_text = "\n".join(
         flowable.getPlainText()
         for flowable in story
         if hasattr(flowable, "getPlainText")
     )
-    assert "今日沒有可顯示的放量攻擊操作列。" in story_text
+    assert "已確認操作 / 可列買入排名" in story_text
+    assert "操作中" in story_text
+    assert "待確認" not in story_text
+    assert "今日沒有可顯示的放量攻擊操作列。" not in story_text

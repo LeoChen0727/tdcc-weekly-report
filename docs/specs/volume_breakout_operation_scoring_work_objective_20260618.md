@@ -6,7 +6,7 @@
 
 ## 本次結論
 
-1. 放量攻擊第一次命中後，不應直接等同正式買進；必須先依固定 lifecycle 區分 `pending_confirmation`、`confirmed_operation`、`active_operation`、`expired`。
+1. 放量攻擊第一次命中後，不應直接等同正式買進；必須先依固定 lifecycle 區分 `pending_confirmation`、`confirmed_operation`、`active_operation`、`expired`。daily adapter 另有 `confirmed_unranked_operation` presentation sub-state，代表 lifecycle 已確認但未通過買入排名證據門檻，不可列為買進排名。
 2. 一個 signal 只能有一個 `selected_trigger_id`。若多個確認訊號同時成立，先選最早 confirmation date；同日再依 trigger priority 選定。
 3. 勝率、平均報酬、中位數報酬只能用 mature samples 計算，不可把尚未成熟或仍 pending 的樣本混入正式勝率。
 4. daily production 可以使用 research-derived 的操作排序欄位，但必須保留可追溯欄位：base score、operation score、TDCC score、pattern score、risk penalty、final rank score、entry/stop/exit rule。
