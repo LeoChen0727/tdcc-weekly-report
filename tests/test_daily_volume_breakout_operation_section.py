@@ -46,7 +46,7 @@ def volume_signal(stock_id: str = "1234", signal_date: str = "20260616", rank: s
 
 
 def formal_summary(
-    trigger_id: str = "next_day_continuation_confirmed",
+    trigger_id: str = "next_day_break_signal_high_confirmed",
     tdcc_list_type: str = "no_tdcc",
     rank_bucket: str = "all",
     confluence_scope: str = "operation_trigger",
@@ -149,7 +149,7 @@ def test_lifecycle_confirms_signal_on_report_date(monkeypatch, tmp_path) -> None
         "1234",
         [
             {"date": "20260616", "open": "10", "high": "11", "low": "9", "close": "10", "volume": "1000"},
-            {"date": "20260617", "open": "10.6", "high": "12", "low": "10.3", "close": "11.5", "volume": "1200"},
+            {"date": "20260617", "open": "10.6", "high": "12", "low": "10.9", "close": "11.5", "volume": "1200"},
         ],
     )
     pd.DataFrame([volume_signal("1234", "20260616")]).to_csv(
@@ -164,7 +164,7 @@ def test_lifecycle_confirms_signal_on_report_date(monkeypatch, tmp_path) -> None
     assert confirmed["stock_id"].tolist() == ["1234", "1234"]
     assert set(confirmed["row_action_status"]) == {"confirmed_buy_candidate"}
     assert set(confirmed["buy_rank_eligible"]) == {"True"}
-    assert set(confirmed["selected_trigger_id"]) == {"next_day_continuation_confirmed"}
+    assert set(confirmed["selected_trigger_id"]) == {"next_day_break_signal_high_confirmed"}
     assert set(confirmed["confirmation_date"]) == {"20260617"}
     assert pending.empty
     assert backtest_lifecycle_state("1234", "20260616", "20260617") == "confirmed_operation"
@@ -177,7 +177,7 @@ def test_lifecycle_moves_prior_confirmed_signal_to_active(monkeypatch, tmp_path)
         "1234",
         [
             {"date": "20260615", "open": "10", "high": "11", "low": "9", "close": "10", "volume": "1000"},
-            {"date": "20260616", "open": "10.5", "high": "12", "low": "10.2", "close": "11.5", "volume": "1200"},
+            {"date": "20260616", "open": "10.5", "high": "12", "low": "10.9", "close": "11.5", "volume": "1200"},
             {"date": "20260617", "open": "11.7", "high": "12.5", "low": "11.2", "close": "12", "volume": "1100"},
         ],
     )
@@ -194,7 +194,7 @@ def test_lifecycle_moves_prior_confirmed_signal_to_active(monkeypatch, tmp_path)
     assert confirmed.empty
     assert set(active["row_action_status"]) == {"active_operation"}
     assert set(active["buy_rank_eligible"]) == {"False"}
-    assert set(active["selected_trigger_id"]) == {"next_day_continuation_confirmed"}
+    assert set(active["selected_trigger_id"]) == {"next_day_break_signal_high_confirmed"}
     assert set(active["confirmation_date"]) == {"20260616"}
     assert backtest_lifecycle_state("1234", "20260615", "20260617") == "active_operation"
 
@@ -227,7 +227,7 @@ def test_lifecycle_does_not_promote_confirmed_signal_without_positive_evidence(m
         "1234",
         [
             {"date": "20260616", "open": "10", "high": "11", "low": "9", "close": "10", "volume": "1000"},
-            {"date": "20260617", "open": "10.6", "high": "12", "low": "10.3", "close": "11.5", "volume": "1200"},
+            {"date": "20260617", "open": "10.6", "high": "12", "low": "10.9", "close": "11.5", "volume": "1200"},
         ],
     )
     pd.DataFrame([volume_signal("1234", "20260616")]).to_csv(
@@ -249,7 +249,7 @@ def test_lifecycle_does_not_apply_tdcc_top10_evidence_to_no_tdcc_stock(monkeypat
         "1234",
         [
             {"date": "20260616", "open": "10", "high": "11", "low": "9", "close": "10", "volume": "1000"},
-            {"date": "20260617", "open": "10.6", "high": "12", "low": "10.3", "close": "11.5", "volume": "1200"},
+            {"date": "20260617", "open": "10.6", "high": "12", "low": "10.9", "close": "11.5", "volume": "1200"},
         ],
     )
     pd.DataFrame([volume_signal("1234", "20260616")]).to_csv(
@@ -279,7 +279,7 @@ def test_lifecycle_uses_exact_no_tdcc_row_level_evidence(monkeypatch, tmp_path) 
         "1234",
         [
             {"date": "20260616", "open": "10", "high": "11", "low": "9", "close": "10", "volume": "1000"},
-            {"date": "20260617", "open": "10.6", "high": "12", "low": "10.3", "close": "11.5", "volume": "1200"},
+            {"date": "20260617", "open": "10.6", "high": "12", "low": "10.9", "close": "11.5", "volume": "1200"},
         ],
     )
     pd.DataFrame([volume_signal("1234", "20260616")]).to_csv(

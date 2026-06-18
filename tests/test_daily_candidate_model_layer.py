@@ -335,6 +335,12 @@ class DailyCandidateModelLayerTest(unittest.TestCase):
         row = out.iloc[0]
         self.assertEqual(row["stock_id"], "1617")
         self.assertEqual(row["model_id"], "volume_range_breakout")
+        self.assertIn("operation_score", row.index)
+        self.assertIn("tdcc_score", row.index)
+        self.assertIn("pattern_score", row.index)
+        self.assertIn("risk_penalty", row.index)
+        self.assertIn("final_rank_score", row.index)
+        self.assertEqual(float(row["model_score"]), float(row["final_rank_score"]))
         self.assertEqual(row["model_name_zh"], "放量攻擊模型")
         self.assertNotIn("底部", row["model_name_zh"])
 

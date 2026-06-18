@@ -158,6 +158,22 @@ def test_backtest_and_daily_selected_trigger_priority_match_same_day_tie() -> No
     assert daily_selected["matched_trigger_ids"] == backtest_selected["matched_trigger_ids"]
 
 
+def test_backtest_and_daily_select_next_day_signal_high_break() -> None:
+    price = pd.DataFrame(
+        [
+            {"date": "20260101", "open": 10, "high": 11, "low": 9, "close": 10, "ma5": 9.5, "ma10": 9.3},
+            {"date": "20260102", "open": 10.1, "high": 11.2, "low": 10.0, "close": 10.4, "ma5": 9.8, "ma10": 9.6},
+        ]
+    )
+
+    backtest_selected = selected_confirmation_for_signal(price, 0, 1)
+    daily_selected = daily_builder.selected_confirmation(price, 0, 1)
+
+    assert backtest_selected["trigger_id"] == "next_day_break_signal_high_confirmed"
+    assert daily_selected["trigger_id"] == backtest_selected["trigger_id"]
+    assert daily_selected["confirmation_date"] == backtest_selected["confirmation_date"]
+
+
 def test_backtest_and_daily_selected_trigger_priority_match_earliest_date_first() -> None:
     price = pd.DataFrame(
         [
@@ -290,4 +306,4 @@ def test_formal_operation_uses_priority_when_confirmation_date_ties() -> None:
     selected = formal_operation_events(add_operation_selection_columns(events))
 
     assert selected["trigger_id"].tolist() == ["pullback_5ma_confirmed"]
-    assert selected.iloc[0]["selected_trigger_priority"] == "2"
+    assert selected.iloc[0]["selected_trigger_priority"] == "1"

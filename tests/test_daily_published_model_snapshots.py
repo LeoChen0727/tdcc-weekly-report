@@ -40,6 +40,13 @@ def write_minimal_latest_artifacts(latest_dir: Path, report_date: str = "2026061
                 "model_id": "volume_range_breakout",
                 "model_name_zh": "放量攻擊模型",
                 "model_score": "70.0",
+                "base_model_score": "55.0",
+                "operation_score": "6.0",
+                "tdcc_score": "4.0",
+                "pattern_score": "8.0",
+                "risk_penalty": "3.0",
+                "final_rank_score": "70.0",
+                "rank_reason_zh": "test evidence",
             }
         ],
     )
@@ -83,6 +90,17 @@ def write_minimal_latest_artifacts(latest_dir: Path, report_date: str = "2026061
                 "row_type": "data",
                 "buy_rank_eligible": "False",
                 "operation_asof_date": report_date,
+                "selected_trigger_id": "",
+                "operation_score": "6.0",
+                "tdcc_score": "4.0",
+                "pattern_score": "8.0",
+                "risk_penalty": "3.0",
+                "final_rank_score": "70.0",
+                "entry_rule_id": "pending_confirmation",
+                "stop_loss_rule_id": "signal_low_stop_after_confirmation",
+                "stop_loss_price": "",
+                "exit_rule_id": "signal_low_stop_or_fixed_10d_close",
+                "planned_holding_days": "10",
             }
         ],
     )

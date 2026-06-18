@@ -12,12 +12,18 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from volume_breakout_operation_utils import (  # noqa: E402
+    TRIGGERS as SHARED_TRIGGERS,
+    TRIGGER_MAP as SHARED_TRIGGER_MAP,
+    TRIGGER_PRIORITY as SHARED_TRIGGER_PRIORITY,
     add_research_features,
     attach_tdcc_asof,
     event_payload as operation_event_payload,
+    find_confirmation as shared_find_confirmation,
     best_evidence as best_row_evidence,
     load_market_regime_map,
     read_tdcc_events,
+    signal_low_broken as shared_signal_low_broken,
+    stop_hit_index as shared_stop_hit_index,
 )
 
 
@@ -57,30 +63,18 @@ SECTION_EMPTY_NOTE_ZH = {
     "active_operation": "目前沒有操作中追蹤列。",
 }
 
+# Keep daily adapter trigger order in parity with the formal research backtest.
 TRIGGERS = [
     {
-        "trigger_id": "next_day_continuation_confirmed",
-        "trigger_zh": "隔日續強確認",
-        "confirmation_rule_zh": "訊號後第1個交易日收盤價高於訊號收盤，且收盤不低於訊號高點；確認前不得跌破訊號低點。",
-        "max_confirm_days": 1,
-        "ma_col": "",
-    },
-    {
-        "trigger_id": "pullback_5ma_confirmed",
-        "trigger_zh": "回測5MA確認",
-        "confirmation_rule_zh": "訊號後10個交易日內首次回測5MA且收盤站回5MA；確認前不得跌破訊號低點。",
-        "max_confirm_days": MAX_CONFIRM_DAYS,
-        "ma_col": "ma5",
-    },
-    {
-        "trigger_id": "pullback_10ma_confirmed",
-        "trigger_zh": "回測10MA確認",
-        "confirmation_rule_zh": "訊號後10個交易日內首次回測10MA且收盤站回10MA；確認前不得跌破訊號低點。",
-        "max_confirm_days": MAX_CONFIRM_DAYS,
-        "ma_col": "ma10",
-    },
+        "trigger_id": spec.trigger_id,
+        "trigger_zh": spec.trigger_name_zh,
+        "confirmation_rule_zh": spec.confirmation_rule_zh,
+        "max_confirm_days": spec.max_confirm_days,
+        "ma_col": spec.ma_col,
+    }
+    for spec in SHARED_TRIGGERS
 ]
-TRIGGER_PRIORITY = {item["trigger_id"]: index + 1 for index, item in enumerate(TRIGGERS)}
+TRIGGER_PRIORITY = dict(SHARED_TRIGGER_PRIORITY)
 TRIGGER_ZH = {item["trigger_id"]: item["trigger_zh"] for item in TRIGGERS}
 
 OUTPUT_COLUMNS = [
@@ -106,6 +100,20 @@ OUTPUT_COLUMNS = [
     "entry_price_status_zh",
     "stop_basis_zh",
     "exit_rule_zh",
+    "operation_score",
+    "tdcc_score",
+    "pattern_score",
+    "risk_penalty",
+    "final_rank_score",
+    "rank_reason_zh",
+    "entry_rule_id",
+    "entry_price_basis",
+    "stop_loss_rule_id",
+    "stop_loss_price",
+    "stop_loss_label_zh",
+    "exit_rule_id",
+    "planned_holding_days",
+    "operation_age_days",
     "signal_date",
     "confirmation_date",
     "pending_age_zh",
@@ -186,6 +194,15 @@ APPROVAL_FIELDS = [
     "operation_directive_level",
     "buy_filter_id",
     "approval_note_zh",
+]
+
+OPERATION_SCORE_FIELDS = [
+    "operation_score",
+    "tdcc_score",
+    "pattern_score",
+    "risk_penalty",
+    "final_rank_score",
+    "rank_reason_zh",
 ]
 
 _MARKET_REGIME_MAP: dict[str, str] | None = None
@@ -398,23 +415,22 @@ def price_at(row: pd.Series, col: str) -> float:
 
 
 def signal_low_broken(price: pd.DataFrame, signal_idx: int, through_idx: int, signal_low: float) -> bool:
-    if math.isnan(signal_low):
-        return True
-    if through_idx <= signal_idx:
-        return False
-    lows = pd.to_numeric(price.iloc[signal_idx + 1 : through_idx + 1]["low"], errors="coerce")
-    return bool(lows.lt(signal_low).fillna(False).any())
+    return shared_signal_low_broken(price, signal_idx, through_idx, signal_low)
 
 
 def find_confirmation(price: pd.DataFrame, signal_idx: int, spec: dict[str, Any]) -> dict[str, Any] | None:
     signal = price.iloc[signal_idx]
+    trigger_id = safe_str(spec.get("trigger_id"))
     signal_close = price_at(signal, "close")
     signal_high = price_at(signal, "high")
     signal_low = price_at(signal, "low")
     if any(math.isnan(value) for value in [signal_close, signal_high, signal_low]):
         return None
 
-    trigger_id = safe_str(spec.get("trigger_id"))
+    if trigger_id == "next_day_break_signal_high_confirmed":
+        shared_spec = SHARED_TRIGGER_MAP.get(trigger_id)
+        return shared_find_confirmation(price, signal_idx, shared_spec) if shared_spec is not None else None
+
     if trigger_id == "next_day_continuation_confirmed":
         confirm_idx = signal_idx + 1
         if confirm_idx >= len(price) or signal_low_broken(price, signal_idx, confirm_idx, signal_low):
@@ -470,13 +486,7 @@ def selected_confirmation(price: pd.DataFrame, signal_idx: int, report_idx: int)
 
 
 def stop_hit_index(price: pd.DataFrame, entry_idx: int, through_idx: int, signal_low: float) -> int | None:
-    if math.isnan(signal_low):
-        return None
-    for idx in range(entry_idx, min(through_idx, len(price) - 1) + 1):
-        low = price_at(price.iloc[idx], "low")
-        if not math.isnan(low) and low <= signal_low:
-            return idx
-    return None
+    return shared_stop_hit_index(price, entry_idx, through_idx, signal_low)
 
 
 def signal_snapshot_paths(report_date: str) -> list[Path]:
@@ -732,6 +742,11 @@ def apply_evidence_fields(record: dict[str, Any], evidence: pd.Series, context: 
     )
 
 
+def apply_signal_operation_fields(record: dict[str, Any], signal: pd.Series) -> None:
+    for col in OPERATION_SCORE_FIELDS:
+        record[col] = safe_str(signal.get(col))
+
+
 def lifecycle_base_record(
     signal: pd.Series,
     approval: dict[str, str],
@@ -771,6 +786,7 @@ def lifecycle_base_record(
     )
     for col in APPROVAL_FIELDS:
         record[col] = approval[col]
+    apply_signal_operation_fields(record, signal)
     return record
 
 
@@ -781,6 +797,7 @@ def confirmed_record(
     context: pd.Series,
     price: pd.DataFrame,
     signal_idx: int,
+    report_idx: int,
     approval: dict[str, str],
     generated_at: str,
     report_date: str,
@@ -812,6 +829,14 @@ def confirmed_record(
             "entry_price_status_zh": "下一個交易日開盤價尚未產生。",
             "stop_basis_zh": f"跌破 {format_md_date(signal_date)} 最低價 {format_price(signal_low)}",
             "exit_rule_zh": "先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。",
+            "entry_rule_id": "confirmation_next_open",
+            "entry_price_basis": "next_open_after_confirmation",
+            "stop_loss_rule_id": "signal_low_stop",
+            "stop_loss_price": format_price(signal_low),
+            "stop_loss_label_zh": f"{format_md_date(signal_date)}最低點",
+            "exit_rule_id": "signal_low_stop_or_fixed_10d_close",
+            "planned_holding_days": str(MAX_HOLD_DAYS),
+            "operation_age_days": str(report_idx - signal_idx),
             "confirmation_date": safe_str(selected.get("confirmation_date")),
             "row_action_status": "confirmed_buy_candidate",
             "buy_rank_eligible": "True",
@@ -829,6 +854,7 @@ def active_record(
     price: pd.DataFrame,
     signal_idx: int,
     entry_idx: int,
+    report_idx: int,
     approval: dict[str, str],
     generated_at: str,
     report_date: str,
@@ -864,6 +890,14 @@ def active_record(
             ),
             "stop_basis_zh": f"跌破 {format_md_date(signal_date)} 最低價 {format_price(signal_low)}",
             "exit_rule_zh": "先跌破停損基準出場，否則最多持有至第 10 個交易日收盤。",
+            "entry_rule_id": "confirmation_next_open",
+            "entry_price_basis": "next_open_after_confirmation",
+            "stop_loss_rule_id": "signal_low_stop",
+            "stop_loss_price": format_price(signal_low),
+            "stop_loss_label_zh": f"{format_md_date(signal_date)}最低點",
+            "exit_rule_id": "signal_low_stop_or_fixed_10d_close",
+            "planned_holding_days": str(MAX_HOLD_DAYS),
+            "operation_age_days": str(report_idx - signal_idx),
             "confirmation_date": safe_str(selected.get("confirmation_date")),
             "row_action_status": "active_operation",
             "buy_rank_eligible": "False",
@@ -900,6 +934,14 @@ def pending_record(
             "entry_price_status_zh": "尚未確認，不列進場價",
             "stop_basis_zh": "尚未確認，不列停損價",
             "exit_rule_zh": "待確認後才顯示操作規則",
+            "entry_rule_id": "pending_confirmation",
+            "entry_price_basis": "",
+            "stop_loss_rule_id": "signal_low_stop_after_confirmation",
+            "stop_loss_price": "",
+            "stop_loss_label_zh": "",
+            "exit_rule_id": "signal_low_stop_or_fixed_10d_close",
+            "planned_holding_days": str(MAX_HOLD_DAYS),
+            "operation_age_days": str(signal_age),
             "pending_age_zh": age_text,
             "pending_group_zh": signal_pending_group(signal),
             "pending_confirmation_zh": (
@@ -971,6 +1013,7 @@ def lifecycle_state_for_signal(
                 context,
                 price,
                 signal_idx,
+                report_idx,
                 approval,
                 generated_at,
                 report_date,
@@ -994,6 +1037,7 @@ def lifecycle_state_for_signal(
                     price,
                     signal_idx,
                     entry_idx,
+                    report_idx,
                     approval,
                     generated_at,
                     report_date,

@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 from concurrent.futures import ThreadPoolExecutor
-from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
 from typing import Any
@@ -23,6 +22,12 @@ from build_historical_pattern_operation_registry import (  # noqa: E402
 from build_volume_breakout_pattern_classification import classify_event  # noqa: E402
 from build_volume_breakout_watch import PRICE_HISTORY_DIR, normalize_stock_id  # noqa: E402
 from tracking_utils import latest_stock_price_history_date, normalize_code, normalize_date, safe_str, to_number, write_csv  # noqa: E402
+from volume_breakout_operation_utils import (  # noqa: E402
+    TRIGGERS as SHARED_TRIGGERS,
+    TRIGGER_MAP as SHARED_TRIGGER_MAP,
+    TRIGGER_PRIORITY as SHARED_TRIGGER_PRIORITY,
+    TriggerSpec,
+)
 
 
 ROOT = Path(".")
@@ -87,39 +92,10 @@ ZH = {
 }
 
 
-@dataclass(frozen=True)
-class TriggerSpec:
-    trigger_id: str
-    trigger_name_zh: str
-    confirmation_rule_zh: str
-    max_confirm_days: int
-    ma_col: str = ""
-
-
-TRIGGERS = [
-    TriggerSpec(
-        "next_day_continuation_confirmed",
-        ZH["next_day_continuation_confirmed"],
-        "訊號後第1個交易日收盤價高於訊號收盤，且收盤不低於訊號高點；確認前不得跌破訊號低點。",
-        1,
-    ),
-    TriggerSpec(
-        "pullback_5ma_confirmed",
-        ZH["pullback_5ma_confirmed"],
-        "訊號後10個交易日內首次回測5MA且收盤站回5MA；確認前不得跌破訊號低點。",
-        MAX_CONFIRM_DAYS,
-        ma_col="ma5",
-    ),
-    TriggerSpec(
-        "pullback_10ma_confirmed",
-        ZH["pullback_10ma_confirmed"],
-        "訊號後10個交易日內首次回測10MA且收盤站回10MA；確認前不得跌破訊號低點。",
-        MAX_CONFIRM_DAYS,
-        ma_col="ma10",
-    ),
-]
-TRIGGER_MAP = {item.trigger_id: item for item in TRIGGERS}
-TRIGGER_PRIORITY = {item.trigger_id: index + 1 for index, item in enumerate(TRIGGERS)}
+# Formal operation trigger order is shared with the daily adapter.
+TRIGGERS = list(SHARED_TRIGGERS)
+TRIGGER_MAP = dict(SHARED_TRIGGER_MAP)
+TRIGGER_PRIORITY = dict(SHARED_TRIGGER_PRIORITY)
 SELECTION_COLUMNS = [
     "matched_trigger_ids",
     "selected_trigger_id",
@@ -469,6 +445,17 @@ def find_confirmation(price: pd.DataFrame, signal_idx: int, spec: TriggerSpec) -
     signal_high = safe_price(signal.get("high"))
     signal_low = safe_price(signal.get("low"))
     if any(math.isnan(x) for x in [signal_close, signal_high, signal_low]):
+        return None
+
+    if spec.trigger_id == "next_day_break_signal_high_confirmed":
+        confirm_idx = signal_idx + 1
+        if confirm_idx >= len(price) or signal_low_broken(price, signal_idx, confirm_idx, signal_low):
+            return None
+        row = price.iloc[confirm_idx]
+        high = safe_price(row.get("high"))
+        close = safe_price(row.get("close"))
+        if not math.isnan(high) and not math.isnan(close) and high >= signal_high and close >= signal_close:
+            return {"confirmation_idx": confirm_idx}
         return None
 
     if spec.trigger_id == "next_day_continuation_confirmed":
