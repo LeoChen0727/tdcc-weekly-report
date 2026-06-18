@@ -1,7 +1,7 @@
 # 市場風險與大盤期權背景
 
-- generated_at: `2026-06-18 13:50:04 Asia/Taipei`
-- data_date: `20260617`
+- generated_at: `2026-06-18 16:51:42 Asia/Taipei`
+- data_date: `20260618`
 - market_regime: `strong_bull`
 - risk_level: `high_risk`
 - risk_score: `4`
@@ -17,14 +17,14 @@
 | futures_contracts | ok | 66 | 20260617 |
 | options_call_put | ok | 30 | 20260617 |
 | put_call_ratio | ok | 23 | 20260617 |
-| taiwan_vix | ok | 75 | 20260617 |
+| taiwan_vix | ok | 76 | 20260618 |
 
 ## 大盤指數結構
 
 | index | close | 5d | 20d | MA20 | MA60 | regime |
 | --- | --- | --- | --- | --- | --- | --- |
-| TWSE | 45,877.39 | +6.13% | +14.63% | True | True | strong_bull |
-| TPEx | 433.34 | +6.76% | +9.31% | True | True | strong_bull |
+| TWSE | 46,465.20 | +7.68% | +12.32% | True | True | strong_bull |
+| TPEx | 447.06 | +9.82% | +9.09% | True | True | strong_bull |
 
 ## 期貨選擇權部位
 
@@ -63,8 +63,8 @@ Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available wi
 
 ## 技術與型態重點
 
-- TWSE / TAIEX: strong_bull; close 45,877.39; 6M range 27,468.53-46,459.16; distance from 6M high -1.25%; above MA20=True, above MA60=True.
-- TPEx / OTC: strong_bull; close 433.34; 6M range 259.39-446.82; distance from 6M high -3.02%; above MA20=True, above MA60=True.
+- TWSE / TAIEX: strong_bull; close 46,465.20; 6M range 27,468.53-46,465.20; distance from 6M high +0.00%; above MA20=True, above MA60=True.
+- TPEx / OTC: strong_bull; close 447.06; 6M range 259.39-447.06; distance from 6M high +0.00%; above MA20=True, above MA60=True.
 
 ## 散戶小台 proxy
 
@@ -92,11 +92,11 @@ Index chart data status: TWSE / TAIEX: standard OHLC K-line data is available wi
 ## VIX Historical Context
 
 - Taiwan VIX latest: `37.78`
-- 252D high / low / percentile: `43.92` / `25.68` / `78.16%`
+- 252D high / low / percentile: `43.92` / `25.68` / `78.41%`
 - 504D percentile: `-`
-- z-score: `0.76`
+- z-score: `0.75`
 - vix_return_5d / 10d / 20d: `-13.98%` / `8.13%` / `2.36%`
-- TWSE / TPEx position: TWSE dist 60D high `-1.25%`, TPEx dist 60D high `-3.02%`
+- TWSE / TPEx position: TWSE dist 60D high `0%`, TPEx dist 60D high `0%`
 - vix_index_interpretation: `index_strong_but_hedging_elevated`
 
 ## Retail MTX Historical Context

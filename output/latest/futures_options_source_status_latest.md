@@ -1,6 +1,6 @@
 # Futures / Options Source Status
 
-- generated_at: `2026-06-18 13:49:33 Asia/Taipei`
+- generated_at: `2026-06-18 16:51:28 Asia/Taipei`
 - overall_status: `ready`
 
 | source | status | rows | latest_date | message |
@@ -9,4 +9,4 @@
 | futures_contracts | ok | 66 | 20260617 |  |
 | options_call_put | ok | 30 | 20260617 |  |
 | put_call_ratio | ok | 23 | 20260617 |  |
-| taiwan_vix | ok | 75 | 20260617 |  |
+| taiwan_vix | ok | 76 | 20260618 |  |

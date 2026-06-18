@@ -3,23 +3,23 @@
   "errors": [],
   "warnings": [],
   "details": {
-    "main_price_date": "20260617",
-    "effective_model_signal_date": "20260617",
-    "model_signal_rows": 448,
-    "raw_model_signal_rows": 448,
+    "main_price_date": "20260618",
+    "effective_model_signal_date": "20260618",
+    "model_signal_rows": 444,
+    "raw_model_signal_rows": 444,
     "volume_watch_rows": 14,
     "volume_theme_stock_rows": 14,
-    "group_rotation_rows": 3,
+    "group_rotation_rows": 7,
     "taxonomy_rows": 2371,
     "taxonomy_template_csv_rows": 2371,
     "taxonomy_template_xlsx_rows": 2371,
     "docs_taxonomy_template_csv_rows": 2371,
     "docs_taxonomy_template_xlsx_rows": 2371,
-    "market_timing_packet_main_price_date": "20260617",
+    "market_timing_packet_main_price_date": "20260618",
     "missing_required_model_columns": [],
     "blank_required_model_columns": {},
     "model_signal_dates": [
-      "20260617"
+      "20260618"
     ],
     "same_model_report_duplicates": 0,
     "model_report_line_membership_mismatch_rows": 0,
@@ -30,15 +30,15 @@
     "model_signal_third_bucket_rows": {},
     "model_signal_main_condition_not_true_rows": 0,
     "raw_model_signal_dates": [
-      "20260617"
+      "20260618"
     ],
     "missing_volume_columns": [],
     "volume_signal_dates": [
-      "20260617"
+      "20260618"
     ],
     "volume_theme_other_rows": 0,
     "group_rotation_invalid_models": [],
-    "group_rotation_slow_rows": 3,
+    "group_rotation_slow_rows": 7,
     "group_rotation_launch_rows": 0,
     "missing_required_taxonomy_columns": [],
     "taxonomy_duplicate_stock_id_rows": 0,
