@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import subprocess
 import sys
 import tempfile
@@ -19,6 +20,7 @@ from scripts.resolve_daily_report_source_state import (  # noqa: E402
 
 DEFAULT_OUTPUT_DIR = REPO_ROOT / "chatgpt_side_outputs_new_conversation_replay"
 STALE_RESIDUE_NAME = "20260612_requested_repo20260612_stale_residue_current_rules.pdf"
+RUNTIME_MANIFEST_NAME = "chatgpt_daily_report_runtime_manifest.json"
 EXPECTED_TITLES = (
     "主流股每日推薦精華",
     "主流股完整候選清單",
@@ -186,6 +188,44 @@ def validate_pdf_files_open(paths: list[Path]) -> list[str]:
     return errors
 
 
+def validate_runtime_manifest(paths: list[Path], output_dir: Path, state: dict) -> list[str]:
+    errors: list[str] = []
+    manifest_path = output_dir / RUNTIME_MANIFEST_NAME
+    if not manifest_path.exists():
+        return [f"runtime manifest is missing: {manifest_path}"]
+
+    try:
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    except Exception as exc:
+        return [f"runtime manifest is unreadable JSON: {manifest_path}: {exc}"]
+
+    expected_pdf_paths = [str(path) for path in paths]
+    checks = {
+        "manifest_type": "chatgpt_daily_report_runtime_manifest",
+        "source_ref": state["source_ref"],
+        "source_commit_sha": state["source_commit_sha"],
+        "clean_source_commit_sha": state["source_commit_sha"],
+        "main_price_date": state["main_price_date"],
+        "freshness_path": state["freshness_path"],
+        "readme_path": state["readme_path"],
+        "packet_path": state["packet_path"],
+        "pdf_count": len(paths),
+    }
+    for key, expected in checks.items():
+        if manifest.get(key) != expected:
+            errors.append(
+                f"runtime manifest {key}={manifest.get(key)!r} does not match expected {expected!r}"
+            )
+
+    if manifest.get("pdf_paths") != expected_pdf_paths:
+        errors.append("runtime manifest pdf_paths do not match emitted PDF paths")
+
+    if output_dir.resolve() != Path(str(manifest.get("output_dir", ""))).expanduser().resolve():
+        errors.append("runtime manifest output_dir does not match replay output_dir")
+
+    return errors
+
+
 def run_replay(repo_root: Path, source_ref: str, output_dir: Path) -> tuple[str, dict, list[Path], Path]:
     try:
         current_source_state = resolve_daily_report_source_state(
@@ -246,6 +286,7 @@ def validate_replay(repo_root: Path, source_ref: str, output_dir: Path) -> tuple
     errors.extend(validate_source_gate_echo(stdout, state, source_ref))
     errors.extend(validate_pdf_path_contract(paths, output_dir, main_price_date))
     errors.extend(validate_pdf_files_open(paths))
+    errors.extend(validate_runtime_manifest(paths, output_dir, state))
 
     if errors:
         raise ReplayValidationError("\n".join(errors))

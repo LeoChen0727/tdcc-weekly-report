@@ -103,6 +103,7 @@ def test_canonical_chatgpt_side_generator_is_tracked_and_not_legacy_six_category
     assert "git show" in resolver_text
     assert "data_freshness_latest.csv" in resolver_text
     assert "READ_ME_FIRST_DAILY_REPORT.txt" in resolver_text
+    assert "chatgpt_daily_report_packet_latest.txt" in resolver_text
     assert "OneDrive" in resolver_text
 
     gitignore = (ROOT / ".gitignore").read_text(encoding="utf-8", errors="replace")
@@ -301,6 +302,22 @@ def test_thread_workflow_points_to_canonical_pdf_generator() -> None:
     assert "scripts/generate_chatgpt_side_daily_reports.py" in text
     assert "renderer, not the official entrypoint" in text
     assert "generate_repo_chatgpt_side_reports.py" not in text
+
+
+def test_chatgpt_daily_usage_prompt_uses_official_entrypoint_not_pages_first() -> None:
+    text = (ROOT / "docs" / "CHATGPT_DAILY_REPORT_USAGE_PROMPT.md").read_text(
+        encoding="utf-8"
+    )
+
+    assert "scripts/run_chatgpt_daily_report_entrypoint.py --source-gate-only" in text
+    assert "git show origin/main" in text
+    assert "chatgpt_daily_report_packet_latest.txt" in text
+    assert "六份" in text
+    assert "chatgpt_daily_report_runtime_manifest.json" in text
+    assert "優先讀 GitHub Pages" not in text
+    assert "如果 Pages 讀不到，再讀 raw" not in text
+    assert "請同時提供四份成品" not in text
+    assert "daily_market_curated_pdf_pages_url" not in text
 
 
 def test_repo_agent_rules_default_to_independent_business_surfaces() -> None:

@@ -76,6 +76,34 @@ def write_sources(repo: Path, date: str = "20260615", **overrides: str) -> None:
         encoding="utf-8",
     )
 
+    packet = {
+        "generated_at": "2026-06-15 20:31:25 Asia/Taipei",
+        "repo": "LeoChen0727/tdcc-weekly-report",
+        "main_price_date": row["main_price_date"],
+        "report_ready": row["report_ready"],
+        "all_candidates_date": row["all_candidates_date"],
+        "official_price_fetch_date": row["official_price_fetch_date"],
+        "stock_monitor_date": row["stock_monitor_price_date"],
+        "warrant_flow_date": row["warrant_flow_date"],
+        "warrant_ready": row["warrant_ready"],
+        "daily_pdf_ready": row["daily_pdf_ready"],
+    }
+    packet_text = "\n".join(
+        [
+            "CHATGPT DAILY REPORT PACKET",
+            "",
+            *(f"{key}: {value}" for key, value in packet.items()),
+            "",
+            "CHATGPT_DELIVERY_CONTRACT",
+            "official_chatgpt_side_pdf_entrypoint: official-entrypoint",
+            "",
+        ]
+    )
+    (repo / "output" / "latest" / "chatgpt_daily_report_packet_latest.txt").write_text(
+        packet_text,
+        encoding="utf-8",
+    )
+
 
 def commit_all(repo: Path, message: str) -> str:
     run_git(repo, "add", ".")
@@ -175,6 +203,44 @@ def test_resolver_rejects_local_latest_that_does_not_match_origin_main(tmp_path:
 
     assert any("local main_price_date=20260612" in error for error in excinfo.value.errors)
     assert any("origin/main main_price_date=20260615" in error for error in excinfo.value.errors)
+
+
+def test_resolver_can_ignore_stale_local_latest_when_entrypoint_uses_origin_main_only(tmp_path: Path) -> None:
+    repo = init_repo(tmp_path)
+    write_sources(repo, date="20260612")
+    old_commit = commit_all(repo, "old local")
+    write_sources(repo, date="20260615")
+    new_commit = commit_all(repo, "new origin")
+    point_origin_main(repo, new_commit)
+    run_git(repo, "checkout", "--detach", old_commit)
+
+    state = resolve_daily_report_source_state(
+        repo,
+        fetch=False,
+        require_git_clean=True,
+        require_local_match=False,
+    )
+
+    assert state["main_price_date"] == "20260615"
+    assert state["packet_path"] == "origin/main:output/latest/chatgpt_daily_report_packet_latest.txt"
+
+
+def test_resolver_rejects_packet_that_does_not_match_freshness(tmp_path: Path) -> None:
+    repo = init_repo(tmp_path)
+    write_sources(repo, date="20260615")
+    packet_path = repo / "output" / "latest" / "chatgpt_daily_report_packet_latest.txt"
+    packet_path.write_text(
+        packet_path.read_text(encoding="utf-8").replace("main_price_date: 20260615", "main_price_date: 20260605"),
+        encoding="utf-8",
+    )
+    head = commit_all(repo, "stale packet")
+    point_origin_main(repo, head)
+
+    with pytest.raises(DailyReportSourceError) as excinfo:
+        resolve_daily_report_source_state(repo, fetch=False, require_git_clean=True)
+
+    assert any("packet main_price_date=20260605" in error for error in excinfo.value.errors)
+    assert any("freshness main_price_date=20260615" in error for error in excinfo.value.errors)
 
 
 def test_resolver_rejects_onedrive_helper_source() -> None:

@@ -1,10 +1,12 @@
 from __future__ import annotations
 
 import argparse
+import json
 import os
 import subprocess
 import sys
 import tempfile
+from datetime import datetime, timezone
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -19,7 +21,8 @@ from scripts.resolve_daily_report_source_state import (  # noqa: E402
 
 
 GENERATOR = REPO_ROOT / "scripts" / "generate_chatgpt_side_daily_reports.py"
-DEFAULT_OUTPUT_DIR = REPO_ROOT / "chatgpt_side_outputs"
+DEFAULT_OUTPUT_ROOT_NAME = "chatgpt_side_outputs_official"
+RUNTIME_MANIFEST_NAME = "chatgpt_daily_report_runtime_manifest.json"
 
 
 class DailyReportEntrypointError(RuntimeError):
@@ -133,6 +136,41 @@ def run_generator(source_root: Path, output_dir: Path, source_ref: str) -> list[
     return paths
 
 
+def write_runtime_manifest(
+    output_dir: Path,
+    entry_state: dict,
+    source_state: dict,
+    pdf_paths: list[Path],
+    source_root: Path,
+) -> Path:
+    manifest = {
+        "manifest_type": "chatgpt_daily_report_runtime_manifest",
+        "generated_at_utc": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
+        "official_entrypoint": "scripts/run_chatgpt_daily_report_entrypoint.py",
+        "renderer": "scripts/generate_chatgpt_side_daily_reports.py",
+        "source_ref": entry_state["source_ref"],
+        "source_commit_sha": entry_state["source_commit_sha"],
+        "clean_source_commit_sha": source_state["source_commit_sha"],
+        "main_price_date": entry_state["main_price_date"],
+        "report_ready": entry_state["report_ready"],
+        "warrant_ready": entry_state["warrant_ready"],
+        "daily_pdf_ready": entry_state["daily_pdf_ready"],
+        "freshness_path": entry_state["freshness_path"],
+        "readme_path": entry_state["readme_path"],
+        "packet_path": entry_state["packet_path"],
+        "source_worktree": str(source_root),
+        "output_dir": str(output_dir),
+        "pdf_count": len(pdf_paths),
+        "pdf_paths": [str(path) for path in pdf_paths],
+    }
+    manifest_path = output_dir / RUNTIME_MANIFEST_NAME
+    manifest_path.write_text(
+        json.dumps(manifest, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+    )
+    return manifest_path
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description=(
@@ -143,7 +181,15 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--repo-root", type=Path, default=REPO_ROOT)
     parser.add_argument("--source-ref", default=DEFAULT_SOURCE_REF)
-    parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR)
+    parser.add_argument(
+        "--output-dir",
+        type=Path,
+        default=None,
+        help=(
+            "Output directory. Defaults to "
+            f"<repo-root>/{DEFAULT_OUTPUT_ROOT_NAME}/<main_price_date> after the source gate passes."
+        ),
+    )
     parser.add_argument(
         "--source-gate-only",
         action="store_true",
@@ -166,13 +212,17 @@ def main() -> int:
     configure_stdio()
     args = parse_args()
     repo_root = args.repo_root.expanduser().resolve()
-    output_dir = args.output_dir.expanduser().resolve()
 
     try:
         state = ensure_entrypoint_can_run(
             repo_root=repo_root,
             source_ref=args.source_ref,
             allow_dirty_code=args.allow_dirty_code,
+        )
+        output_dir = (
+            args.output_dir.expanduser().resolve()
+            if args.output_dir is not None
+            else (repo_root / DEFAULT_OUTPUT_ROOT_NAME / str(state["main_price_date"])).resolve()
         )
         print(
             "official daily report source gate passed: "
@@ -204,7 +254,9 @@ def main() -> int:
                     return 0
                 output_dir.mkdir(parents=True, exist_ok=True)
                 paths = run_generator(source_root, output_dir, args.source_ref)
+                manifest_path = write_runtime_manifest(output_dir, state, temp_state, paths, source_root)
                 print("official ChatGPT-side daily PDF generation completed")
+                print(f"runtime_manifest={manifest_path}")
                 for path in paths:
                     print(path)
             finally:

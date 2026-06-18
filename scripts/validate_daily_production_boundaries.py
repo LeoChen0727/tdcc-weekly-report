@@ -16,6 +16,7 @@ WARRANT_FLOW_BUILDER = ROOT / "build_warrant_flow_latest.py"
 DAILY_REPORT_SOURCE_RESOLVER = ROOT / "scripts" / "resolve_daily_report_source_state.py"
 STAGED_PATH_VALIDATOR = ROOT / "scripts" / "validate_daily_staged_paths.py"
 THREAD_WORKFLOW_DOC = ROOT / "docs" / "CODEX_THREAD_WORKFLOW.md"
+CHATGPT_DAILY_REPORT_USAGE_PROMPT = ROOT / "docs" / "CHATGPT_DAILY_REPORT_USAGE_PROMPT.md"
 RULES_DAILY = ROOT / "rules" / "daily_stock_candidate_rules.md"
 DOCS_RULES_DAILY = ROOT / "docs" / "rules" / "daily_stock_candidate_rules.md"
 RULES_MASTER = ROOT / "rules" / "master_priority_rules.md"
@@ -293,6 +294,7 @@ def main() -> int:
             "origin/main": "daily report source resolver must default to origin/main",
             "data_freshness_latest.csv": "daily report source resolver must gate on freshness CSV",
             "READ_ME_FIRST_DAILY_REPORT.txt": "daily report source resolver must cross-check README fields",
+            "chatgpt_daily_report_packet_latest.txt": "daily report source resolver must cross-check the daily packet",
             "OneDrive": "daily report source resolver must reject OneDrive/helper source paths",
         }
         for literal, message in required_resolver_literals.items():
@@ -306,6 +308,29 @@ def main() -> int:
         errors.append("thread workflow doc must distinguish the PDF renderer from the official entrypoint")
     if "generate_repo_chatgpt_side_reports.py" in thread_workflow_text:
         errors.append("thread workflow doc must point to canonical repo PDF generator, not the old OneDrive helper")
+
+    usage_prompt_text = read_text(CHATGPT_DAILY_REPORT_USAGE_PROMPT)
+    required_usage_literals = {
+        "scripts/run_chatgpt_daily_report_entrypoint.py --source-gate-only": "daily usage prompt must require source-gate-only before official PDF generation",
+        "scripts/run_chatgpt_daily_report_entrypoint.py": "daily usage prompt must point official PDF generation to the entrypoint",
+        "git show origin/main": "daily usage prompt must use git show origin/main as the hard source gate",
+        "chatgpt_daily_report_packet_latest.txt": "daily usage prompt must include packet consistency in the hard source gate",
+        "六份": "daily usage prompt must state the six formal ChatGPT-side PDFs",
+        "chatgpt_daily_report_runtime_manifest.json": "daily usage prompt must require runtime lineage manifest evidence",
+    }
+    for literal, message in required_usage_literals.items():
+        if literal not in usage_prompt_text:
+            errors.append(f"{message}: missing {literal!r}")
+
+    forbidden_usage_literals = {
+        "優先讀 GitHub Pages": "daily usage prompt must not tell new conversations to read Pages first",
+        "如果 Pages 讀不到，再讀 raw": "daily usage prompt must not use Pages-first fallback wording",
+        "請同時提供四份成品": "daily usage prompt must not use the retired four-PDF contract",
+        "daily_market_curated_pdf_pages_url": "daily usage prompt must not present repo artifact PDF URLs as formal ChatGPT-side deliverables",
+    }
+    for literal, message in forbidden_usage_literals.items():
+        if literal in usage_prompt_text:
+            errors.append(f"{message}: found {literal!r}")
 
     if read_text(RULES_DAILY) != read_text(DOCS_RULES_DAILY):
         errors.append("docs/rules/daily_stock_candidate_rules.md must match rules/daily_stock_candidate_rules.md")
