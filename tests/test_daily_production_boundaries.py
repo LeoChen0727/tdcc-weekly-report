@@ -265,9 +265,15 @@ def test_daily_workflow_publishes_as_published_model_snapshots() -> None:
     assert "git add output/history/daily_model_snapshots/ || true" in text
     assert (
         text.index("- name: Guard daily freshness before publishing")
-        < text.index("- name: Publish daily model snapshots")
         < text.index("- name: Build daily market report artifacts")
+        < text.index("- name: Publish daily model snapshots")
+        < text.index("- name: Commit report artifacts, packets, and rules first")
     )
+    commit_block = text[
+        text.index("- name: Commit report artifacts, packets, and rules first") :
+        text.index("- name: Wait briefly for GitHub Pages and raw propagation")
+    ]
+    assert "python scripts/validate_daily_published_model_snapshots.py" in commit_block
 
 
 def test_docs_daily_rules_match_authoritative_rules() -> None:
