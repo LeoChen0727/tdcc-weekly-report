@@ -1,6 +1,6 @@
 # Official Daily Price Fetch Report
 
-- generated_at: `2026-06-18 20:49:43 Asia/Taipei`
+- generated_at: `2026-06-18 21:12:22 Asia/Taipei`
 - target_date: `20260618`
 - saved_price_date: `20260618`
 - is_target_date: `True`
@@ -25,7 +25,7 @@
 
 - Start official daily price fetch target_date=20260618 max_seconds=480
 - ===== Fetch price for date 20260618 =====
-- Loaded universe rows=6551
+- Loaded universe rows=2132
 - Trying TWSE batch source=TWSE_RWD_JSON_MI_INDEX date=20260618
 - GET https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260618&type=ALLBUT0999&response=json -> status=200, chars=231312
 - TWSE_RWD_JSON_MI_INDEX: parsed TWSE rows=1237
@@ -34,7 +34,8 @@
 - GET https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/06/18&type=EW&response=json -> status=200, chars=11371
 - TPEX_NEW_AFTERTRADING_JSON: JSON parse failed
 - Trying TPEx batch source=TPEX_NEW_AFTERTRADING_CSV date=20260618
-- GET https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/06/18&type=EW&response=csv -> status=520, chars=959
+- GET https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyCloseQuotes?date=2026/06/18&type=EW&response=csv -> status=200, chars=11371
+- TPEX_NEW_AFTERTRADING_CSV: parsed TPEx CSV rows=0
 - Trying TPEx batch source=TPEX_OTC_QUOTES_NO1430_JSON date=20260618
 - GET https://www.tpex.org.tw/web/stock/aftertrading/otc_quotes_no1430/stk_wn1430_result.php?l=zh-tw&o=json&d=115/06/18&se=EW -> status=200, chars=141305
 - TPEX_OTC_QUOTES_NO1430_JSON: parsed TPEx JSON rows=895

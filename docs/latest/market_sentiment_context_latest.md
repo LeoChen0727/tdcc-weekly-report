@@ -1,6 +1,6 @@
 # Market Sentiment Context
 
-- generated_at: `2026-06-18 21:03:55 Asia/Taipei`
+- generated_at: `2026-06-18 21:26:39 Asia/Taipei`
 - date: `20260618`
 - sample_status: `insufficient_history`
 - data_quality_note: 資料不足 / 僅能觀察：VIX 或散戶小台歷史樣本未達 60 筆，不能判斷是否達歷史極端。
