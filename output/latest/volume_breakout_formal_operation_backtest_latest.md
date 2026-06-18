@@ -1,6 +1,6 @@
 # Volume Breakout Formal Operation Backtest
 
-- generated_at: `2026-06-19 02:31:16 Asia/Taipei`
+- generated_at: `2026-06-19 03:07:29 Asia/Taipei`
 - model_id: `volume_range_breakout`
 - purpose: one signal produces one formal operation event.
 - lifecycle_definition: `daily_volume_breakout_operation_lifecycle_v1`
