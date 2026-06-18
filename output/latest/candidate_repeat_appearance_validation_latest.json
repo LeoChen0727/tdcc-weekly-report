@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18 16:47:52 Asia/Taipei",
+  "generated_at": "2026-06-18 18:24:51 Asia/Taipei",
   "status": "pass",
   "main_price_date": "20260618",
   "history_available_days": 17,
@@ -11,10 +11,10 @@
     "all_candidates": "output/latest/all_candidates_latest.csv"
   },
   "row_counts": {
-    "signal_log": 9836,
-    "signal_log_alias": 9836,
-    "repeat_csv": 388,
-    "all_candidates": 520
+    "signal_log": 9834,
+    "signal_log_alias": 9834,
+    "repeat_csv": 387,
+    "all_candidates": 518
   },
   "checks": {
     "signal_log_exists": true,

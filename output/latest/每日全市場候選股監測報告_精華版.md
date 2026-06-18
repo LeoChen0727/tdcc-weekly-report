@@ -1,7 +1,7 @@
 # 每日全市場候選股監測報告 - 精華版
 
 - 主資料日期：`20260618`
-- 產生時間：`2026-06-18 16:52:11 Asia/Taipei`
+- 產生時間：`2026-06-18 18:28:40 Asia/Taipei`
 - 是否可產出正式每日報告：`True`
 - 判斷說明：core daily data dates match main_price_date
 - 權證資料日期：`20260618`
@@ -19,11 +19,11 @@
 | 分類 | 檔數 |
 |---|---:|
 | 嚴格突破 | 44 |
-| 區間內轉強 / 挑戰前高觀察 | 87 |
+| 區間內轉強 / 挑戰前高觀察 | 88 |
 | 營收爆發低反應股 | 22 |
 | 營收成長股價回檔 | 143 |
 | 回檔後短線轉強 | 18 |
-| 型態觀察 | 206 |
+| 型態觀察 | 203 |
 
 ## 財報 / 事件催化觀察
 
@@ -38,10 +38,10 @@
 | 2891 中信金 | 型態觀察 | score 34 / theme 100.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;金融保險業;monthly_revenue_calendar;calendar... | 大戶溫和增加 |
 | 2633 台灣高鐵 | 型態觀察 | score 34 / theme 79.0/5 / event_confirmed;low_reaction_after_catalyst;new_order;航運業;monthly_revenue_calendar;calendar_mo... | 大戶溫和增加 |
 | 2467 志聖 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;dividend_calendar;calendar_ex_divide... | 大戶溫和增加 |
-| 1449 佳和 | 營收成長股價回檔 | score 28 / theme 52.2/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;shareholder_meeting_calendar;calendar... | 大戶溫和增加 |
-| 3135 凌航 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;shareholder_meeting_calendar;calenda... | 大戶溫和增加 |
 | 6214 精誠 | 營收成長股價回檔 | score 28 / theme 12.4/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;dividend_calendar;calendar_ex_dividen... | 大戶溫和增加 |
+| 3135 凌航 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;shareholder_meeting_calendar;calenda... | 大戶溫和增加 |
 | 2451 創見 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;shareholder_meeting;半導體業;dividend_ca... | 大戶溫和增加 |
+| 1449 佳和 | 營收成長股價回檔 | score 28 / theme 52.2/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;shareholder_meeting_calendar;calendar... | 大戶溫和增加 |
 | 2374 佳能 | 營收成長股價回檔 | score 28 / theme 100.0/5 / revenue_good_eps_unconfirmed;low_reaction_after_catalyst;shareholder_meeting_calendar;calenda... | 大戶溫和增加 |
 
 ## 精華候選股
@@ -103,7 +103,7 @@
 - 連續上榜：首次上榜；近5日 3；近10日 4；多分類 true_breakout
 - TDCC：大戶溫和增加
 - 權證：
-- 財報 / 事件催化：score 0 / theme 87.8/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window;綠能環保 / monthly_revenue_calendar;calendar_monthly_...
+- 財報 / 事件催化：score 0 / theme 88.4/5 / monthly_revenue_calendar;calendar_monthly_revenue_expected_window;綠能環保 / monthly_revenue_calendar;calendar_monthly_...
 - 摘要：突破 / 量能4.06x / 大戶溫和增加
 - 完整原因：近幾週其中一項大戶級距增加；嚴格突破；量比4.06x；月營收YoY -53.9%；累計YoY -9.0%；TDCC近幾週大戶溫和增加
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
@@ -155,7 +155,7 @@
 - 權證：call_put_bullish / 3.0
 - 財報 / 事件催化：score 0 / theme 100.0/5 / material_information;半導體業;monthly_revenue_calendar;calendar_monthly_revenue_expected_window / material_information...
 - 摘要：區間轉強 / 距前高-0.58% / 大戶同步增加 / call_put_bullish / 3.0
-- 完整原因：近幾週400張與1000張同步累積；call_put_bullish；認購成交金額明顯大於認售，且認購資金明顯升溫；挑戰前高；量比1.56x；月營收YoY 9.4%；累計YoY -6.8%；TDCC近幾週400張與1000張同步累積
+- 完整原因：近幾週400張與1000張同步累積；call_put_bullish；認購成交金額明顯大於認售，且認購資金明顯升溫；挑戰前高；量比1.58x；月營收YoY 9.4%；累計YoY -6.8%；TDCC近幾週400張與1000張同步累積
 - 精華版 PDF K 線圖來源：`local_price_redraw_first`（優先用 repo 日價資料重畫；chart_path/chart_url 僅備援）
 
 ### 3583 辛耘
